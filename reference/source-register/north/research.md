@@ -1,0 +1,61 @@
+# R-NORTH research handoff · 2026-10-15
+
+This unit is **in progress, not complete**. We inspected English-relevant official policy text independently rather than importing the sister maths app’s exam facts. There are 11 downloaded official HTML pages, two visually inspected official table images, and five community typesetting sources (plus the preserved contributor MIT notice). No official English exam paper, answer key, listening recording, transcript or scoring rubric has yet been downloaded. The community sources are partial rendering inputs, not authenticated facsimiles.
+
+The register contains 1,800 coverage cells: the 15 assigned cities × 2022–2026 × 12 ordinary resource categories, plus separate grade 7–9 × upper/lower-term grids for term and mock papers. **1,780 remain `not_searched`**. The nine `blocked` cells describe failed attempts to retrieve specific 2026 policy candidates; they do not mean an exhaustive official-source search succeeded or that the resources do not exist. A passing checker verifies record shape and download integrity, not research completion.
+
+## Verified policy findings
+
+- **Tianjin, 2026 — R-NORTH::001.** A Tianjin government republication of 天津日报 reports written English at 100 marks, closed-book, 21 June 14:00–15:30 (90 minutes). It does not establish the total English score, oral/listening allocation or written section counts. Preserve this distinction rather than treating written marks as subject total.
+- **Liaoning framework — R-NORTH::002.** The provincial education department’s 2021 FAQ §§4–8 says foreign language 120 = 90 written + 30 listening/oral, starting with autumn-2021 grade-7 entrants. Written foreign-language papers are provincially set; oral/listening is arranged by each municipality. Shenyang and Dalian annual implementation still needs verification.
+- **A real local exception — R-NORTH::007.** Chaoyang’s 2026 notice, outside the priority-city roster, explicitly excludes oral/listening from its admission score and multiplies written English by 4/3. Its own table lists the provincial written foreign-language exam as 90 minutes. This prevents applying the provincial framework mechanically to Shenyang/Dalian. Yingkou’s separate explanation (R-NORTH::006) reports a 30-mark oral/listening test; that fact also remains local.
+- **Qingdao West Coast, 2026 — R-NORTH::008.** The district’s official notice explicitly says English including oral/listening is municipally organized. Its two embedded tables were downloaded and visually opened: total 120 with oral/listening 30; written 100 minutes; oral/listening machine exam 30 minutes; oral/listening 18–19 April; written 15 June 09:00–10:40. The jurisdiction remains West Coast district; admission details must not be generalized beyond the source.
+- **Yantai, 2026 — R-NORTH::009.** Attachment 1 applies to 2022-entry 初四 students in the 五四 structure. English 120 includes listening/speaking 30; the latter uses human–machine dialogue on 24 April. Approved hearing/speech exemption scales written score by 4/3. The visible date is 9 May while HTML PubDate says 25 June; both are recorded. Written duration and detailed tasks/rubric are still missing.
+- **Yantai, 2027 cohort — R-NORTH::010.** The 2025 reform begins with autumn-2023 entrants, normally graduating 2027 in the four-year junior-high structure. English stays 120 = 90 written + 30 listening/oral; oral/listening is municipally set and administered locally in the lower term of 初四. Annual policy controls concrete implementation. The 2027 preference/additional-point changes are not evidence that oral testing begins in 2027.
+- **Linyi, 2027 cohort — R-NORTH::011.** The 2025 reform applies from 2024 entrants, normally graduating 2027. English including listening is 120; annual implementation controls provincial/municipal paper transition. The phrase “including listening” does not establish a speaking test or a particular listening score. This document is not evidence for the 2026 structure.
+- **Later cohorts, not a 2027 English change.** Liaoning’s 28 August 2026 announcement (R-NORTH::003) concerns students in grade 8 in autumn 2026, normally graduating 2028. Its subject changes concern biology/geography/history. Jilin’s 18 March 2026 report (R-NORTH::004) concerns geography/biology, with a 2027 assessment for 2025 entrants; no Changchun English structure or paper identity is established.
+- **Adoption governance — R-NORTH::005.** Liaoning’s reply says municipalities select textbooks. It names no English edition or ISBN; no adoption cell is treated as complete. Page publication is 4 September 2025 while the response itself is dated 14 May.
+
+## Community paper and mock leads
+
+R-NORTH::012–016 are publicly accessible source files in `computer-drive/BJ-Eng-ZhongkaoErmo-2026`, inspected at commit `e44d3782a5d0e87f5839fa75bdc59d487c543eda`. The saved original bytes were fetched from stable raw URLs and compared with the cloned commit. Decoding GB18030 revealed a Beijing-2025 exam heading and Fengtai, Daxing, Yanshan and Dongcheng-2026 初三综合练习（二） headings. Each reports a 90-minute/60-mark written source and reaches writing item 38.
+
+These are community transcriptions with FBD formatting commands and external image references. Rendered completeness, transcription accuracy and official provenance are unverified. No answer key, audio or transcript was found in those text files. The Dongcheng heading has the apparent typo `20256~2026`; it is retained as a caveat, not silently corrected. The four 2026 mocks are district/area evidence, not a Beijing-wide final exam. The repository’s MIT notice does not establish rights over third-party exam content, and commercial reuse is false for every record.
+
+## City-by-city next action
+
+| City | Current result | First outstanding action |
+| --- | --- | --- |
+| 北京 | 2025 community paper source and four 2026 district/area mock sources; official 2026 FAQ tunnel403, municipal reform/selection pages origin403 | Verify original paper and district mock facsimiles; official hearing/speaking cohort rules, all 2022–2026 annual structures; school/district edition evidence |
+| 天津 | Official-government 2026 written-English time/marks evidence | Locate authority’s full subject scheme and oral/listening specification; 2022–2025 annual sources and papers/answers/audio |
+| 石家庄 | Exact 2026 Hebei policy candidate timed out | Open province original and independently prove city paper applicability; inspect English rather than inherit maths arrangements |
+| 保定 | Same exact Hebei candidate timed out | Independently verify applicability and city/school exceptions; annual English scope and files |
+| 太原 | 2026 government policy lead HTTP503; 2025 companion catalogue HTTP403 | Annual English structure and reform cohorts, then inspect English catalogue rows; no maths edition may be transferred |
+| 呼和浩特 | 2026 examination-authority candidate tunnel403; reform/newspaper leads also unavailable | Verify English paper jurisdiction/year independently, subject time/marks and oral/listening rules |
+| 沈阳 | Opened provincial framework and textbook-governance policy | Municipal 2022–2026 implementation, listening/oral task/timing/rubric, and exact district/school edition |
+| 大连 | Opened provincial framework and textbook-governance policy | Verify municipal implementation separately; do not assign Shenyang or Chaoyang practice |
+| 长春 | Opened Jilin cohort announcement, no English blueprint | Municipal English annual sources; distinguish Changchun paper identity from other Jilin regions |
+| 哈尔滨 | 2026 government announcement tunnel403; other provincial leads failed | English annual blueprint and jurisdiction; hearing/speaking and edition evidence |
+| 济南 | Two exact official 2026 policy candidates returned503/502 | Retrieve annual implementation and attachments; inspect English tables and papers separately |
+| 青岛 | West Coast official notice and both tables opened for2026 | Municipal originals, 2022–2025 and 2027 announcements, actual papers/answers/audio, oral task/rubric specification |
+| 烟台 | 2026 annual scheme and2027-cohort reform opened | Official written duration/sections, oral task/rubric and audio; all 2022–2025 source files; preserve 五四 labels |
+| 潍坊 | Official-account2026 lead on ThePaper tunnel403 | Find education-bureau original and exact exam scope; annual English facts, local grades versus scores |
+| 临沂 | Official 2027-cohort reform opened;2026 news release returned502 | Retrieve 2026 annual implementation; distinguish 2024-entry reform from earlier graduating cohorts |
+
+For **every city**, the 2022–2026 term-paper and mock grid remains open apart from Beijing grade9/lower-term2026 sample sources. Search real school/district 月考/期中/期末 separately from publisher simulations; preserve grade, term, date and exact school/district. Listening audio, transcripts, answers, syllabus, vocabulary and writing rubric are separate searches: a paper link is not evidence these exist or were searched.
+
+## Access evidence and continuation
+
+`access-attempts.json` distinguishes successful official retrieval from origin403, proxy CONNECT403, upstream502/503 and timeouts. No proxy bypass, login, captcha, paywall or TLS-verification bypass was attempted. A status200 was accepted only after opening relevant text; the blocked PDF candidates returned no usable document. Failed candidate titles/URLs are inherited leads, never verified source content.
+
+Useful destinations that succeeded through the configured proxy are `www.tj.gov.cn`, `jyt.ln.gov.cn`, `www.jl.gov.cn`, `www.yingkou.gov.cn`, `jyj.chaoyang.gov.cn`, `www.xihaian.gov.cn`, `www.yantai.gov.cn`, and one `www.linyi.gov.cn` endpoint. Failures are endpoint-specific: a successful domain homepage or another page does not resolve a failed exact attachment.
+
+Priority network additions/rechecks for the owner’s environment settings are `bjksb.bjeea.cn`, `www.bjeea.cn`, `www.nm.zsks.cn`, `jyt.hlj.gov.cn`, `www.hlj.gov.cn`, `jyt.hebei.gov.cn`, `www.sxjyksfw.cn`, `static.0471tv.org.cn`, `m.thepaper.cn` and `www.tjl.tj.cn`. `www.beijing.gov.cn` and the Changzhi PDF returned origin403; an allowlist update alone may not resolve those. Never reconfigure an unknown allowlist or bypass the proxy. Search-engine discovery and every unsearched year/resource must resume after usable access is established.
+
+The current roster’s English unit assignments are followed. Its historical `maths_research_stream` puts the five Shandong cities in `east`; the English Stage1 plan explicitly assigns them to R-NORTH. We located their sister-app policy leads in that `east` register. This is a documented regrouping in the current plan, not permission to change the shared roster while working this unit.
+
+## Validation and handoff
+
+Run `node scripts/check-register.mjs reference/source-register/north`, then review source scopes and coverage counts separately. Every downloaded file has a byte count, SHA-256 and explicit opened check. The twoPNG policy tables are GitLFS objects; their LFS content must be transferred with the local commit if another clone integrates it. PlainHTML and original text bytes remain ordinary Git objects. No copied research text, image, question or recording is approved for app ingestion.
+
+Keep R-NORTH `claimed` with a progress note; do not mark `done` or `review` on the strength of schema validation. The next owner should begin with the failed official annual-policy candidates and the three known2026 English blueprints, then gather the actual official papers/audio/answers before expanding the term-and-mock search.
