@@ -38,15 +38,22 @@ design system), then add what English needs:
 - audio playback and recording (listening items, shadowing, read-aloud scoring hooks);
 - the passage reader (cloze, reading with 题型 such as 七选五 and 任务型阅读);
 - vocabulary review with spaced repetition;
-- writing self-marking against rubric points.
+- writing self-marking against rubric points;
+- the same 题库 builder as maths (CAT-0): pick units, topics, 题型, skills (听/说/读/写/语法/词汇),
+  difficulty and count, then 刷题 with instant illustrated explanations or sit a timed 自由组卷
+  with a report;
+- 我的题目 (UQ-0): users add their own questions, held in-app to the same explanation standard,
+  kept private and never shared into the bank.
 
 Question bank and audio go to 云开发 storage, not the package.
 
 ## Stage 4 · Content lanes
 
-Lessons per edition unit, items per 题型, 听说 tasks, original passages and audio, mock papers per
-city layout. Everything is original or licensed, follows the explanation standard (思路, steps, why
-each wrong option is wrong), and is reviewed in DevTools.
+Lessons per edition unit, items per 题型, 听说 tasks, original passages and audio, fixed 套卷 and
+generated mocks per city layout, with topic and domain balance and a fresh paper each sitting.
+Everything is original or licensed. **Every item carries the illustrated step-by-step explanation
+from day one** (the maths app had to retrofit 4,287 items, so the English app should not repeat
+that). Everything is reviewed in DevTools.
 
 ## Stage 5 · Release
 

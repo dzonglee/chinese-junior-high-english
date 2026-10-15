@@ -21,6 +21,18 @@ It is the sister app of `dzonglee/chinese-junior-high-maths` and must reach the 
 - **Interactive learning first** (from Stage 3). Lessons lead with a task the student does
   (listen-and-choose, shadow-read, reorder, fix-the-sentence, 你来批改), with immediate, specific
   feedback. Only first-try answers count as independent evidence; never call completion mastery.
+- **Every item teaches.** Every question, original or user-made, carries an illustrated,
+  step-by-step explanation a student can learn from alone. That means:
+  - a 思路 (what to notice, which rule or strategy);
+  - one move per step with its reason (the grammar rule, the clue in the passage, the line in the
+    transcript);
+  - why each wrong option is wrong;
+  - the specific pitfall;
+  - a picture where a picture is the explanation (sentence-structure diagrams, timelines for
+    tenses, the passage with the evidence highlighted, the transcript with the key words marked).
+
+  The standard matches the maths app's EXPL standard (`docs/content-model.md` there) and is
+  enforced by the compiler.
 - **Visual direction: bold, but usable**, as in the maths app (`docs/design-system.md` there): art
   only from the Blender pipeline, never AI-generated images; no neo-brutalism, beige or yellowish
   grounds, serif/editorial layouts, grid-paper motifs or left-border callouts.

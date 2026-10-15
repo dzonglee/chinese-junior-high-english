@@ -35,3 +35,11 @@ Open questions.
   - Added two units: R-BANK and R-AUX.
   - The city units now also cover term papers and mocks per grade. R-INT also delivers the
     editable research brief and `bank-map.json`.
+
+## 2026-10-15 · claude-7fcc · standards carried over from maths
+- The owner asked that the English app match the maths standards. The plan now carries over:
+  - illustrated step-by-step explanations on every item from the start (`AGENTS.md`);
+  - the 题库 builder (自选刷题 / 自由组卷, CAT-0);
+  - 我的题目 user questions held to the same standard (UQ-0);
+  - balanced mocks that change on every sitting, plus fixed 套卷.
+- Stage 1 already gathers what these need: the 题型 inventory, banks and rubrics.
