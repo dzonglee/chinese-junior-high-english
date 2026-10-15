@@ -1,0 +1,489 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="../../../images/xymzj.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../../images/base.css" type="text/css" />
+
+<script src="https://www.pep.com.cn/images/jquery_pep.js"></script>
+
+<script>
+   function change_size(element,size){
+     var current = parseInt(element.css('font-size'));
+     if(size == "smaller"){
+         var newSize = current - 1;
+     }else if(size == "bigger"){
+         var newSize = current + 1;
+    }    
+     element.css('font-size',newSize+'px');
+ }
+$(document).ready(function(){
+ $(".share5").click(function(){
+    change_size($(".contee"),"smaller");    
+    change_size($(".contee *"),"smaller");    
+ });
+ $(".share4").click(function(){
+     change_size($(".contee"),"bigger");    
+     change_size($(".contee *"),"bigger");    
+ });
+	$('div[class=fixed]').hide();
+	$(window).scroll( function() {
+		var scrollValue=$(window).scrollTop();
+		scrollValue > 100 ? $('div[class=fixed]').fadeIn():$('div[class=fixed]').fadeOut();
+	});
+	$('.reture').click(function(){
+		$("html,body").animate({scrollTop:0},200);
+		return false;
+	})
+});
+</script>
+<script>
+$(document).ready(function(){
+   var num=$(".xiangguan li").length;
+   if(num==0)
+      $(".xiangguan").remove();
+});
+</script>
+
+<style type="text/css">
+.jn_yd li{ width:520px;}
+.fixed a.home:hover{background:url(yxj_add01.png);}
+.fixed a.fankui:hover{background:url(yxj_add02.png);}
+.fixed a.lianjie:hover{background:url(yxj_add03.png);}
+.fixed a.return:hover{background:url(yxj_add04.png);}
+.sxpian {padding-top: 20px;}
+.jn_main h1 {margin: 0px 70px;}
+.sxpian1 {padding-top: 20px;}
+
+video::-webkit-media-controls {
+    overflow: hidden !important;
+}
+video::-webkit-media-controls-enclosure {
+    width: calc(100% + 32px);
+    margin-left: auto;
+}
+
+.contee *{ font-family:"微软雅黑" !important;}
+</style>
+<title>联系我们</title>
+</head>
+<body>
+<link href="https://www.pep.com.cn/images/xymzj.css" rel="stylesheet" type="text/css">
+  <link href="https://www.pep.com.cn/images/base.css" rel="stylesheet" type="text/css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .trs23_header {
+    max-width: 1920px;
+    height: 160px;
+    background: #229065;
+    margin: 0 auto;
+  }
+
+  .trs23_header .trs23_top {
+    width: 1140px;
+    margin:0 auto;
+    height: 80px;
+    padding: 25px 0;
+    box-sizing: border-box;
+  }
+
+  .trs23_header .trs23_top .trs23_logo {
+    width: 492px;
+    height: 29px;
+    float: left;
+    background: url(https://www.pep.com.cn/images/trs23_logo.png);
+  }
+
+  .trs23_header .trs23_top .trs23_search {
+    width: 280px;
+    height: 30px;
+    background: #F6F6F6;
+    border: 1px solid #999999;
+    border-radius: 10px;
+    float: right;
+    position: relative;
+  }
+
+  .trs23_header .trs23_top .trs23_search input {
+    width: 230px;
+    height: 27px;
+    border: 0;
+    outline: none;
+    position: absolute;
+    top: 1px;
+    left: 10px;
+    background: none;
+    font-size: 16px;
+  }
+
+  .trs23_header .trs23_top .trs23_search i {
+    width: 21px;
+    height: 21px;
+    background: url(https://www.pep.com.cn/images/trs23_search.png);
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .trs23_header .trs23_nav {
+    width: 100%;
+    height: 80px;
+    background:#fff;
+  }
+
+  .trs23_header .trs23_nav ul {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+  }
+
+  .trs23_header .trs23_nav li {
+    display: inline-block;
+    font-size: 22px;
+    overflow: hidden;
+  }
+
+  .trs23_header .trs23_nav li a {
+    font-size: 22px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #333333;
+    text-decoration: none;
+    box-sizing: border-box;
+    margin-right: 8px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 4px;
+    float: left;
+  }
+
+  .trs23_header .trs23_nav li span {
+    margin-right: 6px;
+    float: right;
+    display: inline-block;
+    float: right;
+    line-height: 40px;
+  }
+
+  .trs23_header .trs23_nav li.active a {
+    background: #229065;
+    color: #fff;
+  }
+</style>
+
+<div class="trs23_header">
+  <div class="trs23_top">
+    <div class="trs23_logo">
+      <a href="https://www.pep.com.cn"></a>
+    </div>
+    <div class="trs23_search">
+      <input id="searchword" onkeydown="onKeyDownSearch(event)" name="searchword" />
+      <i  onclick="post_searchword()"></i>
+
+
+      <script>
+        $(function () {
+          $(".con_nav_ewm_rjwsy2020 li").hover(function () {
+            $(this).find(".con_header_ewm_rjwsy2020").show();
+          }, function () {
+            $(this).find(".con_header_ewm_rjwsy2020").hide();
+          })
+
+        })
+
+
+        function post_searchword () {
+          var getval = document.getElementById("searchword").value;
+          if (getval == "" || getval == "关键词") {
+            alert("关键词不能为空");
+          } else {
+            getval = unescape(getval);
+            var containSpecial = RegExp(/[(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);
+            if (containSpecial.test(getval)) {
+              //alert("关键词里面不能含有特殊字符");
+              alert("您搜索的关键词中包含以下不可搜索字符:\~\!\@\#\$\%\^\&\*\(\)\-\_\+\=\[\]\{\}\|\\\:\'\"\,\.\/\<\>\? 请修改后再进行搜索");
+              return;
+            }
+            document.location.href = "/search/searchvaluefrowas/?searchword=" + encodeURIComponent(getval);
+          }
+        }
+
+        function onKeyDownSearch (event) {
+          if (window.event) {  // IE8 以及更早版本
+            if (event.keyCode == 13) {
+              post_searchword();
+            }
+          } else if (event.which) { // IE9/Firefox/Chrome/Opera/Safari
+            if (event.which == 13) {
+              post_searchword();
+            }
+          }
+        }
+
+      </script>
+
+
+
+
+    </div>
+  </div>
+  <div class="trs23_nav">
+    <ul>
+      <li>
+        <a href="https://www.pep.com.cn">首页</a><span>|</span>
+      </li>
+      <li id="lm_76575">
+        <a href="https://www.pep.com.cn/rjgl/rjjj/">关于人教</a><span>|</span>
+      </li>
+      <li id="lm_76650">
+        <a href="https://www.pep.com.cn/rjdt/rjdt/">新闻动态</a><span>|</span>
+      </li>
+      <li id="lm_169322">
+        <a href="https://www.pep.com.cn/rjdt/xw_gy/">社会责任</a><span>|</span>
+      </li>
+      <li>
+        <a href="https://www.pep.com.cn/kcs/" target="_blank">科研学术</a><span>|</span>
+      </li>
+      <li id="lm_202090">
+        <a href="https://www.pep.com.cn/rjyx/" target="_blank">人教视频</a><span>|</span>
+      </li>
+      <li>
+        <a href="https://www.pep.com.cn/products/" >人教好书</a><span>|</span>
+      </li>
+      <li id="lm_173906">
+        <a href="https://www.pep.com.cn/xw/zt/">人教专题</a><span>|</span>
+      </li>
+      <li>
+        <a href="https://px.pep.com.cn/">培训服务</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- class="active" -->
+
+<script>
+  $(document).ready(function () {
+    nav_style("lm_169341");
+  });
+
+  function nav_style (obj) {
+    $("#" + obj).addClass('active');
+  }
+</script>
+<div class="main_er" style="margin: 0 auto;margin-top: 8px;">
+	<div class="content-top">
+    	<p class="fl c-t-left">客户服务</p>
+        <span class="fr c-t-right fs">当前位置：<a href="../../../" target="_blank" title="首页" class="CurrChnlCls">首页</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<a href="../../" target="_blank" title="联系我们" class="CurrChnlCls">联系我们</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<a href="../" target="_blank" title="客户服务" class="CurrChnlCls">客户服务</a></span>
+    </div>
+    
+	<div class="jn_main">
+    <div style="padding:40px;">
+    	<h1>联系我们</h1>
+        <h2 style="text-align:center;font-size:22px;color:#000;"></h2>
+        <h6 style="text-align:center;font-size:16px;color:#000;margin-top: 20px;line-height:200%;"></h6>
+        <div class="main1_t_tsnw" >
+        	<div class="right share">
+            	<a class="share1" href="#pinglun" title='评论'></a>
+                <a class="share3" onclick="javascript:window.print();" title='打印'></a>
+                <a class="share4" title='字号增加'></a>
+                <a class="share5" title='字号减小'></a>
+            </div>
+        	<span>时间：2026-03-09</span> 
+        	<div class="clear"></div>
+        </div>
+            <div class="contee">
+<div style="min-height:400px;">
+<div class=TRS_Editor><div style="text-align: center;">
+<table class=" FCK__ShowTableBorders" border="0" cellpadding="0" width="90%">
+    <tbody>
+        <tr>
+            <td bgcolor="#aee7ae" width="100%" align="center" style="margin-top: 0px; margin-bottom: 0px;"><font face="宋体" style="font-size: 10.5pt;">通信地址</font></td>
+        </tr>
+        <tr>
+            <td bgcolor="#ebfdeb" width="100%" style="margin-top: 0px; margin-bottom: 0px;"><span class="ok3">
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;"><font face="宋体" style="font-size: 10.5pt;">　　通信地址：北京市海淀区中关村南大街17号院1号楼<br style="font-size: 10.5pt;" />
+            </font></p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;"><font face="宋体" style="font-size: 10.5pt;">　　邮政编码：100081</font></p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">&nbsp;</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;"><font face="宋体" style="font-size: 10.5pt;">　　<strong style="font-size: 10.5pt;">业务拓展一部</strong></font></p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;"><font face="宋体" style="font-size: 10.5pt;">　　<b>吉林、海外业务</b>　电话：(010) 58759319</font></p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>北京、河北</b>　电话：(010) 58759879</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>河南、湖北、黑龙江</b>　电话：(010) 58759921</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>辽宁、天津、湖南</b>　电话：(010) 58759822</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">&nbsp;</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;"><font face="宋体" style="font-size: 10.5pt;">　　<strong style="font-size: 10.5pt;">业务拓展二部</strong><br style="font-size: 10.5pt;" />
+            </font></p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>新疆、陕西</b>　电话：(010) 58759828</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>山西、宁夏、内蒙古</b>　电话：(010) 58759868</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>甘肃、青海</b>　电话：(010) 58759978</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>云南、贵州、西藏</b>　电话：(010) 58759872</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>四川、重庆</b>　电话：(010) 58759815</p>
+            <p style="margin-top: 0px; margin-bottom: 0px;">&nbsp;</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;"><font face="宋体" style="font-size: 10.5pt;"><font style="font-size: 10.5pt;">　　</font><font style="font-size: 10.5pt;"><strong style="font-size: 10.5pt;">业务拓展三部<br style="font-size: 10.5pt;" />
+            </strong></font></font></p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>广东</b>　电话：(010) 58759833</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>江西</b>　电话：(010) 58759842</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>上海、江苏</b>　电话：(010) 58759864</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>山东、浙江</b>　电话：(010) 58759713</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>福建</b>　电话：(010) 58759923</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>广西、海南</b>　电话：(010) 58759522</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>安徽</b>　电话：(010) 58758987</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">&nbsp;</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;"><font face="宋体" style="font-size: 10.5pt;">　　<strong style="font-size: 10.5pt;">网络营销部</strong><br style="font-size: 10.5pt;" />
+            </font></p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>安徽新华</b>　电话：(010) 58759807</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>京东网</b>　电话：(010) 58759729</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>广东新华</b>　电话：(010) 58759627</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>博库网</b>　电话：(010) 58759875</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>江苏凤凰</b>　电话：(010) 58759851</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>天猫旗舰店</b>　电话：(010) 58759806</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>当当网</b>　电话：(010) 58759865</p>
+            <p align="left" style="margin-top: 0px; margin-bottom: 0px;">　　<b>四川文轩、浙江新华</b>　电话：(010) 58759924</p>
+            </span></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div id="qb-sougou-search" style="display: none; opacity: 0;">
+<p>翻译</p>
+<p class="last-btn">搜索</p>
+<p class="last-btn">复制</p>
+<iframe src="">
+
+</iframe></div></div>
+</div>
+              <div class="bottom-fage" >
+                <div><!--<span class="yanse">【纠错】</span>[责任编辑：]--></div>
+                <div style="margin-bottom:10px" id="down"><div style="float:left;">
+                  <img src="../../../images/2016down.png" width="32" height="32" style="padding-right:10px" /></div>
+                  <div style="float:left;" id="downtext"><span style="float:left;">点击下载：</span><p style="text-align:left; float:left;"></p></div>
+                   
+                </div>
+                <div class="sxpian1"> 
+                  
+                  
+                      <span class="fr">下一篇：
+                         <a href="../201710/t20171016_1920219.shtml" title="购买人民教育出版社出版物的联系方式">购买人民教育出版社出版物的联系方式</a>
+                      </span>
+                    
+                   </div>
+              </div>
+    </div>
+   
+      </div>
+    </div>
+
+<div class="ct-lf-midd xiangguan" style="width:1140px; margin:20px auto 0;">
+        	<div class="midd-top"><h2>相关阅读</h2></div>
+            <div class="jn_yd">
+            	<ul style="width:auto;">
+
+                </ul>
+            </div>
+</div>
+
+    
+</div>		
+</div>
+
+<!--底部样式三-->
+<link href="https://www.pep.com.cn/images/xymzj.css" type="text/css" rel="stylesheet" />
+
+<div class="foot1 m_h"  style="min-width: 1140px;width: 100%;">
+	<div class="footer1">
+    	<ul>
+<!--
+        	<li><a href="https://www.pep.com.cn/banquan/">版权信息</a><span>|</span></li>
+        	<li><a href="https://www.pep.com.cn/lxwm/">联系我们</a>
+-->
+        </ul>
+<style>
+.footer1 p a{font-size: 12px;color: #fff;}
+.bg_gh_pep2022{
+position: relative;
+top: 4px;
+margin-right:4px;
+}
+.footer1 p
+position: relative;
+}
+</style>
+
+        <p>&copy; 版权所有 人民教育出版社&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://beian.miit.gov.cn/">京ICP备05019902号</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>新出网证（京）字116号</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://www.pep.com.cn/images/bg_hp_pep2022.png" class="bg_gh_pep2022" alt="" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802038276">京公网安备11010802038276号</a></p>
+    </div>
+</div>
+<!--底部样式三-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?505934b537b966bd0bc99ecac4714092";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script src="https://bd-st.mypep.cn/js/points.js"></script>
+<script>
+    window.onload = function(){
+        pepPoints.loader.dataReport({
+            product_id: '300',    // 人教网product_id
+            company: '110000008'  // company
+        });
+    }
+</script>
+
+<div class="fixed">
+	<a href="../../../" class="home" title='返回首页'></a>
+    <a href="#" class="reture" title='回到顶部'></a>
+</div>
+<style>.sub {margin-right: 0px;
+}</style>
+
+<script>
+$(function(){
+	$(".sxpian span").each(function(index, element) {
+		if($(this).html().length<=4){
+			$(this).remove();
+		}
+	});
+	
+	$(".contee p").each(function(index, element) {
+		if($(this).html().length<=1){
+			$(this).remove();
+		}
+	});
+
+
+	if($(".jn_main h2").text().length==0){
+	    $(".jn_main h2").remove();
+	}
+
+
+
+	if($(".jn_main h6").text().length==0){
+	    $(".jn_main h6").remove();
+	}
+
+
+
+        if($.trim($("#downtext").text())=="点击下载："){
+           $("#down").css("display","none");
+        }
+
+})
+
+</script>
+</body>
+</html>
