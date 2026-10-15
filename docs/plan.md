@@ -12,7 +12,7 @@ in `docs/stage1-resource-gathering.md`.
 
 **Gate 1:** the integration layer exists (`master-sources.json`, `priority-city-exam-map.json`,
 `coverage.json`, `textbook-term-map.json`, `listening-speaking-map.json`, `vocabulary-map.json`,
-`qa-report.md`). Every one of the 56 cities × 2022–2026 has a status per resource type. The owner
+`bank-map.json`, `qa-report.md`) together with an editable research brief (`.docx`, as for maths). Every one of the 56 cities × 2022–2026 has a status per resource type. The owner
 has reviewed `qa-report.md` and the gaps list.
 
 ## Stage 2 · Synthesis and product design

@@ -23,3 +23,15 @@ Open questions.
   - Which editions and cities should launch first? This is decided at Gate 2, informed by what
     Stage 1 finds.
   - Is a licensed paper/audio source (publisher or bank) being pursued? R-RIGHTS records the options.
+
+## 2026-10-15 · claude-7fcc · plan change: wider Stage 1 scope
+- The owner pointed out that the maths material pack is more than past papers. It also holds
+  question banks, 教辅, 教师用书, term and mock papers, teaching schedules and a research brief.
+- Did:
+  - Added these resource types to `docs/stage1-resource-gathering.md` (#10–#17): term papers by
+    grade; mocks; question banks, 专题 collections and commercial bank indexes; 教辅 and teacher
+    material; 教学进度; 听说 practice systems; reading material; exam analyses.
+  - Extended the schema enums: coverage cells take grade/term/kind for the term and mock grid.
+  - Added two units: R-BANK and R-AUX.
+  - The city units now also cover term papers and mocks per grade. R-INT also delivers the
+    editable research brief and `bank-map.json`.

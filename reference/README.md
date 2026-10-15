@@ -10,7 +10,7 @@ reference/
     resource-schema.json     the record shapes (source, file, coverage_cell) and enums
     cities/roster.json       56 priority cities and the unit that researches each
     curriculum/ editions/ north/ east/ south/ central-west/
-    listening-speaking/ vocabulary/ writing/ rights/
+    listening-speaking/ vocabulary/ writing/ rights/ banks/ aux/
                              one folder per Stage 1 unit: sources.json, download_manifest.json,
                              coverage.json, research.md (+ unit-specific JSON, e.g. structures.json)
     integration/             R-INT's merged layer (master-sources.json, priority-city-exam-map.json, …)

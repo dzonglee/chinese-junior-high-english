@@ -1,9 +1,18 @@
 # Stage 1 · Resource gathering
 
-Goal: a research corpus at least as complete as the one behind the maths app. Maths has 826
-source records over 56 cities × 2022–2026 (280 city-year cells), the 2022 standard, textbook maps
-for 13 editions, and the official papers it could lawfully get. English needs the same, plus
-**audio, transcripts, speaking-test specs, vocabulary lists and writing rubrics**. Researchers in
+Goal: a research corpus at least as complete as the one behind the maths app. The maths pack has
+826 source records over 56 cities × 2022–2026 (280 city-year cells). Past papers are only part of
+it. It also holds:
+- the 2022 standard and textbook PDFs, with maps for 13 editions;
+- 教师用书 and 教辅 (学法大视野, 深度学习);
+- school 期中/期末 papers by grade;
+- 一模/二模 and publisher mock papers;
+- topic question banks and commercial bank indexes;
+- 教学进度 (teaching schedules);
+- an editable research brief.
+
+English needs all of that, plus **audio, transcripts, speaking-test specs and practice systems,
+vocabulary lists, graded readers and writing rubrics**. Researchers in
 each unit find, verify, record and, where lawful, download. They do not write app content.
 
 ## 1. What to gather
@@ -19,7 +28,15 @@ each unit find, verify, record and, where lawful, download. They do not write ap
 | 7 | **考试说明 / 考纲**: content scope, 题型示例, the province's or city's own 词汇表 (e.g. 广东 1,600 words) | Exact scope per city | Year-specific, so record the cohort |
 | 8 | **Writing rubrics** (书面表达 评分标准) and official 范文 where published | Writing self-marking | Usually inside the answer key or 考试说明 |
 | 9 | **Reading and listening levels**: passage length, word count and new-word rate per 题型 in recent papers (measured, not copied) | Authoring difficulty targets | Store measurements, never the passages |
-| 10 | **Rights routes**: publisher licensing contacts and terms (人教, 外研, 译林, 上海教育), exam-authority reuse policies, audio rights, and existing licensed banks (学科网, 菁优, 组卷网 …) | The launch licensing decision | Record only; no agreements are made by agents |
+| 10 | **Term papers by grade**: school/district 月考, 期中, 期末 for 七/八/九年级 (both terms), 2022–2026, per city | Calibrating lessons and practice to what schools actually test at each point in the year | Keep real school/district tests separate from publisher "期末模拟" packs |
+| 11 | **Mock papers (模拟卷)**: city/district 一模, 二模, 三模 and 适应性考试, plus well-known publisher mock series | The difficulty and 题型 mix students meet in 初三 | Record the district and the date. A district mock ≠ the city paper |
+| 12 | **Question banks and 专题 collections**: 题型 banks (听力, 单选/语法, 完形, 阅读 A–D, 七选五, 任务型阅读, 语法填空, 短文填空, 补全对话, 书面表达), 专题 books, 真题分类汇编, and the commercial banks (学科网, 组卷网, 菁优网, 21世纪教育网, 正确云 …) with what they cover and their access terms | 题型 inventory, item counts per 题型, and authoring targets | Index and sample. Never scrape behind a login. Record how each bank licenses its items |
+| 13 | **教辅 and teacher material**: 教师用书 per edition, 同步练习/课时练/导学案 series, 单元测试卷, 语法 and 词汇 handbooks, 中考总复习 books | Lesson design, unit pacing, the common errors teachers name | Reference only; record publisher, series, edition and grade |
+| 14 | **教学进度 / 教学计划**: city or district schedules showing which units are taught when, and when 总复习 starts | The daily plan and "taught so far" logic | Official 教研室 documents first |
+| 15 | **听说 practice systems and banks**: e听说, 翼课网, 天学网, 驰声 and others; the official 听说 practice platforms named by 考试院, with their task samples and scoring | 听说 module design; what students already use | Record features and access; no account creation to scrape |
+| 16 | **Reading material**: 课标推荐 reading lists, graded readers (书虫, 典范英语 …) and the levels used in exam reading | Reading lessons and passage levelling | Titles and levels only |
+| 17 | **Exam analysis (试卷分析/命题解读)**: 考试院 and 教研室 post-exam analyses, average scores, 失分点 by 题型 | Prioritising the pitfalls the app teaches | Often published by official 教研 accounts |
+| 18 | **Rights routes**: publisher licensing contacts and terms (人教, 外研, 译林, 上海教育), exam-authority reuse policies, audio rights, and existing licensed banks (学科网, 菁优, 组卷网 …) | The launch licensing decision | Record only; no agreements are made by agents |
 
 ## 2. Cities and years
 
@@ -64,7 +81,9 @@ to your `download_manifest.json`: `file_id`, `source_id`, `download_url`, `relat
 `retrieved`, `bytes`, `sha256` and `opened_check` (what you saw on opening it). Files are
 committed through Git LFS.
 
-**Coverage.** Your `coverage.json` has one cell per city × year × resource. Use this status ladder:
+**Coverage.** Your `coverage.json` has one cell per city × year × resource. For term papers and
+mocks, add `grade` (7/8/9) and `term` (`upper`/`lower`) so each city has a grade × term grid, as
+in the maths `grade_mock_coverage.json`. Use this status ladder:
 `not_searched` → `not_found` / `blocked` → `link_only` → `file_reported` →
 `file_verified` → `licensed_ingestion_ready`. That last status is set only by the owner.
 
@@ -76,13 +95,15 @@ committed through Git LFS.
 | R-STD | Curriculum standard + appendices; 学业质量; vocabulary and grammar appendices as data | `source-register/curriculum/` | R-0 |
 | R-ED-A | Editions 人教 (new 2024 and legacy, 六三 and 五四), 外研, 仁爱科普 | `source-register/editions/` (own files `a-*`) | R-0 |
 | R-ED-B | Editions 译林牛津, 沪教牛津, 北师大, 冀教, 鲁教五四, 北京版, others | `source-register/editions/` (own files `b-*`) | R-0 |
-| R-NORTH | Cities in the north stream (北京 天津 石家庄 保定 太原 呼和浩特 沈阳 大连 长春 哈尔滨 济南 青岛 烟台 潍坊 临沂): papers, answers, audio, transcripts, structure facts, adoption | `source-register/north/`, `files/north/` | R-0 |
-| R-EAST | 上海 南京 苏州 无锡 常州 南通 徐州 杭州 宁波 温州 嘉兴 绍兴 金华 台州 合肥 | `source-register/east/`, `files/east/` | R-0 |
-| R-SOUTH | 广州 深圳 东莞 佛山 惠州 珠海 福州 厦门 泉州 南宁 海口 南昌 长沙 | `source-register/south/`, `files/south/` | R-0 |
-| R-CW | 重庆 成都 武汉 郑州 洛阳 西安 兰州 西宁 银川 乌鲁木齐 昆明 贵阳 拉萨 | `source-register/central-west/`, `files/central-west/` | R-0 |
+| R-NORTH | Cities in the north stream (北京 天津 石家庄 保定 太原 呼和浩特 沈阳 大连 长春 哈尔滨 济南 青岛 烟台 潍坊 临沂). Covers 中考 papers, answers, audio, transcripts, structure facts and adoption, plus term papers by grade (#10), mocks (#11) and local 考试说明 | `source-register/north/`, `files/north/` | R-0 |
+| R-EAST | 上海 南京 苏州 无锡 常州 南通 徐州 杭州 宁波 温州 嘉兴 绍兴 金华 台州 合肥 (same scope as R-NORTH) | `source-register/east/`, `files/east/` | R-0 |
+| R-SOUTH | 广州 深圳 东莞 佛山 惠州 珠海 福州 厦门 泉州 南宁 海口 南昌 长沙 (same scope as R-NORTH) | `source-register/south/`, `files/south/` | R-0 |
+| R-CW | 重庆 成都 武汉 郑州 洛阳 西安 兰州 西宁 银川 乌鲁木齐 昆明 贵阳 拉萨 (same scope as R-NORTH) | `source-register/central-west/`, `files/central-west/` | R-0 |
 | R-LS | 听说/口语 test specs, task types, rubrics, practice systems, per province/city | `source-register/listening-speaking/` | R-0 |
 | R-VOC | 课标词汇, provincial/city 考纲词汇表, edition unit word lists → raw lists as data | `source-register/vocabulary/` | R-STD |
 | R-WRITE | Writing rubrics and published 范文 sources; reading/listening level measurements | `source-register/writing/` | R-0 |
+| R-BANK | Question banks and 专题 collections (#12), exam analyses (#17); commercial bank index with coverage and terms | `source-register/banks/`, `files/banks/` | R-0 |
+| R-AUX | 教辅 and teacher material (#13), 教学进度 (#14), 听说 practice systems (#15), reading material (#16) | `source-register/aux/`, `files/aux/` | R-0 |
 | R-RIGHTS | Licensing routes and terms (publishers, exam authorities, banks, audio) | `source-register/rights/` | R-0 |
 | R-INT | Integration: `master-sources.json`, `priority-city-exam-map.json`, `coverage.json`, `textbook-term-map.json`, `listening-speaking-map.json`, `vocabulary-map.json`, `package-allowlist.json`, `qa-report.md` | `source-register/integration/` | all of the above `done` |
 
@@ -98,6 +119,8 @@ Before the city units start, check the roster's stream assignment against the ma
   paper or answers or audio, complete or partial).
 - `research.md` summarises findings per city in English: structure by year, 听说 format, editions,
   reforms by cohort, gaps, conflicts between sources (keep both and say which is stronger).
+- City units also fill the term-paper and mock grid: city × grade 7–9 × term × 2022–2026. Even
+  `sample_links_only` counts, as long as it is recorded.
 - Checks in `AGENTS.md` pass, and the log entry lists gaps and questions for the owner.
 
 ## 6. Pitfalls seen in the maths research
