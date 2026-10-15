@@ -35,8 +35,7 @@ substantive text because this official copy is image-only.
 The source's level3 list says **1600 words including505 level2 words**, with1095 additional
 junior-high basic words; local additions of100–300 words are permitted. Level2 and level3
 instructions use British spellings with common American variants in brackets. Do not mistake
-the national list for a particular textbook's unit order or a city's examination list. The
-level2 and level3 word forms still require a word-by-word transcription audit.
+the national list for a particular textbook's unit order or a city's examination list. The level2 and level3 main source-entry lists have now completed a word-by-word visual audit; see the followup below. Supplemental structured tables remain incomplete.
 
 The 2022 contents have no separately titled function/notional appendix. Investigate relevant
 language-knowledge and theme requirements in the body rather than invent an extra appendix.
@@ -62,8 +61,7 @@ or examination requirement has been transferred as an English fact.
 1. Retrieve the English-specific2025 revision through an accessible official promulgation or
    school/publisher link, then compare the actual text; general revision announcements do not
    establish English changes.
-2. Audit the505/1600 word-list transcription against every original page; keep bracketed
-   variants, level2 star markers and the separate numbers/names/irregular-verb tables.
+2. Complete structured transcription of the separately indexed supplemental tables. The505/1600main-entry audit is complete; preserve its source spelling, brackets, markers and count convention.
 3. Finish auditing the remaining curriculum body, vocabulary and teaching cases against the acquired PDF.
 4. Re-run `node scripts/check-register.mjs reference/source-register/curriculum` and the
    manifest hash check after any additions. R-VOC and final integration retain their board
@@ -84,3 +82,7 @@ The followup extraction now covers all201PDFpages as unreviewed OCR, with the au
 ## Language-content and grade-skill review
 Original PDFpages25–30,34–38and92–93were visually reviewed. `language-content-map.json` maps text types, five language-knowledge areas (including communicative pragmatics) and the complete pronunciation-appendix groups. It keeps level3+extensions separate and records that phonetic notation is designated for grades7–9. `grade-language-skills.json` groups the grade7/8/9skills and preserves source table/page references and numbered-item counts.
 The cumulative extracurricular reading targets are40,000/100,000/150,000words at grades7/8/9; each has at least30minutes weekly extracurricular audiovisual activity. These are curriculum targets, not exam passage lengths, daily quotas, annual increments or speaking-test times. Level3body vocabulary is about1,600words with optional100–300additions; level3+about1,800with optional200is separately scoped. This review does not resolve the revised English standard, complete book mappings or the pending headword audit.
+
+## Baseline main vocabulary audit
+`vocabulary-audit-registration.json` records the completed read-only word-by-word visual audit and coordinator checks. All51original appendix pages were visually inspected. The audited data preserve505level2entries and1600combined source entries, with exactly505actualstarred repeats matching level2and1095additional entries. No duplicate source headwords or unresolved main-word/star spans remain.153visual corrections and58excluded OCR lines preserve the audit trail; all data include page/column/row provenance and raw OCR. The original full-page OCR remains explicitly unreviewed; the separate reviewed data carry the audit conclusion.
+Counts refer to printed source entries, not expanded aliases, slash pairs, plural forms or case-folded tokens. British forms and US bracket variants stay distinct. Supplemental number/name/month/weekday/abbreviation/culture/irregular-verb tables are only location-indexed and visually inspected; structured transcription and entry-level verification remain incomplete. No current-standard, city-exam, commercial-licence or completed R-STD/R-VOC claim follows from this2022baseline audit.
