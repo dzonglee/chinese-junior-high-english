@@ -1,6 +1,6 @@
 # Listening and speaking research — R-LS
 
-As of 2026-10-15, this is a verified partial collection, not a completed city specification register. There are 21 sources, 20 retained artifacts (11,822,253 bytes), five provincial listening models and 280 city/year speaking-specification cells. Two cells link to relevant official policy; the other 278 remain `not_searched`. No cell claims a complete speaking task model, analytic oral rubric or ingestion-ready content. The unit should remain **claimed**.
+As of 2026-10-15, this is a verified partial collection, not a completed city specification register. There are 28 sources, 27 retained artifacts (12,155,152 bytes), five provincial listening models and 280 city/year speaking-specification cells. Three cells have verified limited procedural documents, two link to relevant official policy, and 275 remain `not_searched`. No cell claims a complete speaking task model, analytic oral rubric or ingestion-ready content. The unit should remain **claimed**.
 
 ## What the evidence establishes
 
@@ -18,13 +18,38 @@ Liaoning's 2021 original scheme, FAQ and cohort reply (R-LS::001–003) establis
 
 Guangdong's original 2018 implementation measure (R-LS::008) distinguishes written plus listening **or** listening/speaking. For province-set papers it specifies 120 marks including 30 listening marks, a 90-minute whole-English sitting and approximately 20 minutes listening. Its explicit five-year validity from August 2018 prevents treating it as a current 2024–2026 rule without an extension. Annual 2023–2025 schedules (R-LS::009–011) separately verify 08:30–10:00 whole-English sittings for cities using province-set papers; they do not establish a 90-minute listening/oral test or name all participating cities. Current replacement policy and city speaking arrangements remain unresolved.
 
+
+## Cached Shanghai followup — 2026-10-15
+
+Seven genuine official originals already acquired by R-EAST were independently reopened and hash-checked, then copied unchanged with their exact original URLs. The source and file manifests retain the East source ID, file ID and commit `96ca2a0b6f30e0b7f1ada09380ba2163ad7512a9`. All previous 21 source records and 20 file-manifest entries are unchanged. No new network request occurred; this reuse is not independent corroboration. `shanghai-reuse-provenance.json` records the seven local checks. Three new PDFs use LFS; the four HTML snapshots retain their retrieved bytes.
+
+| R-LS source | Exact local year evidence | Scope and limits |
+| --- | --- | --- |
+| R-LS::022 (East::247) | 2023 speaking candidate rules, two-page original PDF linked by the inspected dated announcement | Rule 五: ten-minute computer-seat session. Rule 六: paragraph reading occurs during **device calibration**, not an established scored read-aloud task. Marks, scored tasks, preparation/response windows and rubric remain unknown. |
+| R-LS::023 (East::248) | 2025 speaking candidate rules, two-page original PDF linked by the inspected dated announcement | Rule 六: ten-minute session and device-failure procedure. No item types or mark bands. |
+| R-LS::024 (East::256) | 2025 official English practice announcement, published April18 | Human-computer dialogue; actual test May17–18, ten minutes, full marks ten. Candidate-only optional practice April21–May16, three papers, two attempts in each phase as announced. |
+| R-LS::025 (East::257) | 2026 official English practice announcement, published April15 | Human-computer dialogue; actual test May16–17, ten minutes, full marks ten. Candidate-only optional practice April16–May15, three papers, five attempts per paper as announced. |
+| R-LS::026 (East::263) | One-page 2024 listening procedure PDF, linked by R-LS::028 | FM89.9/AM792 source played through campus broadcast. Listening begins June16 at09:00 after08:55 sound check; written section begins directly after playback. No recording, transcript, section duration or item/mark model acquired. |
+| R-LS::027 (East::262) | 2022 official foreign-language timetable, July12 | Whole sitting09:00–10:30 and sound check08:55–09:00. The90minutes is not a listening or speaking duration; no separate speaking existence/cancellation assertion. |
+| R-LS::028 (East::259) | 2024 official foreign-language written timetable, June16 | Whole sitting09:00–10:30 including listening playback, with08:55–09:00 sound check. Do not describe90minutes of pure written questions plus an extra listening sitting. |
+
+The speaking PDFs have no printed year themselves. Their `year_attachment_context` fields cite the exact dated, opened Shanghai announcement snapshots in East that link the exact attachment URLs; year is not inferred from a numeric filename. Neither the 2023 ten marks nor any 2024 speaking rule is inferred from later or earlier notices. The 2026 ten-minute/ten-mark finding comes from its own actual practice announcement; the blocked 2026 rules PDF is not represented as acquired.
+
+`shanghai-year-profiles.json` keeps separate 2022–2026 profiles, with unknown entry cohort, school-structure applicability, scored task types, preparation/response windows, analytic rubric and provider identity where the documents do not establish them. `shanghai-listening-procedures.json` stores the 2022/2024 timetable/broadcast facts separately from the five observed Fujian question models. None of these Shanghai documents supplies a listening task-count/mark model.
+
+The two public practice announcements name authority-provided **optional candidate practice**. They disclose login with an exam registration number and document-number suffix and list Windows PC,360极速浏览器 and headphones/microphone requirements. Only those public announcements were inspected. Neither platform/IP was requested, no credential was supplied, no candidate practice set/audio was acquired, and functionality or scoring was not tested. The named practice platform does not establish a compulsory school vendor or an actual exam-system provider; `official_city_mandate_verified` stays false while the narrower authority-named-optional-practice evidence is recorded separately. Published technical-support contacts were not used.
+
+The Shanghai 2023, 2025 and 2026 speaking cells are `file_verified` only for these limited procedural documents. Scored tasks, full analytic rubrics, preparation/response windows and authentic media remain missing. The 2022 and 2024 speaking cells stay `not_searched`: obtaining a written/listening timetable does not satisfy a speaking-specification search. The overall grid now has275not_searched,threefile_verified andtwolink_only cells. No complete annual speaking specification or ingestion-ready cell is claimed.
+
+Remaining work includes Shanghai's detailed scored-task/rubric/sample evidence and missing speaking years, other cities' actual annual arrangements, authentic recordings/transcripts, licensed vendor evidence and lawful access to candidate-only materials. Existing network failures remain endpoint-specific; this cached followup makes no fresh-access or global-absence claim. All reuse approvals stay false and the unit remains claimed/incomplete.
+
 ## Practice systems and rights
 
 All four candidate provider roots (`ets100.com`, `ekwing.com`, `up366.com`, `chivox.com`; R-LS::018–021) failed with proxy CONNECT 403. No first-party features, licence, prices, scoring claims, accuracy or city mandates were verified. The provider names/domain mappings remain candidate metadata.
 
 A previously opened commercial preview for Foshan Huijing's grade-8 lower-term midterm names “E听说软件” (R-LS::017). This is one school's reported practice-system name, not an authority-mandated city platform. Mapping that printed name to `ets100.com` is unverified. Only minimal citation metadata is retained; no commercial HTML, questions, audio or transcript is copied into this unit.
 
-Further automated 21cnjy retrieval stopped when the first-party agreement at <https://www.21cnjy.com/help/help_REGagreement.shtml> was inspected by R-BANK. Its written-permission requirements for crawler/mirror use and automated grabbing restrictions are not bypassed. Existing school metadata is no-reuse research evidence. All 21 source records keep `commercial_reuse_approved: false`. Government publication also does not grant a licence to embedded examination passages or recordings. Nothing here is approved for app ingestion, and no audio/TTS model was selected or changed.
+Further automated 21cnjy retrieval stopped when the first-party agreement at <https://www.21cnjy.com/help/help_REGagreement.shtml> was inspected by R-BANK. Its written-permission requirements for crawler/mirror use and automated grabbing restrictions are not bypassed. Existing school metadata is no-reuse research evidence. All 28 source records keep `commercial_reuse_approved: false`. Government publication also does not grant a licence to embedded examination passages or recordings. Nothing here is approved for app ingestion, and no audio/TTS model was selected or changed.
 
 ## Search scope and remaining work
 
