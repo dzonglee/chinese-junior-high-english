@@ -1,8 +1,8 @@
 # R-NORTH research handoff · 2026-10-15
 
-This unit is **in progress, not complete**. We inspected English-relevant official policy text independently rather than importing the sister maths app’s exam facts. There are 11 downloaded official HTML pages, two visually inspected official table images, and five community typesetting sources (plus the preserved contributor MIT notice). No official English exam paper, answer key, listening recording, transcript or scoring rubric has yet been downloaded. The community sources are partial rendering inputs, not authenticated facsimiles.
+This unit is **in progress, not complete**. The register contains 160 sources, including 132 opened public commercial previews retained as reported evidence. We inspected English-relevant official policy text independently rather than importing the sister maths app’s exam facts. There are 11 downloaded official HTML pages, two visually inspected official table images, and five community typesetting sources (plus the preserved contributor MIT notice). No official English exam paper, answer key, listening recording, transcript or scoring rubric has yet been downloaded. The community sources are partial rendering inputs, not authenticated facsimiles.
 
-The register contains 1,800 coverage cells: the 15 assigned cities × 2022–2026 × 12 ordinary resource categories, plus separate grade 7–9 × upper/lower-term grids for term and mock papers. **1,780 remain `not_searched`**. The nine `blocked` cells describe failed attempts to retrieve specific 2026 policy candidates; they do not mean an exhaustive official-source search succeeded or that the resources do not exist. A passing checker verifies record shape and download integrity, not research completion.
+The register contains 1,800 coverage cells: the 15 assigned cities × 2022–2026 × 12 ordinary resource categories, plus separate grade 7–9 × upper/lower-term grids for term and mock papers. **1,708 remain `not_searched` after the second public-preview pass**. The nine `blocked` cells describe failed attempts to retrieve specific 2026 policy candidates; they do not mean an exhaustive official-source search succeeded or that the resources do not exist. A passing checker verifies record shape and download integrity, not research completion.
 
 ## Verified policy findings
 
@@ -22,7 +22,7 @@ R-NORTH::012–016 are publicly accessible source files in `computer-drive/BJ-En
 
 These are community transcriptions with FBD formatting commands and external image references. Rendered completeness, transcription accuracy and official provenance are unverified. No answer key, audio or transcript was found in those text files. The Dongcheng heading has the apparent typo `20256~2026`; it is retained as a caveat, not silently corrected. The four 2026 mocks are district/area evidence, not a Beijing-wide final exam. The repository’s MIT notice does not establish rights over third-party exam content, and commercial reuse is false for every record.
 
-## City-by-city next action
+## City-by-city policy and original-file follow-up
 
 | City | Current result | First outstanding action |
 | --- | --- | --- |
@@ -42,7 +42,7 @@ These are community transcriptions with FBD formatting commands and external ima
 | 潍坊 | Official-account2026 lead on ThePaper tunnel403 | Find education-bureau original and exact exam scope; annual English facts, local grades versus scores |
 | 临沂 | Official 2027-cohort reform opened;2026 news release returned502 | Retrieve 2026 annual implementation; distinguish 2024-entry reform from earlier graduating cohorts |
 
-For **every city**, the 2022–2026 term-paper and mock grid remains open apart from Beijing grade9/lower-term2026 sample sources. Search real school/district 月考/期中/期末 separately from publisher simulations; preserve grade, term, date and exact school/district. Listening audio, transcripts, answers, syllabus, vocabulary and writing rubric are separate searches: a paper link is not evidence these exist or were searched.
+For **every city**, the 2022–2026 term-paper and mock grid remains incomplete. The second pass below adds 132 public preview samples across 14 cities; it does not establish exhaustive coverage. Search real school/district 月考/期中/期末 separately from publisher simulations; preserve grade, term, date and exact school/district. Listening audio, transcripts, answers, syllabus, vocabulary and writing rubric are separate searches: a paper link is not evidence these exist or were searched.
 
 ## Access evidence and continuation
 
@@ -56,6 +56,28 @@ The current roster’s English unit assignments are followed. Its historical `ma
 
 ## Validation and handoff
 
-Run `node scripts/check-register.mjs reference/source-register/north`, then review source scopes and coverage counts separately. Every downloaded file has a byte count, SHA-256 and explicit opened check. The twoPNG policy tables are GitLFS objects; their LFS content must be transferred with the local commit if another clone integrates it. PlainHTML and original text bytes remain ordinary Git objects. No copied research text, image, question or recording is approved for app ingestion.
+Run `node scripts/check-register.mjs reference/source-register/north`, then review source scopes and coverage counts separately. Every downloaded file has a byte count, SHA-256 and explicit opened check. The two PNG policy tables are GitLFS objects; their LFS content must be transferred with the local commit if another clone integrates it. Plain HTML and original text bytes remain ordinary Git objects. No copied research text, image, question or recording is approved for app ingestion.
 
 Keep R-NORTH `claimed` with a progress note; do not mark `done` or `review` on the strength of schema validation. The next owner should begin with the failed official annual-policy candidates and the three known2026 English blueprints, then gather the actual official papers/audio/answers before expanding the term-and-mock search.
+
+## Second pass: public commercial previews
+
+A second pass inspected ordinary public English sitemap pages and then opened the actual linked preview pages. The shared discovery cache sampled both current listings and historical windows 8990–9029,14490–14529,23990–24029 and31990–32029. Request starts used a shared 0.6-second global limiter. No original resource-download link, login, paywall or captcha was used. Targeted Bing returned an unrelated medical page despite the correct query title; Baidu, Kaosj, Zhongkao and the document-library home returned access failures. Those responses do not count as successful resource discovery or negative evidence that a resource is absent.
+
+`public-preview-index.json` records132 accepted, actually opened previews across14 priority cities,15 distinct preview retrieval failures, and four exclusions (outside-date-range or generic cross-city edition material). All accepted preview records remain `indexed_preview_only` / `preview_link_only`, with rights unknown and commercial reuse false. The 132 previews comprise97 term-paper listings,28 mock listings,six topic collections and one school exercise. These figures describe opened listings, not authenticated original-paper counts. No preview is promoted to an official source.
+
+The sample links include2022 Linyi midterms and several district/school finals;2023 finals from Beijing,Tianjin,Hebei,Shanxi,Liaoning,Jilin,Heilongjiang and Shandong;2024 district finals;2025 school/district mocks and term papers; and2026 local term/mocks. They expose answer/audio/transcript inclusion claims, recorded per asset in the preview index. A term-paper audio claim never fills the final-exam audio cell. Separate audio files, transcripts and original paper downloads remain unverified.
+
+Five Tianjin topic anthologies explicitly expose body tags for2022,2023 and2024天津中考真题, mixed with mock questions. They provide reported question excerpts useful for locating the original papers. They are not complete papers, and no final-exam paper coverage cell is filled from them. The writing collection likewise remains a collection rather than an official rubric or a final exam.
+
+The second pass preserves these concrete conflicts:
+
+- Dalian/Zhuanghe listing16548350 says2022–2023 lower term, but its visible answer header says第一学期. Calendar year and semester remain unresolved; it fills neither term cell.
+- Listing12717943 says Changchun, while its visible answer header narrows the test to榆树市. It is not treated as a citywide test.
+- Beijing accelerated-school listing12704470 says直升初二; it is not assigned to the standardgrade 8 grid.
+- Harbin listings25968101 and25968660 are labelled四模, but visible school headers say学情调研 or作业验收. Their commercial labels do not verify formal district mock status.
+- Jinan listing23167096 says a May monthly test while its preview header says2025.06. Both labels remain visible.
+- Beijing25959584 is explicitlyⅡ卷; it is not a verified complete paper.
+- Regional期末模拟 packs remain publisher mocks rather than actual school/district examinations or evidence of textbook adoption.
+
+Lower/second-term school-year ranges map to their explicit ending calendar year. Upper-term tests without an actual examination date or another explicit unambiguous year label retain the academic-year bounds and fill no precise calendar-year cell; upload dates are never substituted for examination dates. Scope and year interpretation are recorded per preview, with exact source IDs in the same index. The current coverage tally is1,708 not_searched,78 link_only,nine blocked,three file_verified policy cells and two file_reported community-paper/mock cells. This remains a substantial incomplete research backlog, not a completed unit. Hohhot still has no accepted local public-preview sample in the searched index windows.
