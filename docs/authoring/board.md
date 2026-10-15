@@ -20,7 +20,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | Branch pushed3a1a82f:105sources,75artifacts;1512unsearched. Official schedules and reported papers/rubrics; incomplete. |
 | R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | claimed | codex-listening | research/R-LS | 2026-10-15 | Pusheeddd83:21sources/20files; five official Fujian listening models.278speaking cells unsearched; detailed local rubrics unresolved. |
 | R-VOC | 课标/考纲/edition word lists as raw data | R-STD | open | | | 2026-10-15 | owns `source-register/vocabulary/`, `files/vocabulary/` |
-| R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | open | | | 2026-10-15 | owns `source-register/writing/`, `files/writing/` |
+| R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | claimed | codex-writing | research/R-WRITE | 2026-10-15 | owns `source-register/writing/`, `files/writing/` |
 | R-BANK | Question banks, 专题 collections, commercial bank index, exam analyses | R-0 | claimed | codex-banks | research/R-BANK | 2026-10-15 | Pushed8545410:62sources/40HTML,930listed assets,35type labels;98link_only/182unsearched. Automated21cnjy collection stopped under inspected terms. |
 | R-AUX | 教辅/教师用书, 教学进度, 听说 practice systems, reading material | R-0 | claimed | codex-aux | research/R-AUX | 2026-10-15 | owns `source-register/aux/`, `files/aux/` |
 | R-RIGHTS | Licensing routes and terms (publishers, 考试院, banks, audio) | R-0 | claimed | codex-rights | research/R-RIGHTS | 2026-10-15 | owns `source-register/rights/` |
