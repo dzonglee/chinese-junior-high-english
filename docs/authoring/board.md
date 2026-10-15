@@ -14,10 +14,10 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | R-STD | 2022 课标 (+2025 revision) and appendices as data | R-0 | claimed | codex-curriculum | research/R-STD | 2026-10-15 | 2022 officialPDF acquired;58 grammar entries,29 themes,17 quality indicators; branch pushed.2025 English revision and word-list audit unresolved; see log. |
 | R-ED-A | Editions: 人教 (2024 new + legacy, 六三/五四), 外研, 仁爱科普 | R-0 | open | | | 2026-10-15 | owns `source-register/editions/a-*`, `files/editions-a/` |
 | R-ED-B | Editions: 译林牛津, 沪教牛津, 北师大, 冀教, 鲁教五四, 北京版, others | R-0 | open | | | 2026-10-15 | owns `source-register/editions/b-*`, `files/editions-b/` |
-| R-NORTH | 15 north cities: 中考 papers, answers, audio, transcripts, structures, adoption, term papers by grade, 一模/二模 | R-0 | claimed | codex-north | research/R-NORTH | 2026-10-15 | owns `source-register/north/`, `files/north/` |
-| R-EAST | 15 east cities (incl. 上海 五四): same scope as R-NORTH | R-0 | claimed | codex-east | research/R-EAST | 2026-10-15 | owns `source-register/east/`, `files/east/` |
+| R-NORTH | 15 north cities: 中考 papers, answers, audio, transcripts, structures, adoption, term papers by grade, 一模/二模 | R-0 | claimed | codex-north | research/R-NORTH | 2026-10-15 | Branch pushed da41b42:160sources,19files,132opened previews;1708unsearched. Partial handoff; original papers/media and full coverage outstanding. |
+| R-EAST | 15 east cities (incl. 上海 五四): same scope as R-NORTH | R-0 | claimed | codex-east | research/R-EAST | 2026-10-15 | Branch pushed f53d4ab:231records,143HTML artifacts;1552unsearched. Partial handoff; no complete original exam/audio files. |
 | R-SOUTH | 13 south cities (广东 听说, 福建, 广西, 海南, 江西, 湖南): same scope as R-NORTH | R-0 | claimed | codex-south | research/R-SOUTH | 2026-10-15 | owns `source-register/south/`, `files/south/` |
-| R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | owns `source-register/central-west/`, `files/central-west/` |
+| R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | Branch pushed3a1a82f:105sources,75artifacts;1512unsearched. Official schedules and reported papers/rubrics; incomplete. |
 | R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | open | | | 2026-10-15 | owns `source-register/listening-speaking/`, `files/listening-speaking/` |
 | R-VOC | 课标/考纲/edition word lists as raw data | R-STD | open | | | 2026-10-15 | owns `source-register/vocabulary/`, `files/vocabulary/` |
 | R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | open | | | 2026-10-15 | owns `source-register/writing/`, `files/writing/` |
