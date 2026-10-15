@@ -17,7 +17,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | R-NORTH | 15 north cities: 中考 papers, answers, audio, transcripts, structures, adoption, term papers by grade, 一模/二模 | R-0 | claimed | codex-north | research/R-NORTH | 2026-10-15 | owns `source-register/north/`, `files/north/` |
 | R-EAST | 15 east cities (incl. 上海 五四): same scope as R-NORTH | R-0 | claimed | codex-east | research/R-EAST | 2026-10-15 | owns `source-register/east/`, `files/east/` |
 | R-SOUTH | 13 south cities (广东 听说, 福建, 广西, 海南, 江西, 湖南): same scope as R-NORTH | R-0 | claimed | codex-south | research/R-SOUTH | 2026-10-15 | owns `source-register/south/`, `files/south/` |
-| R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | open | | | 2026-10-15 | owns `source-register/central-west/`, `files/central-west/` |
+| R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | owns `source-register/central-west/`, `files/central-west/` |
 | R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | open | | | 2026-10-15 | owns `source-register/listening-speaking/`, `files/listening-speaking/` |
 | R-VOC | 课标/考纲/edition word lists as raw data | R-STD | open | | | 2026-10-15 | owns `source-register/vocabulary/`, `files/vocabulary/` |
 | R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | open | | | 2026-10-15 | owns `source-register/writing/`, `files/writing/` |
