@@ -1,6 +1,20 @@
 # Auxiliary-resource research · 2026-10-15
 
-This is a partial Stage 1 research handoff. It contains 22 source records, 17 checked reference artifacts, 80 exact publisher catalogue product entries, 272 observed PEP audio links, three acquired MP3 samples and one historical teaching-progress document. It does not satisfy the unit's completion gate. All commercial reuse flags remain false.
+This is a partial Stage 1 research handoff. It contains 31 source records, 26 checked reference artifacts, 80 exact publisher catalogue product entries, 272 observed PEP audio links, three acquired MP3 samples and one historical teaching-progress document. It does not satisfy the unit's completion gate. All commercial reuse flags remain false.
+
+## Targeted teacher-resource followup
+
+The exact publisher-operated Bakclass release URL supplied by the sister maths research, `https://news.bakclass.com/news/newsArticle?newsId=1772`, returned HTTP 404 on 2026-10-15; its ordinary news-host root also returned 404. No full release HTML was retained in the inspected sister repository. The maths manifest supplies only mathematics titles and exact mathematics CDN targets. No English filename was guessed or substituted. The inherited 2020 release date and 请勿商用 watermark finding remain discovery context: neither verifies an English teacher guide, its contents, nor a current edition. `R-AUX::023` preserves the failed candidate without claiming that the release offered no English resources.
+
+Following literal links in the already opened FLTRP reading pages produced eight additional actual publisher HTML pages: reading-resource and platform indexes, both teaching-guidance index pages, a Bookworms series index/description, and descriptions of 外研U学 and 外研阅读（中小学版）. The two teaching-guidance pages list **22 literal links**, retained in `publisher-teacher-link-index.json`. A graded-reading teacher-guide set links to JD item 12807469; a primary-reading pedagogy book links to JD item 12172818. These are bibliographic/retail links, not downloaded guides. Most remaining entries lead to research articles, events and course platforms. Their linked contents remain unopened; a directly linked publisher teacher-training entry, 悦教大讲堂 at `unilearn.fltrp.com`, returned CONNECT403. No account or purchase gate was entered.
+
+The actual 2021 U学 description explicitly ties companion resources to buying a book and scanning its code. Its point-reading, listening/speaking, reader and placement-test features are publisher claims, not tested app functionality, current availability, validated scoring or licensed audio. The separate school/family reading-platform page describes ebooks, listening companions, placement/micro-skill tests and teacher reports, likewise without an opened account or downloadable content.
+
+The actual Bookworms description displays an unexplained 11–20 level field while its prose separately describes native starter–6 levels. It also gives slightly different audience endpoints in the fields and prose. Both are retained; no crosswalk, CEFR/Lexile value or exam-level calibration is invented.
+
+The actual 2025 workbook's declared spreadsheet hyperlink metadata was inspected: 568 cell hyperlinks, 14 hyperlink relationships, zero HYPERLINK formulas and **zero HTTP hyperlink targets**. The external relationship targets are numeric section references; the others are workbook navigation. This was ordinary hyperlink-metadata inspection, without extracting cover images, QR codes or hidden reader assets. Its audit derivative retains the original workbook hash. No direct teacher-book or audio download URL was found by this inspection.
+
+This targeted followup adds nine source records and nine artifacts, including eight publisher HTML pages and one catalogue-link audit. It acquires **zero actual English teacher-guide/workbook texts**. Existing 80-product metadata and city-year schedule coverage remain unchanged. Actual edition-specific teacher books, current supplements, licensed audio and complete reader-level evidence remain open gaps; none is waived by these public indexes.
 
 ## Teacher books and supplements
 
