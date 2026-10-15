@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>21教育</title>
+<meta name="keyword" content="">
+<meta name="description" content="">
+<link rel="dns-prefetch" href="//www.21cnjy.com">
+<link rel="dns-prefetch" href="//www.jbzyk.com">
+<link rel="dns-prefetch" href="//news.jbzyk.com">
+<link rel="dns-prefetch" href="//tikupic.21cnjy.com">
+<link rel="dns-prefetch" href="//www.kt5u.com">
+<link rel="icon" href="//www.21cnjy.com/favicon.ico" mce_href="//www.21cnjy.com/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/static/css/login-e6701663d9.mini.css?v=375ee809"> <style>html,body{height:100%;}#captcha>div{margin-top:10px;}</style>
+<style>.browser-warning-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5);text-align:center;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;display:flex;align-items:center;justify-content:center;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000',endColorstr='#80000000');}.browser-warning-overlay-ie8{position:fixed;top:0;left:0;right:0;bottom:0;background-color:#000;background-color:rgba(0,0,0,0.5);text-align:center;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";}.browser-warning-overlay:before{content:'';display:inline-block;height:100%;vertical-align:middle;}.browser-warning-modal{background-color:#fff;border-radius:4px;box-shadow:0 2px 12px rgba(0,0,0,0.15);max-width:480px;width:90%;overflow:hidden;display:inline-block;vertical-align:middle;position:relative;min-width:300px;border:1px solid #ddd;}.browser-warning-header{background-color:rgb(230,84,57);color:#fff;padding:16px 20px;font-size:16px;font-weight:500;margin:0;text-align:left;}.browser-warning-content{padding:20px;font-size:14px;line-height:1.6;color:#333;text-align:center;word-wrap:break-word;overflow-wrap:break-word;}.browser-warning-content a{color:#0099cc;text-decoration:none;margin:0 8px;word-break:break-all;}.browser-warning-content a:hover{text-decoration:underline;}.browser-warning-footer{padding:16px 20px;text-align:right;border-top:1px solid #f0f0f0;background-color:#f9f9f9;}.browser-warning-btn{background-color:rgb(230,84,57);color:#fff;border:none;padding:8px 20px;border-radius:2px;cursor:pointer;font-size:14px;outline:none;min-width:80px;height:36px;vertical-align:middle;}.browser-warning-btn:hover{background-color:rgb(211,86,64);}</style>
+<script>
+        // 浏览器版本检测
+        (function() {
+            var isLowBrowser = false;
+            var browserInfo = '';
+            
+            // 检测IE浏览器
+            if (!!window.ActiveXObject || "ActiveXObject" in window) {
+                var ieVersion = null;
+                if (new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})").exec(navigator.userAgent) != null) {
+                    ieVersion = parseFloat(RegExp.$1);
+                }
+                if (ieVersion && ieVersion < 10) {
+                    isLowBrowser = true;
+                    browserInfo = 'Internet Explorer ' + ieVersion;
+                }
+            }
+            
+            // 检测其他浏览器版本
+            var ua = navigator.userAgent;
+            var chromeMatch = ua.match(/Chrome\/(\d+)/);
+            var firefoxMatch = ua.match(/Firefox\/(\d+)/);
+            var safariMatch = ua.match(/Version\/(\d+).*Safari/);
+            var edgeMatch = ua.match(/Edg\/(\d+)/);
+            
+            // Chrome 最低版本: 80 (需要支持 SameSite=None cookie)
+            if (chromeMatch && parseInt(chromeMatch[1]) < 80) {
+                isLowBrowser = true;
+                browserInfo = 'Chrome ' + chromeMatch[1];
+            } 
+            // Firefox 最低版本: 86 (需要支持 SameSite=None cookie)
+            else if (firefoxMatch && parseInt(firefoxMatch[1]) < 86) {
+                isLowBrowser = true;
+                browserInfo = 'Firefox ' + firefoxMatch[1];
+            } 
+            // Safari 最低版本: 13 (需要支持 SameSite=None cookie)
+            else if (safariMatch && parseInt(safariMatch[1]) < 13) {
+                isLowBrowser = true;
+                browserInfo = 'Safari ' + safariMatch[1];
+            }
+            // Edge 最低版本: 80 (需要支持 SameSite=None cookie)
+            else if (edgeMatch && parseInt(edgeMatch[1]) < 80) {
+                isLowBrowser = true;
+                browserInfo = 'Edge ' + edgeMatch[1];
+            }
+            
+            if (isLowBrowser) {
+                // 创建原生弹窗
+                // 兼容IE低版本，使用attachEvent替代addEventListener
+                var showWarning = function() {
+                    // 确保DOM.body存在后再显示
+                    if (document.body) {
+                        showBrowserWarning(browserInfo);
+                    } else {
+                        // body还未加载，延迟显示
+                        setTimeout(function() {
+                            showBrowserWarning(browserInfo);
+                        }, 100);
+                    }
+                };
+                
+                // 优先使用addEventListener（现代浏览器和IE9+）
+                if (document.addEventListener) {
+                   
+                    document.addEventListener('DOMContentLoaded', showWarning, false);
+                    // IE9在某些情况下DOMContentLoaded不可靠，同时监听readystatechange
+                    document.addEventListener('readystatechange', function() {
+                        if (document.readyState === 'complete') {
+                            showWarning();
+                        }
+                    }, false);
+                } else if (document.attachEvent) {
+                    // IE8及以下
+                    document.attachEvent('onreadystatechange', function() {
+                        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                            showWarning();
+                        }
+                    });
+                }
+                
+                // 如果脚本在DOM加载完成后执行，立即显示
+                if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                    setTimeout(showWarning, 0);
+                }
+            }
+            
+            // 显示浏览器警告弹窗
+            function showBrowserWarning(browserInfo) {
+                // 创建遮罩层
+                var overlay = document.createElement('div');
+                // IE8及以下不支持flex，使用text-align刚邟布局
+                var isIE8 = !document.addEventListener;
+                overlay.className = isIE8 ? 'browser-warning-overlay-ie8' : 'browser-warning-overlay';
+                
+                // IE8时为内容添加布局当前提供层
+                var inner = document.createElement('div');
+                if (isIE8) {
+                    inner.style.display = 'inline-block';
+                    inner.style.verticalAlign = 'middle';
+                    inner.style.position = 'relative';
+                }
+                
+                // 创建模态框
+                var modal = document.createElement('div');
+                modal.className = 'browser-warning-modal';
+                if (isIE8) {
+                    inner.appendChild(modal);
+                }
+                
+                // 创建头部
+                var header = document.createElement('div');
+                header.className = 'browser-warning-header';
+                header.textContent = '浏览器版本提示';
+                
+                // 创建内容
+                var content = document.createElement('div');
+                content.className = 'browser-warning-content';
+                content.innerHTML = '您的浏览器版本过低，可能导致网站无法正常使用。<br/>' +
+                    '建议您升级到最新版本的浏览器。<br/><br/>' +
+                    '当前浏览器: ' + browserInfo + '<br/><br/>' +
+                    '<a href="https://www.google.com/intl/zh-CN/chrome/" target="_blank">Google Chrome</a> | ' +
+                    '<a href="https://www.mozilla.org/zh-CN/firefox/new/" target="_blank">Firefox</a> | ' +
+                    '<a href="https://www.microsoft.com/zh-cn/edge" target="_blank">Edge</a> | ' +
+                    '<a href="https://browser.360.cn/" target="_blank">360浏览器</a>';
+                
+                // 创建底部
+                var footer = document.createElement('div');
+                footer.className = 'browser-warning-footer';
+                
+                var closeBtn = document.createElement('button');
+                closeBtn.className = 'browser-warning-btn';
+                closeBtn.textContent = '确定';
+                closeBtn.onclick = function() {
+                    // 兼容IE，使用parentNode.removeChild替代remove()
+                    if (overlay.parentNode) {
+                        overlay.parentNode.removeChild(overlay);
+                    }
+                };
+                
+                footer.appendChild(closeBtn);
+                
+                // 组合弹窗
+                modal.appendChild(header);
+                modal.appendChild(content);
+                modal.appendChild(footer);
+                
+                if (!isIE8) {
+                    overlay.appendChild(modal);
+                }
+                
+                // 添加到页面
+                var parentElement = isIE8 ? inner : overlay;
+                if (isIE8) {
+                    overlay.appendChild(inner);
+                }
+                
+                if (document.body) {
+                    document.body.appendChild(overlay);
+                } else {
+                    // 如果body还不存在，添加到html
+                    document.documentElement.appendChild(overlay);
+                }
+            }
+        })();
+
+</script>
+<script src="//www.21cnjy.com/js/tracking-sdk.min.js?v=c20260429"></script>
+<script>TrackSDK.init({enable: true});</script>
+</head>
+<style type="text/css">.my-form-bind{width:360px;margin:0 auto;}.my-form-bind .btn{width:100%;height:50px;line-height:50px;font-size:16px;color:#fff;text-align:center;background:#52c684;border-radius:5px;margin-top:30px;margin-bottom:35px;}#j-co-bind{width:460px;height:490px;background:#fff;border-radius:10px;position:absolute;top:50%;left:50%;margin-top:-245px;margin-left:-230px;box-shadow:0 5px 10px#cadad5;}#j-co-bind .login-sel{margin:0 auto 15px;}#j-co-bind .my-form-bind .btn,#j-co-bind .msg-code a{}#j-co-bind .msg-code a:hover{}.title-hd{margin-bottom:10px;padding:20px 50px 10px;text-align:center;font-size:18px;font-weight:800;color:#333;border-bottom:1px solid #ddd;}.user-input .code-input{width:205px;}#mobile-captcha{vertical-align:middle;}.my-form-bind .btn1{display:block;width:46%;height:36px;line-height:36px;font-size:16px;color:#fff;text-align:center;background:#52c684;margin:0px auto;}.my-form-bind .btn1:hover{background:#4daf77;text-decoration:none;}.hwrap{width:400px;height:260px;background:#fff;border-radius:10px;position:absolute;top:50%;left:50%;margin-top:-130px;margin-left:-200px;box-shadow:0 5px 10px #cadad5;}.login-method--weixin{text-align:center;height:500px;border-right:2px solid #D8D8D8;box-sizing:border-box;}.login-method--weixin .title{font-size:18px;}.login-method--weixin .wrp_code{width:268px;height:268px;margin:0 auto;position:relative;line-height:282px;}.login-method--weixin .qrcode{width:179px;border:1px solid #ddd;display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}.login-method--weixin .info{font-size:14px;color:#999;line-break:24px;padding-top:16px;}.login-method--weixin .wxcode-loading{position:absolute;width:100%;line-height:24px;top:130px;text-align:center;}.login-method__tab{position:absolute;right:16px;top:16px;}.login-method__tab li{position:relative}.login-method__tab .tip{background:#404040;color:#fff;font-size:14px;width:140px;height:34px;line-height:34px;border-radius:4px;position:absolute;right:86px;top:0;}.login-method__tab li .img{width:66px;height:66px;text-indent:-999px;overflow:hidden;cursor:pointer;}.login-method__tab--wx .img{background:url(/static/images/tab-weixin.png) no-repeat left top;}.login-method__tab--ac .img{background:url(/static/images/tab-account.png) no-repeat left top;}.login-method__tab li .tip i{float:left;width:14px;height:14px;margin:10px;}.login-method__tab li .tip b{position:absolute;right:-12px;top:12px;width:0;height:0;display:block;border:6px solid #404040;border-color:transparent transparent transparent #404040;}.login-method__tab--wx .tip i{background:url(/static/images/ico-qrcode.png) no-repeat left top;}.login-method__tab--ac .tip i{background:url(/static/images/ico-pass.png) no-repeat left top;}button#TencentCaptcha{width:362px;border:1px solid #ddd;border-radius:5px;text-align:center;font-size:14px;height:36px;line-height:36px;background:#f5f5f5;background:-webkit-linear-gradient(#fff,#e0e4e3);}button#TencentCaptcha:hover{opacity:.8;}.icon-img{vertical-align:middle;margin-right:5px;}.fl{float:left;}.fr{float:right;}.clearfloat::after{content:'';display:block;clear:both;}.bg-login-wrapper{position:absolute;top:50%;left:50%;width:1440px;height:680px;transform:translate(-50%,-50%);}.swiper-box--login{position:absolute;left:0;top:50%;width:770px;height:435px;transform:translate(0,-50%);}.ppt,.ppt .ppt-box,.ppt ul,.ppt li,.ppt a,.ppt img{display:block;width:100%;height:100%;}.ppt-box ul{position:relative;}.ppt-box ul li{position:absolute;opacity:0;z-index:0;transition:.4s all;background:aliceblue;}.ppt-box .swiper-active{opacity:1;z-index:1;}.ppt-box .prev{left:0;}.ppt-box .next{right:0;}.ppt-num{line-height:0;font-size:0;position:relative;margin-top:-25px;text-align:left;text-align:center;z-index:1;}.ppt-num .f-box{zoom:1;display:inline-block;}.ppt-num a{float:left;width:10px;height:10px;background:#ddd;margin:0 5px;text-indent:-999px;overflow:hidden;border-radius:50%;}.ppt-num a:hover,.ppt-num a.on{background:#fff;}.ppt-num .dots-active{background:#fff;}.bg-login .login_input input{width:312px;}.bg-global>.bg-login{right:10%;}.bg-global .my-form{width:324px;margin:0 auto;}.bg-global--login{display:block;overflow:hidden;transition:background-color ease-in-out .6s;}@media screen and (max-width:800px){.bg-login-wrapper{display:none !important;}.bg-global{background:#fff !important;}.bg-login{width:670px !important;height:600px !important;position:static;margin:40px auto;box-shadow:none;}}</style>
+<body>
+<div class="bg-global bg-global--login" id="loginForm">
+<div class="bg-login-wrapper">
+<div class="swiper-box--login">
+<div class="ppt">
+<div class="ppt-box">
+<ul id="swiper-wrapper">
+<li class="swiper-item" hmtRank="0">
+<a href="https://book.21cnjy.com/series/list?series_id=2274" target="_blank">
+<img src="https://book.21cnjy.com//uploads/series/20260807/U2iN9mxVjWceHTqD6_oaPSww3F1OjUq9.jpg" title="【课堂无忧】 初中秋季 核心素养同步课堂">
+</a>
+</li>
+<li class="swiper-item" hmtRank="1">
+<a href="https://book.21cnjy.com/series/list?series_id=2269" target="_blank">
+<img src="https://book.21cnjy.com//uploads/series/20260807/lzeGLIWjrlRKctJiUQyEmFBqqhg50V56.jpg" title="【教学评一体化】小学秋季 同步备课">
+</a>
+</li>
+<li class="swiper-item" hmtRank="2">
+<a href="https://book.21cnjy.com/series/list?series_id=2268" target="_blank">
+<img src="https://book.21cnjy.com//uploads/series/20260807/azaM40SgAw95BfMOcoMvXz2Jlc4MZQmo.jpg" title="【课堂无忧】小学秋季 核心素养同步课堂">
+</a>
+</li>
+<li class="swiper-item" hmtRank="3">
+<a href="https://book.21cnjy.com/series/list?series_id=1824" target="_blank">
+<img src="https://book.21cnjy.com//uploads/series/20250813/f0QXVPsvkunIoCi647zwRoqKbAL2ShIh.png" title="【课堂无忧】 小学秋季上册 同步核心素养课堂">
+</a>
+</li>
+<li class="swiper-item" hmtRank="4">
+<a href="https://book.21cnjy.com/series/list?series_id=1278" target="_blank">
+<img src="https://book.21cnjy.com//uploads/series/20240524/hcjcVUmvUFw7GwO5MBr0YAgsTV6P3rEW.jpg" title="【期末冲刺】小学各科期末仿真模拟卷">
+</a>
+</li>
+<li class="swiper-item" hmtRank="5">
+<a href="https://book.21cnjy.com/series/list?series_id=1246" target="_blank">
+<img src="https://book.21cnjy.com//uploads/series/20240511/Gi1bHffn5vM1t0ACN7M9ZHQ1nslE3SLn.jpg" title="【备考2024】小升初仿真模拟试卷">
+</a>
+</li>
+</ul>
+</div>
+<div class="ppt-num xc">
+<span class="f-box" id="swiper-dot">
+<a href="javascript:;" data-id="0"></a>
+<a href="javascript:;" data-id="1"></a>
+<a href="javascript:;" data-id="2"></a>
+<a href="javascript:;" data-id="3"></a>
+<a href="javascript:;" data-id="4"></a>
+<a href="javascript:;" data-id="5"></a>
+</span>
+</div>
+</div>
+</div>
+<div class="address" style="position: absolute; left: 50%; bottom: -50px; transform: translate(-50%,100%);">
+<p style="color: #000;"><span> 深圳市龙岗区横岗街道横岗社区力嘉路108号B栋B6</span> <span>邮编：518000</span> <span>电话：4006379991</span></p>
+<p style="color: #000;"><span class="copyright-time">2006-2026</span> 版权所有©深圳市二一教育科技有限责任公司 <a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">粤ICP备11039084</a> 粤教信息(2013)2号</p>
+</div>
+</div>
+<div class="bg-login" style="height:570px;width: 670px;">
+<div class="img-wrap">
+<img src="/static/images/register/login-logo.png" alt="21教育">
+</div>
+<div class="clearfloat">
+<div class="login-method--weixin J_LoginTabContent fl" style="height:370px; width: 268px;">
+<div class="title">微信扫码登录/注册</div>
+<div class="waiting panelContent">
+<div class="wrp_code">
+<div class="wxcode-loading">二维码加载中...</div>
+<img class="qrcode lightBorder normal J_QrCode">
+</div>
+<div class="info">
+<div class="status status_browser">
+<p>请使用微信扫描二维码登录</p>
+<p>“21教育网用户中心”</p>
+</div>
+</div>
+</div>
+</div>
+<div class="J_LoginTabContent fl" style="height:370px; width: 324px; margin-left: 38px;">
+<div class="login-tabs clearfix" style="margin-bottom:20px;width: 324px;">
+<a href="javascript:;" class="t-tab t-tab--active" data-type="m14c">手机验证码登录</a>
+<a href="javascript:;" class="t-tab" data-type="pwd">账号密码登录</a>
+</div>
+<form class="my-form" action="/login?jump_url=http%253A%252F%252Fbook.21cnjy.com%252Fstore%252F263134.shtml%253Fsource%253Dmsjk1303" method="post">
+<input type="hidden" name="_csrf" value="Itp7LbFikBOZeuwu3TzbfBF0wEQXKBx6Qejh3Y8EJcNa6ktMwlPiePQson2bTr0GfD6ONlpsdBsYgtWv7GZysw=="> <div class="groupbox" desc="手机验证码登录">
+<div class="user-input login_input">
+<label class="ie-placeholder" for="user-phone">手机号码</label>
+<input type="text" readonly class="frm-text" name="LoginForm[mobile]" placeholder="手机号码" id="user-phone">
+<div class="frm-errbox" id="j-errbox-phone" data-empty="请输入手机号码"></div>
+</div>
+<div class="user-input login_input">
+<label class="ie-placeholder" for="resu-m14c">短信验证码</label>
+<input type="text" readonly class="frm-text" name="LoginForm[mobileCode]" placeholder="短信验证码" id="resu-m14c" style="width:199px;position: relative;z-index: 1;">
+<div class="frm-errbox" data-empty="请输入短信验证码"></div>
+<a href="javascript:;" class="btn-code J_BtnMsgCode">获取验证码</a>
+</div>
+</div>
+<div class="groupbox" desc="账号密码登录" style="display:none;">
+<div class="user-input login_input user-input1">
+<label class="ie-placeholder" for="user-name">手机/邮箱/用户名</label>
+<input type="text" class="frm-text" name="LoginForm[username]" placeholder="手机/邮箱/用户名" id="user-name">
+<div class="frm-errbox" data-empty="请输入账户名"></div>
+</div>
+<div class="user-input login_input">
+<label class="ie-placeholder" for="user-pwd">请输入密码</label>
+<input type="password" class="frm-text" name="LoginForm[password]" placeholder="请输入密码" id="user-pwd">
+<span class="plain-password"><i class="icon cu-eye-close"></i></span>
+<div class="frm-errbox" data-empty="请输入密码"></div>
+</div>
+</div>
+<input type="hidden" name="LoginForm[verifyCode]">
+<input type="hidden" name="LoginForm[randstr]">
+<div class="user-captcha"></div>
+<div id="tencent_captcha"></div>
+<p class="pwd f-usn frm-forget" onselectstart="return false">
+<span class="remember-me">
+<i class="cu-checkbox4"></i> 记住密码
+<input type="hidden" name="LoginForm[rememberMe]" value="0" id="remember-me-input">
+</span>
+<a target="_self" href="/site/password-find?jump_url=http%3A%2F%2Fbook.21cnjy.com%2Fstore%2F263134.shtml%3Fsource%3Dmsjk1303">忘记密码</a>
+</p>
+<div id="captcha"></div>
+<div style="margin:20px 0; text-align: center;">
+<div class="frm-tips" id="login-tips"></div>
+<button class="btn btn-submit" type="submit">登录/注册</button>
+<div class="notice-protocol" id="notice-protocol" style="display:block;text-align: left;">
+<i class="icon cu-checkbox4" style="display:none"></i><span class="notice-protocol-text">登录即代表已阅读并同意我们的</span>
+<a href="https://www.21cnjy.com/help/help_REGagreement.shtml" target="_blank">《用户服务协议》</a>和<a href="https://www.21cnjy.com/help/help_privacy.shtml" target="_blank">《隐私政策》</a>
+</div>
+</div>
+<div class="oth-login">
+<div class="vf-left">
+<span>其他登录方式</span>
+<a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=310510134&redirect_uri=https://21cnjy.com/connect.php&state=http%3A%2F%2Fbook.21cnjy.com%2Fstore%2F263134.shtml%3Fsource%3Dmsjk1303&scope=get_user_info" class="ls-qq qq-btn"> </a>
+</div>
+<div class="vf-right">
+<a href="javascript:;" class="jump-register">注册体验</a>
+</div>
+</div>
+</form> </div>
+</div>
+</div>
+</div>
+<div class="bg-global" id="bindForm" style="display:none">
+<div class="bg-login" id="j-co-bind">
+<h1 class="title-hd">验证手机号，提升账户安全等级</h1>
+<div class="login-sel f-usn" style="line-height: 20px;text-indent: 25px;">
+<div>
+应国家相关法律要求，即时通讯等互联网服务需要进行身份信息验证，为保障您对
+相关服务功能的正常使用，建议您尽快完成手机号验证，感谢您的理解和支持！
+</div>
+<span style="color:red;" id="errorcode"></span>
+</div>
+<div class="login-form" id="j-yes">
+<form class="my-form-bind" action="/login?jump_url=http%253A%252F%252Fbook.21cnjy.com%252Fstore%252F263134.shtml%253Fsource%253Dmsjk1303" method="post">
+<input type="hidden" name="_csrf" value="Itp7LbFikBOZeuwu3TzbfBF0wEQXKBx6Qejh3Y8EJcNa6ktMwlPiePQson2bTr0GfD6ONlpsdBsYgtWv7GZysw=="> <div class="user-input user-input1">
+<label class="ie-placeholder" for="user-account">请输入手机</label>
+<input type="text" name="mobile" class="require-input" placeholder="请输入绑定的手机">
+<input type="hidden" name="jump_url" value="http%3A%2F%2Fbook.21cnjy.com%2Fstore%2F263134.shtml%3Fsource%3Dmsjk1303">
+</div>
+<div class="user-input user-input1">
+<label class="ie-placeholder" for="user-Code">请输入图形验证码</label>
+<input type="text" name="verifyCode" class="require-input code-input" placeholder="请输入图形验证码">
+<img id="mobile-captcha" src="" alt="换一个" title="换一个" style="cursor:pointer;" />
+</div>
+<div class="code-box">
+<div class="user-input">
+<label class="ie-placeholder" for="user-vcode">请输入验证码</label>
+<input type="text" name="code" class="require-input" placeholder="请输入验证码" id="user-vcode">
+</div>
+<div class="code msg-code"><a href="/site/send-code" class="send-code" data-type="">获取验证码</a></div>
+</div>
+<button type="submit" class="btn" id="bind">完成验证</button>
+</form> </div>
+</div>
+</div>
+<div class="bg-global" id="show" style="display:none">
+<div class="bg-login hwrap">
+<h1 class="title-hd">账号实名认证成功</h1>
+<div class="login-sel f-usn">
+<div style="margin-top:20px; line-height: 20px; text-align: left; font-size: 14px;">
+恭喜您已完成账号实名验证，您可以正常登录并使用功能，如需使用该手机号码进行账号登录，请到<a href="/" style="color: #52c684;">个人中心</a>绑定手机号码。
+</div>
+<span style="color:red;" id="errorcode"></span>
+</div>
+<div class="login-form" id="j-yes">
+<form class="my-form-bind" action="/login?jump_url=http%253A%252F%252Fbook.21cnjy.com%252Fstore%252F263134.shtml%253Fsource%253Dmsjk1303" method="post">
+<input type="hidden" name="_csrf" value="Itp7LbFikBOZeuwu3TzbfBF0wEQXKBx6Qejh3Y8EJcNa6ktMwlPiePQson2bTr0GfD6ONlpsdBsYgtWv7GZysw=="> <a href='http%3A%2F%2Fbook.21cnjy.com%2Fstore%2F263134.shtml%3Fsource%3Dmsjk1303' class="btn1">完成认证 </a>
+</form> </div>
+</div>
+</div>
+<script type="text/template" id="user-captcha-template">
+        <input type="hidden" name="LoginForm[is_check]">
+        <button type="button" class="" id="TencentCaptcha" ><span><img class="icon-img" src="/static/images/click.png">请点击进行验证</span></button>
+    </script>
+<script src="//static.21cnjy.com/js/jquery-1.9.1.min.js"></script>
+<script src="//static.21cnjy.com/layer/3.0.1/layer.js"></script>
+<script src="/static/js/common-6d31f6b6d2.mini.js?v=6db8327e"></script> <script src="/static/js/mobile-bind-df4deda9c4.mini.js?v=b562e7c8"></script> <script src="/static/js/login-731d2c19ba.mini.js?v=735c16cb"></script>
+<script src="https://g.alicdn.com/dingding/dinglogin/0.0.5/ddLogin.js"></script>
+<script>
+        // 你的钉钉ClientId（AppKey/SuiteKey）
+        var appld = $("#app_key").val(); // 请确保与后台一致
+        var parent_id = $("#parent_id").val();//用于回调处理后台查询钉钉配置
+
+        // 跳转回调地址，必须和钉钉后台配置一致
+        var url = 'https://passport.21cnjy.com/site/get-userinfo-bycode';
+        // goto参数，严格按官方文档拼接
+        var dingdingUrl = 'https://oapi.dingtalk.com/connect/oauth2/sns_authorize?appid='+appld+'&response_type=code&scope=snsapi_login&state='+parent_id+'&redirect_uri='+url;
+        var gotoUrl = encodeURIComponent(dingdingUrl);
+        $('.btn-dingding').on('click',function(){
+            layer.open({
+                type: 1, // page 层类型
+                area: ['365px', '450px'],
+                title: '钉钉登录',
+                shade: 0.6, // 遮罩透明度
+                shadeClose: false, // 点击遮罩区域，关闭弹层
+                maxmin: false, // 允许全屏最小化
+                anim: 0, // 0-6 的动画形式，-1 不开启
+                content: '<div id="login_container"></div>'
+            });
+            var dingObj = DDLogin({
+                id:"login_container",
+                goto: gotoUrl,
+                style: "border:none;background-color:#FFFFFF;",
+                width : "365",
+                height: "400"
+            });
+        });
+        var handleMessage = function (event) {
+            var origin = event.origin;
+            console.log("origin", event.origin);
+            if( origin == "https://login.dingtalk.com" ) { //判断是否来自ddLogin扫码事件。
+                var loginTmpCode = event.data;
+                //获取到loginTmpCode后就可以在这里构造跳转链接进行跳转了
+                var redirect_url = dingdingUrl+'&loginTmpCode='+loginTmpCode;
+                window.location.href = redirect_url;
+                console.log("loginTmpCode", loginTmpCode);
+            }
+        };
+        if (typeof window.addEventListener != 'undefined') {
+            window.addEventListener('message', handleMessage, false);
+        } else if (typeof window.attachEvent != 'undefined') {
+            window.attachEvent('onmessage', handleMessage);
+        }
+    </script>
+<script>
+        var slideData = [{"title":"\u3010\u8bfe\u5802\u65e0\u5fe7\u3011 \u521d\u4e2d\u79cb\u5b63 \u6838\u5fc3\u7d20\u517b\u540c\u6b65\u8bfe\u5802","url":"https:\/\/book.21cnjy.com\/\/uploads\/series\/20260807\/U2iN9mxVjWceHTqD6_oaPSww3F1OjUq9.jpg","link":"https:\/\/book.21cnjy.com\/series\/list?series_id=2274","color":"#497ece"},{"title":"\u3010\u6559\u5b66\u8bc4\u4e00\u4f53\u5316\u3011\u5c0f\u5b66\u79cb\u5b63 \u540c\u6b65\u5907\u8bfe","url":"https:\/\/book.21cnjy.com\/\/uploads\/series\/20260807\/lzeGLIWjrlRKctJiUQyEmFBqqhg50V56.jpg","link":"https:\/\/book.21cnjy.com\/series\/list?series_id=2269","color":"#75bbef"},{"title":"\u3010\u8bfe\u5802\u65e0\u5fe7\u3011\u5c0f\u5b66\u79cb\u5b63 \u6838\u5fc3\u7d20\u517b\u540c\u6b65\u8bfe\u5802","url":"https:\/\/book.21cnjy.com\/\/uploads\/series\/20260807\/azaM40SgAw95BfMOcoMvXz2Jlc4MZQmo.jpg","link":"https:\/\/book.21cnjy.com\/series\/list?series_id=2268","color":"#6a54e7"},{"title":"\u3010\u8bfe\u5802\u65e0\u5fe7\u3011 \u5c0f\u5b66\u79cb\u5b63\u4e0a\u518c \u540c\u6b65\u6838\u5fc3\u7d20\u517b\u8bfe\u5802","url":"https:\/\/book.21cnjy.com\/\/uploads\/series\/20250813\/f0QXVPsvkunIoCi647zwRoqKbAL2ShIh.png","link":"https:\/\/book.21cnjy.com\/series\/list?series_id=1824","color":"#f7f89a"},{"title":"\u3010\u671f\u672b\u51b2\u523a\u3011\u5c0f\u5b66\u5404\u79d1\u671f\u672b\u4eff\u771f\u6a21\u62df\u5377","url":"https:\/\/book.21cnjy.com\/\/uploads\/series\/20240524\/hcjcVUmvUFw7GwO5MBr0YAgsTV6P3rEW.jpg","link":"https:\/\/book.21cnjy.com\/series\/list?series_id=1278","color":"#6477ff"},{"title":"\u3010\u5907\u80032024\u3011\u5c0f\u5347\u521d\u4eff\u771f\u6a21\u62df\u8bd5\u5377","url":"https:\/\/book.21cnjy.com\/\/uploads\/series\/20240511\/Gi1bHffn5vM1t0ACN7M9ZHQ1nslE3SLn.jpg","link":"https:\/\/book.21cnjy.com\/series\/list?series_id=1246","color":"#70b6fe"}];
+        var bgGlobal = $('.bg-global')
+        var dots= $('#swiper-dot').children()
+        var lis = $('#swiper-wrapper').children()
+        var timer = null
+        var currentIndex = 0
+       
+        lis.each(function(){
+            $(this).on('mouseenter',function(){
+                clearTimeout(timer)
+                timer = null
+            })
+            $(this).on('mouseleave',function(){
+                autoLaunchSwiper(currentIndex)
+            })
+        })
+        dots.each(function(i){
+            $(this).on('click',function(){
+                autoShutSwiper(i)
+            })
+        })
+        function autoLaunchSwiper(index){
+                if(index > slideData.length -1){
+                    index = 0
+                }
+                lis.eq(currentIndex).removeClass('swiper-active')
+                lis.eq(index).addClass('swiper-active')
+                dots.eq(currentIndex).removeClass('dots-active')
+                dots.eq(index).addClass('dots-active')          
+                if(slideData[index]){
+                    bgGlobal.css('background-color',slideData[index].color)
+                }
+                currentIndex = index
+                index ++ 
+                timer = setTimeout(function (){
+                autoLaunchSwiper(index)
+            },4000)
+        }
+        function autoShutSwiper(i){
+            clearTimeout(timer)
+            timer = null
+            autoLaunchSwiper(i)
+        }
+         // 开启轮播
+         autoLaunchSwiper(currentIndex)
+    </script>
+<script src="//cstaticdun.126.net/load.min.js?t=2610151812"></script>
+<script>
+        document.domain = "21cnjy.com";
+        var illegal_char = ' '; // 非法字符
+        var opt = {
+            Expiration: 5*60*1000,
+            jump_url: 'http%3A%2F%2Fbook.21cnjy.com%2Fstore%2F263134.shtml%3Fsource%3Dmsjk1303', // 跳转地址
+            check_url: '/site/issubscribe', // 二维码轮询检测地址
+            IsIframe: 0 
+        };
+        var login_form = new LoginForm('form.my-form').init(opt);
+       
+    </script>
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?0280ecaa2722243b1de4829d59602c72";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+         // 防止浏览器默认填充数据
+         setTimeout(function (){
+            $('.groupbox input[readonly]').removeAttr('readonly')
+        }, 1000);
+    })();
+
+
+    // 登录动态时间
+    var date = "2006-"+ new Date().getFullYear()
+    $('.copyright-time').text(date)
+
+</script>
+<script> var _hmt = _hmt || []; (function() {   var hm = document.createElement("script");   hm.src = "https://hm.baidu.com/hm.js?a3a431b28e2eef5d0d3b24d3c06e6833";   var s = document.getElementsByTagName("script")[0];   s.parentNode.insertBefore(hm, s); })(); </script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?690f687fe07b350f535d941f6f5ecb13";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

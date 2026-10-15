@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="//www.21cnjy.com/favicon.ico" mce_href="//www.21cnjy.com/favicon.ico" />
+<script src="//static.21cnjy.com/js/jquery-1.12.0.min.js"></script>
+<script src="//static.21cnjy.com/js/underscore-1.8.3.min.js"></script>
+<script src="//static.21cnjy.com/artDialog/dist/dialog-plus-min.js"></script>
+<script src='/static-v1/js/dialog-setting-459153c81b.mini.js'></script>
+<script src='/static-v1/js/search-tracking-21103be8ca.mini.js'></script>
+<link rel="stylesheet" href="//static.21cnjy.com/artDialog/css/ui-dialog.css">
+<link rel="stylesheet" href="/css/animate.css" />
+<script src="//static.21cnjy.com/book.21cnjy.com/js/lib/layer/layer.js"></script>
+<meta name="csrf-param" content="_csrf-frontend">
+<meta name="csrf-token" content="GXX_vlAOoAVlvngMwHD99i6rMMRXVQnjoOOoxdK9HrhpPbboFzbkPQ7vLj2KR7-gbPpevg4_a9vSoZqLnoVb8w==">
+<title>精优专题</title>
+<style>.ui-dialog{background-color:unset !important;}body .artDialog-skin-ot2 .ui-dialog-content[id*="oooo"]{min-height:0;background-color:rgb(0,0,0,0.6);font-size:16px;min-height:21px;padding:16px 26px;color:white;border-radius:6px;}body .artDialog-skin-ot2 .ui-dialog-content{background-color:#fff;}::-webkit-scrollbar{width:8px;height:8px;}::-webkit-scrollbar-thumb{background-color:#999;}.book_site_body .asv-sd{width:205px}.book_site_body .asv-sd .thumb-item{width:160px}.book_site_body .asv-multi .asv-sd{height:calc(100vh - 200px)}.book_site_body .asv-multi .asv-mn{height:calc(100vh - 200px);overflow:auto}.book_site_body .asv-mn{margin-left:225px}.book_site_body .asv-doc li img{width:960px;}</style>
+<script src="//www.21cnjy.com/js/tracking-sdk.min.js?v=c201654"></script>
+<script>
+        window.TrackSDK = window.TrackSDK || {
+            init: function() {},
+            track: function() {},
+            setCommonProperties: function() {},
+            setUserProfile: function() {},
+            identify: function() {}
+        };
+                window.Dong = {}; 
+        window.JST = {}; 
+        window.$DOC = $(document); 
+        window.G_UID =  0;
+        window.G_USER = {
+	        username: '0',
+	        uid: window.G_UID,
+	        isXwt: 0,
+        }
+        var Kao = {};
+        // 播放css动画
+        Kao.playAnimate = function ($el, animate_name) {
+            $el.addClass(animate_name + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend  animationend', function () {
+                $(this).removeClass(animate_name + ' animated');
+            });
+        };
+        Kao.message = function (title, duration) {
+            if (Kao.message._dialog) {
+                Kao.message._dialog.close().remove();
+            }
+            var d = dialog({
+                fixed: true,
+                id: "oooo",
+                // class: "pppp", // IE8关键字，不能使用
+                // height: 32,
+                align: 'top',
+                content: "<span class='del-msg' style='display:inline-block'>" + title + "</span>"
+            });
+            Kao.message._dialog = d;
+            d.show();
+            Kao.playAnimate($(d.node), 'bounce');
+            setTimeout(function () {
+                d.close().remove();
+            }, duration || 2000);
+        };
+    </script>
+<script src='/static-v1/js/jst-3973a958f8.mini.js'></script>
+<link rel='stylesheet' href='/static-v1/css/bookStore-9b917e565e.mini.css?5Aas1'> </head>
+<body class="book_site_body">
+<div id="custom-cad-x-placeholder"></div>
+<div class="head">
+<div class="head__block1 cfx" style="background-color: #f8f8f8">
+<div class="global-main cfx J_topblk" style="position:relative;z-index:44">
+<a href="//www.21cnjy.com" class="head__block1--site">21世纪教育网</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(您的IP:90.96.178.124)
+<ul class="head__block1--first-list cfx">
+<li class="head__block1--first-item">
+<a>帮助中心<i class="icona-arrow-down1"></i></a>
+<i class="icona-arrow-tip"></i>
+<ul class="head__block1--second-list">
+<li class="head__block1--second-item">
+<a href="//www.21cnjy.com/help/" class="head__block1--btn">帮助中心</a>
+</li>
+<li class="head__block1--second-item">
+<a href="//www.21cnjy.com/about/about_contact-us.php" class="head__block1--btn">联系我们</a>
+</li>
+<li class="head__block1--second-item">
+<a href="//www.21cnjy.com/about/about_opinion.php" class="head__block1--btn">投诉建议</a>
+</li>
+</ul>
+</li>
+<li class="head__block1--first-item head__block1--gap">|</li>
+<li class="head__block1--first-item">
+<a>旗下产品<i class="icona-arrow-down1"></i></a>
+<i class="icona-arrow-tip"></i>
+<div class="head__block1--second-list clearfix header-top-products">
+<ul>
+<li class="ah-caption">明星产品</li>
+<li class="head__block1--second-item"><a href="https://www.21cnjy.com/" class="head__block1--btn" target="_blank">21世纪教育网</a></li>
+<li class="head__block1--second-item"><a href="https://www.21cnjy.com/zhitongche/index" class="head__block1--btn" target="_blank">二一校网通</a></li>
+<li class="head__block1--second-item"><a href="https://zujuan.21cnjy.com/" class="head__block1--btn" target="_blank">二一AI组卷</a></li>
+<li class="head__block1--second-item"><a href="http://www.xbzyk.com/index.php?s=/Home/Default/index.html" class="head__block1--btn" target="_blank">二一校本资源库</a></li>
+<li class="head__block1--second-item"><a href="https://vr.21cnjy.com" class="head__block1--btn" target="_blank">二一VR虚拟仿真实验</a></li>
+<li class="head__block1--second-item"><a href="http://beike.21cnjy.com/about" class="head__block1--btn" target="_blank">二一在线备课</a></li>
+<li class="head__block1--second-item"><a href="https://yj.21cnjy.com/" class="head__block1--btn" target="_blank">二一AI阅卷</a></li>
+<li class="head__block1--second-item"><a href="http://paike.21cnjy.com/" class="head__block1--btn" target="_blank">二一AI排课</a></li>
+<li class="head__block1--second-item"><a href="https://fenban.21cnjy.com/" class="head__block1--btn" target="_blank">二一分班</a></li>
+<li class="head__block1--second-item"><a href="http://www.21szxy.com/" class="head__block1--btn" target="_blank">数字化校园</a></li>
+</ul>
+<ul>
+<li class="ah-caption">赋能平台</li>
+<li class="head__block1--second-item"><a href="https://dev.21cnjy.com" class="head__block1--btn" target="_blank">二一开放平台</a></li>
+<li class="head__block1--second-item"><a href="https://zb.21cnjy.com" class="head__block1--btn" target="_blank">二一教育众包</a></li>
+</ul>
+</div>
+</li> <li class="head__block1--first-item head__block1--gap">|</li>
+<li class="head__block1--first-item">
+<a href="https://www.21cnjy.com/payment/pay-coin" target="_blank">充值/会员</a>
+</li>
+<li class="head__block1--first-item head__block1--gap">|</li>
+<li class="head__block1--first-item user-item">
+<a href="//passport.21cnjy.com/login?jump_url=http://book.21cnjy.com/series?category=130&stage=2&subject_id=4&year=&source_id=&has_ai_course=">登录</a>/
+<a href="//passport.21cnjy.com/login?jump_url=http://book.21cnjy.com/series?category=130&stage=2&subject_id=4&year=&source_id=&has_ai_course=">注册</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="head__block2  cfx">
+<div class="global-main">
+<a href="//book.21cnjy.com/"><img src="/static-v1/images/logo.png" class="head__block2--logo"></a>
+<div class="head__block2--search cfx b1" id="J_SearchWrap">
+<dl class="head__block2--first-list" id="J_SearchMenu">
+<dt class="head__block2--first-item"><span>书籍</span><i class="icona-arrow-down"></i></dt>
+<dd class="head__block2--first-item">
+<ul class="head__block2--second-list">
+<li class="head__block2--second-item"><input type="radio" value="/search/search-book" class="item-data"><span>书籍</span></li>
+<li class="head__block2--second-item"><input type="radio" value="/search/search-workroom" class="item-data"><span>工作室</span></li>
+<li class="head__block2--second-item"><input type="radio" value="/search/search-special" class="item-data"><span>专题</span></li>
+</ul>
+</dd>
+</dl>
+<input type="text" name="content" autocomplete="off" value="" placeholder="请输入关键字" class="head__block2--edit" id="searchVal">
+<button id="globalSearch" class="head__block2--edit-icon"><i class="icona-search"></i></button>
+<div class="J_sfDiv sf-div"></div>
+<a href="//book.21cnjy.com/search/search-book?searchVal=AI%E8%B5%8B%E8%83%BD%E8%AF%BE%E4%BB%B6&has_ai_course=1" target="_blank" style="display: block;">
+<span style="color: red;line-height: 30px;">AI赋能课件</span>
+</a>
+</div>
+<a href="//book.21cnjy.com/studio/create" class="head__block2--btn">我的工作室</a>
+<a href="https://www.21cnjy.com/ucenter/book" class="head__block2--btn head__block2--btn1">书籍管理</a>
+</div>
+</div>
+</div>
+<div class="hurry-pop" style="display: none;">
+<a href="javascript:;" class="hurry-close">
+<img src="/static-v1/images/hurry-close.png" alt="关闭">
+</a>
+<div class="hurry-hd">
+<h2 class="hurry-title">催更提醒</h2>
+</div>
+<div class="hurry-bd">
+<div class="hurry-contain">
+<textarea name="text" id="textarea" class="hurry-textarea" maxlength="50" placeholder="请输入期望更新的内容"></textarea>
+<div class="textarea-limit">
+<span class="limit-num">0</span>/
+<span class="limit-total">50</span>
+</div>
+</div>
+</div>
+<div class="hurry-ft">
+<a href="javascript:;" class="hurry-button hurry-cancel">取消</a>
+<a href="javascript:;" class="hurry-button hurry-confirm">确认</a>
+</div>
+</div>
+<script>
+    Dong.HurryTextarea = function($el, _bookid){
+        var $J_hurryBtn = $el;
+        var bookid = _bookid;
+        var $textarea = $("#textarea");
+        $textarea.keyup(function(event) {
+            var len = $.trim($(this).val()).length;
+            $('.limit-num').html(len)
+            if(len >= 50){
+                alert("最多只能输入50个字符");
+            }
+        });
+
+        $('.hurry-confirm').click(function(){
+            var text = $.trim($textarea.val());
+            if(text.length == 0) {
+                layer.msg('请输入文本')
+                return false
+            }
+            // {ids: chk_value}
+            $.post('/urge-ajax/urge',{urge_center: text,book_id: bookid},'json').then(function(res){
+                if(res.code == 0 ){
+                    layer.msg('催更成功',{time:2000});
+                    $J_hurryBtn.addClass('active');
+                    $J_hurryBtn.find('.hurry-txt').html('已催更');
+                    $('.hurry-close').trigger('click');
+                }else{
+                    if(res.msg.indexOf("登录") > -1){
+                        window.location.href= "/home/login-book";
+                    }
+                    layer.msg(res.msg,{time:2000});
+                    $J_hurryBtn.find('.hurry-txt').html('催更');
+                    $('.hurry-close').trigger('click');
+                }
+            }).fail(function(err){
+                console.log(err);
+            })
+
+        })
+
+        $('.hurry-close,.hurry-cancel').click(function(){
+            $('.hurry-pop').hide();
+            $textarea.val('');
+            $('.limit-num').html(0);
+        })
+        Dong.HurryTextarea = function($el, _bookid) {
+            $J_hurryBtn = $el;
+            bookid = _bookid;
+            $('.hurry-pop').show();
+        };
+    }
+    Dong.HurryTextarea()
+    $('body').on('click','.J_hurryBtn',function(){
+        if($(this).hasClass('active')) return false;
+        var bookid = $(this).attr('data-bookid');
+        Dong.HurryTextarea($(this),bookid);
+        return false;
+    })
+</script><script>
+    window.current_user_coin = 0;
+    $('.update--tab').on('click', '.update--tabitem', function() {
+        var index = $(this).index();
+        $('.update--tabitem').removeClass('active');
+        $(this).addClass('active');
+        $('.update--body>div').hide();
+        $('.update--body>div').eq(index).show();
+    });
+
+    </script>
+<div class="nav cfx">
+<div class="global-main cfx">
+<ul class="nav__block--list1 cfx">
+<li class="nav__block--item1 ">
+<a href="https://book.21cnjy.com" class="nav__block--btn">首页</a>
+</li>
+<li class="nav__block--item1 ">
+<a href="https://book.21cnjy.com/book/1/0/" class="nav__block--btn">小学书籍</a>
+</li>
+<li class="nav__block--item1 ">
+<a href="https://book.21cnjy.com/book/2/0/" class="nav__block--btn">初中书籍</a>
+</li>
+<li class="nav__block--item1 ">
+<a href="https://book.21cnjy.com/book/3/0/" class="nav__block--btn">高中书籍</a>
+</li>
+<li class="nav__block--item1 ">
+<a href="https://book.21cnjy.com/book/4/0/" class="nav__block--btn">中职
+<img src="/static-v1/images/icon-new.png" class="new-flag" alt="icon">
+</a>
+</li>
+<li class="nav__block--item1 active">
+<a href="https://book.21cnjy.com/series" class="nav__block--btn">精优专题</a>
+</li>
+<li class="nav__block--item1 ">
+<a href="https://book.21cnjy.com/studio" class="nav__block--btn">名师工作室</a>
+</li>
+<li class="nav__block--item1 ">
+<a href="https://book.21cnjy.com/teaching" class="nav__block--btn" target="_blank">数字教辅
+</a>
+</li>
+<li class="nav__block--item1 ">
+<a href="https://book.21cnjy.com/promotion" class="nav__block--btn">
+优惠促销
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="global-main">
+<div class="filter sr-main">
+<ul class="filter--list">
+<li class="filter--item">
+<span class="filter--item-hd">所在学段：</span>
+<div class="filter--item-wrapper">
+<div class="filter--item-bd">
+<ul class="filter--item-bd-xd">
+<li class="filter--item-bd-type">
+<a href="/series?year=&source_id=&has_ai_course=">
+全部
+</a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?stage=1&year=&source_id=&has_ai_course=">
+小学 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?stage=2&year=&source_id=&has_ai_course=" class="active">
+初中 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?stage=3&year=&source_id=&has_ai_course=">
+高中 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?stage=4&year=&source_id=&has_ai_course=">
+中职 </a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="filter--item">
+<span class="filter--item-hd">所在学科：</span>
+<div class="filter--item-wrapper">
+<div class="filter--item-bd ">
+<ul class="filter--item-bd-xd filter-xk">
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=&year=&source_id=&has_ai_course=">
+全部
+</a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=2&year=&source_id=&has_ai_course=">
+语文 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=3&year=&source_id=&has_ai_course=">
+数学 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=4&year=&source_id=&has_ai_course=" class="active">
+英语 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=5&year=&source_id=&has_ai_course=">
+科学 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=6&year=&source_id=&has_ai_course=">
+物理 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=7&year=&source_id=&has_ai_course=">
+化学 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=8&year=&source_id=&has_ai_course=">
+历史 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=9&year=&source_id=&has_ai_course=">
+道德与法治 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=21&year=&source_id=&has_ai_course=">
+社会法治 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=10&year=&source_id=&has_ai_course=">
+地理 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=11&year=&source_id=&has_ai_course=">
+生物学 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=16&year=&source_id=&has_ai_course=">
+劳动 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=14&year=&source_id=&has_ai_course=">
+信息技术（信息科技） </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=18&year=&source_id=&has_ai_course=">
+专题教育 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=1006&year=&source_id=&has_ai_course=">
+音乐 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=1008&year=&source_id=&has_ai_course=">
+美术 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=1010&year=&source_id=&has_ai_course=">
+体育与健康 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=1012&year=&source_id=&has_ai_course=">
+心理健康 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=1017&year=&source_id=&has_ai_course=">
+班会 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=1019&year=&source_id=&has_ai_course=">
+地方、校本课程 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=1021&year=&source_id=&has_ai_course=">
+综合实践活动 </a>
+</li>
+</ul>
+<div class="filter--more">
+<span>更多</span>
+<i class=icona-arrow-down3></i>
+</div>
+</div>
+</div>
+</li>
+<li class="filter--item">
+<span class="filter--item-hd">专题类别：</span>
+<div class="filter--item-wrapper">
+<div class="filter--item-bd">
+<ul class="filter--item-bd-xd">
+<li class="filter--item-bd-type">
+<a href="/series?category=&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+全部
+</a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=162&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+同步教学 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=264&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+AI赋能教学 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=228&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+大单元教学 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=240&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+同步训练 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=223&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+单元复习 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=238&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+开学无忧 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=163&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+期中专区 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=236&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+期末专区 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=266&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+阅读与写作 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=192&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+寒暑假专区 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=171&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+中考一轮 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=173&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+中考二轮 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=218&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+中考三轮 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=174&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+中考模拟 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=169&stage=2&subject_id=4&year=&source_id=&has_ai_course=">
+中考真题 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=4&year=&source_id=&has_ai_course=" class="active">
+真题分类汇编 </a>
+</li>
+</ul>
+<div class="filter--more">
+<span>更多</span>
+<i class=icona-arrow-down3></i>
+</div>
+</div>
+</div>
+</li>
+<li class="filter--item" data-index="subject_id">
+<span class="filter--item-hd">出品来源：</span>
+<div class="filter--item-wrapper">
+<div class="filter--item-bd">
+<ul>
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=4&year=&source_id=&has_ai_course=" class="active">
+全部
+</a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?stage=2&subject_id=4&source_id=1&year=&category=130&has_ai_course=">
+工作室出品 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?stage=2&subject_id=4&source_id=2&year=&category=130&has_ai_course=">
+研究院出品 </a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="filter--item">
+<span class="filter--item-hd">年份：</span>
+<div class="filter--item-wrapper">
+<div class="filter--item-bd">
+<ul class="filter--item-bd-xd">
+<li class="filter--item-bd-type">
+<a href="/series?category=130&stage=2&subject_id=4&year=&source_id=&has_ai_course=" class="active">
+全部
+</a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?year=2026&category=130&stage=2&subject_id=4&source_id=&has_ai_course=">
+2026 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?year=2025&category=130&stage=2&subject_id=4&source_id=&has_ai_course=">
+2025 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?year=2024&category=130&stage=2&subject_id=4&source_id=&has_ai_course=">
+2024 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?year=2023&category=130&stage=2&subject_id=4&source_id=&has_ai_course=">
+2023 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?year=2022&category=130&stage=2&subject_id=4&source_id=&has_ai_course=">
+2022 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?year=2021&category=130&stage=2&subject_id=4&source_id=&has_ai_course=">
+2021 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?year=2020&category=130&stage=2&subject_id=4&source_id=&has_ai_course=">
+2020 </a>
+</li>
+<li class="filter--item-bd-type">
+<a href="/series?year=2019&category=130&stage=2&subject_id=4&source_id=&has_ai_course=">
+2019 </a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="filter-aifun-checked">
+<a href="#" class="supreme-aifuneng " onclick="Dong.toggleAIFilter(event)">
+<i class="icona-checkbox"></i>
+<span class="">AI赋能课件</span>
+<span class="new-sign">new</span>
+</a>
+</div>
+<ul class="series--list" style="background: #fff;padding: 40px 0 0 40px">
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=2276">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20260807/ZhpiRZYmrAobIOrLCpQePzCGNXa__uO9.jpg" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=2276" title="【备考2027】中考真题分类汇编" target="_blank">【备考2027】中考真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：555</span>
+<span class="series--intro-time">时间：2026-08-07</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=1809">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20250819/MNksAAFrZnDFjd5iN1i12_n1jB2xjk1L.png" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=1809" title="【备考2026】三年中考真题分类汇编" target="_blank">【备考2026】三年中考真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：1158</span>
+<span class="series--intro-time">时间：2025-12-18</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=1810">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20250730/1y3y8-y4EppjrIrqObf-CP1zJ6ysR--b.jpg" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=1810" title="【备考2026】五年中考真题分类汇编" target="_blank">【备考2026】五年中考真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：893</span>
+<span class="series--intro-time">时间：2025-12-18</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=1808">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20250730/zvRhXQXlBrYbOA6bOWNC_rK28_sofcV9.jpg" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=1808" title="【备考2026】中考真题分类汇编" target="_blank">【备考2026】中考真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：3795</span>
+<span class="series--intro-time">时间：2025-12-18</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=1320">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20240807/2D2lqcRf8rvZUtQa5yW_g8Qopi6RC44o.png" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=1320" title="2024中考真题分类汇编" target="_blank">2024中考真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：2129</span>
+<span class="series--intro-time">时间：2024-11-07</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=1323">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20241011/Erh4SxcZuWgryPzBFB5lY9moLFNqtHCl.jpg" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=1323" title="（2020-2024）五年中考真题分类汇编" target="_blank">（2020-2024）五年中考真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：459</span>
+<span class="series--intro-time">时间：2024-11-07</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=1321">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20240819/pY6IbHti8m8e9Fp3g2yo3bXYp_7x1rP0.png" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=1321" title="（2022-2024）三年中考真题分类汇编" target="_blank">（2022-2024）三年中考真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：729</span>
+<span class="series--intro-time">时间：2024-10-14</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=1237">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20240423/oFjBL4Xw-AVyYH9xnOw_ob4UxOeZYDhu.jpg" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=1237" title="【广东专版】备考2024各科中考真题+模拟题分类汇编" target="_blank">【广东专版】备考2024各科中考真题+模拟题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：7340</span>
+<span class="series--intro-time">时间：2024-05-13</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=1145">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20240320/GA_MirVZ25b-AuKhJPBkcOM9N3WQ9TXG.jpg" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=1145" title="【浙江专版】备考2024各科中考真题+模拟题分类汇编" target="_blank">【浙江专版】备考2024各科中考真题+模拟题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：22090</span>
+<span class="series--intro-time">时间：2024-05-13</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=907">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20230626/Q5oRVOkwqSp0akF4Um-Occ9eVEvhl2QE.jpg" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=907" title="【备考2024】2023年中考真题分类汇编" target="_blank">【备考2024】2023年中考真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：3452</span>
+<span class="series--intro-time">时间：2024-01-10</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=608">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20220624/yOTrwkXzc7H-knIzbKPtRmQAjElOH93L.jpg" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=608" title="【备考2023】2022年中考真题分类汇编" target="_blank">【备考2023】2022年中考真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：6100</span>
+<span class="series--intro-time">时间：2022-12-20</span>
+</div>
+</div>
+</li>
+<li class="series--item">
+<div class="series--slide-cover" style="position: relative;">
+<a href="/series/list?series_id=170">
+<img style="width: 250px;height: 122px;border-radius: 4px;" src="https://book.21cnjy.com//uploads/series/20200115/rMi6baJ26CO6Ar7Yg6m52ulkSh3AwKsE.png" onerror='this.src="/static-v1/images/series-cover.png"' class="series--slide-pic">
+</a>
+</div>
+<div class="series--intro">
+<h2 class="series--intro-title"><a href="/series/list?series_id=170" title="【备考2020】中考各科真题分类汇编" target="_blank">【备考2020】中考各科真题分类汇编</a></h2>
+<div class="series--intro--label">
+<span>初中</span>
+<span>工作室出品</span>
+</div>
+<div class="series--intro-num">
+<span class="series--intro-click">下载量：14455</span>
+<span class="series--intro-time">时间：2022-04-13</span>
+</div>
+</div>
+</li>
+</ul>
+<div class="page-list">
+<div class="pagenum">
+<a data-page="1" href="javascript:;" class="current">1</a>
+<a data-page="2" href="/series/2?category=130&stage=2&subject_id=4&year=&source_id=&has_ai_course=&per-page=12">2</a>
+<a data-page="2" href="/series/2?category=130&stage=2&subject_id=4&year=&source_id=&has_ai_course=&per-page=12">下一页</a>
+</div>
+</div>
+</div>
+<div class="foot">
+<div class="global-main cfx">
+<div class="foot--main">
+<ul class="foot--list cfx">
+<li class="foot--item">
+<a target="_blank" href="https://www.21cnjy.com/about/about_contact-us.php" class="foot--btn">联系我们</a>
+</li>
+<li class=" foot--item foot--item-gap">|</li>
+<li class="foot--item">
+<a href="/studio/create" class="foot--btn">成立工作室</a>
+</li>
+<li class=" foot--item foot--item-gap">|</li>
+<li class="foot--item">
+<a target="_blank" href="https://www.21cnjy.com/about/about_opinion.php" class="foot--btn">意见反馈</a>
+</li>
+</ul>
+<div class="foot--intro">
+<p class="foot--addr">地址：深圳市福田区创新科技广场（二期）大厦西座5层03号、05号 | 联系电话：400-637-9991</p>
+<p class="foot--right">2006-2026版权所有@深圳市二一教育科技有限责任公司 | 粤ICP备11039084 | 粤教信息(2013)2号</p>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0280ecaa2722243b1de4829d59602c72' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?690f687fe07b350f535d941f6f5ecb13";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<style>.filter-aifun-checked{background:#fff;height:30px;line-height:66px;padding-left:20px;font-size:14px;position:relative;}.icona-checkbox{vertical-align:sub;}</style><script src="//static.21cnjy.com/js/polyfill-7.12.1.min.js"></script>
+<script src="//static.21cnjy.com/vue/v2.7.14/vue.min.js"></script>
+<script src="https://static.21cnjy.com/js/ac20_modal.js?v=12"></script>
+<script>
+    Ac20Modal.openPrize  = function() {};
+</script>
+<script>
+if (typeof TrackSDK !== 'undefined') {
+    var property = _.extend(true, {
+        web_uid: window.G_UID,
+    }, window.G_USER);
+    property.source = '21书城';
+    TrackSDK.setCommonProperties(property);
+    TrackSDK.setUserProfile(property);
+    if(window.G_UID) TrackSDK.identify(window.G_UID);
+}
+
+</script>
+<style>.fixed-kefu .t-xwt-link{background-color:#00b156;color:#fff;text-align:center}.fixed-kefu .t-xwt-link:hover{color:#fff;text-decoration:none}.fixed-kefu .t-xwt-link .kf_vip{margin:5px auto 0}.t-xwt-link .kf_vip{background-image:url(/static-v1/images/vip.png);background-repeat:no-repeat;background-position:center top;width:19px;height:19px;}</style>
+<script>
+    var _kefu_script_v3_inject_function = _kefu_script_v3_inject_function || []; 
+    _kefu_script_v3_inject_function.push(function() {
+        $('<a href="//ai.21cnjy.com" style="margin-bottom:5px;cursor: pointer" target="aiWindow"><img src="//www.21cnjy.com/v5/main/images/assistant_icon.svg" id="awkefu" /></a>').prependTo('.fixed-kefu');
+    });
+</script>
+<script src="//www.21cnjy.com/js/kefu-script-v3-20260812165100.min.js?v=1206"></script>
+<script src='/static-v1/js/search-95b0a12cbc.mini.js'></script>
+<script>
+    Dong.bookMainSearch();
+    
+    Dong.toggleAIFilter = function(e) {
+        e.preventDefault();
+        var currentHasAI = '';
+        var newHasAI = currentHasAI === '1' ? '' : 1;
+        
+        // Get current URL parameters
+        var urlParams = new URLSearchParams(window.location.search);
+        
+        if (newHasAI === 1) {
+            urlParams.set('has_ai_course', newHasAI);
+        } else {
+            urlParams.delete('has_ai_course');
+        }
+        
+        // Navigate to the new URL with updated parameter
+        window.location.href = '/series?' + urlParams.toString();
+    }
+
+    //翻页跳转
+    $('#paper-jump').on('click', function(evt) {
+        var p = $('.pagenum input[name=page]').val();
+        // 当前分页参数不能大于总页数就是总页数
+        var pages = 2;
+        if(p > pages){
+            p=pages;
+        }
+        var url = '/series/index?'+
+        '&page='+p+'&per-page=12';
+        window.location.href = url;
+        return false;
+    });
+
+    $('.filter--more').on('click',function() {
+        var bdDom = $(this).parent('.filter--item-bd')
+        if($(bdDom).hasClass('filter-hide')) {
+            $(bdDom).removeClass('filter-hide')
+        } else {
+            $(bdDom).addClass('filter-hide') 
+        }
+    })
+</script>
+<script>
+    var _hmt = _hmt || [];
+    //书城
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f8e2a8cce8b1c46db2d0907fc8c0a06f";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    //主站的统计
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?0280ecaa2722243b1de4829d59602c72";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?74bc2b384c0c00963897c186cbf38f31";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>
