@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <link rel="icon" href="/logo_icon.png" /> -->
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <script src="./APi.js"></script>
+  <link rel="stylesheet" href="./lib/aliplayer-2.13.2-min.css" />
+  <script charset="utf-8" type="text/javascript" src="./lib/aliplayer-2.13.2-min.js"></script>
+  <!-- <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.13.2/skins/default/aliplayer-min.css" />
+  <script charset="utf-8" type="text/javascript"
+    src="https://g.alicdn.com/de/prismplayer/2.13.2/aliplayer-h5-min.js"></script> -->
+
+  <script type="module" crossorigin src="/js/index.BF-Z5MN4.js"></script>
+  <link rel="stylesheet" crossorigin href="/css/index.CU2dDKlN.css">
+</head>
+
+<body>
+  <!-- SVG 滤镜：按亮度抠除近黑背景，不依赖 mix-blend-mode 与页面合成 -->
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="loader-svg-defs">
+    <defs>
+      <filter id="loader-remove-black" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  1 1 1 0 -0.72" />
+      </filter>
+    </defs>
+  </svg>
+
+  <div id="app">
+    <!-- 首屏加载：外层负责动效，内层 img 只做去黑底，避免 transform 破坏混合模式 -->
+    <div class="loader" role="status" aria-label="加载中">
+      <div class="loader__motion">
+        <img class="loader__img" src="/assets/images/loading.webp" alt="" width="168" height="168" />
+      </div>
+    </div>
+  </div>
+</body>
+
+<style>
+  html,
+  body,
+  #app {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 隐藏 SVG 定义块，仅提供滤镜 */
+  .loader-svg-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  /* 首屏 loader 容器：固定尺寸，动效以中心为锚点 */
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 168px;
+    height: 168px;
+  }
+
+  /* 外层动效：缓慢呼吸缩放 + 轻微上浮，贴合发光幼苗的视觉气质 */
+  .loader__motion {
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    animation: loader-float-breathe 2.6s ease-in-out infinite;
+  }
+
+  /* 双重去黑：SVG 按亮度抠图 + screen 兜底；img 不参与 transform */
+  .loader__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: url(#loader-remove-black);
+    mix-blend-mode: screen;
+    animation: loader-glow-pulse 2.6s ease-in-out infinite;
+  }
+
+  /* 生长呼吸：整体轻微放大缩小，并伴随上下悬浮 */
+  @keyframes loader-float-breathe {
+
+    0%,
+    100% {
+      transform: scale(0.94) translateY(4px);
+    }
+
+    50% {
+      transform: scale(1.06) translateY(-6px);
+    }
+  }
+
+  /* 光晕脉动：透明度随呼吸节奏变化，增强「能量流动」感 */
+  @keyframes loader-glow-pulse {
+
+    0%,
+    100% {
+      opacity: 0.82;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  /* 减少动效偏好：仅保留极轻呼吸，避免眩晕 */
+  @media (prefers-reduced-motion: reduce) {
+    .loader__motion {
+      animation: loader-float-breathe-soft 3.2s ease-in-out infinite;
+    }
+
+    .loader__img {
+      animation: loader-glow-pulse-soft 3.2s ease-in-out infinite;
+    }
+
+    @keyframes loader-float-breathe-soft {
+
+      0%,
+      100% {
+        transform: scale(0.98);
+      }
+
+      50% {
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes loader-glow-pulse-soft {
+
+      0%,
+      100% {
+        opacity: 0.9;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+  }
+</style>
+
+</html>

@@ -1,0 +1,86 @@
+{
+  "source_ids": [
+    "R-ED-B::063",
+    "R-ED-B::064"
+  ],
+  "observations": {
+    "as_of": "2026-10-15",
+    "owner_scope": "Read-only discovery for root-owned R-ED-B; no tracked edits, source numbering or commits",
+    "public_html_route": "https://www.seph.com.cn/textbook?textbookCategoryID=18",
+    "category18_is_english_evidence": false,
+    "static_route_login_required": false,
+    "production_api_host": "https://3wm.seph.com.cn",
+    "production_host_source": "seph-public-api-config.js",
+    "literal_category_request": {
+      "method": "POST",
+      "url": "https://3wm.seph.com.cn/api/TextbookCategory/pageweb",
+      "query": {
+        "pageIndex": 1,
+        "pageSize": 10000,
+        "isApprover": true,
+        "orderBy": "DisplayIndex DESC"
+      },
+      "body": null,
+      "request_attempt": "category-request-results.json",
+      "result": "proxy CONNECT403; no category data"
+    },
+    "literal_book_request_template_not_executed": {
+      "method": "POST",
+      "url": "https://3wm.seph.com.cn/api/Textbook/pageweb",
+      "query": {
+        "pageIndex": 1,
+        "pageSize": 18,
+        "isApprover": true,
+        "orderBy": "DisplayIndex DESC,ID ASC"
+      },
+      "body": {
+        "TextbookCategoryID_in": "Actual selected category ID(s) from the blocked category response; unavailable, not guessed",
+        "disabled": false
+      },
+      "source": "catalogue-route.js and textbook-component.js"
+    },
+    "public_card_fields": [
+      "title",
+      "subTitle",
+      "imagePath",
+      "link"
+    ],
+    "public_image_url_rule": "Relative imagePath is prefixed by literal production BASEURL1 in http-request.js; no image path available from blocked catalogue data, no guess attempted",
+    "static_subject_menu_observation": {
+      "source": "textbook-requests.js",
+      "context": "初中",
+      "subject": "英语",
+      "system_code": "wusi",
+      "limits": "Static UI configuration only. Not a live book title, ISBN, printed edition, five-four/six-three adoption policy or verified catalogue item; no six-three/five-four edition coverage derived."
+    },
+    "live_english_records_verified": 0,
+    "isbn_values_verified": 0,
+    "cover_pixels_verified": 0,
+    "printed_edition_year_verified": 0,
+    "book_toc_verified": 0,
+    "current_vs_legacy_book_match_verified": false,
+    "commercial_reuse_approved": false,
+    "limits": [
+      "Exact public production-host catalogue POST blocked before TLS/origin response; no global missing-resource inference.",
+      "No alternate domain/protocol/path substitution, private endpoint, authentication, account, protected asset or reconstructed PDF requested.",
+      "No guessed subject/category IDs, book IDs, covers, ISBNs, edition years or school/city adoption.",
+      "No Shandong, BNU,21cnjy or other publisher requests in this subtask."
+    ]
+  },
+  "actual_failed_requests": [
+    {
+      "key": "textbook-categories",
+      "url": "https://3wm.seph.com.cn/api/TextbookCategory/pageweb?pageIndex=1&pageSize=10000&isApprover=true&orderBy=DisplayIndex+DESC",
+      "method": "POST",
+      "body": null,
+      "provenance": "Public route catalogue-route.js calls common-requests.js TextbookCategory/pageweb with these literal initial fields; production host from supplied APi.js",
+      "retrieval_date": "2026-10-15",
+      "proxy_preserved": true,
+      "certificate_verification_disabled": false,
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "attempt_group": "category-request-results.json"
+    }
+  ],
+  "english_book_records_verified": 0,
+  "commercial_reuse_approved": false
+}
