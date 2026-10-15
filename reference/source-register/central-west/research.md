@@ -83,3 +83,7 @@ Every source is reference-only with `commercial_reuse_approved:false`. No login,
 captcha or download challenge was bypassed. Public previews and filenames do not confer a
 commercial licence. Validate with
 `node scripts/check-register.mjs reference/source-register/central-west`.
+
+## Official-source followup
+
+The remaining inherited Chengdu2023–25all-subject paper articles and Chongqing new-textbook notice were tried at their exact public URLs; they returned CONNECT403or503. These are not verified English papers or proof of city/year resource absence. The Ministry-hosted school course attachment succeeded (125pages,2,999,985bytes). Its35selected central/west English rows have visually checked edition, grade/term and school cells. `school-course-hints.json` preserves these witnesses, with partial chapter excerpts and PDF row locations. The2022award-cycle label remains inherited discovery context: no cycle/cohort appears on the opened table cover, so no annual adoption cell is upgraded. A course-list entry is not an acquired teacher guide/video or current citywide adoption. Ambiguous province-only and multi-city school names do not assign the capital.
