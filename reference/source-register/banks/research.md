@@ -53,7 +53,7 @@ Collection year is not copied to every item. The 2022 directory contains 2019–
 
 ## Official analysis search and unresolved work
 
-No official English post-exam analysis, average-score table or question-type error statistics were verified. Six exact official/media/subscription candidates were blocked or remained unopened: Guangzhou 2025, Lanzhou 2026, the Shandong 2026 analysis-volume subscription notice, and three Zhejiang 2024/2025 pages. The Shandong notice is not the actual volume; the Lanzhou lead is a media report, and neither has verified English contents. Inherited maths provenance is a lead only, never English verification.
+The initial bank pass verified no official English post-exam analysis. The cross-unit followup below now supplies four verified Shanghai analyses. Average-score tables and question-type error statistics remain unverified. Six exact official/media/subscription candidates were blocked or remained unopened: Guangzhou 2025, Lanzhou 2026, the Shandong 2026 analysis-volume subscription notice, and three Zhejiang 2024/2025 pages. The Shandong notice is not the actual volume; the Lanzhou lead is a media report, and neither has verified English contents. Inherited maths provenance is a lead only, never English verification.
 
 An independent ordinary Liaoning education-site public GET search was tried with its published form fields: `英语试卷评析` returned no results, `英语命题` returned 11 mixed curriculum/recruitment/profile results and no verified English post-exam analysis, and `中考英语` timed out. Search response snapshots are retained and explicitly classified as search interfaces, not analysis documents. This narrow search is not proof such analyses do not exist. Generic Bing 200 responses with dictionary/QQ-mail results were rejected as irrelevant; the relevant 组卷网 result was used only to discover its homepage.
 
@@ -62,3 +62,17 @@ Next work: seek accessible official authority/teaching-research English post-exa
 ## Audit and handoff
 
 `attempts.json` records real endpoint outcomes, relevant searches, inherited same-session failures, proxy/TLS preservation and the terms-triggered retrieval stop. Challenge/403/503 bodies and irrelevant search pages are not treated as usable corpus documents. `download_manifest.json` describes what was actually opened: HTML snapshot versus original paper/audio, partial preview, subject and scope. Each retained file has measured bytes and SHA-256. All retained files are text HTML, so no binary/LFS conversion is needed. `qa.json` records schema, source-reference, cell-evidence, artifact-set, hash and ownership checks. Root coordinates the shared board/log; this branch changes only R-BANK folders.
+
+
+## Attributed official-analysis followup — 2026-10-15
+
+Four actual Shanghai examination-authority English analyses are now verified in the separately claimed R-EAST branch. `official-analysis-followup.json` links exact source IDs, URLs, dates, scope, committed snapshot paths and hashes at R-EAST commit `96ca2a0b6f30e0b7f1ada09380ba2163ad7512a9`. The bank unit retains 62 local source records and 40 snapshots; the four analysis artifacts remain stored once in East. Their committed bytes and metadata were rechecked for this handoff, with no new network retrieval.
+
+| Attributed source | Actual official original | Useful scope |
+| --- | --- | --- |
+| R-EAST::239 | http://www.shmeea.edu.cn/page/03500/20220712/16530.html | Shanghai2022: qualitative discussion of listening/grammar/reading and open school-activity writing with choices/reasons |
+| R-EAST::240 | http://www.shmeea.edu.cn/page/08000/20230618/17642.html | Shanghai2023: volunteer webpage/news interview and other reading; time-management/community-training writing |
+| R-EAST::241 | http://www.shmeea.edu.cn/page/03500/20240618/18593.html | Shanghai2024: multimodal barter-group record; gift-card writing about Chinese objects/reasons; published June18, exam June16 |
+| R-EAST::242 | http://www.shmeea.edu.cn/page/03500/20250615/19513.html | Shanghai2025: map/table reading and English project-group application email using own interests/strengths |
+
+These are first-party qualitative analyses, not complete papers, quantitative score/error statistics, exact item/mark blueprints or point-band writing rubrics. Shanghai2026 and other-city/year analyses remain unresolved. They do not authenticate a commercial bank's uploads, establish rights over exam passages/audio, fill question-bank coverage cells or license app ingestion. The existing bank/source/count/licensing gaps remain open. No further21cnjy network, outreach or account access occurred.
