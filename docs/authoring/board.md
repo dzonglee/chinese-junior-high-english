@@ -14,7 +14,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | R-STD | 2022 课标 (+2025 revision) and appendices as data | R-0 | claimed | codex-curriculum | research/R-STD | 2026-10-15 | owns `source-register/curriculum/`, `files/curriculum/` |
 | R-ED-A | Editions: 人教 (2024 new + legacy, 六三/五四), 外研, 仁爱科普 | R-0 | open | | | 2026-10-15 | owns `source-register/editions/a-*`, `files/editions-a/` |
 | R-ED-B | Editions: 译林牛津, 沪教牛津, 北师大, 冀教, 鲁教五四, 北京版, others | R-0 | open | | | 2026-10-15 | owns `source-register/editions/b-*`, `files/editions-b/` |
-| R-NORTH | 15 north cities: 中考 papers, answers, audio, transcripts, structures, adoption, term papers by grade, 一模/二模 | R-0 | open | | | 2026-10-15 | owns `source-register/north/`, `files/north/` |
+| R-NORTH | 15 north cities: 中考 papers, answers, audio, transcripts, structures, adoption, term papers by grade, 一模/二模 | R-0 | claimed | codex-north | research/R-NORTH | 2026-10-15 | owns `source-register/north/`, `files/north/` |
 | R-EAST | 15 east cities (incl. 上海 五四): same scope as R-NORTH | R-0 | open | | | 2026-10-15 | owns `source-register/east/`, `files/east/` |
 | R-SOUTH | 13 south cities (广东 听说, 福建, 广西, 海南, 江西, 湖南): same scope as R-NORTH | R-0 | open | | | 2026-10-15 | owns `source-register/south/`, `files/south/` |
 | R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | open | | | 2026-10-15 | owns `source-register/central-west/`, `files/central-west/` |
