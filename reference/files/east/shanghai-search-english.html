@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="renderer" content="webkit">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>上海招考热线-上海市教育考试院</title>
+<meta http-equiv="keywords" content=""/>
+<meta http-equiv="description" content=""/>
+
+<!-- min CSS -->
+<link href="/jkysearch/assets/css/ETUI/ETUI3.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/jkysearch/assets/plugin/bootstrap-select/bootstrap-select.css" rel="stylesheet">
+<link href="/jkysearch/assets/css/style.css" rel="stylesheet">
+<!-- icons -->
+<link rel="shortcut icon" href="/jkysearch/assets/img/favicon.ico">
+<style>
+*{ margin:0; padding:0; list-style:none;}
+a{ text-decoration:none;}
+a:hover{ text-decoration:none;}
+.tcdPageCode{padding: 15px 20px;text-align: left;color: #ccc;}
+.tcdPageCode a{display: inline-block;color: #428bca;display: inline-block;height: 25px; line-height: 25px;  padding: 0 10px;border: 1px solid #ddd; margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode a:hover{text-decoration: none;border: 1px solid #428bca;}
+.tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca; border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode span.disabled{ display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px; color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+</style>
+</head>
+<body style="background: #fafafa">
+	
+	<div class="TopLine"></div>
+	<div id="header">
+		<div class="search-form big-search page-search stickUp-Nav">
+			
+			<div class="col-md-8 col-sm-10 col-xs-12">
+				<div class="gs-logo pull-left">
+					<a href="../../page/"><img src="/jkysearch/assets/img/logo-sm.png"></a>
+				</div>
+				<div class="input-group">
+		          	<input id="keywords" type="text" class="form-control" placeholder="请输入关键字" value="英语">
+
+				  	<span class="input-group-btn">
+		            	<button id="search" class="btn btn-warning" type="button"><i class="iconfont icon-search"></i></button>
+					</span>
+				</div>
+			</div>
+			
+		</div>
+		<div class="search-tools">
+			
+			<div class="col-md-10 col-sm-12 col-xs-12">
+				
+				<div class="col-sm-5">
+					<div class="form-inline">
+						<div class="form-group">
+							<p class="form-control-static" style="min-height: 0\0;"><i class="iconfont icon-list"></i> 查询范围：</p>
+						</div>
+						
+						<div class="form-group" style="width: auto\0;">
+							<div class="btn-group" data-toggle="buttons" style="width: 160px\0;">
+							  	<label class="btn btn-default active">
+							    	<input value="0" type="radio" name="field" autocomplete="off" checked> 所有
+								</label>
+								<label class="btn btn-default">
+							    	<input value="1" type="radio" name="field" autocomplete="off"> 标题
+								</label>
+								<label class="btn btn-default">
+							    	<input value="2" type="radio" name="field" autocomplete="off"> 正文
+								</label>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+					
+				<div class="col-sm-5">
+					<div class="form-inline">
+		
+					    <div class="form-group">
+							<p class="form-control-static" style="min-height: 0\0;"><i class="iconfont icon-calendar"></i> 时间范围：</p>
+						</div>
+						<div class="form-group" style="width: auto\0;">
+							<div class="btn-group" data-toggle="buttons" style="width: 220px\0;">
+							  	<label class="btn btn-default active">
+							    	<input value="36500"  type="radio" name="rang" autocomplete="off" checked> 不限
+								</label>
+								<label class="btn btn-default">
+							    	<input value="31" type="radio" name="rang" autocomplete="off"> 一个月内
+								</label>
+								<label class="btn btn-default">
+							    	<input value="365" type="radio" name="rang" autocomplete="off"> 一年内
+								</label>
+							</div>
+						</div>
+		
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	
+	<div id="main">
+		
+		
+		<div class="search-result">
+			<div class="col-md-8">
+				<div class="search-time"><small id="resultMessage" > </small></div>
+				
+				<ul class="result-list" id="result-list">
+					
+				</ul>
+				<div class="tcdPageCode"></div>
+			</div>
+		</div>
+	</div>
+	<!-----main----->
+	
+	 <div id="footer">
+		<hr>
+		<div class="container">
+			<div class="copyright">
+				2017 上海市教育考试院
+			</div>
+		</div>
+	</div>
+
+	<!-----footer----->
+	
+
+	<!--Main JS-->
+	<script type="text/javascript" src="/jkysearch/assets/js/StringBuilder.js"></script>
+	<script type="text/javascript" src="/jkysearch/assets/js/ETUI/jquery.min.1.12.4.js"></script>
+	<!--[if lt IE 9]>
+		<script src="/jkysearch/assets/js/ETUI/html5shiv.min.js"></script>
+		<script src="/jkysearch/assets/js/ETUI/respond.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="/jkysearch/assets/js/ETUI/ETUI3.min.js"></script> 
+
+	<!--Custom JS-->
+	<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.page.js"></script>
+	<script type="text/javascript" src="/jkysearch/assets/plugin/bootstrap-select/bootstrap-select.js"></script> 
+	<script type="text/javascript" src="/jkysearch/assets/plugin/stickUp/stickUp.js"></script> 
+	<script type="text/javascript" src="/jkysearch/assets/plugin/dotdotdot/jquery.dotdotdot.js"></script>
+	<script type="text/javascript" src="/jkysearch/assets/js/main.js"></script> 
+	
+	<script>
+		jQuery(document).ready(function() {
+			Main.init();
+		});
+	</script>
+	<script>
+	
+		var pageSize = 10;
+		var pageIndex = 0;
+		jQuery(document).ready(function() {
+			Main.init();
+			var keywords = jQuery("#keywords").val();
+			if( keywords!='' ){
+				searchCheck(true);
+			}
+			
+			$("input[name='field']").change(function() {
+				searchCheck(true);
+			});
+			
+			$("input[name='rang']").change(function() {
+				searchCheck(true);
+			});
+
+			jQuery("#search").click(function() {
+				
+				searchCheck(true);
+			});
+		}); 
+
+		function searchCheck(clean) {
+			if(clean){
+				pageSize = 10;
+				pageIndex = 0;
+			}
+			var keywords = jQuery("#keywords").val();
+			console.log(keywords);
+			if (keywords == null || keywords == "") {
+				return;
+			}
+			var rang = $("input[name='rang']:checked").val();
+			console.log(rang);
+
+			var field = $("input[name='field']:checked").val();
+			console.log(field);
+
+			var data = {
+				'rang' : rang,
+				'form' : pageSize * pageIndex,
+				'size' : pageSize,
+				'field' : field,
+				'keywords' : keywords
+			};
+
+			console.log(data);
+
+			$.post("/jkysearch/page/jky_search/search", data,
+					function(ob) {
+						var data = ob.data;
+						console.log(data); //  2pm
+						jQuery("#resultMessage").html(
+								"为您找到" + data.count + "条结果");
+
+						jQuery("#result-list").html("");
+						jQuery.each(data.beans, function(n, bean) {
+							jQuery("#result-list").append(formartBean(bean));
+
+						});
+
+						jQuery(".tcdPageCode").createPage({
+							pageCount : Math.ceil(data.count / pageSize),
+							current : pageIndex + 1,
+							backFn : function(p) {
+								pageIndex = p - 1;
+								searchCheck();
+							}
+						});
+
+					}, "json");
+
+		}
+
+			function escapeHtml(text) {
+				if (!text) return "";
+				var map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+				return String(text).replace(/[&<>"']/g, function(m) { return map[m]; });
+			}
+		
+			function sanitizeHighlight(html) {
+				if (!html) return "";
+				// Only allow <em> and </em> tags (used by Elasticsearch for highlighting)
+				// Strip all other HTML tags to prevent XSS
+				html = html.replace(/<(?!\/?(?:em)\b)[^>]*>/gi, '');
+				// Remove any event handlers
+				html = html.replace(/\son[a-z]+\s*=/gi, '');
+				return html;
+			}
+		
+			function formartBean(bean) {
+			console.log(bean);
+			var page = jQuery.parseJSON(bean.source);
+
+			var title = escapeHtml(page.title);
+			var body = (page.txt == null) ? "" : escapeHtml(page.txt);
+
+			if (bean.highlightFields.title != null) {
+				title = sanitizeHighlight(bean.highlightFields.title);
+			}
+
+			if (bean.highlightFields.txt != null) {
+				body = sanitizeHighlight(bean.highlightFields.txt);
+			}
+
+			var sb = new StringBuilder(); //指定&&为分隔符
+			
+
+			sb.Append('<li><div class="brief"><h4 class="title ">');
+			sb.Append("<a href='"+page.url+"' target='_blank' >");
+			sb.Append(title);
+			sb.Append("</a></h4>");
+			sb.Append("<p>" + body + "...</p>");
+			
+			sb.Append('<div class="row search-url"><div class="col-xs-8 nowrap">'  + page.url + ' </div><div class="col-xs-4 text-right">'
+					+ page.releaseDate.substring(0,10) + "</div></div></div>");
+			sb.Append('</li> ');
+
+			return sb.ToString()
+		}
+
+		 
+	</script>
+	<script>
+		jQuery(document).ready(function() {
+		
+			//dotdotdot.js
+			$('.brief p').dotdotdot({
+				watch: 'window'
+			});
+		});
+	</script>
+</body>
+</html>

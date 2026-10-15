@@ -44,7 +44,7 @@ All rows below are reported preview coverage, not official or licensed files. Gr
 | 绍兴 | — | 2024, 2025, 2026 | 2025 |
 | 金华 | — | 2026 | 2025 |
 
-The grid contains 750 base cells and 900 grade/term cells: 15 cities × 5 years, plus grades 7–9 × upper/lower terms × term/mock types. Current states: 1,552 `not_searched`, 83 `link_only`, 15 `blocked`. No cell is padded to `not_found`, `file_verified` or ingestion-ready. Some sourced mocks have no established term and therefore cannot fill the grade/term grid.
+At the initial preview pass, the grid contained 750 base cells and 900 grade/term cells: 15 cities × 5 years, plus grades 7–9 × upper/lower terms × term/mock types. Initial states: 1,552 `not_searched`, 83 `link_only`, 15 `blocked`. That initial preview pass had no verified document cells; the official followup below supersedes those counts. Some sourced mocks have no established term and therefore cannot fill the grade/term grid.
 
 ## Access limits and remaining work
 
@@ -58,4 +58,42 @@ Bank/rights handoff leads: `https://www.jyeoo.com/english/` is a genuine junior-
 
 ## Validation
 
-`node scripts/check-register.mjs reference/source-register/east` passes. Additional semantic checks in `qa.json` confirm coverage/source scope agreement, no precise dates from ambiguous spans, no midterm/common-exam confusion, unique coverage keys, exact artifact/manifest equality and actual SHA-256 checks. All 143 retained files are public HTML previews/context; no binary needed LFS in this pass. Passing these checks does not complete R-EAST or Gate 1.
+`node scripts/check-register.mjs reference/source-register/east` passes. Additional semantic checks in `qa.json` confirm coverage/source scope agreement, no precise dates from ambiguous spans, no midterm/common-exam confusion, unique coverage keys, exact artifact/manifest equality and actual SHA-256 checks. The initial 143 artifacts were public HTML previews/context. The official followup below adds PDF artifacts through LFS. Passing these checks does not complete R-EAST or Gate 1.
+
+
+## Official followup — 2026-10-15
+
+This pass adds 35 sources and 26 artifacts: the register now has 266 sources (220 distinct URLs), 169 artifacts (165 HTML and four PDFs), and 1,650 coverage cells. R-EAST and Gate 1 remain incomplete. Current cells are 1,542 `not_searched`, 90 `link_only`, three `file_verified` and 15 `blocked`. The verified speaking cells describe the precise limited evidence below; they do not mean complete task specifications or rubrics were gathered.
+
+### Shanghai official English analyses and local procedures
+
+Actual public Shanghai examination-authority search forms and ordinary category navigation led to independently opened originals. The search interface literally publishes its read-only POST endpoint and `rang`, `form` (offset), `size`, `field`, `keywords` fields. No account, signature, challenge or private endpoint was used. Search counts are fuzzy relevance totals and mix years/subjects, so they do not establish inventory counts or absence. The retained form and category pages provide discovery provenance (R-EAST::237–238); every accepted fact comes from an opened original. Category pages 1, 2, 3, 4, 6 and 7 were opened; page 5 failed 403. No inference fills that missing page.
+
+| Actual original | Verified scope | Limit |
+| --- | --- | --- |
+| R-EAST::239, Shanghai 2022 expert English-paper analysis | Listening/grammar/reading genre discussion; open school-activity writing requires own choices and reasons | Qualitative analysis; no original paper, recording, transcript, point rubric or performance statistics |
+| R-EAST::240, Shanghai 2023 analysis | Volunteer webpage/news interview and other reading genres; time-management/community-training writing asks for views and changes | Exam date June 18; no complete blueprint or marking bands |
+| R-EAST::241, Shanghai 2024 analysis | Multimodal barter-group reading; family-object letter; exchange gift-card writing with Chinese object and reasons | Published June 18 but actual English exam June 16; no mark bands |
+| R-EAST::242, Shanghai 2025 analysis | Route-map/table multimodal reading; device-free day, friends and mooncake family tradition; application email to English project-learning group | June 15 exam; no point rubric or quantitative error/score statistics |
+| R-EAST::247 / 248 | Complete two-page 2023 / 2025 speaking candidate rules: ten-minute sessions, computer-seat procedures | Device-calibration paragraph reading in 2023 is not evidence of a scored read-aloud task |
+| R-EAST::256 / 257 | 2025 / 2026 practice notices independently confirm human-computer dialogue, ten minutes, ten marks | Candidate-only platforms; no login, platform request, question set or rubric acquired |
+| R-EAST::259 / 262 | 2024 / 2022 written foreign-language timetables: 09:00–10:30 with 08:55–09:00 sound check | Dates are June 16, 2024 and July 12, 2022; no cross-year extrapolation |
+| R-EAST::263 | Complete one-page 2024 listening instructions: FM89.9/AM792 via campus broadcast; listening begins 09:00, then written section | Procedure only, not an audio recording or exact listening-section duration |
+
+The practice notices have different access windows and attempt rules: 2025 April 21–May 16, three papers with two attempts in each phase; 2026 April 16–May 15, three papers with five attempts per paper. Only the public notices were inspected. Platforms require examination-candidate credentials, so no credentials were supplied, no platform/IP was requested, and the sample sets remain unavailable. The 2026 rules PDF itself failed 403 (R-EAST::249); the 2026 ten-minute/ten-mark fact is independently supported by R-EAST::257 rather than inferred from earlier rules. Exact 2024 speaking announcement/practice notices failed, so that year remains blocked.
+
+R-EAST::250 / 253 / 254 are 2022 / 2025 / 2026 **trial** listening-broadcast notices. Their 08:55–09:25 slots include five minutes of sound check and do not establish common-exam listening duration. The 2025 and 2026 notices name official WeChat release channels/dates for trial papers/audio (2026 also names a newspaper issue), but no recording, transcript or actual release was opened. Those two audio cells are `link_only` with this exact trial-only scope. The 2023 notice and a separately published archive URL both failed; no alternate protocol was used as a bypass. No 2026 official English analysis was verified in this partial search, and no global absence claim is made.
+
+### National school/edition table leads
+
+R-EAST::236 preserves an exact eight-page English-table excerpt from the parent MOE-hosted 125-page PDF, with parent SHA-256, bytes, page range and extraction provenance in the manifest. The actual table has no award-cycle title/cover or year proof. Inherited labels describing a 2022 award and 2023 publication remain unverified metadata and are not recorded as cohort/year facts.
+
+`school-edition-table-leads.json` retains 18 literal priority-city school-name hints from 43 inspected Jiangsu/Zhejiang/Anhui English rows: school, province, edition, grade/volume and exact chapter excerpt. Chapter cells can be clipped and were not reconstructed. These are leads for school-specific investigation only: no current city adoption, actual lesson, teacher guide, schedule or independently verified physical campus is claimed. 南京外国语学校淮安分校 is excluded from Nanjing hints; a parent-school brand does not establish branch location.
+
+### Concrete limits and next work
+
+Four genuinely new inherited East official candidates failed 403 (R-EAST::232–235). Nantong’s 2026 all-subject scope PDF was already blocked under R-EAST::012 and had no cached inherited file; it was not retried unchanged. The newly discovered Hangzhou city portal failed 503. A temporary helper misnamed the Huaibei root as Hefei; its actual body identified 淮北, it is quarantined, and no Hefei coverage derives from it. Bing’s Hefei query returned Tianjin car-plate results despite HTTP 200 and was rejected as irrelevant.
+
+No further 21cnjy network requests were made. Existing previews remain reference-only under the separately inspected bank rights restrictions. All reuse approvals remain false. The four new PDFs are the national table excerpt, two speaking procedure PDFs and one listening procedure PDF; none is a full original English examination paper or audio file.
+
+Remaining work includes authentic full papers and official answers/audio/transcripts for the 15 cities and five years; complete local section counts/marks; scored speaking tasks and rubrics; writing point bands; current school/city textbook adoption; grade/term/mock gaps; and the missing official English analysis years/cities. Network failures and candidate-only access are recorded per endpoint; most uncovered cells remain honestly `not_searched`. Revisit those cells using new ordinary published links or owner-provided licensed materials, rather than interpreting blocked endpoints as missing resources.
