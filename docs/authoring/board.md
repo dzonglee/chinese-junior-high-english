@@ -11,7 +11,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | ID | Unit | Depends on | Status | Owner | Branch | Updated | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | R-0 | Register schema, roster, folders, check script, LFS rules | — | done | claude-7fcc | main | 2026-10-15 | `scripts/check-register.mjs`, `reference/source-register/resource-schema.json`, `cities/roster.json` |
-| R-STD | 2022 课标 (+2025 revision) and appendices as data | R-0 | open | | | 2026-10-15 | owns `source-register/curriculum/`, `files/curriculum/` |
+| R-STD | 2022 课标 (+2025 revision) and appendices as data | R-0 | claimed | codex-curriculum | research/R-STD | 2026-10-15 | owns `source-register/curriculum/`, `files/curriculum/` |
 | R-ED-A | Editions: 人教 (2024 new + legacy, 六三/五四), 外研, 仁爱科普 | R-0 | open | | | 2026-10-15 | owns `source-register/editions/a-*`, `files/editions-a/` |
 | R-ED-B | Editions: 译林牛津, 沪教牛津, 北师大, 冀教, 鲁教五四, 北京版, others | R-0 | open | | | 2026-10-15 | owns `source-register/editions/b-*`, `files/editions-b/` |
 | R-NORTH | 15 north cities: 中考 papers, answers, audio, transcripts, structures, adoption, term papers by grade, 一模/二模 | R-0 | open | | | 2026-10-15 | owns `source-register/north/`, `files/north/` |
