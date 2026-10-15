@@ -25,8 +25,8 @@ including the exact plus-marked understanding-only restrictions. `themes-level3.
 paraphrases all29 level3 subthemes. `academic-quality.json` paraphrases all17 level3
 quality indicators. These are research mappings, not app-ready lessons or city exam rules.
 
-`ocr-draft-pages.json` contains 94 machine-transcribed pages, including all appendix pages
-80–142, curriculum content12–33, academic quality42–46, levels and contents. Each page retains
+`ocr-draft-pages.json` contains all201 machine-transcribed PDFpages, including the body,
+appendices and teaching cases. Each page retains
 its source location and **machine_transcription_unreviewed** state. It is an extraction aid,
 not a corrected word list. The original PDF remains authoritative. The Tesseract version,
 Chinese model source and checksum are recorded. Ordinary PDF text extraction yields no
@@ -64,7 +64,7 @@ or examination requirement has been transferred as an English fact.
    establish English changes.
 2. Audit the505/1600 word-list transcription against every original page; keep bracketed
    variants, level2 star markers and the separate numbers/names/irregular-verb tables.
-3. Review the remaining curriculum body and teaching/evaluation cases in the acquired PDF.
+3. Finish auditing the remaining curriculum body, vocabulary and teaching cases against the acquired PDF.
 4. Re-run `node scripts/check-register.mjs reference/source-register/curriculum` and the
    manifest hash check after any additions. R-VOC and final integration retain their board
    dependencies; this partial handoff does not waive them.
@@ -72,3 +72,11 @@ or examination requirement has been transferred as an English fact.
 No city-year grid is assigned to this national curriculum unit, so its `coverage.json` is an
 empty array. That is distinct from claiming that city research or curriculum review is done.
 No commercial reuse permission, licence negotiation or application ingestion is approved.
+
+## Followup assessment review
+
+Printed pages52–74 (PDF59–81) were visually reviewed. `assessment-guidance.json` paraphrases nine groups of assessment, blueprint and resource-design recommendations; `assessment-sample-index.json` locates all six national samples, including their available printed recording scripts and writing-length instructions. These samples provide curriculum evidence, not local marking bands or city speaking-test specifications. R-WRITE received the exact PDF/page pointers for separate measurement work.
+
+Fresh ordinary publisher-site searches returned a static search shell without a retrieved English revision attachment. Search-engine results were inspected and again rejected where unrelated. The exact school PDF and GitHub REST searches failed CONNECT403. The PEP homepage exposed a genuine companion-audio link, forwarded to R-AUX; this did not resolve the revised standard. No unsigned alternative or protected service was used to bypass access controls.
+
+The followup extraction now covers all201PDFpages as unreviewed OCR, with the authoritative parent unchanged. `teaching-case-index.json` locates all eight cases; their headings were visually checked. The national grade8 HealthyLiving case contains7self-review checks and6peer-review criteria with an explicit5/4/3/2scale (printed179–180). Those pages were independently inspected by R-WRITE. No city exam total or1/0scale is invented. Complete OCR is not a completed1600word audit or revised2025standard, so R-STD remains incomplete.
