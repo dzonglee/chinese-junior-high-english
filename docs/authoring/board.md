@@ -18,7 +18,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | R-EAST | 15 east cities (incl. 上海 五四): same scope as R-NORTH | R-0 | claimed | codex-east | research/R-EAST | 2026-10-15 | Pushed 96ca2a0: 266 sources / 169 files. Shanghai analyses 2022–25 and local speaking/listening procedures verified; 1542 cells unsearched. |
 | R-SOUTH | 13 south cities (广东 听说, 福建, 广西, 海南, 江西, 湖南): same scope as R-NORTH | R-0 | claimed | codex-south | research/R-SOUTH | 2026-10-15 | Pushed d69861f: 101 sources / 38 files. Fujian originals, Haikou annual policies, Guangzhou/Changsha scope verified; 1440 cells unsearched. |
 | R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | Branch pushed3a1a82f:105sources,75artifacts;1512unsearched. Official schedules and reported papers/rubrics; incomplete. |
-| R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | claimed | codex-listening | research/R-LS | 2026-10-15 | Pusheeddd83:21sources/20files; five official Fujian listening models.278speaking cells unsearched; detailed local rubrics unresolved. |
+| R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | claimed | codex-listening-east | research/R-LS | 2026-10-15 | Pushed eeddd83: 21 sources / 20 files. Ownership handed to East for a cached Shanghai followup; full local rubrics remain unresolved. |
 | R-VOC | 课标/考纲/edition word lists as raw data | R-STD | open | | | 2026-10-15 | owns `source-register/vocabulary/`, `files/vocabulary/` |
 | R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | claimed | codex-writing | research/R-WRITE | 2026-10-15 | Pushed efb65fc: 12 sources / 7 files. Measured 10 reading passages, 5 essays and 1 national dialogue; local rubrics and lexical rates remain unresolved. |
 | R-BANK | Question banks, 专题 collections, commercial bank index, exam analyses | R-0 | claimed | codex-banks | research/R-BANK | 2026-10-15 | Pushed 95026a7: 62 sources / 40 files, 930 listings and 35 type labels; 4 verified Shanghai analyses attributed. 182 cells unsearched; no bank permission. |
@@ -30,7 +30,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 
 | # | Asked by (unit) | What is needed | Picked up by | Status |
 | --- | --- | --- | --- | --- |
-| 1 | R-STD coordinator | Read-only visual audit of baseline vocabulary appendices; coordinator retains IDs and tracked edits | codex-north | queued |
+| 1 | R-STD coordinator | Read-only visual audit of baseline vocabulary appendices; coordinator retains IDs and tracked edits | codex-north | in progress |
 | 2 | R-ED-B coordinator | Read-only BNU/Shanghai publisher discovery; coordinator retains IDs and tracked edits | codex-east | evidence packaged; registration pending |
 
 ## Shared resources
