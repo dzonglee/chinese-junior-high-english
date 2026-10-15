@@ -43,3 +43,9 @@ Open questions.
   - 我的题目 user questions held to the same standard (UQ-0);
   - balanced mocks that change on every sitting, plus fixed 套卷.
 - Stage 1 already gathers what these need: the 题型 inventory, banks and rubrics.
+
+## 2026-10-15 · codex-curriculum · R-STD partial handoff
+- Did: pushed `research/R-STD` (`891d1c2`): original Ministry-hosted English2022 standard (201pages), publisher revision-programme interview,58grammar research entries,29level3 themes,17quality indicators and94pages of explicitly unreviewed OCR. Source and download checks pass.
+- Decided: keep R-STD claimed/incomplete. A general October2025 revision announcement is not a verified revised English standard; OCR is not a corrected1600word list. No commercial permission inferred.
+- Next: retrieve the English-specific revised standard, audit the vocabulary transcription and review remaining teaching/evaluation cases. Exact successful/failed endpoints and provenance are in the unit branch. No unit dependency or final gate is waived. The coordinator continues other independent research while those missing-source checks remain unresolved.
+- Open questions: official English2025 revision attachment remains unavailable through inspected sources. Network additions are saved in the environment draft; saving a draft has not changed runtime policy.
