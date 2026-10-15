@@ -1,122 +1,61 @@
-# Eastern cities: initial English research pass
+# Eastern cities: English research handoff
 
-As of 15 October 2026. This unit is **incomplete**. A filled grid and a passing checker establish bookkeeping, not collection completeness.
+As of 15 October 2026. **R-EAST remains incomplete.** There are 231 source records over 185 distinct URLs and 143 captured public HTML artifacts (about 9.1 MB). These are research previews and policy context, not a complete original-paper/audio corpus.
 
-Current inventory: 38 source records, 8 captured public HTML artifacts, 1650 coverage cells. Verification/status counts are in `summary.json`. No complete paper DOCX/PDF, audio or transcript was acquired. All commercial reuse permissions remain false.
+The records include 91 term-paper reports, 55 mocks, 8 common-paper preview records, 5 answer records, 20 visible transcript records, 18 advertised-audio records and 3 local-mock writing-rubric records. Auxiliary records can share a URL and must not be counted as independent documents. `summary.json` gives the complete breakdown.
 
-## Evidence and inherited provenance
+## What was actually inspected
 
-The sister maths register at commit `c84b232d63f2d120fcadec3e5244ce28185c98fb` supplied exact policy/catalogue leads only. Each of 27 endpoints was freshly requested and logged in `retrieval-attempts.json`. Earlier official verification labels were discarded where the current page could not be opened. Maths paper/adoption facts were never converted into English facts.
+- Three 2026 common-paper/answer previews: Wuxi, Xuzhou and Changzhou. Older common-paper previews were found for Changzhou 2022 and 2024, including duplicate mirrors. This is five distinct city/year groups across three cities; the original complete files and official marking origin remain unverified.
+- Named school/district term and mock previews across 2022–2026. School exercises and publisher regional simulations are separate types; publisher edition labels do not prove textbook adoption.
+- Explicit transcript text in 20 public previews. Eighteen records advertise MP3 assets, but their ordinary links lead to resource pages; no direct public audio player/file was established and no recording was downloaded or listened to. These local school/mock records do not satisfy the common-city-exam audio/transcript grid.
+- Three local mock writing rubrics, at `https://zy.21cnjy.com/23161783`, `/23168270` and `/23168272`. Their wording is reference-only; none is established as the official city common-exam rubric.
+- One official context page: Huaibei 2026 foreign-language policy. The sister maths register labelled it Hefei; the actual notice says 淮北市教育局 and 我市. Jurisdiction is corrected to Huaibei, `cities` is empty, and no Hefei coverage is satisfied. It reports foreign language 120 marks including 20 listening marks, but is not an English paper. Its timetable image was not verified.
 
-One official page opened: Huaibei 2026 policy. The sister register labelled it Hefei; inspecting its content corrected jurisdiction to Huaibei. It reports foreign language 120 marks including 20 listening marks, but is outside this unit’s priority-city roster and does not establish Hefei English marks or formats. Its timetable image remains unverified.
+## Provenance, scope and calendar years
 
-The public 21cnjy English catalogue pages 1–5 produced three 2026 English exam previews (Wuxi, Xuzhou, Changzhou) and five named school/placement leads. Seven individual previews opened; the Wuxi grade 7 upper-term page returned 500 but its indexed title was inspected. These are `reported` commercial previews, not official originals. Captured HTML filenames explicitly say preview; coverage remains `link_only`. The bank’s advertised student/teacher DOCX files were not downloaded. No inferred rights or authority upgrades are made.
+The sister maths register at commit `c84b232d63f2d120fcadec3e5244ce28185c98fb` supplied 27 exact policy/catalogue leads. Each was requested and its actual response logged. Earlier official labels were not carried over after failed retrieval. No maths marks, paper identity or adoption evidence was converted into an English fact.
 
-A school name is not a city: “江苏宿迁市苏州外国语学校” was excluded from Suzhou city coverage. Placement tests remain labelled separately from midterms/finals. Academic year 2026–2027 upper-term tests are filed under calendar 2026 with the academic year retained. Shanghai numeric grades must retain local 五四 labels in later acquisition.
+The north/south researchers supplied a shared public English sitemap cache. The 168 east discovery leads are retained in `shared-catalogue-leads.json`; actual preview requests and failures are in `retrieval-attempts.json`. The continued queue inspected 159 URLs: 142 usable public previews and 17 failed requests. Nine leads were quarantined for jurisdiction, edition-name or out-of-period problems. Existing initial previews were reused.
 
-## City findings and first next actions
+Upper-term academic-year spans can cross December/January. Both years remain on the record unless an explicit calendar date/month resolves the year; unresolved records do not fill precise-year coverage. Lower-term ranges use the ending year. Original academic labels remain in titles/cohort fields. Upload dates never supply exam years. For example, a schoolyear 2021–2022 upper-term October exercise is 2021 and was excluded despite its later upload; a 2022–2023 upper-term paper with an actual December 2022 header is filed as 2022.
 
-### 上海
+The Wuxi/Jiangyin XiaGang grade-9 listing has an 初二 footer; it is `untrusted_candidate`, grades are unknown and it fills no grade-specific cell. “江苏宿迁市苏州外国语学校” does not belong to Suzhou city. An unqualified 苏州外国语学校 listing and the Hefei-named 颍东 branch are quarantined pending jurisdiction proof. “牛津上海版” alone is an edition name, not Shanghai-city evidence. See `quarantined-leads.json`.
 
-Inspected/attempted leads: R-EAST::001, R-EAST::002, R-EAST::003, R-EAST::004.
+## Coverage by city
 
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
+All rows below are reported preview coverage, not official or licensed files. Grade/term years come from filled grid cells; unresolved academic spans are omitted. Official English structures, textbook adoption and cohort reforms remain unestablished for every priority city.
 
-### 合肥
+| City | Common-paper preview years | Term-paper years with grade/term cells | Mock years with grade/term cells |
+| --- | --- | --- | --- |
+| 上海 | — | 2022, 2023, 2024, 2025, 2026 | 2025 |
+| 合肥 | — | 2022, 2024, 2026 | — |
+| 南京 | — | 2022, 2024, 2025, 2026 | 2025, 2026 |
+| 南通 | — | 2024, 2026 | 2025, 2026 |
+| 常州 | 2022, 2024, 2026 | 2026 | 2026 |
+| 徐州 | 2026 | 2026 | 2025 |
+| 无锡 | 2026 | 2026 | 2026 |
+| 苏州 | — | 2023, 2024, 2026 | 2025, 2026 |
+| 台州 | — | 2024, 2025 | — |
+| 嘉兴 | — | 2026 | 2025 |
+| 宁波 | — | 2022, 2024 | — |
+| 杭州 | — | 2022, 2023, 2024, 2025, 2026 | 2026 |
+| 温州 | — | 2025, 2026 | 2024, 2025, 2026 |
+| 绍兴 | — | 2024, 2025, 2026 | 2025 |
+| 金华 | — | 2026 | 2025 |
 
-Inspected/attempted leads: R-EAST::021, R-EAST::022.
+The grid contains 750 base cells and 900 grade/term cells: 15 cities × 5 years, plus grades 7–9 × upper/lower terms × term/mock types. Current states: 1,552 `not_searched`, 83 `link_only`, 15 `blocked`. No cell is padded to `not_found`, `file_verified` or ingestion-ready. Some sourced mocks have no established term and therefore cannot fill the grade/term grid.
 
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
+## Access limits and remaining work
 
-### 南京
+- Most exact official city/policy/catalogue endpoints returned 403, 502 or 503. The log distinguishes proxy CONNECT failures, origin errors and timeouts. These failures do not establish that a resource is absent. Each city/year still needs its own official English announcement search.
+- Public numeric `zy.21cnjy.com` previews and ordinary sitemap pages were accessible. The site’s ordinary keyword search returned 503 or gzip-compressed JavaScript-only challenges; these were not bypassed. The first image explicitly shown in the Ningbo 2024 preview returned 403, so there is no visual authentication claim.
+- Bing returned 200 but unrelated calendar/tourism results even with the correct query visible; no facts or coverage derive from those results. Baidu returned a proxy 403. GitHub searches found practice apps rather than authenticated east-city past papers; their unsourced exam claims were not used.
+- No full original paper PDF/DOCX, actual audio, authenticated official answer key, official city writing rubric or adoption document was acquired. City-level listening/speaking specifications, 2027 reform searches, grade-6 Shanghai samples and most city/year paper searches remain open.
+- Next: find each priority city’s official 2022–2026 English policies and complete originals; acquire paper/audio/transcript assets only through ordinary public or licensed routes; authenticate identities and marking origin; resolve the listed calendar/jurisdiction conflicts; finish grade/term/mocks and adoption evidence.
 
-Inspected/attempted leads: R-EAST::005, R-EAST::006.
+Bank/rights handoff leads: `https://www.jyeoo.com/english/` is a genuine junior-high English catalogue and links `/open` for enterprise interfaces. Its footer says member-uploaded resources retain original-author copyright; this is no licence. `/english/report` returned 503. `www.zxxk.com` returned a JavaScript challenge without verified visible content. These are leads for R-BANK/R-RIGHTS, not completed work in those units.
 
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
+## Validation
 
-### 南通
-
-Inspected/attempted leads: R-EAST::011, R-EAST::012, R-EAST::023.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 常州
-
-Inspected/attempted leads: R-EAST::010, R-EAST::035.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Commercial previews: 【精品解析】2026年江苏省常州市中考英语试题. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 徐州
-
-Inspected/attempted leads: R-EAST::013, R-EAST::014, R-EAST::028, R-EAST::034.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Commercial previews: 江苏徐州高新区实验学校2026-2027学年度第一学期七年级英语阶段学情自测试卷（图片版，无答案）; 【精品解析】江苏省徐州市2026年中考英语真题. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 无锡
-
-Inspected/attempted leads: R-EAST::009, R-EAST::032, R-EAST::033.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Commercial previews: 江苏无锡市宜兴市宜城中学2026~2027学年度秋学期七年级英语第一次小练习试题（图片版，无答案）; 【精品解析】江苏省无锡市2026年中考英语试卷. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 苏州
-
-Inspected/attempted leads: R-EAST::007, R-EAST::008, R-EAST::031.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Commercial previews: 江苏省苏州市苏州高新区第一中学 2026-2027学年上学期九年级10月阶段学情自测英语（图片版，含答案）. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 台州
-
-Inspected/attempted leads: R-EAST::025.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 嘉兴
-
-Inspected/attempted leads: none specific to this city.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 宁波
-
-Inspected/attempted leads: R-EAST::024.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 杭州
-
-Inspected/attempted leads: none specific to this city.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 温州
-
-Inspected/attempted leads: R-EAST::029.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Commercial previews: 浙江温州实验中学2026-2027学年 上学期九年级国庆自主学习反馈（英语）（图片版，无答案）. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 绍兴
-
-Inspected/attempted leads: R-EAST::027, R-EAST::030.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Commercial previews: 【精品解析】浙江省绍兴市诸暨市部分学校2026年七年级上学期英语分班测试. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-### 金华
-
-Inspected/attempted leads: R-EAST::026.
-
-Official English marks, minutes, listening/speaking formats, edition adoption and cohort reforms remain unknown in this pass. Next: search this city’s own 2022–2026 education/exam-authority notices, then obtain and authenticate full papers, official answers, listening audio/transcripts, grade/term tests and district mocks. Do not transfer a neighbouring city’s or province’s English structure.
-
-## Search/access limitations and safe continuation
-
-- Most exact inherited endpoints returned 403, 502 or 503; error bodies distinguish proxy CONNECT errors from origin 403 pages and timeouts. Failures are not proof of missing resources.
-- Public21cnjy sitemap/index pages work. Its normal `/search/asset?keyword=…` route returned 503 for the initial Shanghai2025 query; separate Shanghai/Zhejiang tests returned gzip-compressed JavaScript-only challenges (no visible results); Nanjing returned 503. Search result counts are not examination coverage.
-- Bing returned 200 with unrelated calendar content; discarded. Baidu CONNECT 403. Public GitHub repository search was relevant but found practice apps rather than authenticated east-city past papers.
-- GitHub `Hefei-little-fat-man/edu` advertises many subjects but its inspected sole HTML page is a maths/login platform, so it was rejected as English evidence. `weiliangma/englishworld` contains unsourced Shanghai exam assertions and generated practice designs, so no exam facts were taken from it. The Zhejiang enhanced-bank search hit explicitly describes AI-generated non-past-paper items and was excluded.
-- `https://www.jyeoo.com/english/` opened a real junior-high-English catalogue and `/open` enterprise-API route. Footer says member-uploaded resources retain original-author copyright. Keep as an R-BANK/R-RIGHTS lead; this is no licence. Its `/english/report` endpoint returned 503. `www.zxxk.com`200 was a JavaScript challenge and supplied no verified visible content.
-- No authenticated audio, transcript, speaking specification, original marking rubric or textbook adoption proof was acquired. No 2027 announcement search is complete.
-
-## Completion and validation
-
-The city/year/resource grid has 750 base cells plus 900 grade/term cells (15 cities × 5 years × 3 grades × 2 terms × 2 types). Unsearched cells stay `not_searched`; none are padded to `not_found`. City-specific official searches and all-year term/mock collection remain open. The standard register checker verifies record/file bookkeeping; `summary.json` separately records that the unit and Gate 1 are incomplete.
-
-Run `node scripts/check-register.mjs reference/source-register/east` from the repository root.
+`node scripts/check-register.mjs reference/source-register/east` passes. Additional semantic checks in `qa.json` confirm coverage/source scope agreement, no precise dates from ambiguous spans, no midterm/common-exam confusion, unique coverage keys, exact artifact/manifest equality and actual SHA-256 checks. All 143 retained files are public HTML previews/context; no binary needed LFS in this pass. Passing these checks does not complete R-EAST or Gate 1.
