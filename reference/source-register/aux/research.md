@@ -1,6 +1,6 @@
 # Auxiliary-resource research · 2026-10-15
 
-This is a partial Stage 1 research handoff. It contains 31 source records, 26 checked reference artifacts, 80 exact publisher catalogue product entries, 272 observed PEP audio links, three acquired MP3 samples and one historical teaching-progress document. It does not satisfy the unit's completion gate. All commercial reuse flags remain false.
+This is a partial Stage 1 research handoff. It contains 41 source records, 31 checked reference artifacts, 90 publisher product metadata entries (80 from the FLTRP catalogue), 272 observed PEP audio links, three acquired MP3 samples and one historical teaching-progress document. It does not satisfy the unit's completion gate. All commercial reuse flags remain false.
 
 ## Targeted teacher-resource followup
 
@@ -14,7 +14,19 @@ The actual Bookworms description displays an unexplained 11–20 level field whi
 
 The actual 2025 workbook's declared spreadsheet hyperlink metadata was inspected: 568 cell hyperlinks, 14 hyperlink relationships, zero HYPERLINK formulas and **zero HTTP hyperlink targets**. The external relationship targets are numeric section references; the others are workbook navigation. This was ordinary hyperlink-metadata inspection, without extracting cover images, QR codes or hidden reader assets. Its audit derivative retains the original workbook hash. No direct teacher-book or audio download URL was found by this inspection.
 
-This targeted followup adds nine source records and nine artifacts, including eight publisher HTML pages and one catalogue-link audit. It acquires **zero actual English teacher-guide/workbook texts**. Existing 80-product metadata and city-year schedule coverage remain unchanged. Actual edition-specific teacher books, current supplements, licensed audio and complete reader-level evidence remain open gaps; none is waived by these public indexes.
+This targeted followup adds nine source records and nine artifacts, including eight publisher HTML pages and one catalogue-link audit. It acquires **zero actual English teacher-guide/workbook texts**. The FLTRP subset remains 80 metadata entries; city-year schedule coverage remains unchanged. Actual edition-specific teacher books, current supplements, licensed audio and complete reader-level evidence remain open gaps; none is waived by these public indexes.
+
+## Shandong publisher teacher books and listening companions
+
+Four actual publisher book pages verify 五四 English teacher-guide metadata: grade six upper, ISBN 9787532871827, second edition, 298 pages; grade seven upper, ISBN 9787532877768, second edition, 251 pages; grade eight upper, ISBN 9787532883370, second edition, 304 pages; and grade nine full year, ISBN 9787532883387, third edition, 343 pages. All four pages state publication 2022.07. These are publisher bibliographies, not inspected copyright pages, current 2024-revision matches, or adoption evidence. Author fields are blank. `sjs-teacher-book-index.json` preserves exact titles and literal trial links.
+
+The grade-six ordinary public trial page opened in Chromium and advertised 23 preview pages. Its embedded reader failed to load; **zero book pages rendered**. The trial was not exported or reconstructed, no direct reader asset was fetched, and no login was entered. The other three previews were not separately opened. No actual teacher-guide contents or table of contents were acquired.
+
+The publisher's actual teaching index also links six 2026-autumn listening-workbook entries: PEP grades eight/nine upper and 鲁教 grades six/seven/eight upper plus grade nine full year. The six requested item URLs all return the same generic download-centre index, so their query IDs were not treated as independent detail pages. The teaching-index link labels establish the six identities; five visible download modals additionally advertise formats, sizes, dates and zero-point costs. The sixth entry has title/link evidence only. No textbook ISBN or printing match follows from 配人教版 or 配鲁教版.
+
+The literal grade-eight PEP download handler returned HTTP 200 **HTML requiring membership**, not the advertised ZIP. Collection stopped at that gate. Other download handlers remain untested rather than being labelled proven inaccessible. `sjs-listening-companion-index.json` distinguishes listing evidence from this one actual access test. No workbook text or new audio file was acquired.
+
+The footer states “山东教育出版社版权所有 未经许可不得复制或镜像”. Only five short metadata derivatives with source URLs and parent response hashes are retained; no Shandong full HTML, screenshots, guide pages or audio are committed. This second targeted followup adds ten sources and five metadata artifacts. Commercial reuse remains unapproved.
 
 ## Teacher books and supplements
 
