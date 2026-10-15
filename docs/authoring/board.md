@@ -23,7 +23,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | open | | | 2026-10-15 | owns `source-register/writing/`, `files/writing/` |
 | R-BANK | Question banks, 专题 collections, commercial bank index, exam analyses | R-0 | claimed | codex-banks | research/R-BANK | 2026-10-15 | Pushed8545410:62sources/40HTML,930listed assets,35type labels;98link_only/182unsearched. Automated21cnjy collection stopped under inspected terms. |
 | R-AUX | 教辅/教师用书, 教学进度, 听说 practice systems, reading material | R-0 | claimed | codex-aux | research/R-AUX | 2026-10-15 | owns `source-register/aux/`, `files/aux/` |
-| R-RIGHTS | Licensing routes and terms (publishers, 考试院, banks, audio) | R-0 | open | | | 2026-10-15 | owns `source-register/rights/` |
+| R-RIGHTS | Licensing routes and terms (publishers, 考试院, banks, audio) | R-0 | claimed | codex-rights | research/R-RIGHTS | 2026-10-15 | owns `source-register/rights/` |
 | R-INT | Integration layer, QA report and the editable research brief (Gate 1) | all R units done | open | | | 2026-10-15 | owns `source-register/integration/` |
 
 ## Requests
