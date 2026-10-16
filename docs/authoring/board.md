@@ -19,7 +19,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | R-SOUTH | 13 south cities (广东 听说, 福建, 广西, 海南, 江西, 湖南): same scope as R-NORTH | R-0 | claimed | codex-south | research/R-SOUTH | 2026-10-15 | Pushed d69861f: 101 sources / 38 files. Fujian originals, Haikou annual policies, Guangzhou/Changsha scope verified; 1440 cells unsearched. |
 | R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | Pushed 0d724a5: 124 sources / 106 artifacts; annual Henan/local policies and 35 school-course hints verified within scope. 1502 cells unsearched; papers/media incomplete. |
 | R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | claimed | codex-listening-east | research/R-LS | 2026-10-15 | Pushed 00cf3ac: 28 sources / 27 files; Fujian models and 7 Shanghai annual originals. 275 speaking cells unsearched; full scored tasks/rubrics/audio unresolved. |
-| R-VOC | 课标/考纲/edition word lists as raw data | R-STD | claimed | codex-vocabulary | research/R-VOC | 2026-10-16 | National2022/2025audits ready; coordinator researching local/edition raw lists with two read-only delegates. City equivalence remains unverified. |
+| R-VOC | 课标/考纲/edition word lists as raw data | R-STD | claimed | codex-vocabulary | research/R-VOC | 2026-10-16 | Pushed88a8870:21sources/49asset records(3shared);1600nationalheads+4775occurrences in11legacybooks. All200retainedderivativepagesmatchparents.280localannualcellsunsearched;current/othereditionlists incomplete. Resumeexistingbranch;notdone. |
 | R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | claimed | codex-writing | research/R-WRITE | 2026-10-15 | Pushed efb65fc: 12 sources / 7 files. Measured 10 reading passages, 5 essays and 1 national dialogue; local rubrics and lexical rates remain unresolved. |
 | R-BANK | Question banks, 专题 collections, commercial bank index, exam analyses | R-0 | claimed | codex-banks | research/R-BANK | 2026-10-15 | Pushed 95026a7: 62 sources / 40 files, 930 listings and 35 type labels; 4 verified Shanghai analyses attributed. 182 cells unsearched; no bank permission. |
 | R-AUX | 教辅/教师用书, 教学进度, 听说 practice systems, reading material | R-0 | claimed | codex-aux | research/R-AUX | 2026-10-15 | Pushed 0897b15: 41 sources / 31 files; 90 product records, 272 audio links, 3 prior samples and 1 schedule archive. Teacher texts/audio remain inaccessible; 279 schedule cells unsearched. |
@@ -34,6 +34,9 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | 2 | R-ED-B coordinator | Read-only BNU/Shanghai publisher discovery; coordinator retains IDs and tracked edits | codex-east | registered and checked on R-ED-B bf15137 |
 | 3 | R-STD coordinator | Complete visual transcription of supplemental appendix tables into temporary data; coordinator registers results | curriculum-supplements | done;221baseline/revised supplemental records, revised main-list audit and currentcase1/2maps registered |
 | 4 | R-STD coordinator | Resolve English-specific revised-standard evidence and comparison source through public official discovery | curriculum-revision | done; acquired actual English2025PDF;143body/other-appendix page reviews and version guards registered |
+
+| 5 | R-VOC coordinator | Read-only unit-wordlist audits with source identity and page fidelity; coordinator retains IDs | curriculum-supplements and curriculum-revision | done for5PEP+6FLTRPlegacybooks;4775occurrences; field-level unknowns explicit |
+| 6 | R-VOC coordinator | Bounded actual local-wordlist discovery and controls | curriculum-revision and coordinator | pass recorded; no acquiredlocalwordset/annualcoverageupgrade; remaining searches unresolved |
 
 ## Shared resources
 
