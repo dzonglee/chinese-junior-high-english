@@ -125,6 +125,18 @@ export function retryCurrent(state: LearnerState, now: number): LearnerState {
   if (session.mode === 'exam' || session.submittedAt || !record?.checked) return state
   return replaceSession(state, { ...session, answers: { ...session.answers, [id]: { answer: '', attempts: record.attempts, hints: record.hints + 1, checked: false } } }, now)
 }
+
+/** Subjective answers are reviewed after an exam; their scores stay explicitly self-marked. */
+export function reviewSubmittedAnswer(state: LearnerState, catalog: ContentCatalog, now: number, rubric: string[]): LearnerState {
+  const session = active(state), id = session.questionIds[session.current]
+  const q = questionById(catalog, state, id), record = session.answers[id]
+  if (!session.submittedAt || !q || !['writing', 'speaking'].includes(q.kind)) throw new Error('这道题不能进行交卷后自评。')
+  if (record?.checked) return state
+  const answer = record?.answer ?? ''
+  const attempt = makeAttempt(state, session, q, answer, now, answer.trim() ? rubric : [])
+  const next = recordAttempt(state, attempt, q.difficulty)
+  return replaceSession(next, { ...session, answers: { ...session.answers, [id]: { answer, hints: 0, attempts: 1, checked: true, result: attempt } } }, now)
+}
 export function moveQuestion(state: LearnerState, index: number, now: number): LearnerState {
   const session = active(state)
   if (!Number.isInteger(index) || index < 0 || index >= session.questionIds.length) return state
