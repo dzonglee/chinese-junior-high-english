@@ -1,0 +1,449 @@
+
+
+
+
+
+
+
+
+
+
+
+
+ <script>
+    var chatPath = 'https://chatapi.so-gov.cn/'
+ </script><!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>搜索 - 中华人民共和国教育部政府门户网站</title>
+        <link rel="icon" href="https://file.so-gov.cn/cps/pro/bm05000001/searchConf/b8fd3010a6094193e2c39952c2df8ec1.ico" type="image/x-icon">
+    <!--优化重构css-->
+    <!--[if lt IE 9]>
+    <link href="https://www.moe.gov.cn/images/moe.css" rel="stylesheet" type="text/css"/>
+    <link href="https://www.moe.gov.cn/images/moe.search.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <link media="screen and (min-width:1010px)" href="https://p.so-gov.cn/custom/bm05000001TY/moe.css" rel="stylesheet"
+          type="text/css">
+    <link media="screen and (min-width:1010px)" href="https://p.so-gov.cn/custom/bm05000001TY/moe.search.css" rel="stylesheet"
+          type="text/css">
+    <link media="screen and (max-width:1010px)" type="text/css" rel="stylesheet"
+          href="https://p.so-gov.cn/custom/bm05000001TY/moe.m.css">
+    <link media="screen and (max-width:1010px)" type="text/css" rel="stylesheet"
+          href="https://p.so-gov.cn/custom/bm05000001TY/moe.search.m.css">
+    <link rel="stylesheet" href="https://p.so-gov.cn/pc/css/base.css">
+    <link rel="stylesheet" href="https://p.so-gov.cn/skin/index?siteCode=bm05000001">
+    <link rel="stylesheet" href="https://p.so-gov.cn/pc/css/index.css">
+    <script type="text/javascript" src="https://p.so-gov.cn/custom/bm05000001TY/h5.js"></script>
+    <script type="text/javascript" src="https://p.so-gov.cn/custom/bm05000001TY/idangerous.js"></script>
+    <style>
+        .table, .table * {
+            margin: 0 auto;
+            font-size: 14px;
+        }
+
+        .table {
+            display: table;
+            border-collapse: collapse;
+        }
+
+        .table-tr {
+            display: table-row;
+            height: 30px;
+        }
+
+        .table-th {
+            display: table-cell;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .index_bg {
+            background: url("/custom/bm05000001TY/index_main_bg.png") center top no-repeat;
+        }
+
+        .search-part {
+            width: 746px;
+        }
+
+        .fm .s-b-left {
+            width: 645px;
+            border: 0px;
+        }
+
+        .fm input[name=qt] {
+            width: 640px;
+            border-radius: 30px 0px 0px 30px;
+            height: 41px;
+            text-indent: 15px;
+            border: 2px solid #508cee;
+        }
+
+        .fm input[name=btn] {
+            border-radius: 0px 30px 30px 0px;
+            height: 45px;
+            font-size: 18px;
+            font-weight: bold;
+            background: url("https://p.so-gov.cn/custom/bm05000001TY/moe_search_icon_btn.png") #508cee no-repeat 15px center;
+        }
+        .logo img {
+            max-height: 240px;
+        }
+        .search-part {
+            margin: 1px auto 0;
+        }
+        .hd-content {
+            /*margin-top: 55px;*/
+        }
+        .fm .s-b-left {
+            height: 45px;
+        }
+        .hd-sbox {
+            overflow: scroll;
+        }
+        .scy-foot-zj ul li {
+            margin: 10px 24px;
+        }
+
+        .custom_foot{
+            width: 100%;
+            position: absolute;
+        }
+
+        .custom_foot_h {
+            height: 250px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="hd-sbox w100h100 posa index_bg">
+    <div class="moe-page-set scy-main">
+        <div class="mhide" style="overflow: visible">
+
+            <div class="scy-js">
+                <ul>
+                    <li id="moe_index_en"><span id="language">Languages</span>
+                        <dl style="display: none;">
+                            <dd><a record="false" href="http://en.moe.gov.cn/" target="_blank" title="英语版">English</a></dd>
+                            <dd><a record="false" href="http://ru.moe.gov.cn/" target="_blank" title="俄语版">Русский</a></dd>
+                            <dd><a record="false" href="http://jp.moe.gov.cn/" target="_blank" title="日语版">日本語</a></dd>
+                            <dd><a record="false" href="http://de.moe.gov.cn/" target="_blank" title="德语版">Deutsch</a></dd>
+                            <dd><a record="false" href="http://fr.moe.gov.cn/" target="_blank" title="法语版">Français</a></dd>
+                            <dd><a record="false" href="http://es.moe.gov.cn/" target="_blank" title="西班牙语">Español</a></dd>
+                            <dd><a record="false" href="http://ar.moe.gov.cn/" target="_blank" title="阿拉伯语">العربية</a></dd>
+                        </dl>
+                    </li>
+                    <li id="moe_index_wb"><a record="false" href="https://www.moe.gov.cn/jyb_sy/sy_wb/201301/t20130129_147290.html"
+                                             target="_blank">微言教育</a></li>
+                    <li id="moe-aid">
+                        <a record="false" hidden id="toolbarCtrl" href="#" onclick="openToolbar();" title="无障碍浏览">无障碍浏览</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="help posa">
+    </div>
+    <div class="hd-content w100">
+        <div class="logo textC" style="margin-bottom: 50px">
+                <img src="https://p.so-gov.cn/custom/bm05000001TY/jyb_index_logo.png" alt="logo" class="disb">
+        </div>
+        <div class="search-part">
+            <form id="queryForm" name="queryForm" method="get" action="s" class="fm posr">
+                <input type="hidden" name="tab" value="all">
+                    <input type="hidden" name="sitePath" value="true">
+                <input type="hidden" name="siteCode" value="bm05000001">
+                <span class="s-b-left posr disib">
+                        <input type="text" name="qt" id="qt"  value="" autocomplete="off">
+				</span>
+                <input type="button" name="btn" value="   搜索" class="posa" id="ch-search-b" onclick="gosearch()">
+                <div class="ch-search-sel">
+                    <ul id="ch-search-sel-ul">
+                    </ul>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="custom_foot_h"></div>
+    <div class="custom_foot">
+<div class="scy-foot">
+    <div class="scy-foot-nr">
+        <div class="scy-foot-zj" style="display: flex;align-items: center;">
+            <span id="_ideConac">
+                <a record="false" class="outMoeLink"
+                   href="http://bszs.conac.cn/sitename?method=show&amp;id=05FDD4B7206C29B0E053012819AC4C18"
+                   target="_blank">
+                    <img id="imgConac" src="https://p.so-gov.cn/pc/images/red.png" data-bd-imgshare-binded="1"
+                         vspace="0" hspace="0" border="0">
+                </a>
+            </span>
+                <span class="outMoeLink" style="margin:0;border:0;cursor: pointer;">
+                        <img onclick="Link('bm05000001')"
+                             src="https://p.so-gov.cn/custom/bm05000001TY/jiucuo.png?v=bm05000001"
+                             max-height="80px"/>
+                </span>
+
+            <ul>
+                <li class="sm" id="moe_index_foot_sm"><a record="false" href="http://www.moe.gov.cn/jyb_sy/s3634/"
+                                                         target="_blank">网站声明</a></li>
+                <li class="dt" id="moe_index_foot_dt"><a record="false" href="http://www.moe.gov.cn/jyb_sy/s3636/"
+                                                         target="_blank">网站地图</a></li>
+                <li class="lx" id="moe_index_foot_lx"><a record="false" href="http://www.moe.gov.cn/jyb_sy/s3635/"
+                                                         target="_blank">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="scy-foot-xia">
+            <p>版权所有：中华人民共和国教育部 中文域名：教育部.政务</p>
+            <p>
+                <a record="false" class="outMoeLink" href="https://beian.miit.gov.cn/" target="_blank"
+                   rel="nofollow">京ICP备10028400号-1</a>&nbsp;
+                <a record="false" class="outMoeLink" target="_blank"
+                   href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202007625"
+                   rel="nofollow"
+                   id="moe_gonganbeian">京公网安备11010202007625号</a>&nbsp;<span
+                        style="color: unset"> 网站标识码：bm05000001</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Link(site_code) {
+        //获取该站点需要纠错页面的url地址
+        var url = getCurrUrl();
+        //跳转至纠错系统填写页面
+        //20190701测试修改  window.open("http://121.43.68.40/exposure/jiucuo.html?site_code=" + site_code + "&url=" + encodeURIComponent(url));
+        window.open("https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=" + site_code + "&url=" + encodeURIComponent(url));
+    }
+
+    //获取该站点需要纠错页面的url地址
+    function getCurrUrl() {
+        var url = "";
+        if (parent !== window) {
+            try {
+                url = window.top.location.href;
+            } catch (e) {
+                url = window.top.document.referrer;
+            }
+        }
+        if (url.length == 0)
+            url = document.location.href;
+
+        return url;
+    }
+
+</script>    </div>
+</div>
+
+
+<script src="https://p.so-gov.cn/pc/js/jquery.min.js"></script>
+<script>
+    function tabclick(db) {
+        var url = "index?tab=" + db + "&siteCode=bm05000001";
+        location.href = url;
+    }
+
+    function gosearch() {
+        var qt = document.getElementById("qt").value;
+        if (qt == null || qt == "") {
+            alert("检索词不能为空");
+        } else {
+            $("#queryForm").submit();
+        }
+    }
+
+    function hot(word) {
+        var url = "s?tab=all&siteCode=bm05000001&qt=" + encodeURIComponent(word);
+        window.open(getDomainPath() + url, "_self")
+    }
+
+    function getDomainPath() {
+        var href = location.href;
+        if (href.indexOf('?') != -1) {
+            href = href.substring(0, href.lastIndexOf('?'))
+        }
+        if (!href.endsWith('/')) {
+            href += '/'
+        }
+        return href;
+    }
+
+
+    $(function () {
+        if (typeof String.prototype.startsWith !== 'function') {
+            String.prototype.startsWith = function (prefix) {
+                return this.slice(0, prefix.length) === prefix;
+            };
+        }
+
+        if (typeof String.prototype.endsWith !== 'function') {
+            String.prototype.endsWith = function (suffix) {
+                return this.indexOf(suffix, this.length - suffix.length) !== -1;
+            };
+        }
+    })
+
+</script>
+<script type="text/javascript" src="https://p.so-gov.cn/custom/bm05000001TY/wailian.js"></script>
+<script type="text/javascript" src="https://p.so-gov.cn/custom/bm05000001TY/moe.others.search.js"></script>
+<script type="text/javascript">
+
+    !function setDateFun() {
+        var _time = new Date(), _year = _time.getFullYear(), _month = _time.getMonth() + 1, _date = _time.getDate(),
+            _work = '', _hours = _time.getHours(),
+            _minutes = _time.getMinutes() >= 10 ? _time.getMinutes() : '0' + _time.getMinutes();
+        switch (_time.getDay()) {
+            case 0:
+                _work = '星期日';
+                break;
+            case 1:
+                _work = '星期一';
+                break;
+            case 2:
+                _work = '星期二';
+                break;
+            case 3:
+                _work = '星期三';
+                break;
+            case 4:
+                _work = '星期四';
+                break;
+            case 5:
+                _work = '星期五';
+                break;
+            case 6:
+                _work = '星期六';
+                break;
+        }
+        $('#dateFun').html(_year + '年' + _month + '月' + _date + '日 ' + _work);
+    }()
+
+
+    /*小屏顶部导航开始*/
+    var initialSlide = $(".m_top_nav li").index($(".m_top_nav li.cur"));
+    if ($('.swiper_container_top_nav').size() > 0) {
+
+        var mySwiperNav = new Swiper('.swiper_container_top_nav', {
+            freeMode: true,
+            freeModeFluid: true,
+            calculateHeight: true,
+            slidesPerView: 'auto',
+            initialSlide: initialSlide,
+            onFirstInit: function (swiper) {
+                if ($(".m_top_nav li").index($(".m_top_nav li.cur")) >= $(".m_top_nav li").size() - 6) {
+                    $('#m_nav_mask_fun').hide();
+                } else {
+                    $('#m_nav_mask_fun_left').hide();
+                }
+                holdPosition = 0, mySwiperNavTimer = null;
+            },
+            onTouchStart: function (swiper) {
+                holdPosition = 0, clearTimeout(mySwiperNavTimer);
+            },
+            onTouchEnd: function (swiper) {
+                if (holdPosition != 0) {
+                    $('#m_nav_mask_fun').hide();
+                    mySwiperNavTimer = setTimeout(function () {
+                        $('#m_nav_mask_fun_left').stop().fadeIn();
+                    }, 1000)
+                } else {
+                    mySwiperNavTimer = setTimeout(function () {
+                        $('#m_nav_mask_fun').stop().fadeIn();
+                    }, 1000)
+                    $('#m_nav_mask_fun_left').hide();
+                }
+            },
+            onResistanceAfter: function (swiper, pos) {
+                holdPosition = pos
+            }
+        })
+
+        function topNavFun() {
+            if ($(window).scrollTop() >
+                ($('.m_tou_date').height() + $('.m_top_logo').height())
+            ) {
+
+                if (!$('.swiper_container_top_nav').hasClass('fixed')) {
+                    $('.swiper_container_top_nav').addClass('fixed');
+                }
+            } else if (
+                $(window).scrollTop() <=
+                ($('.m_top_logo').height())
+            ) {
+
+                if ($('.swiper_container_top_nav').hasClass('fixed')) {
+                    $('.swiper_container_top_nav').removeClass('fixed');
+                }
+            }
+        }
+
+        // topNavFun();
+        $(window).scroll(function () {
+            topNavFun();
+        });
+
+    }
+    /*小屏顶部导航结束*/
+</script>
+
+<div style="position: absolute;bottom: 0;width: 100%;">
+    <style>
+        .toolsnav div i {
+            cursor: pointer
+        }
+#search-sub {
+    width: 64px;
+}
+    </style>
+<style>
+@media screen and (max-width: 1010px) {
+    body {
+        background: url(https://p.so-gov.cn/custom/bm05000001TY/jyb_top_background.jpg) no-repeat center top #fff;
+        background-size: 150%;
+    }
+
+    .moe-page-set, .scy-main {
+        background: transparent;
+    }
+    
+    .search-nav a {
+        line-height: 30px;
+    }
+}
+
+#search-sub {
+    width: unset !important;
+}
+.index_bg {
+    background: url(https://file.so-gov.cn/cps/pro/bm05000001_3.0/css/cad7fa4450f044fea503bd8d02e2a5de/cad7fa4450f044fea503bd8d02e2a5de.png) center top no-repeat;
+}
+.fm input[name=btn] {
+    
+    height: 41px;
+  
+}
+.rowtab .w100 {
+display: flex;
+}
+.rowtab .w100 .txt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+}
+</style>
+</div>
+</body>
+</html>
+
+<script type="text/javascript" src="https://p.so-gov.cn/custom/bm05000001TY/content.js"></script>

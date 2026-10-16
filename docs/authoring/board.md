@@ -11,7 +11,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | ID | Unit | Depends on | Status | Owner | Branch | Updated | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | R-0 | Register schema, roster, folders, check script, LFS rules | — | done | claude-7fcc | main | 2026-10-15 | `scripts/check-register.mjs`, `reference/source-register/resource-schema.json`, `cities/roster.json` |
-| R-STD | 2022 课标 (+2025 revision) and appendices as data | R-0 | claimed | codex-curriculum | research/R-STD | 2026-10-16 | Resuming ea09f7e with two read-only delegates: supplemental tables and revised-standard discovery; coordinator retains IDs and tracked changes. |
+| R-STD | 2022 课标 (+2025 revision) and appendices as data | R-0 | done | codex-curriculum | main (research/R-STD b48d267) | 2026-10-16 | 15 sources/33 retained artifacts; baseline and school-hosted2025revision separately audited. All197revised pages viewed;505/1600mainwords+221supplements/versionedcases.2011fulltext and exact Ministry2025issue date remain explicit source gaps. |
 | R-ED-A | Editions: 人教 (2024 new + legacy, 六三/五四), 外研, 仁爱科普 | R-0 | claimed | codex-editions-a | research/R-ED-A | 2026-10-15 | Pushed7174f0d:19sources/19files;17legacy book extracts and2024/2025 catalogues. New editions, complete maps and audio unresolved. |
 | R-ED-B | Editions: 译林牛津, 沪教牛津, 北师大, 冀教, 鲁教五四, 北京版, others | R-0 | claimed | codex-editions-b | research/R-ED-B | 2026-10-15 | Pushed bf15137: 65 sources / 79 files; 43 legacy extracts, BNU new-series navigation for 5 volumes and teacher catalogues. Current full books/ISBNs/audio unresolved. |
 | R-NORTH | 15 north cities: 中考 papers, answers, audio, transcripts, structures, adoption, term papers by grade, 一模/二模 | R-0 | claimed | codex-north | research/R-NORTH | 2026-10-15 | Pushed 060fa97: 171 sources / 41 files. Annual audit: 9 opened, 15 unresolved searches, 51 unsearched. Original papers/media and full coverage remain missing. |
@@ -30,10 +30,10 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 
 | # | Asked by (unit) | What is needed | Picked up by | Status |
 | --- | --- | --- | --- | --- |
-| 1 | R-STD coordinator | Read-only visual audit of baseline vocabulary appendices; coordinator retains IDs and tracked edits | codex-north | main-entry audit registered on R-STD ea09f7e; supplemental transcription incomplete |
+| 1 | R-STD coordinator | Read-only visual audit of baseline vocabulary appendices; coordinator retains IDs and tracked edits | codex-north | done; baseline main audit and221supplemental records registered; separately versioned2025review completed |
 | 2 | R-ED-B coordinator | Read-only BNU/Shanghai publisher discovery; coordinator retains IDs and tracked edits | codex-east | registered and checked on R-ED-B bf15137 |
-| 3 | R-STD coordinator | Complete visual transcription of supplemental appendix tables into temporary data; coordinator registers results | curriculum-supplements | in progress |
-| 4 | R-STD coordinator | Resolve English-specific revised-standard evidence and comparison source through public official discovery | curriculum-revision | in progress |
+| 3 | R-STD coordinator | Complete visual transcription of supplemental appendix tables into temporary data; coordinator registers results | curriculum-supplements | done;221baseline/revised supplemental records, revised main-list audit and currentcase1/2maps registered |
+| 4 | R-STD coordinator | Resolve English-specific revised-standard evidence and comparison source through public official discovery | curriculum-revision | done; acquired actual English2025PDF;143body/other-appendix page reviews and version guards registered |
 
 ## Shared resources
 

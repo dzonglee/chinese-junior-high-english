@@ -1,0 +1,11 @@
+# Current teaching cases 1 and 2 in the copy labelled 2025 revision
+
+Read-only output for the R-STD coordinator. No tracked files, identifiers or branches changed. Existing source R-STD::013 is used. The PDF SHA-256 was verified. All 15 requested revised pages PDF 146–160 (printed 143–157) were actually viewed, including both figures and all tables. Eight baseline table/figure/objective pages were also viewed directly.
+
+`proposed-2025-cases12.json` contains English paraphrases of both current designs: four text rows and four lessons each; three objectives for Meet My Family and six for Do Family Chores. It maps thematic meanings, language/strategy focus, lesson progression, explicit projects and observable classroom evidence. It does not reproduce the original passages, dialogue or figure artwork.
+
+The revised content tables add thematic meaning and combine major sentence patterns with vocabulary. Figure 3 now integrates an explicit family-album project themed around loving one’s family. Figure 4 adds a family-helper poster project. The numbered objective tables remain semantically the same; figure projects are kept separate from objective counts. Neither case supplies numerical analytic marking bands.
+
+`changes.json` provides nine precise figure/table highlights with original before/after page references. These include local example-list changes: sister added in case 1’s family row; selected occupation/appearance examples narrowed; and personalized household-work phrases in case 2. These are local content-table edits, not changes to the national vocabulary appendix or removal of those words from the whole standard. The revised second chores dialogue still uses a telephone context although its content-table row drops the separate greeting/identification example.
+
+`review-metadata.json` contains all viewed page hashes, dataset hashes, baseline-map provenance and semantic checks. There are no unresolved readings or assigned pages remaining. This is a comparison of the requested teaching-design material, not a complete word-level diff of every source passage. The school-hosted copy is not independently authenticated here as a Ministry promulgation; all material remains reference-only with no commercial permission.
