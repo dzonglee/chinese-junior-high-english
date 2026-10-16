@@ -16,6 +16,16 @@ Every session and agent must keep the connected Obsidian memory and Kanban board
 MCP, using plain English. See `AGENTS.md` and `docs/project-memory.md` for the standing protocol
 and the current connection state.
 
+## Local-first delivery (owner direction, 2026-10-17)
+
+The owner explicitly directed immediate implementation of a usable local version and deferred
+videos. Continue the existing APP-DELIVERY implementation under codex-local; this direction
+supersedes the previous ownership-only pause. Fix the reproduced correctness defects, run the
+learner flows, and leave a working local browser/native-development app. Research, production
+credentials, media production and external MCP tool exposure do not block this local milestone.
+Preserve honest verification and media-pending states; no release, audio choice or research gate
+is inferred. Record the local milestone separately from eventual production publication.
+
 ## Stage 1 · Resource gathering (continues alongside app delivery)
 
 Build the research corpus in `reference/`: a source register with provenance, verification and

@@ -169,3 +169,13 @@ capabilities identifier and no generic tool-search/reload interface. Existing ex
 reconciliation. The repository board/log and this review package are current; no external write,
 credential disclosure, authentication/network change or duplicate board occurred. Environment draft
 publication and future-task restoration remain separate owner/product operations, not claimed here.
+
+## Active local development · 2026-10-17
+
+The owner's latest instruction is to start development immediately, deliver a local version first
+and defer videos. APP-DELIVERY is explicitly reassigned to codex-local on its existing branch;
+previous ownership-only blocking conclusions are superseded by this direction. Implement the
+known grading/recording/approval corrections, verify complete learner flows and run the local app.
+Do not wait for production credentials or media choices to make local development usable.
+The current worker still exposes no Chrisverse/Obsidian/Kanban native tools despite the new plugin
+attachment. Keep repository records current and reconcile existing external records if tools appear.
