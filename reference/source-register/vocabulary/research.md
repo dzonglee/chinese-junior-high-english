@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 55 legacy textbook appendices are registered. R-VOC remains incomplete: 245 annual city vocabulary cells remain unsearched, 34 have bounded not_found results and 1 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 245 annual city vocabulary cells remain unsearched, 34 have bounded not_found results and 1 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -117,3 +117,9 @@ The actual2022Englishanalysis was already reopened underR-VOC::006;2023–2025an
 Luoyang remains genuinely unsearched at usable annual scope. Ordinary vocabulary requests returned unrelated results; advanced vocabulary targets, annual admissions controls and even a known government-report title returned zero. Actual responses are retained, butHTTP200is not useful absence evidence. Continue through independent annual policy/archive routes rather than filling five cells from these controls.
 
 Additional public-provider controls also failed to support discovery:Yahoo500,360redirectloop, and unrelatedBingRSSresults. The RSS response limits use to personal aggregation, so that route was stopped and its content excluded; only diagnostic metadata and byte/SHA pins remain. No annual cells change from provider controls.
+
+## BNU scanned legacy lists
+
+Five BNU books add 2,334 manually transcribed occurrences: 2,271 in 36 unit/Get Ready groups plus 63 in four explicitly separate Places / Places and Names sections. All 128 retained pages were visually inspected, including 16 picture-dictionary figure pages. All five selected-page PDFs preserve source RGB pixels and complete native text; no resampling, OCR layer or watermark removal was used. Alphabetical/picture/supplementary repetitions are not counted twice.
+
+The observed publisher is 北京师范大学出版社, chief editor 王蔷, with 2013 cover approvals. Reviewed covers/title/prefaces/afterwords show no ISBN or imprint/printing dates, so those fields remain unknown. No catalogue lookalike fills the gap. Main/index swim/go swimming and practice/practise differences, and grade9 alphabetical-only complain/get used to/scenic, remain explicit. IPA/gloss/per-entry typography/star semantics stay uncurated. These five books complete the cached 60-parent legacy audit, while current books and unacquired edition/grade/term families still require separate discovery. No local examination equivalence, adoption or commercial permission follows.
