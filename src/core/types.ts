@@ -49,6 +49,10 @@ export interface ExamBlueprint {
   sourceIds: string[]
 }
 
+export interface CourseStage { grade: Grade; term: Term; themeId?: string }
+export interface CourseTheme { id: string; title: string; grade: Grade; term: Term; domain: string }
+export interface OriginalCourse { id: string; title: string; sequence: 'original'; themes: CourseTheme[] }
+
 export interface Topic {
   id: string
   title: string
@@ -57,6 +61,7 @@ export interface Topic {
   goal: string
   commonError: string
   prerequisites: string[]
+  course?: CourseStage
   order: number
 }
 
@@ -136,6 +141,7 @@ export interface MediaAsset {
 export type QuestionMetadata = Pick<Question, 'id' | 'topicId' | 'skill' | 'kind' | 'difficulty' | 'grades' | 'marks' | 'estimatedSeconds' | 'mediaId' | 'review'>
 export interface ContentCatalog {
   version: number
+  course?: OriginalCourse
   topics: Topic[]
   lessons: Lesson[]
   questions: Question[]

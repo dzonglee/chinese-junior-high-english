@@ -18,6 +18,11 @@ export function shuffled<T>(items: readonly T[], seed: number): T[] {
 export function questionById(catalog: ContentCatalog, state: LearnerState, id: string): Question | undefined {
   return catalog.questions.find((q) => q.id === id) ?? state.privateQuestions.find((q) => q.id === id)
 }
+/** Shared-passage review feedback waits until submission so later answers stay independent. */
+export function deferredFeedback(session: LearningSession, question: Question): boolean {
+  return session.mode === 'review' && !!question.feedbackGroup && !session.submittedAt
+}
+
 export function playable(question: Pick<Question, 'skill' | 'mediaId'>, catalog: ContentCatalog): boolean {
   return question.skill !== 'listening' || catalog.media.some((m) => m.id === question.mediaId && m.approvedByOwner && !!m.path)
 }
@@ -104,7 +109,7 @@ function makeAttempt(state: LearnerState, catalog: ContentCatalog, session: Lear
   const previousAttempt = [...state.attempts].reverse().find(a => a.questionId === q.id)
   const lastExposure = Math.max(previousAttempt?.at ?? 0, state.answerSeenAt?.[q.id] ?? 0)
   const repeatsImmediately = lastExposure && now - lastExposure < DAY
-  const groupExposed = !!q.feedbackGroup && ((session.mode !== 'exam' && Object.entries(session.answers).some(([id, record]) => id !== q.id && record.checked && questionById(catalog, state, id)?.feedbackGroup === q.feedbackGroup)) || Object.entries(state.answerSeenAt ?? {}).some(([id, at]) => now - at < DAY && questionById(catalog, state, id)?.feedbackGroup === q.feedbackGroup))
+  const groupExposed = !!q.feedbackGroup && ((session.mode !== 'exam' && !deferredFeedback(session, q) && Object.entries(session.answers).some(([id, record]) => id !== q.id && record.checked && questionById(catalog, state, id)?.feedbackGroup === q.feedbackGroup)) || Object.entries(state.answerSeenAt ?? {}).some(([id, at]) => now - at < DAY && questionById(catalog, state, id)?.feedbackGroup === q.feedbackGroup))
   const evidence: Evidence = selfReview ? 'self_review' : !!answer.trim() && answer.trim() !== '[]' && (q.skill !== 'listening' || prior?.audioPlayed) && firstTry && !(prior?.hints) && !repeatsImmediately && !groupExposed ? 'independent' : 'assisted'
   const maxScore = session.examMarks?.[q.id] ?? q.marks
   const rawSelfScore = selfReviewScore(q.rubric ?? [], selfSelected ?? [])
@@ -114,7 +119,7 @@ function makeAttempt(state: LearnerState, catalog: ContentCatalog, session: Lear
   const delayed = evidence === 'independent' && (!lastExposure || session.startedAt - lastExposure >= 2 * DAY) && ((session.mode === 'review' && !!lastLessonAt && session.startedAt - lastLessonAt >= 2 * DAY) ||
     (session.mode === 'mistakes' && !!state.mistakes[q.id] && session.startedAt >= state.mistakes[q.id].dueAt) ||
     (!!previousIndependent && session.startedAt - previousIndependent.at >= 2 * DAY))
-  const last = state.attempts[state.attempts.length - 1]
+  const last = Object.values(session.answers).map(r => r.result).filter((a): a is Attempt => !!a).reduce((recent, a) => !recent || a.at > recent.at ? a : recent, state.attempts[state.attempts.length - 1])
   return { id: makeId('attempt', now), questionId: q.id, topicId: q.topicId, skill: q.skill, answer, correct: score === maxScore, score, maxScore, evidence, firstTry, delayed,
     at: now, seconds: Math.max(0, Math.min(7200, Math.round((now - (last?.sessionId === session.id ? last.at : session.startedAt)) / 1000))), sessionId: session.id }
 }
@@ -128,11 +133,11 @@ export function checkCurrent(state: LearnerState, catalog: ContentCatalog, now: 
   if (q.skill === 'listening' && !record.audioPlayed) throw new Error('先播放音频，再检查自己的答案。')
   if (record.checked) return state
   const attempt = makeAttempt(state, catalog, session, q, record.answer, now, rubric)
-  let next = recordAttempt(state, attempt, q.difficulty)
+  let next = deferredFeedback(session, q) ? state : recordAttempt(state, attempt, q.difficulty)
   if (session.mode === 'mistakes' && state.mistakes[id] && (!attempt.correct || attempt.evidence === 'independent')) {
     next = { ...next, mistakes: { ...next.mistakes, [id]: redoMistake(state.mistakes[id], attempt.correct && attempt.evidence === 'independent', session.startedAt, now) } }
   }
-  return replaceSession({ ...next, answerSeenAt: { ...next.answerSeenAt, [id]: now } }, { ...session, answers: { ...session.answers, [id]: { ...record, attempts: record.attempts + 1, checked: true, result: attempt } } }, now)
+  return replaceSession({ ...next, answerSeenAt: deferredFeedback(session, q) ? next.answerSeenAt : { ...next.answerSeenAt, [id]: now } }, { ...session, answers: { ...session.answers, [id]: { ...record, attempts: record.attempts + 1, checked: true, result: attempt } } }, now)
 }
 export function retryCurrent(state: LearnerState, now: number): LearnerState {
   const session = active(state), id = session.questionIds[session.current], record = session.answers[id]
@@ -173,10 +178,16 @@ export function submitSession(state: LearnerState, catalog: ContentCatalog, now:
       answers[id] = { ...record, checked: true, attempts: 1, result: attempt }
     }
   } else if (session.questionIds.some((id) => !answers[id]?.checked)) throw new Error('还有题没检查，先完成这组练习。')
+  if (session.mode === 'review') for (const id of session.questionIds) {
+    const q = questionById(catalog, state, id), attempt = answers[id]?.result
+    if (q && attempt && deferredFeedback(session, q)) next = recordAttempt(next, attempt, q.difficulty)
+  }
   if (session.lessonId && session.mode === 'lesson' && !next.lessonDoneAt[session.lessonId]) next = { ...next, lessonDoneAt: { ...next.lessonDoneAt, [session.lessonId]: now } }
   if (session.mode === 'review' && session.lessonId && session.reviewStage !== undefined) {
     const attempts = session.questionIds.map((id) => answers[id]?.result)
-    if (attempts.every((a) => a?.correct && a.evidence === 'independent' && a.delayed)) {
+    // Self-review completion advances its practice schedule, never verified retention.
+    // Objective reviews still require every answer to be correct, independent and delayed.
+    if (attempts.every((a) => a && (a.evidence === 'self_review' || a.correct && a.evidence === 'independent' && a.delayed))) {
       const stages = next.lessonReviews[session.lessonId] ?? []
       next = { ...next, lessonReviews: { ...next.lessonReviews, [session.lessonId]: [...new Set([...stages, session.reviewStage])] } }
     }

@@ -1,11 +1,14 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { authorExpressions } from './author-expressions.mjs'
+import { authorPronunciation } from './author-pronunciation.mjs'
 const read = (root, path) => JSON.parse(readFileSync(resolve(root, path), 'utf8'))
+const optional = (root, path) => existsSync(resolve(root, path)) ? read(root, path) : []
 const source = { kind: 'original', author: 'Chinese Junior-High English project authors' }
 const gradesFrom = minimum => [6, 7, 8, 9].filter(g => g >= minimum)
 export function authorExtra(root, catalog) {
   const { topics, lessons, questions, vocabulary } = catalog
-  for (const [n, record] of read(root, 'content/reading.json').entries()) {
+  for (const [n, record] of [...read(root, 'content/reading.json'), ...optional(root, 'content/course-reading.json')].entries()) {
     const grades = gradesFrom(record.minGrade)
     topics.push({ id: record.id, title: record.title, skill: 'reading', grades, goal: record.goal, commonError: record.pitfall, prerequisites: [], order: 100 + n })
     const sets = []
@@ -16,7 +19,7 @@ export function authorExtra(root, catalog) {
         const options = raw.map((_, j) => ({ id: ['a', 'b', 'c'][j], text: raw[(j + i) % 3] }))
         const right = options.find(o => o.text === correct).id
         ids.push(id)
-        questions.push({ id, topicId: record.id, skill: 'reading', kind: 'choice', difficulty: n > 0 ? 2 : 1, grades, stem, passage: text.text, options, answer: { option: right, display: correct }, marks: 2, estimatedSeconds: 90, source, review: 'draft',
+        questions.push({ id, topicId: record.id, skill: 'reading', kind: 'choice', feedbackGroup: `${record.id}-${textIndex + 1}`, difficulty: n > 0 ? 2 : 1, grades, stem, passage: text.text, options, answer: { option: right, display: correct }, marks: 2, estimatedSeconds: 90, source, review: 'draft',
           explanation: { strategy: record.goal, steps: [{ text: `定位原文：“${evidence}”`, reason: '这一处直接提供回答问题所需的信息或推断依据。' }, { text: `核对选项：“${correct}”。`, reason: n === 0 ? '它与原文中的人物、时间或行为一致，没有偷换对象。' : '把这处线索放回全文，答案没有扩大原文可以支持的范围。' }],
             distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: o.text === wrong1 ? why1 : why2 })), pitfall: record.pitfall,
             visual: { kind: 'evidence', title: '原文证据 → 答案', segments: [{ text: evidence, role: 'evidence', note: '先读这处线索' }, { text: correct, role: 'object', note: '与问题相对应的意思' }], caption: '核对线索表达的事实与选项表达的意思，不能只匹配重复的词。' }, transfer: '遮住选项，用自己的话回答这个问题，再回到原文检查。' } })
@@ -40,37 +43,53 @@ export function authorExtra(root, catalog) {
     }
     lessons.push({ id: 'l-r-cloze', topicId: id, title: '完形填空：读懂前后关系', grades, objective: '用上下文检查每个表达，不凭眼熟选答案。', questionIds: sets[0], delayedQuestionIds: sets[1], summary: ['先读全文，再选表达。', '每个答案都要说出上下文依据。'], estimatedMinutes: 12, order: 1, review: 'draft' })
   }
-  for (const [t, r] of read(root, 'content/listening.json').entries()) {
+  for (const [t, r] of [...read(root, 'content/listening.json'), ...optional(root, 'content/course-listening.json')].entries()) {
     const grades = gradesFrom(r.minGrade), ids = []
     topics.push({ id: r.id, title: r.title, skill: 'listening', grades, goal: r.goal, commonError: '听到过的信息未必是最终答案，要留意改口与回应。', prerequisites: [], order: 120 + t })
     const assets = existsSync(resolve(root, 'content/audio-manifest.json')) ? read(root, 'content/audio-manifest.json') : []
     for (const [i, task] of r.cases.entries()) {
-      const id = `q-${r.id}-${task.id}`, mediaId = `audio-${task.id}`, right = ['a', 'b', 'c'][(3 - i % 3) % 3]
+      const id = `q-${r.id}-${task.id}`, mediaId = `audio-${task.audioKey ?? task.id}`, right = ['a', 'b', 'c'][(3 - i % 3) % 3]
       const options = task.options.map((_, n) => ({ id: ['a', 'b', 'c'][n], text: task.options[(n + i) % 3] }))
       const asset = assets.find(a => a.id === mediaId)
       if (asset?.approvedByOwner) { const policy = read(root, 'content/audio-policy.json'); if (!policy.ownerApproval || !['openai', 'licensed'].includes(policy.source) || (policy.source === 'openai' && (policy.model !== asset.model || policy.voice !== asset.voice))) throw new Error(`Audio ${mediaId} does not match the owner's recorded source choice`) }
-      catalog.media.push(asset ?? { id: mediaId, path: '', transcript: task.transcript, voice: '', model: '', license: '', sha256: '', approvedByOwner: false })
+      if (!catalog.media.some(m => m.id === mediaId)) catalog.media.push(asset ?? { id: mediaId, path: '', transcript: task.transcript, voice: '', model: '', license: '', sha256: '', approvedByOwner: false })
       ids.push(id)
-      questions.push({ id, topicId: r.id, skill: 'listening', kind: 'choice', difficulty: t ? 2 : 1, grades, stem: task.stem, passage: task.transcript, mediaId, options, answer: { option: right, display: task.options[0] }, marks: 1, estimatedSeconds: 70, source, review: 'draft', explanation: { strategy: r.goal, steps: [{ text: `先定位关键话语：“${task.evidence}”`, reason: '这句话给出请求、最终决定或说话人的意图。' }, { text: `结合回应，答案是 ${task.options[0]}。`, reason: '不能只按录音中第一个出现的数字、地点或建议作答。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: task.reasons[task.options.indexOf(o.text) - 1] })), pitfall: '先确认题目问的是最初提议、当前安排还是说话意图。', visual: { kind: 'evidence', title: '听力中的关键证据', segments: [{ text: task.evidence, role: 'evidence', note: '这句话决定判断' }, { text: task.options[0], role: 'object', note: '与问题对应的含义' }], caption: '听完后再看文字，标出修正或请求，不把阅读文字当作听力独立完成。' }, transfer: '再听一遍，尝试不看文字复述最后的决定或请求。' } })
+      questions.push({ id, topicId: r.id, skill: 'listening', kind: 'choice', feedbackGroup: mediaId, difficulty: t ? 2 : 1, grades, stem: task.stem, passage: task.transcript, mediaId, options, answer: { option: right, display: task.options[0] }, marks: 1, estimatedSeconds: 70, source, review: 'draft', explanation: { strategy: r.goal, steps: [{ text: `先定位关键话语：“${task.evidence}”`, reason: '这句话给出请求、最终决定或说话人的意图。' }, { text: `结合回应，答案是 ${task.options[0]}。`, reason: '不能只按录音中第一个出现的数字、地点或建议作答。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: task.reasons[task.options.indexOf(o.text) - 1] })), pitfall: '先确认题目问的是最初提议、当前安排还是说话意图。', visual: { kind: 'evidence', title: '听力中的关键证据', segments: [{ text: task.evidence, role: 'evidence', note: '这句话决定判断' }, { text: task.options[0], role: 'object', note: '与问题对应的含义' }], caption: '听完后再看文字，标出修正或请求，不把阅读文字当作听力独立完成。' }, transfer: '再听一遍，尝试不看文字复述最后的决定或请求。' } })
     }
     lessons.push({ id: `l-${r.id}`, topicId: r.id, title: r.title, grades, objective: r.goal, questionIds: ids.slice(0, 4), delayedQuestionIds: ids.slice(4), summary: [r.goal, '先听再答，检查后才看文字。'], estimatedMinutes: 8, order: 1, review: 'draft' })
   }
   const groups = { school: ['v-school', '校园里的常用词', 6], daily: ['v-daily', '日常表达与学习习惯', 6], community: ['v-community', '社区与出行', 7], nature: ['v-nature', '自然与可持续生活', 8] }
-  const lines = readFileSync(resolve(root, 'content/vocabulary.tsv'), 'utf8').split('\n').filter(line => line && !line.startsWith('#'))
+  for (const group of optional(root, 'content/course-vocabulary-groups.json')) groups[group.key] = [group.id, group.title, group.minGrade]
+  const lines = [readFileSync(resolve(root, 'content/vocabulary.tsv'), 'utf8'), ...(existsSync(resolve(root, 'content/course-vocabulary.tsv')) ? [readFileSync(resolve(root, 'content/course-vocabulary.tsv'), 'utf8')] : [])].join('\n').split('\n').filter(line => line && !line.startsWith('#'))
   for (const [key, [id, title, minimum]] of Object.entries(groups)) {
     const grades = gradesFrom(minimum), ids = []
     topics.push({ id, title, skill: 'vocabulary', grades, goal: '结合原句理解词义，再独立拼写并检查搭配。', commonError: '看懂例句不等于能独立回忆，拼写也要自己试。', prerequisites: [], order: 60 + minimum })
     for (const line of lines.filter(line => line.startsWith(key + '|'))) {
-      const [, word, meaning, example, exampleMeaning, note] = line.split('|')
+      const [, word, meaning, example, exampleMeaning, note, variants = ''] = line.split('|')
       if (!note) throw new Error('Vocabulary entry is incomplete: ' + word)
-      const acceptedSpellings = word === 'neighbour' ? ['neighbor'] : []
+      const acceptedSpellings = [...new Set([...(word === 'neighbour' ? ['neighbor'] : []), ...variants.split(',').map(v => v.trim()).filter(Boolean)])]
       const wid = `word-${word}`, qid = `q-${id}-${word}`; ids.push(qid)
-      vocabulary.push({ id: wid, word, meaning, example, exampleMeaning, topicId: id, grade: minimum, spelling: word === 'neighbour' ? 'british' : 'shared', acceptedSpellings, explanation: note })
+      vocabulary.push({ id: wid, word, meaning, example, exampleMeaning, topicId: id, grade: minimum, spelling: ['neighbour', 'mum', 'yoghurt', 'memorise', 'theatre', 'colour', 'aeroplane', 'tyre', 'harbour', 'neighbourhood', 'centre', 'grey'].includes(word) ? 'british' : 'shared', acceptedSpellings, explanation: note })
       const masked = example.replace(new RegExp(`\\b${word}\\b`, 'i'), '_____')
-      questions.push({ id: qid, topicId: id, skill: 'vocabulary', kind: 'blank', difficulty: minimum >= 8 ? 2 : 1, grades, stem: `根据释义写出单词：${meaning}\n${masked}`, answer: { accepted: [word, ...acceptedSpellings], display: word }, marks: 1, estimatedSeconds: 40, source, review: 'draft',
+      questions.push({ id: qid, topicId: id, skill: 'vocabulary', kind: 'blank', feedbackGroup: wid, difficulty: minimum >= 8 ? 2 : 1, grades, stem: `填写本课词表中的目标词：${meaning}（首字母 ${word[0]}，${acceptedSpellings.length ? '英美拼写均可' : `${word.replaceAll('-', '').length} 个字母`}）\n${masked}`, answer: { accepted: [word, ...acceptedSpellings], display: word }, marks: 1, estimatedSeconds: 40, source, review: 'draft',
         explanation: { strategy: '先用中文释义和句意确定词，再检查拼写与搭配。', steps: [{ text: `本句是“${exampleMeaning}”，目标词为 ${word}。`, reason: `这里需要表达“${meaning}”。` }, { text: `放回原句：${example}`, reason: note }], distractors: [], pitfall: note, visual: { kind: 'sentence', title: '词义与用法放在一起记', segments: [{ text: word, role: 'evidence', note: meaning }, { text: example, role: 'neutral', note: '在原句中检查用法' }], caption: note }, transfer: `换一个与自己有关的语境，用 ${word} 说一个短句。` } })
     }
-    lessons.push({ id: `l-${id}`, topicId: id, title, grades, objective: '先尝试回忆，再用例句检查词义与搭配。', questionIds: ids.slice(0, 8), delayedQuestionIds: ids.slice(8, 12), summary: ['拼写前先自己回忆。', '看过答案后再写对是练习，隔几天独立写对才是保留证据。'], estimatedMinutes: 8, order: 1, review: 'draft' })
+    const topicWords = vocabulary.filter(w => w.topicId === id)
+    for (const [n, word] of topicWords.entries()) {
+      const decoys = topicWords.filter(w => w.meaning !== word.meaning && w.id !== word.id).filter((w, i, list) => list.findIndex(other => other.meaning === w.meaning) === i).slice(0, 2)
+      if (decoys.length !== 2) throw new Error(`Vocabulary topic needs three distinct meanings: ${id}`)
+      const labels = [word, ...decoys], rotated = labels.map((_, k) => labels[(k + n) % 3])
+      const options = rotated.map((w, k) => ({ id: ['a', 'b', 'c'][k], text: w.meaning })), right = options.find(o => o.text === word.meaning).id
+      questions.push({ id: `q-${id}-${word.word}-meaning`, topicId: id, skill: 'vocabulary', kind: 'choice', feedbackGroup: word.id, difficulty: 1, grades, stem: `本句中的 ${word.word} 是什么意思？`, passage: word.example, options, answer: { option: right, display: word.meaning }, marks: 1, estimatedSeconds: 35, source, review: 'draft', explanation: { strategy: '读完整句，结合搭配确认这个词在本句中的意思。', steps: [{ text: word.exampleMeaning, reason: `本句表达的是“${word.meaning}”。` }, { text: word.explanation, reason: '词义必须与句中位置及实际用法同时吻合。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: `“${o.text}”在本课对应 ${decoys.find(w => w.meaning === o.text).word}，不是本句中 ${word.word} 的意思。${word.exampleMeaning}` })), pitfall: word.explanation, visual: { kind: 'sentence', title: '回到例句核对词义', segments: [{ text: word.word, role: 'evidence', note: word.meaning }, { text: word.example, role: 'neutral', note: word.exampleMeaning }], caption: word.explanation }, transfer: `不用原句，试着用 ${word.word} 再表达一件自己的事。` } })
+    }
+    const count = Math.max(1, Math.ceil(ids.length / 8)), size = Math.floor(ids.length / count), extra = ids.length % count
+    let start = 0
+    for (let batch = 0; batch < count; batch++) {
+      const length = size + (batch < extra ? 1 : 0), selected = ids.slice(start, start + length)
+      if (selected.length < 4) throw new Error(`Vocabulary lesson too short: ${id}`)
+      lessons.push({ id: `l-${id}${batch ? `-${batch + 1}` : ''}`, topicId: id, title: `${title}${count > 1 ? ` · ${batch + 1}` : ''}`, grades, objective: '先独立拼写，再用具体例句检查词义；隔几天换个方向检验。', questionIds: selected, delayedQuestionIds: selected.map(qid => qid + '-meaning'), summary: ['拼写前先自己回忆。', '延时题换成语境辨义；到期单词卡继续检验拼写。'], estimatedMinutes: 8, order: batch + 1, review: 'draft' })
+      start += length
+    }
   }
   if (existsSync(resolve(root, 'content/audio-manifest.json'))) {
     const assets = read(root, 'content/audio-manifest.json'), policy = read(root, 'content/audio-policy.json')
@@ -82,11 +101,6 @@ export function authorExtra(root, catalog) {
       catalog.media.push(asset)
     }
   }
-  for (const [i, r] of read(root, 'content/expression.json').entries()) {
-    const grades = gradesFrom(r.minGrade), writing = r.skill === 'writing', marks = writing ? 10 : 6
-    topics.push({ id: r.id, title: r.title, skill: r.skill, grades, goal: r.points, commonError: r.pitfall, prerequisites: [], order: 150 + i })
-    questions.push({ id: `q-${r.id}`, topicId: r.id, skill: r.skill, kind: r.skill, grades, difficulty: r.minGrade >= 9 ? 3 : 2, stem: r.stem, ...(r.passage ? { passage: r.passage } : {}), ...(r.audioTaskId ? { mediaId: `audio-${r.audioTaskId}` } : {}), answer: { display: r.model }, marks, estimatedSeconds: writing ? 720 : 120, source, review: 'draft',
-      rubric: writing ? [{ id: 'content', label: '任务信息完整', marks: 4, guidance: r.points }, { id: 'structure', label: '顺序清楚，衔接自然', marks: 3, guidance: '开头说明意图；各层意思有顺序，不机械堆连接词。' }, { id: 'language', label: '句子通顺，细节已检查', marks: 3, guidance: '逐句检查主谓、时态、拼写与标点。字数按任务自查。' }] : [{ id: 'content', label: '关键内容说清楚', marks: 2, guidance: r.points }, { id: 'organisation', label: '有顺序，听得懂', marks: 2, guidance: '回听时能跟上各层意思；适当停顿，不要求固定口音。' }, { id: 'expression', label: '句子基本完整', marks: 2, guidance: '能用自己的句子表达；回听时检查明显的时态和用词问题。' }],
-      explanation: { strategy: r.strategy, steps: [{ text: `先列任务要点：${r.points}。`, reason: '信息完整是表达的基础，先完成任务，再修饰语言。' }, { text: `再检查参考表达中的组织线索：${r.evidence}。`, reason: '参考表达只是一种可行写法，不是必须逐字背诵的唯一答案。' }], distractors: [], pitfall: r.pitfall, visual: { kind: 'paragraph', title: '要点 → 组织 → 检查', segments: [{ text: r.points, role: 'evidence', note: '完成沟通任务' }, { text: r.evidence, role: 'neutral', note: '把信息按顺序连接' }, { text: writing ? '主谓、时态、拼写、标点' : '清楚程度、完整句子、自然停顿', role: 'verb', note: '完成后自查' }], caption: '先独立表达，再用要点自查；自评记录不代表机器测评或当地官方评分。' }, transfer: '换一个对象或情境，用同样的组织方法再表达一次。' } })
-  }
+  authorExpressions(root, catalog)
+  authorPronunciation(root, catalog)
 }

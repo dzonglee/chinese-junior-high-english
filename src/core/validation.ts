@@ -35,7 +35,8 @@ export function questionProblems(value: unknown, path = 'question'): string[] {
       expect(options.length >= 2 && options.length <= 7 && options.every((o) => object(o) && text(o.id, 20) && text(o.text, 1000)), 'invalid choice options')
       const ids = options.filter(object).map((o) => o.id)
       expect(new Set(ids).size === ids.length && ids.includes(q.answer.option), 'answer must name one unique option')
-      const labels = options.filter(object).map((o) => typeof o.text === 'string' ? o.text.trim().toLowerCase() : '')
+      const caseSensitive = q.answer.caseSensitive === true
+      const labels = options.filter(object).map((o) => typeof o.text === 'string' ? caseSensitive ? o.text.trim() : o.text.trim().toLowerCase() : '')
       expect(new Set(labels).size === labels.length, 'choice texts must be distinct')
     }
     if (q.kind === 'blank' || q.kind === 'correction') expect(list(q.answer.accepted) && q.answer.accepted.length > 0 && q.answer.accepted.every((a) => text(a, 4000)), 'missing accepted answer variants')
