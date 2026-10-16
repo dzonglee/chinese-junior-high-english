@@ -1,6 +1,6 @@
 # Curriculum research handoff
 
-The Ministry-hosted 2022 English standard is acquired and verified. Its original 201 image pages remain authoritative. The baseline main vocabulary lists, supplemental tables and all eight teaching cases have now been visually reviewed and registered as research data. A school-published English-specific 2025 revision page has been found; full-document retrieval and comparison are in progress. No current-standard equivalence or city examination applicability is inferred.
+The 2022 baseline and the copy labelled 2025 revision are acquired, opened and separately mapped. The original Ministry-hosted baseline has 201 image pages; the school-hosted revised copy has 197. All revised pages, figures and tables were visually inspected. Both main vocabulary lists were reconciled entry by entry, and supplemental tables and teaching cases are registered as versioned research data. This completes the curriculum unit's collection and research checks, with the source gaps below explicit. It does not complete Stage 1 or establish local examination applicability.
 
 ## Verified baseline and promulgation
 
@@ -23,13 +23,24 @@ The publisher interview R-STD::002 confirms a general October 2025 revision prog
 
 The complete `ocr-draft-pages.json` remains explicitly unreviewed machine transcription. The separately registered reviewed datasets carry the visual-audit conclusions; review of selected data does not relabel every OCR line as checked.
 
-## Discovery and remaining work
+## Revised edition and comparison
+
+`revision-2025/registration.json` indexes the current-copy datasets and their byte/SHA checks. The revised source remains an official school mirror: no byte-identical Ministry-hosted revised PDF or exact Ministry issue/effective date was acquired.
+
+- `revision-2025/vocabulary/` contains 505 level-two, 1,600 combined and 1,095 additional entries. The actual 505 starred entries match the level-two set. All 2,105 printed rows were reconciled against revised images; 25 lexical OCR errors and 64 star errors were resolved visually. New bounding boxes are unknown, rather than copied from the baseline.
+- The 221 revised supplemental records have two genuine changes: `Tomb-Sweeping Day` capitalization and the printed past participle of `bear`, now `borne` instead of `born / borne`. This records the table; it does not declare `born` invalid English. Two preface wording edits retain the numerical limits.
+- Separate current-copy maps cover 29 themes, 58 grammar items, 17 numbered quality indicators, grade skills, pronunciation, and the 55 competency/culture/strategy summaries. The cultural item about young people's lives now explicitly includes children and adolescents. The quality introduction now permits independent or joint task completion; joint work is not automatically independent mastery evidence.
+- The overview, teaching/evaluation prose and several teaching-case explanations change. Cases 1–2 have new thematic-meaning columns and explicit family-album/family-helper-poster projects; these are distinguished from the unchanged three/six numbered objectives. All eight cases have versioned research maps and assessment caveats. The Healthy Living example retains its 60-word classroom minimum and seven self/six peer criteria, without an invented total score.
+- `body-review/` retains 143 completed page-review records, 14 confirmed/grouped difference records and dataset guards. The other 51 numbered pages are the vocabulary appendix; cover and contents account for the remaining three. This is a complete visual research comparison with targeted field checks, not an exhaustive verbatim redline. Different image sizes and equal item counts are never treated as proof of textual identity.
+- The revised national reading sample on printed page 66 corrects a phrase to `don't worry`. Any exact passage-length measurement must be repeated for this edition; a baseline measurement cannot silently become a revised measurement.
+
+## Discovery and source gaps
 
 The normal government search route is validated by positive controls (six curriculum-standard results; 3,362 education results). Eleven bounded searches and their actual browser DOM snapshots are retained. This narrow index's empty results do not prove universal absence. Hunan advanced controls also return empty, so those negatives are explicitly unreliable. Baidu presented a CAPTCHA and the search stopped.
 
-The newly reachable Qingpu candidate ending `0320047.pdf` is mathematics, as its cover and contents confirm. It is excluded from the English corpus; no mathematics requirement has been transferred. A different, actually published English article and literal English attachment were subsequently found through ordinary public navigation; verification is ongoing.
+The newly reachable Qingpu candidate ending `0320047.pdf` is mathematics, as its cover and contents confirm. It is excluded from the English corpus; no mathematics requirement has been transferred. A different, actually published English article and literal English attachment were subsequently found through ordinary public navigation. The retained revised PDF has 197 image pages, 82,942,124 bytes and SHA-256 `a08998470dd3c81bce1d05d3be34d0a5421cd10822c0f8917839bc92d0b1e4c9`. Its cover explicitly identifies English, 2022 edition and 2025 revision. The school article was published on 18 March 2026; that is not a Ministry issue or effective date. Revised printed pages map to PDF pages with offset +3. All structured 2022 datasets retain their edition labels while the revised comparison is completed.
 
-The official 2011 English full text remains unacquired after bounded discovery; no detailed comparison is invented. The unit's final status awaits the actual revised-English document and appendix comparison. No R-VOC or integration dependency is waived.
+The official 2011 English full text remains unacquired after bounded discovery; no detailed comparison is invented. The actual published Ministry search form loaded, but its two submitted 2011/2025 queries returned403 (R-STD::014–015). This is access failure, not universal absence. The remaining source questions are the 2011 comparison text and exact Ministry provenance/effective dates for the revised copy. City/cohort applicability and local word-list equivalence belong to the regional and vocabulary units. No integration dependency or final owner gate is waived.
 
 ## Checks and rights
 
