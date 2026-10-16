@@ -94,3 +94,26 @@ describe('backup integrity', () => {
     expect(() => checkedProfile({ ...state().profile, examDate: '2027-99-99' }, catalog())).toThrow('有效的考试日期')
   })
 })
+
+describe('portable size limits', () => {
+  it('rejects oversized Chinese backups by UTF-8 bytes, not JavaScript character count', () => {
+    const text = '中'.repeat(1_400_000)
+    expect(text.length).toBeLessThan(4_000_000)
+    expect(() => checkedState(text, catalog(), NOW)).toThrow('备份太大')
+  })
+})
+
+describe('device recordings on import', () => {
+  it('keeps current device recordings while ignoring foreign paths in a portable file', () => {
+    const db = memory(), store = new StateStore(db.adapter, catalog(), NOW)
+    const local = { id: 'r-local', questionId: q.id, path: 'recording:local', createdAt: NOW, durationMs: 1000 }
+    store.save({ ...state(), recordings: [local] })
+    store.import(JSON.stringify({ ...state(), recordings: [{ ...local, path: 'recording:foreign' }] }), NOW)
+    expect(store.get().recordings).toEqual([local])
+  })
+  it('reports malformed JSON in plain language and leaves existing records untouched', () => {
+    const db = memory(), store = new StateStore(db.adapter, catalog(), NOW); store.save(state())
+    expect(() => store.import('{invalid')).toThrow('备份文件内容无法读取')
+    expect(store.get().profile).toEqual(state().profile)
+  })
+})

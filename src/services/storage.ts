@@ -1,4 +1,5 @@
 import { emptyState } from '../core/learning'
+import { utf8ByteLength } from '../core/utf8'
 import { assertQuestion } from '../core/validation'
 import type { ContentCatalog, LearnerProfile, LearnerState, PrivateQuestion } from '../core/types'
 
@@ -22,19 +23,21 @@ export class StateStore {
   save(next: LearnerState): void {
     if (this.unreadable !== null) throw new Error('原记录还没读取成功。请先导出备份，再决定是否重置。')
     const serialized = JSON.stringify(next)
-    if (serialized.length > 4_000_000) throw new Error('本机记录空间不足，请先导出备份，再清理旧记录。')
+    if (utf8ByteLength(serialized) > 3_999_000) throw new Error('本机记录空间不足，请先导出备份，再清理旧记录。')
     try { this.adapter.write(STORAGE_KEY, serialized) }
     catch { throw new Error('这次记录还没保存成功。请检查设备空间后重试，当前页面会保留。') }
     this.state = next
   }
-  export(): string { return this.unreadable ?? JSON.stringify({ app: 'chinese-junior-high-english', exportedAt: Date.now(), state: { ...this.state, recordings: [] } }, null, 2) }
+  export(): string { return this.unreadable ?? JSON.stringify({ app: 'chinese-junior-high-english', exportedAt: Date.now(), state: { ...this.state, recordings: [] } }) }
   import(text: string, now = Date.now()): void {
-    const next = checkedState(text, this.catalog, now)
-    this.adapter.write(STORAGE_KEY, JSON.stringify(next)); this.state = next; this.unreadable = null; this.notices.length = 0
+    let next: LearnerState
+    try { next = { ...checkedState(text, this.catalog, now), recordings: this.state.recordings } }
+    catch (e) { if (e instanceof SyntaxError) throw new Error('备份文件内容无法读取，请选择完整的英语学习备份。'); throw e }
+    try { this.adapter.write(STORAGE_KEY, JSON.stringify(next)) } catch { throw new Error('备份还没保存成功，原记录已保留，请检查设备空间。') }; this.state = next; this.unreadable = null; this.notices.length = 0
   }
   reset(now = Date.now()): void {
     const next = emptyState(now)
-    this.adapter.write(STORAGE_KEY, JSON.stringify(next)); this.state = next; this.unreadable = null; this.notices.length = 0
+    try { this.adapter.write(STORAGE_KEY, JSON.stringify(next)) } catch { throw new Error('本机记录尚未重置，请检查设备空间后重试。') }; this.state = next; this.unreadable = null; this.notices.length = 0
   }
 }
 
@@ -55,7 +58,7 @@ export function checkedProfile(value: unknown, catalog: ContentCatalog): Learner
 
 /** An imported backup is untrusted. Reject it atomically rather than partially restoring it. */
 export function checkedState(text: string, catalog: ContentCatalog, now: number, local = false): LearnerState {
-  if (text.length > 4_000_000) throw new Error('备份太大，无法导入。')
+  if (utf8ByteLength(text) > 4_000_000) throw new Error('备份太大，无法导入。')
   const envelope: unknown = JSON.parse(text)
   const data = record(envelope) && envelope.app === 'chinese-junior-high-english' ? envelope.state : envelope
   if (!record(data) || data.schemaVersion !== 1) throw new Error('这不是受支持的英语学习备份。')
@@ -73,11 +76,12 @@ export function checkedState(text: string, catalog: ContentCatalog, now: number,
   for (const at of Object.values(data.lessonDoneAt as Record<string, unknown>)) if (!finite(at)) throw new Error('备份中的课程记录有误。')
   for (const stages of Object.values(data.lessonReviews as Record<string, unknown>)) if (!Array.isArray(stages) || !stages.every(s => s === 0 || s === 1)) throw new Error('备份中的复习记录有误。')
   for (const d of Object.values(data.writing as Record<string, unknown>)) if (!record(d) || typeof d.text !== 'string' || d.text.length > 5000 || typeof d.questionId !== 'string' || !finite(d.updatedAt) || !Array.isArray(d.checkedRubricIds) || !d.checkedRubricIds.every(id => typeof id === 'string')) throw new Error('备份中的写作记录有误。')
+  if (data.answerSeenAt !== undefined && (!safeMap(data.answerSeenAt) || !Object.values(data.answerSeenAt).every(finite))) throw new Error('备份中的提示与解析记录有误。')
   const sessions = checkedSessions(data.sessions)
   const recordings = local && Array.isArray(data.recordings) ? data.recordings.filter((r) => record(r) && typeof r.id === 'string' && typeof r.path === 'string' && typeof r.questionId === 'string' && typeof r.createdAt === 'number' && typeof r.durationMs === 'number') as LearnerState['recordings'] : []
   // Only same-device restoration may retain file paths and the active session.
   return { ...base, profile: base.profile, attempts: data.attempts as LearnerState['attempts'], mastery: data.mastery as LearnerState['mastery'], mistakes: data.mistakes as LearnerState['mistakes'], words: data.words as LearnerState['words'], lessonDoneAt: data.lessonDoneAt as LearnerState['lessonDoneAt'], lessonReviews: data.lessonReviews as LearnerState['lessonReviews'], favorites: data.favorites as string[], writing: data.writing as LearnerState['writing'], privateQuestions: data.privateQuestions as PrivateQuestion[],
-    sessions, recordings, activeSessionId: local && typeof data.activeSessionId === 'string' && sessions[data.activeSessionId] ? data.activeSessionId : null, updatedAt: now }
+    answerSeenAt: data.answerSeenAt as Record<string, number> | undefined ?? {}, sessions, recordings, activeSessionId: local && typeof data.activeSessionId === 'string' && sessions[data.activeSessionId] ? data.activeSessionId : null, updatedAt: now }
 }
 function checkedSessions(value: unknown): LearnerState['sessions'] {
   if (!safeMap(value)) return {}

@@ -20,15 +20,19 @@ export function questionProblems(value: unknown, path = 'question'): string[] {
   expect(typeof q.difficulty === 'number' && [1, 2, 3].includes(q.difficulty), 'invalid difficulty')
   expect(list(q.grades) && q.grades.length > 0 && q.grades.every((g) => typeof g === 'number' && [6, 7, 8, 9].includes(g)), 'invalid grades')
   expect(text(q.stem, 2000), 'missing or overlong stem')
+  if (q.passage !== undefined) expect(text(q.passage, 10000), 'invalid passage')
+  if (q.prompt !== undefined) expect(text(q.prompt, 2000), 'invalid prompt')
+  if (q.feedbackGroup !== undefined) expect(typeof q.feedbackGroup === 'string' && ID.test(q.feedbackGroup), 'invalid feedback group')
   expect(typeof q.marks === 'number' && q.marks > 0 && q.marks <= 100, 'invalid marks')
   expect(typeof q.estimatedSeconds === 'number' && q.estimatedSeconds > 0 && q.estimatedSeconds <= 7200, 'invalid time estimate')
   expect(['draft', 'reviewed', 'released'].includes(String(q.review)), 'missing editorial state')
   if (!object(q.answer)) errors.push(`${path}: missing answer`)
   else {
+    if (q.answer.caseSensitive !== undefined) expect(typeof q.answer.caseSensitive === 'boolean', 'invalid answer case rule')
     expect(text(q.answer.display, 4000), 'missing displayed answer')
     if (q.kind === 'choice') {
       const options = list(q.options) ? q.options : []
-      expect(options.length >= 2 && options.length <= 6 && options.every((o) => object(o) && text(o.id, 20) && text(o.text, 1000)), 'invalid choice options')
+      expect(options.length >= 2 && options.length <= 7 && options.every((o) => object(o) && text(o.id, 20) && text(o.text, 1000)), 'invalid choice options')
       const ids = options.filter(object).map((o) => o.id)
       expect(new Set(ids).size === ids.length && ids.includes(q.answer.option), 'answer must name one unique option')
       const labels = options.filter(object).map((o) => typeof o.text === 'string' ? o.text.trim().toLowerCase() : '')
@@ -75,7 +79,14 @@ export function contentProblems(catalog: ContentCatalog): string[] {
     if (ids.length !== new Set(ids).size) errors.push(`${key}: duplicate IDs`)
   }
   const topics = new Set(catalog.topics.map((t) => t.id)), questions = new Map(catalog.questions.map((q) => [q.id, q]))
-  for (const q of catalog.questions) if (!topics.has(q.topicId)) errors.push(`${q.id}: unknown topic`)
+  for (const q of catalog.questions) {
+    if (!topics.has(q.topicId)) errors.push(`${q.id}: unknown topic`)
+    if (q.skill === 'listening' && (!q.mediaId || !catalog.media.some(m => m.id === q.mediaId))) errors.push(`${q.id}: listening question has no matching media record`)
+  }
+  for (const media of catalog.media) {
+    if (!text(media.transcript) || typeof media.approvedByOwner !== 'boolean') errors.push(`${media.id}: incomplete audio transcript or approval state`)
+    if (media.approvedByOwner && (!text(media.path) || !text(media.voice) || !text(media.model) || !text(media.license) || !/^[a-f0-9]{64}$/.test(media.sha256))) errors.push(`${media.id}: approved audio needs a file, model, voice, rights and checksum`)
+  }
   for (const lesson of catalog.lessons) {
     if (!topics.has(lesson.topicId)) errors.push(`${lesson.id}: unknown lesson topic`)
     if (lesson.questionIds.length < 4 || lesson.delayedQuestionIds.length < 2) errors.push(`${lesson.id}: insufficient independent or delayed practice`)
@@ -87,10 +98,13 @@ export function contentProblems(catalog: ContentCatalog): string[] {
     }
   }
   for (const word of catalog.vocabulary) {
-    if (!topics.has(word.topicId) || !text(word.word) || !text(word.meaning) || !text(word.example) || !text(word.explanation)) errors.push(`${word.id}: incomplete original vocabulary entry`)
+    if (!topics.has(word.topicId) || !text(word.word) || !text(word.meaning) || !text(word.example) || !text(word.exampleMeaning) || !text(word.explanation) || ![6, 7, 8, 9].includes(word.grade) || !['american', 'british', 'shared'].includes(word.spelling) || !Array.isArray(word.acceptedSpellings) || !word.acceptedSpellings.every(s => text(s))) errors.push(`${word.id}: incomplete original vocabulary entry`)
+  }
+  for (const book of catalog.books) {
+    if (!catalog.editions.some(e => e.id === book.editionId) || ![6, 7, 8, 9].includes(book.grade) || !['upper', 'lower'].includes(book.term) || !book.units.length || new Set(book.units.map(u => u.id)).size !== book.units.length || book.units.some(u => !u.topicIds.length || !u.topicIds.every(id => topics.has(id)) || (u.verification === 'official' && !u.sourceIds.length)) || (book.verification === 'official' && (!book.sourceIds.length || book.units.some(u => u.verification !== 'official')))) errors.push(`${book.editionId}: incomplete or inconsistent exact-book mapping`)
   }
   for (const b of catalog.blueprints) {
-    if (!catalog.cities.some((c) => c.id === b.cityId) || b.sections.some((s) => s.count < 1 || s.marksEach <= 0) || b.sections.reduce((sum, s) => sum + s.count * s.marksEach, 0) !== b.totalMarks || !b.sourceIds.length) errors.push(`${b.id}: incomplete or inconsistent exam blueprint`)
+    if (!catalog.cities.some((c) => c.id === b.cityId) || !Number.isInteger(b.examYear) || b.examYear < 2020 || !Number.isFinite(b.minutes) || b.minutes <= 0 || !Number.isFinite(b.totalMarks) || b.totalMarks <= 0 || !b.structures.length || !b.structures.every(s => s === '63' || s === '54') || !b.sections.length || b.sections.some((s) => !Number.isInteger(s.count) || s.count < 1 || !Number.isFinite(s.marksEach) || s.marksEach <= 0 || !SKILLS.has(s.skill)) || Math.abs(b.sections.reduce((sum, s) => sum + s.count * s.marksEach, 0) - b.totalMarks) > 1e-8 || !b.sourceIds.length) errors.push(`${b.id}: incomplete or inconsistent exam blueprint`)
   }
   return errors
 }

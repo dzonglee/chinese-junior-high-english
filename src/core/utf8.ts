@@ -11,3 +11,8 @@ export function utf8Bytes(text: string): Uint8Array {
   }
   return new Uint8Array(bytes)
 }
+export function utf8ByteLength(text: string): number {
+  let length = 0
+  for (const character of text) { const code = character.codePointAt(0)!; length += code < 0x80 ? 1 : code < 0x800 ? 2 : code < 0x10000 ? 3 : 4 }
+  return length
+}

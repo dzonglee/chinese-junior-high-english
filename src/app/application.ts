@@ -2,7 +2,7 @@ import { answerText, normalizedAnswer, wordCount } from '../core/answers'
 import { bookLabel, chinaDate, currentSchoolYear, currentTerm, daysToConfirmedExam, examYear, gradesFor, localGradeLabel } from '../core/cohort'
 import { DAY, ERROR_REASONS, masteryLabel, recordAttempt, reviewWord } from '../core/learning'
 import { dailyPlan, learningStats, nextLesson, orderedTopics } from '../core/planner'
-import { checkCurrent, makeId, markAudioPlayed, moveQuestion, questionById, retryCurrent, reviewSubmittedAnswer, saveAnswer, selectQuestions, startExam, startLesson, startSession, submitSession, useHint, playable } from '../core/sessions'
+import { availableQuestions, checkCurrent, makeId, markAudioPlayed, moveQuestion, questionById, retryCurrent, reviewSubmittedAnswer, saveAnswer, selectQuestions, startExam, startLesson, startSession, submitSession, useHint, playable } from '../core/sessions'
 import { assertQuestion } from '../core/validation'
 import type { LearnerState, Question, QuestionFilter, Skill } from '../core/types'
 import { ContentRepository } from '../services/content'
@@ -20,9 +20,10 @@ export interface Platform {
   importText(): Promise<string | null>
   copy(text: string): Promise<void>
   play(path: string): Promise<void>
+  stopAudio(): void
   startRecording(): Promise<void>
   stopRecording(): Promise<{ path: string; durationMs: number }>
-  removeRecordings(paths: string[]): Promise<void>
+  removeRecordings(paths: string[], all?: boolean): Promise<void>
 }
 
 const SKILL_LABEL: Record<Skill, string> = { vocabulary: '词汇', grammar: '语法', reading: '阅读', listening: '听力', speaking: '口语', writing: '写作' }
@@ -52,10 +53,10 @@ export class Application {
     this.page = SCREEN_TITLES[page] ? page : 'home'; this.params = params; this.error = ''; this.form = {}
     if (!this.state.profile && !['onboarding', 'privacy', 'settings'].includes(this.page)) this.page = 'onboarding'
     if (this.page === 'onboarding' || this.page === 'settings') this.profileFields()
-    if (this.page === 'session') this.restoreAnswer()
+    if (this.page === 'session') { this.restoreAnswer(); const s = this.currentSession(); const id = s?.questionIds[s.current]; if (s && id && (s.answers[id]?.checked || s.submittedAt)) this.persist({ ...this.state, answerSeenAt: { ...this.state.answerSeenAt, [id]: this.platform.now() } }) }
     if (this.page === 'editor') this.editorFields(params.id)
     if (this.page === 'vocabulary') { this.wordQueue = this.catalog.vocabulary.filter((w) => w.grade <= (this.state.profile?.grade ?? 7)).sort((a, b) => (this.state.words[a.id]?.dueAt ?? 0) - (this.state.words[b.id]?.dueAt ?? 0)).map((w) => w.id); this.wordIndex = 0; this.wordRevealed = false; this.wordCorrect = null; this.wordFeedback = '' }
-    if (['builder', 'exam'].includes(this.page)) this.form = { count: '8', minutes: '15', skill: params.skill ?? 'all', kind: 'all', difficulty: 'all' }
+    if (['builder', 'exam'].includes(this.page)) this.form = { count: '8', minutes: '15', skill: params.skill ?? 'all', kind: 'all', difficulty: 'all', unitId: 'all', topicId: 'all' }
     this.emit()
   }
   setField(name: string, value: string) {
@@ -67,7 +68,10 @@ export class Application {
       if (!editions.some((e) => e.id === this.form.editionId)) this.form.editionId = ''
       this.emit()
     }
-    if (['skill', 'kind', 'difficulty', 'grade', 'editionId'].includes(name)) this.emit()
+    if (this.page === 'editor' && name === 'kind' && value === 'choice' && !['a', 'b', 'c'].includes(this.form.answer)) this.form.answer = 'a'
+    if (name === 'unitId') this.form.topicId = 'all'
+    if (['builder', 'exam'].includes(this.page) && ['skill', 'kind', 'difficulty', 'unitId', 'topicId'].includes(name)) this.form.count = String(Math.max(1, Math.min(Number(this.form.count) || 8, availableQuestions(this.catalog, this.state, this.questionFilter()).length)))
+    if (['skill', 'kind', 'difficulty', 'grade', 'editionId', 'topicId', 'unitId'].includes(name)) this.emit()
   }
   private persist(state: LearnerState) { this.store.save(state) }
   private go(page: string, params?: Record<string, string>, replace = false) { this.platform.navigate(page, params, replace) }
@@ -96,7 +100,8 @@ export class Application {
   }
   private async perform(id: string, value: string): Promise<void> {
     const now = this.platform.now()
-    if (this.recording && (['navigate', 'back', 'jump', 'next', 'submit'].includes(id) || id.startsWith('start-'))) await this.perform('record-stop', '')
+    if (this.recording && (['navigate', 'back', 'jump', 'next', 'submit', 'check'].includes(id) || id.startsWith('start-'))) await this.perform('record-stop', '')
+    if (['navigate', 'back', 'jump', 'next', 'submit', 'word-next', 'delete-recording', 'delete-data', 'import'].includes(id) || id.startsWith('start-')) this.platform.stopAudio()
     if (id === 'navigate') { this.flush(); const [page, skill] = value.split(':'); this.go(page, skill ? { skill } : undefined); return }
     if (id === 'back') { this.flush(); this.platform.back(); return }
     if (id === 'save-profile') {
@@ -124,9 +129,9 @@ export class Application {
       await this.begin(ids, 'mistakes'); return
     }
     if (id === 'start-custom') {
-      const filter: QuestionFilter = { count: Number(this.form.count) || 8, ...(this.form.skill !== 'all' ? { skills: [this.form.skill as Skill] } : {}), ...(this.form.kind !== 'all' ? { kinds: [this.form.kind as Question['kind']] } : {}), ...(this.form.difficulty !== 'all' ? { difficulties: [Number(this.form.difficulty)] } : {}) }
-      const selected = selectQuestions(this.catalog, this.state, filter, now)
-      const minutes = Math.max(5, Math.min(120, Number(this.form.minutes) || 15))
+      const selected = selectQuestions(this.catalog, this.state, this.questionFilter(), now)
+      const minutes = Number(this.form.minutes)
+      if (this.page === 'exam' && (!Number.isInteger(minutes) || minutes < 5 || minutes > 120)) throw new Error('限时请填写 5—120 之间的整数分钟。')
       await this.begin(selected.map((q) => q.id), this.page === 'exam' ? 'exam' : 'practice', this.page === 'exam' ? minutes : undefined); return
     }
     if (id === 'start-local-exam') {
@@ -172,7 +177,7 @@ export class Application {
       if (m && await this.platform.confirm('移出这道错题？', m.streak >= 3 ? '已经连续通过三次到期重做。移出后，作答记录仍会保留。' : '这会整理你的错题本，但不会增加掌握或延时通过记录。')) this.persist({ ...this.state, mistakes: { ...this.state.mistakes, [value]: { ...m, cleared: true } }, updatedAt: now })
       return
     }
-    if (id === 'word-reveal') { this.wordRevealed = true; return }
+    if (id === 'word-reveal') { this.wordRevealed = true; const word = this.currentWord(); if (word) this.persist({ ...this.state, answerSeenAt: { ...this.state.answerSeenAt, [`q-${word.topicId}-${word.id.slice(5)}`]: now } }); return }
     if (id === 'word-next') { this.wordIndex++; this.wordRevealed = false; this.wordFeedback = ''; this.wordCorrect = null; this.form.wordAnswer = ''; return }
     if (id === 'word-check') {
       if (this.wordCorrect !== null) return
@@ -180,10 +185,10 @@ export class Application {
       if (!(this.form.wordAnswer ?? '').trim()) throw new Error('先试着拼写这个单词。')
       const sensitive = /^[A-Z]/.test(word.word)
       const correct = [word.word, ...word.acceptedSpellings].some((answer) => normalizedAnswer(answer, sensitive) === normalizedAnswer(this.form.wordAnswer, sensitive))
-      const previous = this.state.words[word.id], independent = !this.wordRevealed && (!previous || now >= previous.dueAt)
-      const withAttempt = recordAttempt(this.state, { id: makeId('attempt', now), questionId: `q-${word.topicId}-${word.id.slice(5)}`, topicId: word.topicId, skill: 'vocabulary', answer: this.form.wordAnswer, correct, score: correct ? 1 : 0, maxScore: 1, evidence: independent ? 'independent' : 'assisted', firstTry: true, delayed: independent && !!previous && now - previous.lastAt >= 2 * DAY, at: now, seconds: 0, sessionId: `words-${chinaDate(now).key}` }, 1)
-      this.persist({ ...withAttempt, words: { ...this.state.words, [word.id]: reviewWord(previous, word.id, correct, independent, now) }, updatedAt: now })
-      this.wordCorrect = correct; this.wordFeedback = correct ? this.wordRevealed ? '看过答案后写对了。下一次再独立检查。' : '拼写正确，下次按计划再复习。' : '再看一遍正确拼写，留意容易漏掉的字母。'; this.wordRevealed = true; return
+      const previous = this.state.words[word.id], qid = `q-${word.topicId}-${word.id.slice(5)}`, lastSeen = this.state.answerSeenAt?.[qid] ?? 0, independent = !this.wordRevealed && (!previous || now >= previous.dueAt) && (!lastSeen || now - lastSeen >= DAY)
+      const withAttempt = recordAttempt(this.state, { id: makeId('attempt', now), questionId: qid, topicId: word.topicId, skill: 'vocabulary', answer: this.form.wordAnswer, correct, score: correct ? 1 : 0, maxScore: 1, evidence: independent ? 'independent' : 'assisted', firstTry: true, delayed: independent && !!previous && now - Math.max(previous.lastAt, lastSeen) >= 2 * DAY, at: now, seconds: 0, sessionId: `words-${chinaDate(now).key}` }, 1)
+      this.persist({ ...withAttempt, answerSeenAt: { ...this.state.answerSeenAt, [qid]: now }, words: { ...this.state.words, [word.id]: reviewWord(previous, word.id, correct, independent, now) }, updatedAt: now })
+      this.wordCorrect = correct; this.wordFeedback = correct ? independent ? '拼写正确，下次按计划再复习。' : '这次练对了。刚看过答案或提前复习不计为独立回忆。' : '再看一遍正确拼写，留意容易漏掉的字母。'; this.wordRevealed = true; return
     }
     if (id === 'play-current') { const s = this.currentSession(); const q = s && questionById(this.catalog, this.state, s.questionIds[s.current]); if (q?.mediaId) await this.perform('play', q.mediaId); return }
     if (id === 'play') {
@@ -201,6 +206,7 @@ export class Application {
       if (!this.form.answer?.trim()) this.form.answer = '已录音，请回听后对照要点自查。'
       this.flush(); return
     }
+    if (id === 'clear-date') { this.form.examDate = ''; return }
     if (id === 'delete-recording') { const r = this.state.recordings.find((r) => r.id === value); if (r && await this.platform.confirm('删除这段录音？', '删除后无法恢复，口语自评记录仍会保留。')) { await this.platform.removeRecordings([r.path]); this.persist({ ...this.state, recordings: this.state.recordings.filter((r) => r.id !== value), updatedAt: now }) }; return }
     if (id === 'reason') { const [qid, reason] = value.split(':'); const m = this.state.mistakes[qid]; if (m && ERROR_REASONS.some((r) => r.id === reason)) this.persist({ ...this.state, mistakes: { ...this.state.mistakes, [qid]: { ...m, reason: reason as typeof m.reason } }, updatedAt: now }); return }
     if (id === 'start-private' || id === 'start-question') { await this.begin([value], 'practice'); return }
@@ -212,10 +218,10 @@ export class Application {
       }; return
     }
     if (id === 'export') { await this.platform.exportText(this.store.export()); return }
-    if (id === 'import') { const text = await this.platform.importText(); if (text && await this.platform.confirm('导入学习备份？', '这会替换本机现有学习记录，请先导出当前备份。')) { this.store.import(text, now); this.syncSpelling(); this.go('home', undefined, true) }; return }
+    if (id === 'import') { const text = await this.platform.importText(); if (text && await this.platform.confirm('导入学习备份？', '这会替换本机学习记录，当前设备录音会保留。请先导出当前备份。')) { this.store.import(text, now); this.syncSpelling(); this.go('home', undefined, true) }; return }
     if (id === 'delete-data') {
       if (await this.platform.confirm('删除本机学习记录？', '学习资料、错题、写作草稿、私人题目和录音都会删除。此操作无法撤销，请先导出备份。')) {
-        await this.platform.removeRecordings(this.state.recordings.map((r) => r.path)); this.store.reset(now); this.go('onboarding', undefined, true)
+        await this.platform.removeRecordings(this.state.recordings.map((r) => r.path), true); this.store.reset(now); this.go('onboarding', undefined, true)
       }
       return
     }
@@ -231,6 +237,14 @@ export class Application {
       const q = questionById(this.catalog, this.state, s.questionIds[s.current])
       if (q && ['writing', 'speaking'].includes(q.kind) && !record?.checked) this.persist({ ...this.state, writing: { ...this.state.writing, [q.id]: { questionId: q.id, text: this.form.answer, checkedRubricIds: (this.form.rubric ?? '').split(',').filter(Boolean), updatedAt: this.platform.now() } } })
     }
+  }
+  private questionFilter(): QuestionFilter {
+    const f = this.form, p = this.state.profile
+    const book = p && this.catalog.books.find(b => b.editionId === p.editionId && b.grade === p.grade && b.term === p.term)
+    const unit = book && f.unitId !== 'all' ? book.units.find(u => u.id === f.unitId) : undefined
+    let topics = unit?.topicIds
+    if (f.topicId && f.topicId !== 'all') topics = !topics || topics.includes(f.topicId) ? [f.topicId] : ['no-matching-topic']
+    return { count: Number(f.count), ...(topics ? { topicIds: topics } : {}), ...(f.skill && f.skill !== 'all' ? { skills: [f.skill as Skill] } : {}), ...(f.kind && f.kind !== 'all' ? { kinds: [f.kind as Question['kind']] } : {}), ...(f.difficulty && f.difficulty !== 'all' ? { difficulties: [Number(f.difficulty)] } : {}) }
   }
   private currentWord() {
     return this.catalog.vocabulary.find((w) => w.id === this.wordQueue[this.wordIndex % this.wordQueue.length])
@@ -259,9 +273,9 @@ export class Application {
       catch (e) { this.error = e instanceof Error ? e.message : '交卷暂未完成，请重试。' }
       finally { this.busy = false }
     }
-    if (this.page === 'session' && (s?.deadlineAt || this.recording)) this.emit()
+    if (this.page === 'session' && s?.deadlineAt) this.emit()
   }
-  async suspend() { if (this.recording) await this.action('record-stop'); this.flush() }
+  async suspend() { this.platform.stopAudio(); if (this.recording) await this.action('record-stop'); this.flush() }
   render(): Screen { return this.renderScreen() }
   private renderScreen(): Screen {
     const state = this.state, profile = state.profile, now = this.platform.now(), stats = learningStats(state, now)
@@ -279,10 +293,11 @@ export class Application {
     if (this.page === 'home') {
       const next = nextLesson(this.catalog, state), days = daysToConfirmedExam(profile, now)
       screen.eyebrow = `${chinaDate(now).month} 月 ${chinaDate(now).day} 日 · 今天进步一点`
-      screen.hero = { eyebrow: `${examYear(profile)} 届 · ${days === null ? '按自己的节奏稳步练习' : `距你确认的考试还有 ${days} 天`}`, title: next?.title ?? '把学过的，再练扎实', text: next?.objective ?? '先做到期复习，再挑一个薄弱点练习。', art: 'welcome', tone: 'blue', actions: [{ id: next ? 'start-lesson' : 'navigate', value: next?.id ?? 'practice', label: next ? '接着学' : '去练习', tone: 'primary' }] }
+      if (!screen.notice) screen.notice = `今天的目标是 ${profile.dailyMinutes} 分钟。先完成今日安排，有余力再接着练。`
+      screen.hero = { eyebrow: `${examYear(profile)} 届 · ${days === null ? '按自己的节奏稳步练习' : days === 0 ? '你确认的考试日期已到，请核对后续安排' : `距你确认的考试还有 ${days} 天`}`, title: next?.title ?? '把学过的，再练扎实', text: next?.objective ?? '先做到期复习，再挑一个薄弱点练习。', art: 'welcome', tone: 'blue', actions: [{ id: next ? 'start-lesson' : 'navigate', value: next?.id ?? 'practice', label: next ? '接着学' : '去练习', tone: 'primary' }] }
       screen.metrics = [{ label: '连续练习', value: `${stats.streak} 天` }, { label: '独立作答', value: `${stats.independent} 题` }, { label: '首次独立正确', value: stats.independent ? `${stats.accuracy}%` : '还没开始' }]
       screen.week = stats.week
-      screen.cards = dailyPlan(this.catalog, state, now).map((task) => ({ id: task.id, title: task.title, text: task.description, label: `约 ${task.minutes} 分钟`, tag: task.done ? '今天已练' : '今日安排', actions: [{ id: task.action, value: task.value, label: task.done ? '再练一次' : '开始', tone: 'secondary' }] }))
+      screen.cards = dailyPlan(this.catalog, state, now).map((task) => ({ id: task.id, title: task.title, text: task.description, label: `约 ${task.minutes} 分钟`, tag: task.done ? '今天已练' : task.optional ? '可接着练' : '今日安排', actions: [{ id: task.action, value: task.value, label: task.done ? '再练一次' : '开始', tone: 'secondary' }] }))
       const active = this.currentSession()
       if (active && !active.submittedAt) screen.cards.unshift({ id: 'resume', title: '上次还没练完', text: `已检查 ${Object.values(active.answers).filter((a) => a.checked).length} / ${active.questionIds.length} 题，答案已经保存。`, actions: [{ id: 'resume', label: '继续练习', tone: 'primary' }] })
       return screen
@@ -300,14 +315,19 @@ export class Application {
     }
     if (this.page === 'vocabulary') {
       const word = this.currentWord(); screen.eyebrow = '先想，再看答案'
-      if (word) screen.word = { id: word.id, word: this.wordRevealed ? word.word : '', meaning: word.meaning, example: this.wordRevealed ? word.example : word.example.replace(new RegExp(`\\b${word.word}\\b`, 'i'), '_____'), exampleMeaning: word.exampleMeaning, revealed: this.wordRevealed, answer: this.form.wordAnswer ?? '', feedback: this.wordFeedback, correct: this.wordCorrect, explanation: this.wordRevealed ? word.explanation : '' }
+      if (word) screen.word = { audioAvailable: this.wordRevealed && !!word.mediaId && this.catalog.media.some(m => m.id === word.mediaId && m.approvedByOwner), mediaId: word.mediaId, id: word.id, word: this.wordRevealed ? word.word : '', meaning: word.meaning, example: this.wordRevealed ? word.example : word.example.replace(new RegExp(`\\b${word.word}\\b`, 'i'), '_____'), exampleMeaning: word.exampleMeaning, revealed: this.wordRevealed, answer: this.form.wordAnswer ?? '', feedback: this.wordFeedback, correct: this.wordCorrect, explanation: this.wordRevealed ? word.explanation : '' }
       else screen.notice = '单词内容正在准备，先做语法和句子练习。'
       screen.actions = word ? [{ id: 'word-check', label: '检查拼写', tone: 'primary' }, { id: 'word-reveal', label: '看答案', tone: 'quiet' }, { id: 'word-next', label: '下一个', tone: 'secondary' }] : []; return screen
     }
     if (this.page === 'builder' || this.page === 'exam') {
       screen.notice = this.page === 'exam' ? '这是自主限时练，不冒充本地中考卷。交卷前不显示答案和提示。' : '按当前年级选题，题目不会靠重复来凑数量。'
       screen.fields = [this.select('skill', '练习能力', [{ value: 'all', label: '全部能力' }, ...Object.entries(SKILL_LABEL).map(([value, label]) => ({ value, label }))]), this.select('kind', '作答方式', [{ value: 'all', label: '全部方式' }, { value: 'choice', label: '选择' }, { value: 'blank', label: '填空' }, { value: 'correction', label: '改错' }, { value: 'order', label: '句子排序' }, { value: 'writing', label: '写作自评' }, { value: 'speaking', label: '口语自评' }]), this.select('difficulty', '难度', [{ value: 'all', label: '混合难度' }, { value: '1', label: '基础' }, { value: '2', label: '巩固' }, { value: '3', label: '提升' }]), { name: 'count', label: '题量（1—100）', kind: 'input', value: this.form.count, numeric: true, maxLength: 3 }, ...(this.page === 'exam' ? [{ name: 'minutes', label: '限时（5—120 分钟）', kind: 'input' as const, value: this.form.minutes, numeric: true, maxLength: 3 }] : [])]
-      screen.actions = [{ id: 'start-custom', label: this.page === 'exam' ? '开始计时' : '开始练习', tone: 'primary' }]
+      const book = this.catalog.books.find(b => b.editionId === profile.editionId && b.grade === profile.grade && b.term === profile.term)
+      const unit = book?.units.find(u => u.id === this.form.unitId)
+      screen.fields.unshift(this.select('unitId', '教材单元', [{ value: 'all', label: book?.units.length ? '全部已记录单元' : '单元对应待核实，按能力选题' }, ...(book?.units ?? []).map(u => ({ value: u.id, label: `${u.title}${u.verification === 'official' ? '' : '（待核对）'}` }))]), this.select('topicId', '知识点或阅读策略', [{ value: 'all', label: '全部知识点' }, ...this.catalog.topics.filter(t => t.grades.includes(profile.grade) && (!unit || unit.topicIds.includes(t.id))).map(t => ({ value: t.id, label: `${SKILL_LABEL[t.skill]} · ${t.title}` }))]))
+      const available = availableQuestions(this.catalog, this.state, this.questionFilter()).length
+      screen.notice += ` 当前条件有 ${available} 道可用题。`
+      screen.actions = [{ id: 'start-custom', label: this.page === 'exam' ? '开始计时' : '开始练习', tone: 'primary', disabled: !available }]
       if (this.page === 'exam') screen.cards = [{ id: 'local', title: '本地中考结构', text: '核对城市、届别和学校学制后，再看哪些结构已经有完整依据。', actions: [{ id: 'navigate', value: 'exam-info', label: '查看核验情况', tone: 'quiet' }] }]
       return screen
     }
@@ -364,15 +384,16 @@ export class Application {
     const structure = this.form.structure === '54' ? '54' : '63'
     screen.subtitle = '按自己正在使用的课本确认，版本和届别不混用。'
     screen.fields = [this.select('cityId', '所在城市', [{ value: '', label: '请选择城市' }, ...this.catalog.cities.map((c) => ({ value: c.id, label: `${c.province} · ${c.name}` }))]), this.select('structure', '学校学制', [{ value: '', label: '请选择学制' }, { value: '63', label: '六三制' }, { value: '54', label: '五四制' }]), this.select('grade', '年级', [{ value: '', label: '请选择年级' }, ...gradesFor(structure).map((grade) => ({ value: String(grade), label: `${grade} 年级` }))]), this.select('term', '学期', [{ value: 'upper', label: '上学期' }, { value: 'lower', label: '下学期' }]), this.select('editionId', '教材版本（请核对封面）', [{ value: '', label: '请选择教材' }, ...this.catalog.editions.filter((e) => e.structures.includes(structure)).map((e) => ({ value: e.id, label: `${e.name} · ${e.version}` }))]), { name: 'schoolYear', label: '学年开始年份', kind: 'input', value: this.form.schoolYear, numeric: true, maxLength: 4, help: '例如 2026—2027 学年，填写 2026。' }, this.select('dailyMinutes', '每天想练多久', [10, 15, 20, 30].map((n) => ({ value: String(n), label: `${n} 分钟` }))), { name: 'examDate', label: '已确认的考试日期（可留空）', kind: 'date', value: this.form.examDate, help: '没有正式日期就先留空，不使用猜测的倒计时。' }]
-    screen.actions = [{ id: 'save-profile', label: this.state.profile ? '保存设置' : '确认，开始练习', tone: 'primary' }]
-    if (this.page === 'settings') screen.cards = [{ id: 'backup', title: '学习备份', text: '导出包含学习记录、草稿和私人题目，不包含设备录音。导入会替换现有记录。', actions: [{ id: 'export', label: '导出备份', tone: 'secondary' }, { id: 'import', label: '导入备份', tone: 'quiet' }] }, { id: 'delete', title: '清理本机数据', text: '请先导出备份。删除后无法撤销。', actions: [{ id: 'delete-data', label: '删除本机记录', tone: 'danger' }] }]
+    screen.actions = [{ id: 'save-profile', label: this.state.profile ? '保存设置' : '确认，开始练习', tone: 'primary' }, ...(!this.state.profile ? [{ id: 'import', label: '已有备份，直接导入', tone: 'quiet' as const }] : [])]
+    if (this.store.notices.length) screen.actions.push({ id: 'export', label: '先导出原始记录', tone: 'secondary' }, { id: 'navigate', value: 'settings', label: '查看备份与重置选项', tone: 'quiet' })
+    if (this.page === 'settings') screen.cards = [{ id: 'backup', title: '学习备份', text: '导出包含学习记录、草稿和私人题目，不包含设备录音。导入会替换学习记录，当前设备录音保留。', actions: [{ id: 'export', label: '导出备份', tone: 'secondary' }, { id: 'import', label: '导入备份', tone: 'quiet' }] }, { id: 'delete', title: '清理本机数据', text: '请先导出备份。删除后无法撤销。', actions: [{ id: 'delete-data', label: '删除本机记录', tone: 'danger' }] }]
     return screen
   }
   private renderSession(screen: Screen): Screen {
     const s = this.currentSession()
     if (!s) { screen.notice = '没有正在进行的练习。'; screen.actions = [{ id: 'navigate', value: 'practice', label: '选择练习', tone: 'primary' }]; return screen }
     const q = questionById(this.catalog, this.state, s.questionIds[s.current])
-    if (!q) { screen.notice = '这道题还没加载完整，请重新打开练习。'; return screen }
+    if (!q) { screen.notice = '这道题还没加载完整，已保存的答案还在。'; screen.actions = [{ id: 'resume', label: '重新加载练习', tone: 'primary' }]; return screen }
     const record = s.answers[q.id], isSelf = q.kind === 'writing' || q.kind === 'speaking', show = (!!record?.checked && (s.mode !== 'exam' || !!s.submittedAt)) || (!!s.submittedAt && isSelf)
     const ordered: string[] = (() => { try { return q.kind === 'order' ? JSON.parse(this.form.answer || '[]') : [] } catch { return [] } })()
     const rubric = new Set((this.form.rubric ?? '').split(','))

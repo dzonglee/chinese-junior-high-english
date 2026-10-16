@@ -7,8 +7,9 @@ if (config.source !== 'openai' || !config.model || !config.voice || !config.owne
   console.error('Audio preparation is waiting for the owner\'s source/model choice. Record that actual choice in content/audio-policy.json; never fill it by inference. No request was sent.'); process.exit(2)
 }
 if (!process.env.AUDIO_API_KEY) { console.error('Set AUDIO_API_KEY securely in environment settings. No request was sent.'); process.exit(2) }
-const output = resolve(root, 'miniprogram/audio'); mkdirSync(output, { recursive: true })
+const output = resolve(root, 'content/audio'); mkdirSync(output, { recursive: true })
 const records = JSON.parse(readFileSync(resolve(root, 'content/listening.json'), 'utf8')).flatMap(topic => topic.cases)
+if (process.argv.includes('--vocabulary')) records.push(...readFileSync(resolve(root, 'content/vocabulary.tsv'), 'utf8').split('\n').filter(line => line && !line.startsWith('#')).map(line => { const [, word, , example] = line.split('|'); return { id: `word-${word}`, transcript: `${word}. ${example}` } }))
 const existing = existsSync(resolve(root, 'content/audio-manifest.json')) ? JSON.parse(readFileSync(resolve(root, 'content/audio-manifest.json'), 'utf8')) : [], manifest = []
 for (const task of records) {
   const id = `audio-${task.id}`, file = `${id}.mp3`, path = resolve(output, file)
@@ -27,5 +28,5 @@ for (const task of records) {
   writeFileSync(resolve(root, 'content/audio-manifest.json'), JSON.stringify([...existing.filter(a => !manifest.some(m => m.id === a.id)), ...manifest], null, 2) + '\n')
   console.log(`Prepared ${id}`)
 }
-writeFileSync(resolve(root, 'content/audio-manifest.json'), JSON.stringify(manifest, null, 2) + '\n')
+writeFileSync(resolve(root, 'content/audio-manifest.json'), JSON.stringify([...existing.filter(a => !manifest.some(m => m.id === a.id)), ...manifest], null, 2) + '\n')
 console.log(`Prepared ${manifest.length} clips. Listen and review before release, then run npm run build.`)

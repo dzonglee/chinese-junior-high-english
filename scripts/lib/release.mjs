@@ -19,4 +19,4 @@ export function releaseProblems(config, catalog) {
   if (config?.privacyConfigured !== true) errors.push('The WeChat platform privacy declaration is not confirmed.')
   return errors
 }
-export function readReleaseConfig(root, path) { const file = resolve(root, path || '.local/release.json'); return existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null }
+export function readReleaseConfig(root, path) { const file = resolve(root, path || '.local/release.json'); if (!existsSync(file)) return null; try { return JSON.parse(readFileSync(file, 'utf8')) } catch { throw new Error('Release configuration is not valid JSON. No configuration values are logged.') } }

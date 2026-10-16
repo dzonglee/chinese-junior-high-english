@@ -21,14 +21,17 @@ export function questionById(catalog: ContentCatalog, state: LearnerState, id: s
 export function playable(question: Pick<Question, 'skill' | 'mediaId'>, catalog: ContentCatalog): boolean {
   return question.skill !== 'listening' || catalog.media.some((m) => m.id === question.mediaId && m.approvedByOwner && !!m.path)
 }
-export function selectQuestions(catalog: ContentCatalog, state: LearnerState, filter: QuestionFilter, seed: number): QuestionMetadata[] {
+export function availableQuestions(catalog: ContentCatalog, state: LearnerState, filter: Omit<QuestionFilter, 'count'>): QuestionMetadata[] {
   const grade = state.profile?.grade
   if (!grade) throw new Error('请先确认年级和教材。')
-  const pool = [...(catalog.questionIndex ?? catalog.questions), ...state.privateQuestions].filter((q) => q.grades.includes(grade) &&
+  return [...(catalog.questionIndex ?? catalog.questions), ...state.privateQuestions].filter((q) => q.grades.includes(grade) &&
     (!filter.topicIds?.length || filter.topicIds.includes(q.topicId)) &&
     (!filter.skills?.length || filter.skills.includes(q.skill)) &&
     (!filter.kinds?.length || filter.kinds.includes(q.kind)) &&
     (!filter.difficulties?.length || filter.difficulties.includes(q.difficulty)) && playable(q, catalog))
+}
+export function selectQuestions(catalog: ContentCatalog, state: LearnerState, filter: QuestionFilter, seed: number): QuestionMetadata[] {
+  const pool = availableQuestions(catalog, state, filter)
   if (!Number.isInteger(filter.count) || filter.count < 1 || filter.count > 100) throw new Error('题量请填写 1—100 之间的整数。')
   const count = filter.count
   if (pool.length < count) throw new Error(`当前条件下有 ${pool.length} 道题，请减少题量或放宽条件。`)
@@ -55,7 +58,7 @@ export function startLesson(state: LearnerState, catalog: ContentCatalog, lesson
 export function startExam(state: LearnerState, catalog: ContentCatalog, blueprintId: string, now: number, seed: number): { state: LearnerState; session: LearningSession } {
   const p = state.profile, blueprint = catalog.blueprints.find((b) => b.id === blueprintId)
   if (!p || !blueprint || blueprint.verification !== 'official' || blueprint.cityId !== p.cityId || blueprint.examYear !== examYear(p) || !blueprint.structures.includes(p.structure)) throw new Error('当前城市和届别还没有核实完整的试卷结构。可以先做自主限时练。')
-  if (blueprint.sections.reduce((sum, section) => sum + section.count * section.marksEach, 0) !== blueprint.totalMarks) throw new Error('试卷分值尚未核对，暂时不能生成本地模考。')
+  if (!Number.isFinite(blueprint.minutes) || blueprint.minutes <= 0 || !Number.isFinite(blueprint.totalMarks) || blueprint.totalMarks <= 0 || !blueprint.sections.length || blueprint.sections.some(s => !Number.isInteger(s.count) || s.count < 1 || !Number.isFinite(s.marksEach) || s.marksEach <= 0) || Math.abs(blueprint.sections.reduce((sum, section) => sum + section.count * section.marksEach, 0) - blueprint.totalMarks) > 1e-8) throw new Error('试卷分值尚未核对，暂时不能生成本地模考。')
   const used = new Set<string>(), ids: string[] = [], marks: Record<string, number> = {}
   for (const section of blueprint.sections) {
     const pool = shuffled((catalog.questionIndex ?? catalog.questions).filter((q) => q.grades.includes(p.grade) && q.skill === section.skill && !used.has(q.id) && playable(q, catalog)), seed + ids.length)
@@ -91,21 +94,24 @@ export function useHint(state: LearnerState, now: number): LearnerState {
   if (session.mode === 'exam') throw new Error('限时作答中不显示提示，交卷后再看解析。')
   if (session.submittedAt) throw new Error('这次练习已经结束。')
   const id = session.questionIds[session.current], previous = session.answers[id] ?? { answer: '', attempts: 0, hints: 0, checked: false }
-  return replaceSession(state, { ...session, answers: { ...session.answers, [id]: { ...previous, hints: previous.hints + 1 } } }, now)
+  return replaceSession({ ...state, answerSeenAt: { ...state.answerSeenAt, [id]: now } }, { ...session, answers: { ...session.answers, [id]: { ...previous, hints: previous.hints + 1 } } }, now)
 }
 
-function makeAttempt(state: LearnerState, session: LearningSession, q: Question, answer: string, now: number, selfSelected?: string[]): Attempt {
+function makeAttempt(state: LearnerState, catalog: ContentCatalog, session: LearningSession, q: Question, answer: string, now: number, selfSelected?: string[]): Attempt {
   const prior = session.answers[q.id], selfReview = q.kind === 'writing' || q.kind === 'speaking'
   const firstTry = (prior?.attempts ?? 0) === 0
   const previousIndependent = [...state.attempts].reverse().find((a) => a.questionId === q.id && a.evidence === 'independent')
-  const repeatsImmediately = previousIndependent && now - previousIndependent.at < DAY
-  const evidence: Evidence = selfReview ? 'self_review' : !!answer.trim() && answer.trim() !== '[]' && (q.skill !== 'listening' || prior?.audioPlayed) && firstTry && !(prior?.hints) && !repeatsImmediately ? 'independent' : 'assisted'
+  const previousAttempt = [...state.attempts].reverse().find(a => a.questionId === q.id)
+  const lastExposure = Math.max(previousAttempt?.at ?? 0, state.answerSeenAt?.[q.id] ?? 0)
+  const repeatsImmediately = lastExposure && now - lastExposure < DAY
+  const groupExposed = !!q.feedbackGroup && ((session.mode !== 'exam' && Object.entries(session.answers).some(([id, record]) => id !== q.id && record.checked && questionById(catalog, state, id)?.feedbackGroup === q.feedbackGroup)) || Object.entries(state.answerSeenAt ?? {}).some(([id, at]) => now - at < DAY && questionById(catalog, state, id)?.feedbackGroup === q.feedbackGroup))
+  const evidence: Evidence = selfReview ? 'self_review' : !!answer.trim() && answer.trim() !== '[]' && (q.skill !== 'listening' || prior?.audioPlayed) && firstTry && !(prior?.hints) && !repeatsImmediately && !groupExposed ? 'independent' : 'assisted'
   const maxScore = session.examMarks?.[q.id] ?? q.marks
   const rawSelfScore = selfReviewScore(q.rubric ?? [], selfSelected ?? [])
   const rubricMax = (q.rubric ?? []).reduce((sum, p) => sum + p.marks, 0)
   const score = selfReview ? (rubricMax ? Math.round(rawSelfScore / rubricMax * maxScore * 10) / 10 : 0) : checkAnswer(q, answer) ? maxScore : 0
   const lastLessonAt = session.lessonId ? state.lessonDoneAt[session.lessonId] : undefined
-  const delayed = evidence === 'independent' && ((session.mode === 'review' && !!lastLessonAt && session.startedAt - lastLessonAt >= 2 * DAY) ||
+  const delayed = evidence === 'independent' && (!lastExposure || session.startedAt - lastExposure >= 2 * DAY) && ((session.mode === 'review' && !!lastLessonAt && session.startedAt - lastLessonAt >= 2 * DAY) ||
     (session.mode === 'mistakes' && !!state.mistakes[q.id] && session.startedAt >= state.mistakes[q.id].dueAt) ||
     (!!previousIndependent && session.startedAt - previousIndependent.at >= 2 * DAY))
   const last = state.attempts[state.attempts.length - 1]
@@ -121,12 +127,12 @@ export function checkCurrent(state: LearnerState, catalog: ContentCatalog, now: 
   if (!q || !record?.answer.trim()) throw new Error('先写下你的答案。')
   if (q.skill === 'listening' && !record.audioPlayed) throw new Error('先播放音频，再检查自己的答案。')
   if (record.checked) return state
-  const attempt = makeAttempt(state, session, q, record.answer, now, rubric)
+  const attempt = makeAttempt(state, catalog, session, q, record.answer, now, rubric)
   let next = recordAttempt(state, attempt, q.difficulty)
   if (session.mode === 'mistakes' && state.mistakes[id] && (!attempt.correct || attempt.evidence === 'independent')) {
     next = { ...next, mistakes: { ...next.mistakes, [id]: redoMistake(state.mistakes[id], attempt.correct && attempt.evidence === 'independent', session.startedAt, now) } }
   }
-  return replaceSession(next, { ...session, answers: { ...session.answers, [id]: { ...record, attempts: record.attempts + 1, checked: true, result: attempt } } }, now)
+  return replaceSession({ ...next, answerSeenAt: { ...next.answerSeenAt, [id]: now } }, { ...session, answers: { ...session.answers, [id]: { ...record, attempts: record.attempts + 1, checked: true, result: attempt } } }, now)
 }
 export function retryCurrent(state: LearnerState, now: number): LearnerState {
   const session = active(state), id = session.questionIds[session.current], record = session.answers[id]
@@ -141,7 +147,7 @@ export function reviewSubmittedAnswer(state: LearnerState, catalog: ContentCatal
   if (!session.submittedAt || !q || !['writing', 'speaking'].includes(q.kind)) throw new Error('这道题不能进行交卷后自评。')
   if (record?.checked) return state
   const answer = record?.answer ?? ''
-  const attempt = makeAttempt(state, session, q, answer, now, answer.trim() ? rubric : [])
+  const attempt = makeAttempt(state, catalog, session, q, answer, now, answer.trim() ? rubric : [])
   const next = recordAttempt(state, attempt, q.difficulty)
   return replaceSession(next, { ...session, answers: { ...session.answers, [id]: { answer, hints: 0, attempts: 1, checked: true, result: attempt } } }, now)
 }
@@ -162,7 +168,7 @@ export function submitSession(state: LearnerState, catalog: ContentCatalog, now:
       if (!q) throw new Error('题目加载不完整，请重试，已作答案会保留。')
       if (q.kind === 'writing' || q.kind === 'speaking') continue
       const record = answers[id] ?? { answer: '', hints: 0, attempts: 0, checked: false }
-      const attempt = makeAttempt(next, session, q, record.answer, now)
+      const attempt = makeAttempt(next, catalog, session, q, record.answer, now)
       next = recordAttempt(next, attempt, q.difficulty)
       answers[id] = { ...record, checked: true, attempts: 1, result: attempt }
     }
@@ -170,7 +176,7 @@ export function submitSession(state: LearnerState, catalog: ContentCatalog, now:
   if (session.lessonId && session.mode === 'lesson' && !next.lessonDoneAt[session.lessonId]) next = { ...next, lessonDoneAt: { ...next.lessonDoneAt, [session.lessonId]: now } }
   if (session.mode === 'review' && session.lessonId && session.reviewStage !== undefined) {
     const attempts = session.questionIds.map((id) => answers[id]?.result)
-    if (attempts.every((a) => a?.correct && a.evidence === 'independent')) {
+    if (attempts.every((a) => a?.correct && a.evidence === 'independent' && a.delayed)) {
       const stages = next.lessonReviews[session.lessonId] ?? []
       next = { ...next, lessonReviews: { ...next.lessonReviews, [session.lessonId]: [...new Set([...stages, session.reviewStage])] } }
     }

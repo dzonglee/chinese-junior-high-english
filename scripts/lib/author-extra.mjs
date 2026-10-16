@@ -48,6 +48,7 @@ export function authorExtra(root, catalog) {
       const id = `q-${r.id}-${task.id}`, mediaId = `audio-${task.id}`, right = ['a', 'b', 'c'][(3 - i % 3) % 3]
       const options = task.options.map((_, n) => ({ id: ['a', 'b', 'c'][n], text: task.options[(n + i) % 3] }))
       const asset = assets.find(a => a.id === mediaId)
+      if (asset?.approvedByOwner) { const policy = read(root, 'content/audio-policy.json'); if (!policy.ownerApproval || !['openai', 'licensed'].includes(policy.source) || (policy.source === 'openai' && (policy.model !== asset.model || policy.voice !== asset.voice))) throw new Error(`Audio ${mediaId} does not match the owner's recorded source choice`) }
       catalog.media.push(asset ?? { id: mediaId, path: '', transcript: task.transcript, voice: '', model: '', license: '', sha256: '', approvedByOwner: false })
       ids.push(id)
       questions.push({ id, topicId: r.id, skill: 'listening', kind: 'choice', difficulty: t ? 2 : 1, grades, stem: task.stem, passage: task.transcript, mediaId, options, answer: { option: right, display: task.options[0] }, marks: 1, estimatedSeconds: 70, source, review: 'draft', explanation: { strategy: r.goal, steps: [{ text: `先定位关键话语：“${task.evidence}”`, reason: '这句话给出请求、最终决定或说话人的意图。' }, { text: `结合回应，答案是 ${task.options[0]}。`, reason: '不能只按录音中第一个出现的数字、地点或建议作答。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: task.reasons[task.options.indexOf(o.text) - 1] })), pitfall: '先确认题目问的是最初提议、当前安排还是说话意图。', visual: { kind: 'evidence', title: '听力中的关键证据', segments: [{ text: task.evidence, role: 'evidence', note: '这句话决定判断' }, { text: task.options[0], role: 'object', note: '与问题对应的含义' }], caption: '听完后再看文字，标出修正或请求，不把阅读文字当作听力独立完成。' }, transfer: '再听一遍，尝试不看文字复述最后的决定或请求。' } })
@@ -71,10 +72,20 @@ export function authorExtra(root, catalog) {
     }
     lessons.push({ id: `l-${id}`, topicId: id, title, grades, objective: '先尝试回忆，再用例句检查词义与搭配。', questionIds: ids.slice(0, 8), delayedQuestionIds: ids.slice(8, 12), summary: ['拼写前先自己回忆。', '看过答案后再写对是练习，隔几天独立写对才是保留证据。'], estimatedMinutes: 8, order: 1, review: 'draft' })
   }
+  if (existsSync(resolve(root, 'content/audio-manifest.json'))) {
+    const assets = read(root, 'content/audio-manifest.json'), policy = read(root, 'content/audio-policy.json')
+    for (const word of vocabulary) {
+      const asset = assets.find(a => a.id === `audio-word-${word.word}`)
+      if (!asset) continue
+      if (asset.approvedByOwner && (!policy.ownerApproval || !['openai', 'licensed'].includes(policy.source) || (policy.source === 'openai' && (policy.model !== asset.model || policy.voice !== asset.voice)))) throw new Error(`Word audio ${asset.id} does not match the owner's recorded source choice`)
+      word.mediaId = asset.id
+      catalog.media.push(asset)
+    }
+  }
   for (const [i, r] of read(root, 'content/expression.json').entries()) {
     const grades = gradesFrom(r.minGrade), writing = r.skill === 'writing', marks = writing ? 10 : 6
     topics.push({ id: r.id, title: r.title, skill: r.skill, grades, goal: r.points, commonError: r.pitfall, prerequisites: [], order: 150 + i })
-    questions.push({ id: `q-${r.id}`, topicId: r.id, skill: r.skill, kind: r.skill, grades, difficulty: r.minGrade >= 9 ? 3 : 2, stem: r.stem, answer: { display: r.model }, marks, estimatedSeconds: writing ? 720 : 120, source, review: 'draft',
+    questions.push({ id: `q-${r.id}`, topicId: r.id, skill: r.skill, kind: r.skill, grades, difficulty: r.minGrade >= 9 ? 3 : 2, stem: r.stem, ...(r.passage ? { passage: r.passage } : {}), ...(r.audioTaskId ? { mediaId: `audio-${r.audioTaskId}` } : {}), answer: { display: r.model }, marks, estimatedSeconds: writing ? 720 : 120, source, review: 'draft',
       rubric: writing ? [{ id: 'content', label: '任务信息完整', marks: 4, guidance: r.points }, { id: 'structure', label: '顺序清楚，衔接自然', marks: 3, guidance: '开头说明意图；各层意思有顺序，不机械堆连接词。' }, { id: 'language', label: '句子通顺，细节已检查', marks: 3, guidance: '逐句检查主谓、时态、拼写与标点。字数按任务自查。' }] : [{ id: 'content', label: '关键内容说清楚', marks: 2, guidance: r.points }, { id: 'organisation', label: '有顺序，听得懂', marks: 2, guidance: '回听时能跟上各层意思；适当停顿，不要求固定口音。' }, { id: 'expression', label: '句子基本完整', marks: 2, guidance: '能用自己的句子表达；回听时检查明显的时态和用词问题。' }],
       explanation: { strategy: r.strategy, steps: [{ text: `先列任务要点：${r.points}。`, reason: '信息完整是表达的基础，先完成任务，再修饰语言。' }, { text: `再检查参考表达中的组织线索：${r.evidence}。`, reason: '参考表达只是一种可行写法，不是必须逐字背诵的唯一答案。' }], distractors: [], pitfall: r.pitfall, visual: { kind: 'paragraph', title: '要点 → 组织 → 检查', segments: [{ text: r.points, role: 'evidence', note: '完成沟通任务' }, { text: r.evidence, role: 'neutral', note: '把信息按顺序连接' }, { text: writing ? '主谓、时态、拼写、标点' : '清楚程度、完整句子、自然停顿', role: 'verb', note: '完成后自查' }], caption: '先独立表达，再用要点自查；自评记录不代表机器测评或当地官方评分。' }, transfer: '换一个对象或情境，用同样的组织方法再表达一次。' } })
   }

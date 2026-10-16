@@ -84,6 +84,7 @@ export interface Question {
   grades: Grade[]
   stem: string
   passage?: string
+  feedbackGroup?: string
   prompt?: string
   options?: { id: string; text: string }[]
   tokens?: { id: string; text: string }[]
@@ -205,6 +206,7 @@ export interface LearnerState {
   schemaVersion: 1
   profile: LearnerProfile | null
   attempts: Attempt[]
+  answerSeenAt?: Record<string, number>
   mastery: Record<string, TopicMastery>
   mistakes: Record<string, Mistake>
   words: Record<string, WordReview>

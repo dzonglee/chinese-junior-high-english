@@ -19,15 +19,19 @@ wx.onNeedPrivacyAuthorization(value => {
   else resolve({ event: 'disagree' })
 })
 const store = new StateStore({ read: (key) => wx.getStorageSync(key) || null, write: (key, value) => wx.setStorageSync(key, value), remove: (key) => wx.removeStorageSync(key) }, catalog)
-if (runtime.mode === 'cloud') wx.cloud.init({ env: runtime.cloudEnv, traceUser: false })
+let cloudStarted = false
+function ensureCloud() { if (!cloudStarted) { try { wx.cloud.init({ env: runtime.cloudEnv, traceUser: false }); cloudStarted = true } catch { throw new Error('学习内容服务暂时无法连接，请稍后重试。') } } }
 const repository = new ContentRepository(catalog, packs, async pack => {
   if (runtime.mode === 'development') return loader.loadPack(pack.topicId)
+  ensureCloud()
   const fileID = runtime.contentFiles[pack.topicId]
   if (!fileID) throw new Error('这部分内容暂未发布，请稍后重试。')
   const file = await wx.cloud.downloadFile({ fileID })
   return new Promise<string>((resolve, reject) => wx.getFileSystemManager().readFile({ filePath: file.tempFilePath, encoding: 'utf8', success: r => resolve(String(r.data)), fail: () => reject(new Error('题目下载未完成，请重试。')) }))
 })
 let audio: WechatMiniprogram.InnerAudioContext | undefined
+let playbackGeneration = 0
+let cancelPlayback: (() => void) | undefined
 let recorder: WechatMiniprogram.RecorderManager | undefined
 let recordStarted = 0
 let pendingRecording: Promise<{ path: string; durationMs: number }> | undefined
@@ -60,16 +64,25 @@ const platform: Platform = {
   },
   copy: (data) => new Promise<void>((resolve, reject) => wx.setClipboardData({ data, success: () => resolve(), fail: reject })),
   async play(path) {
+    platform.stopAudio(); const generation = playbackGeneration
     let source = path
     if (path.startsWith('cloud://')) {
+      ensureCloud()
       const downloaded = await wx.cloud.downloadFile({ fileID: path })
       const bytes = await new Promise<ArrayBuffer>((resolve, reject) => wx.getFileSystemManager().readFile({ filePath: downloaded.tempFilePath, success: r => resolve(r.data as ArrayBuffer), fail: () => reject(new Error('音频读取失败，请重试。')) }))
       if (bytesToHex(sha256(new Uint8Array(bytes))) !== catalog.media.find(m => m.path === path)?.sha256) throw new Error('音频校验失败，请重新下载。')
       source = downloaded.tempFilePath
     }
-    audio?.destroy(); audio = wx.createInnerAudioContext(); audio.src = source
-    return new Promise<void>((resolve, reject) => { audio!.onCanplay(() => { audio!.play(); resolve() }); audio!.onError(() => reject(new Error('音频暂时无法播放，请稍后重试。'))) })
+    if (generation !== playbackGeneration) throw new Error('音频已停止，请重新播放。')
+    audio = wx.createInnerAudioContext(); audio.src = source
+    return new Promise<void>((resolve, reject) => {
+      const timer = setTimeout(() => { cancelPlayback = undefined; reject(new Error('音频加载时间较长，请重试。')) }, 15000)
+      audio!.onPlay(() => { clearTimeout(timer); cancelPlayback = undefined; resolve() })
+      audio!.onError(() => { clearTimeout(timer); cancelPlayback = undefined; reject(new Error('音频暂时无法播放，请稍后重试。')) })
+      cancelPlayback = () => { clearTimeout(timer); reject(new Error('音频已停止，请重新播放。')) }; audio!.play()
+    })
   },
+  stopAudio() { playbackGeneration++; cancelPlayback?.(); cancelPlayback = undefined; audio?.stop(); audio?.destroy(); audio = undefined },
   async startRecording() {
     await new Promise<void>((resolve, reject) => wx.requirePrivacyAuthorize({ success: () => resolve(), fail: () => reject(new Error('请先阅读并同意麦克风使用说明。')) }))
     await new Promise<void>((resolve, reject) => wx.authorize({ scope: 'scope.record', success: () => resolve(), fail: () => reject(new Error('需要麦克风权限才能录音，可在小程序设置中开启。')) }))
@@ -94,7 +107,16 @@ const platform: Platform = {
     recorder.stop()
     return pendingRecording
   },
-  async removeRecordings(paths) { await Promise.all(paths.map((filePath) => new Promise<void>((resolve) => wx.getFileSystemManager().unlink({ filePath, complete: () => resolve() })))) },
+  async removeRecordings(paths, all = false) {
+    const fs = wx.getFileSystemManager(), owned = [...paths]
+    if (all) {
+      const saved = await new Promise<string[]>((resolve, reject) => fs.getSavedFileList({ success: r => resolve(r.fileList.map(f => f.filePath)), fail: () => reject(new Error('本机录音清理未完成，请重试。')) }))
+      owned.push(...saved)
+      const backups = await new Promise<string[]>((resolve, reject) => fs.readdir({ dirPath: wx.env.USER_DATA_PATH, success: r => resolve(r.files.filter(name => /^english-backup-[0-9]+\.json$/.test(name)).map(name => `${wx.env.USER_DATA_PATH}/${name}`)), fail: () => reject(new Error('备份缓存清理未完成，请重试。')) }))
+      owned.push(...backups)
+    }
+    await Promise.all([...new Set(owned)].map(filePath => new Promise<void>((resolve, reject) => fs.unlink({ filePath, success: () => resolve(), fail: e => /no such file|not exist/i.test(e.errMsg) ? resolve() : reject(new Error('有文件尚未删除，请检查设备空间后重试。')) }))))
+  },
 }
 export const application = new Application(repository, store, platform)
 const active = store.get().activeSessionId

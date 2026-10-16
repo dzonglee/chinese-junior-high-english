@@ -20,7 +20,7 @@ export interface Screen {
   sections?: { title: string; text: string }[]
   question?: QuestionView
   progress?: { label: string; current: number; total: number; percent: number }
-  word?: { id: string; word: string; meaning: string; example: string; exampleMeaning: string; revealed: boolean; answer: string; feedback: string; correct: boolean | null; explanation: string }
+  word?: { audioAvailable: boolean; mediaId?: string; id: string; word: string; meaning: string; example: string; exampleMeaning: string; revealed: boolean; answer: string; feedback: string; correct: boolean | null; explanation: string }
   week?: { label: string; active: boolean }[]
   chips?: { id: string; label: string; selected: boolean; action: string; value: string }[]
   tabs: { id: string; label: string; character: string; selected: boolean }[]

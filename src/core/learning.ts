@@ -14,7 +14,7 @@ export const ERROR_REASONS: { id: ErrorReason; label: string; hint: string }[] =
 ]
 
 export function emptyState(now = Date.now()): LearnerState {
-  return { schemaVersion: 1, profile: null, attempts: [], mastery: {}, mistakes: {}, words: {}, lessonDoneAt: {}, lessonReviews: {}, favorites: [], sessions: {}, activeSessionId: null, writing: {}, privateQuestions: [], recordings: [], updatedAt: now }
+  return { schemaVersion: 1, profile: null, attempts: [], answerSeenAt: {}, mastery: {}, mistakes: {}, words: {}, lessonDoneAt: {}, lessonReviews: {}, favorites: [], sessions: {}, activeSessionId: null, writing: {}, privateQuestions: [], recordings: [], updatedAt: now }
 }
 
 /** Adapted from the sister app: only independent answers affect evidence; retention needs a delay. */
@@ -59,7 +59,9 @@ export function dueLessonReviews(state: LearnerState, now: number): { lessonId: 
   return Object.entries(state.lessonDoneAt).flatMap(([lessonId, at]) => {
     const done = state.lessonReviews[lessonId] ?? []
     const stage = LESSON_REVIEW_DAYS.findIndex((_, i) => !done.includes(i))
-    return stage >= 0 && now - at >= LESSON_REVIEW_DAYS[stage] * DAY ? [{ lessonId, stage }] : []
+    const previous = Object.values(state.sessions).filter(s => s.mode === 'review' && s.lessonId === lessonId && (s.reviewStage ?? 0) <= stage)
+    const lastExposure = Math.max(0, ...previous.map(s => s.submittedAt ?? 0), ...previous.flatMap(s => s.questionIds.map(id => state.answerSeenAt?.[id] ?? 0)))
+    return stage >= 0 && now - at >= LESSON_REVIEW_DAYS[stage] * DAY && (!lastExposure || now - lastExposure >= 2 * DAY) ? [{ lessonId, stage }] : []
   }).sort((a, b) => state.lessonDoneAt[a.lessonId] - state.lessonDoneAt[b.lessonId])
 }
 

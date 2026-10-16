@@ -43,5 +43,9 @@ const loaders = {
   "s-compare": () => require.async("./content/s-compare/pack.js"),
   "s-opinion": () => require.async("./content/s-opinion/pack.js"),
   "s-problem": () => require.async("./content/s-problem/pack.js"),
+  "s-read-aloud": () => require.async("./content/s-read-aloud/pack.js"),
+  "w-note": () => require.async("./content/w-note/pack.js"),
+  "r-restoration": () => require.async("./content/r-restoration/pack.js"),
+  "r-short-answers": () => require.async("./content/r-short-answers/pack.js"),
 };
 module.exports = { loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };

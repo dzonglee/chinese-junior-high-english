@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { authorReadingTasks } from './author-reading-tasks.mjs'
 import { authorExtra } from './author-extra.mjs'
 
 const read = (root, path) => JSON.parse(readFileSync(resolve(root, path), 'utf8'))
@@ -37,6 +38,7 @@ export function authorCatalog(root) {
     lessons.push({ id: `l-${record.id}`, topicId: record.id, title: record.title, grades, objective: record.rule, questionIds: ids.slice(0, record.cases.length >= 12 ? 8 : 4), delayedQuestionIds: ids.slice(record.cases.length >= 12 ? 8 : 4), summary: [record.rule, record.pitfall, '提示后做对是练习成果，隔几天独立做对才是保留的证据。'], estimatedMinutes: 10, order: 1, review: 'draft' })
   }
   authorExtra(root, { topics, lessons, questions, vocabulary, media })
+  authorReadingTasks(root, { topics, lessons, questions, vocabulary, media })
   const roster = read(root, 'reference/source-register/cities/roster.json')
   const cities = roster.cities.map((city) => {
     const [province, name] = city.city_id.split('-')

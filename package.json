@@ -14,10 +14,13 @@
     "test:journeys": "node scripts/test-journeys.mjs",
     "art:blender": "blender --background --python scripts/blender/build-assets.py",
     "dev": "node scripts/dev.mjs",
-    "audio:prepare": "node scripts/prepare-audio.mjs",
+    "audio:prepare": "node --use-env-proxy scripts/prepare-audio.mjs",
     "test:native-adapter": "node scripts/test-native-adapter.mjs",
     "release:check": "node scripts/check-release.mjs",
-    "build:release": "node scripts/build.mjs --release"
+    "build:release": "node scripts/build.mjs --release",
+    "check:package": "node scripts/check-package.mjs",
+    "content:review": "node scripts/review-content.mjs",
+    "test:release-guards": "node scripts/test-release-guards.mjs"
   },
   "dependencies": {
     "@noble/hashes": "1.8.0"

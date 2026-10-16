@@ -1,0 +1,30 @@
+name: Check the English app
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  learner-workflows:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - run: npm run check
+      - run: npm run content:audit
+      - run: npm run check:package
+      - run: npm run test:native-adapter
+      - run: npm run test:release-guards
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:journeys
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-journey-evidence
+          path: test-results/journeys/
