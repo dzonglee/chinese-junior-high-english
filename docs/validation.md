@@ -76,5 +76,4 @@ review answers. Such reviews now store answers without exposing feedback or reco
 until submission, including after reload. Subjective work advances its practice schedule but
 never becomes independent retention evidence. All 413 lesson lifecycles pass; listening playback
 is synthetic only in those tests, while actual pending-audio lessons are tested as unavailable.
-Contact-sheet captures use isolated pages and wait for fonts and two paint frames; the original capture artifacts were
-retaken. Restoration explanations now use complete paragraphs rather than midword truncation.
+Contact-sheet captures use isolated pages and wait for fonts and two paint frames; the sheets were retaken and enlarged inspections confirmed intact text. Restoration explanations now use complete paragraphs rather than midword truncation.
