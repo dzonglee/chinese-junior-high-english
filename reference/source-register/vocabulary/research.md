@@ -1,8 +1,8 @@
 # Vocabulary research
 
-The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 0 annual city vocabulary cells remain unsearched, 269 have bounded not_found results and 9 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 0 annual city vocabulary cells remain unsearched, 269 have bounded not_found results and 9 specifically scoped attempts are blocked and 2 are unverified provider links. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
-Current register: **149 sources and 775 retained asset records**. Three asset records reference
+Current register: **215 sources and 903 retained asset records**. Three asset records reference
 already retained curriculum files. Research access is separate from commercial permission;
 every commercial reuse flag is false. Nothing here is app content or released material.
 
@@ -65,8 +65,9 @@ Community copies have not been independently matched to publisher originals. A l
 establishes neither current 2024-book identity nor city/cohort adoption. Unacquired edition and
 school-structure families remain separate discovery gaps.
 
-The national2024directory was separately reopened: its English tables list eleven regular
-junior-high edition/structure rows plus one PEP large-print grade7variant. PEP/Shandong five-four
+The national2024directory was separately reopened: its English tables list eleven standard-size
+junior-high entries plus one PEP large-print grade7variant. Only three rows explicitly print
+five-four; ordinary rows do not print a structure label, which stays unknown. PEP/Shandong five-four
 is one coedition row. These are catalogue facts, not acquired current books or adoption. The exact
 row-level matrix and unresolved Beijing/Xiangjiao labels are in `current-editions/`.
 
