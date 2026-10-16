@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 240 annual city vocabulary cells remain unsearched, 34 have bounded not_found results and 6 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 215 annual city vocabulary cells remain unsearched, 59 have bounded not_found results and 6 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -131,3 +131,35 @@ Hubei's public search works in a normal JavaScript browser. The examination cont
 The actual Wuhan education homepage publishes its own search form, but collected control/broad/2022–2026target requests render an explicit Forbidden / HTTP Proxy /403 site-administrator block. No blocked content was recovered and no workaround is attempted; block HTML stays temporary, with diagnostic hashes retained. All five annual cells therefore record the actual city-route block, with the independent provincial research linked.
 
 Actual policy鄂教基〔2023〕4号and its Q&A were opened. They introduce provincial unified setting from2024 while explicitly preserving separate Wuhan setting. The Q&A cites2022English standards as speaking-reform rationale; it supplies no local headword appendix or2025revision-adoption proof. Provincial marks/minutes are not substituted for Wuhan annual facts.
+
+## Northern municipal indexes: five bounded city passes
+
+Delegate query/review evidence
+
+This pass covers 14 northern cities excluding Beijing, with 2022–2026 as separate targets. No literal local annual junior-high English headword set was found or retained. The 70-cell proposal contains **25 bounded `not_found` observations and 45 `not_searched` gaps**. These are search-scope observations, never proof of universal absence. A failed homepage or control does not advance any annual cell.
+
+| City | Actual annual queries | Review completed | Proposed cells |
+| --- | --- | --- | --- |
+| Yantai | Five actual year + English + vocabulary queries | Complete short wordlist query: 0; complete English-vocabulary query: one 2020 vocational-teaching article, opened and excluded | Five bounded not_found |
+| Qingdao | Five actual annual multiword queries, with visible all-time option checked | Complete short indexes: 242 wordlist rows + 55 English-vocabulary rows; 249 unique URLs. Two actual candidate pages opened | Five bounded not_found |
+| Jinan | Five actual annual title queries, all empty | Short title queries 词汇表 and 词汇: zero; 英语: 16 mostly adult-examination titles. Known examination control works | Five bounded title-index not_found |
+| Linyi | Five visible advanced AND queries: year AND 英语 AND 词汇 | All 28 / 23 / 22 / 28 / 24 rows captured; complete 42-row English-vocabulary and one-row wordlist broad indexes. Union: 95 unique URLs. Five actual teaching-plan pages opened | Five bounded not_found |
+| Shijiazhuang | Five actual annual queries, all result pages captured | 10 / 20 / 25 / 24 / 18 annual rows; complete 112-row broad English-vocabulary index; union 114 unique URLs. Literal quoted 词汇表: zero | Five bounded municipal-index not_found |
+| Tianjin, Baoding, Taiyuan, Hohhot, Shenyang, Dalian, Changchun, Harbin, Weifang | No working annual search established | Independent ordinary public routes and controls attempted; none supplies actual annual vocabulary results | 45 not_searched |
+
+## Query semantics and verification
+
+Yantai's education bureau offers a genuine public search form. A known school-news control returned matching titles, dates and URLs; empty annual results were checked in the actual successful JSON responses. The only English-vocabulary broad result is a 2020 meeting of secondary/higher vocational schools, not a target junior-high wordset. Its actual original page was opened.
+
+Qingdao's default is **three years**. The ordinary visible **全部时间** option was selected and its checked state verified before queries. Complete short-query pagination was followed through the published API, with all 297 rows/249 unique URLs reviewed. The much larger annual multiword queries are OR-like; their annual result sets were not fully paginated and are not described as AND searches. The bounded negative relies on complete short-query indexes alongside the actual annual attempts. A 2017 junior-high lesson-award news item and a 2023–2024 senior-high teaching plan were opened and excluded. The latter's 3500-word target is senior-high material, not a junior-high list.
+
+Jinan's actual public exam-institute title search returns known 中考 notices. The short term 词汇 produces no titles. Annual spaced queries appear normalized to contiguous tokens, so their empty results alone cannot establish absence in article bodies. The index is a title index, not a complete city/school/attachment search. **Its explicit notice forbids unauthorized copying, republication and mirrors. Original HTML and bodies are excluded from integration; only minimal research query metadata, title/URL citations, response hashes/counts and the rights warning remain.**
+
+Linyi's real advanced form implements literal whole phrases and AND. A known examination-policy phrase produces 10 results, narrowed to 5 by the actual 2026 AND field, validating the syntax. The complete broad phrase 词汇表 returns one government-site wording report, where the phrase occurs inside “词汇表述”. The five annual AND queries and the whole-phrase 英语词汇 query were fully paginated and all retained title/snippet/date/URL rows reviewed. The 95 unique results comprise teaching plans, awards, catalogues, primary/senior-high/vocational material and general news. Five real plans spanning the five target years were opened; two explicitly concern 高一/高二/高三, and the junior-high plans describe review/pedagogy without listing the target headwords or document attachments. The visible scope is **全市**, including municipal/county sites; it is not a whole-province scope. Cited standard years can match annual tokens and do not establish examination-year applicability.
+
+Linyi's initial ordinary control response sometimes arrives after its advanced response. The accepted evidence is the retained JSON with parsed query **code 7** and the exact advanced expression, paired with the actual public POST fields. Some scratch HTML snapshots show the initial control because of this response race. Those snapshots are excluded from the accepted advanced artifact manifest; the query ledger discloses the race. No response is identified merely by arrival order.
+
+Shijiazhuang's known 中考 control works. Quoting 词汇表 preserves that literal token and returns zero results, while quoting 英语词汇 still produces separate English/vocabulary tokens; no general exact-phrase or AND guarantee is claimed. All small actual annual result sets and the complete 112-row broad index were captured/read. The union contains 114 unique URLs, mostly adult/high-school examinations, public enquiries and general news. A district textbook enquiry was located and opened, but its column explicitly restricts reproduction, extraction, quotation, copying and mirrors. **No answer text, mirrored HTML or raw search snippets containing that answer are included in integration.** Citation-only index notes and a paraphrased bibliographic lead remain. The reply is district-specific, dated 2024-01-12, and described as nonbinding guidance; it is not citywide or five-year adoption evidence.
+
+
+Full delegate research, complete-query citation indexes, actual annual query keys, source mapping and retention policy are retained under `annual-discovery/north/`. The95allowlisted HTML/JSON responses were rehashed at registration. Nine unresolved northern cities remain unsearched while independent routes continue. Jinan original HTML and restricted Shijiazhuang reply text/search snippets are excluded; metadata-only rights warnings and bibliographic leads do not establish citywide adoption.
