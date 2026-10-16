@@ -69,6 +69,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | 13 | R-VOC coordinator | Finish southern annual vocabulary searches | renai-wordlists | done; all 45 targets searched; raw wordsets remain unverified |
 | 14 | R-VOC coordinator | Check current BNU vocabulary readers | renai-wordlists | done; five catalogues checked; no current word pages loaded |
 | 15 | R-VOC coordinator | Verify annual official English-exam announcement searches | renai-wordlists and yilin-wordlists | done; all 280 cells have targeted searches or existing notice/policy attempts |
+| 16 | Owner continuation | Verify the published app and report concrete defects | codex-continuation | in progress; read-only checks and content/runtime review |
 
 ## Shared resources
 

@@ -129,3 +129,13 @@ Post-merge claim check: origin/main was fetched after f0c5398 and the full board
 No eligible open research unit remains. R-INT is the only open row and its other research-unit
 dependencies are still claimed; none is 48 hours stale on the current date. Preserve those locks.
 The next research session should sync first and choose an eligible unit only after its status changes.
+
+## Owner goal continuation
+
+The owner asked to continue beyond research toward finishing everything. Re-synced main and the
+published app branch `ebc5ca1`. No eligible research unit is open and the APP-DELIVERY claim is
+fresh, so this worker is verifying/reviewing that published app read-only in an existing detached
+checkout. No app implementation ownership is taken over. Two existing delegates inspect original
+content and runtime correctness while the coordinator runs the documented checks. Record concrete
+findings before deciding which remaining operations truly require outside inputs. External MCP
+memory/board tools remain unavailable; this local update awaits reconciliation.

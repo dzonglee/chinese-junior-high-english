@@ -238,3 +238,8 @@ Open questions.
 - Retained source HTML keeps original whitespace and bytes. The merge-wide whitespace scan therefore reports source formatting; the scoped authored-file staged check passes without changing source hashes.
 
 - Post-merge loop: fetched origin/main at f0c5398 and reread the full board and latest log. No eligible open R unit remains: R-INT is the only open row and still depends on the other claimed units. Those claims are dated 2026-10-15, so none meets the 48-hour stale-claim rule on 2026-10-16. No claim was taken over or dependency bypassed. Resume with a fresh board sync when an owner completes or releases a unit.
+
+## 2026-10-16 · codex-continuation · next-step application verification
+- Owner instruction: continue toward all remaining work. Synced main and the current app handoff at `ebc5ca1`; no research claim is eligible and APP-DELIVERY remains freshly owned by codex-app.
+- Started read-only app build/validation and two existing delegates' original-content/runtime review in the already existing detached checkout. No new worktree, implementation claim, source edit, research copy, audio choice, release approval or publication is made.
+- Locked dependency installation and development build succeeded without tracked changes. Continue the documented tests/journeys and inspect actual release readiness before finalizing the next concrete handoff. Existing external Kanban/Obsidian tools remain absent, so repository records carry the progress.
