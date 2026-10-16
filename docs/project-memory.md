@@ -46,3 +46,23 @@ Research access is not commercial permission. A national list is not a local exa
 A legacy book is not the current 2024 edition. Completed lessons are not demonstrated mastery.
 Self-review is not machine assessment. Passing browser checks is not native DevTools evidence.
 An implemented app is not a published WeChat release.
+
+## Research continuation (2026-10-16)
+
+R-VOC is active on its existing claim. The latest published checkpoint is `441c167`: 17 legacy
+books and 6,142 occurrences, with no acquired local examination wordset. Two read-only delegates
+are auditing six Renai/Kepu and six Yilin legacy books in temporary folders; the coordinator
+retains numbering, tracked edits and publication. The coordinator is conducting genuine annual
+local-wordlist searches through public authority forms. Search-provider challenges are stopped
+and do not establish absence. Research remains incomplete.
+
+After the owner reported Mac Studio online and reattached Chrisverse, a fresh native/deferred
+tool-registry check still returned no Chrisverse, Kanban or Obsidian tools, no generic tool-search
+interface, and no callable `mcp__codex_apps__chrisverse_studio_mcp_capabilities`. No credentials
+were printed or authentication changed. External updates remain pending; this limitation is
+specific to this cloud worker's tool exposure, not a claim about the server's availability.
+
+When tools become available, read the existing English project board and Obsidian note first.
+Update the existing research card with a short title, current status and next concrete action;
+put source counts, verification limits, decisions and evidence in linked memory. Do not duplicate
+the board or mistake legacy lists and failed routes for complete local annual coverage.
