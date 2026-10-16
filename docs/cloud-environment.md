@@ -2,9 +2,8 @@
 
 Use the existing isolated checkout at `/workspace/chinese-junior-high-english`. Do not create a
 worktree unless the owner explicitly asks. Preserve local changes and existing research claims.
-The active application work is on `platform/app-delivery`; do not reset a branch or discard work
-merely to run setup. `main` may still contain the earlier research-only manifest until delivery
-is integrated.
+The local application is integrated on `main`; do not reset a branch or discard work merely to
+run setup. Videos are deferred and production credentials are unnecessary for local development.
 
 ## Every session
 
@@ -31,11 +30,13 @@ When application dependencies need refreshing, use the locked install:
 ```bash
 cd /workspace/chinese-junior-high-english
 npm ci --no-audit --no-fund --cache /tmp/cjhe-npm-cache
-npm run build
+npm run build:local
 npm run check
+npm run test:grammar
 npm run content:audit
 npm run check:package
 npm run test:native-adapter
+npm run test:native-cancellation
 ```
 
 On a research-only checkout without a lockfile, do not invent dependencies. Run
@@ -45,7 +46,7 @@ an artifact-integrity claim. Keep skipped and unrun checks visible.
 
 ## Start and verify the application
 
-`npm run dev` starts the browser verification harness on loopback port 4173. Live processes do
+`npm run dev` starts the local learning app on loopback port 4173. Live processes do
 not survive environment publication/restoration, so start it again when needed. Read its output
 and verify a functional request; a PID alone is not readiness. Do not create user-facing localhost
 preview links in the onboarding UI.
@@ -57,6 +58,12 @@ verified default here. Otherwise install Playwright's supported Chromium using
 `npx playwright install --with-deps chromium` in an environment with the required system-package
 capabilities. Socket/browser execution may need the normal sandbox escalation; do not interpret
 that as an application defect or disable checks.
+
+`npm run build:local` also produces a portable standalone app at `dist/local/index.html`.
+`npm run test:local` exercises its offline learner flows and backup download. Managed Chromium
+here blocks direct file navigation, so that runner serves the same document on loopback and then
+disables networking during practice. Preserve that distinction; do not disable managed policies.
+See `docs/local-version.md` for persistence and optional microphone behavior.
 
 Browser screenshots and microphone simulation are not WeChat evidence. Native validation needs
 the actual WeChat DevTools and a real device. See `docs/release-checklist.md`.

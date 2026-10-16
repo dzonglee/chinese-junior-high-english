@@ -6,25 +6,26 @@ folders in its row.
 
 ## Application delivery
 
-The owner requested the finished app. Research continues separately; it is not marked complete.
+The owner requested a usable local app first and deferred videos. Native publication is a
+separate next milestone. Research continues separately; it is not marked complete.
 Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 
 | ID | Work | Status | Owner | Branch | Next action |
 | --- | --- | --- | --- | --- | --- |
-| APP-DELIVERY | Build and validate the English learning app | claimed | codex-local | platform/app-delivery | Finish a usable local app; videos and release setup later |
+| APP-DELIVERY | Deliver usable local English app | review | codex-local | platform/app-delivery | Checks pass; squash into main |
 
 ### Delivery checklist
 
 | Work | Status |
 | --- | --- |
 | Persistent memory and board instructions | Done |
-| Platform, content model and compiler | Implemented; review corrections open |
+| Platform, content model and compiler | Done for local milestone |
 | Lessons, vocabulary and practice | Implemented; editorial review pending |
 | Listening, speaking and writing | Implemented; listening audio pending |
 | Exams, question builder and private questions | Implemented and tested |
 | Progress, mistakes and data controls | Implemented and tested |
-| Functional testing and visual review | Browser checks pass; review defects and native checks remain |
-| Release preparation | Fingerprint correction, project setup and owner review pending |
+| Functional testing and visual review | Local browser checks pass; native validation later |
+| Release preparation | Fingerprint fixed; native/project/owner review later |
 
 External Obsidian and Kanban updates are pending connection availability. Continue app work first.
 
@@ -70,9 +71,9 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | 14 | R-VOC coordinator | Check current BNU vocabulary readers | renai-wordlists | done; five catalogues checked; no current word pages loaded |
 | 15 | R-VOC coordinator | Verify annual official English-exam announcement searches | renai-wordlists and yilin-wordlists | done; all 280 cells have targeted searches or existing notice/policy attempts |
 | 16 | Owner continuation | Verify the published app and report concrete defects | codex-continuation | done; four findings documented in docs/reviews/app-2026-10-16/ |
-| 17 | App review | Correct grammar prompts and accepted answers | — | requested; source remains under the APP-DELIVERY claim |
-| 18 | App review | Cancel recording starts during backgrounding | — | requested; source remains under the APP-DELIVERY claim |
-| 19 | App review | Invalidate approval after material catalog changes | — | requested; source remains under the APP-DELIVERY claim |
+| 17 | App review | Correct grammar prompts and accepted answers | codex-local | done; 90 free responses constrained, seven regression tests |
+| 18 | App review | Cancel recording starts during backgrounding | codex-local | done; delayed permission and suspension regressions pass |
+| 19 | App review | Invalidate approval after material catalog changes | codex-local | done; full-catalog fingerprint with metadata regressions |
 
 ## Shared resources
 

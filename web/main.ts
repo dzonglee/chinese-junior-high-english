@@ -7,7 +7,21 @@ import { ContentRepository } from '../src/services/content'
 import { StateStore } from '../src/services/storage'
 const esc = (v: unknown = '') => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!))
 const storage = new StateStore({ read: key => localStorage.getItem(key), write: (key, value) => localStorage.setItem(key, value), remove: key => localStorage.removeItem(key) }, catalog)
-const content = new ContentRepository(catalog, packs, async pack => { const response = await fetch(`/packs/${pack.file}`); if (!response.ok) throw new Error('题目暂未下载成功，请重试。'); return response.text() })
+const embeddedPacks = document.getElementById('local-packs')
+const localPacks: Record<string, string> | undefined = embeddedPacks ? JSON.parse(embeddedPacks.textContent || '{}') : undefined
+const embeddedAssets = document.getElementById('local-assets')
+const localAssets: Record<string, string> = embeddedAssets ? JSON.parse(embeddedAssets.textContent || '{}') : {}
+const artwork = (name: string) => localAssets[name] || `/assets/${name}.png`
+const content = new ContentRepository(catalog, packs, async pack => {
+  if (localPacks) {
+    const text = localPacks[pack.file]
+    if (typeof text !== 'string') throw new Error('本地题目文件不完整，请重新下载本地版。已保存的学习记录不会受影响。')
+    return text
+  }
+  const response = await fetch(`/packs/${pack.file}`)
+  if (!response.ok) throw new Error('题目暂未下载成功，请重试。')
+  return response.text()
+})
 let mediaRecorder: MediaRecorder | undefined, recordingStream: MediaStream | undefined, recordingStart = 0, chunks: Blob[] = []
 let audio: HTMLAudioElement | undefined
 let audioGeneration = 0
@@ -25,8 +39,37 @@ const platform: Platform = {
   copy: text => navigator.clipboard.writeText(text),
   async play(path) { platform.stopAudio(); const generation = audioGeneration; let url = path; if (path.startsWith('recording:')) { const blob = await audioFile(path); if (!blob) throw new Error('这段录音已不在当前设备。'); url = URL.createObjectURL(blob) }; if (generation !== audioGeneration) { if (url.startsWith('blob:')) URL.revokeObjectURL(url); return }; if (url.startsWith('blob:')) audioObjectUrl = url; audio = new Audio(url); audio.onended = () => { if (url.startsWith('blob:')) { URL.revokeObjectURL(url); if (audioObjectUrl === url) audioObjectUrl = undefined } }; await audio.play() },
   stopAudio() { audioGeneration++; audio?.pause(); audio = undefined; if (audioObjectUrl) URL.revokeObjectURL(audioObjectUrl); audioObjectUrl = undefined },
-  async startRecording() { if (!navigator.mediaDevices || !window.MediaRecorder) throw new Error('当前浏览器不支持录音，请在微信小程序中练习。'); recordingStream = await navigator.mediaDevices.getUserMedia({ audio: true }); mediaRecorder = new MediaRecorder(recordingStream); chunks = []; mediaRecorder.ondataavailable = e => chunks.push(e.data); mediaRecorder.start(); recordingStart = Date.now() },
-  stopRecording() { return new Promise((resolve, reject) => { if (!mediaRecorder) return reject(new Error('当前没有录音。')); mediaRecorder.onstop = async () => { try { const path = `recording:${Date.now()}`; await audioFile(path, new Blob(chunks, { type: mediaRecorder!.mimeType })); recordingStream?.getTracks().forEach(t => t.stop()); resolve({ path, durationMs: Date.now() - recordingStart }) } catch (e) { reject(e) } }; mediaRecorder.stop() }) },
+  async startRecording(isCurrent = () => true) {
+    if (!navigator.mediaDevices || !window.MediaRecorder) throw new Error('当前浏览器不支持录音，请换用支持录音的浏览器，或在微信小程序中练习。')
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+    if (!isCurrent()) { stream.getTracks().forEach(track => track.stop()); return 'cancelled' }
+    recordingStream = stream
+    try {
+      mediaRecorder = new MediaRecorder(stream); chunks = []
+      mediaRecorder.ondataavailable = e => chunks.push(e.data)
+      mediaRecorder.start(); recordingStart = Date.now()
+    } catch (error) { stream.getTracks().forEach(track => track.stop()); recordingStream = undefined; throw error }
+    return
+  },
+  stopRecording() {
+    return new Promise((resolve, reject) => {
+      const active = mediaRecorder, stream = recordingStream, started = recordingStart, parts = chunks
+      if (!active) return reject(new Error('当前没有录音。'))
+      const release = () => {
+        stream?.getTracks().forEach(track => track.stop())
+        if (mediaRecorder === active) mediaRecorder = undefined
+        if (recordingStream === stream) recordingStream = undefined
+      }
+      active.onstop = async () => {
+        try {
+          const path = `recording:${Date.now()}`
+          await audioFile(path, new Blob(parts, { type: active.mimeType }))
+          resolve({ path, durationMs: Date.now() - started })
+        } catch (error) { reject(error) } finally { release() }
+      }
+      try { active.stop() } catch (error) { release(); reject(error) }
+    })
+  },
   async removeRecordings(paths, all = false) { if (all) { const db = await recordings(); await new Promise<void>((resolve, reject) => { const tx = db.transaction('audio', 'readwrite'); tx.objectStore('audio').clear(); tx.oncomplete = () => { db.close(); resolve() }; tx.onerror = () => { db.close(); reject(tx.error) } }) } else await Promise.all(paths.map(path => audioFile(path, undefined, true))) },
 }
 const app = new Application(content, storage, platform)
@@ -54,7 +97,7 @@ function render() {
   const active = document.activeElement
   const editing = active instanceof HTMLInputElement || active instanceof HTMLTextAreaElement ? { name: active.name, start: active.selectionStart, end: active.selectionEnd } : null
   const root = document.getElementById('root')!
-  root.innerHTML = `<main class="app ${s.tabs.length ? 'with-tabs' : ''}" data-screen="${esc(s.id)}"><header class="top">${s.back ? '<button class="back" data-action="back" aria-label="返回">‹</button>' : ''}<div class="top-copy">${s.eyebrow ? `<span class="eyebrow">${esc(s.eyebrow)}</span>` : ''}<h1 class="page-title">${esc(s.title)}</h1><p class="muted">${esc(s.subtitle)}</p></div></header>${s.error ? `<p class="notice error" role="alert">${esc(s.error)}</p>` : ''}${s.notice ? `<p class="notice">${esc(s.notice)}</p>` : ''}${s.hero ? `<section class="hero ${esc(s.hero.tone)}"><span class="eyebrow">${esc(s.hero.eyebrow)}</span><h2 class="hero-title">${esc(s.hero.title)}</h2><p class="hero-text">${esc(s.hero.text)}</p><img class="hero-art" src="/assets/${esc(s.hero.art)}.png" alt=""/>${actions(s.hero.actions)}</section>` : ''}${s.metrics.length ? `<div class="metrics">${s.metrics.map(m => `<div class="metric"><span class="metric-value">${esc(m.value)}</span><span class="muted small">${esc(m.label)}</span></div>`).join('')}</div>` : ''}${s.week ? `<div class="week">${s.week.map(d => `<div class="day ${d.active ? 'active' : ''}"><span>${esc(d.label)}</span><span class="day-dot">${d.active ? '✓' : '·'}</span></div>`).join('')}</div>` : ''}${s.progress ? `<div class="progress-block"><div class="row"><span class="eyebrow">${esc(s.progress.label)}</span><span class="muted">先独立想一想</span></div><div class="track"><div class="fill" style="width:${s.progress.percent}%"></div></div></div>` : ''}${s.fields.length ? `<section class="panel form">${s.fields.map(field).join('')}</section>` : ''}${s.word ? `<section class="panel word-card"><span class="eyebrow">看释义，自己拼一遍</span><h2 class="word-meaning">${esc(s.word.meaning)}</h2><p class="passage">${esc(s.word.example)}</p><p class="muted">${esc(s.word.exampleMeaning)}</p><input class="input answer-input" name="wordAnswer" placeholder="写出英文单词" value="${esc(s.word.answer)}" ${s.word.revealed ? 'disabled' : ''}/>${s.word.revealed ? `<div class="feedback"><span class="word-answer">${esc(s.word.word)}</span>${s.word.audioAvailable ? button({ id: 'play', value: s.word.mediaId, label: '听发音与例句', tone: 'secondary' }) : ''}<p>${esc(s.word.feedback)}</p><p class="muted">${esc(s.word.explanation)}</p></div>` : ''}</section>` : ''}${question(s)}${s.chips ? `<div class="chips">${s.chips.map(c => `<button class="chip ${c.selected ? 'selected' : ''}" data-action="${esc(c.action)}" data-value="${esc(c.value)}">${esc(c.label)}</button>`).join('')}</div>` : ''}${actions(s.actions)}<div class="cards">${s.cards.map(c => `<section class="panel card" data-card="${esc(c.id)}"><div class="card-top">${c.character ? `<span class="character">${esc(c.character)}</span>` : ''}<div class="card-copy">${c.label ? `<span class="eyebrow">${esc(c.label)}</span>` : ''}<h2 class="section-title">${esc(c.title)}</h2></div>${c.tag ? `<span class="tag">${esc(c.tag)}</span>` : ''}</div><p class="muted card-text">${esc(c.text)}</p>${c.progress !== undefined ? `<div class="track"><div class="fill" style="width:${c.progress}%"></div></div>` : ''}${actions(c.actions)}</section>`).join('')}</div>${s.sections?.map(section => `<section class="panel"><h2 class="section-title">${esc(section.title)}</h2><p class="muted">${esc(section.text)}</p></section>`).join('') ?? ''}${s.tabs.length ? `<nav class="tabbar" aria-label="主导航">${s.tabs.map(t => `<button class="tab ${t.selected ? 'selected' : ''}" data-action="navigate" data-value="${esc(t.id)}"><span class="tab-icon">${esc(t.character)}</span><span>${esc(t.label)}</span></button>`).join('')}</nav>` : ''}</main>`
+  root.innerHTML = `<main class="app ${s.tabs.length ? 'with-tabs' : ''}" data-screen="${esc(s.id)}"><header class="top">${s.back ? '<button class="back" data-action="back" aria-label="返回">‹</button>' : ''}<div class="top-copy">${s.eyebrow ? `<span class="eyebrow">${esc(s.eyebrow)}</span>` : ''}<h1 class="page-title">${esc(s.title)}</h1><p class="muted">${esc(s.subtitle)}</p></div></header>${s.error ? `<p class="notice error" role="alert">${esc(s.error)}</p>` : ''}${s.notice ? `<p class="notice">${esc(s.notice)}</p>` : ''}${s.hero ? `<section class="hero ${esc(s.hero.tone)}"><span class="eyebrow">${esc(s.hero.eyebrow)}</span><h2 class="hero-title">${esc(s.hero.title)}</h2><p class="hero-text">${esc(s.hero.text)}</p><img class="hero-art" src="${esc(artwork(s.hero.art))}" alt=""/>${actions(s.hero.actions)}</section>` : ''}${s.metrics.length ? `<div class="metrics">${s.metrics.map(m => `<div class="metric"><span class="metric-value">${esc(m.value)}</span><span class="muted small">${esc(m.label)}</span></div>`).join('')}</div>` : ''}${s.week ? `<div class="week">${s.week.map(d => `<div class="day ${d.active ? 'active' : ''}"><span>${esc(d.label)}</span><span class="day-dot">${d.active ? '✓' : '·'}</span></div>`).join('')}</div>` : ''}${s.progress ? `<div class="progress-block"><div class="row"><span class="eyebrow">${esc(s.progress.label)}</span><span class="muted">先独立想一想</span></div><div class="track"><div class="fill" style="width:${s.progress.percent}%"></div></div></div>` : ''}${s.fields.length ? `<section class="panel form">${s.fields.map(field).join('')}</section>` : ''}${s.word ? `<section class="panel word-card"><span class="eyebrow">看释义，自己拼一遍</span><h2 class="word-meaning">${esc(s.word.meaning)}</h2><p class="passage">${esc(s.word.example)}</p><p class="muted">${esc(s.word.exampleMeaning)}</p><input class="input answer-input" name="wordAnswer" placeholder="写出英文单词" value="${esc(s.word.answer)}" ${s.word.revealed ? 'disabled' : ''}/>${s.word.revealed ? `<div class="feedback"><span class="word-answer">${esc(s.word.word)}</span>${s.word.audioAvailable ? button({ id: 'play', value: s.word.mediaId, label: '听发音与例句', tone: 'secondary' }) : ''}<p>${esc(s.word.feedback)}</p><p class="muted">${esc(s.word.explanation)}</p></div>` : ''}</section>` : ''}${question(s)}${s.chips ? `<div class="chips">${s.chips.map(c => `<button class="chip ${c.selected ? 'selected' : ''}" data-action="${esc(c.action)}" data-value="${esc(c.value)}">${esc(c.label)}</button>`).join('')}</div>` : ''}${actions(s.actions)}<div class="cards">${s.cards.map(c => `<section class="panel card" data-card="${esc(c.id)}"><div class="card-top">${c.character ? `<span class="character">${esc(c.character)}</span>` : ''}<div class="card-copy">${c.label ? `<span class="eyebrow">${esc(c.label)}</span>` : ''}<h2 class="section-title">${esc(c.title)}</h2></div>${c.tag ? `<span class="tag">${esc(c.tag)}</span>` : ''}</div><p class="muted card-text">${esc(c.text)}</p>${c.progress !== undefined ? `<div class="track"><div class="fill" style="width:${c.progress}%"></div></div>` : ''}${actions(c.actions)}</section>`).join('')}</div>${s.sections?.map(section => `<section class="panel"><h2 class="section-title">${esc(section.title)}</h2><p class="muted">${esc(section.text)}</p></section>`).join('') ?? ''}${s.tabs.length ? `<nav class="tabbar" aria-label="主导航">${s.tabs.map(t => `<button class="tab ${t.selected ? 'selected' : ''}" data-action="navigate" data-value="${esc(t.id)}"><span class="tab-icon">${esc(t.character)}</span><span>${esc(t.label)}</span></button>`).join('')}</nav>` : ''}</main>`
   if (editing) { const field = root.querySelector<HTMLInputElement | HTMLTextAreaElement>(`[name="${CSS.escape(editing.name)}"]`); if (field && !field.disabled) { field.focus({ preventScroll: true }); try { field.setSelectionRange(editing.start, editing.end) } catch {} } }
 }
 document.getElementById('root')!.addEventListener('click', e => { const target = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-action]'); if (target && !target.disabled) void app.action(target.dataset.action!, target.dataset.value) })

@@ -26,6 +26,11 @@ credentials, media production and external MCP tool exposure do not block this l
 Preserve honest verification and media-pending states; no release, audio choice or research gate
 is inferred. Record the local milestone separately from eventual production publication.
 
+Delivery is re-cut around this direction: APP-DELIVERY covers the usable local app, correctness
+fixes and browser/offline validation; APP-NATIVE covers subsequent native device validation,
+project configuration, approved audio and publication preparation. Local completion does not
+approve the full course or publish a WeChat app. Videos stay deferred.
+
 ## Stage 1 · Resource gathering (continues alongside app delivery)
 
 Build the research corpus in `reference/`: a source register with provenance, verification and

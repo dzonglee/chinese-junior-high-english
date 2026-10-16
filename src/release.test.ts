@@ -16,6 +16,31 @@ describe('release requirements (synthetic configuration only)', () => {
     const { c, config } = synthetic(); c.questions[0].stem = 'Changed content'
     expect(releaseProblems(config, c).join(' ')).toContain('matching the current content fingerprint')
   })
+  const metadataChanges: [string, (c: ReturnType<typeof catalog>) => void][] = [
+    ['edition spelling', c => { c.editions[0].spelling = 'british' }],
+    ['edition structures', c => { c.editions[0].structures = ['54'] }],
+    ['edition wording', c => { c.editions[0].name = 'Revised edition label' }],
+    ['topic grades', c => { c.topics[0].grades = [9] }],
+    ['topic ordering', c => { c.topics[0].order = 2 }],
+    ['topic wording', c => { c.topics[0].title = 'Revised topic label' }],
+    ['city wording', c => { c.cities[0].name = 'Revised city label' }],
+    ['city routing', c => { c.cities[0].stream = 'south' }],
+    ['catalog version', c => { c.version = 2 }],
+  ]
+  it.each(metadataChanges)('invalidates prior approval after changing %s', (_name, change) => {
+    const { c, config } = synthetic(); change(c)
+    expect(releaseProblems(config, c).join(' ')).toContain('matching the current content fingerprint')
+  })
+  it('keeps approval stable when only JSON object property order changes', () => {
+    const { c, config } = synthetic()
+    const reordered = JSON.parse(JSON.stringify(c, (_key, value) => value && typeof value === 'object' && !Array.isArray(value)
+      ? Object.fromEntries(Object.keys(value).reverse().map(key => [key, value[key]])) : value))
+    expect(contentFingerprint(reordered)).toBe(contentFingerprint(c)); expect(releaseProblems(config, reordered)).toEqual([])
+  })
+  it('invalidates approval when a meaningful array order changes', () => {
+    const { c, config } = synthetic(); c.lessons[0].questionIds.reverse()
+    expect(contentFingerprint(c)).not.toBe(config.editorialApproval.fingerprint)
+  })
   it('rejects missing native and privacy evidence', () => {
     const { c, config } = synthetic(); config.nativeValidation.realDevice = false; config.privacyConfigured = false
     expect(releaseProblems(config, c).join(' ')).toContain('real-device'); expect(releaseProblems(config, c).join(' ')).toContain('privacy')

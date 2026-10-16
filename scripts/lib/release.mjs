@@ -2,7 +2,11 @@ import { createHash } from 'node:crypto'
 import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 export function contentFingerprint(catalog) {
-  return createHash('sha256').update(JSON.stringify({ questions: catalog.questions, lessons: catalog.lessons, vocabulary: catalog.vocabulary, media: catalog.media, books: catalog.books, blueprints: catalog.blueprints })).digest('hex')
+  // The complete JSON catalog includes spelling, grade routing and visible labels.
+  // Object insertion order is immaterial; array order can change the curriculum.
+  const serialized = JSON.stringify(catalog, (_key, value) => value && typeof value === 'object' && !Array.isArray(value)
+    ? Object.fromEntries(Object.keys(value).sort().map(key => [key, value[key]])) : value)
+  return createHash('sha256').update(serialized).digest('hex')
 }
 export function releaseProblems(config, catalog) {
   const errors = [], fileID = value => typeof value === 'string' && /^cloud:\/\/[a-zA-Z0-9._-]+\/[a-zA-Z0-9._/-]+$/.test(value) && !value.includes('..')

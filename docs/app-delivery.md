@@ -5,6 +5,13 @@ an installation, research handoff, plan, scaffold or isolated feature. Implement
 learner workflows, preserve truthful content and exam verification, and prepare concrete release
 artifacts before reporting any owner-only prerequisite.
 
+## Current milestone
+
+The owner requested a usable local version first on 2026-10-17 and deferred videos. The board
+tracks local delivery separately from future native validation/publication. The local app needs
+no production credentials or media decisions; see `docs/local-version.md` for use and evidence.
+The requirements below continue to define the complete eventual application.
+
 ## Product requirements
 
 - Route by confirmed city, school structure, grade, term and exact textbook edition/version.

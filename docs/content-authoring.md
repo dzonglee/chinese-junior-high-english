@@ -9,6 +9,11 @@ remains in `reference/` and is not bundled as learner material.
 - `grammar.json`: original contextual cases with a correct expression, distractors and a
   sentence-specific rationale. The compiler creates mixed choice, blank, correction and ordering
   tasks. Guided and delayed items have separate IDs.
+  Every free-response case supplies a sixth array element `{ instruction, accepted }`: a precise
+  Chinese task constraint and the complete nonempty list of accepted English forms. State the
+  requested word/tense/meaning or usable word bank in the prompt; do not reject a grammatical
+  alternative to an unconstrained blank. The compiler rejects absent metadata, duplicate forms
+  and a missing primary answer. Run `npm run test:grammar` after changing grammar cases.
 - `vocabulary.tsv`: original word selection, Chinese meaning, example, translation and usage note.
   Individual words are not claimed as an official examination wordset. Edition spelling is adapted
   without changing IDs or discarding legitimate authored variants.

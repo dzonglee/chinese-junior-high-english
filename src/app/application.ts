@@ -21,7 +21,7 @@ export interface Platform {
   copy(text: string): Promise<void>
   play(path: string): Promise<void>
   stopAudio(): void
-  startRecording(): Promise<void>
+  startRecording(isCurrent?: () => boolean): Promise<void | 'cancelled'>
   stopRecording(): Promise<{ path: string; durationMs: number }>
   removeRecordings(paths: string[], all?: boolean): Promise<void>
 }
@@ -43,6 +43,9 @@ export class Application {
   private wordCorrect: boolean | null = null
   private recording = false
   private recordingStarted = 0
+  private recordingGeneration = 0
+  private recordingTarget?: { sessionId: string; questionId: string }
+  private recordingStop?: Promise<void>
   constructor(readonly content: ContentRepository, readonly store: StateStore, readonly platform: Platform) { this.syncSpelling() }
   private syncSpelling() { this.content.setSpelling(this.catalog.editions.find(e => e.id === this.state.profile?.editionId)?.spelling ?? 'british') }
   get state() { return this.store.get() }
@@ -94,7 +97,14 @@ export class Application {
     if (this.busy) return
     this.error = ''
     this.busy = true; this.emit()
-    try { await this.perform(id, value) }
+    try {
+      if (this.recordingStop) {
+        const generation = this.recordingGeneration
+        await this.recordingStop
+        if (id === 'record-start' && generation !== this.recordingGeneration) return
+      }
+      await this.perform(id, value)
+    }
     catch (error) { this.error = error instanceof Error ? error.message : '刚才没能完成，请再试一次。'; this.platform.toast(this.error) }
     finally { this.busy = false; this.emit() }
   }
@@ -197,15 +207,22 @@ export class Application {
       await this.platform.play(media.path); const s = this.currentSession(); const qid = s?.questionIds[s.current]; if (s && qid && questionById(this.catalog, this.state, qid)?.mediaId === value) this.persist(markAudioPlayed(this.state, qid, this.platform.now())); return
     }
     if (id === 'play-recording') { const recording = this.state.recordings.find((r) => r.id === value); if (recording) await this.platform.play(recording.path); return }
-    if (id === 'record-start') { await this.platform.startRecording(); this.recording = true; this.recordingStarted = now; return }
-    if (id === 'record-stop') {
-      let result: { path: string; durationMs: number }
-      try { result = await this.platform.stopRecording() } finally { this.recording = false }
-      const s = this.currentSession(); if (!s) return
-      this.persist({ ...this.state, recordings: [...this.state.recordings, { ...result, id: makeId('recording', now), questionId: s.questionIds[s.current], createdAt: now }], updatedAt: now })
-      if (!this.form.answer?.trim()) this.form.answer = '已录音，请回听后对照要点自查。'
-      this.flush(); return
+    if (id === 'record-start') {
+      if (this.recording) return
+      const s = this.currentSession(), questionId = s?.questionIds[s.current]
+      if (!s || s.submittedAt || !questionId || questionById(this.catalog, this.state, questionId)?.kind !== 'speaking') throw new Error('请先打开尚未提交的口语练习。')
+      const target = { sessionId: s.id, questionId }, generation = ++this.recordingGeneration
+      const isCurrent = () => generation === this.recordingGeneration
+      let result: void | 'cancelled'
+      try { result = await this.platform.startRecording(isCurrent) }
+      catch (error) { if (!isCurrent()) return; throw error }
+      if (result === 'cancelled') return
+      // Some adapters cannot cancel a pending start. Stop its eventual recording before
+      // accepting another action, and keep it attached to the original question.
+      if (!isCurrent()) { await this.stopAndSaveRecording(target, false); return }
+      this.recordingTarget = target; this.recording = true; this.recordingStarted = this.platform.now(); return
     }
+    if (id === 'record-stop') { await this.stopAndSaveRecording(); return }
     if (id === 'clear-date') { this.form.examDate = ''; return }
     if (id === 'delete-recording') { const r = this.state.recordings.find((r) => r.id === value); if (r && await this.platform.confirm('删除这段录音？', '删除后无法恢复，口语自评记录仍会保留。')) { await this.platform.removeRecordings([r.path]); this.persist({ ...this.state, recordings: this.state.recordings.filter((r) => r.id !== value), updatedAt: now }) }; return }
     if (id === 'reason') { const [qid, reason] = value.split(':'); const m = this.state.mistakes[qid]; if (m && ERROR_REASONS.some((r) => r.id === reason)) this.persist({ ...this.state, mistakes: { ...this.state.mistakes, [qid]: { ...m, reason: reason as typeof m.reason } }, updatedAt: now }); return }
@@ -275,7 +292,29 @@ export class Application {
     }
     if (this.page === 'session' && s?.deadlineAt) this.emit()
   }
-  async suspend() { this.platform.stopAudio(); if (this.recording) await this.action('record-stop'); this.flush() }
+  private stopAndSaveRecording(target = this.recordingTarget, fillAnswer = true): Promise<void> {
+    if (this.recordingStop) return this.recordingStop
+    if (!target) return Promise.resolve()
+    this.recording = false; this.recordingTarget = undefined
+    this.recordingStop = (async () => {
+      const result = await this.platform.stopRecording(), now = this.platform.now()
+      this.persist({ ...this.state, recordings: [...this.state.recordings, { ...result, id: makeId('recording', now), questionId: target.questionId, createdAt: now }], updatedAt: now })
+      const s = this.currentSession()
+      if (fillAnswer && this.page === 'session' && s?.id === target.sessionId && s.questionIds[s.current] === target.questionId && !s.submittedAt && !s.answers[target.questionId]?.checked && (!s.deadlineAt || now < s.deadlineAt)) {
+        if (!this.form.answer?.trim()) this.form.answer = '已录音，请回听后对照要点自查。'
+        this.flush()
+      }
+    })().finally(() => { this.recordingStop = undefined; this.emit() })
+    return this.recordingStop
+  }
+  async suspend() {
+    ++this.recordingGeneration
+    this.platform.stopAudio()
+    // Never await an unresolved permission/start dialog here. Its generation is invalid
+    // already; the start continuation will cancel or stop/save a late recorder.
+    await this.stopAndSaveRecording()
+    this.flush()
+  }
   render(): Screen { return this.renderScreen() }
   private renderScreen(): Screen {
     const state = this.state, profile = state.profile, now = this.platform.now(), stats = learningStats(state, now)

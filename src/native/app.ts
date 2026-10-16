@@ -83,9 +83,11 @@ const platform: Platform = {
     })
   },
   stopAudio() { playbackGeneration++; cancelPlayback?.(); cancelPlayback = undefined; audio?.stop(); audio?.destroy(); audio = undefined },
-  async startRecording() {
+  async startRecording(isCurrent = () => true) {
     await new Promise<void>((resolve, reject) => wx.requirePrivacyAuthorize({ success: () => resolve(), fail: () => reject(new Error('请先阅读并同意麦克风使用说明。')) }))
+    if (!isCurrent()) return 'cancelled'
     await new Promise<void>((resolve, reject) => wx.authorize({ scope: 'scope.record', success: () => resolve(), fail: () => reject(new Error('需要麦克风权限才能录音，可在小程序设置中开启。')) }))
+    if (!isCurrent()) return 'cancelled'
     if (!recorder) {
       recorder = wx.getRecorderManager()
       recorder.onStart(() => { recordStarted = Date.now(); resolveStart() })
@@ -101,6 +103,7 @@ const platform: Platform = {
       resolveStart = resolve; rejectStart = reject
       recorder!.start({ duration: 60000, sampleRate: 16000, numberOfChannels: 1, encodeBitRate: 48000, format: 'mp3' })
     })
+    return
   },
   stopRecording() {
     if (!recorder || !pendingRecording) return Promise.reject(new Error('当前没有录音。'))

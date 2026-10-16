@@ -11,4 +11,4 @@ const server = createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': ({ '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.png': 'image/png', '.mp3': 'audio/mpeg' })[extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-store' }); res.end(await readFile(file))
   } catch { res.writeHead(404); res.end('Not found') }
 })
-server.listen(port, '127.0.0.1', () => console.log(`Development journey harness listening on port ${port}.`))
+server.listen(port, '127.0.0.1', () => console.log(`Local English app listening on port ${port}.`))

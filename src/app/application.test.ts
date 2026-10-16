@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { bytesToHex, utf8ToBytes } from '@noble/hashes/utils'
 import { sha256 } from '@noble/hashes/sha256'
 import { Application, type Platform } from './application'
@@ -11,15 +11,92 @@ import { markAudioPlayed, checkCurrent, startLesson, startExam, moveQuestion, us
 import { utf8Bytes } from '../core/utf8'
 import { editionQuestion, editionText } from '../core/spelling'
 import type { Question } from '../core/types'
-function harness() {
-  const c = catalog(), text = JSON.stringify({ version: 1, topicId: q.topicId, questions: c.questions }), data = new Map([[STORAGE_KEY, JSON.stringify(state())]])
+function harness(overrides: Partial<Platform> = {}, configure?: (c: ReturnType<typeof catalog>) => void) {
+  const c = catalog(); configure?.(c)
+  const text = JSON.stringify({ version: 1, topicId: q.topicId, questions: c.questions }), data = new Map([[STORAGE_KEY, JSON.stringify(state())]])
   const adapter = { read: (key: string) => data.get(key) ?? null, write: (key: string, value: string) => { data.set(key, value) }, remove: (key: string) => { data.delete(key) } }
   const store = new StateStore(adapter, c, NOW), repo = new ContentRepository(c, [{ topicId: q.topicId, file: 'test.json', sha256: bytesToHex(sha256(utf8ToBytes(text))), questionIds: c.questions.map(q => q.id) }], async () => text)
   let now = NOW, app: Application
-  const platform: Platform = { now: () => now, navigate: (page, params) => app.open(page, params), back() {}, toast() {}, confirm: async () => true, exportText: async () => {}, importText: async () => null, copy: async () => {}, play: async () => {}, stopAudio() {}, startRecording: async () => {}, stopRecording: async () => ({ path: 'recording:local', durationMs: 1000 }), removeRecordings: async () => {} }
+  const platform: Platform = { now: () => now, navigate: (page, params) => app.open(page, params), back() {}, toast() {}, confirm: async () => true, exportText: async () => {}, importText: async () => null, copy: async () => {}, play: async () => {}, stopAudio() {}, startRecording: async () => {}, stopRecording: async () => ({ path: 'recording:local', durationMs: 1000 }), removeRecordings: async () => {}, ...overrides }
   app = new Application(repo, store, platform)
-  return { app, repo, store, data, adapter, c, setNow: (value: number) => { now = value } }
+  return { app, repo, store, data, adapter, c, platform, setNow: (value: number) => { now = value } }
 }
+describe('recording lifecycle (simulated platform permissions and recorder)', () => {
+  function deferred<T>() {
+    let resolve!: (value: T) => void, reject!: (reason: Error) => void
+    const promise = new Promise<T>((done, fail) => { resolve = done; reject = fail })
+    return { promise, resolve, reject }
+  }
+  function speaking(overrides: Partial<Platform> = {}) {
+    const h = harness(overrides, c => {
+      c.questions[0] = { ...c.questions[0], kind: 'speaking', skill: 'speaking', options: undefined, answer: { display: 'Hello, I am Mia.' }, marks: 2,
+        rubric: [{ id: 'content', label: '内容', guidance: '介绍自己。', marks: 1 }, { id: 'clarity', label: '表达', guidance: '让听者听清楚。', marks: 1 }] }
+    })
+    h.store.save(startSession(h.store.get(), [q.id], 'practice', NOW).state); h.app.open('session')
+    return h
+  }
+  it('returns from hide before a pending start and saves its late recording only for its original question', async () => {
+    const started = deferred<void>(), startRecording = vi.fn(() => started.promise), stopRecording = vi.fn(async () => ({ path: 'late.mp3', durationMs: 20 }))
+    const h = speaking({ startRecording, stopRecording }), starting = h.app.action('record-start')
+    await h.app.suspend(); await h.app.suspend()
+    expect(stopRecording).not.toHaveBeenCalled()
+    await h.app.action('record-start'); expect(startRecording).toHaveBeenCalledTimes(1)
+    // A native page can reopen/change its session while an old permission flow settles.
+    h.store.save(startSession(h.store.get(), [h.c.questions[1].id], 'practice', NOW + 1).state); h.app.open('session')
+    started.resolve(); await starting
+    expect(stopRecording).toHaveBeenCalledTimes(1); expect(h.app.render().question?.recording).toBe(false)
+    expect(h.store.get().recordings).toEqual([expect.objectContaining({ questionId: q.id, path: 'late.mp3' })])
+    expect(h.app.form.answer).toBe(''); expect(h.store.get().attempts).toEqual([]); expect(h.store.get().mastery).toEqual({}); expect(h.app.busy).toBe(false)
+  })
+  it('cancels a permission-aware adapter before it starts and allows a fresh start on resume', async () => {
+    const permission = deferred<void>(), recorderStart = vi.fn(), stopRecording = vi.fn(async () => ({ path: 'fresh.mp3', durationMs: 1000 }))
+    const startRecording = vi.fn(async (isCurrent?: () => boolean) => {
+      await permission.promise
+      if (!isCurrent?.()) return 'cancelled' as const
+      recorderStart()
+    })
+    const h = speaking({ startRecording, stopRecording }), starting = h.app.action('record-start')
+    await h.app.suspend(); h.app.open('session'); permission.resolve(); await starting
+    expect(recorderStart).not.toHaveBeenCalled(); expect(stopRecording).not.toHaveBeenCalled(); expect(h.store.get().recordings).toEqual([])
+    await h.app.action('record-start'); await h.app.action('record-start')
+    expect(recorderStart).toHaveBeenCalledTimes(1); expect(startRecording).toHaveBeenCalledTimes(2); expect(h.app.render().question?.recording).toBe(true)
+    await h.app.action('record-stop')
+    expect(stopRecording).toHaveBeenCalledTimes(1); expect(h.store.get().recordings).toHaveLength(1); expect(h.store.get().attempts).toEqual([])
+  })
+  it('ignores a stale permission rejection and accepts the next request', async () => {
+    const permission = deferred<void>(), toast = vi.fn(), h = speaking({ startRecording: () => permission.promise, toast })
+    const starting = h.app.action('record-start'); await h.app.suspend()
+    permission.reject(new Error('Permission denied after hide')); await starting
+    expect(toast).not.toHaveBeenCalled(); expect(h.app.error).toBe(''); expect(h.app.busy).toBe(false)
+    h.app.open('session'); h.platform.startRecording = async () => {}; await h.app.action('record-start')
+    expect(h.app.render().question?.recording).toBe(true); await h.app.action('record-stop')
+  })
+  it('stops once across duplicate hide callbacks even while another action is busy', async () => {
+    const copying = deferred<void>(), saved = deferred<{ path: string; durationMs: number }>(), stopRecording = vi.fn(() => saved.promise)
+    const h = speaking({ copy: () => copying.promise, stopRecording })
+    await h.app.action('record-start'); const copy = h.app.action('copy', 'example')
+    const hide = h.app.suspend(), duplicateHide = h.app.suspend()
+    expect(stopRecording).toHaveBeenCalledTimes(1)
+    saved.resolve({ path: 'saved.mp3', durationMs: 1000 }); await Promise.all([hide, duplicateHide]); copying.resolve(); await copy
+    expect(h.store.get().recordings).toHaveLength(1); expect(h.app.render().question?.recording).toBe(false); expect(h.store.get().attempts).toEqual([])
+  })
+  it('does not restart from a queued tap if another hide occurs while the previous recording saves', async () => {
+    const saved = deferred<{ path: string; durationMs: number }>(), startRecording = vi.fn(async () => {})
+    const h = speaking({ startRecording, stopRecording: () => saved.promise })
+    await h.app.action('record-start'); const hide = h.app.suspend()
+    h.app.open('session'); const restart = h.app.action('record-start'), hiddenAgain = h.app.suspend()
+    saved.resolve({ path: 'first.mp3', durationMs: 1000 }); await Promise.all([hide, hiddenAgain, restart])
+    expect(startRecording).toHaveBeenCalledTimes(1); expect(h.app.render().question?.recording).toBe(false); expect(h.store.get().recordings).toHaveLength(1)
+  })
+  it('measures the recording limit from actual start, excluding time spent granting permission', async () => {
+    const permission = deferred<void>(), stopRecording = vi.fn(async () => ({ path: 'normal.mp3', durationMs: 59000 }))
+    const h = speaking({ startRecording: () => permission.promise, stopRecording }), starting = h.app.action('record-start')
+    h.setNow(NOW + 60000); permission.resolve(); await starting; await h.app.tick()
+    expect(stopRecording).not.toHaveBeenCalled()
+    h.setNow(NOW + 119000); await h.app.tick()
+    expect(stopRecording).toHaveBeenCalledTimes(1); expect(h.store.get().recordings).toHaveLength(1)
+  })
+})
 describe('application persistence and deadlines', () => {
   it('restores both the active answer and device recording after a local restart, but not portable import', async () => {
     const h = harness(); h.app.open('learn'); await h.app.action('start-lesson', 'l-be')
