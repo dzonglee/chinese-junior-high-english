@@ -1,6 +1,6 @@
 # Vocabulary research
 
-The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 95 annual city vocabulary cells remain unsearched, 178 have bounded not_found results and 7 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 75 annual city vocabulary cells remain unsearched, 194 have bounded not_found results and 9 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 Current register: **149 sources and 775 retained asset records**. Three asset records reference
 already retained curriculum files. Research access is separate from commercial permission;
@@ -64,6 +64,11 @@ Identity and transcription limits remain per book:
 Community copies have not been independently matched to publisher originals. A legacy audit
 establishes neither current 2024-book identity nor city/cohort adoption. Unacquired edition and
 school-structure families remain separate discovery gaps.
+
+The national2024directory was separately reopened: its English tables list eleven regular
+junior-high edition/structure rows plus one PEP large-print grade7variant. PEP/Shandong five-four
+is one coedition row. These are catalogue facts, not acquired current books or adoption. The exact
+row-level matrix and unresolved Beijing/Xiangjiao labels are in `current-editions/`.
 
 ## Annual local discovery
 
@@ -129,6 +134,8 @@ original evidence rather than normalizing them away. Owner-supplied lawful origi
 with inaccessible current books, local raw lists and the named Quanzhou transition resource.
 
 Current BNU reader findings are under `current-editions/`: five listed catalogues were checked, but zero wordlist pages loaded. The actual copyright notice requires prior permission for reproduction/mirroring, so only metadata/paraphrases and hashes are registered; current-reader bodies, DOM and screenshots are excluded. Platform listing dates/version IDs are not physical-book identity.
+
+All70assigned northern targets now have actual search/link/block evidence across four passes. Tianjin2023/2024provider links are only title/metadata leads (one VIP11-pageDOC); Tianjin2022Baidu verification and actualBaoding2024CAPTCHA remain blocked. The final12northern targets have accepted zero-result Ministry responses and complete small broad indexes, with national-index-only limits. Restricted Book118 bodies/previews and individual-list snippets are excluded.
 
 The existing R-VOC claim remains active. Other unit locks and R-INT dependencies are unchanged.
 Chrisverse, Kanban and Obsidian native tools are still absent from this worker's registry, including

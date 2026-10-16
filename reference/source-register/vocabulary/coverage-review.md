@@ -1,6 +1,6 @@
 # Annual vocabulary search coverage
 
-Current totals: 178 bounded not found; 7 blocked; 95 unsearched. No raw local wordset is verified.
+Current totals: 194 bounded not found; 9 blocked; 75 unsearched. No raw local wordset is verified.
 
 This is a search-status grid, not local exam or textbook-adoption evidence. “Not found” applies only to the linked searched indexes/pages. Failed controls do not fill annual cells. Exact source IDs, query keys, limits and candidate leads are in `coverage.json` and `annual-discovery/`.
 
@@ -12,15 +12,15 @@ This is a search-status grid, not local exam or textbook-adoption evidence. “N
 | 北京-北京 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 吉林-长春 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 四川-成都 | Unsearched | Unsearched | Unsearched | Unsearched | Unsearched |
-| 天津-天津 | Unsearched | Unsearched | Unsearched | Unsearched | Unsearched |
+| 天津-天津 | Blocked | link_only | link_only | Not found (bounded) | Not found (bounded) |
 | 宁夏-银川 | Unsearched | Unsearched | Unsearched | Unsearched | Unsearched |
 | 安徽-合肥 | Unsearched | Unsearched | Unsearched | Unsearched | Unsearched |
 | 山东-临沂 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 山东-济南 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
-| 山东-潍坊 | Unsearched | Unsearched | Unsearched | Unsearched | Unsearched |
+| 山东-潍坊 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 山东-烟台 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 山东-青岛 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
-| 山西-太原 | Unsearched | Unsearched | Unsearched | Unsearched | Unsearched |
+| 山西-太原 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 广东-东莞 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 广东-佛山 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 广东-广州 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
@@ -36,7 +36,7 @@ This is a search-status grid, not local exam or textbook-adoption evidence. “N
 | 江苏-无锡 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 江苏-苏州 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 江西-南昌 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
-| 河北-保定 | Unsearched | Unsearched | Unsearched | Unsearched | Unsearched |
+| 河北-保定 | Not found (bounded) | Not found (bounded) | Blocked | Not found (bounded) | Not found (bounded) |
 | 河北-石家庄 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
 | 河南-洛阳 | Unsearched | Unsearched | Unsearched | Unsearched | Unsearched |
 | 河南-郑州 | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) | Not found (bounded) |
