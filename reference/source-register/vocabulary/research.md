@@ -1,6 +1,6 @@
 # Vocabulary research
 
-The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 0 annual city vocabulary cells remain unsearched, 269 have bounded not_found results and 9 specifically scoped attempts are blocked and 2 are unverified provider links. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 60 legacy textbook appendices are registered. The vocabulary grid contains 269 bounded `not_found`, 9 `blocked`, 2 unverified provider links and 0 unsearched cells. Final annual announcement-search verification is in progress. No current book wordlist or actual local raw examination wordset was acquired.
 
 Current register: **215 sources and 903 retained asset records**. Three asset records reference
 already retained curriculum files. Research access is separate from commercial permission;
@@ -65,13 +65,15 @@ Community copies have not been independently matched to publisher originals. A l
 establishes neither current 2024-book identity nor city/cohort adoption. Unacquired edition and
 school-structure families remain separate discovery gaps.
 
-The national2024directory was separately reopened: its English tables list eleven standard-size
-junior-high entries plus one PEP large-print grade7variant. Only three rows explicitly print
-five-four; ordinary rows do not print a structure label, which stays unknown. PEP/Shandong five-four
+The national 2024 directory was separately reopened: its English tables list eleven standard-size
+junior-high entries plus one PEP large-print grade 7 variant. Only three rows explicitly print
+五四; ordinary rows do not print a structure label, which stays unknown. PEP/Shandong five-four
 is one coedition row. These are catalogue facts, not acquired current books or adoption. The exact
 row-level matrix and unresolved Beijing/Xiangjiao labels are in `current-editions/`.
 
 ## Annual local discovery
+
+[City findings](city-findings.md) give each city's results and explicit unknown exam, listening/speaking, adoption and cohort fields. [Annual grid](coverage-review.md) shows all five years.
 
 `coverage.json` preserves all 56 cities × 2022–2026. Each upgraded cell cites actual annual targets
 and a precise searched index. Failed homepages, empty dynamic shells and irrelevant controls do
@@ -99,8 +101,8 @@ Useful evidence and unresolved conflicts include:
 - Nanning's indexed 2023 FLTRP list has no verified original metadata or file: its provider page
   returned an empty visible shell with a cookie/location script that was not executed.
 - Zhejiang provider titles mentioning annual wordlists or Wenzhou表二 remain unverified. The
-  public-web search stream stopped on the actual Jiaxing2026access challenge; unissued targets
-  stay unsearched. Authority and publisher routes continue independently where usable.
+  public-web search stream stopped on the actual Jiaxing2026access challenge; the remaining annual targets were searched independently through the Ministry index. Authority
+  and publisher routes continued independently where usable.
 
 ## Retention, rights and reproducibility
 
@@ -126,24 +128,37 @@ The checks validate schema, hydrated bytes/hashes, original-to-registered lexica
 sequences, counts, visible ISBN checksums and explicit applicability/reuse flags. They do not repeat
 visual review, establish publisher authenticity or licensing, or make the unit complete.
 
-## Remaining work
+## Current-edition and acquisition gaps
 
-The annual search-status grid is filled: all280targets have actual search/link/block evidence.
-This is a completed bounded search pass, not acquisition of280local wordlists. Ministry-only
-fallbacks cover87targets; local archives/current wordsets remain gaps. Inspect current publisher wordlist pages
-when freely reachable, and record the other edition/structure families explicitly. Preserve the
-current datasets and every access/scope limit. Resolve source metadata conflicts through stronger
-original evidence rather than normalizing them away. Owner-supplied lawful originals would help
-with inaccessible current books, local raw lists and the named Quanzhou transition resource.
+Five current BNU catalogues were checked, but zero English wordlist pages loaded. The actual
+vocabulary click produced an incomplete reader/incorrect subject placeholder; other routes returned
+503 or incomplete shells. The publisher requires prior permission for reproduction/mirroring, so
+only bibliographic observations, paraphrases and response hashes are registered. No current reader
+bodies, DOM or screenshots are retained; platform listing/version dates are not physical-book dates.
 
-Current BNU reader findings are under `current-editions/`: five listed catalogues were checked, but zero wordlist pages loaded. The actual copyright notice requires prior permission for reproduction/mirroring, so only metadata/paraphrases and hashes are registered; current-reader bodies, DOM and screenshots are excluded. Platform listing dates/version IDs are not physical-book identity.
+`current-editions/publisher-discovery/` records PEP companion navigation, FLTRP digital navigation
+and two vocabulary-book sales leads, Shandong category observations and inherited route failures.
+The two FLTRP ISBNs were checksum-checked against actual reopened catalogue rows, but book pages,
+publication dates, current alignment and local applicability remain unknown. Empty category views
+and failed homepages are not proof that a publisher has no current books.
 
-All70assigned northern targets now have actual search/link/block evidence across four passes. Tianjin2023/2024provider links are only title/metadata leads (one VIP11-pageDOC); Tianjin2022Baidu verification and actualBaoding2024CAPTCHA remain blocked. The final12northern targets have accepted zero-result Ministry responses and complete small broad indexes, with national-index-only limits. Restricted Book118 bodies/previews and individual-list snippets are excluded.
+Pinned community candidates remain untrusted. Three inspected repository trees supplied no acquired
+PDF; placeholders and downloader code are not textbooks. No untrusted script or shared-drive login
+was used. A current SHEP candidate cites public Smart Education originals, but the literal original
+requests returned CONNECT403. Its latest list is not accepted as a publisher-verified dataset.
 
-The final75eastern/central-western targets are recorded under `annual-discovery/ministry-final/`:105matching ordinary/native queries,67empty annual responses and8single preschool-policy title hits. The underlying FAQ request403remains an indexed-title-only exclusion. No native bodies, DOM, snippets, individual-list details or ephemeral values were retained.
+All 280 vocabulary targets have actual search/link/block evidence. Eighty-seven use Ministry-only
+fallbacks with exact matching published-returned/native queries, counts and minimal result metadata.
+This is a completed bounded search pass, not acquisition of 280 local wordlists or an exhaustive
+municipal archive audit. The separate official-announcement search verification remains in progress.
 
-The existing R-VOC claim remains active. Other unit locks and R-INT dependencies are unchanged.
-Chrisverse, Kanban and Obsidian native tools are still absent from this worker's registry, including
+Owner follow-up is needed for lawful current-book originals, missing edition/grade/term families,
+local raw examination lists and Quanzhou's named transition resource. IPA, glosses and explicitly
+unaudited typography/variants remain null. Resolve conflicting source metadata through stronger
+original evidence; do not normalize it away. Rights routes belong to R-RIGHTS; no permission was
+obtained here. Other unit locks and R-INT dependencies are unchanged.
+
+Chrisverse, Kanban and Obsidian native tools remain absent from this worker's registry, including
 any generic tool-search/reload interface. Repository board/memory updates await reconciliation with
 the existing external project records; no external write or duplicate board is claimed.
 
