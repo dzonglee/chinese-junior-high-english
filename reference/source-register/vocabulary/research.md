@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 160 annual city vocabulary cells remain unsearched, 114 have bounded not_found results and 6 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 115 annual city vocabulary cells remain unsearched, 159 have bounded not_found results and 6 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -195,3 +195,9 @@ Changchun's actual advanced UI has separate all-keyword and whole-keyword fields
 
 
 Exact accepted JSON response selection requires the documented parsed query/field guards; initial delayed control responses are excluded. Hohhot city homepage/body and selection-blocking script are excluded rather than disabling restrictions. The53allowlisted downloaded/opened artifacts were rehashed at registration. Actual2025ChangchunEnglishanalysis supplies contextual standard/textbook-alignment observations, no headword appendix or numerical blueprint. Four unresolved northern cities remainunsearched while independent discoverycontinues.
+
+## Nine remaining southern cities
+
+All45city/year targets were actually searched through public municipal/provincial forms or the independently verified ordinary360form.185usable query responses contain1771returnedrows, with restrictive/relaxed query semantics and failed-page bounds retained. Root rehashed actual raw bodies before retaining purpose-limited derived result projections; unrelated response branches, challenge bodies, duplicate decoded/rawcopies and interface screenshots are excluded. No local annual headword file was verified.
+
+Two Quanzhou authority articles were opened in full. Its2026reply mentions500primary-stagecorewords and three named transition resources but supplies no attachment; exact-title queries return only the reply. This is not a500-word junior-high exam list. The2022national-notice republication cancels separate exam syllabi, but cannot prove vocabulary resources absent. Nanning2023commercialFLTRPtitle remains unverified: actualproviderGEThasemptyvisiblemetadata/cookie-locationscript, which was not executed. Rightsfalse; no actualwordset orcityadoption inferred. Exact English research and45request-linked coverage proposals are underannual-discovery/south9.
