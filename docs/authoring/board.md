@@ -43,7 +43,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | R-SOUTH | 13 south cities (广东 听说, 福建, 广西, 海南, 江西, 湖南): same scope as R-NORTH | R-0 | claimed | codex-south | research/R-SOUTH | 2026-10-15 | Fujian originals and selected policies are collected. Complete the remaining coverage. |
 | R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | Selected local policies are verified. Papers, media and coverage remain incomplete. |
 | R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | claimed | codex-listening-east | research/R-LS | 2026-10-15 | Selected official formats are verified. Complete local rubrics, tasks and audio. |
-| R-VOC | 课标/考纲/edition word lists as raw data | R-STD | claimed | codex-vocabulary | research/R-VOC | 2026-10-16 | Audit Renai and Yilin legacy lists; search local annual word lists and current books. |
+| R-VOC | 课标/考纲/edition word lists as raw data | R-STD | claimed | codex-vocabulary | research/R-VOC | 2026-10-16 | 29 legacy lists checked; continue Hebei/SWFL, current books and 268 unsearched annual cells. |
 | R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | claimed | codex-writing | research/R-WRITE | 2026-10-15 | Selected passages and essays are measured. Local rubrics and lexical analysis remain open. |
 | R-BANK | Question banks, 专题 collections, commercial bank index, exam analyses | R-0 | claimed | codex-banks | research/R-BANK | 2026-10-15 | Bank catalogues and selected analyses are recorded. Coverage and permissions remain open. |
 | R-AUX | 教辅/教师用书, 教学进度, 听说 practice systems, reading material | R-0 | claimed | codex-aux | research/R-AUX | 2026-10-15 | Selected catalogues and schedules are recorded. Teacher material and audio remain open. |
@@ -61,7 +61,9 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | 5 | R-VOC coordinator | Read-only unit-wordlist audits with source identity and page fidelity; coordinator retains IDs | curriculum-supplements and curriculum-revision | done for 5 PEP and 6 FLTRP legacy books; 4775 occurrences; field-level unknowns explicit |
 | 6 | R-VOC coordinator | Bounded actual local-wordlist discovery and controls | curriculum-revision and coordinator | bounded pass recorded; no acquired local wordset or annual coverage upgrade; remaining searches unresolved |
 
-| 7 | R-VOC coordinator | Read-only Renai and Yilin appendix audits; coordinator owns numbering and tracked edits | renai-wordlists and yilin-wordlists | in progress; existing claim resumed after fetch |
+| 7 | R-VOC coordinator | Read-only Renai and Yilin appendix audits; coordinator owns numbering and tracked edits | renai-wordlists and yilin-wordlists | done; Renai and Yilin registered at 2e8f176 |
+
+| 8 | R-VOC coordinator | Read-only Hebei and SWFL vocabulary audits | renai-wordlists and yilin-wordlists | in progress; coordinator retains IDs and publication |
 
 ## Shared resources
 

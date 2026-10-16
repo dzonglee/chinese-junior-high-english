@@ -38,7 +38,7 @@ discovering them through the actual tools, without storing credentials.
 - `docs/app-delivery.md`: application scope and completion evidence.
 - `docs/authoring/board.md`: current delivery card and preserved research ownership.
 - `docs/authoring/log.md`: detailed decisions and handoffs.
-- `research/R-VOC` at `441c167`: latest vocabulary research; not merged as a completed unit.
+- `research/R-VOC` at `2e8f176`: latest vocabulary research; not merged as a completed unit.
 
 ## Keep these distinctions visible
 
@@ -66,3 +66,26 @@ When tools become available, read the existing English project board and Obsidia
 Update the existing research card with a short title, current status and next concrete action;
 put source counts, verification limits, decisions and evidence in linked memory. Do not duplicate
 the board or mistake legacy lists and failed routes for complete local annual coverage.
+
+## Published vocabulary checkpoint (2026-10-16)
+
+`research/R-VOC` at `2e8f176` contains52source records,138retained artifact records (including
+three shared curriculum artifacts),29legacy books and11,069word/phrase occurrences. Renai and
+Yilin audits are registered; all276new retained source pages were visually reviewed and have
+selected-page pixel/native-text fidelity evidence. Literal occurrences include repeated words and
+phrases. They are not unique lemmas, current2024books or prescribed local examination lists.
+
+Ten Beijing/Zhengzhou annual cells have bounded `not_found` results; Shanghai2026and Guangzhou2022
+have specifically scoped blocked attempts;268cells remain unsearched. No local raw wordset was
+acquired. National2022policy cancels separate exam syllabi. Beijing's2023evaluation supports
+2025transition to2022standards;1540versus1600teacher counts remain unreconciled. Exact scopes,
+printing/publication date conflicts and rights limits are in the linked research notes.
+
+Required unit/full-register checks, hydrated file/dataset hashes, ISBN checksums and GitLFS
+integrity pass. A negative fixture with consistent repinned hashes still failed because a
+registered lexical label differed from its reviewed original dataset. Two delegates now audit
+Hebei and SWFL books. The coordinator continues local/current-edition discovery. R-VOC and
+Stage1remain incomplete, and integration dependencies are unchanged.
+
+The latest repeated plugin attachment still did not expose native Chrisverse tools to this
+worker. External memory/board reconciliation remains pending; no external write is claimed.
