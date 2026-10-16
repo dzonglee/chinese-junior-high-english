@@ -68,7 +68,6 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | 12 | R-VOC coordinator | Finish northern annual vocabulary searches | yilin-wordlists | done; all 70 targets recorded with search limits |
 | 13 | R-VOC coordinator | Finish southern annual vocabulary searches | renai-wordlists | done; all 45 targets searched; raw wordsets remain unverified |
 | 14 | R-VOC coordinator | Check current BNU vocabulary readers | renai-wordlists | done; five catalogues checked; no current word pages loaded |
-
 | 15 | R-VOC coordinator | Verify annual official English-exam announcement searches | renai-wordlists and yilin-wordlists | done; all 280 cells have targeted searches or existing notice/policy attempts |
 
 ## Shared resources

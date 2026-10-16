@@ -124,3 +124,8 @@ Kanban, Obsidian or generic tool-search/reload interface, including no callable
 diagnosis. No external write or credential/auth/network change is claimed. Once exposed, read the
 existing English board/note and update the existing vocabulary card to done, with the above bounded
 scope and acquisition gaps linked in memory. Use short English cards and do not duplicate records.
+
+Post-merge claim check: origin/main was fetched after f0c5398 and the full board/log reread.
+No eligible open research unit remains. R-INT is the only open row and its other research-unit
+dependencies are still claimed; none is 48 hours stale on the current date. Preserve those locks.
+The next research session should sync first and choose an eligible unit only after its status changes.
