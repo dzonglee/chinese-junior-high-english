@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html ng-app="myapp" id="ng-app" xmlns="http://www.w3.org/1999/xhtml" xmlns:ng="http://angularjs.org" dir="ltr" lang="zh-CN" ;="" class="ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><style type="text/css">.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button[not:disabled]:hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel[not:disabled]:hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger[not:disabled]:hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:scroll;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}</style>
+	<!--[if lte IE 8]>
+        <script src="lib/json2.js"></script>
+	<![endif]-->
+	<!-- [if lte IE 8]>
+	
+	<script>
+	
+	document.createElement(‘ng-include’);
+	
+	document.createElement(‘ng-pluralize’);
+	
+	document.createElement(‘ng-view’);
+	
+	</script>
+	
+	<![endif]-->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>湖北省教育厅</title>
+
+	<link rel="stylesheet" type="text/css" href="css/global20171010.css">
+	<link rel="stylesheet" type="text/css" href="css/private.css">
+	<link rel="stylesheet" type="text/css" href="images/swiper.min.css">
+	<script type="text/javascript" src="images/jquery.js"></script>
+	<!-- <script src="lib/jquery.min.js"></script> -->
+	<script src="lib/echarts/dist/echarts.js"></script>
+	<script type="text/javascript" src="images/jquery.scrollbox.js"></script>
+	<script type="text/javascript" src="images/slideshow20171010.js"></script>
+	<script type="text/javascript" src="lib/My97DatePicker/WdatePicker.js"></script><link href="lib/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="images/sweetalert.min.js"></script>
+	<script src="./app-js/stickUp.min.js"></script>
+	
+	<script type="text/javascript">
+					//initializing jQuery
+					jQuery(function($) {
+					$(document).ready( function() {
+						//enabling stickUp on the '.navbar-wrapper' class
+						// $('.navbar-wrapper').stickUp({
+						// //enabling marginTop with the 'auto' setting 
+						// 	marginTop: 'auto'
+						// });
+						$('.float_top').stickUp2({
+						//enabling marginTop with the 'auto' setting 
+							marginTop: 'auto'
+						});
+					});
+				});
+				
+				</script>   
+	<script>
+
+		function nTabs(thisObj,Num){
+		if(thisObj.className == "hover")return;
+			var tabObj = thisObj.parentNode.id;
+			var tabList = document.getElementById(tabObj).getElementsByTagName("span");
+			for(i=0; i <tabList.length; i++)
+			{
+				if (i == Num)
+				{
+					thisObj.className = "hover"; 
+					document.getElementById(tabObj+"_Content"+i).style.display = "block";
+				}else{
+					tabList[i].className = ""; 
+					document.getElementById(tabObj+"_Content"+i).style.display = "none";
+				}
+			} 
+		}
+		$(function () {
+			$('#demo-backward').click(function () {
+				$('#demo').trigger('backward');
+			});
+			$('#demo-forward').click(function () {
+				$('#demo').trigger('forward');
+			});
+		});
+
+	</script>	
+	
+<base href="/site/jyt/search.html"></head>
+<body ng-controller="mainController" class="search-content ng-scope" style="">
+<!--头部-->
+<!-- ngInclude: './head.html' --><div ng-include="'./head.html'" ng-show="false" class="ng-scope ng-hide"><div class="top_bg ng-scope">
+    <div class="top_bg_con">
+        <div class="leftcon"><a href="" target="_blank">中国政府网</a>|<a href="" target="_blank">省人大</a>|<a href="" target="_blank">省政协</a></div>
+        <div class="rightcon"><a href="" target="_blank">English</a>|<a href="" target="_blank">APP</a>|<a href="" target="_blank">信息报送系统</a>|<a href="" target="_blank">公务员信箱</a>|<a href="" target="_blank">网站地图</a></div>
+    </div>
+</div></div>
+<div class="float_top stuckMenu2">
+	<div class="jianshuo_top">
+		<div class="logo"><a href="/"><img ng-src="/static/upload/image/202012/5f41ade4-cce3-4c36-815c-1cc5f1899ca2.png" src="/static/upload/image/202012/5f41ade4-cce3-4c36-815c-1cc5f1899ca2.png"></a></div>
+		<!-- <div class="logo"><a href="http://www.gzgov.gov.cn/"><img ng-src="{{logoUrl[0].properties.imageUrl}} width="310" height="63"></a></div> -->
+		<div class="search_index">
+			<!-- ngInclude: searchFormUrl --><div ng-include="searchFormUrl" class="ng-scope"><div ng-controller="searchCtrl" class="search-box ng-scope">
+    <form class="ng-pristine ng-valid">
+        <input type="search" name="keyword" id="keyword" class="sr ng-pristine ng-untouched ng-valid ng-not-empty" placeholder="" autocomplete="off" ng-model="root.keyword" ng-keyup="changeKeyword($event)" ng-blur="inputBlur()" ng-focus="inputFocus()">
+        <input type="button" class="btn" value="搜索" ng-disabled="searchIng" ng-click="clickSearbtn()">
+        <a class="advance_search" ng-click="openAdvancePanel()">高级检索</a>
+        <a class="advance_search" ng-click="openSetPanel()">搜索设置</a>
+    </form>
+    <!--搜索推荐，点击排行的数据 ng-if="isFocus && isShowTips"-->
+    <!-- ngIf: isFocus && isHisShow -->
+    <!-- ngIf: isFocus && isShowTips && !isHisShow -->
+<div></div></div></div>
+			<!-- ngInclude: hotWordUrl --><div ng-include="hotWordUrl" class="ng-scope"><!-- ngIf: hotwords.length > 0 --><div class="guanjz ng-scope" ng-if="hotwords.length &gt; 0">
+    <span>热门搜索：</span>
+    <!-- ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=发展&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">发展</a><!-- end ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=情况&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">情况</a><!-- end ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=会议&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">会议</a><!-- end ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=创新&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">创新</a><!-- end ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=部门预算&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">部门预算</a><!-- end ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=安全&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">安全</a><!-- end ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=社会发展&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">社会发展</a><!-- end ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=报告&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">报告</a><!-- end ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=经济指标&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">经济指标</a><!-- end ngRepeat: hotword in hotwords --><a ng-repeat="hotword in hotwords" href="http://jyt.hubei.gov.cn/site/jyt/search.html?searchWord=政府建设&amp;siteId=37" ng-bind="hotword.name" class="ng-binding ng-scope">政府建设</a><!-- end ngRepeat: hotword in hotwords -->
+    
+</div><!-- end ngIf: hotwords.length > 0 --></div>
+		</div>
+	</div>
+	<!-- ngInclude: advanceSetUrl --><div ng-include="advanceSetUrl" class="ng-scope"><div class="most panel ng-scope" style="display: none" ng-controller="advanceSearchCtrl">
+    <form role="form" name="advanceForm" class="form-horizontal ng-pristine ng-valid">
+        <div class="search_bg">
+            <div class="search search_top">
+                <div class="search_con"><span>包含以下的全部关键词：</span><input ng-model="root.keyword" name="" type="text" class="ng-pristine ng-untouched ng-valid ng-not-empty">搜索的结果中对关键词的位置没有要求，多个关键词之间是并且的关系</div>
+                <div class="search_con"><span>包含以下的完整关键词：</span><input ng-model="includesFull" name="" type="text" class="ng-pristine ng-untouched ng-valid ng-empty">搜索的结果中关键词的位置严格符合键入词的顺序，中间多词或少词都无法搜到</div>
+                <div class="search_con"><span>包含以下任意一个关键词：</span><input ng-model="includesAny" name="" type="text" class="ng-pristine ng-untouched ng-valid ng-empty">搜索的结果只要含有多个关键词中的其一即可搜索到</div>
+                <div class="search_con"><span>不包括以下关键词：</span><input ng-model="notIncludes" name="" type="text" class="ng-pristine ng-untouched ng-valid ng-empty">与前面三个搜索条件同时使用，搜索对结果不含有键入的关键词</div>
+            </div>
+        </div>
+        <div class="search search_bottom">
+            <!-- <div class="search_con" ng-if="getTypesLength(typeData,'fileType') > 0"><span>附件类型：</span>
+                <label>
+                <input type="radio" name="RadioGroupType" value="all" ng-checked="type == 'all'" ng-click="resultTypeChange('all')"/>
+                全部</label>
+                <label ng-repeat="data in typeData" ng-if="data.termType == 'fileType'">
+                <input type="radio" name="RadioGroupType" value="{{data.id}}"
+                    ng-checked="type == data.id" ng-click="resultTypeChange(data.id)"/>
+                {{data.term}}</label>
+            </div> -->
+            <!-- ngIf: getTypesLength(typeData,'type') > 0 --><div class="search_con ng-scope" ng-if="getTypesLength(typeData,'type') &gt; 0"><span>文档类型：</span>
+                <label>
+                <input type="radio" name="RadioGroupType" value="all" ng-checked="type == 'all'" ng-click="resultTypeChange('all')" checked="checked">
+                全部</label>
+                <!-- ngRepeat: data in typeData --><!-- ngIf: data.termType == 'type' --><label ng-repeat="data in typeData" ng-if="data.termType == 'type'" class="ng-binding ng-scope">
+                <input type="radio" name="RadioGroupType" value="58872" ng-checked="type == data.id" ng-click="resultTypeChange(data.id)">
+                新闻</label><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'type' --><label ng-repeat="data in typeData" ng-if="data.termType == 'type'" class="ng-binding ng-scope">
+                <input type="radio" name="RadioGroupType" value="58873" ng-checked="type == data.id" ng-click="resultTypeChange(data.id)">
+                其他</label><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'type' --><label ng-repeat="data in typeData" ng-if="data.termType == 'type'" class="ng-binding ng-scope">
+                <input type="radio" name="RadioGroupType" value="58874" ng-checked="type == data.id" ng-click="resultTypeChange(data.id)">
+                公开</label><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'type' --><label ng-repeat="data in typeData" ng-if="data.termType == 'type'" class="ng-binding ng-scope">
+                <input type="radio" name="RadioGroupType" value="58875" ng-checked="type == data.id" ng-click="resultTypeChange(data.id)">
+                文件</label><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'type' --><label ng-repeat="data in typeData" ng-if="data.termType == 'type'" class="ng-binding ng-scope">
+                <input type="radio" name="RadioGroupType" value="58876" ng-checked="type == data.id" ng-click="resultTypeChange(data.id)">
+                解读</label><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'type' --><label ng-repeat="data in typeData" ng-if="data.termType == 'type'" class="ng-binding ng-scope">
+                <input type="radio" name="RadioGroupType" value="58877" ng-checked="type == data.id" ng-click="resultTypeChange(data.id)">
+                服务</label><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'type' --><label ng-repeat="data in typeData" ng-if="data.termType == 'type'" class="ng-binding ng-scope">
+                <input type="radio" name="RadioGroupType" value="58878" ng-checked="type == data.id" ng-click="resultTypeChange(data.id)">
+                领导信息</label><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeData -->
+            </div><!-- end ngIf: getTypesLength(typeData,'type') > 0 -->
+            <div class="search_con"><span>时间范围：</span>
+                <select class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="timeRange" ng-change="timeRangeSelect(timeRange)" ng-options="item.value as item.name for item in timeType"><option value="" class="" selected="selected">请选择</option><option label="全部时间" value="string:all">全部时间</option><option label="今日" value="string:day">今日</option><option label="本周" value="string:week">本周</option><option label="本月" value="string:month">本月</option><option label="本年" value="string:year">本年</option><option label="自定义" value="string:se">自定义</option></select>
+                <!-- ngIf: timeRange=='se' -->
+            </div>
+            <div class="search_con"><span>搜索结果显示：</span>
+                <select class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="pageSize" ng-options="item.value as item.name for item in pageSizeOption"><option value="" class="" selected="selected">请选择</option><option label="10条" value="string:10" selected="selected">10条</option><option label="20条" value="string:20">20条</option><option label="30条" value="string:30">30条</option><option label="40条" value="string:40">40条</option><option label="50条" value="string:50">50条</option></select>
+            </div>
+            <div class="btn"><a ng-click="advanceSearchClickHandler()">搜索</a></div>
+        </div>
+    </form>
+</div></div>
+	<!-- ngInclude: searchSetUrl --><div ng-include="searchSetUrl" class="ng-scope"><div style="display: none" class="set panel ng-scope" ng-controller="searchSettingCtrl">
+    <div class="panel-heading clearfix search-set">
+        <h3 class="panel-title">搜索设置
+            <small><i>请先确认您的浏览器启用了cookie，否则无法使用搜索设置</i></small>
+        </h3>
+        <div class="panel-options">
+            <a data-toggle="remove" ng-click="closeSetPanel()" class="removePanel">
+                ×
+            </a>
+        </div>
+    </div>
+    <div class="panel-body search-set">
+        <form role="form" class="form-horizontal ng-pristine ng-valid">
+            <div class="form-group clearfix">
+                <label class=" control-label">提示词展示：</label>
+                <div class="inputdiv">
+                    <label>
+                        <input type="radio" value="content" ng-model="hissType" ng-change="hissTypeChange(hissType)" class="ng-pristine ng-untouched ng-valid ng-not-empty" name="64">
+                        标题
+                    </label>
+                    <label>
+                        <input type="radio" value="word" ng-model="hissType" ng-change="hissTypeChange(hissType)" class="ng-pristine ng-untouched ng-valid ng-not-empty" name="65">
+                        词汇
+                    </label>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- <div class="form-group hidden clearfix">
+                <label class=" control-label" >搜索框提示：</label>
+                <div class="inputdiv">
+                    <label>
+                        <input type="radio" name="showH" class="cbr" checked>
+                        显示
+                    </label>
+                    <label>
+                        <input type="radio" name="showH" class="cbr">
+                        不显示
+                    </label>
+                </div>
+                <i>是否希望在搜索时显示搜索框提示</i>
+            </div> -->
+            <!-- <div class="form-group-separator hidden clearfix"></div>
+            <div class="form-group hidden">
+                <label class=" control-label" >搜索结果显示条数：</label>
+                <div class="inputdiv">
+                    <div class="input-group spinner" data-step="1" data-min="5" data-max="15">
+                            <span class="input-group-btn">
+                                <button class="btn btn-gray" data-type="decrement">-</button>
+                            </span>
+                        <input class="form-control-input text-center" value="10" type="text">
+                            <span class="input-group-btn">
+                                <button class="btn btn-gray" data-type="increment">+</button>
+                            </span>
+                    </div>
+                </div>
+                <i>设定您希望搜索结果显示的条数（默认搜索10条速度最快）</i>
+            </div> -->
+            <div class="form-group clearfix">
+                <label class="control-label">实时预测功能：</label>
+                <div class="inputdiv">
+                    <label>
+                        <input type="radio" value="preY" ng-model="preYN" ng-change="livePreChange(preYN)" class="ng-pristine ng-untouched ng-valid ng-not-empty" name="66">
+                        开启
+                    </label>
+                    <label>
+                        <input type="radio" value="preN" ng-model="preYN" ng-change="livePreChange(preYN)" class="ng-pristine ng-untouched ng-valid ng-not-empty" name="67">
+                        关闭
+                    </label>
+                    <i>是否希望在您输入时实时展现搜索结果</i>
+                </div>
+            </div>
+            <!-- <div class="form-group clearfix no-border">
+                <label class=" control-label">搜索历史记录：</label>
+                <div class="inputdiv">
+                    <label>
+                        <input type="radio" value="hisY"
+                               ng-model="hisYN"
+                               ng-change="hisYNChange(hisYN)">
+                        显示
+                    </label>
+                    <label>
+                        <input type="radio" value="hisN"
+                               ng-model="hisYN"
+                               ng-change="hisYNChange(hisYN)">
+                        不显示
+                    </label>
+                </div>
+                <i>是否希望在搜索时显示您的搜索历史</i>
+            </div> -->
+            <!-- <div class="form-group hidden clearfix">
+                <label class=" control-label" >通过浏览模式：</label>
+
+                <div class="inputdiv">
+                    <label>
+                        <input type="radio" name="viewt" class="cbr" checked>
+                        打开
+                    </label>
+                    <label>
+                        <input type="radio" name="viewt" class="cbr">
+                        关闭
+                    </label>
+                </div>
+                <i>是否希望点击右侧推荐内容时打开通栏浏览模式</i>
+            </div> -->
+            <!-- <div class="form-group clearfix hidden">
+                <label class=" control-label"></label>
+                <div class="inputdiv hidden">
+                    <button class="btn btn-secondary btn-single float-r ">保存设置</button>
+                </div>
+            </div> -->
+        </form>
+    </div>
+</div></div>
+	<div class="jianshuo_menu_bg">
+		<!-- ngInclude: resultTypeUrl --><div ng-include="resultTypeUrl" class="ng-scope"><div class="jianshuo_menu ng-scope" ng-controller="resultTypeCtrl">
+    <button ng-class="{'hide1366':getTypesLength(typeData,'type')&lt;=8,'hide1280':getTypesLength(typeData,'type')&lt;=8,'hide1024':getTypesLength(typeData,'type')&lt;=6,'hide960':getTypesLength(typeData,'type')&lt;=5,'hide720':getTypesLength(typeData,'type')&lt;=4}" class="btn_left hide1366 hide1280 ng-hide" id="backward" ng-click="switchLeft()" ng-show="false"></button>
+    	<div class="all"><a href="" target="_blank" ng-class="{'hover': type == 'all'}" ng-click="typeChange('all')" class="hover">全部</a></div>
+    <ul id="slideBox">
+        <!-- ngRepeat: data in typeArray --><!-- ngIf: data.termType == 'type' --><li ng-repeat="data in typeArray" ng-if="data.termType == 'type'" class="ng-scope"><a href="" ng-class="{'hover': type == data.id}" ng-click="typeChange(data.id, data.term)" title="新闻" ng-bind="data.term" class="ng-binding">新闻</a>
+        </li><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeArray --><!-- ngIf: data.termType == 'type' --><li ng-repeat="data in typeArray" ng-if="data.termType == 'type'" class="ng-scope"><a href="" ng-class="{'hover': type == data.id}" ng-click="typeChange(data.id, data.term)" title="其他" ng-bind="data.term" class="ng-binding">其他</a>
+        </li><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeArray --><!-- ngIf: data.termType == 'type' --><li ng-repeat="data in typeArray" ng-if="data.termType == 'type'" class="ng-scope"><a href="" ng-class="{'hover': type == data.id}" ng-click="typeChange(data.id, data.term)" title="公开" ng-bind="data.term" class="ng-binding">公开</a>
+        </li><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeArray --><!-- ngIf: data.termType == 'type' --><li ng-repeat="data in typeArray" ng-if="data.termType == 'type'" class="ng-scope"><a href="" ng-class="{'hover': type == data.id}" ng-click="typeChange(data.id, data.term)" title="文件" ng-bind="data.term" class="ng-binding">文件</a>
+        </li><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeArray --><!-- ngIf: data.termType == 'type' --><li ng-repeat="data in typeArray" ng-if="data.termType == 'type'" class="ng-scope"><a href="" ng-class="{'hover': type == data.id}" ng-click="typeChange(data.id, data.term)" title="解读" ng-bind="data.term" class="ng-binding">解读</a>
+        </li><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeArray --><!-- ngIf: data.termType == 'type' --><li ng-repeat="data in typeArray" ng-if="data.termType == 'type'" class="ng-scope"><a href="" ng-class="{'hover': type == data.id}" ng-click="typeChange(data.id, data.term)" title="服务" ng-bind="data.term" class="ng-binding">服务</a>
+        </li><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeArray --><!-- ngIf: data.termType == 'type' --><li ng-repeat="data in typeArray" ng-if="data.termType == 'type'" class="ng-scope"><a href="" ng-class="{'hover': type == data.id}" ng-click="typeChange(data.id, data.term)" title="领导信息" ng-bind="data.term" class="ng-binding">领导信息</a>
+        </li><!-- end ngIf: data.termType == 'type' --><!-- end ngRepeat: data in typeArray -->
+    </ul>
+    <button ng-class="{'hide1366':getTypesLength(typeData,'type')&lt;=8,'hide1280':getTypesLength(typeData,'type')&lt;=8,'hide1024':getTypesLength(typeData,'type')&lt;=6,'hide960':getTypesLength(typeData,'type')&lt;=5,'hide720':getTypesLength(typeData,'type')&lt;=4}" class="btn_right hide1366 hide1280" id="forward" ng-click="switchRight()"></button>
+</div></div>
+	</div>
+	<div class="fileSearch ng-hide" ng-show="isShowFileType">
+		<ul>
+			<!-- <li><input type="radio" />word</li>
+			<li><input type="radio" />excel</li>
+			<li><input type="radio" />ppt</li> -->
+			<!-- ngRepeat: data in typeData --><!-- ngIf: data.termType == 'fileExt' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'fileExt' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'fileExt' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'fileExt' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'fileExt' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'fileExt' --><!-- end ngRepeat: data in typeData --><!-- ngIf: data.termType == 'fileExt' --><!-- end ngRepeat: data in typeData -->
+		</ul>
+	</div>
+	
+</div>
+
+<div class="navbar-wrapper">
+	<!-- <a ng-class="{'hover':orderBy=='comprehensive'}" ng-click="clickOB('comprehensive')" class="hover">综合排序</a> -->
+	<a ng-class="{'hover':orderBy=='all'}" ng-click="clickOB('all')" class="hover">按相关度排序</a>
+	<!-- <a ng-class="{'hover':orderBy=='focus'}" ng-click="clickOB('focus')">按焦点排序</a> -->
+	<a ng-class="{'hover':orderBy=='time'}" ng-click="clickOB('time')">按时间排序</a>	
+</div>
+<div class="conter">
+	<div class="rightcon">
+		<!-- 普通检索条件 -->
+		<div class="common-search">
+			<ul class="common-search-content">
+				<li>
+					<a ng-click="chooseTimeShow=!chooseTimeShow" ng-bind="timeRangeCommon" class="ng-binding">时间不限</a>
+					<div class="common-search-time" ng-class="{'common-time-show':chooseTimeShow}">
+						<ul>
+							<!-- ngRepeat: (key,value) in timeRangeCommonOption track by $index --><li ng-repeat="(key,value) in timeRangeCommonOption track by $index" ng-click="chooseTime(value,key)" class="ng-binding ng-scope">时间不限</li><!-- end ngRepeat: (key,value) in timeRangeCommonOption track by $index --><li ng-repeat="(key,value) in timeRangeCommonOption track by $index" ng-click="chooseTime(value,key)" class="ng-binding ng-scope">今日</li><!-- end ngRepeat: (key,value) in timeRangeCommonOption track by $index --><li ng-repeat="(key,value) in timeRangeCommonOption track by $index" ng-click="chooseTime(value,key)" class="ng-binding ng-scope">本周</li><!-- end ngRepeat: (key,value) in timeRangeCommonOption track by $index --><li ng-repeat="(key,value) in timeRangeCommonOption track by $index" ng-click="chooseTime(value,key)" class="ng-binding ng-scope">本月</li><!-- end ngRepeat: (key,value) in timeRangeCommonOption track by $index --><li ng-repeat="(key,value) in timeRangeCommonOption track by $index" ng-click="chooseTime(value,key)" class="ng-binding ng-scope">本年</li><!-- end ngRepeat: (key,value) in timeRangeCommonOption track by $index -->
+						</ul>
+						<hr>
+						<div class="user_defined">
+							<label>自定义</label><br>
+							<label>从</label>
+							<input type="text" class="tm-st Wdate" id="startDateCommon" placeholder="开始时间" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,maxDate:'#F{$dp.$D(\'endDateCommon\') || \'%y-%M-%d\'}'})">
+							<br>
+							<label>至</label>
+							<input type="text" class="tm-ed Wdate" id="endDateCommon" placeholder="结束时间" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true,minDate:'#F{$dp.$D(\'startDateCommon\')}',startDateCommon:'#F{$dp.$D(\'startDateCommon\',{d:+1})}',maxDate:'%y-%M-%d'})">
+							<br>
+						</div>
+						<button ng-click="submitTime()">确定</button>
+					</div>
+				</li>
+				<li>
+					<a ng-click="chooseTitleShow=!chooseTitleShow" ng-bind="positionCommon" class="ng-binding">全文</a>
+					<div class="common-search-time" ng-class="{'common-time-show':chooseTitleShow}">
+						<ul>
+							<li ng-click="choosePosition('全文','')">全文</li>
+							<li ng-click="choosePosition('标题','TITLE')">标题</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="searchcon_tit">
+			<label>为您找到相关结果约</label>
+			<!-- <span>
+				<strong ng-show="correctKeyword != ''" ng-bind="correctKeyword"></strong>
+				<strong ng-show="correctKeyword == ''" ng-bind="inputKeyword"></strong>
+				<strong ng-if="correctKeyword == '' && inputKeyword==null " ng-bind="includesFull || includesAny"></strong>
+			</span> -->
+			<!-- <label>相关结果约</label> -->
+			<span ng-bind="total" class="ng-binding">0</span>个。<br>
+			<!-- ngIf: root.keyword.length>37 -->
+			<!-- ngIf: correctKeyword != '' -->
+			<!--用时<span>{{spendTime}}</span>秒-->
+		</div>
+		<!--搜索结果-->
+		<!-- ngInclude: resultUrl --><div ng-include="resultUrl" class="ng-scope"><!--中间栏目开始-->
+<style class="ng-scope">
+.no_result > h4 > img {
+    width: 10%;
+    vertical-align: middle;
+}
+</style>
+<div class="search-center ng-scope" ng-controller="resultCtrl">
+    <div class="search-center_content">
+		<!-- 搜索词涉及敏感信息 -->
+        <div class="no_result ng-hide" ng-show="filtered">
+            
+        </div>
+
+        <!--返回正确结果并且长度为0时-->
+        <div class="no_result" ng-show="results.length == 0 &amp;&amp; !isErrorSearch">
+		<!-- ngIf: filtered -->
+            <!-- ngIf: !filtered --><h4 class="noContent ng-scope" ng-if="!filtered">抱歉，没有搜索到相关的信息</h4><!-- end ngIf: !filtered -->
+        </div>
+        <!--返回错误结果时-->
+        <div class="no_result ng-hide" ng-show="isErrorSearch">
+            <h4 class="errorSearch ng-binding" ng-bind="errorMessage || '抱歉，页面返回错误'">抱歉，页面返回错误</h4>
+        </div>
+        <!--返回结果长度大于0-->
+        <h2 ng-show="results.length &gt; 0 " class="wordb ng-hide">
+            <div class="searchP float-l">
+            </div>
+            <div class="clearfix"></div>
+        </h2>
+        <!--搜索结果开始-->
+        <!-- ngInclude: resultListUrl --><div ng-include="resultListUrl" class="ng-scope"><style class="ng-scope">
+.result-list{
+	margin-bottom:10px;
+}
+.result-list>dl>dt {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.result-list>dl>dt b {
+    color: #154f88;
+    vertical-align: middle;
+}
+.result-list>dl>dt a {
+	color: #154f88;
+    display: inline-block;
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+	font-size: 20px;
+    font-weight: 700;
+}
+a{
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+}
+.result-list>dl>dd .link-info {
+    margin-top: 10px;
+    font-size: 14px;
+}
+</style>
+<div ng-class="{true:'type-is-shangwu',false:'type-is-all'}[typeName == '商务']" class="ng-scope type-is-all">
+    <!-- 最新相关信息 -->
+    <!-- ngIf: newsData && newsList.length>0 -->
+
+    <!-- ngRepeat: result in results -->
+</div></div>
+        <!--搜索结果结束-->
+    </div>
+    <!--<div ng-include="relatedSearchUrl"></div>-->
+</div>
+<!--中间栏目结束--></div>
+		<!--相关搜索-->
+		<!-- ngInclude: relatedSearchUrl --><div ng-include="relatedSearchUrl" class="ng-scope"><!--相关搜索开始-->
+<div class="list_fuwuzx ng-scope ng-hide" ng-show="suggestRelData['relatedWords'].length &gt; 0">
+    <div class="rel tit"><span>相关搜索</span></div>
+    <div class="xiangguancon">
+        <ul>
+            <!-- ngRepeat: item in suggestRelData['relatedWords'] -->
+        </ul>
+    </div>
+</div>
+<!--相关搜索结束--></div>
+		<!--分页-->
+		<!-- ngInclude: paginationUrl --><div ng-include="paginationUrl" class="ng-scope"><div class="list_page ng-scope ng-hide" ng-show="results.length &gt; 0 ">
+    
+    <a class="display disabled" ng-class="{disabled: pageNumber == 1}" ng-click="selectFrist()" href="javascript:scroll(0,0)">首页</a>
+    <a ng-class="{disabled: pageNumber == 1}" ng-click="selectPrevious()" href="javascript:scroll(0,0)" class="disabled">上一页</a>
+    <!-- ngRepeat: page in pages -->
+    
+    <a ng-class="{disabled: pageNumber == totalPages}" ng-click="selectNext()" href="javascript:scroll(0,0)" class="">下一页</a>
+    <a class="display" ng-class="{disabled: pageNumber == totalPages}" ng-click="selectLast()" href="javascript:scroll(0,0)">尾页</a>
+    <input class="display ng-pristine ng-untouched ng-valid ng-empty ng-valid-min" type="number" min="1" ng-model="x" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" style="width: 40px;height: 28px;" value="1">
+    <a class="display" ng-click="selectPage(x)" href="javascript:scroll(0,0)">确认</a>
+</div></div>
+		
+	</div>
+	<div class="leftcon">
+		<!--推荐词-->
+		<!-- ngInclude: recommendedUrl --><div ng-include="recommendedUrl" class="ng-scope"><!-- ngIf: recommendedWords --></div>
+		<!-- 快速入口 -->
+		<!-- ngInclude: fastEntryUrl --><div ng-include="fastEntryUrl" class="ng-scope"><!-- ngIf: enter.length > 0 --></div>
+		<!--相关人物、相关政企、相关服务-->
+		<!-- ngInclude: relItemUrl --><div ng-include="relItemUrl" class="ng-scope"><style class="ng-scope">
+    .imglist p.per span{width: 100px;height: 135px;display: flex !important;justify-content: center; align-items: center;}
+    .imglist p.per span img{max-width: 100%;max-height: 100%;width: auto !important;;height: auto;}
+    .lubo{ width:335px; margin:0 auto; position: relative; height:300px;}
+    .lubo_box{ position: relative; width: 100%;height: 100%;}
+    .lubo_box li{ float: left;position: absolute; top: 0; left: 0; width: 100%; opacity: 0;filter:alpha(opacity=0);}
+
+    .lubo_box li img{ width: 100%;}
+
+    /*圆点*/
+    .cir_box{ overflow: hidden; position: absolute; z-index: 100; right:0px; top:-30px; }
+    .cir_box li{ float: left; width:9px; height:9px; margin:0 5px; cursor: pointer; background:url(images/jianshuosy20171010_59.png) bottom left no-repeat;}
+    .cir_box li.cir_on{ background-position:top left;}
+
+    /*按钮*/
+    .lubo_btn{ position: absolute; width: 100%; top: 120px; display:none;}
+    .lubo_box .opacity-li{opacity: 1;filter:alpha(opacity=100); z-index:9}
+</style>
+<!-- ngIf: relItems.length > 0 --></div>
+		<!-- 知识图谱 -->
+		<!-- ngIf: webkitDep.length>0 -->
+		<!--搜索历史-->
+		<!-- ngInclude: historyUrl --><div ng-include="historyUrl" class="ng-scope"><div class="list_con ng-scope" ng-controller="searchCtrl">
+    <div class="tit"><span>搜索历史</span></div>
+    <!-- ngRepeat: hiss in his track by $index --><p ng-repeat="hiss in his track by $index" class="ng-scope">
+        <a ng-click="goHisSearchPage($event, hiss);" href="javascript:scroll(0,0)" ng-bind="hiss" class="ng-binding">武汉2022年中考英语词汇表</a>
+    </p><!-- end ngRepeat: hiss in his track by $index -->
+</div></div>
+	</div>
+	<div class="clear"></div>
+
+<div class="goto-top">
+	<a href="javascript:scroll(0,0)"></a>	
+</div>
+</div>
+
+<!-- <div class="footer">
+	<div class="footer_con">
+    	<div class="con_left"><a href="" target="_blank">联系我们</a><a href="" target="_blank" ng-click="feedback()">用户反馈</a></div>
+    	<div class="con_right">主办：北京拓尔思信息技术有限公司提供技术支持    Copyinght(c)2017</div>
+    </div>
+</div> -->	
+	<div id="">
+	<!-- 底部iframe -->
+	<!-- ngIf: config._siteId == 53 -->
+	
+	<!-- 6家 -->
+	<!-- ngIf: config._siteId == 21 -->
+	<!-- ngIf: config._siteId == 41 -->
+	<!-- ngIf: config._siteId == 35 -->
+	<!-- ngIf: config._siteId == 45 -->
+	<!-- ngIf: config._siteId == 47 -->
+	<!-- ngIf: config._siteId == 34 -->
+	<!-- 36家 -->
+	<!-- ngIf: config._siteId == 7 -->
+	<!-- ngIf: config._siteId == 11 -->
+	<!-- ngIf: config._siteId == 12 -->
+	<!-- ngIf: config._siteId == 6 -->
+	<!-- ngIf: config._siteId == 5 -->
+	<!-- ngIf: config._siteId == 13 -->
+	<!-- ngIf: config._siteId == 14 -->
+	<!-- ngIf: config._siteId == 8 -->
+	<!-- ngIf: config._siteId == 9 -->
+	<!-- ngIf: config._siteId == 10 -->
+	<!-- ngIf: config._siteId == 19 -->
+	<!-- ngIf: config._siteId == 18 -->
+	<!-- ngIf: config._siteId == 16 -->
+	<!-- ngIf: config._siteId == 15 -->
+	<!-- ngIf: config._siteId == 23 -->
+	<!-- ngIf: config._siteId == 22 -->
+	<!-- ngIf: config._siteId == 20 -->
+	<!-- ngIf: config._siteId == 24 -->
+	<!-- ngIf: config._siteId == 26 -->
+	<!-- ngIf: config._siteId == 25 -->
+	<!-- ngIf: config._siteId == 27 -->
+	<!-- ngIf: config._siteId == 31 -->
+	<!-- ngIf: config._siteId == 32 -->
+	<!-- ngIf: config._siteId == 33 -->
+	<!-- ngIf: config._siteId == 39 -->
+	<!-- ngIf: config._siteId == 40 -->
+	<!-- ngIf: config._siteId == 36 -->
+	<!-- ngIf: config._siteId == 38 -->
+	<!-- ngIf: config._siteId == 37 --><iframe ng-if="config._siteId == 37" src="http://jyt.hubei.gov.cn/fzlm/ssyw/index.shtml" frameborder="0" width="100%" height="100%" class="ng-scope"></iframe><!-- end ngIf: config._siteId == 37 -->
+	<!-- ngIf: config._siteId == 42 -->
+	<!-- ngIf: config._siteId == 44 -->
+	<!-- ngIf: config._siteId == 46 -->
+	<!-- ngIf: config._siteId == 43 -->
+	<!-- ngIf: config._siteId == 49 -->
+	<!-- ngIf: config._siteId == 48 -->
+	<!-- ngIf: config._siteId == 55 -->
+	</div> 
+<div class="js-feedback">
+    <div class="feedbackBox">
+        <p class="header"><img src="images/feedback.png" alt="">用户反馈</p>
+        <form name="feedbackForm" novalidate="" class="ng-pristine ng-valid-pattern ng-invalid ng-invalid-required">
+            <!-- <div class="title"><span>标题:</span><input type="text" name=""></div> -->
+			<div class="contact">
+				<span>搜索结果是否满意:</span>
+				<button class="btn btn-left active" type="button" ng-class="{'active': isHelpful}" ng-click="setHelpful(true)">是</button>
+				<button class="btn btn-right" type="button" ng-class="{'active': !isHelpful}" ng-click="setHelpful(false)">否</button>
+			</div>
+            <div class="contact">
+				<span>联系方式:</span><input placeholder="联系方式" type="tel" id="contacts" name="contacts" ng-model="contacts" ng-pattern="/^1[3|5|7|8|9][0-9]\d{8}$/" class="ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern">
+				<!-- ngIf: feedbackForm.contacts.$error.pattern -->
+			</div>
+            <div class="content"><span>内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容:</span>
+                <textarea placeholder="请说明您的问题或分享您的想法" rows="5" ng-model="optSuggest" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"></textarea>
+            </div>
+            <div class="btnGroup">
+                <button class="submit disabled" ng-class="{'disabled': !feedbackForm.$valid}" ng-disabled="!feedbackForm.$valid" ng-click="submitFeedback()" disabled="disabled">提交</button>
+                <button class="cancel" ng-click="closeFeedback()">取消</button>
+            </div>
+        </form>
+    </div>      	
+</div>
+<script src="lib/isearch-base-package.js"></script>
+
+<script src="app-js/collect.js"></script>
+<script src="_searchConfig.js"></script>
+<script src="app-js/config.js"></script>
+<script src="dist/isearch_web_build.js"></script>
+<script src="images/lubotu.js"></script>
+<script src="images/swiper.min.js"></script>
+
+
+
+
+</body></html>
