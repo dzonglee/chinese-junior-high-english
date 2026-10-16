@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and eleven cached legacy textbook appendices are registered and checked. R-VOC remains incomplete: all280city-year examination-wordlist cells are genuinely unsearched at the required annual scope, current2024books and other edition families remain unfinished, and no local prescribed headword list was acquired. Failed discovery routes are not absence evidence.
+The national lists and seventeen legacy textbook appendices are registered and checked. R-VOC remains incomplete: all 280 city-year examination-wordlist cells are genuinely unsearched at the required annual scope, current 2024 books and other edition families remain unfinished, and no local prescribed headword list was acquired. Failed discovery routes are not absence evidence.
 
 ## National lists
 
@@ -9,6 +9,8 @@ The national lists and eleven cached legacy textbook appendices are registered a
 ## Legacy textbook lists
 
 `edition-wordlist-index.json` indexes fivePEP Go for it! volumes (2,611occurrences,58literalheadings,57appendixpages) and sixFLTRP New Standard volumes (2,164occurrences,39unit-listpages). Together they contain4,775headword/phrase occurrences, retaining repeated uses, sourcecase and literalStarter/Module/Revision distinctions. They are not4,775distinct lemmas or prescribed exam words. FLTRP's51standalone proper-name/alphabetical pages are retained separately and excluded from those occurrence counts.
+
+The index now also includes six SHEP Oxford legacy volumes: 1,367 occurrences across 46 literal unit lists on 27 appendix pages. These bring the seventeen-book total to 6,142 occurrences. `shep-audit/README.md` and `book-summary.json` separate approval, first-edition and retained-printing dates and identify each ISBN. Complete pinned parent PDFs are retained unchanged; 27 appendix pages and 12 identity pages were visually reviewed. No current-edition, city-adoption or local-exam equivalence is inferred. All lexical labels, stars and lesson-page references were checked; IPA and Chinese glosses remain null.
 
 All selected appendix/index pages were visually inspected. Whole-page derivatives, identity/approval/copyright evidence and backcovers preserve exact parent Git/SHA/page provenance. Community mirrors are not independently matched publisher originals; no2024newbook or currentcityadoption is inferred. Approval, copyright, first-edition and printing dates remain distinct. FivePEP ISBNs are source-observed with valid checksums; sixFLTRP ISBNs remain unknown after actualbackcover review.
 
@@ -33,5 +35,11 @@ Run `node reference/source-register/vocabulary/check-audit.mjs` from the reposit
 The PEP grade-seven upper ISBN caveat was corrected consistently in the source record, dataset and index after reopening the retained back cover: ISBN 978-7-107-24470-4 is visible on parent page 138. First-edition and printing details remain unknown. No lexical fields changed.
 
 GitHub fetch and LFS access work. The literal Nantong 2026 PDF and Zhengzhou-hosted Henan 2026 policy requests were denied at proxy CONNECT (403), before an origin response was obtained. This differs from the earlier source-level retrieval observations. Exact host additions were saved in the environment draft; publication is required to apply them. `local-discovery/access-followup-2026-10-16.json` records the diagnosis. No source or artifact was acquired, and all 280 annual cells remain unsearched. Retry those sources after network publication, then follow actual links with their city/year scope intact.
+
+### Continued collection after the access followup (2026-10-16)
+
+The preceding access paragraph describes the earlier request state, not a continuing global blocker. The Zhengzhou-hosted Henan policy now returns 200. Its HTML and linked timetable were reopened, read and registered as R-VOC-050/051 under the existing R-VOC::010 record. The timetable confirms English on June 23, 15:00–16:40, 100 minutes and 120 marks (100 written + 20 listening); Q3 retains the 2011-standard basis with 2022 concepts. This is policy evidence, not a headword list or proof of each city's participation.
+
+Public GitHub discovery also works. A current SHEP grade-seven upper community candidate cites a literal Smart Education page and image sequence, but neither original was acquired: those endpoints returned proxy CONNECT 403. The candidate is retained as a lead, not accepted as a current-book dataset. A separate unscoped community examination-word text does not establish any city/year list. `local-discovery/continued-discovery-2026-10-16.json` records these distinctions. Independent work continued with the six complete SHEP legacy appendix audits (R-VOC::022–027; unchanged full parent files R-VOC-052–057). All 280 annual cells remain unsearched; Stage 1 is not complete.
 
 Resume the existing `research/R-VOC` claim. First use working authorized discovery to collect actual city/provincial lists and complete genuine city×2022–2026 searches. Continue current2024books and other edition/five-four rawlists on this sameunit; preserve these completed legacy datasets. Do not recast blocked/irrelevant search controls as280searchedcells. R-INT remains behind allunitsdone, and Stage1/Gate1is notcomplete. All commercial reuse approvals remain false; no app content, contacts, accounts or agreements were created.

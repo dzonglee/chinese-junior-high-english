@@ -69,7 +69,8 @@ for (const item of [...nationalIndex.main_lists, ...nationalIndex.supplemental_t
   }
 }
 
-const books = unit('edition-wordlist-index.json').books
+const bookIndex = unit('edition-wordlist-index.json')
+const books = bookIndex.books
 let occurrences = 0
 for (const book of books) {
   const path = resolve(REF, book.curated_dataset)
@@ -99,6 +100,7 @@ for (const book of books) {
   }
 }
 requireThat(books.length === registration.legacy_books && occurrences === registration.legacy_headword_phrase_occurrences, 'legacy book/occurrence totals differ')
+requireThat(books.length === bookIndex.book_count && occurrences === bookIndex.total_headword_phrase_occurrences && books.reduce((sum, b) => sum + b.literal_group_count, 0) === bookIndex.total_literal_groups, 'book index aggregate totals differ')
 
 const coverage = unit('coverage.json')
 const roster = json(resolve(REF, 'source-register/cities/roster.json')).cities
