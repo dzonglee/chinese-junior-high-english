@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 115 annual city vocabulary cells remain unsearched, 159 have bounded not_found results and 6 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 95 annual city vocabulary cells remain unsearched, 178 have bounded not_found results and 7 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -201,3 +201,9 @@ Exact accepted JSON response selection requires the documented parsed query/fiel
 All45city/year targets were actually searched through public municipal/provincial forms or the independently verified ordinary360form.185usable query responses contain1771returnedrows, with restrictive/relaxed query semantics and failed-page bounds retained. Root rehashed actual raw bodies before retaining purpose-limited derived result projections; unrelated response branches, challenge bodies, duplicate decoded/rawcopies and interface screenshots are excluded. No local annual headword file was verified.
 
 Two Quanzhou authority articles were opened in full. Its2026reply mentions500primary-stagecorewords and three named transition resources but supplies no attachment; exact-title queries return only the reply. This is not a500-word junior-high exam list. The2022national-notice republication cancels separate exam syllabi, but cannot prove vocabulary resources absent. Nanning2023commercialFLTRPtitle remains unverified: actualproviderGEThasemptyvisiblemetadata/cookie-locationscript, which was not executed. Rightsfalse; no actualwordset orcityadoption inferred. Exact English research and45request-linked coverage proposals are underannual-discovery/south9.
+
+## Four Zhejiang city searches through an ordinary public-web form
+
+Hangzhou, Ningbo and Wenzhou each have five actual annual requests plus broad/authority controls; Jiaxing2022–2025completed and2026reached an explicit access challenge. The entire route stopped immediately. Twenty cells add19boundednot_foundand1blocked; unissued city/year targets remainunsearched. Standardhttpxhandled ordinary redirects whereurlliblooped; no customheaders, auth, proxy orTLSchange.
+
+Real authority controls return genuine exam notices, while annual results mostly name commercial/community worksheets or provider wordlist uploads. Wenzhou2022表二and2023复习导引附录表二are useful unverified leads, not acquired local wordsets. Search-date/title claims are not publication or applicability evidence. Purpose-limited non-advertising title/URL projections are retained with exact raw byte/SHA provenance; no21cnjyrequests, protected-linkdecoding, memberdownloads or copiedrestrictedpreviews. No verifiedrawwordset acquired.
