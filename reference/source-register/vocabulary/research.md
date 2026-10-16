@@ -111,3 +111,9 @@ The actual2023Hunanpolicy explicitly introduces provincial written setting from2
 The main header's brokensearch is distinct from the older literal publicPOSTsearch. The latter returns realJSONfor vocabulary and annualtargets. All seven pages/70short词汇title-indexresults were read, including out-of-scope high-school/self-studyitems and single-character誓词/汇总matches. No raw junior-high2022–2026headwordlist found. Five actual annualtargets have hugefuzzyORresultsets; only firstpagesread, as with1081broader词汇表results. These are boundedsearches,notuniversalabsence; counts are not English-source inventories.
 
 The actual2022Englishanalysis was already reopened underR-VOC::006;2023–2025analysesand2026Englishlisteningrehearsalnotice were separately opened/read. No curriculum-standard versionyear or raw list is established. Allfivecells become boundednot_found, superseding2026'soldSogouproviderblock through an independent officialroute, without solving thatchallenge.2026notice'sMay18,8:55–9:25(includingfiveminutetesttones)is REHEARSAL,not the actualexam listeningduration; publishedmediachannels are not acquired audio/transcripts.
+
+## Additional route diagnostics
+
+Luoyang remains genuinely unsearched at usable annual scope. Ordinary vocabulary requests returned unrelated results; advanced vocabulary targets, annual admissions controls and even a known government-report title returned zero. Actual responses are retained, butHTTP200is not useful absence evidence. Continue through independent annual policy/archive routes rather than filling five cells from these controls.
+
+Additional public-provider controls also failed to support discovery:Yahoo500,360redirectloop, and unrelatedBingRSSresults. The RSS response limits use to personal aggregation, so that route was stopped and its content excluded; only diagnostic metadata and byte/SHA pins remain. No annual cells change from provider controls.
