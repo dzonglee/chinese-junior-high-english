@@ -38,7 +38,7 @@ discovering them through the actual tools, without storing credentials.
 - `docs/app-delivery.md`: application scope and completion evidence.
 - `docs/authoring/board.md`: current delivery card and preserved research ownership.
 - `docs/authoring/log.md`: detailed decisions and handoffs.
-- `research/R-VOC` at `2e8f176`: latest vocabulary research; not merged as a completed unit.
+- `research/R-VOC` at `0687f91`: latest vocabulary research; not merged as a completed unit.
 
 ## Keep these distinctions visible
 
@@ -49,43 +49,35 @@ An implemented app is not a published WeChat release.
 
 ## Research continuation (2026-10-16)
 
-R-VOC is active on its existing claim. The latest published checkpoint is `441c167`: 17 legacy
-books and 6,142 occurrences, with no acquired local examination wordset. Two read-only delegates
-are auditing six Renai/Kepu and six Yilin legacy books in temporary folders; the coordinator
-retains numbering, tracked edits and publication. The coordinator is conducting genuine annual
-local-wordlist searches through public authority forms. Search-provider challenges are stopped
-and do not establish absence. Research remains incomplete.
+R-VOC continues under its existing claim. The published checkpoint is `research/R-VOC` at
+`0687f91`: 71 source records, 197 retained asset records (three shared curriculum records),
+40 legacy books and 16,031 literal word/phrase occurrences. Renai, Yilin, SWFL and Hebei audits
+are registered. The latest eleven books add 4,962 occurrences; all 239 retained pages were
+visually reviewed and passed selected-page pixel/native-text comparisons. Occurrences include
+repeated words and phrases; they are not unique lemmas or prescribed local examination lists.
 
-After the owner reported Mac Studio online and reattached Chrisverse, a fresh native/deferred
-tool-registry check still returned no Chrisverse, Kanban or Obsidian tools, no generic tool-search
-interface, and no callable `mcp__codex_apps__chrisverse_studio_mcp_capabilities`. No credentials
-were printed or authentication changed. External updates remain pending; this limitation is
-specific to this cloud worker's tool exposure, not a claim about the server's availability.
+Two delegates now check Shandong and ESPress, followed by the remaining BNU scans and actual
+northern annual sources. The coordinator retains source IDs, tracked edits and publication, and
+continues local annual/current-book discovery. No other owner's claim was taken over.
 
-When tools become available, read the existing English project board and Obsidian note first.
-Update the existing research card with a short title, current status and next concrete action;
-put source counts, verification limits, decisions and evidence in linked memory. Do not duplicate
-the board or mistake legacy lists and failed routes for complete local annual coverage.
+Fifteen annual cells have bounded `not_found` evidence (Beijing, Zhengzhou and Guangzhou).
+Shanghai2026 retains one actual target block; 264 cells remain genuinely unsearched. No local
+raw examination wordset or current2024 book has been acquired. Guangzhou's independent public
+archives work: ten document/thirteen news pages reach2021, and five official annual guide PDFs
+were opened. Their 1,114 pages were not exhaustively viewed; exact reviewed pages are recorded.
+The 2024/2025 guides explicitly apply2022 curriculum standards to2024–2026 cohorts. This remains
+separate from Beijing's2025 transition and Henan's2026 English2011 basis.
 
-## Published vocabulary checkpoint (2026-10-16)
+Guangzhou's freely available2022 practiceRAR was statically opened and contains an unencrypted
+WindowsEXE. No installer was run and no media set was independently played. The official notice
+reports two sets and the2026 warmtip still links it; those statements are not verified audio,
+transcripts or identical task/scoring evidence. The assets are available to the existing regional,
+listening/speaking and auxiliary owners without changing their units. All reuse approvals remain
+false. Required unit checks and hydrated file/dataset audits pass; R-VOC and Stage1 are incomplete.
 
-`research/R-VOC` at `2e8f176` contains52source records,138retained artifact records (including
-three shared curriculum artifacts),29legacy books and11,069word/phrase occurrences. Renai and
-Yilin audits are registered; all276new retained source pages were visually reviewed and have
-selected-page pixel/native-text fidelity evidence. Literal occurrences include repeated words and
-phrases. They are not unique lemmas, current2024books or prescribed local examination lists.
-
-Ten Beijing/Zhengzhou annual cells have bounded `not_found` results; Shanghai2026and Guangzhou2022
-have specifically scoped blocked attempts;268cells remain unsearched. No local raw wordset was
-acquired. National2022policy cancels separate exam syllabi. Beijing's2023evaluation supports
-2025transition to2022standards;1540versus1600teacher counts remain unreconciled. Exact scopes,
-printing/publication date conflicts and rights limits are in the linked research notes.
-
-Required unit/full-register checks, hydrated file/dataset hashes, ISBN checksums and GitLFS
-integrity pass. A negative fixture with consistent repinned hashes still failed because a
-registered lexical label differed from its reviewed original dataset. Two delegates now audit
-Hebei and SWFL books. The coordinator continues local/current-edition discovery. R-VOC and
-Stage1remain incomplete, and integration dependencies are unchanged.
-
-The latest repeated plugin attachment still did not expose native Chrisverse tools to this
-worker. External memory/board reconciliation remains pending; no external write is claimed.
+After the latest Chrisverse plugin attachment, a fresh native/deferred registry check still
+found no Chrisverse, Kanban or Obsidian tools, no generic tool-search interface, and no callable
+`mcp__codex_apps__chrisverse_studio_mcp_capabilities`. This is this worker's tool-exposure limit,
+not a claim about server availability. No authentication/network changes or external writes
+occurred. Read and reconcile the existing English board/note when native tools appear; do not
+create duplicate records. Keep the card concise and put evidence and remaining gaps in memory.
