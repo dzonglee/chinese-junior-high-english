@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and seventeen legacy textbook appendices are registered and checked. R-VOC remains incomplete: all 280 city-year examination-wordlist cells are genuinely unsearched at the required annual scope, current 2024 books and other edition families remain unfinished, and no local prescribed headword list was acquired. Failed discovery routes are not absence evidence.
+The national lists and29legacy textbook appendices are registered. R-VOC remains incomplete:268annual city vocabulary cells remain unsearched, ten have bounded not_found results and two specifically scoped attempts are blocked. Current2024books, remaining legacy families and actual local raw examination wordsets remain unfinished. Failed discovery routes are not absence evidence. Latest results below supersede the earlier chronological collection snapshots.
 
 ## National lists
 
@@ -43,3 +43,18 @@ The preceding access paragraph describes the earlier request state, not a contin
 Public GitHub discovery also works. A current SHEP grade-seven upper community candidate cites a literal Smart Education page and image sequence, but neither original was acquired: those endpoints returned proxy CONNECT 403. The candidate is retained as a lead, not accepted as a current-book dataset. A separate unscoped community examination-word text does not establish any city/year list. `local-discovery/continued-discovery-2026-10-16.json` records these distinctions. Independent work continued with the six complete SHEP legacy appendix audits (R-VOC::022–027; unchanged full parent files R-VOC-052–057). All 280 annual cells remain unsearched; Stage 1 is not complete.
 
 Resume the existing `research/R-VOC` claim. First use working authorized discovery to collect actual city/provincial lists and complete genuine city×2022–2026 searches. Continue current2024books and other edition/five-four rawlists on this sameunit; preserve these completed legacy datasets. Do not recast blocked/irrelevant search controls as280searchedcells. R-INT remains behind allunitsdone, and Stage1/Gate1is notcomplete. All commercial reuse approvals remain false; no app content, contacts, accounts or agreements were created.
+
+
+## Ongoing Renai/Yilin and annual-source pass (2026-10-16)
+
+Six Renai/Kepu books add2,634occurrences across86literal unit/topic/review groups; six Yilin/Oxford books add2,293across44units. The total is29books /11,069occurrences /306groups. All154Renai and122Yilin retained pages were visually inspected, including identity/appendix figures. Selected RGB/native-text fidelity passes for every page. Renai's grade9lower CIP2014-10differs from copyright first-edition2014-11. Yilin second-edition dates remain distinct from unknown first editions and2021printings. Source legend meanings differ; per-entry markers, IPA/gloss/variants remain explicitly unaudited.
+
+Delegate-curated datasets and their original hashes remain unchanged. Registered datasets add R-VOC IDs, explicit false reuse flags and consistent grouping/provenance fields; indexed lexical labels preserve the reviewed delegate sequence. Yilin extracts remove stale accessibility/navigation catalog references only; exact selected-page pixel/native equality is recorded. No current-edition/adoption inference follows.
+
+`annual-discovery/` preserves separate2022–2026queries for Beijing and Zhengzhou, broad wordlist/vocabulary/syllabus searches, controls, result pages and linked official sources. These ten bounded not_found cells mean no raw local list was found in those recorded authority-index searches; they do not mean universal absence. Zhengzhou2023/2024pagination failed and remains an explicit limitation. Actual Shanghai2026and Guangzhou2022targets reached verification/connection failures, respectively; other city/year cells are unchanged. No challenge was bypassed, and failed controls are not annual searches.
+
+National教基厅函〔2022〕6号, signed25March/published6April2022, sectionIIIexplicitly cancels separate junior-high examination syllabi. Seeking a fresh annual考纲must therefore distinguish exact local curriculum applicability and independently published wordsets from obsolete or commercial compilations. Beijing's2023evaluation report states English's last2011-standard exam is2024and all subjects use2022standards from2025. It does not establish2025revision adoption or exact additional local words. Teacher advice reports1540(printed14September2024,web25September) and1600(April2025plus extensions/phrases); preserve the discrepancy, do not merge it into a verified local set.
+
+Zhengzhou's2025/2026city-area policies explicitly include English in the uniform provincial examination. The2026embedded timetable was rendered/read and matches23June15:00–16:40,100minutes,120marks(100written+20listening). The province-level2011basis in R-VOC::010can be connected to that exact city-area scope, with county/city administration limits retained; it does not turn the national2025list into a verified Henan set.
+
+Two delegates continue Hebei and SWFL; Shandong/ESPress five-four and BNU remain. Existing owner claims and integration dependencies are unchanged. The current worker still exposes no Chrisverse/Kanban/Obsidian native tools after repeated attachments; repository memory/board hold pending reconciliation and no external update is claimed.

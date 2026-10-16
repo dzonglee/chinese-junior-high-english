@@ -2,7 +2,7 @@
 // Validate retained R-VOC data and provenance; this does not replace visual source review.
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { resolve, dirname } from 'node:path'
 
 const UNIT = import.meta.dirname
 const REF = resolve(UNIT, '../..')
@@ -77,6 +77,21 @@ for (const book of books) {
   pinned(path, book.dataset_bytes, book.dataset_sha256)
   const data = json(path)
   const rows = data.entries
+  if (data.curated_source_dataset) {
+    const sourcePath = resolve(dirname(path), data.curated_source_dataset)
+    pinned(sourcePath, undefined, data.curated_source_sha256)
+    const curated = json(sourcePath)
+    const sourceRows = curated.entries ?? curated.rows
+    requireThat(sourceRows.length === rows.length, `${book.source_id}: source/registered row counts differ`)
+    for (let i = 0; i < Math.min(sourceRows.length, rows.length); i++) {
+      const original = sourceRows[i]
+      const registered = rows[i]
+      const originalGroup = [original.unit, original.topic].filter(Boolean).join(' / ')
+      requireThat(registered.headword === (original.headword ?? original.headword_raw), `${book.source_id}: registered lexical sequence differs at ${i + 1}`)
+      requireThat(registered.unit_label === originalGroup && (registered.parent_pdf_page ?? registered.source_pdf_page) === (original.parent_pdf_page ?? original.source_pdf_page), `${book.source_id}: registered grouping/page differs at ${i + 1}`)
+      requireThat(registered.printed_wordlist_page === original.printed_wordlist_page, `${book.source_id}: registered printed page differs at ${i + 1}`)
+    }
+  }
   occurrences += rows.length
   requireThat(sourceIds.has(book.source_id) && data.source_id === book.source_id, `${book.source_id}: unknown or inconsistent book source`)
   requireThat(rows.length === book.headword_phrase_occurrences && rows.length === data.entry_count, `${book.source_id}: occurrence count mismatch`)
