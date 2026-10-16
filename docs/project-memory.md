@@ -8,30 +8,42 @@
 - Keep the board clean, concise and easy to read, using plain English.
 - While the current session cannot access those MCP connections, continue app work first.
 
-## Current work
+## Current work · local milestone, 2026-10-17
 
-The validated app code is published at `platform/app-delivery` checkpoint `ce8b82d`.
-Implementation documents referenced below live on that branch until delivery is integrated;
-this main-branch update publishes the current handoff without merging an unfinished release.
+The owner requested a usable local app immediately and deferred videos. The local milestone is
+implemented and integrated on main; its instructions are in `docs/local-version.md`.
+It includes 34 original draft lessons, 368 questions and 96 words, with a portable 1.64 MB HTML
+build containing all 48 hash-checked packs and three original Blender images. It needs no account
+or cloud configuration. Local progress, mistake/word review, writing drafts, practice/timers,
+private questions, backup/import and optional microphone self-review work in the browser.
 
-Application delivery is active under `APP-DELIVERY` on `platform/app-delivery`. The existing
-research claims remain intact. Research is incomplete; no application or release completion is
-claimed. The native application and shared browser harness are implemented on `platform/app-delivery`. The collection contains 34 original draft lessons, 368 questions across all six skills and 96 vocabulary entries, including cloze, sentence restoration, short answers and read-aloud tasks. Three original Blender assets are rendered. This is a foundation collection, not complete 1,600-word or textbook-unit coverage.
+All three requested correctness areas are fixed: explicit grammar constraints and accepted
+variants (all 90 free-response tasks), recording cancellation across permission delays and
+suspension, and complete-catalog editorial fingerprints. Browser streams also close on local
+recording storage failure. Two existing delegates supplied reviewed source patches; the coordinator
+integrated them, regenerated packs and ran the final checks. No research content was copied.
 
-TypeScript and 73 automated tests pass. Eleven complete Chromium journeys pass with zero page errors, including timed writing focus, history/favourites, onboarding restore and orphan-audio deletion. Small-screen layouts were reviewed at 320/390/768 widths. Both development and synthetic CloudBase native-adapter simulations pass; static checks cover 24 routes and about 771 KB main / 1,464 KB development total. These simulations are not WeChat DevTools or real-device evidence.
+TypeScript and 90 automated tests pass, plus seven grammar regressions, four actual-native-source
+permission simulations, 11 full browser journeys and seven offline standalone checks. Layouts at
+320/390/768 widths and current screenshots were reviewed. Native package checks cover 24 routes,
+about 772 KB main / 1,475 KB total, and development/synthetic-cloud adapters pass. The local dev
+service is running on port 4173 and its actual document/bundle were checked. These are browser/API
+simulations, not WeChat DevTools or real-device evidence. Managed Chromium blocks direct file
+navigation; the standalone checks use the exact HTML over loopback and disable networking during
+practice. Direct-file opening remains unvalidated here.
 
-Release code uses CloudBase for question/audio files and builds separately under `dist/release/`, preserving development files. Release guards reject missing project IDs, media, privacy/device evidence and actual editorial approval; the actual release remains blocked. A searchable standalone editorial artifact is generated with `npm run content:review`. Read `docs/validation.md`, `docs/product-design.md` and `docs/release-checklist.md` on the app branch for exact evidence/scope.
+Scope is now split into the delivered local milestone and future native/publication work. The
+board must make that distinction explicit. Videos are deferred. Listening audio remains visibly
+pending; no audio model was selected. Native DevTools/device validation, actual AppID/CloudBase,
+approved audio and editorial/launch decisions remain for future work. The 96 words do not establish
+complete national vocabulary coverage. Research and its existing claims remain unchanged.
 
-The full reusable cloud install script was executed successfully, and `install_script`/`start_skill` were saved to the environment draft. Saving is not applying/publishing the environment. No published snapshot or fresh-task restoration is claimed. The saved startup instructions include the standing Obsidian/Kanban protocol.
-
-Owner inputs still pending: the approved audio source/model (AGENTS.md explicitly requires an owner-chosen model or licensed recordings); the actual WeChat AppID and CloudBase environment/file IDs; native DevTools/device evidence; editorial review and initial launch scope. The public project identifiers were requested asynchronously. No secret should be sent in chat. Continue immediately when those inputs arrive; do not substitute a model or invent approvals. Application delivery stays in progress.
-
-Obsidian/Kanban discovery was rechecked and exposes neither connection in this session. No external memory/board update or publication has been claimed. The owner requested continued app work first. Reconcile these local updates with the existing external records as soon as their tools appear.
-
-The sister app was inspected at commit `933ab324ba947f061ebff65dca45ba5c2fc26b75` in a temporary
-read-only reference checkout. It supplies native TypeScript patterns, learning-state logic,
-content packs, design tokens, Blender assets and validation conventions. Its mathematics content
-and its release configuration are not English-app content or release approval.
+The cloud install_script/start_skill were saved successfully for the tested local build workflow.
+Saving environment configuration is not publishing a snapshot or validating a fresh task restore.
+Existing external Kanban/Obsidian reconciliation remains pending because their native/deferred
+tools and generic discovery/reload are absent from this worker. This does not block local coding;
+no external write is claimed. Reconcile the existing records without creating duplicates when
+those tools are exposed.
 
 ## Memory and board connection
 
@@ -130,7 +142,7 @@ No eligible open research unit remains. R-INT is the only open row and its other
 dependencies are still claimed; none is 48 hours stale on the current date. Preserve those locks.
 The next research session should sync first and choose an eligible unit only after its status changes.
 
-## Owner goal continuation · application review
+## Historical review · 2026-10-16 (findings fixed in the local milestone)
 
 Continued beyond vocabulary research by verifying/reviewing the published app at `ebc5ca1` without
 changing its implementation or taking over the fresh APP-DELIVERY claim. Complete evidence and
@@ -170,7 +182,7 @@ reconciliation. The repository board/log and this review package are current; no
 credential disclosure, authentication/network change or duplicate board occurred. Environment draft
 publication and future-task restoration remain separate owner/product operations, not claimed here.
 
-## Active local development · 2026-10-17
+## Owner local-first direction · 2026-10-17
 
 The owner's latest instruction is to start development immediately, deliver a local version first
 and defer videos. APP-DELIVERY is explicitly reassigned to codex-local on its existing branch;

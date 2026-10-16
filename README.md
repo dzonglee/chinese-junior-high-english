@@ -1,26 +1,55 @@
-# 初中英语 · Chinese junior-high English (WeChat mini program)
+# 初中英语 · Local learning app and WeChat mini program
 
-The sister app of `dzonglee/chinese-junior-high-maths`: textbook-synced lessons for mainland
-junior-high English plus exam-focused drilling for 中考英语, routed by the learner's city, school
-structure, grade and textbook edition.
+A working local English practice app for mainland junior-high students, with 34 original draft
+lessons, 368 questions and 96 vocabulary entries. It includes illustrated answer feedback,
+vocabulary review, reading, writing drafts, speaking self-review, a question builder, timed
+practice, private questions, a mistake book, saved progress and backup import/export.
 
-**Status: application delivery and continuing research.** The working native app is on
-[`platform/app-delivery`](https://github.com/dzonglee/chinese-junior-high-english/tree/platform/app-delivery)
-at checkpoint `ce8b82d`, with 73 automated tests and 11 browser journeys passing. It has 34 original
-draft lessons, 368 questions and 96 vocabulary entries. Approved audio, actual WeChat/CloudBase
-configuration, native/device evidence and editorial launch review remain pending. See
-`docs/project-memory.md`; the implementation and release documents live on the app branch.
+## Run locally
 
-Main retains the research corpus and shared handoff while that work continues. No research gate,
-complete national vocabulary coverage or public app release is claimed.
+Use Node 24 and the checked-in npm lockfile:
 
-| Read | For |
-| --- | --- |
-| `AGENTS.md` | Rules for every agent, and the claim protocol |
-| `docs/plan.md` | The stages, from research to release |
-| `docs/stage1-resource-gathering.md` | Stage 1 in detail: what to gather, how to record it, done criteria |
-| `docs/authoring/board.md` | Who owns which unit; claim from here |
-| `docs/authoring/log.md` | Decisions and handoffs |
-| `reference/README.md` | The research corpus rules and layout |
+```bash
+npm ci --no-audit --no-fund
+npm run build:local
+npm run dev
+```
 
-To start: read `AGENTS.md`, sync, then claim an open unit on the board.
+The development server listens on loopback port 4173. For a portable offline copy, open
+`dist/local/index.html` in Chrome or Edge. That single file contains all 48 checked content packs,
+the app code, styles and original Blender artwork. It needs no account or cloud configuration.
+See [local version instructions](docs/local-version.md) for saving progress and microphone support.
+
+Videos are deferred. Listening tasks clearly show when audio is pending. Content remains draft;
+the app does not infer verified textbook adoption or local exam blueprints from the selected city.
+The native WeChat implementation is included in `miniprogram/`; production configuration,
+approved audio, real-device validation and editorial launch review remain future work.
+
+## Validate changes
+
+```bash
+npm run check
+npm run test:grammar
+npm run content:audit
+npm run check:package
+npm run test:native-adapter
+npm run test:native-cancellation
+npm run test:release-guards
+npm run test:journeys
+npm run test:local
+```
+
+Browser checks need Chromium: use the installed `/usr/bin/chromium`, set `CHROMIUM_PATH`, or run
+`npx playwright install --with-deps chromium`. Current results and the precise simulated/native
+boundary are recorded in [validation evidence](docs/validation.md).
+
+## Working on the project
+
+Read [AGENTS.md](AGENTS.md), [the plan](docs/plan.md), [project memory](docs/project-memory.md),
+[the board](docs/authoring/board.md) and the latest [handoff log](docs/authoring/log.md) first.
+Follow the claim protocol; preserve other agents' work. The sister app is
+`dzonglee/chinese-junior-high-maths`.
+
+Research continues separately under [Stage 1](docs/stage1-resource-gathering.md).
+`reference/` is a provenance/rights research corpus, never learner content. Neither full national
+vocabulary coverage nor completion of the research integration gate is claimed.
