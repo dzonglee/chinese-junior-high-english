@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 55 legacy textbook appendices are registered. R-VOC remains incomplete: 254 annual city vocabulary cells remain unsearched, 24 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 55 legacy textbook appendices are registered. R-VOC remains incomplete: 249 annual city vocabulary cells remain unsearched, 29 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -99,3 +99,9 @@ Seven selected-page PDFs preserve all reviewed RGB pixels/native text. A grade7u
 Seven explicitly五·四学制books add2,745literal rows across62units;170identity/appendix pages were visually reviewed. All7ISBNs were read and checksumvalid; first/observed editions and printing dates remain distinct. Six reviewed publication statements describe2011-standard adaptation from PEP六三英语（新目标）;grade7lower's corresponding basis remainsunknown. Native ligature/missing-letter corruptions were restored from source pixels with a correction ledger. IPA/gloss/POS/variants/individualtypography remainuncurated.
 
 Only11acceptedPDFs are registered. Five unchanged full parents are retained once each because selected extraction changed strict native trailing spaces(6lower/7upper)or soft hyphens(8lower/8upper/9whole). Their unreviewed body pages are not claimed audited. Six compact derivatives for6upper/7lower remove stale accessibility/navigation references while preserving selected source RGB/native text. Exact reviewed section maps and rejected-candidate differences remain explicit. Alphabeticalextraentries/referenceconflicts are retained; noexhaustiveindexdoubletranscriptionorcurrentcityadoptionclaim. Allrightsfalse.
+
+## Changsha bounded annual vocabulary discovery
+
+Five distinct ordinary annual targets and five restrictive advanced targets were inspected. The ordinary长沙中考control is relevant; advancedzeroes and mixed-year ordinary matches are explicitly limited. The broad词汇表query returns38tokenisedresults: all four pages were followed through actual browser next links and read. A plausible中学word-chunkresearchhit was opened and proved explicitly普通高中material; it is excluded, with visible2019date separate from2023URLpath. No raw junior-high local wordlist acquired; five cells are boundednot_found, not universalabsence.
+
+The actual2023Hunanpolicy explicitly introduces provincial written setting from2024, but generic curriculum wording does not establish a versionyear. Actual2025Changshareform text describes oralEnglish as a separate20-markassessment converted toA/B/C/Dforcomprehensivequalityevaluation, not an extra20markssimplyaddedtoadmissionsscore. Policy native-text scope and embedded-image review limits remain explicit.
