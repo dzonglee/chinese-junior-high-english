@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 40 legacy textbook appendices are registered. R-VOC remains incomplete: 268 annual city vocabulary cells remain unsearched, 10 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 40 legacy textbook appendices are registered. R-VOC remains incomplete: 264 annual city vocabulary cells remain unsearched, 15 have bounded not_found results and 1 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -67,3 +67,11 @@ Six SWFL books add 2,410 occurrences across 52 units; all 132 retained source pa
 Five Hebei books add 2,552 occurrences across 42 units: 1,850 primary vocabulary labels and 702 separately labelled structures/expressions. All 107 retained source pages were viewed and matched in decoded RGB/native text. Grade-seven lower required full visual transcription because its Latin appendix font decodes as control codes. Other primary-label sets were crosschecked against their alphabetical indexes; main `Niagara Falls` and index `Niagra Falls` remain a source conflict. All five cover ISBN checksums pass, while omitted imprint pages leave edition/printing dates unknown.
 
 These additions bring the current total to 40 legacy books and 16,031 occurrences across 400 literal groups. Alphabetical duplicates remain outside the main counts; lexical and expression list kinds remain distinct. Two delegates continue Shandong and ESPress five-four audits. BNU scans remain. No current-edition, local wordset, licensing or release claim follows.
+
+## Guangzhou annual archive and guide review
+
+The public archive route works independently of the earlier failed government-search form. Ten document and thirteen news pages reach the2021boundary and expose2022–2026dated notices. All five annual guide PDFs were opened and retained (1114pages in total); the exact cover/contents and selected English/policy pages visually inspected are listed in `annual-discovery/guangzhou-guides-review.json`. Full native text was searched, but no exhaustive whole-guide visual review or universal absence is claimed. No actual raw local word list was acquired; all five annual cells are bounded `not_found`, superseding the earlier Guangzhou2022route block.
+
+The2024/2025guides explicitly reproduce a policy applying2022curriculum standards to2024–2026cohorts. This differs from Beijing's documented2025transition and Henan's2026English2011basis. These local scopes remain separate; none proves2025national-revision adoption. The2022/2023guides' generic curriculum wording does not establish a version year. Selected2022–2025English sections say20minutes listening/speaking,100minutes written and30+90=120marks;2026guide cover/contents review alone does not reverify these numbers.
+
+The official2022offline practiceRARwas normally downloaded and statically opened with existinglibarchive. It contains an unencrypted WindowsEXE; it was never executed or installed. The notice reports two approximately20-minute sets, and a2026warmtip still links it. Zero sample sets/audio/transcripts were independently played/decoded, so this is a practice-system package, not acquired audio or a wordlist. Public availability grants no commercial permission. Actual guides/practice leads are available to the R-SOUTH/R-LS/R-AUX owners without changing their units.
