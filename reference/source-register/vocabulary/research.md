@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 40 legacy textbook appendices are registered. R-VOC remains incomplete: 259 annual city vocabulary cells remain unsearched, 19 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 48 legacy textbook appendices are registered. R-VOC remains incomplete: 254 annual city vocabulary cells remain unsearched, 24 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -81,3 +81,15 @@ The official2022offline practiceRARwas normally downloaded and statically opened
 The public education-policy index exposes2023Q&A/2024/2026policies; the general announcement archive supplies2025. All four annual sources and ten embedded images were opened and read. No actual local wordlist or explicit curriculum-standard version was located. Their bounded2023–2026cells are `not_found`, retaining public-search403 and archive limits rather than asserting universal absence. The2022actual vocabulary target also returned403; no2022Englishpolicy was opened, so that cell stays `blocked`. Two junior-high archive pages opened, then the published third-page request403; no guessed page or hidden API was used.
 
 The2023–2026written tables independently show EnglishJune28,09:00–10:10(70minutes). Actual2024–2026text gives100marks including25listening/speaking,20-minute人机对话. Listening/speakingdates:2023May20–21,2024May18–19,2025May17–18,2026May16–17. The2023calendar alone does not justify copying later marks/timing. No national-standard version, current textbook adoption or neighbouring Guangzhou applicability is inferred.
+
+## Haikou bounded annual vocabulary discovery
+
+The disclosed publicPOSTsearch works. The broad词汇表query has three complete hits:2025primary-schoolreading,2020primaryEnglishnews and a2019all-subjectsyllabus notice. The latter was opened: its English subsection refers to2011standards but provides no raw headword list, and no2022–2026applicability is inferred. Five actual annual vocabulary targets and all five annual city admissions policies were also opened/read at native-text/link-title scope. No actual current local list was acquired; all five cells are boundednot_found. Multiword search is tokenised and2023's66results were inspected only on the first page; this is not universal absence or a complete archive audit.
+
+Search artifacts are explicitly derived projections with original byte/SHA pins: they omit unrelated public12345case metadata, which was neither followed nor retained. The annual policies are research discovery pages, not claims of full embedded-image/annex review or independently verified marks/curriculum versions.
+
+## ESPress five-four legacy lists
+
+Eight explicitly五·四学制ESPress volumes are audited:2,138literal entries across90units,127reviewed identity/appendix pages. Six-upper's335labels were visually transcribed from scanned pages; seven other books use native text with documented visual encoding repairs. Alphabetic/supplementary repeats are not counted again; IPA, gloss, per-entry typography/star meaning and first-lesson-page columns remain uncurated. All eightISBNs were visually read and checksumvalid.
+
+Seven selected-page PDFs preserve all reviewed RGB pixels/native text. A grade7upper trial changed pixels on identity pages1/2/3/138, so its unchanged full parent is retained instead; its body remains unaudited. Exact source discrepancies remain:manners/manner,unbalanced/unbaleanced,alphabetic-onlyweight(7upper)andflight(8lower),literalleft-handness/Hellen Keller. Grade6upper imprint2012-07first edition conflicts with CIP2013-07; actual2014-07printing remains separate. No current textbook, local adoption or commercial permission is established.
