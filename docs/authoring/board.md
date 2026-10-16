@@ -11,20 +11,20 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 
 | ID | Work | Status | Owner | Branch | Next action |
 | --- | --- | --- | --- | --- | --- |
-| APP-DELIVERY | Build and validate the English learning app | In progress | codex-app | platform/app-delivery | Add approved audio and validate the real WeChat project |
+| APP-DELIVERY | Build and validate the English learning app | In progress | codex-app | platform/app-delivery | Fix review findings, then configure audio and the real project |
 
 ### Delivery checklist
 
 | Work | Status |
 | --- | --- |
 | Persistent memory and board instructions | Done |
-| Platform, content model and compiler | Done |
+| Platform, content model and compiler | Implemented; review corrections open |
 | Lessons, vocabulary and practice | Implemented; editorial review pending |
 | Listening, speaking and writing | Implemented; listening audio pending |
 | Exams, question builder and private questions | Implemented and tested |
 | Progress, mistakes and data controls | Implemented and tested |
-| Functional testing and visual review | Browser checks pass; native checks pending |
-| Release preparation | Implemented; project setup and owner review pending |
+| Functional testing and visual review | Browser checks pass; review defects and native checks remain |
+| Release preparation | Fingerprint correction, project setup and owner review pending |
 
 External Obsidian and Kanban updates are pending connection availability. Continue app work first.
 
@@ -69,7 +69,10 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | 13 | R-VOC coordinator | Finish southern annual vocabulary searches | renai-wordlists | done; all 45 targets searched; raw wordsets remain unverified |
 | 14 | R-VOC coordinator | Check current BNU vocabulary readers | renai-wordlists | done; five catalogues checked; no current word pages loaded |
 | 15 | R-VOC coordinator | Verify annual official English-exam announcement searches | renai-wordlists and yilin-wordlists | done; all 280 cells have targeted searches or existing notice/policy attempts |
-| 16 | Owner continuation | Verify the published app and report concrete defects | codex-continuation | in progress; read-only checks and content/runtime review |
+| 16 | Owner continuation | Verify the published app and report concrete defects | codex-continuation | done; four findings documented in docs/reviews/app-2026-10-16/ |
+| 17 | App review | Correct grammar prompts and accepted answers | — | requested; source remains under the APP-DELIVERY claim |
+| 18 | App review | Cancel recording starts during backgrounding | — | requested; source remains under the APP-DELIVERY claim |
+| 19 | App review | Invalidate approval after material catalog changes | — | requested; source remains under the APP-DELIVERY claim |
 
 ## Shared resources
 

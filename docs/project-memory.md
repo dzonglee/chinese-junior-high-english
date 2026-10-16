@@ -130,12 +130,42 @@ No eligible open research unit remains. R-INT is the only open row and its other
 dependencies are still claimed; none is 48 hours stale on the current date. Preserve those locks.
 The next research session should sync first and choose an eligible unit only after its status changes.
 
-## Owner goal continuation
+## Owner goal continuation · application review
 
-The owner asked to continue beyond research toward finishing everything. Re-synced main and the
-published app branch `ebc5ca1`. No eligible research unit is open and the APP-DELIVERY claim is
-fresh, so this worker is verifying/reviewing that published app read-only in an existing detached
-checkout. No app implementation ownership is taken over. Two existing delegates inspect original
-content and runtime correctness while the coordinator runs the documented checks. Record concrete
-findings before deciding which remaining operations truly require outside inputs. External MCP
-memory/board tools remain unavailable; this local update awaits reconciliation.
+Continued beyond vocabulary research by verifying/reviewing the published app at `ebc5ca1` without
+changing its implementation or taking over the fresh APP-DELIVERY claim. Complete evidence and
+next actions: [application review](reviews/app-2026-10-16/README.md). Two existing delegates reviewed
+original content/runtime behavior; the coordinator independently reran all defect probes.
+
+Locked installation/build, TypeScript, 73 automated tests, content audit, 24-route static package
+checks, development/synthetic-cloud adapters and 11 Chromium journeys pass. Package sizes remain
+about 771 KB main / 1,464 KB total. Existing checks miss four reproduced findings: underconstrained
+blanks and excluded grammatical equivalents reject 13 valid answers; a pending recording start
+can complete after suspension; material edition/topic changes retain editorial approval. This is
+not a passing editorial review, native verification or app completion. Current source remains draft.
+
+Requests 17–19 preserve the existing implementation owner and group the next three deliverables:
+correct authored prompts/accepted alternatives and explanations; cancel or stop late recording starts;
+include material catalog metadata in the approval fingerprint. Read the exact cases and add desired-
+behavior regressions under APP-DELIVERY before re-running the relevant checks. The persisted portable
+probes reproduce defects in the reviewed snapshot; their exit 0 means the bugs were reproduced.
+
+Actual release readiness exits 1 with 77 missing entries: real AppID/CloudBase, 48 content mappings,
+12 approved recordings and 12 audio mappings, editorial approval, native/device evidence and privacy
+confirmation. Audio preparation exits 2 without sending a request because source/model/voice/owner
+approval remain unselected. No local release config or AUDIO_API_KEY is present. Do not substitute
+an audio model, fabricate project/evidence/approval fields or publish to make these checks pass.
+
+This worker's remaining implementation path is blocked by fresh ownership: APP-DELIVERY belongs
+to codex-app and all other research units remain claimed; R-INT still has unmet dependencies.
+The claim protocol allows stale takeover after 48 hours, not bypass of current ownership. A new
+sync confirmed the same app commit and no eligible open research unit. Once the current owner
+finishes/relinquishes work or a claim becomes stale, sync and continue from the concrete requests.
+Even after source corrections, actual owner audio/project/launch decisions and native device access
+are required for completion. No full research, integration, native release or publication is claimed.
+
+Fresh native/deferred discovery still exposes no Chrisverse, Kanban or Obsidian tools, no exact
+capabilities identifier and no generic tool-search/reload interface. Existing external records await
+reconciliation. The repository board/log and this review package are current; no external write,
+credential disclosure, authentication/network change or duplicate board occurred. Environment draft
+publication and future-task restoration remain separate owner/product operations, not claimed here.
