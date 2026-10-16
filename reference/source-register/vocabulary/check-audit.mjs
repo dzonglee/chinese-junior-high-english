@@ -86,9 +86,10 @@ for (const book of books) {
     for (let i = 0; i < Math.min(sourceRows.length, rows.length); i++) {
       const original = sourceRows[i]
       const registered = rows[i]
-      const originalGroup = [original.unit, original.topic].filter(Boolean).join(' / ')
+      const originalGroup = original.unit_label ?? [original.unit, original.topic].filter(Boolean).join(' / ')
       requireThat(registered.headword === (original.headword ?? original.headword_raw), `${book.source_id}: registered lexical sequence differs at ${i + 1}`)
       requireThat(registered.unit_label === originalGroup && (registered.parent_pdf_page ?? registered.source_pdf_page) === (original.parent_pdf_page ?? original.source_pdf_page), `${book.source_id}: registered grouping/page differs at ${i + 1}`)
+      requireThat(registered.list_kind === original.list_kind, `${book.source_id}: registered appendix kind differs at ${i + 1}`)
       requireThat(registered.printed_wordlist_page === original.printed_wordlist_page, `${book.source_id}: registered printed page differs at ${i + 1}`)
     }
   }

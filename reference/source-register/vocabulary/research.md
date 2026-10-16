@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and29legacy textbook appendices are registered. R-VOC remains incomplete:268annual city vocabulary cells remain unsearched, ten have bounded not_found results and two specifically scoped attempts are blocked. Current2024books, remaining legacy families and actual local raw examination wordsets remain unfinished. Failed discovery routes are not absence evidence. Latest results below supersede the earlier chronological collection snapshots.
+The national lists and 40 legacy textbook appendices are registered. R-VOC remains incomplete: 268 annual city vocabulary cells remain unsearched, 10 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -58,3 +58,12 @@ National教基厅函〔2022〕6号, signed25March/published6April2022, sectionII
 Zhengzhou's2025/2026city-area policies explicitly include English in the uniform provincial examination. The2026embedded timetable was rendered/read and matches23June15:00–16:40,100minutes,120marks(100written+20listening). The province-level2011basis in R-VOC::010can be connected to that exact city-area scope, with county/city administration limits retained; it does not turn the national2025list into a verified Henan set.
 
 Two delegates continue Hebei and SWFL; Shandong/ESPress five-four and BNU remain. Existing owner claims and integration dependencies are unchanged. The current worker still exposes no Chrisverse/Kanban/Obsidian native tools after repeated attachments; repository memory/board hold pending reconciliation and no external update is claimed.
+
+
+## Additional SWFL and Hebei legacy audits
+
+Six SWFL books add 2,410 occurrences across 52 units; all 132 retained source pages were viewed and matched in decoded RGB and native text. The book's delta marker refers to the 2011 standard's level-five list, distinct from national 2022/2025 stars. Literal source spellings `hocky` and `gallope` remain flagged research evidence. The grade-eight lower contents/index endpoint conflict remains unresolved. School structure and adoption remain unknown despite an upstream catalogue inference.
+
+Five Hebei books add 2,552 occurrences across 42 units: 1,850 primary vocabulary labels and 702 separately labelled structures/expressions. All 107 retained source pages were viewed and matched in decoded RGB/native text. Grade-seven lower required full visual transcription because its Latin appendix font decodes as control codes. Other primary-label sets were crosschecked against their alphabetical indexes; main `Niagara Falls` and index `Niagra Falls` remain a source conflict. All five cover ISBN checksums pass, while omitted imprint pages leave edition/printing dates unknown.
+
+These additions bring the current total to 40 legacy books and 16,031 occurrences across 400 literal groups. Alphabetical duplicates remain outside the main counts; lexical and expression list kinds remain distinct. Two delegates continue Shandong and ESPress five-four audits. BNU scans remain. No current-edition, local wordset, licensing or release claim follows.
