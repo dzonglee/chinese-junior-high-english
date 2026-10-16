@@ -13,7 +13,7 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | ID | Work | Status | Owner | Branch | Next action |
 | --- | --- | --- | --- | --- | --- |
 | APP-DELIVERY | Deliver usable local English app | done | codex-local | main | Local app and offline build delivered |
-| APP-LESSONS | Complete the local junior-high lesson course | claimed | codex-course | author/full-course | Author complete skill sequences and check every lesson; videos deferred |
+| APP-LESSONS | Complete the local junior-high lesson course | review | codex-course | author/full-course | 413 lessons checked; integrate original course; approved audio pending |
 | APP-NATIVE | Prepare native validation and publication | open | — | — | Claim for DevTools/device checks, real project setup and approved audio; videos later |
 
 ### Delivery checklist
@@ -22,11 +22,11 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | --- | --- |
 | Persistent memory and board instructions | Done |
 | Platform, content model and compiler | Done for local milestone |
-| Lessons, vocabulary and practice | Implemented; editorial review pending |
-| Listening, speaking and writing | Implemented; listening audio pending |
+| Lessons, vocabulary and practice | 413 original lessons; all-lesson checks pass; editorial approval pending |
+| Listening, speaking and writing | 29 themes across skills; 99 scripts await approved audio |
 | Exams, question builder and private questions | Implemented and tested |
 | Progress, mistakes and data controls | Implemented and tested |
-| Functional testing and visual review | Local browser checks pass; native validation later |
+| Functional testing and visual review | 511 tests; all figures rendered; native validation later |
 | Release preparation | Fingerprint fixed; native/project/owner review later |
 
 External Obsidian and Kanban updates are pending connection availability. Continue app work first.

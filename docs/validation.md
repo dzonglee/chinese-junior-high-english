@@ -6,17 +6,21 @@ behavior below; they do not establish native release or publication.
 | Check | Observed result |
 | --- | --- |
 | Locked setup script | Node 24; npm ci; Git LFS pull/fsck and register checks pass |
-| TypeScript and automated tests | 90 tests pass across core, storage, controller and release requirements |
+| TypeScript and automated tests | 511 tests pass, including every lesson’s immediate/delayed controller and persistence lifecycle |
 | Grammar assessment regressions | Seven source-only tests cover all 52 blanks and 38 corrections, explicit constraints, legitimate equivalents and invalid grammar |
 | Native recording cancellation | Four actual-native-source simulations pass for privacy/microphone cancellation, late start and normal recording |
-| Standalone local app | 1.64 MB; all 48 hash-checked packs and three original Blender assets embedded |
+| Standalone local app | 10.04 MB; all 245 hash-checked packs and three original Blender assets embedded |
 | Offline learner checks | Seven checks pass with networking disabled during practice; managed browser uses exact standalone document on loopback because file navigation is blocked |
 | Running development service | Real app document and learner workflow bundle served on port 4173 |
-| Content compiler/audit | 48 topics, 34 lessons, 368 original draft questions, 96 vocabulary entries |
+| Content compiler/audit | 245 topics, 413 lessons, 4,804 original draft tasks, 1,690 distinct headwords |
 | Blender artwork | Three original transparent assets rendered with Blender 4.3.2 |
 | Native adapter | Development subpackage and synthetic CloudBase API simulations pass |
 | Native package structure | 24 routes, handlers and WXML tag structure pass static checks |
-| Package budget | Approximately 772 KB main / 1,475 KB development total; below safety budgets |
+| Package budget | Approximately 1,641 KB main / 10,038 KB development total; below safety budgets |
+| Complete course coverage | 29 themes × four skills; 58 grammar objectives; eight pronunciation-knowledge units; no orphan tasks/words |
+| Expanded-course browser checks | Six pass; inventory, reading, oral self-review, phonetics, vocabulary and pending audio |
+| Complete figure layout | All 4,804 diagrams rendered at 320/390/768 widths with zero horizontal overflow |
+| Visual review | All 245 topic representatives and four real app states inspected; not approval of every task |
 | Chromium journeys | 11 complete journeys pass; zero browser page errors |
 | Small screens | Reviewed 320, 390 and 768 widths without horizontal overflow |
 | Editorial artifact | Search/skill filtering and answer/explanation expansion work without page errors |
@@ -60,5 +64,17 @@ Reproduce with the README commands. Current machine artifacts are `test-results/
 `test-results/release-guards.json`, `dist/package-budget.json`, `dist/release-readiness.json` and
 `dist/review/index.html`. Generated test artifacts are ignored; this document records what ran.
 The owner must supply and verify the remaining requirements in `release-checklist.md`. Content
-is still draft, the 96 words are not full national vocabulary coverage, and no research gate is
-marked complete.
+is still draft. The 1,690 original headwords are not an exact verified official list; publisher-unit
+alignment and research gates remain incomplete. All 99 scripts/31 listening lessons await approved
+audio. Written pronunciation knowledge does not verify pronunciation.
+
+## Complete-course review
+
+See [bounded course review](reviews/course-2026-10-17.md) for source-level corrections and visual
+review scope. The lifecycle tests detected and corrected shared-passage feedback leaking later
+review answers. Such reviews now store answers without exposing feedback or recording evidence
+until submission, including after reload. Subjective work advances its practice schedule but
+never becomes independent retention evidence. All 413 lesson lifecycles pass; listening playback
+is synthetic only in those tests, while actual pending-audio lessons are tested as unavailable.
+Contact-sheet captures use isolated pages and wait for fonts and two paint frames; the original capture artifacts were
+retaken. Restoration explanations now use complete paragraphs rather than midword truncation.

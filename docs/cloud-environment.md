@@ -33,6 +33,7 @@ npm ci --no-audit --no-fund --cache /tmp/cjhe-npm-cache
 npm run build:local
 npm run check
 npm run test:grammar
+npm run check:course
 npm run content:audit
 npm run check:package
 npm run test:native-adapter
@@ -83,3 +84,7 @@ Read managed-environment runtime/network policy before diagnosing access. Keep e
 network destinations and credential bindings when updating configuration. A saved draft is not
 an applied policy or published snapshot. A failed endpoint blocks only dependent operations;
 continue implementation and validation that can run independently.
+
+The full-course browser check is `npm run test:course-browser` (port 4182). It checks inventory
+and lessons, lays out every instructional figure at three widths and captures topic representatives.
+The current local catalog contains 413 lessons and 245 embedded hash-checked packs.

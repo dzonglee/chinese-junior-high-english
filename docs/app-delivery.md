@@ -10,6 +10,8 @@ artifacts before reporting any owner-only prerequisite.
 The owner requested a usable local version first on 2026-10-17 and deferred videos. The board
 tracks local delivery separately from future native validation/publication. The local app needs
 no production credentials or media decisions; see `docs/local-version.md` for use and evidence.
+APP-LESSONS adds the complete original local course: 413 lessons, 4,804 tasks and 1,690 distinct
+headwords, with full coverage and lifecycle checks. Approved audio remains pending for 99 scripts.
 The requirements below continue to define the complete eventual application.
 
 ## Product requirements

@@ -59,11 +59,14 @@ try {
   }
   expect(ids.size).toBe(catalog.questions.length); expect(representatives).toHaveLength(catalog.topics.length)
   for (const result of layouts) expect(result.rendered).toBe(catalog.questions.length)
-  await page.setViewportSize({ width: 1560, height: 1000 })
   for (let start = 0; start < representatives.length; start += 16) {
     const batch = representatives.slice(start, start + 16)
-    await page.setContent(`<html><head><meta charset="utf-8"><style>${style}body{font-size:12px}.sheet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:12px}.card{padding:12px;margin:0;border-radius:12px;min-width:0}h3{font-size:12px;overflow-wrap:anywhere}.diagram{padding:10px;gap:6px}.segment{padding:8px;overflow-wrap:anywhere}</style></head><body><div class="sheet">${batch.map(f => `<section class="card"><h3>${f.id}</h3>${f.html}</section>`).join('')}</div></body></html>`)
-    await page.screenshot({ path: resolve(out, `figures-${String(start / 16 + 1).padStart(2, '0')}.png`), fullPage: true })
+    // Isolate each sheet from the long review page's viewport/paint state.
+    const sheet = await browser.newPage({ viewport: { width: 1560, height: 1000 } })
+    await sheet.setContent(`<html><head><meta charset="utf-8"><style>${style}body{font-size:12px}.sheet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:12px}.card{padding:12px;margin:0;border-radius:12px;min-width:0}h3{font-size:12px;overflow-wrap:anywhere}.diagram{padding:10px;gap:6px}.segment{padding:8px;overflow-wrap:anywhere}</style></head><body><div class="sheet">${batch.map(f => `<section class="card"><h3>${f.id}</h3>${f.html}</section>`).join('')}</div></body></html>`)
+    await sheet.evaluate(async () => { await document.fonts.ready; await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))) })
+    await sheet.screenshot({ path: resolve(out, `figures-${String(start / 16 + 1).padStart(2, '0')}.png`), fullPage: true })
+    await sheet.close()
   }
   checks.push(`All ${catalog.questions.length} instructional visuals laid out at three widths; ${representatives.length} topic representatives captured`)
   expect(errors).toEqual([])

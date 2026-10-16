@@ -326,7 +326,7 @@ export class Application {
   private renderScreen(): Screen {
     const state = this.state, profile = state.profile, now = this.platform.now(), stats = learningStats(state, now)
     const screen: Screen = { id: this.page, title: SCREEN_TITLES[this.page] ?? '初中英语', back: !ROOT_SCREENS.includes(this.page) && this.page !== 'onboarding', busy: this.busy, error: this.error,
-      metrics: [], fields: [], cards: [], actions: [], tabs: ROOT_SCREENS.includes(this.page) ? [['home', '今日', '今'], ['learn', '同步学', '学'], ['practice', '练习', '练'], ['mistakes', '错题', '错'], ['profile', '我的', '我']].map(([id, label, character]) => ({ id, label, character, selected: id === this.page })) : [] }
+      metrics: [], fields: [], cards: [], actions: [], tabs: ROOT_SCREENS.includes(this.page) ? [['home', '今日', '今'], ['learn', '课程', '学'], ['practice', '练习', '练'], ['mistakes', '错题', '错'], ['profile', '我的', '我']].map(([id, label, character]) => ({ id, label, character, selected: id === this.page })) : [] }
     if (this.store.notices.length) screen.notice = this.store.notices[0]
     if (this.page === 'onboarding' || this.page === 'settings') return this.renderProfile(screen)
     if (this.page === 'privacy') {

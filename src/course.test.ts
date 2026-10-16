@@ -40,6 +40,13 @@ it('covers every required original-course domain without orphan topics, question
   const research = read('reference/source-register/curriculum/grammar-appendix.json').items
   expect(coverage.grammarObjectives.map((o: { id: string }) => o.id).sort()).toEqual(research.map((o: { id: string }) => o.id).sort())
   for (const objective of coverage.grammarObjectives) expect(objective.understandingOnly).toBe(research.find((r: { id: string }) => r.id === objective.id).plus_marked)
+  const restoration = read('content/reading-tasks.json').restoration
+  for (const [index, passage] of restoration.entries()) for (let gap = 1; gap <= 5; gap++) {
+    const q = source.questions.find(q => q.id === `q-r-restoration-${index + 1}-${gap}`)!
+    const paragraph = passage.text.split('\n').find((line: string) => line.includes(`[[${gap}]]`))
+    expect(q.explanation.visual.segments[0].text).toBe(paragraph.replace(/\[\[(\d+)\]\]/g, (_: string, number: string) => Number(number) === gap ? '〔本空〕' : `〔第 ${number} 空〕`))
+    expect(q.explanation.visual.segments[0].text).not.toMatch(/\[\[|\]\]/)
+  }
 })
 it('rejects a missing theme lesson, orphan question, missing word review and missing grammar anchor', () => {
   const theme = source.topics.find(t => t.course?.themeId === 't29' && t.skill === 'writing')!
