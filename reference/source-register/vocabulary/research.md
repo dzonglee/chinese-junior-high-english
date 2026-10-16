@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 210 annual city vocabulary cells remain unsearched, 64 have bounded not_found results and 6 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 60 legacy textbook appendices are registered. R-VOC remains incomplete: 185 annual city vocabulary cells remain unsearched, 89 have bounded not_found results and 6 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -167,3 +167,7 @@ Full delegate research, complete-query citation indexes, actual annual query key
 ## Suzhou bounded public-form search
 
 The actual education-homepage form supplies a working HTTPSPOSTroute. A genuine中考control returns13results. Both complete broad indexes(14wordlistresults across2pages,7English-vocabularyresults)and five annual result sets(8/8/8/3/5)were read, with tokenised/mixed-year limitations. Three actual candidate articles describe2026new-textbook classrooms, the ZhenhuaEEMEproject and2026teaching-aid publisher submission rules. None provides a raw headword appendix. Current publisher/ISBN/citywide adoption is unknown; four submission templates are not textbook or vocabulary sources. Five annual cells are boundednot_found, not universal absence. No licence or actual current book acquired.
+
+## Jiangsu provincial examination index: five remaining cities
+
+ActualNanjing/Wuxi/Changzhou/Nantong/Xuzhoucity-name controls and generic中考control return genuine records. Three complete short词汇表/英语词汇/词汇queries are explicitly empty. All25actual city/year vocabulary targets were issued and read; their combined terms are restrictive, so they do not independently prove absence. Optional spaced-query503failures remain in the ledger, distinct from successful empty targets. Five cities add25boundednot_foundcells for this provincial index only. Municipal archives, local papers, current publisher adoption and universal absence remain unverified; no lexical content acquired.
