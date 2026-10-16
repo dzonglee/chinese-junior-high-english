@@ -26,4 +26,12 @@ Henan's actual2026policy identifies2011standards for English while reflecting202
 
 ## Continue
 
+### Reproducible audit and access followup (2026-10-16)
+
+Run `node reference/source-register/vocabulary/check-audit.mjs` from the repository root, alongside the shared register checker. The unit audit checks pinned dataset and actual artifact bytes/SHA-256, rejects unresolved LFS pointers, reconciles national word sequences and source-page positions, verifies book occurrence/group counts and ISBN checksums, and checks the complete annual coverage grid and explicit applicability/reuse flags. It does not repeat the earlier visual audits, establish publisher authenticity, or make the unit complete.
+
+The PEP grade-seven upper ISBN caveat was corrected consistently in the source record, dataset and index after reopening the retained back cover: ISBN 978-7-107-24470-4 is visible on parent page 138. First-edition and printing details remain unknown. No lexical fields changed.
+
+GitHub fetch and LFS access work. The literal Nantong 2026 PDF and Zhengzhou-hosted Henan 2026 policy requests were denied at proxy CONNECT (403), before an origin response was obtained. This differs from the earlier source-level retrieval observations. Exact host additions were saved in the environment draft; publication is required to apply them. `local-discovery/access-followup-2026-10-16.json` records the diagnosis. No source or artifact was acquired, and all 280 annual cells remain unsearched. Retry those sources after network publication, then follow actual links with their city/year scope intact.
+
 Resume the existing `research/R-VOC` claim. First use working authorized discovery to collect actual city/provincial lists and complete genuine city×2022–2026 searches. Continue current2024books and other edition/five-four rawlists on this sameunit; preserve these completed legacy datasets. Do not recast blocked/irrelevant search controls as280searchedcells. R-INT remains behind allunitsdone, and Stage1/Gate1is notcomplete. All commercial reuse approvals remain false; no app content, contacts, accounts or agreements were created.
