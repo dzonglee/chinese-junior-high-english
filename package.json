@@ -1,8 +1,28 @@
 {
   "name": "chinese-junior-high-english",
+  "version": "0.1.0",
+  "description": "Textbook-aware junior-high English learning and exam practice for WeChat",
   "private": true,
   "type": "module",
   "scripts": {
-    "check:register": "node scripts/check-register.mjs"
+    "check:register": "node scripts/check-register.mjs",
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm test",
+    "content:audit": "node scripts/audit-content.mjs",
+    "test:journeys": "node scripts/test-journeys.mjs",
+    "art:blender": "blender --background --python scripts/blender/build-assets.py",
+    "dev": "node scripts/dev.mjs"
+  },
+  "dependencies": {
+    "@noble/hashes": "1.8.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "esbuild": "0.28.2",
+    "miniprogram-api-typings": "5.2.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.1"
   }
 }
