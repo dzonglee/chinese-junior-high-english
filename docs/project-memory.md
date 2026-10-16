@@ -51,7 +51,7 @@ discovering them through the actual tools, without storing credentials.
 - `docs/app-delivery.md`: application scope and completion evidence.
 - `docs/authoring/board.md`: current delivery card and preserved research ownership.
 - `docs/authoring/log.md`: detailed decisions and handoffs.
-- `research/R-VOC` at `0a79bba`: latest vocabulary research; not merged as a completed unit.
+- `research/R-VOC` at `f05f1e7`: latest vocabulary research; not merged as a completed unit.
 
 ## Keep these distinctions visible
 
@@ -76,41 +76,45 @@ An implemented app is not a published WeChat release.
 
 ## Research continuation (2026-10-16)
 
-R-VOC remains active under its existing claim. Latest published checkpoint: `research/R-VOC` at
-`0a79bba`, with102sources,285retained asset records (three shared curriculum records),55legacy
-books and20,914literal word/phrase occurrences across552groups. Counts include repetitions and
-phrases, not unique lemmas or prescribed local examination lists. No current2024book or raw local
-examination wordset has been acquired. Required register and hydrated vocabulary audits pass.
+R-VOC remains active under its existing claim. Latest published checkpoint: `research/R-VOC`
+at `f05f1e7`, with 123 sources, 434 retained asset records (three shared curriculum records),
+60 cached legacy books and 23,248 literal word/phrase/name occurrences across 592 groups.
+Counts include repetitions and phrases. They are not unique lemmas or prescribed local exam lists.
+Required register and hydrated vocabulary audits pass. No current 2024 book or actual raw local
+examination wordset was acquired; unacquired families still need separate discovery.
 
-ESPress8 adds2,138entries/90units/127reviewed pages. Grade7upper retains its unchanged full parent
-because subset selection changed identity-page colours. Shandong7 adds2,745rows/62units/170reviewed
-pages; five unchanged full parents are each retained once because selected extraction changed
-strict native trailing spaces or soft hyphens. Body pages outside reviewed maps remain unaudited.
-All15ISBNs were visually read and checksumvalid. Literal source/index spelling and reference
-conflicts remain visible. Per-entry IPA/gloss/typography/variants are uncurated. BNU5 scans are the
-last cached family under audit; missing imprint/ISBN evidence stays unknown. Unacquired edition
-families and current books still need separate discovery.
+The last cached family, BNU5, adds 2,334 occurrences across 40 groups. All 128 mapped pages
+were visually reviewed, including 16 picture-dictionary figures. Five selected PDFs match parent
+RGB pixels/native text; primary lists were manually transcribed. ISBN, imprint/printing and
+curriculum-basis fields remain unknown because those pages are absent. Places/names remain
+separate from unit rows; alphabetic-only items are not invented as unit vocabulary.
 
-Annual grid:29boundednot_found,2blocked,249genuinelyunsearched. Completed bounded searches cover
-Beijing, Zhengzhou, Guangzhou, Haikou, Changsha and Shenzhen2023–2026. The two blocks are actual
-Shanghai2026and Shenzhen2022targets; Shanghai's independent public search followup is in progress
-and may supersede its block. Controls/homepage failures never fill annual cells. Luoyang's ordinary
-queries return broad unrelated results and advanced controls returnzero; its cells remain
-unsearched pending useful independent evidence.
+Annual grid: 59 bounded not_found, 6 blocked, 215 genuinely unsearched. New bounded passes:
+Shanghai, Yantai, Qingdao, Jinan, Linyi and Shijiazhuang. Shanghai's independent public POST
+supersedes its earlier failed route. Wuhan's five actual city targets render a site-administrator
+block; independent provincial searches found no raw local list. Its linked policy explicitly
+preserves separate Wuhan setting, so provincial marks/minutes are not imported into Wuhan.
 
-Guangzhou guides explicitly apply2022standards to2024–2026cohorts; Beijing transitions from2025;
-Henan2026English retains2011basis. These scopes and national2025revision adoption remain separate.
-Guangzhou's offline Windows practiceRAR was statically opened, never run; zero media sets played.
-Haikou response projections omit unrelated public-case metadata, preserve original byte/SHA pins
-and disclose lossy query/pagination limits. The older2019syllabus is not applied to later years.
-Changsha's broad词汇表search was fully paginated through38tokenisedresults; a plausible中学word-chunk
-hit proved high-school-only and was excluded. Its actual2025reform describes oralEnglish as a
-separate20-markassessment converted toA/B/C/D, not simply20extraadmissionsmarks. No permissions
-were obtained, no content released, and other research claims/integration dependencies are intact.
+Northern query semantics and pagination limits are explicit. Qingdao's all-time filter and complete
+short indexes were checked; Linyi advanced AND syntax was validated against a positive control.
+Jinan forbids unauthorized reproduction/mirroring; original HTML is excluded. Shijiazhuang's
+restricted district reply and containing snippets are excluded, retaining only bibliographic
+metadata/rights warnings; it is not citywide adoption evidence. Luoyang's old API fails useful
+controls and its current public page has a JavaScript failure; no annual absence is inferred.
 
-Two existing delegates continue BNU scans and actual northern annual-source discovery. Root owns
-IDs, tracked edits and publication, and continues local/current-edition research. Native/deferred
-tool discovery after the repeated plugin attachments still exposes no Chrisverse/Kanban/Obsidian
-tools, no generic tool search and no callable native capabilities tool in this worker. No external
-write, credential/auth/network changes or duplicate board is claimed. Read and reconcile the
-existing English board/note when tools appear, using concise cards and linked detailed memory.
+ESPress/Shandong source conflicts and unchanged-parent requirements remain in the branch notes.
+Public access grants no commercial permission. Guangzhou's practice RAR was statically opened,
+never executed; zero media sets played. City curriculum versions remain distinct: Guangzhou
+2024–2026 uses 2022 standards, Beijing transitions from 2025, Henan2026English retains2011basis.
+No national2025revision adoption, local1600set or publisher adoption is assumed.
+
+Two existing delegates continue northern/southern actual city-year discovery; root owns IDs,
+tracked edits and publication, and continues east/central-west/current-edition research. Nothing
+is released, no incomplete unit is merged/done, and R-INT still depends on all R units done.
+
+The fresh native/deferred registry still exposes no Chrisverse, Kanban or Obsidian tools, no
+generic tool-search/reload capability and no callable
+`mcp__codex_apps__chrisverse_studio_mcp_capabilities`. External reconciliation is pending;
+no external write or duplicate record is claimed. Reuse the existing English project board/note
+when exposed. Keep cards short, one deliverable each, with evidence linked in memory. No
+credentials were printed and no auth/network configuration was changed.
