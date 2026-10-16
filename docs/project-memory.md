@@ -8,7 +8,17 @@
 - Keep the board clean, concise and easy to read, using plain English.
 - While the current session cannot access those MCP connections, continue app work first.
 
-## Active direction · complete all lessons, 2026-10-17
+## Active direction · interactive learning quality, 2026-10-17
+
+The owner challenged parity with maths. Course breadth and structural checks do not establish
+interactive teaching quality. Maths main 933ab32 includes predict/explore/spot/check lesson blocks
+and manipulable models; English still relies heavily on question/feedback lists. APP-INTERACTION
+will improve the experience with sentence experiments, reading evidence and visual scene tasks.
+AI-generated imagery is now explicitly allowed by the owner, superseding Blender-only guidance.
+Keep exact diagrams/labels in code, inspect assets, and keep all learning evidence honest.
+External MCP tools remain absent; repository records carry reconciliation without external writes.
+
+## Original course inventory · 2026-10-17
 
 APP-LESSONS is squash-integrated on main and completes the original local course: 413 draft lessons, 4,804 tasks, 1,690 distinct
 headwords and 245 packs. All 29 themes have reading/listening/speaking/writing lessons, 58 grammar

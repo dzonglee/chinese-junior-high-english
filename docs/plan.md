@@ -113,3 +113,13 @@ and delayed check; inventory filters expose the complete course. This completes 
 local lesson-authoring scope, with 99 scripts/31 listening lessons awaiting approved audio.
 Publisher-unit alignment, exact official wordset matching, research integration, editorial approval
 and native publication remain separate, unverified requirements. Videos remain deferred.
+
+## Interactive learning quality · owner direction, 2026-10-17
+
+Course inventory is complete, but lesson experience has not reached the maths app's interactive
+standard. APP-INTERACTION owns language experiments with changing conditions, reading evidence
+selection and visual scene tasks, shared browser/native rendering, honest learning evidence and
+an updated local artifact. Compare current maths interaction contracts before implementation.
+The owner explicitly permits AI-generated imagery, superseding the earlier Blender-only rule;
+keep factual labels and manipulable instructional objects deterministic and inspect every asset.
+Videos stay deferred. This upgrade does not confer textbook, audio or native-release approval.
