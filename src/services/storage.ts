@@ -30,20 +30,25 @@ export class StateStore {
   export(): string { return this.unreadable ?? JSON.stringify({ app: 'chinese-junior-high-english', exportedAt: Date.now(), state: { ...this.state, recordings: [] } }, null, 2) }
   import(text: string, now = Date.now()): void {
     const next = checkedState(text, this.catalog, now)
-    this.adapter.write(STORAGE_KEY, JSON.stringify(next)); this.state = next; this.unreadable = null
+    this.adapter.write(STORAGE_KEY, JSON.stringify(next)); this.state = next; this.unreadable = null; this.notices.length = 0
   }
   reset(now = Date.now()): void {
     const next = emptyState(now)
-    this.adapter.write(STORAGE_KEY, JSON.stringify(next)); this.state = next; this.unreadable = null
+    this.adapter.write(STORAGE_KEY, JSON.stringify(next)); this.state = next; this.unreadable = null; this.notices.length = 0
   }
 }
 
 function record(value: unknown): value is Record<string, unknown> { return !!value && typeof value === 'object' && !Array.isArray(value) }
 function safeMap(value: unknown): value is Record<string, unknown> { return record(value) && Object.keys(value).every((key) => /^[a-zA-Z0-9\-:]+$/.test(key) && !['constructor', 'prototype', '__proto__'].includes(key)) }
+const finite = (v: unknown): v is number => typeof v === 'number' && Number.isFinite(v) && v >= 0
+const count = (v: unknown): v is number => finite(v) && Number.isInteger(v)
+function validAttempt(a: unknown): boolean {
+  return record(a) && typeof a.id === 'string' && typeof a.questionId === 'string' && typeof a.topicId === 'string' && typeof a.sessionId === 'string' && typeof a.answer === 'string' && a.answer.length <= 5000 && ['vocabulary', 'grammar', 'reading', 'listening', 'writing', 'speaking'].includes(String(a.skill)) && ['independent', 'assisted', 'self_review'].includes(String(a.evidence)) && finite(a.at) && finite(a.score) && finite(a.maxScore) && a.maxScore > 0 && a.score <= a.maxScore && finite(a.seconds) && typeof a.correct === 'boolean' && typeof a.firstTry === 'boolean' && typeof a.delayed === 'boolean'
+}
 export function checkedProfile(value: unknown, catalog: ContentCatalog): LearnerProfile {
   if (!record(value) || !catalog.cities.some((c) => c.id === value.cityId) || !['63', '54'].includes(String(value.structure)) || typeof value.grade !== 'number' || ![6, 7, 8, 9].includes(value.grade) || (value.structure === '63' && value.grade === 6) || !['upper', 'lower'].includes(String(value.term)) || !catalog.editions.some((e) => e.id === value.editionId && e.structures.includes(value.structure as '63' | '54')) || typeof value.dailyMinutes !== 'number' || ![10, 15, 20, 30].includes(value.dailyMinutes) || !Number.isInteger(value.schoolYear) || Number(value.schoolYear) < 2020 || Number(value.schoolYear) > 2100 || typeof value.createdAt !== 'number' || !Number.isFinite(value.createdAt)) throw new Error('学习资料有误，请重新确认城市、年级和教材。')
   if (value.examDate !== undefined) {
-    if (typeof value.examDate !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value.examDate) || new Date(`${value.examDate}T00:00:00Z`).toISOString().slice(0, 10) !== value.examDate) throw new Error('请填写有效的考试日期。')
+    if (typeof value.examDate !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value.examDate) || !Number.isFinite(Date.parse(`${value.examDate}T00:00:00Z`)) || new Date(`${value.examDate}T00:00:00Z`).toISOString().slice(0, 10) !== value.examDate) throw new Error('请填写有效的考试日期。')
   }
   return { cityId: String(value.cityId), structure: value.structure as '63' | '54', grade: value.grade as 6 | 7 | 8 | 9, term: value.term as 'upper' | 'lower', editionId: String(value.editionId), dailyMinutes: value.dailyMinutes, schoolYear: Number(value.schoolYear), createdAt: value.createdAt, ...(value.examDate ? { examDate: String(value.examDate) } : {}) }
 }
@@ -61,13 +66,13 @@ export function checkedState(text: string, catalog: ContentCatalog, now: number,
   }
   if (!Array.isArray(data.attempts) || data.attempts.length > 3000 || !Array.isArray(data.privateQuestions) || data.privateQuestions.length > 200 || !Array.isArray(data.favorites) || !data.favorites.every((id) => typeof id === 'string' && id.length < 100)) throw new Error('备份记录超过支持范围。')
   for (const q of data.privateQuestions) { assertQuestion(q); if (!q.id.startsWith('private-') || !record(q) || q.private !== true) throw new Error('备份包含无效的私人题目。') }
-  for (const a of data.attempts) {
-    if (!record(a) || typeof a.id !== 'string' || typeof a.questionId !== 'string' || typeof a.topicId !== 'string' || !['independent', 'assisted', 'self_review'].includes(String(a.evidence)) || typeof a.at !== 'number' || typeof a.score !== 'number' || typeof a.maxScore !== 'number' || a.score < 0 || a.maxScore <= 0 || a.score > a.maxScore || typeof a.seconds !== 'number' || a.seconds < 0 || typeof a.firstTry !== 'boolean') throw new Error('备份中的作答记录有误。')
-  }
-  for (const m of Object.values(data.mistakes as Record<string, unknown>)) if (!record(m) || typeof m.questionId !== 'string' || typeof m.dueAt !== 'number' || typeof m.streak !== 'number' || typeof m.stage !== 'number' || !Array.isArray(m.history) || typeof m.cleared !== 'boolean') throw new Error('备份中的错题记录有误。')
-  for (const m of Object.values(data.mastery as Record<string, unknown>)) if (!record(m) || typeof m.score !== 'number' || m.score < 0 || m.score > 100 || typeof m.attempts !== 'number' || typeof m.lastAt !== 'number') throw new Error('备份中的学习记录有误。')
-  for (const w of Object.values(data.words as Record<string, unknown>)) if (!record(w) || typeof w.wordId !== 'string' || typeof w.dueAt !== 'number' || typeof w.lastAt !== 'number' || typeof w.stage !== 'number' || typeof w.independentCorrect !== 'number') throw new Error('备份中的单词记录有误。')
-  for (const d of Object.values(data.writing as Record<string, unknown>)) if (!record(d) || typeof d.text !== 'string' || d.text.length > 5000 || typeof d.questionId !== 'string' || !Array.isArray(d.checkedRubricIds)) throw new Error('备份中的写作记录有误。')
+  for (const a of data.attempts) if (!validAttempt(a)) throw new Error('备份中的作答记录有误。')
+  for (const m of Object.values(data.mistakes as Record<string, unknown>)) if (!record(m) || typeof m.questionId !== 'string' || !finite(m.dueAt) || !finite(m.addedAt) || !count(m.streak) || !count(m.stage) || m.stage > 5 || !['unclassified', 'vocabulary', 'grammar', 'evidence', 'misread', 'expression', 'careless'].includes(String(m.reason)) || !Array.isArray(m.history) || m.history.length > 60 || !m.history.every(h => record(h) && finite(h.at) && typeof h.correct === 'boolean' && typeof h.scheduled === 'boolean') || typeof m.cleared !== 'boolean') throw new Error('备份中的错题记录有误。')
+  for (const m of Object.values(data.mastery as Record<string, unknown>)) if (!record(m) || typeof m.topicId !== 'string' || !finite(m.score) || m.score > 100 || !count(m.attempts) || !finite(m.lastAt) || (m.retainedAt !== undefined && !finite(m.retainedAt))) throw new Error('备份中的学习记录有误。')
+  for (const w of Object.values(data.words as Record<string, unknown>)) if (!record(w) || typeof w.wordId !== 'string' || !finite(w.dueAt) || !finite(w.lastAt) || !count(w.stage) || w.stage > 6 || !count(w.independentCorrect) || !count(w.lapses)) throw new Error('备份中的单词记录有误。')
+  for (const at of Object.values(data.lessonDoneAt as Record<string, unknown>)) if (!finite(at)) throw new Error('备份中的课程记录有误。')
+  for (const stages of Object.values(data.lessonReviews as Record<string, unknown>)) if (!Array.isArray(stages) || !stages.every(s => s === 0 || s === 1)) throw new Error('备份中的复习记录有误。')
+  for (const d of Object.values(data.writing as Record<string, unknown>)) if (!record(d) || typeof d.text !== 'string' || d.text.length > 5000 || typeof d.questionId !== 'string' || !finite(d.updatedAt) || !Array.isArray(d.checkedRubricIds) || !d.checkedRubricIds.every(id => typeof id === 'string')) throw new Error('备份中的写作记录有误。')
   const sessions = checkedSessions(data.sessions)
   const recordings = local && Array.isArray(data.recordings) ? data.recordings.filter((r) => record(r) && typeof r.id === 'string' && typeof r.path === 'string' && typeof r.questionId === 'string' && typeof r.createdAt === 'number' && typeof r.durationMs === 'number') as LearnerState['recordings'] : []
   // Only same-device restoration may retain file paths and the active session.
@@ -78,7 +83,9 @@ function checkedSessions(value: unknown): LearnerState['sessions'] {
   if (!safeMap(value)) return {}
   const result: LearnerState['sessions'] = {}
   for (const [id, s] of Object.entries(value).slice(-40)) {
-    if (!record(s) || s.id !== id || !Array.isArray(s.questionIds) || !s.questionIds.every((q) => typeof q === 'string') || s.questionIds.length > 100 || !safeMap(s.answers) || typeof s.startedAt !== 'number' || typeof s.current !== 'number' || !['lesson', 'practice', 'mistakes', 'review', 'exam'].includes(String(s.mode))) throw new Error('备份中的练习记录有误。')
+    if (!record(s) || s.id !== id || !Array.isArray(s.questionIds) || !s.questionIds.length || !s.questionIds.every((q) => typeof q === 'string') || new Set(s.questionIds).size !== s.questionIds.length || s.questionIds.length > 100 || !safeMap(s.answers) || !finite(s.startedAt) || !count(s.current) || s.current >= s.questionIds.length || !finite(s.seed) || !['lesson', 'practice', 'mistakes', 'review', 'exam'].includes(String(s.mode)) || (s.deadlineAt !== undefined && (!finite(s.deadlineAt) || s.deadlineAt < s.startedAt)) || (s.submittedAt !== undefined && !finite(s.submittedAt))) throw new Error('备份中的练习记录有误。')
+    for (const [qid, a] of Object.entries(s.answers)) if (!s.questionIds.includes(qid) || !record(a) || typeof a.answer !== 'string' || a.answer.length > 5000 || !count(a.hints) || !count(a.attempts) || typeof a.checked !== 'boolean' || (a.audioPlayed !== undefined && typeof a.audioPlayed !== 'boolean') || (a.result !== undefined && !validAttempt(a.result)) || (a.checked && !a.result)) throw new Error('备份中的答案记录有误。')
+    if (s.examMarks !== undefined && (!safeMap(s.examMarks) || !Object.entries(s.examMarks).every(([qid, marks]) => (s.questionIds as string[]).includes(qid) && finite(marks) && marks > 0))) throw new Error('备份中的分值记录有误。')
     result[id] = s as unknown as LearnerState['sessions'][string]
   }
   return result

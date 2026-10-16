@@ -29,7 +29,8 @@ export function selectQuestions(catalog: ContentCatalog, state: LearnerState, fi
     (!filter.skills?.length || filter.skills.includes(q.skill)) &&
     (!filter.kinds?.length || filter.kinds.includes(q.kind)) &&
     (!filter.difficulties?.length || filter.difficulties.includes(q.difficulty)) && playable(q, catalog))
-  const count = Math.max(1, Math.min(100, Math.floor(filter.count)))
+  if (!Number.isInteger(filter.count) || filter.count < 1 || filter.count > 100) throw new Error('题量请填写 1—100 之间的整数。')
+  const count = filter.count
   if (pool.length < count) throw new Error(`当前条件下有 ${pool.length} 道题，请减少题量或放宽条件。`)
   return shuffled(pool, seed).slice(0, count)
 }
@@ -76,8 +77,14 @@ export function saveAnswer(state: LearnerState, answer: string, now: number): Le
   if (session.deadlineAt && now >= session.deadlineAt) throw new Error('时间到了，请交卷查看结果。')
   const id = session.questionIds[session.current], previous = session.answers[id]
   if (previous?.checked) throw new Error('请先进入下一题，再继续作答。')
-  const record = { answer: answer.slice(0, 5000), hints: previous?.hints ?? 0, attempts: previous?.attempts ?? 0, checked: false }
+  const record = { answer: answer.slice(0, 5000), hints: previous?.hints ?? 0, attempts: previous?.attempts ?? 0, audioPlayed: previous?.audioPlayed, checked: false }
   return replaceSession(state, { ...session, answers: { ...session.answers, [id]: record } }, now)
+}
+export function markAudioPlayed(state: LearnerState, questionId: string, now: number): LearnerState {
+  const session = active(state)
+  if (session.submittedAt || (session.deadlineAt && now >= session.deadlineAt) || session.questionIds[session.current] !== questionId) return state
+  const previous = session.answers[questionId] ?? { answer: '', hints: 0, attempts: 0, checked: false }
+  return replaceSession(state, { ...session, answers: { ...session.answers, [questionId]: { ...previous, audioPlayed: true } } }, now)
 }
 export function useHint(state: LearnerState, now: number): LearnerState {
   const session = active(state)
@@ -92,7 +99,7 @@ function makeAttempt(state: LearnerState, session: LearningSession, q: Question,
   const firstTry = (prior?.attempts ?? 0) === 0
   const previousIndependent = [...state.attempts].reverse().find((a) => a.questionId === q.id && a.evidence === 'independent')
   const repeatsImmediately = previousIndependent && now - previousIndependent.at < DAY
-  const evidence: Evidence = selfReview ? 'self_review' : firstTry && !(prior?.hints) && !repeatsImmediately ? 'independent' : 'assisted'
+  const evidence: Evidence = selfReview ? 'self_review' : !!answer.trim() && answer.trim() !== '[]' && (q.skill !== 'listening' || prior?.audioPlayed) && firstTry && !(prior?.hints) && !repeatsImmediately ? 'independent' : 'assisted'
   const maxScore = session.examMarks?.[q.id] ?? q.marks
   const rawSelfScore = selfReviewScore(q.rubric ?? [], selfSelected ?? [])
   const rubricMax = (q.rubric ?? []).reduce((sum, p) => sum + p.marks, 0)
@@ -112,6 +119,7 @@ export function checkCurrent(state: LearnerState, catalog: ContentCatalog, now: 
   if (session.submittedAt) throw new Error('这次练习已经结束。')
   const id = session.questionIds[session.current], q = questionById(catalog, state, id), record = session.answers[id]
   if (!q || !record?.answer.trim()) throw new Error('先写下你的答案。')
+  if (q.skill === 'listening' && !record.audioPlayed) throw new Error('先播放音频，再检查自己的答案。')
   if (record.checked) return state
   const attempt = makeAttempt(state, session, q, record.answer, now, rubric)
   let next = recordAttempt(state, attempt, q.difficulty)
@@ -123,7 +131,7 @@ export function checkCurrent(state: LearnerState, catalog: ContentCatalog, now: 
 export function retryCurrent(state: LearnerState, now: number): LearnerState {
   const session = active(state), id = session.questionIds[session.current], record = session.answers[id]
   if (session.mode === 'exam' || session.submittedAt || !record?.checked) return state
-  return replaceSession(state, { ...session, answers: { ...session.answers, [id]: { answer: '', attempts: record.attempts, hints: record.hints + 1, checked: false } } }, now)
+  return replaceSession(state, { ...session, answers: { ...session.answers, [id]: { answer: '', attempts: record.attempts, hints: record.hints + 1, audioPlayed: record.audioPlayed, checked: false } } }, now)
 }
 
 /** Subjective answers are reviewed after an exam; their scores stay explicitly self-marked. */

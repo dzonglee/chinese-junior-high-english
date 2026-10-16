@@ -78,3 +78,19 @@ describe('content packs', () => {
     await expect(repo.ensureTopics([q.topicId])).rejects.toThrow('不完整')
   })
 })
+
+describe('backup integrity', () => {
+  it('rejects malformed delayed-review arrays without replacing the learner state', () => {
+    const bad = { ...state(), lessonReviews: { 'l-be': 'complete' } }
+    expect(() => checkedState(JSON.stringify(bad), catalog(), NOW)).toThrow('复习记录')
+  })
+  it('rejects malformed answers and out-of-range question navigation', () => {
+    const session = { id: 'session-one', mode: 'practice', questionIds: [q.id], startedAt: NOW, current: 4, answers: {}, seed: 1 }
+    expect(() => checkedState(JSON.stringify({ ...state(), sessions: { 'session-one': session } }), catalog(), NOW)).toThrow('练习记录')
+    session.current = 0; session.answers = { [q.id]: { answer: 123, checked: true } }
+    expect(() => checkedState(JSON.stringify({ ...state(), sessions: { 'session-one': session } }), catalog(), NOW)).toThrow('答案记录')
+  })
+  it('rejects invalid dates without leaking a JavaScript date error', () => {
+    expect(() => checkedProfile({ ...state().profile, examDate: '2027-99-99' }, catalog())).toThrow('有效的考试日期')
+  })
+})

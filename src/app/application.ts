@@ -1,8 +1,8 @@
 import { answerText, normalizedAnswer, wordCount } from '../core/answers'
 import { bookLabel, chinaDate, currentSchoolYear, currentTerm, daysToConfirmedExam, examYear, gradesFor, localGradeLabel } from '../core/cohort'
-import { DAY, ERROR_REASONS, masteryLabel, reviewWord } from '../core/learning'
+import { DAY, ERROR_REASONS, masteryLabel, recordAttempt, reviewWord } from '../core/learning'
 import { dailyPlan, learningStats, nextLesson, orderedTopics } from '../core/planner'
-import { checkCurrent, makeId, moveQuestion, questionById, retryCurrent, reviewSubmittedAnswer, saveAnswer, selectQuestions, startExam, startLesson, startSession, submitSession, useHint } from '../core/sessions'
+import { checkCurrent, makeId, markAudioPlayed, moveQuestion, questionById, retryCurrent, reviewSubmittedAnswer, saveAnswer, selectQuestions, startExam, startLesson, startSession, submitSession, useHint, playable } from '../core/sessions'
 import { assertQuestion } from '../core/validation'
 import type { LearnerState, Question, QuestionFilter, Skill } from '../core/types'
 import { ContentRepository } from '../services/content'
@@ -41,7 +41,9 @@ export class Application {
   private wordFeedback = ''
   private wordCorrect: boolean | null = null
   private recording = false
-  constructor(readonly content: ContentRepository, readonly store: StateStore, readonly platform: Platform) {}
+  private recordingStarted = 0
+  constructor(readonly content: ContentRepository, readonly store: StateStore, readonly platform: Platform) { this.syncSpelling() }
+  private syncSpelling() { this.content.setSpelling(this.catalog.editions.find(e => e.id === this.state.profile?.editionId)?.spelling ?? 'british') }
   get state() { return this.store.get() }
   get catalog() { return this.content.catalog }
   subscribe(listener: () => void): () => void { this.listeners.add(listener); return () => this.listeners.delete(listener) }
@@ -60,9 +62,9 @@ export class Application {
     this.form[name] = value
     if (name === 'structure') {
       const structure = value === '54' ? '54' : '63'
-      if (!gradesFor(structure).includes(Number(this.form.grade) as 6 | 7 | 8 | 9)) this.form.grade = String(gradesFor(structure)[0])
+      if (!gradesFor(structure).includes(Number(this.form.grade) as 6 | 7 | 8 | 9)) this.form.grade = ''
       const editions = this.catalog.editions.filter((e) => e.structures.includes(structure))
-      if (!editions.some((e) => e.id === this.form.editionId)) this.form.editionId = editions[0]?.id ?? ''
+      if (!editions.some((e) => e.id === this.form.editionId)) this.form.editionId = ''
       this.emit()
     }
     if (['skill', 'kind', 'difficulty', 'grade', 'editionId'].includes(name)) this.emit()
@@ -77,8 +79,12 @@ export class Application {
   private restoreAnswer() { const s = this.currentSession(); this.form.answer = s ? s.answers[s.questionIds[s.current]]?.answer ?? '' : ''; this.form.rubric = s ? this.state.writing[s.questionIds[s.current]]?.checkedRubricIds.join(',') ?? '' : '' }
   private async begin(ids: string[], mode: 'practice' | 'mistakes' | 'exam', timed?: number) {
     await this.content.ensureQuestions(ids)
+    if (ids.some(id => !questionById(this.catalog, this.state, id))) throw new Error('这道题已不在当前题库，请重新选题。')
     const now = this.platform.now(), started = startSession(this.state, ids, mode, now, timed ? { deadlineAt: now + timed * 60_000 } : {})
-    this.persist(started.state); this.go('session')
+    let next = started.state
+    const first = questionById(this.catalog, next, ids[0]), draft = this.state.writing[ids[0]]
+    if (first && ['writing', 'speaking'].includes(first.kind) && draft && mode !== 'exam') next = saveAnswer(next, draft.text, now)
+    this.persist(next); this.go('session')
   }
   async action(id: string, value = ''): Promise<void> {
     if (this.busy) return
@@ -90,11 +96,12 @@ export class Application {
   }
   private async perform(id: string, value: string): Promise<void> {
     const now = this.platform.now()
+    if (this.recording && (['navigate', 'back', 'jump', 'next', 'submit'].includes(id) || id.startsWith('start-'))) await this.perform('record-stop', '')
     if (id === 'navigate') { this.flush(); const [page, skill] = value.split(':'); this.go(page, skill ? { skill } : undefined); return }
     if (id === 'back') { this.flush(); this.platform.back(); return }
     if (id === 'save-profile') {
       const p = checkedProfile({ ...this.form, grade: Number(this.form.grade), dailyMinutes: Number(this.form.dailyMinutes), schoolYear: Number(this.form.schoolYear), ...(this.form.examDate ? { examDate: this.form.examDate } : { examDate: undefined }), createdAt: this.state.profile?.createdAt ?? now }, this.catalog)
-      this.persist({ ...this.state, profile: p, updatedAt: now }); this.go('home', undefined, true); return
+      this.persist({ ...this.state, profile: p, updatedAt: now }); this.syncSpelling(); this.go('home', undefined, true); return
     }
     if (id === 'start-lesson' || id === 'start-review') {
       const [lessonId, stage] = value.split(':')
@@ -109,6 +116,7 @@ export class Application {
       await this.begin(chosen.map((q) => q.id), 'practice'); return
     }
     if (id === 'resume') { const s = this.currentSession(); if (s) await this.content.ensureQuestions(s.questionIds); this.go('session'); return }
+    if (id === 'open-session') { const s = this.state.sessions[value]; if (!s) throw new Error('这次练习的详细记录已不在本机。'); await this.content.ensureQuestions(s.questionIds); this.persist({ ...this.state, activeSessionId: s.id }); this.go(s.submittedAt ? 'result' : 'session'); return }
     if (id === 'start-mistakes') {
       const all = Object.values(this.state.mistakes).filter((m) => !m.cleared).sort((a, b) => a.dueAt - b.dueAt)
       const ids = value ? [value] : all.filter((m) => m.dueAt <= now).slice(0, 10).map((m) => m.questionId)
@@ -135,7 +143,7 @@ export class Application {
       this.form.answer = JSON.stringify(order); this.flush(); return
     }
     if (id === 'hint') { this.flush(); this.persist(useHint(this.state, now)); return }
-    if (id === 'toggle-rubric') { const ids = new Set((this.form.rubric ?? '').split(',').filter(Boolean)); ids.has(value) ? ids.delete(value) : ids.add(value); this.form.rubric = [...ids].join(','); return }
+    if (id === 'toggle-rubric') { const ids = new Set((this.form.rubric ?? '').split(',').filter(Boolean)); ids.has(value) ? ids.delete(value) : ids.add(value); this.form.rubric = [...ids].join(','); this.flush(); return }
     if (id === 'check') {
       this.flush(); this.persist(checkCurrent(this.state, this.catalog, now, (this.form.rubric ?? '').split(',').filter(Boolean))); return
     }
@@ -172,19 +180,22 @@ export class Application {
       if (!(this.form.wordAnswer ?? '').trim()) throw new Error('先试着拼写这个单词。')
       const sensitive = /^[A-Z]/.test(word.word)
       const correct = [word.word, ...word.acceptedSpellings].some((answer) => normalizedAnswer(answer, sensitive) === normalizedAnswer(this.form.wordAnswer, sensitive))
-      this.persist({ ...this.state, words: { ...this.state.words, [word.id]: reviewWord(this.state.words[word.id], word.id, correct, !this.wordRevealed, now) }, updatedAt: now })
+      const previous = this.state.words[word.id], independent = !this.wordRevealed && (!previous || now >= previous.dueAt)
+      const withAttempt = recordAttempt(this.state, { id: makeId('attempt', now), questionId: `q-${word.topicId}-${word.id.slice(5)}`, topicId: word.topicId, skill: 'vocabulary', answer: this.form.wordAnswer, correct, score: correct ? 1 : 0, maxScore: 1, evidence: independent ? 'independent' : 'assisted', firstTry: true, delayed: independent && !!previous && now - previous.lastAt >= 2 * DAY, at: now, seconds: 0, sessionId: `words-${chinaDate(now).key}` }, 1)
+      this.persist({ ...withAttempt, words: { ...this.state.words, [word.id]: reviewWord(previous, word.id, correct, independent, now) }, updatedAt: now })
       this.wordCorrect = correct; this.wordFeedback = correct ? this.wordRevealed ? '看过答案后写对了。下一次再独立检查。' : '拼写正确，下次按计划再复习。' : '再看一遍正确拼写，留意容易漏掉的字母。'; this.wordRevealed = true; return
     }
     if (id === 'play-current') { const s = this.currentSession(); const q = s && questionById(this.catalog, this.state, s.questionIds[s.current]); if (q?.mediaId) await this.perform('play', q.mediaId); return }
     if (id === 'play') {
       const media = this.catalog.media.find((m) => m.id === value && m.approvedByOwner)
       if (!media) throw new Error('这段音频还没准备好。')
-      await this.platform.play(media.path); return
+      await this.platform.play(media.path); const s = this.currentSession(); const qid = s?.questionIds[s.current]; if (s && qid && questionById(this.catalog, this.state, qid)?.mediaId === value) this.persist(markAudioPlayed(this.state, qid, this.platform.now())); return
     }
     if (id === 'play-recording') { const recording = this.state.recordings.find((r) => r.id === value); if (recording) await this.platform.play(recording.path); return }
-    if (id === 'record-start') { await this.platform.startRecording(); this.recording = true; return }
+    if (id === 'record-start') { await this.platform.startRecording(); this.recording = true; this.recordingStarted = now; return }
     if (id === 'record-stop') {
-      const result = await this.platform.stopRecording(); this.recording = false
+      let result: { path: string; durationMs: number }
+      try { result = await this.platform.stopRecording() } finally { this.recording = false }
       const s = this.currentSession(); if (!s) return
       this.persist({ ...this.state, recordings: [...this.state.recordings, { ...result, id: makeId('recording', now), questionId: s.questionIds[s.current], createdAt: now }], updatedAt: now })
       if (!this.form.answer?.trim()) this.form.answer = '已录音，请回听后对照要点自查。'
@@ -201,7 +212,7 @@ export class Application {
       }; return
     }
     if (id === 'export') { await this.platform.exportText(this.store.export()); return }
-    if (id === 'import') { const text = await this.platform.importText(); if (text && await this.platform.confirm('导入学习备份？', '这会替换本机现有学习记录，请先导出当前备份。')) { this.store.import(text, now); this.go('home', undefined, true) }; return }
+    if (id === 'import') { const text = await this.platform.importText(); if (text && await this.platform.confirm('导入学习备份？', '这会替换本机现有学习记录，请先导出当前备份。')) { this.store.import(text, now); this.syncSpelling(); this.go('home', undefined, true) }; return }
     if (id === 'delete-data') {
       if (await this.platform.confirm('删除本机学习记录？', '学习资料、错题、写作草稿、私人题目和录音都会删除。此操作无法撤销，请先导出备份。')) {
         await this.platform.removeRecordings(this.state.recordings.map((r) => r.path)); this.store.reset(now); this.go('onboarding', undefined, true)
@@ -241,14 +252,16 @@ export class Application {
   }
   async tick() {
     const s = this.currentSession()
+    if (this.recording && this.platform.now() - this.recordingStarted >= 59000 && !this.busy) await this.action('record-stop')
     if (s?.deadlineAt && !s.submittedAt && this.platform.now() >= s.deadlineAt && !this.busy) {
       this.busy = true
       try { await this.content.ensureQuestions(s.questionIds); this.persist(submitSession(this.state, this.catalog, this.platform.now())); if (this.page === 'session') this.go('result', undefined, true) }
       catch (e) { this.error = e instanceof Error ? e.message : '交卷暂未完成，请重试。' }
       finally { this.busy = false }
     }
-    if (this.page === 'session') this.emit()
+    if (this.page === 'session' && (s?.deadlineAt || this.recording)) this.emit()
   }
+  async suspend() { if (this.recording) await this.action('record-stop'); this.flush() }
   render(): Screen { return this.renderScreen() }
   private renderScreen(): Screen {
     const state = this.state, profile = state.profile, now = this.platform.now(), stats = learningStats(state, now)
@@ -277,12 +290,12 @@ export class Application {
     if (this.page === 'learn') {
       const ordered = orderedTopics(this.catalog, state)
       screen.notice = ordered.notice
-      screen.cards = ordered.topics.flatMap((topic) => this.catalog.lessons.filter((l) => l.topicId === topic.id && l.grades.includes(profile.grade)).map((lesson) => ({ id: lesson.id, title: lesson.title, text: lesson.objective, label: `${SKILL_LABEL[topic.skill]} · ${lesson.estimatedMinutes} 分钟`, tag: state.lessonDoneAt[lesson.id] ? '已学 · 还要延时复习' : '可以开始', character: SKILL_CHARACTER[topic.skill], progress: state.mastery[topic.id]?.score ?? 0, actions: [{ id: 'start-lesson', value: lesson.id, label: state.lessonDoneAt[lesson.id] ? '再练一遍' : '开始学习', tone: 'secondary' as const }] })))
+      screen.cards = ordered.topics.flatMap((topic) => this.catalog.lessons.filter((l) => l.topicId === topic.id && l.grades.includes(profile.grade)).map((lesson) => ({ id: lesson.id, title: lesson.title, text: lesson.objective, label: `${SKILL_LABEL[topic.skill]} · ${lesson.estimatedMinutes} 分钟`, tag: state.lessonDoneAt[lesson.id] ? '已学 · 还要延时复习' : '可以开始', character: SKILL_CHARACTER[topic.skill], progress: state.mastery[topic.id]?.score ?? 0, actions: [{ id: 'start-lesson', value: lesson.id, label: topic.skill === 'listening' && !(this.catalog.questionIndex ?? this.catalog.questions).some(q => q.topicId === topic.id && playable(q, this.catalog)) ? '音频准备中' : state.lessonDoneAt[lesson.id] ? '再练一遍' : '开始学习', disabled: topic.skill === 'listening' && !(this.catalog.questionIndex ?? this.catalog.questions).some(q => q.topicId === topic.id && playable(q, this.catalog)), tone: 'secondary' as const }] })))
       return screen
     }
     if (this.page === 'practice') {
       screen.hero = { eyebrow: '今天想练哪一项', title: '有目标地练，才知道哪里进步了', text: '按能力选题，错了就看线索和理由，再做一次。', art: 'cards', tone: 'teal', actions: [{ id: 'navigate', value: 'builder', label: '自由组题', tone: 'primary' }] }
-      screen.cards = (Object.keys(SKILL_LABEL) as Skill[]).map((skill) => ({ id: skill, title: SKILL_LABEL[skill], text: { vocabulary: '用拼写和例句检验记忆。', grammar: '从主语、时间和结构里找依据。', reading: '回到原文，说明答案从哪里来。', listening: '先听任务，再抓关键信息。', speaking: '录下来回听，逐项自查表达。', writing: '先组织要点，再检查句子和衔接。' }[skill], character: SKILL_CHARACTER[skill], actions: [{ id: 'navigate', value: skill === 'vocabulary' ? 'vocabulary' : skill === 'writing' ? 'writing' : skill === 'speaking' ? 'speaking' : `builder:${skill}`, label: '去练习', tone: 'secondary' }] }))
+      screen.cards = (Object.keys(SKILL_LABEL) as Skill[]).map((skill) => ({ id: skill, title: SKILL_LABEL[skill], text: { vocabulary: '用拼写和例句检验记忆。', grammar: '从主语、时间和结构里找依据。', reading: '回到原文，说明答案从哪里来。', listening: '先听任务，再抓关键信息。', speaking: '录下来回听，逐项自查表达。', writing: '先组织要点，再检查句子和衔接。' }[skill], character: SKILL_CHARACTER[skill], actions: [{ id: 'navigate', value: skill === 'vocabulary' ? 'vocabulary' : skill === 'writing' ? 'writing' : skill === 'speaking' ? 'speaking' : skill === 'listening' ? 'listening' : `builder:${skill}`, label: '去练习', tone: 'secondary' }] }))
       screen.cards.push({ id: 'timed', title: '自主限时练', text: '自己选题量和时间。只有核实完整的本地结构，才会标为本地模考。', actions: [{ id: 'navigate', value: 'exam', label: '安排限时练', tone: 'secondary' }] }); return screen
     }
     if (this.page === 'vocabulary') {
@@ -309,9 +322,14 @@ export class Application {
       screen.metrics = [{ label: '独立作答', value: `${stats.independent} 题` }, { label: '首次独立正确', value: stats.independent ? `${stats.accuracy}%` : '还没开始' }, { label: '延时复习通过', value: `${stats.retainedTopics} 项` }, { label: '写作与口语自评', value: `${stats.selfReviews} 次` }]
       screen.week = stats.week
       screen.notice = '完成一课不等于掌握。独立作答、提示后练习和自评记录分开统计。'
-      if (this.page === 'profile') screen.cards = [['report', '学习报告', '看看哪些能力需要再练。'], ['exam-info', '我的中考', '核对本地试卷和届别，不套用邻市信息。'], ['private', '我的题目', '只存在本机，不进入公共题库。'], ['recordings', '我的录音', '回听自己的表达，自查后再练。'], ['settings', '学习与数据设置', `${edition?.name ?? ''} · ${edition?.version ?? ''}`], ['privacy', '隐私与数据', '了解保存、导出和删除方式。']].map(([id, title, text]) => ({ id, title, text, actions: [{ id: 'navigate', value: id, label: '查看', tone: 'quiet' }] }))
+      if (this.page === 'profile') screen.cards = [['history', '练习记录', '继续未完成练习，回顾本次结果。'], ['favorites', '我的收藏', '把值得再想一次的题留在手边。'], ['sources', '资料与核验', '了解原创内容和待核实项目。'], ['report', '学习报告', '看看哪些能力需要再练。'], ['exam-info', '我的中考', '核对本地试卷和届别，不套用邻市信息。'], ['private', '我的题目', '只存在本机，不进入公共题库。'], ['recordings', '我的录音', '回听自己的表达，自查后再练。'], ['settings', '学习与数据设置', `${edition?.name ?? ''} · ${edition?.version ?? ''}`], ['privacy', '隐私与数据', '了解保存、导出和删除方式。']].map(([id, title, text]) => ({ id, title, text, actions: [{ id: 'navigate', value: id, label: '查看', tone: 'quiet' }] }))
       else screen.cards = this.catalog.topics.filter((t) => state.mastery[t.id]?.attempts).map((t) => ({ id: t.id, title: t.title, text: `${state.mastery[t.id].attempts} 次独立作答`, tag: masteryLabel(state.mastery[t.id], now), progress: state.mastery[t.id].score, actions: [{ id: 'start-topic', value: t.id, label: '再练一组', tone: 'secondary' }] }))
       return screen
+    }
+    if (this.page === 'listening') {
+      const available = (this.catalog.questionIndex ?? this.catalog.questions).filter(q => q.skill === 'listening' && q.grades.includes(profile.grade))
+      screen.notice = available.some(q => playable(q, this.catalog)) ? '先听再答，检查后才显示原文与线索。' : '原创听力任务已准备，配套音频还在制作。音频就绪后可直接开始；现在可以先练阅读或口语。'
+      screen.cards = available.map(q => ({ id: q.id, title: this.catalog.topics.find(t => t.id === q.topicId)?.title ?? '听力练习', text: '先读问题，带着目标听。', tag: playable(q, this.catalog) ? '音频已就绪' : '音频准备中', actions: [{ id: 'start-question', value: q.id, label: '听一听，选一选', tone: 'secondary', disabled: !playable(q, this.catalog) }] })); return screen
     }
     if (this.page === 'writing' || this.page === 'speaking') {
       const skill = this.page
@@ -325,6 +343,8 @@ export class Application {
       return screen
     }
     if (this.page === 'private') { screen.cards = state.privateQuestions.map((q) => ({ id: q.id, title: q.stem, text: `${SKILL_LABEL[q.skill]} · 仅本机可见`, actions: [{ id: 'start-private', value: q.id, label: '练这道题', tone: 'secondary' }, { id: 'edit-private', value: q.id, label: '编辑', tone: 'quiet' }] })); screen.actions = [{ id: 'edit-private', label: '添加我的题目', tone: 'primary' }]; return screen }
+    if (this.page === 'history') { screen.cards = Object.values(state.sessions).sort((a, b) => b.startedAt - a.startedAt).map(s => ({ id: s.id, title: `${s.mode === 'exam' ? '限时练习' : s.mode === 'lesson' ? '互动课程' : s.mode === 'review' ? '延时复习' : '专项练习'} · ${s.questionIds.length} 题`, text: `${chinaDate(s.startedAt).key} · ${s.submittedAt ? '已完成' : '未完成，答案已保存'}`, actions: [{ id: 'open-session', value: s.id, label: s.submittedAt ? '查看结果' : '继续练习', tone: 'secondary' }] })); if (!screen.cards.length) screen.notice = '还没有练习记录。先从今日安排开始。'; return screen }
+    if (this.page === 'favorites') { screen.cards = state.favorites.map(id => ({ id, title: this.catalog.topics.find(t => t.id === ((this.catalog.questionIndex ?? this.catalog.questions).find(q => q.id === id)?.topicId ?? state.privateQuestions.find(q => q.id === id)?.topicId))?.title ?? '收藏的题目', text: '收藏不代表已经掌握，隔一段时间再独立试试。', actions: [{ id: 'start-question', value: id, label: '再练这道题', tone: 'secondary' }, { id: 'favorite', value: id, label: '取消收藏', tone: 'quiet' }] })); if (!screen.cards.length) screen.notice = '看完解析后，可以把值得再想一次的题收藏到这里。'; return screen }
     if (this.page === 'editor') {
       screen.notice = '请编写自己的题目。解析要写出依据，不能只写“答案如此”。题目只保存在本机。'
       screen.fields = [this.select('topicId', '知识点', this.catalog.topics.map((t) => ({ value: t.id, label: t.title }))), this.select('kind', '题型', [{ value: 'blank', label: '填空' }, { value: 'correction', label: '改错（只填修改后的表达）' }, { value: 'choice', label: '三选一' }]), ...[['stem', '题目与作答要求'], ['passage', '语境或短文（可选）']].map(([name, label]) => ({ name, label, kind: 'textarea' as const, value: this.form[name] }))]
@@ -336,7 +356,7 @@ export class Application {
       screen.actions = [{ id: 'save-private', label: '保存私人题目', tone: 'primary' }, ...(this.params.id ? [{ id: 'delete-private', value: this.params.id, label: '删除这道题', tone: 'danger' as const }] : [])]; return screen
     }
     if (this.page === 'sources') { screen.sections = [{ title: '原创练习与核验', text: '当前练习由本项目原创编写，仍需教学编辑审核。教材采用与本地试卷结构只有取得对应依据后才会标为已核实。' }, { title: '版本明确区分', text: '2024 年起的新教材与旧版分开记录。未核实的单元映射按年级能力编排，不声称与当前课本逐课同步。' }]; return screen }
-    if (this.page === 'recordings') { screen.cards = state.recordings.map((r) => ({ id: r.id, title: this.catalog.topics.find((t) => t.id === questionById(this.catalog, state, r.questionId)?.topicId)?.title ?? '我的口语练习', text: `${Math.round(r.durationMs / 1000)} 秒 · ${chinaDate(r.createdAt).key}`, actions: [{ id: 'play-recording', value: r.id, label: '回听录音', tone: 'secondary' }] })); return screen }
+    if (this.page === 'recordings') { screen.cards = state.recordings.map((r) => ({ id: r.id, title: this.catalog.topics.find((t) => t.id === questionById(this.catalog, state, r.questionId)?.topicId)?.title ?? '我的口语练习', text: `${Math.round(r.durationMs / 1000)} 秒 · ${chinaDate(r.createdAt).key}`, actions: [{ id: 'play-recording', value: r.id, label: '回听录音', tone: 'secondary' }, { id: 'delete-recording', value: r.id, label: '删除', tone: 'quiet' }] })); return screen }
     return screen
   }
   private select(name: string, label: string, options: { value: string; label: string }[]): Field { return { name, label, kind: 'select', value: this.form[name] ?? '', options, selectedIndex: Math.max(0, options.findIndex((o) => o.value === this.form[name])) } }
@@ -353,20 +373,22 @@ export class Application {
     if (!s) { screen.notice = '没有正在进行的练习。'; screen.actions = [{ id: 'navigate', value: 'practice', label: '选择练习', tone: 'primary' }]; return screen }
     const q = questionById(this.catalog, this.state, s.questionIds[s.current])
     if (!q) { screen.notice = '这道题还没加载完整，请重新打开练习。'; return screen }
-    const record = s.answers[q.id], show = !!record?.checked && (s.mode !== 'exam' || !!s.submittedAt)
+    const record = s.answers[q.id], isSelf = q.kind === 'writing' || q.kind === 'speaking', show = (!!record?.checked && (s.mode !== 'exam' || !!s.submittedAt)) || (!!s.submittedAt && isSelf)
     const ordered: string[] = (() => { try { return q.kind === 'order' ? JSON.parse(this.form.answer || '[]') : [] } catch { return [] } })()
     const rubric = new Set((this.form.rubric ?? '').split(','))
     screen.title = this.catalog.topics.find((t) => t.id === q.topicId)?.title ?? '英语练习'
     screen.eyebrow = s.mode === 'exam' ? s.blueprintId ? '本地结构模考' : '自主限时练' : s.mode === 'review' ? '延时复习' : s.mode === 'mistakes' ? '错题重做' : '先试一试，再看理由'
     screen.progress = { label: `${s.current + 1} / ${s.questionIds.length}`, current: s.current + 1, total: s.questionIds.length, percent: Math.round((s.current + 1) / s.questionIds.length * 100) }
     if (s.deadlineAt && !s.submittedAt) { const remaining = Math.max(0, s.deadlineAt - this.platform.now()); screen.subtitle = `剩余 ${Math.floor(remaining / 60000)} 分 ${Math.floor(remaining % 60000 / 1000)} 秒` }
-    const isSelf = q.kind === 'writing' || q.kind === 'speaking'
-    screen.question = { id: q.id, stem: q.stem, ...(q.skill !== 'listening' || show ? { passage: q.passage } : {}), kind: q.kind, value: this.form.answer ?? '', checked: show,
+    screen.question = { id: q.id, stem: q.stem, ...(q.skill !== 'listening' || show ? { passage: q.passage } : {}), kind: q.kind, value: this.form.answer ?? '', checked: !!record?.checked, answerLocked: !!record?.checked || !!s.submittedAt,
       options: (q.options ?? []).map((o) => ({ ...o, selected: this.form.answer === o.id, state: show ? o.id === q.answer.option ? 'correct' : o.id === record?.answer ? 'wrong' : '' : '' })),
       tokens: (q.tokens ?? []).map((t) => ({ ...t, selected: ordered.includes(t.id) })), orderedTokens: ordered.map((id) => q.tokens?.find((t) => t.id === id)).filter((t): t is { id: string; text: string } => !!t),
-      ...(record?.hints && !show ? { hint: q.explanation.strategy } : {}), ...(show ? { feedback: isSelf ? `自评 ${record.result?.score ?? 0} / ${record.result?.maxScore ?? q.marks} 分，不计为机器评测。` : record.result?.correct ? record.result.evidence === 'independent' ? '对了！再看看理由能不能自己说出来。' : '这次练对了。提示后的练习不算首次独立通过。' : `还不对。${q.explanation.pitfall}`, explanation: q.explanation, modelAnswer: q.answer.display } : {}),
-      selfReview: isSelf, rubric: (q.rubric ?? []).map((p) => ({ ...p, selected: rubric.has(p.id) })), audioAvailable: !!q.mediaId && this.catalog.media.some((m) => m.id === q.mediaId && m.approvedByOwner), recordingAvailable: q.kind === 'speaking', recording: this.recording, recordingSaved: this.state.recordings.some((r) => r.questionId === q.id), words: wordCount(this.form.answer ?? '') }
-    screen.actions = s.submittedAt ? [{ id: 'navigate', value: 'result', label: '返回结果', tone: 'primary' }] : s.mode === 'exam' ? [{ id: 'next', label: s.current === s.questionIds.length - 1 ? '交卷' : '保存，下一题', tone: 'primary' }, { id: 'submit', label: '提前交卷', tone: 'quiet' }] : show ? [{ id: 'next', label: s.current === s.questionIds.length - 1 ? '看本次结果' : '下一题', tone: 'primary' }, ...(!record.result?.correct && !isSelf ? [{ id: 'retry', label: '再想一次', tone: 'secondary' as const }] : [])] : [{ id: 'check', label: isSelf ? '记录自评' : '检查答案', tone: 'primary' }, ...(!isSelf ? [{ id: 'hint', label: '给我一点提示', tone: 'quiet' as const }] : [])]
+      ...(record?.hints && !show ? { hint: q.explanation.strategy } : {}), ...(show ? { feedback: isSelf ? !record?.checked ? '请回看自己的回答，再对照要点自评。未作答的题目自评记为零分。' : `自评 ${record.result?.score ?? 0} / ${record.result?.maxScore ?? q.marks} 分，不计为机器评测。` : record.result?.correct ? record.result.evidence === 'independent' ? '对了！再看看理由能不能自己说出来。' : '这次练对了。提示后的练习不算首次独立通过。' : `还不对。${q.explanation.pitfall}`, explanation: q.explanation, modelAnswer: q.answer.display } : {}),
+      selfReview: isSelf, rubric: (q.rubric ?? []).map((p) => ({ ...p, selected: rubric.has(p.id) })), audioAvailable: !!q.mediaId && this.catalog.media.some((m) => m.id === q.mediaId && m.approvedByOwner), recordingAvailable: q.kind === 'speaking' && !s.submittedAt, recording: this.recording, recordingSaved: this.state.recordings.some((r) => r.questionId === q.id), words: wordCount(this.form.answer ?? '') }
+    screen.actions = s.submittedAt ? [...(isSelf && !record?.checked ? [{ id: 'review-self', label: '记录这道题的自评', tone: 'primary' as const }] : []), { id: 'navigate', value: 'result', label: '返回结果', tone: 'secondary' }] : s.mode === 'exam' ? [{ id: 'next', label: s.current === s.questionIds.length - 1 ? '交卷' : '保存，下一题', tone: 'primary' }, { id: 'submit', label: '提前交卷', tone: 'quiet' }] : show ? [{ id: 'next', label: s.current === s.questionIds.length - 1 ? '看本次结果' : '下一题', tone: 'primary' }, ...(!record.result?.correct && !isSelf ? [{ id: 'retry', label: '再想一次', tone: 'secondary' as const }] : [])] : [{ id: 'check', label: isSelf ? '记录自评' : '检查答案', tone: 'primary' }, ...(!isSelf ? [{ id: 'hint', label: '给我一点提示', tone: 'quiet' as const }] : [])]
+    if (s.mode === 'exam') screen.chips = s.questionIds.map((id, i) => ({ id, label: `${i + 1}${s.answers[id]?.answer ? ' ·' : ''}`, selected: s.current === i, action: 'jump', value: String(i) }))
+    else if (this.state.mistakes[q.id] && record?.checked) screen.chips = ERROR_REASONS.map(r => ({ id: r.id, label: r.label, selected: this.state.mistakes[q.id].reason === r.id, action: 'reason', value: `${q.id}:${r.id}` }))
+    if (show) screen.actions.push({ id: 'favorite', value: q.id, label: this.state.favorites.includes(q.id) ? '取消收藏' : '收藏这道题', tone: 'quiet' })
     return screen
   }
   private renderResult(screen: Screen): Screen {
@@ -375,6 +397,12 @@ export class Application {
     const self = attempts.filter((a) => a.evidence === 'self_review')
     screen.hero = { eyebrow: '把结果变成下一步', title: independent.length ? `${correct} / ${independent.length} 题首次独立做对` : '这组练习已经记录', text: self.length ? `包含 ${self.length} 次写作或口语自评，自评分与独立作答分开。` : '做错的题已加入错题本。提示后练对会保留记录，不冒充掌握。', art: 'notebook', tone: 'blue', actions: [{ id: 'navigate', value: 'home', label: '回到今日', tone: 'primary' }] }
     screen.metrics = [{ label: '本组题量', value: String(s.questionIds.length) }, { label: '首次独立正确', value: `${correct} 题` }, { label: '已完成自评', value: `${self.length} 题` }]
+    if (s.mode === 'exam') {
+      const objective = s.questionIds.map(id => questionById(this.catalog, this.state, id)).filter((q): q is Question => !!q && !['writing', 'speaking'].includes(q.kind))
+      const score = objective.reduce((sum, q) => sum + (s.answers[q.id]?.result?.score ?? 0), 0), max = objective.reduce((sum, q) => sum + (s.examMarks?.[q.id] ?? q.marks), 0)
+      screen.metrics.unshift({ label: '客观题本次得分', value: `${score} / ${max}` })
+      screen.notice = '客观题按本次作答计分；写作与口语交卷后单独自查，不合并成机器测评分。'
+    }
     screen.cards = s.questionIds.map((id, i) => { const q = questionById(this.catalog, this.state, id), record = s.answers[id]; return { id, title: `第 ${i + 1} 题`, text: q ? answerText(q, record?.answer ?? '') : '题目暂时未加载', tag: record?.result ? record.result.evidence === 'self_review' ? '自评记录' : record.result.correct ? '本次练对' : '需要再练' : '待自查', actions: [{ id: 'review-question', value: String(i), label: '看题目与解析', tone: 'quiet' }] } })
     return screen
   }

@@ -1,3 +1,4 @@
+import { playable } from './sessions'
 import { chinaDate } from './cohort'
 import { dueLessonReviews, masteryLabel } from './learning'
 import type { ContentCatalog, LearnerState, Lesson, Topic } from './types'
@@ -17,7 +18,7 @@ export function orderedTopics(catalog: ContentCatalog, state: LearnerState): { t
 }
 export function nextLesson(catalog: ContentCatalog, state: LearnerState): Lesson | undefined {
   for (const topic of orderedTopics(catalog, state).topics) {
-    const lesson = catalog.lessons.filter((l) => l.topicId === topic.id && l.grades.includes(state.profile!.grade)).sort((a, b) => a.order - b.order).find((l) => !state.lessonDoneAt[l.id])
+    const lesson = catalog.lessons.filter((l) => l.topicId === topic.id && l.grades.includes(state.profile!.grade)).sort((a, b) => a.order - b.order).find((l) => !state.lessonDoneAt[l.id] && (catalog.questionIndex ?? catalog.questions).filter(q => l.questionIds.includes(q.id)).every(q => playable(q, catalog)))
     if (lesson) return lesson
   }
   return undefined

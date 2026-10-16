@@ -10,7 +10,7 @@ export interface QuestionView {
   orderedTokens: { id: string; text: string }[]
   hint?: string; feedback?: string; explanation?: Explanation; modelAnswer?: string; selfReview: boolean
   rubric: { id: string; label: string; guidance: string; marks: number; selected: boolean }[]
-  audioAvailable: boolean; recordingAvailable: boolean; recording: boolean; recordingSaved: boolean; words: number
+  answerLocked: boolean; audioAvailable: boolean; recordingAvailable: boolean; recording: boolean; recordingSaved: boolean; words: number
 }
 export interface Screen {
   id: string; title: string; subtitle?: string; eyebrow?: string; back: boolean; busy: boolean; notice?: string; error?: string
@@ -26,4 +26,4 @@ export interface Screen {
   tabs: { id: string; label: string; character: string; selected: boolean }[]
 }
 export const ROOT_SCREENS = ['home', 'learn', 'practice', 'mistakes', 'profile']
-export const SCREEN_TITLES: Record<string, string> = { home: '今日', learn: '同步学', practice: '专项练习', mistakes: '错题本', profile: '我的', onboarding: '先认识你的学习情况', session: '练习', result: '练习结果', vocabulary: '单词复习', builder: '自由组题', exam: '限时练习', writing: '写作练习', speaking: '口语练习', private: '我的题目', editor: '编辑题目', settings: '学习设置', report: '学习报告', 'exam-info': '我的中考', sources: '资料与核验', privacy: '隐私与数据', recordings: '我的录音' }
+export const SCREEN_TITLES: Record<string, string> = { listening: '听力练习', history: '练习记录', favorites: '我的收藏', home: '今日', learn: '同步学', practice: '专项练习', mistakes: '错题本', profile: '我的', onboarding: '先认识你的学习情况', session: '练习', result: '练习结果', vocabulary: '单词复习', builder: '自由组题', exam: '限时练习', writing: '写作练习', speaking: '口语练习', private: '我的题目', editor: '编辑题目', settings: '学习设置', report: '学习报告', 'exam-info': '我的中考', sources: '资料与核验', privacy: '隐私与数据', recordings: '我的录音' }

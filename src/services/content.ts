@@ -1,5 +1,7 @@
 import { sha256 } from '@noble/hashes/sha256'
-import { bytesToHex, utf8ToBytes } from '@noble/hashes/utils'
+import { bytesToHex } from '@noble/hashes/utils'
+import { editionQuestion, editionWord, type Spelling } from '../core/spelling'
+import { utf8Bytes } from '../core/utf8'
 import { assertQuestion } from '../core/validation'
 import type { ContentCatalog, Question } from '../core/types'
 
@@ -9,7 +11,11 @@ export type PackTransport = (pack: PackDescriptor) => Promise<string>
 export class ContentRepository {
   private loaded = new Set<string>()
   private pending = new Map<string, Promise<void>>()
-  constructor(readonly catalog: ContentCatalog, readonly manifest: PackDescriptor[], private transport: PackTransport) {}
+  private spelling: Spelling = 'british'
+  private originals = new Map<string, Question>()
+  private originalWords: ContentCatalog['vocabulary']
+  constructor(readonly catalog: ContentCatalog, readonly manifest: PackDescriptor[], private transport: PackTransport) { this.originalWords = [...catalog.vocabulary]; catalog.questions.forEach(q => this.originals.set(q.id, q)) }
+  setSpelling(spelling: Spelling) { this.spelling = spelling; this.catalog.questions = [...this.originals.values()].map(q => editionQuestion(q, spelling)); this.catalog.vocabulary = this.originalWords.map(w => editionWord(w, spelling)) }
 
   async ensureTopics(ids: string[]): Promise<void> { await Promise.all([...new Set(ids)].map((id) => this.load(id))) }
   async ensureQuestions(ids: string[]): Promise<void> {
@@ -30,7 +36,7 @@ export class ContentRepository {
   }
   private async fetchChecked(descriptor: PackDescriptor): Promise<void> {
     const text = await this.transport(descriptor)
-    if (text.length > 2_000_000 || bytesToHex(sha256(utf8ToBytes(text))) !== descriptor.sha256) throw new Error('内容校验没有通过，请重新下载。已保存的学习记录不会受影响。')
+    if (text.length > 2_000_000 || bytesToHex(sha256(utf8Bytes(text))) !== descriptor.sha256) throw new Error('内容校验没有通过，请重新下载。已保存的学习记录不会受影响。')
     const pack: unknown = JSON.parse(text)
     if (!pack || typeof pack !== 'object' || !('version' in pack) || pack.version !== 1 || !('topicId' in pack) || pack.topicId !== descriptor.topicId || !('questions' in pack) || !Array.isArray(pack.questions)) throw new Error('内容版本不匹配，请更新后重试。')
     const questions: Question[] = []
@@ -40,8 +46,8 @@ export class ContentRepository {
       questions.push(q)
     }
     if (new Set(questions.map((q) => q.id)).size !== questions.length || questions.length !== descriptor.questionIds.length) throw new Error('内容包不完整，请重新下载。')
-    const ids = new Set(questions.map((q) => q.id))
-    this.catalog.questions = [...this.catalog.questions.filter((q) => !ids.has(q.id)), ...questions]
+    questions.forEach(q => this.originals.set(q.id, q))
+    this.setSpelling(this.spelling)
     this.loaded.add(descriptor.topicId)
   }
 }

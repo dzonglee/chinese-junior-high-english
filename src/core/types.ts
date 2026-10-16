@@ -182,7 +182,7 @@ export interface WordReview {
   independentCorrect: number
   lapses: number
 }
-export interface AnswerRecord { answer: string; hints: number; attempts: number; checked: boolean; result?: Attempt }
+export interface AnswerRecord { answer: string; hints: number; attempts: number; checked: boolean; audioPlayed?: boolean; result?: Attempt }
 export interface LearningSession {
   id: string
   mode: 'lesson' | 'practice' | 'mistakes' | 'review' | 'exam'

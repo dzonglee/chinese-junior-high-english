@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { authorExtra } from './author-extra.mjs'
 
 const read = (root, path) => JSON.parse(readFileSync(resolve(root, path), 'utf8'))
 const source = { kind: 'original', author: 'Chinese Junior-High English project authors' }
@@ -33,8 +34,9 @@ export function authorCatalog(root) {
           pitfall: record.pitfall, visual: { kind: 'sentence', title: '把线索与目标表达连起来', segments: [{ text: prefix.trim() || '先看句意', role: 'neutral', note: '先读完整的语境' }, { text: correct, role: 'evidence', note: '本句需要的表达' }, { text: suffix.trim() || '句子完整', role: 'neutral', note: '放回原句再检查' }], caption: reason },
           transfer: '换一个主语或时间线索，这里的表达还需要变化吗？说清理由。' }, source, review: 'draft' })
     }
-    lessons.push({ id: `l-${record.id}`, topicId: record.id, title: record.title, grades, objective: record.rule, questionIds: ids.slice(0, 8), delayedQuestionIds: ids.slice(8), summary: [record.rule, record.pitfall, '提示后做对是练习成果，隔几天独立做对才是保留的证据。'], estimatedMinutes: 10, order: 1, review: 'draft' })
+    lessons.push({ id: `l-${record.id}`, topicId: record.id, title: record.title, grades, objective: record.rule, questionIds: ids.slice(0, record.cases.length >= 12 ? 8 : 4), delayedQuestionIds: ids.slice(record.cases.length >= 12 ? 8 : 4), summary: [record.rule, record.pitfall, '提示后做对是练习成果，隔几天独立做对才是保留的证据。'], estimatedMinutes: 10, order: 1, review: 'draft' })
   }
+  authorExtra(root, { topics, lessons, questions, vocabulary, media })
   const roster = read(root, 'reference/source-register/cities/roster.json')
   const cities = roster.cities.map((city) => {
     const [province, name] = city.city_id.split('-')
