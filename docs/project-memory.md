@@ -38,7 +38,7 @@ discovering them through the actual tools, without storing credentials.
 - `docs/app-delivery.md`: application scope and completion evidence.
 - `docs/authoring/board.md`: current delivery card and preserved research ownership.
 - `docs/authoring/log.md`: detailed decisions and handoffs.
-- `research/R-VOC` at `0687f91`: latest vocabulary research; not merged as a completed unit.
+- `research/R-VOC` at `0a79bba`: latest vocabulary research; not merged as a completed unit.
 
 ## Keep these distinctions visible
 
@@ -49,35 +49,41 @@ An implemented app is not a published WeChat release.
 
 ## Research continuation (2026-10-16)
 
-R-VOC continues under its existing claim. The published checkpoint is `research/R-VOC` at
-`0687f91`: 71 source records, 197 retained asset records (three shared curriculum records),
-40 legacy books and 16,031 literal word/phrase occurrences. Renai, Yilin, SWFL and Hebei audits
-are registered. The latest eleven books add 4,962 occurrences; all 239 retained pages were
-visually reviewed and passed selected-page pixel/native-text comparisons. Occurrences include
-repeated words and phrases; they are not unique lemmas or prescribed local examination lists.
+R-VOC remains active under its existing claim. Latest published checkpoint: `research/R-VOC` at
+`0a79bba`, with102sources,285retained asset records (three shared curriculum records),55legacy
+books and20,914literal word/phrase occurrences across552groups. Counts include repetitions and
+phrases, not unique lemmas or prescribed local examination lists. No current2024book or raw local
+examination wordset has been acquired. Required register and hydrated vocabulary audits pass.
 
-Two delegates now check Shandong and ESPress, followed by the remaining BNU scans and actual
-northern annual sources. The coordinator retains source IDs, tracked edits and publication, and
-continues local annual/current-book discovery. No other owner's claim was taken over.
+ESPress8 adds2,138entries/90units/127reviewed pages. Grade7upper retains its unchanged full parent
+because subset selection changed identity-page colours. Shandong7 adds2,745rows/62units/170reviewed
+pages; five unchanged full parents are each retained once because selected extraction changed
+strict native trailing spaces or soft hyphens. Body pages outside reviewed maps remain unaudited.
+All15ISBNs were visually read and checksumvalid. Literal source/index spelling and reference
+conflicts remain visible. Per-entry IPA/gloss/typography/variants are uncurated. BNU5 scans are the
+last cached family under audit; missing imprint/ISBN evidence stays unknown. Unacquired edition
+families and current books still need separate discovery.
 
-Fifteen annual cells have bounded `not_found` evidence (Beijing, Zhengzhou and Guangzhou).
-Shanghai2026 retains one actual target block; 264 cells remain genuinely unsearched. No local
-raw examination wordset or current2024 book has been acquired. Guangzhou's independent public
-archives work: ten document/thirteen news pages reach2021, and five official annual guide PDFs
-were opened. Their 1,114 pages were not exhaustively viewed; exact reviewed pages are recorded.
-The 2024/2025 guides explicitly apply2022 curriculum standards to2024–2026 cohorts. This remains
-separate from Beijing's2025 transition and Henan's2026 English2011 basis.
+Annual grid:29boundednot_found,2blocked,249genuinelyunsearched. Completed bounded searches cover
+Beijing, Zhengzhou, Guangzhou, Haikou, Changsha and Shenzhen2023–2026. The two blocks are actual
+Shanghai2026and Shenzhen2022targets; Shanghai's independent public search followup is in progress
+and may supersede its block. Controls/homepage failures never fill annual cells. Luoyang's ordinary
+queries return broad unrelated results and advanced controls returnzero; its cells remain
+unsearched pending useful independent evidence.
 
-Guangzhou's freely available2022 practiceRAR was statically opened and contains an unencrypted
-WindowsEXE. No installer was run and no media set was independently played. The official notice
-reports two sets and the2026 warmtip still links it; those statements are not verified audio,
-transcripts or identical task/scoring evidence. The assets are available to the existing regional,
-listening/speaking and auxiliary owners without changing their units. All reuse approvals remain
-false. Required unit checks and hydrated file/dataset audits pass; R-VOC and Stage1 are incomplete.
+Guangzhou guides explicitly apply2022standards to2024–2026cohorts; Beijing transitions from2025;
+Henan2026English retains2011basis. These scopes and national2025revision adoption remain separate.
+Guangzhou's offline Windows practiceRAR was statically opened, never run; zero media sets played.
+Haikou response projections omit unrelated public-case metadata, preserve original byte/SHA pins
+and disclose lossy query/pagination limits. The older2019syllabus is not applied to later years.
+Changsha's broad词汇表search was fully paginated through38tokenisedresults; a plausible中学word-chunk
+hit proved high-school-only and was excluded. Its actual2025reform describes oralEnglish as a
+separate20-markassessment converted toA/B/C/D, not simply20extraadmissionsmarks. No permissions
+were obtained, no content released, and other research claims/integration dependencies are intact.
 
-After the latest Chrisverse plugin attachment, a fresh native/deferred registry check still
-found no Chrisverse, Kanban or Obsidian tools, no generic tool-search interface, and no callable
-`mcp__codex_apps__chrisverse_studio_mcp_capabilities`. This is this worker's tool-exposure limit,
-not a claim about server availability. No authentication/network changes or external writes
-occurred. Read and reconcile the existing English board/note when native tools appear; do not
-create duplicate records. Keep the card concise and put evidence and remaining gaps in memory.
+Two existing delegates continue BNU scans and actual northern annual-source discovery. Root owns
+IDs, tracked edits and publication, and continues local/current-edition research. Native/deferred
+tool discovery after the repeated plugin attachments still exposes no Chrisverse/Kanban/Obsidian
+tools, no generic tool search and no callable native capabilities tool in this worker. No external
+write, credential/auth/network changes or duplicate board is claimed. Read and reconcile the
+existing English board/note when tools appear, using concise cards and linked detailed memory.
