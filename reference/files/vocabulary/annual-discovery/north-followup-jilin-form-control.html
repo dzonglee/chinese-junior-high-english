@@ -1,0 +1,3276 @@
+<!DOCTYPE html><html lang="en"><head><script async="" src="https://www.jl.gov.cn/xglj/xglj.json?callback=szfLinkResult&amp;_=1792142711065"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>智能检索</title>
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <link type="text/css" rel="stylesheet" href="css/style.css?id=202110192">
+  <link type="text/css" rel="stylesheet" href="css/ss_stlye.css?id=202110192">
+  <link rel="stylesheet" href="css/date_picker.css?id=202110192">
+  <link rel="stylesheet" href="css/specially.css?id=202110192">
+  <link rel="stylesheet" href="css/cosmos_currency.css?id=202110192">
+  <!-- <link rel="stylesheet" href="css/cosmos_main.css?id=202110192" /> -->
+  <link rel="stylesheet" href="layui/css/layui.css?id=202110192">
+  <!-- <script charset="UTF-8" src="js/sensorsdata.min.js"></script> -->
+  <!-- <script type="text/javascript" src="./vuejs/vue.min.js?id=202110192"></script> -->
+  <!-- 2. 引入样式 -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+  <!-- 3. 引入组件库 -->
+  <!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+  <!-- <script charset="UTF-8">
+    var sensors = window['sensorsDataAnalytic201505'];
+    sensors.init({
+      server_url: 'https://ssorr.jilinxiangyun.com:8106/sa?project=xiangyun_pro',
+      show_log: true,
+      heatmap: { scroll_notice_map: 'not_collect' },
+      is_track_single_page: true,
+      use_client_time: true,
+      send_type: 'beacon'
+    });
+    sensors.quick('autoTrack');
+  </script> -->
+
+  <script src="js/json2.js?id=202110192" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.js?id=202110192" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.cookie.js?id=202110192" type="text/javascript" charset="utf-8"></script>
+  <script src="js/httpUtil.js?id=202110192" type="text/javascript" charset="utf-8"></script>
+  <script src="js/areainfo.js?id=20240117" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/swiper.jquery.min_Xu230306.js"></script>
+  <script type="text/javascript" src="js/page.js?id=202110192"></script>
+  <script type="text/javascript" src="js/search.js?id=202110192"></script>
+  <script src="./js/areaNew.js?id=202110192"></script>
+  <script type="text/javascript" src="js/userInfo_4.js?id=202110192"></script>
+  <script src="./js/echarts.min.js?id=202110192"></script>
+  <script src="./js/echarts-wordcloud.js?id=202110192"></script>
+      <!-- 2026 -->
+    <script src="./js/common.js"></script>
+    <script src="./js/zwfw_qr_code.js"></script>
+    <script src="./js/faceRecognition_clickactively.js?20260730"></script>
+  <link rel="stylesheet" href="./css/base.css?id=202110192">
+  <link rel="stylesheet" href="./css/index.css?id=202111042">
+  <!-- 20230519 css文件2个-->
+  <link rel="stylesheet" href="./css/swiper.min_Xu230306.css">
+  <link rel="stylesheet" href="./css/kssXu_20230306.css">
+  <!-- 20230824 -->
+  <link rel="stylesheet" href="./css/new_szf_main_Xu230711.css">
+  <link rel="stylesheet" href="./css/new_szf_homePage_Xu230711.css">
+  <!-- <link rel="stylesheet" href="./css/style.css"> -->
+<link id="layuicss-laydate" rel="stylesheet" href="https://intellsearch.jl.gov.cn/search/layui/css/modules/laydate/default/laydate.css?v=5.3.1" media="all"><link id="layuicss-layer" rel="stylesheet" href="https://intellsearch.jl.gov.cn/search/layui/css/modules/layer/default/layer.css?v=3.5.1" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="https://intellsearch.jl.gov.cn/search/layui/css/modules/code.css?v=2" media="all"></head>
+<!-- 20230824 -->
+
+<body id="class_Two">
+  <!-- <div id="apps" class="css_app_top">
+    <div class="css_tite">智能语音播报</div>
+    <div class="tab1">
+      <div style="display: flex;margin-top: 15px; justify-content: space-around;">
+        <div class="css_nr">
+          <img src="./images/znjs/jyx.png" style="width: 47px;height: 47px;">
+        </div>
+        <div class="css_nr">
+          <img src="./images/znjs/jia.png" style="width: 47px;height: 47px;">
+        </div>
+        <div class="css_nr">
+          <img src="./images/znjs/jian.png" style="width: 47px;height: 47px;">
+        </div>
+      </div>
+      <div style="display: flex;justify-content: center;margin-top: 10px;">
+        <div style="color: white;" @click="ontab(0)">音量{{0}}</div>
+      </div>
+    </div>
+    <div class="tab1" @click="ontab">
+      <div style="display: flex;margin-top: 15px; justify-content: space-around;">
+        <div class="css_nr">
+          <img src="./images/znjs/kt.png" style="width: 47px;height: 47px;">
+        </div>
+        <div class="css_nr">
+          <img src="./images/znjs/kj.png" style="width: 47px;height: 47px;">
+        </div>
+      </div>
+      <div style="display: flex;justify-content: center;margin-top: 10px;">
+        <div style="color: white;" @click="ontab(0)">语速{{0}}</div>
+      </div>
+    </div>
+    <div class="tab3" @click="ontab">
+      <div style="display: flex;margin-top: 15px; justify-content: space-around;">
+        <div class="css_nr">
+          <img src="./images/znjs/jd.png" style="width: 47px;height: 47px;">
+        </div>
+        <div class="css_nr">
+          <img src="./images/znjs/sd.png" style="width: 47px;height: 47px;">
+        </div>
+      </div>
+      <div style="display: flex;justify-content: center;margin-top: 10px;">
+        <div style="color: white;" @click="ontab(0)">音调{{0}}</div>
+      </div>
+    </div>
+    <div class="tab4" @click="ontab">
+      <div style="display: flex;margin-top: 15px; justify-content: space-around;">
+        <div class="css_nr">
+          <img src="./images/znjs/nvs.png" style="width: 47px;height: 47px;">
+          <div class="css_font">播音女生</div>
+        </div>
+        <div class="css_nr">
+          <img src="./images/znjs/wrns.png" style="width: 47px;height: 47px;">
+          <div class="css_font">温柔女生</div>
+        </div>
+        <div class="css_nr">
+          <img src="./images/znjs/nqns.png" style="width: 47px;height: 47px;">
+          <div class="css_font">年轻女生</div>
+        </div>
+        <div class="css_nr">
+          <img src="./images/znjs/csns.png" style="width: 47px;height: 47px;">
+          <div class="css_font">成熟男生</div>
+        </div>
+      </div>
+    </div>
+    <div class="tab5" @click="ontab">
+      <div style="display: flex;margin-top: 15px; justify-content: space-around;">
+        <div class="css_nr">
+          <img src="./images/znjs/dp.png" style="width: 47px;height: 47px;">
+          <div class="css_font">读屏</div>
+        </div>
+        <div class="css_nr">
+          <img src="./images/znjs/ld.png" style="width: 47px;height: 47px;">
+          <div class="css_font">连读</div>
+        </div>
+        <div class="css_nr">
+          <img src="./images/znjs/zd.png" style="width: 47px;height: 47px;">
+          <div class="css_font">只读</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="tab6" @click="ontab">
+      <div style="display: flex;margin-top: 15px; justify-content: space-around;">
+        <div class="css_nr">
+          <img src="./images/znjs/gb.png" style="width: 47px;height: 47px;">
+        </div>
+      </div>
+      <div style="display: flex;justify-content: center;margin-top: 10px;">
+        <div style="color: white;" @click="ontab(0)">关闭</div>
+      </div>
+
+    </div>
+  </div> -->
+  <!-- 20230824 -->
+  <div class="wrap homePage">
+    <!-- 20230824 -->
+    <header class="header">
+      <div class="header__top">
+        <div class="header__left">
+          <div class="header__logo">
+            <!-- 20230829 -->
+            <a href="http://www.jl.gov.cn/"><img src="./images/logo_Xu230711@2x.png" alt="吉林省人民政府"></a>
+          </div>
+        </div>
+        <div class="header__right">
+          <div class="header__auth">
+            <a href="javascript:void(0);" class="sign_In_Btn" id="loginBtn" style="padding: 0px 10px;">登录</a>
+            <a href="javascript:void(0);" class="sign_Out_Btn _66a52a12572a399e" id="tcBtn" style="display: none;padding: 0px 10px;margin-left:0px"><img src="./images/signOut_Xu230711.svg" alt="退出登录" title="退出登录">
+            </a>
+            <a href="javascript:void(0);" class="sign_Up_Btn" id="zcBtn" style="padding: 0px 10px;margin-left:0px">注册
+            </a>
+          </div>
+          <div class="header__icon">
+            <ul>
+              <li class="mail"><a href="https://mail.jl.gov.cn" target="_blank">邮箱</a></li>
+              <li class="xiaoji">
+                <a href="http://ai.jl.gov.cn:8509/bot" target="_blank">智能问答</a>
+              </li>
+            </ul>
+          </div>
+          <!-- 搜索 -->
+          <div class="search">
+            <div class="search_Box clearfix navBlock">
+              <input class="input_Search_1 fLeft _04801571a3872104" type="search" id="search_val_main" placeholder="请输入关键字查询" oninput="checkEmpty(event)">
+              <input type="hidden" name="q" id="param_q" value="" class="_a732804c8566fc8f498947ea59a841f8">
+              <input style="margin-right: 10px;" class="button_Search_1 fRight _2360f5ac6560ddd8" onclick="searchWordNew2(1,10,this)" onkeypress="" type="button" value="" title="点击搜索" id="main_topSearch_btn">
+            </div>
+          </div>
+          <!-- 20230829 -->
+          <div class="header__externalLink" style="display: none;">
+            <span>English</span>
+            <div class="language">
+              <a href="http://english.jl.gov.cn" target="_blank" title="English">English</a>
+              <a href="http://russian.jl.gov.cn" target="_blank" title="русский">русский</a>
+              <a href="http://japanese.jl.gov.cn" target="_blank" title="日本語">日本語</a>
+              <a href="http://korean.jl.gov.cn" target="_blank" title="한국어">한국어</a>
+            </div>
+          </div>
+          <div class="header__site_map">
+            <span>站群导航</span>
+            <div class="nav-btn"><i class="nav-btn-icon menu"><span></span><span></span><span></span></i></div>
+            <div class="site_nav">
+              <div class="site_nav_box">
+                <h3>省直</h3>
+                <dl class="clearfix link_sz_top">
+                </dl>
+                <style>
+                  .qtlj-hx-10 dd a {
+                    font-size: 16px !important;
+                  }
+                </style>
+                <dl class="clearfix qtlj-hx-10 section_Gap_V link_gsj">
+                </dl>
+                <h3 class="section_Gap_V">市（州）、县（市、区）</h3>
+                <dl class="clearfix link_cc">
+                </dl>
+                <dl class="clearfix link_jl">
+                </dl>
+                <dl class="clearfix link_sp">
+                </dl>
+                <dl class="clearfix link_ly">
+                </dl>
+                <dl class="clearfix link_th">
+                </dl>
+                <dl class="clearfix link_bs">
+                </dl>
+                <dl class="clearfix link_sy">
+                </dl>
+                <dl class="clearfix link_bc">
+                </dl>
+                <dl class="clearfix link_ybz">
+                </dl>
+                <dl class="clearfix link_cbs">
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="header__weather">
+            <div class="AQI_btn">
+              <img src="./images/weather_Xu230711.png" alt="">
+              <p>AQI</p>
+            </div>
+            <div class="airQ_table">
+              <div class="airQuality_tab">
+                <ul>
+                  <li class="active" data-val="aqi"><a href="javascript:void(0)" target="_self">AQI实时数据</a></li>
+                  <li data-val="pm25" class=""><a href="javascript:void(0)" target="_self">PM2.5日均浓度</a></li>
+                </ul>
+              </div>
+              <div id="AirQuality">
+                <ul>
+                  <li>优</li>
+                  <li>良</li>
+                  <li>轻度污染</li>
+                  <li>中度污染</li>
+                  <li>重度污染</li>
+                  <li>严重污染</li>
+                </ul>
+                <div id="echarts" _echarts_instance_="ec_1792142702550" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"><div style="position: relative; overflow: hidden; width: 509px; height: 238px; padding: 0px; margin: 0px; border-width: 0px;"><canvas width="509" height="238" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 509px; height: 238px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: none;">
+        <!-- 20230829 -->
+        <iframe src="https://user.jl.gov.cn/v1/apigw/none/user/authentication/checklogin?appId=575ecd1d2d70450ea4c5a6b468c50c7f&amp;version=1.0.0&amp;format=json&amp;charset=utf-8&amp;timestamp=2019-08-10%2016:46:13&amp;backUrl=https://intellsearch.jl.gov.cn/search/dlIframe.html" id="gjdl"></iframe>
+        <!-- <script>
+let protocol = window.location.protocol == "http:" ? "http://" : "https://";
+let iframeHost = window.location.host.indexOf("www") != -1 ? "www." : ""
+document.write('<iframe src="https://user.jl.gov.cn/v1/apigw/none/user/authentication/checklogin?appId=575ecd1d2d70450ea4c5a6b468c50c7f&amp;version=1.0.0&amp;format=json&amp;charset=utf-8&amp;timestamp=2019-08-10%2016:46:13&amp;backUrl=' + protocol + iframeHost + 'jl.gov.cn/sfrz/new_login/"  id="gjdl"></iframe>');
+</script> -->
+      </div>
+    </header>
+    <!-- 20230824 -->
+    <div class="full_line"></div>
+    <!-- 登录iframe -->
+    <!-- 20230824 -->
+    <!-- <div style="display: none">
+      <iframe
+        src="https://user.jl.gov.cn/v1/apigw/none/user/authentication/checklogin?appId=575ecd1d2d70450ea4c5a6b468c50c7f&amp;version=1.0.0&amp;format=json&amp;charset=utf-8&amp;timestamp=2019-08-10%2016:46:13&amp;backUrl=http://intellsearch.jl.gov.cn:8000/search/dlIframe.html"
+        id="gjdl"
+      ></iframe>
+    </div> -->
+    <div class="all_container" id="page_Wrap">
+      <div class="inner_background">
+        <!-- 20230824 start -->
+        <!-- 导航 -->
+        <!-- <div class="navigator_position">
+          <div class="navigator fixed2">
+            <div class="nav_con">
+              <a href="http://www.jl.gov.cn/" class="logo_bottom fLeft"></a>
+              <div class="fRight navSearch" style="position: relative">
+                <input
+                  type="text"
+                  name="search"
+                  id="searchword"
+                  placeholder="请输入搜索关键词 "
+                  class="search_In_Nav search_show sttt"
+                  autocomplete="off"
+                />
+                <input
+                  type="button"
+                  class="button_Search_1 fRight"
+                  onclick="searchWordNew(1,10,this)"
+                />
+                <div class="div_select" style="width: 218px; top: 58px"></div>
+              </div>
+              <ul class="fRight">
+                <li><a href="http://www.jl.gov.cn/szf/">省政府</a></li>
+                <li><a href="http://www.jl.gov.cn/sz/">省长</a></li>
+                <li><a href="http://www.jl.gov.cn/zw/">政务</a></li>
+                <li><a href="http://zwfw.jl.gov.cn/jlszwfw/">吉事办</a></li>
+                <li><a href="http://www.jl.gov.cn/hd/">互动</a></li>
+                <li><a href="http://www.jl.gov.cn/sq/">省情</a></li>
+                <li><a href="http://www.jl.gov.cn/sj/">数据</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="fixed_bread_nav">
+            <div class="bread_Nav clearfix">
+              <div class="fRight">
+                <a href="http://www.jl.gov.cn/">首页</a><span></span
+                ><a href="./">搜索</a>
+              </div>
+              <div class="fRight small_Coll_Tit">省政府</div>
+            </div>
+          </div>
+        </div> -->
+        <!-- 通用头部 -->
+        <!-- 头部 -->
+        <!-- <div class="header_Class_2 clearfix">
+          <a href="http://www.jl.gov.cn/"><span class="logo fLeft"></span></a>
+          <div class="top_Box fRight">
+            <div class="top_Bar fRight">
+              <div class="site_nav">
+                <div class="site_nav_box">
+                  <h3>省直</h3>
+                  <dl class="clearfix">
+                    <dd>
+                      <a
+                        href="http://jldrc.jl.gov.cn/"
+                        target="_blank"
+                        title="省发展和改革委员会"
+                        >省发展和改革委员会</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://jyt.jl.gov.cn/"
+                        target="_blank"
+                        title="省教育厅"
+                        >省教育厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://kjt.jl.gov.cn/"
+                        target="_blank"
+                        title="省科学技术厅"
+                        >省科学技术厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://gxt.jl.gov.cn/"
+                        target="_blank"
+                        title="省工业和信息化厅"
+                        >省工业和信息化厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://mw.jl.gov.cn"
+                        target="_blank"
+                        title="省民族事务委员会"
+                        >省民族事务委员会</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://gat.jl.gov.cn"
+                        target="_blank"
+                        title="省公安厅"
+                        >省公安厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://mzt.jl.gov.cn"
+                        target="_blank"
+                        title="省民政厅"
+                        >省民政厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://sft.jl.gov.cn"
+                        target="_blank"
+                        title="省司法厅"
+                        >省司法厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://czt.jl.gov.cn"
+                        target="_blank"
+                        title="省财政厅"
+                        >省财政厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://hrss.jl.gov.cn"
+                        target="_blank"
+                        title="省人力资源和社会保障厅"
+                        >省人力资源和社会保障厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://zrzy.jl.gov.cn/"
+                        target="_blank"
+                        title="省自然资源厅"
+                        >省自然资源厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://sthjt.jl.gov.cn/"
+                        target="_blank"
+                        title="省生态环境厅"
+                        >省生态环境厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://jst.jl.gov.cn"
+                        target="_blank"
+                        title="省住房和城乡建设厅"
+                        >省住房和城乡建设厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://jtyst.jl.gov.cn"
+                        target="_blank"
+                        title="省交通运输厅"
+                        >省交通运输厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://slt.jl.gov.cn/"
+                        target="_blank"
+                        title="省水利厅"
+                        >省水利厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://agri.jl.gov.cn/"
+                        target="_blank"
+                        title="省农业农村厅"
+                        >省农业农村厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://swt.jl.gov.cn/"
+                        target="_blank"
+                        title="省商务厅"
+                        >省商务厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://whhlyt.jl.gov.cn/"
+                        target="_blank"
+                        title="省文化和旅游厅"
+                        >省文化和旅游厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://wsjkw.jl.gov.cn/"
+                        target="_blank"
+                        title="省卫生健康委员会"
+                        >省卫生健康委员会</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://tyjrt.jl.gov.cn/"
+                        target="_blank"
+                        title="省退役军人事务厅"
+                        >省退役军人事务厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://yjt.jl.gov.cn/"
+                        target="_blank"
+                        title="省应急管理厅"
+                        >省应急管理厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://sjt.jl.gov.cn/"
+                        target="_blank"
+                        title="省审计厅"
+                        >省审计厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://wb.jl.gov.cn/"
+                        target="_blank"
+                        title="省外事办公室"
+                        >省外事办公室</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://scjg.jl.gov.cn/"
+                        target="_blank"
+                        title="省市场监督管理厅"
+                        >省市场监督管理厅</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://gzw.jl.gov.cn/"
+                        target="_blank"
+                        title="省国有资产监督管理委员会"
+                        >省国有资产监督管理委员会</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://gdj.jl.gov.cn"
+                        target="_blank"
+                        title="省广播电视局"
+                        >省广播电视局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://Tyj.jl.gov.cn"
+                        target="_blank"
+                        title="省体育局"
+                        >省体育局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://tjj.jl.gov.cn"
+                        target="_blank"
+                        title="省统计局"
+                        >省统计局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://ybj.jl.gov.cn/"
+                        target="_blank"
+                        title="省医疗保障局"
+                        >省医疗保障局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://sgj.jl.gov.cn/"
+                        target="_blank"
+                        title="省机关事务管理局"
+                        >省机关事务管理局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://grain.jl.gov.cn"
+                        target="_blank"
+                        title="省粮食和物资储备局"
+                        >省粮食和物资储备局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://jlrf.jl.gov.cn/"
+                        target="_blank"
+                        title="省国防动员办公室"
+                        >省国防动员办公室</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://jr.jl.gov.cn"
+                        target="_blank"
+                        title="省地方金融监督管理局"
+                        >省地方金融监督管理局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://zsj.jl.gov.cn/"
+                        target="_blank"
+                        title="省政务服务和数字化建设管理局"
+                        >省政务服务和数字化建设管理局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://lyt.jl.gov.cn/"
+                        target="_blank"
+                        title="省林业和草原局"
+                        >省林业和草原局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://nyj.jl.gov.cn"
+                        target="_blank"
+                        title="省能源局"
+                        >省能源局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://jyj.jl.gov.cn"
+                        target="_blank"
+                        title="省监狱管理局"
+                        >省监狱管理局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://xmy.jl.gov.cn"
+                        target="_blank"
+                        title="省畜牧业管理局"
+                        >省畜牧业管理局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://jltcm.jl.gov.cn/"
+                        target="_blank"
+                        title="省中医药管理局"
+                        >省中医药管理局</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://mpa.jl.gov.cn"
+                        target="_blank"
+                        title="省药品监督管理局"
+                        >省药品监督管理局</a
+                      >
+                    </dd>
+                  </dl>
+
+                  <dl class="clearfix qtlj-hx-10 section_Gap_V">
+                    <dd>
+                      <a
+                        href="http://jilin.chinatax.gov.cn/"
+                        target="_blank"
+                        title="国家税务总局吉林省税务局"
+                        >国家税务总局吉林省税务局</a
+                      >
+                    </dd>
+                  </dl>
+                  <h3 class="section_Gap_V">市（州）、县（市、区）</h3>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.changchun.gov.cn/"
+                        target="_blank"
+                        title="长春市"
+                        >长春市</a
+                      >
+                    </dt>
+                    <dd>
+                      <a
+                        href="http://www.nanguan.gov.cn/"
+                        target="_blank"
+                        title="南关区"
+                        >南关区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.jckc.gov.cn/"
+                        target="_blank"
+                        title="宽城区"
+                        >宽城区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://chaoyang.changchun.gov.cn/"
+                        target="_blank"
+                        title="朝阳区"
+                        >朝阳区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.ccerdao.gov.cn/"
+                        target="_blank"
+                        title="二道区"
+                        >二道区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://luyuan.changchun.gov.cn/"
+                        target="_blank"
+                        title="绿园区"
+                        >绿园区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.shuangyang.gov.cn/"
+                        target="_blank"
+                        title="双阳区"
+                        >双阳区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.jiutai.gov.cn/"
+                        target="_blank"
+                        title="九台区"
+                        >九台区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.yushu.gov.cn/"
+                        target="_blank"
+                        title="榆树市"
+                        >榆树市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.dehui.gov.cn/"
+                        target="_blank"
+                        title="德惠市"
+                        >德惠市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.gongzhuling.gov.cn/"
+                        target="_blank"
+                        title="公主岭市"
+                        >公主岭市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.nongan.gov.cn/"
+                        target="_blank"
+                        title="农安县"
+                        >农安县</a
+                      >
+                    </dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.jlcity.gov.cn/"
+                        target="_blank"
+                        title="吉林市"
+                        >吉林市</a
+                      >
+                    </dt>
+                    <dd>
+                      <a
+                              href="http://www.jlcy.gov.cn/"
+                              target="_blank"
+                              title="船营区"
+                      >船营区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                              href="http://www.jlscy.gov.cn/"
+                              target="_blank"
+                              title="昌邑区"
+                      >昌邑区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                              href="http://www.longtan.gov.cn/"
+                              target="_blank"
+                              title="龙潭区"
+                      >龙潭区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                              href="http://www.jlfm.gov.cn/"
+                              target="_blank"
+                              title="丰满区"
+                      >丰满区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                              href="http://www.jiaohe.gov.cn/"
+                              target="_blank"
+                              title="蛟河市"
+                      >蛟河市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                              href="http://www.huadian.gov.cn/"
+                              target="_blank"
+                              title="桦甸市"
+                      >桦甸市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                              href="http://www.shulan.gov.cn/"
+                              target="_blank"
+                              title="舒兰市"
+                      >舒兰市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                              href="http://www.panshi.gov.cn/"
+                              target="_blank"
+                              title="磐石市"
+                      >磐石市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                              href="http://www.jlyj.gov.cn/"
+                              target="_blank"
+                              title="永吉县"
+                      >永吉县</a
+                      >
+                    </dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.siping.gov.cn/"
+                        target="_blank"
+                        title="四平市"
+                        >四平市</a
+                      >
+                    </dt>
+                    <dd>
+                      <a
+                        href="http://txq.siping.gov.cn/"
+                        target="_blank"
+                        title="铁西区"
+                        >铁西区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://tdq.siping.gov.cn/"
+                        target="_blank"
+                        title="铁东区"
+                        >铁东区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.shuangliao.gov.cn/"
+                        target="_blank"
+                        title="双辽市"
+                        >双辽市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.lishu.gov.cn/"
+                        target="_blank"
+                        title="梨树县"
+                        >梨树县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.yitong.gov.cn/"
+                        target="_blank"
+                        title="伊通满族自治县"
+                        >伊通满族自治县</a
+                      >
+                    </dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.liaoyuan.gov.cn/"
+                        target="_blank"
+                        title="辽源市"
+                        >辽源市</a
+                      >
+                    </dt>
+                    <dd>
+                      <a
+                        href="http://www.jllyls.gov.cn/"
+                        target="_blank"
+                        title="龙山区"
+                        >龙山区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.lyxa.gov.cn/"
+                        target="_blank"
+                        title="西安区"
+                        >西安区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.dongfeng.gov.cn/"
+                        target="_blank"
+                        title="东丰县"
+                        >东丰县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.dongliao.gov.cn/"
+                        target="_blank"
+                        title="东辽县"
+                        >东辽县</a
+                      >
+                    </dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.tonghua.gov.cn/"
+                        target="_blank"
+                        title="通化市"
+                        >通化市</a
+                      >
+                    </dt>
+                    <dd>
+                      <a href="http://dc.gov.cn/" target="_blank" title="东昌区"
+                        >东昌区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.edj.gov.cn/"
+                        target="_blank"
+                        title="二道江区"
+                        >二道江区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.mhk.gov.cn/"
+                        target="_blank"
+                        title="梅河口市"
+                        >梅河口市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.jilinja.gov.cn/"
+                        target="_blank"
+                        title="集安市"
+                        >集安市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.tonghuaxian.gov.cn/"
+                        target="_blank"
+                        title="通化县"
+                        >通化县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.huinanxian.gov.cn/"
+                        target="_blank"
+                        title="辉南县"
+                        >辉南县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.jllh.gov.cn/"
+                        target="_blank"
+                        title="柳河县"
+                        >柳河县</a
+                      >
+                    </dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.cbs.gov.cn/"
+                        target="_blank"
+                        title="白山市"
+                        >白山市</a
+                      >
+                    </dt>
+                    <dd>
+                      <a
+                        href="http://www.hunjiang.gov.cn/"
+                        target="_blank"
+                        title="浑江区"
+                        >浑江区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://jy.cbs.gov.cn/"
+                        target="_blank"
+                        title="江源区"
+                        >江源区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.linjiang.gov.cn/"
+                        target="_blank"
+                        title="临江市"
+                        >临江市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.fusong.gov.cn/"
+                        target="_blank"
+                        title="抚松县"
+                        >抚松县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://jyx.cbs.gov.cn/"
+                        target="_blank"
+                        title="靖宇县"
+                        >靖宇县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://changbai.gov.cn"
+                        target="_blank"
+                        title="长白朝鲜族自治县"
+                        >长白朝鲜族自治县</a
+                      >
+                    </dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.jlsy.gov.cn/"
+                        target="_blank"
+                        title="松原市"
+                        >松原市</a
+                      >
+                    </dt>
+                    <dd>
+                      <a
+                        href="http://www.ningjiang.gov.cn/"
+                        target="_blank"
+                        title="宁江区"
+                        >宁江区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.jlfy.gov.cn/"
+                        target="_blank"
+                        title="扶余市"
+                        >扶余市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.qianguo.gov.cn/"
+                        target="_blank"
+                        title="前郭尔罗斯蒙古族自治县"
+                        >前郭尔罗斯蒙古族自治县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.jlcl.gov.cn/"
+                        target="_blank"
+                        title="长岭县"
+                        >长岭县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.jlqa.gov.cn/"
+                        target="_blank"
+                        title="乾安县"
+                        >乾安县</a
+                      >
+                    </dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.jlbc.gov.cn/"
+                        target="_blank"
+                        title="白城市"
+                        >白城市</a
+                      >
+                    </dt>
+                    <dd>
+                      <a
+                        href="http://www.taobei.gov.cn/"
+                        target="_blank"
+                        title="洮北区"
+                        >洮北区</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.taonan.gov.cn/"
+                        target="_blank"
+                        title="洮南市"
+                        >洮南市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://daan.jlbc.gov.cn/"
+                        target="_blank"
+                        title="大安市"
+                        >大安市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.jlzhenlai.gov.cn/"
+                        target="_blank"
+                        title="镇赉县"
+                        >镇赉县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.tongyu.gov.cn/"
+                        target="_blank"
+                        title="通榆县"
+                        >通榆县</a
+                      >
+                    </dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.yanbian.gov.cn/"
+                        target="_blank"
+                        title="延边州"
+                        >延边州</a
+                      >
+                    </dt>
+                    <dd>
+                      <a
+                        href="http://www.yanji.gov.cn/"
+                        target="_blank"
+                        title="延吉市"
+                        >延吉市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.tumen.gov.cn/"
+                        target="_blank"
+                        title="图们市"
+                        >图们市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.dunhua.gov.cn/"
+                        target="_blank"
+                        title="敦化市"
+                        >敦化市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.hunchun.gov.cn/"
+                        target="_blank"
+                        title="珲春市"
+                        >珲春市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.longjing.gov.cn/"
+                        target="_blank"
+                        title="龙井市"
+                        >龙井市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.helong.gov.cn/"
+                        target="_blank"
+                        title="和龙市"
+                        >和龙市</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://wangqing.gov.cn/"
+                        target="_blank"
+                        title="汪清县"
+                        >汪清县</a
+                      >
+                    </dd>
+                    <dd>
+                      <a
+                        href="http://www.antu.gov.cn/"
+                        target="_blank"
+                        title="安图县"
+                        >安图县</a
+                      >
+                    </dd>
+                  </dl>
+                  <dl class="clearfix">
+                    <dt>
+                      <a
+                        href="http://www.changbaishan.gov.cn/"
+                        target="_blank"
+                        title="长白山保护开发区"
+                        >长白山保护开发区</a
+                      >
+                    </dt>
+                  </dl>
+                </div>
+              </div>
+              <p class="fRight">
+                <span class="usercenter_In_Page" style="border: none">
+                  <a
+                    href="javascript:void(0);"
+                    class="sign_In_Btn"
+                    id="loginBtn"
+                    >登录</a
+                  >
+                  <a
+                    href="javascript:void(0);"
+                    class="sign_Out_Btn"
+                    id="tcBtn"
+                    style="display: none"
+                    ><img
+                      width="22px"
+                      style="margin-top: 5px; float: left"
+                      src="images/cosmos_signOut.png"
+                  /></a>
+                  <a href="javascript:void(0);" class="sign_Up_Btn" id="zcBtn"
+                    >注册</a
+                  >
+                </span>
+                <a href="http://www.gov.cn/" target="_blank" title="中国政府网"
+                  >中国政府网</a
+                >
+                <span>
+                  <em style="width: auto">
+                    <a href="http://english.jl.gov.cn/">English</a>
+                    <a href="http://japanese.jl.gov.cn/">日本語</a>
+                    <a href="http://korean.jl.gov.cn/">한국어</a>
+                    <a href="http://russian.jl.gov.cn/">русский</a>
+                  </em>
+                </span>
+                <span
+                  ><a href="javascript:void(0)" class="new_media icon_site"
+                    >站群导航</a
+                  ></span
+                >
+              </p>
+              <div class="fLeft">
+                <span>
+                  <a href="javascript:void(0)" class="new_media icon_Wechat"
+                    >微信
+                    <em>
+                      <img
+                        src="images/W020161227595076214859.jpg"
+                        alt="微信"
+                        title="微信" /></em
+                  ></a>
+                </span>
+
+                <span
+                  ><a
+                    href="https://weibo.com/jlxwb?is_hot=1"
+                    class="new_media icon_Weibo"
+                    target="_blank"
+                    title="微博"
+                    >微博</a
+                  ></span
+                >
+                <span
+                  ><a
+                    href="http://www.jl.gov.cn/kzgn/khd/"
+                    class="new_media icon_App"
+                    target="_blank"
+                    title="APP"
+                    >APP</a
+                  ></span
+                >
+                <span
+                  ><a
+                    href="javascript:void(0)"
+                    id="page_wza"
+                    class="new_media icon_Disa"
+                    target="_blank"
+                    title="无障碍浏览"
+                  ></a
+                ></span>
+                <span style="position: relative"
+                  ><a
+                    title="智能小吉"
+                    class="new_media icon_xiaoji"
+                    style="text-indent: 0px"
+                    href="http://ai.jl.gov.cn:8509/bot"
+                    target="_blank"
+                    ><img
+                      width="24"
+                      style="top: -6px; position: relative"
+                      alt="图片"
+                      src="images/cosmos_xiaoji_small.png" /></a
+                ></span>
+              </div>
+              <div class="fLeft hidden_tag search_Box_Top">
+                <input
+                  type="text"
+                  name="search"
+                  placeholder="请输入关键字查询"
+                  class="input_Search_1 fLeft"
+                />
+                <input
+                  type="button"
+                  value=" "
+                  class="button_Search_1 fRight"
+                  onclick="searchWordNew(1, 10, this)"
+                />
+              </div>
+            </div>
+            
+            <div class="top_F2 fRight">
+              <div class="fLeft f2_Tit">
+                <h2>搜索<span class="shuju"></span></h2>
+              </div>
+              <div class="bread_Nav fLeft">
+                <p>快速链接</p>
+                <div>
+                  <a href="http://www.jl.gov.cn">首页</a
+                  ><span><a href="javascript:void(0)">搜索</a></span>
+                </div>
+              </div>
+              <div class="staticNav fRight">
+                
+                <div
+                  class="search_Bar"
+                  style="position: relative; overflow: visible"
+                >
+                  <input
+                    type="text"
+                    class="search_input_Big search_show fLeft sttt"
+                    name="search"
+                    placeholder="请输入关键词进行搜索"
+                    autocomplete="off"
+                  />
+                  <input
+                    type="button"
+                    class="button_Search_1 fLeft"
+                    name=""
+                    onclick="searchWordNew(1, 10, this)"
+                  />
+                  <a href="javascript:;" class="close_Search_bar fRight"
+                    >关闭搜索</a
+                  >
+                  <div class="div_select"></div>
+                </div>
+                <div class="fRight">
+                  <a class="search_w_static_nav" href="javascript:;"
+                    ><em class="scope_icon"></em><span>搜索</span></a
+                  >
+                </div>
+                <ul>
+                  <li><a href="http://www.jl.gov.cn/szf/">省政府</a></li>
+                  <li><a href="http://www.jl.gov.cn/sz_266896/">省长</a></li>
+                  <li><a href="http://www.jl.gov.cn/zw/">政务</a></li>
+                  <li><a href="http://zwfw.jl.gov.cn/jlszwfw/">吉事办</a></li>
+                  <li><a href="http://www.jl.gov.cn/hd/">互动</a></li>
+                  <li><a href="http://www.jl.gov.cn/sq/">省情</a></li>
+                  <li><a href="http://www.jl.gov.cn/sj/">数据</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- 20230824 end -->
+        <!-- 主页面 -->
+        <div id="content_Height" class="main_container" style="position: relative">
+          <div class="main_top">
+            <div class="main_topCenter">
+              <!-- <div class="main_topPosition">
+                <div class="main_tp_icon"></div>
+                <div class="main_tp_city">吉林省</div>
+                <div class="main_tp_arrow"></div>
+              </div> -->
+
+              <div class="main_topPositionList">
+                <div class="main_tpTitle">
+                  <div class="main_tpCurrentTips">当前地区</div>
+                  <div class="main_tpCurrent">吉林省</div>
+                  <div class="main_tpClose">关闭</div>
+                </div>
+                <div class="main_tpLi">
+                  <div class="main_tpLiTitle">网站范围</div>
+                  <div class="main_tpItemContent" id="topProvinces">
+                    <div atype="1" class="main_tpItem active" code="220000">
+                      吉林省
+                    </div>
+                    <div atype="0" class="main_tpItem" code="680">
+                      省政府门户网站
+                    </div>
+                    <div atype="2" class="main_tpItem" code="220000">
+                      省直部门网站
+                    </div>
+                  </div>
+                </div>
+                <div class="main_tpLi">
+                  <div class="main_tpLiTitle">市 级</div>
+                  <div class="main_tpItemContent" id="topCity"><div class="main_tpItem" code="220100" atype="3">长春市</div><div class="main_tpItem" code="220200" atype="3">吉林市</div><div class="main_tpItem" code="220300" atype="3">四平市</div><div class="main_tpItem" code="220400" atype="3">辽源市</div><div class="main_tpItem" code="220500" atype="3">通化市</div><div class="main_tpItem" code="220600" atype="3">白山市</div><div class="main_tpItem" code="220700" atype="3">松原市</div><div class="main_tpItem" code="220800" atype="3">白城市</div><div class="main_tpItem" code="222400" atype="3">延边朝鲜族自治州</div><div class="main_tpItem" code="220900" atype="3">长白山保护开发区</div><div class="main_tpItem" code="220666" atype="5">长春新区</div></div>
+                </div>
+                <div class="main_tpLi" id="topCountyContainer" style="display: none">
+                  <div class="main_tpLiTitle">区 县</div>
+                  <div class="main_tpItemContent" id="topCounty">
+                    <!-- <div class="main_tpItem">朝阳区</div> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="main_topInput">
+                <input type="text" placeholder="请输入你要搜索的内容" id="searchInput" autocomplete="off">
+                <div class="main_topHotAndRecord" style="display: none;">
+                  <div class="main_topHotContainer">
+                    <div class="main_topRecord_title">
+                      <div class="main_topTitle_word">大家都在搜</div>
+                      <div class="main_hotHandle" id="hotChange" style="color: #acacac;">
+                        <span class="main_mTitle_handleIcon">
+                          <img src="./images/new/grayUpdate.png" alt=""> </span>换一批
+                      </div>
+                    </div>
+                    <div class="main_topHot_list"><div class="main_topRecord_item">职称</div><div class="main_topRecord_item">继续教育</div><div class="main_topRecord_item">招聘</div><div class="main_topRecord_item">独生子女</div><div class="main_topRecord_item">社保</div><div class="main_topRecord_item">营业执照</div><div class="main_topRecord_item">档案</div></div>
+                  </div>
+                  <div class="main_topRecordContainer">
+                    <div class="main_topRecord_title">
+                      <div class="main_topTitle_word">最近搜索记录</div>
+                      <div class="main_latelyHandle" id="clearSaveSearch" style="color: #acacac;">
+                        <div class="main_latelyIcon"></div>
+                        清空全部
+                      </div>
+                    </div>
+                    <div class="main_topRecord_list"><div class="main_latelyList_item"><span class="main_latelyItem_word" onclick="searchRecordClick(this)" title="中考">中考</span><span class="main_latelyItem_del" onclick="delSearchRecord(this,0)"></span> </div></div>
+                  </div>
+                </div>
+                <div class="main_topInputMore" id="inputMore">
+                  <!-- <div class="main_topInputItem">测试</div>
+                  <div class="main_topInputItem">测试</div>
+                  <div class="main_topInputItem">测试</div>
+                  <div class="main_topInputItem">测试</div> -->
+                </div>
+              </div>
+              <div class="main_topSearch" id="searchBtn" onclick="registSearchBtn()">搜索</div>
+              <a class="main_topSenior" href="javascript:void(0)" onclick="showSenior()">高级检索</a>
+              <div class="main_topTips" id="searchTips" style="display: none">大家都在搜：<span class="main_peopleAllSearch">职称</span><span class="main_peopleAllSearch">继续教育</span><span class="main_peopleAllSearch">招聘</span><span class="main_peopleAllSearch">独生子女</span><span class="main_peopleAllSearch">社保</span></div>
+              <div class="main_topTips" id="searchTipsV" style="">您是不是想搜： <span class="main_peopleAllSearch main_perpleAllSearchV">中考成绩</span> <span class="main_peopleAllSearch main_perpleAllSearchV">查中考成绩</span></div>
+              <input style="margin-right: 10px;" class="button_Search_1 fRight _2360f5ac6560ddd8" onclick="searchWordNew2(1,10,this)" onkeypress="" type="button" value="" title="点击搜索" id="main_topSearch_btn">
+              <!-- 高级检索 -->
+              <div class="gjjs_conter" id="gjjs_conter" onclick="eventStopPropagation(event)">
+                <form style="background: none; width: auto" id="gjjs_form">
+                  <div class="inp_wrap_new" style="width: 600px">
+                    <div class="inp_box">
+                      <span class="ss_word">包含以下任意一个关键词</span>
+                      <input placeholder="多个关键词用空格分隔" class="inp" id="hword">
+                    </div>
+                    <div class="inp_box">
+                      <span class="ss_word">包含以下全部关键词</span>
+                      <input placeholder="多个关键词用空格分隔" class="inp" id="aword">
+                    </div>
+                    <div class="inp_box">
+                      <span class="ss_word">不包含以下关键词</span>
+                      <input placeholder="多个关键词用空格分隔" class="inp" id="nword">
+                    </div>
+                    <div class="inp_box">
+                      <span class="ss_word">完整不拆分的关键词</span>
+                      <input placeholder="多个关键词用空格分隔" class="inp" id="dtword">
+                    </div>
+                    <div class="inp_box">
+                      <span class="ss_word">搜索类别</span>
+                      <select id="sup_stype">
+                        <option value="10" selected="">全部</option>
+                        <option value="14">办事服务</option>
+                        <option value="3">政策文件</option>
+                        <option value="1">要闻动态</option>
+                        <!-- <option value="2">吉林公报</option> -->
+
+                        <option value="401">服务信息</option>
+                        <!--													<option value="5">互动</option>-->
+                        <!-- <option value="6">公共资源交易</option> -->
+                        <option value="8">外文</option>
+                        <option value="7">其他</option>
+                        <!--													<option value="7">其他</option>-->
+                      </select>
+                    </div>
+                    <div class="inp_box">
+                      <span class="ss_word">时间段选择</span>
+                      <div class="date_box">
+                        <input placeholder="搜索结束时间" class="in_data date_picker" id="sup_end_data" readonly=""><div class="date_selector" style="display: none;"><div class="nav"><p class="month_nav"><span class="button prev" title="">«</span> <span class="month_name">十月份</span> <span class="button next" title="">»</span></p><p class="year_nav"><span class="button prev" title="">«</span> <span class="year_name">2026</span> <span class="button next" title="">»</span></p></div><table><thead><tr><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th></tr></thead><tbody><tr><td class="unselected_month" date="2026-9-28">28</td><td class="unselected_month" date="2026-9-29">29</td><td class="unselected_month" date="2026-9-30">30</td><td class="selectable_day" date="2026-10-1">1</td><td class="selectable_day" date="2026-10-2">2</td><td class="selectable_day" date="2026-10-3">3</td><td class="selectable_day" date="2026-10-4">4</td></tr><tr><td class="selectable_day" date="2026-10-5">5</td><td class="selectable_day" date="2026-10-6">6</td><td class="selectable_day" date="2026-10-7">7</td><td class="selectable_day" date="2026-10-8">8</td><td class="selectable_day" date="2026-10-9">9</td><td class="selectable_day" date="2026-10-10">10</td><td class="selectable_day" date="2026-10-11">11</td></tr><tr><td class="selectable_day" date="2026-10-12">12</td><td class="selectable_day" date="2026-10-13">13</td><td class="selectable_day" date="2026-10-14">14</td><td class="selectable_day" date="2026-10-15">15</td><td class="selectable_day today selected" date="2026-10-16">16</td><td class="selectable_day" date="2026-10-17">17</td><td class="selectable_day" date="2026-10-18">18</td></tr><tr><td class="selectable_day" date="2026-10-19">19</td><td class="selectable_day" date="2026-10-20">20</td><td class="selectable_day" date="2026-10-21">21</td><td class="selectable_day" date="2026-10-22">22</td><td class="selectable_day" date="2026-10-23">23</td><td class="selectable_day" date="2026-10-24">24</td><td class="selectable_day" date="2026-10-25">25</td></tr><tr><td class="selectable_day" date="2026-10-26">26</td><td class="selectable_day" date="2026-10-27">27</td><td class="selectable_day" date="2026-10-28">28</td><td class="selectable_day" date="2026-10-29">29</td><td class="selectable_day" date="2026-10-30">30</td><td class="selectable_day" date="2026-10-31">31</td><td class="unselected_month" date="2026-11-1">1</td></tr></tbody></table></div>
+                        <span class="text-center mx-1 my-auto" style="float: right">-</span>
+                        <input placeholder="搜索开始时间" class="in_data date_picker" id="sup_start_data" readonly=""><div class="date_selector" style="display: none;"><div class="nav"><p class="month_nav"><span class="button prev" title="">«</span> <span class="month_name">十月份</span> <span class="button next" title="">»</span></p><p class="year_nav"><span class="button prev" title="">«</span> <span class="year_name">2026</span> <span class="button next" title="">»</span></p></div><table><thead><tr><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th></tr></thead><tbody><tr><td class="unselected_month" date="2026-9-28">28</td><td class="unselected_month" date="2026-9-29">29</td><td class="unselected_month" date="2026-9-30">30</td><td class="selectable_day" date="2026-10-1">1</td><td class="selectable_day" date="2026-10-2">2</td><td class="selectable_day" date="2026-10-3">3</td><td class="selectable_day" date="2026-10-4">4</td></tr><tr><td class="selectable_day" date="2026-10-5">5</td><td class="selectable_day" date="2026-10-6">6</td><td class="selectable_day" date="2026-10-7">7</td><td class="selectable_day" date="2026-10-8">8</td><td class="selectable_day" date="2026-10-9">9</td><td class="selectable_day" date="2026-10-10">10</td><td class="selectable_day" date="2026-10-11">11</td></tr><tr><td class="selectable_day" date="2026-10-12">12</td><td class="selectable_day" date="2026-10-13">13</td><td class="selectable_day" date="2026-10-14">14</td><td class="selectable_day" date="2026-10-15">15</td><td class="selectable_day today selected" date="2026-10-16">16</td><td class="selectable_day" date="2026-10-17">17</td><td class="selectable_day" date="2026-10-18">18</td></tr><tr><td class="selectable_day" date="2026-10-19">19</td><td class="selectable_day" date="2026-10-20">20</td><td class="selectable_day" date="2026-10-21">21</td><td class="selectable_day" date="2026-10-22">22</td><td class="selectable_day" date="2026-10-23">23</td><td class="selectable_day" date="2026-10-24">24</td><td class="selectable_day" date="2026-10-25">25</td></tr><tr><td class="selectable_day" date="2026-10-26">26</td><td class="selectable_day" date="2026-10-27">27</td><td class="selectable_day" date="2026-10-28">28</td><td class="selectable_day" date="2026-10-29">29</td><td class="selectable_day" date="2026-10-30">30</td><td class="selectable_day" date="2026-10-31">31</td><td class="unselected_month" date="2026-11-1">1</td></tr></tbody></table></div>
+                      </div>
+                    </div>
+                    <div class="inp_box">
+                      <span class="ss_word">搜索词位置</span>
+                      <div class="date_box">
+                        <input type="radio" id="option2" name="scope" class="option-radio" value="2" checked="checked">
+                        <label for="option2">
+                          <span class="">在标题中</span>
+                        </label>
+                        <input type="radio" id="option3" name="scope" class="option-radio" value="3">
+                        <label for="option3">
+                          <span class="">在正文中</span>
+                        </label>
+                      </div>
+                      <div class="date_box"></div>
+                    </div>
+
+                    <a class="tj" id="sup_submit">提交</a>
+                    <a class="cz" id="sup_reset">重置</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- ppap 新版tab选项 -->
+          <div class="main_newTabContainer">
+            <div class="main_index" style="overflow: visible; width: 100%; box-sizing: border-box">
+              <div class="main_index_area">
+                <div id="select_area" code="220000" atype="1"></div>
+                <i class="i_style2"></i>
+                <span>网站范围：</span>
+                <a code="220000" atype="1" class="link_sel mr-3">全部</a>
+                <a code="680" atype="0" class="link_nor">省政府门户网站</a>
+                <a code="220000" atype="2" class="link_nor">省直部门网站</a>
+                <a href="javascript:void(0);" class="link_nor not_sel" id="regionChangeCity">市级部门网站</a>
+                <a href="javascript:void(0);" class="link_nor not_sel" id="regionChange">+</a>
+              </div>
+              <div class="location_list" id="regionChangeDataShow" style="display: none">
+                <div class="location_conter">
+                  <div class="location_tit"><i>&gt;</i><span>市级</span>：</div>
+                  <div id="cityBox" class="cityBox"><a class="not_sel not_city" code="220100" atype="3">长春市</a><a class="not_sel not_city" code="220200" atype="3">吉林市</a><a class="not_sel not_city" code="220300" atype="3">四平市</a><a class="not_sel not_city" code="220400" atype="3">辽源市</a><a class="not_sel not_city" code="220500" atype="3">通化市</a><a class="not_sel not_city" code="220600" atype="3">白山市</a><a class="not_sel not_city" code="220700" atype="3">松原市</a><a class="not_sel not_city" code="220800" atype="3">白城市</a><a class="not_sel not_city" code="222400" atype="3">延边朝鲜族自治州</a><a class="not_sel not_city" code="220900" atype="3">长白山保护开发区</a><a class="not_sel not_city" code="220666" atype="5">长春新区</a></div>
+                </div>
+                <div class="location_conter" id="county_box_parent" style="display: none">
+                  <div class="location_tit"><i>&gt;</i><span>区县</span>：</div>
+                  <div id="countyBox"></div>
+                </div>
+              </div>
+
+              <div class="main_index_order">
+                <i class="i_style"></i>
+                <span>排序方式：</span>
+                <a class="link_sel link_nor" sort="0">按匹配度</a>
+                <a class="mr-3" sort="1">按时间</a>
+              </div>
+
+              <div class="main_index_timerange">
+                <i class="i_style"></i>
+                <span>时间范围：</span>
+                <!-- <a class="link_sel" ttype="6">一年内</a> -->
+                <a class="link_sel" ttype="0">全部</a>
+                <a class="link_nor" ttype="1">本年</a>
+                <a class="link_nor" ttype="2">本月</a>
+                <a class="link_nor" ttype="3">本周</a>
+                <a class="link_nor" ttype="5">指定时间</a>
+                <style>
+                  .time_box {
+                    display: inline-block;
+                    vertical-align: middle;
+                  }
+                </style>
+                <div class="time_box" style="display: none">
+                  <div>
+                    <input placeholder="搜索开始时间" class="form-control date_picker" id="startDate" value="" style="width: 90px" readonly=""><div class="date_selector" style="display: none;"><div class="nav"><p class="month_nav"><span class="button prev" title="">«</span> <span class="month_name">十月份</span> <span class="button next" title="">»</span></p><p class="year_nav"><span class="button prev" title="">«</span> <span class="year_name">2026</span> <span class="button next" title="">»</span></p></div><table><thead><tr><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th></tr></thead><tbody><tr><td class="unselected_month" date="2026-9-28">28</td><td class="unselected_month" date="2026-9-29">29</td><td class="unselected_month" date="2026-9-30">30</td><td class="selectable_day" date="2026-10-1">1</td><td class="selectable_day" date="2026-10-2">2</td><td class="selectable_day" date="2026-10-3">3</td><td class="selectable_day" date="2026-10-4">4</td></tr><tr><td class="selectable_day" date="2026-10-5">5</td><td class="selectable_day" date="2026-10-6">6</td><td class="selectable_day" date="2026-10-7">7</td><td class="selectable_day" date="2026-10-8">8</td><td class="selectable_day" date="2026-10-9">9</td><td class="selectable_day" date="2026-10-10">10</td><td class="selectable_day" date="2026-10-11">11</td></tr><tr><td class="selectable_day" date="2026-10-12">12</td><td class="selectable_day" date="2026-10-13">13</td><td class="selectable_day" date="2026-10-14">14</td><td class="selectable_day" date="2026-10-15">15</td><td class="selectable_day today selected" date="2026-10-16">16</td><td class="selectable_day" date="2026-10-17">17</td><td class="selectable_day" date="2026-10-18">18</td></tr><tr><td class="selectable_day" date="2026-10-19">19</td><td class="selectable_day" date="2026-10-20">20</td><td class="selectable_day" date="2026-10-21">21</td><td class="selectable_day" date="2026-10-22">22</td><td class="selectable_day" date="2026-10-23">23</td><td class="selectable_day" date="2026-10-24">24</td><td class="selectable_day" date="2026-10-25">25</td></tr><tr><td class="selectable_day" date="2026-10-26">26</td><td class="selectable_day" date="2026-10-27">27</td><td class="selectable_day" date="2026-10-28">28</td><td class="selectable_day" date="2026-10-29">29</td><td class="selectable_day" date="2026-10-30">30</td><td class="selectable_day" date="2026-10-31">31</td><td class="unselected_month" date="2026-11-1">1</td></tr></tbody></table></div>
+                  </div>
+                  <span class="text-center mx-1 my-auto" style="float: left">-</span>
+                  <div>
+                    <input placeholder="搜索结束时间" class="form-control date_picker" id="endDate" value="" style="width: 90px" readonly=""><div class="date_selector" style="display: none;"><div class="nav"><p class="month_nav"><span class="button prev" title="">«</span> <span class="month_name">十月份</span> <span class="button next" title="">»</span></p><p class="year_nav"><span class="button prev" title="">«</span> <span class="year_name">2026</span> <span class="button next" title="">»</span></p></div><table><thead><tr><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th></tr></thead><tbody><tr><td class="unselected_month" date="2026-9-28">28</td><td class="unselected_month" date="2026-9-29">29</td><td class="unselected_month" date="2026-9-30">30</td><td class="selectable_day" date="2026-10-1">1</td><td class="selectable_day" date="2026-10-2">2</td><td class="selectable_day" date="2026-10-3">3</td><td class="selectable_day" date="2026-10-4">4</td></tr><tr><td class="selectable_day" date="2026-10-5">5</td><td class="selectable_day" date="2026-10-6">6</td><td class="selectable_day" date="2026-10-7">7</td><td class="selectable_day" date="2026-10-8">8</td><td class="selectable_day" date="2026-10-9">9</td><td class="selectable_day" date="2026-10-10">10</td><td class="selectable_day" date="2026-10-11">11</td></tr><tr><td class="selectable_day" date="2026-10-12">12</td><td class="selectable_day" date="2026-10-13">13</td><td class="selectable_day" date="2026-10-14">14</td><td class="selectable_day" date="2026-10-15">15</td><td class="selectable_day today selected" date="2026-10-16">16</td><td class="selectable_day" date="2026-10-17">17</td><td class="selectable_day" date="2026-10-18">18</td></tr><tr><td class="selectable_day" date="2026-10-19">19</td><td class="selectable_day" date="2026-10-20">20</td><td class="selectable_day" date="2026-10-21">21</td><td class="selectable_day" date="2026-10-22">22</td><td class="selectable_day" date="2026-10-23">23</td><td class="selectable_day" date="2026-10-24">24</td><td class="selectable_day" date="2026-10-25">25</td></tr><tr><td class="selectable_day" date="2026-10-26">26</td><td class="selectable_day" date="2026-10-27">27</td><td class="selectable_day" date="2026-10-28">28</td><td class="selectable_day" date="2026-10-29">29</td><td class="selectable_day" date="2026-10-30">30</td><td class="selectable_day" date="2026-10-31">31</td><td class="unselected_month" date="2026-11-1">1</td></tr></tbody></table></div>
+                  </div>
+                  <button type="button" class="btn-primary" onclick="newTimeBtnClick()">
+                    提交
+                  </button>
+                </div>
+              </div>
+
+              <div class="main_index_stype">
+                <i class="i_style"></i>
+                <span>主题检索：</span>
+                <a id="search0" stype="10" class="link_sel mr-3">全部</a>
+
+                <a id="search2" stype="14" class="link_nor">办事服务</a>
+                <!-- <a  id="search2" stype="2" class="link_nor">吉林公报</a> -->
+                <a id="search3" stype="3" class="link_nor">政策文件</a>
+                <a id="search1" stype="1" class="link_nor">要闻动态</a>
+                <a id="search4" stype="401" class="link_nor">服务信息</a>
+                <!--						<a  id="search5" stype="5" class="link_nor">互动</a>-->
+                <!-- <a id="search8" stype="8" class="link_nor">外文</a> -->
+                <a id="search7" stype="7" class="link_nor">其他</a>
+                <!--						<a  id="search7" stype="7" class="link_nor">其他</a>-->
+              </div>
+
+              <div class="jsfl_fuwu" id="search4_child_item_div">
+                <dl id="search4_child_div_jls">
+                  <dt><i>&gt;</i><span>类型筛选</span>：</dt>
+                  <dd>
+                    <span class="text_style5" itype="">全部</span>
+                    <span itype="10">办事事项</span>
+                    <span itype="20">便民服务</span>
+                    <span itype="30">特色服务</span>
+                    <span itype="40">高效办成一件事</span>
+                    <span itype="50">跨省通办服务</span>
+                  </dd>
+                </dl>
+                <dl id="search4_child_div_mattType" style="display: none">
+                  <dt><i>&gt;</i><span>事项筛选</span>：</dt>
+                  <dd>
+                    <span class="text_style5" matttype="0"> 全部 </span>
+                    <span matttype="01"> 行政许可 </span>
+                    <span matttype="02"> 行政处罚 </span>
+                    <span matttype="03"> 行政强制 </span>
+                    <span matttype="04"> 行政征收 </span>
+                    <span matttype="05"> 行政给付 </span>
+                    <span matttype="06"> 行政检查 </span>
+                    <span matttype="07"> 行政确认 </span>
+                    <span matttype="08"> 行政奖励 </span>
+                    <span matttype="09"> 行政裁决 </span>
+                    <span matttype="10"> 其它行政权力 </span>
+                    <span matttype="20"> 公共服务 </span>
+                  </dd>
+                </dl>
+                <dl id="search4_child_div_serverType" style="display: none">
+                  <dt><i>&gt;</i><span>服务对象</span>：</dt>
+                  <dd>
+                    <span servertype="0" class="text_style5">全部</span>
+                    <span servertype="1">自然人</span>
+                    <span servertype="2">企业法人</span>
+                    <span servertype="3">事业法人</span>
+                    <span servertype="4">社会组织法人</span>
+                    <span servertype="5">非法人企业</span>
+                    <span servertype="6">行政机关</span>
+                    <span servertype="9">其他组织</span>
+                  </dd>
+                </dl>
+              </div>
+              <div class="jsfl_fuwu" id="search3_child_div">
+                <dl id="search3_child_div_year">
+                  <dt><i>&gt;</i><span>年份</span>：</dt>
+                  <dd>
+                    <span class="text_style5" fileyear="全部">全部</span>
+                    <span fileyear="2026">2026</span>
+                    <span fileyear="2025">2025</span>
+                    <span fileyear="2024">2024</span>
+                    <span fileyear="2023">2023</span>
+                    <span fileyear="2022">2022</span>
+                    <span fileyear="2021">2021</span>
+                    <span fileyear="2020">2020</span>
+                    <span fileyear="2019">2019</span>
+                    <span fileyear="2018">2018</span>
+                    <span fileyear="2017">2017</span>
+                    <span fileyear="更早年份">更早年份</span>
+                  </dd>
+                </dl>
+                <dl id="search3_child_div_scope">
+                  <dt><i>&gt;</i><span>查询范围</span>：</dt>
+                  <dd>
+                    <span scope="1" class="text_style5">全部</span>
+                    <span scope="2">标题</span>
+                    <span scope="3">正文</span>
+                    <!-- <span scope="4">文号</span> -->
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <!--   tab选项 -->
+          <div class="main_tabContainer" style="display: none">
+            <div class="main_tab">
+              <div class="main_tabItem main_tabItemActive" type="10">
+                全部<span class="main_tabItemNumber">0</span>
+              </div>
+              <div class="main_tabItem" type="14">
+                办事服务<span class="main_tabItemNumber">0</span>
+              </div>
+              <div class="main_tabItem" type="3">
+                政策文件<span class="main_tabItemNumber">0</span>
+              </div>
+              <div class="main_tabItem" type="1">
+                要闻动态<span class="main_tabItemNumber">0</span>
+              </div>
+              <div class="main_tabItem" type="401">
+                服务信息<span class="main_tabItemNumber">0</span>
+              </div>
+              <div class="main_tabItem" type="8">
+                外文<span class="main_tabItemNumber">0</span>
+              </div>
+              <div class="main_tabItem" type="7">
+                其他<span class="main_tabItemNumber">0</span>
+              </div>
+            </div>
+            <div class="main_tabConditionAll">
+              <!-- 所有typeList -->
+              <!-- 排序 -->
+              <div class="main_tabCType_item" type="order">
+                <div class="main_tabCtype_left">
+                  <span class="main_tabCtype_leftIcon"><img src="./images/new/icon1.png" alt=""></span>
+                  <span class="main_tabCtype_leftWord">排序方式</span>
+                </div>
+                <div class="main_tabCtype_right">
+                  <span class="main_tabCtype_rightWord">按相关度</span>
+                  <span class="main_tabCtype_rightIcon"><img src="./images/new/orageArrow.png" alt=""></span>
+                  <!-- 下拉 -->
+                  <div class="main_tabType_list">
+                    <div class="main_tabType_item" value="0" parenttype="order">
+                      按相关度
+                    </div>
+                    <div class="main_tabType_item" value="1" parenttype="order">
+                      按时间
+                    </div>
+                    <!-- <div class="main_tabType_item">按类型</div> -->
+                  </div>
+                </div>
+              </div>
+              <!-- 时间范围 -->
+              <div class="main_tabCType_item" type="timeRange">
+                <div class="main_tabCtype_left">
+                  <span class="main_tabCtype_leftIcon"><img src="./images/new/icon2.png" alt=""></span>
+                  <span class="main_tabCtype_leftWord">时间范围</span>
+                </div>
+                <div class="main_tabCtype_right">
+                  <span class="main_tabCtype_rightWord">全部</span>
+                  <span class="main_tabCtype_rightIcon"><img src="./images/new/orageArrow.png" alt=""></span>
+                  <!-- 下拉 -->
+                  <div class="main_tabType_list">
+                    <div class="main_tabType_item" parenttype="timeRange" value="0">
+                      全部
+                    </div>
+                    <div class="main_tabType_item" parenttype="timeRange" value="1">
+                      本年
+                    </div>
+                    <div class="main_tabType_item" parenttype="timeRange" value="2">
+                      本月
+                    </div>
+                    <div class="main_tabType_item" parenttype="timeRange" value="3">
+                      本周
+                    </div>
+                    <div class="main_tabType_item" parenttype="timeRange" value="5">
+                      指定时间
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main_tabCType_item" type="diyTime" style="display: none">
+                <input placeholder="搜索开始时间" class="form-control date_picker" id="startDate" value="" style="width: 90px" readonly=""><div class="date_selector" style="display: none;"><div class="nav"><p class="month_nav"><span class="button prev" title="">«</span> <span class="month_name">十月份</span> <span class="button next" title="">»</span></p><p class="year_nav"><span class="button prev" title="">«</span> <span class="year_name">2026</span> <span class="button next" title="">»</span></p></div><table><thead><tr><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th></tr></thead><tbody><tr><td class="unselected_month" date="2026-9-28">28</td><td class="unselected_month" date="2026-9-29">29</td><td class="unselected_month" date="2026-9-30">30</td><td class="selectable_day" date="2026-10-1">1</td><td class="selectable_day" date="2026-10-2">2</td><td class="selectable_day" date="2026-10-3">3</td><td class="selectable_day" date="2026-10-4">4</td></tr><tr><td class="selectable_day" date="2026-10-5">5</td><td class="selectable_day" date="2026-10-6">6</td><td class="selectable_day" date="2026-10-7">7</td><td class="selectable_day" date="2026-10-8">8</td><td class="selectable_day" date="2026-10-9">9</td><td class="selectable_day" date="2026-10-10">10</td><td class="selectable_day" date="2026-10-11">11</td></tr><tr><td class="selectable_day" date="2026-10-12">12</td><td class="selectable_day" date="2026-10-13">13</td><td class="selectable_day" date="2026-10-14">14</td><td class="selectable_day" date="2026-10-15">15</td><td class="selectable_day today selected" date="2026-10-16">16</td><td class="selectable_day" date="2026-10-17">17</td><td class="selectable_day" date="2026-10-18">18</td></tr><tr><td class="selectable_day" date="2026-10-19">19</td><td class="selectable_day" date="2026-10-20">20</td><td class="selectable_day" date="2026-10-21">21</td><td class="selectable_day" date="2026-10-22">22</td><td class="selectable_day" date="2026-10-23">23</td><td class="selectable_day" date="2026-10-24">24</td><td class="selectable_day" date="2026-10-25">25</td></tr><tr><td class="selectable_day" date="2026-10-26">26</td><td class="selectable_day" date="2026-10-27">27</td><td class="selectable_day" date="2026-10-28">28</td><td class="selectable_day" date="2026-10-29">29</td><td class="selectable_day" date="2026-10-30">30</td><td class="selectable_day" date="2026-10-31">31</td><td class="unselected_month" date="2026-11-1">1</td></tr></tbody></table></div>
+                <input placeholder="搜索结束时间" class="form-control date_picker" id="endDate" value="" style="width: 90px" readonly=""><div class="date_selector" style="display: none;"><div class="nav"><p class="month_nav"><span class="button prev" title="">«</span> <span class="month_name">十月份</span> <span class="button next" title="">»</span></p><p class="year_nav"><span class="button prev" title="">«</span> <span class="year_name">2026</span> <span class="button next" title="">»</span></p></div><table><thead><tr><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th></tr></thead><tbody><tr><td class="unselected_month" date="2026-9-28">28</td><td class="unselected_month" date="2026-9-29">29</td><td class="unselected_month" date="2026-9-30">30</td><td class="selectable_day" date="2026-10-1">1</td><td class="selectable_day" date="2026-10-2">2</td><td class="selectable_day" date="2026-10-3">3</td><td class="selectable_day" date="2026-10-4">4</td></tr><tr><td class="selectable_day" date="2026-10-5">5</td><td class="selectable_day" date="2026-10-6">6</td><td class="selectable_day" date="2026-10-7">7</td><td class="selectable_day" date="2026-10-8">8</td><td class="selectable_day" date="2026-10-9">9</td><td class="selectable_day" date="2026-10-10">10</td><td class="selectable_day" date="2026-10-11">11</td></tr><tr><td class="selectable_day" date="2026-10-12">12</td><td class="selectable_day" date="2026-10-13">13</td><td class="selectable_day" date="2026-10-14">14</td><td class="selectable_day" date="2026-10-15">15</td><td class="selectable_day today selected" date="2026-10-16">16</td><td class="selectable_day" date="2026-10-17">17</td><td class="selectable_day" date="2026-10-18">18</td></tr><tr><td class="selectable_day" date="2026-10-19">19</td><td class="selectable_day" date="2026-10-20">20</td><td class="selectable_day" date="2026-10-21">21</td><td class="selectable_day" date="2026-10-22">22</td><td class="selectable_day" date="2026-10-23">23</td><td class="selectable_day" date="2026-10-24">24</td><td class="selectable_day" date="2026-10-25">25</td></tr><tr><td class="selectable_day" date="2026-10-26">26</td><td class="selectable_day" date="2026-10-27">27</td><td class="selectable_day" date="2026-10-28">28</td><td class="selectable_day" date="2026-10-29">29</td><td class="selectable_day" date="2026-10-30">30</td><td class="selectable_day" date="2026-10-31">31</td><td class="unselected_month" date="2026-11-1">1</td></tr></tbody></table></div>
+                <button type="button" class="btn-primary" onclick="search()">
+                  提交
+                </button>
+              </div>
+              <!-- 时间范围文件 -->
+              <div class="main_tabCType_item" type="fileyear" style="display: none">
+                <div class="main_tabCtype_left">
+                  <span class="main_tabCtype_leftIcon"><img src="./images/new/icon2.png" alt=""></span>
+                  <span class="main_tabCtype_leftWord">时间范围</span>
+                </div>
+                <div class="main_tabCtype_right">
+                  <span class="main_tabCtype_rightWord">全部</span>
+                  <span class="main_tabCtype_rightIcon"><img src="./images/new/orageArrow.png" alt=""></span>
+                  <!-- 下拉 -->
+                  <div class="main_tabType_list">
+                    <div class="main_tabType_item" parenttype="fileyear" value="全部">
+                      全部
+                    </div>
+                    <div class="main_tabType_item" parenttype="fileyear" value="2021">
+                      2021
+                    </div>
+                    <div class="main_tabType_item" parenttype="fileyear" value="2020">
+                      2020
+                    </div>
+                    <div class="main_tabType_item" parenttype="fileyear" value="2019">
+                      2019
+                    </div>
+                    <div class="main_tabType_item" parenttype="fileyear" value="更早年份">
+                      更早年份
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 类型筛选 -->
+              <div class="main_tabCType_item" type="typeChoose" style="display: none">
+                <div class="main_tabCtype_left">
+                  <span class="main_tabCtype_leftIcon"><img src="./images/new/icon3.png" alt=""></span>
+                  <span class="main_tabCtype_leftWord">类型筛选</span>
+                </div>
+                <div class="main_tabCtype_right">
+                  <span class="main_tabCtype_rightWord">全部</span>
+                  <span class="main_tabCtype_rightIcon"><img src="./images/new/orageArrow.png" alt=""></span>
+                  <!-- 下拉 -->
+                  <div class="main_tabType_list">
+                    <div class="main_tabType_item" parenttype="typeChoose" value="">
+                      全部
+                    </div>
+                    <div class="main_tabType_item" parenttype="typeChoose" value="10">
+                      办事事项
+                    </div>
+                    <div class="main_tabType_item" parenttype="typeChoose" value="20">
+                      便民服务
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 查询范围 -->
+              <div class="main_tabCType_item" type="searchRange" style="display: none">
+                <div class="main_tabCtype_left">
+                  <span class="main_tabCtype_leftIcon"><img src="./images/new/icon3.png" alt=""></span>
+                  <span class="main_tabCtype_leftWord">查询范围</span>
+                </div>
+                <div class="main_tabCtype_right">
+                  <span class="main_tabCtype_rightWord">全部</span>
+                  <span class="main_tabCtype_rightIcon"><img src="./images/new/orageArrow.png" alt=""></span>
+                  <!-- 下拉 -->
+                  <div class="main_tabType_list">
+                    <div class="main_tabType_item" parenttype="searchRange" value="1">
+                      全部
+                    </div>
+                    <div class="main_tabType_item" parenttype="searchRange" value="2">
+                      标题
+                    </div>
+                    <div class="main_tabType_item" parenttype="searchRange" value="3">
+                      正文
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 事项筛选 -->
+              <div class="main_tabCType_item" type="matterRange" style="display: none">
+                <div class="main_tabCtype_left">
+                  <span class="main_tabCtype_leftIcon"><img src="./images/new/icon4.png" alt=""></span>
+                  <span class="main_tabCtype_leftWord">事项筛选</span>
+                </div>
+                <div class="main_tabCtype_right">
+                  <span class="main_tabCtype_rightWord">全部</span>
+                  <span class="main_tabCtype_rightIcon"><img src="./images/new/orageArrow.png" alt=""></span>
+                  <!-- 下拉 -->
+                  <div class="main_tabType_list">
+                    <div class="main_tabType_item" parenttype="matterRange" value="0">
+                      全部
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="01">
+                      行政许可
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="02">
+                      行政处罚
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="03">
+                      行政强制
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="04">
+                      行政征收
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="05">
+                      行政给付
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="06">
+                      行政检查
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="07">
+                      行政确认
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="08">
+                      行政奖励
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="09">
+                      行政裁决
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="10">
+                      其它行政权力
+                    </div>
+                    <div class="main_tabType_item" parenttype="matterRange" value="20">
+                      公共服务
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 用户类型 -->
+              <div class="main_tabCType_item" type="userType" style="display: none">
+                <div class="main_tabCtype_left">
+                  <span class="main_tabCtype_leftIcon"><img src="./images/new/icon5.png" alt=""></span>
+                  <span class="main_tabCtype_leftWord">用户类型</span>
+                </div>
+                <div class="main_tabCtype_right">
+                  <span class="main_tabCtype_rightWord">全部</span>
+                  <span class="main_tabCtype_rightIcon"><img src="./images/new/orageArrow.png" alt=""></span>
+                  <!-- 下拉 -->
+                  <div class="main_tabType_list">
+                    <div class="main_tabType_item" parenttype="userType" value="0">
+                      全部
+                    </div>
+                    <div class="main_tabType_item" parenttype="userType" value="1">
+                      自然人
+                    </div>
+                    <div class="main_tabType_item" parenttype="userType" value="2">
+                      企业法人
+                    </div>
+                    <div class="main_tabType_item" parenttype="userType" value="3">
+                      事业法人
+                    </div>
+                    <div class="main_tabType_item" parenttype="userType" value="4">
+                      社会组织法人
+                    </div>
+                    <div class="main_tabType_item" parenttype="userType" value="5">
+                      非法人企业
+                    </div>
+                    <div class="main_tabType_item" parenttype="userType" value="6">
+                      行政机关
+                    </div>
+                    <div class="main_tabType_item" parenttype="userType" value="9">
+                      其他组织
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 主内容 -->
+          <div class="main_content_left" style="margin-top: 30px">
+            <div style="display: flex;justify-content: space-between;align-items: center;margin-bottom: 10px;">
+              <!-- 纠错 -->
+              <div class="error_recovery" id="error_recovery" style="display: none;display: flex;align-items: center;margin-left: 20px;">
+              </div>
+
+              <!-- 条数  20230907-->
+              <div class="main_content_listCount" style="text-align: right;" "="">共搜索到<font style=" color:
+                   #f73131;font-size: 18px;">【<font style="color: #f73131;font-size: 18px;" id="contentNumber">4155</font>】
+                </font>条数据</div>
+            </div>
+
+            <!-- 省长 -->
+            <div class="main_leader mb40" id="leader" style="display: none;">
+              <div class="main_leaderImg" id="leaderImg"></div>
+              <div class="main_leaderDetial">
+                <p id="leaderName"></p>
+                <p id="leaderTips"></p>
+                <p id="leaderDetial"></p>
+              </div>
+            </div>
+            <!-- <iframe id="leader_url"></iframe> -->
+            <!-- 20230831 -->
+            <iframe src="" width="100%" frameborder="0" scrolling="no" id="iframe_search" isshow="true" class="mb40" style="display: none;"></iframe>
+            <style>
+              #iframe_search {
+                width: 100% !important
+              }
+            </style>
+            <!-- lmx 20230519 框搜 -->
+            <div class="main_kuangsouBox main_clBox mb40" style="margin-bottom: 20px;display: none;" id="kuangsouBox">
+              <iframe src="" frameborder="0" id="kuangsou_iframe" style="width:100%;display:none;" scrolling="no"></iframe>
+              <div class="wrap" id="kuangsou_innerBox">
+                <div class="kss">
+                  <div class="title_bg">
+                    <p>
+                      <span class="main_kuangsouWord">社保</span>
+                    </p>
+                  </div>
+                  <section class="policy">
+                    <div class="tabs">
+                      <div class="tabs_swiper_wrap swiper-container-horizontal swiper-container-free-mode short" id="tabsHeader">
+                      </div>
+                      <div class="swiper-button-prev swiper-button-disabled" style="display: none;"></div>
+                      <div class="swiper-button-next swiper-button-disabled" style="display: none;"></div>
+                    </div>
+                    <div id="tabs-container" class="swiper-container swiper-container-horizontal swiper-container-autoheight">
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- 办事服务 -->
+            <div class="main_clBox mb40" id="banshifuwu">
+              <div class="main_mTitle">
+                <div class="main_mTitle_dec">
+                  <div class="main_mTitle_decOne"></div>
+                  <div class="main_mTitle_decTwo"></div>
+                </div>
+                <span class="main_mTitle_word">办事服务</span>
+                <a href="javascript:void(0)" class="main_mTitle_link" id="banshiMore">查看更多&gt;&gt;</a>
+              </div>
+              <div class="main_quickContainer" id="bianminfuwuContainer">
+                <div class="main_quickEnter">
+                  <div class="main_quickWord">快捷入口</div>
+                  <div class="main_quickLine"></div>
+                  <div class="main_quickHandle" id="bianminfuwuHandle" page="1" style="display: none;">
+                    <span class="main_quickhandleIcon">
+                      <img src="./images/new/orangeUpdate.png" alt=""> </span>换一批
+                  </div>
+                </div>
+                <div class="main_mList" id="bianminfuwuList"><div class="main_mListItem"> <span class="main_mlist_dot ">便民服务</span><a class="main_mList_title" href="javascript:void(0)" title="中考成绩查询" onclick="clickOpenUrl(this)" url="http://zwfw.jl.gov.cn/jlszwfw/gr/zkcjcx/" dataid="1402" doctype="1402" word="中考" page="1" count="10" pageindex="1" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="84EE45869EDD4B6299B29A344291B835182" first="0" pageno="1" totalcount="1"><font color="red">中考</font>成绩查询</a></div></div>
+              </div>
+              <!-- 办事指南事件索引 -->
+              <div style="margin: 12px 20px 0px; display: none;" id="banshizhinan">
+                <div class="main_bsznEnter">
+                  <div class="main_bsznWord">办事指南</div>
+                  <div class="main_bsznLine"></div>
+                </div>
+                <div class="tabsTitle" id="tabsTitle"></div>
+                <ul class="tabContent" id="tabContent"></ul>
+              </div>
+              <!-- 单行 -->
+              <div class="main_mLineList mt" id="banshifuwuOneLine" style="display: none;">
+                <div class="main_mLineList_item">
+                  <a href="javascript:void(0)" class="main_mLineList_word"><span>住房公积金</span>缴存基数调整</a>
+                  <div class="main_mLineList_handle">
+                    <div class="main_mlh_yellowBtn">
+                      <span class="main_mlh_yeIcon"></span>在线办理<span class="main_mlhgo"></span>
+                    </div>
+                    <div class="main_mlh_whiteBtn">
+                      <span class="main_mlh_whIcon"></span>办事指南<span class="main_mlhgo"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_mLineList_item">
+                  <a href="javascript:void(0)" class="main_mLineList_word"><span>住公积金</span>缴存基数调整</a>
+                  <div class="main_mLineList_handle">
+                    <div class="main_mlh_yellowBtn">
+                      <span class="main_mlh_yeIcon"></span>在线办理<span class="main_mlhgo"></span>
+                    </div>
+                    <div class="main_mlh_whiteBtn">
+                      <span class="main_mlh_whIcon"></span>办事指南<span class="main_mlhgo"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_mLineList_item">
+                  <a href="javascript:void(0)" class="main_mLineList_word"><span>住房公积金</span>缴存基数调整</a>
+                  <div class="main_mLineList_handle">
+                    <div class="main_mlh_yellowBtn">
+                      <span class="main_mlh_yeIcon"></span>在线办理<span class="main_mlhgo"></span>
+                    </div>
+                    <div class="main_mlh_whiteBtn">
+                      <span class="main_mlh_whIcon"></span>办事指南<span class="main_mlhgo"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 政策文件 -->
+            <div class="main_clBox mb40" id="policyDocument" style="display: block;">
+
+              <div class="main_mTitle">
+                <div class="main_mTitle_dec">
+                  <div class="main_mTitle_decOne"></div>
+                  <div class="main_mTitle_decTwo"></div>
+                </div>
+                <span class="main_mTitle_word">政策文件</span>
+                <a href="javascript:void(0)" class="main_mTitle_link" id="wenjianMore">查看更多&gt;&gt;</a>
+              </div>
+              <div class="hxtkBox" id="hxtkBox" style="display: none;">
+                <div class="main_hxtkEnter">
+                  <div style="display: flex;float: left;width: 25%;">
+                    <div class="main_hxtkWord" style="width: 35.5%;">核心条款</div>
+                    <a url="http://xxgk.jl.gov.cn/zczdzq/" target="_blank" onclick="clickOpenUrl(this)" class="jrzl">进入专栏</a>
+                  </div>
+
+                  <div class="main_hxtkLine"></div>
+                  <div class="main_quickHandle" id="hxtkClauses" style="display: none;">
+                    <span class="main_quickhandleIcon">
+                      <img src="./images/new/orangeUpdate.png" alt=""> </span>换一批
+                  </div>
+                </div>
+                <div class="hxtk" id="hxtk">
+                  <div class="hxtkContent" id="hxtkContent">
+                    <p class="hxtkContentp1" id="hxtkContentp1">●</p>
+                    <p class="hxtkContentp2" id="hxtkContentp2">桦甸市对企业实行差异化… </p>
+                  </div>
+                  <div class="hxtkContent" id="hxtkContent">
+                    <p class="hxtkContentp1" id="hxtkContentp1">●</p>
+                    <p class="hxtkContentp2" id="hxtkContentp2">桦甸市对企业实行差异化… </p>
+                  </div>
+                  <div class="hxtkContent" id="hxtkContent">
+                    <p class="hxtkContentp1" id="hxtkContentp1">●</p>
+                    <p class="hxtkContentp2" id="hxtkContentp2">桦甸市对企业实行差异化… </p>
+                  </div>
+                  <div class="hxtkContent" id="hxtkContent">
+                    <p class="hxtkContentp1" id="hxtkContentp1">●</p>
+                    <p class="hxtkContentp2" id="hxtkContentp2">桦甸市对企业实行差异化… </p>
+                  </div>
+                  <div class="hxtkContent" id="hxtkContent">
+                    <p class="hxtkContentp1" id="hxtkContentp1">●</p>
+                    <p class="hxtkContentp2" id="hxtkContentp2">桦甸市对企业实行差异化… </p>
+                  </div>
+                  <div class="hxtkContent" id="hxtkContent">
+                    <p class="hxtkContentp1" id="hxtkContentp1">●</p>
+                    <p class="hxtkContentp2" id="hxtkContentp2">桦甸市对企业实行差异化… </p>
+                  </div>
+                </div>
+              </div>
+              <div id="zhengcewenjian">
+                <div class="main_hxtkEnter">
+                  <div class="main_hxtkWord">政策原文</div>
+                  <div class="main_hxtkLine"></div>
+                </div>
+                <div class="main_mLineList" style="margin-top: 8px;" id="zhengcewenjianList"> <div class="main_mLineList_item" style="display:flex;align-items: center;margin: 0;height: 42px;"> <div href="javascript:void(0)" class="main_mLineList_word" style="width:84%;margin-right:3%" onclick="clickOpenUrl(this)" title="关于做好2026年临江市初中学业水平考试和高级中等学校招生工作的通知的政策解读" url="http://www.linjiang.gov.cn/zwgk/zcjd/202605/t20260528_875142.html" dataid="27836487" doctype="3" word="中考" page="1" count="2137" pageindex="1" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="8CFD2ED8AB444F0392F13766ECBDDD63571" first="0" pageno="1" totalcount="2137">《关于做好2026年临江市<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知》的政策解读</div><div class="main_mLineList_time">2026-05-28</div></div> <div class="main_mLineList_item" style="display:flex;align-items: center;margin: 0;height: 42px;"> <div href="javascript:void(0)" class="main_mLineList_word" style="width:84%;margin-right:3%" onclick="clickOpenUrl(this)" title="微动画关于做好2026年临江市初中学业水平考试和高级中等学校招生工作的通知的政策解读" url="http://www.linjiang.gov.cn/zwgk/zcjd/202605/t20260528_875146.html" dataid="27836491" doctype="3" word="中考" page="1" count="2137" pageindex="2" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="8CFD2ED8AB444F0392F13766ECBDDD63571" first="0" pageno="1" totalcount="2137">[微动画]《关于做好2026年临江市<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知》的政策解读</div><div class="main_mLineList_time">2026-05-28</div></div> <div class="main_mLineList_item" style="display:flex;align-items: center;margin: 0;height: 42px;"> <div href="javascript:void(0)" class="main_mLineList_word" style="width:84%;margin-right:3%" onclick="clickOpenUrl(this)" title="关于做好2026年临江市初中学业水平考试和高级中等学校招生工作的通知" url="http://xxgk-lj.cbs.gov.cn/zcbm/fgw_97969/zsjxxgkml/202605/t20260509_873188.html" dataid="27767764" doctype="3" word="中考" page="1" count="2137" pageindex="3" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="8CFD2ED8AB444F0392F13766ECBDDD63571" first="0" pageno="1" totalcount="2137">关于做好2026年临江市<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知</div><div class="main_mLineList_time">2026-05-09</div></div> <div class="main_mLineList_item" style="display:flex;align-items: center;margin: 0;height: 42px;"> <div href="javascript:void(0)" class="main_mLineList_word" style="width:84%;margin-right:3%" onclick="clickOpenUrl(this)" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" url="http://xxgk.jlbc.gov.cn/zcbm/fgw_98087/xxgkml/202605/t20260518_1036000.html" dataid="27790628" doctype="3" word="中考" page="1" count="2137" pageindex="4" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="8CFD2ED8AB444F0392F13766ECBDDD63571" first="0" pageno="1" totalcount="2137">关于做好2026年白城市<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知</div><div class="main_mLineList_time">2026-05-18</div></div> <div class="main_mLineList_item" style="display:flex;align-items: center;margin: 0;height: 42px;"> <div href="javascript:void(0)" class="main_mLineList_word" style="width:84%;margin-right:3%" onclick="clickOpenUrl(this)" title="江源交警护航中考彰显别样警色" url="http://xxgk-jy.cbs.gov.cn/zcbm/fgw_97975/xbxxgkml_15775/202606/t20260629_877601.html" dataid="27919194" doctype="3" word="中考" page="1" count="2137" pageindex="5" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="8CFD2ED8AB444F0392F13766ECBDDD63571" first="0" pageno="1" totalcount="2137">江源交警护航<font color="red">中考</font>&nbsp;彰显别样“警”色</div><div class="main_mLineList_time">2026-06-29</div></div> <div class="main_mLineList_item" style="display:flex;align-items: center;margin: 0;height: 42px;"> <div href="javascript:void(0)" class="main_mLineList_word" style="width:84%;margin-right:3%" onclick="clickOpenUrl(this)" title="四大变化2026年白城中考政策有调整" url="http://xxgk.jlbc.gov.cn/zcbm/fgw_98087/xxgkml/202605/t20260518_1036002.html" dataid="27790715" doctype="3" word="中考" page="1" count="2137" pageindex="6" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="8CFD2ED8AB444F0392F13766ECBDDD63571" first="0" pageno="1" totalcount="2137">“四大变化”！2026年白城<font color="red">中考</font>政策有调整</div><div class="main_mLineList_time">2026-05-18</div></div></div>
+              </div>
+
+            </div>
+            <!-- 主要搜索数据 -->
+            <div class="main_clBox mb40" id="main_searchBox" style="">
+              <div class="main_clMain" id="main_searchList"> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://www.dunhua.gov.cn/zw_2131/tp/202606/t20260629_578540.html" title="吉林省初中学业水平考试开考敦化市2717名考生参加考试" dataid="27917391" doctype="1" word="中考" page="1" count="4155" pageindex="1" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">吉林省<font color="red">初中学业水平考试</font>开考&nbsp;敦化市2717名考生参加考试</a></div><div class="main_clMain_content">　　6月27日，吉林省<font color="red">初中学业水平考试</font>开考，敦化市共有2717名考生参加考试，学生们迎接自己学业生涯中的第一次大考，提笔书写青春答卷。&nbsp;　　早上7点30分，考生们精神抖擞，有序步入考场。今年全市<font color="red">中考</font>考点分别设置在市实验中学、市第一中学两...</div><div class="main_clMain_bottom"><span class="main_clMain_city">敦化市人民政府</span><span class="main_clMain_time">2026-06-29</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">其他</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://chaoyang.changchun.gov.cn/zwgk/zwgk_zdjy/kjjy/202610/t20261009_3517303.html" title="一线动态传帮带云共享中考教研精准发力" dataid="28162703" doctype="7" word="中考" page="1" count="4155" pageindex="2" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">一线动态｜传帮带&nbsp;云共享&nbsp;<font color="red">中考</font>教研精准发力</a></div><div class="main_clMain_content">　　9月起，朝阳区依托四十五中大学区，开展为期一个月的<font color="red">中考</font>系列研讨活动，覆盖全部<font color="red">中考</font>学科。核心校示范引领、多校资源共享、骨干传帮带，一套系统化教研机制落地运行，区域毕业班备考工作全面进入提质增效快车道。&nbsp;　　传帮带：备考经验集中分享&amp;n...</div><div class="main_clMain_bottom"><span class="main_clMain_city">长春市朝阳区人民政府</span><span class="main_clMain_time">2026-10-09</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://chaoyang.changchun.gov.cn/zwgk/zwgk_zdjy/kjjy/202610/t20261009_3517303.html" title="一线动态传帮带云共享中考教研精准发力" dataid="28164959" doctype="1" word="中考" page="1" count="4155" pageindex="3" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">一线动态｜传帮带&nbsp;云共享&nbsp;<font color="red">中考</font>教研精准发力</a></div><div class="main_clMain_content">　　9月起，朝阳区依托四十五中大学区，开展为期一个月的<font color="red">中考</font>系列研讨活动，覆盖全部<font color="red">中考</font>学科。核心校示范引领、多校资源共享、骨干传帮带，一套系统化教研机制落地运行，区域毕业班备考工作全面进入提质增效快车道。&nbsp;　　传帮带：备考经验集中分享&amp;n...</div><div class="main_clMain_bottom"><span class="main_clMain_city">长春市朝阳区人民政府</span><span class="main_clMain_time">2026-10-09</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jy.jlbc.gov.cn/zxdt/202605/t20260518_1036030.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27791060" doctype="1" word="中考" page="1" count="4155" pageindex="4" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知</a></div><div class="main_clMain_content">　　关于做好2026年白城市<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知&nbsp;　　白教文字〔2026〕3号&nbsp;　　各县（市、区）教育局，市直各有关学校，市教育考试院：&nbsp;　　为贯彻落实吉林省教育厅《关于做好2026年吉林省初...</div><div class="main_clMain_bottom"><span class="main_clMain_city">白城市教育局</span><span class="main_clMain_time">2026-05-18</span><span class="main_clMain_otherHandle">展开<span class="main_clMain_otherHandleN">4</span>条相似结果<span class="main_clMain_otherHandleIcon"></span></span></div><div class="main_clMain_otherBox"><div class="main_clMain_otherList"><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jy.jlbc.gov.cn/wjtz/202605/t20260518_1036037.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27791108" doctype="3" sondataid="27791060" word="中考" page="1" count="4155" pageindex="4" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">白城市教育局</span><span class="main_clMain_time">2026-05-18</span></div></div><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jy.jlbc.gov.cn/gsgg/202605/t20260519_1036063.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27792436" doctype="7" sondataid="27791060" word="中考" page="1" count="4155" pageindex="4" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">白城市教育局</span><span class="main_clMain_time">2026-05-18</span></div></div><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jy.jlbc.gov.cn/zxdt/202605/t20260518_1036030.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27791060" doctype="1" sondataid="27791060" word="中考" page="1" count="4155" pageindex="4" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">白城市教育局</span><span class="main_clMain_time">2026-05-18</span></div></div><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://xxgk.jlbc.gov.cn/zcbm/fgw_98087/xxgkml/202605/t20260518_1036000.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27790628" doctype="3" sondataid="27791060" word="中考" page="1" count="4155" pageindex="4" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">白城市人民政府</span><span class="main_clMain_time">2026-05-18</span></div></div></div></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">其他</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jy.jlbc.gov.cn/gsgg/202605/t20260519_1036063.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27792436" doctype="7" word="中考" page="1" count="4155" pageindex="5" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知</a></div><div class="main_clMain_content">　　关于做好2026年白城市<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知&nbsp;　　白教文字〔2026〕3号&nbsp;　　各县（市、区）教育局，市直各有关学校，市教育考试院：&nbsp;　　为贯彻落实吉林省教育厅《关于做好2026年吉林省初...</div><div class="main_clMain_bottom"><span class="main_clMain_city">白城市教育局</span><span class="main_clMain_time">2026-05-18</span><span class="main_clMain_otherHandle">展开<span class="main_clMain_otherHandleN">4</span>条相似结果<span class="main_clMain_otherHandleIcon"></span></span></div><div class="main_clMain_otherBox"><div class="main_clMain_otherList"><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jy.jlbc.gov.cn/wjtz/202605/t20260518_1036037.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27791108" doctype="3" sondataid="27792436" word="中考" page="1" count="4155" pageindex="5" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">白城市教育局</span><span class="main_clMain_time">2026-05-18</span></div></div><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jy.jlbc.gov.cn/gsgg/202605/t20260519_1036063.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27792436" doctype="7" sondataid="27792436" word="中考" page="1" count="4155" pageindex="5" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">白城市教育局</span><span class="main_clMain_time">2026-05-18</span></div></div><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jy.jlbc.gov.cn/zxdt/202605/t20260518_1036030.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27791060" doctype="1" sondataid="27792436" word="中考" page="1" count="4155" pageindex="5" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">白城市教育局</span><span class="main_clMain_time">2026-05-18</span></div></div><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://xxgk.jlbc.gov.cn/zcbm/fgw_98087/xxgkml/202605/t20260518_1036000.html" title="关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知" dataid="27790628" doctype="3" sondataid="27792436" word="中考" page="1" count="4155" pageindex="5" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年白城市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">白城市人民政府</span><span class="main_clMain_time">2026-05-18</span></div></div></div></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">其他</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://xxgk-lj.cbs.gov.cn/gysy/jyly/202605/t20260509_873126.html" title="关于做好2026年临江市初中学业水平考试和高级中等学校招生工作的通知" dataid="27767711" doctype="7" word="中考" page="1" count="4155" pageindex="6" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年临江市<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知</a></div><div class="main_clMain_content">　　临教体发〔2026〕16号&nbsp;　　各初中和高中学校：&nbsp;　　按照省教育厅《关于做好2026年吉林省<font color="red">初中学业水平考试</font>和高级中等学校招生工作的通知》（吉教基〔2026〕3号）和《关于做好2026年白山市<font color="red">初中学业水平考试</font>和高级中等学...</div><div class="main_clMain_bottom"><span class="main_clMain_city">临江市人民政府</span><span class="main_clMain_time">2026-05-06</span><span class="main_clMain_otherHandle">展开<span class="main_clMain_otherHandleN">2</span>条相似结果<span class="main_clMain_otherHandleIcon"></span></span></div><div class="main_clMain_otherBox"><div class="main_clMain_otherList"><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://xxgk-lj.cbs.gov.cn/zcbm/fgw_97969/zsjxxgkml/202605/t20260509_873188.html" title="关于做好2026年临江市初中学业水平考试和高级中等学校招生工作的通知" dataid="27767764" doctype="3" sondataid="27767711" word="中考" page="1" count="4155" pageindex="6" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年临江市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">临江市人民政府</span><span class="main_clMain_time">2026-05-09</span></div></div><div class="main_clmo_item"><a class="main_clmo_title" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://xxgk-lj.cbs.gov.cn/gysy/jyly/202605/t20260509_873126.html" title="关于做好2026年临江市初中学业水平考试和高级中等学校招生工作的通知" dataid="27767711" doctype="7" sondataid="27767711" word="中考" page="1" count="4155" pageindex="6" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于做好2026年临江市初中学业水平考试和高级中等学校招生工作的通知</a><div class="main_clmo_bottom"><span class="main_clMain_city">临江市人民政府</span><span class="main_clMain_time">2026-05-06</span></div></div></div></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://gat.jl.gov.cn/jwzx/gddt/202606/t20260629_3645772.html" title="长春护航中考为梦守护" dataid="27918678" doctype="1" word="中考" page="1" count="4155" pageindex="7" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">长春：护航<font color="red">中考</font>，为梦守护</a></div><div class="main_clMain_content">2026年长春<font color="red">中考</font>于6月27日正式拉开帷幕。为保障考试平稳有序进行，长春市公安局提前部署、全警联动，以细致安保、暖心服务筑牢考场安全防线，为万千学子保驾护航。&nbsp;全线布防&nbsp;守护考场平安&nbsp;民辅警提前到岗到位，细化安保执勤...</div><div class="main_clMain_bottom"><span class="main_clMain_city">吉林省公安厅</span><span class="main_clMain_time">2026-06-29</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://gat.jl.gov.cn/jwzx/tpxw/202606/t20260629_3645765.html" title="护航中考为梦守护" dataid="27918674" doctype="1" word="中考" page="1" count="4155" pageindex="8" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">护航<font color="red">中考</font>，为梦守护</a></div><div class="main_clMain_content">2026年长春<font color="red">中考</font>于6月27日正式拉开帷幕。为保障考试平稳有序进行，长春市公安局提前部署、全警联动，以细致安保、暖心服务筑牢考场安全防线，为万千学子保驾护航。&nbsp;全线布防&nbsp;守护考场平安&nbsp;民辅警提前到岗到位，细化安保执勤...</div><div class="main_clMain_bottom"><span class="main_clMain_city">吉林省公安厅</span><span class="main_clMain_time">2026-06-29</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://www.jl.gov.cn/yaowen/202603/t20260318_3596140.html" title="减轻学生负担增加学位资源我省对中考事项作出调整" dataid="27616769" doctype="1" word="中考" page="1" count="4155" pageindex="9" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">减轻学生负担&nbsp;增加学位资源&nbsp;我省对<font color="red">中考</font>事项作出调整</a></div><div class="main_clMain_content">近日，吉林省教育厅对计分科目、考试形式等<font color="red">中考</font>事项作出调整，旨在减轻学生负担、增加学位资源，破解“教育内卷”。&nbsp;优化考试评价，生物学、地理学科将调整为考查科目。在考试计分科目及方式上，分步实施。2026年，现行计分科目不变，降低考试难度；...</div><div class="main_clMain_bottom"><span class="main_clMain_city">吉林省人民政府网</span><span class="main_clMain_time">2026-03-18</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">其他</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://gat.jl.gov.cn/zwgk/ghzj/202607/t20260701_3646520.html" title="全省公安机关圆满完成2026年中考安保工作" dataid="27926882" doctype="7" word="中考" page="1" count="4155" pageindex="10" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">全省公安机关圆满完成2026年<font color="red">中考</font>安保工作</a></div><div class="main_clMain_content">2026年<font color="red">中考</font>正式落下帷幕。吉林公安锚定“平安<font color="red">中考</font>”目标，克服降雨等不利因素，细化措施落实，累计出动警力1.1万人次、车辆4324台次，圆满完成各项安保任务。&nbsp;考前对考点开展“全覆盖”安全检查，发现并整改“三防”问题207处，指导优化布...</div><div class="main_clMain_bottom"><span class="main_clMain_city">吉林省公安厅</span><span class="main_clMain_time">2026-07-01</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://www.longjing.gov.cn/zw/ljyw/202606/t20260629_578600.html" title="仲夏逐梦我市459名学子奔赴中考考场" dataid="27919071" doctype="1" word="中考" page="1" count="4155" pageindex="11" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">仲夏逐梦——我市459名学子奔赴<font color="red">中考</font>考场</a></div><div class="main_clMain_content">仲夏启新程，逐梦正当时。6月27日，2026年吉林省<font color="red">初中学业水平考试</font>正式开考。全市459名初三考生怀揣梦想，步入考场。&nbsp;　　&nbsp;　　上午7时许，记者在考点外看到，考生们在工作人员引导下有序核验身份、依次入场。老师和部分家长早早到...</div><div class="main_clMain_bottom"><span class="main_clMain_city">龙井市人民政府</span><span class="main_clMain_time">2026-06-28</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">其他</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://www.yitong.gov.cn/zw/tzgg/202606/t20260626_769380.html" title="关于2026年中考期间全县建筑工地暂停施工的公告" dataid="27912088" doctype="7" word="中考" page="1" count="4155" pageindex="12" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">关于2026年<font color="red">中考</font>期间全县建筑工地暂停施工的公告</a></div><div class="main_clMain_content">　　为全面做好2026年吉林省<font color="red">初中学业水平考试</font>期间的环境保障工作，现就我县<font color="red">中考</font>期间建筑工地停工管控有关事项公告如下：&nbsp;　　一、停工管控范围&nbsp;　　县内所有在建房屋建筑工程、市政基础设施工程、装饰装修工程、拆迁改造工程、土石方工程...</div><div class="main_clMain_bottom"><span class="main_clMain_city">伊通满族自治县人民政府</span><span class="main_clMain_time">2026-06-26</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://www.daan.gov.cn/daxw/ztbd/202506/t20250630_1016304.html" title="我市2025年吉林省初中学业水平考试正式开考" dataid="26928992" doctype="1" word="中考" page="1" count="4155" pageindex="13" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">我市2025年吉林省<font color="red">初中学业水平考试</font>正式开考</a></div><div class="main_clMain_content">　　秣马厉兵，三载磨剑，凌云之志扬帆起；厚积薄发，今朝试锋，乘风破浪正当时。6月27日，2025年吉林省<font color="red">初中学业水平考试</font>拉开帷幕，我市考生带着自信的笑容，迈着从容的步伐踏入考场，迎接求学路上的一次重要考验，为青春与梦想奋力拼搏。&nbsp;　　在...</div><div class="main_clMain_bottom"><span class="main_clMain_city">大安市人民政府</span><span class="main_clMain_time">2025-06-30</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://www.tonghua.gov.cn/zwgk/thlb/thdt/202607/t20260724_778635.html" title="通化科创期中考交卷" dataid="27989410" doctype="1" word="中考" page="1" count="4155" pageindex="14" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">通化科创“期<font color="red">中考</font>”交卷</a></div><div class="main_clMain_content">　　今年以来，我市科技创新服务提升年行动蹄疾步稳，交出“亮眼”半年成绩单：省级科技项目立项15个，到位资金650万元；技术合同成交额8.89亿元；有效期内高新技术企业达92户，49户企业进入高企培育“尖兵连”……一组组数据背后，是通化向“新”而行...</div><div class="main_clMain_bottom"><span class="main_clMain_city">通化市人民政府</span><span class="main_clMain_time">2026-07-24</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jyj.changchun.gov.cn/gzdt/jyxw/202508/t20250808_3419953.html" title="长春市2025年初中学业水平考试成绩将于7月12日公布" dataid="27034892" doctype="1" word="中考" page="1" count="4155" pageindex="15" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">长春市2025年<font color="red">初中学业水平考试</font>成绩将于7月12日公布</a></div><div class="main_clMain_content">　　长春市2025年<font color="red">初中学业水平考试</font>成绩将于7月12日公布。其中，九年级成绩公布时间为中午12:00，八年级生物学、地理学科成绩公布时间为下午14:00。&nbsp;　　考生凭准考证号和报名序号，登录长春市教育考试院官方成绩查询网址（https:...</div><div class="main_clMain_bottom"><span class="main_clMain_city">长春市教育局</span><span class="main_clMain_time">2025-07-11</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jyj.changchun.gov.cn/gzdt/jyxw/202607/t20260706_3498399.html" title="严把评卷质量关口守护中考公平公正长春市教育局检查2026年中考评卷工作" dataid="27937276" doctype="1" word="中考" page="1" count="4155" pageindex="16" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">严把评卷质量关口&nbsp;守护<font color="red">中考</font>公平公正&nbsp;长春市教育局检查2026年<font color="red">中考</font>评卷工作</a></div><div class="main_clMain_content">　　7月3日，长春市教育局党组书记、局长李国庆，副局长李亚君深入长春<font color="red">中考</font>评卷场地，实地查看评卷现场运行全过程，检查我市2026年<font color="red">中考</font>评卷工作。&nbsp;　　李国庆详细听取<font color="red">中考</font>评卷工作汇报，全面了解评卷流程、安全保密、后勤保障等工作举措，与评卷教...</div><div class="main_clMain_bottom"><span class="main_clMain_city">长春市教育局</span><span class="main_clMain_time">2026-07-03</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">其他</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://www.jlcity.gov.cn/zw/tzgg/202607/t20260707_1327905.html" title="2026年吉林市中考成绩发布工作的通知" dataid="27941006" doctype="7" word="中考" page="1" count="4155" pageindex="17" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">2026年吉林市<font color="red">中考</font>成绩发布工作的通知</a></div><div class="main_clMain_content">　　按照吉林市<font color="red">中考</font>工作日程安排，经请示市招委会、市教育局同意，现将成绩发布等工作通知如下：&nbsp;　　一、成绩发布时间&nbsp;　　初三年级考生：7月8日12时左右&nbsp;　　初二地生考生：7月9日12时左右&nbsp;　　二、成绩查询...</div><div class="main_clMain_bottom"><span class="main_clMain_city">吉林市人民政府</span><span class="main_clMain_time">2026-07-07</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://www.jlcity.gov.cn/zt/qtzt/jlsqxzx/xq_jcqxfw/202606/t20260625_1326592.html" title="2026气象信息76中考" dataid="27908920" doctype="1" word="中考" page="1" count="4155" pageindex="18" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">2026气象信息76（<font color="red">中考</font>）</a></div><div class="main_clMain_content">　　<font color="red">中考</font>期间天气趋势预报&nbsp;　　&nbsp;　　一、天气趋势&nbsp;　　预计<font color="red">中考</font>期间（6月26～29日）全市气温稍高，降水稍少。全市平均气温为22.5℃左右，比常年同期22.0℃高0.5℃；全市平均降水量为10.0～20.0毫米，比常...</div><div class="main_clMain_bottom"><span class="main_clMain_city">吉林市人民政府</span><span class="main_clMain_time">2026-06-25</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jyj.changchun.gov.cn/gzdt/jyxw/202507/t20250702_3412802.html" title="物理2025年长春市初中学业水平考试试题评析" dataid="26938658" doctype="1" word="中考" page="1" count="4155" pageindex="19" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">物理&nbsp;|&nbsp;2025年长春市<font color="red">初中学业水平考试</font>试题评析</a></div><div class="main_clMain_content">　　2025年长春市<font color="red">初中学业水平考试</font>物理试题严格依据《义务教育物理课程标准(2022版)》命制。试题设计科学合理，难易适中，强化对学生关键能力、学科素养和思维品质的考查，既有基础性、探究性、综合性，又有应用性、创新性，激发了学生崇尚科学、探索未知...</div><div class="main_clMain_bottom"><span class="main_clMain_city">长春市教育局</span><span class="main_clMain_time">2025-06-27</span></div></div> <div class="main_clMain_item"><div class="main_clMain_title"><span class="main_clMain_titleTips">要闻动态</span><a class="main_clMain_titleContent" href="javascript:void(0)" onclick="clickOpenUrl(this)" url="http://jyj.changchun.gov.cn/gzdt/jyxw/202507/t20250702_3412814.html" title="地理2025年长春市初中学业水平考试试题评析" dataid="26938782" doctype="1" word="中考" page="1" count="4155" pageindex="20" stype="10" atype="1" area="220000" sort="0" timetype="0" starttime="" endtime="" uuid="927C3B7DF6354BD994187B18297EE330440">地理&nbsp;|&nbsp;2025年长春市<font color="red">初中学业水平考试</font>试题评析</a></div><div class="main_clMain_content">　　2025年长春市<font color="red">初中学业水平考试</font>地理试题严格以《义务教育地理课程标准》为依据，以立德树人为根本任务，以提升学生核心素养为宗旨。试题深度契合教材内容，紧密联系生活实际，难度设置科学合理，充分体现了基础性、综合性、应用性和创新性的特点。试题有效测...</div><div class="main_clMain_bottom"><span class="main_clMain_city">长春市教育局</span><span class="main_clMain_time">2025-06-30</span></div></div></div>
+            </div>
+            <!-- 办事服务数据 -->
+            <div class="main_zcList mb40" id="main_banshiBox" style="display: none">
+              <div class="main_zcItem">
+                <div>
+                  <div class="main_zcLeft">
+                    <div class="main_zc_title">
+                      <span class="main_clMain_titleTips">办事事项</span>
+                      <span class="main_clMain_titleContent"><span>住房公积金缴存者</span>的基本权利和义务有哪些？</span>
+                      <span class="main_clMain_titlePerson">个人</span>
+                    </div>
+                    <div class="main_zcTipsList">
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">事项类型：</div>
+                        <div class="main_acTipsItem_content">其他行政权力</div>
+                      </div>
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">事项类型：</div>
+                        <div class="main_acTipsItem_content">其他行政权力</div>
+                      </div>
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">事项类型：</div>
+                        <div class="main_acTipsItem_content">其他行政权力</div>
+                      </div>
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">可办地区：</div>
+                        <div class="main_acTipsItem_content">
+                          <a href="javascript:void(0)" class="main_acTipsItem_contentLink">吉林省</a><a href="javascript:void(0)" class="main_acTipsItem_contentLink">长春市</a><a href="javascript:void(0)" class="main_acTipsItem_contentLink">吉林市</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main_zcRight">
+                    <div class="main_mlh_whiteBtn">
+                      <span class="main_mlh_whIcon"></span>办事指南<span class="main_mlhgo"></span>
+                    </div>
+                    <div class="main_mlh_yellowBtn">
+                      <span class="main_mlh_yeIcon"></span>在线办理<span class="main_mlhgo"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main_zcItem">
+                <div>
+                  <div class="main_zcLeft">
+                    <div class="main_zc_title">
+                      <span class="main_clMain_titleTips">办事事项</span>
+                      <span class="main_clMain_titleContent"><span>住房公积金缴存者</span>的基本权利和义务有哪些？</span>
+                      <span class="main_clMain_titlePerson">个人</span>
+                    </div>
+                    <div class="main_zcTipsList">
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">事项类型：</div>
+                        <div class="main_acTipsItem_content">其他行政权力</div>
+                      </div>
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">事项类型：</div>
+                        <div class="main_acTipsItem_content">其他行政权力</div>
+                      </div>
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">事项类型：</div>
+                        <div class="main_acTipsItem_content">其他行政权力</div>
+                      </div>
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">可办地区：</div>
+                        <div class="main_acTipsItem_content">
+                          <a href="javascript:void(0)" class="main_acTipsItem_contentLink">吉林省</a><a href="javascript:void(0)" class="main_acTipsItem_contentLink">长春市</a><a href="javascript:void(0)" class="main_acTipsItem_contentLink">吉林市</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main_zcRight">
+                    <div class="main_mlh_whiteBtn">
+                      <span class="main_mlh_whIcon"></span>办事指南<span class="main_mlhgo"></span>
+                    </div>
+                    <div class="main_mlh_yellowBtn">
+                      <span class="main_mlh_yeIcon"></span>在线办理<span class="main_mlhgo"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main_zcItem">
+                <div>
+                  <div class="main_zcLeft">
+                    <div class="main_zc_title">
+                      <span class="main_clMain_titleTips">办事事项</span>
+                      <span class="main_clMain_titleContent"><span>住房公积金缴存者</span>的基本权利和义务有哪些？</span>
+                      <span class="main_clMain_titlePerson">个人</span>
+                    </div>
+                    <div class="main_zcTipsList">
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">事项类型：</div>
+                        <div class="main_acTipsItem_content">其他行政权力</div>
+                      </div>
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">事项类型：</div>
+                        <div class="main_acTipsItem_content">其他行政权力</div>
+                      </div>
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">事项类型：</div>
+                        <div class="main_acTipsItem_content">其他行政权力</div>
+                      </div>
+                      <div class="main_zcTipsItem">
+                        <div class="main_acTipsItem_tips">可办地区：</div>
+                        <div class="main_acTipsItem_content">
+                          <a href="javascript:void(0)" class="main_acTipsItem_contentLink">吉林省</a><a href="javascript:void(0)" class="main_acTipsItem_contentLink">长春市</a><a href="javascript:void(0)" class="main_acTipsItem_contentLink">吉林市</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main_zcRight">
+                    <div class="main_mlh_whiteBtn">
+                      <span class="main_mlh_whIcon"></span>办事指南<span class="main_mlhgo"></span>
+                    </div>
+                    <div class="main_mlh_yellowBtn">
+                      <span class="main_mlh_yeIcon"></span>在线办理<span class="main_mlhgo"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 相关搜索 -->
+            <div class="main_clBox mb40" id="relevantContainer">
+              <div class="main_mTitle">
+                <div class="main_mTitle_dec">
+                  <div class="main_mTitle_decOne"></div>
+                  <div class="main_mTitle_decTwo"></div>
+                </div>
+                <span class="main_mTitle_word">相关搜索</span>
+              </div>
+              <div class="main_relevantGraph xgljContent" id="relevant" style="display: flex;"><a style="display:block" class="relevantNewItem " href="javascript:void(0)" onclick="relevantNewClick('中考成绩')">中考成绩</a><a style="display:block" class="relevantNewItem " href="javascript:void(0)" onclick="relevantNewClick('查中考成绩')">查中考成绩</a></div>
+            </div>
+            <!-- 到第三页提示信息 -->
+            <div id="intellisense_three" style="background: rgb(242, 242, 242); padding: 10px 15px; display: none;">
+              <div style="margin-top: 10px;">
+                <p style="font-size: 20px;font-family: Microsoft YaHei;
+                  font-weight: bold;color: #000000;">
+                  没有找到您想要的结果？
+                </p>
+              </div>
+              <div style="margin-top: 10px;margin-bottom: 10px;">
+                <p style="font-size: 16px;font-family: Microsoft YaHei;
+                  font-weight: 400;color: #000000;">
+                  您还可以通过
+                  <a url="http://ai.jl.gov.cn:8509/bot" target="_blank" onclick="clickOpenUrl(this)" style="margin: 0px 5px;font-size: 16px;
+                    color: #FF5E00;">
+                    智能客服
+                  </a>
+                  或拨打电话
+                  <span style="margin: 0px 5px;font-size: 16px;">
+                    12345
+                  </span>
+                  咨询，希望对您有所帮助。
+                </p>
+                <p></p>
+              </div>
+            </div>
+            <!-- pageBar -->
+            <div class="main_clPageBarBox">
+              <div class="main_clPageBar" id="main_searchBar" style=""><div class="layui-box layui-laypage layui-laypage-molv" id="layui-laypage-3"><a href="javascript:;" class="layui-laypage-prev layui-disabled" data-page="0">上一页</a><span class="layui-laypage-curr"><em class="layui-laypage-em" style="background-color:#003B87;"></em><em>1</em></span><a href="javascript:;" data-page="2">2</a><a href="javascript:;" data-page="3">3</a><a href="javascript:;" data-page="4">4</a><a href="javascript:;" data-page="5">5</a><a href="javascript:;" class="layui-laypage-next" data-page="2">下一页</a></div></div>
+            </div>
+            <!-- 新版搜索评价 -->
+            <div class="serchfkBox" id="crEvaluate">
+              <div class="serchfkpBox">
+                <p class="serchfkp">搜索反馈</p>
+              </div>
+              <div class="serchfkbtnBox">
+                <div id="satisfiedYes" class="serchfkbtn" onclick="mySatisfied(1)">满意</div>
+                <div id="satisfiedNo" class="serchfkbtn" onclick="mySatisfied(0)">不满意</div>
+                <div id="satisfiedjy" class="serchfkbtn" onclick="showSuggest()">我要建言</div>
+              </div>
+            </div>
+            <!-- 接口无数据或者异常 -->
+            <div class="main_unit" id="noData" style="display: none">
+              <p style="color: #222; line-height: 30px">
+                很抱歉！未能搜到您想要的内容<br>建议您：<br>1．看看输入文字是否有错误<br>2．去掉可能不必要的词或条件
+              </p>
+            </div>
+          </div>
+          <!-- 20230831 -->
+          <div class="main_content_right" style="margin-top: 63px">
+            <!-- 相关领导 -->
+            <div class="main_relevantLeader" id="relevantLeader" style="display: none">
+              <div class="main_rlTitle">
+                <div class="main_hotWord">
+                  <div class="main_right_des"></div>相关领导
+                </div>
+              </div>
+              <div class="main_rlList" id="relevantLeaderList">
+                <!-- <a class="main_rlItem">
+                              <img src="./leader/侯淅珉.jpg" alt="" class="main_rlItem_img">
+                              <div class="main_rlItem_word">侯淅珉</div>
+                            </a>
+                            <a class="main_rlItem">
+                              <img src="./leader/侯淅珉.jpg" alt="" class="main_rlItem_img">
+                              <div class="main_rlItem_word">侯淅珉</div>
+                            </a>
+                            <a class="main_rlItem">
+                              <img src="./leader/侯淅珉.jpg" alt="" class="main_rlItem_img">
+                              <div class="main_rlItem_word">侯淅珉</div>
+                            </a>
+                            <a class="main_rlItem">
+                              <img src="./leader/侯淅珉.jpg" alt="" class="main_rlItem_img">
+                              <div class="main_rlItem_word">侯淅珉</div>
+                            </a> -->
+              </div>
+            </div>
+            <!-- 评价 -->
+            <!-- <div class="main_crEvaluateBox" id="crEvaluate">
+              <div class="main_crEvaluate_success">非常感谢您的反馈</div>
+              <div class="main_crEvaluate_itemBox">
+                <div class="main_crEvaluate_item" onclick="mySatisfied(1)">
+                  <div class="main_crEvaluateImgBox">
+                    <img src="./images/evaluate_agree.png" alt="">
+                  </div>
+                </div>
+                <div
+                  class="main_crEvaluate_item main_crEvaluate_item2"
+                  onclick="mySatisfied(0)"
+                >
+                <div class="main_crEvaluateImgBox">
+                  <img src="./images/evaluate_deAgree.png" alt="">
+                </div>
+                </div>
+                <div
+                  class="main_crEvaluate_item main_crEvaluate_item3"
+                  onclick="showSuggest()"
+                >
+                <div class="main_crEvaluateImgBox">
+                  <img src="./images/evaluate_suggest.png" alt="">
+                </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- 相关网站推荐  部门直达-->
+            <div class="main_relaWebBox" id="departGoContainer" style="display: none;">
+              <div class="main_hotTitle">
+                <div class="main_hotWord">
+                  <div class="main_right_des"></div>相关网站推荐
+                </div>
+                <div class="main_rightHandle" id="websiteHandle">
+                  展开 <span class="main_mTitle_handleIcon">
+                    <img src="./images/right_show.png" alt=""> </span>
+                </div>
+              </div>
+              <div class="main_departList" id="departGo">
+                <!-- <div class="main_departItem">吉林省公安厅</div>
+                <div class="main_departItem">吉林省公安厅</div>
+                <div class="main_departItem">吉林省公安厅</div>
+                <div class="main_departItem">吉林省公安厅</div>
+                <div class="main_departItem">吉林省公安厅</div>
+                <div class="main_departItem">吉林省公安厅</div>
+                <div class="main_departItem">吉林省公安厅</div> -->
+              </div>
+            </div>
+            <!-- 相关栏目推荐 -->
+            <div class="main_relaWebBox" id="relativeChannelContainer" style="display: none;">
+              <div class="main_hotTitle">
+                <div class="main_hotWord">
+                  <div class="main_right_des"></div>相关栏目推荐
+                </div>
+                <div class="main_rightHandle" id="relativeChannelHandle">
+                  展开 <span class="main_mTitle_handleIcon">
+                    <img src="./images/right_show.png" alt=""> </span>
+                </div>
+              </div>
+              <div class="main_relativeChannelContent" id="relativeChannelContent">
+                <!-- <div class="main_departItem">吉林省公安厅</div>
+                            <div class="main_departItem">吉林省公安厅</div>
+                            <div class="main_departItem">吉林省公安厅</div>
+                            <div class="main_departItem">吉林省公安厅</div>
+                            <div class="main_departItem">吉林省公安厅</div>
+                            <div class="main_departItem">吉林省公安厅</div>
+                            <div class="main_departItem">吉林省公安厅</div> -->
+              </div>
+            </div>
+            <!-- 热门搜索 -->
+            <div class="main_hotSearchBox">
+              <div class="main_hotTitle">
+                <div class="main_hotWord">
+                  <div class="main_right_des"></div>热门搜索
+                </div>
+                <div class="main_hotHandle" id="hotChange">
+                  <span class="main_mTitle_handleIcon">
+                    <img src="./images/new/grayUpdate.png" alt=""> </span>换一批
+                </div>
+              </div>
+              <div class="main_hotList" id="hotList"> <div class="main_hotItem"><div class="main_hotListNumber main_hotListNumber0">1</div><div class="main_hotListTitle">职称</div></div> <div class="main_hotItem"><div class="main_hotListNumber main_hotListNumber1">2</div><div class="main_hotListTitle">继续教育</div></div> <div class="main_hotItem"><div class="main_hotListNumber main_hotListNumber2">3</div><div class="main_hotListTitle">招聘</div></div> <div class="main_hotItem"><div class="main_hotListNumber main_hotListNumber3">4</div><div class="main_hotListTitle">独生子女</div></div> <div class="main_hotItem"><div class="main_hotListNumber main_hotListNumber4">5</div><div class="main_hotListTitle">社保</div></div> <div class="main_hotItem"><div class="main_hotListNumber main_hotListNumber5">6</div><div class="main_hotListTitle">营业执照</div></div> <div class="main_hotItem"><div class="main_hotListNumber main_hotListNumber6">7</div><div class="main_hotListTitle">档案</div></div></div>
+            </div>
+            <!-- 最近搜索记录 -->
+            <div class="main_latelySearch">
+              <div class="main_latelyTitle">
+                <div class="main_hotWord">
+                  <div class="main_right_des"></div>最近搜索记录
+                </div>
+                <div class="main_latelyHandle" id="clearSaveSearch">
+                  <div class="main_latelyIcon"></div>
+                  清空全部
+                </div>
+              </div>
+              <div class="main_latelyList" id="saveSearch"><div class="main_latelyList_item"><span class="main_latelyItem_word" onclick="searchRecordClick(this)" title="中考">中考</span><span class="main_latelyItem_del" onclick="delSearchRecord(this,0)"></span> </div></div>
+            </div>
+            <!-- 智能问答外联 -->
+            <div class="mindAnswer" id="mindAnswer" onclick="mindAnswerClick()">
+              <div>
+                <p style="font-size: 20px;
+                 font-family: Microsoft YaHei;
+                 font-weight: bold;
+                 color: #FFFFFF;
+                 margin-left: 88px;
+                 padding-top: 30px;">智能问答</p>
+              </div>
+              <div>
+                <p style="    font-size: 15px;
+                 font-family: Microsoft YaHei;
+                 font-weight: 400;
+                 color: #FFFFFF;
+                 margin-left: 88px;
+                 padding-top: 2px;">政务智能机器人为您解答</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 我要建言弹窗 -->
+        <div class="suggestContainer" id="suggest">
+          <div class="inp_wrap">
+            <div class="inp_box" style="width: 800px">
+              <span class="ss_word2"><span class="necessarytipsPoint">*</span>姓名</span>
+              <input placeholder="请输入姓名" id="name" class="inp2">
+            </div>
+            <div class="inp_box" style="width: 800px">
+              <span class="ss_word2"><span class="necessarytipsPoint">*</span>手机号</span>
+              <input placeholder="请输入手机号" id="phone" class="inp2">
+            </div>
+            <div class="inp_box" style="width: 800px">
+              <span class="ss_word2"><span class="necessarytipsPoint">*</span>标题</span>
+              <input placeholder="请输入标题" id="title" class="inp2">
+            </div>
+            <div class="inp_box" style="width: 800px">
+              <span class="ss_word2"><span class="necessarytipsPoint">*</span>内容</span>
+              <textarea style="min-height: 160px" id="msg" placeholder="请输入内容" class="inp2"></textarea>
+            </div>
+            <div style="width: 100%; text-align: center">
+              <a class="tj" onclick="suggestSubmit();" href="javascript:void(0)">提交</a>
+              <a href="javascript:void(0)" class="cz" onclick="hideSuggest()">返回</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 事项办事服务点击点击弹窗 -->
+        <div class="regionContainer" id="region">
+          <div class="regionBox">
+            <div class="region_title">
+              <div class="region_titleWord">请选择事项地区</div>
+              <div class="region_titleClose" onclick="hideRegion()"></div>
+            </div>
+            <div class="region_tips">
+              <div class="region_tipsTitle">您当前选择的地区为：</div>
+              <div class="region_tipsChoose" id="regionPosition">
+                <span class="region_tipsItem">吉林省</span><span class="region_tipsArrow"></span><span class="region_tipsItem">长春市</span>
+              </div>
+            </div>
+            <div class="region_content" id="regionContent">
+              <div class="region_cItem">
+                <div class="region_cTips">省级</div>
+                <div class="region_cList">
+                  <div class="region_region">吉林省</div>
+                </div>
+              </div>
+              <div class="region_cItem">
+                <div class="region_cTips">市级</div>
+                <div class="region_cList">
+                  <div class="region_region region_active">长春市</div>
+                  <div class="region_region region_noItem">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                </div>
+              </div>
+              <div class="region_cItem">
+                <div class="region_cTips">县/区</div>
+                <div class="region_cList"></div>
+              </div>
+              <div class="region_cItem">
+                <div class="region_cTips">乡级</div>
+                <div class="region_cList"></div>
+              </div>
+              <div class="region_cItem">
+                <div class="region_cTips">村级</div>
+                <div class="region_cList"></div>
+              </div>
+              <div class="region_cItem">
+                <div class="region_cTips">屯级</div>
+                <div class="region_cList"></div>
+              </div>
+            </div>
+            <div class="region_handleTips">
+              部分地区暂未覆盖该事项办理业务，暂不显示该地区。
+            </div>
+            <div class="region_handle">
+              <div class="region_btn region_btn_orange" id="regionOpen" onclick="regionOpenClick(this)">
+                确定
+              </div>
+              <div class="region_btn region_btn_cancel" onclick="hideRegion()">取消</div>
+            </div>
+          </div>
+        </div>
+        <!-- 事项主题服务点击弹窗 -->
+        <div class="regionContainer" id="region2">
+          <div class="regionBox">
+            <div class="region_title">
+              <div class="region_titleWord">请选择事项地区</div>
+              <div class="region_titleClose" onclick="hideThemeRegion()"></div>
+            </div>
+            <div class="region_content">
+              <div class="region_cItem" style="display: block; margin-top: 30px">
+                <div class="region_cTips">区域</div>
+                <div class="region_cList" id="majorThemeList">
+                  <div class="region_region region_active">长春市</div>
+                  <div class="region_region region_noItem">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 事项type5 -->
+        <div class="regionContainer" id="region3">
+          <div class="regionBox">
+            <div class="region_title">
+              <div class="region_titleWord">请选择事项地区</div>
+              <div class="region_titleClose" onclick="hideThemeRegion2()"></div>
+            </div>
+            <div class="region_content">
+              <div class="region_cItem" style="display: block; margin-top: 30px">
+                <!-- <div class="region_cTips">市级</div> -->
+                <div class="region_cList" id="majorThemeList2">
+                  <div class="region_region region_active">长春市</div>
+                  <div class="region_region region_noItem">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 事项首页可办type5 -->
+        <div class="regionContainer" id="region4">
+          <div class="regionBox">
+            <div class="region_title">
+              <div class="region_titleWord">请选择可办地区</div>
+              <div class="region_titleClose" onclick="hideThemeRegion3()"></div>
+            </div>
+            <div class="region_content">
+              <div class="region_cItem" style="display: block; margin-top: 30px">
+                <!-- <div class="region_cTips">市级</div> -->
+                <div class="region_cList" id="majorThemeList3" style="width: 100%">
+                  <div class="region_region region_active">长春市</div>
+                  <div class="region_region region_noItem">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                  <div class="region_region">长春市</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 页面loading -->
+        <div id="page_loging" class="loging" style="display: none;">
+          <div class="loging_pic"><img src="images/loading1.gif" alt=""></div>
+        </div>
+                    <!-- 法人查看个人的内容提示去登录弹窗 -->
+  <div id="loginDialog" class="dialog-mask" style="display: none;">
+    <div class="dialog-box">
+      <div class="dialog-header">
+        提示
+        <span class="dialog-close" onclick="closeDialog()">×</span>
+      </div>
+      <div class="dialog-body" id="dialog-message">
+        温馨提示:请登录法人账号
+      </div>
+      <div class="dialog-footer">
+        <button class="loginDialogBtn btn-cancel" onclick="closeDialog()">取消</button>
+        <button class="loginDialogBtn btn-confirm" onclick="handleConfirm()">去登录</button>
+      </div>
+    </div>
+  </div>
+    <!-- 在途办件提示弹窗 -->
+    <div id="ztbjDialog" class="dialog-mask" style="display: none;">
+      <div class="dialog-box">
+        <div class="dialog-header">
+          提示
+          <span class="dialog-close" onclick="ztblCloseDialog()">×</span>
+        </div>
+        <div class="dialog-body" id="ztbjdialog-message">
+          <!-- 温馨提示:请登录法人账号 -->
+        </div>
+        <div class="dialog-footer">
+          <button class="loginDialogBtn btn-confirm" onclick="ztblHandleConfirm()">知道了</button>
+        </div>
+      </div>
+    </div>
+        <!-- 页脚 -->
+
+
+
+      </div>
+    </div>
+    <section class="account w1440" style="display: none; bottom: 0px;">
+      <div class="account__userInfo">
+        <div class="welcome">
+          <p>欢迎您</p>
+        </div>
+        <div class="userName">
+          <p></p>
+        </div>
+        <div class="logout">
+          退出
+          <svg t="1690351558227" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2278" width="32" height="32">
+            <path d="M729.6 448H128v85.333333h601.6L597.333333 665.6l59.733334 59.733333 234.666666-234.666666L661.333333 256l-59.733333 59.733333 128 132.266667z" fill="#ffffff" p-id="2279"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="account__govService">
+        <ul>
+          <li>
+            <a href="http://jl.gov.cn/grzxx/work" target="_self">我的办件</a>
+            <span class="unread">21</span>
+          </li>
+          <li><a href="http://jl.gov.cn/grzxx/license/login" target="_self">我的证照</a></li>
+        </ul>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="bottom_links w1440">
+        <ul class=" w1440">
+          <li class="label_tag">相关链接</li>
+          <li class="link_W_Sub">
+            <a href="https://www.jl.gov.cn/xglj/szfbm/" target="_self">省政府部门</a>
+            <!-- <div class="link_hidden_box">
+              <div class="link_sz">
+              </div>
+            </div> -->
+          </li>
+          <li class="link_W_Sub">
+            <a href="https://www.jl.gov.cn/xglj/szfbmszxszf/" target="_self">市（州）、县（市、区）政府</a>
+            <!-- <div class="link_hidden_box">
+              <div class="">
+                <dl class="fLeft link_cc">
+                </dl>
+                <dl class="fLeft link_jl">
+                </dl>
+                <dl class="fLeft link_sp">
+                </dl>
+                <dl class="fLeft link_ly">
+                </dl>
+                <dl class="fLeft link_th">
+                </dl>
+                <dl class="fLeft link_bs">
+                </dl>
+                <dl class="fLeft link_sy">
+                </dl>
+                <dl class="fLeft link_bc">
+                </dl>
+                <dl class="fLeft link_ybz">
+                </dl>
+                <dl class="fLeft link_cbs">
+                </dl>
+              </div>
+
+            </div> -->
+          </li>
+          <li class="link_W_Sub">
+            <a href="https://www.jl.gov.cn/xglj/gjbw/" target="_self">国家部委</a>
+            <!-- <div class="link_hidden_box">
+              <div class="link_gjbw">
+              </div>
+            </div> -->
+          </li>
+          <li class="link_W_Sub">
+            <a href="https://www.jl.gov.cn/xglj/gsqszf/" target="_self">省区市政府</a>
+            <!-- <div class="link_hidden_box">
+              <div class="link_gssq">
+              </div>
+            </div> -->
+          </li>
+          <li class="link_W_Sub">
+            <a href="https://www.jl.gov.cn/xglj/qtlj/" target="_self">其他链接</a>
+            <!-- <div class="link_hidden_box">
+              <div class="link_qt">
+              </div>
+            </div> -->
+          </li>
+
+        </ul>
+      </div>
+      <div class="site_Info  w1440">
+        <div class="footer_db">
+          <!--<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src=' http://dcs.conac.cn/js/09/000/0000/60057954/CA090000000600579540001.js' type='text/javascript'%3E%3C/script%3E"));</script>-->
+          <div id="_ideConac"><a href="//bszs.conac.cn/sitename?method=show&amp;id=097350C993EA66D9E053012819AC532C" target="_blank" title="党政机关标识" class=" _f8968663ae02308bdc859b6a8e32fc6a"><img id="imgConac" vspace="0" hspace="0" border="0" src="./images/dzjgbs_Xu200311.png" data-bd-imgshare-binded="1" alt="党政机关标识" title="党政机关标识"></a></div>
+          <div class="jiucuo">
+            <script id="_jiucuo_" sitecode="2200000019" src="js/jiucuo.js?id=202110192"></script><span id="_span_jiucuo"><img onclick="Link('2200000019')" style="margin:0;border:0;cursor: pointer;" src="http://pucha.kaipuyun.cn/exposure/images/jiucuo.png?v=2200000019"></span>
+            <!-- <script
+                  id="_jiucuo_"
+                  sitecode="2200000019"
+                  src="js/jiucuo.js?id=202110192"
+                ></script> -->
+          </div>
+          <div class="accessibilitySign">
+            <img src="./images/slhwzafw_Xu220119.png" alt="适老化无障碍服务标识" class=" _9f096221d928876c721c7b3b61f889c6">
+          </div>
+          <!-- 20230829 -->
+          <div class="accessibility_btn">
+            <a aria-labelledby="无障碍" href="/wza/wza.html?wcaUrl=https://intellsearch.jl.gov.cn/search/index.html?q=100111000101101O1000000000000011&amp;sttype=" class="wza" id="page_wza" target="_blank">无障碍浏览</a>
+            <!-- <a href="">老年版</a> -->
+          </div>
+        </div>
+        <div class="fLeft site_Info_Box">
+          <!-- 20230829 -->
+          <p><a target="_blank" href="http://www.jl.gov.cn/kzgn/gywm/" title="关于我们">关于我们</a><span>|</span>&nbsp;&nbsp;&nbsp;&nbsp;传真（Fax）：0431-88905798</p>
+          <p>版权所有：吉林省人民政府门户网站　中文域名：吉林省人民政府.政务</p>
+          <p>网站标识码：2200000019　<a href="https://beian.miit.gov.cn/" title="吉ICP备05001602号" target="_blank">吉ICP备05001602号</a>&nbsp;&nbsp;<img src="./images/cosmos_icon_ba_20180129@2x.png" width="16" alt="公安备案" title="公安备案" class=" _d5ccc8d42617cfc128853423df1bdc5e">&nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=22000002000002">吉公网安备
+              22000002000002号</a></p>
+          <!--http://www.beian.miit.gov.cn/-->
+        </div>
+        <div class="fRight QR_Code_Box">
+          <!-- <p><img src="./images/P020210604327987911632.png" alt="吉林省人民政府客户端" title="吉林省人民政府客户端"
+                 class=" _56c6b82c3bc0eb349ff377ae3a46bf00" /><em>省政府客户端</em></p> -->
+          <p><img src="./images/P020210604328078896976.png?_t=1723439973" alt="吉事办小程序码" title="吉事办小程序码" class=" _05be809badb3860017c64c5fded3acc6"><em>吉事办小程序</em></p>
+          <p><img src="./images/jsb-icon-android-code.jpg?_t=1723439973" alt="吉事办app二维码" title="吉事办app二维码" class=" _05be809badb3860017c64c5fded3acc6"><em>吉事办客户端</em></p>
+          <p><img src="./images/W020161227595076214859.jpg" alt="吉林省人民政府微信公众号" title="吉林省人民政府微信公众号" class=" _05be809badb3860017c64c5fded3acc6"><em>吉林省政府网微信</em></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+      <!-- 20260109 ppap 事项人脸识别 -->
+    <div style="
+        position: fixed;
+        z-index: 100000;
+        top: 100px;
+        left: 50%;
+        margin-left: -514px; display: none;
+      " id="jcg-pop-20260109">
+      <!--二维码-->
+      <div class="tjzz_ewm_conter">
+        <div class="top">请使用吉事办APP/小程序扫描二维码进行认证！</div>
+        <ul>
+          <li>
+            <!-- <img src="images/ewm_zz@2x.png" /> -->
+            <div id="qrcode">
+            <canvas width="202" height="202"></canvas><img style="display: none;"></div>
+            <div class="shixiao_ewm" style="display: none"></div>
+            <div class="shixiao_ewmtext" style="display: none">
+              二维码已失效
+            </div>
+            <span>扫码进行身份认证</span>
+            <a href="javascript:getQrCode();">刷新二维码</a>
+          </li>
+          <li style="margin-left: 218px">
+            <div class="code">
+              <img src="./images/icon-iPhone-code.jpg" style="display: none">
+              <img style="display: inline" src="./images/icon-android-code.jpg">
+            </div>
+            <span>扫码下载APP</span>
+          </li>
+        </ul>
+        <div class="rightPhone" style="margin-left: 40px">
+          <div class="iphone">
+            <span class="biao">
+              <img src="./images/icon-iPhone@2x.png" class="phoneBiao">
+            </span>
+            <span class="iphoneText">iPhone版</span>
+          </div>
+          <div class="iphone iphoneTextbg">
+            <span class="biao">
+              <img src="./images/icon-android@2x.png" class="phoneBiao">
+            </span>
+            <span class="iphoneText">Android版</span>
+          </div>
+        </div>
+        <div class="gbzz_button">关闭</div>
+      </div>
+
+      <div class="ts_box" id="noLicenceContaniner" style="display: none">
+        <img src="pic-zhengzhao-empty@2x.png" style="width: 122px">
+        <span class="zhanwu_zz">暂无证照</span>
+      </div>
+      <!-- 证照详情 -->
+      <div class="zz_content" style="display: none">
+        <div class="zz_title">证照详情</div>
+        <div class="zz_close" style="cursor: pointer" onclick="$('.zz_content').hide();$('.mask_00').hide();"></div>
+        <div style="width: 100%; height: 90%; overflow: hidden; overflow-y: auto" id="zz_list"></div>
+      </div>
+    </div>
+    <div class="prompt_box" style="display: none">
+      <div class="text">关闭后本次扫码失效，是否确定关闭？</div>
+      <div class="pr_botton">
+        <a class="qd_but qd_but_quxiao">取消</a>
+        <a class="qd_but qd_but_queding">确定</a>
+      </div>
+    </div>
+    <style>
+      .prompt_box {
+        position: fixed;
+        left: 50%;
+        margin-left: -280px;
+        top: 260px;
+        width: 500px;
+        text-align: center;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+        background: #fff;
+        padding: 38px 30px;
+        z-index: 2001;
+      }
+
+      .prompt_box .text {
+        padding: 20px 0;
+        color: #394351;
+        font-size: 14px;
+        line-height: 26px;
+      }
+
+      .prompt_box .qd_but {
+        width: 80px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        color: #fff;
+        background: #003984;
+        display: block;
+        margin: 10px auto 0;
+      }
+      .tjzz_ewm_conter {
+        width: 1025px;
+        height: 539px;
+        background: #fffdfb;
+        border: 1px solid #003984;
+        margin-top: 28px;
+      }
+
+      .tjzz_ewm_conter .top {
+        font-size: 20px;
+        color: #003984;
+        width: 100%;
+        text-align: center;
+        margin: 40px 0px 53px 0px;
+      }
+
+      .tjzz_ewm_conter ul {
+        width: 682px;
+        height: 336px;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .tjzz_ewm_conter ul li {
+        width: 202px;
+        height: 336px;
+        float: left;
+      }
+
+      .tjzz_ewm_conter ul li img {
+        width: 202px;
+        height: 202px;
+      }
+
+      .tjzz_ewm_conter ul li span {
+        width: 202px;
+        height: 40px;
+        display: block;
+        line-height: 40px;
+        text-align: center;
+        font-size: 14px;
+        color: #394351;
+      }
+
+      .tjzz_ewm_conter ul li a {
+        width: 103px;
+        display: block;
+        margin: 0 auto;
+        height: 34px;
+        line-height: 34px;
+        border: 1px solid #003984;
+        color: #003984;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .tjzz_ewm_conter ul li a:hover {
+        background: #003984;
+        color: #fff;
+      }
+
+      .tjzz_ewm_conter .gbzz_button {
+        width: 240px;
+        background: #003984;
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
+        margin: 0 auto;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .tjzz_ewm_conter .xzzz_tit {
+        width: 900px;
+        margin: 40px auto;
+        font-weight: bold;
+        font-size: 18px;
+        color: #394351;
+      }
+
+      .tjzz_ewm_conter .xzzz_conter {
+        width: 900px;
+        margin: 0px auto;
+      }
+
+      .iphone {
+        width: 140px;
+        height: 36px;
+        border: 1px solid #003984;
+        line-height: 36px;
+        margin-bottom: 15px;
+      }
+
+      .biao {
+        display: inline-block;
+        margin: 5px 5px 0px 16px;
+        float: left;
+      }
+
+      .phoneBiao {
+        width: 24px;
+        height: 24px;
+      }
+
+      .rightPhone {
+        position: absolute;
+        top: 125px;
+        left: 790px;
+        z-index: 100;
+      }
+
+      .iphoneTextbg {
+        background: #fceee3;
+      }
+
+      .iphoneText {
+        font-size: 16px;
+        line-height: 36px;
+        color: #003984;
+      }
+
+      .tjzz_ewm_conter ul li {
+        position: relative;
+      }
+
+      .shixiao_ewm {
+        width: 202px;
+        height: 202px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #fff;
+        opacity: 0.7;
+        z-index: 10;
+      }
+
+      .shixiao_ewmtext {
+        width: 202px;
+        height: 202px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: center;
+        line-height: 202px;
+        z-index: 20;
+        font-weight: bold;
+        font-size: 16px;
+        color: #000;
+      }
+
+      .code {
+        width: auto;
+        height: auto;
+        border: none;
+      }
+
+      .prompt_box {
+        z-index: 2009991;
+      }
+
+      .prompt_box .text {
+        padding: 20px 0;
+        color: #394351;
+        font-size: 14px;
+        line-height: 26px;
+      }
+
+      .prompt_box .qd_but {
+        width: 80px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        color: #fff;
+        background: #003984;
+        display: block;
+        margin: 10px 20px;
+        float: left;
+      }
+
+      .pr_botton {
+        width: 240px;
+        height: 40px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .mask_00 {
+        z-index: 99;
+      }
+    </style>
+    <script>
+      //生成二维码
+      var qrcode = new QRCode(document.getElementById('qrcode'), {
+        width: 202,
+        height: 202,
+      });
+    </script>
+    <script>
+      $(function () {
+        $('.iphone').mouseover(function () {
+          var index = $(this).index();
+          $('.code img').eq(index).show().siblings().hide();
+          $('.iphone').removeClass('iphoneTextbg');
+          $(this).addClass('iphoneTextbg');
+        });
+      });
+    </script>
+  <style>
+    /* *{
+      box-sizing: border-box;
+    } */
+  </style>
+  <!-- <style>
+    .QR_Code_Box img {
+      width: 75px;
+      margin: 0 auto;
+      display: block;
+    }
+    .QR_Code_Box {
+      margin-top: 5px !important;
+    }
+    .footer {
+      padding: 0 2% 0px !important;
+    }
+    .site_Info {
+      padding-bottom: 2px !important;
+      overflow: hidden;
+    }
+
+    .copyright_a_new {
+      display: block;
+      float: left;
+      font-size: 14px;
+    }
+    .QR_Code_Box p {
+      float: left;
+      padding-left: 20px;
+    }
+    .QR_Code_Box p em {
+      display: block;
+      padding-top: 5px;
+      font-size: 14px;
+      text-align: center;
+    }
+    .QR_Code_Box img {
+      padding-left: 0px !important;
+    }
+    #_ideConac {
+      margin: 21px 6px 0px;
+      float: left;
+    }
+  </style> -->
+  <script type="text/javascript" src="js/jqthumb.min.js?id=202110192"></script>
+  <script type="text/javascript" src="js/user_script.js?id=202110192"></script>
+  <script src="layui/layui.js?id=202110192"></script>
+  <script src="js/pagetion.js?id=202110192"></script>
+  <script type="text/javascript" src="js/jquery.date_input.pack.js?id=202110192"></script>
+  <!-- <script type="text/javascript" src="js/script.js?id=20210811"></script> -->
+  <script type="text/javascript" src="js/pinyin.js?id=202110192"></script>
+  <script type="text/javascript">
+    var timer1 = '';
+    function delCookie2(name) {
+    var Days = 360;
+    var exp = new Date();
+    exp.setTime(exp.getTime() - Days * 24 * 60 * 60 * 1000);
+    var cval = getCookie(name);
+    if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/"
+}
+    $(document).ready(function () {
+      //$(".gjjs").click(function() {
+      //	$(".gjjs_conter").toggle();
+      //});
+      $('.Det_this').click(function () {
+        $('.tj').hide();
+      });
+
+      var tcUrl =
+        'https://user.jl.gov.cn/v1/apigw/none/user/authentication/logout?appId=575ecd1d2d70450ea4c5a6b468c50c7f&backUrl=http://intellsearch.jl.gov.cn:8000/search/tcIframe.html';
+      if (window.location.href.startsWith('https')) {
+        document
+          .getElementById('gjdl')
+          .setAttribute(
+            'src',
+            document
+              .getElementById('gjdl')
+              .getAttribute('src')
+              .replace(
+                new RegExp('http://intellsearch.jl.gov.cn:8000/', 'gm'),
+                'https://intellsearch.jl.gov.cn/'
+              )
+          );
+        tcUrl = tcUrl.replace(
+          new RegExp('http://intellsearch.jl.gov.cn:8000/', 'gm'),
+          'https://intellsearch.jl.gov.cn/'
+        );
+      }
+      document.getElementById('tcBtn').onclick = function () {
+        document.getElementById('gjdl').setAttribute('src', tcUrl);
+        	top.delCookie2('token');
+					top.delCookie2('logInType');
+					top.delCookie2('userInfo');
+					top.islogin = false;
+					top.logInType = '';
+					top.userInfo = {};
+          top.token='';
+      };
+      // 20230829
+      document.getElementsByClassName("logout")[0].addEventListener('click', function () {
+        document.getElementById('gjdl').setAttribute('src', tcUrl);
+          top.delCookie2('token');
+					top.delCookie2('logInType');
+					top.delCookie2('userInfo');
+					top.islogin = false;
+					top.logInType = '';
+					top.userInfo = {};
+          top.token='';
+        handleLogoutView();
+      })
+      document.getElementById('loginBtn').onclick = function () {
+        if (top.islogin) {
+          var centerUrl = 'http://www.jl.gov.cn/grzxx/';
+
+          top.location.href = centerUrl;
+        } else {
+          var parentUrl = top.location.href;
+          if (parentUrl.indexOf('tradeResponse') != -1) {
+            var url = top.location.toString();
+            var arrObj = url.split('?');
+            console.log(arrObj.length);
+            if (arrObj.length > 0) {
+              parentUrl = arrObj[0];
+            }
+          }
+          top.location.href =
+            'https://user.jl.gov.cn/login?redirect=' +
+            encodeURIComponent(parentUrl);
+        }
+      };
+
+
+      document.getElementById('zcBtn').onclick = function () {
+        if (top.islogin) {
+          var centerUrl = '';
+
+          top.location.href = centerUrl;
+        } else {
+          var parentUrl = top.location.href;
+          if (parentUrl.indexOf('tradeResponse') != -1) {
+            var url = top.location.toString();
+            var arrObj = url.split('?');
+            console.log(arrObj.length);
+            if (arrObj.length > 0) {
+              parentUrl = arrObj[0];
+            }
+          }
+          top.location.href =
+            'https://user.jl.gov.cn/register/natural?redirect=' +
+            encodeURIComponent(parentUrl);
+        }
+      };
+    });
+  </script>
+  <script src="./js/graph.js?id=20211214"></script>
+  <!--    <script src="./js/index.js?id=20211122"></script>-->
+  <script src="./js/index.js?id=20221214"></script>
+
+  <!-- 20230824 -->
+  <script src="./js/new_szf_headerAndBottom20230824.js"></script>
+  <!-- 20230824 -->
+  <script src="./js/new_szf_main_babel_Xu230711.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+
+  <!-- 20230829 -->
+  <!-- <script src="./js/esdToolsInit.js"></script> -->
+
+
+</body></html>

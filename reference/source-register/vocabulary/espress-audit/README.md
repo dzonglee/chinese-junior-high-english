@@ -1,0 +1,17 @@
+# ESPress five-four legacy vocabulary audit
+
+Eight cached public Git mirror parents, pinned to TapXWorld/ChinaTextbook 5a80345f2043ba6f8db8d7be9cf3db82725ff1f7 and linked to R-ED-B 030–037 at bf15137b2f36f45e08e7ac4a77956fc2ccd1c215. Audit date: 2026-10-16; original cache acquisition: 2026-10-15. This is research evidence only. Public access is not commercial permission. All commercial reuse flags are false. No source IDs allocated by delegate.
+
+2,138 literal each-unit word/expression occurrences across 90 units; figures are occurrence counts, not a deduplicated curriculum mastery list. Grade 6 upper has an image-only appendix; its 335 labels were manually transcribed from seven rendered unit-list pages. Seven other books combine native headword candidates with visual curation; encoded Latin labels, italic titles, a star-font turtle row and explanation/IPA tails were repaired against original renders. Changes recorded per dataset.
+
+Every one of 127 retained identity/appendix pages was rendered and visually opened. Retained sections include each-unit wordlists (43 pages), separate alphabetical cumulative vocabulary (46 pages), supplementary names/irregular verbs/AmE–BrE tables (6 pages), and identity pages (32 pages). Alphabetical and supplementary items are not counted twice. Page locators are one-based full-parent PDF pages; appendix printed page is PDF page minus five.
+
+No claim of reviewed IPA, Chinese glosses, per-entry bold/italic/star semantics or first-lesson-page numbers: those structured fields remain null/unreviewed. Original typography/pages are authoritative. Whitespaces and punctuation spacing in readable labels are normalized; words, proper names, literal unit labels and visible source typos retained. Alphabetical crosschecks expose real manner/manners, unbalanced/unbaleanced and alphabetical-only weight/flight differences; grade6 alphabetical lists include pre-learned primary words. No silent correction or invented unit entry.
+
+All eight ISBNs were visually read and checksum verified. Separate imprint first-edition, CIP publication and observed printing fields avoid guessing away date differences. Grade6-upper imprint 2012-07 and CIP 2013-07 differ explicitly. National cover approvals are 2012 (grade6) and 2013 (grades7–9), not proof of current adoption or curriculum edition equivalence.
+
+Retention uses original doc.select only where every selected page has identical RGB pixels at scale 0.45 and complete native text against parent. Any selection mismatch triggers retention of the entire original unchanged parent, verified by byte-identical SHA-256. Rejected selection comparisons remain transparent in retention-fidelity.json. Full parents retained on that basis do not imply that their non-appendix teaching pages were visually audited.
+
+Integration: root assigns R-VOC source IDs to dataset roots and every entry; register each retained PDF with source URL/provenance, review scope and rights. Keep file names from artifact-manifest.json. Per-entry source_id remains absent until root integration. Run repository check-register and check-audit after registration; do not release or copy reference content into app.
+
+The owner requires existing Obsidian memory and Chrisverse Kanban reconciliation. Those tools are absent from this worker registry; no external write claimed and no competing board created. Root must update those existing records once native tools are available, including counts, gaps, and commercial-rights limitations.

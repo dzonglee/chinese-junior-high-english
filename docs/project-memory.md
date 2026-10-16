@@ -51,7 +51,7 @@ discovering them through the actual tools, without storing credentials.
 - `docs/app-delivery.md`: application scope and completion evidence.
 - `docs/authoring/board.md`: current delivery card and preserved research ownership.
 - `docs/authoring/log.md`: detailed decisions and handoffs.
-- `research/R-VOC` at `2f3cc5b`: latest vocabulary research; not merged as a completed unit.
+- R-VOC bounded research merged on `main`; audit branch `research/R-VOC` at `0924dfe`.
 
 ## Keep these distinctions visible
 
@@ -74,47 +74,53 @@ An implemented app is not a published WeChat release.
 - Toolchain: Node 24, TypeScript 5.9.3, Vitest 5.0.1, esbuild 0.28.2. The initial esbuild version
   conflicted with Vite's peer range; it was corrected without disabling dependency checks.
 
-## Research continuation (2026-10-16)
+## Vocabulary research handoff (2026-10-16)
 
-R-VOC retains its existing claim. Latest published checkpoint: `research/R-VOC` at `2f3cc5b`.
-The validated register contains 215 sources, 903 retained artifact records (three shared curriculum
-records), 60 cached legacy books and 23,248 literal word/phrase/name occurrences in 592 groups.
-These are occurrences including repetitions, not unique lemmas or prescribed examination words.
-National lists preserve 1,600 entries and separately versioned 2022/2025 lists and supplements.
-Every mapped legacy appendix/identity page was viewed; original-to-registered sequences, retained
-bytes/hashes and visible ISBN checks pass. Missing identity fields and source conflicts stay explicit.
+R-VOC is done as a bounded research pass and squash-merged on main. Its published audit branch is
+`research/R-VOC` at `0924dfe`. The register contains 294 sources, 1,158 retained artifact records
+(three shared curriculum records), 60 legacy books and 23,248 literal word/phrase/name occurrences
+across 592 groups. National datasets preserve 1,600 entries, 505 level-two entries, distinct 2022/2025
+occurrences and separately indexed supplements. Occurrences include repetitions; they are not unique
+lemmas or prescribed local exam words. Every mapped appendix/identity page was viewed; unknowns,
+source errors, metadata conflicts and unaudited IPA/glosses/typography remain explicit.
 
-The 280 vocabulary city/year targets now contain 269 bounded not_found, 9 blocked and 2 unverified
-provider links, with zero unsearched cells. No actual raw local examination wordset or verified current
-2024-book wordlist was acquired. Eighty-seven annual targets use only the Ministry national index;
-that weaker scope is explicit. Queries match the published-form return and native parsed response.
-Actual access challenges were stopped. Restricted bodies, personal-list details, snippets and native
-ephemeral values are excluded. Search status is not acquisition or exhaustive local absence.
+Both annual grids are filled for all 56 cities × 2022–2026. Vocabulary outcomes: 269 bounded not_found,
+9 blocked, 2 unverified links, 0 unsearched. Eighty-seven targets use only the Ministry national index;
+that weaker scope remains explicit. The separate announcement ledger has 252 actual targeted searches,
+three relevance controls and 28 regional notice/policy/direct-attempt cells. Those include two blocked
+Shanghai English-notice requests and five explicitly cohort-spanning policy cells. Restrictive index
+queries are not exhaustive local archives or newly verified notices/exam facts. Exact published-returned,
+native submitted/parsed query strings, counts and all downloaded URL bytes/hashes reconcile.
 
-A final review identified the separate Stage 1 section 5 requirement to search for an official
-English-exam announcement in every city/year. Two existing delegates now cross-reference actual
-regional notices and perform missing announcement-target searches independently of the vocabulary
-grid. R-VOC stays claimed while this evidence and final review/checks are completed. Do not relabel
-vocabulary queries as announcement searches. No other research claim or R-INT dependency is waived.
+Checks passed: unit schema/register, full shared register (309 sources / 1,191 artifacts), hydrated
+vocabulary/source-sequence/ISBN/announcement audit, Git LFS integrity, authored-file whitespace and independent
+city/report/completion review. Branch rebase and an explicitly leased push succeeded; the main merge
+and done row are published together. No content is released and all commercial reuse flags stay false.
 
-Current-edition discovery preserves five BNU catalogue observations, PEP companion navigation,
-FLTRP sales metadata, inherited route failures and pinned community candidates. No current English
-word pages were verified; no untrusted scripts, share-login flows or protected delivery were used.
-The national 2024 catalogue was reopened and visually checked: eleven standard-size entries plus
-one large-print variant; only three explicitly print five-four. Unlabelled rows retain unknown
-school structure. The 70 standard and 2 variant theoretical volume positions are not acquired or
-necessarily published books. PEP/Shandong five-four is one coedition row. Current catalogues and
-legacy volumes differ; do not splice them or infer city/cohort adoption.
+Acquisition gaps: no verified current 2024-book wordlist or local raw annual examination wordset was
+acquired. Current publisher catalogues/navigation, sales ISBN leads, inherited failed routes and pinned
+community candidates are registered without promoting them to originals/adoption. The national 2024
+catalogue has eleven standard entries and one large-print variant; only three explicitly print five-four.
+Unlabelled structures remain unknown. Seventy standard plus two variant theoretical positions are not
+acquired or necessarily published books. Current and legacy volume patterns differ; do not splice them.
 
-BNU and Shandong reproduction/mirroring restrictions require metadata-only retention; no current
-reader bodies/DOM/screenshots were copied. Jinan and restricted Shijiazhuang replies are similarly
-limited. Guangzhou's practice RAR was statically opened, never executed; zero media sets played.
-Guangzhou 2024–2026, Beijing from 2025 and Henan 2026 retain their distinct documented curriculum
-bases. No adoption of the national 2025 revision or local 1,600-word equivalence is assumed.
+Restricted current BNU/Shandong, Jinan and Shijiazhuang bodies remain excluded; only scoped metadata,
+paraphrases/hashes are retained. Actual access challenges were stopped. No untrusted downloader,
+shared-drive login, token synthesis, API replay, protected route or copy restriction was bypassed.
+Guangzhou's practice RAR was statically opened, never executed; zero media sets were played. Guangzhou,
+Beijing and Henan retain distinct documented curriculum bases; no national 2025 revision/local 1,600-set
+or publisher/cohort adoption is inferred. Start with `reference/source-register/vocabulary/research.md`,
+`city-findings.md`, `completion-review.md` and `announcement-search/README.md`.
 
-The latest fresh native/deferred tool registry still exposes no Chrisverse, Kanban or Obsidian tools,
-no generic tool-search/reload interface and no callable
-`mcp__codex_apps__chrisverse_studio_mcp_capabilities`. This is a worker tool-exposure limitation,
-not a server-availability diagnosis. No external write, authentication/network change or credential
-dump is claimed. When exposed, read the existing English board and Obsidian note first and reconcile
-this memory/log. Keep one short English deliverable per card; link detailed evidence in memory.
+Owner follow-up: lawful current/missing-family originals with physical imprint/ISBN; local annual raw
+wordsets and the Quanzhou transition resource; written reuse/audio permissions through R-RIGHTS.
+These gaps do not reopen other agents' claims. All other research units remain separately claimed;
+R-INT still requires them all done, so Stage 1/Gate 1 is not complete. APP-DELIVERY and its actual release
+prerequisites remain unchanged. Re-fetch/read the board before selecting any next unit.
+
+External reconciliation is pending. This worker's fresh native/deferred registry has no Chrisverse,
+Kanban, Obsidian or generic tool-search/reload interface, including no callable
+`mcp__codex_apps__chrisverse_studio_mcp_capabilities`. This is tool exposure, not a server-availability
+diagnosis. No external write or credential/auth/network change is claimed. Once exposed, read the
+existing English board/note and update the existing vocabulary card to done, with the above bounded
+scope and acquisition gaps linked in memory. Use short English cards and do not duplicate records.

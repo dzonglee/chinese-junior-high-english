@@ -1,0 +1,19 @@
+# BNU legacy vocabulary audit
+
+Five scanned cached public Git mirror parents, immutable TapXWorld/ChinaTextbook commit5a80345f2043ba6f8db8d7be9cf3db82725ff1f7, linked to R-ED-B007–011 at bf15137b2f36f45e08e7ac4a77956fc2ccd1c215. Audit2026-10-16; original cache acquisition2026-10-15. Each original came from ordered public Git split pieces; parent and piece SHA-256/Git object metadata retained. Public access is not commercial permission; research only, all reuse flagsfalse, no source IDs allocated.
+
+2,334 manually transcribed lexical occurrences:2,271 labels in36 unit/Get Ready groups plus63 separately titled Places / Places and Names labels in4 groups. Total40 literal groups. Grade7 upper546(538+8),7lower498(480+18),8upper405(390+15),8lower396,9whole489(467+22). These are printed occurrences, not unique national/local mastery items. Repeated one/still labels retain distinct contexts.
+
+All128 retained pages visually opened:43 unit-list pages,40 alphabetical pages,25 supplementary pages (16picture-dictionary figure pages,1English Names page,8irregular-verb table pages),20identity pages. Full-parent PDF page is one-based; printed appendix page=PDFpage-2. Unit, lesson/workshop/Get Ready/Places boundaries are literal. Alphabetical/picture/name/irregular labels are not counted again. Every figure page rendered and looked at.
+
+Entire unit-list primary labels were manually transcribed before independent OCR prompts. One article was corrected from pair of to a pair of on7upperPDF120. Primary labels omit phonetics/POS/Chinese/explanatory tails; abbreviation expansions before phonetics are retained when part of primary label. Readable apostrophe, ellipsis and whitespace presentation normalized; source pixels remain authority. OCR is not the dataset and does not verify IPA/gloss. No per-entry star/bold/italic semantics or first-lesson-page numbers were audited; fieldsnull. Source legend says unmarked entries mix standard vocabulary, word-formation-recognisable words and phrases; starred entries are extension vocabulary for recognition only. It does not establish a current city examination mastery set.
+
+Observed source differences remain explicit:7upper alphabetical go swimming appears in addition to main swim;7lower main practice vs alphabetical practise;9whole alphabetical-only complain/get used to/scenic have no standalone matching main row. No inferred each-unit occurrences. Difference list is observed review evidence, not an exhaustive typographic collation.
+
+All5covers visibly carry2013national approval and title identity; publisher北京师范大学出版社, chief editor王蔷. Audited cover/title/preface/final-afterword identity pages contain no ISBN/CIP/imprint/barcode; ISBN, first-edition/printing dates and exact curriculum-version year remainunknown. No catalogue lookalike guessed. Approval year is not publication date or proof of current city adoption.
+
+Five retained PDFs were made by original doc.select. Every retained page has identical RGB pixels at scale0.45 and complete native text against full parent. Source scans and publisher watermark preserved; no resampling/OCR layer inserted. Selection/fidelity page maps included. Parent full files remain local research cache, not a fresh-clone dependency.
+
+Root integration: assign R-VOC IDs at dataset roots and every entry, register5retained PDFs using artifact-manifest and provenance/rights metadata, preserve per-kind occurrence totals, run check-register and check-audit. Never release or copy reference content into app.
+
+Existing Chrisverse Kanban and Obsidian memory updates are required by owner. Native tools absent in this worker; external writes not claimed, no competing board created. Root must reconcile existing records when native tools return, with counts, scope, unknown bibliography, annual/local gaps and rights limitations.

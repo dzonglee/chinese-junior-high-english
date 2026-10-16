@@ -43,7 +43,7 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | R-SOUTH | 13 south cities (广东 听说, 福建, 广西, 海南, 江西, 湖南): same scope as R-NORTH | R-0 | claimed | codex-south | research/R-SOUTH | 2026-10-15 | Fujian originals and selected policies are collected. Complete the remaining coverage. |
 | R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | Selected local policies are verified. Papers, media and coverage remain incomplete. |
 | R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | claimed | codex-listening-east | research/R-LS | 2026-10-15 | Selected official formats are verified. Complete local rubrics, tasks and audio. |
-| R-VOC | 课标/考纲/edition word lists as raw data | R-STD | claimed | codex-vocabulary | research/R-VOC | 2026-10-16 | 60 books checked; annual vocabulary grid filled; verify announcement searches. |
+| R-VOC | 课标/考纲/edition word lists as raw data | R-STD | done | codex-vocabulary | main (research/R-VOC 0924dfe) | 2026-10-16 | Bounded research complete; current books and local raw lists remain acquisition gaps. |
 | R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | claimed | codex-writing | research/R-WRITE | 2026-10-15 | Selected passages and essays are measured. Local rubrics and lexical analysis remain open. |
 | R-BANK | Question banks, 专题 collections, commercial bank index, exam analyses | R-0 | claimed | codex-banks | research/R-BANK | 2026-10-15 | Bank catalogues and selected analyses are recorded. Coverage and permissions remain open. |
 | R-AUX | 教辅/教师用书, 教学进度, 听说 practice systems, reading material | R-0 | claimed | codex-aux | research/R-AUX | 2026-10-15 | Selected catalogues and schedules are recorded. Teacher material and audio remain open. |
@@ -59,17 +59,17 @@ Details per unit: `docs/stage1-resource-gathering.md` §4.
 | 3 | R-STD coordinator | Complete visual transcription of supplemental appendix tables into temporary data; coordinator registers results | curriculum-supplements | done;221baseline/revised supplemental records, revised main-list audit and currentcase1/2maps registered |
 | 4 | R-STD coordinator | Resolve English-specific revised-standard evidence and comparison source through public official discovery | curriculum-revision | done; acquired actual English2025PDF;143body/other-appendix page reviews and version guards registered |
 | 5 | R-VOC coordinator | Read-only unit-wordlist audits; coordinator retains IDs | curriculum-supplements and curriculum-revision | done for 5 PEP and 6 FLTRP legacy books; 4775 occurrences; field-level unknowns explicit |
-| 6 | R-VOC coordinator | Bounded actual local-wordlist discovery and controls | curriculum-revision and coordinator | bounded pass recorded; no acquired local wordset or annual coverage upgrade; remaining searches unresolved |
-| 7 | R-VOC coordinator | Read-only Renai and Yilin appendix audits; coordinator owns numbering and tracked edits | renai-wordlists and yilin-wordlists | done; Renai and Yilin registered at 2e8f176 |
-| 8 | R-VOC coordinator | Read-only Hebei and SWFL vocabulary audits | renai-wordlists and yilin-wordlists | done; Hebei and SWFL published at 965df76 |
-| 9 | R-VOC coordinator | Check Shandong and ESPress legacy vocabulary | renai-wordlists and yilin-wordlists | done; published at 6697fb6 and b7ecbd6 |
-| 10 | R-VOC coordinator | Guangzhou annual guides and offline English practice package for R-SOUTH/R-LS/R-AUX followup | existing unit owners | available at research/R-VOC 0687f91; scope and media limits in research notes |
-| 11 | R-VOC coordinator | Check BNU legacy vocabulary scans | renai-wordlists | done; five BNU books published at 20309ea; ISBN/imprint unknown |
-| 12 | R-VOC coordinator | Finish northern annual vocabulary searches | yilin-wordlists | done; all 70 northern targets recorded at 21f7a56; scope limits retained |
-| 13 | R-VOC coordinator | Finish southern annual vocabulary searches | renai-wordlists | done; all 45 targets searched, published at fb9efd0; raw wordsets remain unverified |
-| 14 | R-VOC coordinator | Check current BNU vocabulary readers | renai-wordlists | done; five catalogues checked, metadata only at 83ce076; no word pages loaded |
+| 6 | R-VOC coordinator | Bounded actual local-wordlist discovery and controls | curriculum-revision and coordinator | done; all annual vocabulary targets recorded; no local raw wordset verified |
+| 7 | R-VOC coordinator | Read-only Renai and Yilin appendix audits; coordinator owns numbering and tracked edits | renai-wordlists and yilin-wordlists | done; all twelve books checked and registered |
+| 8 | R-VOC coordinator | Read-only Hebei and SWFL vocabulary audits | renai-wordlists and yilin-wordlists | done; all eleven books checked and registered |
+| 9 | R-VOC coordinator | Check Shandong and ESPress legacy vocabulary | renai-wordlists and yilin-wordlists | done; both five-four families checked and registered |
+| 10 | R-VOC coordinator | Guangzhou annual guides and offline English practice package for R-SOUTH/R-LS/R-AUX followup | existing unit owners | available on main; static package and guide scope in vocabulary research notes |
+| 11 | R-VOC coordinator | Check BNU legacy vocabulary scans | renai-wordlists | done; five books checked; ISBN/imprint remain unknown |
+| 12 | R-VOC coordinator | Finish northern annual vocabulary searches | yilin-wordlists | done; all 70 targets recorded with search limits |
+| 13 | R-VOC coordinator | Finish southern annual vocabulary searches | renai-wordlists | done; all 45 targets searched; raw wordsets remain unverified |
+| 14 | R-VOC coordinator | Check current BNU vocabulary readers | renai-wordlists | done; five catalogues checked; no current word pages loaded |
 
-| 15 | R-VOC coordinator | Verify annual official English-exam announcement searches | renai-wordlists and yilin-wordlists | in progress; cross-reference existing notices and search missing annual targets |
+| 15 | R-VOC coordinator | Verify annual official English-exam announcement searches | renai-wordlists and yilin-wordlists | done; all 280 cells have targeted searches or existing notice/policy attempts |
 
 ## Shared resources
 
