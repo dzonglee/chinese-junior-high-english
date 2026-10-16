@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 55 legacy textbook appendices are registered. R-VOC remains incomplete: 249 annual city vocabulary cells remain unsearched, 29 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 55 legacy textbook appendices are registered. R-VOC remains incomplete: 245 annual city vocabulary cells remain unsearched, 34 have bounded not_found results and 1 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -105,3 +105,9 @@ Only11acceptedPDFs are registered. Five unchanged full parents are retained once
 Five distinct ordinary annual targets and five restrictive advanced targets were inspected. The ordinary长沙中考control is relevant; advancedzeroes and mixed-year ordinary matches are explicitly limited. The broad词汇表query returns38tokenisedresults: all four pages were followed through actual browser next links and read. A plausible中学word-chunkresearchhit was opened and proved explicitly普通高中material; it is excluded, with visible2019date separate from2023URLpath. No raw junior-high local wordlist acquired; five cells are boundednot_found, not universalabsence.
 
 The actual2023Hunanpolicy explicitly introduces provincial written setting from2024, but generic curriculum wording does not establish a versionyear. Actual2025Changshareform text describes oralEnglish as a separate20-markassessment converted toA/B/C/Dforcomprehensivequalityevaluation, not an extra20markssimplyaddedtoadmissionsscore. Policy native-text scope and embedded-image review limits remain explicit.
+
+## Shanghai independent public search and annual-source review
+
+The main header's brokensearch is distinct from the older literal publicPOSTsearch. The latter returns realJSONfor vocabulary and annualtargets. All seven pages/70short词汇title-indexresults were read, including out-of-scope high-school/self-studyitems and single-character誓词/汇总matches. No raw junior-high2022–2026headwordlist found. Five actual annualtargets have hugefuzzyORresultsets; only firstpagesread, as with1081broader词汇表results. These are boundedsearches,notuniversalabsence; counts are not English-source inventories.
+
+The actual2022Englishanalysis was already reopened underR-VOC::006;2023–2025analysesand2026Englishlisteningrehearsalnotice were separately opened/read. No curriculum-standard versionyear or raw list is established. Allfivecells become boundednot_found, superseding2026'soldSogouproviderblock through an independent officialroute, without solving thatchallenge.2026notice'sMay18,8:55–9:25(includingfiveminutetesttones)is REHEARSAL,not the actualexam listeningduration; publishedmediachannels are not acquired audio/transcripts.
