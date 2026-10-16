@@ -11,20 +11,20 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 
 | ID | Work | Status | Owner | Branch | Next action |
 | --- | --- | --- | --- | --- | --- |
-| APP-DELIVERY | Build and validate the English learning app | In progress | codex-app | platform/app-delivery | Adapt the sister platform and build the English content model |
+| APP-DELIVERY | Build and validate the English learning app | In progress | codex-app | platform/app-delivery | Add approved audio and validate the real WeChat project |
 
 ### Delivery checklist
 
 | Work | Status |
 | --- | --- |
 | Persistent memory and board instructions | Done |
-| Platform, content model and compiler | In progress |
-| Lessons, vocabulary and practice | Ready |
-| Listening, speaking and writing | Ready |
-| Exams, question builder and private questions | Ready |
-| Progress, mistakes and data controls | Ready |
-| Functional testing and visual review | Ready |
-| Release preparation | Ready |
+| Platform, content model and compiler | Done |
+| Lessons, vocabulary and practice | Implemented; editorial review pending |
+| Listening, speaking and writing | Implemented; listening audio pending |
+| Exams, question builder and private questions | Implemented and tested |
+| Progress, mistakes and data controls | Implemented and tested |
+| Functional testing and visual review | Browser checks pass; native checks pending |
+| Release preparation | Implemented; project setup and owner review pending |
 
 External Obsidian and Kanban updates are pending connection availability. Continue app work first.
 
