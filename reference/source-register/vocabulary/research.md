@@ -1,15 +1,29 @@
-# Vocabulary research
+# Vocabulary research handoff
 
-The completed curriculum unit supplies separately audited national2022 and school-hosted2025revision lists. This unit now has1,600raw printed headword records with both source occurrences, including the505level-two subset and1,095additional level-three entries. Bracketed American spellings and source case remain distinct; slash pairs count as one printed entry.221supplemental rows per version are indexed separately. No commercial permission, automatic city-exam equivalence or textbook-unit assignment is inferred.
+The national lists and eleven cached legacy textbook appendices are registered and checked. R-VOC remains incomplete: all280city-year examination-wordlist cells are genuinely unsearched at the required annual scope, current2024books and other edition families remain unfinished, and no local prescribed headword list was acquired. Failed discovery routes are not absence evidence.
 
-The three manifest records reuse already retained curriculum artifacts; they are not three new downloads. The exact2025Ministry issue/effective dates and2011comparisontext remain explicit source gaps in R-STD.
+## National lists
 
-Local discovery and textbook word-list auditing are in progress. All280city-year cells remain genuinely unsearched until actual scoped evidence is registered. Independent delegates work read-only on a legacy textbook appendix and local official-source leads; the coordinator retains numbering and changes. This unit is incomplete and does not unlock integration.
+`national-wordlist.json` contains1,600raw printed headword records with separate2022and2025revised-source occurrences:505level-two entries and1,095additional entries. Bracketed American spellings, sourcecase and slash-pair counting are preserved.221supplemental rows per version are indexed separately in `national-list-index.json`. These are shared already-retained R-STD artifacts, not new unique downloads. The revised source is an official schoolmirror, with exact Ministry issue/effective dates still unknown. No automatic local exam equivalence or textbook-unit assignment is inferred.
 
-## Registered legacy sample and bounded local discovery
+## Legacy textbook lists
 
-R-VOC::004 is a complete legacyPEPgrade7upperunit-ordered appendix:431source rows acrossStarter1–3andUnits1–9, retaining repetitions,28explicit name labels and347observed bold entries. The source legend identifies bold as book-priority vocabulary, not an examination requirement. IPA and Chinese glosses remain null. Nine appendix pages and four identity/approval pages are retained as unmodified whole-page derivatives, with full-parent Git/blob/SHA provenance.2012approval/2011curriculum basis do not establish current adoption or a2024newbook. ISBN/printing remain unknown.
+`edition-wordlist-index.json` indexes fivePEP Go for it! volumes (2,611occurrences,58literalheadings,57appendixpages) and sixFLTRP New Standard volumes (2,164occurrences,39unit-listpages). Together they contain4,775headword/phrase occurrences, retaining repeated uses, sourcecase and literalStarter/Module/Revision distinctions. They are not4,775distinct lemmas or prescribed exam words. FLTRP's51standalone proper-name/alphabetical pages are retained separately and excluded from those occurrence counts.
 
-R-VOC::005–010 preserve bounded local discovery: a failedBingpositivecontrol, an actualShanghai2022qualitativeanalysis and brokenvisiblepublicsearch, a403Nantong2026candidate, a503Shanghaihomepage, an existingnonofficialShenzhenrevisionlist and the existingHenan2026policy. None supplies an acquired prescribed localheadwordlist. No additional21cnjyrequests were made. The662regionalrecords inspected were existing cached records, not662newresources. No annual coverage cell is upgraded from year-unspecified or irrelevant results.
+All selected appendix/index pages were visually inspected. Whole-page derivatives, identity/approval/copyright evidence and backcovers preserve exact parent Git/SHA/page provenance. Community mirrors are not independently matched publisher originals; no2024newbook or currentcityadoption is inferred. Approval, copyright, first-edition and printing dates remain distinct. FivePEP ISBNs are source-observed with valid checksums; sixFLTRP ISBNs remain unknown after actualbackcover review.
 
-Henan's actual2026policy explanation identifies2011standards for English while reflecting2022concepts. This is a concrete reason not to apply the national2025copy automatically to every localexam; a localrawlist and city/cohortparticipation still need their own evidence.
+PEP7lower/8lower scans have reviewed lexical/unit/page fields but unaudited individual bold/variant fields, explicitly null. Native-font priority observations on other volumes stay sourcebook conventions. FLTRPstar means reviewreinforcement, not the national curriculum level-two marker. IPA/gloss fields remain null; retained rawfont text/spans are unreviewed evidence.
+
+`derivative-fidelity-check.json` records decoded-page/native-text comparison against complete cached parents. An initial color-profile loss in threePEPcover derivatives was caught and repaired through original-document selection preserving color/output-intent settings. Source PDFs are unchanged. Some cached sources emit cross-reference warnings; those are recorded separately from selected-page fidelity.
+
+## Bounded local discovery
+
+The four regional source registers supplied662existing records for an offline keyword audit, not662newresources. The retained leads are Nantong2026's403candidate, Shanghai2022'squalitativeanalysis, an existing nonofficialShenzhenrevisionpreview and Henan2026'spolicy. No actual local headword list follows from these records. No further21cnjyrequests were made because inspected terms bar automationwithoutpermission.
+
+Bing'stargeted query and positivecontrol returned the samegenericShanghairesults. Shanghai'svisible词汇search raised `tiao is not defined` and onlyreloadedthearticle; the governmenthomepage returned503. An alternate public search provider presented a human CAPTCHA during its normal UIpositivecontrol; stoppedwithoutsolvingorretrying. These are precise route failures, not validannual zero-hit searches or a claim that the wholeinternet is inaccessible. `local-discovery/` and `alternate-search/` preserve exact scope and provenance.
+
+Henan's actual2026policy identifies2011standards for English while reflecting2022concepts. National2025content therefore cannot be applied automatically to every city'sexam. A local rawlist and city/cohort participation need their own evidence.
+
+## Continue
+
+Resume the existing `research/R-VOC` claim. First use working authorized discovery to collect actual city/provincial lists and complete genuine city×2022–2026 searches. Continue current2024books and other edition/five-four rawlists on this sameunit; preserve these completed legacy datasets. Do not recast blocked/irrelevant search controls as280searchedcells. R-INT remains behind allunitsdone, and Stage1/Gate1is notcomplete. All commercial reuse approvals remain false; no app content, contacts, accounts or agreements were created.
