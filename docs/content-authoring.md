@@ -21,7 +21,7 @@ remains in `reference/` and is not bundled as learner material.
   individual distractor reasons. A different passage is used for delayed review.
 - `expression.json`: original writing, free speaking and read-aloud tasks with explicit self-review
   rubrics. Reference answers are examples, not mandatory wording.
-- `listening.json`: twelve original scripts and their tasks. `audio-policy.json` deliberately has
+- `listening.json` and `course-listening.json`: 99 original scripts and their tasks. `audio-policy.json` deliberately has
   no selected model until the owner chooses one. Do not replace this with browser voices or a
   different service silently.
 
@@ -60,3 +60,26 @@ are deterministic and use the actual authored text. Browser screenshots are test
 not decorative app assets or native screenshots.
 
 After the first release, keep question IDs stable. Append new cases rather than reordering an indexed case list, and give materially changed tasks/answers new IDs. Deliberately version catalogs and state migrations; do not silently reinterpret historical attempts.
+
+## Complete original course sources
+
+`course-plan.json` defines the project's 29-theme grade/term sequence; `course-coverage.json`
+records executable anchors for 58 grammar objectives and eight pronunciation-knowledge units.
+These anchors describe coverage, not licensed textbook alignment or permission to reuse research.
+`course-grammar.json`, `course-pronunciation.json`, `course-reading.json`, `course-expression.json`,
+`course-listening.json` and `course-expression-extensions.json` provide original authored cases.
+`course-vocabulary.tsv` and `course-vocabulary-groups.json` add 1,594 headwords to the retained 96.
+Each new word needs a meaning, original example, translation and specific usage note; variants
+must be genuine spelling forms of the same headword, never different lexical words.
+
+Choice cases may supply an explicit contextual instruction as the sixth field when several forms
+would otherwise be grammatical. Case-sensitive grading is opt-in only for explicit capitalization
+objectives. Keep default case-insensitive duplicate-choice checks. Reading evidence must quote
+complete authored sentences/paragraphs and must not expose internal placeholders. Delayed tasks
+must be different from immediate tasks. Shared-passage reviews withhold all feedback until the
+whole review is submitted, so one answer cannot expose another before independent assessment.
+
+Run `npm run check:course` for all-theme/grammar/pronunciation/word coverage, no orphan tasks,
+reading bands and expression length/model constraints. Run `npm run test:course-browser` after
+building to exercise new lessons and render every diagram at three widths. The review artifact
+pages by 50 items; representative contact sheets do not replace final editorial review.

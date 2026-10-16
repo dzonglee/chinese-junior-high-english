@@ -103,3 +103,13 @@ Author and test this course now, independently of native publication. Complete o
 and media-dependent lesson content while approved audio remains pending; videos stay deferred.
 Existing research claims remain unchanged. Shared compiler/course-navigation work is explicitly
 within APP-LESSONS so the authored lessons are actually reachable and auditable.
+
+### Original course implementation complete · 2026-10-17
+
+APP-LESSONS delivers 413 original draft lessons, 4,804 tasks, 1,690 distinct headwords and 245
+packs. All 29 themes have four-skill lessons, all 58 grammar objectives have executable anchors,
+and eight pronunciation-knowledge units are included. Every task/word is assigned to a lesson
+and delayed check; inventory filters expose the complete course. This completes the original
+local lesson-authoring scope, with 99 scripts/31 listening lessons awaiting approved audio.
+Publisher-unit alignment, exact official wordset matching, research integration, editorial approval
+and native publication remain separate, unverified requirements. Videos remain deferred.

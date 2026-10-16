@@ -120,6 +120,7 @@ test('the compiler refuses to silently regenerate singleton blanks without autho
   const fixture = mkdtempSync(resolve(tmpdir(), 'english-grammar-response-'))
   try {
     mkdirSync(resolve(fixture, 'content'))
+    writeFileSync(resolve(fixture, 'content/course-grammar.json'), '[]')
     const rejects = [
       [undefined, /q-g-be-002: blank needs an authored instruction/],
       [{ instruction: '用 be 的一般现在时肯定形式填空。', accepted: [] }, /q-g-be-002: blank needs explicit accepted answers/],

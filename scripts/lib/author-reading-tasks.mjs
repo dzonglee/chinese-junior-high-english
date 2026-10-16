@@ -6,7 +6,11 @@ export function authorReadingTasks(root, catalog) {
     const restoration = type === 'restoration', id = restoration ? 'r-restoration' : 'r-short-answers', title = restoration ? '句子还原：看前后照应' : '任务型阅读：按要求提取信息', grades = restoration ? [8, 9] : [7, 8, 9], sets = []
     catalog.topics.push({ id, title, skill: 'reading', grades, goal: restoration ? '结合指代、逻辑和段落功能，把句子放到合适的位置。' : '先定位原文，再按题目要求控制答案的词数和词形。', commonError: restoration ? '只看一个重复词，没有读空格前后的完整意思。' : '找对了线索，却没有按题目要求填写单词。', prerequisites: [], order: restoration ? 106 : 105 })
     for (const [t, text] of texts.entries()) {
-      const ids = [], items = restoration ? text.options.slice(0, 5).map((correct, i) => { const [before, after] = text.text.split(`[[${i + 1}]]`); return [`第 ${i + 1} 个空格应该放哪一句？有两个选项多余。`, correct, `${before.slice(-120)}〔本空〕${after.slice(0, 120)}`, text.reasons[i]] }) : text.items
+      const ids = [], items = restoration ? text.options.slice(0, 5).map((correct, i) => {
+        const paragraph = text.text.split('\n').find(line => line.includes(`[[${i + 1}]]`))
+        const context = paragraph.replace(/\[\[(\d+)\]\]/g, (_, number) => Number(number) === i + 1 ? '〔本空〕' : `〔第 ${number} 空〕`)
+        return [`第 ${i + 1} 个空格应该放哪一句？有两个选项多余。`, correct, context, text.reasons[i]]
+      }) : text.items
       for (const [i, [stem, answer, evidence, reason]] of items.entries()) {
         const qid = `q-${id}-${t + 1}-${i + 1}`; ids.push(qid)
         const options = restoration ? (t ? [4, 2, 5, 0, 6, 1, 3] : [3, 6, 1, 5, 0, 4, 2]).map((original, n) => ({ id: String.fromCharCode(97 + n), text: text.options[original] })) : undefined

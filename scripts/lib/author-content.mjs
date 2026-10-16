@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { authorReadingTasks } from './author-reading-tasks.mjs'
+import { attachCourse } from './course-plan.mjs'
 import { authorExtra } from './author-extra.mjs'
 
 const read = (root, path) => JSON.parse(readFileSync(resolve(root, path), 'utf8'))
@@ -25,7 +26,7 @@ function authoredResponse(id, kind, response, correct) {
 
 export function authorCatalog(root) {
   const topics = [], lessons = [], questions = [], vocabulary = [], media = []
-  for (const [topicNumber, record] of read(root, 'content/grammar.json').entries()) {
+  for (const [topicNumber, record] of [...read(root, 'content/grammar.json'), ...read(root, 'content/course-grammar.json')].entries()) {
     const grades = gradesFrom(record.minGrade)
     const topic = { id: record.id, title: record.title, skill: 'grammar', grades, goal: record.rule, commonError: record.pitfall, prerequisites: [], order: topicNumber + 1 }
     topics.push(topic)
@@ -33,8 +34,9 @@ export function authorCatalog(root) {
     for (const [i, [sentence, correct, wrong1, wrong2, reason, response]] of record.cases.entries()) {
       const id = `q-${record.id}-${String(i + 1).padStart(3, '0')}`
       ids.push(id)
-      const [prefix, suffix] = sentence.split('[[1]]')
-      if (suffix === undefined) throw new Error(`${id}: authored sentence needs exactly one target`)
+      const parts = sentence.split('[[1]]')
+      const [prefix, suffix] = parts
+      if (parts.length !== 2) throw new Error(`${id}: authored sentence needs exactly one target`)
       const completed = `${prefix}${correct}${suffix}`
       const kind = ['choice', 'blank', 'correction', 'order'][i % 4]
       const freeResponse = authoredResponse(id, kind, response, correct)
@@ -43,8 +45,8 @@ export function authorCatalog(root) {
       const tokens = [{ id: 'start', text: prefix.trim() }, { id: 'target', text: correct }, { id: 'end', text: suffix.trim() }].filter((t) => t.text)
       const stem = kind === 'order' ? '把词块排成完整句子。先找到主语，再确定其余部分的位置。' :
         kind === 'correction' ? `${freeResponse.instruction}\n${prefix}（${wrong1}）${suffix}` :
-        kind === 'blank' ? `${freeResponse.instruction}\n${sentence.replace('[[1]]', '_____')}` : sentence.replace('[[1]]', '_____')
-      const answer = kind === 'choice' ? { option: right, display: completed } : kind === 'order' ? { order: tokens.map((t) => t.id), display: completed } : { accepted: freeResponse.accepted, display: correct }
+        kind === 'blank' ? `${freeResponse.instruction}\n${sentence.replace('[[1]]', '_____')}` : `${response?.instruction ? response.instruction + '\n' : ''}${sentence.replace('[[1]]', '_____')}`
+      const answer = kind === 'choice' ? { option: right, display: completed, ...(record.caseSensitive ? { caseSensitive: true } : {}) } : kind === 'order' ? { order: tokens.map((t) => t.id), display: completed } : { accepted: freeResponse.accepted, display: correct, ...(record.caseSensitive ? { caseSensitive: true } : {}) }
       const alternatives = freeResponse?.accepted.filter(value => value !== correct) ?? []
       const alternativeNote = alternatives.length ? `本题也接受：${alternatives.join('、')}。` : ''
       questions.push({ id, topicId: record.id, skill: 'grammar', kind, difficulty: i % 3 === 2 ? 2 : 1, grades, stem,
@@ -75,5 +77,5 @@ export function authorCatalog(root) {
     ['shep-54', '沪教牛津五四制', '请按封面确认', 'british', '54'], ['beijing', '北京版', '请按封面确认', 'british', '63'],
     ['xiangjiao', '湘教版', '请按封面确认', 'british', '63'],
   ].map(([id, name, version, spelling, structure]) => ({ id, name, version, spelling, structures: [structure], verification: 'unverified', sourceIds: [] }))
-  return { version: 1, topics, lessons, questions, vocabulary, media, cities, editions, books: [], blueprints: [] }
+  return attachCourse(root, { version: 2, topics, lessons, questions, vocabulary, media, cities, editions, books: [], blueprints: [] })
 }

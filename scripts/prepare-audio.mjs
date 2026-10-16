@@ -8,8 +8,9 @@ if (config.source !== 'openai' || !config.model || !config.voice || !config.owne
 }
 if (!process.env.AUDIO_API_KEY) { console.error('Set AUDIO_API_KEY securely in environment settings. No request was sent.'); process.exit(2) }
 const output = resolve(root, 'content/audio'); mkdirSync(output, { recursive: true })
-const records = JSON.parse(readFileSync(resolve(root, 'content/listening.json'), 'utf8')).flatMap(topic => topic.cases)
-if (process.argv.includes('--vocabulary')) records.push(...readFileSync(resolve(root, 'content/vocabulary.tsv'), 'utf8').split('\n').filter(line => line && !line.startsWith('#')).map(line => { const [, word, , example] = line.split('|'); return { id: `word-${word}`, transcript: `${word}. ${example}` } }))
+const scripts = ['listening.json', 'course-listening.json'].flatMap(file => JSON.parse(readFileSync(resolve(root, 'content', file), 'utf8'))).flatMap(topic => topic.cases)
+const records = [...new Map(scripts.map(task => [task.audioKey ?? task.id, { id: task.audioKey ?? task.id, transcript: task.transcript }])).values()]
+if (process.argv.includes('--vocabulary')) records.push(...['vocabulary.tsv', 'course-vocabulary.tsv'].flatMap(file => readFileSync(resolve(root, 'content', file), 'utf8').split('\n')).filter(line => line && !line.startsWith('#')).map(line => { const [, word, , example] = line.split('|'); return { id: `word-${word}`, transcript: `${word}. ${example}` } }))
 const existing = existsSync(resolve(root, 'content/audio-manifest.json')) ? JSON.parse(readFileSync(resolve(root, 'content/audio-manifest.json'), 'utf8')) : [], manifest = []
 for (const task of records) {
   const id = `audio-${task.id}`, file = `${id}.mp3`, path = resolve(output, file)

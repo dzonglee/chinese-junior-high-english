@@ -10,13 +10,38 @@
 
 ## Active direction · complete all lessons, 2026-10-17
 
-The owner explicitly rejected stopping at the working local foundation. APP-LESSONS now expands
-the full original junior-high capability course and its navigable inventory. Complete original
-content and delayed checks across grammar, thematic reading/communication, vocabulary and
-pronunciation knowledge; videos stay deferred. The prior local milestone is a platform foundation,
-not completion of lesson authoring. See the current plan/board/log before resuming.
+APP-LESSONS is squash-integrated on main and completes the original local course: 413 draft lessons, 4,804 tasks, 1,690 distinct
+headwords and 245 packs. All 29 themes have reading/listening/speaking/writing lessons, 58 grammar
+objectives have executable anchors and eight written pronunciation-knowledge units are included.
+Every task and word belongs to immediate/delayed lessons. The portable HTML is 10.04 MB. Full
+course filters, search and paging expose the inventory; no official textbook mapping is inferred.
 
-## Local platform foundation · 2026-10-17
+All 511 automated tests pass, including every lesson's checked-pack/controller/storage/delayed
+lifecycle. Real missing-audio lessons are rejected; lifecycle playback is test-only synthetic.
+Seven grammar regressions, four native recording simulations, 11 browser journeys, seven offline
+checks and six course browser checks pass. Every one of 4,804 diagrams was laid out at three
+widths without overflow; 245 topic representatives and real app states received visual inspection.
+See `docs/validation.md` and `docs/reviews/course-2026-10-17.md` for precise review boundaries.
+
+Decisions: shared-passage delayed feedback/evidence is withheld until submission, including reload,
+to avoid leaking answers; subjective completion advances practice without claiming retention.
+Vocabulary meaning exposure makes immediate spelling assisted. Compact catalog tuples round-trip
+to the same runtime shape and keep the unchanged main-package safety budget (about 1,641 KB main,
+10,038 KB total). Original headwords and stable IDs are retained; one old discover example was
+corrected so the headword can actually be masked. No reference content was copied.
+
+Next: approved audio for 99 scripts/31 pending listening lessons; videos stay deferred. An optional
+owner source/model/voice question was sent; policy stays unset until an actual answer. Exact official
+wordset and publisher-unit maps remain unverified, research is incomplete, and all content stays
+draft. Native DevTools/device and publication work belongs to APP-NATIVE. No native release or
+editorial approval is claimed. The prior 34-lesson foundation below is historical, not current scope.
+
+Fresh native/deferred discovery still exposes no Chrisverse, Kanban, Obsidian or generic tool-search/
+reload tools. No external write is claimed. When exposed, read the existing records and reconcile:
+mark the local course card complete with the above counts, link bounded evidence in memory, and
+keep approved audio/native work separate. Do not create a competing board or guess identifiers.
+
+## Historical local platform foundation · 2026-10-17
 
 The owner requested a usable local app immediately and deferred videos. The local milestone is
 implemented and integrated on main; its instructions are in `docs/local-version.md`.
