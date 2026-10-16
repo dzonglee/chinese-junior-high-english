@@ -3,8 +3,30 @@
 WeChat mini program for mainland Chinese junior-high English (初中英语): textbook-synced lessons
 plus exam-focused drilling for 中考英语 (listening, speaking, reading, language use and writing).
 It is the sister app of `dzonglee/chinese-junior-high-maths` and must reach the same standard. Read
-`README.md`, then `docs/plan.md`. **The project is in Stage 1, resource gathering:** start at
-`docs/stage1-resource-gathering.md` and `docs/authoring/board.md`.
+`README.md`, then `docs/plan.md`. **Current owner direction: finish the application.** Read
+`docs/app-delivery.md`, `docs/project-memory.md` and `docs/authoring/board.md` before choosing work.
+Research remains incomplete and continues alongside app development; do not label a research
+milestone as a finished app or let one failed endpoint stop independent implementation work.
+
+## Persistent memory and Kanban (required for every session and agent)
+
+- The owner uses **Obsidian memory and a Kanban board through MCP**. Discover and read the
+  connected project memory and board at session start, before choosing work. Reuse the existing
+  project records; do not create competing boards or guess vault/note identifiers.
+- Update memory and the board as work progresses: when taking a task, making a material
+  decision, completing a deliverable, discovering a blocker, changing scope, or handing off.
+  Keep memory focused on decisions, evidence, remaining work and the next concrete action.
+- Keep the board clean and easy to read. Use plain English, one clear deliverable per card,
+  short titles and concise status notes. Use the board's existing status columns. Put technical
+  logs and detailed evidence in linked memory notes rather than inside card titles or long notes.
+- Pass this requirement to every delegated agent and include it in handoffs. Future sessions
+  must read this section and the current memory before continuing; this is a standing owner
+  requirement, not a one-session preference.
+- If the MCP tools are unavailable, record the precise limitation in `docs/project-memory.md`,
+  keep the repository board and handoff current, and continue independent app work. Never claim
+  an Obsidian or external board update succeeded without a successful tool response. Reconcile
+  the pending local updates when the connection becomes available. The owner explicitly asked
+  to continue app work first while the current session's MCP connections are unavailable.
 
 ## Standing requirements (all stages)
 

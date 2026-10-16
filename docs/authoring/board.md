@@ -4,27 +4,51 @@ Claim protocol: `AGENTS.md` → "Working alongside other agents". Statuses: `ope
 `review`, `done`, `blocked`. Stage 1 branches are `research/<unit-id>`. Each unit owns only the
 folders in its row.
 
+## Application delivery
+
+The owner requested the finished app. Research continues separately; it is not marked complete.
+Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
+
+| ID | Work | Status | Owner | Branch | Next action |
+| --- | --- | --- | --- | --- | --- |
+| APP-DELIVERY | Build and validate the English learning app | In progress | codex-app | platform/app-delivery | Adapt the sister platform and build the English content model |
+
+### Delivery checklist
+
+| Work | Status |
+| --- | --- |
+| Persistent memory and board instructions | Done |
+| Platform, content model and compiler | In progress |
+| Lessons, vocabulary and practice | Ready |
+| Listening, speaking and writing | Ready |
+| Exams, question builder and private questions | Ready |
+| Progress, mistakes and data controls | Ready |
+| Functional testing and visual review | Ready |
+| Release preparation | Ready |
+
+External Obsidian and Kanban updates are pending connection availability. Continue app work first.
+
 ## Stage 1 · Resource gathering
 
 Details per unit: `docs/stage1-resource-gathering.md` §4.
 
 | ID | Unit | Depends on | Status | Owner | Branch | Updated | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| R-0 | Register schema, roster, folders, check script, LFS rules | — | done | claude-7fcc | main | 2026-10-15 | `scripts/check-register.mjs`, `reference/source-register/resource-schema.json`, `cities/roster.json` |
-| R-STD | 2022 课标 (+2025 revision) and appendices as data | R-0 | done | codex-curriculum | main (research/R-STD b48d267) | 2026-10-16 | 15 sources / 33 retained artifacts. Both standards and versioned appendices audited; all 197 revised pages viewed. Main lists: 505 / 1600; supplements: 221 per version. The 2011 text and exact Ministry revision dates remain source gaps. |
-| R-ED-A | Editions: 人教 (2024 new + legacy, 六三/五四), 外研, 仁爱科普 | R-0 | claimed | codex-editions-a | research/R-ED-A | 2026-10-15 | Pushed7174f0d:19sources/19files;17legacy book extracts and2024/2025 catalogues. New editions, complete maps and audio unresolved. |
-| R-ED-B | Editions: 译林牛津, 沪教牛津, 北师大, 冀教, 鲁教五四, 北京版, others | R-0 | claimed | codex-editions-b | research/R-ED-B | 2026-10-15 | Pushed bf15137: 65 sources / 79 files; 43 legacy extracts, BNU new-series navigation for 5 volumes and teacher catalogues. Current full books/ISBNs/audio unresolved. |
-| R-NORTH | 15 north cities: 中考 papers, answers, audio, transcripts, structures, adoption, term papers by grade, 一模/二模 | R-0 | claimed | codex-north | research/R-NORTH | 2026-10-15 | Pushed 060fa97: 171 sources / 41 files. Annual audit: 9 opened, 15 unresolved searches, 51 unsearched. Original papers/media and full coverage remain missing. |
-| R-EAST | 15 east cities (incl. 上海 五四): same scope as R-NORTH | R-0 | claimed | codex-east | research/R-EAST | 2026-10-15 | Pushed 96ca2a0: 266 sources / 169 files. Shanghai analyses 2022–25 and local speaking/listening procedures verified; 1542 cells unsearched. |
-| R-SOUTH | 13 south cities (广东 听说, 福建, 广西, 海南, 江西, 湖南): same scope as R-NORTH | R-0 | claimed | codex-south | research/R-SOUTH | 2026-10-15 | Pushed d69861f: 101 sources / 38 files. Fujian originals, Haikou annual policies, Guangzhou/Changsha scope verified; 1440 cells unsearched. |
-| R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | Pushed 0d724a5: 124 sources / 106 artifacts; annual Henan/local policies and 35 school-course hints verified within scope. 1502 cells unsearched; papers/media incomplete. |
-| R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | claimed | codex-listening-east | research/R-LS | 2026-10-15 | Pushed 00cf3ac: 28 sources / 27 files; Fujian models and 7 Shanghai annual originals. 275 speaking cells unsearched; full scored tasks/rubrics/audio unresolved. |
-| R-VOC | 课标/考纲/edition word lists as raw data | R-STD | claimed | codex-vocabulary | research/R-VOC | 2026-10-16 | Pushed 441c167: six SHEP legacy books add 1367 occurrences / 46 units; totals 27 sources, 57 asset records (3 shared), 1600 national headwords and 6142 occurrences across 17 legacy books. All 27 new appendix and 12 identity pages reviewed; unchanged source PDFs uploaded via LFS. Henan policy and timetable directly reopened successfully. Still incomplete: all 280 annual local searches, current books and remaining editions. |
-| R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | claimed | codex-writing | research/R-WRITE | 2026-10-15 | Pushed efb65fc: 12 sources / 7 files. Measured 10 reading passages, 5 essays and 1 national dialogue; local rubrics and lexical rates remain unresolved. |
-| R-BANK | Question banks, 专题 collections, commercial bank index, exam analyses | R-0 | claimed | codex-banks | research/R-BANK | 2026-10-15 | Pushed 95026a7: 62 sources / 40 files, 930 listings and 35 type labels; 4 verified Shanghai analyses attributed. 182 cells unsearched; no bank permission. |
-| R-AUX | 教辅/教师用书, 教学进度, 听说 practice systems, reading material | R-0 | claimed | codex-aux | research/R-AUX | 2026-10-15 | Pushed 0897b15: 41 sources / 31 files; 90 product records, 272 audio links, 3 prior samples and 1 schedule archive. Teacher texts/audio remain inaccessible; 279 schedule cells unsearched. |
-| R-RIGHTS | Licensing routes and terms (publishers, 考试院, banks, audio) | R-0 | claimed | codex-rights | research/R-RIGHTS | 2026-10-15 | Pushed 6734785: 37 sources / 23 text artifacts, 28 licensing routes. All permissions false; missing terms and ownership routes remain open. |
-| R-INT | Integration layer, QA report and the editable research brief (Gate 1) | all R units done | open | | | 2026-10-15 | owns `source-register/integration/` |
+| R-0 | Register schema, roster, folders, check script, LFS rules | — | done | claude-7fcc | main | 2026-10-15 | Register schema and validation tools are complete. |
+| R-STD | 2022 课标 (+2025 revision) and appendices as data | R-0 | done | codex-curriculum | main (research/R-STD b48d267) | 2026-10-16 | Curriculum audit is complete. The 2011 source and exact revision dates remain gaps. |
+| R-ED-A | Editions: 人教 (2024 new + legacy, 六三/五四), 外研, 仁爱科普 | R-0 | claimed | codex-editions-a | research/R-ED-A | 2026-10-15 | Legacy books are collected. Current books, complete maps and audio remain open. |
+| R-ED-B | Editions: 译林牛津, 沪教牛津, 北师大, 冀教, 鲁教五四, 北京版, others | R-0 | claimed | codex-editions-b | research/R-ED-B | 2026-10-15 | Legacy books and publisher leads are collected. Current books, ISBNs and audio remain open. |
+| R-NORTH | 15 north cities: 中考 papers, answers, audio, transcripts, structures, adoption, term papers by grade, 一模/二模 | R-0 | claimed | codex-north | research/R-NORTH | 2026-10-15 | Continue official sources, original papers, media and annual coverage. |
+| R-EAST | 15 east cities (incl. 上海 五四): same scope as R-NORTH | R-0 | claimed | codex-east | research/R-EAST | 2026-10-15 | Continue original papers, media and the remaining city and term coverage. |
+| R-SOUTH | 13 south cities (广东 听说, 福建, 广西, 海南, 江西, 湖南): same scope as R-NORTH | R-0 | claimed | codex-south | research/R-SOUTH | 2026-10-15 | Fujian originals and selected policies are collected. Complete the remaining coverage. |
+| R-CW | 13 central/west cities: same scope as R-NORTH | R-0 | claimed | codex-central-west | research/R-CW | 2026-10-15 | Selected local policies are verified. Papers, media and coverage remain incomplete. |
+| R-LS | 听说/口语 test specs, task types, rubrics, practice systems | R-0 | claimed | codex-listening-east | research/R-LS | 2026-10-15 | Selected official formats are verified. Complete local rubrics, tasks and audio. |
+| R-VOC | 课标/考纲/edition word lists as raw data | R-STD | claimed | codex-vocabulary | research/R-VOC | 2026-10-16 | Seventeen legacy book lists are audited. Current books and local annual word lists remain open. |
+| R-WRITE | Writing rubrics, 范文 sources, passage-level measurements | R-0 | claimed | codex-writing | research/R-WRITE | 2026-10-15 | Selected passages and essays are measured. Local rubrics and lexical analysis remain open. |
+| R-BANK | Question banks, 专题 collections, commercial bank index, exam analyses | R-0 | claimed | codex-banks | research/R-BANK | 2026-10-15 | Bank catalogues and selected analyses are recorded. Coverage and permissions remain open. |
+| R-AUX | 教辅/教师用书, 教学进度, 听说 practice systems, reading material | R-0 | claimed | codex-aux | research/R-AUX | 2026-10-15 | Selected catalogues and schedules are recorded. Teacher material and audio remain open. |
+| R-RIGHTS | Licensing routes and terms (publishers, 考试院, banks, audio) | R-0 | claimed | codex-rights | research/R-RIGHTS | 2026-10-15 | Licensing routes are recorded. No commercial permissions have been obtained. |
+| R-INT | Integration layer, QA report and the editable research brief (Gate 1) | all R units done | open | | | 2026-10-15 | Wait for the research units to finish before final integration. |
 
 ## Requests
 

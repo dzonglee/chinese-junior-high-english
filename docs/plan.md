@@ -3,7 +3,20 @@
 The English app follows the route that built the maths app: research first, then the product
 design, platform and content. Each stage ends with a gate the owner signs off.
 
-## Stage 1 · Resource gathering (now)
+## Current owner direction (2026-10-16)
+
+The owner requested continuous work toward a finished application, rather than stopping after
+research milestones. Platform, product design, original content and validation now proceed
+alongside the remaining research. `docs/app-delivery.md` tracks application completion. This does
+not declare the research complete or permit invented exam facts, copied reference material,
+unapproved audio models or an unverified public release. Build every independent capability
+before requesting the owner-only credentials, editorial decisions or publication actions.
+
+Every session and agent must keep the connected Obsidian memory and Kanban board current via
+MCP, using plain English. See `AGENTS.md` and `docs/project-memory.md` for the standing protocol
+and the current connection state.
+
+## Stage 1 · Resource gathering (continues alongside app delivery)
 
 Build the research corpus in `reference/`: a source register with provenance, verification and
 rights on every record; the files themselves where they can be lawfully downloaded; and an
