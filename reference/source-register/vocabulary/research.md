@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 48 legacy textbook appendices are registered. R-VOC remains incomplete: 254 annual city vocabulary cells remain unsearched, 24 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 55 legacy textbook appendices are registered. R-VOC remains incomplete: 254 annual city vocabulary cells remain unsearched, 24 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -93,3 +93,9 @@ Search artifacts are explicitly derived projections with original byte/SHA pins:
 Eight explicitly五·四学制ESPress volumes are audited:2,138literal entries across90units,127reviewed identity/appendix pages. Six-upper's335labels were visually transcribed from scanned pages; seven other books use native text with documented visual encoding repairs. Alphabetic/supplementary repeats are not counted again; IPA, gloss, per-entry typography/star meaning and first-lesson-page columns remain uncurated. All eightISBNs were visually read and checksumvalid.
 
 Seven selected-page PDFs preserve all reviewed RGB pixels/native text. A grade7upper trial changed pixels on identity pages1/2/3/138, so its unchanged full parent is retained instead; its body remains unaudited. Exact source discrepancies remain:manners/manner,unbalanced/unbaleanced,alphabetic-onlyweight(7upper)andflight(8lower),literalleft-handness/Hellen Keller. Grade6upper imprint2012-07first edition conflicts with CIP2013-07; actual2014-07printing remains separate. No current textbook, local adoption or commercial permission is established.
+
+## Shandong five-four legacy lists
+
+Seven explicitly五·四学制books add2,745literal rows across62units;170identity/appendix pages were visually reviewed. All7ISBNs were read and checksumvalid; first/observed editions and printing dates remain distinct. Six reviewed publication statements describe2011-standard adaptation from PEP六三英语（新目标）;grade7lower's corresponding basis remainsunknown. Native ligature/missing-letter corruptions were restored from source pixels with a correction ledger. IPA/gloss/POS/variants/individualtypography remainuncurated.
+
+Only11acceptedPDFs are registered. Five unchanged full parents are retained once each because selected extraction changed strict native trailing spaces(6lower/7upper)or soft hyphens(8lower/8upper/9whole). Their unreviewed body pages are not claimed audited. Six compact derivatives for6upper/7lower remove stale accessibility/navigation references while preserving selected source RGB/native text. Exact reviewed section maps and rejected-candidate differences remain explicit. Alphabeticalextraentries/referenceconflicts are retained; noexhaustiveindexdoubletranscriptionorcurrentcityadoptionclaim. Allrightsfalse.
