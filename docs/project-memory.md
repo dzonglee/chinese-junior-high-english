@@ -51,7 +51,7 @@ discovering them through the actual tools, without storing credentials.
 - `docs/app-delivery.md`: application scope and completion evidence.
 - `docs/authoring/board.md`: current delivery card and preserved research ownership.
 - `docs/authoring/log.md`: detailed decisions and handoffs.
-- `research/R-VOC` at `f05f1e7`: latest vocabulary research; not merged as a completed unit.
+- `research/R-VOC` at `83ce076`: latest vocabulary research; not merged as a completed unit.
 
 ## Keep these distinctions visible
 
@@ -77,7 +77,7 @@ An implemented app is not a published WeChat release.
 ## Research continuation (2026-10-16)
 
 R-VOC remains active under its existing claim. Latest published checkpoint: `research/R-VOC`
-at `f05f1e7`, with 123 sources, 434 retained asset records (three shared curriculum records),
+at `83ce076`, with 155 sources, 775 retained asset records (three shared curriculum records),
 60 cached legacy books and 23,248 literal word/phrase/name occurrences across 592 groups.
 Counts include repetitions and phrases. They are not unique lemmas or prescribed local exam lists.
 Required register and hydrated vocabulary audits pass. No current 2024 book or actual raw local
@@ -89,18 +89,33 @@ RGB pixels/native text; primary lists were manually transcribed. ISBN, imprint/p
 curriculum-basis fields remain unknown because those pages are absent. Places/names remain
 separate from unit rows; alphabetic-only items are not invented as unit vocabulary.
 
-Annual grid: 59 bounded not_found, 6 blocked, 215 genuinely unsearched. New bounded passes:
-Shanghai, Yantai, Qingdao, Jinan, Linyi and Shijiazhuang. Shanghai's independent public POST
-supersedes its earlier failed route. Wuhan's five actual city targets render a site-administrator
-block; independent provincial searches found no raw local list. Its linked policy explicitly
-preserves separate Wuhan setting, so provincial marks/minutes are not imported into Wuhan.
+Annual grid: 178 bounded not_found, 7 blocked, 95 genuinely unsearched. Published checkpoints
+include the ten working northern city passes, all nine remaining southern city passes and four
+Zhejiang city/year sets. General-web/provider titles remain unverified leads; Jiaxing2026 reached
+an explicit search challenge and the stream stopped. The remaining targets now use an independent
+published Ministry advanced form, with its weaker national-index scope explicit. Merely obtaining
+a returned URL is not a result: actual native query/count/rows must match before a negative is used.
 
-Northern query semantics and pagination limits are explicit. Qingdao's all-time filter and complete
-short indexes were checked; Linyi advanced AND syntax was validated against a positive control.
-Jinan forbids unauthorized reproduction/mirroring; original HTML is excluded. Shijiazhuang's
-restricted district reply and containing snippets are excluded, retaining only bibliographic
-metadata/rights warnings; it is not citywide adoption evidence. Luoyang's old API fails useful
-controls and its current public page has a JavaScript failure; no annual absence is inferred.
+The southern pass has 198 attempts and 185 usable query responses, with exact pagination/term-
+relaxation limits. Retained derived projections pin original bytes/hashes and exclude unrelated
+response branches, duplicate raw bodies and interface screenshots. Quanzhou's 2026 reply names
+500 primary-stage core words and transition materials but supplies no list/attachment; exact-title
+queries return the reply. Nanning2023's indexed provider title is unverified: its actual page has
+empty visible metadata and a cookie/location script that was not executed. No local raw wordset
+was verified.
+
+Current BNU follow-up checked five already listed publisher catalogues. Grade7upper's vocabulary
+navigation works, but the ordinary clicked reader loads no English pages; other catalogues return
+503 or incomplete shells. ISBN/print metadata remains unknown. The actual copyright notice
+requires prior permission for reproduction/mirroring; no permission was established. Therefore
+only paraphrased bibliographic observations and response hashes are registered. Current-reader
+raw bodies, DOM, screenshots and catalogue responses are excluded from Git.
+
+Northern query semantics and pagination limits remain explicit. Jinan forbids unauthorized
+reproduction/mirroring; original HTML is excluded. Restricted Shijiazhuang reply text/snippets
+remain excluded, retaining only bibliographic metadata/rights warnings; this is not citywide
+adoption evidence. Wuhan's actual city target block remains, with independent provincial research;
+its linked policy preserves separate Wuhan setting. Provincial marks/minutes are not imported.
 
 ESPress/Shandong source conflicts and unchanged-parent requirements remain in the branch notes.
 Public access grants no commercial permission. Guangzhou's practice RAR was statically opened,
@@ -108,7 +123,8 @@ never executed; zero media sets played. City curriculum versions remain distinct
 2024–2026 uses 2022 standards, Beijing transitions from 2025, Henan2026English retains2011basis.
 No national2025revision adoption, local1600set or publisher adoption is assumed.
 
-Two existing delegates continue northern/southern actual city-year discovery; root owns IDs,
+The southern and current-BNU delegate handoffs are registered; the northern delegate continues
+actual annual discovery. Root owns IDs,
 tracked edits and publication, and continues east/central-west/current-edition research. Nothing
 is released, no incomplete unit is merged/done, and R-INT still depends on all R units done.
 
