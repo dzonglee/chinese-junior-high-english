@@ -8,7 +8,15 @@
 - Keep the board clean, concise and easy to read, using plain English.
 - While the current session cannot access those MCP connections, continue app work first.
 
-## Current work · local milestone, 2026-10-17
+## Active direction · complete all lessons, 2026-10-17
+
+The owner explicitly rejected stopping at the working local foundation. APP-LESSONS now expands
+the full original junior-high capability course and its navigable inventory. Complete original
+content and delayed checks across grammar, thematic reading/communication, vocabulary and
+pronunciation knowledge; videos stay deferred. The prior local milestone is a platform foundation,
+not completion of lesson authoring. See the current plan/board/log before resuming.
+
+## Local platform foundation · 2026-10-17
 
 The owner requested a usable local app immediately and deferred videos. The local milestone is
 implemented and integrated on main; its instructions are in `docs/local-version.md`.

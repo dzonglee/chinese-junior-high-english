@@ -87,3 +87,19 @@ that). Everything is reviewed in DevTools.
 
 Same as maths `docs/release-checklist.md`: AppID, 云开发, registration, privacy, real-device 体验版,
 editorial release by the owner.
+
+## Complete lesson course (owner continuation, 2026-10-17)
+
+The local shell/foundation is not the end of development. APP-LESSONS owns the full original
+junior-high capability course: every grammar-appendix area, all 29 national thematic domains,
+reading, written/oral communication, listening scripts, pronunciation knowledge and a substantially
+expanded original vocabulary course. Every lesson needs real authored tasks, specific explanations,
+visuals and a distinct delayed check. The course must expose its full inventory and progress,
+with no unassigned tasks hidden outside lessons. Native language quality and answer correctness
+come before counts. Maintain honest grade/term progression as the project's authored sequence;
+never present it as a verified publisher-unit map or exact official local wordset.
+
+Author and test this course now, independently of native publication. Complete original scripts
+and media-dependent lesson content while approved audio remains pending; videos stay deferred.
+Existing research claims remain unchanged. Shared compiler/course-navigation work is explicitly
+within APP-LESSONS so the authored lessons are actually reachable and auditable.

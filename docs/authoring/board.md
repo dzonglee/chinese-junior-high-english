@@ -13,6 +13,7 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | ID | Work | Status | Owner | Branch | Next action |
 | --- | --- | --- | --- | --- | --- |
 | APP-DELIVERY | Deliver usable local English app | done | codex-local | main | Local app and offline build delivered |
+| APP-LESSONS | Complete the local junior-high lesson course | open | — | author/full-course | Original grammar, thematic skills, pronunciation knowledge and expanded vocabulary; videos deferred |
 | APP-NATIVE | Prepare native validation and publication | open | — | — | Claim for DevTools/device checks, real project setup and approved audio; videos later |
 
 ### Delivery checklist
