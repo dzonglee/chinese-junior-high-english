@@ -1,6 +1,6 @@
 # Vocabulary research handoff
 
-The national lists and 40 legacy textbook appendices are registered. R-VOC remains incomplete: 264 annual city vocabulary cells remain unsearched, 15 have bounded not_found results and 1 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
+The national lists and 40 legacy textbook appendices are registered. R-VOC remains incomplete: 259 annual city vocabulary cells remain unsearched, 19 have bounded not_found results and 2 specifically scoped attempts are blocked. Current books, remaining legacy families and actual local raw examination wordsets remain unfinished. Latest results below supersede earlier chronological snapshots.
 
 ## National lists
 
@@ -75,3 +75,9 @@ The public archive route works independently of the earlier failed government-se
 The2024/2025guides explicitly reproduce a policy applying2022curriculum standards to2024–2026cohorts. This differs from Beijing's documented2025transition and Henan's2026English2011basis. These local scopes remain separate; none proves2025national-revision adoption. The2022/2023guides' generic curriculum wording does not establish a version year. Selected2022–2025English sections say20minutes listening/speaking,100minutes written and30+90=120marks;2026guide cover/contents review alone does not reverify these numbers.
 
 The official2022offline practiceRARwas normally downloaded and statically opened with existinglibarchive. It contains an unencrypted WindowsEXE; it was never executed or installed. The notice reports two approximately20-minute sets, and a2026warmtip still links it. Zero sample sets/audio/transcripts were independently played/decoded, so this is a practice-system package, not acquired audio or a wordlist. Public availability grants no commercial permission. Actual guides/practice leads are available to the R-SOUTH/R-LS/R-AUX owners without changing their units.
+
+## Shenzhen annual policy and search limits
+
+The public education-policy index exposes2023Q&A/2024/2026policies; the general announcement archive supplies2025. All four annual sources and ten embedded images were opened and read. No actual local wordlist or explicit curriculum-standard version was located. Their bounded2023–2026cells are `not_found`, retaining public-search403 and archive limits rather than asserting universal absence. The2022actual vocabulary target also returned403; no2022Englishpolicy was opened, so that cell stays `blocked`. Two junior-high archive pages opened, then the published third-page request403; no guessed page or hidden API was used.
+
+The2023–2026written tables independently show EnglishJune28,09:00–10:10(70minutes). Actual2024–2026text gives100marks including25listening/speaking,20-minute人机对话. Listening/speakingdates:2023May20–21,2024May18–19,2025May17–18,2026May16–17. The2023calendar alone does not justify copying later marks/timing. No national-standard version, current textbook adoption or neighbouring Guangzhou applicability is inferred.
