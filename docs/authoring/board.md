@@ -11,7 +11,7 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 
 | ID | Work | Status | Owner | Branch | Next action |
 | --- | --- | --- | --- | --- | --- |
-| APP-DELIVERY | Build and validate the English learning app | In progress | codex-app | platform/app-delivery | Fix review findings, then configure audio and the real project |
+| APP-DELIVERY | Build and validate the English learning app | claimed | codex-local | platform/app-delivery | Finish a usable local app; videos and release setup later |
 
 ### Delivery checklist
 
