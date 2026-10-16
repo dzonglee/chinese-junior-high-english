@@ -128,6 +128,37 @@ requireThat(coverage.filter((c) => c.status === 'not_searched').length === regis
 requireThat(coverage.filter((c) => c.status !== 'not_searched').length === nationalIndex.local_cells_searched, 'searched coverage count differs')
 requireThat(sources.length === registration.sources && manifests.length === registration.retained_asset_records, 'registered source/artifact totals differ')
 
+// The announcement-search requirement is independent of the vocabulary-status grid.
+const announcementCells = unit('announcement-search/coverage.json')
+const announcementQueries = unit('announcement-search/query-ledger.json')
+const announcementExisting = unit('announcement-search/existing-official-cross-references.json')
+const announcementKeys = announcementCells.map((c) => `${c.city_id}:${c.year}`)
+requireThat(announcementKeys.length === expected.size && new Set(announcementKeys).size === announcementKeys.length && announcementKeys.every((key) => expected.has(key)), 'announcement-search grid has duplicates, omissions or out-of-scope cells')
+for (const cell of announcementCells) {
+  requireThat(cell.registered_source_ids?.length > 0 && cell.registered_source_ids.every((id) => sourceIds.has(id)), `${cell.city_id}:${cell.year}: invalid announcement source`)
+  if (cell.query_key) {
+    requireThat(announcementQueries.some((q) => q.original_package === cell.original_package && q.name === cell.query_key && q.city_id === cell.city_id && q.year === cell.year), `${cell.city_id}:${cell.year}: missing actual announcement query`)
+  } else {
+    requireThat(announcementExisting.some((e) => e.city_id === cell.city_id && e.year === cell.year && e.evidence.length > 0), `${cell.city_id}:${cell.year}: missing inherited notice/policy evidence`)
+  }
+}
+for (const q of announcementQueries) {
+  const r = q.native_response
+  const actualQuery = q.actual_returned_query
+  requireThat(r?.ok && r.http_status === 200 && Number.isInteger(r.reported_total) && r.reported_total >= 0, `${q.name}: invalid native announcement response`)
+  requireThat(actualQuery === r?.actual_parsed_query && actualQuery === r?.public_native_fields?.qt && actualQuery === new URL(q.returned_result_url).searchParams.get('qt'), `${q.name}: announcement submitted/returned/parsed query differs`)
+  requireThat(r?.original_native_body_retained === false && r?.ephemeral_values_retained === false && q.commercial_reuse_approved === false, `${q.name}: unexpected announcement retention/reuse`)
+  const file = manifests.find((m) => m.file_id === q.manifest_file_id)
+  requireThat(file?.source_id === q.registered_source_id && sourceIds.has(q.registered_source_id) && file?.bytes === q.bytes && file?.sha256 === q.sha256, `${q.name}: missing or inconsistent returned-URL artifact`)
+  if (file) {
+    const returnedText = readFileSync(resolve(REF, file.relative_path), 'utf8').trim()
+    requireThat(new URL(returnedText, 'https://so.moe.gov.cn/').href === q.returned_result_url, `${q.name}: artifact URL differs`)
+  }
+  if (q.year !== null) {
+    requireThat([q.city, String(q.year), '英语', '中考', '通知'].every((token) => actualQuery.includes(token)) && /教育局|考试院|教育委员会/.test(actualQuery) && !actualQuery.includes('词汇'), `${q.name}: annual announcement intent missing or vocabulary query relabelled`)
+  }
+}
+
 if (errors.length) {
   console.error(`vocabulary audit failed (${errors.length}):\n  ${errors.slice(0, 100).join('\n  ')}`)
   process.exit(1)

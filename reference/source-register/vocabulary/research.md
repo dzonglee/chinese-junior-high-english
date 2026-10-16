@@ -1,8 +1,8 @@
 # Vocabulary research
 
-The national lists and 60 legacy textbook appendices are registered. The vocabulary grid contains 269 bounded `not_found`, 9 `blocked`, 2 unverified provider links and 0 unsearched cells. Final annual announcement-search verification is in progress. No current book wordlist or actual local raw examination wordset was acquired.
+The bounded R-VOC research pass is complete. National lists and 60 legacy textbook appendices are registered; all 280 vocabulary targets and the separate 280 official English-exam announcement-search cells have recorded outcomes. Vocabulary status: 269 bounded `not_found`, 9 `blocked`, 2 unverified provider links and 0 unsearched. No current book wordlist or actual local raw examination wordset was acquired.
 
-Current register: **215 sources and 903 retained asset records**. Three asset records reference
+Current register: **294 sources and 1158 retained asset records**. Three asset records reference
 already retained curriculum files. Research access is separate from commercial permission;
 every commercial reuse flag is false. Nothing here is app content or released material.
 
@@ -128,6 +128,25 @@ The checks validate schema, hydrated bytes/hashes, original-to-registered lexica
 sequences, counts, visible ISBN checksums and explicit applicability/reuse flags. They do not repeat
 visual review, establish publisher authenticity or licensing, or make the unit complete.
 
+## Official English-exam announcement searches
+
+Stage 1 section 5 also requires an announcement search for each city/year. This is recorded
+separately in `announcement-search/coverage.json`: all 280 unique city/year cells are accounted for.
+252 new annual targets were submitted through the exact published Ministry form and opened via
+its actual returned URLs. Browser-generated native submitted/parsed queries, counts and metadata
+match; no native request was synthesized or replayed. 3 positive relevance controls are recorded.
+The other 28 cells reuse pinned regional official notice/policy evidence or blocked original-notice attempts.
+North/east includes eight verified notice cells and two blocked direct English-notice requests;
+south/central-west includes thirteen annual notice/policy cells and five explicit cohort-policy cells.
+A multi-year policy is not relabelled as separately issued annual notices.
+
+New queries deliberately target city, year, English, junior-high examination, notice and intended
+education authority (including education commissions) or exam authority. They are restrictive Ministry-index attempts, not exhaustive local
+archives, opened underlying notices or newly verified blueprint facts. Zero index results do not
+establish local absence. Existing source verification, scope, publication/retrieval dates, conflicts
+and exact branch/hash pins remain in the cross-reference ledger. Only actual returned-URL TXT and
+minimal query/result metadata are retained; no bodies, snippets, personal details or ephemeral values.
+
 ## Current-edition and acquisition gaps
 
 Five current BNU catalogues were checked, but zero English wordlist pages loaded. The actual
@@ -150,7 +169,7 @@ requests returned CONNECT403. Its latest list is not accepted as a publisher-ver
 All 280 vocabulary targets have actual search/link/block evidence. Eighty-seven use Ministry-only
 fallbacks with exact matching published-returned/native queries, counts and minimal result metadata.
 This is a completed bounded search pass, not acquisition of 280 local wordlists or an exhaustive
-municipal archive audit. The separate official-announcement search verification remains in progress.
+municipal archive audit. The separate announcement-search ledger is complete at its stated search/attempt scope.
 
 Owner follow-up is needed for lawful current-book originals, missing edition/grade/term families,
 local raw examination lists and Quanzhou's named transition resource. IPA, glosses and explicitly

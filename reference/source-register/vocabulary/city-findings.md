@@ -8,7 +8,7 @@ No raw local examination wordset was verified for any city. Except for the expli
 | --- | --- | --- | --- |
 | 上海-上海 | 5 not_found | R-VOC::006, R-VOC::103, R-VOC::104, R-VOC::105, R-VOC::106, R-VOC::107 | No locally verified raw vocabulary scope or edition/cohort mapping; preserve unknown exam/listening/speaking facts. |
 | 云南-昆明 | 5 not_found | R-VOC::183 | No locally verified raw vocabulary scope or edition/cohort mapping; preserve unknown exam/listening/speaking facts. Annual targets use the Ministry national index only; this is not an exhaustive municipal-archive search. |
-| 内蒙古-呼和浩特 | 5 not_found | R-VOC::131, R-VOC::132 | Selection/copy restriction left intact; reply retained only as scoped metadata, not current book identity or city adoption (::131/132). |
+| 内蒙古-呼和浩特 | 5 not_found | R-VOC::131, R-VOC::132 | City portal selection/copy restriction left intact; search observations retained as metadata only; no local raw wordset or adoption established (::131/132). |
 | 北京-北京 | 5 not_found | R-VOC::032 | Local evaluation says English last uses2011standards in2024 and uses2022standards from2025 (R-VOC::037). Teacher1540/1600claims conflict and supply no raw list (::035/038). No2025revision or edition adoption inferred. |
 | 吉林-长春 | 5 not_found | R-VOC::133 | No locally verified raw vocabulary scope or edition/cohort mapping; preserve unknown exam/listening/speaking facts. |
 | 四川-成都 | 5 not_found | R-VOC::176 | No locally verified raw vocabulary scope or edition/cohort mapping; preserve unknown exam/listening/speaking facts. Annual targets use the Ministry national index only; this is not an exhaustive municipal-archive search. |
@@ -63,4 +63,4 @@ No raw local examination wordset was verified for any city. Except for the expli
 | 青海-西宁 | 5 not_found | R-VOC::180 | No locally verified raw vocabulary scope or edition/cohort mapping; preserve unknown exam/listening/speaking facts. Annual targets use the Ministry national index only; this is not an exhaustive municipal-archive search. |
 | 黑龙江-哈尔滨 | 5 not_found | R-VOC::130 | No locally verified raw vocabulary scope or edition/cohort mapping; preserve unknown exam/listening/speaking facts. |
 
-The separate annual official-announcement search ledger will be linked here after verification. An announcement-search attempt supplies no blueprint facts without an opened matching source.
+The separate [official-announcement ledger](announcement-search/coverage.json) accounts for all 280 city/year cells with actual targeted searches or pinned regional notice/policy/direct-attempt evidence. Its Ministry-only attempts supply no blueprint facts without an opened matching source.
