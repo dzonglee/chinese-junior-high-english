@@ -1106,3 +1106,16 @@ Current new lesson flow:12 conditions/36 task-width checks,reload and zero indep
 Cumulative315 conditions/945 widths;earlier flows retain scope. Hashes:checkpoint-35.*.
 Next:l-g-cardinals. Twelve cardinal tasks are drafted outside course files. Add exact coded bundle labels10/100/1000 for group counting;contrast teens/tens,exact numbers with approximate plural-of constructions,spelling and compound measurement modifiers. Inspect all totals and narrow-phone figures before credit. An original green-house/greenhouse picture is generated and inspected for the later compound lesson;not integrated or counted. Overall claim continues solo;378 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-cardinals individually reviewed
+
+36/413 reviewed. Twelve tasks combine live group selectors with exact coded10/100/1000 unit figures,teen/tens contrasts,spelling,exact/approximate number constructions and compound measurement modifiers.
+
+All twelve models,narrow-phone figures,eight wrong group records and physical counts,misspellings,capitalization errors,applications and all transfer/explanation steps were inspected. Twelve group measurements verify quantities40/200/3000/80 at three widths and untruncated labels. Full-width measurement diagrams fix cramped hyphenated words;Chinese uses groups consistently. Grades6–9;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:12 conditions/36 task-width checks,reload and zero independent records. 1,476 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 packed topic hashes. These are not native GUI evidence. Core scope:1476 tests/14 files passed after the initial-capital grading fix,before the final four group selectors,two diagram layouts and group wording edits. Final teaching/grammar/compiler/typecheck/static-package/browser/offline/native-adapter and archive checks cover those edits.
+
+Cumulative327 conditions/981 widths;earlier flows retain scope. Hashes:checkpoint-36.*.
+Next:l-g-ordinals. Twelve ordinal tasks are drafted outside course files:select people from left/right,distinguish the whole-year month index from the displayed five-month subset,repair irregular ordinals,dates and possessive determiners. Inspect all tasks before credit. The later compound lesson also has a twelve-task draft and an original inspected house/greenhouse diptych outside course files. Overall claim continues solo;377 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

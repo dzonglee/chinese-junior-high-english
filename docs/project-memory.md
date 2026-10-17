@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-35 of413 lessons are individually reviewed;378 remain pending. Every lesson needs bespoke tasks,
+36 of413 lessons are individually reviewed;377 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-question-words. Twelve tasks identify owner versus borrower,Whose versus Who is,Which versus What,method versus reason,time versus place,and countable quantities versus money. Reused original pictures provide actual selection tasks;three coded book icons match the inventory.
+Latest:l-g-cardinals. Twelve tasks combine live group selectors with exact coded10/100/1000 unit figures,teen/tens contrasts,spelling,exact/approximate number constructions and compound measurement modifiers.
 
-All twelve models,narrow-phone figures,wrong-person and wrong-box recovery,actual0/1 counts,accepted alternative,capitalization errors,applications and all explanation/transfer steps were inspected. Four explicitly requested initial capitals now work per response,including two reserved responses checked only in source tests. Grades7–9;reserved005–008 unexposed;zero independent records. Fresh read-only native check still cannot read project-drive instructions;existing native card updated as blocked.
+All twelve models,narrow-phone figures,eight wrong group records and physical counts,misspellings,capitalization errors,applications and all transfer/explanation steps were inspected. Twelve group measurements verify quantities40/200/3000/80 at three widths and untruncated labels. Full-width measurement diagrams fix cramped hyphenated words;Chinese uses groups consistently. Grades6–9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint35 records the new flow/36 widths and current core,teaching,grammar,course,package,
+Checkpoint36 records the new flow/36 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The35 reviewed lessons cumulatively contain315 conditions/945 widths;
+recorded explicitly. The36 reviewed lessons cumulatively contain327 conditions/981 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-cardinals. Twelve cardinal tasks are drafted outside course files. Add exact coded bundle labels10/100/1000 for group counting;contrast teens/tens,exact numbers with approximate plural-of constructions,spelling and compound measurement modifiers. Inspect all totals and narrow-phone figures before credit. An original green-house/greenhouse picture is generated and inspected for the later compound lesson;not integrated or counted.
+Next:l-g-ordinals. Twelve ordinal tasks are drafted outside course files:select people from left/right,distinguish the whole-year month index from the displayed five-month subset,repair irregular ordinals,dates and possessive determiners. Inspect all tasks before credit. The later compound lesson also has a twelve-task draft and an original inspected house/greenhouse diptych outside course files.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

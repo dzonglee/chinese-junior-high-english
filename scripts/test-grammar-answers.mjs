@@ -151,7 +151,7 @@ test('grammar diagrams attach ending punctuation to the expression and retain me
 })
 
 test('explicit sentence-initial capitalization is enforced per response without changing ordinary word-form answers', () => {
-  for (const [id, correct, wrong] of [['q-g-demonstratives-002', 'This', 'this'], ['q-g-demonstratives-003', 'Those', 'those'], ['q-g-demonstratives-007', 'These', 'these'], ['q-g-auxiliaries-003', 'Did', 'did'], ['q-g-question-words-002', 'How', 'how'], ['q-g-question-words-003', 'Why', 'why'], ['q-g-question-words-006', 'When', 'when'], ['q-g-question-words-007', 'Where', 'where']]) {
+  for (const [id, correct, wrong] of [['q-g-demonstratives-002', 'This', 'this'], ['q-g-demonstratives-003', 'Those', 'those'], ['q-g-demonstratives-007', 'These', 'these'], ['q-g-auxiliaries-003', 'Did', 'did'], ['q-g-question-words-002', 'How', 'how'], ['q-g-question-words-003', 'Why', 'why'], ['q-g-question-words-006', 'When', 'when'], ['q-g-question-words-007', 'Where', 'where'], ['q-g-cardinals-003', 'Thousands', 'thousands']]) {
     assert.equal(question(id).answer.caseSensitive, true)
     check(id, correct, true); check(id, wrong, false)
   }
