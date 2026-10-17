@@ -37,7 +37,11 @@ The direct Studio helper still works for memory/board. Native file access is a s
 `read_file` reports MacStudioExternal unavailable, and authenticated archive transfer returned
 HTTP 400. No native job for this new visual unit was submitted and no shared GUI was changed.
 Do not reuse older native job passes as proof of this revision. Local checks and prepared native
-runner are documented in `docs/reviews/visual-lessons-2026-10-17.md`. Next: restore Mac external-drive
+runner are documented in `docs/reviews/visual-lessons-2026-10-17.md`. Local validation passes:
+1,424 tests, 6,936 new visual layouts, nine new full control flows, thirteen retained exploration
+flows, eleven connected journeys, eight offline checks and six product checks. Both development
+archives pass CRC and source-entry comparison. This unit stays review, with native acceptance
+pending. Next: restore Mac external-drive
 access, inspect the shared GUI lock and run `scripts/devtools-visual-lessons.cjs` against this build.
 
 ## Previous milestone · all lesson teaching and native verification

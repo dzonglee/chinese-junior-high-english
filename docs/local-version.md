@@ -79,11 +79,11 @@ Chromium blocks direct `file://` navigation. The test respects that policy and s
 standalone document over loopback, then disables networking during practice. Direct-file browser
 navigation is therefore unvalidated on this machine; the runner also supports it where permitted.
 
-All 989 automated tests pass, including checked-pack practice, saved progress and distinct delayed
+The current visual revision passes 1,424 automated tests, including checked-pack practice, saved progress and distinct delayed
 review for every lesson. Tests simulate listening playback only for lifecycle coverage; the real
 app rejects missing audio. Seven grammar regressions, four native-source permission simulations,
 11 full browser journeys, eight offline checks and six expanded-course browser checks pass.
-All 4,804 instructional figures render without horizontal overflow at 320/390/768 widths;
+All 4,804 course-task figures render without horizontal overflow at 320/390/768 widths;
 245 topic representatives and real app screens received visual review. This is bounded content
 review, not editorial approval of every individual task. See [validation evidence](validation.md) for the boundaries and
 [authoring guidance](content-authoring.md) before changing questions.

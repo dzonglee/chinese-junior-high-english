@@ -69,6 +69,9 @@ No production AppID is included. See [native verification evidence](docs/reviews
 
 ## Validate changes
 
+`npm run check` keeps test files serial for the expanded lesson data; the original test timeouts
+remain unchanged.
+
 ```bash
 npm run check
 npm run test:grammar
