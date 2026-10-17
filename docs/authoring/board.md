@@ -19,7 +19,7 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | APP-UI | Redesign the complete app to the maths product standard | done | codex-solo | main | Whole-app redesign delivered; checked native screenshots and comparison in the UI review |
 | APP-EXAM-LESSONS | Strengthen exam teaching in every individual lesson | done | codex-solo | main | 413 lessons coached; 991 tests, native and visual evidence in exam-teaching review |
 | APP-MOCKS | Deliver authored mock papers and exam corrections | done | codex-solo | main | Eight original papers delivered; 1,006 tests, complete native flows and correction/writing checks |
-| APP-VISUAL-LESSONS | Revamp every lesson with visual tasks and manipulable activities | open | — | — | Cover all 413 lessons; inspect pictures and actual native controls |
+| APP-VISUAL-LESSONS | Revamp every lesson with visual tasks and manipulable activities | claimed | codex-solo | author/visual-lessons | Cover all 413 lessons; inspect pictures and actual native controls |
 | APP-NATIVE | Prepare native validation and publication | open | — | — | Claim for real-device checks, production AppID/cloud setup and approved audio; guest DevTools checked |
 
 ### Delivery checklist
