@@ -31,6 +31,16 @@ fixes and browser/offline validation; APP-NATIVE covers subsequent native device
 project configuration, approved audio and publication preparation. Local completion does not
 approve the full course or publish a WeChat app. Videos stay deferred.
 
+## Whole-app UI upgrade (owner direction, 2026-10-17)
+
+The owner rejects the current interface as below the maths app's standard. APP-UI compares the
+actual complete journeys, redesigns the whole English app and verifies the result in native
+WeChat. Acceptance includes a coherent homepage/navigation, course discovery without a wall of
+filters, distinct practice/review/profile flows, readable interactive lessons, useful visuals and
+accessible controls. Evaluate the maths comparison again before completion and continue fixing
+concrete remaining gaps. Test counts and matching colours alone do not establish product quality.
+Codex works solo; existing audio/research/publication boundaries remain unchanged.
+
 ## Stage 1 · Resource gathering (continues alongside app delivery)
 
 Build the research corpus in `reference/`: a source register with provenance, verification and

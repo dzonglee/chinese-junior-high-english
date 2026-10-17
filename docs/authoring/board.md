@@ -16,6 +16,7 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | APP-LESSONS | Complete the local junior-high lesson course | done | codex-course | main | 413 original lessons delivered; approved listening audio pending |
 | APP-INTERACTION | Build interactive language activities | done | codex-interaction | main | 13 workshops and reading evidence delivered |
 | APP-TEACHING | Upgrade every lesson’s interactive teaching | done | codex-solo | main | 413 interactive studios delivered; native/local evidence in teaching review |
+| APP-UI | Redesign the complete app to the maths product standard | claimed | codex-solo | author/app-ui | Compare complete journeys, rebuild navigation/layouts, verify native screens; no delegation |
 | APP-NATIVE | Prepare native validation and publication | open | — | — | Claim for real-device checks, production AppID/cloud setup and approved audio; guest DevTools checked |
 
 ### Delivery checklist
