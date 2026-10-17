@@ -41,6 +41,13 @@ Progress saves locally and never counts as mastery or independent test evidence.
 The separate **互动实验室** adds 13 workshops with 39 conditions, including a manipulable desk
 scene. See [lesson studios](docs/lesson-studios.md) for coverage and native test instructions.
 
+## Open in WeChat DevTools
+
+After `npm run build`, import the repository root containing `project.config.json`.
+The guest development project uses base library 3.8.0 and the native `miniprogram/` pages/components.
+The packaged copy is `dist/english-wechat-development.zip`: extract it, then import its root.
+No production AppID is included. See [native verification evidence](docs/reviews/teaching-2026-10-17.md).
+
 ## Validate changes
 
 ```bash

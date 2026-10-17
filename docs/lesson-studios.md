@@ -47,6 +47,17 @@ controller work and the actual destination page, inspect screenshots and the nes
 code, and close the automation session in `finally`. Wrapper job success alone is insufficient.
 Never close another owner's project. Guest mode does not authorize phone preview, upload or release.
 
+The default simulator walk opens all 413 native lesson routes. Seven representative lessons
+(one per skill) run complete controller flows plus actual native controls; the other pages use
+explicit phase-two render fixtures. Fixture rendering does not mean a full native lifecycle was
+completed. Require actual bound lesson/stage controls before capture, inspect every screenshot,
+and retest empty captures separately. All 413 full controller lifecycles also have automated tests.
+
+For a bounded follow-up, set `ENGLISH_NATIVE_LESSONS` to comma-separated lesson IDs,
+`ENGLISH_NATIVE_SPELLING` to `american` or `british`, and `ENGLISH_NATIVE_OUTPUT` to a unique
+artifact subfolder. Every focused lesson runs a complete flow; source changes, fixed spelling and
+assembly geometry can be checked without overwriting the exhaustive page-walk evidence.
+
 Studio access uses the tested token-free `/workspace/.onboarding/chrisverse_mcp.py` helper.
 It reads the existing environment credential privately and normalizes the Authorization scheme
 once. Read `memory_start_here`, project memory, Kanban and the current workspace instructions;
