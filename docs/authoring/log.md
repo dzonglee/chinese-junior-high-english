@@ -1262,3 +1262,16 @@ Current new lesson flow:15 conditions/45 task-width checks,reload and zero indep
 Cumulative468 conditions/1404 widths;earlier flows retain scope. Hashes:checkpoint-47.*.
 Next:l-g-object-complements. Fifteen object-complement tasks are drafted outside course files. Reuse inspected door and box pictures for actual target states,identify action performers and contrast object complements with subject complements and double objects. Explicit lexical/form constraints avoid rejecting valid perception-verb alternatives. Inspect all boundaries and states before credit. Overall claim continues solo;366 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-object-complements individually reviewed
+
+48/413 reviewed. Fifteen object-complement tasks connect actual door/box states,action performers and full object boundaries with adjectives,bare/to-infinitives,negative instructions and identity versus double objects.
+
+Inspected all fifteen models,narrow-phone figures,wrong picture gates,all twelve wrong word roles,partial/removal recovery,typed/assembled repairs and all application/transfer steps. Explicit perception-verb form constraints preserve valid alternatives. Grades8–9;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:15 conditions/45 task-width checks,reload and zero independent records. Retained shared-engine coverage:1,480 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,9 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 hashes and artwork readiness/failure/retry. No native GUI evidence. Core scope:Retained checkpoint45 coverage:1480 tests/14 files. Shared engine/UI is unchanged;the full core suite was not rerun for this data-only lesson. Current compiler/typecheck/teaching/grammar/course/interaction/package,browser,nine offline and archive checks cover the final data.
+
+Cumulative483 conditions/1449 widths;earlier flows retain scope. Hashes:checkpoint-48.*.
+Next:l-g-there-be. Fourteen there-be tasks are drafted outside course files. Check actual zero/one/three inventories,water agreement,opposite box pictures,questions/short answers,have contrast and past/future forms before review credit. Overall claim continues solo;365 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

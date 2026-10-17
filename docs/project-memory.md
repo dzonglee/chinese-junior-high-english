@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-47 of413 lessons are individually reviewed;366 remain pending. Every lesson needs bespoke tasks,
+48 of413 lessons are individually reviewed;365 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-double-objects. Fifteen double-object tasks use original reversed giving pictures,first-person pronouns,noninitial recipient/beneficiary selection,both word orders,to/for and an explain exception.
+Latest:l-g-object-complements. Fifteen object-complement tasks connect actual door/box states,action performers and full object boundaries with adjectives,bare/to-infinitives,negative instructions and identity versus double objects.
 
-Inspected original/600-pixel art,all fifteen models,narrow-phone figures,both wrong picture gates,all thirteen wrong word roles,partial/removal recovery,typed/assembled repairs and every application/transfer step. Plain Chinese prompts and final to-position feedback were reinspected. Grades8–9;reserved005–008 unexposed;zero independent records.
+Inspected all fifteen models,narrow-phone figures,wrong picture gates,all twelve wrong word roles,partial/removal recovery,typed/assembled repairs and all application/transfer steps. Explicit perception-verb form constraints preserve valid alternatives. Grades8–9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint47 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint48 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The47 reviewed lessons cumulatively contain468 conditions/1404 widths;
+recorded explicitly. The48 reviewed lessons cumulatively contain483 conditions/1449 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-object-complements. Fifteen object-complement tasks are drafted outside course files. Reuse inspected door and box pictures for actual target states,identify action performers and contrast object complements with subject complements and double objects. Explicit lexical/form constraints avoid rejecting valid perception-verb alternatives. Inspect all boundaries and states before credit.
+Next:l-g-there-be. Fourteen there-be tasks are drafted outside course files. Check actual zero/one/three inventories,water agreement,opposite box pictures,questions/short answers,have contrast and past/future forms before review credit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved
