@@ -11,6 +11,7 @@ for (const descriptor of descriptors) {
   packs[descriptor.file] = text
 }
 const assets = Object.fromEntries(['class-photo','lesson-courtyard','lesson-workshop','welcome', 'notebook', 'cards', 'desk-scene','types','exam_light','mistakes_light',...['home','learn','practice','mistakes','profile'].flatMap(n=>['navigation/'+n,'navigation/'+n+'-on'])].map(name => { const ext = ['desk-scene','lesson-courtyard','lesson-workshop','class-photo'].includes(name) ? 'jpg' : ['types','exam_light','mistakes_light'].includes(name) ? 'webp' : 'png'; return [name, `data:image/${ext === 'jpg' ? 'jpeg' : 'png'};base64,${readFileSync(resolve(root, 'miniprogram/assets', `${name}.${ext}`)).toString('base64')}`] }))
+for(const asset of JSON.parse(readFileSync(resolve(root,'content/visual-assets.json'),'utf8')).assets.filter(a=>a.id.startsWith('lesson-')))assets[asset.id]=`data:image/jpeg;base64,${readFileSync(resolve(root,asset.file)).toString('base64')}`
 const json = value => JSON.stringify(value).replaceAll('<', String.fromCharCode(92) + 'u003c')
 const css = readFileSync(resolve(root, 'dist/web/app.css'), 'utf8')
 const js = readFileSync(resolve(root, 'dist/web/app.js'), 'utf8').replace(/<\/script/gi, '<\\/script')

@@ -607,3 +607,17 @@ rendered and inspected. Whole browser flow, 21 width checks, reload and zero ass
 pass; 1,449 core tests, typecheck, package and 826 spelling checks pass. All content remains draft.
 See docs/reviews/individual-lessons/l-g-be.md. Other 412 rows remain pending. Next: individually
 redesign l-g-present around habit evidence and verb agreement. Work stays solo on the same claim.
+
+
+## 2026-10-18 (Sydney) · codex-solo · habits lesson individually reviewed
+
+l-g-present is now reviewed: 2/413 complete. An inspected walking scene plus explicit multi-week
+records distinguish a habit from one snapshot. Four subject tasks contrast I, a singular name,
+an and-group and a with-phrase; four live word-building tasks cover finishes/studies/plays/goes.
+The diagram retains wrong spellings. Visual review removed answer leakage and duplicate plus
+signs, separated rewriting from suffix addition, enlarged weekday text and moved role labels off
+faces. All eight task figures, wrong forms and transfer were inspected. The whole real-control
+journey and 24 width checks pass; core 1,450, typecheck, 826 spelling and package checks pass.
+The first lesson was rechecked after shared rendering changes. Native GUI remains separate.
+Next l-g-continuous will use only actions actually supported by its newly generated picture;
+holding an open book is not itself proof of reading, nor a held plane proof of folding it.
