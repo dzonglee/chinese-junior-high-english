@@ -1,0 +1,1132 @@
+{
+  "lessonId": "l-g-future-passive",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Infer future active/passive from doer and receiver,select the planned repaired state,build will/be/participle separately,and repair plural agreement,irregular participles,negative placement,questions,agent pronouns and short replies.",
+  "picturePurpose": "Original missing/repaired handrail diptych is a gated future-result selection;the picture does not purport to show an event already completed. All timing,exact lexical constraints and syntax remain coded.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先看谁承受动作，再拼will be＋过去分词",
+    "instruction": "点出维修目标、圈出承受者，换主语比较主动与被动，再修否定、问句和短答。",
+    "conditions": [
+      {
+        "label": "栏杆将被修好，不能让物品自己维修",
+        "before": "The handrail ",
+        "target": "will be repaired",
+        "after": " next Tuesday.",
+        "choices": [
+          "will repair",
+          "will be repaired"
+        ],
+        "reason": "handrail是被维修的对象。按计划说将来被修好，用will be repaired，不能写成栏杆自己will repair。",
+        "world": {
+          "kind": "logic",
+          "caption": "维修计划：下周二工人会补好缺失的栏杆。图中左边缺一段，右边已补齐。先选计划完成后的状态，再用repair的一般将来时被动完整形式修句。",
+          "cells": [
+            {
+              "label": "will repair",
+              "detail": "需要改好的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "点选计划完成后的栏杆",
+            "emptyLabel": "先选目标状态",
+            "missingPrompt": "计划要补好栏杆，先选完成后的状态。",
+            "asset": "lesson-handrail-repair",
+            "assetRoot": "illustrations",
+            "alt": "左图小桥的珊瑚红栏杆缺少中间一段；右图同一栏杆已补齐并连成一条。",
+            "artChoices": [
+              "missing",
+              "repaired"
+            ],
+            "answer": "repaired",
+            "options": [
+              {
+                "id": "missing",
+                "label": "栏杆仍缺一段",
+                "text": "缺口还没有补好",
+                "reason": "这不是维修完成后的目标状态。",
+                "value": 25
+              },
+              {
+                "id": "repaired",
+                "label": "栏杆已补齐",
+                "text": "维修后的目标状态",
+                "reason": "符合计划完成后的目标。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "will repair",
+        "inputHint": "用repair的一般将来时被动完整形式，不缩写。"
+      },
+      {
+        "label": "换成工人作主语，用主动",
+        "before": "The workers ",
+        "target": "will repair",
+        "after": " the handrail next Tuesday.",
+        "choices": [
+          "will be repaired",
+          "will repair"
+        ],
+        "reason": "工人执行repair，主动结构用will repair。will be repaired会把工人说成被维修的对象。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出例句中做动作或承受动作的人和物，再修好原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "workers",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "repair",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "handrail",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出执行维修动作的完整主语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "工人执行repair，主动结构用will repair。will be repaired会把工人说成被维修的对象。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "will",
+          "repair",
+          "repaired",
+          "be"
+        ]
+      },
+      {
+        "label": "保留be，repair还要变过去分词",
+        "before": "The fence ",
+        "target": "will be repaired",
+        "after": " tomorrow.",
+        "choices": [
+          "will be repair",
+          "will be repaired"
+        ],
+        "reason": "被维修的是fence。一般将来时被动用will be repaired，be后不是原形repair。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出例句中做动作或承受动作的人和物，再修好原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "fence",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "repaired",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "tomorrow",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出承受维修动作的完整主语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "被维修的是fence。一般将来时被动用will be repaired，be后不是原形repair。"
+          }
+        },
+        "input": true,
+        "initial": "will be repair",
+        "inputHint": "根据题目指定的动词和形式，核对will、be和过去分词。"
+      },
+      {
+        "label": "复数承受者也用will be",
+        "before": "The boxes ",
+        "target": "will be packed",
+        "after": " on Friday.",
+        "choices": [
+          "will are packed",
+          "will be packed"
+        ],
+        "reason": "will后固定接原形be，不能因为boxes复数就写are；pack的过去分词是packed。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出例句中做动作或承受动作的人和物，再修好原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "boxes",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "packed",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "on",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "Friday",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出将被打包的完整主语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "will后固定接原形be，不能因为boxes复数就写are；pack的过去分词是packed。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "packed",
+          "are",
+          "will",
+          "be"
+        ]
+      },
+      {
+        "label": "send的过去分词是sent",
+        "before": "These cards ",
+        "target": "will be sent",
+        "after": " tomorrow.",
+        "choices": [
+          "will be send",
+          "will be sent"
+        ],
+        "reason": "cards承受寄送。send的过去分词是sent，所以完整结构是will be sent。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出例句中做动作或承受动作的人和物，再修好原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "These",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "cards",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "sent",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "tomorrow",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出将被寄出的完整主语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "cards承受寄送。send的过去分词是sent，所以完整结构是will be sent。"
+          }
+        },
+        "input": true,
+        "initial": "will be send",
+        "inputHint": "根据题目指定的动词和形式，核对will、be和过去分词。"
+      },
+      {
+        "label": "build变built，不能用building",
+        "before": "A wooden bench ",
+        "target": "will be built",
+        "after": " here next month.",
+        "choices": [
+          "will be building",
+          "will be built"
+        ],
+        "reason": "bench是被建造的对象，build的过去分词是built；will be building表示将来正在做动作，不是这里要表达的被建造。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出例句中做动作或承受动作的人和物，再修好原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "A",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "wooden",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "bench",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "built",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "here",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "next",
+              "detail": "句子片段"
+            },
+            {
+              "id": "8",
+              "label": "month",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出将被建造的完整主语（可多选）",
+            "ids": [
+              "0",
+              "1",
+              "2"
+            ],
+            "reason": "bench是被建造的对象，build的过去分词是built；will be building表示将来正在做动作，不是这里要表达的被建造。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "will",
+          "built",
+          "building",
+          "be"
+        ]
+      },
+      {
+        "label": "write变written，不是过去式wrote",
+        "before": "The invitation ",
+        "target": "will be written",
+        "after": " tonight.",
+        "choices": [
+          "will be wrote",
+          "will be written"
+        ],
+        "reason": "被动结构be后用过去分词written，不用过去式wrote。题目要求write的一般将来时被动完整形式。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出例句中做动作或承受动作的人和物，再修好原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "invitation",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "written",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "tonight",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出将被写出的完整主语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "被动结构be后用过去分词written，不用过去式wrote。题目要求write的一般将来时被动完整形式。"
+          }
+        },
+        "input": true,
+        "initial": "will be wrote",
+        "inputHint": "根据题目指定的动词和形式，核对will、be和过去分词。"
+      },
+      {
+        "label": "give变given，保留给谁的信息",
+        "before": "The toys ",
+        "target": "will be given",
+        "after": " to the children next week.",
+        "choices": [
+          "will be gave",
+          "will be given"
+        ],
+        "reason": "toys承受赠送，give的过去分词是given，不是过去式gave；to the children说明给谁。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出例句中做动作或承受动作的人和物，再修好原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "toys",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "given",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "to",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "children",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出将被赠送的完整主语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "toys承受赠送，give的过去分词是given，不是过去式gave；to the children说明给谁。"
+          }
+        },
+        "input": true,
+        "initial": "will be gave",
+        "inputHint": "根据题目指定的动词和形式，核对will、be和过去分词。"
+      },
+      {
+        "label": "否定把not放在will后",
+        "before": "The bottles ",
+        "target": "will not be collected",
+        "after": " on Sunday.",
+        "choices": [
+          "not will be collected",
+          "will not be collected"
+        ],
+        "reason": "本题用不缩写的否定形式，not放在will后：will not be collected。不能写not will。",
+        "world": {
+          "kind": "roles",
+          "caption": "回收通知：周日不收这些瓶子。先圈出被收集的物品，再拼出不缩写的将来被动否定形式。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "bottles",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "not",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "collected",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "on",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "Sunday",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出本句被收集的物品（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "本题用不缩写的否定形式，not放在will后：will not be collected。不能写not will。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "be",
+          "will",
+          "not",
+          "collected"
+        ]
+      },
+      {
+        "label": "疑问句只提前will，be不能漏",
+        "before": "",
+        "target": "Will the old gate be painted",
+        "after": " this weekend?",
+        "choices": [
+          "Will the old gate paint",
+          "Will the old gate be painted"
+        ],
+        "reason": "问句把will提前到主语前，后面仍是be painted，不能漏be或把painted改成paint。",
+        "world": {
+          "kind": "roles",
+          "caption": "把给定陈述句改成一般疑问句。先圈出被刷漆的整个主语，再拼问句；题目已给出this weekend和问号。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "old",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "gate",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "painted",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "this",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "weekend",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出将被刷漆的完整主语（可多选）",
+            "ids": [
+              "0",
+              "1",
+              "2"
+            ],
+            "reason": "问句把will提前到主语前，后面仍是be painted，不能漏be或把painted改成paint。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "paint",
+          "Will",
+          "old",
+          "be",
+          "the",
+          "gate",
+          "painted"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "by后用宾格，主语仍是承受者",
+        "before": "The bike will be fixed by ",
+        "target": "him",
+        "after": " tomorrow.",
+        "choices": [
+          "he",
+          "him"
+        ],
+        "reason": "by是介词，后用宾格him。The bike是承受维修的主语，him是执行者；并非by后的人才是句子主语。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析例句：圈出by后实际执行修理的人，再修好下面原稿中的代词。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "bike",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "fixed",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "by",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "him",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出by短语里的动作执行者（可多选）",
+            "ids": [
+              "6"
+            ],
+            "reason": "by是介词，后用宾格him。The bike是承受维修的主语，him是执行者；并非by后的人才是句子主语。"
+          }
+        },
+        "input": true,
+        "initial": "he",
+        "inputHint": "根据题目指定的动词和形式，核对will、be和过去分词。"
+      },
+      {
+        "label": "无须写执行者也可以用被动",
+        "before": "The windows ",
+        "target": "will be washed",
+        "after": " after lunch.",
+        "choices": [
+          "will wash",
+          "will be washed"
+        ],
+        "reason": "通知只需要说窗户将被清洗，执行者可以省略；没有by短语也仍用will be washed。",
+        "world": {
+          "kind": "roles",
+          "caption": "明天的清洁安排：午饭后会有人清洗这些窗户，通知没有写具体是谁。用wash的一般将来时被动完整形式。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "windows",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "washed",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "after",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "lunch",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出将被清洗的完整主语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "通知只需要说窗户将被清洗，执行者可以省略；没有by短语也仍用will be washed。"
+          }
+        },
+        "input": true,
+        "initial": "will wash",
+        "inputHint": "根据题目指定的动词和形式，核对will、be和过去分词。"
+      },
+      {
+        "label": "will后be保持原形",
+        "before": "The report ",
+        "target": "will be reviewed",
+        "after": " tomorrow.",
+        "choices": [
+          "will is reviewed",
+          "will be reviewed"
+        ],
+        "reason": "will后要用原形be，不能因为report是单数就换成is；reviewed才是过去分词。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出例句中完整的将来被动谓语，再修好下面把be错换成is的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "report",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "reviewed",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "tomorrow",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出例句中完整的将来被动谓语（可多选）",
+            "ids": [
+              "2",
+              "3",
+              "4"
+            ],
+            "reason": "will后要用原形be，不能因为report是单数就换成is；reviewed才是过去分词。"
+          }
+        },
+        "input": true,
+        "initial": "will is reviewed",
+        "inputHint": "根据题目指定的动词和形式，核对will、be和过去分词。"
+      },
+      {
+        "label": "将来时间不能套用过去被动",
+        "before": "This window ",
+        "target": "will be replaced",
+        "after": " next Monday.",
+        "choices": [
+          "was replaced",
+          "will be replaced"
+        ],
+        "reason": "next Monday是将来的安排，按要求用will be replaced，不用表示已经发生的was replaced。",
+        "world": {
+          "kind": "roles",
+          "caption": "更换安排：下周一会换这扇窗。先圈出完整的将来时间，再用replace的一般将来时被动完整形式修好原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "This",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "window",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "replaced",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "next",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "Monday",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出指向将来的完整时间短语（可多选）",
+            "ids": [
+              "5",
+              "6"
+            ],
+            "reason": "next Monday是将来的安排，按要求用will be replaced，不用表示已经发生的was replaced。"
+          }
+        },
+        "input": true,
+        "initial": "was replaced",
+        "inputHint": "根据题目指定的动词和形式，核对will、be和过去分词。"
+      },
+      {
+        "label": "将来被动问句，短答保留will",
+        "before": "",
+        "target": "Yes, it will",
+        "after": ".",
+        "choices": [
+          "Yes, it is",
+          "Yes, it will"
+        ],
+        "reason": "问句以Will开头，肯定短答用Yes, it will；不照搬以Is开头的Yes, it is。",
+        "world": {
+          "kind": "roles",
+          "caption": "问句：Will the new sign be put up tomorrow? 安排明确说明天会竖起它。圈出所说的物品，再拼肯定短答。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Will",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "new",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "sign",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "be",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "put",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "up",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "tomorrow",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出问句中将被竖起的物品（可多选）",
+            "ids": [
+              "1",
+              "2",
+              "3"
+            ],
+            "reason": "问句以Will开头，肯定短答用Yes, it will；不照搬以Is开头的Yes, it is。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "it",
+          "is",
+          "Yes,",
+          "will"
+        ],
+        "caseSensitive": true
+      }
+    ],
+    "choices": [
+      "will repair",
+      "will be repaired",
+      "will be repair",
+      "will are packed",
+      "will be packed",
+      "will be send",
+      "will be sent",
+      "will be building",
+      "will be built",
+      "will be wrote",
+      "will be written",
+      "will be gave",
+      "will be given",
+      "not will be collected",
+      "will not be collected",
+      "Will the old gate paint",
+      "Will the old gate be painted",
+      "he",
+      "him",
+      "will wash",
+      "will be washed",
+      "will is reviewed",
+      "will be reviewed",
+      "was replaced",
+      "will be replaced",
+      "Yes, it is",
+      "Yes, it will"
+    ],
+    "items": [
+      {
+        "id": "future-passive-editor",
+        "label": "承受者与将来动作",
+        "prompt": "让主语、时间和动词结构一起对上。",
+        "answer": "",
+        "reason": "",
+        "hint": "将来被动：will＋be原形＋过去分词；主动句则是will＋动词原形。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-future-passive-002",
+      "q-g-future-passive-003"
+    ],
+    "transfer": {
+      "id": "individual-g-future-passive-transfer",
+      "topicId": "g-future-passive",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "明天学生会搬这些椅子。用chairs作主语，保持原意，哪句正确？",
+      "options": [
+        {
+          "id": "a",
+          "text": "The chairs will be moved by the students tomorrow."
+        },
+        {
+          "id": "b",
+          "text": "The chairs will move the students tomorrow."
+        },
+        {
+          "id": "c",
+          "text": "The chairs will be move by the students tomorrow."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The chairs will be moved by the students tomorrow."
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先判断主语做动作还是承受动作，再检查will后面的两部分。",
+        "steps": [
+          {
+            "text": "chairs是被学生搬动的物品，不是搬学生的执行者。",
+            "reason": "以chairs作主语要用被动；by the students保留执行者。"
+          },
+          {
+            "text": "将来被动用will be moved，move的过去分词是moved。",
+            "reason": "will后be用原形，be后的move变过去分词；两部分都不能漏。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "主动句把椅子说成搬学生的执行者，改变了原意。"
+          },
+          {
+            "option": "c",
+            "reason": "will be后应用过去分词moved，不能接原形move。"
+          }
+        ],
+        "pitfall": "时间是将来并不自动表示被动，先看主语与动作的关系。",
+        "visual": {
+          "kind": "comparison",
+          "title": "原意不变，句子主角改变",
+          "segments": [
+            {
+              "text": "students → move → chairs",
+              "role": "evidence",
+              "note": "学生做动作，椅子承受动作"
+            },
+            {
+              "text": "chairs + will be moved",
+              "role": "evidence",
+              "note": "椅子作主语，改用将来被动"
+            },
+            {
+              "text": "by the students + tomorrow",
+              "role": "evidence",
+              "note": "保留执行者与将来时间"
+            }
+          ],
+          "caption": "换主语不换事实，再检查be与过去分词。"
+        },
+        "transfer": "如果不需要说明谁搬椅子，删去by短语后，will be moved是否仍要保留？"
+      }
+    }
+  }
+}

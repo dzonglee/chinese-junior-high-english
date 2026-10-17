@@ -1288,3 +1288,16 @@ Current new lesson flow:14 conditions/42 task-width checks,reload and zero indep
 Cumulative497 conditions/1491 widths;earlier flows retain scope. Hashes:checkpoint-49.*.
 Next:l-g-future-passive. Fifteen future-passive tasks are drafted outside course files. Inspect and register an original missing/repaired handrail diptych for planned-result selection,then check doer/receiver boundaries,will/be/participle,irregular forms,negative placement,questions and replies. Overall claim continues solo;364 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-future-passive individually reviewed
+
+50/413 reviewed. Fifteen future-passive tasks use original handrail repair imagery,active/passive meaning,will/be/participle assembly,irregular forms,negatives,questions,by-agents and short replies.
+
+Inspected original/delivery art,all15 models,narrow-phone figures,wrong picture/all14 wrong word selections,partial/removal recovery and all application/transfer steps. Enlarged the first picture and reinspected final actor,predicate and future-time boundaries. Grade9;reserved005–008 unexposed;zero independent records. Fresh MCP project-instruction read remains blocked by external-drive access;existing native card updated.
+
+Current new lesson flow:15 conditions/45 task-width checks,reload and zero independent records. Retained shared-engine coverage:1,480 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,9 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 hashes and artwork readiness/failure/retry. No native GUI evidence. Core scope:Retained checkpoint45 coverage:1480 tests/14 files. Shared engine/UI is unchanged;the full core suite was not rerun for this data-only lesson. Current compiler/typecheck/teaching/grammar/course/interaction/package,browser,nine offline and archive checks cover the final data.
+
+Cumulative512 conditions/1536 widths;earlier flows retain scope. Hashes:checkpoint-50.*.
+Next:l-g-participles. Fifteen participle tasks are drafted outside course files. Original airborne/grounded leaf art has been inspected at original/delivery size. Register it after this checkpoint;check ongoing/completed states,modified nouns,active/passive relationships,irregular forms and finite predicates without treating all past participles as passive. Overall claim continues solo;363 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.
