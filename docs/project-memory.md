@@ -4,12 +4,12 @@
 
 The owner requires every lesson to be upgraded one by one, with purposeful generated pictures.
 APP-VISUAL-LESSONS remains claimed by codex-solo on author/individual-lessons. The previous
-shared workshops are a baseline. **11/413** are individually reviewed: l-g-be, l-g-present,
-l-g-continuous, l-g-past, l-g-future, l-g-perfect, l-g-articles, l-g-comparison, l-g-pronouns, l-g-nouns and l-g-prepositions. See docs/authoring/lesson-upgrades.md for exact evidence.
+shared workshops are a baseline. **12/413** are individually reviewed: l-g-be, l-g-present,
+l-g-continuous, l-g-past, l-g-future, l-g-perfect, l-g-articles, l-g-comparison, l-g-pronouns, l-g-nouns, l-g-prepositions and l-g-past-continuous. See docs/authoring/lesson-upgrades.md for exact evidence.
 
 The lessons use real speaker/referent selection, coded habit records, observable action/predicate
 choices, live word edits and dated-event selection. Wrong answers remain visible and must be
-repaired. All eleven whole browser flows and 267 task-width combinations pass, with reload and no
+repaired. All twelve individual browser flows and 291 task-width combinations pass, with reload and no
 independent assessment records. All 1,454 core tests, typecheck, native development/cloud adapter
 simulations and static package checks pass. No new native GUI validation is claimed.
 Future plans also contrasts finished events, promises, questions, going-to plans and current
@@ -20,7 +20,9 @@ and general plural nouns. Comparison adds required comparison-group selection, s
 and real typed word building. Pronouns adds exact referents, changed ownership, typed her/hers and group/reflexive contrasts.
 Nouns adds ten fully typed tasks, exact counts, one/three contrast, specific plural spellings
 and countable units versus uncountable content. Prepositions adds complete-phrase time classification, physically checked book/desk positions
-and a correctly ordered map. Next: l-g-past-continuous, interval overlap at a fixed past time.
+and a correctly ordered map. Past continuous adds a fixed past cursor against selected activity intervals, simultaneous actions
+and typed rang/writing. The11-lesson checkpoint retains its precise earlier hashes; the latest
+reference change passed28 targeted workshop tests and its whole flow. Next: l-g-passive.
 Work stays solo. Fresh MCP status succeeds, but read_file(wechat/AGENTS.md) still reports MacStudioExternal
 file access unavailable. No GUI job was submitted. Native access and approved audio remain separate;
 nothing is released.

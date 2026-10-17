@@ -752,3 +752,15 @@ once on loopback and then disabled networking during practice. Full evidence and
 hashes are in docs/reviews/individual-lessons/checkpoint-11.*. Selected tracked captures refreshed
 from the coherent run. Native GUI remains excluded;402 lessons still await individual review.
 Next apply the prepared past-continuous authoring, then inspect it. Unit stays claimed.
+
+
+## 2026-10-18 (Sydney) · codex-solo · past-continuous lesson individually reviewed
+
+l-g-past-continuous is reviewed:12/413. Eight tasks select intervals against a fixed16:10 cursor,
+contrast was/were and ongoing/finished/Did forms, and require typed rang/writing. Original holding/
+watering art is reused with code names/times; writing is supported by a separate written record.
+Review made duplicated contexts distinct, fixed interval-start labels and improved report wording.
+All figures/errors/transfer inspected. Whole flow,24 widths, actual cursor/bar geometry, reload and
+zero assessment records pass. Typecheck,826 teaching-spelling,28 workshop tests and package pass.
+Checkpoint11 retains full1,454-core/adapter/offline/archive evidence for its exact snapshot.
+Next l-g-passive is prepared outside course files. Overall unit unfinished;401 rows remain pending.
