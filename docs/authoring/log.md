@@ -1275,3 +1275,16 @@ Current new lesson flow:15 conditions/45 task-width checks,reload and zero indep
 Cumulative483 conditions/1449 widths;earlier flows retain scope. Hashes:checkpoint-48.*.
 Next:l-g-there-be. Fourteen there-be tasks are drafted outside course files. Check actual zero/one/three inventories,water agreement,opposite box pictures,questions/short answers,have contrast and past/future forms before review credit. Overall claim continues solo;365 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-there-be individually reviewed
+
+49/413 reviewed. Fourteen there-be tasks use actual0/1/3 inventories,opposite box pictures,noun boundaries,water agreement,have/holding contrasts and present/past/future questions and replies.
+
+Inspected all14 models,narrow-phone figures,all13 wrong records,wrong person/all5 wrong word selections,partial/removal recovery,typed/assembled errors and all application/transfer steps. Final water-word selection replaces an inappropriate short-answer source toggle. Grades6–9;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:14 conditions/42 task-width checks,reload and zero independent records. Retained shared-engine coverage:1,480 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,9 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 hashes and artwork readiness/failure/retry. No native GUI evidence. Core scope:Retained checkpoint45 coverage:1480 tests/14 files. Shared engine/UI is unchanged;the full core suite was not rerun for this data-only lesson. Current compiler/typecheck/teaching/grammar/course/interaction/package,browser,nine offline and archive checks cover the final data.
+
+Cumulative497 conditions/1491 widths;earlier flows retain scope. Hashes:checkpoint-49.*.
+Next:l-g-future-passive. Fifteen future-passive tasks are drafted outside course files. Inspect and register an original missing/repaired handrail diptych for planned-result selection,then check doer/receiver boundaries,will/be/participle,irregular forms,negative placement,questions and replies. Overall claim continues solo;364 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

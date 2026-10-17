@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-48 of413 lessons are individually reviewed;365 remain pending. Every lesson needs bespoke tasks,
+49 of413 lessons are individually reviewed;364 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-object-complements. Fifteen object-complement tasks connect actual door/box states,action performers and full object boundaries with adjectives,bare/to-infinitives,negative instructions and identity versus double objects.
+Latest:l-g-there-be. Fourteen there-be tasks use actual0/1/3 inventories,opposite box pictures,noun boundaries,water agreement,have/holding contrasts and present/past/future questions and replies.
 
-Inspected all fifteen models,narrow-phone figures,wrong picture gates,all twelve wrong word roles,partial/removal recovery,typed/assembled repairs and all application/transfer steps. Explicit perception-verb form constraints preserve valid alternatives. Grades8–9;reserved005–008 unexposed;zero independent records.
+Inspected all14 models,narrow-phone figures,all13 wrong records,wrong person/all5 wrong word selections,partial/removal recovery,typed/assembled errors and all application/transfer steps. Final water-word selection replaces an inappropriate short-answer source toggle. Grades6–9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint48 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint49 records the new flow/42 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The48 reviewed lessons cumulatively contain483 conditions/1449 widths;
+recorded explicitly. The49 reviewed lessons cumulatively contain497 conditions/1491 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-there-be. Fourteen there-be tasks are drafted outside course files. Check actual zero/one/three inventories,water agreement,opposite box pictures,questions/short answers,have contrast and past/future forms before review credit.
+Next:l-g-future-passive. Fifteen future-passive tasks are drafted outside course files. Inspect and register an original missing/repaired handrail diptych for planned-result selection,then check doer/receiver boundaries,will/be/participle,irregular forms,negative placement,questions and replies.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

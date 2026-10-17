@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **48 / 413**. Current: **l-g-there-be**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **49 / 413**. Current: **l-g-future-passive**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ Completed: **48 / 413**. Current: **l-g-there-be**. Evidence lives in docs/revie
 | l-g-sentence-patterns | 句子骨架：主语、谓语与宾语 | reviewed | [Individual review](../reviews/individual-lessons/l-g-sentence-patterns.md) |
 | l-g-double-objects | 双宾语：给谁什么 | reviewed | [Individual review](../reviews/individual-lessons/l-g-double-objects.md) |
 | l-g-object-complements | 宾语后面再说明什么 | reviewed | [Individual review](../reviews/individual-lessons/l-g-object-complements.md) |
-| l-g-there-be | there be：哪里有什么 | pending | — |
+| l-g-there-be | there be：哪里有什么 | reviewed | [Individual review](../reviews/individual-lessons/l-g-there-be.md) |
 | l-g-future-passive | 将来被动：将会被怎样处理 | pending | — |
 | l-g-participles | 读懂 -ing 与 -ed 的修饰关系 | pending | — |
 | l-g-time-clauses | 时间状语从句：先后关系 | pending | — |
