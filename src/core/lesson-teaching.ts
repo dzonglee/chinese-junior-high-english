@@ -159,6 +159,11 @@ export function teachingProblems(s:LessonTeaching,lesson:Lesson):string[]{
   return errors
 }
 /** All studio decisions are guided practice. No Attempt, mastery, or lesson-pass is created here. */
+/** Show one authored reasoning step at a time; never hide the remaining steps permanently. */
+export function teachingExplanation(s:LessonTeaching,p:TeachingProgress){
+ const q=teachingAnswer(s,p),raw=Number(p.answers[`explanation-${p.step}-${p.caseIndex}`]??0),index=Number.isInteger(raw)&&raw>=0&&raw<q.explanation.steps.length?raw:0
+ return{index,total:q.explanation.steps.length,...q.explanation.steps[index]}
+}
 export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:string,value:string,now:number):TeachingProgress{
   const p:TeachingProgress={...current,order:[...current.order],completed:[...current.completed],answers:{...current.answers},checked:{...current.checked},links:{...current.links},updatedAt:now}
   const mark=(key:string)=>{if(!p.completed.includes(key))p.completed.push(key)}
@@ -182,6 +187,11 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   if(action==='source'&&p.step===2){if(teachingEvidence(s,p).some(e=>e.id===value))p.answers.source=p.answers.source===value?'':value;return p}
   if(action==='passage'){p.checked.passage=!p.checked.passage;return p}
   if(action==='explanation'){p.checked.explanation=!p.checked.explanation;return p}
+  if(action==='explanation-step'){
+    const index=Number(value),key=`step-${p.step}-${p.caseIndex}`,q=teachingAnswer(s,p)
+    if(p.checked.explanation&&typeof p.checked[key]==='boolean'&&Number.isInteger(index)&&index>=0&&index<q.explanation.steps.length)p.answers[`explanation-${p.step}-${p.caseIndex}`]=String(index)
+    return p
+  }
   if(action==='evidence'&&p.step===2){p.completed=p.completed.filter(k=>k!==`evidence-${(s.cases[p.caseIndex]??s.prediction).id}`);const item=teachingEvidence(s,p).find(e=>e.id===value);if(item){p.answers.evidence=value;p.checked.evidence=item.supports;if(item.supports)mark(`evidence-${(s.cases[p.caseIndex]??s.prediction).id}`)}return p}
   if(action==='criterion'&&p.step===2&&s.mode==='communication'&&s.rubric.some(r=>r.id===value)){p.answers.activeCriterion=value;p.answers.revisionPane='compare';return p}
   if(action==='revision-pane'&&p.step===2&&s.mode==='communication'&&(value==='compare'||value==='write'&&s.rubric.some(r=>p.links[r.id]))){p.answers.revisionPane=value;return p}

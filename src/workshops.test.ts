@@ -1,8 +1,9 @@
+import {checkAnswer} from './core/answers'
 import {editionText} from './core/spelling'
 import {workshopExpressionActions} from '../scripts/lib/workshop-test-actions.mjs'
 import {it,expect} from 'vitest'
 import {authorCatalog} from '../scripts/lib/author-content.mjs'
-import {createLessonTeaching,freshTeaching,changeTeaching,teachingCanAdvance,restoreTeaching,teachingProblems} from './core/lesson-teaching'
+import {createLessonTeaching,teachingExplanation,freshTeaching,changeTeaching,teachingCanAdvance,restoreTeaching,teachingProblems} from './core/lesson-teaching'
 import {workshopView,workshopProblems,changeWorkshop} from './core/lesson-workshop'
 import {individualDelayedProblems} from '../scripts/lib/author-visual-missions.mjs'
 import {containsTerm,productionReady,productionMinimum} from './core/teaching-production'
@@ -205,4 +206,28 @@ it('projects the selected concrete controller count while preserving a static co
  p=changeTeaching(s,p,'workshop-record','key',5);p=changeTeaching(s,p,'workshop-check','',6);v=workshopView(w,p);expect(v.cells[0].copies).toHaveLength(1);expect(v.complete).toBe(true)
  const bad=structuredClone(w);bad.conditions![0].world.records!.options[0].value=9;expect(workshopProblems(bad)).toContain('Invalid event records')
  const noun=studio('l-g-nouns'),nw=noun.mission!.workshop!;let np={...freshTeaching(noun,1),step:1};np=changeTeaching(noun,np,'workshop-item','8',2);np=changeTeaching(noun,np,'workshop-record','food',3);expect(workshopView(nw,np).cells[0].copies).toHaveLength(3);np=changeTeaching(noun,np,'workshop-record','plural',4);expect(workshopView(nw,np).cells[0].copies).toHaveLength(3)
+})
+
+
+it('edits capitalization exactly, projects the attempted caption and preserves a deliberately cleared draft',()=>{
+ const s=studio('l-g-proper-nouns'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};let v=workshopView(w,p)
+ expect(v.selected).toBe('mia');expect(v.records!.artLabels![0]).toBe('你的图注：This is mia.')
+ p=changeTeaching(s,p,'workshop-record','meaning',2);p=changeTeaching(s,p,'workshop-check','',3);expect(workshopView(w,p).complete).toBe(false)
+ for(const value of ['MIA','mia','mIa']){p=changeTeaching(s,p,'workshop-input',value,4);p=changeTeaching(s,p,'workshop-check','',5);v=workshopView(w,p);expect(v.complete).toBe(false);expect(v.records!.artLabels![0]).toBe('你的图注：This is '+value+'.')}
+ p=changeTeaching(s,p,'workshop-input','Mia',6);p=changeTeaching(s,p,'workshop-check','',7);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-input','',8);expect(workshopView(w,p).selected).toBe('');expect(workshopView(w,restoreTeaching(s,p,9)).selected).toBe('');expect(workshopView(w,p).complete).toBe(false)
+ expect(w.conditions![0].world.records!.artLabels![0]).toContain('@attempt')
+ const q=w.transfer!;expect(checkAnswer(q,q.answer.accepted![0])).toBe(true);expect(checkAnswer(q,q.answer.accepted![0].toLowerCase())).toBe(false)
+ const bad=structuredClone(w);bad.conditions![0].input=false;expect(workshopProblems(bad)).toContain('Invalid typed draft')
+})
+
+
+it('exposes every authored explanation step separately, persists its position and bounds it per question',()=>{
+ const s=studio('l-g-proper-nouns');let p={...freshTeaching(s,1),step:4};const answer=s.transfer.answer.accepted![0]
+ p=changeTeaching(s,p,'explanation-step','1',2);expect(teachingExplanation(s,p).index).toBe(0)
+ p=changeTeaching(s,p,'answer',answer,3);p=changeTeaching(s,p,'check','',4);p=changeTeaching(s,p,'explanation','',5)
+ p=changeTeaching(s,p,'explanation-step','1',6);expect(teachingExplanation(s,p).text).toContain('French');expect(teachingExplanation(s,restoreTeaching(s,p,7)).index).toBe(1)
+ for(const value of ['-1','2','1.5','NaN']){p=changeTeaching(s,p,'explanation-step',value,8);expect(teachingExplanation(s,p).index).toBe(1)}
+ expect(p.completed).toEqual(['transfer']);p={...p,step:2,caseIndex:0};expect(teachingExplanation(s,p).index).toBe(0)
+ p.answers['explanation-2-0']='999';expect(teachingExplanation(s,p).index).toBe(0)
 })

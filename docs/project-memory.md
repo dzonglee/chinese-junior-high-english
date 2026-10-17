@@ -2,36 +2,30 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-The owner requires every lesson to be redesigned separately, with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **22/413** are
-individually reviewed;391 remain pending. Work stays solo. The tracker links authored tasks,
+The owner requires each lesson to be redesigned separately,with purposeful original pictures.
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **23/413** are
+individually reviewed;390 remain pending. Work stays solo. The tracker links authored tasks,
 inspected figures/errors/repairs,fresh transfer and actual controls. Shared coverage is a baseline,
-never an individual review or a claim of all-course parity.
+never individual-review credit or a claim of all-course parity.
 
-Current coherent checkpoint22 passes all22 full browser flows/180 conditions/540 widths,reload,
-wrong-path repairs,fresh transfer and zero independent assessment records. All1,470 core/14 files,
+Checkpoint23 covers23 complete main paths/189 conditions/567 widths,repairs,transfers,reload and
+zero independent records. Later reasoning pagination was verified in proper-name and agreement
+flows;final proper-name flow verifies simplified feedback and all its explanation steps. All1,472 core/14 files,
 typecheck,826 teaching/spelling,7 grammar constraints,course/static package,both native-adapter
-simulations,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Source/artifact
-hashes and exact scope:checkpoint-22.*. Standalone loaded once before networking was disabled;
-managed file URLs are blocked. Exact delayed-text and eligible-grade guards remain enforced.
+simulations,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Source/artifact hashes
+and exact scope:checkpoint-23.*. Standalone loads once before networking is disabled; managed
+file URLs are blocked. Exact delayed-text and eligible-grade guards remain enforced.
 
-Latest agreement lesson selects the actual controller and changes its concrete count. Each /
-everyone and abstract number remain word diagrams,not false one-person pictures. The noun bread
-model retains three slices. Recent lessons include editable clauses,antecedent selection,cause /
-contrast labels,a clickable week calendar and truthful negative-tag replies. Distance spelling
-now converts kilometer/kilometre correctly without changing device meter.
+Latest proper-name lesson edits real wrong-case drafts and live learner-written picture captions.
+Original travel art supports named Great Wall versus ordinary wall;coded cards establish all facts.
+Case-sensitive edits preserve cleared drafts. Removed redundant meaning steps and fixed orphan
+punctuation after actual visual review. Smaller courtyard delivery inspected;budget not raised.
 
-Next:l-g-proper-nouns (proper names and capitalization),grade6–9. Read its actual bank:8 cases,
-only001–004 immediate;005–008 reserved. A new original travel illustration is generated and
-inspected at /workspace/generated_images/exec-092d8ab0-eb95-4326-90d6-8461d95565c7.png;600px delivery
-trial /tmp/travel-notes-600.jpg is49,159 bytes. A smaller existing courtyard delivery trial is
-/tmp/courtyard-768.jpg,80,169 bytes versus150,606 current;neither is integrated yet. Preserve raw
-originals. Author case-sensitive typo repairs with changing code captions;ordinary wall differs
-from the proper name Great Wall. Do not infer names,nationality or exact geography from the image.
-
-Native GUI still needs MacStudioExternal project-file access. The existing native card remains
-blocked;no GUI job,upload or publication occurred. Content stays draft. Approved audio,editorial /
-cohort mapping,devices and production setup remain separate;videos remain deferred.
+Next l-g-possessives. A nine-task draft outside course files covers owner counts,irregular plurals,
+shared/separate albums,duration and its;integrate and inspect it before any review credit.
+Native GUI remains blocked by MacStudioExternal project-file access. Native card stays blocked;
+browser/adapter checks do not replace native validation. Approved audio and editorial/cohort
+mapping remain pending. Content is draft;no publication or full-course parity is claimed.
 
 ## Previous local delivery · 2026-10-17
 

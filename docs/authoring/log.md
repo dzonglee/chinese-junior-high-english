@@ -923,3 +923,26 @@ checkpoint-22.*. File URLs blocked;standalone loaded once before networking disa
 checkpoint11 limitation stays disclosed. Next proper names/capitalization;read8-case bank and
 reserve005–008. New original travel art inspected outside course files;delivery trials in /tmp
 are not integrated. Overall unit claimed/unfinished;391 pending. Native GUI blocked;no release.
+
+
+## 2026-10-18 (Sydney) · codex-solo · proper names and live caption editing reviewed
+
+l-g-proper-nouns is reviewed:23/413. Nine tasks edit actual wrong-case drafts. Original travel
+art supports changing learner captions,Great Wall/ordinary wall,and May/modal may. Written cards
+establish facts. Case-sensitive validation,cleared-draft persistence and immutable caption templates
+have regressions. Removed redundant meaning gates and an invisible-picture reference after visual
+review;fixed orphan punctuation for short typed answers. Original/delivery art and all lesson
+figures,errors,repairs and fresh Ben/French/June transfer inspected. Grades6–9 covered;005–008 reserved.
+
+Checks:23 full main paths/189 conditions/567 widths before optional reasoning pagination;then
+proper-name and agreement paths verify paged reasoning,and final proper-name flow verifies simplified
+feedback. Steps inspected at three widths. Reload/zero independent records,1,472
+core/14 files,typecheck,826 teaching/spelling,7 grammar constraints,course/static package,both adapter
+simulations,8 offline checks and fresh ZIP CRC/exact-source comparison. Scope/hashes:checkpoint-23.*.
+Smaller courtyard delivery inspected;existing budget unchanged. Next l-g-possessives,explicit
+nine-task draft outside course files. Overall unit claimed/unfinished;390 pending. Native GUI
+still blocked by project-drive access;no upload/release or whole-course parity.
+
+The interaction audit had an obsolete no-image-references assertion that rejected earlier authorized
+class-photo reuse. Added explicit source asset IDs and verified registered owner-original provenance,
+file hashes and acyclic references. No external image reference is accepted. Interaction audit passes.

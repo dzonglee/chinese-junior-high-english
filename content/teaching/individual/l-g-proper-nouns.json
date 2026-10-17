@@ -1,0 +1,531 @@
+{
+  "lessonId": "l-g-proper-nouns",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Edit nine actual mis-capitalized drafts with case-sensitive checks; distinguish a named place from an ordinary description and May from modal may; independently correct a fresh sentence.",
+  "picturePurpose": "The same original travel scene supports changing learner-written captions for a person, named attraction and ordinary wall. Written cards supply names and facts; code supplies exact text.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "校对",
+    "title": "当一次旅行日记校对员",
+    "instruction": "先看卡片里的意思，再亲手修好原稿；图注会跟着你改。",
+    "conditions": [
+      {
+        "label": "先给同学的名字改错",
+        "before": "This is ",
+        "target": "Mia",
+        "after": ".",
+        "initial": "mia",
+        "input": true,
+        "caseSensitive": true,
+        "inputHint": "改上面的原稿；注意大小写。你的输入会同步到句子和图注。",
+        "choices": [
+          "mia",
+          "Mia"
+        ],
+        "reason": "Mia 是这位同学的名字，首字母 M 大写；句中位置不改变这一点。",
+        "world": {
+          "kind": "logic",
+          "caption": "人物卡写着：穿珊瑚色上衣的同学叫 Mia。不是让你从外貌猜名字。",
+          "cells": [
+            {
+              "label": "mia",
+              "detail": "待改的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的修改",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "先判断：这里表达什么？",
+            "missingPrompt": "先看卡片，判断词在这里的意思，再修改大小写。",
+            "answer": "meaning",
+            "options": [
+              {
+                "id": "meaning",
+                "label": "人名",
+                "text": "按当前卡片和句意判断",
+                "reason": "这个类别与卡片、句意相符。",
+                "value": 35
+              },
+              {
+                "id": "other",
+                "label": "一个普通称呼",
+                "text": "换个意思，写法也可能不同",
+                "reason": "人物卡给的是姓名，不是 girl 这样的普通称呼。",
+                "value": 65
+              }
+            ],
+            "asset": "lesson-travel-notes",
+            "alt": "左侧三位同学参观长墙，右侧同样三人在窗边写空白明信片；身份、地点和日期由文字卡提供。",
+            "artLabels": [
+              "你的图注：This is @attempt."
+            ]
+          }
+        }
+      },
+      {
+        "label": "城市名字不能全小写",
+        "before": "Our trip begins in ",
+        "target": "Beijing",
+        "after": ".",
+        "initial": "beijing",
+        "input": true,
+        "caseSensitive": true,
+        "inputHint": "改上面的原稿；注意大小写。你的输入会同步到句子。",
+        "choices": [
+          "beijing",
+          "Beijing"
+        ],
+        "reason": "Beijing 是城市名，首字母 B 大写；其余字母在这个名字中小写。",
+        "world": {
+          "kind": "logic",
+          "caption": "行程卡：出发城市为北京。请修好英文城市名。",
+          "cells": [
+            {
+              "label": "beijing",
+              "detail": "待改的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的修改",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "给这处景点写正式名称",
+        "before": "We visited the ",
+        "target": "Great Wall",
+        "after": " during our trip.",
+        "initial": "great wall",
+        "input": true,
+        "caseSensitive": true,
+        "inputHint": "改上面的原稿；注意大小写。你的输入会同步到句子和图注。",
+        "choices": [
+          "great wall",
+          "Great Wall"
+        ],
+        "reason": "the Great Wall 中 Great 和 Wall 是专有名称的组成部分，都要大写首字母；句中冠词 the 保持小写。",
+        "world": {
+          "kind": "logic",
+          "caption": "行程卡注明参观长城。左图只帮助联系景点，名称依据是行程卡。",
+          "cells": [
+            {
+              "label": "great wall",
+              "detail": "待改的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的修改",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "先判断：这里表达什么？",
+            "missingPrompt": "先看卡片，判断词在这里的意思，再修改大小写。",
+            "answer": "meaning",
+            "options": [
+              {
+                "id": "meaning",
+                "label": "景点的专有名称",
+                "text": "按当前卡片和句意判断",
+                "reason": "这个类别与卡片、句意相符。",
+                "value": 35
+              },
+              {
+                "id": "other",
+                "label": "一面普通的墙",
+                "text": "换个意思，写法也可能不同",
+                "reason": "这句按行程卡写长城的名字，不只是描述墙的形状。",
+                "value": 65
+              }
+            ],
+            "asset": "lesson-travel-notes",
+            "alt": "左侧三位同学参观长墙，右侧同样三人在窗边写空白明信片；身份、地点和日期由文字卡提供。",
+            "artLabels": [
+              "你的图注：We visited the @attempt during our trip."
+            ]
+          }
+        }
+      },
+      {
+        "label": "星期也是名称",
+        "before": "Our trip starts on ",
+        "target": "Thursday",
+        "after": ".",
+        "initial": "thursday",
+        "input": true,
+        "caseSensitive": true,
+        "inputHint": "改上面的原稿；注意大小写。你的输入会同步到句子。",
+        "choices": [
+          "thursday",
+          "Thursday"
+        ],
+        "reason": "Thursday 是星期名，T 大写；介词 on 不因此大写。",
+        "world": {
+          "kind": "logic",
+          "caption": "出发卡：星期四。修好日记中的星期名。",
+          "cells": [
+            {
+              "label": "thursday",
+              "detail": "待改的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的修改",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "同一句里，两个 may 不一样",
+        "before": "We may travel again in ",
+        "target": "May",
+        "after": ".",
+        "initial": "may",
+        "input": true,
+        "caseSensitive": true,
+        "inputHint": "改上面的原稿；注意大小写。你的输入会同步到句子。",
+        "choices": [
+          "may",
+          "May"
+        ],
+        "reason": "空格里 May 是月份名，M 大写；We may 中的 may 是情态动词，在句中用小写。不能把所有 may 一起改。",
+        "world": {
+          "kind": "logic",
+          "caption": "计划卡：也许五月再出发。前面的 may 表示“也许”，空格里表示五月。",
+          "cells": [
+            {
+              "label": "may",
+              "detail": "待改的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的修改",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "先判断：这里表达什么？",
+            "missingPrompt": "先看卡片，判断词在这里的意思，再修改大小写。",
+            "answer": "meaning",
+            "options": [
+              {
+                "id": "meaning",
+                "label": "月份名",
+                "text": "按当前卡片和句意判断",
+                "reason": "这个类别与卡片、句意相符。",
+                "value": 35
+              },
+              {
+                "id": "other",
+                "label": "表示可能的情态动词",
+                "text": "换个意思，写法也可能不同",
+                "reason": "前一个 may 才表示可能；in 后的空格需要写计划卡上的月份。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "语言名与国家名分开看",
+        "before": "Mia writes postcards in ",
+        "target": "English",
+        "after": ".",
+        "initial": "english",
+        "input": true,
+        "caseSensitive": true,
+        "inputHint": "改上面的原稿；注意大小写。你的输入会同步到句子。",
+        "choices": [
+          "english",
+          "English"
+        ],
+        "reason": "English 是语言名，E 大写。England 是地名，不能拿它替换英语这门语言。",
+        "world": {
+          "kind": "logic",
+          "caption": "明信片用英语写，不是在回答来自哪个国家。",
+          "cells": [
+            {
+              "label": "english",
+              "detail": "待改的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的修改",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "先判断：这里表达什么？",
+            "missingPrompt": "先看卡片，判断词在这里的意思，再修改大小写。",
+            "answer": "meaning",
+            "options": [
+              {
+                "id": "meaning",
+                "label": "语言名",
+                "text": "按当前卡片和句意判断",
+                "reason": "这个类别与卡片、句意相符。",
+                "value": 35
+              },
+              {
+                "id": "other",
+                "label": "国家或地区名",
+                "text": "换个意思，写法也可能不同",
+                "reason": "in English 在这里说明使用的语言，不是所在地点。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "同一张图，普通描述用小写",
+        "before": "We can see a long ",
+        "target": "wall",
+        "after": " in the picture.",
+        "initial": "Wall",
+        "input": true,
+        "caseSensitive": true,
+        "inputHint": "改上面的原稿；注意大小写。你的输入会同步到句子和图注。",
+        "choices": [
+          "Wall",
+          "wall"
+        ],
+        "reason": "a long wall 是普通描述，wall 在句中用小写。画的是长城，也不意味着每次使用 wall 都要大写。",
+        "world": {
+          "kind": "logic",
+          "caption": "这次不写景点的名字，只说图里有一段很长的墙。",
+          "cells": [
+            {
+              "label": "Wall",
+              "detail": "待改的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的修改",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "先判断：这里表达什么？",
+            "missingPrompt": "先看卡片，判断词在这里的意思，再修改大小写。",
+            "answer": "meaning",
+            "options": [
+              {
+                "id": "meaning",
+                "label": "普通名词",
+                "text": "按当前卡片和句意判断",
+                "reason": "这个类别与卡片、句意相符。",
+                "value": 35
+              },
+              {
+                "id": "other",
+                "label": "景点的专有名称",
+                "text": "换个意思，写法也可能不同",
+                "reason": "a long 加普通名词是在描述，不是在写 the Great Wall 这个名称。",
+                "value": 65
+              }
+            ],
+            "asset": "lesson-travel-notes",
+            "alt": "左侧三位同学参观长墙，右侧同样三人在窗边写空白明信片；身份、地点和日期由文字卡提供。",
+            "artLabels": [
+              "你的图注：We can see a long @attempt in the picture."
+            ]
+          }
+        }
+      },
+      {
+        "label": "I 不在句首，也要大写",
+        "before": "Mia and ",
+        "target": "I",
+        "after": " write together.",
+        "initial": "i",
+        "input": true,
+        "caseSensitive": true,
+        "inputHint": "改上面的原稿；注意大小写。你的输入会同步到句子。",
+        "choices": [
+          "i",
+          "I"
+        ],
+        "reason": "第一人称单数代词 I 总是大写；在 and 后面也不能写 i。",
+        "world": {
+          "kind": "logic",
+          "caption": "日记由我来写。用第一人称单数代词把“我和 Mia”说完整。",
+          "cells": [
+            {
+              "label": "i",
+              "detail": "待改的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的修改",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "国家名要写对",
+        "before": "This postcard is from ",
+        "target": "China",
+        "after": ".",
+        "initial": "china",
+        "input": true,
+        "caseSensitive": true,
+        "inputHint": "改上面的原稿；注意大小写。你的输入会同步到句子。",
+        "choices": [
+          "china",
+          "China"
+        ],
+        "reason": "China 是国家名，C 大写；Chinese 可表示汉语或中国的，不能直接替代这里的国家名称。",
+        "world": {
+          "kind": "logic",
+          "caption": "寄件卡：国家为中国。不要从人物外貌或小地图猜国籍。",
+          "cells": [
+            {
+              "label": "china",
+              "detail": "待改的原稿"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的修改",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "先判断：这里表达什么？",
+            "missingPrompt": "先看卡片，判断词在这里的意思，再修改大小写。",
+            "answer": "meaning",
+            "options": [
+              {
+                "id": "meaning",
+                "label": "国家名",
+                "text": "按当前卡片和句意判断",
+                "reason": "这个类别与卡片、句意相符。",
+                "value": 35
+              },
+              {
+                "id": "other",
+                "label": "语言名",
+                "text": "换个意思，写法也可能不同",
+                "reason": "寄件卡问国家，不问使用什么语言。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "choices": [
+      "mia",
+      "Mia",
+      "beijing",
+      "Beijing",
+      "great wall",
+      "Great Wall",
+      "thursday",
+      "Thursday",
+      "may",
+      "May",
+      "english",
+      "English",
+      "Wall",
+      "wall",
+      "i",
+      "I",
+      "china",
+      "China"
+    ],
+    "items": [
+      {
+        "id": "caption-editor",
+        "label": "名称与大小写",
+        "prompt": "修好这本旅行日记。",
+        "answer": "",
+        "reason": "",
+        "hint": "先分清名称和普通描述，再决定哪些字母大写。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-proper-nouns-002",
+      "q-g-proper-nouns-003"
+    ],
+    "transfer": {
+      "id": "individual-g-proper-nouns-transfer",
+      "topicId": "g-proper-nouns",
+      "skill": "grammar",
+      "kind": "correction",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "替同学校对一条新的学习记录。只改大小写，保留所有词、词序和标点，写出完整句子。\nmy friend ben studies french in june.",
+      "answer": {
+        "accepted": [
+          "My friend Ben studies French in June."
+        ],
+        "display": "My friend Ben studies French in June.",
+        "caseSensitive": true
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找句首，再按词在这里表达的意思检查人名、语言和月份。",
+        "steps": [
+          {
+            "text": "句首 my 改为 My，人名 ben 改为 Ben。",
+            "reason": "句子开头与人名的首字母都要大写。"
+          },
+          {
+            "text": "french 改为 French，june 改为 June；friend、studies、in 保持小写。",
+            "reason": "语言名和月份名首字母大写，普通名词和动词不因重要就大写。"
+          }
+        ],
+        "distractors": [],
+        "pitfall": "不要把每个词都大写，也不要漏掉句中人名、语言和月份的首字母。",
+        "visual": {
+          "kind": "sentence",
+          "title": "按作用逐处校对",
+          "segments": [
+            {
+              "text": "My",
+              "role": "evidence",
+              "note": "句首"
+            },
+            {
+              "text": "Ben",
+              "role": "subject",
+              "note": "人名"
+            },
+            {
+              "text": "French",
+              "role": "evidence",
+              "note": "语言名，作宾语"
+            },
+            {
+              "text": "June",
+              "role": "time",
+              "note": "月份名"
+            }
+          ],
+          "caption": "其余词和句号保留；这是校对，不是改写。"
+        },
+        "transfer": "如果把月份换成 July，哪些部分仍需大写？"
+      }
+    }
+  }
+}
