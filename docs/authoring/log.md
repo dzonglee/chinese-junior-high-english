@@ -393,6 +393,6 @@ and photo provenance/date checking in t20. Kept all content draft and delayed it
 3a3e77a3a55447ae91c6ee9ffb824df6 passes 11 full flows with 45 captures and no exceptions.
 Browser checks cover 15,795 layouts and 13 control journeys; all 16 new teacher-review
 sheets and the four changed model visuals were inspected. See the detailed review.
-The last copy-only native follow-up is running before integration. Next: integrate this
+Copy-only native follow-up 7aeda37e77ec4bc5a2abc7a399a4552c also passes both flows with eight captures and no exceptions. Next: integrate this
 unit, claim APP-MOCKS and author fixed original written papers and correction journeys.
 Open owner question remains approved audio; it does not block written practice.

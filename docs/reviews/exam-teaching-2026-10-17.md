@@ -48,7 +48,7 @@ Native metadata now uses its own async subpackage rather than filling the main p
 Startup has an explicit loading state and a retry path, and detached pages do not attach
 late. The package limits are unchanged.
 
-Verification details and final native evidence will be appended after the current runs.
+Verification records and their boundaries follow.
 
 ## Verified checks
 
@@ -73,3 +73,5 @@ Verification details and final native evidence will be appended after the curren
 
 The owner still needs approved audio and release prerequisites; no content is released.
 This unit does not deliver mock papers or claim verified local exam coverage.
+
+Native copy follow-up `7aeda37e77ec4bc5a2abc7a399a4552c` passes both communication flows on the final wording: eight captures, nested exit 0, no simulator exceptions. The updated native task/checklist screens were inspected.
