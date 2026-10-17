@@ -1,0 +1,570 @@
+{
+  "lessonId": "l-g-indefinites",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Select all members ofEveryone while keeping singular agreement;contrast exact0/1 inventories,some/any negative and offer contexts,postmodifying adjectives,nothing-new scope,person/thing/place reference and equivalent negative constructions.",
+  "picturePurpose": "Inspected class portrait supplies an explicitly complete three-person team. Original box diptych supplies bounded empty/one-ball inventories,with exact coded0/1 counters. Text supplies complete facts;no unseen room contents are inferred.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先分清人、物和地点，再选表达",
+    "instruction": "人、物、地点先分清，再看否定、数量和修饰关系；不要只按肯定句或疑问句机械猜词。",
+    "conditions": [
+      {
+        "label": "Everyone包括三人，动词就用are吗？",
+        "before": "Everyone in the team ",
+        "target": "is",
+        "after": " ready for the show.",
+        "choices": [
+          "are",
+          "is"
+        ],
+        "reason": "Everyone包括所有队员，但语法上按单数处理，用is。圈出三个人，是为了看清指代范围，不能据此把谓语改成are。",
+        "world": {
+          "kind": "logic",
+          "caption": "这个小组只有图中三位队员，他们都已准备好。先圈出Everyone所包括的人，再核对动词。",
+          "cells": [
+            {
+              "label": "Everyone in the team",
+              "detail": "包括所有人，语法按单数"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "scene": {
+            "asset": "class-photo",
+            "alt": "班级合影：左边是穿珊瑚色上衣的 Mia，中间是穿蓝色上衣的 Leo，右边是穿紫色外套的 Amy。",
+            "people": [
+              {
+                "id": "mia",
+                "name": "Mia",
+                "description": "左边穿珊瑚色上衣的女生",
+                "left": 4,
+                "width": 27
+              },
+              {
+                "id": "leo",
+                "name": "Leo",
+                "description": "中间穿蓝色上衣的男生",
+                "left": 36,
+                "width": 27
+              },
+              {
+                "id": "amy",
+                "name": "Amy",
+                "description": "右边穿紫色外套的女生",
+                "left": 69,
+                "width": 27
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "mia",
+              "leo",
+              "amy"
+            ],
+            "subjectReason": "这个小组只有图中三位队员。Everyone包括他们所有人，三位都要圈出；语法上仍按单数处理。",
+            "selectionPrompt": "圈出Everyone包括的所有队员。",
+            "formLabel": "谓语动词"
+          }
+        }
+      },
+      {
+        "label": "盘点为零，选哪个词",
+        "before": "There is ",
+        "target": "nothing",
+        "after": " in this box.",
+        "choices": [
+          "something",
+          "nothing"
+        ],
+        "reason": "盘点记录明确盒内0件物品，用nothing表示没有东西；something表示有某个东西。",
+        "world": {
+          "kind": "count",
+          "caption": "盘点一：盒子内没有任何物品。选对应的画面，再补全句子。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的完整盘点",
+              "value": 0,
+              "art": "ball"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "选与盘点记录相符的盒子",
+            "missingPrompt": "先看清盘点的是0件还是1件，再核对不定代词。",
+            "asset": "lesson-box-inventory",
+            "alt": "左图蓝色盒子完全空着；右图同样的盒子里只有一个红球。",
+            "artChoices": [
+              "empty",
+              "ball"
+            ],
+            "answer": "empty",
+            "options": [
+              {
+                "id": "empty",
+                "label": "空盒子 · 0件",
+                "text": "盒内没有物品",
+                "reason": "盘点是0件，对应nothing。",
+                "value": 0
+              },
+              {
+                "id": "ball",
+                "label": "1个红球",
+                "text": "盒内有1件物品",
+                "reason": "这条盘点是0件，应选左图的空盒子。",
+                "value": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "盘点变成一件，意思也要变",
+        "before": "There is ",
+        "target": "something",
+        "after": " in this box.",
+        "choices": [
+          "nothing",
+          "something"
+        ],
+        "reason": "盒内有1个球，说明有东西，用something。nothing表示没有东西，与这条盘点不符。",
+        "world": {
+          "kind": "count",
+          "caption": "盘点二：盒子内只有1个红球。句子只表达有东西，不说具体是什么。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的完整盘点",
+              "value": 0,
+              "art": "ball"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "选与盘点记录相符的盒子",
+            "missingPrompt": "先看清盘点的是0件还是1件，再核对不定代词。",
+            "asset": "lesson-box-inventory",
+            "alt": "左图蓝色盒子完全空着；右图同样的盒子里只有一个红球。",
+            "artChoices": [
+              "empty",
+              "ball"
+            ],
+            "answer": "ball",
+            "options": [
+              {
+                "id": "empty",
+                "label": "空盒子 · 0件",
+                "text": "盒内没有物品",
+                "reason": "这条盘点有1个球，应选右图，不是空盒子。",
+                "value": 0
+              },
+              {
+                "id": "ball",
+                "label": "1个红球",
+                "text": "盒内有1件物品",
+                "reason": "盒内确实有东西，用something。",
+                "value": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "句子已经有not，后面还填nothing吗？",
+        "before": "Mia did not find ",
+        "target": "anything",
+        "after": " in the bag.",
+        "choices": [
+          "nothing",
+          "anything"
+        ],
+        "reason": "did not已经否定，后面用anything表示没有找到任何东西。不要用not…nothing来表达本题的“什么也没找到”。",
+        "world": {
+          "kind": "logic",
+          "caption": "找物记录：Mia查看了袋子，什么也没找到。用any-词族补全这个否定句。",
+          "cells": [
+            {
+              "label": "did not find + ___",
+              "detail": "句子已经有not"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对主语、所指和句意，再修改表达。",
+        "initial": "nothing"
+      },
+      {
+        "label": "换一种否定表达，意思保持不变",
+        "before": "Leo ",
+        "target": "did not find anything",
+        "after": " in the drawer.",
+        "choices": [
+          "did not find nothing",
+          "did not find anything"
+        ],
+        "reason": "本题表示什么也没找到，可以用did not find anything、didn't find anything或found nothing。不要把not和nothing再叠在一起。",
+        "world": {
+          "kind": "syntax",
+          "caption": "改句任务：Leo没有在抽屉里找到东西。用词块保留这个否定意思，去掉重复的否定。",
+          "cells": [
+            {
+              "label": "did not find nothing",
+              "detail": "待修正的否定表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对主语、所指和句意，再修改表达。",
+        "accepted": [
+          "didn't find anything",
+          "found nothing"
+        ],
+        "tiles": [
+          "nothing",
+          "not",
+          "didn't",
+          "find",
+          "did",
+          "found",
+          "anything"
+        ]
+      },
+      {
+        "label": "问东西，不要换成人",
+        "before": "Is there ",
+        "target": "anything",
+        "after": " new on the table?",
+        "choices": [
+          "anyone",
+          "anything"
+        ],
+        "reason": "本句问有没有新的东西，用anything。anyone指人，不能按这句的意思代替物品；new放在anything后。",
+        "world": {
+          "kind": "logic",
+          "caption": "提问记录：不确定桌上有没有新东西。只从anyone、anything中选，不是在问谁来了。",
+          "cells": [
+            {
+              "label": "物品 · 还不确定有没有",
+              "detail": "问的是东西"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "疑问句也可以用some-词族",
+        "before": "Can I get you ",
+        "target": "something",
+        "after": " to eat?",
+        "choices": [
+          "anything",
+          "something"
+        ],
+        "reason": "题目指定some-词族表达主动提供食物，用something。any-词族也可用于提问，但不能把所有疑问句都机械改成any-。",
+        "world": {
+          "kind": "logic",
+          "caption": "提议任务：主动给对方拿点吃的。用some-词族补全这句提议。",
+          "cells": [
+            {
+              "label": "主动提供食物",
+              "detail": "按题目要求用some-词族"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对主语、所指和句意，再修改表达。"
+      },
+      {
+        "label": "把形容词放到不定代词后",
+        "before": "Let's make ",
+        "target": "something useful",
+        "after": " for the fair.",
+        "choices": [
+          "useful something",
+          "something useful"
+        ],
+        "reason": "useful修饰something时放在它后面，写成something useful，不是useful something。",
+        "world": {
+          "kind": "syntax",
+          "caption": "制作任务：为义卖做点有用的东西。排列something和useful。",
+          "cells": [
+            {
+              "label": "useful something",
+              "detail": "修正修饰位置"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对主语、所指和句意，再修改表达。",
+        "tiles": [
+          "something",
+          "useful"
+        ]
+      },
+      {
+        "label": "nothing new不等于抽屉空了",
+        "before": "There is ",
+        "target": "nothing new",
+        "after": " in the drawer.",
+        "choices": [
+          "new nothing",
+          "nothing new"
+        ],
+        "reason": "nothing new表示没有新东西，不等于没有任何东西。三支旧笔可以留在抽屉里；new放在nothing后。",
+        "world": {
+          "kind": "syntax",
+          "caption": "盘点记录：抽屉里有3支旧笔，没有新物品。句子表达没有新的东西，不说抽屉是空的。",
+          "cells": [
+            {
+              "label": "new nothing",
+              "detail": "待修正的词序"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对主语、所指和句意，再修改表达。",
+        "tiles": [
+          "nothing",
+          "new"
+        ]
+      },
+      {
+        "label": "这一句问地点，不是人",
+        "before": "Is there ",
+        "target": "anywhere",
+        "after": " safe to leave our bags?",
+        "choices": [
+          "anyone",
+          "anywhere"
+        ],
+        "reason": "anywhere是表示地点的不定副词，anyone指人。这里问安全的存放地点，用anywhere，safe后置说明地点。",
+        "world": {
+          "kind": "logic",
+          "caption": "提问记录：想找一个安全的地方放包。只从anyone、anywhere中选。",
+          "cells": [
+            {
+              "label": "地点 · 安全存放行李",
+              "detail": "问的是地点"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对主语、所指和句意，再修改表达。",
+        "initial": "anyone"
+      },
+      {
+        "label": "询问有没有人，先分清人和物",
+        "before": "Did ",
+        "target": "anyone",
+        "after": " call while I was away?",
+        "choices": [
+          "anything",
+          "anyone"
+        ],
+        "reason": "本句问有没有人打来电话，用anyone指人。anything指东西，不符合给定的人物范围。",
+        "world": {
+          "kind": "logic",
+          "caption": "来电询问：想知道离开期间有没有人打过电话，不限定具体是谁。",
+          "cells": [
+            {
+              "label": "人 · 身份未确定",
+              "detail": "问有没有人"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "肯定有个人，但不知道是谁",
+        "before": "I think ",
+        "target": "someone",
+        "after": " left this note.",
+        "choices": [
+          "anyone",
+          "someone"
+        ],
+        "reason": "这里肯定有个人留下纸条，但不知道是谁，用someone。anyone不能按本题的意思代替这个已经发生的“某个人”。",
+        "world": {
+          "kind": "logic",
+          "caption": "纸条记录：有人留下了一张纸条，暂时不知道是谁。用some-词族表达这个人。",
+          "cells": [
+            {
+              "label": "某个人 · 不说明身份",
+              "detail": "肯定有一人"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对主语、所指和句意，再修改表达。",
+        "initial": "anyone"
+      }
+    ],
+    "choices": [
+      "are",
+      "is",
+      "something",
+      "nothing",
+      "anything",
+      "did not find nothing",
+      "did not find anything",
+      "anyone",
+      "useful something",
+      "something useful",
+      "new nothing",
+      "nothing new",
+      "anywhere",
+      "someone"
+    ],
+    "items": [
+      {
+        "id": "indefinite-editor",
+        "label": "所指、否定与范围",
+        "prompt": "从具体人物和盘点记录出发，判断每句话真正说了什么。",
+        "answer": "",
+        "reason": "",
+        "hint": "Everyone可以包括多人，却用单数谓语；nothing new只否定新的物品。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-indefinites-002",
+      "q-g-indefinites-003"
+    ],
+    "transfer": {
+      "id": "individual-g-indefinites-transfer",
+      "topicId": "g-indefinites",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "全部用品都准备好了；柜里有旧物品，但没有新东西。两空依次填什么？\nEverything ___ ready for the trip. We found ___ new in the cabinet.",
+      "options": [
+        {
+          "id": "a",
+          "text": "is; nothing"
+        },
+        {
+          "id": "b",
+          "text": "are; nothing"
+        },
+        {
+          "id": "c",
+          "text": "is; anything"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "is; nothing"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对不定代词的语法单复数，再看第二句否定的究竟是所有物品，还是新的物品。",
+        "steps": [
+          {
+            "text": "Everything作主语，按单数处理，用is。",
+            "reason": "即使指全部用品，也不能因此把谓语改成are。"
+          },
+          {
+            "text": "第二句用nothing new，表示没有找到新东西。",
+            "reason": "柜子里仍可有旧物品；nothing受new修饰，new放在后面。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "Everything语法上按单数处理，不能用are。"
+          },
+          {
+            "option": "c",
+            "reason": "给定记录说没有新东西，直接用nothing new；当前句子没有not，不能用anything表达这个否定意思。"
+          }
+        ],
+        "pitfall": "“全部”不一定用复数谓语，“没有新的”也不等于完全空着。",
+        "visual": {
+          "kind": "comparison",
+          "title": "分别核对语法和否定范围",
+          "segments": [
+            {
+              "text": "Everything → is",
+              "role": "evidence",
+              "note": "语法上按单数处理"
+            },
+            {
+              "text": "old items remain → nothing new",
+              "role": "evidence",
+              "note": "没有新物品，旧物品仍在"
+            }
+          ],
+          "caption": "先对上所指范围，再看词形和修饰位置。"
+        },
+        "transfer": "如果第二句改成We did not find ___ new，空格应用哪个词保持相同意思？"
+      }
+    }
+  }
+}

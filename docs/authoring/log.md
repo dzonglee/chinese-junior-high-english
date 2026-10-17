@@ -1080,3 +1080,16 @@ Current new lesson flow:10 conditions/30 task-width checks,reload and zero indep
 Cumulative291 conditions/873 widths;earlier flows retain scope. Hashes:checkpoint-33.*.
 Next:l-g-indefinites. A twelve-task indefinite-word draft stays outside course files. It selects all three team members forEveryone while retaining singular agreement,uses an inspected original empty-box/one-ball diptych with exact0/1 counters,contrasts some/any contexts and equivalent negative phrases,and separates nothing new from a completely empty inventory. The600-pixel derivative is18,592 bytes. Add a coded ball style and a partial-selection negative test for the all-member scene;inspect all controls before review credit. Overall claim continues solo;380 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-indefinites individually reviewed
+
+34/413 reviewed. Twelve tasks connect complete-team reference and singular agreement,exact0/1 inventories,equivalent negatives,some/any contexts,person/thing/place and adjective placement. Original box art supports actual inventory selection.
+
+All twelve models,narrow-phone figures,partial-team recovery,wrong0/1 records,physical ball counts,negative alternatives,phrase diagrams,applications and transfer steps were inspected. Replaced the misleading source-sentence label with source draft. Corrected a rendered apostrophe and narrow count-card word break. The full demonstrative flow was replayed after the count-card style change;no extra review credit. Grades8–9;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:12 conditions/36 task-width checks,reload and zero independent records. 1,476 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Development/cloud simulations and all245 topic hashes passed before the final apostrophe and narrow count-card style edits. Final compiler/typecheck/static checks,full indefinite+demonstrative browser flows,offline checks and verified archives passed afterward. No native GUI claim.
+
+Cumulative303 conditions/909 widths;earlier flows retain scope. Hashes:checkpoint-34.*.
+Next:l-g-question-words. Twelve question-word tasks are drafted outside course files. Reuse the class portrait for owner versus borrower and the empty/one-ball diptych for which versus what. Add coded three-book counting,whose versus who is,method/reason,time/place,and how many/much. Enforce only explicitly requested initial capitals in source applications;inspect every task before credit. Overall claim continues solo;379 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

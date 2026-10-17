@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-33 of413 lessons are individually reviewed;380 remain pending. Every lesson needs bespoke tasks,
+34 of413 lessons are individually reviewed;379 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-demonstratives. Ten tasks combine an original fixed-speaker near/far diptych,exact1/3-book figures,phrase tiles,short-answer pronouns and noun ellipsis. Per-response capitalization requirements now work in applications without making unrelated word-form answers strict. Case-only feedback identifies the actual error in guided and ordinary practice.
+Latest:l-g-indefinites. Twelve tasks connect complete-team reference and singular agreement,exact0/1 inventories,equivalent negatives,some/any contexts,person/thing/place and adjective placement. Original box art supports actual inventory selection.
 
-Original and600-pixel art,all ten models and narrow-phone figures,every wrong distance/count record,physical icon counts,capital errors,phrase diagrams,applications and both transfer steps were inspected. Mid-sentence hints no longer suggest sentence-initial capitals. The complete auxiliary flow was replayed after its capital requirement fix. A reserved spatial cue was clarified without exposing it in practice. Grades6–9 covered;reserved005–008 unexposed;zero independent records.
+All twelve models,narrow-phone figures,partial-team recovery,wrong0/1 records,physical ball counts,negative alternatives,phrase diagrams,applications and transfer steps were inspected. Replaced the misleading source-sentence label with source draft. Corrected a rendered apostrophe and narrow count-card word break. The full demonstrative flow was replayed after the count-card style change;no extra review credit. Grades8–9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint33 records the new flow/30 widths and current core,teaching,grammar,course,package,
+Checkpoint34 records the new flow/36 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The33 reviewed lessons cumulatively contain291 conditions/873 widths;
+recorded explicitly. The34 reviewed lessons cumulatively contain303 conditions/909 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-indefinites. A twelve-task indefinite-word draft stays outside course files. It selects all three team members forEveryone while retaining singular agreement,uses an inspected original empty-box/one-ball diptych with exact0/1 counters,contrasts some/any contexts and equivalent negative phrases,and separates nothing new from a completely empty inventory. The600-pixel derivative is18,592 bytes. Add a coded ball style and a partial-selection negative test for the all-member scene;inspect all controls before review credit.
+Next:l-g-question-words. Twelve question-word tasks are drafted outside course files. Reuse the class portrait for owner versus borrower and the empty/one-ball diptych for which versus what. Add coded three-book counting,whose versus who is,method/reason,time/place,and how many/much. Enforce only explicitly requested initial capitals in source applications;inspect every task before credit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved
