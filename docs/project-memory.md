@@ -4,15 +4,16 @@
 
 The owner requires every lesson to be upgraded one by one, with purposeful generated pictures.
 APP-VISUAL-LESSONS remains claimed by codex-solo on author/individual-lessons. The previous
-shared workshops are a baseline. **4/413** are individually reviewed: l-g-be, l-g-present,
-l-g-continuous and l-g-past. See docs/authoring/lesson-upgrades.md for exact evidence.
+shared workshops are a baseline. **5/413** are individually reviewed: l-g-be, l-g-present,
+l-g-continuous, l-g-past and l-g-future. See docs/authoring/lesson-upgrades.md for exact evidence.
 
 The lessons use real speaker/referent selection, coded habit records, observable action/predicate
 choices, live word edits and dated-event selection. Wrong answers remain visible and must be
-repaired. All four whole browser flows and 90 task-width combinations pass, with reload and no
+repaired. All five whole browser flows and 111 task-width combinations pass, with reload and no
 independent assessment records. All 1,451 core tests, typecheck, native development/cloud adapter
 simulations and static package checks pass. No new native GUI validation is claimed.
-Next: l-g-future, plans versus finished events and current evidence for future predictions.
+Future plans also contrasts finished events, promises, questions, going-to plans and current
+evidence for a future prediction. Next: l-g-perfect, past events and their present consequences.
 Work stays solo. Native project-drive access and approved audio remain separate; nothing is released.
 
 ## Previous local delivery · 2026-10-17

@@ -645,3 +645,16 @@ now-label alignment and added exact coded panel captions. All models/errors/appl
 were inspected. Full browser flow and 21 width checks pass, including alignment, reload and no
 assessment records. All 1,451 core tests, typecheck, native adapter simulations and package checks
 pass. Native GUI remains separate. Next l-g-future; the overall unit stays claimed and unfinished.
+
+
+## 2026-10-18 (Sydney) · codex-solo · future-plans lesson individually reviewed
+
+l-g-future is reviewed: 5/413. Seven authored tasks cover will/base, will be, won't/base,
+Will questions, be going to plans and present evidence for a future prediction. Reused original
+cleanup art establishes a completed prior event; coded records distinguish tomorrow's poster.
+The dark-cloud task requires current evidence, not last week's weather or a future umbrella plan.
+Question contexts retain uncertainty; no false will/going-to exclusivity is taught. All figures,
+wrong evidence and transfer were inspected. Full flow, 21 widths, reload/alignment and no assessment
+records pass; core 1,451 and typecheck pass, with final wording rechecked through the browser.
+Next l-g-perfect: original key-loss/resolution art is generated and inspected but not yet integrated.
+The unit remains unfinished and claimed; no native GUI or release approval is inferred.

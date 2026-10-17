@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **4 / 413**. Current: **l-g-future**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **5 / 413**. Current: **l-g-perfect**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -12,7 +12,7 @@ Completed: **4 / 413**. Current: **l-g-future**. Evidence lives in docs/reviews/
 | l-g-present | 日常习惯怎么说 | reviewed | [Habit review](../reviews/individual-lessons/l-g-present.md) |
 | l-g-continuous | 说清正在发生的事 | reviewed | [Ongoing-action review](../reviews/individual-lessons/l-g-continuous.md) |
 | l-g-past | 把过去的事情讲清楚 | reviewed | [Past-event review](../reviews/individual-lessons/l-g-past.md) |
-| l-g-future | 说出计划和将来的事 | pending | — |
+| l-g-future | 说出计划和将来的事 | reviewed | [Future-plans review](../reviews/individual-lessons/l-g-future.md) |
 | l-g-perfect | 从过去连到现在 | pending | — |
 | l-g-articles | a、an、the 怎么选 | pending | — |
 | l-g-comparison | 比较时先看范围 | pending | — |
