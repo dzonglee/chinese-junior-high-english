@@ -1,0 +1,728 @@
+{
+  "lessonId": "l-g-sentence-patterns",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Select complete subjects/objects and actual predicate/complement/adverbial roles word by word,distinguish linking verbs from action+object structures and prepositional objects,and repair missing predicates/full sentence order.",
+  "picturePurpose": "Actual sentence-word diagrams support selecting noninitial as well as initial constituents. The model text is explicitly a correct analysis example;the learner repairs a separate draft beneath it. No decorative image substitutes for syntax.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "圈出句子成分，再把骨架接完整",
+    "instruction": "逐词圈主语、谓语、宾语、表语或状语，再修复表达。不是每个动词后都必须有宾语。",
+    "conditions": [
+      {
+        "label": "先把完整主语圈出来",
+        "before": "The little girl ",
+        "target": "smiles",
+        "after": ".",
+        "choices": [
+          "smiling",
+          "smiles"
+        ],
+        "reason": "The little girl整体作主语，中心词girl单数。一般现在时肯定谓语用smiles；smiling单独不能作本句完整谓语。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "little",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "girl",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "smiles",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出整个主语，别漏修饰词（可多选）",
+            "ids": [
+              "0",
+              "1",
+              "2"
+            ],
+            "reason": "The little girl整体作主语，中心词girl单数。一般现在时肯定谓语用smiles；smiling单独不能作本句完整谓语。"
+          }
+        },
+        "input": true,
+        "initial": "smiling",
+        "inputHint": "先找句子成分，再检查谓语、词形和完整结构。"
+      },
+      {
+        "label": "动作承受者是宾语，不是主语",
+        "before": "Leo ",
+        "target": "carries",
+        "after": " a heavy box.",
+        "choices": [
+          "carry",
+          "carries"
+        ],
+        "reason": "a heavy box整体作carries的宾语；主语仍是Leo。一般现在时单数主语的肯定谓语用carries。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "carries",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "a",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "heavy",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "box",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出carries后完整的宾语（可多选）",
+            "ids": [
+              "2",
+              "3",
+              "4"
+            ],
+            "reason": "a heavy box整体作carries的宾语；主语仍是Leo。一般现在时单数主语的肯定谓语用carries。"
+          }
+        }
+      },
+      {
+        "label": "谓语要是完整动词，不能只留ing",
+        "before": "Two birds ",
+        "target": "fly",
+        "after": " high.",
+        "choices": [
+          "flying",
+          "fly"
+        ],
+        "reason": "fly是本句谓语动词，主语Two birds复数，用fly。high修饰飞行，不是名词宾语；flying单独不能替代本句谓语。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Two",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "birds",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "fly",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "high",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "只圈出本句谓语动词（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "fly是本句谓语动词，主语Two birds复数，用fly。high修饰飞行，不是名词宾语；flying单独不能替代本句谓语。"
+          }
+        },
+        "input": true,
+        "initial": "flying",
+        "inputHint": "先找句子成分，再检查谓语、词形和完整结构。"
+      },
+      {
+        "label": "系动词后的表语说明主语状态",
+        "before": "The soup smells ",
+        "target": "fresh",
+        "after": ".",
+        "choices": [
+          "freshly",
+          "fresh"
+        ],
+        "reason": "fresh作表语，说明汤闻起来新鲜。smells在这里作系动词，后接形容词fresh，不用副词freshly。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "soup",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "smells",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "fresh",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出说明汤的状态的表语（可多选）",
+            "ids": [
+              "3"
+            ],
+            "reason": "fresh作表语，说明汤闻起来新鲜。smells在这里作系动词，后接形容词fresh，不用副词freshly。"
+          }
+        },
+        "input": true,
+        "initial": "freshly",
+        "inputHint": "先找句子成分，再检查谓语、词形和完整结构。"
+      },
+      {
+        "label": "名词短语也可以作表语",
+        "before": "Leo ",
+        "target": "is",
+        "after": " our guide.",
+        "choices": [
+          "does",
+          "is"
+        ],
+        "reason": "our guide说明Leo的身份，是表语；本句用is连接主语和表语。does不能直接代替is表示这个身份。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "is",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "our",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "guide",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出说明Leo身份的表语（可多选）",
+            "ids": [
+              "2",
+              "3"
+            ],
+            "reason": "our guide说明Leo的身份，是表语；本句用is连接主语和表语。does不能直接代替is表示这个身份。"
+          }
+        }
+      },
+      {
+        "label": "宾语是动作指向的事物",
+        "before": "Mia ",
+        "target": "opens",
+        "after": " the box.",
+        "choices": [
+          "open",
+          "opens"
+        ],
+        "reason": "the box是opens指向的宾语，不是用来说明Mia身份或状态的表语。主语Mia单数，用opens。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Mia",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "opens",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "box",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出opens的整个宾语（可多选）",
+            "ids": [
+              "2",
+              "3"
+            ],
+            "reason": "the box是opens指向的宾语，不是用来说明Mia身份或状态的表语。主语Mia单数，用opens。"
+          }
+        }
+      },
+      {
+        "label": "看地图要有at，地图是介词的宾语",
+        "before": "Leo ",
+        "target": "looked at",
+        "after": " the map.",
+        "choices": [
+          "looked",
+          "looked at"
+        ],
+        "reason": "at the map是介词短语，the map是at的宾语。表示看地图用looked at，不能漏掉at把look当作直接接宾语的动词。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "looked",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "at",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "map",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出at开头的整个介词短语（可多选）",
+            "ids": [
+              "2",
+              "3",
+              "4"
+            ],
+            "reason": "at the map是介词短语，the map是at的宾语。表示看地图用looked at，不能漏掉at把look当作直接接宾语的动词。"
+          }
+        },
+        "input": true,
+        "initial": "looked",
+        "inputHint": "先找句子成分，再检查谓语、词形和完整结构。"
+      },
+      {
+        "label": "换成描述样子，look不再接at",
+        "before": "Leo ",
+        "target": "looked",
+        "after": " tired.",
+        "choices": [
+          "looked at",
+          "looked"
+        ],
+        "reason": "tired是形容词表语，说明Leo看起来累，looked是系动词。looked at表示看某个对象，不能在本句直接接tired。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "looked",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "tired",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出说明Leo样子的表语（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "tired是形容词表语，说明Leo看起来累，looked是系动词。looked at表示看某个对象，不能在本句直接接tired。"
+          }
+        }
+      },
+      {
+        "label": "说明怎么走的词是状语，不是宾语",
+        "before": "Amy walks ",
+        "target": "quietly",
+        "after": ".",
+        "choices": [
+          "quiet",
+          "quietly"
+        ],
+        "reason": "quietly修饰walks，说明走路方式，是状语，不是宾语。quiet是形容词，不能直接按本句意思修饰动作。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Amy",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "walks",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "quietly",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出说明走路方式的状语（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "quietly修饰walks，说明走路方式，是状语，不是宾语。quiet是形容词，不能直接按本句意思修饰动作。"
+          }
+        },
+        "input": true,
+        "initial": "quiet",
+        "inputHint": "先找句子成分，再检查谓语、词形和完整结构。"
+      },
+      {
+        "label": "主谓宾按句子顺序连接",
+        "before": "",
+        "target": "The children read a story",
+        "after": ".",
+        "choices": [
+          "The children a story read",
+          "The children read a story"
+        ],
+        "reason": "The children是主语，read是谓语，a story是宾语；陈述句按这个顺序连接，不能把宾语放到read前。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "children",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "read",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "a",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "story",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出read后的整个宾语（可多选）",
+            "ids": [
+              "3",
+              "4"
+            ],
+            "reason": "The children是主语，read是谓语，a story是宾语；陈述句按这个顺序连接，不能把宾语放到read前。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "The",
+          "children",
+          "a",
+          "story",
+          "read"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "有主语和宾语，还必须补上谓语",
+        "before": "",
+        "target": "The children clean the desks",
+        "after": ".",
+        "choices": [
+          "The children the desks",
+          "The children clean the desks"
+        ],
+        "reason": "The children是主语，the desks是宾语，clean是谓语。原稿只有两个名词短语，缺了谓语动词，不能算完整陈述句。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "children",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "clean",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "desks",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "只圈出把主语与宾语连接起来的谓语动词（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "The children是主语，the desks是宾语，clean是谓语。原稿只有两个名词短语，缺了谓语动词，不能算完整陈述句。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "children",
+          "the",
+          "desks",
+          "clean",
+          "The"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "主谓结构不一定需要宾语",
+        "before": "",
+        "target": "The baby slept",
+        "after": ".",
+        "choices": [
+          "The baby sleepy",
+          "The baby slept"
+        ],
+        "reason": "slept是过去式谓语，主谓结构已经完整，不必硬添宾语。sleepy是形容词，单独放在主语后不能替代这个谓语。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整句子，再修好下面的表达。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "baby",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "slept",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "只圈出本句完整谓语（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "slept是过去式谓语，主谓结构已经完整，不必硬添宾语。sleepy是形容词，单独放在主语后不能替代这个谓语。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "sleepy",
+          "baby",
+          "slept",
+          "The"
+        ],
+        "caseSensitive": true
+      }
+    ],
+    "choices": [
+      "smiling",
+      "smiles",
+      "carry",
+      "carries",
+      "flying",
+      "fly",
+      "freshly",
+      "fresh",
+      "does",
+      "is",
+      "open",
+      "opens",
+      "looked",
+      "looked at",
+      "quiet",
+      "quietly",
+      "The children a story read",
+      "The children read a story",
+      "The children the desks",
+      "The children clean the desks",
+      "The baby sleepy",
+      "The baby slept"
+    ],
+    "items": [
+      {
+        "id": "sentence-skeleton-editor",
+        "label": "成分与骨架",
+        "prompt": "先确定每一部分的作用，再把表达改完整。",
+        "answer": "",
+        "reason": "",
+        "hint": "主语说谁，谓语说做什么；表语说明主语，宾语承受动作。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-sentence-patterns-002",
+      "q-g-sentence-patterns-003"
+    ],
+    "transfer": {
+      "id": "individual-g-sentence-patterns-transfer",
+      "topicId": "g-sentence-patterns",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "读两句完整的话：The milk smells good. Amy cleaned the cups.\n对good和the cups的成分分析，哪项正确？",
+      "options": [
+        {
+          "id": "a",
+          "text": "good是说明牛奶状态的表语；the cups是cleaned的宾语。"
+        },
+        {
+          "id": "b",
+          "text": "good是smells的宾语；the cups是Amy的表语。"
+        },
+        {
+          "id": "c",
+          "text": "good与the cups都是句子的主语。"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "good是表语；the cups是宾语。"
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找主语和谓语，再看后面的部分是在说明主语，还是承受动作。",
+        "steps": [
+          {
+            "text": "第一句主语是The milk，smells在这里是系动词，good说明牛奶的状态。",
+            "reason": "good是形容词表语，不是被闻的宾语。"
+          },
+          {
+            "text": "第二句主语Amy做了cleaned这个动作，the cups是动作指向的事物。",
+            "reason": "the cups作宾语，不是在说明Amy的身份或状态。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把系表关系与动作宾语关系颠倒了；cups不是Amy的身份或状态。"
+          },
+          {
+            "option": "c",
+            "reason": "两句的主语分别是The milk和Amy，不是空后或动词后的成分。"
+          }
+        ],
+        "pitfall": "不要把动词后面的词都叫宾语；先区分系动词和实义动作。",
+        "visual": {
+          "kind": "comparison",
+          "title": "表语说明主语，宾语承受动作",
+          "segments": [
+            {
+              "text": "The milk | smells | good",
+              "role": "evidence",
+              "note": "主语—系动词—表语"
+            },
+            {
+              "text": "Amy | cleaned | the cups",
+              "role": "evidence",
+              "note": "主语—谓语—宾语"
+            }
+          ],
+          "caption": "同在动词后，句法作用可以不同。"
+        },
+        "transfer": "如果第一句变成Amy smelled the milk，the milk在新句中是什么成分？"
+      }
+    }
+  }
+}

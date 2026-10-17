@@ -1236,3 +1236,16 @@ Current new lesson flow:13 conditions/39 task-width checks,reload and zero indep
 Cumulative441 conditions/1323 widths;earlier flows retain scope. Hashes:checkpoint-45.*.
 Next:l-g-sentence-patterns. A twelve-task sentence-pattern draft remains outside course files. Use the word selector to identify whole subjects/objects and noninitial predicates,complements and adverbials. Analyze an explicitly correct model before repairing a separate draft;distinguish prepositional objects,linking predicates and missing verbs. Inspect all new boundaries and forms before credit. Overall claim continues solo;368 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-sentence-patterns individually reviewed
+
+46/413 reviewed. Twelve sentence-role tasks require whole subjects/objects and noninitial predicates,complements,adverbials or prepositional phrases before repairing a separate draft. Full-sentence tiles repair missing verbs and object order.
+
+Inspected all twelve models,narrow-phone figures,all wrong roles,incomplete/removed phrases,typed/full-sentence repairs,removal/reload and every application/transfer step. Correct analysis examples are explicitly separate from attempted drafts. Grades7–9;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:12 conditions/36 task-width checks,reload and zero independent records. Retained shared-engine coverage:1,480 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,9 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Current development/cloud simulations passed,including all245 packed hashes and artwork readiness,failure and successful retry. These are not native GUI evidence. Core scope:Retained checkpoint45 coverage:1480 tests/14 files before this data-only lesson. Shared engine/UI is unchanged;the full core suite was not rerun. Current compiler/typecheck/teaching/grammar/course/interaction/package,complete browser,native-adapter,nine offline and archive checks cover the new data.
+
+Cumulative453 conditions/1359 widths;earlier flows retain scope. Hashes:checkpoint-46.*.
+Next:l-g-double-objects. Fifteen double-object tasks are drafted outside course files. Original giving-direction art and600-pixel delivery are inspected. Two first-person accounts require opposite picture selections;then learners identify recipients/beneficiaries,assemble both word orders,distinguish to/for and avoid the explain double-object error. Add registered provenance and inspect phone figures before credit. Overall claim continues solo;367 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.
