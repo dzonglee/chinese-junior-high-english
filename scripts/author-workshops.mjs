@@ -74,6 +74,19 @@ labs['g-infinitives'].title='换动词，检查后面的形式'
 worlds['g-adjectives'][1]=world('syntax','同样安静，把形容词放到系动词后',cell('The room','主语'),cell('is','系动词'),cell('quiet','说明主语的性质'))
 labs['g-conditionals'].states[1]=['如果不下雨',"If it doesn't rain tomorrow, we |will play| outside.",'条件改变了，结果也改变了；if 从句仍用一般现在时，主句用 will 加原形。']
 labs['g-time-clauses'].states[1]=['在离开之前','I will call you before she |leaves|.','谈将来的时间从句，before 后仍用一般现在时 leaves，不用 will leave。']
+worlds['g-question-words'][0].cells[0].uncertain=true;worlds['g-question-words'][1]=world('roles','要询问一本书的价格，金额还不知道',cell('price ?','需要询问多少钱'));
+// Review corrections: make the requested meaning/structure explicit where both forms are grammatical.
+labs['g-future'].states[1]=['下周（按要求用 will）','We |will meet| next Sunday.','本次要求用 will 表达刚作的决定：will 后接 meet。一般现在时也能表示有安排的将来，不能只见 next 就断言其他结构全错。']
+worlds['g-future'][1].caption='刚决定下周日见面，本次用 will 表达这个决定'
+labs['g-perfect'].states[0]=['当前结果（补全 has 后的形式）','She has |written| the note.','has 后需要过去分词 written；wrote 是过去式，不能直接跟在 has 后。']
+labs['g-conditionals'].states=[['如果下雨','If it |rains| tomorrow, we will stay inside.','本次谈将来的条件，if 从句用一般现在时 rains，主句用 will stay。'],['如果不下雨',"If it |doesn't rain| tomorrow, we will play outside.",'条件从有雨改为无雨，结果改为外出活动。if 从句用一般现在时的否定式，不用 will。']]
+labs['g-time-clauses'].states[0]=['到达以后','When she |arrives|, I will call you.','本次谈将来的时间，when 从句用一般现在时 arrives，主句用 will call。']
+worlds['g-articles'].forEach(w=>w.kind='syntax');labs['g-articles'].states[0][0]='初次泛指：元音开头';labs['g-articles'].states[1][0]='初次泛指：辅音开头';worlds['g-articles'].forEach(w=>w.caption='第一次泛指一张地图，按开头的音素选不定冠词')
+labs['g-transitivity'].states[0][0]='按要求用 reach';labs['g-transitivity'].states[1][0]='按要求用 arrive';labs['g-transitivity'].states[1][2]='这次要求用 arrive 改写，arrive 与小地点搭配常用 at。reached the museum 也合语法，但没有完成这次指定动词的改写。'
+labs['g-reflexives'].states[1][0]='她教另一个男孩';worlds['g-reflexives'][1].caption='她教的是另一个男孩，不是她本人'
+labs['g-demonstratives'].title='距离不变，只改变数量'
+labs['g-indefinites'].states[0][0]='找到了一些有用的东西';labs['g-indefinites'].states[1][0]='没找到任何有用的东西';worlds['g-indefinites'][1].caption='要表达完全没有找到任何有用的东西';labs['g-indefinites'].states[1][2]='本次要表达“任何有用的东西都没找到”，用 anything useful；形容词仍放在不定代词后。'
+labs['g-reason-purpose'].states[0][0]='用 because 接从句';labs['g-reason-purpose'].states[1][0]='用 because of 接名词短语';labs['g-reason-purpose'].states[1][2]='这次要求用 because of，后面接 the rain 这个名词短语。because it rained 也能表达同一原因，但不是这次指定的结构。'
 const usageMaps={
  borrow:{left:'对方（you）',right:'我（I）',object:'ruler',caption:'尺子原本属于对方，现在交给我短时使用。试着写 borrow 或 lend，看方向。',alternatives:{borrow:'right',lend:'left'}},
  lend:{left:'你（you）',right:'我（me）',object:'pencil',caption:'铅笔原本属于你。题目请求你暂时交给我使用。试着写 lend 或 borrow，看方向。',alternatives:{lend:'right',borrow:'left'}},
@@ -81,19 +94,20 @@ const usageMaps={
  bring:{left:'出发的地方',right:'说话者所在的讨论现场',object:'notes',caption:'在这个示意情境中，说话者已在讨论现场，希望笔记朝这里来。',alternatives:{bring:'right',take:'left'}},
  take:{left:'出发地',right:'步行途中',object:'water',caption:'从出发地带走一瓶水，去步行途中使用。',alternatives:{take:'right',bring:'left'}}
 }
+const proofReasons=JSON.parse(readFileSync('content/teaching/proof-reasons.json','utf8'))
 const records={}
 for(const l of c.lessons){
  const s=createLessonTeaching(c,l),qs=l.questionIds.map(id=>c.questions.find(q=>q.id===id)),items=[];let w
  if(s.mode==='language'){
   const lab=labs[l.topicId],conditions=lab.states.map(([label,line,reason],i)=>{const[before,target,after]=line.split('|');return{label,before,target,after,reason,world:worlds[l.topicId][i]}})
-  const extra={ 'g-be':'am','g-present':'walking','g-continuous':'reading','g-past':'visiting','g-future':'met','g-perfect':'has wrote','g-past-continuous':'were reading','g-passive':'was clean','g-modals':'can to swim','g-infinitives':'read','g-gerunds':'read','g-comparison':'more light','g-articles':'the','g-pronouns':'hers','g-prepositions':'at','g-conjunctions':'because','g-conditionals':'will rains','g-relatives':'where','g-object-clauses':'where is the library','g-questions':'Do','g-nouns':'childs','g-agreement':'be','g-proper-nouns':'beijing','g-possessives':'girls','g-verb-forms':'goed','g-transitivity':'arrived','g-linking-verbs':'good','g-auxiliaries':"doesn't likes",'g-adjectives':'quietly','g-adverbs':'carefuly','g-adverb-comparison':'quicklier','g-reflexives':'her','g-demonstratives':'Those','g-indefinites':'useful something','g-question-words':'How old','g-cardinals':'two hundreds','g-ordinals':'twoth','g-compounds':'coat rain','g-derivation':'kindly','g-conversion':'booking','g-contractions':'does','g-statements':"didn't played",'g-alternative-questions':'Yes, tea or coffee.','g-imperatives':"Doesn't open",'g-exclamations':'What beautiful','g-sentence-patterns':'held','g-double-objects':'at','g-object-complements':'blue the door','g-there-be':'There has','g-future-passive':'will built','g-participles':'breaking','g-time-clauses':'will leave','g-reason-purpose':'because of it rained','g-concession':'Although it rained, but','g-interjections':'Goodbye!'}[l.topicId]
+  const extra={ 'g-be':'am','g-present':'walking','g-continuous':'reading','g-past':'visiting','g-future':'met','g-perfect':'write','g-past-continuous':'were reading','g-passive':'was clean','g-modals':'can to swim','g-infinitives':'read','g-gerunds':'read','g-comparison':'more light','g-articles':'the','g-pronouns':'hers','g-prepositions':'at','g-conjunctions':'because','g-conditionals':'will rain','g-relatives':'where','g-object-clauses':'where is the library','g-questions':'Do','g-nouns':'childs','g-agreement':'be','g-proper-nouns':'beijing','g-possessives':'girls','g-verb-forms':'goed','g-transitivity':'arrived','g-linking-verbs':'good','g-auxiliaries':"doesn't likes",'g-adjectives':'quietly','g-adverbs':'carefuly','g-adverb-comparison':'quicklier','g-reflexives':'her','g-demonstratives':'Those','g-indefinites':'useful something','g-question-words':'How old','g-cardinals':'two hundreds','g-ordinals':'twoth','g-compounds':'coat rain','g-derivation':'kind','g-conversion':'booked','g-contractions':'does','g-statements':"didn't played",'g-alternative-questions':'Yes, tea or coffee.','g-imperatives':"Doesn't open",'g-exclamations':'What beautiful','g-sentence-patterns':'held','g-double-objects':'at','g-object-complements':'blue the door','g-there-be':'There has','g-future-passive':'will built','g-participles':'breaking','g-time-clauses':'will leave','g-reason-purpose':'because of it rained','g-concession':'Although it rained, but','g-interjections':'Goodbye!'}[l.topicId]
   w={kind:'transform',title:lab.title,instruction:'改变一个条件，再把合适的表达放进句子。每个条件都试一次，留意英语跟着怎样变。',conditions,choices:[...new Set([conditions[1].target,extra,conditions[0].target])],items:[{id:'transform',label:lab.title,prompt:s.coaching.task,answer:'',reason:'',hint:s.coaching.check}]}
  }else if(s.mode==='vocabulary'){
   const words=c.vocabulary.filter(v=>qs.some(q=>q.id===`q-${v.topicId}-${v.id.slice(5)}`))
   for(const v of words){const q=qs.find(q=>q.id===`q-${v.topicId}-${v.id.slice(5)}`),line=q.stem.split('\n').find(x=>/_+/.test(x)),[before,after]=line.replace(/[A-Za-z]*_+/,'___').split('___'),answer=before.trim()?v.word:v.word[0].toUpperCase()+v.word.slice(1);items.push({...(usageMaps[v.word]?{usage:usageMaps[v.word]}:{}),id:v.id,label:v.meaning,prompt:'遮住词表，根据句意写词，再把这个词用到你自己的生活里。',answer,caseSensitive:!before.trim()||/[A-Z]/.test(v.word),meaning:v.meaning,before,after,reason:v.explanation,hint:`需要 ${v.word.length} 个字符；首字母是 ${answer[0]}。`,material:v.example})}
   w={kind:'word-use',title:'词语实验室',instruction:'先回忆，再造句。词义、搭配和自己的表达连在一起记。',items}
  }else if(s.mode==='reading'||s.mode==='transcript'){
-  for(const q of [s.prediction]){const evidence=sourceEvidence(q),options=evidence.map(e=>({id:e.id,text:e.text,correct:e.supports,reason:e.supports?`${q.explanation.steps[0].text} ${q.explanation.steps[0].reason}`:`这句没有回答“${q.stem}”。对照关键线索：${q.explanation.visual.segments.filter(x=>x.role==='evidence').map(x=>x.text).join('；')}。${q.explanation.pitfall}`}));items.push({id:q.id,label:'证据链 '+(items.length+1),prompt:q.stem,answer:q.answer.display,reason:q.explanation.steps[0].text+' '+q.explanation.steps[0].reason,hint:q.explanation.pitfall,options,material:q.passage})}
+  for(const q of [s.prediction]){const reason=proofReasons[l.id];if(!reason)throw Error(`Missing authored proof explanation: ${l.id}`);const evidence=sourceEvidence(q),options=evidence.map(e=>({id:e.id,text:e.text,correct:e.supports,reason:e.supports?reason:`这句还不能回答“${q.stem}”。${reason}`}));items.push({id:q.id,label:'证据链 '+(items.length+1),prompt:q.stem,evidenceGroups:options.filter(o=>o.correct).map(o=>[o.id]),answer:q.answer.display,reason,hint:q.explanation.pitfall,options,material:q.passage})}
   w={kind:'proof',title:s.mode==='transcript'?'把文字线索连成判断':'从原文走到结论',instruction:'先选依据，再推结论。选中的原句会保留在证据链上，可以比较、改选。',items}
  }else if(s.mode==='communication'){
   s.revisionRubric.filter(r=>!/^核对|^检查.*(?:称呼|署名)|^实际朗读/.test(r.label)).map(r=>({...r,label:r.label.replace(/，并核对.*/,'')})).forEach((r,i)=>items.push({id:r.id,label:r.label,prompt:`这个要点，你准备说什么？\n${r.label}`,answer:'',reason:'已保存你的表达计划。下一步对照参考表达，检查并修改自己的稿子。',hint:'用自己的具体细节，不必套参考句。',material:s.prediction.stem}))
@@ -101,15 +115,15 @@ for(const l of c.lessons){
  }else{
   const designs={
    'p-letter-sound':[['在 bag 前标一个开头辅音','bag','/b/','/biː/','字母名称 /biː/ 多了元音；bag 开头需要辅音 /b/。']],
-   'p-vowels':[['把 ship 改成 sheep：中间元音怎样变？','sh ___ p','/iː/','/ɪ/','sheep 通常用 /iː/，ship 通常用 /ɪ/。拼写和音标要一起核对。']],
-   'p-consonants':[['从 thin 换成 this：开头用哪个音？','___ is','/ð/','/θ/','this 的 th 通常为浊辅音 /ð/；thin 的 th 通常为清辅音 /θ/。']],
+   'p-vowels':[['把 ship 改成 sheep：中间元音怎样变？','ship → sheep','/iː/','/ɪ/','sheep 通常用 /iː/，ship 通常用 /ɪ/。拼写和音标要一起核对。']],
+   'p-consonants':[['从 thin 换成 this：开头用哪个音？','thin → this','/ð/','/θ/','this 的 th 通常为浊辅音 /ð/；thin 的 th 通常为清辅音 /θ/。']],
    'p-word-stress':[['点亮 banana 的主要重音','ba · na · na','第二音节','第一音节','banana 的主要重音在第二音节：ba-NA-na。']],
    'p-sentence-stress':[['有人问“谁买的？”应突出哪个词？','I bought the book.','I','book','要对比买书的人，应突出 I；突出 book 会转向对比买了什么。']],
    'p-thought-groups':[['把 After lunch 保留成完整时间意群，在哪里停？','After lunch we will practise in the hall.','After lunch / we will practise in the hall.','After / lunch we will practise in the hall.','本题要求保留 After lunch 这个完整时间短语；在 lunch 后标出边界。']],
    'p-connected-speech':[['把逐词分隔改成连接标注','pick / it / up','pick‿it‿up','pick / it / up','这里用连接号标出末辅音与后续首元音的连接，不是把词逐个隔开。']],
    'p-intonation':[['中性地问对方是否准备好，句末怎样走？','Are you ready?','↗','↘','本题的中性一般疑问用上升曲线示意等待回答；真实语境还会影响语调。']]
   }
-  for(const[prompt,line,good,bad,reason]of designs[l.topicId])items.push({id:'sound-build',label:'改一个标记',prompt,before:line,answer:good,reason,hint:s.sorting.note,options:[{id:'bad',text:bad,correct:false,reason},{id:'good',text:good,correct:true,reason}]})
+  for(const[prompt,line,good,bad,reason]of designs[l.topicId])items.push({sound:({'p-word-stress':'syllables','p-sentence-stress':'emphasis','p-thought-groups':'groups','p-connected-speech':'links','p-intonation':'pitch'})[l.topicId]??'phoneme',id:'sound-build',label:'改一个标记',prompt,before:line,answer:good,reason,hint:s.sorting.note,options:[{id:'bad',text:bad,correct:false,reason},{id:'good',text:good,correct:true,reason}]})
   w={kind:'sound-map',title:'让声音标记表达意思',instruction:'亲手改一处标记，再看它表达了什么。这里只练书面规律，不测实际听辨或发音。',items}
  }
  records[l.id]=w

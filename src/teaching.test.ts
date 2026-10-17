@@ -36,6 +36,8 @@ it.each(source.lessons)('completes the real checked-pack five-phase studio for $
  const s=a.render().teaching!.lesson
  expect(teachingProblems(s,lesson)).toEqual([])
  expect(s.transfer.id).not.toBe(s.prediction.id)
+ expect(s.cases.some(q=>q.id===s.transfer.id)).toBe(false)
+ expect(a.render().teaching!.mission!.open).toBe(false)
  expect(s.exposedIds).toEqual(lesson.questionIds)
  expect(s.exposedIds.some(id=>lesson.delayedQuestionIds.includes(id))).toBe(false)
  await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(0)
@@ -49,7 +51,7 @@ it.each(source.lessons)('completes the real checked-pack five-phase studio for $
   await a.action('studio-workshop-item',String(i));const item=w.items[w.kind==='transform'?0:i]
   if(w.kind==='compose'){await a.action('studio-workshop-check');expect(a.render().teaching!.workshop!.complete).toBe(false);a.setField('studioWorkshopOwn','This is my own specific detail for this part.');await a.action('studio-workshop-check')}
   else if(w.kind==='word-use'){a.setField('studioWorkshopInput','deliberately-wrong');await a.action('studio-workshop-check');expect(a.render().teaching!.workshop!.correct).toBe(false);a.setField('studioWorkshopInput',item.answer);await a.action('studio-workshop-check');await a.action('studio-workshop-save');expect(a.render().teaching!.workshop!.complete).toBe(false);a.setField('studioWorkshopOwn',`I use ${item.answer} in my own example today.`);await a.action('studio-workshop-save')}
-  else {const good=w.kind==='transform'?w.conditions![i].target:item.options!.find(o=>o.correct)!.id;const bad=a.render().teaching!.workshop!.choices.find(o=>o.id!==good)!.id;await a.action('studio-workshop-choose',bad);await a.action('studio-workshop-check');expect(a.render().teaching!.workshop!.correct).toBe(false);await a.action('studio-workshop-choose',good);await a.action('studio-workshop-check');if(w.kind==='proof'){a.setField('studioWorkshopOwn','这条线索说明了题目所问的行动和原因。');await a.action('studio-workshop-save')}}
+  else {const good=w.kind==='transform'?w.conditions![i].target:item.options!.find(o=>o.correct)!.id;const bad=a.render().teaching!.workshop!.choices.find(o=>o.id!==good)!.id;await a.action('studio-workshop-choose',bad);await a.action('studio-workshop-check');expect(a.render().teaching!.workshop!.correct).toBe(false);await a.action('studio-workshop-choose',good);await a.action('studio-workshop-check');if(w.kind==='proof'){for(const o of item.options!.filter(o=>o.correct&&o.id!==good)){await a.action('studio-workshop-choose',o.id);await a.action('studio-workshop-check')}a.setField('studioWorkshopOwn','这条线索说明了题目所问的行动和原因。');await a.action('studio-workshop-save')}}
   expect(a.render().teaching!.workshop!.complete,`${lesson.id}/${i}`).toBe(true)
  }
  await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(2)
@@ -61,7 +63,7 @@ it.each(source.lessons)('completes the real checked-pack five-phase studio for $
   await a.action('studio-review');expect(a.render().teaching!.progress.checked.revision).toBe(true)
  }else if(s.evidence.length){for(const[i]of s.cases.entries()){await a.action('studio-case',String(i));const e=a.render().teaching!.evidenceItems,wrong=e.find(e=>!e.supports);if(wrong){await a.action('studio-evidence',wrong.id);expect(a.render().teaching!.correct).toBe(false)}await a.action('studio-evidence',e.find(e=>e.supports)!.id);await a.action('studio-answer',answer(s.cases[i]));await a.action('studio-check')}}
  else for(const [i,q] of s.cases.slice(0,s.mode==='vocabulary'?s.cases.length:2).entries()){
-  await a.action('studio-case',String(i));await a.action('studio-answer',answer(q));await a.action('studio-check');expect(a.render().teaching!.correct,q.id).toBe(true)
+  await a.action('studio-case',String(i));await a.action('studio-answer',s.mode==='vocabulary'?`I can use ${s.mission!.workshop!.items[i].answer} in a different example today.`:answer(q));if(s.mode==='vocabulary')await a.action('studio-word-review');await a.action('studio-check');expect(a.render().teaching!.correct,q.id).toBe(true)
  }
  const backup=h.store.export(),restored=checkedState(backup,h.catalog,Date.now())
  expect(restored.teaching![s.id].step).toBe(2)

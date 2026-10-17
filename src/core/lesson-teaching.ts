@@ -1,4 +1,4 @@
-import {vocabularyTransfer,productionReady} from './teaching-production'
+import {vocabularyTransfer,productionReady,containsTerm} from './teaching-production'
 import {changeWorkshop,workshopView,workshopProblems} from './lesson-workshop'
 import {changeMission, editionMission, type VisualMission} from './visual-mission'
 import { phoneticSorting, type PhoneticSorting } from './phonetic-sorting'
@@ -39,7 +39,7 @@ function assembly(id:string,title:string,prompt:string,texts:string[],kind:Teach
   const original=texts.map(tile), shuffled=original.length>1?[...original.slice(1).reverse(),original[0]]:original
   return{id,title,prompt,tiles:shuffled,target:original.map(t=>t.id),kind,explanation}
 }
-function normalizeEvidence(text:string){return normalizedAnswer(text).replace(/〔[^〕]*〕\s*_*/g,' ').replace(/\[\[\d+\]\]/g,' ').replace(/\s+/g,' ').trim()}
+function normalizeEvidence(text:string){return normalizedAnswer(text).replace(/(?:〔[^〕]*〕|\[(?:\d+|本空|第\s*\d+\s*空)\])\s*_*/g,' ').replace(/\[\[\d+\]\]/g,' ').replace(/\s+/g,' ').trim()}
 export function sourceEvidence(q:Question):TeachingEvidence[]{
   const exact=evidenceSentences(q)
   if(exact.length)return exact.map(s=>({id:s.id,text:s.text,supports:s.matched}))
@@ -64,6 +64,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   const first=communication?qs.find(q=>q.kind==='writing'||q.kind==='speaking')!:qs[0]
   let transfer=communication?qs.find(q=>q.id!==first.id&&(q.kind==='writing'||q.kind==='speaking'))??editionQuestion(communicationTransfer(first),spelling):qs[qs.length-1]!
   let cases=qs.filter(q=>q.id!==transfer.id&&q.kind!=='writing'&&q.kind!=='speaking').slice(0,['vocabulary','reading','transcript'].includes(mode)?qs.length:3)
+  if(mode==='vocabulary')cases=cases.slice(0,2)
   if(mode==='reading'||mode==='transcript')cases=cases.filter(q=>sourceEvidence(q).some(e=>e.supports))
   const base=lesson.examCoaching??{task:topic.title,check:topic.commonError}
   const coaching={...base,task:editionText(base.task,spelling),check:editionText(base.check,spelling)}
@@ -127,6 +128,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
     }else{const q=qs.find(q=>q.id!==transfer.id&&q.options&&choiceFor(q).prompt!==diagnosis.prompt);if(q)diagnoses.push(choiceFor(q))}
   }
   diagnosis=diagnoses[0]
+  if(mode==='vocabulary')cases=cases.slice(0,2)
   if(mode==='reading'||mode==='transcript')cases=cases.filter(q=>q.id!==first.id)
   const visualMission=originalMission
   const studio:LessonTeaching={...(visualMission?{mission:editionMission(visualMission,spelling)}:{}),...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
@@ -160,10 +162,12 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   const mark=(key:string)=>{if(!p.completed.includes(key))p.completed.push(key)}
   if(action.startsWith('mission-')&&s.mission){changeMission(s.mission,p,action.slice(8),value);return p}
   if(action.startsWith('workshop-')&&s.mission?.workshop&&p.step===1){changeWorkshop(s.mission.workshop,p,action.slice(9),value);return p}
+  if(action==='previous'&&p.step>0){p.step--;p.caseIndex=0;p.order=[];return p}
   if(action==='reset')return freshTeaching(s,now)
-  if((action==='response-add'||action==='response-remove')){const q=teachingAnswer(s,p),key=`step-${p.step}-${p.caseIndex}`;let ids:string[]=[];try{ids=JSON.parse(p.answers[key]??'[]')}catch{};if(action==='response-add'&&q.tokens?.some(t=>t.id===value)&&!ids.includes(value))ids.push(value);if(action==='response-remove')ids=ids.filter(id=>id!==value);p.answers[key]=JSON.stringify(ids);delete p.checked[key];return p}
+  if((action==='response-add'||action==='response-remove')){const q=teachingAnswer(s,p),key=`step-${p.step}-${p.caseIndex}`;p.completed=p.completed.filter(k=>k!==(p.step===4?'transfer':`case-${q.id}`));let ids:string[]=[];try{ids=JSON.parse(p.answers[key]??'[]')}catch{};if(action==='response-add'&&q.tokens?.some(t=>t.id===value)&&!ids.includes(value))ids.push(value);if(action==='response-remove')ids=ids.filter(id=>id!==value);p.answers[key]=JSON.stringify(ids);delete p.checked[key];return p}
   if(action==='sort'&&p.step===2&&s.sorting){const[card,category]=value.split(':');if(s.sorting.cards.some(c=>c.id===card)&&s.sorting.categories.some(c=>c.id===category)){p.answers[`sort-${card}`]=category;p.checked[`sort-${card}`]=s.sorting.cards.find(c=>c.id===card)!.category===category}return p}
-  if(action==='answer'){const q=teachingAnswer(s,p);p.completed=p.completed.filter(k=>k!==(p.step===4?'transfer':`case-${q.id}`));p.answers[`step-${p.step}-${p.caseIndex}`]=value.slice(0,5000);delete p.checked[`step-${p.step}-${p.caseIndex}`];return p}
+  if(action==='word-review'&&p.step===2&&s.mode==='vocabulary'){const item=s.mission!.workshop!.items[p.caseIndex];p.checked[`wordReview-${item.id}`]=!p.checked[`wordReview-${item.id}`];p.completed=p.completed.filter(k=>k!==`case-${s.cases[p.caseIndex].id}`);delete p.checked[`step-2-${p.caseIndex}`];return p}
+  if(action==='answer'){if(s.mode==='vocabulary'&&p.step===2)delete p.checked[`wordReview-${s.mission!.workshop!.items[p.caseIndex].id}`];const q=teachingAnswer(s,p);p.completed=p.completed.filter(k=>k!==(p.step===4?'transfer':`case-${q.id}`));p.answers[`step-${p.step}-${p.caseIndex}`]=value.slice(0,5000);delete p.checked[`step-${p.step}-${p.caseIndex}`];return p}
   if(action==='before'&&p.step===0){p.before=value.slice(0,5000);return p}
   if(action==='after'&&p.step===2){p.after=value.slice(0,5000);return p}
   if(action==='preview'&&p.step===1){p.checked[`preview-${s.assemblies[p.unit].id}`]=!p.checked[`preview-${s.assemblies[p.unit].id}`];return p}
@@ -181,9 +185,10 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   if(action==='revision-pane'&&p.step===2&&s.mode==='communication'&&(value==='compare'||value==='write'&&s.rubric.some(r=>p.links[r.id]))){p.answers.revisionPane=value;return p}
   if(action==='link'&&p.step===2){const [criterion,sentence]=value.split(':');if(s.rubric.some(r=>r.id===criterion)&&s.modelSentences.some(t=>t.id===sentence)){p.checked[`link-${criterion}`]=!!s.roleAnchors[criterion]?.includes(sentence);p.answers.lastLink=criterion;p.answers.lastLinkSentence=sentence;if(!p.checked[`link-${criterion}`]){delete p.links[criterion];p.answers.activeCriterion=criterion;p.answers.revisionPane='compare';return p;}p.links[criterion]=sentence;p.answers.revisionPane='write'}return p}
   if(action==='rubric'){const key=`rubric-${p.step}-${value}`;if((p.step===2?s.revisionRubric:s.transfer.rubric??[]).some(r=>r.id===value))p.checked[key]=!p.checked[key];return p}
-  if(action==='diagnose'&&p.step===3&&teachingDiagnosis(s,p).options.some(o=>o.id===value)){p.answers.diagnosis=value;p.checked.diagnosis=value===teachingDiagnosis(s,p).correct;if(p.checked.diagnosis)mark(`diagnosis-${p.answers.clinicIndex??0}`);return p}
+  if(action==='diagnose'&&p.step===3&&teachingDiagnosis(s,p).options.some(o=>o.id===value)){p.completed=p.completed.filter(k=>k!==`diagnosis-${p.answers.clinicIndex??0}`);p.answers.diagnosis=value;p.checked.diagnosis=value===teachingDiagnosis(s,p).correct;if(p.checked.diagnosis)mark(`diagnosis-${p.answers.clinicIndex??0}`);return p}
   if(action==='check'){
     const key=`step-${p.step}-${p.caseIndex}`,q=teachingAnswer(s,p)
+    if(p.step===2&&s.mode==='vocabulary'&&s.mission?.workshop){const item=s.mission.workshop.items[p.caseIndex],answer=p.answers[key]??'',original=p.answers[`workshopOwn-${item.id}`]??'';p.checked[key]=wordCount(answer)>=5&&containsTerm(answer,item.answer)&&normalizedAnswer(answer)!==normalizedAnswer(original)&&!!p.checked[`wordReview-${item.id}`];if(p.checked[key])mark(`case-${q.id}`);return p}
     if(p.step===0&&s.mode==='communication'){if(wordCount(p.before)>=4)mark('predict');return p}
     if((p.step===0||p.step===2||p.step===4)&&q){
       const answer=p.answers[key]??'',self=q.kind==='writing'||q.kind==='speaking'

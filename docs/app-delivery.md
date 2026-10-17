@@ -7,21 +7,19 @@ artifacts before reporting any owner-only prerequisite.
 
 ## Current milestone
 
-The owner requested a usable local version first on 2026-10-17 and deferred videos. The board
-tracks local delivery separately from future native validation/publication. The local app needs
-no production credentials or media decisions; see `docs/local-version.md` for use and evidence.
-The local course and original mock papers contain 413 lessons, 5,004 tasks and 1,690 distinct
-headwords, with full coverage and lifecycle checks. Approved audio remains pending for 99 scripts.
-All 413 lessons now have an explicit visual mission with small boards; 55 grammar lessons add
-condition switches, vocabulary adds concealed recall and expression frames save original text.
-The visual revision is locally reviewable; new actual native verification remains blocked by
-MacStudioExternal file access. See `docs/reviews/visual-lessons-2026-10-17.md`.
-The requirements below continue to define the complete eventual application.
+The owner requested a usable local app first on 2026-10-17 and deferred videos. The current
+lesson upgrade replaces the rejected introductory card layer with one coherent path and
+subject-specific workshops. It covers the existing 413 lessons, 5,004 questions and 1,690 headwords;
+eight separate original written papers provide timed practice and correction workflows.
+See [the workshop review](reviews/lesson-workshops-2026-10-17.md) for actual changes, visual review,
+verification boundaries and delivery artifacts, and [local instructions](local-version.md) to run it.
 
-The owner rejected the visual revision after the maths comparison. Its reusable answer-card
-formats and added introductory layer do not satisfy the required teaching standard. The unit
-is reopened for substantive lesson redesign; native testing is a separate pending check. See
-`docs/reviews/lesson-quality-comparison-2026-10-17.md`.
+The [maths comparison](reviews/lesson-quality-comparison-2026-10-17.md) records the rejected baseline.
+It must not be confused with the revised workshop implementation or used as a blanket claim of
+parity. Local functional checks and human visual review have different scopes. Fresh native
+validation is blocked by unavailable MacStudioExternal project files; no old native run covers
+this revision. Approved audio remains pending for 99 scripts. The requirements below still define
+the eventual application and public-release acceptance.
 
 ## Product requirements
 

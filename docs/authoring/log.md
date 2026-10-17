@@ -538,3 +538,35 @@ MCP board and project memory updated successfully. wechat_status succeeds, but r
 wechat/AGENTS.md still reports unavailable MacStudioExternal access; no fresh native compilation
 or GUI test is claimed. Continue local visual/content review independently. No owner decision
 is needed to finish the local implementation.
+
+## 2026-10-17 · codex-solo · local workshop review completed
+
+APP-VISUAL-LESSONS is ready for local integration on author/visual-lessons. The review fixes
+actual attempted-expression rendering, changing-condition diagrams, vocabulary production and
+new-situation application, complete evidence premises, original task-specific plans, constrained
+writing revision and visible sound notation. Twelve evidence chains now require two excerpts;
+all 66 evidence lessons have individual short reasoning notes. Drafts survive content updates
+and backward navigation. Guided completion remains separate from independent assessment.
+
+Final checks pass: typecheck; 1,448 tests in 14 files; course/content/teaching/mock/package audits;
+826 spelling variants; development/cloud adapter simulations; 22 whole browser lesson journeys;
+6,608 states at each of three widths; six product checks; eight offline checks; eleven connected
+app journeys; six mock journeys/audits, all eight preflights and all 200 mock visuals. Thirteen
+exploration-control flows also passed. Reviewed the first panel in every lesson, both grammar
+conditions and all 202 completed/wrong model states, with changed evidence states checked again.
+These checks do not constitute full editorial approval, measured learning effectiveness or a
+blanket claim of maths-app parity.
+
+Saved the current report, machine-readable lesson inventory/results and nine actual app captures
+in docs/reviews/lesson-workshops-2026-10-17.* and docs/screenshots/lesson-workshops-2026-10-17/.
+The complete offline app and native development ZIPs pass CRC and exact source-entry comparison;
+rebuild with npm run build:local and python3 scripts/package-development.py.
+
+Fresh MCP check: wechat_status succeeds, but reading wechat/AGENTS.md reports MacStudioExternal
+unavailable. No new native GUI job or compilation was attempted. Reopened the existing native
+Kanban card as blocked so older validation cannot be mistaken for this revision. APP-NATIVE stays
+separate; restore project access, read the shared GUI instructions, obtain its lock and run the
+current devtools-teaching/product/mock runners. Approved audio (99 scripts), devices, editorial
+review and verified local exam mappings remain pending. Content stays draft; videos stay deferred.
+No new owner decision is needed for this local delivery. Final Obsidian/Kanban reconciliation
+follows the integration push; the native blocker remains explicit.

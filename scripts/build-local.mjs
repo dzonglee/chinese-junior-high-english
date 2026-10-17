@@ -18,6 +18,6 @@ const html = `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><met
 const out = resolve(root, 'dist/local')
 mkdirSync(out, { recursive: true })
 writeFileSync(resolve(out, 'index.html'), html)
-writeFileSync(resolve(out, 'README.txt'), '初中英语 · 本地练习\n\n用 Chrome、Edge 或其他现代浏览器打开 index.html，即可离线使用。题目和插图已包含在文件中，无需登录。\n从“课程”打开互动学习：拼句子、改表达、找线索，再做课后练习。探索进度会保存，不计为独立测评。\n学习进度保存在当前浏览器中；请在“我的”中导出备份，清理浏览器数据前先备份。\n录音需要浏览器支持并由你允许使用麦克风。视频稍后提供；待准备的听力音频仍会明确提示。\n这是本地练习版，不代表教材版本、城市考试范围或微信正式发布已经核验。\n')
+writeFileSync(resolve(out, 'README.txt'), '初中英语 · 本地练习\n\n用 Chrome、Edge 或其他现代浏览器打开 index.html，即可离线使用。题目和插图已包含在文件中，无需登录。\n从“课程”打开互动学习：改变条件、配表达、找证据、写自己的话，再做课后练习。探索进度会保存，不计为独立测评。\n学习进度保存在当前浏览器中；请在“我的”中导出备份，清理浏览器数据前先备份。\n录音需要浏览器支持并由你允许使用麦克风。视频稍后提供；待准备的听力音频仍会明确提示。\n这是本地练习版，不代表教材版本、城市考试范围或微信正式发布已经核验。\n')
 console.log(`Built an offline local app: ${descriptors.length} checked topic packs, embedded artwork, ${(Buffer.byteLength(html) / 1024 / 1024).toFixed(2)} MB.`)
 console.log('Open dist/local/index.html in a modern browser; no server, account or cloud configuration is required.')

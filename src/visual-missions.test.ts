@@ -1,7 +1,7 @@
 import{it,expect}from'vitest'
 import{authorCatalog}from'../scripts/lib/author-content.mjs'
 import{createLessonTeaching,freshTeaching,changeTeaching,restoreTeaching}from'./core/lesson-teaching'
-import{missionView,missionProblems}from'./core/visual-mission'
+import{missionView,missionProblems,editionMission}from'./core/visual-mission'
 const c=authorCatalog(process.cwd())
 it.each(c.lessons)('completes every visual board for $id with safe sources, correction and saved state',l=>{
  const s=createLessonTeaching(c,l),m=s.mission!;expect(m).toBeTruthy();expect(missionProblems(m,l.questionIds)).toEqual([]);let p=freshTeaching(s,1)
@@ -24,7 +24,7 @@ it('switches all 55 live grammar conditions, preserves personal lines and verifi
 })
 
 it('preserves exact source and control IDs in both spelling systems',()=>{
- for(const spelling of ['american','british']as const)for(const l of c.lessons){const s=createLessonTeaching(c,l,spelling),m=s.mission!;expect(m.sourceIds).toEqual(l.questionIds);expect(missionProblems(m,l.questionIds)).toEqual([]);expect(m.boards.map(b=>b.id)).toEqual(l.visualMission!.boards.map(b=>b.id))}
+ for(const spelling of ['american','british']as const)for(const l of c.lessons){const m=editionMission(l.visualMission!,spelling);expect(m.sourceIds).toEqual(l.questionIds);expect(missionProblems(m,l.questionIds)).toEqual([]);expect(m.boards.map(b=>b.id)).toEqual(l.visualMission!.boards.map(b=>b.id))}
 })
 
 it('keeps feedback on the slot just answered, handles imported indices and returns to unfinished boards',()=>{

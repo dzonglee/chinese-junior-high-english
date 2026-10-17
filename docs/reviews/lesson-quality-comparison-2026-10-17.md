@@ -95,3 +95,9 @@ The existing 1,424 tests remain functional evidence. They did not assess whether
 interesting or whether every visual state agrees with its feedback. The unavailable new native run
 is a separate issue and does not explain the pedagogical gaps above. No course code changed during
 this comparison, no maths files changed, and no content was released.
+
+## Subsequent local redesign
+
+The [workshop delivery review](lesson-workshops-2026-10-17.md) describes the implementation after
+this rejected baseline, including complete lesson paths and the separate fresh-native blocker.
+This comparison remains evidence of the earlier defects; it does not describe the final renderer.

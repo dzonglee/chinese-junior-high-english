@@ -206,3 +206,20 @@ against its actual skill and misconceptions; do not count answer-card layouts as
 a manipulable model. Inspect initial, wrong, recovery and transfer states before scaling. Content
 and spelling correctness, first-try/delayed integrity, rights and draft boundaries still apply.
 The English course remains unfinished at this teaching standard until that review is satisfied.
+
+## Local workshop delivery after comparison · 2026-10-17
+
+APP-VISUAL-LESSONS replaces the rejected default mission layer with one connected path. The
+existing 413 lessons now use authored changing-condition grammar, contextual word production,
+source-evidence reasoning, task-specific original communication plans and written sound models.
+Visual/content review corrected ambiguous grammar prompts, misleading diagrams, incomplete
+premises and duplicate stages; acceptance is based on the reviewed behavior and bounded evidence
+in [the delivery review](reviews/lesson-workshops-2026-10-17.md), not on manifest counts alone.
+
+This completes the local implementation/review scope. Keep APP-NATIVE separate and open for fresh
+DevTools/real-device validation, approved audio and production requirements. Current MCP memory
+and Kanban access work, but MacStudioExternal project-file access does not; no new GUI job or
+compilation can be asserted. The revised native runner is ready for the shared-GUI lock protocol
+when access returns. All content remains original draft, with unverified local exam mappings and
+self-review clearly labelled. Videos remain deferred. No public release or blanket parity claim
+is authorized by these local results.
