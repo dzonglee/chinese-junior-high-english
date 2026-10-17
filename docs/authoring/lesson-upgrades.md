@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **24 / 413**. Current: **l-g-verb-forms**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **25 / 413**. Current: **l-g-transitivity**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -32,7 +32,7 @@ Completed: **24 / 413**. Current: **l-g-verb-forms**. Evidence lives in docs/rev
 | l-g-agreement | 真正的主语决定动词 | reviewed | [Individual review](../reviews/individual-lessons/l-g-agreement.md) |
 | l-g-proper-nouns | 专有名词与大小写 | reviewed | [Individual review](../reviews/individual-lessons/l-g-proper-nouns.md) |
 | l-g-possessives | 名词所有格：是谁的 | reviewed | [Individual review](../reviews/individual-lessons/l-g-possessives.md) |
-| l-g-verb-forms | 动词原形、过去式与分词 | pending | — |
+| l-g-verb-forms | 动词原形、过去式与分词 | reviewed | [Individual review](../reviews/individual-lessons/l-g-verb-forms.md) |
 | l-g-transitivity | 动词后面能不能直接接宾语 | pending | — |
 | l-g-linking-verbs | 系动词后描述主语的状态 | pending | — |
 | l-g-auxiliaries | 助动词帮你提问和否定 | pending | — |

@@ -2,29 +2,24 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-24 of413 lessons are individually reviewed;389 remain pending. The owner requires bespoke tasks,
-useful pictures and actual visual inspection for every lesson. Work stays solo under the claimed
-APP-VISUAL-LESSONS unit on author/individual-lessons. The tracker links evidence for each row;
-shared engine coverage never supplies review credit or establishes parity with the maths app.
+25 of413 lessons are individually reviewed;388 remain pending. Every lesson needs bespoke tasks,
+useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
+unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:ownership/possessives. A live diagram joins Mia and Leo to one shared album or gives each
-their own. The selected relationship changes actual book allocation;correct words cannot pass
-with a wrong relationship. Other tasks edit plural apostrophes,irregular plurals,duration and its.
-All models,errors,repairs,application explanations and the fresh transfer were inspected.
+Latest:l-g-verb-forms. Ten tasks choose verb forms from actual auxiliaries and time clues. Students select the current writing scene, distinguish wrote/written, repair makeing/stoped and transfer the method to break/broken. Cue-to-form diagrams show their attempt. Answer giveaways and an ambiguous past/current postcard reference were corrected during visual review.
 
-Checkpoint24 records the complete new flow/27 widths and current1,473 core tests,typecheck,
-826 teaching/spelling,grammar/course/interaction/package checks,both adapter simulations,
-8 offline checks and fresh archive CRC/exact-source checks. The24 lessons cumulatively have
-198 conditions/594 width checks;earlier browser evidence retains its recorded scope.
+All models,wrong picture,typed errors,spelling repairs,application explanations and both transfer steps inspected. Explicit facts:two completed postcards,two bus journeys this week,three filed cards. Grades7–9 covered;reserved005–008 unexposed. No independent attempts,mastery or lesson-pass record.
 
-Next:l-g-verb-forms. Its ten-task draft is outside course files. Its cue/root labels were corrected:
-did/has/was cues lead to a form;spelling changes are transformations,not addition of the answer
-twice. Compile and inspect the actual diagrams before review credit. The original travel diptych supports selecting current writing.
-A further transitivity draft also remains outside course files. Neither receives review credit.
+Checkpoint25 records the new flow/30 widths and current core,teaching,grammar,course,package,
+interaction and offline checks plus verified development archives. Its native adapter scope is
+recorded explicitly. The25 reviewed lessons cumulatively contain208 conditions/624 widths;
+earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-The resumed cloud workspace retained Node,Chromium and source files;the existing private MCP
-helper reconnects. Native GUI validation remains blocked by project-drive access. Content stays
-draft;approved audio and editorial/cohort mapping remain pending. No upload or publication.
+Next:l-g-transitivity. The transitivity draft remains outside course files. It contrasts reach/arrive,city versus specific destination,adverbial home,direct discuss,listen/look with prepositions,and explain content to a recipient. The final task uses real word tiles. Its source diagram was corrected to display the actual wrong original,not a literal placeholder. Compile and inspect before review credit.
+
+Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
+helper works;read memory and coordinate through the existing board. Content stays draft;approved
+audio and editorial/cohort mapping remain pending. No upload or publication.
 
 ## Previous local delivery · 2026-10-17
 
