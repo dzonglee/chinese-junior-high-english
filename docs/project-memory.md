@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-46 of413 lessons are individually reviewed;367 remain pending. Every lesson needs bespoke tasks,
+47 of413 lessons are individually reviewed;366 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-sentence-patterns. Twelve sentence-role tasks require whole subjects/objects and noninitial predicates,complements,adverbials or prepositional phrases before repairing a separate draft. Full-sentence tiles repair missing verbs and object order.
+Latest:l-g-double-objects. Fifteen double-object tasks use original reversed giving pictures,first-person pronouns,noninitial recipient/beneficiary selection,both word orders,to/for and an explain exception.
 
-Inspected all twelve models,narrow-phone figures,all wrong roles,incomplete/removed phrases,typed/full-sentence repairs,removal/reload and every application/transfer step. Correct analysis examples are explicitly separate from attempted drafts. Grades7–9;reserved005–008 unexposed;zero independent records.
+Inspected original/600-pixel art,all fifteen models,narrow-phone figures,both wrong picture gates,all thirteen wrong word roles,partial/removal recovery,typed/assembled repairs and every application/transfer step. Plain Chinese prompts and final to-position feedback were reinspected. Grades8–9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint46 records the new flow/36 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint47 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The46 reviewed lessons cumulatively contain453 conditions/1359 widths;
+recorded explicitly. The47 reviewed lessons cumulatively contain468 conditions/1404 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-double-objects. Fifteen double-object tasks are drafted outside course files. Original giving-direction art and600-pixel delivery are inspected. Two first-person accounts require opposite picture selections;then learners identify recipients/beneficiaries,assemble both word orders,distinguish to/for and avoid the explain double-object error. Add registered provenance and inspect phone figures before credit.
+Next:l-g-object-complements. Fifteen object-complement tasks are drafted outside course files. Reuse inspected door and box pictures for actual target states,identify action performers and contrast object complements with subject complements and double objects. Explicit lexical/form constraints avoid rejecting valid perception-verb alternatives. Inspect all boundaries and states before credit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved
