@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **27 / 413**. Current: **l-g-auxiliaries**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **28 / 413**. Current: **l-g-adjectives**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ Completed: **27 / 413**. Current: **l-g-auxiliaries**. Evidence lives in docs/re
 | l-g-verb-forms | 动词原形、过去式与分词 | reviewed | [Individual review](../reviews/individual-lessons/l-g-verb-forms.md) |
 | l-g-transitivity | 动词后面能不能直接接宾语 | reviewed | [Individual review](../reviews/individual-lessons/l-g-transitivity.md) |
 | l-g-linking-verbs | 系动词后描述主语的状态 | reviewed | [Individual review](../reviews/individual-lessons/l-g-linking-verbs.md) |
-| l-g-auxiliaries | 助动词帮你提问和否定 | pending | — |
+| l-g-auxiliaries | 助动词帮你提问和否定 | reviewed | [Individual review](../reviews/individual-lessons/l-g-auxiliaries.md) |
 | l-g-adjectives | 形容词放在哪里 | pending | — |
 | l-g-adverbs | 副词怎样修饰动作 | pending | — |
 | l-g-adverb-comparison | 比较动作的快慢与好坏 | pending | — |

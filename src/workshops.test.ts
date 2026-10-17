@@ -255,3 +255,10 @@ it('draws the selected preposition explicitly and never treats an unknown expres
  const bad=structuredClone(w);bad.conditions![0].world.verbBridge!.options[0].link='in';expect(workshopProblems(bad)).toContain('Invalid verb bridge')
  const l=c.lessons.find(l=>l.id==='l-g-transitivity')!;expect(createLessonTeaching(c,l,'american').mission!.workshop!.conditions![0].world.verbBridge!.object).toBe('the science center')
 })
+
+it('distinguishes a tile capitalization repair from changing the auxiliary or verb form',()=>{
+ const s=studio('l-g-auxiliaries'),w=s.mission!.workshop!,c=w.conditions![5];let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-item','5',2)
+ for(const[a,v]of workshopExpressionActions(c,'can Amy design a poster'))p=changeTeaching(s,p,'workshop-'+a,v,3);p=changeTeaching(s,p,'workshop-check','',4);let view=workshopView(w,p);expect(view.complete).toBe(false);expect(view.selected).toBe('can Amy design a poster');expect(view.feedback).toContain('再核对大小写')
+ for(const[a,v]of workshopExpressionActions(c,c.target))p=changeTeaching(s,p,'workshop-'+a,v,5);p=changeTeaching(s,p,'workshop-check','',6);expect(workshopView(w,p).complete).toBe(true)
+ for(const[a,v]of workshopExpressionActions(c,c.choices![0]))p=changeTeaching(s,p,'workshop-'+a,v,7);p=changeTeaching(s,p,'workshop-check','',8);view=workshopView(w,p);expect(view.complete).toBe(false);expect(view.feedback).not.toContain('再核对大小写');expect(workshopProblems(w)).toEqual([])
+})

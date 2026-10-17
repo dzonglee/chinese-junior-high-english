@@ -1002,3 +1002,16 @@ Current new lesson flow:9 conditions/27 task-width checks,reload and zero indepe
 Cumulative228 conditions/684 widths;earlier flows retain scope. Hashes:checkpoint-27.*.
 Next:l-g-auxiliaries. A ten-task auxiliary draft remains outside course files. Students will assemble questions and negatives with do-support,existing be/modal/perfect auxiliaries,base-form repair and plural subjects. Inspect every assembled sentence and diagram. Main-package headroom is only1,344 bytes;preserve the existing budget and optimize assets when necessary. Overall claim continues solo;386 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-auxiliaries individually reviewed
+
+28/413 reviewed. Ten tasks use shuffled word tiles and a typed repair to distinguish do-support from existing be,modal and perfect auxiliaries. Students build questions and negatives,restore base forms,retain participles and compare singular/plural subjects. Case-only feedback identifies capitalization without falsely diagnosing grammar.
+
+All ten models and narrow-phone diagrams,empty tile controls,wrong inflections,typed repair,lowercase can,accepted contraction,applications and both fresh-transfer steps were inspected. Punctuation stays with the last word. Before/after diagrams use actual source and student sentences. Grades7–9 covered;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:10 conditions/30 task-width checks,reload and zero independent records. 1,475 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development and cloud simulations passed,including all245 packed topic hashes. These are not native GUI evidence.
+
+Cumulative238 conditions/714 widths;earlier flows retain scope. Hashes:checkpoint-28.*.
+Next:l-g-adjectives. A ten-task adjective draft stays outside course files. It reuses the inspected blanket image and adds shuffled phrase tiles for size/colour,something useful and contrasting enough positions. It also contrasts exciting/excited and an interesting person,avoiding the person-versus-object shortcut. Inspect all renders before review. Lossless recompression trials for three existing Blender PNGs preserve every pixel and could recover about137KB for future instructional art;they are not integrated yet. Overall claim continues solo;385 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

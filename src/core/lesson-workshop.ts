@@ -35,6 +35,7 @@ export function workshopView(w:LessonWorkshop,p:TeachingProgress):WorkshopView{
  else if(scope&&!membersCorrect)feedback=scope.reason
  else if(records&&!recordCorrect)feedback=recordOptions.find(r=>r.selected)?.reason??records.missingPrompt??'先选择与这句话对应的事件记录，再核对动词。'
  else if(scene&&!sceneSubjectsCorrect)feedback=`你圈出的是${scenePeople.filter(p=>p.selected).map(p=>p.name).join('、')||'空白'}。${scene.subjectReason}先改好人物选择，再核对${scene.formLabel??'be'}。`
+ else if(w.kind==='transform'&&condition!.caseSensitive&&[condition!.target,...condition!.accepted??[]].some(a=>normalizedAnswer(a)===normalizedAnswer(selected)))feedback=`词序和词形对上了，再核对大小写。${condition!.reason}`
  else if(w.kind==='transform')feedback=`你放入的是 ${selected||'空白'}。${condition!.reason}`
  else if(w.kind==='word-use'&&item.usage?.alternatives[normalizedAnswer(input)])feedback=`你输入了 ${input}，图中物品的方向也变了。${item.usage.caption} ${item.reason}`;
  else if(w.kind==='word-use'&&vCaseOnly(item,input))feedback=`词形写对了，但这里要注意大小写：${item.answer}。`;
