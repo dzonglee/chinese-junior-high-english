@@ -3,15 +3,15 @@
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
 The owner requires every lesson to be upgraded separately, with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **15/413** are
-individually reviewed; 398 remain pending. Work stays solo. The tracker links authored tasks,
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **16/413** are
+individually reviewed; 397 remain pending. Work stays solo. The tracker links authored tasks,
 inspected figures, error recovery, fresh transfer and actual control results. Shared coverage
 is a functional baseline, never an individual review.
 
 Latest: modal verbs and infinitives. An original pool gate carries a coded rule; an original
 two-panel reading/drinking scene requires selecting the right action before choosing stop to
 drink / stop drinking. Other tasks require typed expressions, interpretation and a fresh transfer.
-Current individual evidence totals 121 conditions / 363 task-width checks across fifteen flows.
+Current individual evidence totals 129 conditions / 387 task-width checks across sixteen flows.
 Focused controls, typecheck, 826 teaching/spelling and static package pass. Full 1,458-core checks
 passed for the modal checkpoint. Checkpoint-13 retains previous broad offline/adapter/archive
 hashes; archives still need refreshing to include these new lessons.
@@ -20,7 +20,11 @@ Reserved-sentence and transfer-grade guards remain enforced. Exact preposition/p
 were corrected and actual delayed items verified unchanged. The historical checkpoint11 limitation
 is disclosed. Current memory and existing Kanban card are updated through the authenticated helper.
 
-Next: l-g-gerunds, including the difference between infinitive to and preposition to. Native GUI
+Gerunds is now individually reviewed: eight tasks, four typed repairs, live e-removal/n-doubling,
+and a required structural contrast between look forward to visiting / want to visit. All models,
+errors and fresh kayaking transfer were inspected; full flow and 24 widths pass.
+
+Next: l-g-conditionals, with an original illustration of alternative weather-dependent plans. Native GUI
 still needs MacStudioExternal project access; read_file wechat/AGENTS.md reports it unavailable.
 No new GUI job, upload or publication occurred. Approved audio, editorial/cohort mapping, devices
 and production setup remain separate. All content stays draft; videos remain deferred.

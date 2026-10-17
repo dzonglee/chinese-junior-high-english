@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **15 / 413**. Current: **l-g-gerunds**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **16 / 413**. Current: **l-g-conditionals**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ Completed: **15 / 413**. Current: **l-g-gerunds**. Evidence lives in docs/review
 | l-g-passive | 主动与被动，换个角度说 | reviewed | [Passive review](../reviews/individual-lessons/l-g-passive.md) |
 | l-g-modals | 情态动词：分清语气和意思 | reviewed | [Modal meanings review](../reviews/individual-lessons/l-g-modals.md) |
 | l-g-infinitives | to do：计划、提醒与目的 | reviewed | [Individual review](../reviews/individual-lessons/l-g-infinitives.md) |
-| l-g-gerunds | 动词后面的 doing | pending | — |
+| l-g-gerunds | doing：先看搭配，再改词形 | reviewed | [Individual review](../reviews/individual-lessons/l-g-gerunds.md) |
 | l-g-conditionals | 条件成立，结果会怎样 | pending | — |
 | l-g-object-clauses | 宾语从句，语序别倒过来 | pending | — |
 | l-g-relatives | 定语从句，先找修饰对象 | pending | — |

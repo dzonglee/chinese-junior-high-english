@@ -818,3 +818,14 @@ All nine models, both picture errors, three typed errors, application and fresh 
 were inspected. Hints mentioning nonexistent brackets corrected. Whole browser flow,27 widths,
 reload and zero assessment records pass; typecheck,826 teaching/spelling and package pass. Next
 gerunds. Overall unit unfinished;398 pending. Archives retain checkpoint13 until next refresh.
+
+
+## 2026-10-18 (Sydney) · codex-solo · gerunds individually reviewed
+
+l-g-gerunds is reviewed:16/413. Eight tasks require activity forms, live silent-e removal/consonant
+doubling, classification of the two kinds of to and a retrospective remember meaning. Four typed
+errors, semantic errors, all models and fresh kayaking/coach transfer inspected. Original science
+and watering scenes reused; written records provide interest and remembered time. Whole browser
+flow,24 widths,reload and zero assessment records pass; typecheck,826 teaching/spelling and
+package pass. Next conditionals; an original alternative-weather scene is being generated.
+Unit remains unfinished;397 pending. Broad archives still represent checkpoint13.
