@@ -16,6 +16,7 @@ async function evaluateAsync(mini,fn,arg=null){
  console.log("stage: launching official DevTools automation");
  mini=await automator.launch({cliPath:'/Applications/wechatwebdevtools.app/Contents/MacOS/cli',projectPath:project,timeout:90000});
  console.log('stage: automation connected');
+ await mini.reLaunch('/pages/home/index');
  await new Promise(resolve=>setTimeout(resolve,1200));
  await evaluateAsync(mini,async()=>{await getApp().globalData.ready;return !!getApp().globalData.application;});
  console.log('stage: application ready');

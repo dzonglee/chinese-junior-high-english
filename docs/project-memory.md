@@ -285,12 +285,18 @@ attachment. Keep repository records current and reconcile existing external reco
 
 ## Whole-app UI · APP-UI
 
-The owner rejected isolated lesson screenshots and the generic full-app interface. Work is solo
-on author/app-ui, claimed on main at 0cd7f4d. The implementation rebuilds all five roots, uses
-progressive course/builder filters and validates three short onboarding stages. A direct comparison
-with the maths app at 933ab32 is in reviews/ui-2026-10-17.md. Repeated review fixed several routing,
-input and visual problems; a final native session-navigation issue is still being traced. Browser
-checks pass, including all 13,320 lesson layouts and the actual control flows. Do not equate that
-with the unresolved expanded native walkthrough or production readiness. The owner’s existing
-Kanban card 35f6f71a-31b4-4ca2-8500-ab58cf293a68 and Obsidian project note are updated through the
-failed native investigation. Keep the branch/board claimed until the real native result is checked.
+The owner rejected isolated lesson screenshots and the generic interface. The solo redesign
+rebuilds all five roots, progressive filters, three-stage onboarding and native learning controls.
+The repeated maths comparison and exact evidence are in reviews/ui-2026-10-17.md; actual main
+screens are retained in docs/screenshots/ui-2026-10-17/. All 989 tests pass. Actual native proof:
+34-screen whole-app walk df36731eb8684018a419922367f2b4ed; nine fresh-home/answer-control captures
+861ad544a23744d6ab18ba259d617c80; seven complete teaching-mode flows and 22 captures
+8364bfca0e0a4f74b9f7a02bc55418d4. All have nested exit 0; failed earlier jobs remain recorded.
+
+Native review corrected stale navigation fallback, fresh-home initialization and squeezed quiz
+buttons. The final native harness preserves prior QA state and verifies that exploration creates
+no new scored evidence. Browser review covers the entire course at three widths; production
+AppID/cloud, phones, approved audio, publisher mapping, editorial approval and publication remain
+separate. APP-UI is awaiting final integration; external card
+35f6f71a-31b4-4ca2-8500-ab58cf293a68 and the existing Obsidian project note must be closed out
+with the main integration commit. Work stays solo; reference material remains unchanged.

@@ -63,7 +63,7 @@ Chromium blocks direct `file://` navigation. The test respects that policy and s
 standalone document over loopback, then disables networking during practice. Direct-file browser
 navigation is therefore unvalidated on this machine; the runner also supports it where permitted.
 
-All 984 automated tests pass, including checked-pack practice, saved progress and distinct delayed
+All 989 automated tests pass, including checked-pack practice, saved progress and distinct delayed
 review for every lesson. Tests simulate listening playback only for lifecycle coverage; the real
 app rejects missing audio. Seven grammar regressions, four native-source permission simulations,
 11 full browser journeys, eight offline checks and six expanded-course browser checks pass.
@@ -82,3 +82,8 @@ The new studio review additionally covers all 413 lessons / 2,478 states at thre
 transfer tasks have separate rendered reference checks; their subjective self-review is not
 automatic writing or speech assessment. Actual WeChat simulator evidence is recorded separately
 in validation.md; browser results alone never establish native compilation.
+
+The complete UI is now redesigned around five clear main sections and three-step first use.
+Courses show real lessons before optional advanced filters; practice uses skill tiles and a
+simple builder. The [whole-app UI review](reviews/ui-2026-10-17.md) includes actual native screens
+and the subsequent fresh-install and answer-control fixes.

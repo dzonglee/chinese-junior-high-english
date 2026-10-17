@@ -45,6 +45,8 @@ all secondary routes and every learning mode. Readable screenshots are required;
 alone do not establish copy quality. Actual phone behavior, approved audio, exact publisher maps,
 editorial approval and production publication remain separate work.
 
-Current status: implementation and repeated visual/interaction review are in progress. The
-intermediate native eight-screen walk passes; the expanded final native/browser checks are
-running. Do not describe this document or the older development milestone as UI parity approval.
+Current status: implemented and repeatedly reviewed against the maths reference. The whole-app
+34-screen native walk, nine focused fresh-install/answer-control captures and seven complete
+native teaching-mode flows pass. Final screenshots and exact boundaries are in
+[the UI review](reviews/ui-2026-10-17.md). The inspected product flows meet the criteria above;
+production prerequisites remain separate from this UI milestone.
