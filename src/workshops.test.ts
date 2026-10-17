@@ -296,3 +296,19 @@ it('requires a complete selected phrase and preserves actual word order without 
  p=changeTeaching(s,p,'workshop-member','1',10);expect(workshopView(w,p).complete).toBe(false)
  const bad=structuredClone(w);bad.conditions![0].world.selection!.mode='outside' as 'words';expect(workshopProblems(bad)).toContain('Invalid comparison scope');bad.conditions![0].world.selection!.mode='words';bad.conditions![0].world.cells[0].label='a phrase';expect(workshopProblems(bad)).toContain('Invalid comparison scope')
 })
+
+it('keeps a short assembled verb with its final punctuation while allowing long clauses to wrap',()=>{
+ const original=studio('l-g-object-clauses').mission!.workshop!
+ const condition={...original.conditions![0],before:'We do not know when the new club ',target:'will open',after:'.',initial:undefined,accepted:undefined,tiles:['will','open','opens'],choices:['will opens','will open'],world:{kind:'syntax' as const,caption:'Keep the short answer and punctuation together.',cells:[{label:'will opens'},{label:'@attempt',role:'attempt-result'}]}}
+ const w={...original,conditions:[condition,original.conditions![1]]},p=freshTeaching(studio('l-g-object-clauses'),1)
+ for(const[a,v]of workshopExpressionActions(condition,condition.target))changeWorkshop(w,p,a,v)
+ const view=workshopView(w,p)
+ expect(view.keepEnding).toBe(true)
+ expect(view.selected).toBe('will open')
+ expect(view.tileAnswer.map(t=>t.text)).toEqual(['will','open'])
+ expect(workshopView({...w,conditions:[{...condition,after:' next year.'},w.conditions![1]]},p).keepEnding).toBe(false)
+ const long={...condition,target:'Do you want tea',tiles:['Do','you','want','tea'],choices:['Do you want tea']},longW={...w,conditions:[long,w.conditions![1]]}
+ for(const[a,v]of workshopExpressionActions(long,long.target))changeWorkshop(longW,p,a,v)
+ expect(workshopView(longW,p).keepEnding).toBe(false)
+ expect(workshopView(longW,p).selected).toBe('Do you want tea')
+})
