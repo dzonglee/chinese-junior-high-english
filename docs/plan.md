@@ -134,3 +134,13 @@ author, integrate and visually review domain-specific prediction/exploration/err
 sequences across grammar, vocabulary, reading, communication and writing. Actual listening
 activities continue to depend on owner-approved audio. Keep current workshop completion separate
 from independent question performance and delayed retention. Videos remain deferred.
+
+## Interactive learning, owner clarification (2026-10-17)
+
+The owner clarified that reducing commentary or hiding prose is insufficient: the learning
+itself must be hands-on and easy to understand. Each lesson must start with an action and
+respond visually: assemble an expression, insert a word into a live sentence, compare a changed
+context, select evidence, sort phonetic cards, organise a model or revise a draft. Keep each
+screen focused on one activity. Longer source text and detailed reasons are available on demand;
+show a short explanation tied to the student's current choice. Do not equate fewer visible words
+with successful pedagogy. Codex performs this work itself; no further delegation.

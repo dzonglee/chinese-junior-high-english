@@ -78,7 +78,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson):LessonTeach
     }else for(const q of qs.slice(0,2)){
       const full=q.explanation.steps.find(step=>/^(?:放回原句检查|一种正确写法)：/.test(step.text))?.text.split('：').slice(1).join('：')??q.answer.display
       const pieces=full.split(/\s+/)
-      assemblies.push(assembly(q.id,'搭出完整表达','按本题的参考表达排列词块，再用语境核对。标点跟随原词块。',pieces,'sentence',q.explanation.steps[0].text))
+      assemblies.push(assembly(q.id,'搭出完整表达','点词块，把句子搭好。',pieces,'sentence',q.explanation.steps[0].text))
     }
     diagnosis=choiceFor(qs.find(q=>q.id!==first.id&&q.options?.length)??qs.find(q=>q.options?.length)!)
   }
@@ -120,8 +120,13 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   if(action==='unit'&&p.step===1){const index=Number(value);if(Number.isInteger(index)&&index>=0&&index<s.assemblies.length){p.unit=index;p.order=[]}return p}
   if(action==='assemble'&&p.step===1){const u=s.assemblies[p.unit];if(assemblyCorrect(u,p.order))mark(`build-${u.id}`);else p.checked[`build-${u.id}`]=false;return p}
   if(action==='case'&&p.step===2){const index=Number(value);if(index>=0&&index<s.cases.length&&Number.isInteger(index))p.caseIndex=index;return p}
+  if(action==='source'&&p.step===2){if(s.evidence.some(e=>e.id===value))p.answers.source=p.answers.source===value?'':value;return p}
+  if(action==='passage'){p.checked.passage=!p.checked.passage;return p}
+  if(action==='explanation'){p.checked.explanation=!p.checked.explanation;return p}
   if(action==='evidence'&&p.step===2){const item=s.evidence.find(e=>e.id===value);if(item){p.answers.evidence=value;p.checked.evidence=item.supports;if(item.supports)mark('evidence')}return p}
-  if(action==='link'&&p.step===2){const [criterion,sentence]=value.split(':');if(s.rubric.some(r=>r.id===criterion)&&s.modelSentences.some(t=>t.id===sentence))p.links[criterion]=sentence;return p}
+  if(action==='criterion'&&p.step===2&&s.mode==='communication'&&s.rubric.some(r=>r.id===value)){p.answers.activeCriterion=value;p.answers.revisionPane='compare';return p}
+  if(action==='revision-pane'&&p.step===2&&s.mode==='communication'&&(value==='compare'||value==='write'&&s.rubric.every(r=>p.links[r.id]))){p.answers.revisionPane=value;return p}
+  if(action==='link'&&p.step===2){const [criterion,sentence]=value.split(':');if(s.rubric.some(r=>r.id===criterion)&&s.modelSentences.some(t=>t.id===sentence)){p.links[criterion]=sentence;const next=s.rubric.find(r=>!p.links[r.id]);if(next)p.answers.activeCriterion=next.id;else p.answers.revisionPane='write'}return p}
   if(action==='rubric'){const key=`rubric-${p.step}-${value}`;if((p.step===2?s.rubric:s.transfer.rubric??[]).some(r=>r.id===value))p.checked[key]=!p.checked[key];return p}
   if(action==='diagnose'&&p.step===3&&s.diagnosis.options.some(o=>o.id===value)){p.answers.diagnosis=value;p.checked.diagnosis=value===s.diagnosis.correct;if(p.checked.diagnosis)mark('diagnosis');return p}
   if(action==='check'){
@@ -137,7 +142,7 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
     return p
   }
   if(action==='review'&&s.mode==='communication'&&p.step===2){p.checked.revision=teachingCanAdvance(s,p);return p}
-  if(action==='next'&&teachingCanAdvance(s,p)){p.step++;p.order=[];p.caseIndex=0;return p}
+  if(action==='next'&&teachingCanAdvance(s,p)){p.step++;p.order=[];p.caseIndex=0;p.checked.explanation=false;p.checked.passage=false;return p}
   return p
 }
 export function teachingCanAdvance(s:LessonTeaching,p:TeachingProgress):boolean{
@@ -158,4 +163,17 @@ export function restoreTeaching(s:LessonTeaching,saved:TeachingProgress|undefine
  if(!saved)return freshTeaching(s,now)
  if(saved.fingerprint!==s.fingerprint||saved.unit>=s.assemblies.length||saved.caseIndex>=Math.max(1,s.cases.length)||saved.order.some(id=>!s.assemblies[saved.unit].tiles.some(t=>t.id===id))||new Set(saved.order).size!==saved.order.length)return{...freshTeaching(s,now),before:saved.before,after:saved.after}
  return saved
+}
+
+/** A literal gap from the authored task, rendered as a manipulable sentence slot. */
+export function sentenceWorkbench(q:Question,answer:string):{before:string;after:string;selection:string;prompt:string}|undefined {
+ if((q.stem.match(/_+/g)??[]).length!==1||!['choice','blank','correction'].includes(q.kind))return undefined
+ const line=q.stem.split('\n').find(text=>/_+/.test(text))!,gap=/_+/.exec(line)!
+ let before=line.slice(0,gap.index).match(/[A-Za-z][A-Za-z0-9\s.,!?"'’():;—-]*$/)?.[0]??''
+ const after=line.slice(gap.index+gap[0].length).match(/^[A-Za-z0-9\s.,!?"'’():;—-]*/)?.[0]??''
+ if(!before.trim()&&!after.trim())return undefined
+ const original=before+gap[0]+after,prefix=q.skill==='vocabulary'?before.match(/\b[A-Za-z]+$/)?.[0]:undefined
+ if(prefix)before=before.slice(0,-prefix.length)
+ const selection=q.options?.find(o=>o.id===answer)?.text??answer
+ return{before,after,selection:selection||`${prefix??''}…`,prompt:q.stem.replace(original,'').trim()}
 }

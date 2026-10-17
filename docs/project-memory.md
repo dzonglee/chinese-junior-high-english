@@ -24,11 +24,16 @@ native task `3725a8db-1c63-4e6b-8bca-df642450093c` (Codex / English solo). Those
 successfully written, reconciling the earlier unavailable-service fallback. Local save does not
 prove Obsidian Sync propagated remotely.
 
+The owner further clarified that learning must be interactive and easy to understand, not a wall
+of text. This means visual actions and specific immediate feedback, not merely collapsing prose.
+
 The isolated Mac project is `wechat/english-solo-20261017` under the MCP workspace. Its first
 actual simulator run timed out and produced no lesson screenshots. The wrapper job succeeded,
 but its nested native process exited 1: do not mistake wrapper success for validation. Official
-CLI closed only this project afterward. Native failure diagnosis and browser visual checks are
-in progress. Coordinate the shared GUI using Kanban and `wechat/DEVTOOLS.lock`; never use the
+CLI closed only this project afterward. The actual root cause was 245 subpackages exceeding WeChat’s limit of 100. Grouping the
+unchanged 245 topic packs into six size-limited subpackages fixes compilation; actual English
+onboarding now opens. The official starter also passes. Whole-course native navigation/testing
+and final browser visual checks remain in progress. Coordinate the shared GUI using Kanban and `wechat/DEVTOOLS.lock`; never use the
 maths runner's reset/checkout behavior on another owner's project.
 
 ## Active direction · interactive learning quality, 2026-10-17

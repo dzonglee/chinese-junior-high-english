@@ -2,6 +2,16 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const automator=require(process.env.WECHAT_AUTOMATOR || '/Volumes/MacStudioExternal/ChrisverseMCP/workspace/wechat/tooling/node_modules/miniprogram-automator');
 const project=path.resolve(process.argv[2]||'.'),out=path.join(project,'native-artifacts');fs.mkdirSync(out,{recursive:true});
+let evaluationId=0;
+async function evaluateAsync(mini,fn,arg=null){
+ // Construct the callback on the host: guest appservice disables new Function.
+ // Only our authored test function is embedded; no remote dynamic evaluator is used.
+ const execute=new Function('return function englishTeaching'+(++evaluationId)+'(){ const payload='+JSON.stringify(arg)+'; const g=getApp().globalData;g.englishTeachingTest={pending:true};Promise.resolve().then(()=>('+fn.toString()+')(payload)).then(value=>{g.englishTeachingTest={pending:false,value};},error=>{g.englishTeachingTest={pending:false,error:String(error.message||error)};});return true;}')();
+ await mini.evaluate(execute);
+ const end=Date.now()+90000;
+ while(Date.now()<end){const r=await mini.evaluate(function(){return getApp().globalData.englishTeachingTest;});if(r&&!r.pending){if(r.error)throw new Error(r.error);return r.value;}await new Promise(resolve=>setTimeout(resolve,100));}
+ throw new Error('Timed out waiting for the English controller task');
+}
 (async()=>{let mini;const errors=[],rows=[];try{
  console.log("stage: launching official DevTools automation");
  mini=await automator.launch({cliPath:'/Applications/wechatwebdevtools.app/Contents/MacOS/cli',projectPath:project,timeout:90000});
@@ -10,15 +20,17 @@ const project=path.resolve(process.argv[2]||'.'),out=path.join(project,'native-a
  console.log('stage: opening onboarding');
  await mini.reLaunch('/pages/onboarding/index');
  console.log('stage: onboarding opened');
- await mini.evaluate(async()=>{const a=getApp().globalData.application;for(const [key,value] of Object.entries({cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'}))a.setField(key,value);await a.action('save-profile');});
+ await evaluateAsync(mini,async()=>{const a=getApp().globalData.application;for(const [key,value] of Object.entries({cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'}))a.setField(key,value);await a.action('save-profile');});
  await new Promise(r=>setTimeout(r,1200));
  console.log('stage: profile saved');
- const lessons=await mini.evaluate(()=>getApp().globalData.application.catalog.lessons.map(l=>({id:l.id,grade:Math.min(...l.grades)})));
+ const lessons=await mini.evaluate(function(){return getApp().globalData.application.catalog.lessons.map(l=>({id:l.id,grade:Math.min(...l.grades)}));});
  assert.equal(lessons.length,413);
  for(const [index,l] of lessons.entries()){
-  await mini.evaluate(async l=>{const a=getApp().globalData.application,state=a.store.get();a.store.save({...state,profile:{...state.profile,grade:l.grade,structure:l.grade===6?'54':'63',editionId:l.grade===6?'pep-54':'pep-legacy'}});await a.action('open-lesson-studio',l.id);},l);
+  await mini.reLaunch('/pages/learn/index');
+  console.log('opening: '+l.id);const opened=await evaluateAsync(mini,async l=>{const a=getApp().globalData.application,state=a.store.get();a.store.save({...state,profile:{...state.profile,grade:l.grade,structure:l.grade===6?'54':'63',editionId:l.grade===6?'pep-54':'pep-legacy'}});await a.action('open-lesson-studio',l.id);return {requested:l.id,page:a.page,params:a.params,error:a.error,busy:a.busy};},l);console.log('opened: '+JSON.stringify(opened));
   await new Promise(r=>setTimeout(r,180));
-  const result=await mini.evaluate(async()=>{
+  let current;for(let wait=0;wait<50;wait++){current=await mini.evaluate(function(){const a=getApp().globalData.application;return{page:a.page,error:a.error,id:a.render().teaching?.lesson.id};});if(current.id===l.id)break;if(current.error)throw new Error(current.error);await new Promise(r=>setTimeout(r,200));}if(current.id!==l.id){const page=await mini.currentPage();await mini.screenshot({path:path.join(out,'failure-screen.png')});throw new Error('Native lesson did not open: '+JSON.stringify({current,path:page.path,params:await page.data('params')}));}
+  const result=await evaluateAsync(mini,async()=>{
    const a=getApp().globalData.application,s=a.render().teaching.lesson,act=(id,value='')=>a.action('studio-'+id,value);
    await act('reset');
    if(s.mode==='communication')a.setField('studioBefore','I have my own idea for this task.');else await act('answer','my prediction');
@@ -30,7 +42,7 @@ const project=path.resolve(process.argv[2]||'.'),out=path.join(project,'native-a
   assert.equal(result.step,2,l.id);
   if(index===0){const page=await mini.currentPage(),shell=await page.$('app-shell'),studio=await shell.$('lesson-studio');assert(studio,'Native lesson component is mounted');const button=await studio.$('[data-action="studio-case"]');if(button)await button.tap();}
   await mini.screenshot({path:path.join(out,l.id+'.png')});
-  const finished=await mini.evaluate(async()=>{
+  const finished=await evaluateAsync(mini,async()=>{
    const a=getApp().globalData.application,s=a.render().teaching.lesson,act=(id,value='')=>a.action('studio-'+id,value);
    const answer=q=>q.kind==='choice'?q.answer.option:q.kind==='order'?JSON.stringify(q.answer.order):q.kind==='writing'||q.kind==='speaking'?'My original new response includes the needed task details.':q.answer.accepted[0];
    if(s.sorting)for(const card of s.sorting.cards)await act('sort',card.id+':'+card.category);

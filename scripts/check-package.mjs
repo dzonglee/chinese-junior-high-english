@@ -21,6 +21,8 @@ function checkWxml(file) {
 }
 function files(dir) { return readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(resolve(dir, e.name)) : [resolve(dir, e.name)]) }
 const all = files(native); for(const file of all.filter(f=>f.endsWith('.wxml')))checkWxml(file)
+assert((app.subPackages??[]).length<=100,'WeChat allows at most 100 subpackages')
+for(const p of app.subPackages??[]){const members=files(resolve(native,p.root));assert(members.reduce((n,f)=>n+statSync(f).size,0)<1_900_000,`Subpackage exceeds its safety budget: ${p.root}`)}
 const main = all.filter(file => !relative(native, file).replaceAll('\\', '/').startsWith('content/')), mainBytes = main.reduce((n, file) => n + statSync(file).size, 0), totalBytes = all.reduce((n, file) => n + statSync(file).size, 0)
 assert(mainBytes < 1_900_000, 'Main package exceeds its safety budget'); assert(totalBytes < 19_000_000, 'Total package exceeds its safety budget')
 for (const name of ['welcome', 'cards', 'notebook']) assert(existsSync(resolve(native, 'assets', `${name}.png`)), `Missing Blender artwork: ${name}`)

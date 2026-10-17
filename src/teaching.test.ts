@@ -8,7 +8,7 @@ import { StateStore, checkedState } from './services/storage'
 import { emptyState } from './core/learning'
 import { questionProblems } from './core/validation'
 import type { ContentCatalog, Lesson, Question } from './core/types'
-import { createLessonTeaching, freshTeaching, restoreTeaching, changeTeaching, teachingCanAdvance, teachingProblems, teachingSentences, assemblyCorrect } from './core/lesson-teaching'
+import { createLessonTeaching, freshTeaching, restoreTeaching, changeTeaching, teachingCanAdvance, teachingProblems, teachingSentences, assemblyCorrect, sentenceWorkbench } from './core/lesson-teaching'
 const root=process.cwd(),read=(file:string)=>JSON.parse(readFileSync(resolve(root,file),'utf8'))
 const source:ContentCatalog=authorCatalog(root),manifest=read('dist/manifest.json')
 function harness(lesson?: Lesson, simulatedAudio = false) {
@@ -70,7 +70,7 @@ it.each(source.lessons)('completes the real checked-pack five-phase studio for $
  await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(5)
  expect(h.store.get().attempts).toEqual([]);expect(h.store.get().mastery).toEqual({});expect(h.store.get().lessonDoneAt).toEqual({})
  expect(lesson.delayedQuestionIds.every(id=>!h.store.get().answerSeenAt?.[id])).toBe(true)
- if(s.mediaPending){expect(a.render().actions.find(x=>x.id==='start-lesson')!.disabled).toBe(true);await a.action('start-lesson',lesson.id);expect(a.render().page).not.toBe('session')}
+ if(s.mediaPending){expect(a.render().actions.find(x=>x.id==='start-lesson')!.disabled).toBe(true);await a.action('start-lesson',lesson.id);expect(a.render().id).not.toBe('session')}
  else {await a.action('start-lesson',lesson.id);const q=a.render().question!;await a.action('choose',answer(h.repo.getQuestion(q.id)!));if(q.kind!=='choice')a.setField('answer',answer(h.repo.getQuestion(q.id)!));for(const r of h.repo.getQuestion(q.id)!.rubric??[])await a.action('toggle-rubric',r.id);await a.action('check');expect(h.store.get().attempts.every(x=>x.evidence!=='independent')).toBe(true)}
  expect(h.errors.filter(x=>!x.includes('音频'))).toEqual([])
 })
@@ -91,3 +91,7 @@ it('preserves sentence abbreviations and accepts equivalent duplicate letter til
  const order=[...u.target],same=u.tiles.filter(t=>t.text===u.tiles.find(x=>u.tiles.filter(y=>y.text===x.text).length>1)!.text);const a=order.indexOf(same[0].id),b=order.indexOf(same[1].id);[order[a],order[b]]=[order[b],order[a]];expect(assemblyCorrect(u,order)).toBe(true);order[0]=order[1];expect(assemblyCorrect(u,order)).toBe(false)
  expect(teachingCanAdvance(s,changeTeaching(s,freshTeaching(s,1),'next','',2))).toBe(false)
 })
+
+it('marks direct-route content exposure without exposing delayed items',()=>{const h=harness(source.lessons[0]);h.catalog.questions=source.questions.filter(q=>q.topicId===source.lessons[0].topicId);h.app.open('lesson',{id:source.lessons[0].id});expect(source.lessons[0].questionIds.every(id=>h.store.get().answerSeenAt?.[id])).toBe(true);expect(source.lessons[0].delayedQuestionIds.every(id=>!h.store.get().answerSeenAt?.[id])).toBe(true)})
+
+it('shows literal live sentence slots and never duplicates a spelling prefix',()=>{const q=source.questions.find(q=>q.id==='q-g-be-001')!;expect(sentenceWorkbench(q,'a')).toMatchObject({before:'Mia ',selection:'is',after:' ready for the school trip.'});const word={...source.questions.find(q=>q.skill==='vocabulary')!,stem:'填写目标词：餐食。\nWe eat m____ at home.'};expect(sentenceWorkbench(word,'meals')).toMatchObject({before:'We eat ',selection:'meals',after:' at home.'});expect(sentenceWorkbench({...q,stem:'No gap here.'},'a')).toBeUndefined()})
