@@ -1,0 +1,631 @@
+{
+  "lessonId": "l-g-contractions",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Build apostrophes into real contracted forms,contrast possession with pronoun+verb,resolve has versus is from the following syntax,and distinguish letter abbreviations from contractions.",
+  "picturePurpose": "Exact coded expansion/attempt diagrams retain apostrophes. The original portrait makes your referent selectable in a stated Mia-to-Leo conversation. Word and abbreviation lettering stay in code.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先展开完整形式，再决定撇号放哪里",
+    "instruction": "把部件拼成缩约形式，也把所属表达放回名词前。's的完整形式要看后面搭配；首字母缩略词另按规则判断。",
+    "conditions": [
+      {
+        "label": "把It is缩约，保留撇号",
+        "before": "",
+        "target": "It's",
+        "after": " cold today.",
+        "choices": [
+          "Its",
+          "It's"
+        ],
+        "input": true,
+        "reason": "本句需要It is，缩约为It's。Its是不带动词的所属形式，不能代替It is；句首I大写。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "记录：今天很冷。把It is缩约，拼成一个带撇号的词。",
+          "cells": [
+            {
+              "label": "It is",
+              "detail": "本句完整形式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "s",
+          "'s",
+          "It"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "its后面接所属的事物",
+        "before": "The cat is licking ",
+        "target": "its",
+        "after": " paw.",
+        "choices": [
+          "it's",
+          "its"
+        ],
+        "input": true,
+        "reason": "paw前表示这只猫的所属，用its。it's展开为it is或it has，不能直接按本句意思修饰paw。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "logic",
+          "caption": "猫正在舔自己的爪子。这里说猫的爪子，不需要再加一个be动词。",
+          "cells": [
+            {
+              "label": "猫的爪子 · its paw",
+              "detail": "所属，不是it is"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "initial": "it's"
+      },
+      {
+        "label": "把You are缩约，不能丢掉re",
+        "before": "",
+        "target": "You're",
+        "after": " early today.",
+        "choices": [
+          "Your",
+          "You're"
+        ],
+        "input": true,
+        "reason": "这里说You are early，缩约为You're。Your表示你的，不能代替You are；句首Y大写。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "记录：你今天来得早。把You are缩约。",
+          "cells": [
+            {
+              "label": "You are",
+              "detail": "本句完整形式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "r",
+          "You",
+          "'re"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "Mia对Leo说your bag",
+        "before": "Mia says, “Please put ",
+        "target": "your",
+        "after": " bag here.”",
+        "choices": [
+          "you're",
+          "your"
+        ],
+        "input": true,
+        "reason": "Mia对Leo说话，your表示Leo的，直接修饰bag。you're=you are，不能在这里表示所属。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "logic",
+          "caption": "Mia对Leo说话，这个包属于Leo。先圈出your指向的人，再修好句子。",
+          "cells": [
+            {
+              "label": "your bag",
+              "detail": "第二人称所属"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "scene": {
+            "asset": "class-photo",
+            "alt": "班级合影：左边是穿珊瑚色上衣的 Mia，中间是穿蓝色上衣的 Leo，右边是穿紫色外套的 Amy。",
+            "people": [
+              {
+                "id": "mia",
+                "name": "Mia",
+                "description": "左边穿珊瑚色上衣的女生",
+                "left": 4,
+                "width": 27
+              },
+              {
+                "id": "leo",
+                "name": "Leo",
+                "description": "中间穿蓝色上衣的男生",
+                "left": 36,
+                "width": 27
+              },
+              {
+                "id": "amy",
+                "name": "Amy",
+                "description": "右边穿紫色外套的女生",
+                "left": 69,
+                "width": 27
+              }
+            ],
+            "speaker": "mia",
+            "listeners": [
+              "leo"
+            ],
+            "subjects": [
+              "leo"
+            ],
+            "subjectReason": "Mia在对Leo说话，包属于Leo。your在这句指向Leo，不是说话人Mia。",
+            "selectionPrompt": "圈出这句your指向的人。",
+            "formLabel": "所属表达"
+          }
+        },
+        "initial": "you're"
+      },
+      {
+        "label": "把They are缩约",
+        "before": "",
+        "target": "They're",
+        "after": " waiting outside.",
+        "choices": [
+          "Theyre",
+          "They're"
+        ],
+        "input": true,
+        "reason": "They are缩约为They're，撇号表示省略了a。Theyre漏了撇号；句首T大写。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "他们正在外面等。把They are缩约，注意保留撇号。",
+          "cells": [
+            {
+              "label": "They are",
+              "detail": "本句完整形式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "They",
+          "re",
+          "'re"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "Their后直接接team，表示所属",
+        "before": "",
+        "target": "Their",
+        "after": " team won.",
+        "choices": [
+          "They're",
+          "Their"
+        ],
+        "input": true,
+        "reason": "这里用Their修饰team，表示他们的队。They're=They are，不能直接修饰这个名词；句首T大写。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录说他们的队赢了。空格直接放在team前，要表达所属。",
+          "cells": [
+            {
+              "label": "他们的队 · Their team",
+              "detail": "所属限定词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "initial": "They're",
+        "caseSensitive": true
+      },
+      {
+        "label": "There is也可以缩约",
+        "before": "",
+        "target": "There's",
+        "after": " a clean desk here.",
+        "choices": [
+          "Theres",
+          "There's"
+        ],
+        "input": true,
+        "reason": "There is缩约为There's，s前有撇号。本句表达这里有一张干净桌子，不是所属关系。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "这里有一张干净的桌子。把There is缩约。",
+          "cells": [
+            {
+              "label": "There is",
+              "detail": "本句完整形式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "s",
+          "There",
+          "'s"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "同样是's，完整形式要看后面的搭配",
+        "before": "",
+        "target": "She's",
+        "after": " finished the work.",
+        "choices": [
+          "Shes",
+          "She's"
+        ],
+        "input": true,
+        "reason": "这里She's=She has。has finished后带the work作宾语；缩约形式必须有撇号，句首S大写。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "她已经完成了工作。先选正确展开形式，再把She has缩约。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的完整形式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "本句She's的完整形式是什么？",
+            "emptyLabel": "先选完整形式",
+            "emptyOutcome": "先看后面搭配",
+            "missingPrompt": "先看finished后还有the work这个宾语，再判断is还是has。",
+            "answer": "has",
+            "options": [
+              {
+                "id": "is",
+                "label": "She is",
+                "text": "be动词形式",
+                "reason": "本句finished后还有the work作宾语，需要has finished；不能按is finished加这个宾语来理解。",
+                "value": 25
+              },
+              {
+                "id": "has",
+                "label": "She has",
+                "text": "has finished the work：已经完成",
+                "reason": "has与finished构成完成时，后面保留the work这个宾语。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "'s",
+          "She",
+          "s"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "do not缩约时别漏撇号",
+        "before": "I ",
+        "target": "don't",
+        "after": " need a pencil.",
+        "choices": [
+          "dont",
+          "don't"
+        ],
+        "input": true,
+        "reason": "do not缩约为don't，n与t之间有撇号。dont不是本题要求的规范缩约形式。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "我不需要铅笔。把do not缩约，别把撇号漏掉。",
+          "cells": [
+            {
+              "label": "do not",
+              "detail": "本句完整形式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "do",
+          "nt",
+          "n't"
+        ]
+      },
+      {
+        "label": "have not的缩约形式",
+        "before": "We ",
+        "target": "haven't",
+        "after": " packed the bags.",
+        "choices": [
+          "havent",
+          "haven't"
+        ],
+        "input": true,
+        "reason": "have not缩约为haven't。主语We对应have；撇号保留在n与t之间。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "我们还没有收拾好行李。把have not缩约。",
+          "cells": [
+            {
+              "label": "have not",
+              "detail": "本句完整形式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "n't",
+          "have",
+          "nt"
+        ]
+      },
+      {
+        "label": "was not的缩约形式",
+        "before": "Leo ",
+        "target": "wasn't",
+        "after": " at school yesterday.",
+        "choices": [
+          "wasnt",
+          "wasn't"
+        ],
+        "input": true,
+        "reason": "was not缩约为wasn't。yesterday说过去，Leo是单数，本句完整形式为was not。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "Leo昨天不在学校。把was not缩约，保留过去时间。",
+          "cells": [
+            {
+              "label": "was not",
+              "detail": "本句完整形式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "nt",
+          "n't",
+          "was"
+        ]
+      },
+      {
+        "label": "一起行动的建议用Let's",
+        "before": "",
+        "target": "Let's",
+        "after": " try a different plan.",
+        "choices": [
+          "Lets",
+          "Let's"
+        ],
+        "input": true,
+        "reason": "本句是一起行动的建议，Let us可缩约为Let's。Lets不带撇号时可作let的第三人称单数，不是本句的建议；句首L大写。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "建议大家一起试试别的方案。按本句意思，把Let us缩约。",
+          "cells": [
+            {
+              "label": "Let us · 一起行动的建议",
+              "detail": "不是lets这个动词形式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "Let",
+          "'s",
+          "s"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "首字母缩略词不靠撇号",
+        "before": "We have ",
+        "target": "PE",
+        "after": " on Friday.",
+        "choices": [
+          "P'E",
+          "PE"
+        ],
+        "input": true,
+        "reason": "physical education常用大写PE表示，不加撇号。本题要求两个大写字母连写，不是在省略单词中的字母。",
+        "inputHint": "先展开完整形式，再核对所属、动词和撇号。",
+        "world": {
+          "kind": "syntax",
+          "caption": "课程表说周五有体育课。用physical education的大写首字母PE，不加点或撇号。",
+          "cells": [
+            {
+              "label": "physical education → PE",
+              "detail": "首字母缩略词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "tileMode": "morpheme",
+        "tiles": [
+          "P",
+          "'E",
+          "E"
+        ],
+        "caseSensitive": true
+      }
+    ],
+    "choices": [
+      "Its",
+      "It's",
+      "it's",
+      "its",
+      "Your",
+      "You're",
+      "you're",
+      "your",
+      "Theyre",
+      "They're",
+      "Their",
+      "Theres",
+      "There's",
+      "Shes",
+      "She's",
+      "dont",
+      "don't",
+      "havent",
+      "haven't",
+      "wasnt",
+      "wasn't",
+      "Lets",
+      "Let's",
+      "P'E",
+      "PE"
+    ],
+    "items": [
+      {
+        "id": "contraction-editor",
+        "label": "展开、所属与撇号",
+        "prompt": "让缩约形式、所属关系和实际句意同时对上。",
+        "answer": "",
+        "reason": "",
+        "hint": "It's/You're/They're含有动词；its/your/their表示所属。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-contractions-002",
+      "q-g-contractions-003"
+    ],
+    "transfer": {
+      "id": "individual-g-contractions-transfer",
+      "topicId": "g-contractions",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "这台机器人正在转动它自己的机械臂。两空依次填什么？\nLook at this robot. ___ moving ___ arm.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It's; its"
+        },
+        {
+          "id": "b",
+          "text": "Its; its"
+        },
+        {
+          "id": "c",
+          "text": "It's; it's"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "It's; its"
+      },
+      "marks": 2,
+      "estimatedSeconds": 80,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先展开缩约形式，再看名词前是否只需要所属限定词。",
+        "steps": [
+          {
+            "text": "第一空需要It is moving，缩约为It's moving。",
+            "reason": "句子需要主语和be动词；Its没有is，不能组成这里的进行时。"
+          },
+          {
+            "text": "第二空在arm前表示机器人的所属，用its。",
+            "reason": "its arm表示它的机械臂；it's=it is/has，不能按本句意思直接修饰arm。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一空缺少be动词，需要It's=It is，不是所属形式Its。"
+          },
+          {
+            "option": "c",
+            "reason": "第二空只表示所属，应用its；it's会多出一个is或has。"
+          }
+        ],
+        "pitfall": "读音相近不代表作用相同；先展开，再放回句中检查。",
+        "visual": {
+          "kind": "comparison",
+          "title": "把动作和所属分开核对",
+          "segments": [
+            {
+              "text": "It is moving → It's moving",
+              "role": "evidence",
+              "note": "主语+be动词"
+            },
+            {
+              "text": "the robot's arm → its arm",
+              "role": "evidence",
+              "note": "名词前表示所属"
+            }
+          ],
+          "caption": "缩约形式带出动词，所属形式只限定名词。"
+        },
+        "transfer": "如果机器人有两条机械臂并同时转动，its需要改成复数形式吗？arm又应怎样变化？"
+      }
+    }
+  }
+}

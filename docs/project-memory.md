@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-40 of413 lessons are individually reviewed;373 remain pending. Every lesson needs bespoke tasks,
+41 of413 lessons are individually reviewed;372 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-conversion. Twelve paired-use tasks require a contextual meaning/part-of-speech choice plus a correct word form. Water/email/walk/answer switch noun/verb roles;clean/empty switch adjective/verb roles. The original box picture contrasts state with the instruction to remove contents.
+Latest:l-g-contractions. Thirteen contraction tasks combine real apostrophe assemblies, possession contrasts, a selectable addressee, a mandatory has-expansion gate and a constrained uppercase initialism.
 
-All twelve models,narrow-phone figures,twelve wrong-role interpretations,initial authored placeholders,word-form repairs,applications and all explanation/transfer steps were inspected. Coded0/1 captions and a left-pointing action annotation clarify the box reference. New optional record prompts use accurate Chinese and retain existing defaults. Grades8–9;reserved005–008 unexposed;zero independent records. Fresh MCP status succeeds;project instruction access still fails;existing native card remains blocked.
+Inspected all thirteen models,narrow-phone figures,wrong apostrophe/person/expansion paths,typed possession repairs,capital feedback,removal/reload and all application/transfer steps. Final ASCII English apostrophes render clearly. Grades7–9,reserved005–008 unexposed,zero independent records.
 
-Checkpoint40 records the new flow/36 widths and current core,teaching,grammar,course,package,
+Checkpoint41 records the new flow/39 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The40 reviewed lessons cumulatively contain377 conditions/1131 widths;
+recorded explicitly. The41 reviewed lessons cumulatively contain390 conditions/1170 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-contractions. Thirteen contraction tasks are drafted outside course files:build apostrophes,contrastits/your/their with contracted pronoun+verb forms,select the has expansion from following syntax,and distinguish PE from apostrophe contractions. The portrait makes your referent selectable. Enforce the two explicitly requested source capitals per response,including the reserved response only in source tests. Inspect all diagrams and accepted punctuation forms before credit.
+Next:l-g-statements. A twelve-task statements draft remains outside course files. Learners select factual records,change box inventory and repair be,do/does/did and modal statements with actual phrase tiles. Preserve subject and capitalization in the final complete statement. Inspect each task before review credit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved
