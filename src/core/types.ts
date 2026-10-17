@@ -1,3 +1,4 @@
+import type { TeachingProgress } from './lesson-teaching'
 export type Grade = 6 | 7 | 8 | 9
 export type Term = 'upper' | 'lower'
 export type SchoolStructure = '63' | '54'
@@ -222,6 +223,7 @@ export interface ExplorationProgress {
 export interface LearnerState {
   schemaVersion: 1
   explorations?: Record<string, ExplorationProgress>
+  teaching?: Record<string, TeachingProgress>
   profile: LearnerProfile | null
   attempts: Attempt[]
   answerSeenAt?: Record<string, number>

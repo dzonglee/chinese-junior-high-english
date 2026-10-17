@@ -8,7 +8,48 @@
 - Keep the board clean, concise and easy to read, using plain English.
 - While the current session cannot access those MCP connections, continue app work first.
 
-## Active direction · interactive learning quality, 2026-10-17
+## Current milestone · all lesson teaching and native verification
+
+The owner requires Codex to complete every lesson itself; no further delegation. APP-TEACHING
+is complete and squash-integrated on `main` by codex-solo. The five-phase lesson studio now covers
+all 413 lessons. Full checked-pack controller checks pass for every lesson, including saved state,
+wrong paths and separate delayed evidence. Exploration never creates mastery or lesson passes.
+Listening pages provide text preparation only until approved audio exists. Videos remain deferred.
+
+Studio MCP access is restored through `/workspace/.onboarding/chrisverse_mcp.py`; normalize the
+existing Authorization value once. Native plugin injection remains unavailable but is no longer
+an access blocker. Never save credentials in this repository. External Obsidian project note:
+`Projects/Chinese Junior High English.md`; Kanban lesson task `3659787f-9c6f-4b00-a778-948748069f86`,
+native task `3725a8db-1c63-4e6b-8bca-df642450093c` (Codex / English solo). Those records were
+successfully written, reconciling the earlier unavailable-service fallback. Local save does not
+prove Obsidian Sync propagated remotely.
+
+The owner further clarified that learning must be interactive and easy to understand, not a wall
+of text. This means visual actions and specific immediate feedback, not merely collapsing prose.
+
+The isolated Mac project is `wechat/english-solo-20261017`. Actual compilation exposed the
+245-subpackage limit violation; six size-limited groups fix it without raising budgets. Native
+checks also fixed stale bound drafts, vertical source controls and cramped self-review buttons.
+The final build passes all 984 tests and the 826-model spelling audit. Browser evidence covers
+all 2,478 states plus 1,962 assemblies at three widths, thirteen control flows and fourteen new
+communication reference flows. All seventeen overview sheets and authored transfer figures were inspected.
+
+Native job `9372033579184c898746a28fc9eeb63e` finished with nested exit 0: 413 real lesson routes,
+seven complete representative flows, remaining phase-two fixtures and no simulator exceptions.
+Visual review found five empty captures; focused full flows with actual visible-control assertions
+replaced them. Final American checks cover fourteen distinct full flows across an eleven-row
+partial job (a later SDK prefetch failed) and a fresh three-lesson passing job. Do not describe the
+partial job as a pass or all 413 native routes as full lifecycles. Both final British changed
+lessons also pass native complete flows, including actual practise spelling. See the exact jobs, source-variant
+comparison and evidence boundaries in `docs/reviews/teaching-2026-10-17.md`.
+
+Native and portable development ZIPs are in `dist/`; every packaged source entry matches the
+final build. Eight fresh offline checks pass. Use the existing Kanban cards and shared
+`wechat/DEVTOOLS.lock` for future GUI work, and close only the English project. Phone permissions,
+approved listening audio, publisher mapping, research gaps, production configuration and editorial
+launch approval remain pending; videos are deferred. Content remains draft and reference files are unchanged.
+
+## Historical interaction foundation · 2026-10-17
 
 The owner challenged parity with maths. Course breadth and structural checks do not establish
 interactive teaching quality. Maths main 933ab32 includes predict/explore/spot/check lesson blocks
@@ -20,11 +61,10 @@ Literal passage selection is available after feedback for 264/298 reading tasks;
 stay hidden. Explanation reasons reveal progressively. All 39 condition visuals were inspected.
 561 tests, eight interaction browser checks and the interaction audit pass. Browser/native boundaries remain explicit. This is the
 first reviewed exploratory lane, not interactive parity in every one of the 413 lessons.
-APP-INTERACTION is integrated on main; APP-TEACHING tracks the remaining exploratory teaching
-coverage and is open for the next author. Sync and claim it before extending lesson sequences.
+APP-INTERACTION is integrated on main; APP-TEACHING is now claimed by codex-solo and implements every lesson; see the active section above.
 AI-generated imagery is now explicitly allowed by the owner, superseding Blender-only guidance.
 Keep exact diagrams/labels in code, inspect assets, and keep all learning evidence honest.
-External MCP tools remain absent; repository records carry reconciliation without external writes.
+Native plugin tools remain absent; the tested direct MCP helper now maintains the existing external records.
 
 ## Original course inventory · 2026-10-17
 

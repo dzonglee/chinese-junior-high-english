@@ -15,8 +15,8 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | APP-DELIVERY | Deliver usable local English app | done | codex-local | main | Local app and offline build delivered |
 | APP-LESSONS | Complete the local junior-high lesson course | done | codex-course | main | 413 original lessons delivered; approved listening audio pending |
 | APP-INTERACTION | Build interactive language activities | done | codex-interaction | main | 13 workshops and reading evidence delivered |
-| APP-TEACHING | Upgrade every lesson’s interactive teaching | claimed | codex-solo | author/all-lesson-teaching | Upgrade and verify all 413 lessons; no delegation |
-| APP-NATIVE | Prepare native validation and publication | open | — | — | Claim for DevTools/device checks, real project setup and approved audio; videos later |
+| APP-TEACHING | Upgrade every lesson’s interactive teaching | done | codex-solo | main | 413 interactive studios delivered; native/local evidence in teaching review |
+| APP-NATIVE | Prepare native validation and publication | open | — | — | Claim for real-device checks, production AppID/cloud setup and approved audio; guest DevTools checked |
 
 ### Delivery checklist
 
@@ -28,10 +28,10 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | Listening, speaking and writing | 29 themes across skills; 99 scripts await approved audio |
 | Exams, question builder and private questions | Implemented and tested |
 | Progress, mistakes and data controls | Implemented and tested |
-| Functional testing and visual review | 511 tests; all figures rendered; native validation later |
-| Release preparation | Fingerprint fixed; native/project/owner review later |
+| Functional testing and visual review | 984 tests; all studio layouts pass; 413 native routes and focused controls checked |
+| Release preparation | Real device, production configuration and owner review pending |
 
-External Obsidian and Kanban updates are pending connection availability. Continue app work first.
+The existing Obsidian project memory and Kanban cards are maintained through Studio MCP; see project-memory.md.
 
 ## Stage 1 · Resource gathering
 

@@ -41,7 +41,7 @@ try {
   await expect(page.locator('.hero-art')).toBeVisible()
   await expect.poll(() => page.locator('.hero-art').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true)
   checks.push('Standalone app opens, profile saves and embedded Blender artwork loads')
-  await action('start-lesson', 'l-g-be'); await screen('session')
+  await page.goto(url+'#learn'); await action('start-lesson', 'l-g-be'); await screen('session')
   while (true) {
     const s = await state(), session = s.sessions[s.activeSessionId]
     const question = catalog.questions.find(q => q.id === session.questionIds[session.current])
@@ -115,6 +115,18 @@ try {
   }
   await page.setViewportSize({ width: 390, height: 844 })
   await page.screenshot({ path: resolve(root, 'test-results/local/home.png'), fullPage: true })
+  const beforeStudio=await state()
+  await page.goto(`${url}#learn`);await screen('learn');await action('open-lesson-studio','l-g-be')
+  await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','0')
+  const prediction=catalog.questions.find(q=>q.id===catalog.lessons.find(l=>l.id==='l-g-be').questionIds[0])
+  await action('studio-answer',prediction.answer.option);await action('studio-check');await action('studio-next')
+  await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','1')
+  await page.locator('[data-action=studio-tile]').first().click()
+  expect((await state()).teaching['l-g-be'].order).toHaveLength(1)
+  await page.goto(`${url}#home`);await screen('home');await page.goto(`${url}#learn`);await action('open-lesson-studio','l-g-be')
+  await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','1');await expect(page.locator('.selected.token')).toHaveCount(1)
+  expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length)
+  checks.push('Offline studio prediction, native-style tile actions and saved restoration use embedded packs without adding mastery evidence')
   expect(network.filter(request => request !== url)).toEqual([]); expect(errors).toEqual([])
   checks.push('No remote/content requests, no page errors and no horizontal overflow at phone/tablet widths')
   writeFileSync(resolve(root, 'test-results/local/results.json'), JSON.stringify({ mode, networkDisabledAfterDocumentLoad: true, directFileNavigationValidated: mode === 'file', checks, errors, network, completedAt: new Date().toISOString() }, null, 2) + '\n')

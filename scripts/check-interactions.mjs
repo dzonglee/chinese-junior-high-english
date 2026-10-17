@@ -11,7 +11,7 @@ await build({ stdin: { contents: "export * from './src/core/experiments';export 
 const {experiments,sceneExperiment,validateExperiments,evidenceSentences}=await import(pathToFileURL(target))
 const c=authorCatalog(root), all=[sceneExperiment,...experiments]
 assert.deepEqual(validateExperiments(c.topics.map(t=>t.id),all),[])
-assert.equal(Object.keys(c.instructionalFiles).length,9)
+assert(Object.keys(c.instructionalFiles).length>=15);for(const file of ['src/core/lesson-teaching.ts','src/core/teaching-transfers.ts','src/core/phonetic-sorting.ts','web/lesson-studio.ts','miniprogram/components/lesson-studio/index.wxml'])assert(c.instructionalFiles[file],`Missing approval coverage: ${file}`)
 for(const [file,sha256] of Object.entries(c.instructionalFiles)) assert.equal(createHash('sha256').update(readFileSync(resolve(root,file))).digest('hex'),sha256)
 for(const e of all) assert.equal(e.grade,Math.min(...c.topics.find(t=>t.id===e.topicId).grades))
 for(const asset of JSON.parse(readFileSync(resolve(root,'content/visual-assets.json'),'utf8')).assets){assert.equal(createHash('sha256').update(readFileSync(resolve(root,asset.file))).digest('hex'),asset.sha256);assert(asset.ownerAuthorization && asset.inspection);assert.deepEqual(asset.referencesUsed,[])}

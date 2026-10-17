@@ -43,6 +43,7 @@ privacyListener(value => { privacyValue = value }); assert.equal(privacyValue.ev
 let requested = false
 privacyValue = null; topPage = { selectComponent: id => { assert.equal(id, '#shell'); return { requestPrivacy: resolve => { requested = true; resolve({ event: 'agree', buttonId: 'privacy-agree' }) } } } }
 privacyListener(value => { privacyValue = value }); assert(requested); assert.equal(privacyValue.buttonId, 'privacy-agree')
+await app.content.ensureTopics(manifest.map(p=>p.topicId)); assert.equal(app.catalog.questions.length, 4804, 'Every native packed topic must load and pass its hash, not only the first topic')
 if (mode === 'cloud') { assert(cloudInitialised); assert(cloudDownloads > 0) } else { assert(!cloudInitialised); assert.equal(cloudDownloads, 0) }
 console.log(`${mode} native-adapter simulation passed.`)
 }

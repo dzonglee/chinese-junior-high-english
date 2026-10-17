@@ -82,6 +82,15 @@ export function checkedState(text: string, catalog: ContentCatalog, now: number,
     if (!safeMap(data.explorations) || Object.keys(data.explorations).length > 200 || !Object.values(data.explorations).every(p => record(p) && p.version === 1 && count(p.phase) && p.phase <= 4 && token(p.condition) && Array.isArray(p.visited) && p.visited.length <= 20 && p.visited.every(token) && ['prediction', 'spot', 'transfer'].every(key => p[key] === undefined || token(p[key])) && finite(p.updatedAt))) throw new Error('备份中的互动探索记录有误。')
     base.explorations = data.explorations as LearnerState['explorations']
   }
+  if (data.teaching !== undefined) {
+    const token = (v: unknown) => typeof v === 'string' && /^[a-zA-Z0-9:-]{1,120}$/.test(v)
+    if (!safeMap(data.teaching) || Object.keys(data.teaching).length > 1000) throw new Error('备份中的互动课程记录有误。')
+    for (const p of Object.values(data.teaching)) {
+      if (!record(p) || p.version !== 1 || typeof p.fingerprint !== 'string' || !/^[0-9a-f]{1,8}$/.test(p.fingerprint) || !count(p.step) || p.step > 5 || !count(p.unit) || p.unit > 100 || !count(p.caseIndex) || p.caseIndex > 100 || !finite(p.updatedAt) || !['before','after'].every(key => typeof p[key] === 'string' && String(p[key]).length <= 5000) || !['order','completed'].every(key => Array.isArray(p[key]) && (p[key] as unknown[]).length <= 300 && (p[key] as unknown[]).every(token)) || !['answers','checked','links'].every(key => safeMap(p[key]) && Object.keys(p[key] as object).length <= 300)) throw new Error('备份中的互动课程记录有误。')
+      if (!Object.values(p.answers as object).every(value => typeof value === 'string' && value.length <= 5000) || !Object.values(p.checked as object).every(value => typeof value === 'boolean') || !Object.values(p.links as object).every(token)) throw new Error('备份中的互动课程作答有误。')
+    }
+    base.teaching = data.teaching as LearnerState['teaching']
+  }
   const sessions = checkedSessions(data.sessions)
   const recordings = local && Array.isArray(data.recordings) ? data.recordings.filter((r) => record(r) && typeof r.id === 'string' && typeof r.path === 'string' && typeof r.questionId === 'string' && typeof r.createdAt === 'number' && typeof r.durationMs === 'number') as LearnerState['recordings'] : []
   // Only same-device restoration may retain file paths and the active session.

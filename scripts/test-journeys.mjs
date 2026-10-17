@@ -32,7 +32,7 @@ try {
   await navigate('settings'); await page.selectOption('[name=structure]', '63'); await expect(page.locator('[name=grade]')).toHaveValue(''); await expect(page.locator('[name=editionId]')).toHaveValue(''); await page.selectOption('[name=grade]', '7'); await page.selectOption('[name=editionId]', 'pep-2024'); await action('save-profile'); await screen('home')
   await page.reload(); await screen('home'); expect((await state()).profile.grade).toBe(7); await capture('home')
   passed('Profile validation, school-structure changes and saved onboarding')
-  await action('start-lesson', 'l-g-be'); await screen('session')
+  await navigate('learn'); await action('start-lesson', 'l-g-be'); await screen('session')
   await action('choose', 'b'); await action('check'); await expect(page.locator('.explanation')).toContainText('Mia'); await capture('wrong-answer-explanation')
   let s = await state(); expect(s.attempts).toHaveLength(1); expect(s.mistakes['q-g-be-001']).toBeTruthy()
   await action('retry'); await action('choose', 'a'); await action('check'); s = await state(); expect(s.attempts[1].evidence).toBe('assisted'); expect(s.mastery['g-be'].attempts).toBe(1)

@@ -6,17 +6,17 @@ behavior below; they do not establish native release or publication.
 | Check | Observed result |
 | --- | --- |
 | Locked setup script | Node 24; npm ci; Git LFS pull/fsck and register checks pass |
-| TypeScript and automated tests | 561 tests pass, including every lesson’s immediate/delayed controller and persistence lifecycle |
+| TypeScript and automated tests | 984 tests pass, including every lesson’s immediate/delayed controller and persistence lifecycle |
 | Grammar assessment regressions | Seven source-only tests cover all 52 blanks and 38 corrections, explicit constraints, legitimate equivalents and invalid grammar |
 | Native recording cancellation | Four actual-native-source simulations pass for privacy/microphone cancellation, late start and normal recording |
 | Standalone local app | 10.12 MB; all 245 packs, three Blender assets and one generated scene embedded |
-| Offline learner checks | Seven checks pass with networking disabled during practice; managed browser uses exact standalone document on loopback because file navigation is blocked |
+| Offline learner checks | Eight checks pass with networking disabled during practice; managed browser uses exact standalone document on loopback because file navigation is blocked |
 | Running development service | Real app document and learner workflow bundle served on port 4173 |
 | Content compiler/audit | 245 topics, 413 lessons, 4,804 original draft tasks, 1,690 distinct headwords |
 | Blender artwork | Three original transparent assets rendered with Blender 4.3.2 |
-| Native adapter | Development subpackage and synthetic CloudBase API simulations pass |
-| Native package structure | 25 routes, handlers and WXML tag structure pass static checks |
-| Package budget | Approximately 1,704 KB main / 10,101 KB development total; below safety budgets |
+| Native adapter | Development subpackage and synthetic CloudBase API simulations load all 245 packs / 4,804 tasks |
+| Native package structure | 26 routes, handlers and WXML tag structure pass static checks |
+| Package budget | Approximately 1,726 KB main / 10,123 KB development total; below safety budgets |
 | Interaction content audit | 13 workshops / 39 conditions; exact-source evidence mapping for 264/298 reading tasks |
 | Interactive browser checks | Eight pass; course-card links, all workshops practiced offline, scene movement/reload, evidence gating, progressive reasons and topic-practice handoff |
 | Interaction visual review | All 36 sentence states, three scene positions and real reading locator inspected |
@@ -93,9 +93,31 @@ is served over loopback; networking is disabled during workshop practice and res
 explicit document reload/navigation. This is not direct-file or native-device validation.
 
 The maths comparison is a source-contract comparison at `933ab32`, not a native walkthrough.
-Full per-lesson interactive teaching parity remains unverified and incomplete; the 13 workshops
-are a reviewed foundation. Original course inventory counts are unchanged.
+All 413 lessons now have five-stage interactive studios. This expands the earlier 13-workshop
+foundation; it does not claim measured learning effectiveness or a completed maths-app parity review. Original course inventory counts are unchanged.
 
 Editorial fingerprints now include hashes of the workshop/evidence sources, scene asset and
 instructional renderer/geometry files. Editing this teaching content invalidates a prior approval;
 no real approval was created. The source/asset hash audit passes.
+
+## All-lesson interactive teaching
+
+The current controller suite completes all 413 checked-pack studios and audits both spelling
+variants. Vocabulary boards cover all 1,690 target words. Native controlled-input regressions
+check the actual bound before/after draft values as well as persistence. Edition adaptation also
+covers the fourteen new communication transfer tasks, including summarize/summarise.
+
+Browser layout evidence in `test-results/teaching-final/` covers 2,478 states at 320/390/768 widths,
+1,962 assemblies and 201 contact sheets. Real browser controls separately exercise all eight
+phonetic sorts, vocabulary contexts, evidence selection and both communication modes. Longer
+references and diagrams are available on demand; teaching is led by the activity itself.
+
+Actual DevTools testing caught two defects that browser checks missed: the 245 native
+subpackages exceeded WeChat's limit of 100, and controlled native draft inputs cleared their
+visible values. Six size-limited groups now contain the unchanged topic packs; native draft
+bindings now update both the controller and displayed progress fields. The actual simulator walk
+completed 413 routes and seven full representative flows with nested exit 0. Visual inspection
+found five empty captures; all five passed focused full flows with visible controls required.
+Final spelling/assembly follow-ups are recorded in the [bounded native review](reviews/teaching-2026-10-17.md).
+This is guest DevTools evidence, with explicit render-fixture boundaries; real-device behavior,
+approved audio and publication remain pending.
