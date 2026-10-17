@@ -698,3 +698,19 @@ A combined edition audit hit5s once and passed alone. Split it into two complete
 each covering all413 lessons/all1,690 headwords, keeping the same timeout and assertions.
 Next l-g-pronouns: identify referents separately from grammatical position and coded ownership.
 Unit stays claimed and unfinished; native GUI remains separate. Work stays solo.
+
+
+## 2026-10-18 (Sydney) · codex-solo · pronoun lesson individually reviewed
+
+l-g-pronouns is reviewed: 9/413. Eight tasks distinguish referents from grammar position,
+require typed her/hers, and contrast singular/plural objects, ownership and ourselves. Explicit
+records establish ownership and making, rather than infer them from who holds a pictured item.
+Review corrected the subject-only prompt and sentence/punctuation flow. All figures, wrong
+referents, application and transfer were inspected. Full flow and24 widths pass, with reload and
+zero assessment records; all four affected scene lessons were rechecked. Typecheck and826
+teaching/spelling audit pass; last core1,454 precedes pronoun data. Next l-g-nouns.
+
+Fresh direct MCP check: wechat_status succeeds, read_file wechat/AGENTS.md reports external-drive
+file access unavailable. No native GUI job, compilation, restart, upload or publication occurred.
+Reaffirm the existing blocked native card; continue local work without claiming native execution.
+The overall lesson claim remains unfinished. Work stays solo.

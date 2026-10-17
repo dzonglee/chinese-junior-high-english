@@ -6,7 +6,7 @@ import {questionProblems} from './validation'
 
 export interface WorldCell {id?:string;label:string;detail?:string;value?:number;role?:string;art?:string;uncertain?:boolean}
 export interface ScenePerson {id:string;name:string;description:string;left:number;width:number}
-export interface PeopleScene {formLabel?:string;record?:{title:string;days:{label:string;text:string}[]};asset:string;alt:string;people:ScenePerson[];speaker:string;listeners:string[];subjects:string[];subjectReason:string}
+export interface PeopleScene {selectionPrompt?:string;formLabel?:string;record?:{title:string;days:{label:string;text:string}[]};asset:string;alt:string;people:ScenePerson[];speaker:string;listeners:string[];subjects:string[];subjectReason:string}
 export interface EventRecords {missingPrompt?:string;artChoices?:string[];artLabels?:string[];title:string;asset?:string;alt?:string;answer:string;options:{id:string;label:string;text:string;reason:string;value:number;eventLabel?:string;endValue?:number}[]}
 export interface LanguageCondition {input?:boolean;inputHint?:string;choices?:string[];label:string;before:string;target:string;after:string;reason:string;world:{kind:'count'|'timeline'|'roles'|'scale'|'syntax'|'logic'|'morphology'|'position'|'people-scene';caption:string;cells:WorldCell[];scene?:PeopleScene;records?:EventRecords;selection?:{prompt:string;ids:string[];reason:string}}}
 export interface UsageMap {left:string;right:string;object:string;caption:string;alternatives:Record<string,'left'|'right'>}

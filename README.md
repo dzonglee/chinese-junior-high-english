@@ -2,7 +2,7 @@
 
 The owner has requested a further **individual lesson redesign**. The shared workshops below
 are a functional baseline; the [per-lesson tracker](docs/authoring/lesson-upgrades.md) records the
-actual individual reviews (currently 8/413), with the first eight grammar lessons now checked.
+actual individual reviews (currently 9/413), with the first nine grammar lessons now checked.
 
 
 A working local English practice app for mainland junior-high students, with 413 original draft
