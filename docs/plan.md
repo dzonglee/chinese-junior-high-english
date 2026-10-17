@@ -172,3 +172,14 @@ written training papers now, clearly distinguished from a verified city/cohort e
 blueprint. Listening papers may be authored but actual listening still requires approved audio;
 never substitute transcript reading for listening marks. Preserve textbook spelling and original
 rights. Work remains solo; keep per-lesson evidence and actual native review, not just counts.
+
+
+## Visual lesson revamp (owner direction, 2026-10-17)
+
+The owner rejects the latest lessons as insufficiently interactive. APP-VISUAL-LESSONS
+owns another complete 413-lesson pass: lesson-specific visual missions, meaningful picture
+use, manipulable language/evidence/word/planning boards, and concise feedback. This is a
+new teaching deliverable, not a reopening of the completed original-paper unit. Author and
+inspect generated scenes; keep exact answer-bearing information in code. Cover every lesson
+in an explicit manifest, exercise the real controls, and inspect browser/native rendering.
+Work remains solo; draft/evidence/audio/local-format boundaries continue to apply.

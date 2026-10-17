@@ -437,3 +437,11 @@ passes both complete flows; actual final report and corrected preflight screensh
 Archives were refreshed and verified against source. Obsidian and the existing mock Kanban
 card are updated after the main push with its exact SHA. The next separate milestone is
 APP-NATIVE/official mapping/approved audio; no publication or audio selection is authorized.
+
+
+## 2026-10-17 · codex-solo · visual teaching scope
+
+The owner requests a further substantive revamp of every lesson, with generated pictures
+and more interactive elements. Add APP-VISUAL-LESSONS to the plan/board; preserve completed
+exam papers and all other claims. Use lesson-specific tasks and exact coded learning clues,
+not decorative images as evidence. Work stays solo. Claim this unit before implementation.
