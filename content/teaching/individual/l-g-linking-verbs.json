@@ -1,0 +1,447 @@
+{
+  "lessonId": "l-g-linking-verbs",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Identify a subject state versus an action using the same feel/look family; recognize adjective friendly and healthy well without false suffix or word-class shortcuts; transfer to taste with and without its object.",
+  "picturePurpose": "Original student-touching-blanket scene lets the learner select the blanket state or the student action. Exact sensory facts are authored text; coded sentence diagrams distinguish what each modifier describes.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "一张图，分清状态和动作",
+    "instruction": "先看描述的是谁、什么或哪个动作，再选合适的词形。",
+    "conditions": [
+      {
+        "label": "谁的状态是 soft？",
+        "before": "The blanket feels ",
+        "target": "soft",
+        "after": ".",
+        "choices": [
+          "softly",
+          "soft"
+        ],
+        "reason": "feels在这里表示摸起来，soft是形容词，说明毯子的触感。softly是副词，不能代替这个状态描述。",
+        "world": {
+          "kind": "logic",
+          "caption": "触感记录：毯子柔软，Mia正仔细触摸它。先看这一句在描述什么。",
+          "cells": [
+            {
+              "label": "the blanket",
+              "detail": "被描述的主语"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这句需要的描述",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "点图中这句话着重描述的部分",
+            "missingPrompt": "先看描述的是毯子的状态，还是Mia的动作，再核对词形。",
+            "asset": "lesson-blanket-touch",
+            "alt": "穿珊瑚色上衣的Mia在桌旁，用手触摸左侧的蓝色毯子。",
+            "artChoices": [
+              "blanket",
+              "action"
+            ],
+            "answer": "blanket",
+            "options": [
+              {
+                "id": "blanket",
+                "label": "毯子的状态",
+                "text": "说毯子摸起来怎么样",
+                "reason": "这一句从毯子说起，soft描述毯子的触感。",
+                "value": 35
+              },
+              {
+                "id": "action",
+                "label": "Mia的动作",
+                "text": "说她怎样触摸毯子",
+                "reason": "这一句描述的是毯子的触感；请把选择改回毯子的状态。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "还是 feel，这次在做动作",
+        "before": "Mia feels the blanket ",
+        "target": "carefully",
+        "after": ".",
+        "choices": [
+          "careful",
+          "carefully"
+        ],
+        "reason": "这里feels后已有对象the blanket，表示触摸这个动作。用副词carefully说明怎样摸，不是用形容词careful描述人的状态。",
+        "world": {
+          "kind": "logic",
+          "caption": "动作记录：Mia在仔细触摸毯子。这句从她的动作说起，注意feels后已有the blanket。",
+          "cells": [
+            {
+              "label": "feels the blanket",
+              "detail": "触摸这个动作"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这句需要的描述",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "点图中这句话着重描述的部分",
+            "missingPrompt": "先看描述的是毯子的状态，还是Mia的动作，再核对词形。",
+            "asset": "lesson-blanket-touch",
+            "alt": "穿珊瑚色上衣的Mia在桌旁，用手触摸左侧的蓝色毯子。",
+            "artChoices": [
+              "blanket",
+              "action"
+            ],
+            "answer": "action",
+            "options": [
+              {
+                "id": "blanket",
+                "label": "毯子的状态",
+                "text": "说毯子摸起来怎么样",
+                "reason": "carefully说的是怎样触摸；请选Mia的动作，而不是毯子本身的状态。",
+                "value": 35
+              },
+              {
+                "id": "action",
+                "label": "Mia的动作",
+                "text": "说她怎样触摸毯子",
+                "reason": "Mia在触摸毯子，carefully说明动作怎样进行。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "旋律听起来怎么样",
+        "before": "This tune sounds ",
+        "target": "beautiful",
+        "after": ".",
+        "choices": [
+          "beautifully",
+          "beautiful"
+        ],
+        "reason": "sounds在这里表示听起来，用形容词beautiful描述旋律。beautifully是副词，不能替代这里的状态词。",
+        "world": {
+          "kind": "logic",
+          "caption": "乐评写着：这段旋律听起来很优美。用sound描述听感。",
+          "cells": [
+            {
+              "label": "this tune",
+              "detail": "被描述的主语"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这句需要的描述",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先判断在描述状态还是动作，再修好词形。",
+        "initial": "beautifully"
+      },
+      {
+        "label": "词尾有-ly，就一定是副词吗？",
+        "before": "The new guide seems ",
+        "target": "friendly",
+        "after": ".",
+        "choices": [
+          "friend",
+          "friendly"
+        ],
+        "reason": "这里需要“友好的”来描述向导给人的感觉，用形容词friendly。friend是“朋友”这个名词，不能直接代替当前句子里“友好的”这个性格描述。",
+        "world": {
+          "kind": "logic",
+          "caption": "印象记录：新向导给人的感觉很友好。比较friendly和friend，不要只凭词尾判断词性。",
+          "cells": [
+            {
+              "label": "the new guide",
+              "detail": "给人的印象"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这句需要的描述",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "状态发生了变化",
+        "before": "The audience became ",
+        "target": "quiet",
+        "after": " after the announcement.",
+        "choices": [
+          "quietly",
+          "quiet"
+        ],
+        "reason": "became在这里表示变得，quiet说明观众变成怎样的状态。quietly是副词，不是这里需要的状态描述。",
+        "world": {
+          "kind": "logic",
+          "caption": "现场记录：公告读完后，观众安静了下来。",
+          "cells": [
+            {
+              "label": "the audience",
+              "detail": "变得怎么样"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这句需要的描述",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先判断在描述状态还是动作，再修好词形。",
+        "initial": "quietly"
+      },
+      {
+        "label": "well在这里也能说明状态",
+        "before": "After a short rest, Leo feels ",
+        "target": "well",
+        "after": ".",
+        "choices": [
+          "health",
+          "well"
+        ],
+        "reason": "well在这里是形容词，表示身体舒服、状况好。health是名词，不能直接作当前句子的状态描述；也不能把well在别处作副词的用法机械搬过来。",
+        "world": {
+          "kind": "logic",
+          "caption": "身体状况记录：休息后，Leo感觉身体舒服，没有不适。选well或health补全表达。",
+          "cells": [
+            {
+              "label": "Leo",
+              "detail": "被描述的人"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这句需要的描述",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "well在这句说的是什么？",
+            "missingPrompt": "先判断这一句说身体状况还是动作方法，再核对表达。",
+            "answer": "health",
+            "options": [
+              {
+                "id": "health",
+                "label": "身体状况",
+                "text": "身体舒服，没有不适",
+                "reason": "这里用well说明Leo的身体状况。",
+                "value": 35
+              },
+              {
+                "id": "method",
+                "label": "动作方法",
+                "text": "某个动作做得好",
+                "reason": "这一句说Leo身体感觉如何，不是在评价某个动作的方法。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "味道好，不能机械套 well",
+        "before": "The food tastes ",
+        "target": "good",
+        "after": ".",
+        "choices": [
+          "well",
+          "good"
+        ],
+        "reason": "good是形容词，说明食物的味道好。well在上一项能说明人的身体状况，这里不能用它代替“味道好”的good。",
+        "world": {
+          "kind": "logic",
+          "caption": "试吃记录：这道菜味道很好。这里评价食物的味道，比较good和well。",
+          "cells": [
+            {
+              "label": "the food",
+              "detail": "味道怎么样"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这句需要的描述",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "look at后有对象，说明怎么看",
+        "before": "Mia looked at the map ",
+        "target": "carefully",
+        "after": " before the trip.",
+        "choices": [
+          "careful",
+          "carefully"
+        ],
+        "reason": "looked at the map表示看地图这个动作，carefully说明她怎样看。careful是形容词，不能在这里直接说明动作的方法。",
+        "world": {
+          "kind": "logic",
+          "caption": "出发记录：Mia出发前仔细看了地图。这里要说明她怎样看。",
+          "cells": [
+            {
+              "label": "looked at the map",
+              "detail": "看地图这个动作"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这句需要的描述",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先判断在描述状态还是动作，再修好词形。",
+        "initial": "careful"
+      },
+      {
+        "label": "换回 look：看上去是什么状态",
+        "before": "Leo looks ",
+        "target": "happy",
+        "after": " today.",
+        "choices": [
+          "happily",
+          "happy"
+        ],
+        "reason": "looks在这句表示看上去，happy说明Leo的状态。happily是副词，通常说明动作怎样进行，不能替代这里“看上去开心”的状态描述。",
+        "world": {
+          "kind": "logic",
+          "caption": "表情记录：Leo今天看上去很开心，不是在说明他怎样看某个对象。",
+          "cells": [
+            {
+              "label": "Leo",
+              "detail": "看上去怎么样"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这句需要的描述",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先判断在描述状态还是动作，再修好词形。",
+        "initial": "happily"
+      }
+    ],
+    "choices": [
+      "softly",
+      "soft",
+      "careful",
+      "carefully",
+      "beautifully",
+      "beautiful",
+      "friend",
+      "friendly",
+      "quietly",
+      "quiet",
+      "health",
+      "well",
+      "good",
+      "happily",
+      "happy"
+    ],
+    "items": [
+      {
+        "id": "state-or-action",
+        "label": "状态与动作",
+        "prompt": "不是见到feel、look或taste就机械选形容词。",
+        "answer": "",
+        "reason": "",
+        "hint": "用句意判断修饰关系，不只看词尾。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-linking-verbs-002",
+      "q-g-linking-verbs-003"
+    ],
+    "transfer": {
+      "id": "individual-g-linking-verbs-transfer",
+      "topicId": "g-linking-verbs",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "试吃记录：汤的味道好；厨师品尝时很仔细。两空依次填什么？\nThe soup tastes ___. The cook tastes the soup ___.",
+      "options": [
+        {
+          "id": "a",
+          "text": "good; carefully"
+        },
+        {
+          "id": "b",
+          "text": "well; carefully"
+        },
+        {
+          "id": "c",
+          "text": "good; careful"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "good; carefully"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别判断是在说明主语的状态，还是说明一个动作怎样做。不要只看到taste就机械选择同一种词性。",
+        "steps": [
+          {
+            "text": "第一句从the soup说起，tastes表示尝起来。",
+            "reason": "评价汤的味道好，用形容词good。well在表示身体状况好时可作形容词，但不表示这里的味道好。"
+          },
+          {
+            "text": "第二句中the cook在品尝，tastes后已有对象the soup。",
+            "reason": "carefully是副词，说明品尝得仔细；careful不能在这个结构里说明动作的方法。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "这里说明汤的味道好，用good，不能把well表示身体状况好的用法搬过来。"
+          },
+          {
+            "option": "c",
+            "reason": "第二句说明厨师怎样品尝，要用副词carefully，不是形容词careful。"
+          }
+        ],
+        "pitfall": "同一个感官动词可有不同用法：结合主语、后续成分和句意，判断描述的是状态还是动作。",
+        "visual": {
+          "kind": "comparison",
+          "title": "同一个taste，两种作用",
+          "segments": [
+            {
+              "text": "tastes + good",
+              "role": "evidence",
+              "note": "说明汤的味道"
+            },
+            {
+              "text": "tastes + the soup + carefully",
+              "role": "evidence",
+              "note": "说明品尝动作怎样进行"
+            }
+          ],
+          "caption": "先找被描述的内容，再决定形容词还是副词。"
+        },
+        "transfer": "如果第二句改成The cook is careful，careful又在描述谁的状态？"
+      }
+    }
+  }
+}

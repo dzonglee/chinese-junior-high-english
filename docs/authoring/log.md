@@ -989,3 +989,16 @@ Current new lesson flow:11 conditions/33 task-width checks,reload and zero indep
 Cumulative219 conditions/657 widths;earlier flows retain scope. Hashes:checkpoint-26.*.
 Next:l-g-linking-verbs. A nine-task linking-verb draft and original blanket-touch artwork remain outside course files. The raw image and600/512-pixel deliveries were inspected;the512-pixel trial is18,786 bytes. Use it to contrast the blanket's soft state with the student's careful touching action. The draft also distinguishes friendly,healthy well,good,and look versus look-at. Preserve the1,900,000-byte main-package budget;current headroom is about20KB,so inspect the final delivery after integration. No review credit yet. Overall claim continues solo;387 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-linking-verbs individually reviewed
+
+27/413 reviewed. Nine tasks distinguish a subject's state from an action's manner. An original blanket-touch image makes students select what the sentence describes. Live diagrams show their actual word. Tasks address friendly, bodily well-being, good and look versus look-at; a fresh transfer contrasts two uses of taste.
+
+The raw image and delivery trials,all nine models and320-pixel figures,initial controls,wrong image/meaning selections,typed errors,applications and both transfer steps were inspected. Exact tactile facts come from written records,not inferred photography. Provenance and image hash are registered. Grades7–9 covered;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:9 conditions/27 task-width checks,reload and zero independent records. 1,474 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development and cloud simulations passed, including all245 packed topic hashes. Neither simulation establishes native GUI validation.
+
+Cumulative228 conditions/684 widths;earlier flows retain scope. Hashes:checkpoint-27.*.
+Next:l-g-auxiliaries. A ten-task auxiliary draft remains outside course files. Students will assemble questions and negatives with do-support,existing be/modal/perfect auxiliaries,base-form repair and plural subjects. Inspect every assembled sentence and diagram. Main-package headroom is only1,344 bytes;preserve the existing budget and optimize assets when necessary. Overall claim continues solo;386 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.
