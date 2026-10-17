@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import { resolve } from 'node:path'
 import { authorReadingTasks } from './author-reading-tasks.mjs'
 import { attachCourse } from './course-plan.mjs'
@@ -77,5 +78,8 @@ export function authorCatalog(root) {
     ['shep-54', '沪教牛津五四制', '请按封面确认', 'british', '54'], ['beijing', '北京版', '请按封面确认', 'british', '63'],
     ['xiangjiao', '湘教版', '请按封面确认', 'british', '63'],
   ].map(([id, name, version, spelling, structure]) => ({ id, name, version, spelling, structures: [structure], verification: 'unverified', sourceIds: [] }))
-  return attachCourse(root, { version: 2, topics, lessons, questions, vocabulary, media, cities, editions, books: [], blueprints: [] })
+  // Include instructional code/art in editorial approval, including live geometry and wording.
+  const instructionalPaths = ['src/core/experiments.ts', 'src/core/scene-experiment.ts', 'src/core/reading-evidence.ts', 'src/app/application.ts', 'web/main.ts', 'miniprogram/components/app-shell/index.wxml', 'miniprogram/app.wxss', 'content/visual-assets.json', 'miniprogram/assets/desk-scene.jpg']
+  const instructionalFiles = Object.fromEntries(instructionalPaths.filter(file => existsSync(resolve(root, file))).map(file => [file, createHash('sha256').update(readFileSync(resolve(root, file))).digest('hex')]))
+  return attachCourse(root, { version: 2, topics, lessons, questions, vocabulary, media, cities, editions, books: [], blueprints: [], ...(Object.keys(instructionalFiles).length ? { instructionalFiles } : {}) })
 }

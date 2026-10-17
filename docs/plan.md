@@ -123,3 +123,14 @@ an updated local artifact. Compare current maths interaction contracts before im
 The owner explicitly permits AI-generated imagery, superseding the earlier Blender-only rule;
 keep factual labels and manipulable instructional objects deterministic and inspect every asset.
 Videos stay deferred. This upgrade does not confer textbook, audio or native-release approval.
+
+### Reviewed interaction foundation and remaining teaching work
+
+APP-INTERACTION delivers 13 workshops / 39 conditions, post-answer sentence evidence for 264
+reading tasks, progressively revealed reasons and course-specific workshop links. Its engine,
+content, persistence, evidence separation, visuals and learner flows are checked. This milestone
+is not full interactive teaching parity. APP-TEACHING owns the remaining lesson-by-lesson work:
+author, integrate and visually review domain-specific prediction/exploration/error/transfer
+sequences across grammar, vocabulary, reading, communication and writing. Actual listening
+activities continue to depend on owner-approved audio. Keep current workshop completion separate
+from independent question performance and delayed retention. Videos remain deferred.

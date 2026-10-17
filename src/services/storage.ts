@@ -77,6 +77,11 @@ export function checkedState(text: string, catalog: ContentCatalog, now: number,
   for (const stages of Object.values(data.lessonReviews as Record<string, unknown>)) if (!Array.isArray(stages) || !stages.every(s => s === 0 || s === 1)) throw new Error('备份中的复习记录有误。')
   for (const d of Object.values(data.writing as Record<string, unknown>)) if (!record(d) || typeof d.text !== 'string' || d.text.length > 5000 || typeof d.questionId !== 'string' || !finite(d.updatedAt) || !Array.isArray(d.checkedRubricIds) || !d.checkedRubricIds.every(id => typeof id === 'string')) throw new Error('备份中的写作记录有误。')
   if (data.answerSeenAt !== undefined && (!safeMap(data.answerSeenAt) || !Object.values(data.answerSeenAt).every(finite))) throw new Error('备份中的提示与解析记录有误。')
+  if (data.explorations !== undefined) {
+    const token = (v: unknown) => typeof v === 'string' && /^[a-zA-Z0-9-]{1,100}$/.test(v)
+    if (!safeMap(data.explorations) || Object.keys(data.explorations).length > 200 || !Object.values(data.explorations).every(p => record(p) && p.version === 1 && count(p.phase) && p.phase <= 4 && token(p.condition) && Array.isArray(p.visited) && p.visited.length <= 20 && p.visited.every(token) && ['prediction', 'spot', 'transfer'].every(key => p[key] === undefined || token(p[key])) && finite(p.updatedAt))) throw new Error('备份中的互动探索记录有误。')
+    base.explorations = data.explorations as LearnerState['explorations']
+  }
   const sessions = checkedSessions(data.sessions)
   const recordings = local && Array.isArray(data.recordings) ? data.recordings.filter((r) => record(r) && typeof r.id === 'string' && typeof r.path === 'string' && typeof r.questionId === 'string' && typeof r.createdAt === 'number' && typeof r.durationMs === 'number') as LearnerState['recordings'] : []
   // Only same-device restoration may retain file paths and the active session.

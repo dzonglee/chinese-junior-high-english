@@ -17,7 +17,7 @@ npm run dev
 
 The development server listens on loopback port 4173. For a portable offline copy, open
 `dist/local/index.html` in Chrome or Edge. That single file contains all 245 checked content packs,
-the app code, styles and original Blender artwork. It needs no account or cloud configuration.
+the app code, styles, original Blender artwork and the inspected generated desk scene. It needs no account or cloud configuration.
 See [local version instructions](docs/local-version.md) for saving progress and microphone support.
 
 The complete original course covers 29 themes across reading, listening, speaking and writing,
@@ -30,12 +30,21 @@ the app does not infer verified textbook adoption or local exam blueprints from 
 The native WeChat implementation is included in `miniprogram/`; production configuration,
 approved audio, real-device validation and editorial launch review remain future work.
 
+The **互动实验室** is available from 今日 and 课程. Its 13 workshops have 39 live conditions:
+make a prediction, move an object or change a sentence condition, diagnose an error, then try a
+new context. Relevant course cards link directly to their experiment. Exploration progress saves
+locally and never counts as an independent test or mastery. Reading feedback offers exact
+sentence selection for 264 reliably mapped tasks; explanation reasons reveal one step at a time.
+See [the maths comparison](docs/reviews/maths-interaction-comparison-2026-10-17.md) for what still
+needs work before claiming interactive parity across the full course.
+
 ## Validate changes
 
 ```bash
 npm run check
 npm run test:grammar
 npm run check:course
+npm run check:interactions
 npm run content:audit
 npm run check:package
 npm run test:native-adapter
@@ -44,6 +53,7 @@ npm run test:release-guards
 npm run test:journeys
 npm run test:local
 npm run test:course-browser
+npm run test:interactions
 ```
 
 Browser checks need Chromium: use the installed `/usr/bin/chromium`, set `CHROMIUM_PATH`, or run

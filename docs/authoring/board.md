@@ -14,7 +14,8 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | --- | --- | --- | --- | --- | --- |
 | APP-DELIVERY | Deliver usable local English app | done | codex-local | main | Local app and offline build delivered |
 | APP-LESSONS | Complete the local junior-high lesson course | done | codex-course | main | 413 original lessons delivered; approved listening audio pending |
-| APP-INTERACTION | Make lessons exploratory and visual | claimed | codex-interaction | platform/interactive-lessons | Build and check sentence experiments, evidence selection and visual scenes |
+| APP-INTERACTION | Build interactive language activities | done | codex-interaction | main | 13 workshops and reading evidence delivered |
+| APP-TEACHING | Extend exploratory teaching across the course | open | — | — | Author and review activities for the remaining lesson sequences |
 | APP-NATIVE | Prepare native validation and publication | open | — | — | Claim for DevTools/device checks, real project setup and approved audio; videos later |
 
 ### Delivery checklist

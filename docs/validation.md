@@ -6,17 +6,20 @@ behavior below; they do not establish native release or publication.
 | Check | Observed result |
 | --- | --- |
 | Locked setup script | Node 24; npm ci; Git LFS pull/fsck and register checks pass |
-| TypeScript and automated tests | 511 tests pass, including every lesson’s immediate/delayed controller and persistence lifecycle |
+| TypeScript and automated tests | 561 tests pass, including every lesson’s immediate/delayed controller and persistence lifecycle |
 | Grammar assessment regressions | Seven source-only tests cover all 52 blanks and 38 corrections, explicit constraints, legitimate equivalents and invalid grammar |
 | Native recording cancellation | Four actual-native-source simulations pass for privacy/microphone cancellation, late start and normal recording |
-| Standalone local app | 10.04 MB; all 245 hash-checked packs and three original Blender assets embedded |
+| Standalone local app | 10.12 MB; all 245 packs, three Blender assets and one generated scene embedded |
 | Offline learner checks | Seven checks pass with networking disabled during practice; managed browser uses exact standalone document on loopback because file navigation is blocked |
 | Running development service | Real app document and learner workflow bundle served on port 4173 |
 | Content compiler/audit | 245 topics, 413 lessons, 4,804 original draft tasks, 1,690 distinct headwords |
 | Blender artwork | Three original transparent assets rendered with Blender 4.3.2 |
 | Native adapter | Development subpackage and synthetic CloudBase API simulations pass |
-| Native package structure | 24 routes, handlers and WXML tag structure pass static checks |
-| Package budget | Approximately 1,641 KB main / 10,038 KB development total; below safety budgets |
+| Native package structure | 25 routes, handlers and WXML tag structure pass static checks |
+| Package budget | Approximately 1,704 KB main / 10,101 KB development total; below safety budgets |
+| Interaction content audit | 13 workshops / 39 conditions; exact-source evidence mapping for 264/298 reading tasks |
+| Interactive browser checks | Eight pass; course-card links, all workshops practiced offline, scene movement/reload, evidence gating, progressive reasons and topic-practice handoff |
+| Interaction visual review | All 36 sentence states, three scene positions and real reading locator inspected |
 | Complete course coverage | 29 themes × four skills; 58 grammar objectives; eight pronunciation-knowledge units; no orphan tasks/words |
 | Expanded-course browser checks | Six pass; inventory, reading, oral self-review, phonetics, vocabulary and pending audio |
 | Complete figure layout | All 4,804 diagrams rendered at 320/390/768 widths with zero horizontal overflow |
@@ -77,3 +80,22 @@ until submission, including after reload. Subjective work advances its practice 
 never becomes independent retention evidence. All 413 lesson lifecycles pass; listening playback
 is synthetic only in those tests, while actual pending-audio lessons are tested as unavailable.
 Contact-sheet captures use isolated pages and wait for fonts and two paint frames; the sheets were retaken and enlarged inspections confirmed intact text. Restoration explanations now use complete paragraphs rather than midword truncation.
+
+## Interaction upgrade
+
+The new checks exercise every workshop's incorrect prediction, required condition change,
+incorrect/correct error diagnosis and transfer. Exploration progress survives local restoration
+and backup import, while attempts, mastery and lesson completion stay unchanged. Invalid imported
+progress is rejected atomically. Reading evidence and progressive reasons remain unavailable in
+unsubmitted timed work and deferred shared-passage reviews. Existing learner/offline journeys
+still pass. New test artifacts are in `test-results/interactions/`. The exact standalone document
+is served over loopback; networking is disabled during workshop practice and restored only for
+explicit document reload/navigation. This is not direct-file or native-device validation.
+
+The maths comparison is a source-contract comparison at `933ab32`, not a native walkthrough.
+Full per-lesson interactive teaching parity remains unverified and incomplete; the 13 workshops
+are a reviewed foundation. Original course inventory counts are unchanged.
+
+Editorial fingerprints now include hashes of the workshop/evidence sources, scene asset and
+instructional renderer/geometry files. Editing this teaching content invalidates a prior approval;
+no real approval was created. The source/asset hash audit passes.

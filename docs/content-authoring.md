@@ -53,8 +53,11 @@ clip, confirm the final decisions/numbers and update the editorial review before
 
 ## Visuals
 
-Decorative art is original Blender geometry/text from `scripts/blender/build-assets.py`; no image
-model or downloaded illustration is used. The installed Blender 4.3.2 lacks OpenImageDenoise, so
+Existing decorative art uses original Blender geometry/text from `scripts/blender/build-assets.py`.
+The owner explicitly authorized AI-generated imagery on 2026-10-17; the older Blender-only rule
+is superseded for this English app. The generated desk backdrop is registered with provenance
+and a delivered checksum in `content/visual-assets.json`. Book positions and labels remain coded;
+never delegate exact answer-bearing text or geometry to an image model. The installed Blender 4.3.2 lacks OpenImageDenoise, so
 CPU Cycles renders 96 samples without that optional denoiser. Sentence/evidence/paragraph diagrams
 are deterministic and use the actual authored text. Browser screenshots are testing evidence,
 not decorative app assets or native screenshots.
@@ -83,3 +86,17 @@ Run `npm run check:course` for all-theme/grammar/pronunciation/word coverage, no
 reading bands and expression length/model constraints. Run `npm run test:course-browser` after
 building to exercise new lessons and render every diagram at three widths. The review artifact
 pages by 50 items; representative contact sheets do not replace final editorial review.
+
+## Exploratory teaching
+
+`src/core/experiments.ts` defines 12 original grammar workshops; `scene-experiment.ts` adds the
+spatial-language scene. Each has prediction, three changed conditions with reconstructable
+sentence parts, a concrete error-diagnosis task, a new-context transfer and per-option reasons.
+`check:interactions` checks schema/topic/grade consistency, assets and exact reading mappings.
+`reading-evidence.ts` maps only substantive literal evidence to complete original sentences;
+unsupported mappings stay hidden. Do not weaken this into a fuzzy answer finder.
+
+Keep workshop progress separate from scored attempts. A new workshop must have explicit grade
+and topic routing, wrong paths that teach, and visual review of every condition. Run
+`test:interactions` for offline flows and captures. These workshops are the first interactive
+teaching lane; all 413 lessons have not yet received a maths-style exploratory sequence.

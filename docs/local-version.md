@@ -2,7 +2,8 @@
 
 The owner's current milestone is a usable local app; videos come later. The local build includes
 413 original draft lessons, 4,804 tasks, 1,690 distinct vocabulary headwords and all 245 topic packs. Artwork
-comes from the existing original Blender pipeline. No research documents are embedded.
+includes three original Blender assets and one inspected AI-generated desk scene authorized by
+the owner; book positions and exact labels are rendered by code. No research documents are embedded.
 
 ## Use the app
 
@@ -20,6 +21,14 @@ objectives and eight written pronunciation-knowledge units. Every task and word 
 lesson with distinct delayed checks. Use the 课程 tab to filter by skill/theme or search; expand
 the additional filters for grade/term/status. Grades and terms describe this original sequence,
 not a verified publisher progression.
+
+Open 互动实验室 from 今日 or 课程, or choose 先动手探索 on a relevant course card. Thirteen
+workshops provide 39 conditions to change, with prediction, a live sentence/scene, error diagnosis
+and transfer. Progress survives navigation/restart and participates in backup/export/deletion;
+it is exploratory practice, not independent evidence. Completed workshops lead to topic practice.
+After reading feedback unlocks, 264 questions offer original-sentence evidence selection. Unsupported
+or ambiguous evidence mappings are omitted. Timed and shared-passage reviews keep this hidden
+until feedback is legitimately unlocked. Explanation reasons reveal one step at a time.
 
 Students can complete lessons with illustrated feedback, review words and mistakes, save writing
 drafts, build practice sets, use timed practice, create private questions, and inspect progress.
@@ -48,7 +57,7 @@ Chromium blocks direct `file://` navigation. The test respects that policy and s
 standalone document over loopback, then disables networking during practice. Direct-file browser
 navigation is therefore unvalidated on this machine; the runner also supports it where permitted.
 
-All 511 automated tests pass, including checked-pack practice, saved progress and distinct delayed
+All 561 automated tests pass, including checked-pack practice, saved progress and distinct delayed
 review for every lesson. Tests simulate listening playback only for lifecycle coverage; the real
 app rejects missing audio. Seven grammar regressions, four native-source permission simulations,
 11 full browser journeys, seven offline checks and six expanded-course browser checks pass.

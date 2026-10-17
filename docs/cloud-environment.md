@@ -34,6 +34,7 @@ npm run build:local
 npm run check
 npm run test:grammar
 npm run check:course
+npm run check:interactions
 npm run content:audit
 npm run check:package
 npm run test:native-adapter
@@ -88,3 +89,8 @@ continue implementation and validation that can run independently.
 The full-course browser check is `npm run test:course-browser` (port 4182). It checks inventory
 and lessons, lays out every instructional figure at three widths and captures topic representatives.
 The current local catalog contains 413 lessons and 245 embedded hash-checked packs.
+
+`npm run test:interactions` runs the standalone app on port 4183 and checks every language
+workshop offline, reading evidence, saved exploration progress and the topic-practice handoff.
+It captures all 39 changed conditions. Generated assets are already included; routine setup
+needs no image-generation API credentials.

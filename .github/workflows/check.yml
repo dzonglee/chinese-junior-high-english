@@ -20,6 +20,7 @@ jobs:
       - run: npm run test:grammar
       - run: npm run content:audit
       - run: npm run check:course
+      - run: npm run check:interactions
       - run: npm run check:package
       - run: npm run test:native-adapter
       - run: npm run test:native-cancellation
@@ -28,6 +29,7 @@ jobs:
       - run: npm run test:journeys
       - run: npm run test:local
       - run: npm run test:course-browser
+      - run: npm run test:interactions
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -36,6 +38,7 @@ jobs:
             test-results/journeys/
             test-results/local/
             test-results/course/
+            test-results/interactions/
       - uses: actions/upload-artifact@v4
         with:
           name: local-english-app
