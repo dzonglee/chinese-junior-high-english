@@ -16,6 +16,9 @@ async function evaluateAsync(mini,fn,arg=null){
  console.log("stage: launching official DevTools automation");
  mini=await automator.launch({cliPath:'/Applications/wechatwebdevtools.app/Contents/MacOS/cli',projectPath:project,timeout:90000});
  console.log('stage: automation connected');
+ await new Promise(resolve=>setTimeout(resolve,1200));
+ await evaluateAsync(mini,async()=>{await getApp().globalData.ready;return !!getApp().globalData.application;});
+ console.log('stage: application ready');
  mini.on('exception',e=>errors.push(String(e.message||e)));
  console.log('stage: opening onboarding');
  await mini.reLaunch('/pages/onboarding/index');
@@ -28,12 +31,14 @@ async function evaluateAsync(mini,fn,arg=null){
  const representatives=[];
  for(const skill of ['grammar','reading','listening','vocabulary','speaking','writing','phonetics']){const l=authoredLessons.find(l=>(l.topicId.startsWith('p-')?'phonetics':l.skill)===skill);if(l)representatives.push(l);}
  const lessons=[...representatives,...authoredLessons.filter(l=>!representatives.some(r=>r.id===l.id))];
- const routeSamples=[];let lastSkill='',checkedCommunication=false,checkedReading=false,checkedPhonetics=false;const controlChecks=[];
+ const routeSamples=[];let checkedCommunication=false,checkedReading=false,checkedPhonetics=false;const controlChecks=[];
  for(const [index,l] of lessons.entries()){
-  const targetSkill=l.topicId.startsWith('p-')?'phonetics':l.skill;const viaRoute=index<2||targetSkill!==lastSkill;
-  if(viaRoute){await mini.reLaunch('/pages/learn/index');routeSamples.push(l.id);}else{const page=await mini.currentPage();await page.setData({params:{id:l.id}});}
-  lastSkill=targetSkill;
-  console.log('opening: '+l.id);const opened=await evaluateAsync(mini,async l=>{const a=getApp().globalData.application,state=a.store.get();a.store.save({...state,profile:{...state.profile,grade:l.grade,structure:l.grade===6?'54':'63',editionId:l.grade===6?'pep-54':'pep-legacy'}});if(l.viaRoute)await a.action('open-lesson-studio',l.id);else{await a.content.ensureTopics([l.topicId]);a.open('lesson',{id:l.id});}return {requested:l.id,page:a.page,error:a.error};},{...l,viaRoute});console.log('opened: '+JSON.stringify(opened));
+  // Open through the real course action: the SDK can retain an old query on same-page reLaunch.
+  await evaluateAsync(mini,async l=>{const a=getApp().globalData.application,state=a.store.get();a.store.save({...state,profile:{...state.profile,grade:l.grade,structure:l.grade===6?'54':'63',editionId:l.grade===6?'pep-54':'pep-legacy'}});await a.content.ensureTopics([l.topicId]);},l);
+  await mini.reLaunch('/pages/learn/index');
+  console.log('opening: '+l.id);
+  await evaluateAsync(mini,async l=>{await getApp().globalData.application.action('open-lesson-studio',l.id);},l);
+  routeSamples.push(l.id);
   await new Promise(r=>setTimeout(r,180));
   let current;for(let wait=0;wait<50;wait++){current=await mini.evaluate(function(){const a=getApp().globalData.application;return{page:a.page,error:a.error,id:a.render().teaching?.lesson.id};});if(current.id===l.id)break;if(current.error)throw new Error(current.error);await new Promise(r=>setTimeout(r,200));}if(current.id!==l.id){const page=await mini.currentPage();await mini.screenshot({path:path.join(out,'failure-screen.png')});throw new Error('Native lesson did not open: '+JSON.stringify({current,path:page.path,params:await page.data('params')}));}
   if(index===0){await evaluateAsync(mini,async()=>{await getApp().globalData.application.action('studio-reset');});const page=await mini.currentPage(),shell=await page.$('app-shell'),studio=await shell.$('lesson-studio');assert(studio,'Native lesson component is mounted');const option=await studio.$('[data-action="studio-answer"]');await option.tap();await(await studio.$('[data-action="studio-check"]')).tap();await(await shell.$('[data-action="studio-next"]')).tap();await page.waitFor(150);await(await studio.$('[data-action="studio-tile"]')).tap();const count=await mini.evaluate(function(){return getApp().globalData.application.render().teaching.progress.order.length;});assert.equal(count,1);controlChecks.push('Native prediction, next-stage and assembly-tile taps');}

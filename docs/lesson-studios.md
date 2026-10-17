@@ -41,8 +41,8 @@ storage path.
 
 The native walker uses the installed `miniprogram-automator` under the Studio's WeChat tooling
 folder. Hold the shared `wechat/DEVTOOLS.lock` and coordinate its Kanban card first. Use only the
-isolated English project. Sample real course-page navigation at mode boundaries; otherwise update the real page parameters
-and shared production component. Wait for asynchronous
+isolated English project. Return through the real course page for each lesson, then use its production open action. The
+SDK can retain old query parameters on repeated same-page launches. Wait for asynchronous
 controller work and the actual destination page, inspect screenshots and the nested process exit
 code, and close the automation session in `finally`. Wrapper job success alone is insufficient.
 Never close another owner's project. Guest mode does not authorize phone preview, upload or release.

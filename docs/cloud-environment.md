@@ -35,6 +35,7 @@ npm run check
 npm run test:grammar
 npm run check:course
 npm run check:interactions
+npm run check:teaching
 npm run content:audit
 npm run check:package
 npm run test:native-adapter
@@ -94,3 +95,23 @@ The current local catalog contains 413 lessons and 245 embedded hash-checked pac
 workshop offline, reading evidence, saved exploration progress and the topic-practice handoff.
 It captures all 39 changed conditions. Generated assets are already included; routine setup
 needs no image-generation API credentials.
+
+## Shared WeChat environment
+
+The tested direct Studio MCP fallback is `/workspace/.onboarding/chrisverse_mcp.py`. It uses
+the existing runtime credential privately, with exactly one Authorization scheme. Do not wait
+for native plugin injection or copy a credential into files/arguments/logs. Native tools, when
+actually exposed, are also valid; inspect schemas and actual returned jobs. The helper is outside
+the checkout, so its presence in a fresh restored environment is not assumed.
+
+Read `memory_start_here` and the existing `Projects/Chinese Junior High English.md` note and
+Kanban records. Use the isolated `wechat/english-solo-20261017` Mac project; hold the shared
+`wechat/DEVTOOLS.lock`, inspect other owners and close only this project. The installed official
+simulator SDK lives under `wechat/tooling/node_modules/miniprogram-automator`. Guest mode
+permits local simulator work, not phone preview/upload/release. Check the nested test exit and
+actual screenshots/results with `get_job`; a successful wrapper is insufficient.
+
+The current 413 studios are described in `docs/lesson-studios.md`. Their native package contains
+245 topic packs in six size-limited subpackages. Keep build and tests sequential when they share
+generated packs. Actual DevTools checks exposed defects absent from browser/API-double tests.
+See `docs/validation.md` for the current verification boundary before claiming readiness.
