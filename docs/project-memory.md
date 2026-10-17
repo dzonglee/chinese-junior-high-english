@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-34 of413 lessons are individually reviewed;379 remain pending. Every lesson needs bespoke tasks,
+35 of413 lessons are individually reviewed;378 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-indefinites. Twelve tasks connect complete-team reference and singular agreement,exact0/1 inventories,equivalent negatives,some/any contexts,person/thing/place and adjective placement. Original box art supports actual inventory selection.
+Latest:l-g-question-words. Twelve tasks identify owner versus borrower,Whose versus Who is,Which versus What,method versus reason,time versus place,and countable quantities versus money. Reused original pictures provide actual selection tasks;three coded book icons match the inventory.
 
-All twelve models,narrow-phone figures,partial-team recovery,wrong0/1 records,physical ball counts,negative alternatives,phrase diagrams,applications and transfer steps were inspected. Replaced the misleading source-sentence label with source draft. Corrected a rendered apostrophe and narrow count-card word break. The full demonstrative flow was replayed after the count-card style change;no extra review credit. Grades8–9;reserved005–008 unexposed;zero independent records.
+All twelve models,narrow-phone figures,wrong-person and wrong-box recovery,actual0/1 counts,accepted alternative,capitalization errors,applications and all explanation/transfer steps were inspected. Four explicitly requested initial capitals now work per response,including two reserved responses checked only in source tests. Grades7–9;reserved005–008 unexposed;zero independent records. Fresh read-only native check still cannot read project-drive instructions;existing native card updated as blocked.
 
-Checkpoint34 records the new flow/36 widths and current core,teaching,grammar,course,package,
+Checkpoint35 records the new flow/36 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The34 reviewed lessons cumulatively contain303 conditions/909 widths;
+recorded explicitly. The35 reviewed lessons cumulatively contain315 conditions/945 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-question-words. Twelve question-word tasks are drafted outside course files. Reuse the class portrait for owner versus borrower and the empty/one-ball diptych for which versus what. Add coded three-book counting,whose versus who is,method/reason,time/place,and how many/much. Enforce only explicitly requested initial capitals in source applications;inspect every task before credit.
+Next:l-g-cardinals. Twelve cardinal tasks are drafted outside course files. Add exact coded bundle labels10/100/1000 for group counting;contrast teens/tens,exact numbers with approximate plural-of constructions,spelling and compound measurement modifiers. Inspect all totals and narrow-phone figures before credit. An original green-house/greenhouse picture is generated and inspected for the later compound lesson;not integrated or counted.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

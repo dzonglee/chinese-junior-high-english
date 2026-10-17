@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **34 / 413**. Current: **l-g-question-words**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **35 / 413**. Current: **l-g-cardinals**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ Completed: **34 / 413**. Current: **l-g-question-words**. Evidence lives in docs
 | l-g-reflexives | 反身代词：动作回到谁 | reviewed | [Individual review](../reviews/individual-lessons/l-g-reflexives.md) |
 | l-g-demonstratives | this、that、these、those | reviewed | [Individual review](../reviews/individual-lessons/l-g-demonstratives.md) |
 | l-g-indefinites | 不定代词与修饰位置 | reviewed | [Individual review](../reviews/individual-lessons/l-g-indefinites.md) |
-| l-g-question-words | 问人、问物、问原因 | pending | — |
+| l-g-question-words | 问人、问物、问原因 | reviewed | [Individual review](../reviews/individual-lessons/l-g-question-words.md) |
 | l-g-cardinals | 基数词与准确的数量 | pending | — |
 | l-g-ordinals | 序数词、日期与顺序 | pending | — |
 | l-g-compounds | 合成词：词义怎样组合 | pending | — |
