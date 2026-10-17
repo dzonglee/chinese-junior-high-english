@@ -18,6 +18,11 @@ The visual revision is locally reviewable; new actual native verification remain
 MacStudioExternal file access. See `docs/reviews/visual-lessons-2026-10-17.md`.
 The requirements below continue to define the complete eventual application.
 
+The owner rejected the visual revision after the maths comparison. Its reusable answer-card
+formats and added introductory layer do not satisfy the required teaching standard. The unit
+is reopened for substantive lesson redesign; native testing is a separate pending check. See
+`docs/reviews/lesson-quality-comparison-2026-10-17.md`.
+
 ## Product requirements
 
 - Route by confirmed city, school structure, grade, term and exact textbook edition/version.

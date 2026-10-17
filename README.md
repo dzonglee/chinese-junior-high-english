@@ -19,6 +19,10 @@ training papers; exact local exam formats and publisher-unit alignment remain un
 See [exam teaching](docs/reviews/exam-teaching-2026-10-17.md) and
 [mock-paper verification](docs/reviews/mock-exams-2026-10-17.md).
 
+The owner has rejected the current lesson quality as below the maths app. The lesson revamp is
+reopened; [the comparison](docs/reviews/lesson-quality-comparison-2026-10-17.md) documents the
+remaining teaching work. Functional coverage and passing tests do not establish teaching parity.
+
 ## Run locally
 
 Use Node 24 and the checked-in npm lockfile:
@@ -46,7 +50,7 @@ The native WeChat implementation is included in `miniprogram/`; production confi
 approved audio, real-device validation and editorial launch review remain future work.
 
 Open a course card to **先动手学**. All 413 lessons now open a visual mission: 1,002 small boards,
-55 live grammar experiments, contextual word cards with concealed spelling recall, source-evidence
+55 two-state grammar displays, contextual word cards with concealed spelling recall, source-evidence
 chains, saved original writing frames and written sound-pattern sorting. Two new generated scenes
 support relevant school and science topics. See [visual lesson review](docs/reviews/visual-lessons-2026-10-17.md)
 for screenshots and checks; native verification of this new revision is blocked by the Mac external drive.

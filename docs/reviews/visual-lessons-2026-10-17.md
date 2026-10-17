@@ -1,5 +1,11 @@
 # Visual lesson revision · 2026-10-17
 
+**Teaching assessment superseded:** the owner rejected this revision as insufficient. The
+[maths comparison](lesson-quality-comparison-2026-10-17.md) confirms substantive teaching gaps
+and a feedback/canvas mismatch. APP-VISUAL-LESSONS is reopened. The functional checks below
+remain valid; they do not establish lesson quality or parity, and native access is not the only
+remaining acceptance issue.
+
 All 413 lessons now open a lesson-specific visual task before the existing five-stage studio.
 This implements the owner's request for pictures and more manipulation in each lesson. It is
 an original local teaching revision; actual native acceptance of this revision is still blocked.

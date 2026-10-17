@@ -22,7 +22,7 @@ the feature branch. Existing Kanban card 10832ca6-d7ad-4d4d-a60a-f4563486f3cf re
 - Keep the board clean, concise and easy to read, using plain English.
 - While the current session cannot access those MCP connections, continue app work first.
 
-## Current milestone · visual lesson revamp, 2026-10-17
+## Previous visual implementation review · 2026-10-17
 
 The owner requires another individual lesson revamp, with meaningful pictures and more actual
 interaction. APP-VISUAL-LESSONS is claimed by codex-solo on `author/visual-lessons` (claim cbc0864).
@@ -40,8 +40,8 @@ Do not reuse older native job passes as proof of this revision. Local checks and
 runner are documented in `docs/reviews/visual-lessons-2026-10-17.md`. Local validation passes:
 1,424 tests, 6,936 new visual layouts, nine new full control flows, thirteen retained exploration
 flows, eleven connected journeys, eight offline checks and six product checks. Both development
-archives pass CRC and source-entry comparison. This unit stays review, with native acceptance
-pending. Next: restore Mac external-drive
+archives pass CRC and source-entry comparison. This was the earlier functional review; the owner has since reopened teaching redesign. Native
+acceptance also remains pending. Next: restore Mac external-drive
 access, inspect the shared GUI lock and run `scripts/devtools-visual-lessons.cjs` against this build.
 
 ## Previous milestone · all lesson teaching and native verification

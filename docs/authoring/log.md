@@ -498,3 +498,21 @@ gaps. Revised acceptance is recorded in the plan. The comparison report and brow
 evidence are being saved on author/visual-lessons. Do not mark the teaching revamp done or
 reuse functional counts as a claim of parity. Next implementation should prove representative
 whole lessons before another generated course-wide pass. No course code or maths files changed.
+
+
+## 2026-10-17 · codex-solo · maths comparison completed
+
+Comparison is saved in docs/reviews/lesson-quality-comparison-2026-10-17.md with machine-readable
+evidence and fresh English captures. The standalone viewer /workspace/lesson-comparison/index.html
+passes four cases, 22 frame selections and two responsive widths. All thirteen selected maths
+images match their LFS hashes; fourteen existing maths model-logic tests pass. No fresh native
+execution or all-maths-lesson quality review is claimed. Maths tracked files and English lesson
+code/content are unchanged. The clone and local LFS setup are ready for further comparison work.
+
+Confirmed the new English repair-state defect: choosing are leaves initial am on the canvas,
+while feedback discusses are. Also reproduced the empty new writing mission and fresh handoff
+into old studio phase zero. Corrected README, local instructions, project memory and the older
+review to distinguish functional coverage from rejected teaching quality. APP-VISUAL-LESSONS
+remains claimed and unfinished; new native access is an additional issue, not the primary gap.
+Next: author and inspect coherent subject-specific exemplars before scaling another pass. No
+new owner question is pending; the requested reference is the Chinese maths repository.

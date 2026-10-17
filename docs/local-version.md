@@ -5,6 +5,10 @@ The owner's current milestone is a usable local app; videos come later. The loca
 includes three original Blender assets and three inspected AI-generated scenes authorized by
 the owner; book positions and exact labels are rendered by code. No research documents are embedded.
 
+The owner rejected the current lesson quality after comparison with Chinese maths. The
+[comparison review](reviews/lesson-quality-comparison-2026-10-17.md) documents the remaining
+redesign; the checks below establish functional behavior, not teaching parity.
+
 ## Use the app
 
 Run `npm ci --no-audit --no-fund`, `npm run build:local`, then `npm run dev` from the repository
@@ -17,7 +21,7 @@ unverified adoption and exam-format states visible. This original capability cou
 a verified textbook-by-unit course or exact official national vocabulary list.
 
 Every course card now opens a compact visual mission, covering all 413 lessons with 1,002 boards.
-Change conditions in 55 live grammar experiments, repair a sentence, connect literal source evidence,
+Inspect 55 two-state grammar displays, repair a sentence, connect literal source evidence,
 match vocabulary in context and hide the cards to recall its spelling, or write your own version
 in a saved expression frame. There are at most three slots per board. Short clues identify the
 target; longer materials open on demand. Generated school/science scenes support relevant themes;
