@@ -35,7 +35,7 @@ The requirements below continue to define the complete eventual application.
 Inspect and adapt reusable architecture from `dzonglee/chinese-junior-high-maths`; do not copy
 mathematics lessons, unknown research facts, environment identifiers or release credentials.
 Keep pure learning logic separate from WeChat APIs. Reuse the sister app's design tokens and
-relevant UI patterns. Decorative art must come from the Blender pipeline; instructional diagrams
+relevant UI patterns. Decorative art may use the owner-approved Blender or AI-image pipeline; instructional diagrams
 must explain the actual English task. Keep the main package below the WeChat limit and move
 large question/media packs to supported content storage.
 

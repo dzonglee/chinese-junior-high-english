@@ -16,6 +16,12 @@ Choose the student's city, school structure, grade, term and exact edition. The 
 unverified adoption and exam-format states visible. This original capability course is not yet
 a verified textbook-by-unit course or exact official national vocabulary list.
 
+Every course card opens a five-stage hands-on studio. Build sentence tiles or spellings, insert
+words into live sentence slots, select source evidence, sort pronunciation examples, or link model
+sentences to one criterion before revising your own draft. One activity leads each screen; longer
+references open when needed. All 413 lessons have this flow, with saved progress separate from
+scored practice. See [lesson studios](lesson-studios.md) for the exact skill coverage.
+
 The course covers all 29 thematic domains in reading/listening/speaking/writing, 58 grammar
 objectives and eight written pronunciation-knowledge units. Every task and word belongs to a
 lesson with distinct delayed checks. Use the 课程 tab to filter by skill/theme or search; expand
@@ -44,7 +50,7 @@ never automatic speech scores. Denied/cancelled consent and storage failures do 
 successful recording or learning attempt.
 
 All 99 listening scripts are authored, but their audio is pending; the 31 listening lessons
-stay disabled. Written pronunciation knowledge is available and does not measure spoken ability. No audio model has been
+offer text preparation; actual listening practice stays disabled. Written pronunciation knowledge is available and does not measure spoken ability. No audio model has been
 selected and no video production is required for this local milestone. Native WeChat publication,
 CloudBase deployment, device evidence and editorial approval are separate future work.
 
@@ -57,10 +63,10 @@ Chromium blocks direct `file://` navigation. The test respects that policy and s
 standalone document over loopback, then disables networking during practice. Direct-file browser
 navigation is therefore unvalidated on this machine; the runner also supports it where permitted.
 
-All 561 automated tests pass, including checked-pack practice, saved progress and distinct delayed
+All 982 automated tests pass, including checked-pack practice, saved progress and distinct delayed
 review for every lesson. Tests simulate listening playback only for lifecycle coverage; the real
 app rejects missing audio. Seven grammar regressions, four native-source permission simulations,
-11 full browser journeys, seven offline checks and six expanded-course browser checks pass.
+11 full browser journeys, eight offline checks and six expanded-course browser checks pass.
 All 4,804 instructional figures render without horizontal overflow at 320/390/768 widths;
 245 topic representatives and real app screens received visual review. This is bounded content
 review, not editorial approval of every individual task. See [validation evidence](validation.md) for the boundaries and
@@ -70,3 +76,9 @@ The October 16 review is a historical defect snapshot. Its bad-outcome probes ar
 current desired-behavior regressions replace them for verification. The local work fixes all
 three requested areas: constrained grammar prompts and accepted equivalents, cancellation of
 pending microphone starts, and invalidation of editorial approval after any catalog change.
+
+The new studio review additionally covers all 413 lessons / 2,478 states at three widths, all
+1,962 assembly boards and 13 real exploration-control flows. Fourteen original studio-only
+transfer tasks have separate rendered reference checks; their subjective self-review is not
+automatic writing or speech assessment. Actual WeChat simulator evidence is recorded separately
+in validation.md; browser results alone never establish native compilation.

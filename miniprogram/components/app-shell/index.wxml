@@ -2,7 +2,7 @@
   <view class="actions"><button wx:for="{{items}}" wx:key="index" class="button {{item.tone || 'secondary'}}" data-action="{{item.id}}" data-value="{{item.value}}" bindtap="action" disabled="{{item.disabled || busy}}" loading="{{busy && item.tone === 'primary'}}">{{item.label}}</button></view>
 </template>
 <view wx:if="{{screen}}" class="app {{screen.tabs.length ? 'with-tabs' : ''}}">
-  <view class="top"><button wx:if="{{screen.back}}" class="back" data-action="back" bindtap="action" aria-label="返回">‹</button><view class="top-copy"><text class="eyebrow" wx:if="{{screen.eyebrow}}">{{screen.eyebrow}}</text><text class="page-title">{{screen.title}}</text><text class="muted" wx:if="{{screen.subtitle}}">{{screen.subtitle}}</text></view></view>
+  <view class="top"><view class="top-copy"><text class="eyebrow" wx:if="{{screen.eyebrow}}">{{screen.eyebrow}}</text><text class="page-title">{{screen.title}}</text><text class="muted" wx:if="{{screen.subtitle}}">{{screen.subtitle}}</text></view></view>
   <view wx:if="{{screen.error}}" class="notice error" role="alert">{{screen.error}}</view>
   <view wx:if="{{screen.notice}}" class="notice">{{screen.notice}}</view>
   <view wx:if="{{screen.hero}}" class="hero {{screen.hero.tone}}"><text class="eyebrow">{{screen.hero.eyebrow}}</text><text class="hero-title">{{screen.hero.title}}</text><text class="hero-text">{{screen.hero.text}}</text><image class="hero-art" src="/assets/{{screen.hero.art}}.png" mode="aspectFit" aria-hidden="true"/><template is="actions" data="{{items:screen.hero.actions,busy:screen.busy}}"/></view>

@@ -76,7 +76,7 @@ it.each(source.lessons)('completes the real checked-pack five-phase studio for $
 })
 it('audits both spelling variants, all vocabulary assemblies and fresh original communication transfers',()=>{
  const repo=new ContentRepository({...source,questions:[...source.questions]},[],async()=>''), words=new Set<string>()
- for(const spelling of ['american','british'] as const){repo.setSpelling(spelling);for(const lesson of source.lessons){const s=createLessonTeaching(repo.catalog,lesson);expect(teachingProblems(s,lesson),lesson.id).toEqual([]);if(s.mode==='vocabulary')for(const unit of s.assemblies)words.add(unit.id);if(s.transfer.id.startsWith('teach-'))expect(questionProblems(s.transfer),s.transfer.id).toEqual([])}}
+ for(const spelling of ['american','british'] as const){repo.setSpelling(spelling);for(const lesson of source.lessons){const s=createLessonTeaching(repo.catalog,lesson,spelling);expect(teachingProblems(s,lesson),lesson.id).toEqual([]);if(s.mode==='vocabulary')for(const unit of s.assemblies)words.add(unit.id);if(s.transfer.id.startsWith('teach-')){expect(questionProblems(s.transfer),s.transfer.id).toEqual([]);expect(s.transfer.passage).toBeUndefined();expect(s.transfer.mediaId).toBeUndefined();expect(s.transfer.explanation.visual.segments.some(x=>x.text===s.transfer.answer.display)).toBe(false)}}}
  expect(words.size).toBe(1690)
 })
 it('restores safely after content changes and rejects malformed imported course state atomically',()=>{
@@ -95,3 +95,8 @@ it('preserves sentence abbreviations and accepts equivalent duplicate letter til
 it('marks direct-route content exposure without exposing delayed items',()=>{const h=harness(source.lessons[0]);h.catalog.questions=source.questions.filter(q=>q.topicId===source.lessons[0].topicId);h.app.open('lesson',{id:source.lessons[0].id});expect(source.lessons[0].questionIds.every(id=>h.store.get().answerSeenAt?.[id])).toBe(true);expect(source.lessons[0].delayedQuestionIds.every(id=>!h.store.get().answerSeenAt?.[id])).toBe(true)})
 
 it('shows literal live sentence slots and never duplicates a spelling prefix',()=>{const q=source.questions.find(q=>q.id==='q-g-be-001')!;expect(sentenceWorkbench(q,'a')).toMatchObject({before:'Mia ',selection:'is',after:' ready for the school trip.'});const word={...source.questions.find(q=>q.skill==='vocabulary')!,stem:'填写目标词：餐食。\nWe eat m____ at home.'};expect(sentenceWorkbench(word,'meals')).toMatchObject({before:'We eat ',selection:'meals',after:' at home.'});expect(sentenceWorkbench({...q,stem:'No gap here.'},'a')).toBeUndefined()})
+
+it('uses the selected edition spelling throughout the fresh planning task',()=>{
+ const lesson=source.lessons.find(l=>l.topicId==='s-plan')!
+ for(const spelling of ['american','british'] as const){const model=createLessonTeaching(source,lesson,spelling).transfer;const text=JSON.stringify(model);expect(model.answer.display).toContain(spelling==='american'?'summarize':'summarise');expect(text).not.toContain(spelling==='american'?'summarise':'summarize');expect(questionProblems(model)).toEqual([])}
+})

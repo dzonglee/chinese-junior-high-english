@@ -143,7 +143,7 @@ export class Application {
       const lesson = this.catalog.lessons.find(l => l.id === value)
       if (!lesson || !lesson.grades.includes(this.state.profile!.grade)) throw new Error('请选择适合当前年级的课程。')
       await this.content.ensureTopics([lesson.topicId])
-      const studio = createLessonTeaching(this.catalog, lesson), saved = this.state.teaching?.[lesson.id]
+      const studio = createLessonTeaching(this.catalog, lesson, this.catalog.editions.find(e => e.id === this.state.profile?.editionId)?.spelling ?? 'british'), saved = this.state.teaching?.[lesson.id]
       const progress = restoreTeaching(studio,saved,now)
       const answerSeenAt = { ...this.state.answerSeenAt }; for (const qid of studio.exposedIds) answerSeenAt[qid] = now
       this.persist({ ...this.state, teaching: { ...this.state.teaching, [lesson.id]: progress }, answerSeenAt, updatedAt: now })
@@ -537,7 +537,7 @@ export class Application {
     const lesson = this.catalog.lessons.find(l => l.id === this.params.id)
     if (!lesson || !lesson.grades.includes(this.state.profile?.grade ?? 7)) return undefined
     if (!lesson.questionIds.every(id => this.catalog.questions.some(q => q.id === id))) return undefined
-    return createLessonTeaching(this.catalog, lesson)
+    return createLessonTeaching(this.catalog, lesson, this.catalog.editions.find(e => e.id === this.state.profile?.editionId)?.spelling ?? 'british')
   }
   private renderTeaching(screen: Screen): Screen {
     const studio = this.currentTeaching()

@@ -5,7 +5,7 @@ import { existsSync,mkdirSync,readFileSync,writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { authorCatalog } from './lib/author-content.mjs'
-const root=resolve(import.meta.dirname,'..'),out=resolve(root,'test-results/teaching'),tools=resolve(root,'.local/tools/teaching-ui.mjs'),url='http://127.0.0.1:4185',source=authorCatalog(root)
+const root=resolve(import.meta.dirname,'..'),out=resolve(root,process.env.TEACHING_REVIEW_OUTPUT||'test-results/teaching'),tools=resolve(root,'.local/tools/teaching-ui.mjs'),url='http://127.0.0.1:4185',source=authorCatalog(root)
 mkdirSync(out,{recursive:true});mkdirSync(resolve(root,'.local/tools'),{recursive:true})
 await build({stdin:{contents:"export {Application} from './src/app/application';export {ContentRepository} from './src/services/content';export {StateStore} from './src/services/storage';export {emptyState} from './src/core/learning';export * from './src/core/lesson-teaching';export {renderLessonStudio} from './web/lesson-studio'",resolveDir:root,loader:'ts'},bundle:true,platform:'node',format:'esm',outfile:tools})
 const {Application,ContentRepository,StateStore,emptyState,createLessonTeaching,freshTeaching,renderLessonStudio}=await import(pathToFileURL(tools))

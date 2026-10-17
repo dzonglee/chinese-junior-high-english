@@ -33,10 +33,10 @@ but its nested native process exited 1: do not mistake wrapper success for valid
 CLI closed only this project afterward. The actual root cause was 245 subpackages exceeding WeChat’s limit of 100. Grouping the
 unchanged 245 topic packs into six size-limited subpackages fixes compilation; actual English
 onboarding now opens. The official starter also passes. Whole-course native navigation/testing
-and final browser visual checks remain in progress. Coordinate the shared GUI using Kanban and `wechat/DEVTOOLS.lock`; never use the
+remains in progress. Browser checks now cover all 413 studios / 2,478 states at three widths and 1,962 assemblies; 13 control flows and 14 new transfer-reference flows pass. Coordinate the shared GUI using Kanban and `wechat/DEVTOOLS.lock`; never use the
 maths runner's reset/checkout behavior on another owner's project.
 
-## Active direction · interactive learning quality, 2026-10-17
+## Historical interaction foundation · 2026-10-17
 
 The owner challenged parity with maths. Course breadth and structural checks do not establish
 interactive teaching quality. Maths main 933ab32 includes predict/explore/spot/check lesson blocks
@@ -48,11 +48,10 @@ Literal passage selection is available after feedback for 264/298 reading tasks;
 stay hidden. Explanation reasons reveal progressively. All 39 condition visuals were inspected.
 561 tests, eight interaction browser checks and the interaction audit pass. Browser/native boundaries remain explicit. This is the
 first reviewed exploratory lane, not interactive parity in every one of the 413 lessons.
-APP-INTERACTION is integrated on main; APP-TEACHING tracks the remaining exploratory teaching
-coverage and is open for the next author. Sync and claim it before extending lesson sequences.
+APP-INTERACTION is integrated on main; APP-TEACHING is now claimed by codex-solo and implements every lesson; see the active section above.
 AI-generated imagery is now explicitly allowed by the owner, superseding Blender-only guidance.
 Keep exact diagrams/labels in code, inspect assets, and keep all learning evidence honest.
-External MCP tools remain absent; repository records carry reconciliation without external writes.
+Native plugin tools remain absent; the tested direct MCP helper now maintains the existing external records.
 
 ## Original course inventory · 2026-10-17
 

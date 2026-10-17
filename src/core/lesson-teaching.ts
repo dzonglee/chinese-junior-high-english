@@ -1,6 +1,7 @@
 import { phoneticSorting, type PhoneticSorting } from './phonetic-sorting'
 import type { ContentCatalog, ExplanationVisual, Lesson, Question, RubricPoint } from './types'
 import { checkAnswer, normalizedAnswer, wordCount } from './answers'
+import { editionQuestion, type Spelling } from './spelling'
 import { communicationTransfer } from './teaching-transfers'
 import { evidenceSentences } from './reading-evidence'
 
@@ -48,13 +49,13 @@ function choiceFor(q:Question):TeachingChoice{
   if(!q.options?.length)throw new Error(`No diagnostic choice for ${q.id}`)
   return{prompt:`你来批改：按原题的语境，哪一项才合适？\n${q.stem}`,options:q.options.map(o=>({...o})),correct:q.answer.option!,reasons:Object.fromEntries(q.options.map(o=>[o.id,o.id===q.answer.option?q.explanation.steps[0].text:q.explanation.distractors.find(d=>d.option===o.id)!.reason])),excerpt:`一位同学选了：${q.options.find(o=>o.id!==q.answer.option)!.text}`}
 }
-export function createLessonTeaching(c:ContentCatalog,lesson:Lesson):LessonTeaching{
+export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spelling='british'):LessonTeaching{
   const qs=lesson.questionIds.map(id=>c.questions.find(q=>q.id===id)).filter((q):q is Question=>!!q)
   if(qs.length!==lesson.questionIds.length)throw new Error(`Lesson teaching needs its checked content pack: ${lesson.id}`)
   const topic=c.topics.find(t=>t.id===lesson.topicId)!, communication=qs.some(q=>q.kind==='writing'||q.kind==='speaking'), phonetics=topic.id.startsWith('p-')
   const mode:LessonTeaching['mode']=communication?'communication':phonetics?'phonetics':topic.skill==='vocabulary'?'vocabulary':topic.skill==='reading'?'reading':topic.skill==='listening'?'transcript':'language'
   const first=communication?qs.find(q=>q.kind==='writing'||q.kind==='speaking')!:qs[0]
-  const transfer=communication?qs.find(q=>q.id!==first.id&&(q.kind==='writing'||q.kind==='speaking'))??communicationTransfer(first):qs[qs.length-1]!
+  const transfer=communication?qs.find(q=>q.id!==first.id&&(q.kind==='writing'||q.kind==='speaking'))??editionQuestion(communicationTransfer(first),spelling):qs[qs.length-1]!
   const cases=qs.filter(q=>q.kind!=='writing'&&q.kind!=='speaking').slice(0,mode==='vocabulary'?qs.length:3)
   const assemblies:TeachingAssembly[]=[], modelSentences=communication?teachingSentences(first.answer.display).map(tile):[]
   let diagnosis:TeachingChoice, evidence:TeachingEvidence[]=[]
