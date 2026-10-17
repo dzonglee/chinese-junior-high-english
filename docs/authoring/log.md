@@ -1028,3 +1028,16 @@ Current new lesson flow:10 conditions/30 task-width checks,reload and zero indep
 Cumulative248 conditions/744 widths;earlier flows retain scope. Hashes:checkpoint-29.*.
 Next:l-g-adverbs. An eleven-task adverb draft stays outside course files. It uses the inspected new bicycle diptych to locate the repairer,then contrasts action manner with a linking-verb state,well/fast/hard/hardly/heavily,frequency positions and carefully enough. Both raw and600-pixel image delivery are inspected;the47,437-byte derivative fits the unchanged budget after lossless PNG optimization. Integrate and inspect actual controls before review credit. Overall claim continues solo;384 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-adverbs individually reviewed
+
+30/413 reviewed. Eleven adverb tasks use a new original bicycle-repair diptych,typed repairs and shuffled phrase tiles. Students distinguish manner from state,well/fast/hard/hardly/heavily,frequency positions,never and carefully enough. The transfer contrasts effort with barely audible recording volume.
+
+Raw and600-pixel art,all eleven models and narrow-phone figures,wrong picture selections,typed errors,expanded phrase diagrams,applications and both transfer steps were inspected. Coded records supply identities and carefulness. Frequency tasks explicitly constrain the requested neutral positions without banning all alternatives. Grades7–9 covered;reserved005–008 unexposed;zero independent records. Fresh native tooling responds,but project-drive access remains unavailable.
+
+Current new lesson flow:11 conditions/33 task-width checks,reload and zero independent records. 1,475 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Development and cloud simulations passed,including all245 packed topic hashes,before final Chinese transfer wording edits. Final browser,compiler and static checks ran afterward. Fresh wechat_status succeeds,but project-drive instruction read remains blocked;no GUI job started.
+
+Cumulative259 conditions/777 widths;earlier flows retain scope. Hashes:checkpoint-30.*.
+Next:l-g-adverb-comparison. A ten-task adverb-comparison draft stays outside course files. Deterministic duration bars compare equal100-metre races:12/15seconds,and12/14/15seconds. Students select the fastest runner before choosing the expression. Further tasks cover analytic and irregular forms,as-early-as,less carefully and much more clearly. Inspect numeric proportionality,controls and every render before review credit. Overall claim continues solo;383 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

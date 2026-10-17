@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-29 of413 lessons are individually reviewed;384 remain pending. Every lesson needs bespoke tasks,
+30 of413 lessons are individually reviewed;383 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-adjectives. Ten adjective tasks combine the blanket picture,typed repairs and shuffled phrase tiles. Students contrast noun and be positions,something useful,adjective/noun enough positions,and exciting/excited/interesting meanings. A new transfer uses useful equipment small enough to fit in a bag.
+Latest:l-g-adverbs. Eleven adverb tasks use a new original bicycle-repair diptych,typed repairs and shuffled phrase tiles. Students distinguish manner from state,well/fast/hard/hardly/heavily,frequency positions,never and carefully enough. The transfer contrasts effort with barely audible recording volume.
 
-All ten models and narrow-phone figures,wrong image/phrase choices,typed repairs,expanded before/after diagrams,applications and both transfer steps were inspected. The last label was rewritten as natural Chinese. Three existing Blender PNGs were losslessly recompressed and inspected:137,249 bytes saved,all decoded pixels identical,proof hashes recorded. Grades7–9 covered;reserved005–008 unexposed;zero independent records.
+Raw and600-pixel art,all eleven models and narrow-phone figures,wrong picture selections,typed errors,expanded phrase diagrams,applications and both transfer steps were inspected. Coded records supply identities and carefulness. Frequency tasks explicitly constrain the requested neutral positions without banning all alternatives. Grades7–9 covered;reserved005–008 unexposed;zero independent records. Fresh native tooling responds,but project-drive access remains unavailable.
 
-Checkpoint29 records the new flow/30 widths and current core,teaching,grammar,course,package,
+Checkpoint30 records the new flow/33 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The29 reviewed lessons cumulatively contain248 conditions/744 widths;
+recorded explicitly. The30 reviewed lessons cumulatively contain259 conditions/777 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-adverbs. An eleven-task adverb draft stays outside course files. It uses the inspected new bicycle diptych to locate the repairer,then contrasts action manner with a linking-verb state,well/fast/hard/hardly/heavily,frequency positions and carefully enough. Both raw and600-pixel image delivery are inspected;the47,437-byte derivative fits the unchanged budget after lossless PNG optimization. Integrate and inspect actual controls before review credit.
+Next:l-g-adverb-comparison. A ten-task adverb-comparison draft stays outside course files. Deterministic duration bars compare equal100-metre races:12/15seconds,and12/14/15seconds. Students select the fastest runner before choosing the expression. Further tasks cover analytic and irregular forms,as-early-as,less carefully and much more clearly. Inspect numeric proportionality,controls and every render before review credit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved
