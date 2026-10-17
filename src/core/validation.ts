@@ -104,6 +104,15 @@ export function contentProblems(catalog: ContentCatalog): string[] {
   for (const book of catalog.books) {
     if (!catalog.editions.some(e => e.id === book.editionId) || ![6, 7, 8, 9].includes(book.grade) || !['upper', 'lower'].includes(book.term) || !book.units.length || new Set(book.units.map(u => u.id)).size !== book.units.length || book.units.some(u => !u.topicIds.length || !u.topicIds.every(id => topics.has(id)) || (u.verification === 'official' && !u.sourceIds.length)) || (book.verification === 'official' && (!book.sourceIds.length || book.units.some(u => u.verification !== 'official')))) errors.push(`${book.editionId}: incomplete or inconsistent exact-book mapping`)
   }
+  const paperIds=new Set<string>(), paperQuestions=new Set<string>()
+  for(const p of catalog.mockPapers??[]){
+    if(paperIds.has(p.id)||!ID.test(p.id))errors.push(`${p.id}: duplicate/invalid mock-paper id`)
+    paperIds.add(p.id)
+    const ids=p.sections.flatMap(s=>s.questionIds),total=p.sections.reduce((n,s)=>n+s.questionIds.length*s.marksEach,0)
+    if(p.format!=='original-written'||!text(p.title)||!text(p.scope)||![6,7,8,9].includes(p.grade)||!['upper','lower'].includes(p.term)||!p.structures.length||!p.structures.every(s=>s==='63'||s==='54')||(p.grade===6&&p.structures.includes('63'))||!Number.isFinite(p.minutes)||p.minutes<=0||p.sections.reduce((n,s)=>n+s.minutes,0)>p.minutes||!p.sections.length||new Set(p.sections.map(s=>s.id)).size!==p.sections.length||p.sections.some(s=>!s.questionIds.length||!Number.isFinite(s.minutes)||s.minutes<=0||!Number.isFinite(s.marksEach)||s.marksEach<=0)||!ids.length||new Set(ids).size!==ids.length||total!==p.totalMarks)errors.push(`${p.id}: incomplete original mock-paper structure`)
+    for(const section of p.sections)for(const id of section.questionIds){const q=questions.get(id);if(!q||!q.grades.includes(p.grade)||q.marks!==section.marksEach||q.skill==='listening'||q.kind==='speaking'||q.source.kind!=='original'||paperQuestions.has(id))errors.push(`${p.id}: invalid/reused original written task ${id}`);paperQuestions.add(id)}
+    if(ids.some(id=>catalog.lessons.some(l=>l.questionIds.includes(id)||l.delayedQuestionIds.includes(id))))errors.push(`${p.id}: papers must use their own items, not lesson or delayed checks`)
+  }
   for (const b of catalog.blueprints) {
     if (!catalog.cities.some((c) => c.id === b.cityId) || !Number.isInteger(b.examYear) || b.examYear < 2020 || !Number.isFinite(b.minutes) || b.minutes <= 0 || !Number.isFinite(b.totalMarks) || b.totalMarks <= 0 || !b.structures.length || !b.structures.every(s => s === '63' || s === '54') || !b.sections.length || b.sections.some((s) => !Number.isInteger(s.count) || s.count < 1 || !Number.isFinite(s.marksEach) || s.marksEach <= 0 || !SKILLS.has(s.skill)) || Math.abs(b.sections.reduce((sum, s) => sum + s.count * s.marksEach, 0) - b.totalMarks) > 1e-8 || !b.sourceIds.length) errors.push(`${b.id}: incomplete or inconsistent exam blueprint`)
   }

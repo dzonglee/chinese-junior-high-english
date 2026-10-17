@@ -405,3 +405,35 @@ writing flow (four captures, nested exit 0); the final screenshot was inspected.
 tests pass again, as does the 997 KB main / 10,338 KB total package check. Rebased onto
 current main. Integrate this unit as done; next claim is APP-MOCKS. No new owner decision
 is needed for original written papers.
+
+
+## 2026-10-17 · codex-solo · APP-MOCKS review
+
+Authored eight original 60-minute/60-mark papers, 200 new draft questions reserved from
+lesson and delayed pools. Added preflight, stable saved deadlines, grouped answer sheets,
+flags, section scores, cause/evidence corrections, lesson returns and separate essay rewrites.
+Objective marks stay out of 40; writing's 20 require human assessment. Fixed native card/
+number widths and an initial route-binding race found in actual screenshots/testing.
+
+All 1,006 tests pass with one file worker; browser mock, product, eleven connected journeys,
+eight offline checks and course/teaching/content/package audits pass. Native eight-paper job
+ea9c3e5a07364b1e9a6effa4e6ec5d6e and final two-paper job de32c81ae1eb47adaeb5eb0604cab6d0
+pass with nested exit 0 and no simulator exceptions. Every new diagram rendered; all thirteen
+sheets and final changed diagrams/native frames inspected. Failed/intermediate checks are
+recorded in docs/reviews/mock-exams-2026-10-17.md. Both archives match source and pass CRC.
+
+Next: rebase on current main, rerun required checks and squash integrate. No official city
+format, approved audio, editorial launch approval, real-device testing or publication is
+claimed. These remain the existing owner/research/native follow-ups; no new question blocks
+this original written training deliverable. Reference files and other claims are untouched.
+
+
+## 2026-10-17 · codex-solo · APP-MOCKS integration
+
+Review branch checkpoint 55d3125 rebases cleanly onto current main. All 1,006 tests pass
+again with the original timeouts and one file worker. Squash-integrate and mark APP-MOCKS
+done in the same push. Final native route/writing job de32c81ae1eb47adaeb5eb0604cab6d0
+passes both complete flows; actual final report and corrected preflight screenshots inspected.
+Archives were refreshed and verified against source. Obsidian and the existing mock Kanban
+card are updated after the main push with its exact SHA. The next separate milestone is
+APP-NATIVE/official mapping/approved audio; no publication or audio selection is authorized.

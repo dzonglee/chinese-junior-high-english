@@ -12,7 +12,8 @@ export function courseProblems(catalog, plan, coverage) {
     expect(catalog.lessons.some(l => l.topicId === topic.id), `Topic has no full lesson: ${topic.id}`)
     expect(topic.course && [6, 7, 8, 9].includes(topic.course.grade) && ['upper', 'lower'].includes(topic.course.term), `Missing original course stage: ${topic.id}`)
   }
-  for (const q of catalog.questions) expect(primary.has(q.id) || delayed.has(q.id), `Question is outside the lesson course: ${q.id}`)
+  const paperItems=new Set((catalog.mockPapers??[]).flatMap(p=>p.sections.flatMap(s=>s.questionIds)))
+  for (const q of catalog.questions) expect(primary.has(q.id) || delayed.has(q.id) || paperItems.has(q.id), `Question is outside the lesson course: ${q.id}`)
   expect(catalog.vocabulary.length >= plan.vocabularyMinimum && new Set(catalog.vocabulary.map(w => w.word.toLocaleLowerCase('en'))).size === catalog.vocabulary.length, `Vocabulary must contain at least ${plan.vocabularyMinimum} distinct headwords`)
   for (const word of catalog.vocabulary) {
     expect(primary.has(`q-${word.topicId}-${word.id.slice(5)}`) && delayed.has(`q-${word.topicId}-${word.id.slice(5)}-meaning`), `Vocabulary has no immediate and delayed check: ${word.id}`)

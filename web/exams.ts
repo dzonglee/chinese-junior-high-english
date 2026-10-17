@@ -1,0 +1,17 @@
+import type{Screen}from'../src/app/view'
+const esc=(x:unknown='')=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!))
+const button=(action:string,value:string,label:string,cls='button secondary')=>`<button class="${cls}" data-action="${action}" data-value="${esc(value)}">${esc(label)}</button>`
+export function renderExams(s:Screen):string{
+ let html=''
+ const c=s.paperCatalog
+ if(c){
+  if(c.detail)html+=`<section class="paper-preflight"><div class="paper-cover-mark" aria-hidden="true">Aa<span>ORIGINAL PAPER</span></div><h2>先独立作答，再逐项补好</h2><div class="paper-rules"><span>01 开卷后计时</span><span>02 交卷后看解析</span><span>03 作文另行批改</span></div>${c.primary?`<button class="button primary" data-action="${c.primary.id}" data-value="${esc(c.primary.value)}" ${c.primary.disabled?'disabled':''}>${esc(c.primary.label)}</button>`:''}${c.seen?`<p class="help">本卷有 ${c.seen} 道题已有作答或答案查看记录；重做成绩与首次独立证据分开。</p>`:''}</section><section class="panel paper-sections"><h2 class="section-title">试卷安排</h2>${c.sections.map(r=>`<div class="paper-section-row"><span><strong>${esc(r.title)}</strong><small>${r.count} 题 · 建议 ${r.minutes} 分钟</small></span><strong>${r.marks}<small>分</small></strong></div>`).join('')}<p class="help">预留5分钟检查未答题、标记题和作文细节。</p></section>`
+  else html+=`<div class="paper-deck">${c.rows.map(p=>`<button class="paper-entry" data-action="open-paper" data-value="${esc(p.id)}"><span class="paper-number">${esc(p.grade)}<small>${esc(p.term)}</small></span><span class="paper-entry-body"><span class="eyebrow">原创笔试 · 自编结构</span><strong>${esc(p.title)}</strong><span>${p.count} 题 · ${p.minutes} 分钟 · ${p.marks} 分</span><span class="paper-status">${esc(p.label)} <span aria-hidden="true">→</span></span></span></button>`).join('')||'<section class="empty-panel">当前条件下还没有试卷。</section>'}</div>`
+  html+=`<p class="paper-scope">${esc(c.scope)}</p>`
+ }
+ const v=s.paperSession
+ if(v){html+=`<section class="paper-session-tools"><div class="row"><span class="eyebrow">本题 ${v.marks} 分 · 已答 ${v.answered}/${v.total}</span>${button('paper-sheet','',v.sheetOpen?'收起答题卡':'答题卡','text-link')}</div>${v.canFlag?button('paper-flag','',v.flagged?'? 已标记，点此取消':'? 标记，稍后检查',`paper-flag ${v.flagged?'selected':''}`):''}${v.sheetOpen?`<div class="answer-sheet"><p class="help">✓ 已答　— 未答　? 已标记</p>${v.groups.map(g=>`<div class="sheet-group"><h3>${esc(g.title)}</h3><div class="sheet-numbers">${g.items.map(q=>button('jump',String(q.index),`${q.index+1} ${q.flagged?'?':q.answered?'✓':'—'}`,`sheet-number ${q.current?'current':''} ${q.answered?'answered':''}`)).join('')}</div></div>`).join('')}</div>`:''}</section>`}
+ const r=s.paperReport
+ if(r){html+=`<section class="panel paper-report"><h2 class="section-title">按部分看失分</h2>${r.sections.map(section=>`<button class="paper-section-row report-section ${r.filter===section.id?'selected':''}" data-action="paper-result-filter" data-value="${section.id}"><span><strong>${esc(section.title)}</strong><small>${section.writing?section.reviewed?'已自查，待人工批改':'待人工批改':`${section.wrong.length} 题需订正${section.unanswered?` · ${section.unanswered} 题未答`:''}`}</small></span><strong>${section.writing?'另评':`${section.score}/${section.max}`}</strong></button>`).join('')}<div class="tokens">${button('paper-result-filter','wrong','错题与作文',`chip ${r.filter==='wrong'?'selected':''}`)}${button('paper-result-filter','all','全部题目',`chip ${r.filter==='all'?'selected':''}`)}</div><p class="help">先说明错因，再补对应课程。隔几天到期重做，检验是否能独立运用。</p></section>`}
+ return html
+}

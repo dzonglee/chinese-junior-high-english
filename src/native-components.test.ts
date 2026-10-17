@@ -81,3 +81,13 @@ it('does not attach a native page after it has been detached during startup',asy
  const attaching=component.lifetimes.attached.call(context);component.lifetimes.detached.call(context);resolveReady();await attaching
  expect(subscriptions).toBe(0)
 })
+
+it('binds an initially blank native screen when its route becomes current',async()=>{
+ let component:any,timer!:()=>void,route='pages/result/index',opens=0
+ vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{getCurrentPages:()=>[{route}],setInterval(fn:()=>void){timer=fn;return 1},Component:(v:any)=>{component=v}})
+ const app={page:'result',params:{},state:{profile:{}},open(page:string){opens++;this.page=page;context.setData({screen:this.render()})},render(){return{id:this.page}},tick(){return Promise.resolve()}}
+ const context:any={application:app,data:{page:'papers',params:{},screen:null},setData(v:any){Object.assign(this.data,v)},showScreen(){component.methods.showScreen.call(this)}}
+ context.showScreen();expect(context.data.screen).toBeNull();expect(opens).toBe(0)
+ component.methods.startTicker.call(context);route='pages/papers/index';timer();expect(context.data.screen.id).toBe('papers');expect(opens).toBe(1)
+ timer();expect(opens).toBe(1)
+})

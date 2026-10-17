@@ -5,6 +5,7 @@ Component({
     async attached() {
       await this.connectApplication();
     },
+    ready() { if (this.application) this.showScreen(); },
     detached() { this.disposed = true; if (this.privacyResolvers) this.privacyResolvers.forEach(resolve => resolve({ event: 'disagree' })); if (this.unsubscribe) this.unsubscribe(); clearInterval(this.timer); },
   },
   pageLifetimes: { show() { if (this.application) { this.showScreen(); this.startTicker(); void this.application.tick(); } }, hide() { clearInterval(this.timer); this.timer = null; if (this.application) { void this.application.suspend().catch(e => wx.showToast({ title: e.message, icon: 'none' })); } } },
@@ -23,7 +24,7 @@ Component({
     },
     async retryStartup() { this.setData({ startupError: false }); getApp().globalData.start(); await this.connectApplication(); },
     showScreen(reset = false) { const pages = getCurrentPages(), current = pages[pages.length - 1]; if (!current || current.route !== 'pages/' + this.data.page + '/index') return; const params = this.data.params || {}, active = this.application.params, target = !this.application.state.profile && !['onboarding','privacy','settings'].includes(this.data.page) ? 'onboarding' : this.data.page; if (reset || this.application.page !== target || Object.keys(params).length !== Object.keys(active).length || Object.keys(params).some(key => params[key] !== active[key])) this.application.open(this.data.page, params); else this.setData({ screen: this.application.render() }); },
-    startTicker() { if (!this.timer) this.timer = setInterval(() => this.application.tick(), 1000); },
+    startTicker() { if (!this.timer) this.timer = setInterval(() => { if (!this.data.screen) this.showScreen(); void this.application.tick(); }, 1000); },
     requestPrivacy(resolve) { this.privacyResolvers = this.privacyResolvers || []; this.privacyResolvers.push(resolve); this.setData({ privacyPrompt: true }); },
     agreePrivacy() { (this.privacyResolvers || []).forEach(resolve => resolve({ event: 'agree', buttonId: 'privacy-agree' })); this.privacyResolvers = []; this.setData({ privacyPrompt: false }); },
     declinePrivacy() { (this.privacyResolvers || []).forEach(resolve => resolve({ event: 'disagree' })); this.privacyResolvers = []; this.setData({ privacyPrompt: false }); },

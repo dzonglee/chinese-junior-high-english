@@ -1,7 +1,7 @@
 # 初中英语 · Local learning app and WeChat mini program
 
 A working local English practice app for mainland junior-high students, with 413 original draft
-lessons, 4,804 tasks and 1,690 distinct vocabulary headwords. Every lesson starts with a hands-on
+lessons, 5,004 tasks and 1,690 distinct vocabulary headwords. Every lesson starts with a hands-on
 studio: build an expression, choose evidence, sort examples or revise a draft. It includes illustrated answer feedback,
 vocabulary review, reading, writing drafts, speaking self-review, a question builder, timed
 practice, private questions, a mistake book, saved progress and backup import/export.
@@ -9,6 +9,15 @@ practice, private questions, a mistake book, saved progress and backup import/ex
 The whole-app interface now includes a focused Today page, compact searchable courses, a skill-based
 practice grid, useful mistake states and a profile menu. First use takes three short steps.
 See [UI comparison and evidence](docs/reviews/ui-2026-10-17.md) for the current verification boundary.
+
+Every lesson now includes exam coaching: rule contrasts, passage evidence, vocabulary context
+and task-specific writing revision. The **原创模拟卷** entrance offers eight original written
+papers for grades 6–9, upper/lower terms: 25 questions, 60 minutes and 60 marks each. Save and
+resume, flag questions, use the answer sheet, inspect section losses and return to the right lesson.
+Objective marks (40) and writing awaiting human review (20) are kept separate. These are original
+training papers; exact local exam formats and publisher-unit alignment remain unverified.
+See [exam teaching](docs/reviews/exam-teaching-2026-10-17.md) and
+[mock-paper verification](docs/reviews/mock-exams-2026-10-17.md).
 
 ## Run locally
 
@@ -60,6 +69,8 @@ npm run test:grammar
 npm run check:course
 npm run check:interactions
 npm run check:teaching
+npm run check:mocks
+npm run test:mocks
 npm run content:audit
 npm run check:package
 npm run test:native-adapter
