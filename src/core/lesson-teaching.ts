@@ -98,7 +98,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
     for(const missing of [...new Set([Math.floor(roles.length/2),0])]){
       const candidates=roles.map((text,i)=>({id:`role-${i}`,text})).filter((_,i)=>i===missing||Math.abs(i-missing)<=2).slice(0,4)
       if(!candidates.some(o=>o.id===`role-${missing}`))candidates[candidates.length-1]={id:`role-${missing}`,text:roles[missing]}
-      diagnoses.push({prompt:`${first.stem}\n下面是参考表达的删减稿。哪一层意思没有直接写出来？自己的表达可以采用别的写法。`,excerpt:modelSentences.filter((_,i)=>i!==missing).map(t=>t.text).join(' '),options:candidates,correct:`role-${missing}`,reasons:Object.fromEntries(candidates.map(o=>[o.id,o.id===`role-${missing}`?`参考稿删去了“${roles[missing]}”这一层。原句是：${modelSentences[missing].text} 这不是唯一写法。`:`“${o.text}”在现有表达里已有对应句子。再检查题目还要求哪项信息。`]))})
+      diagnoses.push({prompt:'对照删减稿，找出少了哪层意思。',excerpt:`原任务：${first.stem}\n\n删减稿：${modelSentences.filter((_,i)=>i!==missing).map(t=>t.text).join(' ')}\n\n自己的表达可以采用别的写法。`,options:candidates,correct:`role-${missing}`,reasons:Object.fromEntries(candidates.map(o=>[o.id,o.id===`role-${missing}`?`参考稿删去了“${roles[missing]}”这一层。原句是：${modelSentences[missing].text} 这不是唯一写法。`:`“${o.text}”在现有表达里已有对应句子。再检查题目还要求哪项信息。`]))})
     }
   }else{
     diagnoses.push(diagnosis)

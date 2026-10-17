@@ -396,3 +396,12 @@ sheets and the four changed model visuals were inspected. See the detailed revie
 Copy-only native follow-up 7aeda37e77ec4bc5a2abc7a399a4552c also passes both flows with eight captures and no exceptions. Next: integrate this
 unit, claim APP-MOCKS and author fixed original written papers and correction journeys.
 Open owner question remains approved audio; it does not block written practice.
+
+## 2026-10-17 · codex-solo · APP-EXAM-LESSONS integration
+
+Final native visual review moved the full diagnostic task into optional scrollable materials,
+leaving a short instruction. Follow-up 6b4d6b30ae484a05a961bb14a532b793 passes the full
+writing flow (four captures, nested exit 0); the final screenshot was inspected. All 991
+tests pass again, as does the 997 KB main / 10,338 KB total package check. Rebased onto
+current main. Integrate this unit as done; next claim is APP-MOCKS. No new owner decision
+is needed for original written papers.

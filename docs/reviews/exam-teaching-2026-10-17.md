@@ -75,3 +75,10 @@ The owner still needs approved audio and release prerequisites; no content is re
 This unit does not deliver mock papers or claim verified local exam coverage.
 
 Native copy follow-up `7aeda37e77ec4bc5a2abc7a399a4552c` passes both communication flows on the final wording: eight captures, nested exit 0, no simulator exceptions. The updated native task/checklist screens were inspected.
+
+The last native visual pass exposed an oversized diagnostic heading. The original task and
+reference now sit together in the optional scrollable material; the diagnostic heading is
+one short instruction. This keeps the task accessible without filling the first screen.
+
+Compact-material follow-up `6b4d6b30ae484a05a961bb14a532b793`: one complete writing flow,
+four captures, nested exit 0, no exceptions. The final native diagnostic screen was inspected.
