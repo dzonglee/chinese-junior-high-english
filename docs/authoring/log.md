@@ -581,3 +581,7 @@ functional, visual and editorial boundaries; APP-NATIVE remains open, with the e
 native card blocked by Mac project-drive access. No production publication, audio approval,
 new native compilation or shared-GUI ownership is implied. Next independent session should read
 current memory/board and resume native validation only when its project files are reachable.
+
+Final reconciliation succeeded: the existing Obsidian project note was saved and read back.
+Kanban confirms the local lesson card is done and the native card remains blocked. Main code
+commit 9cb5fa7 matches the reviewed delivery fingerprint; the worktree is clean after handoff.
