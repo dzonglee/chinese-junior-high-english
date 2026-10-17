@@ -1,0 +1,524 @@
+{
+  "lessonId": "l-g-relatives",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Select actual antecedents, build relative clauses without resumptive pronouns, contrast subject/object omission, agreement, where/in-which versus subject which, and whose ownership.",
+  "picturePurpose": "An inspected original class photo supplies visible singular boy and plural girls referents. Learners select who the antecedent denotes before building the clause. No conversation roles or unseen actions are inferred. Other facts are written explicitly.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先找修饰谁，再把从句接上",
+    "instruction": "先找准名词，再拼完整定语从句；关系词作宾语时可以省略。",
+    "conditions": [
+      {
+        "label": "指人作主语，不再重复 he",
+        "before": "The boy ",
+        "target": "who is wearing blue",
+        "after": " is Leo.",
+        "input": true,
+        "tiles": [
+          "he",
+          "who",
+          "blue",
+          "wearing",
+          "is",
+          "that"
+        ],
+        "choices": [
+          "who he is wearing blue",
+          "who is wearing blue"
+        ],
+        "reason": "who 或 that 指回 the boy，并在从句中作 is wearing 的主语。再加 he 就重复了主语。",
+        "world": {
+          "kind": "people-scene",
+          "caption": "先找穿蓝色上衣的男生，再用 who 或 that 把“穿蓝色衣服”接成完整从句。",
+          "cells": [
+            {
+              "label": "The boy is wearing blue.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的修饰部分",
+              "role": "attempt-result"
+            }
+          ],
+          "scene": {
+            "asset": "class-photo",
+            "alt": "班级合影：左边是穿珊瑚色上衣的 Mia，中间是穿蓝色上衣的 Leo，右边是穿紫色外套的 Amy。",
+            "people": [
+              {
+                "id": "mia",
+                "name": "Mia",
+                "description": "左边穿珊瑚色上衣的女生",
+                "left": 4,
+                "width": 27
+              },
+              {
+                "id": "leo",
+                "name": "Leo",
+                "description": "中间穿蓝色上衣的男生",
+                "left": 36,
+                "width": 27
+              },
+              {
+                "id": "amy",
+                "name": "Amy",
+                "description": "右边穿紫色外套的女生",
+                "left": 69,
+                "width": 27
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "leo"
+            ],
+            "subjectReason": "先行词指向Leo 这一个男生。关系词也指向他们；不能被其他人物或邻近的名词带偏。",
+            "selectionPrompt": "先点人物，找准前面名词指的是谁。",
+            "formLabel": "定语从句"
+          }
+        },
+        "accepted": [
+          "that is wearing blue"
+        ]
+      },
+      {
+        "label": "先行词变成两个人，be 也跟着变",
+        "before": "The girls ",
+        "target": "who are standing beside Leo",
+        "after": " are Mia and Amy.",
+        "input": true,
+        "tiles": [
+          "standing",
+          "is",
+          "who",
+          "Leo",
+          "are",
+          "beside",
+          "that"
+        ],
+        "choices": [
+          "who is standing beside Leo",
+          "who are standing beside Leo"
+        ],
+        "reason": "the girls 指两个女生，who 或 that 指回复数先行词，从句用 are standing；主语不是旁边的单数 Leo。",
+        "world": {
+          "kind": "people-scene",
+          "caption": "点出 Leo 两侧的女生。本项保留 who 或 that，拼完整从句；be 要和 girls 一致，不跟旁边的人名走。",
+          "cells": [
+            {
+              "label": "Mia and Amy are standing beside Leo.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的修饰部分",
+              "role": "attempt-result"
+            }
+          ],
+          "scene": {
+            "asset": "class-photo",
+            "alt": "班级合影：左边是穿珊瑚色上衣的 Mia，中间是穿蓝色上衣的 Leo，右边是穿紫色外套的 Amy。",
+            "people": [
+              {
+                "id": "mia",
+                "name": "Mia",
+                "description": "左边穿珊瑚色上衣的女生",
+                "left": 4,
+                "width": 27
+              },
+              {
+                "id": "leo",
+                "name": "Leo",
+                "description": "中间穿蓝色上衣的男生",
+                "left": 36,
+                "width": 27
+              },
+              {
+                "id": "amy",
+                "name": "Amy",
+                "description": "右边穿紫色外套的女生",
+                "left": 69,
+                "width": 27
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "mia",
+              "amy"
+            ],
+            "subjectReason": "先行词指向Mia 和 Amy 两个女生。关系词也指向他们；不能被其他人物或邻近的名词带偏。",
+            "selectionPrompt": "先点人物，找准前面名词指的是谁。",
+            "formLabel": "定语从句"
+          }
+        },
+        "accepted": [
+          "that are standing beside Leo"
+        ]
+      },
+      {
+        "label": "作宾语可以省，不能再加 it",
+        "before": "This is the book ",
+        "target": "which I borrowed",
+        "after": " yesterday.",
+        "input": true,
+        "tiles": [
+          "which",
+          "I",
+          "it",
+          "borrowed",
+          "that"
+        ],
+        "choices": [
+          "which I borrowed it",
+          "which I borrowed"
+        ],
+        "reason": "which 或 that 指回 book，已经代表 borrowed 的对象，不再重复 it。在这个限制性定语从句里，作宾语的关系代词也可以省略。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把“我昨天借了这本书”接成修饰 book 的从句。保留 which/that，或省略它，都可表达同一意思。",
+          "cells": [
+            {
+              "label": "I borrowed the book yesterday.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的修饰部分",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "that I borrowed",
+          "I borrowed"
+        ]
+      },
+      {
+        "label": "作主语的关系词不能这样省",
+        "before": "I like films ",
+        "target": "which make",
+        "after": " me laugh.",
+        "input": true,
+        "tiles": [
+          "make",
+          "which",
+          "that"
+        ],
+        "choices": [
+          "make",
+          "which make"
+        ],
+        "reason": "which 或 that 在从句里作 make 的主语，不能省略。直接写 I like films make me laugh，会把两个谓语硬接在一起。",
+        "world": {
+          "kind": "syntax",
+          "caption": "与上一项比较：这里缺的是谁发出 make 这个动作，不是动词后的宾语。",
+          "cells": [
+            {
+              "label": "These films make me laugh.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的修饰部分",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "that make"
+        ]
+      },
+      {
+        "label": "地点后不一定只会用 where",
+        "before": "This is the room ",
+        "target": "where we meet",
+        "after": " on Fridays.",
+        "input": true,
+        "tiles": [
+          "which",
+          "we",
+          "where",
+          "meet",
+          "in",
+          "that"
+        ],
+        "choices": [
+          "which we meet",
+          "where we meet"
+        ],
+        "reason": "从句已经有主语 we 和谓语 meet，缺的是地点“在这间屋里”，用 where 或 in which。也可把 in 留在句末，此时 which/that 可省。单独 which 不能代替 in this room。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把“我们每周五在这间屋里见面”接到 room 后。保留“在这里”这层意思。",
+          "cells": [
+            {
+              "label": "We meet in this room on Fridays.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的修饰部分",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "in which we meet",
+          "which we meet in",
+          "that we meet in",
+          "we meet in"
+        ]
+      },
+      {
+        "label": "同样指房间，这里缺的却是主语",
+        "before": "This is the room ",
+        "target": "which has",
+        "after": " three windows.",
+        "input": true,
+        "tiles": [
+          "has",
+          "where",
+          "which",
+          "that"
+        ],
+        "choices": [
+          "where has",
+          "which has"
+        ],
+        "reason": "这次 has 前缺主语，which 或 that 指回 room，作 has 的主语。where 只表示地点，不能充当这里的主语。",
+        "world": {
+          "kind": "syntax",
+          "caption": "还是 room，但从句改成“有三扇窗”。先判断 has 前面缺什么。",
+          "cells": [
+            {
+              "label": "This room has three windows.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的修饰部分",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "that has"
+        ]
+      },
+      {
+        "label": "whose 后面还要接名词",
+        "before": "I know the student ",
+        "target": "whose bike is red",
+        "after": ".",
+        "input": true,
+        "tiles": [
+          "bike",
+          "is",
+          "whose",
+          "red",
+          "who"
+        ],
+        "choices": [
+          "who bike is red",
+          "whose bike is red"
+        ],
+        "reason": "whose bike 表示这个学生的自行车，整个 whose bike 是从句主语。who 不能直接放在 bike 前表示他的。",
+        "world": {
+          "kind": "syntax",
+          "caption": "想认出那位自行车是红色的学生。这里要表达所属，不是说谁正在骑车。",
+          "cells": [
+            {
+              "label": "The student has a red bike.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的修饰部分",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "从句要表达哪种关系？",
+            "missingPrompt": "先判断是所属关系，还是谁正在做某个动作。",
+            "answer": "possession",
+            "options": [
+              {
+                "id": "possession",
+                "label": "所属关系",
+                "text": "这个学生的自行车是红色的",
+                "reason": "要表达他的自行车，使用 whose bike。",
+                "value": 50
+              },
+              {
+                "id": "action",
+                "label": "人物做动作",
+                "text": "这个学生正在骑车",
+                "reason": "题目说明的是车属于谁、是什么颜色，没有说正在骑车。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "别让 with 后的复数名词带偏",
+        "before": "The boy with two bags ",
+        "target": "who is waiting outside",
+        "after": " is our guide.",
+        "input": true,
+        "tiles": [
+          "waiting",
+          "who",
+          "outside",
+          "is",
+          "are",
+          "that"
+        ],
+        "choices": [
+          "who are waiting outside",
+          "who is waiting outside"
+        ],
+        "reason": "先行词是单数 the boy，with two bags 只是修饰他的附加信息。who/that 指回 boy，因此用 is waiting，不跟复数 bags 走。",
+        "world": {
+          "kind": "syntax",
+          "caption": "文字记录：一个男生带着两个包在外面等。修饰的是人，不是那两个包。",
+          "cells": [
+            {
+              "label": "The boy with two bags is waiting outside.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的修饰部分",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "that is waiting outside"
+        ]
+      }
+    ],
+    "choices": [
+      "who he is wearing blue",
+      "who is wearing blue",
+      "who is standing beside Leo",
+      "who are standing beside Leo",
+      "which I borrowed it",
+      "which I borrowed",
+      "make",
+      "which make",
+      "which we meet",
+      "where we meet",
+      "where has",
+      "which has",
+      "who bike is red",
+      "whose bike is red",
+      "who are waiting outside",
+      "who is waiting outside"
+    ],
+    "items": [
+      {
+        "id": "relative-link",
+        "label": "先行词与成分",
+        "prompt": "关系词替代了谁？",
+        "answer": "",
+        "reason": "",
+        "hint": "先看关系词在从句里是主语、宾语、所属，还是地点。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-relatives-002",
+      "q-g-relatives-003"
+    ],
+    "transfer": {
+      "id": "individual-g-relatives-transfer",
+      "topicId": "g-relatives",
+      "skill": "grammar",
+      "kind": "order",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "把“正在收集空瓶子的志愿者”接到 volunteers 后。使用给出的词块，每个用一次。\nThe volunteers ___ are our students.",
+      "tokens": [
+        {
+          "id": "r2",
+          "text": "collecting"
+        },
+        {
+          "id": "r4",
+          "text": "bottles"
+        },
+        {
+          "id": "r0",
+          "text": "who"
+        },
+        {
+          "id": "r3",
+          "text": "empty"
+        },
+        {
+          "id": "r1",
+          "text": "are"
+        }
+      ],
+      "answer": {
+        "order": [
+          "r0",
+          "r1",
+          "r2",
+          "r3",
+          "r4"
+        ],
+        "display": "who are collecting empty bottles"
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找修饰对象，再判断关系词的成分和从句谓语的数。",
+        "steps": [
+          {
+            "text": "volunteers 指人，给定的 who 指回这些志愿者。",
+            "reason": "who 在从句里作主语，后面不再重复 they。"
+          },
+          {
+            "text": "志愿者是复数，所以接 are collecting，再接对象 empty bottles。",
+            "reason": "从句谓语与 volunteers 一致，不能因为只填一段修饰语就漏掉主语或 be。"
+          }
+        ],
+        "distractors": [],
+        "pitfall": "关系词指回先行词；从句里的主语、谓语和对象仍要完整。",
+        "visual": {
+          "kind": "sentence",
+          "title": "人 → 修饰他们正在做什么",
+          "segments": [
+            {
+              "text": "the volunteers",
+              "role": "subject",
+              "note": "复数先行词"
+            },
+            {
+              "text": "who",
+              "role": "evidence",
+              "note": "指回 volunteers，作从句主语"
+            },
+            {
+              "text": "are collecting empty bottles",
+              "role": "verb",
+              "note": "复数 be + 正在做的动作"
+            }
+          ],
+          "caption": "The volunteers who are collecting empty bottles are our students."
+        },
+        "transfer": "如果 volunteers 改成一个 volunteer，从句里的 be 怎样变？"
+      }
+    }
+  }
+}

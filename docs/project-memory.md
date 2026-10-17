@@ -3,43 +3,31 @@
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
 The owner requires every lesson to be redesigned separately, with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **18/413** are
-individually reviewed;395 remain pending. Work stays solo. The tracker links authored tasks,
-inspected figures, wrong-path repairs, fresh transfer and actual control results. Shared coverage
-is a functional baseline, never an individual review.
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **19/413** are
+individually reviewed;394 remain pending. Work stays solo. The tracker links each authored task,
+inspected figure, wrong-path repair, fresh transfer and actual control result. Shared coverage is
+a functional baseline, never an individual review or a claim of all-course parity.
 
-Latest reviews: modal meanings, infinitives, gerunds and conditionals. Original pictures now
-support a coded pool rule, stop-to/stop-doing action contrast and two hypothetical weather plans.
-The conditional model changes its displayed outcome with the selected condition. Typed negative
-answers accept authored contractions/full forms, but wrong tense/agreement still fails.
+Latest: object clauses and relatives use editable word tiles directly in the sentence. Students
+remove/reorder words, discard duplicate pronouns/auxiliaries and identify the actual antecedent.
+The class photo is a silent reference scene; no dialogue roles are invented. Valid if/whether,
+optional-that, object-relative omission and locative/preposition variants are accepted. Edits clear
+completion and incomplete repairs survive reload. New ordering transfers now explain the empty
+answer area. All initial/model/error/recovery/alternative/transfer figures were inspected.
 
-Current checkpoint-17:17 whole browser flows,137 conditions/411 widths, reload and zero independent
-assessment records;1,461 core tests/14 files, typecheck,826 teaching/spelling,7 grammar constraints,
-course/static package, both native-adapter simulations,8 offline checks and fresh ZIP CRC/exact
-source comparison pass. Exact hashes/sizes and limitations are in checkpoint-17.*. Standalone
-practice disables networking after loading the embedded document; managed file navigation is
-blocked. The science-scene delivery image was reduced, re-inspected and checked in affected flows.
+Aggregate individual evidence:153 conditions/459 widths. Current checks:1,466 core/14 files,
+typecheck,826 teaching/spelling,static package,new full relative flow/24 widths,object flow after
+the shared changes,both native-adapter simulations,8 offline checks,and refreshed ZIP CRC/exact
+source comparison. Older full browser flows retain checkpoint17 scope; checkpoint18/19 preserve
+bounded new evidence/hashes. Standalone loaded once before networking was disabled; file URLs
+are blocked by managed policy. Exact delayed-text and grade guards remain enforced.
 
-Exact delayed-sentence and grade guards remain enforced, including accepted typed alternatives.
-Earlier preposition/passive overlaps were corrected; actual reserved items were verified unchanged.
-Checkpoint11 retains its historical disclosed limitation. Content stays draft; videos deferred.
-
-Latest individual review: l-g-object-clauses. Eight actual editable word-tile tasks accept
-if/whether and optional-that constructions, reject bypasses, retain incomplete repairs and update
-the sentence/diagram. Initial, eight models/errors/repaired expressions, alternatives, removal
-and fresh bag-location transfer inspected. Review moved controls higher and fixed orphan punctuation.
-Aggregate individual evidence:145 conditions/435 task-width checks across18 accepted reviews.
-
-Current new-snapshot checks:1,464 core/14 files,typecheck,826 teaching-spelling,static package,new
-whole browser flow/24 widths,three shared flows/57 states at three widths,both native-adapter
-simulations,8 offline checks and refreshed ZIP CRC/exact-source comparison. Previous17 full browser
-flows retain checkpoint17 scope; checkpoint18 records the new bounded checks and artifact hashes.
-
-Next: l-g-relatives. A lesson-specific draft is prepared outside course files; build person/object
-antecedent selection and clause assembly, preserve valid relative-word/omission variants. Native
-GUI still needs MacStudioExternal project access. No GUI job, upload or publication occurred.
-Approved audio, editorial/cohort mapping, real devices and production setup remain separate.
-
+Next: l-g-conjunctions. An explicit eight-task draft is prepared outside course files: reuse the
+original weather picture for cause/result, reverse sentence order without reversing causality,
+remove duplicate because/so and although/but, then practise contrast/otherwise/conditions. Native
+GUI still needs MacStudioExternal project-drive access; the existing native card stays blocked.
+No GUI job, upload or publication occurred. Content remains draft. Approved audio, editorial /
+cohort mapping, devices and production setup remain separate; videos remain deferred.
 
 ## Previous local delivery · 2026-10-17
 

@@ -162,3 +162,17 @@ it('keeps duplicate words as separate usable tiles and rejects an unbuildable au
  for(const[a,v]of workshopExpressionActions(condition,condition.target))changeWorkshop(w,p,a,v);changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(true);expect(workshopView(w,p).tileAnswer.filter(t=>t.text==='the').map(t=>t.id)).toEqual(['0','3'])
  const broken={...w,conditions:[{...condition,tiles:['the','book','and','umbrella']},original.conditions![1]]};expect(workshopProblems(broken)).toContain('Invalid clause tile bank')
 })
+
+
+it('requires the actual relative antecedent and does not invent a speaker in a silent reference scene',()=>{
+ const s=studio('l-g-relatives'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
+ for(const[a,v]of workshopExpressionActions(w.conditions![0],w.conditions![0].target))p=changeTeaching(s,p,'workshop-'+a,v,2);p=changeTeaching(s,p,'workshop-check','',3);expect(workshopView(w,p).complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-subject','mia',4);p=changeTeaching(s,p,'workshop-check','',5);let v=workshopView(w,p);expect(v.expressionWrong).toBe(false);expect(v.scenePeople.find(p=>p.id==='mia')!.wrong).toBe(true);expect(v.scenePeople.every(p=>!p.speaking&&!p.listening)).toBe(true)
+ p=changeTeaching(s,p,'workshop-subject','mia',6);p=changeTeaching(s,p,'workshop-subject','leo',7);p=changeTeaching(s,p,'workshop-check','',8);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-item','1',9);for(const id of ['mia','amy'])p=changeTeaching(s,p,'workshop-subject',id,10);for(const[a,v]of workshopExpressionActions(w.conditions![1],'who is standing beside Leo'))p=changeTeaching(s,p,'workshop-'+a,v,11);p=changeTeaching(s,p,'workshop-check','',12);v=workshopView(w,p);expect(v.expressionWrong).toBe(true);expect(v.sceneSubjectsCorrect).toBe(true);expect(v.scenePeople.filter(p=>p.wrong)).toHaveLength(0)
+ const invalid=structuredClone(w);invalid.conditions![0].world.scene!.listeners=['mia'];expect(workshopProblems(invalid)).toContain('Invalid scene referents or layout')
+})
+it('accepts object-relative omission and stranded-preposition variants while rejecting a duplicated object or missing preposition',()=>{
+ const s=studio('l-g-relatives'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
+ for(const[i,good,bad]of [[2,['which I borrowed','that I borrowed','I borrowed'],'which I borrowed it'],[4,['where we meet','in which we meet','which we meet in','that we meet in','we meet in'],'which we meet']]as const){p=changeTeaching(s,p,'workshop-item',String(i),2);for(const answer of good){for(const[a,v]of workshopExpressionActions(w.conditions![i],answer))p=changeTeaching(s,p,'workshop-'+a,v,3);p=changeTeaching(s,p,'workshop-check','',4);expect(workshopView(w,p).complete).toBe(true)}for(const[a,v]of workshopExpressionActions(w.conditions![i],bad))p=changeTeaching(s,p,'workshop-'+a,v,5);p=changeTeaching(s,p,'workshop-check','',6);expect(workshopView(w,p).complete).toBe(false)}
+})

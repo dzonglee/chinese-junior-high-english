@@ -863,3 +863,18 @@ and refreshed ZIP CRC/exact-source comparison. A test-driver input/button mix-up
 answer path failed. Prior17 whole browser flows retain checkpoint17 scope. Exact new hashes and
 boundaries:checkpoint-18.json. Next relatives; its explicit draft is prepared outside course files.
 Unit remains claimed/unfinished;395 pending. Native GUI blocked; no upload or publication.
+
+
+## 2026-10-18 (Sydney) · codex-solo · relatives individually reviewed
+
+l-g-relatives is reviewed:19/413. Eight tasks require the pictured antecedent and a finite relative
+clause, separating reference/number errors, duplicate pronouns, subject/object omission, whose and
+locative/preposition variants. Silent scenes no longer invent a speaker; invalid listener-only
+scenes are rejected. All initial/models/errors/repairs/alternatives and volunteer transfer inspected.
+Corrected an inaccurate diagram label and clarified the empty ordering control in both renderers.
+
+Current checks pass:1,466 core/14 files,typecheck,826 teaching-spelling,package,new complete flow/
+24 widths,object flow after shared changes,both adapter simulations,8 offline checks and refreshed
+ZIP CRC/exact-source comparison. Aggregate153 conditions/459 widths; older flows retain their
+original scope. New hashes/boundaries:checkpoint-19.json. Next conjunctions; explicit draft prepared
+outside course files. Unit claimed/unfinished;394 pending. Native GUI blocked; no upload/release.
