@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-42 of413 lessons are individually reviewed;371 remain pending. Every lesson needs bespoke tasks,
+43 of413 lessons are individually reviewed;370 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-statements. Twelve factual sentence tasks combine selectable inventories and habit/location records with real phrase/full-sentence repairs. They distinguish be,lexical-verb and modal negation,positive third-person agreement,past auxiliaries,and complete subjects.
+Latest:l-g-alternative-questions. Twelve choice-question tasks require concrete replies across transport,dates,colors,actions and occupations,with an original generated bus/bike diptych and actual full-question tiles.
 
-Inspected all twelve models,narrow-phone figures,wrong facts and forms,capital feedback,piece removal/reload and all application/transfer steps. Exact0/1 picture selections alter actual icons. Accepted contractions are exercised. Grades6–9;reserved005–008 unexposed;zero independent records.
+Inspected original/600-pixel art,all twelve models,narrow-phone figures,wrong picture/fact gates,repairs,capital feedback,removal/reload and all application/transfer steps. Both picture halves are selectable and the correct half changes. New artwork uses a registered subpackage with compiler path binding and simulated readiness/failure/retry. Grades7–9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint42 records the new flow/36 widths and current core,teaching,grammar,course,package,
+Checkpoint43 records the new flow/36 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The42 reviewed lessons cumulatively contain402 conditions/1206 widths;
+recorded explicitly. The43 reviewed lessons cumulatively contain414 conditions/1242 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-alternative-questions. Twelve alternative-question tasks are drafted outside course files. A newly generated bus/bike diptych will support changing picture selections,with factual labels coded. Inspect original and phone delivery,and create safe package space before integrating further art. Other tasks require concrete replies across dates,colors,actions and occupations,and reconstruct a complete question.
+Next:l-g-imperatives. A fourteen-task imperative draft remains outside course files. Original open/closed door art and600-pixel delivery are inspected;use it to choose commanded target states. Repair positive/negative and be instructions,polite requests,let suggestions and fixed No+ing notices. Enforce explicit source capitals per response and keep reserved responses in source tests only.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

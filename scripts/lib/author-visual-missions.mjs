@@ -12,6 +12,8 @@ export function authorVisualMissions(root,catalog){
  const individualDir=resolve(root,'content/teaching/individual'),individuals=existsSync(individualDir)?readdirSync(individualDir).filter(f=>f.endsWith('.json')).map(f=>JSON.parse(readFileSync(resolve(individualDir,f),'utf8'))):[]
  if(new Set(individuals.map(i=>i.lessonId)).size!==individuals.length)throw Error('Duplicate individual lesson')
  for(const i of individuals)if(!catalog.lessons.some(l=>l.id===i.lessonId)||!i.intent||!i.picturePurpose||!i.workshop||i.reviewState!=='draft')throw Error('Incomplete individual lesson specification')
+ const assetFiles=new Map(JSON.parse(readFileSync(resolve(root,'content/visual-assets.json'),'utf8')).assets.map(a=>[a.id,a.file]))
+ for(const i of individuals)for(const c of i.workshop.conditions??[]){const r=c.world.records;if(r?.asset&&assetFiles.get(r.asset)!==`miniprogram/${r.assetRoot??'assets'}/${r.asset}.jpg`)throw Error('Record artwork must match its registered native path: '+i.lessonId)}
  const workshops=JSON.parse(readFileSync(resolve(root,'content/teaching/workshops.json'),'utf8'))
  const effective=Object.entries(workshops).map(([lessonId,workshop])=>({lessonId,workshop:individuals.find(i=>i.lessonId===lessonId)?.workshop??workshop}))
  const delayedErrors=individualDelayedProblems(effective,[...JSON.parse(readFileSync(resolve(root,'content/grammar.json'),'utf8')),...JSON.parse(readFileSync(resolve(root,'content/course-grammar.json'),'utf8'))]);if(delayedErrors.length)throw Error(delayedErrors.join('\n'))

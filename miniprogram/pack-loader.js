@@ -245,4 +245,4 @@ const loaders = {
   "r-restoration": () => require.async("./content/group-009/r-restoration.js"),
   "r-short-answers": () => require.async("./content/group-009/r-short-answers.js"),
 };
-module.exports = { loadCatalog: () => require.async('./content/catalog/index.js'), loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };
+module.exports = { loadCatalog: async () => { await Promise.all(["lesson-illustrations"].map(name => new Promise((resolve,reject) => wx.loadSubpackage({name,success:resolve,fail:()=>reject(new Error('插图加载未完成，请重试。'))})))); return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };

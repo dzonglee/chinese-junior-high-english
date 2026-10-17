@@ -1,0 +1,7 @@
+# Lesson illustration packaging
+
+New original lesson illustrations belong in `miniprogram/illustrations/`,registered with provenance and SHA-256 in `content/visual-assets.json`. Existing pictures keep their paths and pixels. A record using a new illustration sets `assetRoot: "illustrations"`; the compiler verifies that the resulting native path matches the registered asset. The only permitted optional root is illustrations.
+
+The builder registers the `lesson-illustrations` subpackage and retains the existing1,900,000-byte main/19,000,000-byte total limits. Its separate illustration safety budget is1,500,000 bytes. Split the art package before exceeding that limit; do not raise the limits or hide its files from the total. The generated catalog loader waits for the illustration subpackage. Failures reject with a retry message; application initialization clears its failed promise so a later retry can work. Development and synthetic cloud adapter checks exercise readiness,failure and recovery. These are simulations,not WeChat GUI evidence.
+
+The development server maps only registered illustration IDs to their files and retains the path traversal boundary. The standalone build embeds the registered image bytes,so practice remains offline after loading. ZIP packaging includes every native file and verifies archived bytes. Original image-generation outputs remain in the workspace; do not commit originals or any reference corpus into the learner package.

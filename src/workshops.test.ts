@@ -282,3 +282,8 @@ it('keeps word boundaries distinct from joined pieces and rejects impossible aut
  for(const[a,v]of workshopExpressionActions(phrase,phrase.target))changeWorkshop(original,p,a,v)
  expect(workshopView(original,p).selected).toBe(phrase.target);expect(workshopView(original,p).morphemeTiles).toBe(false);expect(phrase.target).toContain(' ')
 })
+
+it('rejects a record illustration root without an asset or outside the allowed package',()=>{
+ const w=structuredClone(studio('l-g-statements').mission!.workshop!);const r=w.conditions![0].world.records!;r.assetRoot='illustrations';expect(workshopProblems(w)).toEqual([])
+ delete r.asset;expect(workshopProblems(w)).toContain('Invalid event records');r.asset='lesson-box-inventory';r.assetRoot='../outside' as 'illustrations';expect(workshopProblems(w)).toContain('Invalid event records')
+})

@@ -8,13 +8,14 @@ const root = resolve(import.meta.dirname, '../miniprogram'), local = resolve(imp
 mkdirSync(local, { recursive: true })
 const manifest = JSON.parse(readFileSync(resolve(root, '../dist/manifest.json'), 'utf8'))
 const cloudFileMap = Object.fromEntries(manifest.map(p => [p.topicId, `cloud://synthetic-test-env/${p.file}`]))
-writeFileSync(resolve(local, 'pack-loader.js'), `module.exports = { loadCatalog: () => require.async('../../miniprogram/content/catalog/index.js'), loadPack: () => { throw new Error('Cloud mode must not read packaged questions') } };`)
+writeFileSync(resolve(local, 'pack-loader.js'), `module.exports = { loadCatalog: () => require('../../miniprogram/pack-loader.js').loadCatalog(), loadPack: () => { throw new Error('Cloud mode must not read packaged questions') } };`)
 await build({ entryPoints: [resolve(root, '../src/native/app.ts')], bundle: true, format: 'cjs', platform: 'neutral', target: 'es2020', outfile: resolve(local, 'runtime.cjs'), external: ['./pack-loader.js'], plugins: [{ name: 'synthetic-cloud-runtime', setup(builder) { builder.onLoad({ filter: /generated[\\/]runtime\.ts$/ }, () => ({ contents: `export const runtime = ${JSON.stringify({ mode: 'cloud', cloudEnv: 'synthetic-test-env', contentFiles: cloudFileMap, mediaFiles: {} })}`, loader: 'ts' })) } }] })
 for (const mode of ['development', 'cloud']) {
 const data = new Map(), navigations = [], errors = [], pendingNavigation = []
 let privacyListener, privacyValue, topPage
-let cloudInitialised = false, cloudDownloads = 0
+let cloudInitialised = false, cloudDownloads = 0, artworkLoaded = false
 const wx = {
+  loadSubpackage(options) { assert.equal(options.name,'lesson-illustrations'); const app=JSON.parse(readFileSync(resolve(root,'app.json'),'utf8'));assert(app.subPackages.some(p=>p.name===options.name&&p.root==='illustrations'));setTimeout(()=>{artworkLoaded=true;options.success({})},5) },
   cloud: { init(options) { assert.equal(options.env, 'synthetic-test-env'); cloudInitialised = true }, async downloadFile({ fileID }) { cloudDownloads++; const file = manifest.find(p => cloudFileMap[p.topicId] === fileID); assert(file); return { tempFilePath: resolve(root, '../dist/packs', file.file) } } },
   getFileSystemManager: () => ({ readFile(options) { try { options.success({ data: readFileSync(options.filePath, 'utf8') }) } catch { options.fail() } } }),
   getStorageSync: key => data.get(key) || '', setStorageSync: (key, value) => data.set(key, value), removeStorageSync: key => data.delete(key),
@@ -23,15 +24,16 @@ const wx = {
   showToast: options => errors.push(options.title), hideToast() {}, showModal: options => options.success({ confirm: true }),
 }
 const context = vm.createContext({ wx, console, getCurrentPages: () => topPage ? [topPage] : [], TextEncoder: undefined, TextDecoder: undefined })
-function load(file) {
+function load(file, scope=context) {
   assert(file.startsWith(root + '/') || file.startsWith(local + '/'), 'The test loader must stay inside the mini-program package')
   const source = readFileSync(file, 'utf8'), module = { exports: {} }
-  const require = path => load(resolve(dirname(file), path))
-  require.async = async path => load(resolve(dirname(file), path))
-  const wrapper = vm.runInContext(`(function(require,module,exports){${source}\n})`, context, { filename: file })
+  const require = path => load(resolve(dirname(file), path), scope)
+  require.async = async path => load(resolve(dirname(file), path), scope)
+  const wrapper = vm.runInContext(`(function(require,module,exports){${source}\n})`, scope, { filename: file })
   wrapper(require, module, module.exports); return module.exports
 }
 const adapter = load(mode === 'cloud' ? resolve(local, 'runtime.cjs') : resolve(root, 'runtime.js')); await adapter.ready; const app = adapter.application
+assert(artworkLoaded,'Application readiness must wait for the illustration subpackage')
 app.open('home'); assert.equal(app.render().id, 'onboarding')
 for (const [name, value] of Object.entries({ cityId: '河南-郑州', structure: '63', grade: '7', term: 'upper', editionId: 'pep-2024', schoolYear: '2026', dailyMinutes: '15' })) app.setField(name, value)
 await app.action('save-profile'); assert(navigations.at(-1).startsWith('/pages/home/index'))
@@ -48,6 +50,11 @@ if (mode === 'cloud') { assert(cloudInitialised); assert(cloudDownloads > 0) } e
 app.platform.navigate('builder');const stale=pendingNavigation.at(-1);app.platform.navigate('session');const current=pendingNavigation.at(-1),count=navigations.length
 stale.fail({errMsg:'navigateTo:fail cancelled'});assert.equal(navigations.length,count,'A late failed navigation cannot replace the newer session')
 current.fail({errMsg:'navigateTo:fail webview count limit exceed'});assert.equal(navigations.length,count+1);assert(navigations.at(-1).startsWith('/pages/session/index'))
+let failArtwork=true,artworkRequests=0
+const retryContext=vm.createContext({wx:{...wx,loadSubpackage(options){artworkRequests++;if(failArtwork)options.fail({});else options.success({})}},console,getCurrentPages:()=>[],TextEncoder:undefined,TextDecoder:undefined})
+const retryAdapter=load(mode==='cloud'?resolve(local,'runtime.cjs'):resolve(root,'runtime.js'),retryContext)
+await assert.rejects(retryAdapter.ready,/插图加载未完成，请重试/);assert.equal(retryAdapter.application,undefined)
+failArtwork=false;await retryAdapter.initializeApplication();assert(retryAdapter.application);assert.equal(artworkRequests,2,'An artwork failure must be retryable without a stuck initialization promise')
 console.log(`${mode} native-adapter simulation passed.`)
 }
 console.log('Native-adapter simulation passed: CommonJS startup, async subpackage/hash loading without DOM encoders, profile, answer, storage and privacy routing.')
