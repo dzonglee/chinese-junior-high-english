@@ -1,0 +1,9 @@
+# Participles: find the modified noun and keep the main verb
+
+2026-10-18 (Sydney). Individually reviewed; content remains draft.
+
+Fifteen tasks start with opposite falling/fallen leaf states,then distinguish modified nouns,doers and receivers,ongoing and completed states,irregular participles,excited/exciting and finite predicates. The fallen example explicitly shows that a past participle can express completion without passive meaning. Window feedback distinguishes ongoing cracking from an already damaged state,without falsely requiring a separate object for breaking.
+
+Inspected original and revised artwork,600-pixel delivery,all fifteen models,narrow-phone figures,both wrong picture gates,all thirteen wrong word selections,partial/removal recovery,typed/assembled errors and every application/transfer step. The first phone rendering hid the grounded leaf behind its label;the original artwork was revised through image generation with blank foreground,and the final two scenes and wrong states were reinspected at phone width. Both leaves now remain visible above the labels. Fresh piano/player transfer checks modifier versus main-predicate relationships. Grade9;reserved005–008 unexposed;zero independent attempts,mastery or lesson-pass records.
+
+Final compiler/typecheck,826 teaching/spelling,nine grammar,course/interaction/static-package checks,15-condition/45-width browser flow,nine offline checks and ZIP CRC/exact-source comparisons pass. Final development/cloud simulations include all245 hashes and artwork readiness/failure/retry. Offline picture-error checks cover all five illustrated-entry lessons. Shared engine/UI is unchanged;checkpoint45's1,480-core-test coverage is retained. Native GUI review remains blocked by project-drive access. No GUI job,upload,publication or release.

@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-50 of413 lessons are individually reviewed;363 remain pending. Every lesson needs bespoke tasks,
+51 of413 lessons are individually reviewed;362 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-future-passive. Fifteen future-passive tasks use original handrail repair imagery,active/passive meaning,will/be/participle assembly,irregular forms,negatives,questions,by-agents and short replies.
+Latest:l-g-participles. Fifteen participle tasks contrast falling/fallen pictures,modified nouns,doer/receiver relationships,completion,irregular forms,excited/exciting and finite predicates.
 
-Inspected original/delivery art,all15 models,narrow-phone figures,wrong picture/all14 wrong word selections,partial/removal recovery and all application/transfer steps. Enlarged the first picture and reinspected final actor,predicate and future-time boundaries. Grade9;reserved005–008 unexposed;zero independent records. Fresh MCP project-instruction read remains blocked by external-drive access;existing native card updated.
+Inspected original/revised delivery art,all15 models,phone figures,both wrong picture gates,all13 wrong word selections,partial/removal recovery and all application/transfer steps. Reframed art after a label hid the grounded leaf;final phone views show both leaves clearly. Corrected breaking-window feedback preserves intransitive meaning. Grade9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint50 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint51 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The50 reviewed lessons cumulatively contain512 conditions/1536 widths;
+recorded explicitly. The51 reviewed lessons cumulatively contain527 conditions/1581 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-participles. Fifteen participle tasks are drafted outside course files. Original airborne/grounded leaf art has been inspected at original/delivery size. Register it after this checkpoint;check ongoing/completed states,modified nouns,active/passive relationships,irregular forms and finite predicates without treating all past participles as passive.
+Next:l-g-time-clauses. Fifteen time-clause tasks are drafted outside course files. Reuse opposite door states,check actual overlapping past intervals and select complete clauses or event order. Distinguish future time-clause present forms from past narrative,since origins and indirect when questions.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

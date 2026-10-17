@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **50 / 413**. Current: **l-g-participles**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **51 / 413**. Current: **l-g-time-clauses**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -58,7 +58,7 @@ Completed: **50 / 413**. Current: **l-g-participles**. Evidence lives in docs/re
 | l-g-object-complements | 宾语后面再说明什么 | reviewed | [Individual review](../reviews/individual-lessons/l-g-object-complements.md) |
 | l-g-there-be | there be：哪里有什么 | reviewed | [Individual review](../reviews/individual-lessons/l-g-there-be.md) |
 | l-g-future-passive | 将来被动：将会被怎样处理 | reviewed | [Individual review](../reviews/individual-lessons/l-g-future-passive.md) |
-| l-g-participles | 读懂 -ing 与 -ed 的修饰关系 | pending | — |
+| l-g-participles | 读懂 -ing 与 -ed 的修饰关系 | reviewed | [Individual review](../reviews/individual-lessons/l-g-participles.md) |
 | l-g-time-clauses | 时间状语从句：先后关系 | pending | — |
 | l-g-reason-purpose | 说明原因、目的与结果 | pending | — |
 | l-g-concession | 虽然与除非：读懂让步和条件 | pending | — |
