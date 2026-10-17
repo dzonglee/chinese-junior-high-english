@@ -2,7 +2,7 @@
 
 The owner's current milestone is a usable local app; videos come later. The local build includes
 413 original draft lessons, 5,004 tasks, 1,690 distinct vocabulary headwords and all 245 topic packs. Artwork
-includes three original Blender assets and one inspected AI-generated desk scene authorized by
+includes three original Blender assets and three inspected AI-generated scenes authorized by
 the owner; book positions and exact labels are rendered by code. No research documents are embedded.
 
 ## Use the app
@@ -16,7 +16,14 @@ Choose the student's city, school structure, grade, term and exact edition. The 
 unverified adoption and exam-format states visible. This original capability course is not yet
 a verified textbook-by-unit course or exact official national vocabulary list.
 
-Every course card opens a five-stage hands-on studio. Build sentence tiles or spellings, insert
+Every course card now opens a compact visual mission, covering all 413 lessons with 1,002 boards.
+Change conditions in 55 live grammar experiments, repair a sentence, connect literal source evidence,
+match vocabulary in context and hide the cards to recall its spelling, or write your own version
+in a saved expression frame. There are at most three slots per board. Short clues identify the
+target; longer materials open on demand. Generated school/science scenes support relevant themes;
+the exact learning information stays in code.
+
+Choose **先看分步学习** for the five-stage hands-on studio. Build sentence tiles or spellings, insert
 words into live sentence slots, select source evidence, sort pronunciation examples, or link model
 sentences to one criterion before revising your own draft. One activity leads each screen; longer
 references open when needed. All 413 lessons have this flow, with saved progress separate from
@@ -96,3 +103,11 @@ The complete UI is now redesigned around five clear main sections and three-step
 Courses show real lessons before optional advanced filters; practice uses skill tiles and a
 simple builder. The [whole-app UI review](reviews/ui-2026-10-17.md) includes actual native screens
 and the subsequent fresh-install and answer-control fixes.
+
+
+## Visual revision verification
+
+See [the visual lesson review](reviews/visual-lessons-2026-10-17.md) for current checks and screenshots.
+This revision has browser and adapter evidence; its new actual WeChat DevTools control run is
+blocked by unavailable MacStudioExternal file access. Previous native jobs establish earlier
+builds only. Neither development archive is a production release.

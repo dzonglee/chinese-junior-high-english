@@ -31,7 +31,7 @@ npm run dev
 
 The development server listens on loopback port 4173. For a portable offline copy, open
 `dist/local/index.html` in Chrome or Edge. That single file contains all 245 checked content packs,
-the app code, styles, original Blender artwork and the inspected generated desk scene. It needs no account or cloud configuration.
+the app code, styles, original Blender artwork and three inspected generated scenes. It needs no account or cloud configuration.
 See [local version instructions](docs/local-version.md) for saving progress and microphone support.
 
 The complete original course covers 29 themes across reading, listening, speaking and writing,
@@ -45,7 +45,13 @@ the app does not infer verified textbook adoption or local exam blueprints from 
 The native WeChat implementation is included in `miniprogram/`; production configuration,
 approved audio, real-device validation and editorial launch review remain future work.
 
-Open a course card to **先动手学**. Each of the 413 studios uses five short stages: predict,
+Open a course card to **先动手学**. All 413 lessons now open a visual mission: 1,002 small boards,
+55 live grammar experiments, contextual word cards with concealed spelling recall, source-evidence
+chains, saved original writing frames and written sound-pattern sorting. Two new generated scenes
+support relevant school and science topics. See [visual lesson review](docs/reviews/visual-lessons-2026-10-17.md)
+for screenshots and checks; native verification of this new revision is blocked by the Mac external drive.
+
+The existing studio remains available through **先看分步学习**, with five short stages: predict,
 build, explore, diagnose and try a new task. Grammar has live sentence slots; vocabulary covers
 all 1,690 spellings; reading uses source selection; pronunciation knowledge uses sorting; writing
 and speaking preserve a student's first draft and guided revision. Longer references open on demand.
@@ -82,6 +88,7 @@ npm run test:product-ui
 npm run test:course-browser
 npm run test:interactions
 npm run test:teaching
+npm run test:visual-lessons
 node scripts/test-teaching-transfers.mjs
 ```
 

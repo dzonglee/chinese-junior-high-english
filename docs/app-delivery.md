@@ -12,6 +12,10 @@ tracks local delivery separately from future native validation/publication. The 
 no production credentials or media decisions; see `docs/local-version.md` for use and evidence.
 The local course and original mock papers contain 413 lessons, 5,004 tasks and 1,690 distinct
 headwords, with full coverage and lifecycle checks. Approved audio remains pending for 99 scripts.
+All 413 lessons now have an explicit visual mission with small boards; 55 grammar lessons add
+condition switches, vocabulary adds concealed recall and expression frames save original text.
+The visual revision is locally reviewable; new actual native verification remains blocked by
+MacStudioExternal file access. See `docs/reviews/visual-lessons-2026-10-17.md`.
 The requirements below continue to define the complete eventual application.
 
 ## Product requirements

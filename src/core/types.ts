@@ -88,6 +88,7 @@ export interface Explanation {
 }
 export interface RubricPoint { id: string; label: string; marks: number; guidance: string }
 export interface Question {
+  visualMission?: import('./visual-mission').VisualMission
   id: string
   topicId: string
   skill: Skill
@@ -115,6 +116,7 @@ export interface ExamCoaching {
   modelRoles?: string[]; checklist?: string[]
 }
 export interface Lesson {
+  visualMission?: import('./visual-mission').VisualMission
   examCoaching?: ExamCoaching
   id: string
   topicId: string

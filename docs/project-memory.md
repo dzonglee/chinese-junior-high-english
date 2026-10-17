@@ -22,7 +22,25 @@ the feature branch. Existing Kanban card 10832ca6-d7ad-4d4d-a60a-f4563486f3cf re
 - Keep the board clean, concise and easy to read, using plain English.
 - While the current session cannot access those MCP connections, continue app work first.
 
-## Current milestone · all lesson teaching and native verification
+## Current milestone · visual lesson revamp, 2026-10-17
+
+The owner requires another individual lesson revamp, with meaningful pictures and more actual
+interaction. APP-VISUAL-LESSONS is claimed by codex-solo on `author/visual-lessons` (claim cbc0864).
+All 413 lessons have explicit missions: 1,002 boards, 55 live grammar experiments, contextual
+vocabulary/recall, literal evidence chains, saved personal expression frames and written sound
+sorting. Two newly generated scenes were inspected; no reference content was copied. Lessons
+stay draft, immediate material stays assisted and delayed/paper tasks remain separate.
+
+External card: `10832ca6-d7ad-4d4d-a60a-f4563486f3cf`, project Chinese Junior High English,
+scope Interactive lessons. Existing Obsidian project note and card were successfully updated.
+The direct Studio helper still works for memory/board. Native file access is a separate blocker:
+`read_file` reports MacStudioExternal unavailable, and authenticated archive transfer returned
+HTTP 400. No native job for this new visual unit was submitted and no shared GUI was changed.
+Do not reuse older native job passes as proof of this revision. Local checks and prepared native
+runner are documented in `docs/reviews/visual-lessons-2026-10-17.md`. Next: restore Mac external-drive
+access, inspect the shared GUI lock and run `scripts/devtools-visual-lessons.cjs` against this build.
+
+## Previous milestone · all lesson teaching and native verification
 
 The owner requires Codex to complete every lesson itself; no further delegation. APP-TEACHING
 is complete and squash-integrated on `main` by codex-solo. The five-phase lesson studio now covers

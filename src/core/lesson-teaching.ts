@@ -1,3 +1,4 @@
+import {changeMission, editionMission, type VisualMission} from './visual-mission'
 import { phoneticSorting, type PhoneticSorting } from './phonetic-sorting'
 import type { ContentCatalog, ExplanationVisual, Lesson, Question, RubricPoint, ExamCoaching } from './types'
 import { checkAnswer, normalizedAnswer, wordCount } from './answers'
@@ -10,6 +11,7 @@ export interface TeachingAssembly { id: string; title: string; prompt: string; t
 export interface TeachingEvidence { id: string; text: string; supports: boolean }
 export interface TeachingChoice { prompt: string; options: TeachingTile[]; correct: string; reasons: Record<string,string>; excerpt?: string }
 export interface LessonTeaching {
+  mission?: VisualMission
   id: string; title: string; objective: string; skill: string; fingerprint: string; mode: 'language' | 'vocabulary' | 'reading' | 'transcript' | 'communication' | 'phonetics'
   coaching: ExamCoaching; diagnoses: TeachingChoice[]; roleAnchors: Record<string,string[]>; revisionRubric: RubricPoint[]
   sorting?: PhoneticSorting
@@ -51,7 +53,8 @@ function choiceFor(q:Question):TeachingChoice{
   return{prompt:`你来批改：按原题的语境，哪一项才合适？\n${q.stem}`,options:q.options.map(o=>({...o})),correct:q.answer.option!,reasons:Object.fromEntries(q.options.map(o=>[o.id,o.id===q.answer.option?q.explanation.steps[0].text:q.explanation.distractors.find(d=>d.option===o.id)!.reason])),excerpt:`${q.passage?q.passage+'\n\n':''}一位同学选了：${q.options.find(o=>o.id!==q.answer.option)!.text}`}
 }
 export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spelling='british'):LessonTeaching{
-  const qs=lesson.questionIds.map(id=>c.questions.find(q=>q.id===id)).filter((q):q is Question=>!!q)
+  const originalMission=lesson.visualMission??c.questions.find(q=>q.id===lesson.questionIds[0])?.visualMission
+  const qs=lesson.questionIds.map(id=>c.questions.find(q=>q.id===id)).filter((q):q is Question=>!!q).map(({visualMission,...question})=>question)
   if(qs.length!==lesson.questionIds.length)throw new Error(`Lesson teaching needs its checked content pack: ${lesson.id}`)
   const topic=c.topics.find(t=>t.id===lesson.topicId)!, communication=qs.some(q=>q.kind==='writing'||q.kind==='speaking'), phonetics=topic.id.startsWith('p-')
   const mode:LessonTeaching['mode']=communication?'communication':phonetics?'phonetics':topic.skill==='vocabulary'?'vocabulary':topic.skill==='reading'?'reading':topic.skill==='listening'?'transcript':'language'
@@ -120,7 +123,8 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
     }else{const q=qs.find(q=>q.options&&choiceFor(q).prompt!==diagnosis.prompt);if(q)diagnoses.push(choiceFor(q))}
   }
   diagnosis=diagnoses[0]
-  const studio:LessonTeaching={...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
+  const visualMission=originalMission
+  const studio:LessonTeaching={...(visualMission?{mission:editionMission(visualMission,spelling)}:{}),...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
   studio.fingerprint=hash(studio)
   return studio
 }
@@ -149,6 +153,7 @@ export function teachingProblems(s:LessonTeaching,lesson:Lesson):string[]{
 export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:string,value:string,now:number):TeachingProgress{
   const p:TeachingProgress={...current,order:[...current.order],completed:[...current.completed],answers:{...current.answers},checked:{...current.checked},links:{...current.links},updatedAt:now}
   const mark=(key:string)=>{if(!p.completed.includes(key))p.completed.push(key)}
+  if(action.startsWith('mission-')&&s.mission){changeMission(s.mission,p,action.slice(8),value);return p}
   if(action==='reset')return freshTeaching(s,now)
   if((action==='response-add'||action==='response-remove')){const q=teachingAnswer(s,p),key=`step-${p.step}-${p.caseIndex}`;let ids:string[]=[];try{ids=JSON.parse(p.answers[key]??'[]')}catch{};if(action==='response-add'&&q.tokens?.some(t=>t.id===value)&&!ids.includes(value))ids.push(value);if(action==='response-remove')ids=ids.filter(id=>id!==value);p.answers[key]=JSON.stringify(ids);delete p.checked[key];return p}
   if(action==='sort'&&p.step===2&&s.sorting){const[card,category]=value.split(':');if(s.sorting.cards.some(c=>c.id===card)&&s.sorting.categories.some(c=>c.id===category)){p.answers[`sort-${card}`]=category;p.checked[`sort-${card}`]=s.sorting.cards.find(c=>c.id===card)!.category===category}return p}
@@ -203,7 +208,7 @@ export function teachingCanAdvance(s:LessonTeaching,p:TeachingProgress):boolean{
 
 export function restoreTeaching(s:LessonTeaching,saved:TeachingProgress|undefined,now:number):TeachingProgress{
  if(!saved)return freshTeaching(s,now)
- if(saved.fingerprint!==s.fingerprint||saved.unit>=s.assemblies.length||saved.caseIndex>=Math.max(1,s.cases.length)||saved.order.some(id=>!s.assemblies[saved.unit].tiles.some(t=>t.id===id))||new Set(saved.order).size!==saved.order.length)return{...freshTeaching(s,now),before:saved.before,after:saved.after}
+ if(saved.fingerprint!==s.fingerprint||saved.unit>=s.assemblies.length||saved.caseIndex>=Math.max(1,s.cases.length)||saved.order.some(id=>!s.assemblies[saved.unit].tiles.some(t=>t.id===id))||new Set(saved.order).size!==saved.order.length)return{...freshTeaching(s,now),before:saved.before,after:saved.after,answers:Object.fromEntries(Object.entries(saved.answers).filter(([key])=>key.startsWith('visualOwn-')))}
  return saved
 }
 

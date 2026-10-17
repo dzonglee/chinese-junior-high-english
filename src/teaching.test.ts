@@ -31,6 +31,7 @@ function answer(q:Question):string { return q.kind==='choice'?q.answer.option!:q
 it.each(source.lessons)('completes the real checked-pack five-phase studio for $id without granting mastery',async lesson=>{
  const h=harness(lesson),a=h.app
  await a.action('open-lesson-studio',lesson.id)
+ await a.action('studio-mission-study')
  const s=a.render().teaching!.lesson
  expect(teachingProblems(s,lesson)).toEqual([])
  expect(s.transfer.id).not.toBe(s.prediction.id)

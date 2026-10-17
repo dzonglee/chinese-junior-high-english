@@ -10,7 +10,7 @@ for (const descriptor of descriptors) {
   if (createHash('sha256').update(text).digest('hex') !== descriptor.sha256) throw new Error(`Content pack hash differs: ${descriptor.topicId}`)
   packs[descriptor.file] = text
 }
-const assets = Object.fromEntries(['welcome', 'notebook', 'cards', 'desk-scene','types','exam_light','mistakes_light',...['home','learn','practice','mistakes','profile'].flatMap(n=>['navigation/'+n,'navigation/'+n+'-on'])].map(name => { const ext = name === 'desk-scene' ? 'jpg' : ['types','exam_light','mistakes_light'].includes(name) ? 'webp' : 'png'; return [name, `data:image/${ext === 'jpg' ? 'jpeg' : 'png'};base64,${readFileSync(resolve(root, 'miniprogram/assets', `${name}.${ext}`)).toString('base64')}`] }))
+const assets = Object.fromEntries(['lesson-courtyard','lesson-workshop','welcome', 'notebook', 'cards', 'desk-scene','types','exam_light','mistakes_light',...['home','learn','practice','mistakes','profile'].flatMap(n=>['navigation/'+n,'navigation/'+n+'-on'])].map(name => { const ext = ['desk-scene','lesson-courtyard','lesson-workshop'].includes(name) ? 'jpg' : ['types','exam_light','mistakes_light'].includes(name) ? 'webp' : 'png'; return [name, `data:image/${ext === 'jpg' ? 'jpeg' : 'png'};base64,${readFileSync(resolve(root, 'miniprogram/assets', `${name}.${ext}`)).toString('base64')}`] }))
 const json = value => JSON.stringify(value).replaceAll('<', String.fromCharCode(92) + 'u003c')
 const css = readFileSync(resolve(root, 'dist/web/app.css'), 'utf8')
 const js = readFileSync(resolve(root, 'dist/web/app.js'), 'utf8').replace(/<\/script/gi, '<\\/script')

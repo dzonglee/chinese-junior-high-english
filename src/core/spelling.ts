@@ -1,11 +1,14 @@
 import type { Question, VocabularyItem } from './types'
 export type Spelling = 'american' | 'british'
 const pairs: [string, string][] = [['summarise', 'summarize'], ['summarised', 'summarized'], ['summarising', 'summarizing'], ['mum', 'mom'], ['yoghurt', 'yogurt'], ['memorise', 'memorize'], ['memorised', 'memorized'], ['memorising', 'memorizing'], ['theatre', 'theater'], ['aeroplane', 'airplane'], ['tyre', 'tire'], ['harbour', 'harbor'], ['neighbourhood', 'neighborhood'], ['grey', 'gray'], ['centre', 'center'], ['centres', 'centers'], ['colour', 'color'], ['colours', 'colors'], ['coloured', 'colored'], ['favourite', 'favorite'], ['neighbour', 'neighbor'], ['neighbours', 'neighbors'], ['organise', 'organize'], ['organised', 'organized'], ['organising', 'organizing'], ['practise', 'practice'], ['practises', 'practices'], ['practising', 'practicing'], ['travelled', 'traveled'], ['travelling', 'traveling'], ['cancelled', 'canceled']]
+const dictionaries: Record<Spelling, Map<string, string>> = {
+  american: new Map(pairs),
+  british: new Map(pairs.filter(([british]) => !british.startsWith('practis')).map(([british, american]) => [american, british])),
+}
 export function editionText(text: string, spelling: Spelling): string {
   // Preserve explicit teaching notes that compare the two spelling systems.
   if (text.includes('英式') && text.includes('美式')) return text
-  const entries = spelling === 'american' ? pairs : pairs.filter(([british]) => !british.startsWith('practis')).map(([british, american]) => [american, british] as [string, string])
-  const dictionary = new Map(entries)
+  const dictionary = dictionaries[spelling]
   return text.replace(/\b[A-Za-z]+\b/g, word => {
     const target = dictionary.get(word.toLowerCase())
     return target ? /^[A-Z]/.test(word) ? target[0].toUpperCase() + target.slice(1) : target : word

@@ -1,3 +1,4 @@
+import {missionView} from '../core/visual-mission'
 import {paperQuestionIds,paperEligibility,startMockPaper,paperResults,toggleExamFlag} from '../core/mock-papers'
 import { createLessonTeaching, teachingDiagnosis, teachingEvidence, sentenceWorkbench, restoreTeaching, changeTeaching, teachingCanAdvance, teachingAnswer, type LessonTeaching } from '../core/lesson-teaching'
 import { experiments, getExperiment, type Experiment } from '../core/experiments'
@@ -43,6 +44,7 @@ export class Application {
   form: Form = {}
   error = ''
   busy = false
+  private teachingModel?:{lesson:object;question:Question;spelling:string;model:LessonTeaching}
   private listeners = new Set<() => void>()
   private wordIndex = 0
   private wordQueue: string[] = []
@@ -90,6 +92,7 @@ export class Application {
   setField(name: string, value: string) {
     this.form[name] = value
     if(this.page==='papers'&&['paperGrade','paperTerm'].includes(name)){this.emit();return}
+    if(this.page==='lesson'&&['studioMissionRecall','studioMissionOwn'].includes(name)){const studio=this.currentTeaching();if(studio){const p=restoreTeaching(studio,this.state.teaching?.[studio.id],this.platform.now()),next=changeTeaching(studio,p,name==='studioMissionRecall'?'mission-recall-answer':'mission-own-line',value,this.platform.now());this.persist({...this.state,teaching:{...this.state.teaching,[studio.id]:next},updatedAt:this.platform.now()})}return}
     if (this.page === 'lesson' && ['studioAnswer','studioBefore','studioAfter'].includes(name)) {
       const studio = this.currentTeaching(); if (!studio) return
       const saved = this.state.teaching?.[studio.id], p = restoreTeaching(studio,saved,this.platform.now())
@@ -626,7 +629,9 @@ export class Application {
     const lesson = this.catalog.lessons.find(l => l.id === this.params.id)
     if (!lesson || !lesson.grades.includes(this.state.profile?.grade ?? 7)) return undefined
     if (!lesson.questionIds.every(id => this.catalog.questions.some(q => q.id === id))) return undefined
-    return createLessonTeaching(this.catalog, lesson, this.catalog.editions.find(e => e.id === this.state.profile?.editionId)?.spelling ?? 'british')
+    const spelling=this.catalog.editions.find(e=>e.id===this.state.profile?.editionId)?.spelling??'british',question=this.catalog.questions.find(q=>q.id===lesson.questionIds[0])!
+    if(this.teachingModel?.lesson===lesson&&this.teachingModel.question===question&&this.teachingModel.spelling===spelling)return this.teachingModel.model
+    const model=createLessonTeaching(this.catalog,lesson,spelling);this.teachingModel={lesson,question,spelling,model};return model
   }
   private renderTeaching(screen: Screen): Screen {
     const studio = this.currentTeaching()
@@ -645,7 +650,9 @@ export class Application {
     const rubric = p.step === 4 ? studio.transfer.rubric ?? [] : p.answers.revisionPane==='write' ? studio.revisionRubric : studio.rubric
     let responseIds: string[] = []; try { responseIds = JSON.parse(p.answers[key] ?? '[]'); if (!Array.isArray(responseIds)) responseIds = [] } catch {}
     const proposed = task.options?.find(o=>o.id===p.answers[key])?.text ?? p.answers[key] ?? ''
-    screen.teaching = {diagnosis,evidenceItems,clinicTabs:studio.diagnoses.map((d,i)=>({id:String(i),done:p.completed.includes(`diagnosis-${i}`)})),clinicIndex:Number(p.answers.clinicIndex??0),linkFeedback:p.answers.lastLink&&p.checked[`link-${p.answers.lastLink}`]===false?'这句话承担的是另一个任务。对照当前要点，找直接表达这层意思的句子。':'',assemblyTabs:studio.assemblies.map(a=>({id:a.id,done:p.completed.includes('build-'+a.id)})),contextTabs:studio.cases.map(q=>({id:q.id,done:p.completed.includes((studio.evidence.length?'evidence-':'case-')+q.id)})),workbench:(studio.mode==='language'||studio.mode==='vocabulary')&&p.step===2?sentenceWorkbench(task,p.answers[key]??''):undefined,revisionEditing:p.answers.revisionPane==='write'&&studio.rubric.every(r=>!!p.links[r.id]),proposedContext: proposed ? /_+/.test(task.stem) ? task.stem.replace(/_+/g,proposed) : `拟采用表达：${proposed}` : '', sortingCards:(studio.sorting?.cards??[]).map(card=>({...card,selected:p.answers[`sort-${card.id}`]??'',checked:typeof p.checked[`sort-${card.id}`]==='boolean',correct:!!p.checked[`sort-${card.id}`]})),assemblyComplete:p.completed.includes(`build-${unit.id}`),assemblyMiss:p.checked[`build-${unit.id}`] === false,preview:!!p.checked[`preview-${unit.id}`],responseTiles:(task.tokens??[]).map(t=>({...t,selected:responseIds.includes(t.id)})),responseOrder:responseIds.map(id=>task.tokens?.find(t=>t.id===id)).filter((t):t is {id:string;text:string}=>!!t),lesson:studio,progress:p,task,answer:p.answers[key]??'',checked,correct,feedback,canAdvance:teachingCanAdvance(studio,p),assembly:unit,reference:unit.target.map(id=>unit.tiles.find(t=>t.id===id)!.text).join(unit.kind==='letters'?'':' '),selectedTiles:p.order.map(id=>unit.tiles.find(t=>t.id===id)).filter((t):t is {id:string;text:string}=>!!t),availableTiles:unit.tiles.map(t=>({...t,selected:p.order.includes(t.id)})),rubric:rubric.map(r=>({...r,active:r.id===(p.answers.activeCriterion??rubric[0]?.id),selected:!!p.checked[`rubric-${p.step}-${r.id}`],linked:p.links[r.id]})),practiceReady:!studio.mediaPending}
+    screen.teaching = {...(studio.mission?{mission:missionView(studio.mission,p)}:{}),diagnosis,evidenceItems,clinicTabs:studio.diagnoses.map((d,i)=>({id:String(i),done:p.completed.includes(`diagnosis-${i}`)})),clinicIndex:Number(p.answers.clinicIndex??0),linkFeedback:p.answers.lastLink&&p.checked[`link-${p.answers.lastLink}`]===false?'这句话承担的是另一个任务。对照当前要点，找直接表达这层意思的句子。':'',assemblyTabs:studio.assemblies.map(a=>({id:a.id,done:p.completed.includes('build-'+a.id)})),contextTabs:studio.cases.map(q=>({id:q.id,done:p.completed.includes((studio.evidence.length?'evidence-':'case-')+q.id)})),workbench:(studio.mode==='language'||studio.mode==='vocabulary')&&p.step===2?sentenceWorkbench(task,p.answers[key]??''):undefined,revisionEditing:p.answers.revisionPane==='write'&&studio.rubric.every(r=>!!p.links[r.id]),proposedContext: proposed ? /_+/.test(task.stem) ? task.stem.replace(/_+/g,proposed) : `拟采用表达：${proposed}` : '', sortingCards:(studio.sorting?.cards??[]).map(card=>({...card,selected:p.answers[`sort-${card.id}`]??'',checked:typeof p.checked[`sort-${card.id}`]==='boolean',correct:!!p.checked[`sort-${card.id}`]})),assemblyComplete:p.completed.includes(`build-${unit.id}`),assemblyMiss:p.checked[`build-${unit.id}`] === false,preview:!!p.checked[`preview-${unit.id}`],responseTiles:(task.tokens??[]).map(t=>({...t,selected:responseIds.includes(t.id)})),responseOrder:responseIds.map(id=>task.tokens?.find(t=>t.id===id)).filter((t):t is {id:string;text:string}=>!!t),lesson:studio,progress:p,task,answer:p.answers[key]??'',checked,correct,feedback,canAdvance:teachingCanAdvance(studio,p),assembly:unit,reference:unit.target.map(id=>unit.tiles.find(t=>t.id===id)!.text).join(unit.kind==='letters'?'':' '),selectedTiles:p.order.map(id=>unit.tiles.find(t=>t.id===id)).filter((t):t is {id:string;text:string}=>!!t),availableTiles:unit.tiles.map(t=>({...t,selected:p.order.includes(t.id)})),rubric:rubric.map(r=>({...r,active:r.id===(p.answers.activeCriterion??rubric[0]?.id),selected:!!p.checked[`rubric-${p.step}-${r.id}`],linked:p.links[r.id]})),practiceReady:!studio.mediaPending}
+    const visual=screen.teaching.mission
+    if(visual?.open){screen.progress={label:`动手任务 · ${visual.completed} / ${visual.total} 组`,current:visual.completed,total:visual.total,percent:visual.completed/visual.total*100};screen.actions=[{id:'studio-mission-next',label:visual.index+1<visual.total?'下一组':visual.allDone?'进入分步学习':'补齐未完成',disabled:!visual.boardDone,tone:'primary'},{id:'studio-mission-study',label:'先看分步学习',tone:'quiet'}];return screen}
     screen.actions = p.step === 5 ? [{id:'start-lesson',value:studio.id,label:'进入课后巩固练习',disabled:studio.mediaPending,tone:'primary'},{id:'navigate',value:'learn',label:'回到课程',tone:'secondary'},{id:'studio-reset',label:'重新动手探究',tone:'quiet'}] : [{id:'studio-next',label:p.step===4?'记录探索完成':'继续下一步',disabled:!teachingCanAdvance(studio,p),tone:'primary'},{id:'navigate',value:'learn',label:'保存，稍后继续',tone:'quiet'}]
     return screen
   }

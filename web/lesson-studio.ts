@@ -1,7 +1,9 @@
+import {renderVisualMission} from './visual-mission'
 import type { Screen } from '../src/app/view'
 const esc=(v:unknown='')=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!))
-export function renderLessonStudio(s:Screen):string{
+export function renderLessonStudio(s:Screen,artwork:(name:string)=>string=name=>`/assets/${name}.jpg`):string{
  const v=s.teaching;if(!v)return''
+ if(v.mission?.open)return `<div class="teaching-studio" data-lesson="${esc(v.lesson.id)}" data-step="${v.progress.step}" data-mode="${v.lesson.mode}">${renderVisualMission(v.mission,artwork)}</div>`
  const p=v.progress,lesson=v.lesson,phase=p.step,diagnosis=v.diagnosis
  const button=(action:string,value:string,text:string,selected=false,disabled=false,cls='button secondary')=>`<button class="${cls} ${selected?'selected':''}" data-action="studio-${action}" data-value="${esc(value)}" ${disabled?'disabled':''}>${esc(text)}</button>`
  const rubric=()=>`<div class="rubric">${v.rubric.map(r=>button('rubric',r.id,`${r.selected?'✓':'○'} ${r.label}`,r.selected,false,'rubric-point')).join('')}</div>`
@@ -27,5 +29,5 @@ export function renderLessonStudio(s:Screen):string{
  if(phase===3)body=`<p class="eyebrow">考场诊所 · 不只答对，还要会辨错</p><div class="studio-unit-tabs">${v.clinicTabs.map((t,i)=>button('clinic',String(i),`${t.done?'✓ ':''}${i+1}`,v.clinicIndex===i,false,'chip')).join('')}</div><h2 class="section-title">${esc(diagnosis.prompt)}</h2>${diagnosis.excerpt?`${button('explanation','',p.checked.explanation?'收起题目材料':'打开题目材料',false,false,'button quiet')}${p.checked.explanation?`<p class="studio-source passage studio-reading">${esc(diagnosis.excerpt)}</p>`:''}`:''}<div class="options">${diagnosis.options.map(o=>button('diagnose',o.id,o.text,p.answers.diagnosis===o.id,false,'option')).join('')}</div>${v.checked?`<p class="explore-feedback ${v.correct?'correct':''}" role="status">${esc(v.feedback)}</p>`:''}`
  if(phase===4)body=`<p class="eyebrow">换一个任务，检验刚才的方法</p>${task()}`
  if(phase===5)body=`<p class="discovery-mark">✓</p><h2 class="section-title">这节课的动手探索已记录</h2><p>${esc(lesson.objective)}</p><p class="help">搭建、探究、批改和迁移都已完成，但不等于掌握。刚看过的原题只能算巩固；不同的新题和延时复习才检验独立运用。</p>${lesson.mediaPending?'<p class="notice">这里只完成文字推演，不记听力完成。实际听力等待批准的音频。</p>':''}`
- return `<div class="teaching-studio" data-lesson="${esc(lesson.id)}" data-step="${phase}" data-mode="${lesson.mode}"><div class="exam-focus"><span class="eyebrow">这节课的应试本领</span><strong>${esc(lesson.coaching.task)}</strong><span class="help">${esc(lesson.coaching.check)}</span></div><div class="phase-strip">${['预测','搭建','探究','批改','迁移'].map((text,i)=>`<span class="phase-pill ${phase===i?'current':phase>i?'done':''}">${i+1} ${text}</span>`).join('')}</div><section class="panel studio-stage">${body}</section></div>`
+ return `<div class="teaching-studio" data-lesson="${esc(lesson.id)}" data-step="${phase}" data-mode="${lesson.mode}">${v.mission?button('mission-open','','打开动手任务板',false,false,'button quiet'):''}<div class="exam-focus"><span class="eyebrow">这节课的应试本领</span><strong>${esc(lesson.coaching.task)}</strong><span class="help">${esc(lesson.coaching.check)}</span></div><div class="phase-strip">${['预测','搭建','探究','批改','迁移'].map((text,i)=>`<span class="phase-pill ${phase===i?'current':phase>i?'done':''}">${i+1} ${text}</span>`).join('')}</div><section class="panel studio-stage">${body}</section></div>`
 }

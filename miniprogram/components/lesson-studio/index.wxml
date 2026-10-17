@@ -1,3 +1,4 @@
+<import src="./mission.wxml"/>
 <template name="task">
  <block wx:if="{{view.workbench}}"><text class="section-title">把词放进句子，试试看</text><text class="help">{{view.workbench.prompt}}</text><view class="sentence-workbench"><text class="sentence-part">{{view.workbench.before}}</text><text class="sentence-slot">{{view.workbench.selection}}</text><text class="sentence-part">{{view.workbench.after}}</text></view></block><text wx:else class="section-title">{{task.stem}}</text>
  <block wx:if="{{task.passage}}"><button class="button quiet" data-action="studio-passage" bindtap="action">{{view.progress.checked.passage ? '收起原文' : '打开原文，先读一读'}}</button><scroll-view wx:if="{{view.progress.checked.passage}}" scroll-y class="studio-reading"><text class="passage">{{task.passage}}</text></scroll-view></block>
@@ -9,7 +10,9 @@
  <button class="button secondary studio-check" data-action="studio-check" bindtap="action" disabled="{{busy}}">{{view.progress.step === 0 ? '记录预测，再去探索' : task.kind === 'writing' || task.kind === 'speaking' ? '记录我的自查' : '核对语境和表达'}}</button>
  <view wx:if="{{view.checked}}" class="explore-feedback {{view.correct ? 'correct' : ''}}"><text>{{view.feedback}}</text><button class="button quiet" data-action="studio-explanation" bindtap="action">{{view.progress.checked.explanation ? '收起参考与图解' : '查看参考与图解'}}</button><scroll-view wx:if="{{view.progress.checked.explanation}}" scroll-y class="studio-reading"><text class="model-answer">{{task.answer.display}}</text><text class="help">{{task.explanation.steps[0].reason}}</text><view class="diagram"><text class="field-label">{{task.explanation.visual.title}}</text><view class="diagram-segments"><view wx:for="{{task.explanation.visual.segments}}" wx:key="index" class="segment {{item.role}}"><text>{{item.text}}</text><text class="small">{{item.note}}</text></view></view><text class="help">{{task.explanation.visual.caption}}</text></view><text class="help">{{task.explanation.pitfall}}</text></scroll-view></view>
 </template>
-<view wx:if="{{view}}" class="teaching-studio">
+<template wx:if="{{view.mission.open}}" is="visual-mission" data="{{m:view.mission,view:view,busy:busy}}"/>
+<view wx:if="{{view && !view.mission.open}}" class="teaching-studio">
+ <button wx:if="{{view.mission}}" class="button quiet" data-action="studio-mission-open" bindtap="action">打开动手任务板</button>
  <view class="exam-focus"><text class="eyebrow">这节课的应试本领</text><text class="field-label">{{view.lesson.coaching.task}}</text><text class="help">{{view.lesson.coaching.check}}</text></view><view class="phase-strip"><text wx:for="{{['预测','搭建','探究','批改','迁移']}}" wx:key="index" class="phase-pill {{view.progress.step === index ? 'current' : view.progress.step > index ? 'done' : ''}}">{{index+1}} {{item}}</text></view>
  <view class="panel studio-stage">
  <block wx:if="{{view.progress.step === 0}}">

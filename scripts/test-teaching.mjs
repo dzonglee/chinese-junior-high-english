@@ -18,7 +18,7 @@ try{
  const page=await browser.newPage({viewport:{width:390,height:844}});page.on('pageerror',e=>errors.push(e.message));await page.goto(url)
  await fillInitialProfile(page,{cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'})
  const act=async(id,value)=>{const b=page.locator(`[data-action="${id}"]${value===undefined?'':`[data-value="${value}"]`}`).first();await expect(b).toBeEnabled();await b.click()}
- await act('save-profile');await act('open-lesson-studio','l-g-be');await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','0')
+ await act('save-profile');await act('open-lesson-studio','l-g-be');await act('studio-mission-study');await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','0')
  const model=createLessonTeaching(source,source.lessons.find(l=>l.id==='l-g-be'))
  await act('studio-answer',model.prediction.options.find(o=>o.id!==model.prediction.answer.option).id);await act('studio-check');await act('studio-next')
  await act('studio-assemble');await expect(page.locator('[data-action=studio-next]')).toBeDisabled()
@@ -33,9 +33,9 @@ try{
  const app=new Application(repo,store,platform),fixtures=[],assemblies=[];repo.setSpelling('american')
  for(const l of source.lessons){
   const grade=Math.min(...l.grades),profile={cityId:'北京-北京',structure:grade===6?'54':'63',grade,term:'upper',editionId:grade===6?'pep-54':'pep-legacy',schoolYear:2026,dailyMinutes:20,createdAt:1};store.save({...emptyState(1),profile});app.open('lesson',{id:l.id});const s=app.render().teaching.lesson
-  for(let step=0;step<=5;step++){const p={...freshTeaching(s,1),step};store.save({...store.get(),teaching:{[l.id]:p}});const html=renderLessonStudio(app.render());fixtures.push({id:l.id,step,html});}
-  for(const[clinicIndex]of s.diagnoses.entries()){const p={...freshTeaching(s,1),step:3,answers:{clinicIndex:String(clinicIndex)}};store.save({...store.get(),teaching:{[l.id]:p}});fixtures.push({id:l.id+' / clinic '+clinicIndex,step:3,html:renderLessonStudio(app.render())})}
-  for(const [unit,u]of s.assemblies.entries()){const p={...freshTeaching(s,1),step:1,unit};store.save({...store.get(),teaching:{[l.id]:p}});assemblies.push({id:l.id+' / '+u.id,html:renderLessonStudio(app.render())})}
+  for(let step=0;step<=5;step++){const p={...freshTeaching(s,1),step,answers:{visualPane:'study'}};store.save({...store.get(),teaching:{[l.id]:p}});const html=renderLessonStudio(app.render());fixtures.push({id:l.id,step,html});}
+  for(const[clinicIndex]of s.diagnoses.entries()){const p={...freshTeaching(s,1),step:3,answers:{visualPane:'study',clinicIndex:String(clinicIndex)}};store.save({...store.get(),teaching:{[l.id]:p}});fixtures.push({id:l.id+' / clinic '+clinicIndex,step:3,html:renderLessonStudio(app.render())})}
+  for(const [unit,u]of s.assemblies.entries()){const p={...freshTeaching(s,1),step:1,unit,answers:{visualPane:'study'}};store.save({...store.get(),teaching:{[l.id]:p}});assemblies.push({id:l.id+' / '+u.id,html:renderLessonStudio(app.render())})}
  }
  const layoutSamples=[...fixtures,...assemblies],css=readFileSync(resolve(root,'dist/web/app.css'),'utf8'),review=await browser.newPage({viewport:{width:390,height:844}}),layouts=[]
  for(const width of [320,390,768]){

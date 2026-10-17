@@ -114,7 +114,7 @@ try {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.screenshot({ path: resolve(root, 'test-results/local/home.png'), fullPage: true })
   const beforeStudio=await state()
-  await page.goto(`${url}#learn`);await screen('learn');await action('open-lesson-studio','l-g-be')
+  await page.goto(`${url}#learn`);await screen('learn');await action('open-lesson-studio','l-g-be');await action('studio-mission-study')
   await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','0')
   const prediction=catalog.questions.find(q=>q.id===catalog.lessons.find(l=>l.id==='l-g-be').questionIds[0])
   await action('studio-answer',prediction.answer.option);await action('studio-check');await action('studio-next')
