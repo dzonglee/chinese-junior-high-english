@@ -516,3 +516,25 @@ review to distinguish functional coverage from rejected teaching quality. APP-VI
 remains claimed and unfinished; new native access is an additional issue, not the primary gap.
 Next: author and inspect coherent subject-specific exemplars before scaling another pass. No
 new owner question is pending; the requested reference is the Chinese maths repository.
+
+## 2026-10-17 · codex-solo · coherent lesson upgrade checkpoint
+
+APP-VISUAL-LESSONS remains claimed on author/visual-lessons. Replaced the default extra
+mission introduction and exact reconstruction stage with a single five-phase teaching path.
+The checked-in workshop manifest covers every lesson: changing-condition grammar models,
+contextual recall and original word use, evidence chains with a learner explanation, task-based
+original expression plans and sound-notation changes. Repair feedback now retains the actual
+attempt. Guided reading requires both an answer and evidence. Transfer questions are held out
+of guided contexts; vocabulary has new original production tasks. Writing follows its actual
+stated word range rather than accepting a four-word outline. Semantic judgments remain self-review.
+
+First complete Chromium pass: 14 whole lesson journeys and 6,297 rendered workshop states at
+320/390/768 widths. These are functional results, not teaching-quality acceptance. Visual review
+identified and corrected long reading choice lists, redundant writing roles and misleading count
+icons. Further polish adds borrow/lend direction models and live writing form feedback. The latest
+core run passed 1,432 tests before that final polish; final build, core and browser checks are next.
+
+MCP board and project memory updated successfully. wechat_status succeeds, but reading
+wechat/AGENTS.md still reports unavailable MacStudioExternal access; no fresh native compilation
+or GUI test is claimed. Continue local visual/content review independently. No owner decision
+is needed to finish the local implementation.

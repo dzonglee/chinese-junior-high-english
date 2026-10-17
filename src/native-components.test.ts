@@ -91,3 +91,13 @@ it('binds an initially blank native screen when its route becomes current',async
  component.methods.startTicker.call(context);route='pages/papers/index';timer();expect(context.data.screen.id).toBe('papers');expect(opens).toBe(1)
  timer();expect(opens).toBe(1)
 })
+
+it.each(['studioWorkshopInput','studioWorkshopOwn'])('keeps the native workshop input %s bound through consecutive edits',name=>{
+ const c=authorCatalog(process.cwd()),id=name==='studioWorkshopInput'?'l-v-school':'l-w-email',l=c.lessons.find((l:any)=>l.id===id)!,s=createLessonTeaching(c,l),p={...freshTeaching(s,1),step:1},data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
+ store.save({...emptyState(1),profile:{cityId:'北京-北京',structure:'63',grade:Math.min(...l.grades),term:'upper',editionId:'pep-legacy',dailyMinutes:20,schoolYear:2026,createdAt:1},teaching:{[id]:p}})
+ const app=new Application(new ContentRepository(c,[],async()=>''),store,{now:()=>1,navigate(){},back(){},toast(){},confirm:async()=>true,exportText:async()=>{},importText:async()=>null,copy:async()=>{},play:async()=>{},stopAudio(){},startRecording:async()=>{},stopRecording:async()=>({path:'test',durationMs:1}),removeRecordings:async()=>{}});app.open('lesson',{id});let component:any
+ vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{Component:(v:any)=>{component=v}})
+ const model:any={screen:structuredClone(app.render())},context={application:app,setData(patch:any){for(const[path,value]of Object.entries(patch)){const keys=path.split('.');let target=model;for(const key of keys.slice(0,-1))target=target[key];target[keys.at(-1)!]=structuredClone(value)}}}
+ for(const value of ['My own','My own useful sentence for this task.']){component.methods.studioInput.call(context,{detail:{name,value}});expect(model.screen.teaching.workshop[name==='studioWorkshopInput'?'input':'own']).toBe(value);expect(model.screen.teaching.canAdvance).toBe(false)}
+ expect(store.get().attempts).toEqual([])
+})

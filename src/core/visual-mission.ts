@@ -1,9 +1,10 @@
+import {mapWorkshop} from './lesson-workshop'
 import{editionText,type Spelling}from'./spelling'
 import type {TeachingProgress} from './lesson-teaching'
 export interface MissionChip {id:string;text:string}
 export interface MissionSlot {id:string;label:string;text:string;answer:string;reason:string;hint:string;initial?:string}
 export interface MissionBoard {id:string;title:string;instruction:string;kind:'context'|'repair'|'evidence'|'storyboard'|'sound';slots:MissionSlot[];chips:MissionChip[];material?:string;conclusion?:string;diagram:string;reusable?:boolean;wrongReasons?:Record<string,string>}
-export interface VisualMission {title:string;subtitle:string;art?:string;boards:MissionBoard[];sourceIds:string[];lab?:{title:string;states:{label:string;before:string;focus:string;after:string;note:string}[]}}
+export interface VisualMission {workshop?: import('./lesson-workshop').LessonWorkshop;title:string;subtitle:string;art?:string;boards:MissionBoard[];sourceIds:string[];lab?:{title:string;states:{label:string;before:string;focus:string;after:string;note:string}[]}}
 export interface MissionView {displayText:string;nativeContext:string;pitch:string;goal:string;doneBoards:boolean[];lab?:{open:boolean;title:string;index:number;states:{label:string}[];before:string;focus:string;after:string;note:string};recall:boolean;recallValue:string;recallChecked:boolean;recallCorrect:boolean;ownLine:string;activePlaced:string;activeDone:boolean;open:boolean;title:string;subtitle:string;art?:string;index:number;total:number;board:MissionBoard;active:MissionSlot;slots:(MissionSlot&{selected:boolean;placed:string;done:boolean})[];chips:(MissionChip&{used:boolean;selected:boolean})[];feedback:string;correct:boolean;hint:boolean;materialOpen:boolean;boardDone:boolean;allDone:boolean;completed:number}
 const safeIndex=(value:string|undefined,length:number)=>{const n=Number(value);return Number.isInteger(n)&&n>=0&&n<length?n:0}
 const slotKey=(board:MissionBoard,slot:MissionSlot)=>`visual-${board.id}-${slot.id}`
@@ -35,7 +36,7 @@ export function changeMission(m:VisualMission,p:TeachingProgress,action:string,v
   const chip=v.chips.find(c=>c.id===value);if(!chip||chip.used)return
   const correct=chip.text===v.board.chips.find(c=>c.id===v.active.answer)?.text,key=slotKey(v.board,v.active)
   p.answers.visualSlot=v.active.id;p.answers.visualLast=value;p.checked.visualLast=correct
-  if(correct){p.answers[key]=value;p.checked[key]=true}else if(!p.checked[key])delete p.answers[key]
+  p.answers[key]=value;p.checked[key]=correct
  }
 }
 export function missionProblems(m:VisualMission,immediateIds:string[]):string[]{
@@ -49,6 +50,6 @@ const editions=new WeakMap<VisualMission,Partial<Record<Spelling,VisualMission>>
 export function editionMission(m:VisualMission,spelling:Spelling):VisualMission {
  const cached=editions.get(m)??{};if(cached[spelling])return cached[spelling]!
  const t=(text:string)=>editionText(text,spelling)
- const result:VisualMission={...m,title:t(m.title),subtitle:t(m.subtitle),sourceIds:[...m.sourceIds],boards:m.boards.map(b=>({...b,title:t(b.title),instruction:t(b.instruction),slots:b.slots.map(s=>({...s,label:t(s.label),text:t(s.text),reason:t(s.reason),hint:t(s.hint),...(s.initial?{initial:t(s.initial)}:{})})),chips:b.chips.map(c=>({...c,text:t(c.text)})),...(b.material?{material:t(b.material)}:{}),...(b.conclusion?{conclusion:t(b.conclusion)}:{}),...(b.wrongReasons?{wrongReasons:Object.fromEntries(Object.entries(b.wrongReasons).map(([id,text])=>[id,t(text)]))}:{})})),...(m.lab?{lab:{title:t(m.lab.title),states:m.lab.states.map(state=>({...state,label:t(state.label),before:t(state.before),focus:t(state.focus),after:t(state.after),note:t(state.note)}))}}:{})}
+ const result:VisualMission={...m,...(m.workshop?{workshop:mapWorkshop(m.workshop,t)}:{}),title:t(m.title),subtitle:t(m.subtitle),sourceIds:[...m.sourceIds],boards:m.boards.map(b=>({...b,title:t(b.title),instruction:t(b.instruction),slots:b.slots.map(s=>({...s,label:t(s.label),text:t(s.text),reason:t(s.reason),hint:t(s.hint),...(s.initial?{initial:t(s.initial)}:{})})),chips:b.chips.map(c=>({...c,text:t(c.text)})),...(b.material?{material:t(b.material)}:{}),...(b.conclusion?{conclusion:t(b.conclusion)}:{}),...(b.wrongReasons?{wrongReasons:Object.fromEntries(Object.entries(b.wrongReasons).map(([id,text])=>[id,t(text)]))}:{})})),...(m.lab?{lab:{title:t(m.lab.title),states:m.lab.states.map(state=>({...state,label:t(state.label),before:t(state.before),focus:t(state.focus),after:t(state.after),note:t(state.note)}))}}:{})}
  cached[spelling]=result;editions.set(m,cached);return result
 }

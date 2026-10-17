@@ -1,3 +1,5 @@
+import {vocabularyTransfer,productionReady} from './teaching-production'
+import {changeWorkshop,workshopView,workshopProblems} from './lesson-workshop'
 import {changeMission, editionMission, type VisualMission} from './visual-mission'
 import { phoneticSorting, type PhoneticSorting } from './phonetic-sorting'
 import type { ContentCatalog, ExplanationVisual, Lesson, Question, RubricPoint, ExamCoaching } from './types'
@@ -45,7 +47,8 @@ export function sourceEvidence(q:Question):TeachingEvidence[]{
   const paragraphs=q.passage.split(/\n+/).filter(p=>p.trim()), chunks=paragraphs.length>=3?paragraphs:teachingSentences(q.passage)
   const quotes=q.explanation.visual.segments.filter(s=>s.role==='evidence').flatMap(s=>s.text.split(/\.{3}|…+/)).map(normalizeEvidence).filter(s=>(s.match(english)??[]).length>=3)
   // This cloze's visual contains the missing word; these two actual phrases are its authored clues.
-  if(q.id==='q-r-cloze-1-1')quotes.push('growing vegetables','planted seeds')
+  const clozeClues:Record<string,string[]>={'q-r-cloze-1-1':['growing vegetables','planted seeds'],'q-r-cloze-1-2':['thought growing vegetables would be easy','very little happened'],'q-r-cloze-1-3':['brighter place'],'q-r-cloze-1-4':['Everyone had a small job']}
+  quotes.push(...(clozeClues[q.id]??[]))
   return chunks.map((text,i)=>({id:`source-${i}`,text,supports:quotes.some(quote=>normalizeEvidence(text).includes(quote))}))
 }
 function choiceFor(q:Question):TeachingChoice{
@@ -59,8 +62,8 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   const topic=c.topics.find(t=>t.id===lesson.topicId)!, communication=qs.some(q=>q.kind==='writing'||q.kind==='speaking'), phonetics=topic.id.startsWith('p-')
   const mode:LessonTeaching['mode']=communication?'communication':phonetics?'phonetics':topic.skill==='vocabulary'?'vocabulary':topic.skill==='reading'?'reading':topic.skill==='listening'?'transcript':'language'
   const first=communication?qs.find(q=>q.kind==='writing'||q.kind==='speaking')!:qs[0]
-  const transfer=communication?qs.find(q=>q.id!==first.id&&(q.kind==='writing'||q.kind==='speaking'))??editionQuestion(communicationTransfer(first),spelling):qs[qs.length-1]!
-  let cases=qs.filter(q=>q.kind!=='writing'&&q.kind!=='speaking').slice(0,['vocabulary','reading','transcript'].includes(mode)?qs.length:3)
+  let transfer=communication?qs.find(q=>q.id!==first.id&&(q.kind==='writing'||q.kind==='speaking'))??editionQuestion(communicationTransfer(first),spelling):qs[qs.length-1]!
+  let cases=qs.filter(q=>q.id!==transfer.id&&q.kind!=='writing'&&q.kind!=='speaking').slice(0,['vocabulary','reading','transcript'].includes(mode)?qs.length:3)
   if(mode==='reading'||mode==='transcript')cases=cases.filter(q=>sourceEvidence(q).some(e=>e.supports))
   const base=lesson.examCoaching??{task:topic.title,check:topic.commonError}
   const coaching={...base,task:editionText(base.task,spelling),check:editionText(base.check,spelling)}
@@ -69,6 +72,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   if(mode==='vocabulary'){
     const words=c.vocabulary.filter(w=>w.topicId===topic.id&&qs.some(q=>q.id===`q-${w.topicId}-${w.id.slice(5)}`))
     for(const w of words)assemblies.push(assembly(w.id,`${w.meaning} · ${w.word.length>1?'拼写工作台':'例句工作台'}`,w.word.length>1?`${w.meaning}\n按给出的字母拼成本课目标词。采用当前教材的拼写。`:`${w.meaning}\n${w.word} 只有一个字母。把词块排成完整例句，看看它在句中怎么用。`,w.word.length>1?[...w.word]:w.example.split(/\s+/),w.word.length>1?'letters':'sentence',`${w.word}：${w.explanation}\n${w.example}`))
+    transfer=editionQuestion(vocabularyTransfer(first,words),spelling)
     const w=words[0], others=words.slice(1).filter((v,i,all)=>v.meaning!==words[0].meaning&&all.findIndex(x=>x.meaning===v.meaning)===i).slice(0,2), correct='original'
     diagnosis={prompt:`有同学把“${w.word}”记成了“${others[0]?.meaning??'无论什么语境都不需要检查搭配'}”。对照本课词表，应该怎样改？`,options:[{id:correct,text:w.meaning},...others.map((v,i)=>({id:`other-${i}`,text:v.meaning})),...(others.length?[]:[{id:'ignore',text:'不用看语境，也不用检查搭配。'}])],correct,reasons:{original:`${w.word} 在本课词表中的释义是“${w.meaning}”。${w.explanation}`,...Object.fromEntries(others.map((v,i)=>[`other-${i}`,`这是 ${v.word} 的释义，不是本课 ${w.word} 的释义。`])),ignore:'词义要结合语境和搭配检查，不能跳过这一步。'}}
   }else if(mode==='reading'||mode==='transcript'){
@@ -88,7 +92,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
       const pieces=full.split(/\s+/)
       assemblies.push(assembly(q.id,'搭出完整表达','点词块，把句子搭好。',pieces,'sentence',q.explanation.steps[0].text))
     }
-    diagnosis=choiceFor(qs.find(q=>q.id!==first.id&&q.options?.length)??qs.find(q=>q.options?.length)!)
+    diagnosis=choiceFor(qs.find(q=>q.id!==first.id&&q.id!==transfer.id&&q.options?.length)??qs.find(q=>q.options?.length)!)
   }
   const roleAnchors:Record<string,string[]>={}
   let rubric=first.rubric??[]
@@ -110,7 +114,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
       if(hash(lesson.id).charCodeAt(0)%2)options.reverse()
       diagnoses.push({prompt:`考场上遇到“${rule.task}”，哪种判断方法可靠？`,options,correct:'rule',reasons:{rule:`这条方法成立。${rule.decision}`,trap:rule.feedback}})
     }else if(mode==='vocabulary'){
-      for(const q of qs.slice(-1)){
+      for(const q of qs.slice(-2,-1)){
         const word=c.vocabulary.find(w=>q.id===`q-${w.topicId}-${w.id.slice(5)}`)!
         const other=c.vocabulary.filter(w=>qs.some(t=>t.id===`q-${w.topicId}-${w.id.slice(5)}`)&&w.id!==word.id&&w.word!==word.word).slice(0,2)
         const options=[{id:'word',text:word.word},...other.map((w,i)=>({id:`word-${i}`,text:w.word}))]
@@ -118,17 +122,18 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
         diagnoses.push({prompt:`结合句意和本课释义，空格应填哪个词？\n${q.stem}\n${word.exampleMeaning}`,options,correct:'word',reasons:{word:`${word.word}：${word.meaning}。${word.explanation}`,...Object.fromEntries(other.map((w,i)=>[`word-${i}`,`这里需要“${word.meaning}”；${w.word} 在本课表示“${w.meaning}”。${word.example}`]))}})
       }
     }else if(mode==='reading'||mode==='transcript'){
-      const q=qs.find(q=>q.options&&q.explanation.distractors.length>=2)
+      const q=qs.find(q=>q.id!==transfer.id&&q.options&&q.explanation.distractors.length>=2)
       if(q){const wrong=q.explanation.distractors[0];diagnoses.push({excerpt:q.passage,prompt:`下面这条排除理由针对哪个干扰项？\n${q.stem}\n排除理由：${wrong.reason}`,options:q.options!.filter(o=>o.id!==q.answer.option),correct:wrong.option,reasons:Object.fromEntries(q.options!.filter(o=>o.id!==q.answer.option).map(o=>[o.id,o.id===wrong.option?`对应正确。${wrong.reason}`:`这个选项的问题是：${q.explanation.distractors.find(d=>d.option===o.id)!.reason}`]))})}
-    }else{const q=qs.find(q=>q.options&&choiceFor(q).prompt!==diagnosis.prompt);if(q)diagnoses.push(choiceFor(q))}
+    }else{const q=qs.find(q=>q.id!==transfer.id&&q.options&&choiceFor(q).prompt!==diagnosis.prompt);if(q)diagnoses.push(choiceFor(q))}
   }
   diagnosis=diagnoses[0]
+  if(mode==='reading'||mode==='transcript')cases=cases.filter(q=>q.id!==first.id)
   const visualMission=originalMission
   const studio:LessonTeaching={...(visualMission?{mission:editionMission(visualMission,spelling)}:{}),...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
   studio.fingerprint=hash(studio)
   return studio
 }
-export function freshTeaching(s:LessonTeaching,now:number):TeachingProgress{return{version:1,fingerprint:s.fingerprint,step:0,unit:0,caseIndex:0,order:[],completed:[],answers:{},checked:{},links:{},before:'',after:'',updatedAt:now}}
+export function freshTeaching(s:LessonTeaching,now:number):TeachingProgress{return{version:1,fingerprint:s.fingerprint,step:0,unit:0,caseIndex:0,order:[],completed:[],answers:{visualPane:'study'},checked:{},links:{},before:'',after:'',updatedAt:now}}
 export function teachingDiagnosis(s:LessonTeaching,p:TeachingProgress):TeachingChoice{return s.diagnoses[Number(p.answers.clinicIndex??0)]??s.diagnosis}
 export function teachingEvidence(s:LessonTeaching,p:TeachingProgress):TeachingEvidence[]{return ['reading','transcript'].includes(s.mode)?sourceEvidence(s.cases[p.caseIndex]??s.prediction):s.evidence}
 export function teachingAnswer(s:LessonTeaching,p:TeachingProgress):Question{return p.step===4?s.transfer:p.step===2?s.cases[p.caseIndex]??s.prediction:s.prediction}
@@ -137,7 +142,7 @@ export function assemblyCorrect(unit:TeachingAssembly,ids:string[]):boolean{
   return ids.length===unit.target.length&&new Set(ids).size===ids.length&&text(ids)===text(unit.target)
 }
 export function teachingProblems(s:LessonTeaching,lesson:Lesson):string[]{
-  const errors:string[]=[];const fail=(message:string)=>errors.push(`${lesson.id}: ${message}`)
+  const errors:string[]=[];if(s.mission?.workshop)errors.push(...workshopProblems(s.mission.workshop).map(e=>`${lesson.id}: ${e}`));const fail=(message:string)=>errors.push(`${lesson.id}: ${message}`)
   if(!s.assemblies.length||s.assemblies.some(a=>a.target.length<2||a.target.length!==a.tiles.length||!a.tiles.every(t=>t.text)))fail('missing substantive assembly')
   if(s.diagnoses.some(d=>!d.correct||!d.options.some(o=>o.id===d.correct)||d.options.length<2||d.options.some(o=>!d.reasons[o.id])))fail('incomplete exam clinic')
   if(!s.diagnosis.correct||!s.diagnosis.options.some(o=>o.id===s.diagnosis.correct)||s.diagnosis.options.length<2)fail('missing diagnostic contrast')
@@ -154,10 +159,11 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   const p:TeachingProgress={...current,order:[...current.order],completed:[...current.completed],answers:{...current.answers},checked:{...current.checked},links:{...current.links},updatedAt:now}
   const mark=(key:string)=>{if(!p.completed.includes(key))p.completed.push(key)}
   if(action.startsWith('mission-')&&s.mission){changeMission(s.mission,p,action.slice(8),value);return p}
+  if(action.startsWith('workshop-')&&s.mission?.workshop&&p.step===1){changeWorkshop(s.mission.workshop,p,action.slice(9),value);return p}
   if(action==='reset')return freshTeaching(s,now)
   if((action==='response-add'||action==='response-remove')){const q=teachingAnswer(s,p),key=`step-${p.step}-${p.caseIndex}`;let ids:string[]=[];try{ids=JSON.parse(p.answers[key]??'[]')}catch{};if(action==='response-add'&&q.tokens?.some(t=>t.id===value)&&!ids.includes(value))ids.push(value);if(action==='response-remove')ids=ids.filter(id=>id!==value);p.answers[key]=JSON.stringify(ids);delete p.checked[key];return p}
   if(action==='sort'&&p.step===2&&s.sorting){const[card,category]=value.split(':');if(s.sorting.cards.some(c=>c.id===card)&&s.sorting.categories.some(c=>c.id===category)){p.answers[`sort-${card}`]=category;p.checked[`sort-${card}`]=s.sorting.cards.find(c=>c.id===card)!.category===category}return p}
-  if(action==='answer'){p.answers[`step-${p.step}-${p.caseIndex}`]=value.slice(0,5000);delete p.checked[`step-${p.step}-${p.caseIndex}`];return p}
+  if(action==='answer'){const q=teachingAnswer(s,p);p.completed=p.completed.filter(k=>k!==(p.step===4?'transfer':`case-${q.id}`));p.answers[`step-${p.step}-${p.caseIndex}`]=value.slice(0,5000);delete p.checked[`step-${p.step}-${p.caseIndex}`];return p}
   if(action==='before'&&p.step===0){p.before=value.slice(0,5000);return p}
   if(action==='after'&&p.step===2){p.after=value.slice(0,5000);return p}
   if(action==='preview'&&p.step===1){p.checked[`preview-${s.assemblies[p.unit].id}`]=!p.checked[`preview-${s.assemblies[p.unit].id}`];return p}
@@ -170,10 +176,10 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   if(action==='source'&&p.step===2){if(teachingEvidence(s,p).some(e=>e.id===value))p.answers.source=p.answers.source===value?'':value;return p}
   if(action==='passage'){p.checked.passage=!p.checked.passage;return p}
   if(action==='explanation'){p.checked.explanation=!p.checked.explanation;return p}
-  if(action==='evidence'&&p.step===2){const item=teachingEvidence(s,p).find(e=>e.id===value);if(item){p.answers.evidence=value;p.checked.evidence=item.supports;if(item.supports)mark(`evidence-${(s.cases[p.caseIndex]??s.prediction).id}`)}return p}
+  if(action==='evidence'&&p.step===2){p.completed=p.completed.filter(k=>k!==`evidence-${(s.cases[p.caseIndex]??s.prediction).id}`);const item=teachingEvidence(s,p).find(e=>e.id===value);if(item){p.answers.evidence=value;p.checked.evidence=item.supports;if(item.supports)mark(`evidence-${(s.cases[p.caseIndex]??s.prediction).id}`)}return p}
   if(action==='criterion'&&p.step===2&&s.mode==='communication'&&s.rubric.some(r=>r.id===value)){p.answers.activeCriterion=value;p.answers.revisionPane='compare';return p}
-  if(action==='revision-pane'&&p.step===2&&s.mode==='communication'&&(value==='compare'||value==='write'&&s.rubric.every(r=>p.links[r.id]))){p.answers.revisionPane=value;return p}
-  if(action==='link'&&p.step===2){const [criterion,sentence]=value.split(':');if(s.rubric.some(r=>r.id===criterion)&&s.modelSentences.some(t=>t.id===sentence)){p.checked[`link-${criterion}`]=!!s.roleAnchors[criterion]?.includes(sentence);p.answers.lastLink=criterion;if(!p.checked[`link-${criterion}`]){delete p.links[criterion];p.answers.activeCriterion=criterion;p.answers.revisionPane='compare';return p;}p.links[criterion]=sentence;const next=s.rubric.find(r=>!p.links[r.id]);if(next)p.answers.activeCriterion=next.id;else p.answers.revisionPane='write'}return p}
+  if(action==='revision-pane'&&p.step===2&&s.mode==='communication'&&(value==='compare'||value==='write'&&s.rubric.some(r=>p.links[r.id]))){p.answers.revisionPane=value;return p}
+  if(action==='link'&&p.step===2){const [criterion,sentence]=value.split(':');if(s.rubric.some(r=>r.id===criterion)&&s.modelSentences.some(t=>t.id===sentence)){p.checked[`link-${criterion}`]=!!s.roleAnchors[criterion]?.includes(sentence);p.answers.lastLink=criterion;p.answers.lastLinkSentence=sentence;if(!p.checked[`link-${criterion}`]){delete p.links[criterion];p.answers.activeCriterion=criterion;p.answers.revisionPane='compare';return p;}p.links[criterion]=sentence;p.answers.revisionPane='write'}return p}
   if(action==='rubric'){const key=`rubric-${p.step}-${value}`;if((p.step===2?s.revisionRubric:s.transfer.rubric??[]).some(r=>r.id===value))p.checked[key]=!p.checked[key];return p}
   if(action==='diagnose'&&p.step===3&&teachingDiagnosis(s,p).options.some(o=>o.id===value)){p.answers.diagnosis=value;p.checked.diagnosis=value===teachingDiagnosis(s,p).correct;if(p.checked.diagnosis)mark(`diagnosis-${p.answers.clinicIndex??0}`);return p}
   if(action==='check'){
@@ -181,7 +187,7 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
     if(p.step===0&&s.mode==='communication'){if(wordCount(p.before)>=4)mark('predict');return p}
     if((p.step===0||p.step===2||p.step===4)&&q){
       const answer=p.answers[key]??'',self=q.kind==='writing'||q.kind==='speaking'
-      p.checked[key]=self?wordCount(answer)>=4&&(q.rubric??[]).every(r=>p.checked[`rubric-${p.step}-${r.id}`]):checkAnswer(q,answer)
+      p.checked[key]=self?productionReady(q,answer)&&(q.rubric??[]).every(r=>p.checked[`rubric-${p.step}-${r.id}`]):checkAnswer(q,answer)
       // A prediction is a commitment, not an entry test; wrong guesses must be able to explore.
       if(p.step===0&&answer.trim())mark('predict')
       else if(p.checked[key])mark(p.step===2?`case-${q.id}`:'transfer')
@@ -194,11 +200,12 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
 }
 export function teachingCanAdvance(s:LessonTeaching,p:TeachingProgress):boolean{
   if(p.step===0)return p.completed.includes('predict')
+  if(p.step===1&&s.mission?.workshop)return workshopView(s.mission.workshop,p).allDone
   if(p.step===1)return s.assemblies.every(a=>p.completed.includes(`build-${a.id}`))
   if(p.step===2){
     if(s.sorting)return s.sorting.cards.every(card=>p.answers[`sort-${card.id}`]===card.category)
-    if(s.mode==='communication')return wordCount(p.after)>=4&&p.after.trim()!==p.before.trim()&&s.rubric.every(r=>!!p.links[r.id])&&s.revisionRubric.every(r=>p.checked[`rubric-2-${r.id}`])
-    if(s.mode==='reading'||s.mode==='transcript')return s.cases.filter(q=>sourceEvidence(q).some(e=>e.supports)).every(q=>p.completed.includes(`evidence-${q.id}`))
+    if(s.mode==='communication')return productionReady(s.prediction,p.after)&&p.after.trim()!==p.before.trim()&&s.rubric.some(r=>!!p.links[r.id])&&s.revisionRubric.every(r=>p.checked[`rubric-2-${r.id}`])
+    if(s.mode==='reading'||s.mode==='transcript')return s.cases.filter(q=>sourceEvidence(q).some(e=>e.supports)).every(q=>p.completed.includes(`evidence-${q.id}`)&&p.completed.includes(`case-${q.id}`))
     return s.cases.slice(0,s.mode==='vocabulary'?s.cases.length:Math.min(2,s.cases.length)).every(q=>p.completed.includes(`case-${q.id}`))
   }
   if(p.step===3)return s.diagnoses.every((_,i)=>p.completed.includes(`diagnosis-${i}`))
@@ -208,7 +215,7 @@ export function teachingCanAdvance(s:LessonTeaching,p:TeachingProgress):boolean{
 
 export function restoreTeaching(s:LessonTeaching,saved:TeachingProgress|undefined,now:number):TeachingProgress{
  if(!saved)return freshTeaching(s,now)
- if(saved.fingerprint!==s.fingerprint||saved.unit>=s.assemblies.length||saved.caseIndex>=Math.max(1,s.cases.length)||saved.order.some(id=>!s.assemblies[saved.unit].tiles.some(t=>t.id===id))||new Set(saved.order).size!==saved.order.length)return{...freshTeaching(s,now),before:saved.before,after:saved.after,answers:Object.fromEntries(Object.entries(saved.answers).filter(([key])=>key.startsWith('visualOwn-')))}
+ if(saved.fingerprint!==s.fingerprint||saved.unit>=s.assemblies.length||saved.caseIndex>=Math.max(1,s.cases.length)||saved.order.some(id=>!s.assemblies[saved.unit].tiles.some(t=>t.id===id))||new Set(saved.order).size!==saved.order.length)return{...freshTeaching(s,now),before:saved.before,after:saved.after,answers:{visualPane:'study',...Object.fromEntries(Object.entries(saved.answers).filter(([key])=>key.startsWith('visualOwn-')||key.startsWith('workshopOwn-')))}}
  return saved
 }
 
