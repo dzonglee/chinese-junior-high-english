@@ -19,8 +19,8 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | APP-UI | Redesign the complete app to the maths product standard | done | codex-solo | main | Whole-app redesign delivered; checked native screenshots and comparison in the UI review |
 | APP-EXAM-LESSONS | Strengthen exam teaching in every individual lesson | done | codex-solo | main | 413 lessons coached; 991 tests, native and visual evidence in exam-teaching review |
 | APP-MOCKS | Deliver authored mock papers and exam corrections | done | codex-solo | main | Eight original papers delivered; 1,006 tests, complete native flows and correction/writing checks |
-| APP-VISUAL-LESSONS | Revamp every lesson with visual tasks and manipulable activities | claimed | codex-solo | author/visual-lessons | Reopened after owner rejection; maths comparison confirms teaching redesign is still required |
-| APP-NATIVE | Prepare native validation and publication | open | — | — | Claim for real-device checks, production AppID/cloud setup and approved audio; guest DevTools checked |
+| APP-VISUAL-LESSONS | Revamp every lesson with visual tasks and manipulable activities | done | codex-solo | author/visual-lessons | Local workshop upgrade checked; 1,448 core tests and 22 whole lesson journeys pass; final review: docs/reviews/lesson-workshops-2026-10-17.md; fresh native validation is separate |
+| APP-NATIVE | Prepare native validation and publication | open | — | — | Latest workshops need fresh DevTools validation; MacStudioExternal access blocked. Earlier guest checks cover older builds; devices, production setup and approved audio remain |
 
 ### Delivery checklist
 

@@ -2,25 +2,37 @@
 
 The owner's current milestone is a usable local app; videos come later. The local build includes
 413 original draft lessons, 5,004 tasks, 1,690 distinct vocabulary headwords and all 245 topic packs. Artwork
-includes three original Blender assets and one inspected AI-generated desk scene authorized by
+includes three original Blender assets and three inspected AI-generated scenes authorized by
 the owner; book positions and exact labels are rendered by code. No research documents are embedded.
+
+The current [lesson review](reviews/lesson-workshops-2026-10-17.md) documents the redesigned
+single teaching path and its checks. The earlier [maths comparison](reviews/lesson-quality-comparison-2026-10-17.md)
+explains why the extra card-board layer was replaced. Fresh native validation is blocked by Mac
+project-drive access; the local version is not a public-release approval.
 
 ## Use the app
 
 Run `npm ci --no-audit --no-fund`, `npm run build:local`, then `npm run dev` from the repository
 with Node 24. The server listens on loopback port 4173. Alternatively, copy `dist/local/index.html`
-to a computer and open it in Chrome or Edge. The standalone HTML contains its own code, styles,
+to a computer and open it in Chrome or Edge. To regenerate the two checked ZIP archives after a build,
+run `python3 scripts/package-development.py`; it verifies CRCs and every archived source file. The standalone HTML contains its own code, styles,
 illustrations and hash-checked questions; practice works with networking disabled.
 
 Choose the student's city, school structure, grade, term and exact edition. The app keeps
 unverified adoption and exam-format states visible. This original capability course is not yet
 a verified textbook-by-unit course or exact official national vocabulary list.
 
-Every course card opens a five-stage hands-on studio. Build sentence tiles or spellings, insert
-words into live sentence slots, select source evidence, sort pronunciation examples, or link model
-sentences to one criterion before revising your own draft. One activity leads each screen; longer
-references open when needed. All 413 lessons have this flow, with saved progress separate from
-scored practice. See [lesson studios](lesson-studios.md) for the exact skill coverage.
+Every course card opens one interactive lesson sequence. Change a grammar condition and test the
+resulting expression; recall a word and write your own sentence; connect source evidence and
+explain a conclusion; or plan and revise your own communication task. Vocabulary application
+changes a detail in the learner's own sentence instead of repeating the worked blank. Reading
+requires both an answer and evidence. The written phonetics models show how stress, grouping,
+connections and pitch notation change. These do not measure actual speech or listening.
+
+Writing follows the task's word/sentence limits. Original drafts and self-review are separate
+from automatic form checks. Guided progress never creates mastery or independent attempts.
+See [lesson studios](lesson-studios.md) for the skill coverage and
+[current lesson review](reviews/lesson-workshops-2026-10-17.md) for screenshots and results.
 
 The course covers all 29 thematic domains in reading/listening/speaking/writing, 58 grammar
 objectives and eight written pronunciation-knowledge units. Every course task and word belongs to a
@@ -72,11 +84,11 @@ Chromium blocks direct `file://` navigation. The test respects that policy and s
 standalone document over loopback, then disables networking during practice. Direct-file browser
 navigation is therefore unvalidated on this machine; the runner also supports it where permitted.
 
-All 989 automated tests pass, including checked-pack practice, saved progress and distinct delayed
+The current visual revision passes 1,424 automated tests, including checked-pack practice, saved progress and distinct delayed
 review for every lesson. Tests simulate listening playback only for lifecycle coverage; the real
 app rejects missing audio. Seven grammar regressions, four native-source permission simulations,
 11 full browser journeys, eight offline checks and six expanded-course browser checks pass.
-All 4,804 instructional figures render without horizontal overflow at 320/390/768 widths;
+All 4,804 course-task figures render without horizontal overflow at 320/390/768 widths;
 245 topic representatives and real app screens received visual review. This is bounded content
 review, not editorial approval of every individual task. See [validation evidence](validation.md) for the boundaries and
 [authoring guidance](content-authoring.md) before changing questions.
@@ -96,3 +108,11 @@ The complete UI is now redesigned around five clear main sections and three-step
 Courses show real lessons before optional advanced filters; practice uses skill tiles and a
 simple builder. The [whole-app UI review](reviews/ui-2026-10-17.md) includes actual native screens
 and the subsequent fresh-install and answer-control fixes.
+
+
+## Visual revision verification
+
+See [the visual lesson review](reviews/visual-lessons-2026-10-17.md) for current checks and screenshots.
+This revision has browser and adapter evidence; its new actual WeChat DevTools control run is
+blocked by unavailable MacStudioExternal file access. Previous native jobs establish earlier
+builds only. Neither development archive is a production release.

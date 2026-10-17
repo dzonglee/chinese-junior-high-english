@@ -1,18 +1,18 @@
 # Interactive lesson studios
 
 Every one of the 413 original draft lessons opens a hands-on studio before optional scored
-practice. The learner makes a prediction, builds something, explores a changed context, diagnoses
+practice. The learner makes a prediction, changes or constructs something, applies it in a new context, diagnoses
 an error and tries another task. Each screen focuses on one activity. Source material and detailed
 illustrated reasons remain available on demand.
 
 | Lessons | Main interaction |
 | --- | --- |
-| 55 grammar | Assemble sentence tiles; insert a selected expression into a live sentence slot; compare authored contexts |
-| 212 vocabulary | Build all 1,690 target spellings; use every target word in its own context; correct a meaning mix-up |
-| 35 reading | Reconstruct source order; inspect short source sections; select actual evidence and diagnose a contextual error |
+| 55 grammar | Change object/time/role/structure models; test a live expression; apply the rule in context |
+| 212 vocabulary | Recall all 1,690 target words; write original examples; change two examples into new situations |
+| 35 reading | Build evidence-to-conclusion chains; explain a judgment; support later answers with source evidence |
 | 31 listening preparation | Organise dialogue information and select transcript clues; explicitly text preparation until approved audio exists |
-| 72 speaking/writing | Organise an original model; link one criterion to a source sentence at a time; revise the learner's own saved draft |
-| 8 phonetics | Pair notation and context; sort actual word/notation cards with immediate, specific feedback |
+| 72 speaking/writing | Plan the task in the learner's own words; compare one useful reference; revise and self-review the full draft |
+| 8 phonetics | Change stress/grouping/connection/pitch marks; compare meanings; classify further examples |
 
 The sentence slot preserves the exact authored context and meaning constraints. A partial spelling
 prefix is not duplicated when the learner enters the complete word. Reading source selection and
@@ -25,10 +25,14 @@ subsequent practice on those tasks is assisted. Distinct delayed tests remain un
 and speaking checks are explicitly self-review, not automatic semantic or pronunciation scoring.
 Changed lesson content resets obsolete activity progress while preserving the learner's drafts.
 
+See [the current lesson review](reviews/lesson-workshops-2026-10-17.md) for per-lesson coverage,
+model inspection and the fresh-native-access limitation. Earlier simulator evidence covers the
+earlier build; the updated native walker must be run again after Mac drive access is restored.
+
 ## Development and verification
 
 Use Node 24, the locked dependencies and `npm run build`. The 245 distinct checked topic packs
-share six native code subpackages, each below the 1.5 MB build budget. WeChat allows at most 100
+use one catalog subpackage and eight content groups within the checked package budgets. WeChat allows at most 100
 subpackages; the actual compiler caught the old one-subpackage-per-topic defect. Main and total
 package safety budgets remain unchanged. Release content still uses its separate configured
 storage path.
@@ -56,7 +60,7 @@ and retest empty captures separately. All 413 full controller lifecycles also ha
 For a bounded follow-up, set `ENGLISH_NATIVE_LESSONS` to comma-separated lesson IDs,
 `ENGLISH_NATIVE_SPELLING` to `american` or `british`, and `ENGLISH_NATIVE_OUTPUT` to a unique
 artifact subfolder. Every focused lesson runs a complete flow; source changes, fixed spelling and
-assembly geometry can be checked without overwriting the exhaustive page-walk evidence.
+workshop rendering can be checked without overwriting the exhaustive page-walk evidence.
 
 Studio access uses the tested token-free `/workspace/.onboarding/chrisverse_mcp.py` helper.
 It reads the existing environment credential privately and normalizes the Authorization scheme

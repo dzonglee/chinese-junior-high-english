@@ -1,0 +1,18 @@
+// Render the actual teaching models for visual/content inspection; this is not an approval engine.
+import {build} from 'esbuild'
+import {chromium} from '@playwright/test'
+import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs'
+import {resolve} from 'node:path'
+import {pathToFileURL} from 'node:url'
+import {authorCatalog} from './lib/author-content.mjs'
+const root=process.cwd(),out=resolve('test-results/workshop-model-review');mkdirSync(out,{recursive:true});mkdirSync('.local/tools',{recursive:true});await build({stdin:{contents:"export * from './src/core/lesson-teaching';export * from './src/core/lesson-workshop';export {renderWorkshop} from './web/lesson-workshop'",resolveDir:root,loader:'ts'},bundle:true,platform:'node',format:'esm',outfile:'.local/tools/workshop-review.mjs'})
+const {createLessonTeaching,freshTeaching,changeTeaching,workshopView,renderWorkshop}=await import(pathToFileURL(resolve('.local/tools/workshop-review.mjs'))),c=authorCatalog(root),panels=[]
+for(const l of c.lessons){const s=createLessonTeaching(c,l,'american'),w=s.mission.workshop
+ for(let i=0;i<(w.conditions?.length??w.items.length);i++){const item=w.items[w.kind==='transform'?0:i];if(!['transform','proof','sound-map'].includes(w.kind)&&!item.usage)continue;let p={...freshTeaching(s,1),step:1};const act=(a,value='')=>p=changeTeaching(s,p,'workshop-'+a,value,2);act('item',String(i))
+  const save=tag=>panels.push({id:l.id+'/'+i+'/'+tag,kind:w.kind,html:renderWorkshop(workshopView(w,p))})
+  if(w.kind==='word-use'){const wrong=Object.keys(item.usage.alternatives).find(x=>x!==item.answer.toLowerCase());act('input',wrong);act('check');save('wrong-direction');act('input',item.answer);act('check');save('correct-direction')}
+  else{if(w.kind==='sound-map'){act('choose',item.options.find(o=>!o.correct).id);act('check');save('wrong-mark')}act('choose',w.kind==='transform'?w.conditions[i].target:item.options.find(o=>o.correct).id);act('check');if(w.kind==='proof')for(const o of item.options.filter(o=>o.correct&&o.id!==p.answers['workshop-'+i])){act('choose',o.id);act('check')}save('correct')}
+ }
+}
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),headless:true,args:['--no-sandbox']}),css=readFileSync('dist/web/app.css','utf8'),index=[]
+try{for(let start=0;start<panels.length;start+=8){const batch=panels.slice(start,start+8),name='models-'+String(start/8+1).padStart(3,'0')+'.png',page=await browser.newPage({viewport:{width:1560,height:1000}});await page.setContent(`<style>${css}*,*:before,*:after{animation:none!important;transition:none!important}.sheet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:start}.sheet>article{min-width:0;background:#fff;border:1px solid #d8e4fa;border-radius:16px;padding:16px}.sheet>article>h3{font-size:11px;overflow-wrap:anywhere}.workshop-tabs{display:none}</style><div class="sheet">${batch.map(p=>`<article><h3>${p.id}</h3>${p.html}</article>`).join('')}</div>`);await page.evaluate(async()=>{await document.fonts.ready;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))});await page.screenshot({path:resolve(out,name),fullPage:true,animations:'disabled'});await page.close();index.push(...batch.map(p=>({id:p.id,kind:p.kind,file:name})))}writeFileSync(resolve(out,'index.json'),JSON.stringify(index,null,2)+'\n');console.log(`Rendered ${panels.length} model states in ${Math.ceil(panels.length/8)} sheets for human inspection.`)}finally{await browser.close()}

@@ -498,3 +498,86 @@ gaps. Revised acceptance is recorded in the plan. The comparison report and brow
 evidence are being saved on author/visual-lessons. Do not mark the teaching revamp done or
 reuse functional counts as a claim of parity. Next implementation should prove representative
 whole lessons before another generated course-wide pass. No course code or maths files changed.
+
+
+## 2026-10-17 · codex-solo · maths comparison completed
+
+Comparison is saved in docs/reviews/lesson-quality-comparison-2026-10-17.md with machine-readable
+evidence and fresh English captures. The standalone viewer /workspace/lesson-comparison/index.html
+passes four cases, 22 frame selections and two responsive widths. All thirteen selected maths
+images match their LFS hashes; fourteen existing maths model-logic tests pass. No fresh native
+execution or all-maths-lesson quality review is claimed. Maths tracked files and English lesson
+code/content are unchanged. The clone and local LFS setup are ready for further comparison work.
+
+Confirmed the new English repair-state defect: choosing are leaves initial am on the canvas,
+while feedback discusses are. Also reproduced the empty new writing mission and fresh handoff
+into old studio phase zero. Corrected README, local instructions, project memory and the older
+review to distinguish functional coverage from rejected teaching quality. APP-VISUAL-LESSONS
+remains claimed and unfinished; new native access is an additional issue, not the primary gap.
+Next: author and inspect coherent subject-specific exemplars before scaling another pass. No
+new owner question is pending; the requested reference is the Chinese maths repository.
+
+## 2026-10-17 · codex-solo · coherent lesson upgrade checkpoint
+
+APP-VISUAL-LESSONS remains claimed on author/visual-lessons. Replaced the default extra
+mission introduction and exact reconstruction stage with a single five-phase teaching path.
+The checked-in workshop manifest covers every lesson: changing-condition grammar models,
+contextual recall and original word use, evidence chains with a learner explanation, task-based
+original expression plans and sound-notation changes. Repair feedback now retains the actual
+attempt. Guided reading requires both an answer and evidence. Transfer questions are held out
+of guided contexts; vocabulary has new original production tasks. Writing follows its actual
+stated word range rather than accepting a four-word outline. Semantic judgments remain self-review.
+
+First complete Chromium pass: 14 whole lesson journeys and 6,297 rendered workshop states at
+320/390/768 widths. These are functional results, not teaching-quality acceptance. Visual review
+identified and corrected long reading choice lists, redundant writing roles and misleading count
+icons. Further polish adds borrow/lend direction models and live writing form feedback. The latest
+core run passed 1,432 tests before that final polish; final build, core and browser checks are next.
+
+MCP board and project memory updated successfully. wechat_status succeeds, but reading
+wechat/AGENTS.md still reports unavailable MacStudioExternal access; no fresh native compilation
+or GUI test is claimed. Continue local visual/content review independently. No owner decision
+is needed to finish the local implementation.
+
+## 2026-10-17 · codex-solo · local workshop review completed
+
+APP-VISUAL-LESSONS is ready for local integration on author/visual-lessons. The review fixes
+actual attempted-expression rendering, changing-condition diagrams, vocabulary production and
+new-situation application, complete evidence premises, original task-specific plans, constrained
+writing revision and visible sound notation. Twelve evidence chains now require two excerpts;
+all 66 evidence lessons have individual short reasoning notes. Drafts survive content updates
+and backward navigation. Guided completion remains separate from independent assessment.
+
+Final checks pass: typecheck; 1,448 tests in 14 files; course/content/teaching/mock/package audits;
+826 spelling variants; development/cloud adapter simulations; 22 whole browser lesson journeys;
+6,608 states at each of three widths; six product checks; eight offline checks; eleven connected
+app journeys; six mock journeys/audits, all eight preflights and all 200 mock visuals. Thirteen
+exploration-control flows also passed. Reviewed the first panel in every lesson, both grammar
+conditions and all 202 completed/wrong model states, with changed evidence states checked again.
+These checks do not constitute full editorial approval, measured learning effectiveness or a
+blanket claim of maths-app parity.
+
+Saved the current report, machine-readable lesson inventory/results and nine actual app captures
+in docs/reviews/lesson-workshops-2026-10-17.* and docs/screenshots/lesson-workshops-2026-10-17/.
+The complete offline app and native development ZIPs pass CRC and exact source-entry comparison;
+rebuild with npm run build:local and python3 scripts/package-development.py.
+
+Fresh MCP check: wechat_status succeeds, but reading wechat/AGENTS.md reports MacStudioExternal
+unavailable. No new native GUI job or compilation was attempted. Reopened the existing native
+Kanban card as blocked so older validation cannot be mistaken for this revision. APP-NATIVE stays
+separate; restore project access, read the shared GUI instructions, obtain its lock and run the
+current devtools-teaching/product/mock runners. Approved audio (99 scripts), devices, editorial
+review and verified local exam mappings remain pending. Content stays draft; videos stay deferred.
+No new owner decision is needed for this local delivery. Final Obsidian/Kanban reconciliation
+follows the integration push; the native blocker remains explicit.
+
+
+## 2026-10-17 · codex-solo · local workshop integration
+
+Squash-integrated the reviewed author/visual-lessons branch (e920ffb) on current main and set
+APP-VISUAL-LESSONS done for its local implementation/review scope. Rebase was unchanged;
+typecheck and static native-package checks pass again. The current review preserves exact
+functional, visual and editorial boundaries; APP-NATIVE remains open, with the existing external
+native card blocked by Mac project-drive access. No production publication, audio approval,
+new native compilation or shared-GUI ownership is implied. Next independent session should read
+current memory/board and resume native validation only when its project files are reachable.

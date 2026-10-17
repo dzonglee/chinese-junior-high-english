@@ -1,6 +1,35 @@
 # Project memory
 
-## Current decision · teaching quality rejected, 2026-10-17
+## Current local delivery · 2026-10-17
+
+APP-VISUAL-LESSONS now implements one connected teaching path across all 413 lessons. The rejected
+extra mission introduction is hidden from the default journey. Changing grammar conditions update
+object/time/role/structure diagrams; words require contextual recall and original use; reading and
+transcript chains require actual premises plus an explanation; communication uses task-specific
+plans and revision; written sound notation changes visibly. See
+[the current review](reviews/lesson-workshops-2026-10-17.md) for exact verification results and limits.
+
+Visual review corrected ambiguous grammar prompts, diagram scales/arrows/word formation, missing
+premises in evidence chains and repeated application tasks. Twelve chains require two supporting
+excerpts. Every evidence lesson has a concise individual reasoning note. Drafts use stable item
+IDs and survive navigation/content updates. Form checks and self-review remain distinct; guided
+completion never grants mastery or an independent attempt.
+
+Artifacts: `dist/local/index.html`, `dist/local-english-app.zip` and
+`dist/english-wechat-development.zip`. The native package contains the same workshop renderer,
+but this revision has no fresh DevTools run: MCP is online while `read_file wechat/AGENTS.md`
+reports MacStudioExternal unavailable. Existing native card 3725a8db-1c63-4e6b-8bca-df642450093c
+has been reopened as blocked; do not reuse its earlier green status. Resume with shared GUI
+instructions/lock and the current devtools-teaching runner when access returns. No GUI job was
+submitted during this revision. Audio, real devices, editorial approval and verified local exam
+mapping remain pending. Videos remain deferred. Content stays draft; nothing is published.
+
+Project: Chinese Junior High English. Scopes: Interactive lessons; WeChat DevTools. Reuse lesson
+card 10832ca6-d7ad-4d4d-a60a-f4563486f3cf and `Projects/Chinese Junior High English.md`; the MCP
+connection works through the existing token-free helper. The comparison and rejection below are
+historical evidence, not the current implementation description.
+
+## Previous decision · teaching quality rejected, 2026-10-17
 
 The owner rejected the claim that all lessons had been adequately revamped. APP-VISUAL-LESSONS
 is reopened, claimed by codex-solo on author/visual-lessons. Maths main 933ab32 is now cloned at
@@ -22,7 +51,29 @@ the feature branch. Existing Kanban card 10832ca6-d7ad-4d4d-a60a-f4563486f3cf re
 - Keep the board clean, concise and easy to read, using plain English.
 - While the current session cannot access those MCP connections, continue app work first.
 
-## Current milestone · all lesson teaching and native verification
+## Previous visual implementation review · 2026-10-17
+
+The owner requires another individual lesson revamp, with meaningful pictures and more actual
+interaction. APP-VISUAL-LESSONS is claimed by codex-solo on `author/visual-lessons` (claim cbc0864).
+All 413 lessons have explicit missions: 1,002 boards, 55 live grammar experiments, contextual
+vocabulary/recall, literal evidence chains, saved personal expression frames and written sound
+sorting. Two newly generated scenes were inspected; no reference content was copied. Lessons
+stay draft, immediate material stays assisted and delayed/paper tasks remain separate.
+
+External card: `10832ca6-d7ad-4d4d-a60a-f4563486f3cf`, project Chinese Junior High English,
+scope Interactive lessons. Existing Obsidian project note and card were successfully updated.
+The direct Studio helper still works for memory/board. Native file access is a separate blocker:
+`read_file` reports MacStudioExternal unavailable, and authenticated archive transfer returned
+HTTP 400. No native job for this new visual unit was submitted and no shared GUI was changed.
+Do not reuse older native job passes as proof of this revision. Local checks and prepared native
+runner are documented in `docs/reviews/visual-lessons-2026-10-17.md`. Local validation passes:
+1,424 tests, 6,936 new visual layouts, nine new full control flows, thirteen retained exploration
+flows, eleven connected journeys, eight offline checks and six product checks. Both development
+archives pass CRC and source-entry comparison. This was the earlier functional review; the owner has since reopened teaching redesign. Native
+acceptance also remains pending. Next: restore Mac external-drive
+access, inspect the shared GUI lock and run `scripts/devtools-teaching.cjs` against the latest build; the old visual runner is superseded.
+
+## Previous milestone · all lesson teaching and native verification
 
 The owner requires Codex to complete every lesson itself; no further delegation. APP-TEACHING
 is complete and squash-integrated on `main` by codex-solo. The five-phase lesson studio now covers

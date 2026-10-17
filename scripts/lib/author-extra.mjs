@@ -14,15 +14,16 @@ export function authorExtra(root, catalog) {
     const sets = []
     for (const [textIndex, text] of record.texts.entries()) {
       const ids = []
-      for (const [i, [stem, correct, wrong1, wrong2, evidence, why1, why2]] of text.items.entries()) {
+      for (const [i, [stem, correct, wrong1, wrong2, evidence, why1, why2, evidenceReason]] of text.items.entries()) {
         const id = `q-${record.id}-${textIndex + 1}-${i + 1}`, raw = [correct, wrong1, wrong2]
         const options = raw.map((_, j) => ({ id: ['a', 'b', 'c'][j], text: raw[(j + i) % 3] }))
         const right = options.find(o => o.text === correct).id
         ids.push(id)
+        const quotes = Array.isArray(evidence) ? evidence : [evidence]
         questions.push({ id, topicId: record.id, skill: 'reading', kind: 'choice', feedbackGroup: `${record.id}-${textIndex + 1}`, difficulty: n > 0 ? 2 : 1, grades, stem, passage: text.text, options, answer: { option: right, display: correct }, marks: 2, estimatedSeconds: 90, source, review: 'draft',
-          explanation: { strategy: record.goal, steps: [{ text: `定位原文：“${evidence}”`, reason: '这一处直接提供回答问题所需的信息或推断依据。' }, { text: `核对选项：“${correct}”。`, reason: n === 0 ? '它与原文中的人物、时间或行为一致，没有偷换对象。' : '把这处线索放回全文，答案没有扩大原文可以支持的范围。' }],
+          explanation: { strategy: record.goal, steps: [{ text: `定位原文：${quotes.map(quote => `“${quote}”`).join('；')}`, reason: evidenceReason ?? '把线索与题目中的人物、时间和行为对应起来，再得出判断。' }, { text: `核对选项：“${correct}”。`, reason: n === 0 ? '它与原文中的人物、时间或行为一致，没有偷换对象。' : '把这处线索放回全文，答案没有扩大原文可以支持的范围。' }],
             distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: o.text === wrong1 ? why1 : why2 })), pitfall: record.pitfall,
-            visual: { kind: 'evidence', title: '原文证据 → 答案', segments: [{ text: evidence, role: 'evidence', note: '先读这处线索' }, { text: correct, role: 'object', note: '与问题相对应的意思' }], caption: '核对线索表达的事实与选项表达的意思，不能只匹配重复的词。' }, transfer: '遮住选项，用自己的话回答这个问题，再回到原文检查。' } })
+            visual: { kind: 'evidence', title: '原文证据 → 答案', segments: [...quotes.map((text, index) => ({ text, role: 'evidence', note: `线索 ${index + 1}` })), { text: correct, role: 'object', note: '与问题相对应的意思' }], caption: '核对线索表达的事实与选项表达的意思，不能只匹配重复的词。' }, transfer: '遮住选项，用自己的话回答这个问题，再回到原文检查。' } })
       }
       sets.push(ids)
     }
@@ -54,7 +55,8 @@ export function authorExtra(root, catalog) {
       if (asset?.approvedByOwner) { const policy = read(root, 'content/audio-policy.json'); if (!policy.ownerApproval || !['openai', 'licensed'].includes(policy.source) || (policy.source === 'openai' && (policy.model !== asset.model || policy.voice !== asset.voice))) throw new Error(`Audio ${mediaId} does not match the owner's recorded source choice`) }
       if (!catalog.media.some(m => m.id === mediaId)) catalog.media.push(asset ?? { id: mediaId, path: '', transcript: task.transcript, voice: '', model: '', license: '', sha256: '', approvedByOwner: false })
       ids.push(id)
-      questions.push({ id, topicId: r.id, skill: 'listening', kind: 'choice', feedbackGroup: mediaId, difficulty: t ? 2 : 1, grades, stem: task.stem, passage: task.transcript, mediaId, options, answer: { option: right, display: task.options[0] }, marks: 1, estimatedSeconds: 70, source, review: 'draft', explanation: { strategy: r.goal, steps: [{ text: `先定位关键话语：“${task.evidence}”`, reason: '这句话给出请求、最终决定或说话人的意图。' }, { text: `结合回应，答案是 ${task.options[0]}。`, reason: '不能只按录音中第一个出现的数字、地点或建议作答。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: task.reasons[task.options.indexOf(o.text) - 1] })), pitfall: '先确认题目问的是最初提议、当前安排还是说话意图。', visual: { kind: 'evidence', title: '听力中的关键证据', segments: [{ text: task.evidence, role: 'evidence', note: '这句话决定判断' }, { text: task.options[0], role: 'object', note: '与问题对应的含义' }], caption: '听完后再看文字，标出修正或请求，不把阅读文字当作听力独立完成。' }, transfer: '再听一遍，尝试不看文字复述最后的决定或请求。' } })
+      const quotes = Array.isArray(task.evidence) ? task.evidence : [task.evidence]
+      questions.push({ id, topicId: r.id, skill: 'listening', kind: 'choice', feedbackGroup: mediaId, difficulty: t ? 2 : 1, grades, stem: task.stem, passage: task.transcript, mediaId, options, answer: { option: right, display: task.options[0] }, marks: 1, estimatedSeconds: 70, source, review: 'draft', explanation: { strategy: r.goal, steps: [{ text: `先定位关键话语：${quotes.map(quote => `“${quote}”`).join('；')}`, reason: task.evidenceReason ?? '把请求、决定或意图与说话人的回应对应起来。' }, { text: `结合回应，答案是 ${task.options[0]}。`, reason: '不能只按录音中第一个出现的数字、地点或建议作答。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: task.reasons[task.options.indexOf(o.text) - 1] })), pitfall: '先确认题目问的是最初提议、当前安排还是说话意图。', visual: { kind: 'evidence', title: '听力中的关键证据', segments: [...quotes.map((text, index) => ({ text, role: 'evidence', note: `线索 ${index + 1}` })), { text: task.options[0], role: 'object', note: '与问题对应的含义' }], caption: '听完后再看文字，标出修正或请求，不把阅读文字当作听力独立完成。' }, transfer: '再听一遍，尝试不看文字复述最后的决定或请求。' } })
     }
     lessons.push({ id: `l-${r.id}`, topicId: r.id, title: r.title, grades, objective: r.goal, questionIds: ids.slice(0, 4), delayedQuestionIds: ids.slice(4), summary: [r.goal, '先听再答，检查后才看文字。'], estimatedMinutes: 8, order: 1, review: 'draft' })
   }

@@ -19,6 +19,13 @@ training papers; exact local exam formats and publisher-unit alignment remain un
 See [exam teaching](docs/reviews/exam-teaching-2026-10-17.md) and
 [mock-paper verification](docs/reviews/mock-exams-2026-10-17.md).
 
+The lesson redesign now uses one coherent teaching sequence. It replaces the rejected extra
+card-board introduction with changing grammar models, required original word use, evidence
+chains and the learner's own expression plan. The [maths comparison](docs/reviews/lesson-quality-comparison-2026-10-17.md)
+records the original problems; the [current lesson review](docs/reviews/lesson-workshops-2026-10-17.md)
+records the changes and verification boundary. Native verification of this revision still needs
+Mac project-drive access; browser checks do not establish a native pass or public release.
+
 ## Run locally
 
 Use Node 24 and the checked-in npm lockfile:
@@ -31,7 +38,7 @@ npm run dev
 
 The development server listens on loopback port 4173. For a portable offline copy, open
 `dist/local/index.html` in Chrome or Edge. That single file contains all 245 checked content packs,
-the app code, styles, original Blender artwork and the inspected generated desk scene. It needs no account or cloud configuration.
+the app code, styles, original Blender artwork and three inspected generated scenes. It needs no account or cloud configuration.
 See [local version instructions](docs/local-version.md) for saving progress and microphone support.
 
 The complete original course covers 29 themes across reading, listening, speaking and writing,
@@ -45,11 +52,16 @@ the app does not infer verified textbook adoption or local exam blueprints from 
 The native WeChat implementation is included in `miniprogram/`; production configuration,
 approved audio, real-device validation and editorial launch review remain future work.
 
-Open a course card to **先动手学**. Each of the 413 studios uses five short stages: predict,
-build, explore, diagnose and try a new task. Grammar has live sentence slots; vocabulary covers
-all 1,690 spellings; reading uses source selection; pronunciation knowledge uses sorting; writing
-and speaking preserve a student's first draft and guided revision. Longer references open on demand.
-Progress saves locally and never counts as mastery or independent test evidence.
+Open a course card to **先动手学**. Each lesson follows prediction → hands-on work → application
+→ error diagnosis → a new task. Grammar models change object counts, time, roles, comparisons,
+position or sentence structure. Vocabulary combines contextual recall, original sentences and a
+changed situation. Reading connects actual evidence to a conclusion and requires a short learner
+explanation; where two clues are needed, one alone cannot unlock the conclusion. Writing and
+speaking start from the learner's own plan and draft. Written sound activities let the learner
+change stress, grouping, connection or pitch marks. Longer materials open on demand.
+
+Progress saves separately from mastery. Original expression, word meanings and writing quality
+still need honest self-review or a teacher; there are no invented semantic or speech scores.
 
 The separate **互动实验室** adds 13 workshops with 39 conditions, including a manipulable desk
 scene. See [lesson studios](docs/lesson-studios.md) for coverage and native test instructions.
@@ -62,6 +74,9 @@ The packaged copy is `dist/english-wechat-development.zip`: extract it, then imp
 No production AppID is included. See [native verification evidence](docs/reviews/teaching-2026-10-17.md).
 
 ## Validate changes
+
+`npm run check` keeps test files serial for the expanded lesson data; the original test timeouts
+remain unchanged.
 
 ```bash
 npm run check
@@ -82,6 +97,7 @@ npm run test:product-ui
 npm run test:course-browser
 npm run test:interactions
 npm run test:teaching
+npm run test:visual-lessons
 node scripts/test-teaching-transfers.mjs
 ```
 

@@ -61,7 +61,7 @@ function quotedContinuation(text: string): boolean {
     /^[\u3400-\u9fff]{1,8}(?:说|问|回答|提醒|喊道|说道)/.test(text)
 }
 
-function passageSentences(passage: string): string[] {
+export function passageSentences(passage: string): string[] {
   const sentences: string[] = []
   let start = 0
   for (let i = 0; i < passage.length; i++) {

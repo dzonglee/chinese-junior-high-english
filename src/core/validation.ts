@@ -1,3 +1,4 @@
+import {missionProblems} from './visual-mission'
 import type { ContentCatalog, Question } from './types'
 
 const SKILLS = new Set(['vocabulary', 'grammar', 'reading', 'listening', 'speaking', 'writing'])
@@ -89,6 +90,7 @@ export function contentProblems(catalog: ContentCatalog): string[] {
     if (media.approvedByOwner && (!text(media.path) || !text(media.voice) || !text(media.model) || !text(media.license) || !/^[a-f0-9]{64}$/.test(media.sha256))) errors.push(`${media.id}: approved audio needs a file, model, voice, rights and checksum`)
   }
   for (const lesson of catalog.lessons) {
+    if(lesson.visualMission)errors.push(...missionProblems(lesson.visualMission,lesson.questionIds).map(e=>`${lesson.id}: ${e}`))
     if (!topics.has(lesson.topicId)) errors.push(`${lesson.id}: unknown lesson topic`)
     if (lesson.questionIds.length < 4 || lesson.delayedQuestionIds.length < 2) errors.push(`${lesson.id}: insufficient independent or delayed practice`)
     const all = [...lesson.questionIds, ...lesson.delayedQuestionIds]
