@@ -685,3 +685,16 @@ and zero assessment records pass; typecheck and all-lesson teaching/spelling aud
 Last full core run1,452 precedes article data. Next l-g-comparison with a selectable comparison
 group and measured diagrams; do not infer measurements from illustration perspective.
 The overall claim remains unfinished. Native access/audio/release boundaries are unchanged.
+
+
+## 2026-10-18 (Sydney) · codex-solo · comparison lesson individually reviewed
+
+l-g-comparison is reviewed: 8/413. Eight tasks require the actual comparison group, distinguish
+two/three/equal objects and require typed more interesting/better/easier. Wrong group and typed
+form are retained independently. Numerical bars are code and stay on equal-width rails. All
+figures, error paths and transfer were inspected. Whole flow, 24 widths, reload and zero assessment
+records pass; all1,454 core tests, typecheck,826 teaching/spelling audit and package checks pass.
+A combined edition audit hit5s once and passed alone. Split it into two complete edition audits,
+each covering all413 lessons/all1,690 headwords, keeping the same timeout and assertions.
+Next l-g-pronouns: identify referents separately from grammatical position and coded ownership.
+Unit stays claimed and unfinished; native GUI remains separate. Work stays solo.

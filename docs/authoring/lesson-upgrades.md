@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **7 / 413**. Current: **l-g-comparison**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **8 / 413**. Current: **l-g-pronouns**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -15,7 +15,7 @@ Completed: **7 / 413**. Current: **l-g-comparison**. Evidence lives in docs/revi
 | l-g-future | 说出计划和将来的事 | reviewed | [Future-plans review](../reviews/individual-lessons/l-g-future.md) |
 | l-g-perfect | 从过去连到现在 | reviewed | [Past-to-now review](../reviews/individual-lessons/l-g-perfect.md) |
 | l-g-articles | a、an、the 怎么选 | reviewed | [Articles review](../reviews/individual-lessons/l-g-articles.md) |
-| l-g-comparison | 比较时先看范围 | pending | — |
+| l-g-comparison | 比较时先看范围 | reviewed | [Comparison review](../reviews/individual-lessons/l-g-comparison.md) |
 | l-g-pronouns | 代词指的是谁 | pending | — |
 | l-g-nouns | 可数与不可数，先看名词 | pending | — |
 | l-g-prepositions | 时间与位置的介词 | pending | — |

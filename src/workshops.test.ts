@@ -87,3 +87,13 @@ it('keeps picture evidence and residence duration tied to the selected record',(
  p=changeTeaching(s,p,'workshop-item','5',7);p=changeTeaching(s,p,'workshop-record','left',8);p=changeTeaching(s,p,'workshop-choose','have lived',9);p=changeTeaching(s,p,'workshop-check','',10);v=workshopView(w,p);expect(v.cells[0].rangeStyle).toBe('left:20%;width:15%;');expect(v.complete).toBe(false)
  p=changeTeaching(s,p,'workshop-record','live',11);p=changeTeaching(s,p,'workshop-check','',12);v=workshopView(w,p);expect(v.cells[0].rangeStyle).toBe('left:20%;width:30%;');expect(v.complete).toBe(true)
 })
+
+it('requires the full comparison set and accepts typed forms only after repairing the actual attempt',()=>{
+ const s=studio('l-g-comparison'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
+ p=changeTeaching(s,p,'workshop-choose','taller',2);p=changeTeaching(s,p,'workshop-member','amy',3);p=changeTeaching(s,p,'workshop-check','',4);expect(workshopView(w,p).complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-member','mia',5);p=changeTeaching(s,p,'workshop-member','leo',6);p=changeTeaching(s,p,'workshop-check','',7);let v=workshopView(w,p);expect(v.complete).toBe(false);expect(v.cells.find(c=>c.id==='leo')!.wrong).toBe(true);expect(v.expressionWrong).toBe(false)
+ p=changeTeaching(s,p,'workshop-member','leo',8);p=changeTeaching(s,p,'workshop-check','',9);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-item','7',10);p=changeTeaching(s,p,'workshop-input','easyer',11);p=changeTeaching(s,p,'workshop-check','',12);v=workshopView(w,p);expect(v.selected).toBe('easyer');expect(v.cells[2].label).toBe('easyer');expect(v.complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-input','easier',13);p=changeTeaching(s,p,'workshop-check','',14);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-input','easiest',15);expect(workshopView(w,p).complete).toBe(false)
+})

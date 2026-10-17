@@ -4,19 +4,20 @@
 
 The owner requires every lesson to be upgraded one by one, with purposeful generated pictures.
 APP-VISUAL-LESSONS remains claimed by codex-solo on author/individual-lessons. The previous
-shared workshops are a baseline. **7/413** are individually reviewed: l-g-be, l-g-present,
-l-g-continuous, l-g-past, l-g-future, l-g-perfect and l-g-articles. See docs/authoring/lesson-upgrades.md for exact evidence.
+shared workshops are a baseline. **8/413** are individually reviewed: l-g-be, l-g-present,
+l-g-continuous, l-g-past, l-g-future, l-g-perfect, l-g-articles and l-g-comparison. See docs/authoring/lesson-upgrades.md for exact evidence.
 
 The lessons use real speaker/referent selection, coded habit records, observable action/predicate
 choices, live word edits and dated-event selection. Wrong answers remain visible and must be
-repaired. All seven whole browser flows and 162 task-width combinations pass, with reload and no
-independent assessment records. All 1,452 core tests, typecheck, native development/cloud adapter
+repaired. All eight whole browser flows and 186 task-width combinations pass, with reload and no
+independent assessment records. All 1,454 core tests, typecheck, native development/cloud adapter
 simulations and static package checks pass. No new native GUI validation is claimed.
 Future plans also contrasts finished events, promises, questions, going-to plans and current
 evidence for a future prediction. Present perfect adds tappable
 key-loss/result panels, changing residence time bands and distinct since/for models.
 Articles adds required object/first-sound evidence, adjective intervention, same-object reference
-and general plural nouns. Next: l-g-comparison, selecting the comparison group itself.
+and general plural nouns. Comparison adds required comparison-group selection, same-scale measured bars, equality
+and real typed word building. Next: l-g-pronouns, referents versus sentence position.
 Work stays solo. Native project-drive access and approved audio remain separate; nothing is released.
 
 ## Previous local delivery · 2026-10-17
