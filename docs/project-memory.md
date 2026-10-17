@@ -2,36 +2,28 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-The owner requires every lesson to be upgraded one by one, with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **14/413** are
-individually reviewed; the other 399 remain pending. The per-lesson tracker links each decision,
-inspected figure, wrong-path recovery, fresh transfer and control result. Shared coverage is a
-functional baseline and never counts as an individual redesign. Work stays solo.
+The owner requires every lesson to be upgraded separately, with purposeful original pictures.
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **15/413** are
+individually reviewed; 398 remain pending. Work stays solo. The tracker links authored tasks,
+inspected figures, error recovery, fresh transfer and actual control results. Shared coverage
+is a functional baseline, never an individual review.
 
-Current evidence: 112 individually authored conditions and 336 task-width combinations across
-14 whole lesson flows; reload and no independent assessment records. All 1,458 core tests,
-typecheck, teaching/spelling and package checks, both native-adapter simulations and eight offline
-checks pass. Current development ZIPs pass CRC and exact source comparison. The standalone test
-served the embedded document once before disabling networking; managed policy blocks file URLs.
-See docs/reviews/individual-lessons/checkpoint-13.* for exact source/artifact evidence.
+Latest: modal verbs and infinitives. An original pool gate carries a coded rule; an original
+two-panel reading/drinking scene requires selecting the right action before choosing stop to
+drink / stop drinking. Other tasks require typed expressions, interpretation and a fresh transfer.
+Current individual evidence totals 121 conditions / 363 task-width checks across fifteen flows.
+Focused controls, typecheck, 826 teaching/spelling and static package pass. Full 1,458-core checks
+passed for the modal checkpoint. Checkpoint-13 retains previous broad offline/adapter/archive
+hashes; archives still need refreshing to include these new lessons.
 
-An exact-text audit caught preposition and passive examples repeating reserved grammar sentences.
-Both examples are replaced, the changed figures inspected, and the actual delayed items verified
-unchanged. The compiler now rejects such exact matches across selected workshops. Checkpoint11
-records its historical limitation. Transfer grade coverage is enforced; three grade-6 tags were
-corrected. Nouns now transfers to a new route-information/photos scenario.
+Reserved-sentence and transfer-grade guards remain enforced. Exact preposition/passive overlaps
+were corrected and actual delayed items verified unchanged. The historical checkpoint11 limitation
+is disclosed. Current memory and existing Kanban card are updated through the authenticated helper.
 
-Latest individual review: l-g-modals, eight meaning/form tasks and an original pool-gate scene
-with a code-rendered sign inspected at 320px. Correct wording alone cannot bypass wrong evidence.
-All 1,458 core tests, typecheck, teaching/spelling, package and focused modal/vocabulary browser
-controls pass. Checkpoint-13 retains the previous archive snapshot; archives need refresh before
-handoff. Next: l-g-infinitives, with an original picture contrast for stop to drink / stop drinking.
-No individual credit is assigned to the next lesson yet.
-
-Fresh MCP status succeeds, but read_file(wechat/AGENTS.md) reports MacStudioExternal file access
-unavailable. The existing native card remains blocked; no GUI job was submitted. Approved audio,
-editorial/cohort mapping, real devices and production configuration remain separate. Content is
-draft; videos stay deferred; nothing was uploaded or published.
+Next: l-g-gerunds, including the difference between infinitive to and preposition to. Native GUI
+still needs MacStudioExternal project access; read_file wechat/AGENTS.md reports it unavailable.
+No new GUI job, upload or publication occurred. Approved audio, editorial/cohort mapping, devices
+and production setup remain separate. All content stays draft; videos remain deferred.
 
 ## Previous local delivery · 2026-10-17
 

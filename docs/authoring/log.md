@@ -807,3 +807,14 @@ reload and zero independent assessment records pass. Current1,458 core, typechec
 spelling and package pass; selected vocabulary browser flow checks the shared sentence-flow fix.
 Archives retain checkpoint13 pending refresh. Next infinitives; a new contrast illustration is
 being generated. Unit remains claimed and unfinished, with399 individual reviews remaining.
+
+
+## 2026-10-18 (Sydney) · codex-solo · infinitives individually reviewed
+
+l-g-infinitives is reviewed:15/413. Nine tasks connect plans/requests/negative reminders/purpose/
+too-to/remember with complete expressions. A new original reading/drinking diptych requires the
+correct later action for stop to drink versus stop drinking; timing comes from explicit records.
+All nine models, both picture errors, three typed errors, application and fresh corridor transfer
+were inspected. Hints mentioning nonexistent brackets corrected. Whole browser flow,27 widths,
+reload and zero assessment records pass; typecheck,826 teaching/spelling and package pass. Next
+gerunds. Overall unit unfinished;398 pending. Archives retain checkpoint13 until next refresh.
