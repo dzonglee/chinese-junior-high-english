@@ -4,12 +4,12 @@
 
 The owner requires every lesson to be upgraded one by one, with purposeful generated pictures.
 APP-VISUAL-LESSONS remains claimed by codex-solo on author/individual-lessons. The previous
-shared workshops are a baseline. **9/413** are individually reviewed: l-g-be, l-g-present,
-l-g-continuous, l-g-past, l-g-future, l-g-perfect, l-g-articles, l-g-comparison and l-g-pronouns. See docs/authoring/lesson-upgrades.md for exact evidence.
+shared workshops are a baseline. **10/413** are individually reviewed: l-g-be, l-g-present,
+l-g-continuous, l-g-past, l-g-future, l-g-perfect, l-g-articles, l-g-comparison, l-g-pronouns and l-g-nouns. See docs/authoring/lesson-upgrades.md for exact evidence.
 
 The lessons use real speaker/referent selection, coded habit records, observable action/predicate
 choices, live word edits and dated-event selection. Wrong answers remain visible and must be
-repaired. All nine whole browser flows and 210 task-width combinations pass, with reload and no
+repaired. All ten whole browser flows and 240 task-width combinations pass, with reload and no
 independent assessment records. All 1,454 core tests, typecheck, native development/cloud adapter
 simulations and static package checks pass. No new native GUI validation is claimed.
 Future plans also contrasts finished events, promises, questions, going-to plans and current
@@ -18,7 +18,9 @@ key-loss/result panels, changing residence time bands and distinct since/for mod
 Articles adds required object/first-sound evidence, adjective intervention, same-object reference
 and general plural nouns. Comparison adds required comparison-group selection, same-scale measured bars, equality
 and real typed word building. Pronouns adds exact referents, changed ownership, typed her/hers and group/reflexive contrasts.
-Next: l-g-nouns, quantities versus content and typed noun forms.
+Nouns adds ten fully typed tasks, exact counts, one/three contrast, specific plural spellings
+and countable units versus uncountable content. Next: l-g-prepositions, complete time phrases
+and actual spatial relations.
 Work stays solo. Fresh MCP status succeeds, but read_file(wechat/AGENTS.md) still reports MacStudioExternal
 file access unavailable. No GUI job was submitted. Native access and approved audio remain separate;
 nothing is released.

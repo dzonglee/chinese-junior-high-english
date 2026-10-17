@@ -714,3 +714,15 @@ Fresh direct MCP check: wechat_status succeeds, read_file wechat/AGENTS.md repor
 file access unavailable. No native GUI job, compilation, restart, upload or publication occurred.
 Reaffirm the existing blocked native card; continue local work without claiming native execution.
 The overall lesson claim remains unfinished. Work stays solo.
+
+
+## 2026-10-18 (Sydney) · codex-solo · noun lesson individually reviewed
+
+l-g-nouns is reviewed: 10/413. Ten tasks require typed words and distinguish exact object
+counts, singular/plural, irregular forms, photo/tomato spellings and content versus countable
+units. Diagrams show precisely3/1 sandwiches,2 bottles,3 children,2 leaves and3 bread slices;
+visible slices do not make bread countable. Every figure and common typed error was inspected,
+with distinct application and fresh advice transfer. Full flow and30 widths pass, with reload
+and zero assessment records. Build/typecheck/826 teaching-spelling audit pass; last core1,454
+precedes pronoun/noun data. Next prepositions, then a coherent broad verification/package refresh.
+The overall unit remains claimed and unfinished; solo work and native/audio boundaries persist.

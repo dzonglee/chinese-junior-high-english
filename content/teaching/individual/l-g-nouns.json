@@ -1,0 +1,491 @@
+{
+  "lessonId": "l-g-nouns",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Produce noun forms from exact counts, distinguish uncountable content from countable units, and contrast word-specific plural spelling.",
+  "picturePurpose": "Responsive coded objects guarantee exact quantities; typed word forms change the diagram while illustrated pieces do not falsely make bread countable.",
+  "workshop": {
+    "navigationLabel": "任务",
+    "kind": "transform",
+    "title": "数什么？把名词写准确",
+    "instruction": "看实物数量、计量单位和词义，自己写出需要的形式。",
+    "conditions": [
+      {
+        "label": "三份 sandwich",
+        "before": "We need three ",
+        "target": "sandwiches",
+        "after": " for the picnic.",
+        "choices": [
+          "sandwich",
+          "sandwiches",
+          "sandwichs"
+        ],
+        "reason": "three 后用可数名词复数。sandwich 以 ch 结尾，加 es，写成 sandwiches。",
+        "input": true,
+        "inputHint": "把 sandwich 改成正确形式，只写一个单词。",
+        "world": {
+          "kind": "count",
+          "caption": "每个图形代表一份三明治。把 sandwich 改成数量 three 需要的形式。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "3 份三明治",
+              "role": "attempt-result",
+              "value": 3,
+              "art": "sandwich"
+            }
+          ]
+        }
+      },
+      {
+        "label": "只要一份，数量变了",
+        "before": "We only need one ",
+        "target": "sandwich",
+        "after": " now.",
+        "choices": [
+          "sandwichs",
+          "sandwich",
+          "sandwiches"
+        ],
+        "reason": "one 后用可数名词单数 sandwich。数量从 three 改成 one，不能继续保留复数 sandwiches。",
+        "input": true,
+        "inputHint": "把 sandwich 改成正确形式，只写一个单词。",
+        "world": {
+          "kind": "count",
+          "caption": "同样的食物，这次只要一份。观察数量怎样改变名词形式。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "1 份三明治",
+              "role": "attempt-result",
+              "value": 1,
+              "art": "sandwich"
+            }
+          ]
+        }
+      },
+      {
+        "label": "some 不代表都要加 s",
+        "before": "Could you give me some ",
+        "target": "advice",
+        "after": " about the project?",
+        "choices": [
+          "an advice",
+          "advice",
+          "advices"
+        ],
+        "reason": "advice 表示建议时不可数。some advice 不加 s，也不能写 an advice。",
+        "input": true,
+        "inputHint": "使用 advice，不增加其他词。",
+        "world": {
+          "kind": "syntax",
+          "caption": "根据上下文给出一些建议。不能只看到 some 就机械加 s。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你写的名词",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "这里的 advice 按哪种名词处理？",
+            "missingPrompt": "先判断 advice 在这里是否可数，再写词形。",
+            "answer": "uncountable",
+            "options": [
+              {
+                "id": "uncountable",
+                "label": "不可数名词",
+                "text": "表示建议，不直接加 s",
+                "reason": "advice 表示建议时不可数。",
+                "value": 50
+              },
+              {
+                "id": "countable",
+                "label": "按可数名词处理",
+                "text": "尝试加 s 或在前面放 an",
+                "reason": "advice 在这里不可数，不能直接写 advices 或 an advice。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "数的是容器",
+        "before": "There are two ",
+        "target": "bottles",
+        "after": " of milk on the table.",
+        "choices": [
+          "milks",
+          "bottles",
+          "bottle"
+        ],
+        "reason": "two 数的是 bottle，所以量词用复数 bottles。milk 表示液体，不因此变成 milks。",
+        "input": true,
+        "inputHint": "把 bottle 改成正确形式，只写一个单词。",
+        "world": {
+          "kind": "count",
+          "caption": "每个图形是一瓶牛奶。two 对应的是瓶子数量，不是给 milk 加 s。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "2 瓶牛奶",
+              "role": "attempt-result",
+              "value": 2,
+              "art": "bottle"
+            }
+          ]
+        }
+      },
+      {
+        "label": "child 的复数",
+        "before": "A few ",
+        "target": "children",
+        "after": " are waiting outside.",
+        "choices": [
+          "child",
+          "children",
+          "childs"
+        ],
+        "reason": "a few 后接可数名词复数。child 的复数是不规则形式 children，不是 childs。",
+        "input": true,
+        "inputHint": "使用 child 的复数，只写一个单词。",
+        "world": {
+          "kind": "count",
+          "caption": "图中有三位孩子。使用 child 的复数补全句子。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "3 位孩子",
+              "role": "attempt-result",
+              "value": 3,
+              "art": "child"
+            }
+          ]
+        }
+      },
+      {
+        "label": "leaf 的词尾",
+        "before": "There are two ",
+        "target": "leaves",
+        "after": " on the desk.",
+        "choices": [
+          "leaf",
+          "leaves",
+          "leafs"
+        ],
+        "reason": "leaf 的复数把 f 改成 ves，写成 leaves。注意不是所有 f 结尾的词都按这个规则变化。",
+        "input": true,
+        "inputHint": "使用 leaf 的复数，只写一个单词。",
+        "world": {
+          "kind": "count",
+          "caption": "图中有两片叶子。把 leaf 改成正确形式。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "2 片叶子",
+              "role": "attempt-result",
+              "value": 2,
+              "art": "leaf"
+            }
+          ]
+        }
+      },
+      {
+        "label": "photo 加 s",
+        "before": "Mia took two ",
+        "target": "photos",
+        "after": " of the garden.",
+        "choices": [
+          "photo",
+          "photos",
+          "photoes"
+        ],
+        "reason": "photo 的复数直接加 s，写成 photos。不能仅凭以 o 结尾就加 es。",
+        "input": true,
+        "inputHint": "使用 photo 的复数，只写一个单词。",
+        "world": {
+          "kind": "morphology",
+          "caption": "这次使用 photo。先判断这个词的复数，再把结果自己写出来。",
+          "cells": [
+            {
+              "label": "photo",
+              "detail": "名词原形"
+            },
+            {
+              "label": "s",
+              "detail": "加在词尾"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你写的复数",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "tomato 却加 es",
+        "before": "We need two ",
+        "target": "tomatoes",
+        "after": " for the soup.",
+        "choices": [
+          "tomato",
+          "tomatoes",
+          "tomatos"
+        ],
+        "reason": "tomato 的复数加 es，写成 tomatoes。photo → photos，tomato → tomatoes，要按具体词记忆。",
+        "input": true,
+        "inputHint": "使用 tomato 的复数，只写一个单词。",
+        "world": {
+          "kind": "morphology",
+          "caption": "换成 tomato。不要把 photo 的复数规则直接套过来。",
+          "cells": [
+            {
+              "label": "tomato",
+              "detail": "名词原形"
+            },
+            {
+              "label": "es",
+              "detail": "加在词尾"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你写的复数",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "三片不等于 breads",
+        "before": "There is some ",
+        "target": "bread",
+        "after": " on the plate.",
+        "choices": [
+          "a bread",
+          "bread",
+          "breads"
+        ],
+        "reason": "这里的 bread 表示面包，是不可数名词。三片要说 three slices of bread，bread 本身仍不加 s。",
+        "input": true,
+        "inputHint": "使用 bread，不增加其他词。",
+        "world": {
+          "kind": "count",
+          "caption": "图形表示三片面包。区分“有多少片”和“面包这个名词是否可数”。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "3 片面包，bread 不直接计数",
+              "role": "attempt-result",
+              "value": 3,
+              "art": "bread"
+            }
+          ],
+          "records": {
+            "title": "图中有三片，bread 本身怎样处理？",
+            "missingPrompt": "先分清食物本身与切成的片数，再写词形。",
+            "answer": "food",
+            "options": [
+              {
+                "id": "food",
+                "label": "区分面包与片数",
+                "text": "bread 不可数，片数另说",
+                "reason": "三片是 three slices；食物本身仍用 bread。",
+                "value": 50
+              },
+              {
+                "id": "plural",
+                "label": "直接数 bread",
+                "text": "因为有三片，就给 bread 加 s",
+                "reason": "能数出三片，不表示 bread 在这里变成可数名词；不能写 breads。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "抽象建议也能说三条",
+        "before": "The teacher gave us three ",
+        "target": "pieces",
+        "after": " of advice.",
+        "choices": [
+          "advices",
+          "pieces",
+          "piece"
+        ],
+        "reason": "three 对应的是可数单位 piece，写 pieces。后面的 advice 仍不加 s。",
+        "input": true,
+        "inputHint": "使用 piece 的复数，只写一个单词。",
+        "world": {
+          "kind": "syntax",
+          "caption": "三条建议：带水、戴帽子、准时到。英文数量要落在 piece 上。",
+          "cells": [
+            {
+              "label": "three",
+              "detail": "数量 3"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你写的计量单位",
+              "role": "attempt-result"
+            },
+            {
+              "label": "of advice",
+              "detail": "建议本身不可数"
+            }
+          ],
+          "records": {
+            "title": "three 数的是哪一个单位？",
+            "missingPrompt": "先选择数量词对应的单位，再写它的复数。",
+            "answer": "piece",
+            "options": [
+              {
+                "id": "piece",
+                "label": "piece 这个单位",
+                "text": "三条建议，用 three pieces",
+                "reason": "可数的是 piece，后面的 advice 仍不可数。",
+                "value": 50
+              },
+              {
+                "id": "advice",
+                "label": "直接数 advice",
+                "text": "尝试给 advice 加 s",
+                "reason": "advice 不可数；three 要数 piece，不能写 three advices。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "choices": [
+      "sandwichs",
+      "sandwiches",
+      "sandwich",
+      "advices",
+      "advice",
+      "an advice",
+      "milks",
+      "bottles",
+      "bottle",
+      "childs",
+      "children",
+      "child",
+      "leafs",
+      "leaves",
+      "leaf",
+      "photoes",
+      "photos",
+      "photo",
+      "tomatos",
+      "tomatoes",
+      "tomato",
+      "breads",
+      "bread",
+      "a bread",
+      "piece",
+      "pieces"
+    ],
+    "items": [
+      {
+        "id": "noun-quantity-units",
+        "label": "名词与单位",
+        "prompt": "数的是事物、容器，还是内容的单位？",
+        "answer": "",
+        "reason": "",
+        "hint": "不要把中文能数的感觉直接套给英语名词。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-nouns-002",
+      "q-g-nouns-003"
+    ],
+    "transfer": {
+      "id": "individual-g-nouns-transfer",
+      "topicId": "g-nouns",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "夏令营老师提出三条建议：带水、戴帽子、准时到。两空依次填什么？\nThe teacher gave us three ___ of useful ___.",
+      "options": [
+        {
+          "id": "a",
+          "text": "pieces; advice"
+        },
+        {
+          "id": "b",
+          "text": "piece; advice"
+        },
+        {
+          "id": "c",
+          "text": "pieces; advices"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "pieces; advice"
+      },
+      "marks": 2,
+      "estimatedSeconds": 60,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别判断被数量词修饰的单位和后面表示内容的名词。",
+        "steps": [
+          {
+            "text": "three 直接数的是 piece 这个单位。",
+            "reason": "piece 是可数名词，数量为三，写复数 pieces。"
+          },
+          {
+            "text": "advice 表示建议，是不可数名词。",
+            "reason": "前面的 three pieces 不会让 advice 加 s，所以仍写 advice。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "three 后的单位需要复数 pieces，不能用 piece。"
+          },
+          {
+            "option": "c",
+            "reason": "advice 在这里不可数，不应写 advices。"
+          }
+        ],
+        "pitfall": "能说三条建议，不表示 advice 本身可数；英语用可数单位表达数量。",
+        "visual": {
+          "kind": "sentence",
+          "title": "数量、单位、内容分开",
+          "segments": [
+            {
+              "text": "three",
+              "role": "neutral",
+              "note": "数量"
+            },
+            {
+              "text": "pieces",
+              "role": "evidence",
+              "note": "可数单位，复数"
+            },
+            {
+              "text": "of useful advice",
+              "role": "object",
+              "note": "内容名词仍不可数"
+            }
+          ],
+          "caption": "复数标记加在单位上，不加在 advice 上。"
+        },
+        "transfer": "把 three pieces 改成 one piece，advice 需要改变吗？为什么？"
+      }
+    }
+  }
+}
