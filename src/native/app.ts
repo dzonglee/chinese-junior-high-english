@@ -49,6 +49,7 @@ const platform: Platform = {
   },
   back() { if (getCurrentPages().length > 1) wx.navigateBack(); else platform.navigate('home') },
   toast: (title) => wx.showToast({ title, icon: 'none', duration: 3000 }),
+  dismissToast: () => { wx.hideToast() },
   confirm: (title, content) => new Promise((resolve) => wx.showModal({ title, content, confirmText: '确定', cancelText: '再想想', success: (r) => resolve(r.confirm), fail: () => resolve(false) })),
   async exportText(text) {
     const filePath = `${wx.env.USER_DATA_PATH}/english-backup-${Date.now()}.json`

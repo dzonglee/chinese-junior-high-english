@@ -139,7 +139,7 @@ export interface MediaAsset {
   sha256: string
   approvedByOwner: boolean
 }
-export type QuestionMetadata = Pick<Question, 'id' | 'topicId' | 'skill' | 'kind' | 'difficulty' | 'grades' | 'marks' | 'estimatedSeconds' | 'mediaId' | 'review'>
+export type QuestionMetadata = Pick<Question, 'id' | 'topicId' | 'skill' | 'kind' | 'difficulty' | 'grades' | 'marks' | 'estimatedSeconds' | 'mediaId' | 'review'> & { prompt?: string }
 export interface ContentCatalog {
   version: number
   course?: OriginalCourse

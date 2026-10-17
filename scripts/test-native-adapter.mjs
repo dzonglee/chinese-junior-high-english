@@ -20,7 +20,7 @@ const wx = {
   getStorageSync: key => data.get(key) || '', setStorageSync: (key, value) => data.set(key, value), removeStorageSync: key => data.delete(key),
   onNeedPrivacyAuthorization: callback => { privacyListener = callback },
   reLaunch: options => navigations.push(options.url), redirectTo: options => navigations.push(options.url), navigateTo: options => navigations.push(options.url),
-  showToast: options => errors.push(options.title), showModal: options => options.success({ confirm: true }),
+  showToast: options => errors.push(options.title), hideToast() {}, showModal: options => options.success({ confirm: true }),
 }
 const context = vm.createContext({ wx, console, getCurrentPages: () => topPage ? [topPage] : [], TextEncoder: undefined, TextDecoder: undefined })
 function load(file) {

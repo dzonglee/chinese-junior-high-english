@@ -19,6 +19,8 @@ export interface QuestionView {
   answerLocked: boolean; audioAvailable: boolean; recordingAvailable: boolean; recording: boolean; recordingSaved: boolean; words: number
 }
 export interface Screen {
+  overview?: import('./presentation').Overview
+  setup?: { step: number; labels: string[] }
   id: string; title: string; subtitle?: string; eyebrow?: string; back: boolean; busy: boolean; notice?: string; error?: string
   hero?: { title: string; text: string; eyebrow: string; art: string; tone: string; actions: Action[] }
   metrics: { label: string; value: string }[]

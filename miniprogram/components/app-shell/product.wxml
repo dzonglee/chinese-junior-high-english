@@ -1,0 +1,58 @@
+<template name="product-heading">
+ <view class="product-head"><text wx:if="{{kicker}}" class="eyebrow">{{kicker}}</text><text class="product-title">{{title}}</text><button wx:if="{{!hideContext}}" class="context-link" data-action="navigate" data-value="settings" bindtap="action">{{u.context}} · {{u.book}}<text>›</text></button></view>
+</template>
+<template name="product-field">
+ <view class="field"><text class="field-label">{{f.label}}</text><picker wx:if="{{f.kind === 'select'}}" range="{{f.options}}" range-key="label" value="{{f.selectedIndex}}" data-name="{{f.name}}" bindchange="select"><view class="input picker">{{f.options[f.selectedIndex].label}}<text>⌄</text></view></picker><input wx:else class="input" value="{{f.value}}" placeholder="{{f.placeholder}}" data-name="{{f.name}}" bindinput="input" maxlength="100"/></view>
+</template>
+<template name="product-skills">
+ <view class="skill-grid {{small ? 'compact' : ''}}"><button wx:for="{{u.skills}}" wx:key="id" class="skill-entry tone-{{item.tone}}" data-action="{{item.action.id}}" data-value="{{item.action.value}}" bindtap="action"><text wx:if="{{small}}" class="skill-symbol">{{item.character}}</text><view wx:else class="skill-art"><image wx:if="{{item.art}}" src="/assets/{{item.art}}.{{item.artExt}}" mode="aspectFit"/><view wx:elif="{{item.id === 'speaking'}}" class="speech-object">Hi<view/></view><view wx:else class="headphones-object"><view/><view/></view></view><text class="skill-title">{{item.title}}</text><text class="skill-desc">{{item.text}}</text><view wx:if="{{!small}}" class="skill-foot"><text>{{item.count}} 节能力课</text><text>↗</text></view></button></view>
+</template>
+<template name="product">
+ <view wx:if="{{s.error}}" class="notice error" role="alert">{{s.error}}</view><view wx:if="{{u.alert}}" class="notice">{{u.alert}}</view>
+ <block wx:if="{{s.id === 'home'}}">
+  <template is="product-heading" data="{{u:u,title:u.greeting,kicker:u.day+' · 每天一点，学会表达'}}"/>
+  <view wx:if="{{u.next}}" class="continue-card">
+   <view class="continue-cover"><text class="eyebrow">接着学 · {{u.next.label}}</text><view class="cover-letter">Aa<text>把英语用起来</text></view><image src="/assets/welcome.png" mode="aspectFit"/></view>
+   <view class="continue-body"><text class="section-title">{{u.next.title}}</text><text class="continue-state">{{u.next.state}}</text><view class="track"><view class="fill" style="width:{{u.next.progress}}%"/></view><button class="button primary" data-action="{{u.next.action.id}}" data-value="{{u.next.action.value}}" bindtap="action" disabled="{{busy}}">{{u.next.action.label}}</button></view>
+  </view>
+  <view class="today-card"><view class="today-heading"><view class="goal-ring"><text>{{u.done}}<text class="goal-total">/{{u.total}}</text></text></view><view><text class="section-title">今日安排</text><text class="muted">每天留出 {{u.goal}} 分钟{{u.streak ? ' · 连续'+u.streak+'天' : ''}}</text></view></view>
+   <view class="week activity-week"><view wx:for="{{s.week}}" wx:key="label" class="day {{item.active ? 'active' : ''}}"><text class="activity-dot">{{item.active ? '✓' : ''}}</text><text>{{item.label}}</text></view></view>
+   <button wx:for="{{u.tasks}}" wx:key="id" class="task-row" data-action="{{item.action.id}}" data-value="{{item.action.value}}" bindtap="action" disabled="{{busy}}"><text class="task-symbol {{item.done ? 'is-done' : ''}}">{{item.done ? '✓' : item.character}}</text><view class="row-copy"><text class="row-title">{{item.title}}</text><text class="row-description">{{item.text}}</text></view><view class="task-time"><text>{{item.minutes}}</text><text>分钟</text></view></button>
+  </view>
+  <view class="section-heading"><text>换一种方式学</text><button class="text-link" data-action="navigate" data-value="learn" bindtap="action">全部课程 ›</button></view>
+  <template is="product-skills" data="{{u:u,small:true}}"/>
+  <button class="lab-entry" data-action="navigate" data-value="explore" bindtap="action"><text class="task-symbol">探</text><view class="row-copy"><text class="row-title">互动实验室</text><text class="row-description">改条件、搬物品，发现英语的规律</text></view><text class="chevron">›</text></button>
+ </block>
+ <block wx:elif="{{s.id === 'learn'}}">
+  <template is="product-heading" data="{{u:u,title:u.book,kicker:'原创能力课程'}}"/>
+  <view class="book-meta"><text>{{u.edition}}</text><button class="text-link" data-action="navigate" data-value="sources" bindtap="action">教材对应待核 ›</button></view>
+  <button wx:if="{{u.next}}" class="next-banner" data-action="{{u.next.action.id}}" data-value="{{u.next.action.value}}" bindtap="action"><text class="task-symbol">学</text><view class="row-copy"><text class="small">接着学</text><text class="row-title">{{u.next.title}}</text></view><text class="next-arrow">→</text></button>
+  <view class="course-toolbar"><view class="course-search"><text>⌕</text><input value="{{u.search.value}}" placeholder="找一节课、一个知识点" data-name="courseQuery" bindinput="input" maxlength="100"/></view><button class="filter-toggle {{u.filtersOpen ? 'selected' : ''}}" data-action="course-filters" bindtap="action">筛选 {{u.filtersOpen ? '−' : '+'}}</button></view>
+  <scroll-view scroll-x class="skill-scroll" show-scrollbar="{{false}}"><view class="skill-scroll-row"><button class="skill-filter {{u.currentSkill === 'all' ? 'selected' : ''}}" data-action="course-skill" data-value="all" bindtap="action">全部</button><button wx:for="{{u.skills}}" wx:key="id" class="skill-filter {{u.currentSkill === item.id ? 'selected' : ''}}" data-action="course-skill" data-value="{{item.id}}" bindtap="action">{{item.title}}</button></view></scroll-view>
+  <view wx:if="{{u.filtersOpen}}" class="panel filter-panel"><block wx:for="{{u.filters}}" wx:key="name"><template is="product-field" data="{{f:item}}"/></block></view>
+  <view class="course-count metrics"><text>{{u.result}}</text><text>{{s.metrics[0].value}} 节原创课</text></view>
+  <view wx:for="{{u.groups}}" wx:key="id" wx:for-item="group" class="chapter"><view class="chapter-heading"><text class="chapter-mark">{{group.rows[0].character}}</text><text class="chapter-title">{{group.title}}</text><text>{{group.rows.length}} 节</text></view><view class="cards"><view wx:for="{{group.rows}}" wx:key="id" wx:for-item="r" class="card course-row tone-{{r.tone}}"><button class="course-row-main" data-action="{{r.primary.id}}" data-value="{{r.primary.value}}" bindtap="action" disabled="{{r.primary.disabled || busy}}"><text class="lesson-number">{{r.position}}</text><view class="row-copy"><text class="row-title">{{r.title}}</text><text class="row-description">{{r.stateLabel}}{{r.tag === '音频准备中' ? ' · 音频待配' : ''}}</text></view><text class="chevron">›</text></button><button wx:if="{{r.secondary}}" class="practise-link" data-action="{{r.secondary.id}}" data-value="{{r.secondary.value}}" bindtap="action" disabled="{{r.secondary.disabled || busy}}">练</button></view></view></view>
+  <view wx:if="{{!u.groups.length}}" class="empty-panel"><text class="section-title">换个条件，再找找</text><text>试试其他能力、主题，或清空搜索。</text></view>
+  <view class="pagination"><button wx:for="{{s.actions}}" wx:key="id" class="button quiet" data-action="{{item.id}}" data-value="{{item.value}}" bindtap="action" disabled="{{item.disabled || busy}}">{{item.label}}</button></view><text class="product-footnote">原创能力课程，年级学期表示学习顺序。教材单元对应仍待核实。</text>
+ </block>
+ <block wx:elif="{{s.id === 'practice'}}">
+  <template is="product-heading" data="{{u:u,title:'想练哪一项？',kicker:'带着目标，练一小组'}}"/>
+  <view class="timed-card"><text class="pill">自主限时练</text><image src="/assets/exam_light.webp" mode="aspectFit"/><text class="section-title">给自己一场小测验</text><text>自己选题量和时间，交卷后再看解析。</text><view class="timed-facts"><view><text>15</text><text>默认分钟</text></view><view><text>8</text><text>默认题量</text></view><text>按你的年级选题
+不冒充本地中考卷</text></view><button class="button white-button" data-action="navigate" data-value="exam" bindtap="action">设置一组限时练</button></view>
+  <view class="section-heading"><text>按能力练习</text></view><template is="product-skills" data="{{u:u,small:false}}"/>
+  <button class="lab-entry" data-action="navigate" data-value="builder" bindtap="action"><text class="task-symbol">组</text><view class="row-copy"><text class="row-title">自由组题</text><text class="row-description">知识点、题型、难度和题量，由你选</text></view><text class="chevron">›</text></button>
+ </block>
+ <block wx:elif="{{s.id === 'mistakes'}}">
+  <template is="product-heading" data="{{u:u,title:'错题本',kicker:'重做一次，多弄懂一点'}}"/>
+  <view class="mistake-summary"><view><text class="pill">{{s.cards.length ? '回到当时没想通的地方' : '先发现，再补好'}}</text><text class="section-title">{{s.cards.length ? s.cards.length+'道题，值得再想一次' : '暂时没有待整理的错题'}}</text><text>{{s.cards.length ? '先独立重做，再看线索和理由。' : '做过练习后，错题会自动留在这里。'}}</text></view><image src="/assets/mistakes_light.webp" mode="aspectFit"/><button wx:for="{{s.hero.actions}}" wx:key="id" class="button white-button" data-action="{{item.id}}" data-value="{{item.value}}" bindtap="action">{{item.label}}</button></view>
+  <view wx:if="{{s.cards.length}}" class="review-list"><view wx:for="{{s.cards}}" wx:key="id" class="review-row"><text class="review-tag">{{item.tag}}</text><text class="section-title">{{item.title}}</text><text>{{item.text}}</text><view class="actions"><button wx:for="{{item.actions}}" wx:key="id" class="button secondary" data-action="{{item.id}}" data-value="{{item.value}}" bindtap="action">{{item.label}}</button></view></view></view>
+  <view wx:else class="review-guide"><text class="section-title">错题这样练，才有用</text><view class="guide-row"><text>01</text><view><text class="row-title">先独立想</text><text>先不翻答案，找出上次卡住的地方。</text></view></view><view class="guide-row"><text>02</text><view><text class="row-title">说清楚依据</text><text>是哪个词、哪句话，支持你的选择？</text></view></view><view class="guide-row"><text>03</text><view><text class="row-title">隔几天再试</text><text>到期后换一道题，看看能不能独立做对。</text></view></view></view>
+ </block>
+ <block wx:elif="{{s.id === 'profile'}}">
+  <template is="product-heading" data="{{u:u,title:'我的',hideContext:true}}"/>
+  <button class="identity-card" data-action="navigate" data-value="settings" bindtap="action"><text class="avatar">我</text><view class="row-copy"><text class="row-title">同学</text><text class="row-description">{{u.context}} · {{u.book}}</text><text class="row-description">{{u.edition}}</text></view><text class="text-link">修改 ›</text></button>
+  <view class="profile-stats"><view><text>{{u.independent}}</text><text>独立作答</text></view><view><text>{{u.streak}}</text><text>连续天数</text></view><view><text>{{s.metrics[2].value}}</text><text>延时复习通过</text></view></view>
+  <view class="profile-links"><button wx:for="{{s.cards}}" wx:key="id" class="profile-link" data-action="{{item.actions[0].id}}" data-value="{{item.actions[0].value}}" bindtap="action"><text class="list-symbol">{{item.title[0]}}</text><view class="row-copy"><text class="row-title">{{item.title}}</text><text class="row-description">{{item.text}}</text></view><text class="chevron">›</text></button></view><text class="product-footnote">学习记录保存在本机 · 原创内容开发版
+独立作答、提示后练习与自评，分开统计。</text>
+ </block>
+</template>

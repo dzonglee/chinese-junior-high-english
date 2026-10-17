@@ -26,3 +26,23 @@ it.each(['before','after'] as const)('retains the native controlled %s draft thr
  }
  expect(store.get().attempts).toEqual([])
 })
+
+it('preserves the native practice form on foreground, but opens a different returning route',()=>{
+ let component:any
+ let visibleRoute='pages/builder/index'
+ vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{getCurrentPages:()=>[{route:visibleRoute}],Component:(value:any)=>{component=value}})
+ let opens=0,ticks=0,starts=0,model:any
+ const application={page:'builder',params:{skill:'grammar'},form:{count:'2',kind:'choice',builderMore:'true'},open(page:string,params:Record<string,string>){opens++;this.page=page;this.params=params;this.form={count:'8',kind:'all',builderMore:'false'}},render(){return {page:this.page,fields:{...this.form}}},tick(){ticks++;return Promise.resolve()}}
+ const context={application,data:{page:'builder',params:{skill:'grammar'}},setData(value:any){model=value.screen},startTicker(){starts++},showScreen(){component.methods.showScreen.call(this)}}
+ component.pageLifetimes.show.call(context)
+ expect(opens).toBe(0);expect(model.fields).toEqual({count:'2',kind:'choice',builderMore:'true'});expect(ticks).toBe(1);expect(starts).toBe(1)
+ application.page='session'
+ component.pageLifetimes.show.call(context)
+ expect(opens).toBe(1);expect(application.page).toBe('builder')
+ context.data.params={skill:'reading'}
+ component.pageLifetimes.show.call(context)
+ expect(opens).toBe(2);expect(application.params.skill).toBe('reading')
+ visibleRoute='pages/session/index';application.page='session'
+ component.pageLifetimes.show.call(context)
+ expect(opens).toBe(2);expect(application.page).toBe('session')
+})

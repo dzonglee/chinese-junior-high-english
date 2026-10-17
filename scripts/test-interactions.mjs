@@ -1,3 +1,4 @@
+import { fillInitialProfile, openCourseFilters } from './lib/browser-profile.mjs'
 import { chromium, expect } from '@playwright/test'
 import { createServer } from 'node:http'
 import { readFileSync,mkdirSync,writeFileSync,existsSync } from 'node:fs'
@@ -19,11 +20,11 @@ try{
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),headless:true,args:['--no-sandbox']})
  const context=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message))
  const action=async(id,value)=>{const target=page.locator(`[data-action="${id}"]${value?`[data-value="${value}"]`:''}`).first();await expect(target).toBeEnabled();await target.click()}
- await page.goto(url);for(const [name,value]of Object.entries({cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'}))await page.selectOption(`[name="${name}"]`,value)
- await action('save-profile');await action('navigate','learn')
+ await page.goto(url);await fillInitialProfile(page,{cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'})
+ await action('save-profile');await action('navigate','explore')
  const linkedLesson=catalog.lessons.find(l=>l.topicId==='g-be')
- const linked=page.locator(`[data-card="${linkedLesson.id}"] [data-action="open-experiment"]`);await expect(linked).toHaveAttribute('data-value','e-be');await linked.click();await expect(page.locator('.exploration')).toHaveAttribute('data-experiment','e-be')
- checks.push('Relevant course cards open their own language experiment')
+ const linked=page.locator(`[data-action="open-experiment"][data-value="e-be"]`);await expect(linked).toHaveAttribute('data-value','e-be');await linked.click();await expect(page.locator('.exploration')).toHaveAttribute('data-experiment','e-be')
+ checks.push('The laboratory entry opens the original language experiment')
  await action('back');await action('navigate','explore');await expect(page.locator('[data-action=open-experiment]')).toHaveCount(all.length)
  await context.setOffline(true)
  for(const e of all){
@@ -47,7 +48,7 @@ try{
  const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('cjhe.state.v1')))
  expect(Object.values(state.explorations).every(p=>p.phase===4)).toBe(true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({})
  checks.push('Exploration completion is persisted without independent attempts, lesson passes or mastery credit')
- await page.evaluate(()=>{history.pushState(null,'','#learn');dispatchEvent(new PopStateEvent('popstate'))});await page.selectOption('[name=courseTheme]','t01');await page.selectOption('[name=courseSkill]','reading');await action('start-lesson','l-r-course-t01')
+ await page.evaluate(()=>{history.pushState(null,'','#learn');dispatchEvent(new PopStateEvent('popstate'))});await openCourseFilters(page);await page.selectOption('[name=courseTheme]','t01');await openCourseFilters(page);await page.selectOption('[name=courseSkill]','reading');await action('start-lesson','l-r-course-t01')
  const lesson=catalog.lessons.find(l=>l.id==='l-r-course-t01'),q=catalog.questions.find(q=>q.id===lesson.questionIds[0])
  await expect(page.locator('.evidence-locator')).toHaveCount(0);await action('choose',q.answer.option);await action('check');await expect(page.locator('.step')).toHaveCount(1)
  await action('explain-more');await expect(page.locator('.step')).toHaveCount(q.explanation.steps.length)

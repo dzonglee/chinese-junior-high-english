@@ -1,3 +1,4 @@
+import { fillInitialProfile, openCourseFilters } from './lib/browser-profile.mjs'
 import { build } from 'esbuild'
 import { chromium,expect } from '@playwright/test'
 import { spawn } from 'node:child_process'
@@ -14,7 +15,7 @@ try{
  for(let i=0;;i++){try{if((await fetch(url)).ok)break}catch{}if(i>60)throw new Error('Server unavailable');await new Promise(r=>setTimeout(r,100))}
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),headless:true,args:['--no-sandbox']})
  const page=await browser.newPage({viewport:{width:390,height:844}});page.on('pageerror',e=>errors.push(e.message));await page.goto(url)
- for(const [name,value]of Object.entries({cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'}))await page.selectOption(`[name=${name}]`,value)
+ await fillInitialProfile(page,{cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'})
  const act=async(id,value)=>{const b=page.locator(`[data-action="${id}"]${value===undefined?'':`[data-value="${value}"]`}`).first();await expect(b).toBeEnabled();await b.click()}
  await act('save-profile');await act('open-lesson-studio','l-g-be');await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','0')
  const model=createLessonTeaching(source,source.lessons.find(l=>l.id==='l-g-be'))

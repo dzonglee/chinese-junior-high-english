@@ -13,12 +13,14 @@ import { ContentRepository } from '../services/content'
 import { StateStore, checkedProfile } from '../services/storage'
 import type { Field, Screen } from './view'
 import { ROOT_SCREENS, SCREEN_TITLES } from './view'
+import { presentScreen } from './presentation'
 
 export interface Platform {
   now(): number
   navigate(page: string, params?: Record<string, string>, replace?: boolean): void
   back(): void
   toast(message: string): void
+  dismissToast?(): void
   confirm(title: string, message: string): Promise<boolean>
   exportText(text: string): Promise<void>
   importText(): Promise<string | null>
@@ -74,8 +76,8 @@ export class Application {
     }
     if (this.page === 'editor') this.editorFields(params.id)
     if (this.page === 'vocabulary') { this.wordQueue = this.catalog.vocabulary.filter((w) => w.grade <= (this.state.profile?.grade ?? 7)).sort((a, b) => (this.state.words[a.id]?.dueAt ?? 0) - (this.state.words[b.id]?.dueAt ?? 0)).map((w) => w.id); this.wordIndex = 0; this.wordRevealed = false; this.wordCorrect = null; this.wordFeedback = '' }
-    if (this.page === 'learn') this.form = { courseGrade: 'all', courseTerm: 'all', courseSkill: 'all', courseTheme: 'all', courseStatus: 'all', courseQuery: '', coursePage: '0', courseMore: 'false' }
-    if (['builder', 'exam'].includes(this.page)) this.form = { count: '8', minutes: '15', skill: params.skill ?? 'all', kind: 'all', difficulty: 'all', unitId: 'all', topicId: 'all' }
+    if (this.page === 'learn') this.form = { courseGrade: 'all', courseTerm: 'all', courseSkill: params.skill ?? 'all', courseTheme: 'all', courseStatus: 'all', courseQuery: '', coursePage: '0', courseMore: 'false' }
+    if (['builder', 'exam'].includes(this.page)) this.form = { count: '8', minutes: '15', skill: params.skill ?? 'all', kind: 'all', difficulty: 'all', unitId: 'all', topicId: 'all', builderMore: 'false' }
     this.emit()
   }
   setField(name: string, value: string) {
@@ -119,6 +121,7 @@ export class Application {
   async action(id: string, value = ''): Promise<void> {
     if (this.busy) return
     this.error = ''
+    this.platform.dismissToast?.()
     this.busy = true; this.emit()
     try {
       if (this.recordingStop) {
@@ -137,8 +140,17 @@ export class Application {
     if (['navigate', 'back', 'jump', 'next', 'submit', 'word-next', 'delete-recording', 'delete-data', 'import'].includes(id) || id.startsWith('start-')) this.platform.stopAudio()
     if (id === 'navigate') { this.flush(); const [page, skill] = value.split(':'); this.go(page, skill ? { skill } : undefined); return }
     if (id === 'course-filters') { this.form.courseMore = this.form.courseMore === 'true' ? 'false' : 'true'; return }
+    if (id === 'course-skill') { this.setField('courseSkill', value); return }
+    if (id === 'builder-options') { this.form.builderMore=this.form.builderMore==='true'?'false':'true'; return }
     if (id === 'course-next' || id === 'course-previous') { this.form.coursePage = String(Math.max(0, Number(this.form.coursePage || 0) + (id === 'course-next' ? 1 : -1))); return }
     if (id === 'back') { this.flush(); this.platform.back(); return }
+    if (id === 'setup-back') { this.form.setupStep=String(Math.max(0,Number(this.form.setupStep??0)-1)); return }
+    if (id === 'setup-next') {
+      const step=Number(this.form.setupStep??0)
+      if(step===0&&(!this.catalog.cities.some(c=>c.id===this.form.cityId)||!['63','54'].includes(this.form.structure))) throw new Error('请先选择所在城市和学校学制。')
+      if(step===1&&(!gradesFor(this.form.structure==='54'?'54':'63').includes(Number(this.form.grade) as 6|7|8|9)||!this.catalog.editions.some(e=>e.id===this.form.editionId&&e.structures.includes(this.form.structure==='54'?'54':'63'))))throw new Error('请核对年级和正在使用的教材版本。')
+      this.form.setupStep=String(Math.min(2,step+1)); return
+    }
     if (id === 'open-lesson-studio') {
       const lesson = this.catalog.lessons.find(l => l.id === value)
       if (!lesson || !lesson.grades.includes(this.state.profile!.grade)) throw new Error('请选择适合当前年级的课程。')
@@ -367,7 +379,7 @@ export class Application {
     await this.stopAndSaveRecording()
     this.flush()
   }
-  render(): Screen { return this.renderScreen() }
+  render(): Screen { return presentScreen(this.renderScreen(), this.catalog, this.state, this.platform.now(), this.form, this.store.notices[0]) }
   private renderScreen(): Screen {
     const state = this.state, profile = state.profile, now = this.platform.now(), stats = learningStats(state, now)
     const screen: Screen = { id: this.page, title: SCREEN_TITLES[this.page] ?? '初中英语', back: !ROOT_SCREENS.includes(this.page) && this.page !== 'onboarding', busy: this.busy, error: this.error,
@@ -444,7 +456,8 @@ export class Application {
       screen.fields.unshift(this.select('unitId', '教材单元', [{ value: 'all', label: book?.units.length ? '全部已记录单元' : '单元对应待核实，按能力选题' }, ...(book?.units ?? []).map(u => ({ value: u.id, label: `${u.title}${u.verification === 'official' ? '' : '（待核对）'}` }))]), this.select('topicId', '知识点或阅读策略', [{ value: 'all', label: '全部知识点' }, ...this.catalog.topics.filter(t => t.grades.includes(profile.grade) && (!unit || unit.topicIds.includes(t.id))).map(t => ({ value: t.id, label: `${SKILL_LABEL[t.skill]} · ${t.title}` }))]))
       const available = availableQuestions(this.catalog, this.state, this.questionFilter()).length
       screen.notice += ` 当前条件有 ${available} 道可用题。`
-      screen.actions = [{ id: 'start-custom', label: this.page === 'exam' ? '开始计时' : '开始练习', tone: 'primary', disabled: !available }]
+      if(this.form.builderMore!=='true') screen.fields=screen.fields.filter(f=>['skill','count','minutes'].includes(f.name))
+      screen.actions = [{ id: 'start-custom', label: this.page === 'exam' ? '开始计时' : '开始练习', tone: 'primary', disabled: !available },{id:'builder-options',label:this.form.builderMore==='true'?'收起详细选题':'调整题型、难度和知识点',tone:'quiet'}]
       if (this.page === 'exam') screen.cards = [{ id: 'local', title: '本地中考结构', text: '核对城市、届别和学校学制后，再看哪些结构已经有完整依据。', actions: [{ id: 'navigate', value: 'exam-info', label: '查看核验情况', tone: 'quiet' }] }]
       return screen
     }
@@ -471,7 +484,7 @@ export class Application {
     if (this.page === 'writing' || this.page === 'speaking') {
       const skill = this.page
       screen.notice = skill === 'speaking' ? '录音用来回听和自查，不会被冒充为机器评测分数。' : '先写自己的版本，再对照要点自评。自评分不算机器评测。'
-      screen.cards = (this.catalog.questionIndex ?? this.catalog.questions).filter((q) => q.skill === skill && q.grades.includes(profile.grade)).map((q) => ({ id: q.id, title: this.catalog.topics.find((t) => t.id === q.topicId)?.title ?? SKILL_LABEL[skill], text: `约 ${Math.ceil(q.estimatedSeconds / 60)} 分钟 · ${q.marks} 分自查要点`, actions: [{ id: 'start-question', value: q.id, label: '开始练习', tone: 'secondary' }] })); return screen
+      screen.cards = (this.catalog.questionIndex ?? this.catalog.questions).filter((q) => q.skill === skill && q.grades.includes(profile.grade)).map((q, index) => ({ id: q.id, label: `${String(index + 1).padStart(2,'0')} · ${this.catalog.topics.find((t) => t.id === q.topicId)?.title ?? SKILL_LABEL[skill]}`, title: String(('prompt' in q ? q.prompt : 'stem' in q ? q.stem : '') || '') || (q.kind === 'choice' ? '选出适合这个情境的表达' : '独立完成，再对照要点'), text: `约 ${Math.ceil(q.estimatedSeconds / 60)} 分钟 · ${q.marks} 分自查要点`, tone: 'task-entry', actions: [{ id: 'start-question', value: q.id, label: '开始练习', tone: 'secondary' }] })); return screen
     }
     if (this.page === 'exam-info') {
       screen.notice = `${city?.name ?? ''} · ${examYear(profile)} 届：只使用匹配本地、学制和届别的核实资料。`
@@ -493,7 +506,7 @@ export class Application {
       screen.actions = [{ id: 'save-private', label: '保存私人题目', tone: 'primary' }, ...(this.params.id ? [{ id: 'delete-private', value: this.params.id, label: '删除这道题', tone: 'danger' as const }] : [])]; return screen
     }
     if (this.page === 'sources') { screen.sections = [{ title: '原创练习与核验', text: '当前练习由本项目原创编写，仍需教学编辑审核。教材采用与本地试卷结构只有取得对应依据后才会标为已核实。' }, { title: '版本明确区分', text: '2024 年起的新教材与旧版分开记录。未核实的单元映射按年级能力编排，不声称与当前课本逐课同步。' }]; return screen }
-    if (this.page === 'recordings') { screen.cards = state.recordings.map((r) => ({ id: r.id, title: this.catalog.topics.find((t) => t.id === questionById(this.catalog, state, r.questionId)?.topicId)?.title ?? '我的口语练习', text: `${Math.round(r.durationMs / 1000)} 秒 · ${chinaDate(r.createdAt).key}`, actions: [{ id: 'play-recording', value: r.id, label: '回听录音', tone: 'secondary' }, { id: 'delete-recording', value: r.id, label: '删除', tone: 'quiet' }] })); return screen }
+    if (this.page === 'recordings') { screen.cards = state.recordings.map((r) => ({ id: r.id, title: this.catalog.topics.find((t) => t.id === questionById(this.catalog, state, r.questionId)?.topicId)?.title ?? '我的口语练习', text: `${Math.round(r.durationMs / 1000)} 秒 · ${chinaDate(r.createdAt).key}`, actions: [{ id: 'play-recording', value: r.id, label: '回听录音', tone: 'secondary' }, { id: 'delete-recording', value: r.id, label: '删除', tone: 'quiet' }] })); if(!screen.cards.length){screen.notice='还没有保存的录音。练口语时录一段，回听后再改一处。';screen.actions=[{id:'navigate',value:'speaking',label:'去练口语',tone:'primary'}]}; return screen }
     return screen
   }
   private select(name: string, label: string, options: { value: string; label: string }[]): Field { return { name, label, kind: 'select', value: this.form[name] ?? '', options, selectedIndex: Math.max(0, options.findIndex((o) => o.value === this.form[name])) } }
@@ -502,6 +515,14 @@ export class Application {
     screen.subtitle = '按自己正在使用的课本确认，版本和届别不混用。'
     screen.fields = [this.select('cityId', '所在城市', [{ value: '', label: '请选择城市' }, ...this.catalog.cities.map((c) => ({ value: c.id, label: `${c.province} · ${c.name}` }))]), this.select('structure', '学校学制', [{ value: '', label: '请选择学制' }, { value: '63', label: '六三制' }, { value: '54', label: '五四制' }]), this.select('grade', '年级', [{ value: '', label: '请选择年级' }, ...gradesFor(structure).map((grade) => ({ value: String(grade), label: `${grade} 年级` }))]), this.select('term', '学期', [{ value: 'upper', label: '上学期' }, { value: 'lower', label: '下学期' }]), this.select('editionId', '教材版本（请核对封面）', [{ value: '', label: '请选择教材' }, ...this.catalog.editions.filter((e) => e.structures.includes(structure)).map((e) => ({ value: e.id, label: `${e.name} · ${e.version}` }))]), { name: 'schoolYear', label: '学年开始年份', kind: 'input', value: this.form.schoolYear, numeric: true, maxLength: 4, help: '例如 2026—2027 学年，填写 2026。' }, this.select('dailyMinutes', '每天想练多久', [10, 15, 20, 30].map((n) => ({ value: String(n), label: `${n} 分钟` }))), { name: 'examDate', label: '已确认的考试日期（可留空）', kind: 'date', value: this.form.examDate, help: '没有正式日期就先留空，不使用猜测的倒计时。' }]
     screen.actions = [{ id: 'save-profile', label: this.state.profile ? '保存设置' : '确认，开始练习', tone: 'primary' }, ...(!this.state.profile ? [{ id: 'import', label: '已有备份，直接导入', tone: 'quiet' as const }] : [])]
+    if(this.page==='onboarding'){
+      const step=Math.min(2,Math.max(0,Number(this.form.setupStep??0))), groups=[['cityId','structure'],['grade','term','editionId'],['dailyMinutes','schoolYear','examDate']]
+      screen.setup={step,labels:['认识你','选教材','定计划']}
+      screen.title=['你好，先认识一下','选对年级和教材','每天留一点时间'][step]
+      screen.subtitle=['不用注册，学习记录先保存在本机。','拿出课本，核对封面上的版本。','少量、经常地练，比一次刷很多更有用。'][step]
+      screen.fields=screen.fields.filter(f=>groups[step].includes(f.name))
+      screen.actions=[...(step?[{id:'setup-back',label:'上一步',tone:'quiet' as const}]:[]),{id:step===2?'save-profile':'setup-next',label:step===2?'开始学习':step===0?'下一步，选教材':'下一步，定计划',tone:'primary'},...(!step?[{id:'import',label:'已有备份，直接导入',tone:'quiet' as const}]:[])]
+    }
     if (this.store.notices.length) screen.actions.push({ id: 'export', label: '先导出原始记录', tone: 'secondary' }, { id: 'navigate', value: 'settings', label: '查看备份与重置选项', tone: 'quiet' })
     if (this.page === 'settings') screen.cards = [{ id: 'backup', title: '学习备份', text: '导出包含学习记录、草稿和私人题目，不包含设备录音。导入会替换学习记录，当前设备录音保留。', actions: [{ id: 'export', label: '导出备份', tone: 'secondary' }, { id: 'import', label: '导入备份', tone: 'quiet' }] }, { id: 'delete', title: '清理本机数据', text: '请先导出备份。删除后无法撤销。', actions: [{ id: 'delete-data', label: '删除本机记录', tone: 'danger' }] }]
     return screen

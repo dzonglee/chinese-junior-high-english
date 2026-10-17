@@ -56,7 +56,7 @@ for (const topic of catalog.topics) {
   }
   manifest.push({ topicId: topic.id, sha256: hash, file, questionIds: questions.map((q) => q.id) })
 }
-const index = catalog.questions.map(({ id, topicId, skill, kind, difficulty, grades, marks, estimatedSeconds, mediaId, review }) => ({ id, topicId, skill, kind, difficulty, grades, marks, estimatedSeconds, ...(mediaId ? { mediaId } : {}), review }))
+const index = catalog.questions.map(({ id, topicId, skill, kind, difficulty, grades, marks, estimatedSeconds, mediaId, review, stem }) => ({ id, topicId, skill, kind, difficulty, grades, marks, estimatedSeconds, ...(mediaId ? { mediaId } : {}), ...(['speaking','writing'].includes(kind) ? { prompt: stem.replace(/\s+/g,' ').slice(0,24) } : {}), review }))
 const metadata = { ...catalog, questions: [], questionIndex: index, media: catalog.media.map(asset => ({ ...asset, transcript: '', ...(release ? { path: releaseConfig.mediaFiles[asset.id] } : {}) })) }
 const runtime = { mode: release ? 'cloud' : 'development', cloudEnv: releaseConfig?.cloudEnv ?? '', contentFiles: releaseConfig?.contentFiles ?? {}, mediaFiles: releaseConfig?.mediaFiles ?? {} }
 const generated = new Map()
