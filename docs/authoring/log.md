@@ -946,3 +946,20 @@ still blocked by project-drive access;no upload/release or whole-course parity.
 The interaction audit had an obsolete no-image-references assertion that rejected earlier authorized
 class-photo reuse. Added explicit source asset IDs and verified registered owner-original provenance,
 file hashes and acyclic references. No external image reference is accepted. Interaction audit passes.
+
+
+## 2026-10-18 (Sydney) · codex-solo · ownership diagrams individually reviewed
+
+l-g-possessives is reviewed:24/413. Nine tasks edit actual apostrophes,select owner counts and
+compare joint/separate possession. The bespoke album diagram changes actual allocation and
+requires the matching relationship. Inspected every model,wrong allocation/form,repair and
+application/transfer reasoning. Removed misleading book icons beside words and clarified its.
+Reworded only immediate001–004 feedback into Chinese;reserved005–008 and all answers unchanged.
+
+Current flow passes27 widths with owner/book alignment,reload and zero independent records.
+1,473 core/14 files,typecheck,826 teaching/spelling,7 grammar constraints,course/interaction/static
+package,both adapter simulations,8 offline checks and fresh archive CRC/exact-source comparison
+pass. Cumulative198 conditions/594 widths;earlier flows retain scope. Hashes:checkpoint-24.*.
+Cloud reconnection preserved files/tools;MCP memory and board read successfully. Next verb forms;
+the unintegrated draft's cue/transform labels were revised;inspect their actual rendering. Overall claim continues
+solo;389 pending. Native GUI still blocked by project access;no upload,release or parity claim.

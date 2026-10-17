@@ -2,30 +2,29 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-The owner requires each lesson to be redesigned separately,with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **23/413** are
-individually reviewed;390 remain pending. Work stays solo. The tracker links authored tasks,
-inspected figures/errors/repairs,fresh transfer and actual controls. Shared coverage is a baseline,
-never individual-review credit or a claim of all-course parity.
+24 of413 lessons are individually reviewed;389 remain pending. The owner requires bespoke tasks,
+useful pictures and actual visual inspection for every lesson. Work stays solo under the claimed
+APP-VISUAL-LESSONS unit on author/individual-lessons. The tracker links evidence for each row;
+shared engine coverage never supplies review credit or establishes parity with the maths app.
 
-Checkpoint23 covers23 complete main paths/189 conditions/567 widths,repairs,transfers,reload and
-zero independent records. Later reasoning pagination was verified in proper-name and agreement
-flows;final proper-name flow verifies simplified feedback and all its explanation steps. All1,472 core/14 files,
-typecheck,826 teaching/spelling,7 grammar constraints,course/static package,both native-adapter
-simulations,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Source/artifact hashes
-and exact scope:checkpoint-23.*. Standalone loads once before networking is disabled; managed
-file URLs are blocked. Exact delayed-text and eligible-grade guards remain enforced.
+Latest:ownership/possessives. A live diagram joins Mia and Leo to one shared album or gives each
+their own. The selected relationship changes actual book allocation;correct words cannot pass
+with a wrong relationship. Other tasks edit plural apostrophes,irregular plurals,duration and its.
+All models,errors,repairs,application explanations and the fresh transfer were inspected.
 
-Latest proper-name lesson edits real wrong-case drafts and live learner-written picture captions.
-Original travel art supports named Great Wall versus ordinary wall;coded cards establish all facts.
-Case-sensitive edits preserve cleared drafts. Removed redundant meaning steps and fixed orphan
-punctuation after actual visual review. Smaller courtyard delivery inspected;budget not raised.
+Checkpoint24 records the complete new flow/27 widths and current1,473 core tests,typecheck,
+826 teaching/spelling,grammar/course/interaction/package checks,both adapter simulations,
+8 offline checks and fresh archive CRC/exact-source checks. The24 lessons cumulatively have
+198 conditions/594 width checks;earlier browser evidence retains its recorded scope.
 
-Next l-g-possessives. A nine-task draft outside course files covers owner counts,irregular plurals,
-shared/separate albums,duration and its;integrate and inspect it before any review credit.
-Native GUI remains blocked by MacStudioExternal project-file access. Native card stays blocked;
-browser/adapter checks do not replace native validation. Approved audio and editorial/cohort
-mapping remain pending. Content is draft;no publication or full-course parity is claimed.
+Next:l-g-verb-forms. Its ten-task draft is outside course files. Its cue/root labels were corrected:
+did/has/was cues lead to a form;spelling changes are transformations,not addition of the answer
+twice. Compile and inspect the actual diagrams before review credit. The original travel diptych supports selecting current writing.
+A further transitivity draft also remains outside course files. Neither receives review credit.
+
+The resumed cloud workspace retained Node,Chromium and source files;the existing private MCP
+helper reconnects. Native GUI validation remains blocked by project-drive access. Content stays
+draft;approved audio and editorial/cohort mapping remain pending. No upload or publication.
 
 ## Previous local delivery · 2026-10-17
 

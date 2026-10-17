@@ -1,0 +1,521 @@
+{
+  "lessonId": "l-g-possessives",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Reconstruct ownership from actual owner counts, regular and irregular plurals, joint versus separate ownership, duration and its; edit apostrophes rather than recite rules.",
+  "picturePurpose": "Coded counters show selected owner counts, and changing relationship diagrams distinguish one shared album from two separate albums. No guessed ownership from generated imagery.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "给物品登记卡找对主人",
+    "instruction": "看清拥有者，再亲手放对撇号；共同拥有和各自拥有要分开。",
+    "conditions": [
+      {
+        "label": "一位同学，撇号在 s 前",
+        "before": "This is the ",
+        "target": "student's",
+        "after": " camera.",
+        "choices": [
+          "students",
+          "student's"
+        ],
+        "reason": "一位同学是单数 student，表示这位同学的相机，加 's。students 只表示多位同学，没有写出所属关系。",
+        "world": {
+          "kind": "count",
+          "caption": "器材登记：只有一位同学，这台相机归这位同学。圆点随你选择的拥有者数量变化。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的拥有者",
+              "value": 1,
+              "art": "unit"
+            },
+            {
+              "label": "@attempt",
+              "detail": "放进句子的所有格",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "先圈出拥有者",
+            "missingPrompt": "先按登记卡选拥有者，再写所有格。",
+            "answer": "one",
+            "options": [
+              {
+                "id": "one",
+                "label": "student",
+                "text": "登记卡：1位同学",
+                "reason": "登记只有一位同学，用单数 student。",
+                "value": 1
+              },
+              {
+                "id": "two",
+                "label": "students",
+                "text": "改成2位同学",
+                "reason": "两位与登记卡不符，不能因为 camera 是物品就随意加复数。",
+                "value": 2
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "两位同学，先变复数",
+        "before": "The two ",
+        "target": "students'",
+        "after": " cameras are in this case.",
+        "choices": [
+          "student's",
+          "students'"
+        ],
+        "reason": "two 限定两位，先写 students；规则复数已以 s 结尾，所有格只在 s 后加撇号。相机的复数不能代替拥有者的复数。",
+        "world": {
+          "kind": "count",
+          "caption": "器材登记：两位同学各有一台相机，共两台。先看同学的人数，再改所有格。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的拥有者",
+              "value": 2,
+              "art": "unit"
+            },
+            {
+              "label": "@attempt",
+              "detail": "放进句子的所有格",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "先圈出拥有者",
+            "missingPrompt": "先按登记卡选拥有者，再写所有格。",
+            "answer": "two",
+            "options": [
+              {
+                "id": "one",
+                "label": "student",
+                "text": "只算1位同学",
+                "reason": "two 明确是两位，不能留在单数 student。",
+                "value": 1
+              },
+              {
+                "id": "two",
+                "label": "students",
+                "text": "登记卡：2位同学",
+                "reason": "students 已是规则复数，在 s 后加撇号。",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "student's",
+        "inputHint": "亲手修好所有格；先看拥有者，再找撇号的位置。"
+      },
+      {
+        "label": "children 已是复数，不再加 s",
+        "before": "The ",
+        "target": "children's",
+        "after": " art corner is next to the library.",
+        "choices": [
+          "childrens'",
+          "children's"
+        ],
+        "reason": "children 已是 child 的不规则复数，但不以 s 结尾；表示孩子们的，要加 's，写 children's，不能造出 childrens。",
+        "world": {
+          "kind": "count",
+          "caption": "布置登记：两位孩子一起布置一个美术角。孩子的人数为2，美术角为1；所有格按拥有者 children 来改。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的拥有者",
+              "value": 2,
+              "art": "unit"
+            },
+            {
+              "label": "@attempt",
+              "detail": "放进句子的所有格",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "先圈出拥有者",
+            "missingPrompt": "先按登记卡选拥有者，再写所有格。",
+            "answer": "children",
+            "options": [
+              {
+                "id": "children",
+                "label": "children",
+                "text": "登记卡：2位孩子",
+                "reason": "children 已经表示多位孩子，仍需加 ’s。",
+                "value": 2
+              },
+              {
+                "id": "child",
+                "label": "child",
+                "text": "只算1位孩子",
+                "reason": "登记有两位孩子，不能把拥有者改成单数 child。",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "childrens'",
+        "inputHint": "亲手修好所有格；先看拥有者，再找撇号的位置。"
+      },
+      {
+        "label": "换成一个孩子，词本身也要变",
+        "before": "This is the ",
+        "target": "child's",
+        "after": " drawing.",
+        "choices": [
+          "children's",
+          "child's"
+        ],
+        "reason": "这张画属于一位孩子，拥有者是单数 child，所有格为 child's。不能因为刚做过 children 就继续用复数。",
+        "world": {
+          "kind": "count",
+          "caption": "作品登记：这张画只属于一位孩子。保持同样的方法，先核对拥有者。",
+          "cells": [
+            {
+              "label": "child",
+              "detail": "一位孩子",
+              "value": 1,
+              "art": "unit"
+            },
+            {
+              "label": "@attempt",
+              "detail": "放进句子的所有格",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ]
+        }
+      },
+      {
+        "label": "两个人共同拥有一本",
+        "before": "",
+        "target": "Mia and Leo's",
+        "after": " travel album is ready.",
+        "choices": [
+          "Mia's and Leo's",
+          "Mia and Leo's"
+        ],
+        "reason": "这本相册是 Mia 和 Leo 共同的，只在最后的 Leo 后加 's，写 Mia and Leo's。共同拥有这一本，所以后面用 album is。",
+        "world": {
+          "kind": "logic",
+          "caption": "相册登记：Mia 和 Leo 合做同一本旅行相册，共1本。这里不靠照片猜所属关系。",
+          "cells": [
+            {
+              "label": "@outcome",
+              "detail": "你选的所属关系"
+            },
+            {
+              "label": "@attempt",
+              "detail": "相应的所有格",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "核对这次的所属关系",
+            "missingPrompt": "先读登记卡：是共同拥有，还是各有各的？",
+            "answer": "shared",
+            "options": [
+              {
+                "id": "shared",
+                "label": "共同拥有",
+                "text": "Mia 和 Leo 合做，共1本",
+                "reason": "这本是两人共有的，只在最后一个名字后加所有格。",
+                "value": 35,
+                "outcome": "共1本旅行相册"
+              },
+              {
+                "id": "separate",
+                "label": "各自拥有",
+                "text": "每人1本，共2本",
+                "reason": "登记卡写两人合做同一本，不是各自一本。",
+                "value": 65,
+                "outcome": "各1本，共2本相册"
+              }
+            ]
+          },
+          "albums": {
+            "owners": [
+              "Mia",
+              "Leo"
+            ],
+            "sharedId": "shared",
+            "separateId": "separate"
+          }
+        },
+        "input": true,
+        "initial": "Mia's and Leo's",
+        "inputHint": "亲手修好所有格；先看拥有者，再找撇号的位置。",
+        "caseSensitive": true
+      },
+      {
+        "label": "同样两个人，这次各自一本",
+        "before": "",
+        "target": "Mia's and Leo's",
+        "after": " travel albums are ready.",
+        "choices": [
+          "Mia and Leo's",
+          "Mia's and Leo's"
+        ],
+        "reason": "Mia 和 Leo 各有自己的相册，两个名字都加 's，写 Mia's and Leo's。相册是两本，所以后面用 albums are。",
+        "world": {
+          "kind": "logic",
+          "caption": "新登记：Mia 有自己的相册，Leo 也有自己的相册，共2本。对比上一项，共有还是各有？",
+          "cells": [
+            {
+              "label": "@outcome",
+              "detail": "你选的所属关系"
+            },
+            {
+              "label": "@attempt",
+              "detail": "相应的所有格",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "核对这次的所属关系",
+            "missingPrompt": "先读登记卡：是共同拥有，还是各有各的？",
+            "answer": "separate",
+            "options": [
+              {
+                "id": "shared",
+                "label": "共同拥有",
+                "text": "Mia 和 Leo 合做，共1本",
+                "reason": "这次每人各有一本，不是共有同一本；两个名字都要标出所属关系。",
+                "value": 35,
+                "outcome": "共1本旅行相册"
+              },
+              {
+                "id": "separate",
+                "label": "各自拥有",
+                "text": "每人1本，共2本",
+                "reason": "各自拥有，所以两个名字各加所有格。",
+                "value": 65,
+                "outcome": "各1本，共2本相册"
+              }
+            ]
+          },
+          "albums": {
+            "owners": [
+              "Mia",
+              "Leo"
+            ],
+            "sharedId": "shared",
+            "separateId": "separate"
+          }
+        },
+        "input": true,
+        "initial": "Mia and Leo's",
+        "inputHint": "亲手修好所有格；先看拥有者，再找撇号的位置。",
+        "caseSensitive": true
+      },
+      {
+        "label": "一小时的练习，时间也能用所有格",
+        "before": "We had one ",
+        "target": "hour's",
+        "after": " practice.",
+        "choices": [
+          "hours'",
+          "hour's"
+        ],
+        "reason": "one 限定单数 hour，表示一小时的练习，用 hour's。这里说时间量，不是在说时间真的拥有某个物品。",
+        "world": {
+          "kind": "logic",
+          "caption": "训练登记：只练了1小时。所有格也能表示时间，不只表示谁拥有物品。",
+          "cells": [
+            {
+              "label": "one hour",
+              "detail": "一小时的时长",
+              "value": 0,
+              "art": ""
+            },
+            {
+              "label": "@attempt",
+              "detail": "放进句子的所有格",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "hours'",
+        "inputHint": "亲手修好所有格；先看拥有者，再找撇号的位置。"
+      },
+      {
+        "label": "改成两小时，撇号跟着变",
+        "before": "We had two ",
+        "target": "hours'",
+        "after": " practice.",
+        "choices": [
+          "hour's",
+          "hours'"
+        ],
+        "reason": "two 限定复数 hours，表示两小时的练习，在已有的 s 后加撇号，写 hours'。one hour's 和 two hours' 不能只改数字。",
+        "world": {
+          "kind": "logic",
+          "caption": "新训练登记：练了2小时。和上一项比较，数字、名词的数、撇号位置一起核对。",
+          "cells": [
+            {
+              "label": "two hours",
+              "detail": "两小时的时长",
+              "value": 0,
+              "art": ""
+            },
+            {
+              "label": "@attempt",
+              "detail": "放进句子的所有格",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "hour's",
+        "inputHint": "亲手修好所有格；先看拥有者，再找撇号的位置。"
+      },
+      {
+        "label": "有些所属表达不加撇号",
+        "before": "The robot can move ",
+        "target": "its",
+        "after": " arms.",
+        "choices": [
+          "it's",
+          "its"
+        ],
+        "reason": "its 是表示“它的”的物主代词，不加撇号。it's 通常是 it is 或 it has 的缩写，放在 arms 前表达所属不成立。",
+        "world": {
+          "kind": "logic",
+          "caption": "展示登记：机器人能活动它自己的手臂。空格表达“它的”，不是“它是”。",
+          "cells": [
+            {
+              "label": "it → its",
+              "detail": "物主代词不加撇号",
+              "value": 0,
+              "art": ""
+            },
+            {
+              "label": "@attempt",
+              "detail": "表示所属的物主代词",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      }
+    ],
+    "choices": [
+      "students",
+      "student's",
+      "students'",
+      "childrens'",
+      "children's",
+      "child's",
+      "Mia's and Leo's",
+      "Mia and Leo's",
+      "hours'",
+      "hour's",
+      "it's",
+      "its"
+    ],
+    "items": [
+      {
+        "id": "ownership-register",
+        "label": "拥有者与撇号",
+        "prompt": "先看拥有者，别被物品的数量带偏。",
+        "answer": "",
+        "reason": "",
+        "hint": "先单复数，后撇号；不规则复数也要检查词尾。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-possessives-002",
+      "q-g-possessives-003"
+    ],
+    "transfer": {
+      "id": "individual-g-possessives-transfer",
+      "topicId": "g-possessives",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "值班室有三位护士，每人各有一枚徽章；旁边是仅供一位访客使用的座椅。两空依次填什么？\nThe three ___ badges are in the drawer. This is the ___ chair.",
+      "options": [
+        {
+          "id": "a",
+          "text": "nurses'; visitor's"
+        },
+        {
+          "id": "b",
+          "text": "nurse's; visitor's"
+        },
+        {
+          "id": "c",
+          "text": "nurses'; visitors'"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "nurses'; visitor's"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别数清拥有者，先写名词的单复数，再决定撇号位置。",
+        "steps": [
+          {
+            "text": "three 表示三位护士，nurse 先变为 nurses。",
+            "reason": "规则复数以 s 结尾，所有格只在末尾加撇号，得到 nurses'。"
+          },
+          {
+            "text": "后一张座椅只供一位访客使用，拥有者是单数 visitor。",
+            "reason": "单数名词加 ’s，得到 visitor's。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "nurse's 表示一位护士的，与 three 限定的三位不符。"
+          },
+          {
+            "option": "c",
+            "reason": "visitors' 表示多位访客的，而登记只有一位。"
+          }
+        ],
+        "pitfall": "徽章或座椅的数量不直接决定所有格，先看所属对象前面的拥有者。",
+        "visual": {
+          "kind": "sentence",
+          "title": "拥有者的数决定撇号位置",
+          "segments": [
+            {
+              "text": "three nurses → nurses' badges",
+              "role": "subject",
+              "note": "规则复数，s 后加撇号"
+            },
+            {
+              "text": "one visitor → visitor's chair",
+              "role": "evidence",
+              "note": "单数，加 ’s"
+            }
+          ],
+          "caption": "先单复数，后所有格；两处分别判断。"
+        },
+        "transfer": "如果第一句改成只有一位护士的三枚徽章，nurse 的所有格应怎样变？"
+      }
+    }
+  }
+}

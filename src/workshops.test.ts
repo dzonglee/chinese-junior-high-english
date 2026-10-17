@@ -231,3 +231,13 @@ it('exposes every authored explanation step separately, persists its position an
  expect(p.completed).toEqual(['transfer']);p={...p,step:2,caseIndex:0};expect(teachingExplanation(s,p).index).toBe(0)
  p.answers['explanation-2-0']='999';expect(teachingExplanation(s,p).index).toBe(0)
 })
+
+it('changes the actual album allocation and requires it to match joint versus separate possessives',()=>{
+ const s=studio('l-g-possessives'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-item','4',2)
+ expect(workshopView(w,p).albumItems).toHaveLength(0);p=changeTeaching(s,p,'workshop-input',w.conditions![4].target,3);p=changeTeaching(s,p,'workshop-record','separate',4);p=changeTeaching(s,p,'workshop-check','',5)
+ let v=workshopView(w,p);expect(v.albumMode).toBe('separate');expect(v.albumItems.map(a=>a.label)).toEqual(['Mia 的旅行相册','Leo 的旅行相册']);expect(v.complete).toBe(false);expect(v.expressionWrong).toBe(false)
+ p=changeTeaching(s,p,'workshop-record','shared',6);p=changeTeaching(s,p,'workshop-check','',7);v=workshopView(w,p);expect(v.albumItems).toEqual([{label:'Mia 和 Leo 共同的旅行相册'}]);expect(v.complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-item','5',8);p=changeTeaching(s,p,'workshop-input',w.conditions![5].target,9);p=changeTeaching(s,p,'workshop-record','shared',10);p=changeTeaching(s,p,'workshop-check','',11);expect(workshopView(w,p).complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-record','separate',12);p=changeTeaching(s,p,'workshop-check','',13);expect(workshopView(w,restoreTeaching(s,p,14)).albumItems).toHaveLength(2);expect(workshopView(w,p).complete).toBe(true)
+ const bad=structuredClone(w);bad.conditions![4].world.albums!.separateId='missing';expect(workshopProblems(bad)).toContain('Invalid album ownership')
+})
