@@ -1,0 +1,423 @@
+# Individual lesson upgrades
+
+Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render coverage does not
+complete an individual lesson. Every row begins pending and changes only after its own authored
+tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
+
+Completed: **1 / 413**. Current: **l-g-present**. Evidence lives in docs/reviews/individual-lessons/.
+
+| Lesson | Title | Status | Evidence |
+| --- | --- | --- | --- |
+| l-g-be | 先看主语，再选 be 动词 | reviewed | [Class-photo review](../../docs/reviews/individual-lessons/l-g-be.md) |
+| l-g-present | 日常习惯怎么说 | pending | — |
+| l-g-continuous | 说清正在发生的事 | pending | — |
+| l-g-past | 把过去的事情讲清楚 | pending | — |
+| l-g-future | 说出计划和将来的事 | pending | — |
+| l-g-perfect | 从过去连到现在 | pending | — |
+| l-g-articles | a、an、the 怎么选 | pending | — |
+| l-g-comparison | 比较时先看范围 | pending | — |
+| l-g-pronouns | 代词指的是谁 | pending | — |
+| l-g-nouns | 可数与不可数，先看名词 | pending | — |
+| l-g-prepositions | 时间与位置的介词 | pending | — |
+| l-g-past-continuous | 过去那个时候正在做什么 | pending | — |
+| l-g-passive | 谁做的，还是谁被做 | pending | — |
+| l-g-modals | 能、必须、建议，语气有区别 | pending | — |
+| l-g-infinitives | 动词后面的 to do | pending | — |
+| l-g-gerunds | 动词后面的 doing | pending | — |
+| l-g-conditionals | 条件成立，结果会怎样 | pending | — |
+| l-g-object-clauses | 宾语从句，语序别倒过来 | pending | — |
+| l-g-relatives | 定语从句，先找修饰对象 | pending | — |
+| l-g-conjunctions | 把两层意思连起来 | pending | — |
+| l-g-questions | 提问与反意疑问句 | pending | — |
+| l-g-agreement | 真正的主语决定动词 | pending | — |
+| l-g-proper-nouns | 专有名词与大小写 | pending | — |
+| l-g-possessives | 名词所有格：是谁的 | pending | — |
+| l-g-verb-forms | 动词原形、过去式与分词 | pending | — |
+| l-g-transitivity | 动词后面能不能直接接宾语 | pending | — |
+| l-g-linking-verbs | 系动词后描述主语的状态 | pending | — |
+| l-g-auxiliaries | 助动词帮你提问和否定 | pending | — |
+| l-g-adjectives | 形容词放在哪里 | pending | — |
+| l-g-adverbs | 副词怎样修饰动作 | pending | — |
+| l-g-adverb-comparison | 比较动作的快慢与好坏 | pending | — |
+| l-g-reflexives | 反身代词：动作回到谁 | pending | — |
+| l-g-demonstratives | this、that、these、those | pending | — |
+| l-g-indefinites | 不定代词与修饰位置 | pending | — |
+| l-g-question-words | 问人、问物、问原因 | pending | — |
+| l-g-cardinals | 基数词与准确的数量 | pending | — |
+| l-g-ordinals | 序数词、日期与顺序 | pending | — |
+| l-g-compounds | 合成词：词义怎样组合 | pending | — |
+| l-g-derivation | 前缀、后缀与词性 | pending | — |
+| l-g-conversion | 同一个词，不同的词性 | pending | — |
+| l-g-contractions | 缩写与完整形式 | pending | — |
+| l-g-statements | 肯定句与否定句说清事实 | pending | — |
+| l-g-alternative-questions | 选择疑问句：选哪一个 | pending | — |
+| l-g-imperatives | 祈使句：请求、提醒与指令 | pending | — |
+| l-g-exclamations | 感叹句：what 与 how | pending | — |
+| l-g-sentence-patterns | 句子骨架：主语、谓语与宾语 | pending | — |
+| l-g-double-objects | 双宾语：给谁什么 | pending | — |
+| l-g-object-complements | 宾语后面再说明什么 | pending | — |
+| l-g-there-be | there be：哪里有什么 | pending | — |
+| l-g-future-passive | 将来被动：将会被怎样处理 | pending | — |
+| l-g-participles | 读懂 -ing 与 -ed 的修饰关系 | pending | — |
+| l-g-time-clauses | 时间状语从句：先后关系 | pending | — |
+| l-g-reason-purpose | 说明原因、目的与结果 | pending | — |
+| l-g-concession | 虽然与除非：读懂让步和条件 | pending | — |
+| l-g-interjections | 感叹词与语境里的情绪 | pending | — |
+| l-r-details | 找到事实，再核对选项 | pending | — |
+| l-r-inference | 推断要有原文撑住 | pending | — |
+| l-r-main-idea | 抓住主旨，不被一个细节带走 | pending | — |
+| l-r-course-t01 | 把一天安排得有张有弛：读懂信息与用意 | pending | — |
+| l-r-course-t02 | 校园活动与安全：读懂信息与用意 | pending | — |
+| l-r-course-t03 | 身心健康与求助：读懂信息与用意 | pending | — |
+| l-r-course-t04 | 找到适合自己的学习方法：读懂信息与用意 | pending | — |
+| l-r-course-t05 | 认识自己与管理时间：读懂信息与用意 | pending | — |
+| l-r-course-t06 | 了解职业与责任：读懂信息与用意 | pending | — |
+| l-r-course-t07 | 劳动实践与把事情做好：读懂信息与用意 | pending | — |
+| l-r-course-t08 | 消费、预算与守信：读懂信息与用意 | pending | — |
+| l-r-course-t09 | 动手改进与解决问题：读懂信息与用意 | pending | — |
+| l-r-course-t10 | 朋友之间说清楚：读懂信息与用意 | pending | — |
+| l-r-course-t11 | 家庭分工与社区生活：读懂信息与用意 | pending | — |
+| l-r-course-t12 | 志愿服务与公共帮助：读懂信息与用意 | pending | — |
+| l-r-course-t13 | 合作完成一项任务：读懂信息与用意 | pending | — |
+| l-r-course-t14 | 家乡的过去、现在与未来：读懂信息与用意 | pending | — |
+| l-r-course-t15 | 跨文化交流与礼貌：读懂信息与用意 | pending | — |
+| l-r-course-t16 | 理解艺术与表达感受：读懂信息与用意 | pending | — |
+| l-r-course-t17 | 体育活动与公平竞争：读懂信息与用意 | pending | — |
+| l-r-course-t18 | 读故事、谈人物与作品：读懂信息与用意 | pending | — |
+| l-r-course-t19 | 节日、习俗与旅行见闻：读懂信息与用意 | pending | — |
+| l-r-course-t20 | 用事实介绍有贡献的人：读懂信息与用意 | pending | — |
+| l-r-course-t21 | 公共规则与个人信息保护：读懂信息与用意 | pending | — |
+| l-r-course-t22 | 介绍家乡文化与自己的身份：读懂信息与用意 | pending | — |
+| l-r-course-t23 | 关心世界与辨别信息：读懂信息与用意 | pending | — |
+| l-r-course-t24 | 科技、工程与发明：读懂信息与用意 | pending | — |
+| l-r-course-t25 | 地理环境与自然景观：读懂信息与用意 | pending | — |
+| l-r-course-t26 | 野生动物与共同生活：读懂信息与用意 | pending | — |
+| l-r-course-t27 | 污染成因与可行的环保行动：读懂信息与用意 | pending | — |
+| l-r-course-t28 | 自然灾害与安全准备：读懂信息与用意 | pending | — |
+| l-r-course-t29 | 地球、太空与探索：读懂信息与用意 | pending | — |
+| l-r-cloze | 完形填空：读懂前后关系 | pending | — |
+| l-ls-details | 听清时间、地点和行动 | pending | — |
+| l-ls-purpose | 听懂说话人的意图 | pending | — |
+| l-ls-course-t01 | 听懂交流：把一天安排得有张有弛 | pending | — |
+| l-ls-course-t02 | 听懂交流：校园活动与安全 | pending | — |
+| l-ls-course-t03 | 听懂交流：身心健康与求助 | pending | — |
+| l-ls-course-t04 | 听懂交流：找到适合自己的学习方法 | pending | — |
+| l-ls-course-t05 | 听懂交流：认识自己与管理时间 | pending | — |
+| l-ls-course-t06 | 听懂交流：了解职业与责任 | pending | — |
+| l-ls-course-t07 | 听懂交流：劳动实践与把事情做好 | pending | — |
+| l-ls-course-t08 | 听懂交流：消费、预算与守信 | pending | — |
+| l-ls-course-t09 | 听懂交流：动手改进与解决问题 | pending | — |
+| l-ls-course-t10 | 听懂交流：朋友之间说清楚 | pending | — |
+| l-ls-course-t11 | 听懂交流：家庭分工与社区生活 | pending | — |
+| l-ls-course-t12 | 听懂交流：志愿服务与公共帮助 | pending | — |
+| l-ls-course-t13 | 听懂交流：合作完成一项任务 | pending | — |
+| l-ls-course-t14 | 听懂交流：家乡的过去、现在与未来 | pending | — |
+| l-ls-course-t15 | 听懂交流：跨文化交流与礼貌 | pending | — |
+| l-ls-course-t16 | 听懂交流：理解艺术与表达感受 | pending | — |
+| l-ls-course-t17 | 听懂交流：体育活动与公平竞争 | pending | — |
+| l-ls-course-t18 | 听懂交流：读故事、谈人物与作品 | pending | — |
+| l-ls-course-t19 | 听懂交流：节日、习俗与旅行见闻 | pending | — |
+| l-ls-course-t20 | 听懂交流：用事实介绍有贡献的人 | pending | — |
+| l-ls-course-t21 | 听懂交流：公共规则与个人信息保护 | pending | — |
+| l-ls-course-t22 | 听懂交流：介绍家乡文化与自己的身份 | pending | — |
+| l-ls-course-t23 | 听懂交流：关心世界与辨别信息 | pending | — |
+| l-ls-course-t24 | 听懂交流：科技、工程与发明 | pending | — |
+| l-ls-course-t25 | 听懂交流：地理环境与自然景观 | pending | — |
+| l-ls-course-t26 | 听懂交流：野生动物与共同生活 | pending | — |
+| l-ls-course-t27 | 听懂交流：污染成因与可行的环保行动 | pending | — |
+| l-ls-course-t28 | 听懂交流：自然灾害与安全准备 | pending | — |
+| l-ls-course-t29 | 听懂交流：地球、太空与探索 | pending | — |
+| l-v-school | 校园里的常用词 · 1 | pending | — |
+| l-v-school-2 | 校园里的常用词 · 2 | pending | — |
+| l-v-school-3 | 校园里的常用词 · 3 | pending | — |
+| l-v-daily | 日常表达与学习习惯 · 1 | pending | — |
+| l-v-daily-2 | 日常表达与学习习惯 · 2 | pending | — |
+| l-v-daily-3 | 日常表达与学习习惯 · 3 | pending | — |
+| l-v-community | 社区与出行 · 1 | pending | — |
+| l-v-community-2 | 社区与出行 · 2 | pending | — |
+| l-v-community-3 | 社区与出行 · 3 | pending | — |
+| l-v-nature | 自然与可持续生活 · 1 | pending | — |
+| l-v-nature-2 | 自然与可持续生活 · 2 | pending | — |
+| l-v-nature-3 | 自然与可持续生活 · 3 | pending | — |
+| l-v-course-family | 家人与日常称呼 · 1 | pending | — |
+| l-v-course-family-2 | 家人与日常称呼 · 2 | pending | — |
+| l-v-course-family-3 | 家人与日常称呼 · 3 | pending | — |
+| l-v-course-family-4 | 家人与日常称呼 · 4 | pending | — |
+| l-v-course-family-5 | 家人与日常称呼 · 5 | pending | — |
+| l-v-course-home | 房屋与家居 · 1 | pending | — |
+| l-v-course-home-2 | 房屋与家居 · 2 | pending | — |
+| l-v-course-home-3 | 房屋与家居 · 3 | pending | — |
+| l-v-course-home-4 | 房屋与家居 · 4 | pending | — |
+| l-v-course-home-5 | 房屋与家居 · 5 | pending | — |
+| l-v-course-school-tools | 校园与学习用品 · 1 | pending | — |
+| l-v-course-school-tools-2 | 校园与学习用品 · 2 | pending | — |
+| l-v-course-school-tools-3 | 校园与学习用品 · 3 | pending | — |
+| l-v-course-school-tools-4 | 校园与学习用品 · 4 | pending | — |
+| l-v-course-school-tools-5 | 校园与学习用品 · 5 | pending | — |
+| l-v-course-time | 时间与生活节奏 · 1 | pending | — |
+| l-v-course-time-2 | 时间与生活节奏 · 2 | pending | — |
+| l-v-course-time-3 | 时间与生活节奏 · 3 | pending | — |
+| l-v-course-time-4 | 时间与生活节奏 · 4 | pending | — |
+| l-v-course-time-5 | 时间与生活节奏 · 5 | pending | — |
+| l-v-course-quantity | 数字与数量 · 1 | pending | — |
+| l-v-course-quantity-2 | 数字与数量 · 2 | pending | — |
+| l-v-course-quantity-3 | 数字与数量 · 3 | pending | — |
+| l-v-course-quantity-4 | 数字与数量 · 4 | pending | — |
+| l-v-course-quantity-5 | 数字与数量 · 5 | pending | — |
+| l-v-course-pronouns | 指代与限定 · 1 | pending | — |
+| l-v-course-pronouns-2 | 指代与限定 · 2 | pending | — |
+| l-v-course-pronouns-3 | 指代与限定 · 3 | pending | — |
+| l-v-course-pronouns-4 | 指代与限定 · 4 | pending | — |
+| l-v-course-pronouns-5 | 指代与限定 · 5 | pending | — |
+| l-v-course-linking | 句子中的联系 · 1 | pending | — |
+| l-v-course-linking-2 | 句子中的联系 · 2 | pending | — |
+| l-v-course-linking-3 | 句子中的联系 · 3 | pending | — |
+| l-v-course-linking-4 | 句子中的联系 · 4 | pending | — |
+| l-v-course-linking-5 | 句子中的联系 · 5 | pending | — |
+| l-v-course-position | 位置与路径 · 1 | pending | — |
+| l-v-course-position-2 | 位置与路径 · 2 | pending | — |
+| l-v-course-position-3 | 位置与路径 · 3 | pending | — |
+| l-v-course-position-4 | 位置与路径 · 4 | pending | — |
+| l-v-course-position-5 | 位置与路径 · 5 | pending | — |
+| l-v-course-core-actions | 日常动作与状态 · 1 | pending | — |
+| l-v-course-core-actions-2 | 日常动作与状态 · 2 | pending | — |
+| l-v-course-core-actions-3 | 日常动作与状态 · 3 | pending | — |
+| l-v-course-core-actions-4 | 日常动作与状态 · 4 | pending | — |
+| l-v-course-core-actions-5 | 日常动作与状态 · 5 | pending | — |
+| l-v-course-movement | 动作与操作 · 1 | pending | — |
+| l-v-course-movement-2 | 动作与操作 · 2 | pending | — |
+| l-v-course-movement-3 | 动作与操作 · 3 | pending | — |
+| l-v-course-movement-4 | 动作与操作 · 4 | pending | — |
+| l-v-course-movement-5 | 动作与操作 · 5 | pending | — |
+| l-v-course-food | 食物与饮品 · 1 | pending | — |
+| l-v-course-food-2 | 食物与饮品 · 2 | pending | — |
+| l-v-course-food-3 | 食物与饮品 · 3 | pending | — |
+| l-v-course-food-4 | 食物与饮品 · 4 | pending | — |
+| l-v-course-food-5 | 食物与饮品 · 5 | pending | — |
+| l-v-course-fruit-vegetables | 水果、蔬菜与味道 · 1 | pending | — |
+| l-v-course-fruit-vegetables-2 | 水果、蔬菜与味道 · 2 | pending | — |
+| l-v-course-fruit-vegetables-3 | 水果、蔬菜与味道 · 3 | pending | — |
+| l-v-course-fruit-vegetables-4 | 水果、蔬菜与味道 · 4 | pending | — |
+| l-v-course-fruit-vegetables-5 | 水果、蔬菜与味道 · 5 | pending | — |
+| l-v-course-kitchen-tools | 厨房、烹饪与餐桌 · 1 | pending | — |
+| l-v-course-kitchen-tools-2 | 厨房、烹饪与餐桌 · 2 | pending | — |
+| l-v-course-kitchen-tools-3 | 厨房、烹饪与餐桌 · 3 | pending | — |
+| l-v-course-kitchen-tools-4 | 厨房、烹饪与餐桌 · 4 | pending | — |
+| l-v-course-kitchen-tools-5 | 厨房、烹饪与餐桌 · 5 | pending | — |
+| l-v-course-clothing | 衣着与随身物品 · 1 | pending | — |
+| l-v-course-clothing-2 | 衣着与随身物品 · 2 | pending | — |
+| l-v-course-clothing-3 | 衣着与随身物品 · 3 | pending | — |
+| l-v-course-clothing-4 | 衣着与随身物品 · 4 | pending | — |
+| l-v-course-clothing-5 | 衣着与随身物品 · 5 | pending | — |
+| l-v-course-body | 身体与感官 · 1 | pending | — |
+| l-v-course-body-2 | 身体与感官 · 2 | pending | — |
+| l-v-course-body-3 | 身体与感官 · 3 | pending | — |
+| l-v-course-body-4 | 身体与感官 · 4 | pending | — |
+| l-v-course-body-5 | 身体与感官 · 5 | pending | — |
+| l-v-course-health | 健康与照护 · 1 | pending | — |
+| l-v-course-health-2 | 健康与照护 · 2 | pending | — |
+| l-v-course-health-3 | 健康与照护 · 3 | pending | — |
+| l-v-course-health-4 | 健康与照护 · 4 | pending | — |
+| l-v-course-health-5 | 健康与照护 · 5 | pending | — |
+| l-v-course-learning | 学习、语言与信息 · 1 | pending | — |
+| l-v-course-learning-2 | 学习、语言与信息 · 2 | pending | — |
+| l-v-course-learning-3 | 学习、语言与信息 · 3 | pending | — |
+| l-v-course-learning-4 | 学习、语言与信息 · 4 | pending | — |
+| l-v-course-learning-5 | 学习、语言与信息 · 5 | pending | — |
+| l-v-course-work-roles | 职业与分工 · 1 | pending | — |
+| l-v-course-work-roles-2 | 职业与分工 · 2 | pending | — |
+| l-v-course-work-roles-3 | 职业与分工 · 3 | pending | — |
+| l-v-course-work-roles-4 | 职业与分工 · 4 | pending | — |
+| l-v-course-work-roles-5 | 职业与分工 · 5 | pending | — |
+| l-v-course-sport | 运动、比赛与合作 · 1 | pending | — |
+| l-v-course-sport-2 | 运动、比赛与合作 · 2 | pending | — |
+| l-v-course-sport-3 | 运动、比赛与合作 · 3 | pending | — |
+| l-v-course-sport-4 | 运动、比赛与合作 · 4 | pending | — |
+| l-v-course-sport-5 | 运动、比赛与合作 · 5 | pending | — |
+| l-v-course-arts | 音乐、绘画与舞台 · 1 | pending | — |
+| l-v-course-arts-2 | 音乐、绘画与舞台 · 2 | pending | — |
+| l-v-course-arts-3 | 音乐、绘画与舞台 · 3 | pending | — |
+| l-v-course-arts-4 | 音乐、绘画与舞台 · 4 | pending | — |
+| l-v-course-arts-5 | 音乐、绘画与舞台 · 5 | pending | — |
+| l-v-course-journeys | 旅行与行程 · 1 | pending | — |
+| l-v-course-journeys-2 | 旅行与行程 · 2 | pending | — |
+| l-v-course-journeys-3 | 旅行与行程 · 3 | pending | — |
+| l-v-course-journeys-4 | 旅行与行程 · 4 | pending | — |
+| l-v-course-journeys-5 | 旅行与行程 · 5 | pending | — |
+| l-v-course-transport | 交通工具与出行 · 1 | pending | — |
+| l-v-course-transport-2 | 交通工具与出行 · 2 | pending | — |
+| l-v-course-transport-3 | 交通工具与出行 · 3 | pending | — |
+| l-v-course-transport-4 | 交通工具与出行 · 4 | pending | — |
+| l-v-course-transport-5 | 交通工具与出行 · 5 | pending | — |
+| l-v-course-town-places | 城镇空间与建筑 · 1 | pending | — |
+| l-v-course-town-places-2 | 城镇空间与建筑 · 2 | pending | — |
+| l-v-course-town-places-3 | 城镇空间与建筑 · 3 | pending | — |
+| l-v-course-town-places-4 | 城镇空间与建筑 · 4 | pending | — |
+| l-v-course-town-places-5 | 城镇空间与建筑 · 5 | pending | — |
+| l-v-course-outdoor-land | 户外地貌与水域 · 1 | pending | — |
+| l-v-course-outdoor-land-2 | 户外地貌与水域 · 2 | pending | — |
+| l-v-course-outdoor-land-3 | 户外地貌与水域 · 3 | pending | — |
+| l-v-course-outdoor-land-4 | 户外地貌与水域 · 4 | pending | — |
+| l-v-course-outdoor-land-5 | 户外地貌与水域 · 5 | pending | — |
+| l-v-course-animals | 动物与栖息环境 · 1 | pending | — |
+| l-v-course-animals-2 | 动物与栖息环境 · 2 | pending | — |
+| l-v-course-animals-3 | 动物与栖息环境 · 3 | pending | — |
+| l-v-course-animals-4 | 动物与栖息环境 · 4 | pending | — |
+| l-v-course-animals-5 | 动物与栖息环境 · 5 | pending | — |
+| l-v-course-living-nature | 植物、昆虫与生态 · 1 | pending | — |
+| l-v-course-living-nature-2 | 植物、昆虫与生态 · 2 | pending | — |
+| l-v-course-living-nature-3 | 植物、昆虫与生态 · 3 | pending | — |
+| l-v-course-living-nature-4 | 植物、昆虫与生态 · 4 | pending | — |
+| l-v-course-living-nature-5 | 植物、昆虫与生态 · 5 | pending | — |
+| l-v-course-weather-sky | 天气、天空与季节变化 · 1 | pending | — |
+| l-v-course-weather-sky-2 | 天气、天空与季节变化 · 2 | pending | — |
+| l-v-course-weather-sky-3 | 天气、天空与季节变化 · 3 | pending | — |
+| l-v-course-weather-sky-4 | 天气、天空与季节变化 · 4 | pending | — |
+| l-v-course-weather-sky-5 | 天气、天空与季节变化 · 5 | pending | — |
+| l-v-course-feelings | 感受、情绪与需要 · 1 | pending | — |
+| l-v-course-feelings-2 | 感受、情绪与需要 · 2 | pending | — |
+| l-v-course-feelings-3 | 感受、情绪与需要 · 3 | pending | — |
+| l-v-course-feelings-4 | 感受、情绪与需要 · 4 | pending | — |
+| l-v-course-feelings-5 | 感受、情绪与需要 · 5 | pending | — |
+| l-v-course-character | 品格与相处方式 · 1 | pending | — |
+| l-v-course-character-2 | 品格与相处方式 · 2 | pending | — |
+| l-v-course-character-3 | 品格与相处方式 · 3 | pending | — |
+| l-v-course-character-4 | 品格与相处方式 · 4 | pending | — |
+| l-v-course-character-5 | 品格与相处方式 · 5 | pending | — |
+| l-v-course-technology | 数字工具与操作 · 1 | pending | — |
+| l-v-course-technology-2 | 数字工具与操作 · 2 | pending | — |
+| l-v-course-technology-3 | 数字工具与操作 · 3 | pending | — |
+| l-v-course-technology-4 | 数字工具与操作 · 4 | pending | — |
+| l-v-course-technology-5 | 数字工具与操作 · 5 | pending | — |
+| l-v-course-basic-qualities | 常用性质与比较 · 1 | pending | — |
+| l-v-course-basic-qualities-2 | 常用性质与比较 · 2 | pending | — |
+| l-v-course-basic-qualities-3 | 常用性质与比较 · 3 | pending | — |
+| l-v-course-basic-qualities-4 | 常用性质与比较 · 4 | pending | — |
+| l-v-course-basic-qualities-5 | 常用性质与比较 · 5 | pending | — |
+| l-v-course-colour-appearance | 颜色、外形与可见特征 · 1 | pending | — |
+| l-v-course-colour-appearance-2 | 颜色、外形与可见特征 · 2 | pending | — |
+| l-v-course-colour-appearance-3 | 颜色、外形与可见特征 · 3 | pending | — |
+| l-v-course-colour-appearance-4 | 颜色、外形与可见特征 · 4 | pending | — |
+| l-v-course-colour-appearance-5 | 颜色、外形与可见特征 · 5 | pending | — |
+| l-v-course-questions-quantity | 询问、数量与可能性 · 1 | pending | — |
+| l-v-course-questions-quantity-2 | 询问、数量与可能性 · 2 | pending | — |
+| l-v-course-questions-quantity-3 | 询问、数量与可能性 · 3 | pending | — |
+| l-v-course-questions-quantity-4 | 询问、数量与可能性 · 4 | pending | — |
+| l-v-course-questions-quantity-5 | 询问、数量与可能性 · 5 | pending | — |
+| l-v-course-communication | 沟通、表达与联系 · 1 | pending | — |
+| l-v-course-communication-2 | 沟通、表达与联系 · 2 | pending | — |
+| l-v-course-communication-3 | 沟通、表达与联系 · 3 | pending | — |
+| l-v-course-communication-4 | 沟通、表达与联系 · 4 | pending | — |
+| l-v-course-communication-5 | 沟通、表达与联系 · 5 | pending | — |
+| l-v-course-commerce | 购物、金钱与选择 · 1 | pending | — |
+| l-v-course-commerce-2 | 购物、金钱与选择 · 2 | pending | — |
+| l-v-course-commerce-3 | 购物、金钱与选择 · 3 | pending | — |
+| l-v-course-commerce-4 | 购物、金钱与选择 · 4 | pending | — |
+| l-v-course-commerce-5 | 购物、金钱与选择 · 5 | pending | — |
+| l-v-course-science | 科学、测量与证据 · 1 | pending | — |
+| l-v-course-science-2 | 科学、测量与证据 · 2 | pending | — |
+| l-v-course-science-3 | 科学、测量与证据 · 3 | pending | — |
+| l-v-course-science-4 | 科学、测量与证据 · 4 | pending | — |
+| l-v-course-science-5 | 科学、测量与证据 · 5 | pending | — |
+| l-v-course-planning-actions | 计划、完成与解决问题 · 1 | pending | — |
+| l-v-course-planning-actions-2 | 计划、完成与解决问题 · 2 | pending | — |
+| l-v-course-planning-actions-3 | 计划、完成与解决问题 · 3 | pending | — |
+| l-v-course-planning-actions-4 | 计划、完成与解决问题 · 4 | pending | — |
+| l-v-course-planning-actions-5 | 计划、完成与解决问题 · 5 | pending | — |
+| l-v-course-useful-qualities | 描述、判断与条件 · 1 | pending | — |
+| l-v-course-useful-qualities-2 | 描述、判断与条件 · 2 | pending | — |
+| l-v-course-useful-qualities-3 | 描述、判断与条件 · 3 | pending | — |
+| l-v-course-useful-qualities-4 | 描述、判断与条件 · 4 | pending | — |
+| l-v-course-useful-qualities-5 | 描述、判断与条件 · 5 | pending | — |
+| l-v-course-manner | 程度、方式与时间副词 · 1 | pending | — |
+| l-v-course-manner-2 | 程度、方式与时间副词 · 2 | pending | — |
+| l-v-course-manner-3 | 程度、方式与时间副词 · 3 | pending | — |
+| l-v-course-manner-4 | 程度、方式与时间副词 · 4 | pending | — |
+| l-v-course-manner-5 | 程度、方式与时间副词 · 5 | pending | — |
+| l-v-course-environmental-choices | 环境、资源与风险 · 1 | pending | — |
+| l-v-course-environmental-choices-2 | 环境、资源与风险 · 2 | pending | — |
+| l-v-course-environmental-choices-3 | 环境、资源与风险 · 3 | pending | — |
+| l-v-course-environmental-choices-4 | 环境、资源与风险 · 4 | pending | — |
+| l-v-course-environmental-choices-5 | 环境、资源与风险 · 5 | pending | — |
+| l-w-email | 写一封有用的邀请邮件 | pending | — |
+| l-w-advice | 给同学的建议，具体才有用 | pending | — |
+| l-w-notice | 通知写清谁、何时、何地 | pending | — |
+| l-w-story | 把一次改变写成完整经历 | pending | — |
+| l-w-opinion | 表达观点，也给出理由 | pending | — |
+| l-w-report | 活动报告：事实与建议分开 | pending | — |
+| l-s-introduce | 用具体信息介绍自己 | pending | — |
+| l-s-retell | 按顺序复述一次小经历 | pending | — |
+| l-s-plan | 把活动计划说得能照着做 | pending | — |
+| l-s-compare | 比较两种出行方式 | pending | — |
+| l-s-opinion | 说出观点，回应不同想法 | pending | — |
+| l-s-problem | 向他人说明问题并求助 | pending | — |
+| l-s-read-aloud | 朗读与跟读：把意思读清楚 | pending | — |
+| l-w-note | 写一张说明安排的便条 | pending | — |
+| l-s-course-t01 | 把一天安排得有张有弛：口头说清 | pending | — |
+| l-w-course-t01 | 把一天安排得有张有弛：用文字说清 | pending | — |
+| l-s-course-t02 | 校园活动与安全：口头说清 | pending | — |
+| l-w-course-t02 | 校园活动与安全：用文字说清 | pending | — |
+| l-s-course-t03 | 身心健康与求助：口头说清 | pending | — |
+| l-w-course-t03 | 身心健康与求助：用文字说清 | pending | — |
+| l-s-course-t04 | 找到适合自己的学习方法：口头说清 | pending | — |
+| l-w-course-t04 | 找到适合自己的学习方法：用文字说清 | pending | — |
+| l-s-course-t05 | 认识自己与管理时间：口头说清 | pending | — |
+| l-w-course-t05 | 认识自己与管理时间：用文字说清 | pending | — |
+| l-s-course-t06 | 了解职业与责任：口头说清 | pending | — |
+| l-w-course-t06 | 了解职业与责任：用文字说清 | pending | — |
+| l-s-course-t07 | 劳动实践与把事情做好：口头说清 | pending | — |
+| l-w-course-t07 | 劳动实践与把事情做好：用文字说清 | pending | — |
+| l-s-course-t08 | 消费、预算与守信：口头说清 | pending | — |
+| l-w-course-t08 | 消费、预算与守信：用文字说清 | pending | — |
+| l-s-course-t09 | 动手改进与解决问题：口头说清 | pending | — |
+| l-w-course-t09 | 动手改进与解决问题：用文字说清 | pending | — |
+| l-s-course-t10 | 朋友之间说清楚：口头说清 | pending | — |
+| l-w-course-t10 | 朋友之间说清楚：用文字说清 | pending | — |
+| l-s-course-t11 | 家庭分工与社区生活：口头说清 | pending | — |
+| l-w-course-t11 | 家庭分工与社区生活：用文字说清 | pending | — |
+| l-s-course-t12 | 志愿服务与公共帮助：口头说清 | pending | — |
+| l-w-course-t12 | 志愿服务与公共帮助：用文字说清 | pending | — |
+| l-s-course-t13 | 合作完成一项任务：口头说清 | pending | — |
+| l-w-course-t13 | 合作完成一项任务：用文字说清 | pending | — |
+| l-s-course-t14 | 家乡的过去、现在与未来：口头说清 | pending | — |
+| l-w-course-t14 | 家乡的过去、现在与未来：用文字说清 | pending | — |
+| l-s-course-t15 | 跨文化交流与礼貌：口头说清 | pending | — |
+| l-w-course-t15 | 跨文化交流与礼貌：用文字说清 | pending | — |
+| l-s-course-t16 | 理解艺术与表达感受：口头说清 | pending | — |
+| l-w-course-t16 | 理解艺术与表达感受：用文字说清 | pending | — |
+| l-s-course-t17 | 体育活动与公平竞争：口头说清 | pending | — |
+| l-w-course-t17 | 体育活动与公平竞争：用文字说清 | pending | — |
+| l-s-course-t18 | 读故事、谈人物与作品：口头说清 | pending | — |
+| l-w-course-t18 | 读故事、谈人物与作品：用文字说清 | pending | — |
+| l-s-course-t19 | 节日、习俗与旅行见闻：口头说清 | pending | — |
+| l-w-course-t19 | 节日、习俗与旅行见闻：用文字说清 | pending | — |
+| l-s-course-t20 | 用事实介绍有贡献的人：口头说清 | pending | — |
+| l-w-course-t20 | 用事实介绍有贡献的人：用文字说清 | pending | — |
+| l-s-course-t21 | 公共规则与个人信息保护：口头说清 | pending | — |
+| l-w-course-t21 | 公共规则与个人信息保护：用文字说清 | pending | — |
+| l-s-course-t22 | 介绍家乡文化与自己的身份：口头说清 | pending | — |
+| l-w-course-t22 | 介绍家乡文化与自己的身份：用文字说清 | pending | — |
+| l-s-course-t23 | 关心世界与辨别信息：口头说清 | pending | — |
+| l-w-course-t23 | 关心世界与辨别信息：用文字说清 | pending | — |
+| l-s-course-t24 | 科技、工程与发明：口头说清 | pending | — |
+| l-w-course-t24 | 科技、工程与发明：用文字说清 | pending | — |
+| l-s-course-t25 | 地理环境与自然景观：口头说清 | pending | — |
+| l-w-course-t25 | 地理环境与自然景观：用文字说清 | pending | — |
+| l-s-course-t26 | 野生动物与共同生活：口头说清 | pending | — |
+| l-w-course-t26 | 野生动物与共同生活：用文字说清 | pending | — |
+| l-s-course-t27 | 污染成因与可行的环保行动：口头说清 | pending | — |
+| l-w-course-t27 | 污染成因与可行的环保行动：用文字说清 | pending | — |
+| l-s-course-t28 | 自然灾害与安全准备：口头说清 | pending | — |
+| l-w-course-t28 | 自然灾害与安全准备：用文字说清 | pending | — |
+| l-s-course-t29 | 地球、太空与探索：口头说清 | pending | — |
+| l-w-course-t29 | 地球、太空与探索：用文字说清 | pending | — |
+| l-p-letter-sound | 字母名与词中的音 | pending | — |
+| l-p-vowels | 元音音标与常见拼写 | pending | — |
+| l-p-consonants | 辅音、辅音组合与词尾 | pending | — |
+| l-p-word-stress | 单词重音放在哪一节 | pending | — |
+| l-p-sentence-stress | 句子重音改变对比焦点 | pending | — |
+| l-p-thought-groups | 意群与有意义的停顿 | pending | — |
+| l-p-connected-speech | 连读与弱读的书面准备 | pending | — |
+| l-p-intonation | 语调、态度与对话意图 | pending | — |
+| l-r-restoration | 句子还原：看前后照应 | pending | — |
+| l-r-short-answers | 任务型阅读：按要求提取信息 | pending | — |

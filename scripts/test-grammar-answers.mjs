@@ -106,7 +106,7 @@ test('explanations and diagrams acknowledge alternatives rather than claiming a 
 
 test('choice and order examples retain their closed, correct tasks', () => {
   const choice = question('q-g-be-001')
-  assert.equal(choice.stem, 'Mia _____ ready for the school trip.')
+  assert.equal(choice.stem, 'Mia _____ ready for the class photo.')
   assert.deepEqual(choice.options.map(o => o.text), ['is', 'am', 'are'])
   check(choice.id, 'a', true)
   check(choice.id, 'b', false)

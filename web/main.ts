@@ -14,7 +14,7 @@ const embeddedPacks = document.getElementById('local-packs')
 const localPacks: Record<string, string> | undefined = embeddedPacks ? JSON.parse(embeddedPacks.textContent || '{}') : undefined
 const embeddedAssets = document.getElementById('local-assets')
 const localAssets: Record<string, string> = embeddedAssets ? JSON.parse(embeddedAssets.textContent || '{}') : {}
-const artwork = (name: string) => localAssets[name] || `/assets/${name}.${['desk-scene','lesson-courtyard','lesson-workshop'].includes(name) ? 'jpg' : ['types','exam_light','mistakes_light'].includes(name) ? 'webp' : 'png'}`
+const artwork = (name: string) => localAssets[name] || `/assets/${name}.${['desk-scene','lesson-courtyard','lesson-workshop','class-photo'].includes(name) ? 'jpg' : ['types','exam_light','mistakes_light'].includes(name) ? 'webp' : 'png'}`
 const content = new ContentRepository(catalog, packs, async pack => {
   if (localPacks) {
     const text = localPacks[pack.file]

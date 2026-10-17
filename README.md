@@ -1,5 +1,10 @@
 # 初中英语 · Local learning app and WeChat mini program
 
+The owner has requested a further **individual lesson redesign**. The shared workshops below
+are a functional baseline; the [per-lesson tracker](docs/authoring/lesson-upgrades.md) records the
+actual individual reviews (currently 1/413), with the first class-photo lesson now checked.
+
+
 A working local English practice app for mainland junior-high students, with 413 original draft
 lessons, 5,004 tasks and 1,690 distinct vocabulary headwords. Every lesson starts with a hands-on
 studio: build an expression, choose evidence, sort examples or revise a draft. It includes illustrated answer feedback,

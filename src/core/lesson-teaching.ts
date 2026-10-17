@@ -130,6 +130,8 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   diagnosis=diagnoses[0]
   if(mode==='vocabulary')cases=cases.slice(0,2)
   if(mode==='reading'||mode==='transcript')cases=cases.filter(q=>q.id!==first.id)
+  if(originalMission?.workshop?.applicationIds)cases=originalMission.workshop.applicationIds.map(id=>qs.find(q=>q.id===id)!).filter(Boolean)
+  if(originalMission?.workshop?.transfer)transfer=editionQuestion(originalMission.workshop.transfer,spelling)
   const visualMission=originalMission
   const studio:LessonTeaching={...(visualMission?{mission:editionMission(visualMission,spelling)}:{}),...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
   studio.fingerprint=hash(studio)

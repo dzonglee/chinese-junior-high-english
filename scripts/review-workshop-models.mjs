@@ -9,9 +9,9 @@ const root=process.cwd(),out=resolve('test-results/workshop-model-review');mkdir
 const {createLessonTeaching,freshTeaching,changeTeaching,workshopView,renderWorkshop}=await import(pathToFileURL(resolve('.local/tools/workshop-review.mjs'))),c=authorCatalog(root),panels=[]
 for(const l of c.lessons){const s=createLessonTeaching(c,l,'american'),w=s.mission.workshop
  for(let i=0;i<(w.conditions?.length??w.items.length);i++){const item=w.items[w.kind==='transform'?0:i];if(!['transform','proof','sound-map'].includes(w.kind)&&!item.usage)continue;let p={...freshTeaching(s,1),step:1};const act=(a,value='')=>p=changeTeaching(s,p,'workshop-'+a,value,2);act('item',String(i))
-  const save=tag=>panels.push({id:l.id+'/'+i+'/'+tag,kind:w.kind,html:renderWorkshop(workshopView(w,p))})
+  const save=tag=>panels.push({id:l.id+'/'+i+'/'+tag,kind:w.kind,html:renderWorkshop(workshopView(w,p),name=>`data:image/jpeg;base64,${readFileSync(resolve('miniprogram/assets',name+'.jpg')).toString('base64')}`)})
   if(w.kind==='word-use'){const wrong=Object.keys(item.usage.alternatives).find(x=>x!==item.answer.toLowerCase());act('input',wrong);act('check');save('wrong-direction');act('input',item.answer);act('check');save('correct-direction')}
-  else{if(w.kind==='sound-map'){act('choose',item.options.find(o=>!o.correct).id);act('check');save('wrong-mark')}act('choose',w.kind==='transform'?w.conditions[i].target:item.options.find(o=>o.correct).id);act('check');if(w.kind==='proof')for(const o of item.options.filter(o=>o.correct&&o.id!==p.answers['workshop-'+i])){act('choose',o.id);act('check')}save('correct')}
+  else{if(w.kind==='transform')for(const id of w.conditions[i].world.scene?.subjects??[])act('subject',id);if(w.kind==='sound-map'){act('choose',item.options.find(o=>!o.correct).id);act('check');save('wrong-mark')}act('choose',w.kind==='transform'?w.conditions[i].target:item.options.find(o=>o.correct).id);act('check');if(w.kind==='proof')for(const o of item.options.filter(o=>o.correct&&o.id!==p.answers['workshop-'+i])){act('choose',o.id);act('check')}save('correct')}
  }
 }
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),headless:true,args:['--no-sandbox']}),css=readFileSync('dist/web/app.css','utf8'),index=[]

@@ -594,3 +594,16 @@ Reopen the existing visual lesson unit; the previous shared workshop implementat
 functional baseline, not completion of this new acceptance. Create an inventory with every row
 pending, then author/review each lesson separately. Work stays solo. Pictures must support an
 actual observation/comparison/story task, with inspected art and code-rendered exact clues.
+
+
+## 2026-10-18 (Sydney) · codex-solo · first individual lesson reviewed
+
+l-g-be is individually authored and reviewed; 1/413 complete under the new acceptance. The
+original generated class photo drives seven speaker/referent tasks; a correct verb cannot bypass
+wrong subject identification. Application is separate from prediction, and the fresh compound-
+subject transfer is original. Visual review fixed a correct verb turning red for a wrong person
+and reduced long tabs to a compact pager. Every dialogue and wrong/recovery/transfer state was
+rendered and inspected. Whole browser flow, 21 width checks, reload and zero assessment records
+pass; 1,449 core tests, typecheck, package and 826 spelling checks pass. All content remains draft.
+See docs/reviews/individual-lessons/l-g-be.md. Other 412 rows remain pending. Next: individually
+redesign l-g-present around habit evidence and verb agreement. Work stays solo on the same claim.

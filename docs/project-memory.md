@@ -1,6 +1,20 @@
 # Project memory
 
-## Current local delivery · 2026-10-17
+## Current owner direction · individual lessons, 2026-10-18 (Sydney)
+
+The owner requires every lesson to be upgraded one by one, with purposeful generated pictures.
+APP-VISUAL-LESSONS is reopened and claimed by codex-solo on author/individual-lessons. The
+previous shared workshop delivery is a baseline. The individual tracker starts every other row
+pending: **1/413** is currently reviewed, l-g-be. See docs/authoring/lesson-upgrades.md.
+
+The class-photo lesson has seven authored speaker/referent conditions. Students must select the
+right people as well as the right verb; singular/plural you and changing I are explicit. The
+generated art is inspected and labels are code. Corrected wrong-person versus wrong-verb
+highlighting after visual review. Real controls, three widths, reload, full transfer and zero
+assessment-record creation pass; all 1,449 core tests pass. Next is l-g-present. Work stays solo.
+Native project-drive access and approved audio remain separate blockers; nothing is released.
+
+## Previous local delivery · 2026-10-17
 
 APP-VISUAL-LESSONS now implements one connected teaching path across all 413 lessons. The rejected
 extra mission introduction is hidden from the default journey. Changing grammar conditions update
