@@ -2,7 +2,7 @@
 
 The owner has requested a further **individual lesson redesign**. The shared workshops below
 are a functional baseline; the [per-lesson tracker](docs/authoring/lesson-upgrades.md) records the
-actual individual reviews (currently 6/413), with the first six grammar lessons now checked.
+actual individual reviews (currently 7/413), with the first seven grammar lessons now checked.
 
 
 A working local English practice app for mainland junior-high students, with 413 original draft
@@ -43,7 +43,7 @@ npm run dev
 
 The development server listens on loopback port 4173. For a portable offline copy, open
 `dist/local/index.html` in Chrome or Edge. That single file contains all 245 checked content packs,
-the app code, styles, original Blender artwork and three inspected generated scenes. It needs no account or cloud configuration.
+the app code, styles, original Blender artwork and inspected original generated illustrations. It needs no account or cloud configuration.
 See [local version instructions](docs/local-version.md) for saving progress and microphone support.
 
 The complete original course covers 29 themes across reading, listening, speaking and writing,

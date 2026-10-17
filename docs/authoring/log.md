@@ -671,3 +671,17 @@ inspected; full browser flow, 24 widths, alignment/reload and zero assessment re
 All 1,452 core tests, typecheck, 826 spelling/teaching and static package audits pass. Main1699KB;
 no native GUI pass is implied. Next l-g-articles: a generated book/umbrella image is pending
 inspection, not completion. The unit remains claimed and unfinished; work stays solo.
+
+
+## 2026-10-18 (Sydney) · codex-solo · article lesson individually reviewed
+
+l-g-articles is reviewed: 7/413. Nine authored tasks require named-object and sound/reference
+selection, including old versus useful, silent h, university, same-object the and general plural
+without an article. An inspected original book/umbrella illustration supplies actual tappable
+objects. The unusual-map transfer prevents a false u-letter shortcut. Review corrected an image/
+sentence location mismatch, abstract feedback and noun-phrase highlighting. All nine figures,
+wrong-object/word and transfer states were inspected. Full browser flow and 27 widths, reload
+and zero assessment records pass; typecheck and all-lesson teaching/spelling audits pass.
+Last full core run1,452 precedes article data. Next l-g-comparison with a selectable comparison
+group and measured diagrams; do not infer measurements from illustration perspective.
+The overall claim remains unfinished. Native access/audio/release boundaries are unchanged.
