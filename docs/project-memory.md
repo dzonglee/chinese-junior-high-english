@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-41 of413 lessons are individually reviewed;372 remain pending. Every lesson needs bespoke tasks,
+42 of413 lessons are individually reviewed;371 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-contractions. Thirteen contraction tasks combine real apostrophe assemblies, possession contrasts, a selectable addressee, a mandatory has-expansion gate and a constrained uppercase initialism.
+Latest:l-g-statements. Twelve factual sentence tasks combine selectable inventories and habit/location records with real phrase/full-sentence repairs. They distinguish be,lexical-verb and modal negation,positive third-person agreement,past auxiliaries,and complete subjects.
 
-Inspected all thirteen models,narrow-phone figures,wrong apostrophe/person/expansion paths,typed possession repairs,capital feedback,removal/reload and all application/transfer steps. Final ASCII English apostrophes render clearly. Grades7–9,reserved005–008 unexposed,zero independent records.
+Inspected all twelve models,narrow-phone figures,wrong facts and forms,capital feedback,piece removal/reload and all application/transfer steps. Exact0/1 picture selections alter actual icons. Accepted contractions are exercised. Grades6–9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint41 records the new flow/39 widths and current core,teaching,grammar,course,package,
+Checkpoint42 records the new flow/36 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The41 reviewed lessons cumulatively contain390 conditions/1170 widths;
+recorded explicitly. The42 reviewed lessons cumulatively contain402 conditions/1206 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-statements. A twelve-task statements draft remains outside course files. Learners select factual records,change box inventory and repair be,do/does/did and modal statements with actual phrase tiles. Preserve subject and capitalization in the final complete statement. Inspect each task before review credit.
+Next:l-g-alternative-questions. Twelve alternative-question tasks are drafted outside course files. A newly generated bus/bike diptych will support changing picture selections,with factual labels coded. Inspect original and phone delivery,and create safe package space before integrating further art. Other tasks require concrete replies across dates,colors,actions and occupations,and reconstruct a complete question.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

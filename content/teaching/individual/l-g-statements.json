@@ -1,0 +1,685 @@
+{
+  "lessonId": "l-g-statements",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Match positive/negative statements to exact inventories and stated facts,contrast be/modal/lexical-verb negation,repair tense/agreement,and retain a subject in a complete statement.",
+  "picturePurpose": "Reuse exact empty/one-ball inventories with coded0/1 counters. Other authored record cards distinguish school-day/Saturday facts;real phrase and full-sentence tiles expose auxiliary and subject structure.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先核对事实，再把肯定或否定说完整",
+    "instruction": "选盘点和事实记录，改好谓语，再拼出完整陈述句。be、情态动词和普通动词分别处理，别只看到“不”就套一个句式。",
+    "conditions": [
+      {
+        "label": "盘点为零，用否定说明不存在",
+        "before": "There ",
+        "target": "is not",
+        "after": " a ball in the box.",
+        "choices": [
+          "are not",
+          "is not"
+        ],
+        "reason": "a ball是单数，be用is。给定盘点为0，用is not或缩约形式isn't表示盒内没有球。",
+        "world": {
+          "kind": "count",
+          "caption": "盘点记录：盒内0件物品，没有球。先选相符的盒子，再用否定句说明。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的完整盘点",
+              "value": 0,
+              "art": "ball"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "先选与事实相符的盒内盘点",
+            "missingPrompt": "先按记录核对盒内0件还是1件，再决定肯定或否定。",
+            "asset": "lesson-box-inventory",
+            "alt": "左图蓝色盒子完全空着；右图同样的盒子里只有一个红球。",
+            "artChoices": [
+              "empty",
+              "ball"
+            ],
+            "answer": "empty",
+            "options": [
+              {
+                "id": "empty",
+                "label": "空盒子 · 0件",
+                "text": "盒内没有物品",
+                "reason": "与给定盘点一致。",
+                "value": 0
+              },
+              {
+                "id": "ball",
+                "label": "1个红球",
+                "text": "盒内有1件物品",
+                "reason": "给定记录说盒内没有物品，应选空盒。",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "are not",
+        "inputHint": "先对上事实、主语和时间，再核对be、助动词与动词原形。",
+        "accepted": [
+          "isn't"
+        ]
+      },
+      {
+        "label": "盘点变成一件，用肯定说明存在",
+        "before": "There ",
+        "target": "is",
+        "after": " a ball in the box.",
+        "choices": [
+          "are",
+          "is"
+        ],
+        "reason": "盒内有1个球，a ball单数，肯定陈述用is。不能因为上一条记录为空，就沿用否定。",
+        "world": {
+          "kind": "count",
+          "caption": "另一条盘点：盒内恰好1个红球。记录变了，句子的肯定或否定也要对上。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的完整盘点",
+              "value": 0,
+              "art": "ball"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "先选与事实相符的盒内盘点",
+            "missingPrompt": "先按记录核对盒内0件还是1件，再决定肯定或否定。",
+            "asset": "lesson-box-inventory",
+            "alt": "左图蓝色盒子完全空着；右图同样的盒子里只有一个红球。",
+            "artChoices": [
+              "empty",
+              "ball"
+            ],
+            "answer": "ball",
+            "options": [
+              {
+                "id": "empty",
+                "label": "空盒子 · 0件",
+                "text": "盒内没有物品",
+                "reason": "给定记录说盒内有1个红球，应选有球的盒子。",
+                "value": 0
+              },
+              {
+                "id": "ball",
+                "label": "1个红球",
+                "text": "盒内有1件物品",
+                "reason": "与给定盘点一致。",
+                "value": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "说不在家，用be加not",
+        "before": "Leo ",
+        "target": "is not",
+        "after": " at home now.",
+        "choices": [
+          "does not",
+          "is not"
+        ],
+        "reason": "at home说明位置，需要be。本句Leo单数，否定为is not或isn't；does not后不能直接只接at home。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录明确Leo现在在学校，不在家。先核对事实，再修改句子。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的事实记录"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "选出给定的位置事实",
+            "emptyLabel": "先核对事实",
+            "missingPrompt": "先选择与给定事实一致的记录，再核对句子。",
+            "answer": "fact",
+            "options": [
+              {
+                "id": "other",
+                "label": "现在在家",
+                "text": "另一条记录",
+                "reason": "这条记录与题目给定的事实不符。at home说明位置，需要be。本句Leo单数，否定为is not或isn't；does not后不能直接只接at home。",
+                "value": 25
+              },
+              {
+                "id": "fact",
+                "label": "现在在学校",
+                "text": "与题目事实相符",
+                "reason": "记录与给定事实一致。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "does not",
+        "inputHint": "先对上事实、主语和时间，再核对be、助动词与动词原形。",
+        "accepted": [
+          "isn't"
+        ]
+      },
+      {
+        "label": "ready是状态，保留be",
+        "before": "The team ",
+        "target": "is ready",
+        "after": " for the show.",
+        "choices": [
+          "are ready",
+          "is ready"
+        ],
+        "reason": "这里把the team作为一个整体，用is连接ready，说明准备好的状态。不是用do来代替be。",
+        "world": {
+          "kind": "syntax",
+          "caption": "记录：这个队已准备好演出。句子把the team看作一个整体。",
+          "cells": [
+            {
+              "label": "are ready",
+              "detail": "需要按事实改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "tiles": [
+          "are",
+          "is",
+          "ready"
+        ],
+        "inputHint": "先对上事实、主语和时间，再核对be、助动词与动词原形。"
+      },
+      {
+        "label": "Mia否定日常动作，用does not加原形",
+        "before": "Mia ",
+        "target": "does not play",
+        "after": " tennis on school days.",
+        "choices": [
+          "does not plays",
+          "does not play"
+        ],
+        "reason": "Mia单数，一般现在时否定用does not play，play保持原形，不再加s。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录明确：Mia在上学日不打网球。只按这条习惯作答。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的事实记录"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "选出Mia在上学日的习惯",
+            "emptyLabel": "先核对事实",
+            "missingPrompt": "先选择与给定事实一致的记录，再核对句子。",
+            "answer": "fact",
+            "options": [
+              {
+                "id": "other",
+                "label": "上学日打网球",
+                "text": "另一条记录",
+                "reason": "这条记录与题目给定的事实不符。Mia单数，一般现在时否定用does not play，play保持原形，不再加s。",
+                "value": 25
+              },
+              {
+                "id": "fact",
+                "label": "上学日不打网球",
+                "text": "与题目事实相符",
+                "reason": "记录与给定事实一致。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "does not plays",
+        "inputHint": "先对上事实、主语和时间，再核对be、助动词与动词原形。",
+        "accepted": [
+          "doesn't play"
+        ]
+      },
+      {
+        "label": "变回肯定习惯，第三人称要加s",
+        "before": "Mia ",
+        "target": "plays",
+        "after": " tennis on Saturdays.",
+        "choices": [
+          "play",
+          "plays"
+        ],
+        "reason": "Mia作主语，一般现在时肯定句用plays。没有does not时，不能把肯定句里的第三人称s也删掉。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录明确：Mia每周六打网球。不要把上学日的否定照搬过来。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的事实记录"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "选出Mia在周六的习惯",
+            "emptyLabel": "先核对事实",
+            "missingPrompt": "先选择与给定事实一致的记录，再核对句子。",
+            "answer": "fact",
+            "options": [
+              {
+                "id": "other",
+                "label": "每周六不打网球",
+                "text": "另一条记录",
+                "reason": "这条记录与题目给定的事实不符。Mia作主语，一般现在时肯定句用plays。没有does not时，不能把肯定句里的第三人称s也删掉。",
+                "value": 25
+              },
+              {
+                "id": "fact",
+                "label": "每周六打网球",
+                "text": "与题目事实相符",
+                "reason": "记录与给定事实一致。",
+                "value": 75
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "实义动词need否定，不借be",
+        "before": "We ",
+        "target": "do not need",
+        "after": " tickets today.",
+        "choices": [
+          "are not need",
+          "do not need"
+        ],
+        "reason": "need在这里是实义动词，We的现在时否定用do not need或don't need。are not不能直接放在need前代替do not。",
+        "world": {
+          "kind": "syntax",
+          "caption": "活动记录：今天免费入场，我们不需要门票。保留这个否定事实。",
+          "cells": [
+            {
+              "label": "are not need",
+              "detail": "需要按事实改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "don't need"
+        ],
+        "input": true,
+        "tiles": [
+          "do",
+          "don't",
+          "are",
+          "need",
+          "not"
+        ],
+        "inputHint": "先对上事实、主语和时间，再核对be、助动词与动词原形。"
+      },
+      {
+        "label": "yesterday把否定放在did上，bring回原形",
+        "before": "Leo ",
+        "target": "did not bring",
+        "after": " his notebook yesterday.",
+        "choices": [
+          "did not brought",
+          "did not bring"
+        ],
+        "reason": "yesterday说明过去，否定用did not bring或didn't bring。did已经表示过去，后面的bring用原形。",
+        "world": {
+          "kind": "syntax",
+          "caption": "昨日记录：Leo昨天没有带笔记本。改好过去时否定，别让动词再重复变过去式。",
+          "cells": [
+            {
+              "label": "did not brought",
+              "detail": "需要按事实改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "didn't bring"
+        ],
+        "input": true,
+        "tiles": [
+          "bring",
+          "did",
+          "didn't",
+          "brought",
+          "not"
+        ],
+        "inputHint": "先对上事实、主语和时间，再核对be、助动词与动词原形。"
+      },
+      {
+        "label": "否定能力，直接用cannot",
+        "before": "Amy ",
+        "target": "cannot swim",
+        "after": " yet.",
+        "choices": [
+          "can swim",
+          "cannot swim"
+        ],
+        "reason": "记录明确Amy还不会游泳，用cannot swim或can't swim。can后保留原形swim，不需要再借do。",
+        "world": {
+          "kind": "syntax",
+          "caption": "能力记录：Amy目前还不会游泳。按记录把肯定表达改成否定。",
+          "cells": [
+            {
+              "label": "can swim",
+              "detail": "需要按事实改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "can't swim"
+        ],
+        "input": true,
+        "tiles": [
+          "can't",
+          "swim",
+          "cannot",
+          "can"
+        ],
+        "inputHint": "先对上事实、主语和时间，再核对be、助动词与动词原形。"
+      },
+      {
+        "label": "肯定能力，can后也不加s",
+        "before": "Leo ",
+        "target": "can ride",
+        "after": " a bike.",
+        "choices": [
+          "cans ride",
+          "can ride"
+        ],
+        "reason": "Leo已会骑车，用can ride。情态动词can不随单数主语加s，后面ride也用原形。",
+        "world": {
+          "kind": "logic",
+          "caption": "能力记录：Leo已学会骑车。这次用肯定句说明他能做什么。",
+          "cells": [
+            {
+              "label": "会骑车",
+              "detail": "can + 动词原形"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "be的否定也可说明不在某处",
+        "before": "The red ball ",
+        "target": "is not",
+        "after": " in the box.",
+        "choices": [
+          "does not",
+          "is not"
+        ],
+        "reason": "给定记录说红球已被取出，主语the red ball单数，用is not或isn't说明它不在盒内。does not不能直接只接in the box。",
+        "world": {
+          "kind": "count",
+          "caption": "已把唯一红球取出，盒内0件物品。句子说明这个红球现在不在盒子里，不推断它在别的什么地方。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的盒内盘点",
+              "value": 0,
+              "art": "ball"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "先选与事实相符的盒内盘点",
+            "missingPrompt": "先按记录核对盒内0件还是1件，再决定肯定或否定。",
+            "asset": "lesson-box-inventory",
+            "alt": "左图蓝色盒子完全空着；右图同样的盒子里只有一个红球。",
+            "artChoices": [
+              "empty",
+              "ball"
+            ],
+            "answer": "empty",
+            "options": [
+              {
+                "id": "empty",
+                "label": "空盒子 · 0件",
+                "text": "盒内没有物品",
+                "reason": "与给定盘点一致。",
+                "value": 0
+              },
+              {
+                "id": "ball",
+                "label": "1个红球",
+                "text": "盒内有1件物品",
+                "reason": "给定记录说盒内没有物品，应选空盒。",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "does not",
+        "inputHint": "先对上事实、主语和时间，再核对be、助动词与动词原形。",
+        "accepted": [
+          "isn't"
+        ]
+      },
+      {
+        "label": "陈述事实要保留主语，不改成指令",
+        "before": "",
+        "target": "We do not have a class today",
+        "after": ".",
+        "choices": [
+          "Do not have a class today",
+          "We do not have a class today"
+        ],
+        "reason": "这是说明我们今天没有课的陈述句，要保留主语We。Do not have开头会变成指令，不是本题要表达的通知；句首We大写。",
+        "world": {
+          "kind": "syntax",
+          "caption": "通知说明：我们今天没有课。用完整陈述句说清事实，保留主语并注意句首大写。",
+          "cells": [
+            {
+              "label": "Do not have a class today",
+              "detail": "需要按事实改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "caseSensitive": true,
+        "accepted": [
+          "We don't have a class today"
+        ],
+        "tiles": [
+          "do",
+          "don't",
+          "not",
+          "have",
+          "today",
+          "Do",
+          "class",
+          "We",
+          "a",
+          "we"
+        ],
+        "inputHint": "先对上事实、主语和时间，再核对be、助动词与动词原形。"
+      }
+    ],
+    "choices": [
+      "are not",
+      "is not",
+      "are",
+      "is",
+      "does not",
+      "are ready",
+      "is ready",
+      "does not plays",
+      "does not play",
+      "play",
+      "plays",
+      "are not need",
+      "do not need",
+      "did not brought",
+      "did not bring",
+      "can swim",
+      "cannot swim",
+      "cans ride",
+      "can ride",
+      "Do not have a class today",
+      "We do not have a class today"
+    ],
+    "items": [
+      {
+        "id": "statement-editor",
+        "label": "事实、时间与谓语",
+        "prompt": "让每句话都与给定事实相符，并保留完整结构。",
+        "answer": "",
+        "reason": "",
+        "hint": "现在的单数否定用does not加原形；过去用did not加原形；be和can另按自身规则否定。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-statements-002",
+      "q-g-statements-003"
+    ],
+    "transfer": {
+      "id": "individual-g-statements-transfer",
+      "topicId": "g-statements",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "事实：Mia今天不需要帮忙；Leo昨天没有带钥匙。两空依次填什么？\nMia ___ need help today. Leo did not ___ the key yesterday.",
+      "options": [
+        {
+          "id": "a",
+          "text": "does not; bring"
+        },
+        {
+          "id": "b",
+          "text": "does not; brings"
+        },
+        {
+          "id": "c",
+          "text": "is not; bring"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "does not; bring"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对主语、时间和动词类型，再决定否定助动词和后面的词形。",
+        "steps": [
+          {
+            "text": "Mia单数，need是本句实义动词，第一空用does not。",
+            "reason": "不是be后接状态或位置，不能用is not直接放在need前。"
+          },
+          {
+            "text": "第二句已有did not，后面的bring用原形。",
+            "reason": "过去时间已经由did承担，不能再把bring改成brings或过去式。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "did not后要用bring原形，不能写brings。"
+          },
+          {
+            "option": "c",
+            "reason": "第一句need是实义动词，需要does not，不能写is not need。"
+          }
+        ],
+        "pitfall": "be否定、情态动词否定和普通实义动词否定不要混成一个句式。",
+        "visual": {
+          "kind": "comparison",
+          "title": "分别核对现在与过去的否定",
+          "segments": [
+            {
+              "text": "Mia + does not + need",
+              "role": "evidence",
+              "note": "单数主语，need保留原形"
+            },
+            {
+              "text": "yesterday + did not + bring",
+              "role": "evidence",
+              "note": "过去由did承担"
+            }
+          ],
+          "caption": "否定形式对上了，后面的动词也要回原形。"
+        },
+        "transfer": "如果第一句改成We作主语，does not需要怎样变化？need又要不要变？"
+      }
+    }
+  }
+}
