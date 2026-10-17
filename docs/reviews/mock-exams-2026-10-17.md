@@ -95,6 +95,8 @@ editorial approval and publication remain separate. Nothing has been marked rele
 ## Reviewable artifacts
 
 The current native entrance, preflight, answer sheet, section report and evidence review
-are in `docs/screenshots/exam-2026-10-17/`. Download archives are
+are in `docs/screenshots/exam-2026-10-17/`. The preflight uses the geometry-run frame;
+the later preflight screenshot caught the previous lobby frame despite correct bound data.
+The harness now also requires the five rendered section rows and waits for the screenshot frame. Download archives are
 `dist/local-english-app.zip` and `dist/english-wechat-development.zip`. Both pass CRC and
 entry-by-entry source comparison; exact archive hashes are in `mock-exams-evidence-2026-10-17.json`.
