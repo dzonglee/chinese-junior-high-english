@@ -52,9 +52,9 @@ it.each(source.lessons)('completes the real checked-pack five-phase studio for $
  if(s.sorting){for(const card of s.sorting.cards){await a.action('studio-sort',card.id+':'+s.sorting.categories.find(g=>g.id!==card.category)!.id);expect(a.render().teaching!.sortingCards.find(x=>x.id===card.id)!.correct).toBe(false);await a.action('studio-sort',card.id+':'+card.category)}}
  else if(s.mode==='communication'){
   a.setField('studioAfter','My revised idea includes the task details and reasons.')
-  for(const r of s.rubric){await a.action('studio-link',r.id+':'+s.modelSentences[0].id);await a.action('studio-rubric',r.id)}
+  for(const r of s.rubric){const wrong=s.modelSentences.find(t=>!s.roleAnchors[r.id].includes(t.id))!;await a.action('studio-link',r.id+':'+wrong.id);expect(a.render().teaching!.linkFeedback).toBeTruthy();expect(a.render().teaching!.progress.links[r.id]).toBeUndefined();await a.action('studio-link',r.id+':'+s.roleAnchors[r.id][0]);}for(const r of s.revisionRubric)await a.action('studio-rubric',r.id)
   await a.action('studio-review');expect(a.render().teaching!.progress.checked.revision).toBe(true)
- }else if(s.evidence.length){const wrong=s.evidence.find(e=>!e.supports);if(wrong){await a.action('studio-evidence',wrong.id);expect(a.render().teaching!.correct).toBe(false)}await a.action('studio-evidence',s.evidence.find(e=>e.supports)!.id)}
+ }else if(s.evidence.length){for(const[i]of s.cases.entries()){await a.action('studio-case',String(i));const e=a.render().teaching!.evidenceItems,wrong=e.find(e=>!e.supports);if(wrong){await a.action('studio-evidence',wrong.id);expect(a.render().teaching!.correct).toBe(false)}await a.action('studio-evidence',e.find(e=>e.supports)!.id)}}
  else for(const [i,q] of s.cases.slice(0,s.mode==='vocabulary'?s.cases.length:2).entries()){
   await a.action('studio-case',String(i));await a.action('studio-answer',answer(q));await a.action('studio-check');expect(a.render().teaching!.correct,q.id).toBe(true)
  }
@@ -64,7 +64,7 @@ it.each(source.lessons)('completes the real checked-pack five-phase studio for $
  await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(3)
  await a.action('studio-diagnose',s.diagnosis.options.find(o=>o.id!==s.diagnosis.correct)!.id);expect(a.render().teaching!.correct).toBe(false)
  await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(3)
- await a.action('studio-diagnose',s.diagnosis.correct);await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(4)
+ for(const[i,d]of s.diagnoses.entries()){await a.action('studio-clinic',String(i));await a.action('studio-diagnose',d.correct)}await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(4)
  await a.action('studio-answer',answer(s.transfer));for(const r of s.transfer.rubric??[])await a.action('studio-rubric',r.id)
  await a.action('studio-check');expect(a.render().teaching!.correct).toBe(true)
  await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(5)

@@ -245,4 +245,4 @@ const loaders = {
   "r-restoration": () => require.async("./content/group-006/r-restoration.js"),
   "r-short-answers": () => require.async("./content/group-006/r-short-answers.js"),
 };
-module.exports = { loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };
+module.exports = { loadCatalog: () => require.async('./content/catalog/index.js'), loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };

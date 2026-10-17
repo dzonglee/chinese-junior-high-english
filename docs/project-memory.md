@@ -300,3 +300,22 @@ AppID/cloud, phones, approved audio, publisher mapping, editorial approval and p
 separate. APP-UI is complete and squash-integrated on main. External card
 35f6f71a-31b4-4ca2-8500-ab58cf293a68 and the existing Obsidian project note are closed out
 with the integration commit after the main push. Work stays solo; reference material remains unchanged.
+
+## Exam teaching, 2026-10-17
+
+The owner requests individual exam-focused lesson improvements and original mock papers,
+working solo. APP-EXAM-LESSONS adds coaching to all 413 lessons: 55 authored grammar
+contrasts, 72 sentence-role maps and short task checklists, evidence work across reading
+items, contextual vocabulary clinics and additional pronunciation diagnostics. Arbitrary
+writing evidence is rejected. Open-ended tasks retain their choice of details and stance.
+The t12 and t20 models were corrected against their actual prompts.
+
+991 tests pass. The native 11-flow run is `3a3e77a3a55447ae91c6ee9ffb824df6`, nested exit 0,
+45 captures, no simulator exceptions. Full review/boundaries are in
+`docs/reviews/exam-teaching-2026-10-17.md`; JSON lists every lesson's coaching bindings.
+Native metadata now loads from a separate supported subpackage, leaving the main package
+at about 997 KB without raising any budget. Startup has a loading state and retry.
+
+APP-MOCKS is the next dependency: fixed original written papers, clear original-format
+labels, section scores and corrections. No official city format or approved listening audio
+has been invented. Studios remain coached work and preserve the delayed-item pool.

@@ -24,7 +24,7 @@ try{
  await act('studio-assemble');await expect(page.locator('[data-action=studio-next]')).toBeDisabled()
  for(const[i,u]of model.assemblies.entries()){await act('studio-unit',String(i));for(const id of u.target)await act('studio-tile',id);await act('studio-assemble')}
  await act('studio-next');for(const[i,q]of model.cases.slice(0,2).entries()){await act('studio-case',String(i));if(q.kind==='choice')await act('studio-answer',q.answer.option);else await page.locator('[name=studioAnswer]').fill(q.answer.accepted[0]);await act('studio-check')}
- await page.reload();await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','2');await act('studio-next');await act('studio-diagnose',model.diagnosis.correct);await act('studio-next')
+ await page.reload();await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','2');await act('studio-next');for(const[i,d]of model.diagnoses.entries()){await act('studio-clinic',String(i));await act('studio-diagnose',d.correct)}await act('studio-next')
  if(model.transfer.kind==='choice')await act('studio-answer',model.transfer.answer.option);else if(model.transfer.kind==='order')for(const id of model.transfer.answer.order)await act('studio-response-add',id);else await page.locator('[name=studioAnswer]').fill(model.transfer.answer.accepted[0])
  await act('studio-check');await act('studio-next');await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','5');await act('start-lesson','l-g-be');await expect(page.locator('[data-screen=session]')).toBeVisible();checks.push('Actual browser taps complete prediction, assembly, contrast, diagnosis, transfer, reload and practice handoff')
  // Render every studio and every assembly with the same Application view and browser renderer.
@@ -34,6 +34,7 @@ try{
  for(const l of source.lessons){
   const grade=Math.min(...l.grades),profile={cityId:'北京-北京',structure:grade===6?'54':'63',grade,term:'upper',editionId:grade===6?'pep-54':'pep-legacy',schoolYear:2026,dailyMinutes:20,createdAt:1};store.save({...emptyState(1),profile});app.open('lesson',{id:l.id});const s=app.render().teaching.lesson
   for(let step=0;step<=5;step++){const p={...freshTeaching(s,1),step};store.save({...store.get(),teaching:{[l.id]:p}});const html=renderLessonStudio(app.render());fixtures.push({id:l.id,step,html});}
+  for(const[clinicIndex]of s.diagnoses.entries()){const p={...freshTeaching(s,1),step:3,answers:{clinicIndex:String(clinicIndex)}};store.save({...store.get(),teaching:{[l.id]:p}});fixtures.push({id:l.id+' / clinic '+clinicIndex,step:3,html:renderLessonStudio(app.render())})}
   for(const [unit,u]of s.assemblies.entries()){const p={...freshTeaching(s,1),step:1,unit};store.save({...store.get(),teaching:{[l.id]:p}});assemblies.push({id:l.id+' / '+u.id,html:renderLessonStudio(app.render())})}
  }
  const layoutSamples=[...fixtures,...assemblies],css=readFileSync(resolve(root,'dist/web/app.css'),'utf8'),review=await browser.newPage({viewport:{width:390,height:844}}),layouts=[]

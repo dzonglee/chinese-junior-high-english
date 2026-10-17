@@ -1,5 +1,5 @@
 import { phoneticSorting, type PhoneticSorting } from './phonetic-sorting'
-import type { ContentCatalog, ExplanationVisual, Lesson, Question, RubricPoint } from './types'
+import type { ContentCatalog, ExplanationVisual, Lesson, Question, RubricPoint, ExamCoaching } from './types'
 import { checkAnswer, normalizedAnswer, wordCount } from './answers'
 import { editionQuestion, editionText, type Spelling } from './spelling'
 import { communicationTransfer } from './teaching-transfers'
@@ -11,6 +11,7 @@ export interface TeachingEvidence { id: string; text: string; supports: boolean 
 export interface TeachingChoice { prompt: string; options: TeachingTile[]; correct: string; reasons: Record<string,string>; excerpt?: string }
 export interface LessonTeaching {
   id: string; title: string; objective: string; skill: string; fingerprint: string; mode: 'language' | 'vocabulary' | 'reading' | 'transcript' | 'communication' | 'phonetics'
+  coaching: ExamCoaching; diagnoses: TeachingChoice[]; roleAnchors: Record<string,string[]>; revisionRubric: RubricPoint[]
   sorting?: PhoneticSorting
   prediction: Question; transfer: Question; cases: Question[]; assemblies: TeachingAssembly[]
   evidence: TeachingEvidence[]; diagnosis: TeachingChoice; model?: Question; modelSentences: TeachingTile[]; rubric: RubricPoint[]
@@ -35,7 +36,7 @@ function assembly(id:string,title:string,prompt:string,texts:string[],kind:Teach
   return{id,title,prompt,tiles:shuffled,target:original.map(t=>t.id),kind,explanation}
 }
 function normalizeEvidence(text:string){return normalizedAnswer(text).replace(/〔[^〕]*〕\s*_*/g,' ').replace(/\[\[\d+\]\]/g,' ').replace(/\s+/g,' ').trim()}
-function sourceEvidence(q:Question):TeachingEvidence[]{
+export function sourceEvidence(q:Question):TeachingEvidence[]{
   const exact=evidenceSentences(q)
   if(exact.length)return exact.map(s=>({id:s.id,text:s.text,supports:s.matched}))
   if(!q.passage)return[]
@@ -47,7 +48,7 @@ function sourceEvidence(q:Question):TeachingEvidence[]{
 }
 function choiceFor(q:Question):TeachingChoice{
   if(!q.options?.length)throw new Error(`No diagnostic choice for ${q.id}`)
-  return{prompt:`你来批改：按原题的语境，哪一项才合适？\n${q.stem}`,options:q.options.map(o=>({...o})),correct:q.answer.option!,reasons:Object.fromEntries(q.options.map(o=>[o.id,o.id===q.answer.option?q.explanation.steps[0].text:q.explanation.distractors.find(d=>d.option===o.id)!.reason])),excerpt:`一位同学选了：${q.options.find(o=>o.id!==q.answer.option)!.text}`}
+  return{prompt:`你来批改：按原题的语境，哪一项才合适？\n${q.stem}`,options:q.options.map(o=>({...o})),correct:q.answer.option!,reasons:Object.fromEntries(q.options.map(o=>[o.id,o.id===q.answer.option?q.explanation.steps[0].text:q.explanation.distractors.find(d=>d.option===o.id)!.reason])),excerpt:`${q.passage?q.passage+'\n\n':''}一位同学选了：${q.options.find(o=>o.id!==q.answer.option)!.text}`}
 }
 export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spelling='british'):LessonTeaching{
   const qs=lesson.questionIds.map(id=>c.questions.find(q=>q.id===id)).filter((q):q is Question=>!!q)
@@ -56,7 +57,10 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   const mode:LessonTeaching['mode']=communication?'communication':phonetics?'phonetics':topic.skill==='vocabulary'?'vocabulary':topic.skill==='reading'?'reading':topic.skill==='listening'?'transcript':'language'
   const first=communication?qs.find(q=>q.kind==='writing'||q.kind==='speaking')!:qs[0]
   const transfer=communication?qs.find(q=>q.id!==first.id&&(q.kind==='writing'||q.kind==='speaking'))??editionQuestion(communicationTransfer(first),spelling):qs[qs.length-1]!
-  const cases=qs.filter(q=>q.kind!=='writing'&&q.kind!=='speaking').slice(0,mode==='vocabulary'?qs.length:3)
+  let cases=qs.filter(q=>q.kind!=='writing'&&q.kind!=='speaking').slice(0,['vocabulary','reading','transcript'].includes(mode)?qs.length:3)
+  if(mode==='reading'||mode==='transcript')cases=cases.filter(q=>sourceEvidence(q).some(e=>e.supports))
+  const base=lesson.examCoaching??{task:topic.title,check:topic.commonError}
+  const coaching={...base,task:editionText(base.task,spelling),check:editionText(base.check,spelling)}
   const assemblies:TeachingAssembly[]=[], modelSentences=communication?teachingSentences(first.answer.display).map(tile):[]
   let diagnosis:TeachingChoice, evidence:TeachingEvidence[]=[]
   if(mode==='vocabulary'){
@@ -65,14 +69,14 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
     const w=words[0], others=words.slice(1).filter((v,i,all)=>v.meaning!==words[0].meaning&&all.findIndex(x=>x.meaning===v.meaning)===i).slice(0,2), correct='original'
     diagnosis={prompt:`有同学把“${w.word}”记成了“${others[0]?.meaning??'无论什么语境都不需要检查搭配'}”。对照本课词表，应该怎样改？`,options:[{id:correct,text:w.meaning},...others.map((v,i)=>({id:`other-${i}`,text:v.meaning})),...(others.length?[]:[{id:'ignore',text:'不用看语境，也不用检查搭配。'}])],correct,reasons:{original:`${w.word} 在本课词表中的释义是“${w.meaning}”。${w.explanation}`,...Object.fromEntries(others.map((v,i)=>[`other-${i}`,`这是 ${v.word} 的释义，不是本课 ${w.word} 的释义。`])),ignore:'词义要结合语境和搭配检查，不能跳过这一步。'}}
   }else if(mode==='reading'||mode==='transcript'){
-    const chunks=teachingSentences(first.passage??'').slice(0,5)
-    assemblies.push(assembly('sequence','把信息接起来','按刚才原文的顺序排列这些片段。这里复原原文，不判断其他顺序是否也能写成文章。',chunks,'passage',first.explanation.strategy))
     evidence=sourceEvidence(first)
+    const quote=evidence.find(e=>e.supports)?.text??first.explanation.visual.segments.find(v=>v.role==='evidence')!.text
+    assemblies.push(assembly('sequence','把解题证据连起来','按“题目问什么 → 原文依据 → 得出判断”的顺序连接三张卡。不用背诵整篇文章。',[`题目：${first.stem}`,`依据：${quote}`,`判断：${first.answer.display}`],'passage',first.explanation.steps[0].reason))
     diagnosis=first.options?.length?choiceFor(first):{prompt:'参考原文，哪一句能作为本题的依据？',options:evidence.map(s=>({id:s.id,text:s.text})),correct:evidence.find(s=>s.supports)?.id??'',reasons:Object.fromEntries(evidence.map(s=>[s.id,s.supports?first.explanation.steps[0].reason:'这处文字没有包含本题解析所引用的关键线索。']))}
     if(!first.options?.length&&evidence.filter(s=>s.supports).length>1){const accepted=evidence.find(s=>s.supports)!;diagnosis.options=diagnosis.options.filter(o=>o.id===accepted.id||!evidence.find(s=>s.id===o.id)!.supports)}
   }else if(communication){
     assemblies.push(assembly('model-order','组织一段参考表达','先读参考表达，再按它原来的顺序重组。它只是一种可行表达，不是唯一正确写法。',modelSentences.map(s=>s.text),'model',first.explanation.strategy))
-    diagnosis={prompt:'下面的参考表达删掉了第一句。对照刚才的原参考表达，找回被删的一句。不是说所有文章都必须使用这个开头。',excerpt:modelSentences.slice(1).map(s=>s.text).join(' '),options:modelSentences.slice(0,4),correct:modelSentences[0]?.id??'',reasons:Object.fromEntries(modelSentences.map((s,i)=>[s.id,i===0?`找回了原参考表达的开头。${first.explanation.steps[0].reason}`:'这句还保留在删减后的参考表达里；请对照原来的第一句。']))}
+    diagnosis={prompt:'',options:[],correct:'',reasons:{}}
   }else{
     if(phonetics){
       for(const q of qs.slice(0,3))assemblies.push(assembly(q.id,'语音知识配对','把正确的说明卡放到这个语境旁边。这里只练书面语音知识，不测实际发音。',[q.stem,q.answer.display],'pair',q.explanation.visual.caption+' '+q.explanation.steps[0].text))
@@ -83,11 +87,46 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
     }
     diagnosis=choiceFor(qs.find(q=>q.id!==first.id&&q.options?.length)??qs.find(q=>q.options?.length)!)
   }
-  const studio:LessonTeaching={...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric:first.rubric??[],exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
+  const roleAnchors:Record<string,string[]>={}
+  let rubric=first.rubric??[]
+  const diagnoses:TeachingChoice[]=[]
+  if(communication){
+    const roles=coaching.modelRoles
+    if(!roles||roles.length!==modelSentences.length)throw new Error(`Model roles must match actual sentence units: ${lesson.id}: ${roles?.length}/${modelSentences.length}`)
+    rubric=roles.map((label,i)=>({id:`role-${i}`,label,marks:0,guidance:'从参考表达中选出承担这一任务的句子，再检查自己的草稿。'}))
+    rubric.forEach((r,i)=>roleAnchors[r.id]=[modelSentences[i].id])
+    for(const missing of [...new Set([Math.floor(roles.length/2),0])]){
+      const candidates=roles.map((text,i)=>({id:`role-${i}`,text})).filter((_,i)=>i===missing||Math.abs(i-missing)<=2).slice(0,4)
+      if(!candidates.some(o=>o.id===`role-${missing}`))candidates[candidates.length-1]={id:`role-${missing}`,text:roles[missing]}
+      diagnoses.push({prompt:'对照删减稿，找出少了哪层意思。',excerpt:`原任务：${first.stem}\n\n删减稿：${modelSentences.filter((_,i)=>i!==missing).map(t=>t.text).join(' ')}\n\n自己的表达可以采用别的写法。`,options:candidates,correct:`role-${missing}`,reasons:Object.fromEntries(candidates.map(o=>[o.id,o.id===`role-${missing}`?`参考稿删去了“${roles[missing]}”这一层。原句是：${modelSentences[missing].text} 这不是唯一写法。`:`“${o.text}”在现有表达里已有对应句子。再检查题目还要求哪项信息。`]))})
+    }
+  }else{
+    diagnoses.push(diagnosis)
+    if(coaching.reasoning){
+      const rule=coaching.reasoning, options=[{id:'rule',text:rule.decision},{id:'trap',text:rule.trap}]
+      if(hash(lesson.id).charCodeAt(0)%2)options.reverse()
+      diagnoses.push({prompt:`考场上遇到“${rule.task}”，哪种判断方法可靠？`,options,correct:'rule',reasons:{rule:`这条方法成立。${rule.decision}`,trap:rule.feedback}})
+    }else if(mode==='vocabulary'){
+      for(const q of qs.slice(-1)){
+        const word=c.vocabulary.find(w=>q.id===`q-${w.topicId}-${w.id.slice(5)}`)!
+        const other=c.vocabulary.filter(w=>qs.some(t=>t.id===`q-${w.topicId}-${w.id.slice(5)}`)&&w.id!==word.id&&w.word!==word.word).slice(0,2)
+        const options=[{id:'word',text:word.word},...other.map((w,i)=>({id:`word-${i}`,text:w.word}))]
+        if(hash(q.id).charCodeAt(0)%2)options.reverse()
+        diagnoses.push({prompt:`结合句意和本课释义，空格应填哪个词？\n${q.stem}\n${word.exampleMeaning}`,options,correct:'word',reasons:{word:`${word.word}：${word.meaning}。${word.explanation}`,...Object.fromEntries(other.map((w,i)=>[`word-${i}`,`这里需要“${word.meaning}”；${w.word} 在本课表示“${w.meaning}”。${word.example}`]))}})
+      }
+    }else if(mode==='reading'||mode==='transcript'){
+      const q=qs.find(q=>q.options&&q.explanation.distractors.length>=2)
+      if(q){const wrong=q.explanation.distractors[0];diagnoses.push({excerpt:q.passage,prompt:`下面这条排除理由针对哪个干扰项？\n${q.stem}\n排除理由：${wrong.reason}`,options:q.options!.filter(o=>o.id!==q.answer.option),correct:wrong.option,reasons:Object.fromEntries(q.options!.filter(o=>o.id!==q.answer.option).map(o=>[o.id,o.id===wrong.option?`对应正确。${wrong.reason}`:`这个选项的问题是：${q.explanation.distractors.find(d=>d.option===o.id)!.reason}`]))})}
+    }else{const q=qs.find(q=>q.options&&choiceFor(q).prompt!==diagnosis.prompt);if(q)diagnoses.push(choiceFor(q))}
+  }
+  diagnosis=diagnoses[0]
+  const studio:LessonTeaching={...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
   studio.fingerprint=hash(studio)
   return studio
 }
 export function freshTeaching(s:LessonTeaching,now:number):TeachingProgress{return{version:1,fingerprint:s.fingerprint,step:0,unit:0,caseIndex:0,order:[],completed:[],answers:{},checked:{},links:{},before:'',after:'',updatedAt:now}}
+export function teachingDiagnosis(s:LessonTeaching,p:TeachingProgress):TeachingChoice{return s.diagnoses[Number(p.answers.clinicIndex??0)]??s.diagnosis}
+export function teachingEvidence(s:LessonTeaching,p:TeachingProgress):TeachingEvidence[]{return ['reading','transcript'].includes(s.mode)?sourceEvidence(s.cases[p.caseIndex]??s.prediction):s.evidence}
 export function teachingAnswer(s:LessonTeaching,p:TeachingProgress):Question{return p.step===4?s.transfer:p.step===2?s.cases[p.caseIndex]??s.prediction:s.prediction}
 export function assemblyCorrect(unit:TeachingAssembly,ids:string[]):boolean{
   const text=(keys:string[])=>keys.map(id=>unit.tiles.find(t=>t.id===id)?.text??'').join(unit.kind==='letters'?'':' ')
@@ -96,6 +135,7 @@ export function assemblyCorrect(unit:TeachingAssembly,ids:string[]):boolean{
 export function teachingProblems(s:LessonTeaching,lesson:Lesson):string[]{
   const errors:string[]=[];const fail=(message:string)=>errors.push(`${lesson.id}: ${message}`)
   if(!s.assemblies.length||s.assemblies.some(a=>a.target.length<2||a.target.length!==a.tiles.length||!a.tiles.every(t=>t.text)))fail('missing substantive assembly')
+  if(s.diagnoses.some(d=>!d.correct||!d.options.some(o=>o.id===d.correct)||d.options.length<2||d.options.some(o=>!d.reasons[o.id])))fail('incomplete exam clinic')
   if(!s.diagnosis.correct||!s.diagnosis.options.some(o=>o.id===s.diagnosis.correct)||s.diagnosis.options.length<2)fail('missing diagnostic contrast')
   if((s.mode==='reading'||s.mode==='transcript')&&(!s.evidence.some(e=>e.supports)||s.evidence.length<2))fail('missing source evidence activity')
   if(s.mode==='communication'&&(s.modelSentences.length<2||!s.rubric.length||s.transfer.id===s.prediction.id))fail('missing model/revision/fresh communication task')
@@ -120,16 +160,17 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   if(action==='remove'&&p.step===1){p.order=p.order.filter(id=>id!==value);return p}
   if(action==='unit'&&p.step===1){const index=Number(value);if(Number.isInteger(index)&&index>=0&&index<s.assemblies.length){p.unit=index;p.order=[]}return p}
   if(action==='assemble'&&p.step===1){const u=s.assemblies[p.unit];if(assemblyCorrect(u,p.order))mark(`build-${u.id}`);else p.checked[`build-${u.id}`]=false;return p}
-  if(action==='case'&&p.step===2){const index=Number(value);if(index>=0&&index<s.cases.length&&Number.isInteger(index))p.caseIndex=index;return p}
-  if(action==='source'&&p.step===2){if(s.evidence.some(e=>e.id===value))p.answers.source=p.answers.source===value?'':value;return p}
+  if(action==='clinic'&&p.step===3){const i=Number(value);if(Number.isInteger(i)&&i>=0&&i<s.diagnoses.length){p.answers.clinicIndex=value;delete p.answers.diagnosis;delete p.checked.diagnosis}return p}
+  if(action==='case'&&p.step===2){const index=Number(value);if(index>=0&&index<s.cases.length&&Number.isInteger(index)){p.caseIndex=index;delete p.answers.source;delete p.answers.evidence;delete p.checked.evidence}return p}
+  if(action==='source'&&p.step===2){if(teachingEvidence(s,p).some(e=>e.id===value))p.answers.source=p.answers.source===value?'':value;return p}
   if(action==='passage'){p.checked.passage=!p.checked.passage;return p}
   if(action==='explanation'){p.checked.explanation=!p.checked.explanation;return p}
-  if(action==='evidence'&&p.step===2){const item=s.evidence.find(e=>e.id===value);if(item){p.answers.evidence=value;p.checked.evidence=item.supports;if(item.supports)mark('evidence')}return p}
+  if(action==='evidence'&&p.step===2){const item=teachingEvidence(s,p).find(e=>e.id===value);if(item){p.answers.evidence=value;p.checked.evidence=item.supports;if(item.supports)mark(`evidence-${(s.cases[p.caseIndex]??s.prediction).id}`)}return p}
   if(action==='criterion'&&p.step===2&&s.mode==='communication'&&s.rubric.some(r=>r.id===value)){p.answers.activeCriterion=value;p.answers.revisionPane='compare';return p}
   if(action==='revision-pane'&&p.step===2&&s.mode==='communication'&&(value==='compare'||value==='write'&&s.rubric.every(r=>p.links[r.id]))){p.answers.revisionPane=value;return p}
-  if(action==='link'&&p.step===2){const [criterion,sentence]=value.split(':');if(s.rubric.some(r=>r.id===criterion)&&s.modelSentences.some(t=>t.id===sentence)){p.links[criterion]=sentence;const next=s.rubric.find(r=>!p.links[r.id]);if(next)p.answers.activeCriterion=next.id;else p.answers.revisionPane='write'}return p}
-  if(action==='rubric'){const key=`rubric-${p.step}-${value}`;if((p.step===2?s.rubric:s.transfer.rubric??[]).some(r=>r.id===value))p.checked[key]=!p.checked[key];return p}
-  if(action==='diagnose'&&p.step===3&&s.diagnosis.options.some(o=>o.id===value)){p.answers.diagnosis=value;p.checked.diagnosis=value===s.diagnosis.correct;if(p.checked.diagnosis)mark('diagnosis');return p}
+  if(action==='link'&&p.step===2){const [criterion,sentence]=value.split(':');if(s.rubric.some(r=>r.id===criterion)&&s.modelSentences.some(t=>t.id===sentence)){p.checked[`link-${criterion}`]=!!s.roleAnchors[criterion]?.includes(sentence);p.answers.lastLink=criterion;if(!p.checked[`link-${criterion}`]){delete p.links[criterion];p.answers.activeCriterion=criterion;p.answers.revisionPane='compare';return p;}p.links[criterion]=sentence;const next=s.rubric.find(r=>!p.links[r.id]);if(next)p.answers.activeCriterion=next.id;else p.answers.revisionPane='write'}return p}
+  if(action==='rubric'){const key=`rubric-${p.step}-${value}`;if((p.step===2?s.revisionRubric:s.transfer.rubric??[]).some(r=>r.id===value))p.checked[key]=!p.checked[key];return p}
+  if(action==='diagnose'&&p.step===3&&teachingDiagnosis(s,p).options.some(o=>o.id===value)){p.answers.diagnosis=value;p.checked.diagnosis=value===teachingDiagnosis(s,p).correct;if(p.checked.diagnosis)mark(`diagnosis-${p.answers.clinicIndex??0}`);return p}
   if(action==='check'){
     const key=`step-${p.step}-${p.caseIndex}`,q=teachingAnswer(s,p)
     if(p.step===0&&s.mode==='communication'){if(wordCount(p.before)>=4)mark('predict');return p}
@@ -151,11 +192,11 @@ export function teachingCanAdvance(s:LessonTeaching,p:TeachingProgress):boolean{
   if(p.step===1)return s.assemblies.every(a=>p.completed.includes(`build-${a.id}`))
   if(p.step===2){
     if(s.sorting)return s.sorting.cards.every(card=>p.answers[`sort-${card.id}`]===card.category)
-    if(s.mode==='communication')return wordCount(p.after)>=4&&p.after.trim()!==p.before.trim()&&s.rubric.every(r=>!!p.links[r.id]&&p.checked[`rubric-2-${r.id}`])
-    if(s.mode==='reading'||s.mode==='transcript')return p.completed.includes('evidence')
+    if(s.mode==='communication')return wordCount(p.after)>=4&&p.after.trim()!==p.before.trim()&&s.rubric.every(r=>!!p.links[r.id])&&s.revisionRubric.every(r=>p.checked[`rubric-2-${r.id}`])
+    if(s.mode==='reading'||s.mode==='transcript')return s.cases.filter(q=>sourceEvidence(q).some(e=>e.supports)).every(q=>p.completed.includes(`evidence-${q.id}`))
     return s.cases.slice(0,s.mode==='vocabulary'?s.cases.length:Math.min(2,s.cases.length)).every(q=>p.completed.includes(`case-${q.id}`))
   }
-  if(p.step===3)return p.completed.includes('diagnosis')
+  if(p.step===3)return s.diagnoses.every((_,i)=>p.completed.includes(`diagnosis-${i}`))
   if(p.step===4)return p.completed.includes('transfer')
   return false
 }
