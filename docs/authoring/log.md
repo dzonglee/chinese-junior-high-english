@@ -1067,3 +1067,16 @@ Current new lesson flow:12 conditions/36 task-width checks,reload and zero indep
 Cumulative281 conditions/843 widths;earlier flows retain scope. Hashes:checkpoint-32.*.
 Next:l-g-demonstratives. A ten-task demonstrative draft and a new near/far classroom image remain outside course files. Raw and600-pixel delivery are inspected;the32,406-byte derivative fixes Mia at the front desk while one book moves from the near desk to the back cabinet. Combine this with exact1/3-book coded counts. Transfer covers grades6–9. Audit source spatial cues and enforce explicitly requested capitalization in applications without changing ordinary case-insensitive answers. No review credit yet. Overall claim continues solo;381 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-demonstratives individually reviewed
+
+33/413 reviewed. Ten tasks combine an original fixed-speaker near/far diptych,exact1/3-book figures,phrase tiles,short-answer pronouns and noun ellipsis. Per-response capitalization requirements now work in applications without making unrelated word-form answers strict. Case-only feedback identifies the actual error in guided and ordinary practice.
+
+Original and600-pixel art,all ten models and narrow-phone figures,every wrong distance/count record,physical icon counts,capital errors,phrase diagrams,applications and both transfer steps were inspected. Mid-sentence hints no longer suggest sentence-initial capitals. The complete auxiliary flow was replayed after its capital requirement fix. A reserved spatial cue was clarified without exposing it in practice. Grades6–9 covered;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:10 conditions/30 task-width checks,reload and zero independent records. 1,476 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development and cloud simulations passed,including all245 packed topic hashes. These are not native GUI evidence.
+
+Cumulative291 conditions/873 widths;earlier flows retain scope. Hashes:checkpoint-33.*.
+Next:l-g-indefinites. A twelve-task indefinite-word draft stays outside course files. It selects all three team members forEveryone while retaining singular agreement,uses an inspected original empty-box/one-ball diptych with exact0/1 counters,contrasts some/any contexts and equivalent negative phrases,and separates nothing new from a completely empty inventory. The600-pixel derivative is18,592 bytes. Add a coded ball style and a partial-selection negative test for the all-member scene;inspect all controls before review credit. Overall claim continues solo;380 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

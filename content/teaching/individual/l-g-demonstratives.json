@@ -1,0 +1,559 @@
+{
+  "lessonId": "l-g-demonstratives",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Anchor near/far to the speaker,combine distance with singular/plural and be agreement,repair capitals,choose singular/plural personal pronouns in constrained short answers,and retain plurality after noun ellipsis.",
+  "picturePurpose": "Original diptych fixes Mia at the front desk while one blue book moves from the desk beside her to the back cabinet. Coded count cards show exact1/3 books from selected records. Labels,identity and counts are authored,not generated lettering.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先站在说话人的位置，再看一件还是多件",
+    "instruction": "距离和数量都要对上。图中看位置，书本卡看数量，再把代词和be一起核对。",
+    "conditions": [
+      {
+        "label": "先定说话人的位置",
+        "before": "Mia says, “",
+        "target": "This",
+        "after": " book is mine.”",
+        "choices": [
+          "That",
+          "This"
+        ],
+        "reason": "Mia站在前桌旁，书就在她手边；近处一本用This。不是按观看图片的人与屏幕的距离来判断。句首This大写。",
+        "world": {
+          "kind": "logic",
+          "caption": "Mia站在前桌旁说话。这一条指她手边的一本蓝书。先选相符的画面。",
+          "cells": [
+            {
+              "label": "Mia手边 · 1本",
+              "detail": "按说话人的位置判断"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "以Mia的位置为准，选与这条记录相符的图",
+            "missingPrompt": "先找书相对Mia的位置，再选表达。",
+            "asset": "lesson-book-distance",
+            "alt": "两图Mia都站在前桌旁。左图一本蓝书在她手边，右图一本蓝书在后排柜子上。",
+            "artChoices": [
+              "near",
+              "far"
+            ],
+            "answer": "near",
+            "options": [
+              {
+                "id": "near",
+                "label": "书在Mia手边",
+                "text": "近处，1本",
+                "reason": "这条记录指Mia手边的一本书，应选左图。",
+                "value": 35
+              },
+              {
+                "id": "far",
+                "label": "书在后排柜上",
+                "text": "远处，1本",
+                "reason": "这条记录说书就在Mia手边，不是后排柜上。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "人没动，书移到了远处",
+        "before": "Mia says, “",
+        "target": "That",
+        "after": " book is mine.”",
+        "choices": [
+          "This",
+          "That"
+        ],
+        "reason": "Mia仍站在前桌旁，这次书在后排柜上，相对她较远；远处一本用That。主语所指仍是单个物品。",
+        "world": {
+          "kind": "logic",
+          "caption": "换一条记录：Mia仍站在前桌旁，指的是后排柜上的一本蓝书。",
+          "cells": [
+            {
+              "label": "后排柜上 · 1本",
+              "detail": "说话人不变，物品位置改变"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "以Mia的位置为准，选与这条记录相符的图",
+            "missingPrompt": "先找书相对Mia的位置，再选表达。",
+            "asset": "lesson-book-distance",
+            "alt": "两图Mia都站在前桌旁。左图一本蓝书在她手边，右图一本蓝书在后排柜子上。",
+            "artChoices": [
+              "near",
+              "far"
+            ],
+            "answer": "far",
+            "options": [
+              {
+                "id": "near",
+                "label": "书在Mia手边",
+                "text": "近处，1本",
+                "reason": "这条记录指后排柜上的书，不是Mia手边的书。",
+                "value": 35
+              },
+              {
+                "id": "far",
+                "label": "书在后排柜上",
+                "text": "远处，1本",
+                "reason": "后排柜上的一本书相对Mia较远，用that。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "数量变成三本，This还对吗？",
+        "before": "",
+        "target": "These",
+        "after": " books here are new.",
+        "choices": [
+          "This",
+          "These"
+        ],
+        "reason": "here说明近处，记录有三本书，books也是复数，用These，不能用单数This；句首These大写。",
+        "world": {
+          "kind": "count",
+          "caption": "说话人手边有3本书。先选“近处3本”，再修好句首的词。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的数量和距离",
+              "value": 0,
+              "art": "book"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "选对数量和距离，看看书本数量怎样变",
+            "missingPrompt": "先选与这一条记录完全相符的数量和距离。",
+            "answer": "near-three",
+            "options": [
+              {
+                "id": "near-one",
+                "label": "近处1本",
+                "text": "1本书；在说话人手边",
+                "reason": "距离对了，但你只选了1本；记录是3本，需要复数。",
+                "value": 1
+              },
+              {
+                "id": "far-one",
+                "label": "远处1本",
+                "text": "1本书；在远处柜上",
+                "reason": "你选的距离和数量都与记录不符；这一条是近处3本书。",
+                "value": 1
+              },
+              {
+                "id": "near-three",
+                "label": "近处3本",
+                "text": "3本书；在说话人手边",
+                "reason": "近处3本都对上了，再用These表达近处复数。",
+                "value": 3
+              },
+              {
+                "id": "far-three",
+                "label": "远处3本",
+                "text": "3本书；在远处柜上",
+                "reason": "数量3本对了，但记录说的是说话人手边的近处，需要改好距离。",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "input": true,
+        "inputHint": "对上距离和数量，再核对句首大小写。",
+        "initial": "This",
+        "caseSensitive": true
+      },
+      {
+        "label": "远处复数，别只看“那”",
+        "before": "",
+        "target": "Those",
+        "after": " books over there are new.",
+        "choices": [
+          "That",
+          "Those"
+        ],
+        "reason": "over there说明远处，记录有三本书，books是复数，用Those，不是单数That；句首Those大写。",
+        "world": {
+          "kind": "count",
+          "caption": "远处柜上有3本书。先选“远处3本”，再修好句首的词。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的数量和距离",
+              "value": 0,
+              "art": "book"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "选对数量和距离，看看书本数量怎样变",
+            "missingPrompt": "先选与这一条记录完全相符的数量和距离。",
+            "answer": "far-three",
+            "options": [
+              {
+                "id": "near-one",
+                "label": "近处1本",
+                "text": "1本书；在说话人手边",
+                "reason": "你选的距离和数量都与记录不符；这一条是远处3本书。",
+                "value": 1
+              },
+              {
+                "id": "far-one",
+                "label": "远处1本",
+                "text": "1本书；在远处柜上",
+                "reason": "距离对了，但你只选了1本；记录是3本，需要复数。",
+                "value": 1
+              },
+              {
+                "id": "near-three",
+                "label": "近处3本",
+                "text": "3本书；在说话人手边",
+                "reason": "数量3本对了，但记录说的是柜上的远处，需要改好距离。",
+                "value": 3
+              },
+              {
+                "id": "far-three",
+                "label": "远处3本",
+                "text": "3本书；在远处柜上",
+                "reason": "距离和数量都对上了，再用Those表达远处复数。",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "input": true,
+        "inputHint": "对上距离和数量，再核对句首大小写。",
+        "initial": "That",
+        "caseSensitive": true
+      },
+      {
+        "label": "代词和be一起对上单数",
+        "before": "",
+        "target": "This is",
+        "after": " a blue book.",
+        "choices": [
+          "These are",
+          "This is"
+        ],
+        "reason": "近处一本书用This，并与is搭配。These are适用于近处复数，不能接本句的a blue book。",
+        "world": {
+          "kind": "syntax",
+          "caption": "改句任务：近处只有一本蓝书。用词块修好原句的开头。",
+          "cells": [
+            {
+              "label": "These are a blue book.",
+              "detail": "只改与单复数有关的开头"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "对上距离和数量，再核对句首大小写。",
+        "caseSensitive": true,
+        "tiles": [
+          "This",
+          "are",
+          "These",
+          "is"
+        ]
+      },
+      {
+        "label": "远处三本，开头怎样成对换",
+        "before": "",
+        "target": "Those are",
+        "after": " my notebooks.",
+        "choices": [
+          "That is",
+          "Those are"
+        ],
+        "reason": "远处复数用Those，与are搭配。That is是远处单数，不对应本句的notebooks。",
+        "world": {
+          "kind": "syntax",
+          "caption": "改句任务：远处柜上有三本笔记本。修好句子的开头，后面的my notebooks保留。",
+          "cells": [
+            {
+              "label": "That is my notebooks.",
+              "detail": "修正远处复数的开头"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "对上距离和数量，再核对句首大小写。",
+        "caseSensitive": true,
+        "tiles": [
+          "That",
+          "is",
+          "Those",
+          "are"
+        ]
+      },
+      {
+        "label": "问一个物品，简短回答用谁",
+        "before": "Is that your bike? — Yes, ",
+        "target": "it",
+        "after": " is.",
+        "choices": [
+          "they",
+          "it"
+        ],
+        "reason": "that your bike指单个物品。按题目要求用it或they作简短回答，单数用it，与is搭配。",
+        "world": {
+          "kind": "logic",
+          "caption": "远处是一辆自行车。补全肯定简短回答，只从it、they中选。",
+          "cells": [
+            {
+              "label": "that bike → 单数",
+              "detail": "简短回答中的代词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "问多个物品，回答也要是复数",
+        "before": "Are these your books? — Yes, ",
+        "target": "they",
+        "after": " are.",
+        "choices": [
+          "it",
+          "they"
+        ],
+        "reason": "these books指复数物品，简短回答用they，与are搭配；it是单数。",
+        "world": {
+          "kind": "count",
+          "caption": "手边是三本书。用it或they补全肯定简短回答。",
+          "cells": [
+            {
+              "label": "these books",
+              "detail": "近处三本，回答用复数",
+              "value": 3,
+              "art": "book"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对所指的物品、距离和数量，再修好代词。",
+        "initial": "it"
+      },
+      {
+        "label": "一句里有近处和远处，分别看",
+        "before": "I like this book, but I prefer ",
+        "target": "those",
+        "after": " books over there.",
+        "choices": [
+          "these",
+          "those"
+        ],
+        "reason": "第一本在近处，所以前半句是this book；后半句的books over there是远处复数，用those。不要把前面的this机械延续过去。",
+        "world": {
+          "kind": "count",
+          "caption": "记录：手边有一本书，远处柜上还有三本。说话人更喜欢远处的那三本。",
+          "cells": [
+            {
+              "label": "far · 3 books",
+              "detail": "当前空格只说远处这三本",
+              "value": 3,
+              "art": "book"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对所指的物品、距离和数量，再修好代词。",
+        "initial": "these"
+      },
+      {
+        "label": "省略books后，仍然看复数",
+        "before": "Which books do you mean? — ",
+        "target": "Those",
+        "after": " on the back shelf.",
+        "choices": [
+          "That",
+          "Those"
+        ],
+        "reason": "回答承接前面的books，指后排架上的三本书，仍用复数Those。名词省略了，不代表数量变成一个。",
+        "world": {
+          "kind": "count",
+          "caption": "问的是哪几本书。回答指向后排架上的三本书；这次不把books再重复一遍。",
+          "cells": [
+            {
+              "label": "3 books on the back shelf",
+              "detail": "承接复数books",
+              "value": 3,
+              "art": "book"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "对上距离和数量，再核对句首大小写。",
+        "initial": "That",
+        "caseSensitive": true
+      }
+    ],
+    "choices": [
+      "That",
+      "This",
+      "These",
+      "Those",
+      "These are",
+      "This is",
+      "That is",
+      "Those are",
+      "they",
+      "it",
+      "these",
+      "those"
+    ],
+    "items": [
+      {
+        "id": "demonstrative-editor",
+        "label": "距离与数量",
+        "prompt": "this/that与these/those不是只换一个中文意思。",
+        "answer": "",
+        "reason": "",
+        "hint": "以谁的位置为准？是一件，还是多件？"
+      }
+    ],
+    "applicationIds": [
+      "q-g-demonstratives-002",
+      "q-g-demonstratives-003"
+    ],
+    "transfer": {
+      "id": "individual-g-demonstratives-transfer",
+      "topicId": "g-demonstratives",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "说话人指着自己手边的三张卡片，又问远处的一个笔袋。两空依次填什么？\n___ are my cards right here. Is that your pencil case over there? — Yes, ___ is.",
+      "options": [
+        {
+          "id": "a",
+          "text": "These; it"
+        },
+        {
+          "id": "b",
+          "text": "Those; it"
+        },
+        {
+          "id": "c",
+          "text": "These; they"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "These; it"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对距离和数量，再检查简短回答的代词是否与所问物品一致。",
+        "steps": [
+          {
+            "text": "第一句的cards是复数，right here是说话人手边。",
+            "reason": "近处复数用These，与are搭配；Those表示较远的复数。"
+          },
+          {
+            "text": "第二句问的是一个pencil case。",
+            "reason": "单数物品的肯定简短回答用Yes,it is，不能用复数they接is。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一句明确right here，指说话人手边的近处卡片，不用Those。"
+          },
+          {
+            "option": "c",
+            "reason": "第二句的pencil case是单数，回答用it，不是they。"
+          }
+        ],
+        "pitfall": "一句里可能同时出现近处复数和远处单数；每个指代都要单独核对。",
+        "visual": {
+          "kind": "comparison",
+          "title": "两个所指，分别对照",
+          "segments": [
+            {
+              "text": "3 cards · right here",
+              "role": "evidence",
+              "note": "近处复数 → These are"
+            },
+            {
+              "text": "1 pencil case · over there",
+              "role": "evidence",
+              "note": "远处单数 → that；回答it is"
+            }
+          ],
+          "caption": "先看说话人的位置和实际数量，再选择表达。"
+        },
+        "transfer": "如果第一句改成只指一张卡片，These are应怎样一起改？"
+      }
+    }
+  }
+}

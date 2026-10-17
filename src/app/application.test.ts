@@ -277,3 +277,10 @@ describe('daily study target', () => {
     expect(plan[0].id).toBe('words'); expect(plan.find(t => t.id === 'lesson')?.optional).toBe(true)
   })
 })
+
+it('identifies checked capitalization errors from the saved answer and keeps word errors distinct', async () => {
+ const h=harness({},c=>{const original=c.questions[0];c.questions[0]={...original,kind:'correction',options:undefined,stem:'改正句首大小写：(this) is my bag.',answer:{accepted:['This'],display:'This',caseSensitive:true},explanation:{...original.explanation,pitfall:'请核对远近和数量。'}}})
+ h.app.open('learn');await h.app.action('start-lesson','l-be');h.app.setField('answer','this');await h.app.action('check');expect(h.app.render().question!.feedback).toContain('大小写')
+ h.app.open('home');h.app.open('session');expect(h.app.render().question!.feedback).toContain('大小写')
+ await h.app.action('retry');h.app.setField('answer','That');await h.app.action('check');expect(h.app.render().question!.feedback).not.toContain('大小写');expect(h.app.render().question!.feedback).toContain('远近和数量')
+})

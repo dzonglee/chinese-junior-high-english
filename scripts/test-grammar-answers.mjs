@@ -149,3 +149,13 @@ test('grammar diagrams attach ending punctuation to the expression and retain me
     assert.ok(q.explanation.visual.segments.every(segment => !/^[\p{P}\s]+$/u.test(segment.text)), `${q.id}: punctuation presented as a separate fact`)
   }
 })
+
+test('explicit sentence-initial capitalization is enforced per response without changing ordinary word-form answers', () => {
+  for (const [id, correct, wrong] of [['q-g-demonstratives-002', 'This', 'this'], ['q-g-demonstratives-003', 'Those', 'those'], ['q-g-demonstratives-007', 'These', 'these'], ['q-g-auxiliaries-003', 'Did', 'did']]) {
+    assert.equal(question(id).answer.caseSensitive, true)
+    check(id, correct, true); check(id, wrong, false)
+  }
+  check('q-g-auxiliaries-002', 'DRINK', true)
+  assert.ok(question('q-g-demonstratives-007').stem.includes('right here beside us'))
+  assert.equal(question('q-g-proper-nouns-002').answer.caseSensitive, true)
+})

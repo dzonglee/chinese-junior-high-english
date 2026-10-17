@@ -25,7 +25,8 @@ function authoredResponse(id, kind, response, correct) {
   }
   const normalized = response.accepted.map(value => value.toLocaleLowerCase('en').replace(/[‘’]/g, "'").replace(/\s+/g, ' '))
   if (new Set(normalized).size !== normalized.length) throw new Error(`${id}: duplicate accepted grammar answers`)
-  return { instruction: response.instruction.trim(), accepted: [...response.accepted] }
+  if (response.caseSensitive !== undefined && typeof response.caseSensitive !== 'boolean') throw new Error(`${id}: response caseSensitive must be boolean`)
+  return { instruction: response.instruction.trim(), accepted: [...response.accepted], ...(response.caseSensitive !== undefined ? { caseSensitive: response.caseSensitive } : {}) }
 }
 
 export function authorCatalog(root) {
@@ -50,7 +51,7 @@ export function authorCatalog(root) {
       const stem = kind === 'order' ? '把词块排成完整句子。先找到主语，再确定其余部分的位置。' :
         kind === 'correction' ? `${freeResponse.instruction}\n${prefix}（${wrong1}）${suffix}` :
         kind === 'blank' ? `${freeResponse.instruction}\n${sentence.replace('[[1]]', '_____')}` : `${response?.instruction ? response.instruction + '\n' : ''}${sentence.replace('[[1]]', '_____')}`
-      const answer = kind === 'choice' ? { option: right, display: completed, ...(record.caseSensitive ? { caseSensitive: true } : {}) } : kind === 'order' ? { order: tokens.map((t) => t.id), display: completed } : { accepted: freeResponse.accepted, display: correct, ...(record.caseSensitive ? { caseSensitive: true } : {}) }
+      const answer = kind === 'choice' ? { option: right, display: completed, ...(record.caseSensitive ? { caseSensitive: true } : {}) } : kind === 'order' ? { order: tokens.map((t) => t.id), display: completed } : { accepted: freeResponse.accepted, display: correct, ...((freeResponse.caseSensitive ?? record.caseSensitive) ? { caseSensitive: true } : {}) }
       const alternatives = freeResponse?.accepted.filter(value => value !== correct) ?? []
       const alternativeNote = alternatives.length ? `本题也接受：${alternatives.join('、')}。` : ''
       // Keep punctuation with the expression; omit empty context cards.

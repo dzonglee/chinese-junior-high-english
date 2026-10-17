@@ -20,6 +20,12 @@ export function checkAnswer(question: Question, answer: string): boolean {
   return (question.answer.accepted ?? []).some((accepted) => normalizedAnswer(accepted, question.answer.caseSensitive) === normalized)
 }
 
+/** A case-only repair must not be diagnosed as the wrong word or grammar. */
+export function caseOnlyMismatch(question: Question, answer: string): boolean {
+  return (question.kind === 'blank' || question.kind === 'correction') && !!question.answer.caseSensitive &&
+    !checkAnswer(question, answer) && (question.answer.accepted ?? []).some(value => normalizedAnswer(value) === normalizedAnswer(answer))
+}
+
 export function selfReviewScore(rubric: RubricPoint[], selected: string[]): number {
   const ids = new Set(selected)
   return rubric.reduce((score, point) => score + (ids.has(point.id) ? point.marks : 0), 0)
