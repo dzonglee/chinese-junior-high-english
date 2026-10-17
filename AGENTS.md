@@ -58,7 +58,7 @@ milestone as a finished app or let one failed endpoint stop independent implemen
 - **Visual direction: bold, but usable**, as in the maths app (`docs/design-system.md` there): art
   may use the existing Blender pipeline or AI-generated imagery (owner override, 2026-10-17).
   Use generated images to support actual learning tasks; inspect them and keep exact instructional
-  labels/diagrams in code so generation cannot invent the answer. Keep no neo-brutalism, beige or yellowish
+  labels/diagrams in code so generation cannot invent the answer. Avoid neo-brutalism, beige or yellowish
   grounds, serif/editorial layouts, grid-paper motifs or left-border callouts.
 - **Language quality.** Chinese UI copy and explanations read as native Chinese (how teachers and
   students talk, no translated phrasing). English content is native-quality English at the

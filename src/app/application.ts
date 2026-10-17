@@ -1,10 +1,13 @@
+import { experiments, getExperiment, type Experiment } from '../core/experiments'
+import { sceneExperiment } from '../core/scene-experiment'
+import { evidenceSentences, evidenceFeedback } from '../core/reading-evidence'
 import { answerText, normalizedAnswer, wordCount } from '../core/answers'
 import { bookLabel, chinaDate, currentSchoolYear, currentTerm, daysToConfirmedExam, examYear, gradesFor, localGradeLabel } from '../core/cohort'
 import { DAY, ERROR_REASONS, masteryLabel, recordAttempt, reviewWord } from '../core/learning'
 import { dailyPlan, learningStats, nextLesson, orderedTopics } from '../core/planner'
 import { availableQuestions, checkCurrent, deferredFeedback, makeId, markAudioPlayed, moveQuestion, questionById, retryCurrent, reviewSubmittedAnswer, saveAnswer, selectQuestions, startExam, startLesson, startSession, submitSession, useHint, playable } from '../core/sessions'
 import { assertQuestion } from '../core/validation'
-import type { LearnerState, Question, QuestionFilter, Skill } from '../core/types'
+import type { LearnerState, ExplorationProgress, Question, QuestionFilter, Skill } from '../core/types'
 import { ContentRepository } from '../services/content'
 import { StateStore, checkedProfile } from '../services/storage'
 import type { Field, Screen } from './view'
@@ -121,6 +124,17 @@ export class Application {
     if (id === 'course-filters') { this.form.courseMore = this.form.courseMore === 'true' ? 'false' : 'true'; return }
     if (id === 'course-next' || id === 'course-previous') { this.form.coursePage = String(Math.max(0, Number(this.form.coursePage || 0) + (id === 'course-next' ? 1 : -1))); return }
     if (id === 'back') { this.flush(); this.platform.back(); return }
+    if (id === 'open-experiment') { const e = value === sceneExperiment.id ? sceneExperiment : getExperiment(value); if (e && e.grade <= this.state.profile!.grade) this.go('explore', { id: e.id }); return }
+    if (id.startsWith('explore-')) { this.exploreAction(id, value); return }
+    if (id === 'evidence-pick' || id === 'evidence-open' || id === 'explain-more') {
+      const session = this.currentSession(), qid = session?.questionIds[session.current], q = qid ? questionById(this.catalog, this.state, qid) : undefined
+      const unlocked = q && session && !deferredFeedback(session, q) && (session.submittedAt || session.mode !== 'exam' && session.answers[q.id]?.checked)
+      if (!unlocked || !q) return
+      if (id === 'evidence-open') this.form[`evidence-open-${q.id}`] = this.form[`evidence-open-${q.id}`] === 'true' ? 'false' : 'true'
+      if (id === 'evidence-pick' && evidenceSentences(q).some(sentence => sentence.id === value)) this.form[`evidence-${q.id}`] = value
+      if (id === 'explain-more') this.form[`steps-${q.id}`] = String(Math.min(q.explanation.steps.length, Number(this.form[`steps-${q.id}`] || 1) + 1))
+      return
+    }
     if (id === 'save-profile') {
       const p = checkedProfile({ ...this.form, grade: Number(this.form.grade), dailyMinutes: Number(this.form.dailyMinutes), schoolYear: Number(this.form.schoolYear), ...(this.form.examDate ? { examDate: this.form.examDate } : { examDate: undefined }), createdAt: this.state.profile?.createdAt ?? now }, this.catalog)
       this.persist({ ...this.state, profile: p, updatedAt: now }); this.syncSpelling(); this.go('home', undefined, true); return
@@ -336,6 +350,7 @@ export class Application {
     if (!profile) return screen
     const city = this.catalog.cities.find((c) => c.id === profile.cityId), edition = this.catalog.editions.find((e) => e.id === profile.editionId)
     screen.subtitle = `${city?.name ?? ''} · ${localGradeLabel(profile.grade, profile.structure, profile.cityId)} · ${bookLabel(profile.grade, profile.term)}`
+    if (this.page === 'explore') return this.renderExploration(screen)
     if (this.page === 'home') {
       const next = nextLesson(this.catalog, state), days = daysToConfirmedExam(profile, now)
       screen.eyebrow = `${chinaDate(now).month} 月 ${chinaDate(now).day} 日 · 今天进步一点`
@@ -344,11 +359,13 @@ export class Application {
       screen.metrics = [{ label: '连续练习', value: `${stats.streak} 天` }, { label: '独立作答', value: `${stats.independent} 题` }, { label: '首次独立正确', value: stats.independent ? `${stats.accuracy}%` : '还没开始' }]
       screen.week = stats.week
       screen.cards = dailyPlan(this.catalog, state, now).map((task) => ({ id: task.id, title: task.title, text: task.description, label: `约 ${task.minutes} 分钟`, tag: task.done ? '今天已练' : task.optional ? '可接着练' : '今日安排', actions: [{ id: task.action, value: task.value, label: task.done ? '再练一次' : '开始', tone: 'secondary' }] }))
+      screen.cards.unshift({ id: 'explore', title: '动手试一试', text: '搬物品、改条件、找错句。先看英语怎样变化，再回到课程里独立检验。', label: '互动实验室', character: '探', actions: [{ id: 'navigate', value: 'explore', label: '开始探索', tone: 'secondary' }] })
       const active = this.currentSession()
       if (active && !active.submittedAt) screen.cards.unshift({ id: 'resume', title: '上次还没练完', text: `已检查 ${Object.values(active.answers).filter((a) => a.checked).length} / ${active.questionIds.length} 题，答案已经保存。`, actions: [{ id: 'resume', label: '继续练习', tone: 'primary' }] })
       return screen
     }
     if (this.page === 'learn') {
+      screen.hero = { eyebrow: '先动手，再发现规律', title: '让句子跟着你的选择变化', text: '改时间、换主语、搬动物品。先作预测，再用新的情境检验发现。', art: 'notebook', tone: 'teal', actions: [{ id: 'navigate', value: 'explore', label: '进入互动实验室', tone: 'primary' }] }
       const ordered = orderedTopics(this.catalog, state), topics = new Map(this.catalog.topics.map(t => [t.id, t])), index = new Map((this.catalog.questionIndex ?? this.catalog.questions).map(q => [q.id, q]))
       const gradeLabel = (grade: number) => (({ 6: '六年级衔接', 7: '七年级', 8: '八年级', 9: '九年级' } as Record<number, string>)[grade] ?? '')
       const ready = (lesson: typeof this.catalog.lessons[number]) => lesson.questionIds.every(id => { const q = index.get(id); return !!q && playable(q, this.catalog) })
@@ -371,7 +388,7 @@ export class Application {
       screen.sections = [{ title: `找到 ${lessons.length} 节课 · 第 ${page + 1} / ${pages} 页`, text: lessons.length ? '已完成不等于掌握；每节课另有新题用于延时检验。可按主题或能力缩小范围。' : '没有符合条件的课程，试试放宽年级、主题或状态。' }]
       screen.cards = lessons.slice(page * size, (page + 1) * size).map(lesson => {
         const topic = topics.get(lesson.topicId)!, available = ready(lesson), suitable = lesson.grades.includes(profile.grade), stage = topic.course
-        return { id: lesson.id, title: lesson.title, text: lesson.objective, label: `${stage ? `${gradeLabel(stage.grade)}${stage.term === 'upper' ? '上' : '下'} · ` : ''}${SKILL_LABEL[topic.skill]} · ${lesson.questionIds.length} 项练习 + ${lesson.delayedQuestionIds.length} 项延时检验`, tag: !suitable ? '高年级课程' : !available ? '音频准备中' : state.lessonDoneAt[lesson.id] ? '已学 · 还要延时复习' : '可以开始', character: SKILL_CHARACTER[topic.skill], progress: state.mastery[topic.id]?.score ?? 0, actions: [{ id: 'start-lesson', value: lesson.id, label: !suitable ? '先选适合当前年级的课' : !available ? '音频准备中' : state.lessonDoneAt[lesson.id] ? '再练一遍' : '开始学习', disabled: !suitable || !available, tone: 'secondary' as const }] }
+        return { id: lesson.id, title: lesson.title, text: lesson.objective, label: `${stage ? `${gradeLabel(stage.grade)}${stage.term === 'upper' ? '上' : '下'} · ` : ''}${SKILL_LABEL[topic.skill]} · ${lesson.questionIds.length} 项练习 + ${lesson.delayedQuestionIds.length} 项延时检验`, tag: !suitable ? '高年级课程' : !available ? '音频准备中' : state.lessonDoneAt[lesson.id] ? '已学 · 还要延时复习' : '可以开始', character: SKILL_CHARACTER[topic.skill], progress: state.mastery[topic.id]?.score ?? 0, actions: [...[sceneExperiment, ...experiments].filter(e => e.topicId === topic.id && e.grade <= profile.grade).map(e => ({ id: 'open-experiment', value: e.id, label: '先动手探索', tone: 'secondary' as const })), { id: 'start-lesson', value: lesson.id, label: !suitable ? '先选适合当前年级的课' : !available ? '音频准备中' : state.lessonDoneAt[lesson.id] ? '再练一遍' : '开始学习', disabled: !suitable || !available, tone: 'secondary' as const }] }
       })
       screen.actions = [{ id: 'course-previous', label: '上一页', disabled: page === 0, tone: 'quiet' }, { id: 'course-next', label: '下一页', disabled: page + 1 >= pages, tone: 'secondary' }]
       return screen
@@ -471,7 +488,8 @@ export class Application {
     screen.eyebrow = s.mode === 'exam' ? s.blueprintId ? '本地结构模考' : '自主限时练' : s.mode === 'review' ? '延时复习' : s.mode === 'mistakes' ? '错题重做' : '先试一试，再看理由'
     screen.progress = { label: `${s.current + 1} / ${s.questionIds.length}`, current: s.current + 1, total: s.questionIds.length, percent: Math.round((s.current + 1) / s.questionIds.length * 100) }
     if (s.deadlineAt && !s.submittedAt) { const remaining = Math.max(0, s.deadlineAt - this.platform.now()); screen.subtitle = `剩余 ${Math.floor(remaining / 60000)} 分 ${Math.floor(remaining % 60000 / 1000)} 秒` }
-    screen.question = { id: q.id, stem: q.stem, ...(q.skill !== 'listening' || show ? { passage: q.passage } : {}), kind: q.kind, value: this.form.answer ?? '', checked: !!record?.checked, answerLocked: !!record?.checked || !!s.submittedAt,
+    const sentences = show ? evidenceSentences(q) : [], evidenceId = this.form[`evidence-${q.id}`], picked = evidenceId ? evidenceFeedback(q, evidenceId) : undefined
+    screen.question = { ...(sentences.length ? { evidence: { open: this.form[`evidence-open-${q.id}`] === 'true', sentences: sentences.map(sentence => ({ id: sentence.id, text: sentence.text, selected: sentence.id === evidenceId })), ...(picked ? { feedback: picked.message, correct: picked.correct } : {}) } } : {}), revealedSteps: Math.min(q.explanation.steps.length, Math.max(1, Number(this.form[`steps-${q.id}`] || 1))), id: q.id, stem: q.stem, ...(q.skill !== 'listening' || show ? { passage: q.passage } : {}), kind: q.kind, value: this.form.answer ?? '', checked: !!record?.checked, answerLocked: !!record?.checked || !!s.submittedAt,
       options: (q.options ?? []).map((o) => ({ ...o, selected: this.form.answer === o.id, state: show ? o.id === q.answer.option ? 'correct' : o.id === record?.answer ? 'wrong' : '' : '' })),
       tokens: (q.tokens ?? []).map((t) => ({ ...t, selected: ordered.includes(t.id) })), orderedTokens: ordered.map((id) => q.tokens?.find((t) => t.id === id)).filter((t): t is { id: string; text: string } => !!t),
       ...(record?.hints && !show ? { hint: q.explanation.strategy } : {}), ...(show ? { feedback: isSelf ? !record?.checked ? '请回看自己的回答，再对照要点自评。未作答的题目自评记为零分。' : `自评 ${record.result?.score ?? 0} / ${record.result?.maxScore ?? q.marks} 分，不计为机器评测。` : record.result?.correct ? record.result.evidence === 'independent' ? '对了！再看看理由能不能自己说出来。' : '这次练对了。提示后的练习不算首次独立通过。' : `还不对。${q.explanation.pitfall}`, explanation: q.explanation, modelAnswer: q.answer.display } : {}),
@@ -480,6 +498,53 @@ export class Application {
     if (s.mode === 'exam') screen.chips = s.questionIds.map((id, i) => ({ id, label: `${i + 1}${s.answers[id]?.answer ? ' ·' : ''}`, selected: s.current === i, action: 'jump', value: String(i) }))
     else if (this.state.mistakes[q.id] && record?.checked && show) screen.chips = ERROR_REASONS.map(r => ({ id: r.id, label: r.label, selected: this.state.mistakes[q.id].reason === r.id, action: 'reason', value: `${q.id}:${r.id}` }))
     if (show) screen.actions.push({ id: 'favorite', value: q.id, label: this.state.favorites.includes(q.id) ? '取消收藏' : '收藏这道题', tone: 'quiet' })
+    return screen
+  }
+  private currentExperiment(): Experiment | undefined { return this.params.id === sceneExperiment.id ? sceneExperiment : getExperiment(this.params.id) }
+  private experimentProgress(experiment: Experiment): ExplorationProgress {
+    const saved = this.state.explorations?.[experiment.id]
+    return saved ?? { version: 1, phase: 0, condition: experiment.conditions[0].id, visited: [], updatedAt: this.platform.now() }
+  }
+  private exploreAction(action: string, value: string) {
+    const experiment = this.currentExperiment()
+    if (this.page !== 'explore' || !experiment || experiment.grade > (this.state.profile?.grade ?? 0)) return
+    const current = this.experimentProgress(experiment), next = { ...current, visited: [...current.visited], updatedAt: this.platform.now() }
+    if (action === 'explore-predict' && current.phase === 0 && experiment.prediction.options.some(o => o.id === value)) {
+      next.prediction = value; next.phase = 1; next.visited = [experiment.conditions[0].id]
+    } else if (action === 'explore-condition' && current.phase === 1 && experiment.conditions.some(c => c.id === value)) {
+      next.condition = value; next.visited = [...new Set([...current.visited, value])]
+    } else if (action === 'explore-answer' && (current.phase === 2 || current.phase === 3)) {
+      const task = current.phase === 2 ? experiment.spot : experiment.transfer
+      if (!task.options.some(o => o.id === value)) return
+      if (current.phase === 2) next.spot = value; else next.transfer = value
+    } else if (action === 'explore-next') {
+      if (current.phase === 1 && new Set(current.visited).size >= 2) next.phase = 2
+      else if (current.phase === 2 && current.spot === experiment.spot.correct) next.phase = 3
+      else if (current.phase === 3 && current.transfer === experiment.transfer.correct) next.phase = 4
+      else return
+    } else if (action === 'explore-reset') {
+      next.phase = 0; next.condition = experiment.conditions[0].id; next.visited = []; delete next.prediction; delete next.spot; delete next.transfer
+    } else return
+    this.persist({ ...this.state, explorations: { ...this.state.explorations, [experiment.id]: next }, updatedAt: this.platform.now() })
+  }
+  private renderExploration(screen: Screen): Screen {
+    const experiment = this.currentExperiment()
+    screen.eyebrow = '猜一猜 → 动手试 → 找错 → 换个情境'
+    if (!experiment) {
+      screen.subtitle = '改变一个条件，看看英语怎样跟着变。'
+      screen.notice = '这里记录探索进度，不计为独立测验或掌握。回到课程里的新题，再检验自己的发现。'
+      screen.cards = [sceneExperiment, ...experiments].map(e => ({ id: e.id, title: e.title, text: e.question, tag: this.state.explorations?.[e.id]?.phase === 4 ? '已探索 · 还要独立检验' : `${e.grade} 年级起`, character: e.id === sceneExperiment.id ? '搬' : '探', actions: [{ id: 'open-experiment', value: e.id, label: this.state.explorations?.[e.id] ? '继续探索' : '动手试试', disabled: e.grade > this.state.profile!.grade, tone: 'secondary' }] }))
+      return screen
+    }
+    if (experiment.grade > this.state.profile!.grade) { screen.notice = '先选择适合当前年级的实验。'; return screen }
+    const progress = this.experimentProgress(experiment), phase = progress.phase, condition = experiment.conditions.find(c => c.id === progress.condition) ?? experiment.conditions[0]
+    screen.title = experiment.title; screen.subtitle = ['先作预测，答案稍后揭晓。', '至少试两种条件，找出变与不变。', '你来批改：找到真正需要修改的地方。', '换个情境，试试刚才发现的方法。', '探索已完成，再用新题独立检验。'][phase]
+    screen.progress = { label: `第 ${Math.min(phase + 1, 4)} / 4 步 · ${['预测', '探索', '找错', '迁移', '完成'][phase]}`, current: Math.min(phase + 1, 4), total: 4, percent: phase === 4 ? 100 : phase * 25 }
+    const task = phase === 0 ? experiment.prediction : phase === 2 ? experiment.spot : experiment.transfer
+    const selected = phase === 0 ? progress.prediction : phase === 2 ? progress.spot : progress.transfer
+    const feedback = phase === 1 ? `核对最初那种条件的预测：${progress.prediction === experiment.prediction.correct ? '这次预测符合情境。' : '看看实际变化，再修正刚才的预测。'}${experiment.prediction.reason}` : phase === 2 || phase === 3 ? selected ? task === experiment.prediction ? experiment.prediction.reason : ('reasons' in task ? task.reasons[selected] : '') : undefined : undefined
+    screen.exploration = { experiment, progress, condition, isScene: experiment.id === sceneExperiment.id, options: task.options.map(o => ({ ...o, selected: selected === o.id })), ...(feedback ? { feedback, correct: phase === 1 ? progress.prediction === experiment.prediction.correct : selected === task.correct } : {}), nextDisabled: phase === 1 ? new Set(progress.visited).size < 2 : phase === 2 ? progress.spot !== experiment.spot.correct : phase === 3 ? progress.transfer !== experiment.transfer.correct : true }
+    screen.actions = phase === 4 ? [{ id: 'start-topic', value: experiment.topicId, label: '用课程新题独立检验', tone: 'primary' }, { id: 'navigate', value: 'explore', label: '选另一个实验', tone: 'secondary' }, { id: 'explore-reset', label: '重新探索', tone: 'quiet' }] : phase > 0 ? [{ id: 'explore-next', label: ['','发现规律，去找错','换个情境试试','完成本次探索'][phase], disabled: screen.exploration.nextDisabled, tone: 'primary' }, { id: 'navigate', value: 'explore', label: '保存，稍后继续', tone: 'quiet' }] : []
     return screen
   }
   private renderResult(screen: Screen): Screen {

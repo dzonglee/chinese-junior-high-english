@@ -25,6 +25,7 @@ describe('release requirements (synthetic configuration only)', () => {
     ['topic wording', c => { c.topics[0].title = 'Revised topic label' }],
     ['city wording', c => { c.cities[0].name = 'Revised city label' }],
     ['city routing', c => { c.cities[0].stream = 'south' }],
+    ['instructional source and art', c => { c.instructionalFiles = { 'src/core/experiments.ts': 'changed-source-hash' } }],
     ['catalog version', c => { c.version = 2 }],
   ]
   it.each(metadataChanges)('invalidates prior approval after changing %s', (_name, change) => {

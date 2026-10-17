@@ -13,7 +13,13 @@
 The owner challenged parity with maths. Course breadth and structural checks do not establish
 interactive teaching quality. Maths main 933ab32 includes predict/explore/spot/check lesson blocks
 and manipulable models; English still relies heavily on question/feedback lists. APP-INTERACTION
-will improve the experience with sentence experiments, reading evidence and visual scene tasks.
+now implements 13 workshops / 39 live conditions, prediction, condition changes, error diagnosis
+and new-context transfer. Course cards link to relevant workshops, and completion leads to actual
+topic practice. Progress is saved/restored/exported separately and never creates mastery/attempts.
+Literal passage selection is available after feedback for 264/298 reading tasks; unmatched sources
+stay hidden. Explanation reasons reveal progressively. All 39 condition visuals were inspected.
+561 tests, eight interaction browser checks and the interaction audit pass. Browser/native boundaries remain explicit. This is the
+first reviewed exploratory lane, not interactive parity in every one of the 413 lessons.
 AI-generated imagery is now explicitly allowed by the owner, superseding Blender-only guidance.
 Keep exact diagrams/labels in code, inspect assets, and keep all learning evidence honest.
 External MCP tools remain absent; repository records carry reconciliation without external writes.
@@ -23,10 +29,10 @@ External MCP tools remain absent; repository records carry reconciliation withou
 APP-LESSONS is squash-integrated on main and completes the original local course: 413 draft lessons, 4,804 tasks, 1,690 distinct
 headwords and 245 packs. All 29 themes have reading/listening/speaking/writing lessons, 58 grammar
 objectives have executable anchors and eight written pronunciation-knowledge units are included.
-Every task and word belongs to immediate/delayed lessons. The portable HTML is 10.04 MB. Full
+Every task and word belongs to immediate/delayed lessons. The current portable HTML is 10.12 MB. Full
 course filters, search and paging expose the inventory; no official textbook mapping is inferred.
 
-All 511 automated tests pass, including every lesson's checked-pack/controller/storage/delayed
+All 561 automated tests pass, including every lesson's checked-pack/controller/storage/delayed
 lifecycle. Real missing-audio lessons are rejected; lifecycle playback is test-only synthetic.
 Seven grammar regressions, four native recording simulations, 11 browser journeys, seven offline
 checks and six course browser checks pass. Every one of 4,804 diagrams was laid out at three
@@ -36,8 +42,8 @@ See `docs/validation.md` and `docs/reviews/course-2026-10-17.md` for precise rev
 Decisions: shared-passage delayed feedback/evidence is withheld until submission, including reload,
 to avoid leaking answers; subjective completion advances practice without claiming retention.
 Vocabulary meaning exposure makes immediate spelling assisted. Compact catalog tuples round-trip
-to the same runtime shape and keep the unchanged main-package safety budget (about 1,641 KB main,
-10,038 KB total). Original headwords and stable IDs are retained; one old discover example was
+to the same runtime shape and keep the unchanged main-package safety budget (about 1,704 KB main,
+10,101 KB total). Original headwords and stable IDs are retained; one old discover example was
 corrected so the headword can actually be masked. No reference content was copied.
 
 Next: approved audio for 99 scripts/31 pending listening lessons; videos stay deferred. An optional

@@ -142,6 +142,7 @@ export type QuestionMetadata = Pick<Question, 'id' | 'topicId' | 'skill' | 'kind
 export interface ContentCatalog {
   version: number
   course?: OriginalCourse
+  instructionalFiles?: Record<string, string>
   topics: Topic[]
   lessons: Lesson[]
   questions: Question[]
@@ -208,8 +209,19 @@ export interface LearningSession {
 export interface WritingDraft { questionId: string; text: string; updatedAt: number; checkedRubricIds: string[] }
 export interface PrivateQuestion extends Question { private: true; createdAt: number; updatedAt: number }
 export interface Recording { id: string; questionId: string; path: string; createdAt: number; durationMs: number }
+export interface ExplorationProgress {
+  version: 1
+  phase: 0 | 1 | 2 | 3 | 4
+  condition: string
+  visited: string[]
+  prediction?: string
+  spot?: string
+  transfer?: string
+  updatedAt: number
+}
 export interface LearnerState {
   schemaVersion: 1
+  explorations?: Record<string, ExplorationProgress>
   profile: LearnerProfile | null
   attempts: Attempt[]
   answerSeenAt?: Record<string, number>

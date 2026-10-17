@@ -66,12 +66,17 @@ import. Complete deletion also clears orphaned saved audio and temporary app-own
 
 ## Launch scope still needing an owner decision
 
-The current original collection has 34 lessons, 368 questions and 96 vocabulary entries across
-all six skills. Twelve listening scripts still need approved audio. This is a foundation collection,
-not complete 1,600-word coverage or textbook-by-unit coverage. The owner must decide whether this
-scope is the initial capability release or whether more original content and verified mappings
-are required before launch. No researcher claim or release gate is marked complete by these counts.
+The current original collection has 413 draft lessons, 4,804 tasks and 1,690 distinct headwords.
+All 99 listening scripts await approved audio. Exact textbook-unit and local-exam mapping remains
+unverified. No research or release gate is marked complete by these counts.
 
-Colors, cards and touch targets follow the sister maths design direction. Decorative art comes
-only from the reproducible Blender pipeline. Browser screenshots are labelled browser evidence;
+Thirteen reviewed workshops add prediction, manipulation, mistake diagnosis and transfer with
+39 changed conditions. Their progress is stored separately from independent evidence. Relevant
+course cards link directly to a workshop, and the workshop ends with actual topic practice.
+Reading explanations support literal sentence selection in 264 tasks, only after feedback is
+unlocked. Explanations reveal reasoned steps progressively. Full maths-style exploration coverage
+in every lesson remains unfinished; see the comparison review for the concrete gap.
+
+Colors, cards and touch targets follow the sister maths design direction. Art includes the existing Blender assets and one owner-authorized AI-generated desk scene.
+Exact objects, positions and labels are coded and inspected. Browser screenshots are labelled browser evidence;
 native DevTools, device, privacy configuration and editorial release remain explicit prerequisites.
