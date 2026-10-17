@@ -1132,3 +1132,16 @@ Current new lesson flow:12 conditions/36 task-width checks,reload and zero indep
 Cumulative339 conditions/1017 widths;earlier flows retain scope. Hashes:checkpoint-37.*.
 Next:l-g-compounds. Twelve compound tasks are drafted outside course files. An original green residential house/transparent greenhouse diptych and inspected600-pixel quality70 JPEG derivative32,141 bytes support actual semantic picture selection. Add snap-together word parts for selected compound nouns,keeping phrase tiles spaced and joined words contiguous. Test removals,duplicate/unknown tokens and wrong forms;inspect models before credit. A later twelve-task derivation draft also remains outside course files. Overall claim continues solo;376 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-compounds individually reviewed
+
+38/413 reviewed. Twelve tasks use an original house/greenhouse meaning contrast,open/closed compounds,four real word-part puzzles,noun-head plurals and everyday/every day. Joined words and spaced phrases use distinct assembly modes with actual consumable tile controls.
+
+Original and600-pixel art,all twelve models,narrow-phone figures,both wrong picture choices,four wrong assemblies,incomplete-word removal/reload,everyday errors,applications and all explanation/transfer steps were inspected. Widened picture diagrams keepgreenhouse intact;new browser checks reject split English model words. Full indefinite replay confirms spaced phrases and accepted alternatives;no extra review credit. Grades7–9;reserved005–008 unexposed;zero independent records. Main1,893,637 bytes under unchanged1,900,000 budget.
+
+Current new lesson flow:12 conditions/36 task-width checks,reload and zero independent records. 1,478 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 packed topic hashes. These are not native GUI evidence. Core scope:1478 tests/14 files passed before the final two picture-diagram layout edits. Final compiler/typecheck/teaching/grammar/static-package,complete compound+indefinite browser,native-adapter,offline and archive checks cover those edits.
+
+Cumulative351 conditions/1053 widths;earlier flows retain scope. Hashes:checkpoint-38.*.
+Next:l-g-derivation. A twelve-task derivation draft with actual word parts remains outside course files. It separates sentence roles and polarity,repairs happy/happiness and swim/swimmer,and shows friendly is an adjective despite-ly. Reuse the existing original assets and word controls. Only6,363 bytes remain in the current main safety budget;future artwork needs a packaging strategy rather than a raised limit. Overall claim continues solo;375 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

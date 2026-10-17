@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **37 / 413**. Current: **l-g-compounds**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **38 / 413**. Current: **l-g-derivation**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Completed: **37 / 413**. Current: **l-g-compounds**. Evidence lives in docs/revi
 | l-g-question-words | 问人、问物、问原因 | reviewed | [Individual review](../reviews/individual-lessons/l-g-question-words.md) |
 | l-g-cardinals | 基数词与准确的数量 | reviewed | [Individual review](../reviews/individual-lessons/l-g-cardinals.md) |
 | l-g-ordinals | 序数词、日期与顺序 | reviewed | [Individual review](../reviews/individual-lessons/l-g-ordinals.md) |
-| l-g-compounds | 合成词：词义怎样组合 | pending | — |
+| l-g-compounds | 合成词：词义怎样组合 | reviewed | [Individual review](../reviews/individual-lessons/l-g-compounds.md) |
 | l-g-derivation | 前缀、后缀与词性 | pending | — |
 | l-g-conversion | 同一个词，不同的词性 | pending | — |
 | l-g-contractions | 缩写与完整形式 | pending | — |

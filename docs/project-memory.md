@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-37 of413 lessons are individually reviewed;376 remain pending. Every lesson needs bespoke tasks,
+38 of413 lessons are individually reviewed;375 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-ordinals. Twelve tasks select people by left/right ordinal position,contrast the whole-year month index with the displayed subset,and repair irregular spellings,dates,floor references and possessive-determiner constructions.
+Latest:l-g-compounds. Twelve tasks use an original house/greenhouse meaning contrast,open/closed compounds,four real word-part puzzles,noun-head plurals and everyday/every day. Joined words and spaced phrases use distinct assembly modes with actual consumable tile controls.
 
-All twelve models,narrow-phone figures,wrong selections in all three portrait tasks,missing/wrong month gates,spelling/determiner errors,applications and all explanation/transfer steps were inspected. The five-cell month strip fits320 pixels. Floor numbering is explicitly specified. Final direction feedback names left-to-right/right-to-left plainly. Grades6–9;reserved005–008 unexposed;zero independent records.
+Original and600-pixel art,all twelve models,narrow-phone figures,both wrong picture choices,four wrong assemblies,incomplete-word removal/reload,everyday errors,applications and all explanation/transfer steps were inspected. Widened picture diagrams keepgreenhouse intact;new browser checks reject split English model words. Full indefinite replay confirms spaced phrases and accepted alternatives;no extra review credit. Grades7–9;reserved005–008 unexposed;zero independent records. Main1,893,637 bytes under unchanged1,900,000 budget.
 
-Checkpoint37 records the new flow/36 widths and current core,teaching,grammar,course,package,
+Checkpoint38 records the new flow/36 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The37 reviewed lessons cumulatively contain339 conditions/1017 widths;
+recorded explicitly. The38 reviewed lessons cumulatively contain351 conditions/1053 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-compounds. Twelve compound tasks are drafted outside course files. An original green residential house/transparent greenhouse diptych and inspected600-pixel quality70 JPEG derivative32,141 bytes support actual semantic picture selection. Add snap-together word parts for selected compound nouns,keeping phrase tiles spaced and joined words contiguous. Test removals,duplicate/unknown tokens and wrong forms;inspect models before credit. A later twelve-task derivation draft also remains outside course files.
+Next:l-g-derivation. A twelve-task derivation draft with actual word parts remains outside course files. It separates sentence roles and polarity,repairs happy/happiness and swim/swimmer,and shows friendly is an adjective despite-ly. Reuse the existing original assets and word controls. Only6,363 bytes remain in the current main safety budget;future artwork needs a packaging strategy rather than a raised limit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

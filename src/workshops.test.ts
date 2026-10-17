@@ -262,3 +262,23 @@ it('distinguishes a tile capitalization repair from changing the auxiliary or ve
  for(const[a,v]of workshopExpressionActions(c,c.target))p=changeTeaching(s,p,'workshop-'+a,v,5);p=changeTeaching(s,p,'workshop-check','',6);expect(workshopView(w,p).complete).toBe(true)
  for(const[a,v]of workshopExpressionActions(c,c.choices![0]))p=changeTeaching(s,p,'workshop-'+a,v,7);p=changeTeaching(s,p,'workshop-check','',8);view=workshopView(w,p);expect(view.complete).toBe(false);expect(view.feedback).not.toContain('再核对大小写');expect(workshopProblems(w)).toEqual([])
 })
+
+it('joins word parts through actual controls and invalidates the word when a prefix is removed',()=>{
+ const base=studio('l-g-object-clauses'),original=base.mission!.workshop!,condition={...original.conditions![0],before:'She felt ',target:'unhappy',after:'.',initial:undefined,accepted:undefined,tileMode:'morpheme' as const,tiles:['un','happy','ly'],choices:['happy','unhappy'],reason:'The record says she did not feel happy.',world:{kind:'morphology' as const,caption:'Use a negative prefix.',cells:[{label:'un'},{label:'happy'},{label:'@attempt',role:'attempt-result'}]}},w={...original,choices:[...original.choices!,...condition.choices],conditions:[condition,original.conditions![1]]},s={...base,mission:{...base.mission!,workshop:w}};let p={...freshTeaching(s,1),step:1}
+ p=changeTeaching(s,p,'workshop-input','unhappy',2);p=changeTeaching(s,p,'workshop-choose','unhappy',3);expect(workshopView(w,p).selected).toBe('')
+ p=changeTeaching(s,p,'workshop-tile-add','1',4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).selected).toBe('happy');expect(workshopView(w,p).complete).toBe(false)
+ for(const[a,v]of workshopExpressionActions(condition,'unhappy'))p=changeTeaching(s,p,'workshop-'+a,v,6)
+ p=changeTeaching(s,p,'workshop-check','',7);expect(workshopView(w,p).selected).toBe('unhappy');expect(workshopView(w,p).cells[2].label).toBe('unhappy');expect(workshopView(w,p).morphemeTiles).toBe(true);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-tile-add','1',8);p=changeTeaching(s,p,'workshop-tile-add','999',9);expect(workshopView(w,p).selected).toBe('unhappy')
+ p=changeTeaching(s,p,'workshop-tile-remove','0',10);expect(workshopView(w,p).complete).toBe(false);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),11);expect(workshopView(w,p).selected).toBe('happy');expect(workshopView(w,p).complete).toBe(false)
+})
+it('keeps word boundaries distinct from joined pieces and rejects impossible authored word assemblies',()=>{
+ const original=studio('l-g-object-clauses').mission!.workshop!,condition={...original.conditions![0],before:'A ',target:'schoolbag',after:'.',accepted:undefined,initial:undefined,tileMode:'morpheme' as const,tiles:['school','bag','schools'],choices:['schoolsbag','schoolbag'],world:{kind:'morphology' as const,caption:'Build the noun.',cells:[{label:'@attempt'}]}},w={...original,choices:[...original.choices!,...condition.choices],conditions:[condition,original.conditions![1]]}
+ expect(workshopProblems(w)).toEqual([])
+ expect(workshopProblems({...w,conditions:[{...condition,tiles:['school','schools']},original.conditions![1]]})).toContain('Invalid clause tile bank')
+ expect(workshopProblems({...w,conditions:[{...condition,target:'school bag'},original.conditions![1]]})).toContain('Invalid clause tile bank')
+ expect(workshopProblems({...w,conditions:[{...condition,tiles:undefined},original.conditions![1]]})).toContain('Invalid tile mode')
+ const phrase=original.conditions![0],p=freshTeaching(studio('l-g-object-clauses'),1)
+ for(const[a,v]of workshopExpressionActions(phrase,phrase.target))changeWorkshop(original,p,a,v)
+ expect(workshopView(original,p).selected).toBe(phrase.target);expect(workshopView(original,p).morphemeTiles).toBe(false);expect(phrase.target).toContain(' ')
+})

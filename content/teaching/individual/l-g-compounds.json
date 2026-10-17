@@ -1,0 +1,577 @@
+{
+  "lessonId": "l-g-compounds",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Use building purpose to distinguish greenhouse from green house,check closed/open compound spellings,plural head nouns and everyday versus every day in actual sentence roles.",
+  "picturePurpose": "Original inspected green residential house versus transparent horticultural greenhouse diptych makes the semantic contrast selectable. Exact labels,word morphology and answer text stay in code.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "看懂组合后的意思，再决定怎么写",
+    "instruction": "先按建筑用途选图，再把部件拼成单词。连写、分写和复数变化都要核对实际用法。",
+    "conditions": [
+      {
+        "label": "greenhouse不等于一栋绿色住宅",
+        "before": "We grow tomatoes in a ",
+        "target": "greenhouse",
+        "after": ".",
+        "choices": [
+          "green house",
+          "greenhouse"
+        ],
+        "reason": "greenhouse是一个合成名词，表示种植物的温室。green house是形容词加名词，描述外墙为绿色的住宅，意思不同。",
+        "world": {
+          "kind": "syntax",
+          "caption": "种植记录：我们在玻璃温室里种番茄。先按用途选建筑，再写一个合成名词。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的建筑"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "选出种植物用的温室",
+            "missingPrompt": "先看建筑用途：住人的住宅，还是种植物的玻璃温室？",
+            "asset": "lesson-compound-buildings",
+            "alt": "左图是绿色外墙、实心屋顶的住宅；右图是白色框架、透明玻璃墙和玻璃屋顶、内有多盆植物的温室。",
+            "artChoices": [
+              "house",
+              "greenhouse"
+            ],
+            "answer": "greenhouse",
+            "options": [
+              {
+                "id": "house",
+                "label": "绿色住宅",
+                "text": "实心屋顶，外墙是绿色",
+                "reason": "左图描述绿色住宅；本题需要种植物的玻璃温室，应选右图。",
+                "value": 25
+              },
+              {
+                "id": "greenhouse",
+                "label": "种植物的温室",
+                "text": "玻璃墙和屋顶，内部有植物",
+                "reason": "右图的用途是种植物，合成名词greenhouse指温室。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "green house",
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。"
+      },
+      {
+        "label": "分开写时，green说明住宅颜色",
+        "before": "They live in a ",
+        "target": "green house",
+        "after": ".",
+        "choices": [
+          "greenhouse",
+          "green house"
+        ],
+        "reason": "给定记录描述绿色外墙的住宅，用green house两个词；不能因为看见green和house就一律合成greenhouse。",
+        "world": {
+          "kind": "syntax",
+          "caption": "居住记录：他们住在左图住宅里，外墙是绿色。用green和house说明住宅的颜色。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的建筑"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "选出绿色外墙的住宅",
+            "missingPrompt": "先看建筑用途：住人的住宅，还是种植物的玻璃温室？",
+            "asset": "lesson-compound-buildings",
+            "alt": "左图是绿色外墙、实心屋顶的住宅；右图是白色框架、透明玻璃墙和玻璃屋顶、内有多盆植物的温室。",
+            "artChoices": [
+              "house",
+              "greenhouse"
+            ],
+            "answer": "house",
+            "options": [
+              {
+                "id": "house",
+                "label": "绿色住宅",
+                "text": "实心屋顶，外墙是绿色",
+                "reason": "左图是绿色外墙的住宅，符合本题给定的居住记录。",
+                "value": 25
+              },
+              {
+                "id": "greenhouse",
+                "label": "种植物的温室",
+                "text": "玻璃墙和屋顶，内部有植物",
+                "reason": "右图是种植物的玻璃温室；本题记录说的是左图绿色外墙的住宅。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "greenhouse",
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。"
+      },
+      {
+        "label": "合成名词也有分开写的",
+        "before": "We waited at the ",
+        "target": "bus stop",
+        "after": ".",
+        "choices": [
+          "busstop",
+          "bus stop"
+        ],
+        "reason": "表示公交车站的标准写法是bus stop，分为两个词。不能把所有合成名词都写成连在一起的一个词。",
+        "world": {
+          "kind": "logic",
+          "caption": "地点记录：我们在公交车站等车。用bus与stop组成标准的地点名称。",
+          "cells": [
+            {
+              "label": "bus + stop",
+              "detail": "标准名词：bus stop"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "busstop",
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。"
+      },
+      {
+        "label": "邮局的标准写法是两个词",
+        "before": "The parcel is at the ",
+        "target": "post office",
+        "after": ".",
+        "choices": [
+          "postoffice",
+          "post office"
+        ],
+        "reason": "邮局写post office，两个词构成一个地点名称。合成词是否连写要按规范用法判断。",
+        "world": {
+          "kind": "logic",
+          "caption": "快递记录：包裹现在在邮局。用post与office写出地点。",
+          "cells": [
+            {
+              "label": "post + office",
+              "detail": "标准名词：post office"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "postoffice",
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。"
+      },
+      {
+        "label": "schoolbag按题目要求连写",
+        "before": "Mia put her pencils in her ",
+        "target": "schoolbag",
+        "after": ".",
+        "choices": [
+          "schoolsbag",
+          "schoolbag"
+        ],
+        "reason": "schoolbag是本题要用的单数合成名词，前面的school不加s。不要把两个成分任意变形。",
+        "world": {
+          "kind": "morphology",
+          "caption": "收纳记录：Mia把铅笔放进书包。用school和bag组成一个单数名词。",
+          "cells": [
+            {
+              "label": "school",
+              "detail": "前一部分"
+            },
+            {
+              "label": "bag",
+              "detail": "后一部分"
+            },
+            {
+              "label": "@attempt",
+              "detail": "合起来核对意思和词形",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。",
+        "tileMode": "morpheme",
+        "tiles": [
+          "school",
+          "schools",
+          "bag"
+        ]
+      },
+      {
+        "label": "从两部分意思推测，再核对实际用途",
+        "before": "Leo wore a ",
+        "target": "raincoat",
+        "after": " during the storm.",
+        "choices": [
+          "rain coat",
+          "raincoat"
+        ],
+        "reason": "本题要求一个词的标准合成名词raincoat，指雨衣。rain说明用途，coat说明衣物种类；组合后仍需核对惯用写法。",
+        "world": {
+          "kind": "morphology",
+          "caption": "暴雨记录：Leo穿了一件雨衣。按本题要求，把rain和coat合成一个词。",
+          "cells": [
+            {
+              "label": "rain",
+              "detail": "前一部分"
+            },
+            {
+              "label": "coat",
+              "detail": "后一部分"
+            },
+            {
+              "label": "@attempt",
+              "detail": "合起来核对意思和词形",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "rain coat",
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。"
+      },
+      {
+        "label": "blackboard是黑板，不是任意黑色木板",
+        "before": "Our teacher wrote a date on the ",
+        "target": "blackboard",
+        "after": ".",
+        "choices": [
+          "black board",
+          "blackboard"
+        ],
+        "reason": "本题指定教学用黑板的合成名词blackboard。black board两个词只描述一块黑色板，不能代替本题要求的规范合成词。",
+        "world": {
+          "kind": "morphology",
+          "caption": "课堂记录：老师用粉笔在教学黑板上写日期。用black和board组成一个词。",
+          "cells": [
+            {
+              "label": "black",
+              "detail": "前一部分"
+            },
+            {
+              "label": "board",
+              "detail": "后一部分"
+            },
+            {
+              "label": "@attempt",
+              "detail": "合起来核对意思和词形",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "black board",
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。"
+      },
+      {
+        "label": "tooth和brush组成一种用具",
+        "before": "I packed a ",
+        "target": "toothbrush",
+        "after": " before the trip.",
+        "choices": [
+          "toothbrushes",
+          "toothbrush"
+        ],
+        "reason": "a后需要单数名词toothbrush。toothbrush表示牙刷，不是把牙齿和刷子当作两件物品。",
+        "world": {
+          "kind": "morphology",
+          "caption": "行李记录：出发前装入一把牙刷。先看a所要求的单数。",
+          "cells": [
+            {
+              "label": "tooth",
+              "detail": "前一部分"
+            },
+            {
+              "label": "brush",
+              "detail": "后一部分"
+            },
+            {
+              "label": "@attempt",
+              "detail": "合起来核对意思和词形",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。",
+        "tileMode": "morpheme",
+        "tiles": [
+          "brushes",
+          "tooth",
+          "brush"
+        ]
+      },
+      {
+        "label": "复数落在中心词brush上",
+        "before": "We need two ",
+        "target": "toothbrushes",
+        "after": ".",
+        "choices": [
+          "teethbrushes",
+          "toothbrushes"
+        ],
+        "reason": "toothbrush的复数是toothbrushes，在brush后加es；这里不把前面的tooth改成teeth。",
+        "world": {
+          "kind": "morphology",
+          "caption": "采购记录：需要两把牙刷。先找这个合成名词末尾的中心词brush。",
+          "cells": [
+            {
+              "label": "tooth",
+              "detail": "前一部分"
+            },
+            {
+              "label": "brushes",
+              "detail": "后一部分"
+            },
+            {
+              "label": "@attempt",
+              "detail": "合起来核对意思和词形",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。",
+        "tileMode": "morpheme",
+        "tiles": [
+          "tooth",
+          "brushes",
+          "teeth"
+        ]
+      },
+      {
+        "label": "中心词man是不规则复数",
+        "before": "The children made two ",
+        "target": "snowmen",
+        "after": ".",
+        "choices": [
+          "snowmans",
+          "snowmen"
+        ],
+        "reason": "snowman的复数是snowmen，man变men，不是在整个词后机械加s。",
+        "world": {
+          "kind": "morphology",
+          "caption": "冬日记录：孩子们堆了两个雪人。按snowman的规范复数填写。",
+          "cells": [
+            {
+              "label": "snow",
+              "detail": "前一部分"
+            },
+            {
+              "label": "men",
+              "detail": "后一部分"
+            },
+            {
+              "label": "@attempt",
+              "detail": "合起来核对意思和词形",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。",
+        "tileMode": "morpheme",
+        "tiles": [
+          "snow",
+          "man",
+          "men",
+          "mans"
+        ]
+      },
+      {
+        "label": "everyday放在名词前，表示日常的",
+        "before": "Reading is part of my ",
+        "target": "everyday",
+        "after": " life.",
+        "choices": [
+          "every day",
+          "everyday"
+        ],
+        "reason": "everyday是形容词，修饰life，表示日常生活。every day两个词表示每天，不能按本句要求作life前的形容词。",
+        "world": {
+          "kind": "logic",
+          "caption": "阅读是日常生活的一部分。这里空格直接修饰名词life。",
+          "cells": [
+            {
+              "label": "___ life",
+              "detail": "需要形容词：日常的"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "every day",
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。"
+      },
+      {
+        "label": "every day说明多久做一次",
+        "before": "We read for ten minutes ",
+        "target": "every day",
+        "after": ".",
+        "choices": [
+          "everyday",
+          "every day"
+        ],
+        "reason": "every day两个词表示每天，说明阅读的频率。everyday是形容词，不能在这里替代时间状语。",
+        "world": {
+          "kind": "logic",
+          "caption": "阅读安排：每天读10分钟。空格说明频率，后面没有让它修饰的名词。",
+          "cells": [
+            {
+              "label": "每天 · 频率",
+              "detail": "every day作时间状语"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "everyday",
+        "inputHint": "先核对句子需要的意思和词性，再检查连写、分写和复数。"
+      }
+    ],
+    "choices": [
+      "green house",
+      "greenhouse",
+      "busstop",
+      "bus stop",
+      "postoffice",
+      "post office",
+      "schoolsbag",
+      "schoolbag",
+      "rain coat",
+      "raincoat",
+      "black board",
+      "blackboard",
+      "toothbrushes",
+      "toothbrush",
+      "teethbrushes",
+      "snowmans",
+      "snowmen",
+      "every day",
+      "everyday"
+    ],
+    "items": [
+      {
+        "id": "compound-editor",
+        "label": "词义、写法与中心词",
+        "prompt": "让合成词的意思和句子作用都对上。",
+        "answer": "",
+        "reason": "",
+        "hint": "greenhouse不等于green house；everyday也不等于every day。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-compounds-002",
+      "q-g-compounds-003"
+    ],
+    "transfer": {
+      "id": "individual-g-compounds-transfer",
+      "topicId": "g-compounds",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "旅行清单：带两把牙刷；出发前每天检查清单。两空依次填什么？\nPack two ___. Check the list ___ before the trip.",
+      "options": [
+        {
+          "id": "a",
+          "text": "toothbrushes; every day"
+        },
+        {
+          "id": "b",
+          "text": "teethbrushes; every day"
+        },
+        {
+          "id": "c",
+          "text": "toothbrushes; everyday"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "toothbrushes; every day"
+      },
+      "marks": 2,
+      "estimatedSeconds": 80,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找合成名词的中心词处理复数，再判断everyday/every day的句中作用。",
+        "steps": [
+          {
+            "text": "two后需要复数，toothbrush变toothbrushes。",
+            "reason": "中心词是brush，后面加es，前面的tooth不变成teeth。"
+          },
+          {
+            "text": "第二空表示每天，用every day两个词。",
+            "reason": "它说明检查清单的频率，不是在修饰后面的名词。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "牙刷的规范复数是toothbrushes，不能把tooth改为teeth。"
+          },
+          {
+            "option": "c",
+            "reason": "本句需要表示每天的时间状语every day；everyday是形容词。"
+          }
+        ],
+        "pitfall": "合成词有自己的规范写法和复数变化；不能只看中文意思就决定连写或分写。",
+        "visual": {
+          "kind": "comparison",
+          "title": "把词形和句中作用分开看",
+          "segments": [
+            {
+              "text": "tooth + brushes → toothbrushes",
+              "role": "evidence",
+              "note": "复数变在中心词brush上"
+            },
+            {
+              "text": "每天检查 → check every day",
+              "role": "evidence",
+              "note": "时间状语，分开写"
+            }
+          ],
+          "caption": "先确认合成词的中心词，再看句子需要什么成分。"
+        },
+        "transfer": "如果改成“日常检查”，every day应怎样变化，放在checks前还是后？"
+      }
+    }
+  }
+}
