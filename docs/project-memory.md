@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-28 of413 lessons are individually reviewed;385 remain pending. Every lesson needs bespoke tasks,
+29 of413 lessons are individually reviewed;384 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-auxiliaries. Ten tasks use shuffled word tiles and a typed repair to distinguish do-support from existing be,modal and perfect auxiliaries. Students build questions and negatives,restore base forms,retain participles and compare singular/plural subjects. Case-only feedback identifies capitalization without falsely diagnosing grammar.
+Latest:l-g-adjectives. Ten adjective tasks combine the blanket picture,typed repairs and shuffled phrase tiles. Students contrast noun and be positions,something useful,adjective/noun enough positions,and exciting/excited/interesting meanings. A new transfer uses useful equipment small enough to fit in a bag.
 
-All ten models and narrow-phone diagrams,empty tile controls,wrong inflections,typed repair,lowercase can,accepted contraction,applications and both fresh-transfer steps were inspected. Punctuation stays with the last word. Before/after diagrams use actual source and student sentences. Grades7–9 covered;reserved005–008 unexposed;zero independent records.
+All ten models and narrow-phone figures,wrong image/phrase choices,typed repairs,expanded before/after diagrams,applications and both transfer steps were inspected. The last label was rewritten as natural Chinese. Three existing Blender PNGs were losslessly recompressed and inspected:137,249 bytes saved,all decoded pixels identical,proof hashes recorded. Grades7–9 covered;reserved005–008 unexposed;zero independent records.
 
-Checkpoint28 records the new flow/30 widths and current core,teaching,grammar,course,package,
+Checkpoint29 records the new flow/30 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The28 reviewed lessons cumulatively contain238 conditions/714 widths;
+recorded explicitly. The29 reviewed lessons cumulatively contain248 conditions/744 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-adjectives. A ten-task adjective draft stays outside course files. It reuses the inspected blanket image and adds shuffled phrase tiles for size/colour,something useful and contrasting enough positions. It also contrasts exciting/excited and an interesting person,avoiding the person-versus-object shortcut. Inspect all renders before review. Lossless recompression trials for three existing Blender PNGs preserve every pixel and could recover about137KB for future instructional art;they are not integrated yet.
+Next:l-g-adverbs. An eleven-task adverb draft stays outside course files. It uses the inspected new bicycle diptych to locate the repairer,then contrasts action manner with a linking-verb state,well/fast/hard/hardly/heavily,frequency positions and carefully enough. Both raw and600-pixel image delivery are inspected;the47,437-byte derivative fits the unchanged budget after lossless PNG optimization. Integrate and inspect actual controls before review credit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

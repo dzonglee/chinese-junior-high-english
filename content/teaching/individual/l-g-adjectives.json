@@ -1,0 +1,449 @@
+{
+  "lessonId": "l-g-adjectives",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Manipulate adjective placement before nouns,after be and indefinite pronouns; contrast adjective/noun enough placement,common size-colour order and -ed/-ing meanings including an interesting person.",
+  "picturePurpose": "Reuse the owner-original blanket scene to select the described noun. Shuffled word tiles and coded before/after diagrams make actual word order visible. Sensory and emotional facts are explicit records,not photo inferences.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "把描述放到该放的位置",
+    "instruction": "看图选被描述的对象，再拼词序、改词形；先想这句话要说明什么。",
+    "conditions": [
+      {
+        "label": "名词前，先说它什么样",
+        "before": "Mia chose a ",
+        "target": "soft",
+        "after": " blanket.",
+        "choices": [
+          "softly",
+          "soft"
+        ],
+        "reason": "blanket是名词，这里用形容词soft放在它前面，说明柔软的毯子；softly是副词。",
+        "world": {
+          "kind": "logic",
+          "caption": "物品记录：Mia选了一条柔软的蓝色毯子。先点图中被soft描述的部分。",
+          "cells": [
+            {
+              "label": "a ___ blanket",
+              "detail": "形容词在名词前"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "soft在这句修饰什么？",
+            "missingPrompt": "先选被描述的部分，再核对词形。",
+            "asset": "lesson-blanket-touch",
+            "alt": "Mia在右侧触摸左侧的蓝色毯子。",
+            "artChoices": [
+              "blanket",
+              "action"
+            ],
+            "answer": "blanket",
+            "options": [
+              {
+                "id": "blanket",
+                "label": "毯子",
+                "text": "blanket前说它是什么样的",
+                "reason": "soft放在blanket前，说明毯子柔软。",
+                "value": 35
+              },
+              {
+                "id": "action",
+                "label": "触摸的动作",
+                "text": "说明Mia怎样摸",
+                "reason": "这里soft在blanket前修饰毯子，不是在说明触摸动作怎样进行。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "换个位置，意思仍是柔软",
+        "before": "The blanket is ",
+        "target": "soft",
+        "after": ".",
+        "choices": [
+          "softly",
+          "soft"
+        ],
+        "reason": "is后仍用形容词soft，说明毯子的状态。形容词不只出现在名词前；softly不能代替这里的状态描述。",
+        "world": {
+          "kind": "logic",
+          "caption": "沿用上一项的毯子，把“柔软”放到is后说明它的状态。",
+          "cells": [
+            {
+              "label": "the blanket + is",
+              "detail": "这次在系动词后"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先看修饰谁，再把词形或词序改好。",
+        "initial": "softly"
+      },
+      {
+        "label": "大小和颜色怎样排列",
+        "before": "Mia chose ",
+        "target": "a small blue blanket",
+        "after": ".",
+        "choices": [
+          "a blue small blanket",
+          "a small blue blanket"
+        ],
+        "reason": "这个普通描述里，大小small放在颜色blue前，两者一起修饰blanket；a放在整个名词短语前。",
+        "world": {
+          "kind": "syntax",
+          "caption": "商品卡：Mia选的是一条小的蓝色毯子。请用词块组成常用的名词短语。",
+          "cells": [
+            {
+              "label": "a blue small blanket",
+              "detail": "待修正的词序"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先看修饰谁，再把词形或词序改好。",
+        "tiles": [
+          "blue",
+          "a",
+          "blanket",
+          "small"
+        ]
+      },
+      {
+        "label": "something后面再加描述",
+        "before": "We need ",
+        "target": "something useful",
+        "after": " for the trip.",
+        "choices": [
+          "useful something",
+          "something useful"
+        ],
+        "reason": "形容词修饰something这类不定代词时通常后置，写成something useful，不是useful something。",
+        "world": {
+          "kind": "syntax",
+          "caption": "打包要求：带点有用的东西。不是在说某个已知物品的名字。",
+          "cells": [
+            {
+              "label": "useful something",
+              "detail": "待修正的词序"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先看修饰谁，再把词形或词序改好。",
+        "tiles": [
+          "something",
+          "useful"
+        ]
+      },
+      {
+        "label": "enough修饰形容词，放在哪边",
+        "before": "This case is ",
+        "target": "light enough",
+        "after": " for Mia to carry.",
+        "choices": [
+          "enough light",
+          "light enough"
+        ],
+        "reason": "enough修饰形容词light时放在后面，light enough表示足够轻。这里不是在说“足够的光线”。",
+        "world": {
+          "kind": "syntax",
+          "caption": "搬运记录：这个箱子很轻，Mia能提得动。把light和enough排到正确位置。",
+          "cells": [
+            {
+              "label": "enough light",
+              "detail": "按当前句意修正词序"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先看修饰谁，再把词形或词序改好。",
+        "tiles": [
+          "enough",
+          "light"
+        ]
+      },
+      {
+        "label": "换成修饰名词，位置也会换",
+        "before": "We have ",
+        "target": "enough chairs",
+        "after": " for all six guests.",
+        "choices": [
+          "chairs enough",
+          "enough chairs"
+        ],
+        "reason": "enough修饰名词chairs时通常放在前面，enough chairs表示足够的椅子；不要照搬light enough的顺序。",
+        "world": {
+          "kind": "syntax",
+          "caption": "座位记录：六位客人，每人都有一把椅子。用enough说明椅子够用。",
+          "cells": [
+            {
+              "label": "chairs enough",
+              "detail": "按当前句意修正词序"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先看修饰谁，再把词形或词序改好。",
+        "tiles": [
+          "enough",
+          "chairs"
+        ]
+      },
+      {
+        "label": "表演令人兴奋，谁带来感受",
+        "before": "The robotics show was ",
+        "target": "exciting",
+        "after": ".",
+        "choices": [
+          "excited",
+          "exciting"
+        ],
+        "reason": "exciting说明表演令人兴奋；excited说明感到兴奋的状态。这里描述表演带来的感受，不是说表演本身有情绪。",
+        "world": {
+          "kind": "logic",
+          "caption": "观众评价：机器人表演很精彩，让人兴奋。先判断这句说的是表演还是观众。",
+          "cells": [
+            {
+              "label": "the robotics show",
+              "detail": "带来兴奋感的表演"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先看修饰谁，再把词形或词序改好。",
+        "initial": "excited"
+      },
+      {
+        "label": "人感到兴奋，换成哪一种",
+        "before": "Mia felt ",
+        "target": "excited",
+        "after": " during the robotics show.",
+        "choices": [
+          "exciting",
+          "excited"
+        ],
+        "reason": "这里说Mia感到兴奋，用excited；exciting会变成说明Mia让别人兴奋，不能表达本题的感受。",
+        "world": {
+          "kind": "logic",
+          "caption": "感受记录：Mia说自己看机器人表演时很兴奋。用excit-词族中合适的形容词补全。",
+          "cells": [
+            {
+              "label": "Mia",
+              "detail": "产生兴奋感的人"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先看修饰谁，再把词形或词序改好。",
+        "initial": "exciting"
+      },
+      {
+        "label": "人会让别人觉得有趣，别只按人和物分",
+        "before": "Our guide was ",
+        "target": "interesting",
+        "after": ".",
+        "choices": [
+          "interested",
+          "interesting"
+        ],
+        "reason": "interesting可以描述人，表示这个向导很有趣；interested表示自己感兴趣。不能只凭主语是人就一律选-ed。",
+        "world": {
+          "kind": "logic",
+          "caption": "游客评价：向导讲了很多有趣的故事，大家觉得这个人很有趣。这里不说向导对什么感兴趣。",
+          "cells": [
+            {
+              "label": "our guide",
+              "detail": "别人觉得他很有趣"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "问候很友好，选哪种词形？",
+        "before": "The helper gave us a ",
+        "target": "friendly",
+        "after": " greeting.",
+        "choices": [
+          "friend",
+          "friendly"
+        ],
+        "reason": "greeting前用形容词friendly，表示友好的问候。friend是“朋友”这个名词；不要因为friendly有-ly就把它当副词。",
+        "world": {
+          "kind": "logic",
+          "caption": "接待记录：志愿者友好地向我们问候。用合适的词修饰greeting。",
+          "cells": [
+            {
+              "label": "a ___ greeting",
+              "detail": "名词前需要的描述"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      }
+    ],
+    "choices": [
+      "softly",
+      "soft",
+      "a blue small blanket",
+      "a small blue blanket",
+      "useful something",
+      "something useful",
+      "enough light",
+      "light enough",
+      "chairs enough",
+      "enough chairs",
+      "excited",
+      "exciting",
+      "interested",
+      "interesting",
+      "friend",
+      "friendly"
+    ],
+    "items": [
+      {
+        "id": "adjective-editor",
+        "label": "描述与位置",
+        "prompt": "同一性质可出现在不同位置；别只靠词尾和人或物来猜。",
+        "answer": "",
+        "reason": "",
+        "hint": "修饰谁？表示自身感受，还是带来的感受？"
+      }
+    ],
+    "applicationIds": [
+      "q-g-adjectives-002",
+      "q-g-adjectives-003"
+    ],
+    "transfer": {
+      "id": "individual-g-adjectives-transfer",
+      "topicId": "g-adjectives",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "带点有用的东西，而且要足够小、能装进包里。两空依次填什么？\nPack ___ for the walk. It should be ___ to fit in your bag.",
+      "options": [
+        {
+          "id": "a",
+          "text": "something useful; small enough"
+        },
+        {
+          "id": "b",
+          "text": "useful something; small enough"
+        },
+        {
+          "id": "c",
+          "text": "something useful; enough small"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "something useful; small enough"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "不要只背“形容词放名词前”。先认something这种不定代词，再看enough修饰的是形容词还是名词。",
+        "steps": [
+          {
+            "text": "第一空用something useful。",
+            "reason": "useful修饰不定代词something，放在它后面。"
+          },
+          {
+            "text": "第二空用small enough。",
+            "reason": "这里enough修饰形容词small，放在small后面，表示足够小。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "修饰something的形容词在这里后置，useful something顺序错误。"
+          },
+          {
+            "option": "c",
+            "reason": "enough修饰形容词small时放后面，不能写成enough small。"
+          }
+        ],
+        "pitfall": "同是修饰，位置要看被修饰的成分；something useful和small enough是两种结构。",
+        "visual": {
+          "kind": "comparison",
+          "title": "两种后置，分别找关系",
+          "segments": [
+            {
+              "text": "something → useful",
+              "role": "evidence",
+              "note": "形容词修饰不定代词"
+            },
+            {
+              "text": "small ← enough",
+              "role": "evidence",
+              "note": "enough修饰形容词"
+            }
+          ],
+          "caption": "先找中心词，再决定描述放在哪里。"
+        },
+        "transfer": "如果换成名词water，enough应放在water前还是后？"
+      }
+    }
+  }
+}
