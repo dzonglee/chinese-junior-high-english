@@ -8,6 +8,29 @@
 - Keep the board clean, concise and easy to read, using plain English.
 - While the current session cannot access those MCP connections, continue app work first.
 
+## Active work · all lesson teaching and native verification
+
+The owner requires Codex to complete every lesson itself; no further delegation. APP-TEACHING
+is claimed by codex-solo on `author/all-lesson-teaching`. The five-phase lesson studio now covers
+all 413 lessons. Full checked-pack controller checks pass for every lesson, including saved state,
+wrong paths and separate delayed evidence. Exploration never creates mastery or lesson passes.
+Listening pages provide text preparation only until approved audio exists. Videos remain deferred.
+
+Studio MCP access is restored through `/workspace/.onboarding/chrisverse_mcp.py`; normalize the
+existing Authorization value once. Native plugin injection remains unavailable but is no longer
+an access blocker. Never save credentials in this repository. External Obsidian project note:
+`Projects/Chinese Junior High English.md`; Kanban lesson task `3659787f-9c6f-4b00-a778-948748069f86`,
+native task `3725a8db-1c63-4e6b-8bca-df642450093c` (Codex / English solo). Those records were
+successfully written, reconciling the earlier unavailable-service fallback. Local save does not
+prove Obsidian Sync propagated remotely.
+
+The isolated Mac project is `wechat/english-solo-20261017` under the MCP workspace. Its first
+actual simulator run timed out and produced no lesson screenshots. The wrapper job succeeded,
+but its nested native process exited 1: do not mistake wrapper success for validation. Official
+CLI closed only this project afterward. Native failure diagnosis and browser visual checks are
+in progress. Coordinate the shared GUI using Kanban and `wechat/DEVTOOLS.lock`; never use the
+maths runner's reset/checkout behavior on another owner's project.
+
 ## Active direction · interactive learning quality, 2026-10-17
 
 The owner challenged parity with maths. Course breadth and structural checks do not establish

@@ -104,7 +104,7 @@ it('filters, searches and pages the entire course without hiding pending media o
   h.app.setField('courseTerm', 'upper'); expect(h.app.render().cards).toHaveLength(0)
   h.app.setField('courseTerm', 'lower'); h.app.setField('courseQuery', '不存在的课程标题'); expect(h.app.render().cards).toHaveLength(0)
   h.app.open('learn'); h.app.setField('courseStatus', 'pending')
-  expect(h.app.render().cards.length).toBeGreaterThan(0); expect(h.app.render().cards.every(c => c.actions[0].disabled)).toBe(true)
+  expect(h.app.render().cards.length).toBeGreaterThan(0); expect(h.app.render().cards.every(c => c.actions.find(a=>a.id==='start-lesson')?.disabled)).toBe(true); expect(h.app.render().cards.every(c=>c.actions.find(a=>a.id==='open-lesson-studio')&&!c.actions.find(a=>a.id==='open-lesson-studio')!.disabled)).toBe(true)
   expect(h.store.get().profile?.grade).toBe(9)
 })
 

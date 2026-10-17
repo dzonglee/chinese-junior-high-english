@@ -8,17 +8,20 @@ for (const page of app.pages) {
   assert.equal(config.usingComponents['app-shell'], '/components/app-shell/index')
   assert(readFileSync(resolve(native, `${page}.wxml`), 'utf8').includes('id="shell"'), `Privacy routing requires the shell ID on ${page}`)
 }
-const wxml = readFileSync(resolve(native, 'components/app-shell/index.wxml'), 'utf8'), controller = readFileSync(resolve(native, 'components/app-shell/index.js'), 'utf8')
-for (const match of wxml.matchAll(/bind[a-z]+="([A-Za-z][A-Za-z0-9]*)"/g)) assert(new RegExp(`\\b${match[1]}\\s*\\(`).test(controller), `Unbound WXML event handler: ${match[1]}`)
-// Structural validation only: it does not compile WXML or emulate WeChat's renderer.
-const stack = []
-for (const match of wxml.replace(/\{\{[\s\S]*?\}\}/g, '').matchAll(/<(\/?)([\w-]+)\b[^>]*?(\/?)>/g)) {
-  if (match[1]) assert.equal(stack.pop(), match[2], `Unbalanced WXML tag: ${match[0]}`)
-  else if (!match[3]) stack.push(match[2])
+// Check every page and component; DevTools still provides the real compiler.
+function checkWxml(file) {
+ const wxml=readFileSync(file,'utf8'),js=readFileSync(file.replace(/\.wxml$/,'.js'),'utf8'),stack=[]
+ for(const match of wxml.matchAll(/(?:bind|catch):?[a-z]+="([A-Za-z][A-Za-z0-9]*)"/g))assert(new RegExp(`\\b${match[1]}\\s*\\(`).test(js),`Unbound WXML event handler in ${file}: ${match[1]}`)
+ for(const expression of wxml.matchAll(/\{\{([\s\S]*?)\}\}/g))assert(!/\.\w+\s*\(/.test(expression[1]),`WXML cannot call methods: ${file}`)
+ for(const match of wxml.replace(/\{\{[\s\S]*?\}\}/g,'').matchAll(/<(\/?)([\w-]+)\b[^>]*?(\/?)>/g)){
+  if(match[1])assert.equal(stack.pop(),match[2],`Unbalanced WXML tag in ${file}: ${match[0]}`)
+  else if(!match[3])stack.push(match[2])
+ }
+ assert.equal(stack.length,0,`Unclosed WXML tags in ${file}`)
 }
-assert.equal(stack.length, 0, 'Unclosed WXML tags')
 function files(dir) { return readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(resolve(dir, e.name)) : [resolve(dir, e.name)]) }
-const all = files(native), main = all.filter(file => !relative(native, file).replaceAll('\\', '/').startsWith('content/')), mainBytes = main.reduce((n, file) => n + statSync(file).size, 0), totalBytes = all.reduce((n, file) => n + statSync(file).size, 0)
+const all = files(native); for(const file of all.filter(f=>f.endsWith('.wxml')))checkWxml(file)
+const main = all.filter(file => !relative(native, file).replaceAll('\\', '/').startsWith('content/')), mainBytes = main.reduce((n, file) => n + statSync(file).size, 0), totalBytes = all.reduce((n, file) => n + statSync(file).size, 0)
 assert(mainBytes < 1_900_000, 'Main package exceeds its safety budget'); assert(totalBytes < 19_000_000, 'Total package exceeds its safety budget')
 for (const name of ['welcome', 'cards', 'notebook']) assert(existsSync(resolve(native, 'assets', `${name}.png`)), `Missing Blender artwork: ${name}`)
 assert(!all.some(file => /(?:^|[\\/])reference[\\/]/.test(file)), 'Research files must not ship in the app')

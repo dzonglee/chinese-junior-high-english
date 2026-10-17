@@ -41,7 +41,7 @@ try {
   await expect(page.locator('.hero-art')).toBeVisible()
   await expect.poll(() => page.locator('.hero-art').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true)
   checks.push('Standalone app opens, profile saves and embedded Blender artwork loads')
-  await action('start-lesson', 'l-g-be'); await screen('session')
+  await page.goto(url+'#learn'); await action('start-lesson', 'l-g-be'); await screen('session')
   while (true) {
     const s = await state(), session = s.sessions[s.activeSessionId]
     const question = catalog.questions.find(q => q.id === session.questionIds[session.current])

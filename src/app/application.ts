@@ -1,3 +1,4 @@
+import { createLessonTeaching, restoreTeaching, changeTeaching, teachingCanAdvance, teachingAnswer, type LessonTeaching } from '../core/lesson-teaching'
 import { experiments, getExperiment, type Experiment } from '../core/experiments'
 import { sceneExperiment } from '../core/scene-experiment'
 import { evidenceSentences, evidenceFeedback } from '../core/reading-evidence'
@@ -63,6 +64,14 @@ export class Application {
       this.restoreAnswer(); const s = this.currentSession(), id = s?.questionIds[s.current], q = id ? questionById(this.catalog, this.state, id) : undefined
       if (s && id && q && (s.answers[id]?.checked || s.submittedAt) && !deferredFeedback(s, q)) this.persist({ ...this.state, answerSeenAt: { ...this.state.answerSeenAt, [id]: this.platform.now() } })
     }
+    if (this.page === 'lesson') {
+      const l = this.catalog.lessons.find(l => l.id === params.id)
+      if (l && l.grades.includes(this.state.profile?.grade ?? 7)) {
+        const expose = () => { const answerSeenAt = { ...this.state.answerSeenAt }; for (const id of l.questionIds) answerSeenAt[id] = this.platform.now(); this.persist({ ...this.state, answerSeenAt }); this.emit() }
+        if (!l.questionIds.every(id => this.catalog.questions.some(q => q.id === id))) void this.content.ensureTopics([l.topicId]).then(expose).catch(() => { this.error = '课程暂未加载成功，请返回列表重试。'; this.emit() })
+        else expose()
+      }
+    }
     if (this.page === 'editor') this.editorFields(params.id)
     if (this.page === 'vocabulary') { this.wordQueue = this.catalog.vocabulary.filter((w) => w.grade <= (this.state.profile?.grade ?? 7)).sort((a, b) => (this.state.words[a.id]?.dueAt ?? 0) - (this.state.words[b.id]?.dueAt ?? 0)).map((w) => w.id); this.wordIndex = 0; this.wordRevealed = false; this.wordCorrect = null; this.wordFeedback = '' }
     if (this.page === 'learn') this.form = { courseGrade: 'all', courseTerm: 'all', courseSkill: 'all', courseTheme: 'all', courseStatus: 'all', courseQuery: '', coursePage: '0', courseMore: 'false' }
@@ -71,6 +80,12 @@ export class Application {
   }
   setField(name: string, value: string) {
     this.form[name] = value
+    if (this.page === 'lesson' && ['studioAnswer','studioBefore','studioAfter'].includes(name)) {
+      const studio = this.currentTeaching(); if (!studio) return
+      const saved = this.state.teaching?.[studio.id], p = restoreTeaching(studio,saved,this.platform.now())
+      const next = changeTeaching(studio,p,name === 'studioBefore' ? 'before' : name === 'studioAfter' ? 'after' : 'answer',value,this.platform.now())
+      this.persist({...this.state,teaching:{...this.state.teaching,[studio.id]:next},updatedAt:this.platform.now()}); return
+    }
     if (this.page === 'learn' && name.startsWith('course')) { this.form.coursePage = '0'; this.emit(); return }
     if (name === 'structure') {
       const structure = value === '54' ? '54' : '63'
@@ -124,6 +139,22 @@ export class Application {
     if (id === 'course-filters') { this.form.courseMore = this.form.courseMore === 'true' ? 'false' : 'true'; return }
     if (id === 'course-next' || id === 'course-previous') { this.form.coursePage = String(Math.max(0, Number(this.form.coursePage || 0) + (id === 'course-next' ? 1 : -1))); return }
     if (id === 'back') { this.flush(); this.platform.back(); return }
+    if (id === 'open-lesson-studio') {
+      const lesson = this.catalog.lessons.find(l => l.id === value)
+      if (!lesson || !lesson.grades.includes(this.state.profile!.grade)) throw new Error('请选择适合当前年级的课程。')
+      await this.content.ensureTopics([lesson.topicId])
+      const studio = createLessonTeaching(this.catalog, lesson), saved = this.state.teaching?.[lesson.id]
+      const progress = restoreTeaching(studio,saved,now)
+      const answerSeenAt = { ...this.state.answerSeenAt }; for (const qid of studio.exposedIds) answerSeenAt[qid] = now
+      this.persist({ ...this.state, teaching: { ...this.state.teaching, [lesson.id]: progress }, answerSeenAt, updatedAt: now })
+      this.go('lesson', { id: lesson.id }); return
+    }
+    if (id.startsWith('studio-')) {
+      const studio = this.currentTeaching(); if (!studio) return
+      const saved = this.state.teaching?.[studio.id], progress = restoreTeaching(studio,saved,now)
+      const next = changeTeaching(studio, progress, id.slice('studio-'.length), value, now)
+      this.persist({ ...this.state, teaching: { ...this.state.teaching, [studio.id]: next }, updatedAt: now }); return
+    }
     if (id === 'open-experiment') { const e = value === sceneExperiment.id ? sceneExperiment : getExperiment(value); if (e && e.grade <= this.state.profile!.grade) this.go('explore', { id: e.id }); return }
     if (id.startsWith('explore-')) { this.exploreAction(id, value); return }
     if (id === 'evidence-pick' || id === 'evidence-open' || id === 'explain-more') {
@@ -350,15 +381,16 @@ export class Application {
     if (!profile) return screen
     const city = this.catalog.cities.find((c) => c.id === profile.cityId), edition = this.catalog.editions.find((e) => e.id === profile.editionId)
     screen.subtitle = `${city?.name ?? ''} · ${localGradeLabel(profile.grade, profile.structure, profile.cityId)} · ${bookLabel(profile.grade, profile.term)}`
+    if (this.page === 'lesson') return this.renderTeaching(screen)
     if (this.page === 'explore') return this.renderExploration(screen)
     if (this.page === 'home') {
       const next = nextLesson(this.catalog, state), days = daysToConfirmedExam(profile, now)
       screen.eyebrow = `${chinaDate(now).month} 月 ${chinaDate(now).day} 日 · 今天进步一点`
       if (!screen.notice) screen.notice = `今天的目标是 ${profile.dailyMinutes} 分钟。先完成今日安排，有余力再接着练。`
-      screen.hero = { eyebrow: `${examYear(profile)} 届 · ${days === null ? '按自己的节奏稳步练习' : days === 0 ? '你确认的考试日期已到，请核对后续安排' : `距你确认的考试还有 ${days} 天`}`, title: next?.title ?? '把学过的，再练扎实', text: next?.objective ?? '先做到期复习，再挑一个薄弱点练习。', art: 'welcome', tone: 'blue', actions: [{ id: next ? 'start-lesson' : 'navigate', value: next?.id ?? 'practice', label: next ? '接着学' : '去练习', tone: 'primary' }] }
+      screen.hero = { eyebrow: `${examYear(profile)} 届 · ${days === null ? '按自己的节奏稳步练习' : days === 0 ? '你确认的考试日期已到，请核对后续安排' : `距你确认的考试还有 ${days} 天`}`, title: next?.title ?? '把学过的，再练扎实', text: next?.objective ?? '先做到期复习，再挑一个薄弱点练习。', art: 'welcome', tone: 'blue', actions: [{ id: next ? 'open-lesson-studio' : 'navigate', value: next?.id ?? 'practice', label: next ? '接着学' : '去练习', tone: 'primary' }] }
       screen.metrics = [{ label: '连续练习', value: `${stats.streak} 天` }, { label: '独立作答', value: `${stats.independent} 题` }, { label: '首次独立正确', value: stats.independent ? `${stats.accuracy}%` : '还没开始' }]
       screen.week = stats.week
-      screen.cards = dailyPlan(this.catalog, state, now).map((task) => ({ id: task.id, title: task.title, text: task.description, label: `约 ${task.minutes} 分钟`, tag: task.done ? '今天已练' : task.optional ? '可接着练' : '今日安排', actions: [{ id: task.action, value: task.value, label: task.done ? '再练一次' : '开始', tone: 'secondary' }] }))
+      screen.cards = dailyPlan(this.catalog, state, now).map((task) => ({ id: task.id, title: task.title, text: task.description, label: `约 ${task.minutes} 分钟`, tag: task.done ? '今天已练' : task.optional ? '可接着练' : '今日安排', actions: [{ id: task.action === 'start-lesson' ? 'open-lesson-studio' : task.action, value: task.value, label: task.done ? '再练一次' : '开始', tone: 'secondary' }] }))
       screen.cards.unshift({ id: 'explore', title: '动手试一试', text: '搬物品、改条件、找错句。先看英语怎样变化，再回到课程里独立检验。', label: '互动实验室', character: '探', actions: [{ id: 'navigate', value: 'explore', label: '开始探索', tone: 'secondary' }] })
       const active = this.currentSession()
       if (active && !active.submittedAt) screen.cards.unshift({ id: 'resume', title: '上次还没练完', text: `已检查 ${Object.values(active.answers).filter((a) => a.checked).length} / ${active.questionIds.length} 题，答案已经保存。`, actions: [{ id: 'resume', label: '继续练习', tone: 'primary' }] })
@@ -388,7 +420,7 @@ export class Application {
       screen.sections = [{ title: `找到 ${lessons.length} 节课 · 第 ${page + 1} / ${pages} 页`, text: lessons.length ? '已完成不等于掌握；每节课另有新题用于延时检验。可按主题或能力缩小范围。' : '没有符合条件的课程，试试放宽年级、主题或状态。' }]
       screen.cards = lessons.slice(page * size, (page + 1) * size).map(lesson => {
         const topic = topics.get(lesson.topicId)!, available = ready(lesson), suitable = lesson.grades.includes(profile.grade), stage = topic.course
-        return { id: lesson.id, title: lesson.title, text: lesson.objective, label: `${stage ? `${gradeLabel(stage.grade)}${stage.term === 'upper' ? '上' : '下'} · ` : ''}${SKILL_LABEL[topic.skill]} · ${lesson.questionIds.length} 项练习 + ${lesson.delayedQuestionIds.length} 项延时检验`, tag: !suitable ? '高年级课程' : !available ? '音频准备中' : state.lessonDoneAt[lesson.id] ? '已学 · 还要延时复习' : '可以开始', character: SKILL_CHARACTER[topic.skill], progress: state.mastery[topic.id]?.score ?? 0, actions: [...[sceneExperiment, ...experiments].filter(e => e.topicId === topic.id && e.grade <= profile.grade).map(e => ({ id: 'open-experiment', value: e.id, label: '先动手探索', tone: 'secondary' as const })), { id: 'start-lesson', value: lesson.id, label: !suitable ? '先选适合当前年级的课' : !available ? '音频准备中' : state.lessonDoneAt[lesson.id] ? '再练一遍' : '开始学习', disabled: !suitable || !available, tone: 'secondary' as const }] }
+        return { id: lesson.id, title: lesson.title, text: lesson.objective, label: `${stage ? `${gradeLabel(stage.grade)}${stage.term === 'upper' ? '上' : '下'} · ` : ''}${SKILL_LABEL[topic.skill]} · ${lesson.questionIds.length} 项练习 + ${lesson.delayedQuestionIds.length} 项延时检验`, tag: !suitable ? '高年级课程' : !available ? '音频准备中' : state.lessonDoneAt[lesson.id] ? '已学 · 还要延时复习' : '可以开始', character: SKILL_CHARACTER[topic.skill], progress: state.mastery[topic.id]?.score ?? 0, actions: [{ id: 'open-lesson-studio', value: lesson.id, label: state.teaching?.[lesson.id]?.step === 5 ? '再探一遍' : state.teaching?.[lesson.id] ? '继续互动课程' : !available ? '文字预习与推演' : '动手学这节课', disabled: !suitable, tone: 'primary' as const }, ...[sceneExperiment, ...experiments].filter(e => e.topicId === topic.id && e.grade <= profile.grade).map(e => ({ id: 'open-experiment', value: e.id, label: '先动手探索', tone: 'secondary' as const })), { id: 'start-lesson', value: lesson.id, label: !suitable ? '先选适合当前年级的课' : !available ? '音频准备中' : state.lessonDoneAt[lesson.id] ? '再做巩固练习' : '直接做课后练习', disabled: !suitable || !available, tone: 'secondary' as const }] }
       })
       screen.actions = [{ id: 'course-previous', label: '上一页', disabled: page === 0, tone: 'quiet' }, { id: 'course-next', label: '下一页', disabled: page + 1 >= pages, tone: 'secondary' }]
       return screen
@@ -498,6 +530,33 @@ export class Application {
     if (s.mode === 'exam') screen.chips = s.questionIds.map((id, i) => ({ id, label: `${i + 1}${s.answers[id]?.answer ? ' ·' : ''}`, selected: s.current === i, action: 'jump', value: String(i) }))
     else if (this.state.mistakes[q.id] && record?.checked && show) screen.chips = ERROR_REASONS.map(r => ({ id: r.id, label: r.label, selected: this.state.mistakes[q.id].reason === r.id, action: 'reason', value: `${q.id}:${r.id}` }))
     if (show) screen.actions.push({ id: 'favorite', value: q.id, label: this.state.favorites.includes(q.id) ? '取消收藏' : '收藏这道题', tone: 'quiet' })
+    return screen
+  }
+  private currentTeaching(): LessonTeaching | undefined {
+    if (this.page !== 'lesson') return undefined
+    const lesson = this.catalog.lessons.find(l => l.id === this.params.id)
+    if (!lesson || !lesson.grades.includes(this.state.profile?.grade ?? 7)) return undefined
+    if (!lesson.questionIds.every(id => this.catalog.questions.some(q => q.id === id))) return undefined
+    return createLessonTeaching(this.catalog, lesson)
+  }
+  private renderTeaching(screen: Screen): Screen {
+    const studio = this.currentTeaching()
+    if (!studio) { screen.notice = '课程内容尚未加载，请从课程列表重新打开。'; screen.actions = [{id:'navigate',value:'learn',label:'返回课程',tone:'primary'}]; return screen }
+    const saved = this.state.teaching?.[studio.id], p = restoreTeaching(studio,saved,this.platform.now())
+    const task = teachingAnswer(studio,p), key = `step-${p.step}-${p.caseIndex}`, unit = studio.assemblies[Math.min(p.unit,studio.assemblies.length-1)]
+    const selection = p.answers.diagnosis, evidence = studio.evidence.find(e=>e.id===p.answers.evidence)
+    const checked = p.step === 3 ? typeof p.checked.diagnosis === 'boolean' : p.step === 2 && studio.evidence.length ? !!evidence : typeof p.checked[key] === 'boolean'
+    const correct = p.step === 3 ? !!p.checked.diagnosis : p.step === 2 && studio.evidence.length ? !!p.checked.evidence : !!p.checked[key]
+    const feedback = p.step === 3 && selection ? studio.diagnosis.reasons[selection] : p.step === 2 && studio.evidence.length && evidence ? evidence.supports ? `${studio.prediction.explanation.steps[0].text} ${studio.prediction.explanation.steps[0].reason}` : '这处文字没有包含本题解析引用的关键线索。再对照问题和原文试一试。' : checked ? correct ? task.explanation.steps[0].text : task.options ? task.explanation.distractors.find(d=>d.option===p.answers[key])?.reason ?? task.explanation.pitfall : task.explanation.pitfall : ''
+    screen.title = studio.title; screen.eyebrow = studio.mode === 'transcript' ? '听前准备 · 文字推演' : studio.mode === 'phonetics' ? '书面语音知识 · 不测实际发音' : '先动手，再理解'
+    screen.subtitle = studio.objective
+    if (studio.mediaPending) screen.notice = '本页用文字整理对话和线索，不计听力完成。真正的听力练习仍需已批准的音频。'
+    screen.progress = {label: `${['先预测','搭一搭','动手探究','你来批改','换个任务','完成探索'][p.step]} · ${Math.min(p.step+1,5)} / 5`,current:Math.min(p.step+1,5),total:5,percent:p.step*20}
+    const rubric = p.step === 4 ? studio.transfer.rubric ?? [] : studio.rubric
+    let responseIds: string[] = []; try { responseIds = JSON.parse(p.answers[key] ?? '[]'); if (!Array.isArray(responseIds)) responseIds = [] } catch {}
+    const proposed = task.options?.find(o=>o.id===p.answers[key])?.text ?? p.answers[key] ?? ''
+    screen.teaching = {proposedContext: proposed ? /_+/.test(task.stem) ? task.stem.replace(/_+/g,proposed) : `拟采用表达：${proposed}` : '', sortingCards:(studio.sorting?.cards??[]).map(card=>({...card,selected:p.answers[`sort-${card.id}`]??'',checked:typeof p.checked[`sort-${card.id}`]==='boolean',correct:!!p.checked[`sort-${card.id}`]})),assemblyComplete:p.completed.includes(`build-${unit.id}`),assemblyMiss:p.checked[`build-${unit.id}`] === false,preview:!!p.checked[`preview-${unit.id}`],responseTiles:(task.tokens??[]).map(t=>({...t,selected:responseIds.includes(t.id)})),responseOrder:responseIds.map(id=>task.tokens?.find(t=>t.id===id)).filter((t):t is {id:string;text:string}=>!!t),lesson:studio,progress:p,task,answer:p.answers[key]??'',checked,correct,feedback,canAdvance:teachingCanAdvance(studio,p),assembly:unit,reference:unit.target.map(id=>unit.tiles.find(t=>t.id===id)!.text).join(unit.kind==='letters'?'':' '),selectedTiles:p.order.map(id=>unit.tiles.find(t=>t.id===id)).filter((t):t is {id:string;text:string}=>!!t),availableTiles:unit.tiles.map(t=>({...t,selected:p.order.includes(t.id)})),rubric:rubric.map(r=>({...r,selected:!!p.checked[`rubric-${p.step}-${r.id}`],linked:p.links[r.id]})),practiceReady:!studio.mediaPending}
+    screen.actions = p.step === 5 ? [{id:'start-lesson',value:studio.id,label:'进入课后巩固练习',disabled:studio.mediaPending,tone:'primary'},{id:'navigate',value:'learn',label:'回到课程',tone:'secondary'},{id:'studio-reset',label:'重新动手探究',tone:'quiet'}] : [{id:'studio-next',label:p.step===4?'记录探索完成':'继续下一步',disabled:!teachingCanAdvance(studio,p),tone:'primary'},{id:'navigate',value:'learn',label:'保存，稍后继续',tone:'quiet'}]
     return screen
   }
   private currentExperiment(): Experiment | undefined { return this.params.id === sceneExperiment.id ? sceneExperiment : getExperiment(this.params.id) }

@@ -1,0 +1,93 @@
+import { it, expect } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { authorCatalog } from '../scripts/lib/author-content.mjs'
+import { Application, type Platform } from './app/application'
+import { ContentRepository } from './services/content'
+import { StateStore, checkedState } from './services/storage'
+import { emptyState } from './core/learning'
+import { questionProblems } from './core/validation'
+import type { ContentCatalog, Lesson, Question } from './core/types'
+import { createLessonTeaching, freshTeaching, restoreTeaching, changeTeaching, teachingCanAdvance, teachingProblems, teachingSentences, assemblyCorrect } from './core/lesson-teaching'
+const root=process.cwd(),read=(file:string)=>JSON.parse(readFileSync(resolve(root,file),'utf8'))
+const source:ContentCatalog=authorCatalog(root),manifest=read('dist/manifest.json')
+function harness(lesson?: Lesson, simulatedAudio = false) {
+  const topicIds = lesson ? [lesson.topicId] : source.topics.map(t => t.id)
+  const all = source.questions.filter(q => topicIds.includes(q.topicId))
+  const catalog: ContentCatalog = { ...source, topics: source.topics.filter(t => topicIds.includes(t.id)), lessons: lesson ? [lesson] : source.lessons, vocabulary: source.vocabulary.filter(w => topicIds.includes(w.topicId)), media: source.media.map(m => simulatedAudio ? { ...m, approvedByOwner: true, path: 'synthetic-playback:' + m.id } : { ...m }), questions: [], questionIndex: all.map(({ id, topicId, skill, kind, difficulty, grades, marks, estimatedSeconds, mediaId, review }) => ({ id, topicId, skill, kind, difficulty, grades, marks, estimatedSeconds, mediaId, review })) }
+  const data = new Map<string, string>(), adapter = { read: (key: string) => data.get(key) ?? null, write: (key: string, value: string) => { data.set(key, value) }, remove: (key: string) => { data.delete(key) } }
+  let now = Date.UTC(2026, 9, 17, 2), app: Application
+  const store = new StateStore(adapter, catalog, now), grade = lesson ? Math.min(...lesson.grades) as 6 | 7 | 8 | 9 : 9
+  store.save({ ...emptyState(now), profile: { cityId: '北京-北京', structure: grade === 6 ? '54' : '63', grade, term: catalog.topics.find(t => t.id === lesson?.topicId)?.course?.term ?? 'upper', editionId: grade === 6 ? 'pep-54' : 'pep-legacy', schoolYear: 2026, dailyMinutes: 20, createdAt: now } })
+  const repo = new ContentRepository(catalog, manifest, async pack => readFileSync(resolve(root, 'dist/packs', pack.file), 'utf8'))
+  const errors: string[] = []
+  const platform: Platform = { now: () => now, navigate: (page, params) => app.open(page, params), back() {}, toast: text => { errors.push(text) }, confirm: async () => true, exportText: async () => {}, importText: async () => null, copy: async () => {}, play: async () => {}, stopAudio() {}, startRecording: async () => {}, stopRecording: async () => ({ path: 'synthetic-recording', durationMs: 1000 }), removeRecordings: async () => {} }
+  app = new Application(repo, store, platform)
+  return { app, repo, catalog, store, adapter, errors, advance: (ms: number) => { now += ms } }
+}
+
+
+function answer(q:Question):string { return q.kind==='choice'?q.answer.option!:q.kind==='order'?JSON.stringify(q.answer.order):q.kind==='speaking'||q.kind==='writing'?'My own new idea is ready for this task.':q.answer.accepted![0] }
+it.each(source.lessons)('completes the real checked-pack five-phase studio for $id without granting mastery',async lesson=>{
+ const h=harness(lesson),a=h.app
+ await a.action('open-lesson-studio',lesson.id)
+ const s=a.render().teaching!.lesson
+ expect(teachingProblems(s,lesson)).toEqual([])
+ expect(s.transfer.id).not.toBe(s.prediction.id)
+ expect(s.exposedIds).toEqual(lesson.questionIds)
+ expect(s.exposedIds.some(id=>lesson.delayedQuestionIds.includes(id))).toBe(false)
+ await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(0)
+ if(s.mode==='communication')a.setField('studioBefore','I have one idea for this task.')
+ else await a.action('studio-answer','deliberately-wrong')
+ await a.action('studio-check');await a.action('studio-next')
+ expect(a.render().teaching!.progress.step).toBe(1)
+ await a.action('studio-assemble');expect(a.render().teaching!.canAdvance).toBe(false)
+ for(const [i,unit] of s.assemblies.entries()){
+  await a.action('studio-unit',String(i));await a.action('studio-preview')
+  for(const id of unit.target)await a.action('studio-tile',id)
+  await a.action('studio-assemble');expect(a.render().teaching!.assemblyComplete).toBe(true)
+ }
+ await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(2)
+ expect(a.render().teaching!.canAdvance).toBe(false)
+ if(s.sorting){for(const card of s.sorting.cards){await a.action('studio-sort',card.id+':'+s.sorting.categories.find(g=>g.id!==card.category)!.id);expect(a.render().teaching!.sortingCards.find(x=>x.id===card.id)!.correct).toBe(false);await a.action('studio-sort',card.id+':'+card.category)}}
+ else if(s.mode==='communication'){
+  a.setField('studioAfter','My revised idea includes the task details and reasons.')
+  for(const r of s.rubric){await a.action('studio-link',r.id+':'+s.modelSentences[0].id);await a.action('studio-rubric',r.id)}
+  await a.action('studio-review');expect(a.render().teaching!.progress.checked.revision).toBe(true)
+ }else if(s.evidence.length){const wrong=s.evidence.find(e=>!e.supports);if(wrong){await a.action('studio-evidence',wrong.id);expect(a.render().teaching!.correct).toBe(false)}await a.action('studio-evidence',s.evidence.find(e=>e.supports)!.id)}
+ else for(const [i,q] of s.cases.slice(0,s.mode==='vocabulary'?s.cases.length:2).entries()){
+  await a.action('studio-case',String(i));await a.action('studio-answer',answer(q));await a.action('studio-check');expect(a.render().teaching!.correct,q.id).toBe(true)
+ }
+ const backup=h.store.export(),restored=checkedState(backup,h.catalog,Date.now())
+ expect(restored.teaching![s.id].step).toBe(2)
+ expect(new StateStore(h.adapter,h.catalog,Date.now()).get().teaching![s.id].step).toBe(2)
+ await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(3)
+ await a.action('studio-diagnose',s.diagnosis.options.find(o=>o.id!==s.diagnosis.correct)!.id);expect(a.render().teaching!.correct).toBe(false)
+ await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(3)
+ await a.action('studio-diagnose',s.diagnosis.correct);await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(4)
+ await a.action('studio-answer',answer(s.transfer));for(const r of s.transfer.rubric??[])await a.action('studio-rubric',r.id)
+ await a.action('studio-check');expect(a.render().teaching!.correct).toBe(true)
+ await a.action('studio-next');expect(a.render().teaching!.progress.step).toBe(5)
+ expect(h.store.get().attempts).toEqual([]);expect(h.store.get().mastery).toEqual({});expect(h.store.get().lessonDoneAt).toEqual({})
+ expect(lesson.delayedQuestionIds.every(id=>!h.store.get().answerSeenAt?.[id])).toBe(true)
+ if(s.mediaPending){expect(a.render().actions.find(x=>x.id==='start-lesson')!.disabled).toBe(true);await a.action('start-lesson',lesson.id);expect(a.render().page).not.toBe('session')}
+ else {await a.action('start-lesson',lesson.id);const q=a.render().question!;await a.action('choose',answer(h.repo.getQuestion(q.id)!));if(q.kind!=='choice')a.setField('answer',answer(h.repo.getQuestion(q.id)!));for(const r of h.repo.getQuestion(q.id)!.rubric??[])await a.action('toggle-rubric',r.id);await a.action('check');expect(h.store.get().attempts.every(x=>x.evidence!=='independent')).toBe(true)}
+ expect(h.errors.filter(x=>!x.includes('音频'))).toEqual([])
+})
+it('audits both spelling variants, all vocabulary assemblies and fresh original communication transfers',()=>{
+ const repo=new ContentRepository({...source,questions:[...source.questions]},[],async()=>''), words=new Set<string>()
+ for(const spelling of ['american','british'] as const){repo.setSpelling(spelling);for(const lesson of source.lessons){const s=createLessonTeaching(repo.catalog,lesson);expect(teachingProblems(s,lesson),lesson.id).toEqual([]);if(s.mode==='vocabulary')for(const unit of s.assemblies)words.add(unit.id);if(s.transfer.id.startsWith('teach-'))expect(questionProblems(s.transfer),s.transfer.id).toEqual([])}}
+ expect(words.size).toBe(1690)
+})
+it('restores safely after content changes and rejects malformed imported course state atomically',()=>{
+ const s=createLessonTeaching(source,source.lessons[0]),p=freshTeaching(s,1);p.before='My own saved draft.';p.after='My revised saved draft.';p.step=4;p.fingerprint='old'
+ const restored=restoreTeaching(s,p,2);expect(restored.step).toBe(0);expect(restored.before).toBe(p.before);expect(restored.after).toBe(p.after)
+ const h=harness(source.lessons[0]);const backup=JSON.parse(h.store.export());backup.state.teaching={[s.id]:{...freshTeaching(s,1),step:6}};expect(()=>h.store.import(JSON.stringify(backup))).toThrow();expect(h.store.get().teaching).toBeUndefined()
+ backup.state.teaching[s.id]={...freshTeaching(s,1),checked:{poison:'yes'}};expect(()=>h.store.import(JSON.stringify(backup))).toThrow()
+})
+it('preserves sentence abbreviations and accepts equivalent duplicate letter tiles without accepting missing IDs',()=>{
+ expect(teachingSentences('Dr. Lee arrived at 3.5. She met Ms. Lin.')).toEqual(['Dr. Lee arrived at 3.5.','She met Ms. Lin.'])
+ const s=createLessonTeaching(source,source.lessons.find(l=>source.topics.find(t=>t.id===l.topicId)?.skill==='vocabulary')!),u=s.assemblies.find(x=>new Set(x.tiles.map(t=>t.text)).size<x.tiles.length)!
+ const order=[...u.target],same=u.tiles.filter(t=>t.text===u.tiles.find(x=>u.tiles.filter(y=>y.text===x.text).length>1)!.text);const a=order.indexOf(same[0].id),b=order.indexOf(same[1].id);[order[a],order[b]]=[order[b],order[a]];expect(assemblyCorrect(u,order)).toBe(true);order[0]=order[1];expect(assemblyCorrect(u,order)).toBe(false)
+ expect(teachingCanAdvance(s,changeTeaching(s,freshTeaching(s,1),'next','',2))).toBe(false)
+})
