@@ -319,3 +319,24 @@ at about 997 KB without raising any budget. Startup has a loading state and retr
 APP-MOCKS is the next dependency: fixed original written papers, clear original-format
 labels, section scores and corrections. No official city format or approved listening audio
 has been invented. Studios remain coached work and preserve the delayed-item pool.
+
+
+## Original mock papers · 2026-10-17
+
+APP-MOCKS adds eight original written papers, grades 6–9 upper/lower, with 200 new
+questions reserved from lesson/delayed/random pools. Catalog: 5,004 questions / 413 lessons /
+245 packs. Each declared original format is 60 minutes, 60 marks and 25 tasks: language,
+cloze, two reading passages, task reading and writing. Exact local/publisher mapping stays
+unverified; there is no invented listening section.
+
+The learner can save/resume with a stable deadline, flag and jump, read scrollable materials,
+submit, inspect objective section scores, label wrong causes, select passage evidence and
+return to a suitable lesson. Immediate corrections are assisted. A second essay draft never
+changes the submitted paper. Writing's 20 marks require human review; objective marks are
+shown out of 40. All authored material stays draft.
+
+Detailed validation and native job evidence are in docs/reviews/mock-exams-2026-10-17.md.
+The existing Obsidian project and mock Kanban card 463089cd-2a1c-4b3b-a26b-3c0635b1f244
+are updated through the working private MCP helper. No native plugin injection, release,
+upload or publication is implied. Approved audio, actual phones, official local mapping and
+editorial review remain separate completion requirements.

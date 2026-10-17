@@ -1,3 +1,4 @@
+import {paperQuestionIds,paperEligibility,startMockPaper,paperResults,toggleExamFlag} from '../core/mock-papers'
 import { createLessonTeaching, teachingDiagnosis, teachingEvidence, sentenceWorkbench, restoreTeaching, changeTeaching, teachingCanAdvance, teachingAnswer, type LessonTeaching } from '../core/lesson-teaching'
 import { experiments, getExperiment, type Experiment } from '../core/experiments'
 import { sceneExperiment } from '../core/scene-experiment'
@@ -19,6 +20,7 @@ export interface Platform {
   now(): number
   navigate(page: string, params?: Record<string, string>, replace?: boolean): void
   back(): void
+  scrollTop?(): void
   toast(message: string): void
   dismissToast?(): void
   confirm(title: string, message: string): Promise<boolean>
@@ -74,6 +76,11 @@ export class Application {
         else expose()
       }
     }
+    if (this.page === 'result' && params.session && this.state.sessions[params.session]?.submittedAt) {
+      const result=this.state.sessions[params.session];this.persist({...this.state,activeSessionId:params.session})
+      if(!result.questionIds.every(id=>this.catalog.questions.some(q=>q.id===id)))void this.content.ensureQuestions(result.questionIds).then(()=>this.emit()).catch(e=>{this.error=e instanceof Error?e.message:'试卷题目暂未载入，请从记录中重试。';this.emit()})
+    }
+    if (this.page === 'papers') this.form={paperGrade:String(this.state.profile?.grade??7),paperTerm:'all'}
     if (this.page === 'editor') this.editorFields(params.id)
     if (this.page === 'vocabulary') { this.wordQueue = this.catalog.vocabulary.filter((w) => w.grade <= (this.state.profile?.grade ?? 7)).sort((a, b) => (this.state.words[a.id]?.dueAt ?? 0) - (this.state.words[b.id]?.dueAt ?? 0)).map((w) => w.id); this.wordIndex = 0; this.wordRevealed = false; this.wordCorrect = null; this.wordFeedback = '' }
     if (this.page === 'learn') this.form = { courseGrade: 'all', courseTerm: 'all', courseSkill: params.skill ?? 'all', courseTheme: 'all', courseStatus: 'all', courseQuery: '', coursePage: '0', courseMore: 'false' }
@@ -82,6 +89,7 @@ export class Application {
   }
   setField(name: string, value: string) {
     this.form[name] = value
+    if(this.page==='papers'&&['paperGrade','paperTerm'].includes(name)){this.emit();return}
     if (this.page === 'lesson' && ['studioAnswer','studioBefore','studioAfter'].includes(name)) {
       const studio = this.currentTeaching(); if (!studio) return
       const saved = this.state.teaching?.[studio.id], p = restoreTeaching(studio,saved,this.platform.now())
@@ -138,7 +146,7 @@ export class Application {
     const now = this.platform.now()
     if (this.recording && (['navigate', 'back', 'jump', 'next', 'submit', 'check'].includes(id) || id.startsWith('start-'))) await this.perform('record-stop', '')
     if (['navigate', 'back', 'jump', 'next', 'submit', 'word-next', 'delete-recording', 'delete-data', 'import'].includes(id) || id.startsWith('start-')) this.platform.stopAudio()
-    if (id === 'navigate') { this.flush(); const [page, skill] = value.split(':'); this.go(page, skill ? { skill } : undefined); return }
+    if (id === 'navigate') { this.flush(); const [page, skill] = value.split(':');const session=this.currentSession(); this.go(page, skill ? { skill } : page==='result'&&session?.paperId?{session:session.id}:undefined); return }
     if (id === 'course-filters') { this.form.courseMore = this.form.courseMore === 'true' ? 'false' : 'true'; return }
     if (id === 'course-skill') { this.setField('courseSkill', value); return }
     if (id === 'builder-options') { this.form.builderMore=this.form.builderMore==='true'?'false':'true'; return }
@@ -195,7 +203,7 @@ export class Application {
       await this.begin(chosen.map((q) => q.id), 'practice'); return
     }
     if (id === 'resume') { const s = this.currentSession(); if (s) await this.content.ensureQuestions(s.questionIds); this.go('session'); return }
-    if (id === 'open-session') { const s = this.state.sessions[value]; if (!s) throw new Error('这次练习的详细记录已不在本机。'); await this.content.ensureQuestions(s.questionIds); this.persist({ ...this.state, activeSessionId: s.id }); this.go(s.submittedAt ? 'result' : 'session'); return }
+    if (id === 'open-session') { const s = this.state.sessions[value]; if (!s) throw new Error('这次练习的详细记录已不在本机。'); await this.content.ensureQuestions(s.questionIds); this.persist({ ...this.state, activeSessionId: s.id }); this.go(s.submittedAt ? 'result' : 'session',s.paperId&&s.submittedAt?{session:s.id}:undefined); return }
     if (id === 'start-mistakes') {
       const all = Object.values(this.state.mistakes).filter((m) => !m.cleared).sort((a, b) => a.dueAt - b.dueAt)
       const ids = value ? [value] : all.filter((m) => m.dueAt <= now).slice(0, 10).map((m) => m.questionId)
@@ -212,6 +220,30 @@ export class Application {
       const blueprint = this.catalog.blueprints.find((b) => b.id === value)
       if (blueprint) await this.content.ensureTopics([...new Set((this.catalog.questionIndex ?? this.catalog.questions).filter((q) => blueprint.sections.some((s) => s.skill === q.skill)).map((q) => q.topicId))])
       this.persist(startExam(this.state, this.catalog, value, now, now >>> 0).state); this.go('session'); return
+    }
+    if(id==='open-paper'){this.go('papers',{paper:value},true);return}
+    if(id==='paper-list'){this.go('papers',{},true);return}
+    if(id==='start-paper'){
+      const p=this.catalog.mockPapers?.find(p=>p.id===value);if(!p)throw new Error('这份试卷暂未找到。')
+      const active=Object.values(this.state.sessions).find(s=>s.paperId===p.id&&!s.submittedAt)
+      if(active){await this.perform('open-session',active.id);return}
+      await this.content.ensureQuestions(paperQuestionIds(p))
+      const started=startMockPaper(this.state,this.catalog,value,this.platform.now());this.persist(started.state);this.go('session');return
+    }
+    if(id==='paper-sheet'){this.flush();this.form.paperSheet=this.form.paperSheet==='true'?'false':'true';return}
+    if(id==='paper-passage'){this.form.paperPassage=this.form.paperPassage==='false'?'true':'false';return}
+    if(id==='paper-flag'){this.flush();this.persist(toggleExamFlag(this.state,now));return}
+    if(id==='paper-result-filter'){this.form.paperResultFilter=value;return}
+    if(id==='paper-rewrite'){
+      const session=this.currentSession(),p=this.catalog.mockPapers?.find(p=>p.id===session?.paperId)
+      if(!session?.submittedAt||!p?.sections.some(s=>s.id==='writing'&&s.questionIds.includes(value)))return
+      await this.begin([value],'practice');return
+    }
+    if(id==='paper-correct'){
+      const session=this.currentSession(),p=this.catalog.mockPapers?.find(p=>p.id===session?.paperId)
+      if(!p||!session?.submittedAt)return
+      const ids=paperResults(p,session).flatMap(s=>s.wrong);if(!ids.length)return
+      await this.begin(ids,'mistakes');return
     }
     if (id === 'choose') { this.form.answer = value; this.flush(); return }
     if (id === 'order-add' || id === 'order-remove') {
@@ -232,14 +264,15 @@ export class Application {
       this.flush(); const s = this.currentSession(); if (!s) return
       const target = id === 'jump' ? Number(value) : s.current + 1
       if (target >= s.questionIds.length) { await this.perform('submit', ''); }
-      else { this.persist(moveQuestion(this.state, target, now)); this.restoreAnswer() }
+      else { this.persist(moveQuestion(this.state, target, now)); this.restoreAnswer();if(s.paperId){this.form.paperSheet='false';this.form.paperPassageTop=this.form.paperPassageTop==='1'?'0':'1';this.platform.scrollTop?.()} }
       return
     }
     if (id === 'submit') {
       this.flush(); const s = this.currentSession(); if (!s) return
-      const unanswered = s.questionIds.filter((qid) => !s.answers[qid]?.answer).length
-      if (s.mode === 'exam' && unanswered && !(await this.platform.confirm('还有题没作答', `还有 ${unanswered} 道题未作答。确定现在交卷吗？`))) return
-      this.persist(submitSession(this.state, this.catalog, now)); this.go('result', undefined, true); return
+      const unanswered = s.questionIds.filter((qid) => !s.answers[qid]?.answer.trim()).length
+      if(s.paperId&&!(await this.platform.confirm('确认交卷？',`还有 ${unanswered} 道题未作答，${s.flagged?.length??0} 道题已标记。交卷后本次答案将锁定，再查看解析与作文量表。`)))return
+      if (!s.paperId && s.mode === 'exam' && unanswered && !(await this.platform.confirm('还有题没作答', `还有 ${unanswered} 道题未作答。确定现在交卷吗？`))) return
+      this.persist(submitSession(this.state, this.catalog, now)); this.go('result', s.paperId?{session:s.id}:undefined, true); return
     }
     if (id === 'review-question') { const s = this.currentSession(); if (s) { this.persist(moveQuestion(this.state, Number(value), now)); this.go('session') }; return }
     if (id === 'favorite') {
@@ -350,7 +383,7 @@ export class Application {
     if (this.recording && this.platform.now() - this.recordingStarted >= 59000 && !this.busy) await this.action('record-stop')
     if (s?.deadlineAt && !s.submittedAt && this.platform.now() >= s.deadlineAt && !this.busy) {
       this.busy = true
-      try { await this.content.ensureQuestions(s.questionIds); this.persist(submitSession(this.state, this.catalog, this.platform.now())); if (this.page === 'session') this.go('result', undefined, true) }
+      try { await this.content.ensureQuestions(s.questionIds); this.persist(submitSession(this.state, this.catalog, this.platform.now())); if (this.page === 'session') this.go('result', s.paperId?{session:s.id}:undefined, true) }
       catch (e) { this.error = e instanceof Error ? e.message : '交卷暂未完成，请重试。' }
       finally { this.busy = false }
     }
@@ -393,6 +426,7 @@ export class Application {
     if (!profile) return screen
     const city = this.catalog.cities.find((c) => c.id === profile.cityId), edition = this.catalog.editions.find((e) => e.id === profile.editionId)
     screen.subtitle = `${city?.name ?? ''} · ${localGradeLabel(profile.grade, profile.structure, profile.cityId)} · ${bookLabel(profile.grade, profile.term)}`
+    if (this.page === 'papers') return this.renderPapers(screen)
     if (this.page === 'lesson') return this.renderTeaching(screen)
     if (this.page === 'explore') return this.renderExploration(screen)
     if (this.page === 'home') {
@@ -493,7 +527,7 @@ export class Application {
       return screen
     }
     if (this.page === 'private') { screen.cards = state.privateQuestions.map((q) => ({ id: q.id, title: q.stem, text: `${SKILL_LABEL[q.skill]} · 仅本机可见`, actions: [{ id: 'start-private', value: q.id, label: '练这道题', tone: 'secondary' }, { id: 'edit-private', value: q.id, label: '编辑', tone: 'quiet' }] })); screen.actions = [{ id: 'edit-private', label: '添加我的题目', tone: 'primary' }]; return screen }
-    if (this.page === 'history') { screen.cards = Object.values(state.sessions).sort((a, b) => b.startedAt - a.startedAt).map(s => ({ id: s.id, title: `${s.mode === 'exam' ? '限时练习' : s.mode === 'lesson' ? '互动课程' : s.mode === 'review' ? '延时复习' : '专项练习'} · ${s.questionIds.length} 题`, text: `${chinaDate(s.startedAt).key} · ${s.submittedAt ? '已完成' : '未完成，答案已保存'}`, actions: [{ id: 'open-session', value: s.id, label: s.submittedAt ? '查看结果' : '继续练习', tone: 'secondary' }] })); if (!screen.cards.length) screen.notice = '还没有练习记录。先从今日安排开始。'; return screen }
+    if (this.page === 'history') { screen.cards = Object.values(state.sessions).sort((a, b) => b.startedAt - a.startedAt).map(s => ({ id: s.id, title: `${s.paperId ? this.catalog.mockPapers?.find(p=>p.id===s.paperId)?.title??'原创模拟卷' : s.mode === 'exam' ? '限时练习' : s.mode === 'lesson' ? '互动课程' : s.mode === 'review' ? '延时复习' : '专项练习'} · ${s.questionIds.length} 题`, text: `${chinaDate(s.startedAt).key} · ${s.submittedAt ? '已完成' : '未完成，答案已保存'}`, actions: [{ id: 'open-session', value: s.id, label: s.submittedAt ? '查看结果' : '继续练习', tone: 'secondary' }] })); if (!screen.cards.length) screen.notice = '还没有练习记录。先从今日安排开始。'; return screen }
     if (this.page === 'favorites') { screen.cards = state.favorites.map(id => ({ id, title: this.catalog.topics.find(t => t.id === ((this.catalog.questionIndex ?? this.catalog.questions).find(q => q.id === id)?.topicId ?? state.privateQuestions.find(q => q.id === id)?.topicId))?.title ?? '收藏的题目', text: '收藏不代表已经掌握，隔一段时间再独立试试。', actions: [{ id: 'start-question', value: id, label: '再练这道题', tone: 'secondary' }, { id: 'favorite', value: id, label: '取消收藏', tone: 'quiet' }] })); if (!screen.cards.length) screen.notice = '看完解析后，可以把值得再想一次的题收藏到这里。'; return screen }
     if (this.page === 'editor') {
       screen.notice = '请编写自己的题目。解析要写出依据，不能只写“答案如此”。题目只保存在本机。'
@@ -527,6 +561,27 @@ export class Application {
     if (this.page === 'settings') screen.cards = [{ id: 'backup', title: '学习备份', text: '导出包含学习记录、草稿和私人题目，不包含设备录音。导入会替换学习记录，当前设备录音保留。', actions: [{ id: 'export', label: '导出备份', tone: 'secondary' }, { id: 'import', label: '导入备份', tone: 'quiet' }] }, { id: 'delete', title: '清理本机数据', text: '请先导出备份。删除后无法撤销。', actions: [{ id: 'delete-data', label: '删除本机记录', tone: 'danger' }] }]
     return screen
   }
+  private renderPapers(screen:Screen):Screen{
+    const profile=this.state.profile!,paper=this.catalog.mockPapers?.find(p=>p.id===this.params.paper)
+    screen.eyebrow='原创笔试训练 · 自编结构'
+    if(this.params.paper&&!paper){screen.notice='这份试卷暂未找到，请返回列表。';screen.actions=[{id:'navigate',value:'papers',label:'返回试卷',tone:'primary'}];return screen}
+    if(paper){
+      const ids=paperQuestionIds(paper),reason=paperEligibility(this.state,paper),active=Object.values(this.state.sessions).find(s=>s.paperId===paper.id&&!s.submittedAt),completed=Object.values(this.state.sessions).some(s=>s.paperId===paper.id&&s.submittedAt)
+      screen.title=paper.title;screen.subtitle='先独立完成，再按部分订正'
+      screen.metrics=[{label:'限时',value:`${paper.minutes} 分钟`},{label:'总分（作文另评）',value:`${paper.totalMarks} 分`},{label:'题量',value:`${ids.length} 题`}]
+      screen.paperCatalog={detail:true,scope:paper.scope,rows:[],sections:paper.sections.map(s=>({id:s.id,title:s.title,count:s.questionIds.length,marks:s.questionIds.length*s.marksEach,minutes:s.minutes})),seen:ids.filter(id=>this.state.attempts.some(a=>a.questionId===id)||this.state.answerSeenAt?.[id]).length,eligible:!reason}
+      if(reason)screen.notice=reason
+      screen.actions=[{id:active?'open-session':'start-paper',value:active?.id??paper.id,label:active?'继续这份试卷':completed?'重新练这份卷':'开始计时作答',disabled:!!reason&&!active,tone:'primary'},{id:'paper-list',label:'返回试卷列表',tone:'quiet'}]
+      screen.paperCatalog.primary=screen.actions[0];screen.actions=screen.actions.slice(1)
+      return screen
+    }
+    screen.title='原创模拟卷';screen.subtitle='完整作答 → 分项看分 → 回课补弱'
+    screen.fields=[this.select('paperGrade','年级',[6,7,8,9].filter(g=>g<=profile.grade&&(g!==6||profile.structure==='54')).map(g=>({value:String(g),label:`${g} 年级`}))),this.select('paperTerm','学期',[{value:'all',label:'全部学期'},{value:'upper',label:'上学期'},{value:'lower',label:'下学期'}])]
+    const papers=(this.catalog.mockPapers??[]).filter(p=>p.grade===Number(this.form.paperGrade)&&(this.form.paperTerm==='all'||p.term===this.form.paperTerm)&&p.structures.includes(profile.structure))
+    screen.paperCatalog={detail:false,scope:'笔试能力训练；教材单元与本地中考结构对应仍待核实。作文交卷后按自编量表人工批改。',sections:[],seen:0,eligible:true,rows:papers.map(p=>({id:p.id,title:p.title,grade:String(p.grade),term:p.term==='upper'?'上学期':'下学期',minutes:p.minutes,count:paperQuestionIds(p).length,marks:p.totalMarks,label:Object.values(this.state.sessions).some(s=>s.paperId===p.id&&!s.submittedAt)?'有未完成试卷':Object.values(this.state.sessions).some(s=>s.paperId===p.id&&s.submittedAt)?'已做过 · 可以再练':paperEligibility(this.state,p)?'建议学完相关课程后再做':'可以开始'}))}
+    screen.actions=[{id:'navigate',value:'exam',label:'自己设置题量和时间',tone:'quiet'},{id:'navigate',value:'exam-info',label:'查看本地考试核验',tone:'quiet'}]
+    return screen
+  }
   private renderSession(screen: Screen): Screen {
     const s = this.currentSession()
     if (!s) { screen.notice = '没有正在进行的练习。'; screen.actions = [{ id: 'navigate', value: 'practice', label: '选择练习', tone: 'primary' }]; return screen }
@@ -550,6 +605,19 @@ export class Application {
     screen.actions = s.submittedAt ? [...(isSelf && !record?.checked ? [{ id: 'review-self', label: '记录这道题的自评', tone: 'primary' as const }] : []), { id: 'navigate', value: 'result', label: '返回结果', tone: 'secondary' }] : s.mode === 'exam' ? [{ id: 'next', label: s.current === s.questionIds.length - 1 ? '交卷' : '保存，下一题', tone: 'primary' }, { id: 'submit', label: '提前交卷', tone: 'quiet' }] : record?.checked && deferred ? [{ id: 'next', label: s.current === s.questionIds.length - 1 ? '提交并统一核对' : '答案已记录，下一题', tone: 'primary' }] : show ? [{ id: 'next', label: s.current === s.questionIds.length - 1 ? '看本次结果' : '下一题', tone: 'primary' }, ...(!record.result?.correct && !isSelf ? [{ id: 'retry', label: '再想一次', tone: 'secondary' as const }] : [])] : [{ id: 'check', label: isSelf ? '记录自评' : deferred ? '记录答案' : '检查答案', tone: 'primary' }, ...(!isSelf ? [{ id: 'hint', label: '给我一点提示', tone: 'quiet' as const }] : [])]
     if (s.mode === 'exam') screen.chips = s.questionIds.map((id, i) => ({ id, label: `${i + 1}${s.answers[id]?.answer ? ' ·' : ''}`, selected: s.current === i, action: 'jump', value: String(i) }))
     else if (this.state.mistakes[q.id] && record?.checked && show) screen.chips = ERROR_REASONS.map(r => ({ id: r.id, label: r.label, selected: this.state.mistakes[q.id].reason === r.id, action: 'reason', value: `${q.id}:${r.id}` }))
+    const paper=this.catalog.mockPapers?.find(p=>p.id===s.paperId)
+    if(paper){
+      const section=paper.sections.find(section=>section.questionIds.includes(q.id))!
+      screen.title=section.title;screen.eyebrow=paper.title+' · 原创笔试'
+      screen.question.collapsiblePassage=!!q.passage;screen.question.passageOpen=this.form.paperPassage!=='false';screen.question.passageTop=Number(this.form.paperPassageTop??0)
+      const band=q.stem.match(/(\d+)\s*[—–-]\s*(\d+)\s*词/);if(band)screen.question.wordBand=`目标${band[1]}—${band[2]}词`
+      if(isSelf&&!s.submittedAt)screen.question.rubric=[]
+      if(isSelf&&s.submittedAt&&record?.checked)screen.question.feedback='已记录作文自查；作文分数仍需人工判断，不合并到客观题得分。'
+      screen.paperSession={section:section.title,marks:section.marksEach,answered:s.questionIds.filter(id=>!!s.answers[id]?.answer.trim()).length,total:s.questionIds.length,flagged:!!s.flagged?.includes(q.id),canFlag:!s.submittedAt,sheetOpen:this.form.paperSheet==='true',groups:paper.sections.map(section=>({id:section.id,title:section.title,items:section.questionIds.map(id=>({id,index:s.questionIds.indexOf(id),answered:!!s.answers[id]?.answer.trim(),flagged:!!s.flagged?.includes(id),current:id===q.id}))}))}
+      screen.chips=s.submittedAt&&this.state.mistakes[q.id]?ERROR_REASONS.map(r=>({id:r.id,label:r.label,selected:this.state.mistakes[q.id].reason===r.id,action:'reason',value:`${q.id}:${r.id}`})):[]
+      if(isSelf&&s.submittedAt){const lesson=this.catalog.lessons.find(l=>l.topicId===q.topicId&&l.grades.includes(this.state.profile!.grade));if(lesson)screen.actions.push({id:'open-lesson-studio',value:lesson.id,label:'学写作方法',tone:'quiet'})}
+      if(!s.submittedAt){screen.actions.unshift({id:'jump',value:String(Math.max(0,s.current-1)),label:'上一题',disabled:s.current===0,tone:'secondary'});screen.actions.push({id:'navigate',value:'history',label:'保存，稍后继续',tone:'quiet'})}
+    }
     if (show) screen.actions.push({ id: 'favorite', value: q.id, label: this.state.favorites.includes(q.id) ? '取消收藏' : '收藏这道题', tone: 'quiet' })
     return screen
   }
@@ -630,6 +698,7 @@ export class Application {
   }
   private renderResult(screen: Screen): Screen {
     const s = this.currentSession(); if (!s) return screen
+    if(this.params.session&&!this.state.sessions[this.params.session]?.submittedAt){screen.notice='这次试卷记录不在本机，请从练习记录中选择。';screen.actions=[{id:'navigate',value:'history',label:'查看练习记录',tone:'primary'}];return screen}
     const attempts = this.state.attempts.filter((a) => a.sessionId === s.id && a.firstTry), independent = attempts.filter((a) => a.evidence === 'independent'), correct = independent.filter((a) => a.correct).length
     const self = attempts.filter((a) => a.evidence === 'self_review')
     screen.hero = { eyebrow: '把结果变成下一步', title: independent.length ? `${correct} / ${independent.length} 题首次独立做对` : '这组练习已经记录', text: self.length ? `包含 ${self.length} 次写作或口语自评，自评分与独立作答分开。` : '做错的题已加入错题本。提示后练对会保留记录，不冒充掌握。', art: 'notebook', tone: 'blue', actions: [{ id: 'navigate', value: 'home', label: '回到今日', tone: 'primary' }] }
@@ -641,6 +710,18 @@ export class Application {
       screen.notice = '客观题按本次作答计分；写作与口语交卷后单独自查，不合并成机器测评分。'
     }
     screen.cards = s.questionIds.map((id, i) => { const q = questionById(this.catalog, this.state, id), record = s.answers[id]; return { id, title: `第 ${i + 1} 题`, text: q ? answerText(q, record?.answer ?? '') : '题目暂时未加载', tag: record?.result ? record.result.evidence === 'self_review' ? '自评记录' : record.result.correct ? '本次练对' : '需要再练' : '待自查', actions: [{ id: 'review-question', value: String(i), label: '看题目与解析', tone: 'quiet' }] } })
+    const paper=this.catalog.mockPapers?.find(p=>p.id===s.paperId)
+    if(paper){
+      const report=paperResults(paper,s),objective=report.filter(r=>!r.writing),score=objective.reduce((n,r)=>n+r.score,0),max=objective.reduce((n,r)=>n+r.max,0),wrong=objective.reduce((n,r)=>n+r.wrong.length,0)
+      screen.title=paper.title;screen.eyebrow='原创笔试 · 交卷后订正'
+      screen.metrics=[{label:'客观题',value:`${s.questionIds.length-1} 题`},{label:'首次独立正确',value:independent.length?`${correct}/${independent.length}`:'无新增'},{label:'作文状态',value:self.length?'已自查':'待批改'}]
+      screen.hero={eyebrow:'客观题本次得分',title:`${score} / ${max}`,text:'书面表达20分另行人工批改。先看失分在哪一部分，再订正和补课。',art:'notebook',tone:'blue',actions:wrong?[{id:'paper-correct',label:`订正 ${wrong} 道错题`,tone:'primary'}]:[{id:'review-question',value:String(s.questionIds.length-1),label:'核对作文与量表',tone:'primary'}]}
+      const filter=this.form.paperResultFilter??'wrong';screen.paperReport={sections:report,filter,wrong}
+      screen.notice='本卷结构与量表由本项目自编；即时订正属于练习，独立成绩与作文自查分开记录。'
+      const selected=new Set(filter==='all'?s.questionIds:filter==='wrong'?report.flatMap(r=>r.writing?paper.sections.find(x=>x.id===r.id)!.questionIds:r.wrong):paper.sections.find(r=>r.id===filter)?.questionIds??[])
+      screen.cards=screen.cards.filter(card=>selected.has(card.id)).map(card=>{const q=questionById(this.catalog,this.state,card.id);if(!q)return{...card,text:'题目正在载入，作答记录已保存。',tag:'载入中',actions:[]};const lesson=this.catalog.lessons.find(l=>l.topicId===q.topicId&&l.grades.includes(this.state.profile!.grade));return{...card,text:q.stem,tag:q.kind==='writing'?s.answers[q.id]?.checked?'已自查 · 待人工批改':'作文待批改':!s.answers[q.id]?.answer.trim()?'未作答':s.answers[q.id]?.result?.correct?'本次答对':'需要订正',actions:[...card.actions,...(q.kind==='writing'?[{id:'paper-rewrite',value:q.id,label:'再写一稿',tone:'secondary' as const}]:[]),...(lesson&&q.kind!=='writing'&&!s.answers[q.id]?.result?.correct?[{id:'open-lesson-studio',value:lesson.id,label:'补这一课',tone:'secondary' as const}]:[])]}})
+      screen.actions=[{id:'navigate',value:'papers',label:'返回原创试卷',tone:'secondary'},{id:'navigate',value:'mistakes',label:'查看到期重做安排',tone:'quiet'}]
+    }
     return screen
   }
 }

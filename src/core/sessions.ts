@@ -29,7 +29,8 @@ export function playable(question: Pick<Question, 'skill' | 'mediaId'>, catalog:
 export function availableQuestions(catalog: ContentCatalog, state: LearnerState, filter: Omit<QuestionFilter, 'count'>): QuestionMetadata[] {
   const grade = state.profile?.grade
   if (!grade) throw new Error('请先确认年级和教材。')
-  return [...(catalog.questionIndex ?? catalog.questions), ...state.privateQuestions].filter((q) => q.grades.includes(grade) &&
+  const reserved=new Set((catalog.mockPapers??[]).flatMap(p=>p.sections.flatMap(s=>s.questionIds)))
+  return [...(catalog.questionIndex ?? catalog.questions), ...state.privateQuestions].filter((q) => !reserved.has(q.id) && q.grades.includes(grade) &&
     (!filter.topicIds?.length || filter.topicIds.includes(q.topicId)) &&
     (!filter.skills?.length || filter.skills.includes(q.skill)) &&
     (!filter.kinds?.length || filter.kinds.includes(q.kind)) &&

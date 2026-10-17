@@ -50,6 +50,12 @@ export interface ExamBlueprint {
   sourceIds: string[]
 }
 
+export interface MockPaper {
+  id: string; title: string; grade: Grade; term: Term; structures: SchoolStructure[]
+  minutes: number; totalMarks: number; format: 'original-written'; scope: string; review: 'draft' | 'reviewed' | 'released'
+  sections: {id:string;title:string;minutes:number;marksEach:number;questionIds:string[]}[]
+}
+
 export interface CourseStage { grade: Grade; term: Term; themeId?: string }
 export interface CourseTheme { id: string; title: string; grade: Grade; term: Term; domain: string }
 export interface OriginalCourse { id: string; title: string; sequence: 'original'; themes: CourseTheme[] }
@@ -160,6 +166,7 @@ export interface ContentCatalog {
   editions: Edition[]
   books: BookMapping[]
   blueprints: ExamBlueprint[]
+  mockPapers?: MockPaper[]
 }
 
 export interface Attempt {
@@ -204,6 +211,8 @@ export interface LearningSession {
   questionIds: string[]
   lessonId?: string
   blueprintId?: string
+  paperId?: string
+  flagged?: string[]
   examMarks?: Record<string, number>
   startedAt: number
   deadlineAt?: number

@@ -34,6 +34,7 @@ let resolveStart: () => void = () => {}
 let rejectStart: (reason: Error) => void = () => {}
 let navigationGeneration = 0
 const platform: Platform = {
+  scrollTop:()=>{wx.pageScrollTo({scrollTop:0,duration:0})},
   now: () => Date.now(),
   navigate(page, params = {}, replace = false) {
     const generation = ++navigationGeneration

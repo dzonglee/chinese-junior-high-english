@@ -10,7 +10,7 @@ artifacts before reporting any owner-only prerequisite.
 The owner requested a usable local version first on 2026-10-17 and deferred videos. The board
 tracks local delivery separately from future native validation/publication. The local app needs
 no production credentials or media decisions; see `docs/local-version.md` for use and evidence.
-APP-LESSONS adds the complete original local course: 413 lessons, 4,804 tasks and 1,690 distinct
+The local course and original mock papers contain 413 lessons, 5,004 tasks and 1,690 distinct
 headwords, with full coverage and lifecycle checks. Approved audio remains pending for 99 scripts.
 The requirements below continue to define the complete eventual application.
 
@@ -23,7 +23,7 @@ The requirements below continue to define the complete eventual application.
 - Vocabulary practice with delayed review, pronunciation/media hooks and honest learning evidence.
 - Grammar, cloze, reading, sentence ordering/correction, listening and speaking practice.
 - Writing practice with a clear original rubric, saved drafts and honest self-marking.
-- A question-bank builder, practice sessions, timed practice and only evidence-backed local mocks.
+- A question-bank builder, practice sessions, timed practice, explicitly labelled original training papers and evidence-backed local mocks.
 - A mistake book with error causes, scheduled retries and first-try/delayed evidence kept separate.
 - Private user-authored questions with the same explanation validation as authored questions.
 - Progress reports, editable learner settings, accessible controls, export and deletion.

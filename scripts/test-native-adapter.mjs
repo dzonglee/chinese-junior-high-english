@@ -43,7 +43,7 @@ privacyListener(value => { privacyValue = value }); assert.equal(privacyValue.ev
 let requested = false
 privacyValue = null; topPage = { selectComponent: id => { assert.equal(id, '#shell'); return { requestPrivacy: resolve => { requested = true; resolve({ event: 'agree', buttonId: 'privacy-agree' }) } } } }
 privacyListener(value => { privacyValue = value }); assert(requested); assert.equal(privacyValue.buttonId, 'privacy-agree')
-await app.content.ensureTopics(manifest.map(p=>p.topicId)); assert.equal(app.catalog.questions.length, 4804, 'Every native packed topic must load and pass its hash, not only the first topic')
+await app.content.ensureTopics(manifest.map(p=>p.topicId)); assert.equal(app.catalog.questions.length, manifest.reduce((n,p)=>n+p.questionIds.length,0), 'Every native packed topic must load and pass its hash, not only the first topic')
 if (mode === 'cloud') { assert(cloudInitialised); assert(cloudDownloads > 0) } else { assert(!cloudInitialised); assert.equal(cloudDownloads, 0) }
 app.platform.navigate('builder');const stale=pendingNavigation.at(-1);app.platform.navigate('session');const current=pendingNavigation.at(-1),count=navigations.length
 stale.fail({errMsg:'navigateTo:fail cancelled'});assert.equal(navigations.length,count,'A late failed navigation cannot replace the newer session')

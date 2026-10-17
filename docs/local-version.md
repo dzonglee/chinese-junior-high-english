@@ -1,7 +1,7 @@
 # Local version · 2026-10-17
 
 The owner's current milestone is a usable local app; videos come later. The local build includes
-413 original draft lessons, 4,804 tasks, 1,690 distinct vocabulary headwords and all 245 topic packs. Artwork
+413 original draft lessons, 5,004 tasks, 1,690 distinct vocabulary headwords and all 245 topic packs. Artwork
 includes three original Blender assets and one inspected AI-generated desk scene authorized by
 the owner; book positions and exact labels are rendered by code. No research documents are embedded.
 
@@ -23,8 +23,8 @@ references open when needed. All 413 lessons have this flow, with saved progress
 scored practice. See [lesson studios](lesson-studios.md) for the exact skill coverage.
 
 The course covers all 29 thematic domains in reading/listening/speaking/writing, 58 grammar
-objectives and eight written pronunciation-knowledge units. Every task and word belongs to a
-lesson with distinct delayed checks. Use the 课程 tab to filter by skill/theme or search; expand
+objectives and eight written pronunciation-knowledge units. Every course task and word belongs to a
+lesson with distinct delayed checks; the 200 new mock items are held separately. Use the 课程 tab to filter by skill/theme or search; expand
 the additional filters for grade/term/status. Grades and terms describe this original sequence,
 not a verified publisher progression.
 
@@ -53,6 +53,15 @@ All 99 listening scripts are authored, but their audio is pending; the 31 listen
 offer text preparation; actual listening practice stays disabled. Written pronunciation knowledge is available and does not measure spoken ability. No audio model has been
 selected and no video production is required for this local milestone. Native WeChat publication,
 CloudBase deployment, device evidence and editorial approval are separate future work.
+
+## Original written papers
+
+Open 练习 → 原创模拟卷. Choose a grade/term and inspect the five sections before starting.
+Eight original papers use 25 tasks, 60 minutes and 60 marks each. Save/resume preserves the
+clock; the answer sheet supports flags and jumping. After submission, inspect section losses,
+locate evidence, return to lessons and retry. A second essay draft preserves the exam answer.
+Objective marks are out of 40; the 20 writing marks await human assessment. This self-authored
+format is not a verified local exam blueprint. See [paper review](reviews/mock-exams-2026-10-17.md).
 
 ## What was verified
 

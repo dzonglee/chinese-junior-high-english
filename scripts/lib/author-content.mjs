@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { resolve } from 'node:path'
 import { authorReadingTasks } from './author-reading-tasks.mjs'
 import { attachCourse } from './course-plan.mjs'
+import { authorMocks } from './author-mocks.mjs'
 import { authorExamCoaching } from './author-exam-coaching.mjs'
 import { authorExtra } from './author-extra.mjs'
 
@@ -80,7 +81,7 @@ export function authorCatalog(root) {
     ['xiangjiao', '湘教版', '请按封面确认', 'british', '63'],
   ].map(([id, name, version, spelling, structure]) => ({ id, name, version, spelling, structures: [structure], verification: 'unverified', sourceIds: [] }))
   // Include instructional code/art in editorial approval, including live geometry and wording.
-  const instructionalPaths = ['content/teaching/grammar-exam.tsv', 'content/teaching/model-roles.json', 'content/teaching/writing-checks.json', 'scripts/lib/author-exam-coaching.mjs', 'src/app/presentation.ts', 'web/product.ts', 'miniprogram/components/app-shell/product.wxml', 'miniprogram/components/app-shell/index.js', 'src/app/view.ts', 'src/core/lesson-teaching.ts', 'src/core/teaching-transfers.ts', 'src/core/phonetic-sorting.ts', 'web/lesson-studio.ts', 'miniprogram/components/lesson-studio/index.wxml', 'miniprogram/components/lesson-studio/index.js', 'src/core/experiments.ts', 'src/core/scene-experiment.ts', 'src/core/reading-evidence.ts', 'src/app/application.ts', 'web/main.ts', 'miniprogram/components/app-shell/index.wxml', 'miniprogram/app.wxss', 'content/visual-assets.json', 'miniprogram/assets/desk-scene.jpg']
+  const instructionalPaths = ['web/exams.ts', 'miniprogram/components/app-shell/exams.wxml', 'src/core/mock-papers.ts', 'scripts/lib/author-mocks.mjs', 'content/teaching/grammar-exam.tsv', 'content/teaching/model-roles.json', 'content/teaching/writing-checks.json', 'scripts/lib/author-exam-coaching.mjs', 'src/app/presentation.ts', 'web/product.ts', 'miniprogram/components/app-shell/product.wxml', 'miniprogram/components/app-shell/index.js', 'src/app/view.ts', 'src/core/lesson-teaching.ts', 'src/core/teaching-transfers.ts', 'src/core/phonetic-sorting.ts', 'web/lesson-studio.ts', 'miniprogram/components/lesson-studio/index.wxml', 'miniprogram/components/lesson-studio/index.js', 'src/core/experiments.ts', 'src/core/scene-experiment.ts', 'src/core/reading-evidence.ts', 'src/app/application.ts', 'web/main.ts', 'miniprogram/components/app-shell/index.wxml', 'miniprogram/app.wxss', 'content/visual-assets.json', 'miniprogram/assets/desk-scene.jpg']
   const instructionalFiles = Object.fromEntries(instructionalPaths.filter(file => existsSync(resolve(root, file))).map(file => [file, createHash('sha256').update(readFileSync(resolve(root, file))).digest('hex')]))
-  return authorExamCoaching(root, attachCourse(root, { version: 2, topics, lessons, questions, vocabulary, media, cities, editions, books: [], blueprints: [], ...(Object.keys(instructionalFiles).length ? { instructionalFiles } : {}) }))
+  return authorMocks(root, authorExamCoaching(root, attachCourse(root, { version: 2, topics, lessons, questions, vocabulary, media, cities, editions, books: [], blueprints: [], ...(Object.keys(instructionalFiles).length ? { instructionalFiles } : {}) })))
 }
