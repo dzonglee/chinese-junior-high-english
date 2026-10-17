@@ -11,7 +11,7 @@ const cloudFileMap = Object.fromEntries(manifest.map(p => [p.topicId, `cloud://s
 writeFileSync(resolve(local, 'pack-loader.js'), 'module.exports = { loadPack: () => { throw new Error("Cloud mode must not read packaged questions") } };')
 await build({ entryPoints: [resolve(root, '../src/native/app.ts')], bundle: true, format: 'cjs', platform: 'neutral', target: 'es2020', outfile: resolve(local, 'runtime.cjs'), external: ['./pack-loader.js'], plugins: [{ name: 'synthetic-cloud-runtime', setup(builder) { builder.onLoad({ filter: /generated[\\/]runtime\.ts$/ }, () => ({ contents: `export const runtime = ${JSON.stringify({ mode: 'cloud', cloudEnv: 'synthetic-test-env', contentFiles: cloudFileMap, mediaFiles: {} })}`, loader: 'ts' })) } }] })
 for (const mode of ['development', 'cloud']) {
-const data = new Map(), navigations = [], errors = []
+const data = new Map(), navigations = [], errors = [], pendingNavigation = []
 let privacyListener, privacyValue, topPage
 let cloudInitialised = false, cloudDownloads = 0
 const wx = {
@@ -19,8 +19,8 @@ const wx = {
   getFileSystemManager: () => ({ readFile(options) { try { options.success({ data: readFileSync(options.filePath, 'utf8') }) } catch { options.fail() } } }),
   getStorageSync: key => data.get(key) || '', setStorageSync: (key, value) => data.set(key, value), removeStorageSync: key => data.delete(key),
   onNeedPrivacyAuthorization: callback => { privacyListener = callback },
-  reLaunch: options => navigations.push(options.url), redirectTo: options => navigations.push(options.url), navigateTo: options => navigations.push(options.url),
-  showToast: options => errors.push(options.title), showModal: options => options.success({ confirm: true }),
+  reLaunch: options => navigations.push(options.url), redirectTo: options => navigations.push(options.url), navigateTo: options => { navigations.push(options.url); pendingNavigation.push(options) },
+  showToast: options => errors.push(options.title), hideToast() {}, showModal: options => options.success({ confirm: true }),
 }
 const context = vm.createContext({ wx, console, getCurrentPages: () => topPage ? [topPage] : [], TextEncoder: undefined, TextDecoder: undefined })
 function load(file) {
@@ -45,6 +45,9 @@ privacyValue = null; topPage = { selectComponent: id => { assert.equal(id, '#she
 privacyListener(value => { privacyValue = value }); assert(requested); assert.equal(privacyValue.buttonId, 'privacy-agree')
 await app.content.ensureTopics(manifest.map(p=>p.topicId)); assert.equal(app.catalog.questions.length, 4804, 'Every native packed topic must load and pass its hash, not only the first topic')
 if (mode === 'cloud') { assert(cloudInitialised); assert(cloudDownloads > 0) } else { assert(!cloudInitialised); assert.equal(cloudDownloads, 0) }
+app.platform.navigate('builder');const stale=pendingNavigation.at(-1);app.platform.navigate('session');const current=pendingNavigation.at(-1),count=navigations.length
+stale.fail({errMsg:'navigateTo:fail cancelled'});assert.equal(navigations.length,count,'A late failed navigation cannot replace the newer session')
+current.fail({errMsg:'navigateTo:fail webview count limit exceed'});assert.equal(navigations.length,count+1);assert(navigations.at(-1).startsWith('/pages/session/index'))
 console.log(`${mode} native-adapter simulation passed.`)
 }
 console.log('Native-adapter simulation passed: CommonJS startup, async subpackage/hash loading without DOM encoders, profile, answer, storage and privacy routing.')

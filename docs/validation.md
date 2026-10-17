@@ -3,20 +3,30 @@
 The application runs in the development environment. These checks establish the development
 behavior below; they do not establish native release or publication.
 
+## Whole-app UI upgrade
+
+The final UI review compares the maths app at main 933ab32 with all five rebuilt English roots,
+three-stage onboarding, progressive filters and the interactive learning controls. Six product
+browser checks pass with 41 screenshots at three widths. Actual native evidence comprises a
+34-screen whole-app walk, nine focused fresh-home/answer-control captures and seven complete
+teaching-mode flows with 22 captures; all three jobs finish with nested exit 0. See the
+[comparison, corrections and exact job boundaries](reviews/ui-2026-10-17.md) and retained native
+screenshots. These replace the older UI captures as product presentation evidence.
+
 | Check | Observed result |
 | --- | --- |
 | Locked setup script | Node 24; npm ci; Git LFS pull/fsck and register checks pass |
-| TypeScript and automated tests | 984 tests pass, including every lesson’s immediate/delayed controller and persistence lifecycle |
+| TypeScript and automated tests | 989 tests pass, including every lesson’s immediate/delayed controller and persistence lifecycle |
 | Grammar assessment regressions | Seven source-only tests cover all 52 blanks and 38 corrections, explicit constraints, legitimate equivalents and invalid grammar |
 | Native recording cancellation | Four actual-native-source simulations pass for privacy/microphone cancellation, late start and normal recording |
-| Standalone local app | 10.12 MB; all 245 packs, three Blender assets and one generated scene embedded |
+| Standalone local app | 10.30 MB; all 245 packs, original study art, adapted navigation and the generated scene embedded |
 | Offline learner checks | Eight checks pass with networking disabled during practice; managed browser uses exact standalone document on loopback because file navigation is blocked |
 | Running development service | Real app document and learner workflow bundle served on port 4173 |
 | Content compiler/audit | 245 topics, 413 lessons, 4,804 original draft tasks, 1,690 distinct headwords |
 | Blender artwork | Three original transparent assets rendered with Blender 4.3.2 |
 | Native adapter | Development subpackage and synthetic CloudBase API simulations load all 245 packs / 4,804 tasks |
 | Native package structure | 26 routes, handlers and WXML tag structure pass static checks |
-| Package budget | Approximately 1,726 KB main / 10,123 KB development total; below safety budgets |
+| Package budget | Approximately 1,848 KB main / 10,244 KB development total; below safety budgets |
 | Interaction content audit | 13 workshops / 39 conditions; exact-source evidence mapping for 264/298 reading tasks |
 | Interactive browser checks | Eight pass; course-card links, all workshops practiced offline, scene movement/reload, evidence gating, progressive reasons and topic-practice handoff |
 | Interaction visual review | All 36 sentence states, three scene positions and real reading locator inspected |

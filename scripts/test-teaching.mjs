@@ -1,3 +1,4 @@
+import { fillInitialProfile, openCourseFilters } from './lib/browser-profile.mjs'
 import { build } from 'esbuild'
 import { chromium,expect } from '@playwright/test'
 import { spawn } from 'node:child_process'
@@ -5,6 +6,7 @@ import { existsSync,mkdirSync,readFileSync,writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { authorCatalog } from './lib/author-content.mjs'
+const layoutOnly=process.env.TEACHING_LAYOUT_ONLY==='1'
 const root=resolve(import.meta.dirname,'..'),out=resolve(root,process.env.TEACHING_REVIEW_OUTPUT||'test-results/teaching'),tools=resolve(root,'.local/tools/teaching-ui.mjs'),url='http://127.0.0.1:4185',source=authorCatalog(root)
 mkdirSync(out,{recursive:true});mkdirSync(resolve(root,'.local/tools'),{recursive:true})
 await build({stdin:{contents:"export {Application} from './src/app/application';export {ContentRepository} from './src/services/content';export {StateStore} from './src/services/storage';export {emptyState} from './src/core/learning';export * from './src/core/lesson-teaching';export {renderLessonStudio} from './web/lesson-studio'",resolveDir:root,loader:'ts'},bundle:true,platform:'node',format:'esm',outfile:tools})
@@ -14,7 +16,7 @@ try{
  for(let i=0;;i++){try{if((await fetch(url)).ok)break}catch{}if(i>60)throw new Error('Server unavailable');await new Promise(r=>setTimeout(r,100))}
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),headless:true,args:['--no-sandbox']})
  const page=await browser.newPage({viewport:{width:390,height:844}});page.on('pageerror',e=>errors.push(e.message));await page.goto(url)
- for(const [name,value]of Object.entries({cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'}))await page.selectOption(`[name=${name}]`,value)
+ await fillInitialProfile(page,{cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'})
  const act=async(id,value)=>{const b=page.locator(`[data-action="${id}"]${value===undefined?'':`[data-value="${value}"]`}`).first();await expect(b).toBeEnabled();await b.click()}
  await act('save-profile');await act('open-lesson-studio','l-g-be');await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','0')
  const model=createLessonTeaching(source,source.lessons.find(l=>l.id==='l-g-be'))
@@ -41,6 +43,6 @@ try{
  }
  // Contact sheets retain all text. Review every assembly and the distinctive explore/diagnose/transfer phases.
  const panels=[...assemblies,...fixtures.filter(f=>[2,3,4].includes(f.step)).map(f=>({...f,id:f.id+' / phase '+f.step}))]
- for(let start=0;start<panels.length;start+=16){const batch=panels.slice(start,start+16),sheet=await browser.newPage({viewport:{width:1560,height:1000}});await sheet.setContent(`<style>${css}body{font-size:12px}.sheet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:8px;align-items:start}.panel{padding:12px}.studio-unit-tabs,.phase-strip{display:none}.token{font-size:12px;padding:6px;min-width:24px}.letter-tile{font-size:15px;min-width:25px;min-height:30px}.section-title{font-size:16px}.input{min-height:35px}h3{font-size:11px;overflow-wrap:anywhere}.sheet>section{min-width:0;border:1px solid #dbe2f0}</style><div class="sheet">${batch.map(f=>`<section><h3>${f.id}</h3>${f.html}</section>`).join('')}</div>`);await sheet.evaluate(()=>document.fonts.ready);await sheet.screenshot({path:resolve(out,'sheet-'+String(start/16+1).padStart(3,'0')+'.png'),fullPage:true});await sheet.close()}
- expect(errors).toEqual([]);writeFileSync(resolve(out,'results.json'),JSON.stringify({fixtureSpelling:'american',lessons:source.lessons.length,assemblies:assemblies.length,layouts,sheets:Math.ceil(panels.length/16),checks,errors,platform:'Chromium actual tap flow plus exhaustive authored view fixtures; not native evidence'},null,2));console.log(`Teaching browser checks passed: ${source.lessons.length} lessons / ${fixtures.length} states at three widths / ${assemblies.length} assemblies; ${Math.ceil(panels.length/16)} contact sheets.`)
+ for(let start=0;!layoutOnly&&start<panels.length;start+=16){const batch=panels.slice(start,start+16),sheet=await browser.newPage({viewport:{width:1560,height:1000}});await sheet.setContent(`<style>${css}body{font-size:12px}.sheet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:8px;align-items:start}.panel{padding:12px}.studio-unit-tabs,.phase-strip{display:none}.token{font-size:12px;padding:6px;min-width:24px}.letter-tile{font-size:15px;min-width:25px;min-height:30px}.section-title{font-size:16px}.input{min-height:35px}h3{font-size:11px;overflow-wrap:anywhere}.sheet>section{min-width:0;border:1px solid #dbe2f0}</style><div class="sheet">${batch.map(f=>`<section><h3>${f.id}</h3>${f.html}</section>`).join('')}</div>`);await sheet.evaluate(()=>document.fonts.ready);await sheet.screenshot({path:resolve(out,'sheet-'+String(start/16+1).padStart(3,'0')+'.png'),fullPage:true});await sheet.close()}
+ expect(errors).toEqual([]);writeFileSync(resolve(out,'results.json'),JSON.stringify({fixtureSpelling:'american',lessons:source.lessons.length,assemblies:assemblies.length,layouts,sheets:layoutOnly?0:Math.ceil(panels.length/16),layoutOnly,checks,errors,platform:'Chromium actual tap flow plus exhaustive authored view fixtures; not native evidence'},null,2));console.log(`Teaching browser checks passed: ${source.lessons.length} lessons / ${fixtures.length} states at three widths / ${assemblies.length} assemblies; ${layoutOnly?0:Math.ceil(panels.length/16)} contact sheets${layoutOnly?' (layout-only verification)':''}.`)
 }finally{if(browser)await browser.close();server.kill('SIGTERM')}

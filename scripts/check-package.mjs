@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
-import { resolve, relative } from 'node:path'
+import { resolve, relative, dirname } from 'node:path'
 const root = resolve(import.meta.dirname, '..'), native = resolve(root, 'miniprogram'), app = JSON.parse(readFileSync(resolve(native, 'app.json'), 'utf8'))
 for (const page of app.pages) {
   for (const extension of ['js', 'json', 'wxml']) assert(existsSync(resolve(native, `${page}.${extension}`)), `Missing native page file: ${page}.${extension}`)
@@ -10,7 +10,9 @@ for (const page of app.pages) {
 }
 // Check every page and component; DevTools still provides the real compiler.
 function checkWxml(file) {
- const wxml=readFileSync(file,'utf8'),js=readFileSync(file.replace(/\.wxml$/,'.js'),'utf8'),stack=[]
+ const script=file.replace(/\.wxml$/,'.js'),host=existsSync(script)?script:resolve(dirname(file),'index.js')
+ // Imported templates run in the owning component and use its event handlers.
+ const wxml=readFileSync(file,'utf8'),js=readFileSync(host,'utf8'),stack=[]
  for(const match of wxml.matchAll(/(?:bind|catch):?[a-z]+="([A-Za-z][A-Za-z0-9]*)"/g))assert(new RegExp(`\\b${match[1]}\\s*\\(`).test(js),`Unbound WXML event handler in ${file}: ${match[1]}`)
  for(const expression of wxml.matchAll(/\{\{([\s\S]*?)\}\}/g))assert(!/\.\w+\s*\(/.test(expression[1]),`WXML cannot call methods: ${file}`)
  for(const match of wxml.replace(/\{\{[\s\S]*?\}\}/g,'').matchAll(/<(\/?)([\w-]+)\b[^>]*?(\/?)>/g)){

@@ -1,3 +1,4 @@
+import { fillInitialProfile, openCourseFilters } from './lib/browser-profile.mjs'
 import { chromium, expect } from '@playwright/test'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -33,13 +34,10 @@ try {
     console.log('Managed browser file navigation is blocked; checking standalone HTTP with network disabled after document load.')
   }
   await screen('onboarding')
-  await page.selectOption('[name=cityId]', '北京-北京')
-  await page.selectOption('[name=structure]', '63')
-  await page.selectOption('[name=grade]', '9')
-  await page.selectOption('[name=editionId]', 'pep-legacy')
+  await fillInitialProfile(page,{cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'})
   await action('save-profile'); await screen('home')
-  await expect(page.locator('.hero-art')).toBeVisible()
-  await expect.poll(() => page.locator('.hero-art').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true)
+  await expect(page.locator('.continue-cover img')).toBeVisible()
+  await expect.poll(() => page.locator('.continue-cover img').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true)
   checks.push('Standalone app opens, profile saves and embedded Blender artwork loads')
   await page.goto(url+'#learn'); await action('start-lesson', 'l-g-be'); await screen('session')
   while (true) {

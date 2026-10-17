@@ -1,3 +1,4 @@
+import { fillInitialProfile, openCourseFilters } from './lib/browser-profile.mjs'
 import { chromium, expect } from '@playwright/test'
 import { spawn } from 'node:child_process'
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
@@ -15,17 +16,17 @@ try {
   const action = async (id, value) => { const target = page.locator(`[data-action="${id}"]${value ? `[data-value="${value}"]` : ''}`).first(); await expect(target).toBeEnabled(); await target.click() }
   const screen = id => expect(page.locator(`[data-screen="${id}"]`)).toBeVisible()
   await page.goto(url); await screen('onboarding')
-  for (const [name, value] of Object.entries({ cityId: '北京-北京', structure: '63', grade: '9', editionId: 'pep-legacy' })) await page.selectOption(`[name="${name}"]`, value)
+  await fillInitialProfile(page,{cityId:'北京-北京',structure:'63',grade:'9',editionId:'pep-legacy'})
   await action('save-profile'); await screen('home'); await page.goto(url + '/#learn'); await screen('learn')
   await expect(page.locator('.metrics')).toContainText(String(catalog.lessons.length)); await action('course-next'); await action('course-previous')
-  await page.selectOption('[name=courseTheme]', 't29'); await expect(page.locator('.cards > .card')).toHaveCount(4)
+  await openCourseFilters(page);await page.selectOption('[name=courseTheme]', 't29'); await expect(page.locator('.cards > .card')).toHaveCount(4)
   await page.screenshot({ path: resolve(out, 'course-inventory.png'), fullPage: true })
-  await page.selectOption('[name=courseSkill]', 'reading'); await expect(page.locator('.cards > .card')).toHaveCount(1)
+  await openCourseFilters(page);await page.selectOption('[name=courseSkill]', 'reading'); await expect(page.locator('.cards > .card')).toHaveCount(1)
   await action('start-lesson', 'l-r-course-t29'); await screen('session')
   const lesson = catalog.lessons.find(l => l.id === 'l-r-course-t29')
   for (const id of lesson.questionIds) { const q = catalog.questions.find(q => q.id === id); await action('choose', q.answer.option); await action('check'); await expect(page.locator('.explanation')).toBeVisible(); await action('next') }
   await screen('result'); checks.push('Full inventory, paging, four-skill theme filter and complete new reading lesson')
-  await page.goto(url + '/#learn'); await page.selectOption('[name=courseTheme]', 't29'); await page.selectOption('[name=courseSkill]', 'speaking'); await action('start-lesson', 'l-s-course-t29'); await screen('session')
+  await page.goto(url + '/#learn'); await openCourseFilters(page);await page.selectOption('[name=courseTheme]', 't29'); await openCourseFilters(page);await page.selectOption('[name=courseSkill]', 'speaking'); await action('start-lesson', 'l-s-course-t29'); await screen('session')
   const speaking = catalog.questions.find(q => q.id === catalog.lessons.find(l => l.id === 'l-s-course-t29').questionIds[0])
   await page.locator('[name=answer]').fill(speaking.answer.display)
   for (const point of speaking.rubric) await action('toggle-rubric', point.id)
@@ -34,10 +35,10 @@ try {
   await page.goto(url + '/#learn'); await page.locator('[name=courseQuery]').fill('单词重音'); await action('start-lesson', 'l-p-word-stress'); await screen('session')
   const stress = catalog.questions.find(q => q.id === 'q-p-word-stress-1'); await action('choose', stress.answer.option); await action('check')
   await page.screenshot({ path: resolve(out, 'pronunciation-knowledge.png'), fullPage: true }); checks.push('Phonetic notation and stress diagrams render through the real app')
-  await page.goto(url + '/#learn'); await page.selectOption('[name=courseSkill]', 'vocabulary'); await page.locator('[name=courseQuery]').fill('家人与日常称呼'); await action('start-lesson', 'l-v-course-family'); await screen('session')
+  await page.goto(url + '/#learn'); await openCourseFilters(page);await page.selectOption('[name=courseSkill]', 'vocabulary'); await page.locator('[name=courseQuery]').fill('家人与日常称呼'); await action('start-lesson', 'l-v-course-family'); await screen('session')
   const word = catalog.questions.find(q => q.id === catalog.lessons.find(l => l.id === 'l-v-course-family').questionIds[0]); await page.locator('[name=answer]').fill(word.answer.accepted[0]); await action('check'); await expect(page.locator('.feedback')).toContainText('对了')
   await page.screenshot({ path: resolve(out, 'vocabulary-lesson.png'), fullPage: true }); checks.push('New vocabulary lesson uses its real masked context and explanation')
-  await page.goto(url + '/#learn'); await page.selectOption('[name=courseTheme]', 't29'); await page.selectOption('[name=courseSkill]', 'listening'); await expect(page.locator('[data-action=start-lesson]')).toBeDisabled(); checks.push('Pending listening audio stays disabled')
+  await page.goto(url + '/#learn'); await openCourseFilters(page);await page.selectOption('[name=courseTheme]', 't29'); await openCourseFilters(page);await page.selectOption('[name=courseSkill]', 'listening'); await expect(page.locator('[data-action=start-lesson]')).toBeDisabled(); checks.push('Pending listening audio stays disabled')
   for (const width of [320, 390, 768]) { await page.setViewportSize({ width, height: 844 }); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true) }
   await page.goto(url + '/review'); await expect(page.locator('article')).toHaveCount(50)
   const layouts = [320, 390, 768].map(width => ({ width, rendered: 0, failures: [] })), ids = new Set(), wanted = new Set(catalog.topics.map(t => catalog.questions.find(q => q.topicId === t.id).id)), representatives = []

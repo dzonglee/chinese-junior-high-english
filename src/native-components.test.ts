@@ -26,3 +26,37 @@ it.each(['before','after'] as const)('retains the native controlled %s draft thr
  }
  expect(store.get().attempts).toEqual([])
 })
+
+it('preserves the native practice form on foreground, but opens a different returning route',()=>{
+ let component:any
+ let visibleRoute='pages/builder/index'
+ vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{getCurrentPages:()=>[{route:visibleRoute}],Component:(value:any)=>{component=value}})
+ let opens=0,ticks=0,starts=0,model:any
+ const application={state:{profile:{}},page:'builder',params:{skill:'grammar'},form:{count:'2',kind:'choice',builderMore:'true'},open(page:string,params:Record<string,string>){opens++;this.page=page;this.params=params;this.form={count:'8',kind:'all',builderMore:'false'}},render(){return {page:this.page,fields:{...this.form}}},tick(){ticks++;return Promise.resolve()}}
+ const context={application,data:{page:'builder',params:{skill:'grammar'}},setData(value:any){model=value.screen},startTicker(){starts++},showScreen(){component.methods.showScreen.call(this)}}
+ component.pageLifetimes.show.call(context)
+ expect(opens).toBe(0);expect(model.fields).toEqual({count:'2',kind:'choice',builderMore:'true'});expect(ticks).toBe(1);expect(starts).toBe(1)
+ application.page='session'
+ component.pageLifetimes.show.call(context)
+ expect(opens).toBe(1);expect(application.page).toBe('builder')
+ context.data.params={skill:'reading'}
+ component.pageLifetimes.show.call(context)
+ expect(opens).toBe(2);expect(application.params.skill).toBe('reading')
+ visibleRoute='pages/session/index';application.page='session'
+ component.pageLifetimes.show.call(context)
+ expect(opens).toBe(2);expect(application.page).toBe('session')
+})
+
+it('opens setup on a fresh native home page and preserves that setup on foreground',async()=>{
+ const c=authorCatalog(process.cwd()),data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
+ const app=new Application(new ContentRepository(c,[],async()=>''),store,{now:()=>1,navigate(){},back(){},toast(){},confirm:async()=>true,exportText:async()=>{},importText:async()=>null,copy:async()=>{},play:async()=>{},stopAudio(){},startRecording:async()=>{},stopRecording:async()=>({path:'test',durationMs:1}),removeRecordings:async()=>{}})
+ let component:any,screen:any
+ vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{getApp:()=>({globalData:{application:app,ready:Promise.resolve()}}),getCurrentPages:()=>[{route:'pages/home/index'}],Component:(value:any)=>{component=value}})
+ const context:any={data:{page:'home',params:{}},setData(value:any){screen=value.screen},startTicker(){},showScreen(reset=false){component.methods.showScreen.call(this,reset)}}
+ await component.lifetimes.attached.call(context)
+ expect(screen.id).toBe('onboarding');expect(screen.setup.step).toBe(0)
+ app.setField('cityId','北京-北京');app.setField('structure','63');await app.action('setup-next')
+ component.pageLifetimes.show.call(context)
+ expect(screen.setup.step).toBe(1);expect(app.form.cityId).toBe('北京-北京');expect(store.get().profile).toBeNull()
+ context.unsubscribe()
+})

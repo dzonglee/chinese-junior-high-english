@@ -11,6 +11,7 @@ import { markAudioPlayed, checkCurrent, startLesson, startExam, moveQuestion, us
 import { utf8Bytes } from '../core/utf8'
 import { editionQuestion, editionText } from '../core/spelling'
 import type { Question } from '../core/types'
+import { createLessonTeaching, freshTeaching } from '../core/lesson-teaching'
 function harness(overrides: Partial<Platform> = {}, configure?: (c: ReturnType<typeof catalog>) => void) {
   const c = catalog(); configure?.(c)
   const text = JSON.stringify({ version: 1, topicId: q.topicId, questions: c.questions }), data = new Map([[STORAGE_KEY, JSON.stringify(state())]])
@@ -21,6 +22,34 @@ function harness(overrides: Partial<Platform> = {}, configure?: (c: ReturnType<t
   app = new Application(repo, store, platform)
   return { app, repo, store, data, adapter, c, platform, setNow: (value: number) => { now = value } }
 }
+describe('product entry points', () => {
+  it('validates onboarding steps before creating a profile and preserves choices when going back', async () => {
+    const h=harness();h.store.save({...h.store.get(),profile:null});h.app.open('onboarding')
+    await h.app.action('setup-next');expect(h.app.render().error).toContain('所在城市和学校学制');expect(h.store.get().profile).toBeNull()
+    h.app.setField('cityId',state().profile.cityId);h.app.setField('structure','63');await h.app.action('setup-next')
+    expect(h.app.render().setup!.step).toBe(1);await h.app.action('setup-next');expect(h.app.render().error).toContain('教材版本')
+    h.app.setField('grade','7');h.app.setField('editionId','pep-2024');await h.app.action('setup-back')
+    expect(h.app.render().setup!.step).toBe(0);await h.app.action('setup-next');expect(h.app.render().fields.find(f=>f.name==='grade')!.value).toBe('7')
+    await h.app.action('setup-next');expect(h.app.render().setup!.step).toBe(2);await h.app.action('save-profile')
+    expect(h.app.render().id).toBe('home');expect(h.store.get().profile!.editionId).toBe('pep-2024')
+  })
+  it('offers consolidation after a completed studio without inventing a lesson pass', async () => {
+    const h=harness(), lesson=h.c.lessons[0], model=createLessonTeaching(h.c,lesson,'american'), progress={...freshTeaching(model,NOW),step:5 as const}
+    h.store.save({...h.store.get(),teaching:{[lesson.id]:progress}})
+    h.app.open('home')
+    expect(h.app.render().overview!.next!.action.id).toBe('start-lesson')
+    expect(h.store.get().lessonDoneAt).toEqual({});expect(h.store.get().mastery).toEqual({})
+    const action=h.app.render().overview!.next!.action;await h.app.action(action.id,action.value)
+    expect(h.app.render().id).toBe('session')
+  })
+  it('routes listening preparation to filtered text courses and leaves evidence unchanged', async () => {
+    const h=harness();h.app.open('practice')
+    const entry=h.app.render().overview!.skills.find(s=>s.id==='listening')!
+    expect(entry.text).toContain('音频待配');await h.app.action(entry.action.id,entry.action.value)
+    expect(h.app.render().id).toBe('learn');expect(h.app.render().overview!.currentSkill).toBe('listening')
+    expect(h.store.get().attempts).toEqual([]);expect(h.store.get().mastery).toEqual({})
+  })
+})
 describe('recording lifecycle (simulated platform permissions and recorder)', () => {
   function deferred<T>() {
     let resolve!: (value: T) => void, reject!: (reason: Error) => void

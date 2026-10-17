@@ -282,3 +282,21 @@ known grading/recording/approval corrections, verify complete learner flows and 
 Do not wait for production credentials or media choices to make local development usable.
 The current worker still exposes no Chrisverse/Obsidian/Kanban native tools despite the new plugin
 attachment. Keep repository records current and reconcile existing external records if tools appear.
+
+## Whole-app UI · APP-UI
+
+The owner rejected isolated lesson screenshots and the generic interface. The solo redesign
+rebuilds all five roots, progressive filters, three-stage onboarding and native learning controls.
+The repeated maths comparison and exact evidence are in reviews/ui-2026-10-17.md; actual main
+screens are retained in docs/screenshots/ui-2026-10-17/. All 989 tests pass. Actual native proof:
+34-screen whole-app walk df36731eb8684018a419922367f2b4ed; nine fresh-home/answer-control captures
+861ad544a23744d6ab18ba259d617c80; seven complete teaching-mode flows and 22 captures
+8364bfca0e0a4f74b9f7a02bc55418d4. All have nested exit 0; failed earlier jobs remain recorded.
+
+Native review corrected stale navigation fallback, fresh-home initialization and squeezed quiz
+buttons. The final native harness preserves prior QA state and verifies that exploration creates
+no new scored evidence. Browser review covers the entire course at three widths; production
+AppID/cloud, phones, approved audio, publisher mapping, editorial approval and publication remain
+separate. APP-UI is complete and squash-integrated on main. External card
+35f6f71a-31b4-4ca2-8500-ab58cf293a68 and the existing Obsidian project note are closed out
+with the integration commit after the main push. Work stays solo; reference material remains unchanged.
