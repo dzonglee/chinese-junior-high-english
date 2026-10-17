@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-38 of413 lessons are individually reviewed;375 remain pending. Every lesson needs bespoke tasks,
+39 of413 lessons are individually reviewed;374 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-compounds. Twelve tasks use an original house/greenhouse meaning contrast,open/closed compounds,four real word-part puzzles,noun-head plurals and everyday/every day. Joined words and spaced phrases use distinct assembly modes with actual consumable tile controls.
+Latest:l-g-derivation. Fourteen actual word-part puzzles connect sentence roles and polarity to conventional prefixes/suffixes,repair happiness/swimmer/believable,and distinguish friendly from an adverb. The added-able and in- tasks broaden pattern coverage.
 
-Original and600-pixel art,all twelve models,narrow-phone figures,both wrong picture choices,four wrong assemblies,incomplete-word removal/reload,everyday errors,applications and all explanation/transfer steps were inspected. Widened picture diagrams keepgreenhouse intact;new browser checks reject split English model words. Full indefinite replay confirms spaced phrases and accepted alternatives;no extra review credit. Grades7–9;reserved005–008 unexposed;zero independent records. Main1,893,637 bytes under unchanged1,900,000 budget.
+All fourteen models,narrow-phone figures,wrong assemblies,incomplete-word persistence,spelling and polarity repairs,applications and all explanation/transfer steps were inspected. Word-part workshops omit the repeated exam-introduction card;generic phrase ARIA now says expression. Final labels identify actual base words and adjective formation clearly. Grades8–9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint38 records the new flow/36 widths and current core,teaching,grammar,course,package,
+Checkpoint39 records the new flow/42 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The38 reviewed lessons cumulatively contain351 conditions/1053 widths;
+recorded explicitly. The39 reviewed lessons cumulatively contain365 conditions/1095 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-derivation. A twelve-task derivation draft with actual word parts remains outside course files. It separates sentence roles and polarity,repairs happy/happiness and swim/swimmer,and shows friendly is an adjective despite-ly. Reuse the existing original assets and word controls. Only6,363 bytes remain in the current main safety budget;future artwork needs a packaging strategy rather than a raised limit.
+Next:l-g-conversion. Twelve conversion tasks are drafted outside course files. Six word pairs distinguish noun/verb or adjective/verb uses from actual sentence cues and meanings. Require a correct role selection plus a correct word form;reuse the empty/one-ball picture for empty as state versus action. Add explicit unselected-record/outcome labels so the role activity uses accurate Chinese. Inspect every task before credit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

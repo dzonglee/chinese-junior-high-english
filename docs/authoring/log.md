@@ -1145,3 +1145,16 @@ Current new lesson flow:12 conditions/36 task-width checks,reload and zero indep
 Cumulative351 conditions/1053 widths;earlier flows retain scope. Hashes:checkpoint-38.*.
 Next:l-g-derivation. A twelve-task derivation draft with actual word parts remains outside course files. It separates sentence roles and polarity,repairs happy/happiness and swim/swimmer,and shows friendly is an adjective despite-ly. Reuse the existing original assets and word controls. Only6,363 bytes remain in the current main safety budget;future artwork needs a packaging strategy rather than a raised limit. Overall claim continues solo;375 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-derivation individually reviewed
+
+39/413 reviewed. Fourteen actual word-part puzzles connect sentence roles and polarity to conventional prefixes/suffixes,repair happiness/swimmer/believable,and distinguish friendly from an adverb. The added-able and in- tasks broaden pattern coverage.
+
+All fourteen models,narrow-phone figures,wrong assemblies,incomplete-word persistence,spelling and polarity repairs,applications and all explanation/transfer steps were inspected. Word-part workshops omit the repeated exam-introduction card;generic phrase ARIA now says expression. Final labels identify actual base words and adjective formation clearly. Grades8–9;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:14 conditions/42 task-width checks,reload and zero independent records. 1,478 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 packed topic hashes. These are not native GUI evidence. Core scope:1478 tests/14 files passed before the final part-description wording edits. Final compiler/typecheck/teaching/grammar/static-package,complete browser,native-adapter,offline and archive checks cover those edits.
+
+Cumulative365 conditions/1095 widths;earlier flows retain scope. Hashes:checkpoint-39.*.
+Next:l-g-conversion. Twelve conversion tasks are drafted outside course files. Six word pairs distinguish noun/verb or adjective/verb uses from actual sentence cues and meanings. Require a correct role selection plus a correct word form;reuse the empty/one-ball picture for empty as state versus action. Add explicit unselected-record/outcome labels so the role activity uses accurate Chinese. Inspect every task before credit. Overall claim continues solo;374 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.
