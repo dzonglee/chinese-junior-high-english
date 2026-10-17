@@ -891,3 +891,19 @@ flow/24 widths,reload and zero assessment records pass. Current1,466 core/14 fil
 exact-source comparison pass. Aggregate161 conditions/483 widths; older flows retain scope.
 Hashes:checkpoint-20.json. Next questions/tags; explicit draft prepared outside course files.
 Unit claimed/unfinished;393 pending. Native GUI blocked; no upload or release.
+
+
+## 2026-10-18 (Sydney) · codex-solo · questions and tags individually reviewed
+
+l-g-questions is reviewed:21/413. Eleven tasks distinguish quantities, use an actual walking-day
+calendar,select the plural reference and construct tags from auxiliaries/polarity/special forms.
+Negative-tag replies follow the supplied fact. Initial/all models/errors/repairs/20-minute transfer
+inspected. Corrected orphan tag punctuation and nested browser span styling; added safe edition
+conversion for kilometer/kilometre without changing device meter. New regressions cover actual
+dates,negative answers and spelling. Full flow/33 widths,reload and zero assessment records pass.
+Current1,469 core/14 files,typecheck,826 teaching-spelling,package,object flow after shared changes,
+both adapter simulations,8 offline checks and refreshed ZIP CRC/exact-source comparison pass.
+Aggregate172 conditions/516 widths; older flows retain scope. Hashes:checkpoint-21.json. Next
+agreement; explicit draft prepared outside course files. Count-record audit found existing noun
+bread on @attempt with static3 slices; preserve it while fixing selected @record count projection.
+Unit remains claimed/unfinished;392 pending. Native GUI blocked; no upload or release.

@@ -1,3 +1,4 @@
+import {editionText} from './core/spelling'
 import {workshopExpressionActions} from '../scripts/lib/workshop-test-actions.mjs'
 import {it,expect} from 'vitest'
 import {authorCatalog} from '../scripts/lib/author-content.mjs'
@@ -175,4 +176,24 @@ it('requires the actual relative antecedent and does not invent a speaker in a s
 it('accepts object-relative omission and stranded-preposition variants while rejecting a duplicated object or missing preposition',()=>{
  const s=studio('l-g-relatives'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
  for(const[i,good,bad]of [[2,['which I borrowed','that I borrowed','I borrowed'],'which I borrowed it'],[4,['where we meet','in which we meet','which we meet in','that we meet in','we meet in'],'which we meet']]as const){p=changeTeaching(s,p,'workshop-item',String(i),2);for(const answer of good){for(const[a,v]of workshopExpressionActions(w.conditions![i],answer))p=changeTeaching(s,p,'workshop-'+a,v,3);p=changeTeaching(s,p,'workshop-check','',4);expect(workshopView(w,p).complete).toBe(true)}for(const[a,v]of workshopExpressionActions(w.conditions![i],bad))p=changeTeaching(s,p,'workshop-'+a,v,5);p=changeTeaching(s,p,'workshop-check','',6);expect(workshopView(w,p).complete).toBe(false)}
+})
+
+
+it('requires the actual walking days rather than accepting any three dates as frequency evidence',()=>{
+ const s=studio('l-g-questions'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-choose','How often',2)
+ for(const id of ['mon','tue','fri'])p=changeTeaching(s,p,'workshop-member',id,3);p=changeTeaching(s,p,'workshop-check','',4);let v=workshopView(w,p);expect(v.membersCorrect).toBe(false);expect(v.cells.find(c=>c.id==='tue')!.wrong).toBe(true);expect(v.expressionWrong).toBe(false)
+ p=changeTeaching(s,p,'workshop-member','tue',5);p=changeTeaching(s,p,'workshop-member','wed',6);p=changeTeaching(s,p,'workshop-check','',7);v=workshopView(w,p);expect(v.complete).toBe(true);expect(v.cells.filter(c=>c.selected).map(c=>c.id)).toEqual(['mon','wed','fri'])
+})
+it('answers a negative tag from the supplied positive fact and rejects a grammatical answer that contradicts it',()=>{
+ const s=studio('l-g-questions'),w=s.mission!.workshop!,i=w.conditions!.length-1;let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-item',String(i),2);p=changeTeaching(s,p,'workshop-record','likes',3)
+ p=changeTeaching(s,p,'workshop-choose',w.conditions![i].choices!.find(c=>c.startsWith('No,'))!,4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-choose','Yes, she does',6);p=changeTeaching(s,p,'workshop-check','',7);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-record','dislikes',8);p=changeTeaching(s,p,'workshop-check','',9);expect(workshopView(w,p).expressionWrong).toBe(false);expect(workshopView(w,p).complete).toBe(false)
+})
+
+
+it('uses edition-specific distance units without turning a measuring-device meter into a length unit',()=>{
+ expect(editionText('One kilometre; two kilometres; the parking meter.','american')).toBe('One kilometer; two kilometers; the parking meter.')
+ expect(editionText('One kilometer; two kilometers; the parking meter.','british')).toBe('One kilometre; two kilometres; the parking meter.')
+ const l=c.lessons.find(l=>l.id==='l-g-questions')!;for(const spelling of ['american','british']as const){const s=createLessonTeaching(c,l,spelling),text=s.mission!.workshop!.conditions![2].after;expect(text).toContain(spelling==='american'?'kilometer':'kilometre');expect(text).not.toContain(spelling==='american'?'kilometre':'kilometer')}
 })

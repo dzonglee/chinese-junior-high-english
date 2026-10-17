@@ -3,8 +3,8 @@
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
 The owner requires every lesson to be redesigned separately, with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **20/413** are
-individually reviewed;393 remain pending. Work stays solo. The tracker links each authored task,
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **21/413** are
+individually reviewed;392 remain pending. Work stays solo. The tracker links each authored task,
 inspected figure, wrong-path repair, fresh transfer and actual control result. Shared coverage is
 a functional baseline, never an individual review or a claim of all-course parity.
 
@@ -15,7 +15,7 @@ optional-that, object-relative omission and locative/preposition variants are ac
 completion and incomplete repairs survive reload. New ordering transfers now explain the empty
 answer area. All initial/model/error/recovery/alternative/transfer figures were inspected.
 
-Aggregate individual evidence:161 conditions/483 widths. Current checks:1,466 core/14 files,
+Aggregate individual evidence:172 conditions/516 widths. Current checks:1,466 core/14 files,
 typecheck,826 teaching/spelling,static package,new full relative flow/24 widths,object flow after
 the shared changes,both native-adapter simulations,8 offline checks,and refreshed ZIP CRC/exact
 source comparison. Older full browser flows retain checkpoint17 scope; checkpoint18/19 preserve
@@ -28,9 +28,20 @@ wrong premises, repairs and fresh poster transfer inspected. Current1,466 core/1
 826 teaching-spelling,package,new full flow/24 widths,both adapter simulations,8 offline checks and
 refreshed ZIP CRC/exact-source comparison pass. New bounded hashes are in checkpoint-20.json.
 
-Next: l-g-questions. An explicit draft is prepared outside course files: distinguish frequency,
-duration and distance, then identify polarity/auxiliary/reference in tags, common special forms
-and fact-based answers to negative tags. Native
+Latest: questions/tags individually reviewed. Eleven tasks use an actual walking-day calendar,
+distinguish frequency/duration/distance, check polarity/auxiliaries/references and answer a negative
+tag from a supplied positive fact. Initial/models/errors/repairs/fresh20-minute transfer inspected.
+Calendar cells meet44px and remain aligned at three widths. Shared inline wrapping keeps a short
+tag with its question mark. American kilometer(s)/British kilometre(s) now convert correctly,
+without changing device meter. Current1,469 core/14 files,typecheck,826 teaching-spelling,package,
+new full flow/33 widths,object flow after shared changes,both adapter simulations,8 offline checks
+and refreshed ZIP CRC/exact-source comparison pass. Bounded hashes:checkpoint-21.json.
+
+Next: l-g-agreement. Its explicit eight-task draft is prepared outside course files. Select the
+actual grammatical controller, show selected concrete counts, distinguish each/everyone from
+physical population and contrast a/the number and together with/and. Count projection must use
+the selected record value; audit found only the existing noun bread model with records, and its
+count is static on an @attempt cell, so preserve its three slices. Native
 GUI still needs MacStudioExternal project-drive access; the existing native card stays blocked.
 No GUI job, upload or publication occurred. Content remains draft. Approved audio, editorial /
 cohort mapping, devices and production setup remain separate; videos remain deferred.
