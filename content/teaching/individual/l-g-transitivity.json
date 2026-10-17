@@ -1,0 +1,525 @@
+{
+  "lessonId": "l-g-transitivity",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Repair verb-object connections and compare reach/arrive, city/specific destination, adverbial home, direct discuss, listen/look prepositions and explain content-to-recipient; assemble the final structure from actual word tiles. Extend the same connection model to organization membership,waiting for a person,and dependence on a factor,without copying delayed question sentences.",
+  "picturePurpose": "Controlled verb-and-place diagrams add or remove the learner-selected preposition. Later word diagrams and actual tiles explain direct objects,adverbial home and content-to-recipient structure. Exact relations and words are code.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "把动词与对象接起来",
+    "instruction": "有的直接接，有的需要介词；换一个动词，连接方式也可能改变。",
+    "conditions": [
+      {
+        "label": "用 reach 说出到达地点",
+        "before": "We will ",
+        "target": "reach",
+        "after": " the science centre at nine.",
+        "choices": [
+          "reach at",
+          "reach"
+        ],
+        "reason": "reach 表示到达时可直接接地点，写 reach the science centre，不在两者中间插入 at。will 后 reach 保持原形。",
+        "world": {
+          "kind": "logic",
+          "caption": "行程卡：9点到科学中心。先用 reach 陈述这个安排。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "动词 reach",
+              "role": "attempt-result"
+            },
+            {
+              "label": "the science centre",
+              "detail": "地点直接接在 reach 后"
+            }
+          ],
+          "verbBridge": {
+            "verb": "reach",
+            "object": "the science centre",
+            "objectLabel": "地点",
+            "options": [
+              {
+                "expression": "reach at",
+                "link": "at"
+              },
+              {
+                "expression": "reach",
+                "link": ""
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "同一地点，换用 arrive",
+        "before": "We will ",
+        "target": "arrive at",
+        "after": " the science centre at nine.",
+        "choices": [
+          "arrive",
+          "arrive at"
+        ],
+        "reason": "同一个到达安排换用 arrive，接科学中心这一具体地点时用 arrive at；arrive 不能像 reach 一样直接接这个地点名词短语。",
+        "world": {
+          "kind": "logic",
+          "caption": "同一张行程卡，换用 arrive 来说。意思相近，连接地点的方式不同。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "动词与需要的介词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "the science centre",
+              "detail": "at + 具体地点"
+            }
+          ],
+          "verbBridge": {
+            "verb": "arrive",
+            "object": "the science centre",
+            "objectLabel": "地点",
+            "options": [
+              {
+                "expression": "arrive",
+                "link": ""
+              },
+              {
+                "expression": "arrive at",
+                "link": "at"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "到达城市，连接方式怎么变？",
+        "before": "We will ",
+        "target": "arrive in",
+        "after": " Shanghai on Friday.",
+        "choices": [
+          "arrive at",
+          "arrive in"
+        ],
+        "reason": "arrive 接 Shanghai 这样的城市名时通常用 in；科学中心作为具体地点用 at，不代表所有地点都统一用 at。",
+        "world": {
+          "kind": "logic",
+          "caption": "新行程：星期五到上海。用 arrive 描述到达城市。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "arrive + in",
+              "role": "attempt-result"
+            },
+            {
+              "label": "Shanghai",
+              "detail": "in + 城市"
+            }
+          ],
+          "verbBridge": {
+            "verb": "arrive",
+            "object": "Shanghai",
+            "objectLabel": "地点",
+            "options": [
+              {
+                "expression": "arrive at",
+                "link": "at"
+              },
+              {
+                "expression": "arrive in",
+                "link": "in"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "home 在这里是地点副词",
+        "before": "After the activity, we will go ",
+        "target": "home",
+        "after": ".",
+        "choices": [
+          "to home",
+          "home"
+        ],
+        "reason": "go home 中 home 是表示方向或目的地的副词，前面不加 to。不能把 go to school 的 to 机械搬过来。",
+        "world": {
+          "kind": "syntax",
+          "caption": "活动结束后回家，用 go 和 home 组合表达。",
+          "cells": [
+            {
+              "label": "go",
+              "detail": "动词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "地点副词 home，不加 to",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "to home",
+        "inputHint": "句中已有 go，只改后面的表达；想想 home 在这里的作用。"
+      },
+      {
+        "label": "discuss 后直接跟讨论内容",
+        "before": "Let's ",
+        "target": "discuss",
+        "after": " the new poster design.",
+        "choices": [
+          "discuss about",
+          "discuss"
+        ],
+        "reason": "discuss 本身可直接接讨论内容，写 discuss the new poster design，不重复加 about。talk about 是另一种搭配，不能把它的 about 套给 discuss。",
+        "world": {
+          "kind": "syntax",
+          "caption": "讨论卡：一起讨论新海报设计。这次指定用 discuss。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "discuss 直接带内容",
+              "role": "attempt-result"
+            },
+            {
+              "label": "the new poster design",
+              "detail": "讨论的对象"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "discuss about",
+        "inputHint": "用卡片指定的动词修好表达；按句意决定是否需要介词。"
+      },
+      {
+        "label": "listen 带听的对象，需要 to",
+        "before": "Please ",
+        "target": "listen to",
+        "after": " the short announcement.",
+        "choices": [
+          "listen",
+          "listen to"
+        ],
+        "reason": "listen 后接听的对象时用 to，写 listen to the announcement。listen 可以单独用，但不能在这个句子里直接接 announcement。",
+        "world": {
+          "kind": "syntax",
+          "caption": "广播卡：请专心听这则简短通知。用 listen 表达有意识地听。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "listen + to",
+              "role": "attempt-result"
+            },
+            {
+              "label": "the short announcement",
+              "detail": "听的对象"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "listen",
+        "inputHint": "用卡片指定的动词修好表达；按句意决定是否需要介词。"
+      },
+      {
+        "label": "look 带看的对象，需要 at",
+        "before": "Please ",
+        "target": "look at",
+        "after": " the scoreboard.",
+        "choices": [
+          "look",
+          "look at"
+        ],
+        "reason": "look 表示看某个对象时，后面通常用 at 连接。look at the scoreboard 是看记分板；look for 是寻找，不符合当前指令。",
+        "world": {
+          "kind": "syntax",
+          "caption": "观察卡：记分板就在面前，请看它。用 look 表达，不是在寻找它。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "look + at",
+              "role": "attempt-result"
+            },
+            {
+              "label": "the scoreboard",
+              "detail": "看的对象"
+            }
+          ]
+        }
+      },
+      {
+        "label": "补好听众前的介词，再拼出表达",
+        "before": "The guide ",
+        "target": "explained the rules to",
+        "after": " our group.",
+        "choices": [
+          "explained the rules",
+          "explained the rules to"
+        ],
+        "reason": "explain 直接接讲解的内容 the rules，再用 to 连接听众 our group。to 不是接在 rules 前，而是接在听众前。",
+        "world": {
+          "kind": "syntax",
+          "caption": "讲解卡：向导向我们小组解释了规则。原稿漏掉了连接听众的介词，请拼好“解释规则给……”这一段。",
+          "cells": [
+            {
+              "label": "The guide explained the rules our group.",
+              "detail": "原稿少了连接听众的介词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "tiles": [
+          "rules",
+          "about",
+          "explained",
+          "to",
+          "the"
+        ],
+        "inputHint": "先放动词，再放讲解内容，最后给听众留出 to。"
+      },
+      {
+        "label": "成为组织成员，用 join 怎么接？",
+        "before": "Leo hopes to ",
+        "target": "join",
+        "after": " our reading team.",
+        "choices": [
+          "join in",
+          "join"
+        ],
+        "reason": "这里表示成为读书队成员，join 直接接组织 our reading team。join in 常接参加的活动，不能把这个 in 套给这里的组织成员关系。",
+        "world": {
+          "kind": "logic",
+          "caption": "成员登记：Leo 想正式成为读书队的一员。这里说加入组织，不是参加某项临时活动。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你写的动词表达",
+              "role": "attempt-result"
+            },
+            {
+              "label": "our reading team",
+              "detail": "组织"
+            }
+          ],
+          "verbBridge": {
+            "verb": "join",
+            "object": "our reading team",
+            "objectLabel": "组织",
+            "options": [
+              {
+                "expression": "join in",
+                "link": "in"
+              },
+              {
+                "expression": "join",
+                "link": ""
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "等的是一个人，该怎样连接？",
+        "before": "Please ",
+        "target": "wait for",
+        "after": " Mia near the gate.",
+        "choices": [
+          "wait",
+          "wait for"
+        ],
+        "reason": "wait 表示等待某个人时，用 for 连接对象，写 wait for Mia。wait 可以单独用，但不能在这个意思下直接接 Mia。",
+        "world": {
+          "kind": "logic",
+          "caption": "等待卡：请在门口附近等 Mia。指定用 wait 表达，Mia 是等待的对象。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你写的动词表达",
+              "role": "attempt-result"
+            },
+            {
+              "label": "Mia",
+              "detail": "等的人"
+            }
+          ],
+          "verbBridge": {
+            "verb": "wait",
+            "object": "Mia",
+            "objectLabel": "等的人",
+            "options": [
+              {
+                "expression": "wait",
+                "link": ""
+              },
+              {
+                "expression": "wait for",
+                "link": "for"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "表示取决于，后面怎样连接？",
+        "before": "The cost ",
+        "target": "depends on",
+        "after": " the group size.",
+        "choices": [
+          "depends",
+          "depends on"
+        ],
+        "reason": "表示取决于某个因素时，用 depend on。主语 the cost 是单数，写 depends on the group size，不能只写 depends 后直接接这个因素。",
+        "world": {
+          "kind": "logic",
+          "caption": "计费卡：费用由队伍的人数决定。用 depend 表示取决于，主语 the cost 按单数处理。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你写的动词表达",
+              "role": "attempt-result"
+            },
+            {
+              "label": "the group size",
+              "detail": "依据"
+            }
+          ],
+          "verbBridge": {
+            "verb": "depends",
+            "object": "the group size",
+            "objectLabel": "依据",
+            "options": [
+              {
+                "expression": "depends",
+                "link": ""
+              },
+              {
+                "expression": "depends on",
+                "link": "on"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "choices": [
+      "reach at",
+      "reach",
+      "arrive",
+      "arrive at",
+      "arrive in",
+      "to home",
+      "home",
+      "discuss about",
+      "discuss",
+      "listen",
+      "listen to",
+      "look",
+      "look at",
+      "explained the rules",
+      "explained the rules to",
+      "join in",
+      "join",
+      "wait",
+      "wait for",
+      "depends",
+      "depends on"
+    ],
+    "items": [
+      {
+        "id": "verb-object-path",
+        "label": "动词与对象",
+        "prompt": "修好动词到对象的连接。",
+        "answer": "",
+        "reason": "",
+        "hint": "按指定动词与具体意思判断，不机械套中文。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-transitivity-002",
+      "q-g-transitivity-003"
+    ],
+    "transfer": {
+      "id": "individual-g-transitivity-transfer",
+      "topicId": "g-transitivity",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "同学们讨论了路线，随后认真听向导介绍。两空依次填什么？\nWe ___ the route before lunch. Then we ___ the guide carefully.",
+      "options": [
+        {
+          "id": "a",
+          "text": "discussed; listened to"
+        },
+        {
+          "id": "b",
+          "text": "discussed about; listened to"
+        },
+        {
+          "id": "c",
+          "text": "discussed; listened"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "discussed; listened to"
+      },
+      "marks": 2,
+      "estimatedSeconds": 80,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别检查两个动词怎样接它后面的对象，不能按中文“讨论、听”都有对象就统一省掉或加上介词。",
+        "steps": [
+          {
+            "text": "discussed 后面直接接讨论内容 the route。",
+            "reason": "discuss 本身可直接带宾语，不重复加 about。"
+          },
+          {
+            "text": "listened 后面用 to 连接听的对象 the guide。",
+            "reason": "listen to somebody 是这里的结构，不能把 to 删掉。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "discussed 已可直接带 the route，about 多余。"
+          },
+          {
+            "option": "c",
+            "reason": "listen 带 the guide 这个对象时需要 to。"
+          }
+        ],
+        "pitfall": "动词与介词按具体搭配判断；不是所有动词都要桥，也不是所有动词都能直接接对象。",
+        "visual": {
+          "kind": "sentence",
+          "title": "两种连接方式",
+          "segments": [
+            {
+              "text": "discussed → the route",
+              "role": "verb",
+              "note": "直接接讨论内容"
+            },
+            {
+              "text": "listened → to → the guide",
+              "role": "evidence",
+              "note": "to 连接听的对象"
+            }
+          ],
+          "caption": "先认动词，再决定对象怎样接上。"
+        },
+        "transfer": "把 discussed 换成 talked 时，the route 前面要补哪个介词？"
+      }
+    }
+  }
+}

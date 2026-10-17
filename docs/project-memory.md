@@ -2,20 +2,23 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-25 of413 lessons are individually reviewed;388 remain pending. Every lesson needs bespoke tasks,
+26 of413 lessons are individually reviewed;387 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-verb-forms. Ten tasks choose verb forms from actual auxiliaries and time clues. Students select the current writing scene, distinguish wrote/written, repair makeing/stoped and transfer the method to break/broken. Cue-to-form diagrams show their attempt. Answer giveaways and an ambiguous past/current postcard reference were corrected during visual review.
+Latest:l-g-transitivity. Eleven tasks visibly add or remove the actual preposition. They cover reach/arrive,direct discuss,listen/look,home,explain-to,join,wait-for and depend-on. Actual word tiles repair a missing connection. Unknown expressions never get a fabricated parse. Neutral initial prompts allow a first attempt before feedback.
 
-All models,wrong picture,typed errors,spelling repairs,application explanations and both transfer steps inspected. Explicit facts:two completed postcards,two bus journeys this week,three filed cards. Grades7–9 covered;reserved005–008 unexposed. No independent attempts,mastery or lesson-pass record.
+All models,initial state,six wrong paths,typed errors,tile assembly,applications and both transfer steps inspected. Six actual320-pixel diagram captures were checked. The bounds check now measures text instead of intentional connector strokes;an actual depends overflow was repaired with a wider node. Text must fit each node and verbs stay whole. Grades8–9 covered;reserved005–008 unexposed. No independent assessment record is created.
 
-Checkpoint25 records the new flow/30 widths and current core,teaching,grammar,course,package,
+Checkpoint26 records the new flow/33 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The25 reviewed lessons cumulatively contain208 conditions/624 widths;
+recorded explicitly. The26 reviewed lessons cumulatively contain219 conditions/657 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-transitivity. The transitivity draft remains outside course files. It contrasts reach/arrive,city versus specific destination,adverbial home,direct discuss,listen/look with prepositions,and explain content to a recipient. The final task uses real word tiles. Its source diagram was corrected to display the actual wrong original,not a literal placeholder. Compile and inspect before review credit.
+Next:l-g-linking-verbs. A nine-task linking-verb draft and original blanket-touch artwork remain outside course files. The raw image and600/512-pixel deliveries were inspected;the512-pixel trial is18,786 bytes. Use it to contrast the blanket's soft state with the student's careful touching action. The draft also distinguishes friendly,healthy well,good,and look versus look-at. Preserve the1,900,000-byte main-package budget;current headroom is about20KB,so inspect the final delivery after integration. No review credit yet.
+
+Prepared files: /tmp/l-g-linking-verbs.json and /tmp/blanket-touch-512.jpg. Original art:
+/workspace/generated_images/exec-5fd49769-7917-4707-bf89-0ec61ffbb667.png.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

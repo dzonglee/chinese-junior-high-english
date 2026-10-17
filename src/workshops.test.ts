@@ -241,3 +241,17 @@ it('changes the actual album allocation and requires it to match joint versus se
  p=changeTeaching(s,p,'workshop-record','separate',12);p=changeTeaching(s,p,'workshop-check','',13);expect(workshopView(w,restoreTeaching(s,p,14)).albumItems).toHaveLength(2);expect(workshopView(w,p).complete).toBe(true)
  const bad=structuredClone(w);bad.conditions![4].world.albums!.separateId='missing';expect(workshopProblems(bad)).toContain('Invalid album ownership')
 })
+
+
+it('draws the selected preposition explicitly and never treats an unknown expression as a parsed connection',()=>{
+ const s=studio('l-g-transitivity'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};expect(workshopView(w,p).verbBridge!.known).toBe(false)
+ p.answers['workshop-0']='unrecognised phrase';expect(workshopView(w,p).verbBridge!.known).toBe(false)
+ p=changeTeaching(s,p,'workshop-choose','reach at',2);p=changeTeaching(s,p,'workshop-check','',3);let v=workshopView(w,p);expect(v.verbBridge!.link).toBe('at');expect(v.expressionWrong).toBe(true);expect(v.complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-choose','reach',4);p=changeTeaching(s,p,'workshop-check','',5);v=workshopView(w,p);expect(v.verbBridge!.known).toBe(true);expect(v.verbBridge!.link).toBe('');expect(v.complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-item','1',6);p=changeTeaching(s,p,'workshop-choose','arrive',7);p=changeTeaching(s,p,'workshop-check','',8);expect(workshopView(w,p).complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-choose','arrive at',9);p=changeTeaching(s,p,'workshop-check','',10);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-item','2',11);p=changeTeaching(s,p,'workshop-choose','arrive at',12);p=changeTeaching(s,p,'workshop-check','',13);v=workshopView(w,p);expect(v.verbBridge!.object).toBe('Shanghai');expect(v.complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-choose','arrive in',14);p=changeTeaching(s,p,'workshop-check','',15);expect(workshopView(w,p).complete).toBe(true)
+ const bad=structuredClone(w);bad.conditions![0].world.verbBridge!.options[0].link='in';expect(workshopProblems(bad)).toContain('Invalid verb bridge')
+ const l=c.lessons.find(l=>l.id==='l-g-transitivity')!;expect(createLessonTeaching(c,l,'american').mission!.workshop!.conditions![0].world.verbBridge!.object).toBe('the science center')
+})

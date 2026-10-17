@@ -976,3 +976,16 @@ Current new lesson flow:10 conditions/30 task-width checks,reload and zero indep
 Cumulative208 conditions/624 widths;earlier flows retain scope. Hashes:checkpoint-25.*.
 Next:l-g-transitivity. The transitivity draft remains outside course files. It contrasts reach/arrive,city versus specific destination,adverbial home,direct discuss,listen/look with prepositions,and explain content to a recipient. The final task uses real word tiles. Its source diagram was corrected to display the actual wrong original,not a literal placeholder. Compile and inspect before review credit. Overall claim continues solo;388 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-transitivity individually reviewed
+
+26/413 reviewed. Eleven tasks visibly add or remove the actual preposition. They cover reach/arrive,direct discuss,listen/look,home,explain-to,join,wait-for and depend-on. Actual word tiles repair a missing connection. Unknown expressions never get a fabricated parse. Neutral initial prompts allow a first attempt before feedback.
+
+All models,initial state,six wrong paths,typed errors,tile assembly,applications and both transfer steps inspected. Six actual320-pixel diagram captures were checked. The bounds check now measures text instead of intentional connector strokes;an actual depends overflow was repaired with a wider node. Text must fit each node and verbs stay whole. Grades8–9 covered;reserved005–008 unexposed. No independent assessment record is created.
+
+Current new lesson flow:11 conditions/33 task-width checks,reload and zero independent records. 1,474 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development and cloud simulations passed,including all245 packed topic hashes. Static checks and adapter simulations do not establish native GUI validation.
+
+Cumulative219 conditions/657 widths;earlier flows retain scope. Hashes:checkpoint-26.*.
+Next:l-g-linking-verbs. A nine-task linking-verb draft and original blanket-touch artwork remain outside course files. The raw image and600/512-pixel deliveries were inspected;the512-pixel trial is18,786 bytes. Use it to contrast the blanket's soft state with the student's careful touching action. The draft also distinguishes friendly,healthy well,good,and look versus look-at. Preserve the1,900,000-byte main-package budget;current headroom is about20KB,so inspect the final delivery after integration. No review credit yet. Overall claim continues solo;387 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.
