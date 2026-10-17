@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **21 / 413**. Current: **l-g-agreement**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **22 / 413**. Current: **l-g-proper-nouns**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ Completed: **21 / 413**. Current: **l-g-agreement**. Evidence lives in docs/revi
 | l-g-relatives | 定语从句，先找修饰对象 | reviewed | [Individual review](../reviews/individual-lessons/l-g-relatives.md) |
 | l-g-conjunctions | 连词：看清两句的关系 | reviewed | [Individual review](../reviews/individual-lessons/l-g-conjunctions.md) |
 | l-g-questions | 提问与反意疑问句 | reviewed | [Individual review](../reviews/individual-lessons/l-g-questions.md) |
-| l-g-agreement | 真正的主语决定动词 | pending | — |
+| l-g-agreement | 真正的主语决定动词 | reviewed | [Individual review](../reviews/individual-lessons/l-g-agreement.md) |
 | l-g-proper-nouns | 专有名词与大小写 | pending | — |
 | l-g-possessives | 名词所有格：是谁的 | pending | — |
 | l-g-verb-forms | 动词原形、过去式与分词 | pending | — |

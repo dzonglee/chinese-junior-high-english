@@ -31,6 +31,7 @@ try{
    const scope=condition.world.selection
    if(scope){if(i===0){await expression(condition.target);await act('workshop-check');await expect(page.locator('.workshop-saved')).toHaveCount(0);const bad=condition.world.cells.find(c=>!scope.ids.includes(c.id));if(bad){await act('workshop-member',bad.id);await act('workshop-check');await expect(page.locator('.wrong-member')).toBeVisible();await capture('wrong-group');await act('workshop-member',bad.id)}}for(const id of scope.ids)await act('workshop-member',id)}
    const records=condition.world.records
+   if(i===0&&records)await capture('records-start');
    if(records){
     if(records.artChoices)expect(await page.locator('.art-panel-button').count()).toBe(records.artChoices.length)
     if(records.asset)await expect.poll(()=>page.locator('.event-art').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true)

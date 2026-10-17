@@ -197,3 +197,12 @@ it('uses edition-specific distance units without turning a measuring-device mete
  expect(editionText('One kilometer; two kilometers; the parking meter.','british')).toBe('One kilometre; two kilometres; the parking meter.')
  const l=c.lessons.find(l=>l.id==='l-g-questions')!;for(const spelling of ['american','british']as const){const s=createLessonTeaching(c,l,spelling),text=s.mission!.workshop!.conditions![2].after;expect(text).toContain(spelling==='american'?'kilometer':'kilometre');expect(text).not.toContain(spelling==='american'?'kilometre':'kilometer')}
 })
+
+
+it('projects the selected concrete controller count while preserving a static counted-noun figure',()=>{
+ const s=studio('l-g-agreement'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};expect(workshopView(w,p).cells[0].copies).toHaveLength(0)
+ p=changeTeaching(s,p,'workshop-choose','is',2);p=changeTeaching(s,p,'workshop-record','boxes',3);p=changeTeaching(s,p,'workshop-check','',4);let v=workshopView(w,p);expect(v.cells[0].copies).toHaveLength(3);expect(v.cells[0].label).toBe('boxes');expect(v.expressionWrong).toBe(false);expect(v.complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-record','key',5);p=changeTeaching(s,p,'workshop-check','',6);v=workshopView(w,p);expect(v.cells[0].copies).toHaveLength(1);expect(v.complete).toBe(true)
+ const bad=structuredClone(w);bad.conditions![0].world.records!.options[0].value=9;expect(workshopProblems(bad)).toContain('Invalid event records')
+ const noun=studio('l-g-nouns'),nw=noun.mission!.workshop!;let np={...freshTeaching(noun,1),step:1};np=changeTeaching(noun,np,'workshop-item','8',2);np=changeTeaching(noun,np,'workshop-record','food',3);expect(workshopView(nw,np).cells[0].copies).toHaveLength(3);np=changeTeaching(noun,np,'workshop-record','plural',4);expect(workshopView(nw,np).cells[0].copies).toHaveLength(3)
+})

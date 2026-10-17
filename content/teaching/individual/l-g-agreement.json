@@ -1,0 +1,432 @@
+{
+  "lessonId": "l-g-agreement",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Select the grammatical controller across proximity traps, distributed quantifiers, a/the number and together-with versus and; make the selected count change visibly without confusing grammatical singularity with actual population.",
+  "picturePurpose": "Deterministic counters show the learner-selected concrete controller count. Each/everyone and the abstract number use word diagrams instead of falsely depicting one physical person. No generated count is trusted.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "圈准主语中心，再让动词跟着变",
+    "instruction": "区分补充短语和并列主语；圆点显示你选中部分的数量。",
+    "conditions": [
+      {
+        "label": "一把钥匙，别被三个箱子带偏",
+        "before": "The key to the boxes ",
+        "target": "is",
+        "after": " on the shelf now.",
+        "choices": [
+          "are",
+          "is",
+          "were"
+        ],
+        "reason": "主语中心是单数 key，to the boxes 说明这把钥匙与哪些箱子有关，不改变 key 的单数，所以现在时用 is。",
+        "world": {
+          "kind": "count",
+          "caption": "本例一把钥匙对应三个箱子。图里的圆点表示你选中的主语中心的数量，不是让你数离空格最近的物品。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语中心",
+              "art": "unit",
+              "value": 0
+            },
+            {
+              "label": "@attempt",
+              "detail": "对应的谓语",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "决定谓语的是哪个名词？",
+            "missingPrompt": "先找决定谓语的主语中心，再核对动词。",
+            "answer": "key",
+            "options": [
+              {
+                "id": "key",
+                "label": "key",
+                "text": "一把钥匙",
+                "reason": "决定谓语的是 key，不是 to 后的 boxes。",
+                "value": 1
+              },
+              {
+                "id": "boxes",
+                "label": "boxes",
+                "text": "三个箱子",
+                "reason": "boxes 在 to 短语里，不是主语中心；回到 key。",
+                "value": 3
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "反过来，三把钥匙配一个箱子",
+        "before": "The keys to this box ",
+        "target": "are",
+        "after": " on the shelf now.",
+        "choices": [
+          "is",
+          "are",
+          "was"
+        ],
+        "reason": "这次中心词变成复数 keys，to this box 仍是补充说明，box 的单数不能把谓语带成 is。",
+        "world": {
+          "kind": "count",
+          "caption": "这次有三把钥匙、一个箱子。不要背“见到 box 就选单数”，要找主语中心。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语中心",
+              "art": "unit",
+              "value": 0
+            },
+            {
+              "label": "@attempt",
+              "detail": "对应的谓语",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "这次哪个名词决定谓语？",
+            "missingPrompt": "先找决定谓语的主语中心，再核对动词。",
+            "answer": "keys",
+            "options": [
+              {
+                "id": "keys",
+                "label": "keys",
+                "text": "三把钥匙",
+                "reason": "主语中心是 keys，谓语用复数 are。",
+                "value": 3
+              },
+              {
+                "id": "box",
+                "label": "box",
+                "text": "一个箱子",
+                "reason": "box 在 to 短语里，不能代替主语中心 keys。",
+                "value": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "each 指逐个看，形式用单数",
+        "before": "Each of the three players ",
+        "target": "has",
+        "after": " a numbered card.",
+        "choices": [
+          "have",
+          "has",
+          "having"
+        ],
+        "reason": "Each of… 把成员逐个看，语法上按单数处理，所以用 has。players 虽然是复数，也不把谓语改成 have。",
+        "world": {
+          "kind": "logic",
+          "caption": "三位队员人人都有卡片，但 Each 强调逐个看，不能把语法单数误读成只有一位队员。",
+          "cells": [
+            {
+              "label": "Each",
+              "detail": "逐个看，按单数处理"
+            },
+            {
+              "label": "@attempt",
+              "detail": "完整谓语",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "everyone 指所有人，也按单数处理",
+        "before": "Everyone in these two groups ",
+        "target": "is",
+        "after": " ready for the task.",
+        "choices": [
+          "are",
+          "is",
+          "be"
+        ],
+        "reason": "Everyone 涵盖所有人，但作主语时按单数处理。in these two groups 只是说明范围，现在时用 is。",
+        "world": {
+          "kind": "logic",
+          "caption": "两组里所有人都准备好了。区分实际有很多人，和 Everyone 的语法形式。",
+          "cells": [
+            {
+              "label": "Everyone",
+              "detail": "实际指所有人，语法上按单数"
+            },
+            {
+              "label": "@attempt",
+              "detail": "现在时的谓语",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "a number of：说的是一些人",
+        "before": "A number of visitors ",
+        "target": "are",
+        "after": " helping in the garden.",
+        "choices": [
+          "is",
+          "are",
+          "was"
+        ],
+        "reason": "a number of 表示一些、好些，指向复数 visitors；现在进行时用 are helping。这里不是在给人数这个数字作说明。",
+        "world": {
+          "kind": "count",
+          "caption": "本例有三位游客在花园帮忙。a number of visitors 说的是这些人。",
+          "cells": [
+            {
+              "label": "visitors",
+              "detail": "一些游客，本例3位",
+              "value": 3,
+              "art": "unit"
+            },
+            {
+              "label": "@attempt",
+              "detail": "与复数 visitors 一致",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ]
+        }
+      },
+      {
+        "label": "the number of：说的是人数这个量",
+        "before": "The number of visitors ",
+        "target": "is",
+        "after": " increasing.",
+        "choices": [
+          "are",
+          "is",
+          "were"
+        ],
+        "reason": "the number of visitors 的中心是单数 number，表示人数这个量，所以用 is increasing。不是 visitors 在这个空格里决定谓语。",
+        "world": {
+          "kind": "logic",
+          "caption": "当前人数是3，之后还在增加。这句话说人数的变化，不是说三位游客正在做什么。",
+          "cells": [
+            {
+              "label": "the number = 3",
+              "detail": "人数这个量"
+            },
+            {
+              "label": "@attempt",
+              "detail": "与 number 一致",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "together with 不是 and",
+        "before": "The coach, together with two players, ",
+        "target": "is",
+        "after": " looking at the plan.",
+        "choices": [
+          "are",
+          "is",
+          "be"
+        ],
+        "reason": "主语中心是单数 The coach。两位队员也参与，但 together with 后面的内容不把主语变成复数，所以用 is。",
+        "world": {
+          "kind": "count",
+          "caption": "一位教练和两位队员都在看计划；语法上这句从 the coach 说起，插入的 together with 短语不改变它的数。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语中心",
+              "art": "unit",
+              "value": 0
+            },
+            {
+              "label": "@attempt",
+              "detail": "对应的谓语",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "圈出决定谓语的主语中心。",
+            "missingPrompt": "先找决定谓语的主语中心，再核对动词。",
+            "answer": "coach",
+            "options": [
+              {
+                "id": "coach",
+                "label": "the coach",
+                "text": "中心词：一位教练",
+                "reason": "主语中心是 coach，together with 部分是补充。",
+                "value": 1
+              },
+              {
+                "id": "all",
+                "label": "coach + players",
+                "text": "总共三人",
+                "reason": "参与者总数是三人，但这句的语法主语中心仍是 coach。",
+                "value": 3
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "换成 and，主语也真的合并",
+        "before": "The coach and two players ",
+        "target": "are",
+        "after": " looking at the plan.",
+        "choices": [
+          "is",
+          "are",
+          "was"
+        ],
+        "reason": "and 把教练和两位队员并列为主语，1+2共三人，用 are。不要把上一句 together with 的 is 机械搬过来。",
+        "world": {
+          "kind": "count",
+          "caption": "还是同样三个人，这次把连接方式改成 and。主语包含哪些人也要跟着改。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语中心",
+              "art": "unit",
+              "value": 0
+            },
+            {
+              "label": "@attempt",
+              "detail": "对应的谓语",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "这次 and 合并了哪些人？",
+            "missingPrompt": "先找决定谓语的主语中心，再核对动词。",
+            "answer": "all",
+            "options": [
+              {
+                "id": "all",
+                "label": "coach and players",
+                "text": "1位教练 + 2位队员",
+                "reason": "并列主语共有三人，用复数 are。",
+                "value": 3
+              },
+              {
+                "id": "coach",
+                "label": "the coach",
+                "text": "只算一位教练",
+                "reason": "and 已把队员并列进主语，不能只留下 coach。",
+                "value": 1
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "choices": [
+      "are",
+      "is",
+      "were",
+      "was",
+      "have",
+      "has",
+      "having",
+      "be"
+    ],
+    "items": [
+      {
+        "id": "agreement-controller",
+        "label": "主语与数",
+        "prompt": "谁真的决定动词？",
+        "answer": "",
+        "reason": "",
+        "hint": "很多人、很多物，不等于句子的主语形式一定是复数。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-agreement-002",
+      "q-g-agreement-003"
+    ],
+    "transfer": {
+      "id": "individual-g-agreement-transfer",
+      "topicId": "g-agreement",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "两张票的总价作为一个金额写在卡片上；Mia 和 Leo 两人准备付款。两空依次填什么？\nThe total price of these two tickets ___ written on the card. Mia and Leo ___ ready to pay.",
+      "options": [
+        {
+          "id": "a",
+          "text": "is; are"
+        },
+        {
+          "id": "b",
+          "text": "are; are"
+        },
+        {
+          "id": "c",
+          "text": "is; is"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "is; are"
+      },
+      "marks": 2,
+      "estimatedSeconds": 80,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "每句话各自圈出主语中心，不按离空格最近的名词猜单复数。",
+        "steps": [
+          {
+            "text": "第一句中心词是单数 total price，of these two tickets 只是说明总价属于哪两张票。",
+            "reason": "总价作为一个金额，用 is written，不跟复数 tickets 走。"
+          },
+          {
+            "text": "第二句 Mia and Leo 是由 and 并列的两人。",
+            "reason": "并列主语用 are ready，不能只看最后一个人名 Leo。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一句的主语中心是 price，不是 tickets，因此用 is。"
+          },
+          {
+            "option": "c",
+            "reason": "第二句把两人并列成主语，要用 are，不是 is。"
+          }
+        ],
+        "pitfall": "有 of/with 时找中心，有 and 时看是否真的并列；人数和语法主语的形式不能混为一谈。",
+        "visual": {
+          "kind": "sentence",
+          "title": "两种主语，各自配谓语",
+          "segments": [
+            {
+              "text": "the total price → is written",
+              "role": "subject",
+              "note": "一个总价，中心词 price"
+            },
+            {
+              "text": "Mia and Leo → are ready",
+              "role": "verb",
+              "note": "并列的两人"
+            }
+          ],
+          "caption": "先确定主语的范围和中心，再检查动词。"
+        },
+        "transfer": "如果第二句改为 Mia, together with Leo，按主语中心词应怎样选 be？"
+      }
+    }
+  }
+}

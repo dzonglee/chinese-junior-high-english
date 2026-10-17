@@ -907,3 +907,19 @@ Aggregate172 conditions/516 widths; older flows retain scope. Hashes:checkpoint-
 agreement; explicit draft prepared outside course files. Count-record audit found existing noun
 bread on @attempt with static3 slices; preserve it while fixing selected @record count projection.
 Unit remains claimed/unfinished;392 pending. Native GUI blocked; no upload or release.
+
+
+## 2026-10-18 (Sydney) · codex-solo · agreement and coherent22-lesson checkpoint
+
+l-g-agreement is reviewed:22/413. Eight tasks select controller/count,distinguish each/everyone /
+a-the number and together-with/and. All initial/models/wrong-head counts/repairs/fresh transfer
+inspected. Projected concrete counts now drive actual counters; timeline bounds remain separate.
+Existing noun bread stays3 slices. Counts beyond exact renderer capacity are rejected.
+
+Coherent checks pass:all22 full flows/180 conditions/540 widths,reload/zero independent records,
+1,470 core/14 files,typecheck,826 teaching-spelling,7 grammar constraints,course/package,both
+adapter simulations,8 offline checks and fresh ZIP CRC/exact-source comparison. Exact evidence:
+checkpoint-22.*. File URLs blocked;standalone loaded once before networking disabled. Historical
+checkpoint11 limitation stays disclosed. Next proper names/capitalization;read8-case bank and
+reserve005–008. New original travel art inspected outside course files;delivery trials in /tmp
+are not integrated. Overall unit claimed/unfinished;391 pending. Native GUI blocked;no release.

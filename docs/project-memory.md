@@ -3,48 +3,35 @@
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
 The owner requires every lesson to be redesigned separately, with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **21/413** are
-individually reviewed;392 remain pending. Work stays solo. The tracker links each authored task,
-inspected figure, wrong-path repair, fresh transfer and actual control result. Shared coverage is
-a functional baseline, never an individual review or a claim of all-course parity.
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **22/413** are
+individually reviewed;391 remain pending. Work stays solo. The tracker links authored tasks,
+inspected figures/errors/repairs,fresh transfer and actual controls. Shared coverage is a baseline,
+never an individual review or a claim of all-course parity.
 
-Latest: object clauses and relatives use editable word tiles directly in the sentence. Students
-remove/reorder words, discard duplicate pronouns/auxiliaries and identify the actual antecedent.
-The class photo is a silent reference scene; no dialogue roles are invented. Valid if/whether,
-optional-that, object-relative omission and locative/preposition variants are accepted. Edits clear
-completion and incomplete repairs survive reload. New ordering transfers now explain the empty
-answer area. All initial/model/error/recovery/alternative/transfer figures were inspected.
+Current coherent checkpoint22 passes all22 full browser flows/180 conditions/540 widths,reload,
+wrong-path repairs,fresh transfer and zero independent assessment records. All1,470 core/14 files,
+typecheck,826 teaching/spelling,7 grammar constraints,course/static package,both native-adapter
+simulations,8 offline checks and fresh ZIP CRC/exact-source comparison pass. Source/artifact
+hashes and exact scope:checkpoint-22.*. Standalone loaded once before networking was disabled;
+managed file URLs are blocked. Exact delayed-text and eligible-grade guards remain enforced.
 
-Aggregate individual evidence:172 conditions/516 widths. Current checks:1,466 core/14 files,
-typecheck,826 teaching/spelling,static package,new full relative flow/24 widths,object flow after
-the shared changes,both native-adapter simulations,8 offline checks,and refreshed ZIP CRC/exact
-source comparison. Older full browser flows retain checkpoint17 scope; checkpoint18/19 preserve
-bounded new evidence/hashes. Standalone loaded once before networking was disabled; file URLs
-are blocked by managed policy. Exact delayed-text and grade guards remain enforced.
+Latest agreement lesson selects the actual controller and changes its concrete count. Each /
+everyone and abstract number remain word diagrams,not false one-person pictures. The noun bread
+model retains three slices. Recent lessons include editable clauses,antecedent selection,cause /
+contrast labels,a clickable week calendar and truthful negative-tag replies. Distance spelling
+now converts kilometer/kilometre correctly without changing device meter.
 
-Latest: conjunctions individually reviewed. Eight tasks retain causal direction across because/so,
-label contrast explicitly, repair repeated connectors and apply otherwise/conditions. All models,
-wrong premises, repairs and fresh poster transfer inspected. Current1,466 core/14 files,typecheck,
-826 teaching-spelling,package,new full flow/24 widths,both adapter simulations,8 offline checks and
-refreshed ZIP CRC/exact-source comparison pass. New bounded hashes are in checkpoint-20.json.
+Next:l-g-proper-nouns (proper names and capitalization),grade6–9. Read its actual bank:8 cases,
+only001–004 immediate;005–008 reserved. A new original travel illustration is generated and
+inspected at /workspace/generated_images/exec-092d8ab0-eb95-4326-90d6-8461d95565c7.png;600px delivery
+trial /tmp/travel-notes-600.jpg is49,159 bytes. A smaller existing courtyard delivery trial is
+/tmp/courtyard-768.jpg,80,169 bytes versus150,606 current;neither is integrated yet. Preserve raw
+originals. Author case-sensitive typo repairs with changing code captions;ordinary wall differs
+from the proper name Great Wall. Do not infer names,nationality or exact geography from the image.
 
-Latest: questions/tags individually reviewed. Eleven tasks use an actual walking-day calendar,
-distinguish frequency/duration/distance, check polarity/auxiliaries/references and answer a negative
-tag from a supplied positive fact. Initial/models/errors/repairs/fresh20-minute transfer inspected.
-Calendar cells meet44px and remain aligned at three widths. Shared inline wrapping keeps a short
-tag with its question mark. American kilometer(s)/British kilometre(s) now convert correctly,
-without changing device meter. Current1,469 core/14 files,typecheck,826 teaching-spelling,package,
-new full flow/33 widths,object flow after shared changes,both adapter simulations,8 offline checks
-and refreshed ZIP CRC/exact-source comparison pass. Bounded hashes:checkpoint-21.json.
-
-Next: l-g-agreement. Its explicit eight-task draft is prepared outside course files. Select the
-actual grammatical controller, show selected concrete counts, distinguish each/everyone from
-physical population and contrast a/the number and together with/and. Count projection must use
-the selected record value; audit found only the existing noun bread model with records, and its
-count is static on an @attempt cell, so preserve its three slices. Native
-GUI still needs MacStudioExternal project-drive access; the existing native card stays blocked.
-No GUI job, upload or publication occurred. Content remains draft. Approved audio, editorial /
-cohort mapping, devices and production setup remain separate; videos remain deferred.
+Native GUI still needs MacStudioExternal project-file access. The existing native card remains
+blocked;no GUI job,upload or publication occurred. Content stays draft. Approved audio,editorial /
+cohort mapping,devices and production setup remain separate;videos remain deferred.
 
 ## Previous local delivery · 2026-10-17
 
