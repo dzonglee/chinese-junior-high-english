@@ -449,7 +449,7 @@ export class Application {
       screen.actions = word ? [{ id: 'word-check', label: '检查拼写', tone: 'primary' }, { id: 'word-reveal', label: '看答案', tone: 'quiet' }, { id: 'word-next', label: '下一个', tone: 'secondary' }] : []; return screen
     }
     if (this.page === 'builder' || this.page === 'exam') {
-      screen.notice = this.page === 'exam' ? '这是自主限时练，不冒充本地中考卷。交卷前不显示答案和提示。' : '按当前年级选题，题目不会靠重复来凑数量。'
+      screen.notice = this.page === 'exam' ? '按你选的题量和时间练习，交卷后再看解析。' : '按当前年级选题，题目不会靠重复来凑数量。'
       screen.fields = [this.select('skill', '练习能力', [{ value: 'all', label: '全部能力' }, ...Object.entries(SKILL_LABEL).map(([value, label]) => ({ value, label }))]), this.select('kind', '作答方式', [{ value: 'all', label: '全部方式' }, { value: 'choice', label: '选择' }, { value: 'blank', label: '填空' }, { value: 'correction', label: '改错' }, { value: 'order', label: '句子排序' }, { value: 'writing', label: '写作自评' }, { value: 'speaking', label: '口语自评' }]), this.select('difficulty', '难度', [{ value: 'all', label: '混合难度' }, { value: '1', label: '基础' }, { value: '2', label: '巩固' }, { value: '3', label: '提升' }]), { name: 'count', label: '题量（1—100）', kind: 'input', value: this.form.count, numeric: true, maxLength: 3 }, ...(this.page === 'exam' ? [{ name: 'minutes', label: '限时（5—120 分钟）', kind: 'input' as const, value: this.form.minutes, numeric: true, maxLength: 3 }] : [])]
       const book = this.catalog.books.find(b => b.editionId === profile.editionId && b.grade === profile.grade && b.term === profile.term)
       const unit = book?.units.find(u => u.id === this.form.unitId)
@@ -472,7 +472,7 @@ export class Application {
       screen.metrics = [{ label: '独立作答', value: `${stats.independent} 题` }, { label: '首次独立正确', value: stats.independent ? `${stats.accuracy}%` : '还没开始' }, { label: '延时复习通过', value: `${stats.retainedTopics} 项` }, { label: '写作与口语自评', value: `${stats.selfReviews} 次` }]
       screen.week = stats.week
       screen.notice = '完成一课不等于掌握。独立作答、提示后练习和自评记录分开统计。'
-      if (this.page === 'profile') screen.cards = [['history', '练习记录', '继续未完成练习，回顾本次结果。'], ['favorites', '我的收藏', '把值得再想一次的题留在手边。'], ['sources', '资料与核验', '了解原创内容和待核实项目。'], ['report', '学习报告', '看看哪些能力需要再练。'], ['exam-info', '我的中考', '核对本地试卷和届别，不套用邻市信息。'], ['private', '我的题目', '只存在本机，不进入公共题库。'], ['recordings', '我的录音', '回听自己的表达，自查后再练。'], ['settings', '学习与数据设置', `${edition?.name ?? ''} · ${edition?.version ?? ''}`], ['privacy', '隐私与数据', '了解保存、导出和删除方式。']].map(([id, title, text]) => ({ id, title, text, actions: [{ id: 'navigate', value: id, label: '查看', tone: 'quiet' }] }))
+      if (this.page === 'profile') screen.cards = [['history', '练习记录', '继续未完成练习，回顾本次结果。'], ['favorites', '我的收藏', '把值得再想一次的题留在手边。'], ['sources', '资料与核验', '了解原创内容和待核实项目。'], ['report', '学习报告', '看看哪些能力需要再练。'], ['exam-info', '我的中考', '查看与你所在城市和届别匹配的考试资料。'], ['private', '我的题目', '只存在本机，不进入公共题库。'], ['recordings', '我的录音', '回听自己的表达，自查后再练。'], ['settings', '学习与数据设置', `${edition?.name ?? ''} · ${edition?.version ?? ''}`], ['privacy', '隐私与数据', '了解保存、导出和删除方式。']].map(([id, title, text]) => ({ id, title, text, actions: [{ id: 'navigate', value: id, label: '查看', tone: 'quiet' }] }))
       else screen.cards = this.catalog.topics.filter((t) => state.mastery[t.id]?.attempts).map((t) => ({ id: t.id, title: t.title, text: `${state.mastery[t.id].attempts} 次独立作答`, tag: masteryLabel(state.mastery[t.id], now), progress: state.mastery[t.id].score, actions: [{ id: 'start-topic', value: t.id, label: '再练一组', tone: 'secondary' }] }))
       return screen
     }
@@ -483,7 +483,7 @@ export class Application {
     }
     if (this.page === 'writing' || this.page === 'speaking') {
       const skill = this.page
-      screen.notice = skill === 'speaking' ? '录音用来回听和自查，不会被冒充为机器评测分数。' : '先写自己的版本，再对照要点自评。自评分不算机器评测。'
+      screen.notice = skill === 'speaking' ? '录一段，回听后对照要点自查；这里不提供机器评分。' : '先写自己的版本，再对照要点自评。自评分不算机器评测。'
       screen.cards = (this.catalog.questionIndex ?? this.catalog.questions).filter((q) => q.skill === skill && q.grades.includes(profile.grade)).map((q, index) => ({ id: q.id, label: `${String(index + 1).padStart(2,'0')} · ${this.catalog.topics.find((t) => t.id === q.topicId)?.title ?? SKILL_LABEL[skill]}`, title: String(('prompt' in q ? q.prompt : 'stem' in q ? q.stem : '') || '') || (q.kind === 'choice' ? '选出适合这个情境的表达' : '独立完成，再对照要点'), text: `约 ${Math.ceil(q.estimatedSeconds / 60)} 分钟 · ${q.marks} 分自查要点`, tone: 'task-entry', actions: [{ id: 'start-question', value: q.id, label: '开始练习', tone: 'secondary' }] })); return screen
     }
     if (this.page === 'exam-info') {
