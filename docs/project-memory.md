@@ -3,13 +3,13 @@
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
 The owner requires every lesson to be upgraded one by one, with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **13/413** are
-individually reviewed; the other 400 remain pending. The per-lesson tracker links each decision,
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **14/413** are
+individually reviewed; the other 399 remain pending. The per-lesson tracker links each decision,
 inspected figure, wrong-path recovery, fresh transfer and control result. Shared coverage is a
 functional baseline and never counts as an individual redesign. Work stays solo.
 
-Current evidence: 104 individually authored conditions and 312 task-width combinations across
-13 whole lesson flows; reload and no independent assessment records. All 1,458 core tests,
+Current evidence: 112 individually authored conditions and 336 task-width combinations across
+14 whole lesson flows; reload and no independent assessment records. All 1,458 core tests,
 typecheck, teaching/spelling and package checks, both native-adapter simulations and eight offline
 checks pass. Current development ZIPs pass CRC and exact source comparison. The standalone test
 served the embedded document once before disabling networking; managed policy blocks file URLs.
@@ -21,9 +21,12 @@ unchanged. The compiler now rejects such exact matches across selected workshops
 records its historical limitation. Transfer grade coverage is enforced; three grade-6 tags were
 corrected. Nouns now transfers to a new route-information/photos scenario.
 
-Next: l-g-modals. Its new pool-gate illustration is generated and inspected; the exact sign will
-be rendered in code. The intended lesson separates prohibition, no requirement, ability, permission,
-advice and verb forms. No individual credit is assigned yet.
+Latest individual review: l-g-modals, eight meaning/form tasks and an original pool-gate scene
+with a code-rendered sign inspected at 320px. Correct wording alone cannot bypass wrong evidence.
+All 1,458 core tests, typecheck, teaching/spelling, package and focused modal/vocabulary browser
+controls pass. Checkpoint-13 retains the previous archive snapshot; archives need refresh before
+handoff. Next: l-g-infinitives, with an original picture contrast for stop to drink / stop drinking.
+No individual credit is assigned to the next lesson yet.
 
 Fresh MCP status succeeds, but read_file(wechat/AGENTS.md) reports MacStudioExternal file access
 unavailable. The existing native card remains blocked; no GUI job was submitted. Approved audio,

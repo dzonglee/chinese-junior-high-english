@@ -1,0 +1,486 @@
+{
+  "lessonId": "l-g-modals",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Distinguish prohibition, no requirement, ability, permission and advice; separate semantic choice from base-verb construction and a negative Must answer.",
+  "picturePurpose": "The original closed pool-gate scene locates a coded rule; exact sign text is an overlay and ability is established independently by a written record.",
+  "workshop": {
+    "navigationLabel": "任务",
+    "kind": "transform",
+    "title": "先读意思，再分清语气",
+    "instruction": "从规则、能力或许可找依据，再选择或自己写出英语。",
+    "conditions": [
+      {
+        "label": "禁止，不是不必",
+        "before": "You ",
+        "target": "mustn't",
+        "after": " enter the pool area.",
+        "choices": [
+          "needn't",
+          "mustn't",
+          "can"
+        ],
+        "reason": "No entry 表示禁止进入，用 mustn't。needn't 表示不必，不能表达这里的禁止。",
+        "world": {
+          "kind": "logic",
+          "caption": "先读入口规则。把“禁止进入”的意思说准确。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的依据"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你选的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "入口规则：Closed. No entry.",
+            "missingPrompt": "先判断规则或记录表达的意思，再核对英语。",
+            "answer": "rule",
+            "options": [
+              {
+                "id": "rule",
+                "label": "禁止进入",
+                "text": "入口明确写着 No entry",
+                "reason": "规则明确禁止进入。",
+                "value": 50
+              },
+              {
+                "id": "ability",
+                "label": "会不会游泳",
+                "text": "Mia 能连续游25米",
+                "reason": "会游泳是能力信息，不能代替入口的禁止规则。",
+                "value": 50
+              },
+              {
+                "id": "done",
+                "label": "不用重复打扫",
+                "text": "打扫已经完成",
+                "reason": "打扫完成表示不用重复，与禁止进入不是同一件事。",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-pool-gate",
+            "alt": "三位同学站在关闭的游泳池门外，门闩扣紧。入口标示 Closed. No entry.，不得进入。",
+            "overlay": {
+              "text": "Closed.\nNo entry.",
+              "left": 56.3,
+              "top": 25,
+              "width": 20
+            }
+          }
+        }
+      },
+      {
+        "label": "不需要，不等于禁止",
+        "before": "We ",
+        "target": "don't have to",
+        "after": " clean this table again.",
+        "choices": [
+          "mustn't",
+          "don't have to",
+          "can't"
+        ],
+        "reason": "已经擦干净，表达不必再擦，用 don't have to；needn't 也可表示不必。mustn't 会变成禁止。",
+        "world": {
+          "kind": "logic",
+          "caption": "打扫已完成。区分“可以不做”和“不允许做”。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的依据"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你选的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "老师说：已经擦干净，不用重复擦。",
+            "missingPrompt": "先判断规则或记录表达的意思，再核对英语。",
+            "answer": "optional",
+            "options": [
+              {
+                "id": "optional",
+                "label": "不需要再做",
+                "text": "可以不擦，并未禁止再擦",
+                "reason": "已经完成任务，表达不必重复。",
+                "value": 50
+              },
+              {
+                "id": "ban",
+                "label": "明确禁止",
+                "text": "不允许再碰这张桌子",
+                "reason": "老师说的是不用重复，没有说禁止再擦。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "能力卡说明会什么",
+        "before": "Mia ",
+        "target": "can",
+        "after": " swim.",
+        "choices": [
+          "must",
+          "can",
+          "needn't"
+        ],
+        "reason": "这里表达具备游泳能力，用 can。能力登记不改变入口禁止进入的规则。",
+        "world": {
+          "kind": "logic",
+          "caption": "读取能力登记。是否允许进入仍由入口规则决定。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的依据"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你选的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "能力登记：Mia 能连续游25米。",
+            "missingPrompt": "先判断规则或记录表达的意思，再核对英语。",
+            "answer": "ability",
+            "options": [
+              {
+                "id": "ability",
+                "label": "已经具备的能力",
+                "text": "Mia 会游泳",
+                "reason": "登记说明 Mia 具备游泳能力。",
+                "value": 50
+              },
+              {
+                "id": "permission",
+                "label": "入口是否允许",
+                "text": "当前入口仍禁止进入",
+                "reason": "入口许可和个人能力分别判断；这里描述会不会游泳。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "这次是许可",
+        "before": "You ",
+        "target": "may",
+        "after": " use this room until five.",
+        "choices": [
+          "may",
+          "mustn't",
+          "needn't"
+        ],
+        "reason": "老师明确允许，用 may 表达许可；mustn’t 是禁止，needn’t 是不必，不能替代这里的许可。",
+        "world": {
+          "kind": "logic",
+          "caption": "这次读的是老师的许可，不是能力测试或任务命令。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的依据"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你选的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "老师明确允许使用活动室到五点。",
+            "missingPrompt": "先判断规则或记录表达的意思，再核对英语。",
+            "answer": "permission",
+            "options": [
+              {
+                "id": "permission",
+                "label": "老师的许可",
+                "text": "可以使用，并非必须使用",
+                "reason": "老师在允许使用，表达许可。",
+                "value": 50
+              },
+              {
+                "id": "duty",
+                "label": "必须完成的任务",
+                "text": "要求每个人都去使用",
+                "reason": "允许使用不等于要求必须使用。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "表达建议",
+        "before": "You ",
+        "target": "should",
+        "after": " check your answer before handing in the paper.",
+        "choices": [
+          "should",
+          "mustn't",
+          "can't"
+        ],
+        "reason": "题目要表达建议，用 should。后面接动词原形 check，不用表示禁止的 mustn’t 或不能的 can’t。",
+        "world": {
+          "kind": "logic",
+          "caption": "按“建议”的意思补全英语，保留温和的语气。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的依据"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你选的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "这是答题建议：交卷前检查答案。",
+            "missingPrompt": "先判断规则或记录表达的意思，再核对英语。",
+            "answer": "advice",
+            "options": [
+              {
+                "id": "advice",
+                "label": "温和的建议",
+                "text": "这样做有帮助",
+                "reason": "建议可以用 should 表达。",
+                "value": 50
+              },
+              {
+                "id": "ban",
+                "label": "禁止这样做",
+                "text": "不允许检查答案",
+                "reason": "给出的建议是检查答案，不是禁止检查。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "can 后面怎样写",
+        "before": "Mia can ",
+        "target": "read",
+        "after": " this map.",
+        "choices": [
+          "reads",
+          "read",
+          "to read"
+        ],
+        "reason": "can 后接 read 原形，不加 s，也不加 to。主语 Mia 不会让 can 后的动词变成 reads。",
+        "world": {
+          "kind": "syntax",
+          "caption": "使用 read 补全 can 后面的词形。",
+          "cells": [
+            {
+              "label": "can",
+              "detail": "情态动词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你写的动词",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "只写 can 后缺少的一个动词。"
+      },
+      {
+        "label": "must 后面也用原形",
+        "before": "You must ",
+        "target": "write",
+        "after": " your name at the top.",
+        "choices": [
+          "writes",
+          "write",
+          "writing"
+        ],
+        "reason": "must 后接 write 原形，不用 writes 或 writing。",
+        "world": {
+          "kind": "syntax",
+          "caption": "这是填写姓名的要求。核对 must 后的动词。",
+          "cells": [
+            {
+              "label": "must",
+              "detail": "情态动词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你写的动词",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "使用 write，只写缺少的一个单词。"
+      },
+      {
+        "label": "Must 问句的否定回答",
+        "before": "Must I finish the poster now? No, you ",
+        "target": "needn't",
+        "after": ".",
+        "choices": [
+          "mustn't",
+          "needn't",
+          "can't"
+        ],
+        "reason": "No, you needn't 表示不必现在完成；don't have to 也能表达这个意思。mustn't 会变成不许现在完成，与记录不符。",
+        "world": {
+          "kind": "logic",
+          "caption": "先判断“现在必须吗”的回答意思，不机械照搬 must。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的依据"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你选的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "海报明天交；今天可以交，也可以明天交。",
+            "missingPrompt": "先判断规则或记录表达的意思，再核对英语。",
+            "answer": "not-now",
+            "options": [
+              {
+                "id": "not-now",
+                "label": "现在不必完成",
+                "text": "没有要求此刻完成",
+                "reason": "不必现在完成，可用 needn’t。",
+                "value": 50
+              },
+              {
+                "id": "ban",
+                "label": "现在禁止完成",
+                "text": "不允许今天完成",
+                "reason": "老师允许今天交，没有禁止现在完成。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "choices": [
+      "needn't",
+      "mustn't",
+      "can",
+      "don't have to",
+      "can't",
+      "must",
+      "may",
+      "should",
+      "reads",
+      "read",
+      "to read",
+      "writes",
+      "write",
+      "writing"
+    ],
+    "items": [
+      {
+        "id": "modal-meaning-force",
+        "label": "语气与意思",
+        "prompt": "禁止、不必、能力、许可还是建议？",
+        "answer": "",
+        "reason": "",
+        "hint": "别把带“不”的表达都当成同一种意思。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-modals-002",
+      "q-g-modals-003"
+    ],
+    "transfer": {
+      "id": "individual-g-modals-transfer",
+      "topicId": "g-modals",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "博物馆规定：禁止拍照；电子票即可入场，纸质票可带可不带。两空依次填什么？\nYou ___ take photos here. You ___ bring a paper ticket.",
+      "options": [
+        {
+          "id": "a",
+          "text": "mustn't; don't have to"
+        },
+        {
+          "id": "b",
+          "text": "needn't; don't have to"
+        },
+        {
+          "id": "c",
+          "text": "mustn't; mustn't"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "mustn't; don't have to"
+      },
+      "marks": 2,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别判断禁止做某事，还是没有要求必须做某事。",
+        "steps": [
+          {
+            "text": "禁止拍照意味着不允许拍照。",
+            "reason": "第一句用 mustn’t，不能用表示不必的 needn’t。"
+          },
+          {
+            "text": "纸质票可带可不带，表示没有必须带的要求。",
+            "reason": "第二句用 don’t have to，不是禁止带纸质票。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一空 needn’t 只表示不必拍照，不能表达禁止拍照。"
+          },
+          {
+            "option": "c",
+            "reason": "第二空 mustn’t 会表示不许带纸质票，但规定是可带可不带。"
+          }
+        ],
+        "pitfall": "中文都可能带“不”，英语仍须区分禁止与没有必要。",
+        "visual": {
+          "kind": "sentence",
+          "title": "不允许 / 不要求",
+          "segments": [
+            {
+              "text": "mustn't take photos",
+              "role": "evidence",
+              "note": "规则禁止"
+            },
+            {
+              "text": "don't have to bring a paper ticket",
+              "role": "verb",
+              "note": "没有必须带的要求"
+            }
+          ],
+          "caption": "两个空按各自规定判断，不照搬同一种否定形式。"
+        },
+        "transfer": "若改为“纸质票必须携带”，第二句怎样表达？"
+      }
+    }
+  }
+}

@@ -795,3 +795,15 @@ Full source/artifact evidence: docs/reviews/individual-lessons/checkpoint-13.*. 
 retains its historical hashes and disclosed limitation. Native GUI remains blocked; no upload or
 publication occurred. Next l-g-modals; generated pool art is inspected but not yet integrated.
 Overall claim unfinished; 400 lesson reviews remain. Work stays solo.
+
+
+## 2026-10-18 (Sydney) · codex-solo · modal meanings individually reviewed
+
+l-g-modals is reviewed:14/413. Eight tasks separate prohibition/no requirement/ability/permission/
+advice, base forms and the negative Must reply. Original pool-gate art has exact code-rendered
+sign text; its 320px rendering was inspected and bounds checked at three widths. All figures,
+semantic/typed errors, application and fresh museum transfer were inspected. Whole flow,24 widths,
+reload and zero independent assessment records pass. Current1,458 core, typecheck,826 teaching/
+spelling and package pass; selected vocabulary browser flow checks the shared sentence-flow fix.
+Archives retain checkpoint13 pending refresh. Next infinitives; a new contrast illustration is
+being generated. Unit remains claimed and unfinished, with399 individual reviews remaining.

@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **13 / 413**. Current: **l-g-modals**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **14 / 413**. Current: **l-g-infinitives**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ Completed: **13 / 413**. Current: **l-g-modals**. Evidence lives in docs/reviews
 | l-g-prepositions | 时间与位置的介词 | reviewed | [Prepositions review](../reviews/individual-lessons/l-g-prepositions.md) |
 | l-g-past-continuous | 过去那个时候正在做什么 | reviewed | [Past-camera review](../reviews/individual-lessons/l-g-past-continuous.md) |
 | l-g-passive | 主动与被动，换个角度说 | reviewed | [Passive review](../reviews/individual-lessons/l-g-passive.md) |
-| l-g-modals | 能、必须、建议，语气有区别 | pending | — |
+| l-g-modals | 情态动词：分清语气和意思 | reviewed | [Modal meanings review](../reviews/individual-lessons/l-g-modals.md) |
 | l-g-infinitives | 动词后面的 to do | pending | — |
 | l-g-gerunds | 动词后面的 doing | pending | — |
 | l-g-conditionals | 条件成立，结果会怎样 | pending | — |
