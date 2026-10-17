@@ -5,7 +5,7 @@
 The owner requires every lesson to be upgraded one by one, with purposeful generated pictures.
 APP-VISUAL-LESSONS is reopened and claimed by codex-solo on author/individual-lessons. The
 previous shared workshop delivery is a baseline. The individual tracker starts every other row
-pending: **2/413** are currently reviewed: l-g-be and l-g-present. See docs/authoring/lesson-upgrades.md.
+pending: **3/413** are currently reviewed: l-g-be and l-g-present. See docs/authoring/lesson-upgrades.md.
 
 The class-photo lesson has seven authored speaker/referent conditions. Students must select the
 right people as well as the right verb; singular/plural you and changing I are explicit. The

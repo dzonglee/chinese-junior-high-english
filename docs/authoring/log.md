@@ -621,3 +621,15 @@ journey and 24 width checks pass; core 1,450, typecheck, 826 spelling and packag
 The first lesson was rechecked after shared rendering changes. Native GUI remains separate.
 Next l-g-continuous will use only actions actually supported by its newly generated picture;
 holding an open book is not itself proof of reading, nor a held plane proof of folding it.
+
+
+## 2026-10-18 (Sydney) · codex-solo · ongoing-action lesson individually reviewed
+
+l-g-continuous is reviewed: 3/413. Its inspected original scene supports holding/watering,
+with six actor + full-predicate tasks and two actual word-building tasks for making/running.
+No image is treated as proof of unseen reading or folding. Wrong actor and wrong form feedback
+remain separate. Application and fresh transfer are distinct; delayed items remain untouched.
+All eight task figures, error states and transfer were inspected. The whole browser journey,
+24 width checks, reload and zero assessment records pass. Reduced repeated banners and time
+text. Next: l-g-past, using documented completed events, irregular verbs and did + base forms.
+The unit remains claimed and unfinished. Native project-drive access is still a separate blocker.

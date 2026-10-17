@@ -4,13 +4,13 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **2 / 413**. Current: **l-g-continuous**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **3 / 413**. Current: **l-g-past**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
 | l-g-be | 先看主语，再选 be 动词 | reviewed | [Class-photo review](../reviews/individual-lessons/l-g-be.md) |
 | l-g-present | 日常习惯怎么说 | reviewed | [Habit review](../reviews/individual-lessons/l-g-present.md) |
-| l-g-continuous | 说清正在发生的事 | pending | — |
+| l-g-continuous | 说清正在发生的事 | reviewed | [Ongoing-action review](../reviews/individual-lessons/l-g-continuous.md) |
 | l-g-past | 把过去的事情讲清楚 | pending | — |
 | l-g-future | 说出计划和将来的事 | pending | — |
 | l-g-perfect | 从过去连到现在 | pending | — |
