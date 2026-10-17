@@ -100,3 +100,13 @@ it('uses the selected edition spelling throughout the fresh planning task',()=>{
  const lesson=source.lessons.find(l=>l.topicId==='s-plan')!
  for(const spelling of ['american','british'] as const){const model=createLessonTeaching(source,lesson,spelling).transfer;const text=JSON.stringify(model);expect(model.answer.display).toContain(spelling==='american'?'summarize':'summarise');expect(text).not.toContain(spelling==='american'?'summarise':'summarize');expect(questionProblems(model)).toEqual([])}
 })
+
+it('uses the selected edition spelling in written pronunciation cards without changing their grouping',()=>{
+ const lesson=source.lessons.find(l=>l.topicId==='p-thought-groups')!
+ for(const spelling of ['american','british'] as const){const cards=createLessonTeaching(source,lesson,spelling).sorting!.cards;expect(cards.every(card=>card.text.includes(spelling==='american'?'practice':'practise'))).toBe(true);expect(cards.map(card=>card.category)).toEqual(['group-0','group-1'])}
+})
+
+it('explains the sentence-building activity for a one-letter target word',()=>{
+ const word=source.vocabulary.find(w=>w.word==='a')!,id=`q-${word.topicId}-${word.id.slice(5)}`,lesson=source.lessons.find(l=>l.questionIds.includes(id))!,unit=createLessonTeaching(source,lesson).assemblies.find(u=>u.id===word.id)!
+ expect(unit.kind).toBe('sentence');expect(unit.prompt).toContain('词块');expect(unit.prompt).toContain('例句');expect(unit.prompt).not.toContain('字母拼');expect(unit.tiles.some(t=>t.text==='A')).toBe(true)
+})

@@ -1,7 +1,7 @@
 import { phoneticSorting, type PhoneticSorting } from './phonetic-sorting'
 import type { ContentCatalog, ExplanationVisual, Lesson, Question, RubricPoint } from './types'
 import { checkAnswer, normalizedAnswer, wordCount } from './answers'
-import { editionQuestion, type Spelling } from './spelling'
+import { editionQuestion, editionText, type Spelling } from './spelling'
 import { communicationTransfer } from './teaching-transfers'
 import { evidenceSentences } from './reading-evidence'
 
@@ -61,7 +61,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   let diagnosis:TeachingChoice, evidence:TeachingEvidence[]=[]
   if(mode==='vocabulary'){
     const words=c.vocabulary.filter(w=>w.topicId===topic.id&&qs.some(q=>q.id===`q-${w.topicId}-${w.id.slice(5)}`))
-    for(const w of words)assemblies.push(assembly(w.id,`${w.meaning} · 拼写工作台`,`${w.meaning}\n按给出的字母拼成本课目标词。采用当前教材的拼写。`,w.word.length>1?[...w.word]:w.example.split(/\s+/),w.word.length>1?'letters':'sentence',`${w.word}：${w.explanation}\n${w.example}`))
+    for(const w of words)assemblies.push(assembly(w.id,`${w.meaning} · ${w.word.length>1?'拼写工作台':'例句工作台'}`,w.word.length>1?`${w.meaning}\n按给出的字母拼成本课目标词。采用当前教材的拼写。`:`${w.meaning}\n${w.word} 只有一个字母。把词块排成完整例句，看看它在句中怎么用。`,w.word.length>1?[...w.word]:w.example.split(/\s+/),w.word.length>1?'letters':'sentence',`${w.word}：${w.explanation}\n${w.example}`))
     const w=words[0], others=words.slice(1).filter((v,i,all)=>v.meaning!==words[0].meaning&&all.findIndex(x=>x.meaning===v.meaning)===i).slice(0,2), correct='original'
     diagnosis={prompt:`有同学把“${w.word}”记成了“${others[0]?.meaning??'无论什么语境都不需要检查搭配'}”。对照本课词表，应该怎样改？`,options:[{id:correct,text:w.meaning},...others.map((v,i)=>({id:`other-${i}`,text:v.meaning})),...(others.length?[]:[{id:'ignore',text:'不用看语境，也不用检查搭配。'}])],correct,reasons:{original:`${w.word} 在本课词表中的释义是“${w.meaning}”。${w.explanation}`,...Object.fromEntries(others.map((v,i)=>[`other-${i}`,`这是 ${v.word} 的释义，不是本课 ${w.word} 的释义。`])),ignore:'词义要结合语境和搭配检查，不能跳过这一步。'}}
   }else if(mode==='reading'||mode==='transcript'){
@@ -83,7 +83,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
     }
     diagnosis=choiceFor(qs.find(q=>q.id!==first.id&&q.options?.length)??qs.find(q=>q.options?.length)!)
   }
-  const studio:LessonTeaching={...(phonetics?{sorting:phoneticSorting[topic.id]}:{}),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric:first.rubric??[],exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
+  const studio:LessonTeaching={...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric:first.rubric??[],exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
   studio.fingerprint=hash(studio)
   return studio
 }

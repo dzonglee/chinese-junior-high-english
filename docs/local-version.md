@@ -63,7 +63,7 @@ Chromium blocks direct `file://` navigation. The test respects that policy and s
 standalone document over loopback, then disables networking during practice. Direct-file browser
 navigation is therefore unvalidated on this machine; the runner also supports it where permitted.
 
-All 982 automated tests pass, including checked-pack practice, saved progress and distinct delayed
+All 984 automated tests pass, including checked-pack practice, saved progress and distinct delayed
 review for every lesson. Tests simulate listening playback only for lifecycle coverage; the real
 app rejects missing audio. Seven grammar regressions, four native-source permission simulations,
 11 full browser journeys, eight offline checks and six expanded-course browser checks pass.
