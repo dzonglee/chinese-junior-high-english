@@ -878,3 +878,16 @@ Current checks pass:1,466 core/14 files,typecheck,826 teaching-spelling,package,
 ZIP CRC/exact-source comparison. Aggregate153 conditions/459 widths; older flows retain their
 original scope. New hashes/boundaries:checkpoint-19.json. Next conjunctions; explicit draft prepared
 outside course files. Unit claimed/unfinished;394 pending. Native GUI blocked; no upload/release.
+
+
+## 2026-10-18 (Sydney) · codex-solo · conjunctions individually reviewed
+
+l-g-conjunctions is reviewed:20/413. Eight tasks retain causal direction while reversing English
+clause order, distinguish concession/contrast with explicit relationship labels, remove repeated
+connectors and apply otherwise/conditions. Original weather art reused for scenario selection.
+All models,wrong premises,repairs,expanded diagrams and fresh poster transfer inspected. Full
+flow/24 widths,reload and zero assessment records pass. Current1,466 core/14 files,typecheck,
+826 teaching-spelling,package,both adapter simulations,8 offline checks and refreshed ZIP CRC/
+exact-source comparison pass. Aggregate161 conditions/483 widths; older flows retain scope.
+Hashes:checkpoint-20.json. Next questions/tags; explicit draft prepared outside course files.
+Unit claimed/unfinished;393 pending. Native GUI blocked; no upload or release.

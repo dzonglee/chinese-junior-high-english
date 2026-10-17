@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **19 / 413**. Current: **l-g-conjunctions**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **20 / 413**. Current: **l-g-questions**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -27,7 +27,7 @@ Completed: **19 / 413**. Current: **l-g-conjunctions**. Evidence lives in docs/r
 | l-g-conditionals | 条件成立，结果会怎样 | reviewed | [Individual review](../reviews/individual-lessons/l-g-conditionals.md) |
 | l-g-object-clauses | 宾语从句：重排语序 | reviewed | [Individual review](../reviews/individual-lessons/l-g-object-clauses.md) |
 | l-g-relatives | 定语从句，先找修饰对象 | reviewed | [Individual review](../reviews/individual-lessons/l-g-relatives.md) |
-| l-g-conjunctions | 把两层意思连起来 | pending | — |
+| l-g-conjunctions | 连词：看清两句的关系 | reviewed | [Individual review](../reviews/individual-lessons/l-g-conjunctions.md) |
 | l-g-questions | 提问与反意疑问句 | pending | — |
 | l-g-agreement | 真正的主语决定动词 | pending | — |
 | l-g-proper-nouns | 专有名词与大小写 | pending | — |
