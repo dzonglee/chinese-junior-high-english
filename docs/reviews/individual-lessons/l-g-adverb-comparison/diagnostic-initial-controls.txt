@@ -1,0 +1,41 @@
+/workspace/chinese-junior-high-english/node_modules/playwright/lib/matchers/expect.js:221
+        return matcher.call(target, ...args);
+                       ^
+
+Je [Error]: expect(locator).toBeVisible() failed
+
+Locator: locator('.world-syntax .world-cells')
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "to.be.visible" with timeout 5000ms
+  - waiting for locator('.world-syntax .world-cells')
+
+    at Proxy.<anonymous> (/workspace/chinese-junior-high-english/node_modules/playwright/lib/matchers/expect.js:221:24)
+    at file:///workspace/chinese-junior-high-english/scripts/test-individual-lessons.mjs:48:118 {
+  matcherResult: {
+    message: 'expect(locator).toBeVisible() failed\n' +
+      '\n' +
+      "Locator: locator('.world-syntax .world-cells')\n" +
+      'Expected: visible\n' +
+      'Timeout: 5000ms\n' +
+      'Error: element(s) not found\n' +
+      '\n' +
+      'Call log:\n' +
+      '  - Expect "to.be.visible" with timeout 5000ms\n' +
+      "  - waiting for locator('.world-syntax .world-cells')\n",
+    pass: false,
+    actual: undefined,
+    name: 'toBeVisible',
+    expected: 'visible',
+    log: [
+      '  - Expect "to.be.visible" with timeout 5000ms',
+      "  - waiting for locator('.world-syntax .world-cells')"
+    ],
+    timeout: 5000
+  }
+}
+
+Node.js v24.19.0
