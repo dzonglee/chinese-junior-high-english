@@ -23,3 +23,8 @@ Content stays draft, videos stay deferred, and nothing was uploaded or published
 
 Next: individually author and inspect l-g-past-continuous, using selected intervals against an
 explicit past reference time. Continue solo on author/individual-lessons under the existing claim.
+
+A later exact-text audit found that the preposition workshop repeated reserved question
+q-g-prepositions-005 even though its ID stayed withheld. The example is being replaced and checked
+again. This checkpoint's functional results and hashes remain historical; they did not cover the
+new exact-text guard. See the subsequent correction in the authoring log.

@@ -2,30 +2,33 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-The owner requires every lesson to be upgraded one by one, with purposeful generated pictures.
-APP-VISUAL-LESSONS remains claimed by codex-solo on author/individual-lessons. The previous
-shared workshops are a baseline. **12/413** are individually reviewed: l-g-be, l-g-present,
-l-g-continuous, l-g-past, l-g-future, l-g-perfect, l-g-articles, l-g-comparison, l-g-pronouns, l-g-nouns, l-g-prepositions and l-g-past-continuous. See docs/authoring/lesson-upgrades.md for exact evidence.
+The owner requires every lesson to be upgraded one by one, with purposeful original pictures.
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **13/413** are
+individually reviewed; the other 400 remain pending. The per-lesson tracker links each decision,
+inspected figure, wrong-path recovery, fresh transfer and control result. Shared coverage is a
+functional baseline and never counts as an individual redesign. Work stays solo.
 
-The lessons use real speaker/referent selection, coded habit records, observable action/predicate
-choices, live word edits and dated-event selection. Wrong answers remain visible and must be
-repaired. All twelve individual browser flows and 291 task-width combinations pass, with reload and no
-independent assessment records. All 1,454 core tests, typecheck, native development/cloud adapter
-simulations and static package checks pass. No new native GUI validation is claimed.
-Future plans also contrasts finished events, promises, questions, going-to plans and current
-evidence for a future prediction. Present perfect adds tappable
-key-loss/result panels, changing residence time bands and distinct since/for models.
-Articles adds required object/first-sound evidence, adjective intervention, same-object reference
-and general plural nouns. Comparison adds required comparison-group selection, same-scale measured bars, equality
-and real typed word building. Pronouns adds exact referents, changed ownership, typed her/hers and group/reflexive contrasts.
-Nouns adds ten fully typed tasks, exact counts, one/three contrast, specific plural spellings
-and countable units versus uncountable content. Prepositions adds complete-phrase time classification, physically checked book/desk positions
-and a correctly ordered map. Past continuous adds a fixed past cursor against selected activity intervals, simultaneous actions
-and typed rang/writing. The11-lesson checkpoint retains its precise earlier hashes; the latest
-reference change passed28 targeted workshop tests and its whole flow. Next: l-g-passive.
-Work stays solo. Fresh MCP status succeeds, but read_file(wechat/AGENTS.md) still reports MacStudioExternal
-file access unavailable. No GUI job was submitted. Native access and approved audio remain separate;
-nothing is released.
+Current evidence: 104 individually authored conditions and 312 task-width combinations across
+13 whole lesson flows; reload and no independent assessment records. All 1,458 core tests,
+typecheck, teaching/spelling and package checks, both native-adapter simulations and eight offline
+checks pass. Current development ZIPs pass CRC and exact source comparison. The standalone test
+served the embedded document once before disabling networking; managed policy blocks file URLs.
+See docs/reviews/individual-lessons/checkpoint-13.* for exact source/artifact evidence.
+
+An exact-text audit caught preposition and passive examples repeating reserved grammar sentences.
+Both examples are replaced, the changed figures inspected, and the actual delayed items verified
+unchanged. The compiler now rejects such exact matches across selected workshops. Checkpoint11
+records its historical limitation. Transfer grade coverage is enforced; three grade-6 tags were
+corrected. Nouns now transfers to a new route-information/photos scenario.
+
+Next: l-g-modals. Its new pool-gate illustration is generated and inspected; the exact sign will
+be rendered in code. The intended lesson separates prohibition, no requirement, ability, permission,
+advice and verb forms. No individual credit is assigned yet.
+
+Fresh MCP status succeeds, but read_file(wechat/AGENTS.md) reports MacStudioExternal file access
+unavailable. The existing native card remains blocked; no GUI job was submitted. Approved audio,
+editorial/cohort mapping, real devices and production configuration remain separate. Content is
+draft; videos stay deferred; nothing was uploaded or published.
 
 ## Previous local delivery · 2026-10-17
 

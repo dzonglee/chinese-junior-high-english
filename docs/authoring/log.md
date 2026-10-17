@@ -45,32 +45,32 @@ Open questions.
 - Stage 1 already gathers what these need: the 题型 inventory, banks and rubrics.
 
 ## 2026-10-15 · codex-curriculum · R-STD partial handoff
-- Did: pushed `research/R-STD` (`891d1c2`): original Ministry-hosted English2022 standard (201pages), publisher revision-programme interview,58grammar research entries,29level3 themes,17quality indicators and94pages of explicitly unreviewed OCR. Source and download checks pass.
+- Did: pushed `research/R-STD` (`891d1c2`): original Ministry-hosted English2022 standard (201pages), publisher revision-programme interview,58grammar research entries,29level3 themes,17quality indicators and 94pages of explicitly unreviewed OCR. Source and download checks pass.
 - Decided: keep R-STD claimed/incomplete. A general October2025 revision announcement is not a verified revised English standard; OCR is not a corrected1600word list. No commercial permission inferred.
 - Next: retrieve the English-specific revised standard, audit the vocabulary transcription and review remaining teaching/evaluation cases. Exact successful/failed endpoints and provenance are in the unit branch. No unit dependency or final gate is waived. The coordinator continues other independent research while those missing-source checks remain unresolved.
 - Open questions: official English2025 revision attachment remains unavailable through inspected sources. Network additions are saved in the environment draft; saving a draft has not changed runtime policy.
 
 ## 2026-10-15 · codex research coordinator · city-stream partial handoffs
-- Did: pushed R-NORTH (`da41b42`,160sources/19files/132opened previews), R-EAST (`f53d4ab`,231records/143HTML artifacts) and R-CW (`3a1a82f`,105sources/75artifacts). Each branch passes its register and source/coverage integrity checks. Shared public-index samples were cached and rate-limited; no gated original files were acquired.
+- Did: pushed R-NORTH (`da41b42`,160sources/19 files/132opened previews), R-EAST (`f53d4ab`,231records/143HTML artifacts) and R-CW (`3a1a82f`,105sources/75artifacts). Each branch passes its register and source/coverage integrity checks. Shared public-index samples were cached and rate-limited; no gated original files were acquired.
 - Decided: all three units stay claimed/incomplete. Source verification is separate from full city/year coverage. Actual official policy evidence is retained where opened; commercial previews remain reported. Upper-term dates, local-school scope, publisher mocks and title/body conflicts are explicit. No partial branch is merged as a completed unit and no final integration dependency is waived.
 - Next: finish the unresolved official sources, original files, city/year searches and grade/term grids on each existing branch. Independent national/publisher/bank resource lanes can proceed while those external-source gaps remain unresolved.
 - Open questions: network/source failures and unavailable original paper/audio licences remain precise unit-level gaps, not a claim that all official sites are blocked.
 
 ## 2026-10-15 · codex-south · R-SOUTH partial handoff
-- Did: pushed `research/R-SOUTH` (`e03b907`):81sources/13files; acquired official English papers and answers/model essays for all five Fujian years2022–2026, parent hashes and opened checks retained; verified Quanzhou2026 citywide Renai/Kepu adoption from the actual notice/DOCX. All seven LFS objects uploaded; register, scope and file-integrity checks pass.
+- Did: pushed `research/R-SOUTH` (`e03b907`):81sources/13 files; acquired official English papers and answers/model essays for all five Fujian years2022–2026, parent hashes and opened checks retained; verified Quanzhou2026 citywide Renai/Kepu adoption from the actual notice/DOCX. All seven LFS objects uploaded; register, scope and file-integrity checks pass.
 - Decided: remain claimed/incomplete;1459coverage cells are explicitly unsearched. Complete whole-page English extracts are distinguished from their all-subject parent PDFs and from public commercial previews. No MP3 advertisement becomes acquired audio.
-- Next: follow the unit's149unreviewed/index leads and99attempt records, finish official city/year applicability and missing audio/transcripts/grade-term grids. Independent publisher research continues on a separate claimed unit.
-- Open questions: detailed current local speaking rubrics, actual licensed audio and full56city coverage remain unresolved.
+- Next: follow the unit's149unreviewed/index leads and 99attempt records, finish official city/year applicability and missing audio/transcripts/grade-term grids. Independent publisher research continues on a separate claimed unit.
+- Open questions: detailed current local speaking rubrics, actual licensed audio and full 56city coverage remain unresolved.
 
 ## 2026-10-15 · codex research coordinator · R-ED-A and R-BANK partial handoffs
-- Did: pushed R-ED-A (`7174f0d`,19sources/19files,17legacy book reference extracts and official catalogues) and R-BANK (`8545410`,62sources/40HTML snapshots,930catalogue asset listings,35observed question-type labels). Unit checkers and committed-file integrity checks pass.
+- Did: pushed R-ED-A (`7174f0d`,19sources/19 files,17legacy book reference extracts and official catalogues) and R-BANK (`8545410`,62sources/40HTML snapshots,930catalogue asset listings,35observed question-type labels). Unit checkers and committed-file integrity checks pass.
 - Decided: both remain claimed/incomplete. Legacy editions do not satisfy2024book coverage; listed assets are not verified question totals. Existing bank snapshots are reference-only. Further automated21cnjy collection stopped after inspecting its agreement, which requires written permission for automated collection and commercial use.
 - Next: retrieve current publisher books and complete audited maps; seek an authorized bank access/licensing route and official English exam analyses. Independent auxiliary and rights research proceeds separately.
 - Open questions: current-edition availability, actual audio licences, and platform permissions remain unresolved; no outreach or agreement is authorized by this handoff.
 
 ## 2026-10-15 · codex research coordinator · R-ED-B and R-LS partial handoffs
-- Did: pushed R-ED-B (`876dae3`,51sources/44artifacts,43legacy books with local full parents, compact repository extracts and7representative maps) and R-LS (`eeddd83`,21sources/20artifacts,5official Fujian2022–26listening models). Source/schema/file-integrity audits pass; LFS objects uploaded.
-- Decided: both remain claimed/incomplete. The2024catalogue is separate from legacy books; no current2024book/audio acquired. Fujian listening models are provincial facts, not evidence of speaking tests in every city.278speaking cells remain unsearched. No permission inferred from access or hashes.
+- Did: pushed R-ED-B (`876dae3`,51sources/44artifacts,43legacy books with local full parents, compact repository extracts and 7representative maps) and R-LS (`eeddd83`,21sources/20artifacts,5official Fujian2022–26listening models). Source/schema/file-integrity audits pass; LFS objects uploaded.
+- Decided: both remain claimed/incomplete. The 2024catalogue is separate from legacy books; no current2024book/audio acquired. Fujian listening models are provincial facts, not evidence of speaking tests in every city.278speaking cells remain unsearched. No permission inferred from access or hashes.
 - Next: current publisher originals, complete maps, audio and local speaking rubrics/platform mandates need followup. Proceed with separate writing/measurement work using opened official papers.
 - Open questions: the English-specific2025revised standard remains unavailable after genuine government searches; its dependent vocabulary and integration gates remain unwaived.
 
@@ -82,8 +82,8 @@ Open questions.
 
 ## 2026-10-15 · codex research coordinator · publisher and central/west followups
 - Did: pushed R-CW `4df6bc3` (124 sources/106 artifacts), R-ED-B `c7d14a6` (64 sources/78 artifacts) and R-AUX `0897b15` (41 sources/31 artifacts). Register validation, source references, byte/hash checks and relevant LFS checks pass. The editions checker used temporary standard filenames because the shared checker does not read b-prefixed files; no shared script was changed.
-- Decided: annual Zhengzhou originals support2023–2025English marks/minutes; Luoyang2024has only partial structure/basis evidence and2025detailed schedule is attributed newspaper reporting. BNU new-series student/teacher navigation is useful metadata, not acquired current books or ISBN proof. Shanghai's live data request failed; Shandong's tested audio route requires membership and trial reader rendered no pages. Do not convert these failures or catalogue listings into acquired material.
-- Coordination: board-only ownership handoff `43112c0` transferred R-LS from codex-listening to codex-listening-east, preserving the existing branch. East is reusing its cached Shanghai official documents; North is visually auditing the2022vocabulary appendices read-only. The coordinator retains R-STD and R-ED-B source numbering and tracked edits. Three existing agents are reused.
+- Decided: annual Zhengzhou originals support2023–2025English marks/minutes; Luoyang2024has only partial structure/basis evidence and 2025detailed schedule is attributed newspaper reporting. BNU new-series student/teacher navigation is useful metadata, not acquired current books or ISBN proof. Shanghai's live data request failed; Shandong's tested audio route requires membership and trial reader rendered no pages. Do not convert these failures or catalogue listings into acquired material.
+- Coordination: board-only ownership handoff `43112c0` transferred R-LS from codex-listening to codex-listening-east, preserving the existing branch. East is reusing its cached Shanghai official documents; North is visually auditing the 2022vocabulary appendices read-only. The coordinator retains R-STD and R-ED-B source numbering and tracked edits. Three existing agents are reused.
 - Next: register the final bounded Shandong catalogue inspection, complete/review the vocabulary audit and publish the Shanghai listening/speaking followup. Full original city papers/media, current textbooks and detailed local rubrics remain open; thousands of grid cells are still unsearched. All units remain claimed/incomplete; R-VOC and R-INT dependencies are not waived.
 - Open questions: no commercial permissions have been obtained. The network draft additionally records the literal publisher hosts `3wm.seph.com.cn`, `up.sjs.com.cn` and `cdn-jcjyzyw-pri.100875.com.cn`; saved draft status is confirmed, but publication is required to apply it. No contacts, accounts or protected access were used.
 
@@ -102,9 +102,9 @@ Open questions.
 - Open questions: the English-specific revised standard remains unverified; access failures and missing facts must remain explicit. No account, network or MCP reconfiguration is part of this research continuation.
 
 ## 2026-10-16 · codex-curriculum · R-STD completed and squash-merged
-- Did: pushed `research/R-STD` (`b48d267`), rebased on current main and squash-merged the completed unit with its board status. It contains15source records and33retained artifacts. The actual English2025revised PDF was discovered through the Qingpu school curriculum index, literal English article and literal attachment; the earlier mathematics candidate is excluded. The revised197-page PDF is82,942,124bytes, SHA-256 `a08998470dd3c81bce1d05d3be34d0a5421cd10822c0f8917839bc92d0b1e4c9`. School article date18March2026is separate from the unknown Ministry issue date.
-- Audited: all197revised pages, figures and tables were viewed across two delegates/coordinator. Full main-word reconciliation confirms505level-two/1600combined/505matchingstars/1095additional entries. Separate baseline and revised221-record supplements preserve blanks/dashes. Revised changes include Tomb-Sweepingcapitalization and bear’s printed participle borne, plus two preface edits. No source-count or image-hash shortcut establishes lexical identity.
-- Mapped: baseline55competency/culture/strategy records and all8teaching cases are complete; separate2025datasets apply currentsource/pageprovenance, cultural-age/overview overrides, revised case1/2projects and body/evaluation guards. All29themes,58grammar entries and17numbered quality indicators retain supported research paraphrases. The complete visual body comparison is not an exhaustive verbatim redline. Original passages/artwork are not app content; all reuse approvals stayfalse.
+- Did: pushed `research/R-STD` (`b48d267`), rebased on current main and squash-merged the completed unit with its board status. It contains15source records and 33retained artifacts. The actual English2025revised PDF was discovered through the Qingpu school curriculum index, literal English article and literal attachment; the earlier mathematics candidate is excluded. The revised197-page PDF is82,942,124bytes, SHA-256 `a08998470dd3c81bce1d05d3be34d0a5421cd10822c0f8917839bc92d0b1e4c9`. School article date18March2026is separate from the unknown Ministry issue date.
+- Audited: all 197revised pages, figures and tables were viewed across two delegates/coordinator. Full main-word reconciliation confirms505level-two/1600combined/505matchingstars/1095additional entries. Separate baseline and revised221-record supplements preserve blanks/dashes. Revised changes include Tomb-Sweepingcapitalization and bear’s printed participle borne, plus two preface edits. No source-count or image-hash shortcut establishes lexical identity.
+- Mapped: baseline55competency/culture/strategy records and all 8teaching cases are complete; separate2025datasets apply currentsource/pageprovenance, cultural-age/overview overrides, revised case1/2projects and body/evaluation guards. All 29themes,58grammar entries and 17numbered quality indicators retain supported research paraphrases. The complete visual body comparison is not an exhaustive verbatim redline. Original passages/artwork are not app content; all reuse approvals stayfalse.
 - Checks: required register validation,33artifact byte/SHA checks, versioned dataset hashes, baseline-provenance hashes, word-set/star reconciliation,194numbered-page coverage plus3front pages and GitLFS integrity pass. No shared schema/scripts or application code changed.
 - Decided: R-STD isdone with documented source gaps, rather than fabricating2011comparison or Ministry-original authentication. R-VOC is now eligible; R-INT still waits for every research unit. Other city/edition/audio units remain partial on their existing branches and Stage1/Gate1is notcomplete.
 - Next: claim R-VOC using the board lock and use the separately versioned national lists as the baseline for actual provincial/city and edition word-list research. The next session must fetch main, read this entry and the board, and preserve existing branch ownership. The owner plans to provide MCP access in another session; no MCP/network/auth changes were performed here.
@@ -152,25 +152,25 @@ Open questions.
 
 ## 2026-10-16 · codex-vocabulary · Renai/Yilin and actual annual-source checkpoint
 - Published `research/R-VOC` at `2e8f176` after rebase and checks. Totals:52sources,138asset records (three shared),29legacy books,11,069literal word/phrase occurrences across306groups. No complete local wordset or current2024book is claimed. No incomplete unit was merged.
-- Added six Renai/Kepu books:2634occurrences/86groups; all154retained pages visually reviewed and24PDFderivatives pixel/native-equal. Added six Yilin books:2293occurrences/44groups; all122retained pages visually reviewed and18PDFderivatives pixel/native-equal. All12ISBNs were observed/checksummed. Renai9lower CIP2014-10conflicts with copyright first-edition2014-11; Yilin second editions remain distinct from unknown first editions and2021printings. Original curated datasets remain unchanged; registered datasets add source IDs, false reuse flags and checked group/page fields. IPA/gloss/individual markers remain explicitly unreviewed.
+- Added six Renai/Kepu books:2634occurrences/86groups; all 154retained pages visually reviewed and 24PDFderivatives pixel/native-equal. Added six Yilin books:2293occurrences/44groups; all 122retained pages visually reviewed and 18PDFderivatives pixel/native-equal. All 12ISBNs were observed/checksummed. Renai9lower CIP2014-10conflicts with copyright first-edition2014-11; Yilin second editions remain distinct from unknown first editions and 2021printings. Original curated datasets remain unchanged; registered datasets add source IDs, false reuse flags and checked group/page fields. IPA/gloss/individual markers remain explicitly unreviewed.
 - Actual local work: submitted separate2022–2026vocabulary searches to Beijing/Zhengzhou public forms, inspected short-term results and all six Beijing词汇/four考试说明pages. Ten cells are boundednot_found; Zhengzhou2023/2024pagination limits are explicit. Actual Shanghai2026and Guangzhou2022targets were blocked;268cells remain unsearched. Captchas were stopped; failed controls and homepages do not fill annual cells.
 - Evidence: actual national教基厅函〔2022〕6号(25March/6April2022),sectionIII,cancels separate exam syllabi. Beijing2023evaluation says English last uses2011standards in2024and2022standards from2025. A teacher plan printed14September2024(web25September)mentions1540words; April2025teacher guidance mentions1600plus extensions/phrases. Preserve conflicting counts as weaker teacher advice; no exact local list or2025revision adoption inferred. Zhengzhou2025/2026city-area policies bridge exact candidates to provincial English exams;2026timetable was fully viewed and matches100minutes/120marks(100written+20listening).
 - Checks: required register52/138/280; vocabulary1600national/29books/11069occurrences; full register67/171/280; actual byte/SHA,ISBN,original-to-registered lexical/group/page sequences,LFS and whitespace all pass. A repinned unsupported lexical-label fixture is rejected by the new source-sequence check. LFS upload and explicit leased branch push succeeded.
 - Continuing: two existing delegates now audit Hebei and SWFL; coordinator continues local annual/current-edition discovery. Next IDs are R-VOC::053 and R-VOC-139. Other claims and R-INT dependencies remain intact. Latest Chrisverse attachment still exposes no native capability/search/board/memory tools in this worker; repository memory records pending reconciliation, and no external update is claimed. No auth/network reconfiguration, outreach, account creation, permissions or released content.
 
 ## 2026-10-16 · codex-vocabulary · Hebei/SWFL and Guangzhou checkpoint
-- Published Hebei/SWFL at `965df76`, then Guangzhou evidence at `0687f91`. Current totals:71 sources,197 retained asset records,40 legacy books,16,031 literal word/phrase occurrences. All239 pages retained for the eleven new books were viewed and passed selected-page pixel/native comparisons. The five Hebei books lack copyright/imprint pages, so edition/printing dates remain unknown. SWFL's delta marks2011level-five vocabulary; it is not the national2022star. Preserve source `hocky`/`gallope`, Hebei main `Niagara Falls` versus index `Niagra Falls`, and SWFL grade8lower's TOC/actual alphabetic-index end discrepancy.
+- Published Hebei/SWFL at `965df76`, then Guangzhou evidence at `0687f91`. Current totals:71 sources,197 retained asset records,40 legacy books,16,031 literal word/phrase occurrences. All 239 pages retained for the eleven new books were viewed and passed selected-page pixel/native comparisons. The five Hebei books lack copyright/imprint pages, so edition/printing dates remain unknown. SWFL's delta marks2011level-five vocabulary; it is not the national2022star. Preserve source `hocky`/`gallope`, Hebei main `Niagara Falls` versus index `Niagra Falls`, and SWFL grade8lower's TOC/actual alphabetic-index end discrepancy.
 - Guangzhou: followed ten documents/thirteen news pages through actual next links to2021. Opened all five annual guide PDFs (1114pages total), read full native text for discovery and visually checked the exact recorded cover/contents/English/policy pages. No whole-guide visual-completeness claim or raw local list. Five annual cells are boundednot_found, superseding Guangzhou2022's earlier failed search route; current coverage15not_found/1blocked/264unsearched.
-- Evidence: the2024/2025guides explicitly apply2022standards to2024–2026cohorts. Selected2022–2025English sections give20minutes listening/speaking,100written,30+90=120marks; the2026guide contents review alone does not reverify marks/timing. These facts remain separate from Beijing and Henan. Ordinary attachmentGET succeeds althoughHEAD403; no authentication workaround.
-- The actual2022offline practiceRAR was downloaded, hashed and statically opened with existinglibarchive: unencryptedWindowsEXE, no execution/installation/security change. The notice reports two20-minute sets and the2026warmtip still recommends it. Zero sets/audio/transcripts independently played or decoded. Registered as a practice package, with rightsfalse; available for R-SOUTH/R-LS/R-AUX owner followup.
+- Evidence: the 2024/2025guides explicitly apply2022standards to2024–2026cohorts. Selected2022–2025English sections give20minutes listening/speaking,100written,30+90=120marks; the 2026guide contents review alone does not reverify marks/timing. These facts remain separate from Beijing and Henan. Ordinary attachmentGET succeeds althoughHEAD403; no authentication workaround.
+- The actual2022offline practiceRAR was downloaded, hashed and statically opened with existinglibarchive: unencryptedWindowsEXE, no execution/installation/security change. The notice reports two20-minute sets and the 2026warmtip still recommends it. Zero sets/audio/transcripts independently played or decoded. Registered as a practice package, with rightsfalse; available for R-SOUTH/R-LS/R-AUX owner followup.
 - Checks: register71/197/280 and vocabulary1600national/40books/16031occurrences pass, including actual hydrated bytes/SHA and unchanged lexical sequence checks. GitLFS uploads and branch pushes succeeded. NextIDs072and198. Delegates continue Shandong/ESPress/BNU; coordinator continues actual local sources and current editions. No incomplete unit merged or setreleased; other locks and R-INT dependencies preserved.
 - Latest plugin attachment still exposes no native Chrisverse/Kanban/Obsidian tools or generic tool search in this worker. Repository board/memory updated with concise cards and exact pending reconciliation. No external update is claimed; no credential/auth/network changes.
 
 ## 2026-10-16 · codex-vocabulary · ESPress/Shandong and annual-source checkpoint
 - Published Shenzhen at `ddfbfbd`, Haikou/ESPress at `b7ecbd6`, Shandong at `6697fb6`, and Changsha at `0a79bba`. Totals102sources/285asset records/55legacybooks/20,914literal occurrences/552groups;29boundednot_found/2blocked/249unsearched annualcells. No current2024book or actual local raw examination wordset acquired; no unit/Gate1completion claimed.
-- ESPress8:2138entries/90units/127visually reviewed pages; all8ISBNs checked. Grade7upper subset changed identity-page pixels, so unchanged full parent retained. Preserve grade6upper2012-07imprint/2013-07CIPconflict, manners/manner, unbalanced/unbaleanced, alphabetic-onlyweight/flight and literalleft-handness/Hellen Keller. Shandong7:2745rows/62units/170reviewed pages; all7ISBNs checked. ElevenacceptedPDFs only; five full parents retained once because selection changed strict native spaces/soft hyphens. Fullbodyunaudited; accepted selected pages match RGB/native text. IndividualIPA/gloss/typography/variants remainunknown. BNU5scans nowunderway; missing imprint/ISBN fields will stayunknown.
+- ESPress8:2138entries/90units/127visually reviewed pages; all 8ISBNs checked. Grade7upper subset changed identity-page pixels, so unchanged full parent retained. Preserve grade6upper2012-07imprint/2013-07CIPconflict, manners/manner, unbalanced/unbaleanced, alphabetic-onlyweight/flight and literalleft-handness/Hellen Keller. Shandong7:2745 rows/62units/170reviewed pages; all 7ISBNs checked. ElevenacceptedPDFs only; five full parents retained once because selection changed strict native spaces/soft hyphens. Fullbodyunaudited; accepted selected pages match RGB/native text. IndividualIPA/gloss/typography/variants remainunknown. BNU5scans nowunderway; missing imprint/ISBN fields will stayunknown.
 - Shenzhen2023–2026actualannualEnglishpolicies/Q&Aandall10embedded images opened/read. Written tables showJune28,09:00–10:10. Actual2024–2026text gives100including25listening/speaking,20-minute人机对话; no2023backfill. No explicit national-standard version or local wordset.2022actualpublicquery403andarchive limits remainblocked.
-- Haikou:five actual annual vocabulary targets, broadshortterm and five actual citypolicies read. Broadquerythreehitsincludes2019syllabus, separatelyopened/outsidecurrentcoverage; no raw list. Search projections exclude unrelated public12345case metadata and pin raw byte/SHA; lossy semantics/2023first-page limit remainexplicit. Changsha:five annual ordinary/advancedtargets plus all4pages/38broadtokenisedhits read; high-school word-chunkcandidate opened and excluded(visible2019datevs2023URLpath). ActualHunan2023policy introduces provincial written setting from2024without specifying a curriculum version. Actual2025Changshareform treats oralEnglish as20-markassessment converted toA/B/C/Dforcomprehensiveevaluation; no extra20admissionsmarks inferred.
+- Haikou:five actual annual vocabulary targets, broadshortterm and five actual citypolicies read. Broadquerythreehitsincludes2019syllabus, separatelyopened/outsidecurrentcoverage; no raw list. Search projections exclude unrelated public12345case metadata and pin raw byte/SHA; lossy semantics/2023first-page limit remainexplicit. Changsha:five annual ordinary/advancedtargets plus all 4pages/38broadtokenisedhits read; high-school word-chunkcandidate opened and excluded(visible2019datevs2023URLpath). ActualHunan2023policy introduces provincial written setting from2024without specifying a curriculum version. Actual2025Changshareform treats oralEnglish as20-markassessment converted toA/B/C/Dforcomprehensiveevaluation; no extra20admissionsmarks inferred.
 - Requiredregister102/285/280 and vocabulary1600national/55books/20914occurrences pass, including actual hydrated byte/SHA and original-to-registered sequence/ISBN checks. A rejectedresource-type enum was corrected before publication, then checksrerun. LFSuploads and pushes succeeded; allrightsfalse. NextIDs103and286. Two existing delegates continue BNU/northernannual discovery; root continues independently. Luoyangunreliablecontrols leaveitscellsunsearched; ShanghaiworkingpublicPOSTandactualannualnoticesarebeingreviewed, withoutrelyingonitsbrokenheaderform.
 - Mainboard/memory updated with concise existingcards. NativeChrisverse/Kanban/Obsidian tools and generic toolsearch remainabsent in thisworker; externalreconciliationpending and noexternalwriteclaimed. No auth/network reconfiguration, outreach, accounts, permissions or releasedcontent. Otherclaims and R-INTdependencies preserved.
 
@@ -208,7 +208,7 @@ Open questions.
 - Future sessions should read this memory and the existing external MCP records when accessible, then continue the app branch. Do not restart the platform or claim the 96-word foundation is complete curriculum coverage.
 
 ## 2026-10-16 · codex-vocabulary · cached book audit and northern annual searches
-- Published BNU at20309ea, Wuhan atb0674bb and five northern cities atf05f1e7. Required register123sources/434assets/280cells and vocabulary1600national/60cachedbooks/23248occurrences pass; GitLFSintegrity checked. R-VOC remainsclaimed; current books and215annualcells remain unresolved.
+- Published BNU at20309ea, Wuhan atb0674bb and five northern cities atf05f1e7. Required register123sources/434assets/280cells and vocabulary1600national/60cachedbooks/23248occurrences pass; GitLFSintegrity checked. R-VOC remainsclaimed; current books and 215annualcells remain unresolved.
 - BNU5:2334literal occurrences/40groups/128visually reviewed pages, including16picture-dictionaryfigures; manual primary-list transcription and exact selected RGB/native fidelity. Covers show2013approval; missing ISBN/imprint/curriculum-basis fields stayunknown. Alphabetic-only entries are not invented in unit rows.
 - Annual coverage59boundednot_found/6blocked/215unsearched. Shanghai's working publicPOSTsupersedesoldfailedroute; five actualWuhancitytargets render a site-administrator block, with independentprovincialnegative searcheslinked. Actualpolicy preservesseparateWuhansetting; provincialmarks/minutesnotimported. Northernfivecitypasses include complete shortindexes and actualannualtargets, withsingle-index/query-semanticslimits. JinanHTMLandrestrictedSJZreplytext/snippets excluded; metadata-only citationsdonotestablishcitywideadoption.
 - Next: two delegates continue nine northern and nine southern cities; root continues east/central-west independentforms/archives and current-editiondiscovery. No otherclaim takeover, incompleteunitmerge, releasedcontent or R-INTdependencywaiver. Existingappdeliveryclaim preserved.
@@ -216,7 +216,7 @@ Open questions.
 
 ## 2026-10-16 · codex-vocabulary · southern coverage and current-reader limits
 - Published independent northern indexes at a0207c1, southern annual searches at fb9efd0, four Zhejiang city sets at c23315a, and current BNU metadata/readable research report at 83ce076. Checks pass for 155 sources, 775 retained asset records, 60 cached books / 23,248 literal occurrences and 280 annual cells. Annual status: 178 bounded not found, 7 blocked, 95 unsearched. R-VOC remains claimed/incomplete; Stage1 and R-INT dependencies are unchanged.
-- Southern nine-city pass actually issued all45annual targets:185usable responses, with pagination and relaxed-term limits preserved. Root rehashed original responses and retained purpose-limited JSON projections, excluding unrelated branches, duplicate raw/decoded bodies, challenge HTML and interface screenshots. Quanzhou's named500-primary-word transition material has no attached word table; Nanning's commercial2023FLTRPlead has no verified original metadata/file. No local annual raw wordset acquired.
+- Southern nine-city pass actually issued all 45annual targets:185usable responses, with pagination and relaxed-term limits preserved. Root rehashed original responses and retained purpose-limited JSON projections, excluding unrelated branches, duplicate raw/decoded bodies, challenge HTML and interface screenshots. Quanzhou's named500-primary-word transition material has no attached word table; Nanning's commercial2023FLTRPlead has no verified original metadata/file. No local annual raw wordset acquired.
 - Ordinary360 form worked with standardhttpx whereurlliblooped; no auth, custom headers, proxy orTLSchange. Both active streams stopped on explicit challenges (actualJiaxing2026andBaoding2024); unissued targets remain unsearched. The Ministry's exact published advanced form now returns ordinary result URLs and verified native results. Continue with matching actual queries/counts/rows, title/URL/date-only metadata and explicit Ministry-index-only scope; exclude unrelated indexed individual-list bodies/snippets and ephemeral native request values.
 - Current BNU: five listed catalogues checked, zero vocabulary pages/entries. Grade7upper's actual visible vocabulary click gives a loading/incorrect subject placeholder; longer reader and two other catalogues503, two remain incomplete shells. Publisher copyright notice requires prior permission for reproduction/mirroring, so only paraphrases/bibliographic hashes are registered; no current-reader HTML/DOM/screenshots or notice text copied. Known blocked covers were not retried.
 - Rewrote current research.md for readable findings and added the city/year status grid; earlier checkpoint details remain in research-history.md. Other unit claims and active app branch preserved. Exact native/deferred registry still has45tools and exposes no Chrisverse/Kanban/Obsidian or generic tool-search/reload interface. Local board/memory updated; existing external records await reconciliation, with no external write claimed. Next: finish actual remaining annual targets and record current/uncached family gaps before any completion decision.
@@ -668,7 +668,7 @@ residence and since/for. Selected evidence changes the actual time band. Review 
 state labels plotted as past events, corrected diagram phrase order/terminology and removed an
 accidentally repeated sentence. All eight figures, wrong evidence, application and transfer were
 inspected; full browser flow, 24 widths, alignment/reload and zero assessment records pass.
-All 1,452 core tests, typecheck, 826 spelling/teaching and static package audits pass. Main1699KB;
+All 1,452 core tests, typecheck, 826 spelling/teaching and static package audits pass. Main 1699 KB;
 no native GUI pass is implied. Next l-g-articles: a generated book/umbrella image is pending
 inspection, not completion. The unit remains claimed and unfinished; work stays solo.
 
@@ -693,9 +693,9 @@ l-g-comparison is reviewed: 8/413. Eight tasks require the actual comparison gro
 two/three/equal objects and require typed more interesting/better/easier. Wrong group and typed
 form are retained independently. Numerical bars are code and stay on equal-width rails. All
 figures, error paths and transfer were inspected. Whole flow, 24 widths, reload and zero assessment
-records pass; all1,454 core tests, typecheck,826 teaching/spelling audit and package checks pass.
+records pass; all 1,454 core tests, typecheck,826 teaching/spelling audit and package checks pass.
 A combined edition audit hit5s once and passed alone. Split it into two complete edition audits,
-each covering all413 lessons/all1,690 headwords, keeping the same timeout and assertions.
+each covering all 413 lessons/all 1,690 headwords, keeping the same timeout and assertions.
 Next l-g-pronouns: identify referents separately from grammatical position and coded ownership.
 Unit stays claimed and unfinished; native GUI remains separate. Work stays solo.
 
@@ -706,9 +706,9 @@ l-g-pronouns is reviewed: 9/413. Eight tasks distinguish referents from grammar 
 require typed her/hers, and contrast singular/plural objects, ownership and ourselves. Explicit
 records establish ownership and making, rather than infer them from who holds a pictured item.
 Review corrected the subject-only prompt and sentence/punctuation flow. All figures, wrong
-referents, application and transfer were inspected. Full flow and24 widths pass, with reload and
-zero assessment records; all four affected scene lessons were rechecked. Typecheck and826
-teaching/spelling audit pass; last core1,454 precedes pronoun data. Next l-g-nouns.
+referents, application and transfer were inspected. Full flow and 24 widths pass, with reload and
+zero assessment records; all four affected scene lessons were rechecked. Typecheck and 826
+teaching/spelling audit pass; last core 1,454 precedes pronoun data. Next l-g-nouns.
 
 Fresh direct MCP check: wechat_status succeeds, read_file wechat/AGENTS.md reports external-drive
 file access unavailable. No native GUI job, compilation, restart, upload or publication occurred.
@@ -720,10 +720,10 @@ The overall lesson claim remains unfinished. Work stays solo.
 
 l-g-nouns is reviewed: 10/413. Ten tasks require typed words and distinguish exact object
 counts, singular/plural, irregular forms, photo/tomato spellings and content versus countable
-units. Diagrams show precisely3/1 sandwiches,2 bottles,3 children,2 leaves and3 bread slices;
+units. Diagrams show precisely3/1 sandwiches,2 bottles,3 children,2 leaves and 3 bread slices;
 visible slices do not make bread countable. Every figure and common typed error was inspected,
-with distinct application and fresh advice transfer. Full flow and30 widths pass, with reload
-and zero assessment records. Build/typecheck/826 teaching-spelling audit pass; last core1,454
+with distinct application and fresh advice transfer. Full flow and 30 widths pass, with reload
+and zero assessment records. Build/typecheck/826 teaching-spelling audit pass; last core 1,454
 precedes pronoun/noun data. Next prepositions, then a coherent broad verification/package refresh.
 The overall unit remains claimed and unfinished; solo work and native/audio boundaries persist.
 
@@ -735,7 +735,7 @@ spatial relations. Classification cannot be bypassed by a correct preposition. B
 below/above bounds and map order are checked in pixels at three widths. Review shortened labels
 and repeated feedback. An initially chosen delayed application ID was rejected by the compiler;
 it was replaced with an immediate item, preserving the delayed pool. All figures/errors/transfer
-were inspected; full flow and27 widths, geometry/reload and zero assessment records pass.
+were inspected; full flow and 27 widths, geometry/reload and zero assessment records pass.
 Current broad checks pass:1,454 core, typecheck, grammar constraints, course,826 teaching-spelling
 and static package. Adapter/all-individual/offline/archive checks are running at this checkpoint.
 Next l-g-past-continuous is prepared outside course files; do not apply it during current checks.
@@ -744,8 +744,8 @@ Overall claim remains unfinished; native project-drive access is still blocked.
 
 ## 2026-10-18 (Sydney) · codex-solo · eleven-lesson coherent checkpoint
 
-All current checks pass:1,454 core/14files, typecheck,7 grammar constraints, course,826 teaching-
-spelling, static package, both native-adapter simulations, all11 individual browser flows/89tasks/
+All current checks pass:1,454 core/14 files, typecheck,7 grammar constraints, course,826 teaching-
+spelling, static package, both native-adapter simulations, all 11 individual browser flows/89 tasks/
 267 widths,8 offline checks, and CRC/exact-byte comparison for refreshed local/native ZIPs.
 Managed policy blocks direct file navigation; standalone testing served the embedded document
 once on loopback and then disabled networking during practice. Full evidence and source/artifact
@@ -762,5 +762,36 @@ watering art is reused with code names/times; writing is supported by a separate
 Review made duplicated contexts distinct, fixed interval-start labels and improved report wording.
 All figures/errors/transfer inspected. Whole flow,24 widths, actual cursor/bar geometry, reload and
 zero assessment records pass. Typecheck,826 teaching-spelling,28 workshop tests and package pass.
-Checkpoint11 retains full1,454-core/adapter/offline/archive evidence for its exact snapshot.
+Checkpoint 11 retains full 1,454-core/adapter/offline/archive evidence for its exact snapshot.
 Next l-g-passive is prepared outside course files. Overall unit unfinished;401 rows remain pending.
+
+
+## 2026-10-18 (Sydney) · codex-solo · exact delayed-sentence overlap found
+
+A new exact-text audit found two reused reserved sentences: prepositions workshop matched
+q-g-prepositions-005, and the unreviewed passive draft matched q-g-passive-005. ID-only safeguards
+had rejected delayed application IDs but did not catch rewritten workshop records of the same
+complete sentence. The baseline shared workshops have no exact matches. Replace the park/location
+and game-rules examples, preserve the actual delayed questions, add a compiler guard/regression,
+and rerun both lessons. Temporarily reopen prepositions (11 current reviews) until its changed
+figure is inspected. Checkpoint 11 retains the exact earlier snapshot and now has this limitation.
+No main merge, release or production publication occurred. Continue the existing unit solo.
+
+
+## 2026-10-18 (Sydney) · codex-solo · passive lesson and corrections reviewed
+
+Prepositions is restored to reviewed after the changed park map was inspected. Passive voice is
+individually reviewed: 13/413, with seven actor/receiver, number/tense, future/modal and participle
+tasks. Wrong focus remains separate from a correct predicate. All figures, six narrow role models,
+error paths and transfer were inspected. Both reserved grammar questions were compared with the
+historical pack and verified unchanged. New exact-text guard covers all selected grammar models;
+new grade guard prevents a transfer omitting an eligible lesson grade. Three grade-6 tags corrected.
+The noun transfer now applies the rules to route information/photos rather than repeating advice.
+
+Current checks pass: 1,458 core/14 files, typecheck, 826 teaching-spelling, package, all 13 full
+browser flows/104 conditions/312 widths, four affected flows again after final corrections,
+both native-adapter simulations, eight offline checks and refreshed ZIP CRC/exact-byte comparison.
+Full source/artifact evidence: docs/reviews/individual-lessons/checkpoint-13.*. The earlier checkpoint
+retains its historical hashes and disclosed limitation. Native GUI remains blocked; no upload or
+publication occurred. Next l-g-modals; generated pool art is inspected but not yet integrated.
+Overall claim unfinished; 400 lesson reviews remain. Work stays solo.

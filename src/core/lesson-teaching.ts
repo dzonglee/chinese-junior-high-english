@@ -146,7 +146,7 @@ export function assemblyCorrect(unit:TeachingAssembly,ids:string[]):boolean{
   return ids.length===unit.target.length&&new Set(ids).size===ids.length&&text(ids)===text(unit.target)
 }
 export function teachingProblems(s:LessonTeaching,lesson:Lesson):string[]{
-  const errors:string[]=[];if(s.mission?.workshop)errors.push(...workshopProblems(s.mission.workshop).map(e=>`${lesson.id}: ${e}`));const fail=(message:string)=>errors.push(`${lesson.id}: ${message}`)
+  const errors:string[]=[];if(lesson.grades.some(g=>!s.transfer.grades.includes(g)))errors.push(`${lesson.id}: transfer must cover every lesson grade`);if(s.mission?.workshop)errors.push(...workshopProblems(s.mission.workshop).map(e=>`${lesson.id}: ${e}`));const fail=(message:string)=>errors.push(`${lesson.id}: ${message}`)
   if(!s.assemblies.length||s.assemblies.some(a=>a.target.length<2||a.target.length!==a.tiles.length||!a.tiles.every(t=>t.text)))fail('missing substantive assembly')
   if(s.diagnoses.some(d=>!d.correct||!d.options.some(o=>o.id===d.correct)||d.options.length<2||d.options.some(o=>!d.reasons[o.id])))fail('incomplete exam clinic')
   if(!s.diagnosis.correct||!s.diagnosis.options.some(o=>o.id===s.diagnosis.correct)||s.diagnosis.options.length<2)fail('missing diagnostic contrast')

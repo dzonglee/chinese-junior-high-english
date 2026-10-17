@@ -19,8 +19,8 @@ generalize its f/ves change to every f-ending noun.
 ## Whole lesson
 
 The original picnic prediction is retained. Distinct applications practise advice and bottles
-in different tasks. Fresh camp advice requires pieces / advice, checking the plural unit separately
-from its uncountable content. Each distractor has a reason. Original delayed items remain untouched;
+in different tasks. A new guide/route transfer requires pieces / photos, applying the unit rule to provided
+uncountable information and the photo spelling rule in a changed situation. Each distractor has a reason. Original delayed items remain untouched;
 guided typing is never recorded as independent assessment, mastery or a lesson pass.
 
 ## Inspected evidence
@@ -37,3 +37,10 @@ verified Mac project-drive access, not MCP authentication. No native approval is
 [Bottles versus milk](l-g-nouns/condition-3.png) · [Slices versus bread](l-g-nouns/condition-8.png) ·
 [Wrong photoes](l-g-nouns/typed-6-wrong.png) · [Wrong tomatos](l-g-nouns/typed-7-wrong.png) ·
 [Fresh transfer](l-g-nouns/fresh-transfer.png)
+
+
+## Transfer strengthened
+
+The earlier advice transfer repeated too much of its workshop scenario. It is replaced with
+route information/photos, then rendered and checked through the whole flow. Transfer tags now
+cover grade 6, matching the lesson. Current full core run: 1,458 tests; see checkpoint-13.

@@ -1,7 +1,8 @@
 import {it,expect} from 'vitest'
 import {authorCatalog} from '../scripts/lib/author-content.mjs'
-import {createLessonTeaching,freshTeaching,changeTeaching,teachingCanAdvance,restoreTeaching} from './core/lesson-teaching'
+import {createLessonTeaching,freshTeaching,changeTeaching,teachingCanAdvance,restoreTeaching,teachingProblems} from './core/lesson-teaching'
 import {workshopView} from './core/lesson-workshop'
+import {individualDelayedProblems} from '../scripts/lib/author-visual-missions.mjs'
 import {containsTerm,productionReady,productionMinimum} from './core/teaching-production'
 import {missionView} from './core/visual-mission'
 const c=authorCatalog(process.cwd()),studio=(id:string)=>createLessonTeaching(c,c.lessons.find(l=>l.id===id)!)
@@ -102,4 +103,25 @@ it('holds the past reference cursor fixed while the selected activity interval c
  const s=studio('l-g-past-continuous'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
  p=changeTeaching(s,p,'workshop-choose','was watering',2);p=changeTeaching(s,p,'workshop-record','finished',3);p=changeTeaching(s,p,'workshop-check','',4);let v=workshopView(w,p);expect(v.referenceStyle).toBe('left:30%;');expect(v.cells[0].rangeStyle).toBe('left:10%;width:15%;');expect(v.complete).toBe(false)
  p=changeTeaching(s,p,'workshop-record','ongoing',5);p=changeTeaching(s,p,'workshop-check','',6);v=workshopView(w,p);expect(v.referenceStyle).toBe('left:30%;');expect(v.cells[0].rangeStyle).toBe('left:20%;width:20%;');expect(v.complete).toBe(true);expect(v.cells[1].label).toBe('16:10')
+})
+
+it('marks a wrongly selected passive subject separately from a correct predicate',()=>{
+ const s=studio('l-g-passive'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-item','1',2);p=changeTeaching(s,p,'workshop-choose','is cleaned',3);p=changeTeaching(s,p,'workshop-record','doer',4);p=changeTeaching(s,p,'workshop-check','',5);let v=workshopView(w,p);expect(v.cells[0].label).toBe('Mia');expect(v.cells[0].wrong).toBe(true);expect(v.expressionWrong).toBe(false);expect(v.complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-record','receiver',6);p=changeTeaching(s,p,'workshop-check','',7);v=workshopView(w,p);expect(v.cells[0].label).toBe('the table');expect(v.cells[0].wrong).toBe(false);expect(v.complete).toBe(true)
+})
+
+
+it('rejects exact delayed grammar sentences in workshops while allowing immediate and fresh examples',()=>{
+ const grammar=[{id:'g-guard',cases:[['First [[1]].','one'],['Second [[1]].','two'],['Third [[1]].','three'],['Fourth [[1]].','four'],['The notice must [[1]] before the meeting.','be read'],['Later [[1]].','six']]}]
+ const specs=[{lessonId:'l-g-guard',workshop:{conditions:[{before:'The notice must ',target:'be read',after:' before the meeting.'}]}}]
+ expect(individualDelayedProblems(specs,grammar)).toEqual(['l-g-guard: workshop repeats delayed grammar item q-g-guard-005'])
+ specs[0].workshop.conditions[0]={before:'The game rules must ',target:'be followed',after:' by every player.'};expect(individualDelayedProblems(specs,grammar)).toEqual([])
+ specs[0].workshop.conditions[0]={before:'First ',target:'one',after:'.'};expect(individualDelayedProblems(specs,grammar)).toEqual([])
+ const extended=[{id:'g-guard12',cases:Array.from({length:12},(_,i)=>[`Example ${i+1} [[1]].`,'done'])}];specs[0].workshop.conditions[0]={before:'Example 8 ',target:'done',after:'.'};expect(individualDelayedProblems(specs,extended)).toEqual([]);specs[0].workshop.conditions[0].before='Example 9 ';expect(individualDelayedProblems(specs,extended)).toEqual(['l-g-guard: workshop repeats delayed grammar item q-g-guard12-009'])
+})
+
+
+it('rejects a transfer that omits a grade eligible for its lesson',()=>{
+ const s=studio('l-g-nouns'),l=c.lessons.find(l=>l.id==='l-g-nouns')!;expect(l.grades).toContain(6);expect(teachingProblems(s,l)).toEqual([])
+ const altered={...s,transfer:{...s.transfer,grades:[7,8,9] as (6|7|8|9)[]}};expect(teachingProblems(altered,l)).toContain('l-g-nouns: transfer must cover every lesson grade')
 })

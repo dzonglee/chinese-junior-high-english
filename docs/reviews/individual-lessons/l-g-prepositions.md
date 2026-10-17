@@ -1,6 +1,6 @@
 # l-g-prepositions · read the whole clue and inspect the actual relation
 
-Authoring date: 2026-10-18 (Sydney). Content remains draft. Individual visual/control review passed.
+Authoring date: 2026-10-18 (Sydney). Content remains draft. Visual/control review passed after reserved-sentence correction.
 
 ## Teaching decision
 
@@ -10,7 +10,7 @@ and short mistake-specific feedback keep the reasoning visible without repeated 
 
 Three spatial tasks actually move the same book relative to a fixed desk. On touches the surface;
 under is below; above is higher without contact in this schematic. Pixel checks verify the book
-and tabletop bounds at all three widths. The final three-building map preserves left/centre/right
+and tabletop bounds at all three widths. The final three-place map preserves left/centre/right
 order at every width, so between is supported by the picture. Reduced-motion preferences are
 honoured for the moving objects.
 
@@ -36,3 +36,13 @@ records adapter/offline/archive verification. No fresh native GUI or release app
 [On](l-g-prepositions/condition-5.png) · [Under](l-g-prepositions/condition-6.png) ·
 [Above](l-g-prepositions/condition-7.png) · [Between](l-g-prepositions/condition-8.png) ·
 [Fresh transfer](l-g-prepositions/fresh-transfer.png)
+
+
+## Subsequent correction
+
+The original library/bank/post-office example exactly repeated delayed item q-g-prepositions-005.
+The application-ID guard did not detect a sentence recreated in workshop data. It is replaced
+with an original park/school/library map, which was rendered and inspected again. The compiler
+now rejects exact reserved grammar sentences in every selected workshop. The actual delayed
+question is byte-for-byte unchanged. Transfer tags now include grade 6, matching the lesson's
+eligibility. Current full verification passes; see checkpoint-13.

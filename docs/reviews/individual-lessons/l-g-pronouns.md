@@ -38,3 +38,6 @@ is claimed. Native-adapter/browser checks remain separate from actual DevTools r
 [Typed hers](l-g-pronouns/condition-2.png) · [Plural them](l-g-pronouns/condition-5.png) ·
 [Changed ownership](l-g-pronouns/condition-6.png) · [We / ourselves](l-g-pronouns/condition-7.png) ·
 [Fresh transfer](l-g-pronouns/fresh-transfer.png)
+
+Transfer eligibility now also includes grade 6, matching the lesson. A validator and negative
+regression reject transfers that omit an eligible lesson grade. The whole flow was rerun.
