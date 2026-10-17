@@ -69,3 +69,13 @@ for(const id of ['l-r-inference','l-r-course-t01','l-r-course-t05','l-r-course-t
 it('keeps a mistaken suffix on the live word-building result and limits choices to the current verb',()=>{
  const s=studio('l-g-present'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-item','5',2);p=changeTeaching(s,p,'workshop-choose','studys',3);p=changeTeaching(s,p,'workshop-check','',4);let v=workshopView(w,p);expect(v.cells[2].label).toBe('studys');expect(v.expressionWrong).toBe(true);expect(v.complete).toBe(false);expect(v.choices.map(o=>o.id)).toEqual(['study','studies','studys']);p=changeTeaching(s,p,'workshop-choose','walking',5);expect(workshopView(w,p).selected).toBe('studys');p=changeTeaching(s,p,'workshop-choose','studies',6);p=changeTeaching(s,p,'workshop-check','',7);v=workshopView(w,p);expect(v.cells[2].label).toBe('studies');expect(v.complete).toBe(true);expect(w.conditions![5].world.cells[2].label).toBe('@attempt')
 })
+
+
+it('requires an actual dated event record and moves the marker without colouring a correct verb wrong',()=>{
+ const s=studio('l-g-past'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
+ p=changeTeaching(s,p,'workshop-choose','cleaned',2);p=changeTeaching(s,p,'workshop-check','',3);expect(workshopView(w,p).complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-record','future',4);p=changeTeaching(s,p,'workshop-check','',5);let v=workshopView(w,p);expect(v.recordCorrect).toBe(false);expect(v.expressionWrong).toBe(false);expect(v.cells[0].style).toBe('left:80%;');expect(v.feedback).toContain('明天');expect(v.complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-record','past',6);p=changeTeaching(s,p,'workshop-check','',7);v=workshopView(w,p);expect(v.complete).toBe(true);expect(v.cells[0].style).toBe('left:20%;');expect(v.cells[0].label).toContain('昨天')
+ p=changeTeaching(s,p,'workshop-record','unknown',8);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-record','now',9);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).attempted).toBe(false)
+})

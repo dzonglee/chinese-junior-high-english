@@ -633,3 +633,15 @@ All eight task figures, error states and transfer were inspected. The whole brow
 24 width checks, reload and zero assessment records pass. Reduced repeated banners and time
 text. Next: l-g-past, using documented completed events, irregular verbs and did + base forms.
 The unit remains claimed and unfinished. Native project-drive access is still a separate blocker.
+
+
+## 2026-10-18 (Sydney) · codex-solo · past-events lesson individually reviewed
+
+l-g-past is reviewed: 4/413. An inspected cleanup diptych and fictional dated records anchor
+seven distinct tasks: completed events, irregular went, cancelled activity, did + base in negative
+and question forms, was/were states and stopped spelling. A new required event-record selection
+moves its timeline marker. Wrong chronology cannot pass with a correct verb. Visual review fixed
+now-label alignment and added exact coded panel captions. All models/errors/application/transfer
+were inspected. Full browser flow and 21 width checks pass, including alignment, reload and no
+assessment records. All 1,451 core tests, typecheck, native adapter simulations and package checks
+pass. Native GUI remains separate. Next l-g-future; the overall unit stays claimed and unfinished.
