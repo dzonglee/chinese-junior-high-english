@@ -282,3 +282,15 @@ known grading/recording/approval corrections, verify complete learner flows and 
 Do not wait for production credentials or media choices to make local development usable.
 The current worker still exposes no Chrisverse/Obsidian/Kanban native tools despite the new plugin
 attachment. Keep repository records current and reconcile existing external records if tools appear.
+
+## Whole-app UI · APP-UI
+
+The owner rejected isolated lesson screenshots and the generic full-app interface. Work is solo
+on author/app-ui, claimed on main at 0cd7f4d. The implementation rebuilds all five roots, uses
+progressive course/builder filters and validates three short onboarding stages. A direct comparison
+with the maths app at 933ab32 is in reviews/ui-2026-10-17.md. Repeated review fixed several routing,
+input and visual problems; a final native session-navigation issue is still being traced. Browser
+checks pass, including all 13,320 lesson layouts and the actual control flows. Do not equate that
+with the unresolved expanded native walkthrough or production readiness. The owner’s existing
+Kanban card 35f6f71a-31b4-4ca2-8500-ab58cf293a68 and Obsidian project note are updated through the
+failed native investigation. Keep the branch/board claimed until the real native result is checked.

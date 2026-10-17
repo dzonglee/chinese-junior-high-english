@@ -25,7 +25,7 @@ try{
  const linkedLesson=catalog.lessons.find(l=>l.topicId==='g-be')
  const linked=page.locator(`[data-action="open-experiment"][data-value="e-be"]`);await expect(linked).toHaveAttribute('data-value','e-be');await linked.click();await expect(page.locator('.exploration')).toHaveAttribute('data-experiment','e-be')
  checks.push('The laboratory entry opens the original language experiment')
- await action('back');await action('navigate','explore');await expect(page.locator('[data-action=open-experiment]')).toHaveCount(all.length)
+ await action('back');await expect(page.locator('[data-action=open-experiment]')).toHaveCount(all.length)
  await context.setOffline(true)
  for(const e of all){
   await action('open-experiment',e.id);await expect(page.locator('.exploration')).toHaveAttribute('data-phase','0')

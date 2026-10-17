@@ -39,13 +39,15 @@ let resolveRecording: (value: { path: string; durationMs: number }) => void = ()
 let rejectRecording: (reason: Error) => void = () => {}
 let resolveStart: () => void = () => {}
 let rejectStart: (reason: Error) => void = () => {}
+let navigationGeneration = 0
 const platform: Platform = {
   now: () => Date.now(),
   navigate(page, params = {}, replace = false) {
+    const generation = ++navigationGeneration
     const url = `/pages/${page}/index?${Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&')}`
     if (ROOT_SCREENS.includes(page) || page === 'onboarding') wx.reLaunch({ url })
     else if (replace) wx.redirectTo({ url })
-    else wx.navigateTo({ url, fail: () => wx.redirectTo({ url }) })
+    else wx.navigateTo({ url, fail: (error) => { if (generation !== navigationGeneration) return; if (/limit|exceed/i.test(error.errMsg)) wx.redirectTo({ url }); else wx.showToast({ title: '页面暂未打开，请再试一次。', icon: 'none' }) } })
   },
   back() { if (getCurrentPages().length > 1) wx.navigateBack(); else platform.navigate('home') },
   toast: (title) => wx.showToast({ title, icon: 'none', duration: 3000 }),

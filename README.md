@@ -6,6 +6,10 @@ studio: build an expression, choose evidence, sort examples or revise a draft. I
 vocabulary review, reading, writing drafts, speaking self-review, a question builder, timed
 practice, private questions, a mistake book, saved progress and backup import/export.
 
+The whole-app interface now includes a focused Today page, compact searchable courses, a skill-based
+practice grid, useful mistake states and a profile menu. First use takes three short steps.
+See [UI comparison and evidence](docs/reviews/ui-2026-10-17.md) for the current verification boundary.
+
 ## Run locally
 
 Use Node 24 and the checked-in npm lockfile:
@@ -63,6 +67,7 @@ npm run test:native-cancellation
 npm run test:release-guards
 npm run test:journeys
 npm run test:local
+npm run test:product-ui
 npm run test:course-browser
 npm run test:interactions
 npm run test:teaching
