@@ -287,3 +287,12 @@ it('rejects a record illustration root without an asset or outside the allowed p
  const w=structuredClone(studio('l-g-statements').mission!.workshop!);const r=w.conditions![0].world.records!;r.assetRoot='illustrations';expect(workshopProblems(w)).toEqual([])
  delete r.asset;expect(workshopProblems(w)).toContain('Invalid event records');r.asset='lesson-box-inventory';r.assetRoot='../outside' as 'illustrations';expect(workshopProblems(w)).toContain('Invalid event records')
 })
+
+it('requires a complete selected phrase and preserves actual word order without granting an incomplete boundary',()=>{
+ const s=studio('l-g-exclamations'),w=s.mission!.workshop!,c=w.conditions![0];let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-input',c.target,2)
+ p=changeTeaching(s,p,'workshop-member','3',3);p=changeTeaching(s,p,'workshop-check','',4);let v=workshopView(w,p);expect(v.complete).toBe(false);expect(v.selectionText).toBe('it');expect(v.feedback).toContain('「it」');expect(v.cells.find(c=>c.id==='3')!.wrong).toBe(true)
+ p=changeTeaching(s,p,'workshop-member','3',5);for(const id of ['1','0'])p=changeTeaching(s,p,'workshop-member',id,6);p=changeTeaching(s,p,'workshop-check','',7);v=workshopView(w,p);expect(v.selectionText).toBe('a bright');expect(v.complete).toBe(false)
+ p=JSON.parse(JSON.stringify(p));p=changeTeaching(s,p,'workshop-member','2',8);p=changeTeaching(s,p,'workshop-check','',9);v=workshopView(w,p);expect(v.selectionText).toBe('a bright kite');expect(v.complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-member','1',10);expect(workshopView(w,p).complete).toBe(false)
+ const bad=structuredClone(w);bad.conditions![0].world.selection!.mode='outside' as 'words';expect(workshopProblems(bad)).toContain('Invalid comparison scope');bad.conditions![0].world.selection!.mode='words';bad.conditions![0].world.cells[0].label='a phrase';expect(workshopProblems(bad)).toContain('Invalid comparison scope')
+})

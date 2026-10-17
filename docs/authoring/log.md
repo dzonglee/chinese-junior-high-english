@@ -1223,3 +1223,16 @@ Current new lesson flow:14 conditions/42 task-width checks,reload and zero indep
 Cumulative428 conditions/1284 widths;earlier flows retain scope. Hashes:checkpoint-44.*.
 Next:l-g-exclamations. A thirteen-task exclamation draft remains outside course files. It requires selecting whole fronted phrases word by word,contrasts noun phrases with adjectives/adverbs,and assembles complete What/How sentences. Build a compact word-selection model with accurate selected-phrase feedback;avoid labelling the correct answer in advance. Enforce explicit source capitals per response. Overall claim continues solo;369 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-exclamations individually reviewed
+
+45/413 reviewed. Thirteen exclamation tasks require complete word-by-word phrase boundaries before What/How and a/an repairs,with paired noun/adjective uses and actual full-sentence assembly.
+
+Inspected all thirteen models,narrow-phone figures,all wrong-boundary selections,incomplete/removed phrases,wording refinements,repairs,capitals and all application/transfer steps. The model previews actual selected words in reading order. Full ordinal regression passes;month/date figures reinspected,no extra review credit. Grades8–9;reserved005–008 unexposed;zero independent records. Fresh MCP project access still fails;existing native card remains blocked.
+
+Current new lesson flow:13 conditions/39 task-width checks,reload and zero independent records. 1,480 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,9 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Development/cloud simulations passed,including all245 hashes and artwork readiness/failure/retry,before final four-condition caption/prompt clarifications. Runtime/UI code is unchanged;final compiler/browser/offline/archive checks cover that wording. No native GUI evidence. Core scope:1480 tests/14 files passed before final four-condition figure captions/prompts. Final compiler/typecheck/teaching/grammar/interaction/package,complete exclamation browser,nine offline and archive checks cover the wording. The full ordinal control regression and its month/date visual inspection precede those exclamation-only edits.
+
+Cumulative441 conditions/1323 widths;earlier flows retain scope. Hashes:checkpoint-45.*.
+Next:l-g-sentence-patterns. A twelve-task sentence-pattern draft remains outside course files. Use the word selector to identify whole subjects/objects and noninitial predicates,complements and adverbials. Analyze an explicitly correct model before repairing a separate draft;distinguish prepositional objects,linking predicates and missing verbs. Inspect all new boundaries and forms before credit. Overall claim continues solo;368 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.
