@@ -17,6 +17,8 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | APP-INTERACTION | Build interactive language activities | done | codex-interaction | main | 13 workshops and reading evidence delivered |
 | APP-TEACHING | Upgrade every lesson’s interactive teaching | done | codex-solo | main | 413 interactive studios delivered; native/local evidence in teaching review |
 | APP-UI | Redesign the complete app to the maths product standard | done | codex-solo | main | Whole-app redesign delivered; checked native screenshots and comparison in the UI review |
+| APP-EXAM-LESSONS | Strengthen exam teaching in every individual lesson | open | — | — | Depends on APP-TEACHING/UI; teacher audit, individual tasks, misconceptions and exam transfer |
+| APP-MOCKS | Deliver authored mock papers and exam corrections | open | — | — | Depends on APP-EXAM-LESSONS; original graded written papers, section navigation, marks and correction plans |
 | APP-NATIVE | Prepare native validation and publication | open | — | — | Claim for real-device checks, production AppID/cloud setup and approved audio; guest DevTools checked |
 
 ### Delivery checklist

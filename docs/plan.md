@@ -154,3 +154,21 @@ context, select evidence, sort phonetic cards, organise a model or revise a draf
 screen focused on one activity. Longer source text and detailed reasons are available on demand;
 show a short explanation tied to the student's current choice. Do not equate fewer visible words
 with successful pedagogy. Codex performs this work itself; no further delegation.
+
+## Exam-focused teaching · owner direction, 2026-10-17
+
+The owner accepts the homepage improvement but rejects interface-only completion. Audit and
+upgrade every individual lesson from the perspective of a Chinese junior-high English teacher.
+APP-EXAM-LESSONS owns a complete per-lesson audit and substantive exam coaching: identify the
+actual tested skill, choose an appropriate method, address specific misconceptions, practise the
+reasoning interactively, then transfer and revisit. Vary the work by skill; model reconstruction
+alone is insufficient. Make explanations concise and connected to the learner's actual error.
+Keep existing independent/assisted/delayed/self-review evidence truthful. No score guarantee.
+
+APP-MOCKS then supplies authored fixed papers with coherent passages, appropriate grade/term
+coverage, explicit section counts/marks/timing, a real answer sheet, resume/submission, separate
+objective and subjective results, and a correction plan leading back to lessons. Author original
+written training papers now, clearly distinguished from a verified city/cohort examination
+blueprint. Listening papers may be authored but actual listening still requires approved audio;
+never substitute transcript reading for listening marks. Preserve textbook spelling and original
+rights. Work remains solo; keep per-lesson evidence and actual native review, not just counts.
