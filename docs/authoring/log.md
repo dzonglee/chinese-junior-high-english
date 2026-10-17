@@ -658,3 +658,16 @@ wrong evidence and transfer were inspected. Full flow, 21 widths, reload/alignme
 records pass; core 1,451 and typecheck pass, with final wording rechecked through the browser.
 Next l-g-perfect: original key-loss/resolution art is generated and inspected but not yet integrated.
 The unit remains unfinished and claimed; no native GUI or release approval is inferred.
+
+
+## 2026-10-18 (Sydney) · codex-solo · past-to-now lesson individually reviewed
+
+l-g-perfect is reviewed: 6/413. Eight tasks use original tappable lost/found-key panels,
+changed present consequences, have/has, past versus participle forms, ended versus ongoing
+residence and since/for. Selected evidence changes the actual time band. Review fixed current
+state labels plotted as past events, corrected diagram phrase order/terminology and removed an
+accidentally repeated sentence. All eight figures, wrong evidence, application and transfer were
+inspected; full browser flow, 24 widths, alignment/reload and zero assessment records pass.
+All 1,452 core tests, typecheck, 826 spelling/teaching and static package audits pass. Main1699KB;
+no native GUI pass is implied. Next l-g-articles: a generated book/umbrella image is pending
+inspection, not completion. The unit remains claimed and unfinished; work stays solo.

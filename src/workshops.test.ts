@@ -79,3 +79,11 @@ it('requires an actual dated event record and moves the marker without colouring
  p=changeTeaching(s,p,'workshop-record','unknown',8);expect(workshopView(w,p).complete).toBe(true)
  p=changeTeaching(s,p,'workshop-record','now',9);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).attempted).toBe(false)
 })
+
+it('keeps picture evidence and residence duration tied to the selected record',()=>{
+ const s=studio('l-g-perfect'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
+ p=changeTeaching(s,p,'workshop-choose','has lost',2);p=changeTeaching(s,p,'workshop-record','found',3);p=changeTeaching(s,p,'workshop-check','',4);let v=workshopView(w,p);expect(v.recordArtChoices.find(r=>r.id==='found')!.wrong).toBe(true);expect(v.cells[0].label).toBe('找回钥匙');expect(v.expressionWrong).toBe(false);expect(v.complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-record','missing',5);p=changeTeaching(s,p,'workshop-check','',6);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-item','5',7);p=changeTeaching(s,p,'workshop-record','left',8);p=changeTeaching(s,p,'workshop-choose','have lived',9);p=changeTeaching(s,p,'workshop-check','',10);v=workshopView(w,p);expect(v.cells[0].rangeStyle).toBe('left:20%;width:15%;');expect(v.complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-record','live',11);p=changeTeaching(s,p,'workshop-check','',12);v=workshopView(w,p);expect(v.cells[0].rangeStyle).toBe('left:20%;width:30%;');expect(v.complete).toBe(true)
+})
