@@ -1,13 +1,13 @@
 import { Application, type Platform } from '../app/application'
 import { ROOT_SCREENS } from '../app/view'
-import { catalog } from '../generated/catalog'
+import type { ContentCatalog } from '../core/types'
 import { runtime } from '../generated/runtime'
 import { sha256 } from '@noble/hashes/sha256'
 import { bytesToHex } from '@noble/hashes/utils'
 import { packs } from '../generated/packs'
 import { ContentRepository } from '../services/content'
 import { StateStore } from '../services/storage'
-declare const require: (path: string) => { loadPack(topicId: string): Promise<string> }
+declare const require: (path: string) => { loadPack(topicId: string): Promise<string>; loadCatalog(): Promise<{ catalog: ContentCatalog }> }
 const loader = require('./pack-loader.js')
 // The installed typings describe this callable resolver as a result object; use the documented API shape.
 type PrivacyResolver = (result: { event: 'agree' | 'disagree'; buttonId?: string }) => void
@@ -18,17 +18,10 @@ wx.onNeedPrivacyAuthorization(value => {
   if (shell) shell.requestPrivacy(resolve)
   else resolve({ event: 'disagree' })
 })
-const store = new StateStore({ read: (key) => wx.getStorageSync(key) || null, write: (key, value) => wx.setStorageSync(key, value), remove: (key) => wx.removeStorageSync(key) }, catalog)
+let catalog: ContentCatalog
 let cloudStarted = false
 function ensureCloud() { if (!cloudStarted) { try { wx.cloud.init({ env: runtime.cloudEnv, traceUser: false }); cloudStarted = true } catch { throw new Error('学习内容服务暂时无法连接，请稍后重试。') } } }
-const repository = new ContentRepository(catalog, packs, async pack => {
-  if (runtime.mode === 'development') return loader.loadPack(pack.topicId)
-  ensureCloud()
-  const fileID = runtime.contentFiles[pack.topicId]
-  if (!fileID) throw new Error('这部分内容暂未发布，请稍后重试。')
-  const file = await wx.cloud.downloadFile({ fileID })
-  return new Promise<string>((resolve, reject) => wx.getFileSystemManager().readFile({ filePath: file.tempFilePath, encoding: 'utf8', success: r => resolve(String(r.data)), fail: () => reject(new Error('题目下载未完成，请重试。')) }))
-})
+
 let audio: WechatMiniprogram.InnerAudioContext | undefined
 let playbackGeneration = 0
 let cancelPlayback: (() => void) | undefined
@@ -124,6 +117,24 @@ const platform: Platform = {
     await Promise.all([...new Set(owned)].map(filePath => new Promise<void>((resolve, reject) => fs.unlink({ filePath, success: () => resolve(), fail: e => /no such file|not exist/i.test(e.errMsg) ? resolve() : reject(new Error('有文件尚未删除，请检查设备空间后重试。')) }))))
   },
 }
-export const application = new Application(repository, store, platform)
-const active = store.get().activeSessionId
-export const ready = active ? repository.ensureQuestions(store.get().sessions[active].questionIds).catch(() => { platform.toast('上次的练习暂未加载，请稍后重试。') }) : Promise.resolve()
+export let application: Application
+let initializing: Promise<void> | undefined
+export function initializeApplication(): Promise<void> {
+  if (application) return Promise.resolve()
+  return initializing ??= loader.loadCatalog().then(async data => {
+  catalog = data.catalog
+  const store = new StateStore({ read: key => wx.getStorageSync(key) || null, write: (key, value) => wx.setStorageSync(key, value), remove: key => wx.removeStorageSync(key) }, catalog)
+  const repository = new ContentRepository(catalog, packs, async pack => {
+    if (runtime.mode === 'development') return loader.loadPack(pack.topicId)
+    ensureCloud()
+    const fileID = runtime.contentFiles[pack.topicId]
+    if (!fileID) throw new Error('这部分内容暂未发布，请稍后重试。')
+    const file = await wx.cloud.downloadFile({ fileID })
+    return new Promise<string>((resolve, reject) => wx.getFileSystemManager().readFile({ filePath: file.tempFilePath, encoding: 'utf8', success: r => resolve(String(r.data)), fail: () => reject(new Error('题目下载未完成，请重试。')) }))
+  })
+  application = new Application(repository, store, platform)
+  const active = store.get().activeSessionId
+  if (active) await repository.ensureQuestions(store.get().sessions[active].questionIds).catch(() => platform.toast('上次的练习暂未加载，请稍后重试。'))
+  }).catch(error => { initializing = undefined; throw error })
+}
+export const ready = initializeApplication()

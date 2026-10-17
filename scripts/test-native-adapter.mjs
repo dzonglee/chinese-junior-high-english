@@ -8,7 +8,7 @@ const root = resolve(import.meta.dirname, '../miniprogram'), local = resolve(imp
 mkdirSync(local, { recursive: true })
 const manifest = JSON.parse(readFileSync(resolve(root, '../dist/manifest.json'), 'utf8'))
 const cloudFileMap = Object.fromEntries(manifest.map(p => [p.topicId, `cloud://synthetic-test-env/${p.file}`]))
-writeFileSync(resolve(local, 'pack-loader.js'), 'module.exports = { loadPack: () => { throw new Error("Cloud mode must not read packaged questions") } };')
+writeFileSync(resolve(local, 'pack-loader.js'), `module.exports = { loadCatalog: () => require.async('../../miniprogram/content/catalog/index.js'), loadPack: () => { throw new Error('Cloud mode must not read packaged questions') } };`)
 await build({ entryPoints: [resolve(root, '../src/native/app.ts')], bundle: true, format: 'cjs', platform: 'neutral', target: 'es2020', outfile: resolve(local, 'runtime.cjs'), external: ['./pack-loader.js'], plugins: [{ name: 'synthetic-cloud-runtime', setup(builder) { builder.onLoad({ filter: /generated[\\/]runtime\.ts$/ }, () => ({ contents: `export const runtime = ${JSON.stringify({ mode: 'cloud', cloudEnv: 'synthetic-test-env', contentFiles: cloudFileMap, mediaFiles: {} })}`, loader: 'ts' })) } }] })
 for (const mode of ['development', 'cloud']) {
 const data = new Map(), navigations = [], errors = [], pendingNavigation = []
@@ -31,7 +31,7 @@ function load(file) {
   const wrapper = vm.runInContext(`(function(require,module,exports){${source}\n})`, context, { filename: file })
   wrapper(require, module, module.exports); return module.exports
 }
-const { application: app, ready } = load(mode === 'cloud' ? resolve(local, 'runtime.cjs') : resolve(root, 'runtime.js')); await ready
+const adapter = load(mode === 'cloud' ? resolve(local, 'runtime.cjs') : resolve(root, 'runtime.js')); await adapter.ready; const app = adapter.application
 app.open('home'); assert.equal(app.render().id, 'onboarding')
 for (const [name, value] of Object.entries({ cityId: '河南-郑州', structure: '63', grade: '7', term: 'upper', editionId: 'pep-2024', schoolYear: '2026', dailyMinutes: '15' })) app.setField(name, value)
 await app.action('save-profile'); assert(navigations.at(-1).startsWith('/pages/home/index'))

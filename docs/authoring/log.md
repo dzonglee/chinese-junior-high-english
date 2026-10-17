@@ -380,3 +380,19 @@ Open questions.
 ## 2026-10-17 · codex-solo · exam-teaching scope
 - Owner requests substantive individual lesson upgrades and a proper exam-focused app with mock papers. Added APP-EXAM-LESSONS and APP-MOCKS as sequential units; existing UI completion does not imply teaching/exam completion. Work remains solo.
 - Initial audit finds generic model-reconstruction/diagnosis tasks and random timed practice rather than authored papers. First unit audits all 413 lessons and strengthens their specific exam reasoning, misconceptions and transfer; second adds original structured written papers and correction flow. City/cohort verification, audio approval and honest score evidence remain required; no full-marks guarantee or official local paper is invented.
+
+## 2026-10-17 · codex-solo · APP-EXAM-LESSONS implementation
+
+Added individual exam coaching across all 413 lessons, 55 original grammar contrasts and
+72 authored model-role maps with task-specific revision checks. Reading now connects
+questions to evidence across the lesson; writing rejects mismatched sentence links.
+Reviewed and corrected model-only requirements, the younger-brother check, Sunday in t12,
+and photo provenance/date checking in t20. Kept all content draft and delayed items hidden.
+
+991 tests, course/teaching/package/content audits and native adapters pass. Native job
+3a3e77a3a55447ae91c6ee9ffb824df6 passes 11 full flows with 45 captures and no exceptions.
+Browser checks cover 15,795 layouts and 13 control journeys; all 16 new teacher-review
+sheets and the four changed model visuals were inspected. See the detailed review.
+The last copy-only native follow-up is running before integration. Next: integrate this
+unit, claim APP-MOCKS and author fixed original written papers and correction journeys.
+Open owner question remains approved audio; it does not block written practice.

@@ -52,11 +52,32 @@ it('opens setup on a fresh native home page and preserves that setup on foregrou
  const app=new Application(new ContentRepository(c,[],async()=>''),store,{now:()=>1,navigate(){},back(){},toast(){},confirm:async()=>true,exportText:async()=>{},importText:async()=>null,copy:async()=>{},play:async()=>{},stopAudio(){},startRecording:async()=>{},stopRecording:async()=>({path:'test',durationMs:1}),removeRecordings:async()=>{}})
  let component:any,screen:any
  vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{getApp:()=>({globalData:{application:app,ready:Promise.resolve()}}),getCurrentPages:()=>[{route:'pages/home/index'}],Component:(value:any)=>{component=value}})
- const context:any={data:{page:'home',params:{}},setData(value:any){screen=value.screen},startTicker(){},showScreen(reset=false){component.methods.showScreen.call(this,reset)}}
+ const context:any={connectApplication(){return component.methods.connectApplication.call(this)},data:{page:'home',params:{}},setData(value:any){screen=value.screen},startTicker(){},showScreen(reset=false){component.methods.showScreen.call(this,reset)}}
  await component.lifetimes.attached.call(context)
  expect(screen.id).toBe('onboarding');expect(screen.setup.step).toBe(0)
  app.setField('cityId','北京-北京');app.setField('structure','63');await app.action('setup-next')
  component.pageLifetimes.show.call(context)
  expect(screen.setup.step).toBe(1);expect(app.form.cityId).toBe('北京-北京');expect(store.get().profile).toBeNull()
  context.unsubscribe()
+})
+
+it('shows a recoverable native startup failure and connects after retry',async()=>{
+ let component:any,opens=0,subscriptions=0
+ const application={subscribe(){subscriptions++;return()=>{}},render(){return{}},state:{profile:{}}}
+ const globals:any={application:null,ready:Promise.reject(new Error('Synthetic catalog download failure'))}
+ globals.start=()=>globals.ready=Promise.resolve().then(()=>{globals.application=application})
+ vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{getApp:()=>({globalData:globals}),Component:(v:any)=>{component=v}})
+ const context:any={data:{},setData(v:any){Object.assign(this.data,v)},showScreen(){opens++},startTicker(){},connectApplication(){return component.methods.connectApplication.call(this)}}
+ await component.lifetimes.attached.call(context)
+ expect(context.data.startupError).toBe(true);expect(opens).toBe(0)
+ await component.methods.retryStartup.call(context)
+ expect(context.data.startupError).toBe(false);expect(opens).toBe(1);expect(subscriptions).toBe(1)
+})
+it('does not attach a native page after it has been detached during startup',async()=>{
+ let component:any,resolveReady!:()=>void,subscriptions=0
+ const globals={application:{subscribe(){subscriptions++;return()=>{}}},ready:new Promise<void>(resolve=>{resolveReady=resolve})}
+ vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{getApp:()=>({globalData:globals}),clearInterval(){},Component:(v:any)=>{component=v}})
+ const context:any={connectApplication(){return component.methods.connectApplication.call(this)}}
+ const attaching=component.lifetimes.attached.call(context);component.lifetimes.detached.call(context);resolveReady();await attaching
+ expect(subscriptions).toBe(0)
 })

@@ -2,6 +2,7 @@
 <template name="actions">
   <view class="actions"><button wx:for="{{items}}" wx:key="index" class="button {{item.tone || 'secondary'}}" data-action="{{item.id}}" data-value="{{item.value}}" bindtap="action" disabled="{{item.disabled || busy}}" loading="{{busy && item.tone === 'primary'}}">{{item.label}}</button></view>
 </template>
+<view wx:if="{{!screen}}" class="app"><view class="panel"><text class="page-title">{{startupError ? '课程暂未加载' : '正在准备课程'}}</text><text class="help">{{startupError ? '请检查连接后重试，已保存的学习记录不受影响。' : '首次打开需要加载课程目录，请稍等。'}}</text><button wx:if="{{startupError}}" class="button primary" bindtap="retryStartup">重新加载</button></view></view>
 <view wx:if="{{screen}}" class="app {{screen.tabs.length ? 'with-tabs' : ''}} {{screen.overview ? 'product-app' : ''}} screen-{{screen.id}}">
   <block wx:if="{{screen.overview}}"><template is="product" data="{{s:screen,u:screen.overview,busy:screen.busy}}"/></block>
   <block wx:else>

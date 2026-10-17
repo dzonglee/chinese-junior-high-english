@@ -103,7 +103,13 @@ export interface Question {
   source: { kind: 'original' | 'licensed'; author: string; license?: string }
   review: 'draft' | 'reviewed' | 'released'
 }
+export interface ExamCoaching {
+  task: string; check: string
+  reasoning?: {task:string;decision:string;trap:string;feedback:string}
+  modelRoles?: string[]; checklist?: string[]
+}
 export interface Lesson {
+  examCoaching?: ExamCoaching
   id: string
   topicId: string
   title: string
