@@ -1,0 +1,638 @@
+{
+  "lessonId": "l-g-imperatives",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Choose commanded door states,repair positive/negative imperatives and be,build polite requests and letsuggestions,contrast fixed No+ing notices with do-not imperatives,and distinguish commands from statements.",
+  "picturePurpose": "An original matched open/closed door diptych supports selecting the goal of two opposing commands. Exact goals,labels and language stay coded;other tasks require real phrase reconstruction.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "看目标、改指令，让别人知道该怎么做",
+    "instruction": "点门的目标状态，改好肯定和否定指令，再拼出完整请求。每次先看要做什么，再检查动词原形。",
+    "conditions": [
+      {
+        "label": "要门关好，用原形Close",
+        "before": "",
+        "target": "Close",
+        "after": " the door, please.",
+        "choices": [
+          "Closes",
+          "Close"
+        ],
+        "reason": "要求把门关上，用原形Close，不用第三人称Closes；句首C大写。",
+        "world": {
+          "kind": "logic",
+          "caption": "图书室要求保持门关好。先选目标状态，再改好关门指令。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的目标状态"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "asset": "lesson-door-instructions",
+            "assetRoot": "illustrations",
+            "alt": "左图为打开的红色图书室门；右图为同一扇关好的门。",
+            "artChoices": [
+              "open",
+              "closed"
+            ],
+            "title": "点出指令要达到的门的状态",
+            "emptyLabel": "先选目标状态",
+            "missingPrompt": "先选指令要求达到的状态，再修改指令。",
+            "answer": "closed",
+            "options": [
+              {
+                "id": "open",
+                "label": "门打开",
+                "text": "open",
+                "value": 25,
+                "reason": "这不是指令要求达到的状态。要求把门关上，用原形Close，不用第三人称Closes；句首C大写。"
+              },
+              {
+                "id": "closed",
+                "label": "门关好",
+                "text": "closed",
+                "value": 75,
+                "reason": "符合要求的目标状态。"
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "Closes",
+        "inputHint": "按指令的意思改好动词原形；句首大写，否定还要检查not。",
+        "caseSensitive": true
+      },
+      {
+        "label": "要求换气，这次要打开",
+        "before": "",
+        "target": "Open",
+        "after": " the door, please.",
+        "choices": [
+          "Opens",
+          "Open"
+        ],
+        "reason": "这次要求开门，用Open，不是沿用Close。祈使句以原形开头，句首O大写。",
+        "world": {
+          "kind": "logic",
+          "caption": "老师明确要求开门换气。目标改为门打开。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的目标状态"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "asset": "lesson-door-instructions",
+            "assetRoot": "illustrations",
+            "alt": "左图为打开的红色图书室门；右图为同一扇关好的门。",
+            "artChoices": [
+              "open",
+              "closed"
+            ],
+            "title": "点出指令要达到的门的状态",
+            "emptyLabel": "先选目标状态",
+            "missingPrompt": "先选指令要求达到的状态，再修改指令。",
+            "answer": "open",
+            "options": [
+              {
+                "id": "open",
+                "label": "门打开",
+                "text": "open",
+                "value": 25,
+                "reason": "符合要求的目标状态。"
+              },
+              {
+                "id": "closed",
+                "label": "门关好",
+                "text": "closed",
+                "value": 75,
+                "reason": "这不是指令要求达到的状态。这次要求开门，用Open，不是沿用Close。祈使句以原形开头，句首O大写。"
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "Opens",
+        "inputHint": "按指令的意思改好动词原形；句首大写，否定还要检查not。",
+        "caseSensitive": true
+      },
+      {
+        "label": "禁止门一直开着，not后用原形",
+        "before": "",
+        "target": "Do not leave",
+        "after": " the door open.",
+        "choices": [
+          "Does not leave",
+          "Do not leave"
+        ],
+        "reason": "不让门一直开着，用Do not leave或Don't leave。命令听者做事，不能因为door单数就改成Does。",
+        "world": {
+          "kind": "syntax",
+          "caption": "管理员要求：不要让这扇门一直开着。用否定指令表达。",
+          "cells": [
+            {
+              "label": "Does not leave",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "Don't leave"
+        ],
+        "caseSensitive": true,
+        "input": true,
+        "tiles": [
+          "Do",
+          "not",
+          "Don't",
+          "Does",
+          "leave"
+        ]
+      },
+      {
+        "label": "否定指令的完整开头",
+        "before": "",
+        "target": "Do not",
+        "after": " run near the stairs.",
+        "choices": [
+          "Does not",
+          "Do not"
+        ],
+        "reason": "否定祈使句用Do not加动词原形run；没有第三人称单数主语，不用Does not。本题明确要求完整形式。",
+        "world": {
+          "kind": "logic",
+          "caption": "校规：楼梯附近禁止奔跑。本题填do not的完整形式，不缩写，注意句首大写。",
+          "cells": [
+            {
+              "label": "Does not",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "Does not",
+        "inputHint": "按指令的意思改好动词原形；句首大写，否定还要检查not。",
+        "caseSensitive": true
+      },
+      {
+        "label": "please后也用原形",
+        "before": "Please ",
+        "target": "walk",
+        "after": " slowly in the corridor.",
+        "choices": [
+          "walks",
+          "walk"
+        ],
+        "reason": "Please后面仍是祈使句，walk用原形，不加s。",
+        "world": {
+          "kind": "logic",
+          "caption": "值班老师请同学在走廊慢慢走。",
+          "cells": [
+            {
+              "label": "walks",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "quiet是状态，指令以Be开头",
+        "before": "",
+        "target": "Be",
+        "after": " quiet during the test.",
+        "choices": [
+          "Are",
+          "Be"
+        ],
+        "reason": "quiet是形容词，祈使句用原形Be连接，不写Are或Is。",
+        "world": {
+          "kind": "logic",
+          "caption": "考试提醒：保持安静。",
+          "cells": [
+            {
+              "label": "Are",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "否定状态，要保留be原形",
+        "before": "",
+        "target": "Do not be",
+        "after": " late for practice.",
+        "choices": [
+          "Do not are",
+          "Do not be"
+        ],
+        "reason": "否定祈使句是Do not加原形，状态词late前还要保留be；可缩写为Don't be。",
+        "world": {
+          "kind": "syntax",
+          "caption": "训练提醒：不要迟到。拼出否定开头。",
+          "cells": [
+            {
+              "label": "Do not are",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "Don't be"
+        ],
+        "caseSensitive": true,
+        "input": true,
+        "tiles": [
+          "Don't",
+          "be",
+          "Do",
+          "not",
+          "are"
+        ]
+      },
+      {
+        "label": "礼貌请求也能从Please加原形开始",
+        "before": "",
+        "target": "Please pass",
+        "after": " me the ruler.",
+        "choices": [
+          "Please passes",
+          "Please pass"
+        ],
+        "reason": "Please pass向听者提出请求，pass用原形，不加s。",
+        "world": {
+          "kind": "syntax",
+          "caption": "你请同桌把尺子递给你。保留Please，让请求更礼貌。",
+          "cells": [
+            {
+              "label": "Please passes",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "caseSensitive": true,
+        "input": true,
+        "tiles": [
+          "passes",
+          "Please",
+          "pass"
+        ]
+      },
+      {
+        "label": "let后指我们，用宾格us",
+        "before": "Let ",
+        "target": "us",
+        "after": " pack our bags together.",
+        "choices": [
+          "we",
+          "us"
+        ],
+        "reason": "let后面跟宾语us，再接pack原形；不能用主格we。",
+        "world": {
+          "kind": "logic",
+          "caption": "一起整理书包。补全Let开头的共同建议。",
+          "cells": [
+            {
+              "label": "we",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "Let's后不加to",
+        "before": "Let's ",
+        "target": "check",
+        "after": " the address first.",
+        "choices": [
+          "to check",
+          "check"
+        ],
+        "reason": "Let's后直接接动词原形check，不用to check。",
+        "world": {
+          "kind": "logic",
+          "caption": "两人准备出发，一起先核对地址。",
+          "cells": [
+            {
+              "label": "to check",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "No加ing是禁令标语，不套Do not的结构",
+        "before": "No ",
+        "target": "running",
+        "after": " in this area.",
+        "choices": [
+          "run",
+          "running"
+        ],
+        "reason": "本题固定以No开头，标语用No running。若以Do not开头，才接run原形；不要把两种结构拼成No run。",
+        "world": {
+          "kind": "logic",
+          "caption": "这是一条以No开头的禁止奔跑标语。保留No，只改括号内的词。",
+          "cells": [
+            {
+              "label": "run",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "run",
+        "inputHint": "保留No开头，补出表示活动的-ing形式；不要混成Do not加原形。"
+      },
+      {
+        "label": "否定动作的完整词序",
+        "before": "",
+        "target": "Do not touch",
+        "after": " the hot pan.",
+        "choices": [
+          "Does not touch",
+          "Do not touch"
+        ],
+        "reason": "警告听者不要碰热锅，用Do not touch或Don't touch；touch保留原形。",
+        "world": {
+          "kind": "syntax",
+          "caption": "安全提醒：不要碰热锅。拼出否定指令。",
+          "cells": [
+            {
+              "label": "Does not touch",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "Don't touch"
+        ],
+        "caseSensitive": true,
+        "input": true,
+        "tiles": [
+          "Don't",
+          "touch",
+          "Does",
+          "not",
+          "Do"
+        ]
+      },
+      {
+        "label": "描述现状和发出指令不一样",
+        "before": "",
+        "target": "Close this door",
+        "after": ".",
+        "choices": [
+          "This door is closed",
+          "Close this door"
+        ],
+        "reason": "这里要求听者关门，应该说Close this door。This door is closed只描述门已关好，没有发出关门指令。",
+        "world": {
+          "kind": "syntax",
+          "caption": "门现在开着，老师要求关上这扇门。把原稿中的陈述句改成关门指令。",
+          "cells": [
+            {
+              "label": "This door is closed",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "caseSensitive": true,
+        "input": true,
+        "tiles": [
+          "This",
+          "Close",
+          "this",
+          "is",
+          "closed",
+          "door"
+        ]
+      },
+      {
+        "label": "请求坐下，不让动词多一个s",
+        "before": "",
+        "target": "Please sit down",
+        "after": ".",
+        "choices": [
+          "Please sits down",
+          "Please sit down"
+        ],
+        "reason": "请求听者坐下，用Please sit down。sit是原形，不用sits。",
+        "world": {
+          "kind": "syntax",
+          "caption": "工作人员请你坐下等候。保留Please，拼出完整请求。",
+          "cells": [
+            {
+              "label": "Please sits down",
+              "detail": "需要改好的表达"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "caseSensitive": true,
+        "input": true,
+        "tiles": [
+          "Please",
+          "down",
+          "sits",
+          "sit"
+        ]
+      }
+    ],
+    "choices": [
+      "Closes",
+      "Close",
+      "Opens",
+      "Open",
+      "Does not leave",
+      "Do not leave",
+      "Does not",
+      "Do not",
+      "walks",
+      "walk",
+      "Are",
+      "Be",
+      "Do not are",
+      "Do not be",
+      "Please passes",
+      "Please pass",
+      "we",
+      "us",
+      "to check",
+      "check",
+      "run",
+      "running",
+      "Does not touch",
+      "Do not touch",
+      "This door is closed",
+      "Close this door",
+      "Please sits down",
+      "Please sit down"
+    ],
+    "items": [
+      {
+        "id": "instruction-editor",
+        "label": "指令与目标",
+        "prompt": "让指令达到要求的目标，并保留正确的动词结构。",
+        "answer": "",
+        "reason": "",
+        "hint": "动词原形开头；否定用Do not加原形；状态提醒用Be。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-imperatives-002",
+      "q-g-imperatives-003"
+    ],
+    "transfer": {
+      "id": "individual-g-imperatives-transfer",
+      "topicId": "g-imperatives",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "工作人员要求：“别推这扇门，请在这里等。”哪组英文指令完整、词形正确？",
+      "options": [
+        {
+          "id": "a",
+          "text": "Do not push the door. Wait here, please."
+        },
+        {
+          "id": "b",
+          "text": "Does not push the door. Wait here, please."
+        },
+        {
+          "id": "c",
+          "text": "Do not push the door. Waits here, please."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Do not push the door. Wait here, please."
+      },
+      "marks": 2,
+      "estimatedSeconds": 80,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别找出禁止的动作和请求做的动作，检查两个动词都用原形。",
+        "steps": [
+          {
+            "text": "禁止推门用Do not push the door。",
+            "reason": "否定祈使句用Do not加原形push，不借Does。"
+          },
+          {
+            "text": "请求等候用Wait here, please。",
+            "reason": "肯定祈使句以原形Wait开头，不加s；please使请求更礼貌。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "否定祈使句不用Does not，应为Do not push。"
+          },
+          {
+            "option": "c",
+            "reason": "请求听者等候要用Wait原形，不用Waits。"
+          }
+        ],
+        "pitfall": "不要看见door单数就给指令加does或给开头的动词加s。",
+        "visual": {
+          "kind": "comparison",
+          "title": "禁止与请求分开检查",
+          "segments": [
+            {
+              "text": "Do not + push",
+              "role": "evidence",
+              "note": "否定指令：不要推"
+            },
+            {
+              "text": "Wait + here, please",
+              "role": "evidence",
+              "note": "肯定请求：请在这里等"
+            }
+          ],
+          "caption": "两句都对听者发出指令，动词用原形。"
+        },
+        "transfer": "如果第一句不用完整的Do not，怎样缩写？push的词形会改变吗？"
+      }
+    }
+  }
+}

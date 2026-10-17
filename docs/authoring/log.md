@@ -1210,3 +1210,16 @@ Current new lesson flow:12 conditions/36 task-width checks,reload and zero indep
 Cumulative414 conditions/1242 widths;earlier flows retain scope. Hashes:checkpoint-43.*.
 Next:l-g-imperatives. A fourteen-task imperative draft remains outside course files. Original open/closed door art and600-pixel delivery are inspected;use it to choose commanded target states. Repair positive/negative and be instructions,polite requests,let suggestions and fixed No+ing notices. Enforce explicit source capitals per response and keep reserved responses in source tests only. Overall claim continues solo;370 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-imperatives individually reviewed
+
+44/413 reviewed. Fourteen instruction tasks connect opposite door targets to actual commands,repair be and negative forms,assemble requests and let suggestions,and contrast No+ing signs with base-form imperatives.
+
+Inspected original/600-pixel door art,all fourteen models,narrow-phone figures,wrong goals and forms,capital feedback,removal/reload and all application/transfer steps. Corrected a misleading No-running hint and the statement-to-command caption. Explicit source capitals enforced per response;reservedWash tested only at source. Grades6–9;reserved005–008 unexposed;zero independent records. Nine offline checks include both actual new picture-control error/repair flows.
+
+Current new lesson flow:14 conditions/42 task-width checks,reload and zero independent records. 1,479 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,9 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 packed hashes and illustration readiness,failure and successful retry. These are not native GUI evidence. Core scope:1479 tests/14 files passed before final No-running hint and statement-caption corrections. Final compiler/typecheck/teaching/grammar/interaction/package,complete browser,native-adapter,nine offline and archive checks cover those edits.
+
+Cumulative428 conditions/1284 widths;earlier flows retain scope. Hashes:checkpoint-44.*.
+Next:l-g-exclamations. A thirteen-task exclamation draft remains outside course files. It requires selecting whole fronted phrases word by word,contrasts noun phrases with adjectives/adverbs,and assembles complete What/How sentences. Build a compact word-selection model with accurate selected-phrase feedback;avoid labelling the correct answer in advance. Enforce explicit source capitals per response. Overall claim continues solo;369 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

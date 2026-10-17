@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **43 / 413**. Current: **l-g-imperatives**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **44 / 413**. Current: **l-g-exclamations**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -51,7 +51,7 @@ Completed: **43 / 413**. Current: **l-g-imperatives**. Evidence lives in docs/re
 | l-g-contractions | 缩写与完整形式 | reviewed | [Individual review](../reviews/individual-lessons/l-g-contractions.md) |
 | l-g-statements | 肯定句与否定句说清事实 | reviewed | [Individual review](../reviews/individual-lessons/l-g-statements.md) |
 | l-g-alternative-questions | 选择疑问句：选哪一个 | reviewed | [Individual review](../reviews/individual-lessons/l-g-alternative-questions.md) |
-| l-g-imperatives | 祈使句：请求、提醒与指令 | pending | — |
+| l-g-imperatives | 祈使句：请求、提醒与指令 | reviewed | [Individual review](../reviews/individual-lessons/l-g-imperatives.md) |
 | l-g-exclamations | 感叹句：what 与 how | pending | — |
 | l-g-sentence-patterns | 句子骨架：主语、谓语与宾语 | pending | — |
 | l-g-double-objects | 双宾语：给谁什么 | pending | — |

@@ -5,6 +5,7 @@ import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { createServer } from 'node:http'
 import { authorCatalog } from './lib/author-content.mjs'
+import { workshopExpressionActions } from './lib/workshop-test-actions.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 let url = pathToFileURL(resolve(root, 'dist/local/index.html')).href, mode = 'file', server
@@ -125,6 +126,23 @@ try {
   await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','1');await expect(page.locator('.workshop-slot')).toHaveText('are')
   expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length)
   checks.push('Offline studio prediction, changing-condition actions and saved restoration use embedded packs without adding mastery evidence')
+  // New subpackage artwork must remain embedded and usable in the standalone app.
+  for(const lesson of catalog.lessons.filter(l=>l.visualMission?.workshop?.conditions?.[0]?.world.records?.assetRoot==='illustrations')){
+    await page.goto(`${url}#lesson?id=${encodeURIComponent(lesson.id)}`)
+    await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','0')
+    const prediction=catalog.questions.find(q=>q.id===lesson.questionIds[0])
+    await action('studio-answer',prediction.answer.option);await action('studio-check');await action('studio-next')
+    const condition=lesson.visualMission.workshop.conditions[0],records=condition.world.records
+    await expect.poll(()=>page.locator('.event-art').evaluate(img=>img.complete&&img.naturalWidth>0&&img.src.startsWith('data:image/jpeg;base64,'))).toBe(true)
+    if(condition.tiles){for(const [name,value] of workshopExpressionActions(condition,condition.target))await action('studio-workshop-'+name,value)}
+    else if(condition.input)await page.locator('[name=studioWorkshopInput]').fill(condition.target)
+    else await action('studio-workshop-choose',condition.target)
+    await page.locator(`.art-panel-button[data-value="${records.options.find(o=>o.id!==records.answer).id}"]`).click();await action('studio-workshop-check')
+    await expect(page.locator('.workshop-saved')).toHaveCount(0)
+    await page.locator(`.art-panel-button[data-value="${records.answer}"]`).click();await action('studio-workshop-check');await expect(page.locator('.workshop-saved')).toBeVisible()
+    expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length)
+  }
+  checks.push('Subpackage illustrations load from embedded bytes offline; actual picture errors and repairs remain guided evidence')
   expect(network.filter(request => request !== url)).toEqual([]); expect(errors).toEqual([])
   checks.push('No remote/content requests, no page errors and no horizontal overflow at phone/tablet widths')
   writeFileSync(resolve(root, 'test-results/local/results.json'), JSON.stringify({ mode, networkDisabledAfterDocumentLoad: true, directFileNavigationValidated: mode === 'file', checks, errors, network, completedAt: new Date().toISOString() }, null, 2) + '\n')

@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-43 of413 lessons are individually reviewed;370 remain pending. Every lesson needs bespoke tasks,
+44 of413 lessons are individually reviewed;369 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-alternative-questions. Twelve choice-question tasks require concrete replies across transport,dates,colors,actions and occupations,with an original generated bus/bike diptych and actual full-question tiles.
+Latest:l-g-imperatives. Fourteen instruction tasks connect opposite door targets to actual commands,repair be and negative forms,assemble requests and let suggestions,and contrast No+ing signs with base-form imperatives.
 
-Inspected original/600-pixel art,all twelve models,narrow-phone figures,wrong picture/fact gates,repairs,capital feedback,removal/reload and all application/transfer steps. Both picture halves are selectable and the correct half changes. New artwork uses a registered subpackage with compiler path binding and simulated readiness/failure/retry. Grades7–9;reserved005–008 unexposed;zero independent records.
+Inspected original/600-pixel door art,all fourteen models,narrow-phone figures,wrong goals and forms,capital feedback,removal/reload and all application/transfer steps. Corrected a misleading No-running hint and the statement-to-command caption. Explicit source capitals enforced per response;reservedWash tested only at source. Grades6–9;reserved005–008 unexposed;zero independent records. Nine offline checks include both actual new picture-control error/repair flows.
 
-Checkpoint43 records the new flow/36 widths and current core,teaching,grammar,course,package,
+Checkpoint44 records the new flow/42 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The43 reviewed lessons cumulatively contain414 conditions/1242 widths;
+recorded explicitly. The44 reviewed lessons cumulatively contain428 conditions/1284 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-imperatives. A fourteen-task imperative draft remains outside course files. Original open/closed door art and600-pixel delivery are inspected;use it to choose commanded target states. Repair positive/negative and be instructions,polite requests,let suggestions and fixed No+ing notices. Enforce explicit source capitals per response and keep reserved responses in source tests only.
+Next:l-g-exclamations. A thirteen-task exclamation draft remains outside course files. It requires selecting whole fronted phrases word by word,contrasts noun phrases with adjectives/adverbs,and assembles complete What/How sentences. Build a compact word-selection model with accurate selected-phrase feedback;avoid labelling the correct answer in advance. Enforce explicit source capitals per response.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved
