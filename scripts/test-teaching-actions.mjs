@@ -1,3 +1,4 @@
+import { build } from 'esbuild'
 import { chromium,expect } from '@playwright/test'
 import { spawn } from 'node:child_process'
 import { existsSync,mkdirSync,writeFileSync } from 'node:fs'
@@ -5,7 +6,9 @@ import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { authorCatalog } from './lib/author-content.mjs'
 const root=resolve(import.meta.dirname,'..'),source=authorCatalog(root),out=resolve(root,'test-results/teaching-actions'),url='http://127.0.0.1:4186'
-const {ContentRepository,createLessonTeaching,freshTeaching,emptyState}=await import(pathToFileURL(resolve(root,'.local/tools/teaching-ui.mjs')))
+const tools=resolve(root,'.local/tools/teaching-actions.mjs');mkdirSync(resolve(root,'.local/tools'),{recursive:true});
+await build({stdin:{contents:"export {ContentRepository} from './src/services/content';export {emptyState} from './src/core/learning';export * from './src/core/lesson-teaching'",resolveDir:root,loader:'ts'},bundle:true,platform:'node',format:'esm',outfile:tools})
+const {ContentRepository,createLessonTeaching,freshTeaching,emptyState}=await import(pathToFileURL(tools))
 const repo=new ContentRepository({...source,questions:[...source.questions]},[],async()=>'' );repo.setSpelling('american');mkdirSync(out,{recursive:true})
 const server=spawn(process.execPath,['scripts/dev.mjs'],{cwd:root,env:{...process.env,PORT:'4186'},stdio:'pipe'});let browser;const checks=[],errors=[]
 try{

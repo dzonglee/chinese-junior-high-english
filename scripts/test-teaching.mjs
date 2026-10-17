@@ -34,10 +34,10 @@ try{
   for(let step=0;step<=5;step++){const p={...freshTeaching(s,1),step};store.save({...store.get(),teaching:{[l.id]:p}});const html=renderLessonStudio(app.render());fixtures.push({id:l.id,step,html});}
   for(const [unit,u]of s.assemblies.entries()){const p={...freshTeaching(s,1),step:1,unit};store.save({...store.get(),teaching:{[l.id]:p}});assemblies.push({id:l.id+' / '+u.id,html:renderLessonStudio(app.render())})}
  }
- const css=readFileSync(resolve(root,'dist/web/app.css'),'utf8'),review=await browser.newPage({viewport:{width:390,height:844}}),layouts=[]
+ const layoutSamples=[...fixtures,...assemblies],css=readFileSync(resolve(root,'dist/web/app.css'),'utf8'),review=await browser.newPage({viewport:{width:390,height:844}}),layouts=[]
  for(const width of [320,390,768]){
   await review.setViewportSize({width,height:844});let count=0
-  for(let start=0;start<fixtures.length;start+=50){await review.setContent(`<style>${css}</style>${fixtures.slice(start,start+50).map(f=>`<article data-id="${f.id}:${f.step}">${f.html}</article>`).join('')}`);const problems=await review.locator('article').evaluateAll(els=>els.filter(el=>el.scrollWidth>el.clientWidth+1||!el.getBoundingClientRect().height).map(el=>el.dataset.id));expect(problems).toEqual([]);count+=Math.min(50,fixtures.length-start)}layouts.push({width,states:count})
+  for(let start=0;start<layoutSamples.length;start+=50){await review.setContent(`<style>${css}</style>${layoutSamples.slice(start,start+50).map(f=>`<article data-id="${f.id}:${f.step}">${f.html}</article>`).join('')}`);const problems=await review.locator('article').evaluateAll(els=>els.filter(el=>el.scrollWidth>el.clientWidth+1||!el.getBoundingClientRect().height).map(el=>el.dataset.id));expect(problems).toEqual([]);count+=Math.min(50,layoutSamples.length-start)}layouts.push({width,states:fixtures.length,assemblies:assemblies.length,totalStates:count})
  }
  // Contact sheets retain all text. Review every assembly and the distinctive explore/diagnose/transfer phases.
  const panels=[...assemblies,...fixtures.filter(f=>[2,3,4].includes(f.step)).map(f=>({...f,id:f.id+' / phase '+f.step}))]
