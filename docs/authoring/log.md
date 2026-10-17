@@ -445,3 +445,33 @@ The owner requests a further substantive revamp of every lesson, with generated 
 and more interactive elements. Add APP-VISUAL-LESSONS to the plan/board; preserve completed
 exam papers and all other claims. Use lesson-specific tasks and exact coded learning clues,
 not decorative images as evidence. Work stays solo. Claim this unit before implementation.
+
+
+## 2026-10-17 · codex-solo · APP-VISUAL-LESSONS local review
+
+The owner requests more substantive visuals and interaction in every lesson. Implemented all
+413 explicit missions on `author/visual-lessons`: 1,002 boards / 2,202 slots, 55 authored live
+grammar experiments, contextual word cards with concealed recall, literal evidence chains,
+saved original expression frames and written sound-pattern sorting. Generated and inspected
+two original scene illustrations; inspected every teacher sheet and changed student screen.
+No reference material was copied; no content was released; mock papers and other claims remain intact.
+
+Local validation passes 1,424 tests with original timeouts; 6,936 new visual layouts and nine
+actual control journeys; 15,795 retained studio layouts, thirteen exploration flows, eleven
+connected journeys, eight offline checks, six product checks and both native-adapter simulations.
+Course, teaching, mock, content and package audits pass. Fixed exposed recall answers, ambiguous
+vocabulary clues, spelling-converted IDs, unfinished-board navigation, excessive whitespace,
+pitch arrows and a wrapped footer label. Both development archives match source and pass CRC.
+Detailed per-lesson evidence and actual browser screenshots are on the feature branch in
+`docs/reviews/visual-lessons-2026-10-17.*`; checkpoint 47278eb.
+
+APP-VISUAL-LESSONS stays review, not done: actual new WeChat compilation/control checks are
+blocked. Studio memory/Kanban work, but file access reports MacStudioExternal unavailable and
+the authenticated archive transfer returned HTTP 400. No new native job was submitted and no
+shared GUI was changed. Older native results do not prove this revision. Next: restore Mac
+external-drive access, read `wechat/AGENTS.md`, coordinate the existing card/GUI lock and run
+`scripts/devtools-visual-lessons.cjs` against this exact branch in both spelling variants. Inspect
+actual nested job results and screenshots before native acceptance, then rebase/check/squash.
+No new owner question blocks the completed local work. Approved audio, device checks, official
+local/publisher mapping and publication remain separate existing follow-ups. Obsidian and the
+existing visual Kanban card carry this same project/scope and exact blocker.
