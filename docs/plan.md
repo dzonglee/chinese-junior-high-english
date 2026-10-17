@@ -183,3 +183,26 @@ new teaching deliverable, not a reopening of the completed original-paper unit. 
 inspect generated scenes; keep exact answer-bearing information in code. Cover every lesson
 in an explicit manifest, exercise the real controls, and inspect browser/native rendering.
 Work remains solo; draft/evidence/audio/local-format boundaries continue to apply.
+
+
+## Corrected lesson acceptance after maths comparison (2026-10-17)
+
+The owner rejects the blanket claim that another 413-lesson pass established teaching quality.
+Reopen APP-VISUAL-LESSONS under its existing owner and branch. The requested comparison is with
+`dzonglee/chinese-junior-high-maths`; the owner clarified that no separate Chinese-language app
+is intended. Maths main 933ab32 is cloned locally for read-only source and native-capture review.
+
+English's latest mission layer applies five reusable activity formats to immediate questions.
+Its grammar switches, recall and saved frames are useful mechanisms, but the number of records,
+layouts or passing tests does not establish a redesigned learning experience. New scene images
+are decorative settings, and the new boards lead into the previous studio again. The remaining
+quality gap exists independently of the unavailable new native run.
+
+For the next implementation, first establish complete exemplars in grammar, contextual vocabulary,
+reading reasoning and original writing: a useful task/prediction, a subject-specific manipulation
+whose visual changes explain meaning, feedback tied to the actual error, a learner explanation or
+production, and a fresh exam-style transfer. Keep one coherent lesson sequence. Judge each lesson
+against its actual skill and misconceptions; do not count answer-card layouts as equivalent to
+a manipulable model. Inspect initial, wrong, recovery and transfer states before scaling. Content
+and spelling correctness, first-try/delayed integrity, rights and draft boundaries still apply.
+The English course remains unfinished at this teaching standard until that review is satisfied.

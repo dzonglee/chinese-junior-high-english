@@ -475,3 +475,26 @@ actual nested job results and screenshots before native acceptance, then rebase/
 No new owner question blocks the completed local work. Approved audio, device checks, official
 local/publisher mapping and publication remain separate existing follow-ups. Obsidian and the
 existing visual Kanban card carry this same project/scope and exact blocker.
+
+
+## 2026-10-17 · codex-solo · owner rejects lesson quality; comparison
+
+Reopen APP-VISUAL-LESSONS on its existing branch/claim. The owner clarified that “Chinese” means
+the Chinese maths app. Cloned maths main 933ab32 and compared authored sequences/components and
+13 existing native screenshots, verifying each PNG against its Git LFS object. Four sampled
+maths activities show object manipulation, state-specific wrong feedback and recovery; fourteen
+existing proof/tile/number-line logic tests pass. This is a comparison of recorded native maths
+evidence with English browser/source evidence, not a new run of the maths GUI.
+
+English 702ef77 has broad functional coverage, but five reusable mission formats do not prove
+413 individually redesigned lessons. Scene art stays static; most board checks compare the
+selected card with a stored answer. Two grammar switches change highlighting within the same
+full sentence. The new email mission can finish with zero original writing, and its handoff
+restarts the retained studio at stage zero. Existing exploratory workshops and draft revision
+remain useful foundations; retain their real progress/evidence safeguards.
+
+The missing new native run is an additional blocker, not the main explanation for these teaching
+gaps. Revised acceptance is recorded in the plan. The comparison report and browsable paired
+evidence are being saved on author/visual-lessons. Do not mark the teaching revamp done or
+reuse functional counts as a claim of parity. Next implementation should prove representative
+whole lessons before another generated course-wide pass. No course code or maths files changed.

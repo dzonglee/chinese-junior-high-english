@@ -1,5 +1,19 @@
 # Project memory
 
+## Current decision · teaching quality rejected, 2026-10-17
+
+The owner rejected the claim that all lessons had been adequately revamped. APP-VISUAL-LESSONS
+is reopened, claimed by codex-solo on author/visual-lessons. Maths main 933ab32 is now cloned at
+/workspace/chinese-junior-high-maths. “Chinese app” was clarified to mean this Chinese maths app;
+no third-language repository is needed. Source, recorded native screenshots and English browser
+probes show that the current English mission layer falls short: reused answer-card formats,
+static scene pictures, limited grammar switches, optional original writing in the new layer and
+a repeated handoff into the old studio. Functional test/layout counts remain valid but do not
+prove teaching quality or parity. New native testing is separately unavailable; it is not the
+main cause of the teaching gap. The next implementation must prove full subject-specific lesson
+loops before scaling. See the revised plan and latest authoring log; comparison evidence is on
+the feature branch. Existing Kanban card 10832ca6-d7ad-4d4d-a60a-f4563486f3cf remains active.
+
 ## Owner instructions
 
 - Finish the application. Continue beyond research milestones and isolated access failures.
