@@ -8,10 +8,10 @@
 - Keep the board clean, concise and easy to read, using plain English.
 - While the current session cannot access those MCP connections, continue app work first.
 
-## Active work · all lesson teaching and native verification
+## Current milestone · all lesson teaching and native verification
 
 The owner requires Codex to complete every lesson itself; no further delegation. APP-TEACHING
-is claimed by codex-solo on `author/all-lesson-teaching`. The five-phase lesson studio now covers
+is in review by codex-solo on `author/all-lesson-teaching`. The five-phase lesson studio now covers
 all 413 lessons. Full checked-pack controller checks pass for every lesson, including saved state,
 wrong paths and separate delayed evidence. Exploration never creates mastery or lesson passes.
 Listening pages provide text preparation only until approved audio exists. Videos remain deferred.
@@ -27,14 +27,27 @@ prove Obsidian Sync propagated remotely.
 The owner further clarified that learning must be interactive and easy to understand, not a wall
 of text. This means visual actions and specific immediate feedback, not merely collapsing prose.
 
-The isolated Mac project is `wechat/english-solo-20261017` under the MCP workspace. Its first
-actual simulator run timed out and produced no lesson screenshots. The wrapper job succeeded,
-but its nested native process exited 1: do not mistake wrapper success for validation. Official
-CLI closed only this project afterward. The actual root cause was 245 subpackages exceeding WeChat’s limit of 100. Grouping the
-unchanged 245 topic packs into six size-limited subpackages fixes compilation; actual English
-onboarding now opens. The official starter also passes. Whole-course native navigation/testing
-remains in progress. Browser checks now cover all 413 studios / 2,478 states at three widths and 1,962 assemblies; 13 control flows and 14 new transfer-reference flows pass. Coordinate the shared GUI using Kanban and `wechat/DEVTOOLS.lock`; never use the
-maths runner's reset/checkout behavior on another owner's project.
+The isolated Mac project is `wechat/english-solo-20261017`. Actual compilation exposed the
+245-subpackage limit violation; six size-limited groups fix it without raising budgets. Native
+checks also fixed stale bound drafts, vertical source controls and cramped self-review buttons.
+The final build passes all 984 tests and the 826-model spelling audit. Browser evidence covers
+all 2,478 states plus 1,962 assemblies at three widths, thirteen control flows and fourteen new
+communication reference flows. All seventeen overview sheets and authored transfer figures were inspected.
+
+Native job `9372033579184c898746a28fc9eeb63e` finished with nested exit 0: 413 real lesson routes,
+seven complete representative flows, remaining phase-two fixtures and no simulator exceptions.
+Visual review found five empty captures; focused full flows with actual visible-control assertions
+replaced them. Final American checks cover fourteen distinct full flows across an eleven-row
+partial job (a later SDK prefetch failed) and a fresh three-lesson passing job. Do not describe the
+partial job as a pass or all 413 native routes as full lifecycles. Both final British changed
+lessons also pass native complete flows, including actual practise spelling. See the exact jobs, source-variant
+comparison and evidence boundaries in `docs/reviews/teaching-2026-10-17.md`.
+
+Native and portable development ZIPs are in `dist/`; every packaged source entry matches the
+final build. Eight fresh offline checks pass. Use the existing Kanban cards and shared
+`wechat/DEVTOOLS.lock` for future GUI work, and close only the English project. Phone permissions,
+approved listening audio, publisher mapping, research gaps, production configuration and editorial
+launch approval remain pending; videos are deferred. Content remains draft and reference files are unchanged.
 
 ## Historical interaction foundation · 2026-10-17
 

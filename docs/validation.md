@@ -115,5 +115,9 @@ references and diagrams are available on demand; teaching is led by the activity
 Actual DevTools testing caught two defects that browser checks missed: the 245 native
 subpackages exceeded WeChat's limit of 100, and controlled native draft inputs cleared their
 visible values. Six size-limited groups now contain the unchanged topic packs; native draft
-bindings now update both the controller and displayed progress fields. Full simulator validation
-is in progress and is not a release, real-device or approved-audio claim.
+bindings now update both the controller and displayed progress fields. The actual simulator walk
+completed 413 routes and seven full representative flows with nested exit 0. Visual inspection
+found five empty captures; all five passed focused full flows with visible controls required.
+Final spelling/assembly follow-ups are recorded in the [bounded native review](reviews/teaching-2026-10-17.md).
+This is guest DevTools evidence, with explicit render-fixture boundaries; real-device behavior,
+approved audio and publication remain pending.
