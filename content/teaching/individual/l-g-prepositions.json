@@ -1,0 +1,492 @@
+{
+  "lessonId": "l-g-prepositions",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Read full temporal units rather than keyword-match morning/month, then distinguish contact/below/above and exact between relations in measured code diagrams.",
+  "picturePurpose": "The book actually changes position against a fixed desk; exact geometry and an ordered three-building map are authored in code.",
+  "workshop": {
+    "navigationLabel": "任务",
+    "kind": "transform",
+    "title": "把完整线索看进去",
+    "instruction": "先判时间单位或观察位置，再给句子选介词。",
+    "conditions": [
+      {
+        "label": "具体钟点",
+        "before": "Our club meeting starts ",
+        "target": "at",
+        "after": " half past four.",
+        "choices": [
+          "in",
+          "on",
+          "at"
+        ],
+        "reason": "half past four 是具体钟点，用 at。不能把钟点当成月份或具体日期。",
+        "world": {
+          "kind": "syntax",
+          "caption": "这里说的是几点开始，不是日期或一段时间。",
+          "records": {
+            "title": "读完整的时间短语，选它表示哪种时间。",
+            "missingPrompt": "先判断完整的时间短语，再核对介词。",
+            "answer": "clock",
+            "options": [
+              {
+                "id": "clock",
+                "label": "具体钟点",
+                "text": "几点、几点几分",
+                "value": 50,
+                "reason": "这个时间单位判断正确，再核对介词。"
+              },
+              {
+                "id": "day",
+                "label": "具体某天",
+                "text": "也包括那天的早晨",
+                "value": 50,
+                "reason": "half past four 是具体钟点，用 at。不能把钟点当成月份或具体日期。"
+              },
+              {
+                "id": "period",
+                "label": "月份、泛指早晨",
+                "text": "如某月、通常的早晨",
+                "value": 50,
+                "reason": "half past four 是具体钟点，用 at。不能把钟点当成月份或具体日期。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的时间介词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "half past four",
+              "detail": "具体钟点"
+            }
+          ]
+        }
+      },
+      {
+        "label": "某天的早晨",
+        "before": "We will visit the museum ",
+        "target": "on",
+        "after": " Saturday morning.",
+        "choices": [
+          "in",
+          "on",
+          "at"
+        ],
+        "reason": "Saturday morning 是具体某一天的早晨，用 on，不是泛指早晨的 in the morning。",
+        "world": {
+          "kind": "syntax",
+          "caption": "不只看到 morning；把 Saturday 也读进去。",
+          "records": {
+            "title": "读完整的时间短语，选它表示哪种时间。",
+            "missingPrompt": "先判断完整的时间短语，再核对介词。",
+            "answer": "day",
+            "options": [
+              {
+                "id": "clock",
+                "label": "具体钟点",
+                "text": "几点、几点几分",
+                "value": 50,
+                "reason": "Saturday morning 是具体某一天的早晨，用 on，不是泛指早晨的 in the morning。"
+              },
+              {
+                "id": "day",
+                "label": "具体某天",
+                "text": "也包括那天的早晨",
+                "value": 50,
+                "reason": "这个时间单位判断正确，再核对介词。"
+              },
+              {
+                "id": "period",
+                "label": "月份、泛指早晨",
+                "text": "如某月、通常的早晨",
+                "value": 50,
+                "reason": "Saturday morning 是具体某一天的早晨，用 on，不是泛指早晨的 in the morning。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的时间介词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "Saturday morning",
+              "detail": "某天的早晨"
+            }
+          ]
+        }
+      },
+      {
+        "label": "泛指早晨",
+        "before": "Mia usually reads ",
+        "target": "in",
+        "after": " the morning.",
+        "choices": [
+          "in",
+          "on",
+          "at"
+        ],
+        "reason": "the morning 在这里泛指早晨，用 in。不是把所有 morning 都搭配 on 或都搭配 in。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把 Saturday 去掉，这次说的是通常在早晨。",
+          "records": {
+            "title": "读完整的时间短语，选它表示哪种时间。",
+            "missingPrompt": "先判断完整的时间短语，再核对介词。",
+            "answer": "period",
+            "options": [
+              {
+                "id": "clock",
+                "label": "具体钟点",
+                "text": "几点、几点几分",
+                "value": 50,
+                "reason": "the morning 在这里泛指早晨，用 in。不是把所有 morning 都搭配 on 或都搭配 in。"
+              },
+              {
+                "id": "day",
+                "label": "具体某天",
+                "text": "也包括那天的早晨",
+                "value": 50,
+                "reason": "the morning 在这里泛指早晨，用 in。不是把所有 morning 都搭配 on 或都搭配 in。"
+              },
+              {
+                "id": "period",
+                "label": "月份、泛指早晨",
+                "text": "如某月、通常的早晨",
+                "value": 50,
+                "reason": "这个时间单位判断正确，再核对介词。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的时间介词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "the morning",
+              "detail": "泛指早晨"
+            }
+          ]
+        }
+      },
+      {
+        "label": "月份",
+        "before": "Our club starts ",
+        "target": "in",
+        "after": " September.",
+        "choices": [
+          "in",
+          "on",
+          "at"
+        ],
+        "reason": "September 是月份，用 in；不能把月份当成具体某天选 on。",
+        "world": {
+          "kind": "syntax",
+          "caption": "这里给出月份，没有指定某一天。",
+          "records": {
+            "title": "读完整的时间短语，选它表示哪种时间。",
+            "missingPrompt": "先判断完整的时间短语，再核对介词。",
+            "answer": "period",
+            "options": [
+              {
+                "id": "clock",
+                "label": "具体钟点",
+                "text": "几点、几点几分",
+                "value": 50,
+                "reason": "September 是月份，用 in；不能把月份当成具体某天选 on。"
+              },
+              {
+                "id": "day",
+                "label": "具体某天",
+                "text": "也包括那天的早晨",
+                "value": 50,
+                "reason": "September 是月份，用 in；不能把月份当成具体某天选 on。"
+              },
+              {
+                "id": "period",
+                "label": "月份、泛指早晨",
+                "text": "如某月、通常的早晨",
+                "value": 50,
+                "reason": "这个时间单位判断正确，再核对介词。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的时间介词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "September",
+              "detail": "月份"
+            }
+          ]
+        }
+      },
+      {
+        "label": "月份加具体日期",
+        "before": "Our club starts ",
+        "target": "on",
+        "after": " September 1st.",
+        "choices": [
+          "in",
+          "on",
+          "at"
+        ],
+        "reason": "September 1st 是具体日期，用 on。不能只看到月份就仍然选 in。",
+        "world": {
+          "kind": "syntax",
+          "caption": "同样含 September，这次加上了日期。",
+          "records": {
+            "title": "读完整的时间短语，选它表示哪种时间。",
+            "missingPrompt": "先判断完整的时间短语，再核对介词。",
+            "answer": "day",
+            "options": [
+              {
+                "id": "clock",
+                "label": "具体钟点",
+                "text": "几点、几点几分",
+                "value": 50,
+                "reason": "September 1st 是具体日期，用 on。不能只看到月份就仍然选 in。"
+              },
+              {
+                "id": "day",
+                "label": "具体某天",
+                "text": "也包括那天的早晨",
+                "value": 50,
+                "reason": "这个时间单位判断正确，再核对介词。"
+              },
+              {
+                "id": "period",
+                "label": "月份、泛指早晨",
+                "text": "如某月、通常的早晨",
+                "value": 50,
+                "reason": "September 1st 是具体日期，用 on。不能只看到月份就仍然选 in。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的时间介词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "September 1st",
+              "detail": "月份加具体日期"
+            }
+          ]
+        }
+      },
+      {
+        "label": "接触桌面",
+        "before": "The book is ",
+        "target": "on",
+        "after": " the desk.",
+        "choices": [
+          "on",
+          "under",
+          "above"
+        ],
+        "reason": "书放在桌面上，与表面接触，用 on。above 只表示位置更高，不说明接触。",
+        "world": {
+          "kind": "position",
+          "caption": "书的底边接触桌面。看清是否接触，再选介词。",
+          "cells": [
+            {
+              "label": "book",
+              "detail": "示意图表示书与桌面的位置关系",
+              "value": 33
+            }
+          ]
+        }
+      },
+      {
+        "label": "桌面下方",
+        "before": "The book is ",
+        "target": "under",
+        "after": " the desk.",
+        "choices": [
+          "on",
+          "under",
+          "above"
+        ],
+        "reason": "书在桌子下方，用 under；不是桌面上的 on，也不是高于桌面的 above。",
+        "world": {
+          "kind": "position",
+          "caption": "书移到了桌面下方，不能继续照搬 on。",
+          "cells": [
+            {
+              "label": "book",
+              "detail": "示意图表示书与桌面的位置关系",
+              "value": 70
+            }
+          ]
+        }
+      },
+      {
+        "label": "高于桌面，不接触",
+        "before": "The book is ",
+        "target": "above",
+        "after": " the desk.",
+        "choices": [
+          "on",
+          "under",
+          "above"
+        ],
+        "reason": "书的位置高于桌面且未接触，用 above；on 表示在表面上，under 表示在下方。",
+        "world": {
+          "kind": "position",
+          "caption": "书在示意图中高于桌面，但不与桌面接触。",
+          "cells": [
+            {
+              "label": "book",
+              "detail": "示意图表示书与桌面的位置关系",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "label": "两个地点之间",
+        "before": "The library is ",
+        "target": "between",
+        "after": " the bank and the post office.",
+        "choices": [
+          "among",
+          "between",
+          "under"
+        ],
+        "reason": "示意图中图书馆在银行和邮局之间，用 between ... and ...。这里是两个明确地点的关系，不用 among。",
+        "world": {
+          "kind": "map",
+          "caption": "从左到右是一条街上的三个地点，读图书馆与另外两个地点的关系。",
+          "cells": [
+            {
+              "label": "bank",
+              "detail": "银行"
+            },
+            {
+              "label": "library",
+              "detail": "图书馆"
+            },
+            {
+              "label": "post office",
+              "detail": "邮局"
+            }
+          ]
+        }
+      }
+    ],
+    "choices": [
+      "in",
+      "on",
+      "at",
+      "under",
+      "above",
+      "among",
+      "between"
+    ],
+    "items": [
+      {
+        "id": "preposition-full-clue",
+        "label": "介词与关系",
+        "prompt": "完整时间短语或实际位置说明了什么？",
+        "answer": "",
+        "reason": "",
+        "hint": "某天早晨不等于泛指早晨；接触表面不等于只是位置更高。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-prepositions-002",
+      "q-g-prepositions-003"
+    ],
+    "transfer": {
+      "id": "individual-g-prepositions-transfer",
+      "topicId": "g-prepositions",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "沿街从左到右依次是银行、诊所、学校。两空依次填什么？\nThe clinic is ___ the bank and the school. It opens ___ Sunday mornings.",
+      "options": [
+        {
+          "id": "a",
+          "text": "between; on"
+        },
+        {
+          "id": "b",
+          "text": "among; on"
+        },
+        {
+          "id": "c",
+          "text": "between; in"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "between; on"
+      },
+      "marks": 2,
+      "estimatedSeconds": 60,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "空间关系看两个参照点，时间介词读完整的时间短语。",
+        "steps": [
+          {
+            "text": "诊所位于银行和学校这两个明确参照点之间。",
+            "reason": "用 between ... and ...，不是因为图上共有三个地点就选 among。"
+          },
+          {
+            "text": "Sunday mornings 指星期日的早晨。",
+            "reason": "这是具体星期日的一段时间，用 on；不能只看到 mornings 就选 in。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一句说诊所在银行和学校之间，应为 between ... and ...。"
+          },
+          {
+            "option": "c",
+            "reason": "Sunday 限定了星期日的早晨，应为 on Sunday mornings。"
+          }
+        ],
+        "pitfall": "图上有三个地点不代表要用 among；出现 morning 也不代表都用 in。",
+        "visual": {
+          "kind": "sentence",
+          "title": "空间与时间各自找完整线索",
+          "segments": [
+            {
+              "text": "bank ← clinic → school",
+              "role": "evidence",
+              "note": "两个参照点之间：between"
+            },
+            {
+              "text": "on Sunday mornings",
+              "role": "time",
+              "note": "具体星期日的早晨"
+            }
+          ],
+          "caption": "分别判断两个空的关系，不按一个词或对象总数猜答案。"
+        },
+        "transfer": "把 Sunday mornings 改为 the morning，第二空如何变化？"
+      }
+    }
+  }
+}

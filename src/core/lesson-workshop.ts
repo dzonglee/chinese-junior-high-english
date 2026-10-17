@@ -8,7 +8,7 @@ export interface WorldCell {id?:string;label:string;detail?:string;value?:number
 export interface ScenePerson {id:string;name:string;description:string;left:number;width:number}
 export interface PeopleScene {selectionPrompt?:string;formLabel?:string;record?:{title:string;days:{label:string;text:string}[]};asset:string;alt:string;people:ScenePerson[];speaker:string;listeners:string[];subjects:string[];subjectReason:string}
 export interface EventRecords {missingPrompt?:string;artChoices?:string[];artLabels?:string[];title:string;asset?:string;alt?:string;answer:string;options:{id:string;label:string;text:string;reason:string;value:number;eventLabel?:string;endValue?:number}[]}
-export interface LanguageCondition {input?:boolean;inputHint?:string;choices?:string[];label:string;before:string;target:string;after:string;reason:string;world:{kind:'count'|'timeline'|'roles'|'scale'|'syntax'|'logic'|'morphology'|'position'|'people-scene';caption:string;cells:WorldCell[];scene?:PeopleScene;records?:EventRecords;selection?:{prompt:string;ids:string[];reason:string}}}
+export interface LanguageCondition {input?:boolean;inputHint?:string;choices?:string[];label:string;before:string;target:string;after:string;reason:string;world:{kind:'count'|'timeline'|'roles'|'scale'|'syntax'|'logic'|'morphology'|'position'|'map'|'people-scene';caption:string;cells:WorldCell[];scene?:PeopleScene;records?:EventRecords;selection?:{prompt:string;ids:string[];reason:string}}}
 export interface UsageMap {left:string;right:string;object:string;caption:string;alternatives:Record<string,'left'|'right'>}
 export interface WorkshopItem {evidenceGroups?:string[][];sound?:'syllables'|'emphasis'|'groups'|'links'|'pitch'|'phoneme';caseSensitive?:boolean;usage?:UsageMap;id:string;label:string;prompt:string;answer:string;reason:string;hint:string;before?:string;after?:string;options?:{id:string;text:string;reason:string;correct:boolean}[];material?:string;meaning?:string}
 export interface LessonWorkshop {navigationLabel?:string;kind:'transform'|'word-use'|'proof'|'compose'|'sound-map';title:string;instruction:string;conditions?:LanguageCondition[];items:WorkshopItem[];choices?:string[];applicationIds?:string[];transfer?:Question}
@@ -33,7 +33,7 @@ export function workshopView(w:LessonWorkshop,p:TeachingProgress):WorkshopView{
  else if(scope&&!membersCorrect)feedback=`比较范围还没圈对。${scope.reason}`
  else if(records&&!recordCorrect)feedback=recordOptions.find(r=>r.selected)?.reason??records.missingPrompt??'先选择与这句话对应的事件记录，再核对动词。'
  else if(scene&&!sceneSubjectsCorrect)feedback=`你圈出的是${scenePeople.filter(p=>p.selected).map(p=>p.name).join('、')||'空白'}。${scene.subjectReason}先改好人物选择，再核对${scene.formLabel??'be'}。`
- else if(w.kind==='transform')feedback=`你放入的是 ${selected||'空白'}。现在的条件是“${condition!.label}”。${condition!.reason}`
+ else if(w.kind==='transform')feedback=`你放入的是 ${selected||'空白'}。${condition!.reason}`
  else if(w.kind==='word-use'&&item.usage?.alternatives[normalizedAnswer(input)])feedback=`你输入了 ${input}，图中物品的方向也变了。${item.usage.caption} ${item.reason}`;
  else if(w.kind==='word-use'&&vCaseOnly(item,input))feedback=`词形写对了，但这里要注意大小写：${item.answer}。`;
  else if(w.kind==='word-use'){const n=[...input].findIndex((c,i)=>c.toLocaleLowerCase('en')!==item.answer[i]?.toLocaleLowerCase('en'));feedback=`句中需要表达“${item.meaning}”。${input?`从第 ${n<0?Math.min(input.length,item.answer.length)+1:n+1} 个字符起核对，注意词形和空格。`:'先根据语境写出这个词。'}${item.hint}`}

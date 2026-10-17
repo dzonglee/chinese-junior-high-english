@@ -726,3 +726,29 @@ with distinct application and fresh advice transfer. Full flow and30 widths pass
 and zero assessment records. Build/typecheck/826 teaching-spelling audit pass; last core1,454
 precedes pronoun/noun data. Next prepositions, then a coherent broad verification/package refresh.
 The overall unit remains claimed and unfinished; solo work and native/audio boundaries persist.
+
+
+## 2026-10-18 (Sydney) · codex-solo · preposition lesson individually reviewed
+
+l-g-prepositions is reviewed: 11/413. Nine tasks distinguish complete time phrases and actual
+spatial relations. Classification cannot be bypassed by a correct preposition. Book/desk contact,
+below/above bounds and map order are checked in pixels at three widths. Review shortened labels
+and repeated feedback. An initially chosen delayed application ID was rejected by the compiler;
+it was replaced with an immediate item, preserving the delayed pool. All figures/errors/transfer
+were inspected; full flow and27 widths, geometry/reload and zero assessment records pass.
+Current broad checks pass:1,454 core, typecheck, grammar constraints, course,826 teaching-spelling
+and static package. Adapter/all-individual/offline/archive checks are running at this checkpoint.
+Next l-g-past-continuous is prepared outside course files; do not apply it during current checks.
+Overall claim remains unfinished; native project-drive access is still blocked.
+
+
+## 2026-10-18 (Sydney) · codex-solo · eleven-lesson coherent checkpoint
+
+All current checks pass:1,454 core/14files, typecheck,7 grammar constraints, course,826 teaching-
+spelling, static package, both native-adapter simulations, all11 individual browser flows/89tasks/
+267 widths,8 offline checks, and CRC/exact-byte comparison for refreshed local/native ZIPs.
+Managed policy blocks direct file navigation; standalone testing served the embedded document
+once on loopback and then disabled networking during practice. Full evidence and source/artifact
+hashes are in docs/reviews/individual-lessons/checkpoint-11.*. Selected tracked captures refreshed
+from the coherent run. Native GUI remains excluded;402 lessons still await individual review.
+Next apply the prepared past-continuous authoring, then inspect it. Unit stays claimed.
