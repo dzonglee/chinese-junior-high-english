@@ -223,3 +223,21 @@ compilation can be asserted. The revised native runner is ready for the shared-G
 when access returns. All content remains original draft, with unverified local exam mappings and
 self-review clearly labelled. Videos remain deferred. No public release or blanket parity claim
 is authorized by these local results.
+
+
+## Individual lesson redesign · owner direction, 2026-10-18 (Sydney)
+
+The owner requires each of the 413 lessons to receive a separate substantive redesign. The
+shared workshop delivery does not complete this requirement. Reopen APP-VISUAL-LESSONS and
+work solo through docs/authoring/lesson-upgrades.md. Inventory generation may list lessons but
+must never mark them reviewed, authored or done. Finish each lesson's authored task sequence,
+specific wrong-path feedback, fresh transfer, visual inspection and saved evidence before
+marking its row reviewed. Keep the actual completed count visible; inherited templates and test
+coverage do not count as individual completion.
+
+Use original generated pictures when observation, comparison, storytelling or spatial meaning
+benefits. Art must be inspected; deterministic labels and answer-bearing diagrams stay in code.
+The image must have a named teaching purpose and integrate into a task, with accessible text.
+Avoid adding another preliminary card sequence. Preserve one coherent lesson path, exact edition
+spelling, draft content and honest assessment. Keep memory/Kanban current, reuse the existing
+lesson card and keep details in per-lesson records rather than crowding the shared board.

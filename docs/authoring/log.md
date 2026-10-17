@@ -585,3 +585,12 @@ current memory/board and resume native validation only when its project files ar
 Final reconciliation succeeded: the existing Obsidian project note was saved and read back.
 Kanban confirms the local lesson card is done and the native card remains blocked. Main code
 commit 9cb5fa7 matches the reviewed delivery fingerprint; the worktree is clean after handoff.
+
+
+## 2026-10-18 (Sydney) · codex-solo · individual redesign requested
+
+The owner explicitly requires a lesson-by-lesson upgrade and better use of generated pictures.
+Reopen the existing visual lesson unit; the previous shared workshop implementation remains a
+functional baseline, not completion of this new acceptance. Create an inventory with every row
+pending, then author/review each lesson separately. Work stays solo. Pictures must support an
+actual observation/comparison/story task, with inspected art and code-rendered exact clues.
