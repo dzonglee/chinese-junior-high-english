@@ -2,32 +2,32 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-The owner requires every lesson to be upgraded separately, with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **16/413** are
-individually reviewed; 397 remain pending. Work stays solo. The tracker links authored tasks,
-inspected figures, error recovery, fresh transfer and actual control results. Shared coverage
+The owner requires every lesson to be redesigned separately, with purposeful original pictures.
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **17/413** are
+individually reviewed;396 remain pending. Work stays solo. The tracker links authored tasks,
+inspected figures, wrong-path repairs, fresh transfer and actual control results. Shared coverage
 is a functional baseline, never an individual review.
 
-Latest: modal verbs and infinitives. An original pool gate carries a coded rule; an original
-two-panel reading/drinking scene requires selecting the right action before choosing stop to
-drink / stop drinking. Other tasks require typed expressions, interpretation and a fresh transfer.
-Current individual evidence totals 129 conditions / 387 task-width checks across sixteen flows.
-Focused controls, typecheck, 826 teaching/spelling and static package pass. Full 1,458-core checks
-passed for the modal checkpoint. Checkpoint-13 retains previous broad offline/adapter/archive
-hashes; archives still need refreshing to include these new lessons.
+Latest reviews: modal meanings, infinitives, gerunds and conditionals. Original pictures now
+support a coded pool rule, stop-to/stop-doing action contrast and two hypothetical weather plans.
+The conditional model changes its displayed outcome with the selected condition. Typed negative
+answers accept authored contractions/full forms, but wrong tense/agreement still fails.
 
-Reserved-sentence and transfer-grade guards remain enforced. Exact preposition/passive overlaps
-were corrected and actual delayed items verified unchanged. The historical checkpoint11 limitation
-is disclosed. Current memory and existing Kanban card are updated through the authenticated helper.
+Current checkpoint-17:17 whole browser flows,137 conditions/411 widths, reload and zero independent
+assessment records;1,461 core tests/14 files, typecheck,826 teaching/spelling,7 grammar constraints,
+course/static package, both native-adapter simulations,8 offline checks and fresh ZIP CRC/exact
+source comparison pass. Exact hashes/sizes and limitations are in checkpoint-17.*. Standalone
+practice disables networking after loading the embedded document; managed file navigation is
+blocked. The science-scene delivery image was reduced, re-inspected and checked in affected flows.
 
-Gerunds is now individually reviewed: eight tasks, four typed repairs, live e-removal/n-doubling,
-and a required structural contrast between look forward to visiting / want to visit. All models,
-errors and fresh kayaking transfer were inspected; full flow and 24 widths pass.
+Exact delayed-sentence and grade guards remain enforced, including accepted typed alternatives.
+Earlier preposition/passive overlaps were corrected; actual reserved items were verified unchanged.
+Checkpoint11 retains its historical disclosed limitation. Content stays draft; videos deferred.
 
-Next: l-g-conditionals, with an original illustration of alternative weather-dependent plans. Native GUI
-still needs MacStudioExternal project access; read_file wechat/AGENTS.md reports it unavailable.
-No new GUI job, upload or publication occurred. Approved audio, editorial/cohort mapping, devices
-and production setup remain separate. All content stays draft; videos remain deferred.
+Next: l-g-object-clauses, with actual editable word-tile constructions and accepted if/whether /
+optional-that alternatives. Native GUI still needs MacStudioExternal project access. The existing
+native card remains blocked; no GUI job, upload or publication occurred. Approved audio, editorial/
+cohort mapping, real devices and production setup remain separate.
 
 ## Previous local delivery · 2026-10-17
 

@@ -1,7 +1,7 @@
 import {it,expect} from 'vitest'
 import {authorCatalog} from '../scripts/lib/author-content.mjs'
 import {createLessonTeaching,freshTeaching,changeTeaching,teachingCanAdvance,restoreTeaching,teachingProblems} from './core/lesson-teaching'
-import {workshopView} from './core/lesson-workshop'
+import {workshopView,workshopProblems} from './core/lesson-workshop'
 import {individualDelayedProblems} from '../scripts/lib/author-visual-missions.mjs'
 import {containsTerm,productionReady,productionMinimum} from './core/teaching-production'
 import {missionView} from './core/visual-mission'
@@ -124,4 +124,21 @@ it('rejects exact delayed grammar sentences in workshops while allowing immediat
 it('rejects a transfer that omits a grade eligible for its lesson',()=>{
  const s=studio('l-g-nouns'),l=c.lessons.find(l=>l.id==='l-g-nouns')!;expect(l.grades).toContain(6);expect(teachingProblems(s,l)).toEqual([])
  const altered={...s,transfer:{...s.transfer,grades:[7,8,9] as (6|7|8|9)[]}};expect(teachingProblems(altered,l)).toContain('l-g-nouns: transfer must cover every lesson grade')
+})
+
+
+it('changes the planned outcome with the selected hypothetical condition without treating a correct tense as wrong',()=>{
+ const s=studio('l-g-conditionals'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
+ p=changeTeaching(s,p,'workshop-choose','rains',2);p=changeTeaching(s,p,'workshop-record','dry',3);p=changeTeaching(s,p,'workshop-check','',4);let v=workshopView(w,p);expect(v.cells.map(c=>c.label)).toEqual(['假设明天不下雨','花园观察']);expect(v.expressionWrong).toBe(false);expect(v.complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-record','rain',5);p=changeTeaching(s,p,'workshop-check','',6);v=workshopView(w,p);expect(v.cells.map(c=>c.label)).toEqual(['假设明天下雨','室内读书']);expect(v.complete).toBe(true)
+ const broken=structuredClone(w);delete broken.conditions![0].world.records!.options[0].outcome;expect(workshopProblems(broken)).toContain('Missing outcome for a changing condition')
+})
+it('accepts authored contraction alternatives and still rejects the wrong negative tense or agreement',()=>{
+ const s=studio('l-g-conditionals'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-item','1',2);p=changeTeaching(s,p,'workshop-record','dry',3)
+ for(const good of ["doesn't rain",'does not rain','DOES NOT RAIN',"doesn’t rain"]){p=changeTeaching(s,p,'workshop-input',good,4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).complete).toBe(true);expect(workshopView(w,p).selected).toBe(good)}
+ for(const bad of ['did not rain','does not rains','will not rain']){p=changeTeaching(s,p,'workshop-input',bad,6);expect(workshopView(w,p).complete).toBe(false);p=changeTeaching(s,p,'workshop-check','',7);expect(workshopView(w,p).correct).toBe(false)}
+})
+it('checks alternative typed completions against the reserved grammar sentences too',()=>{
+ const grammar=[{id:'g-alt',cases:[['A [[1]].','one'],['B [[1]].','two'],['C [[1]].','three'],['D [[1]].','four'],['We [[1]] it.','do not need']]}]
+ expect(individualDelayedProblems([{lessonId:'l-g-alt',workshop:{conditions:[{before:'We ',target:"don't need",accepted:['do not need'],after:' it.'}]}}],grammar)).toEqual(['l-g-alt: workshop repeats delayed grammar item q-g-alt-005'])
 })

@@ -4,7 +4,7 @@ import{resolve}from'node:path'
 export function individualDelayedProblems(individuals, grammar){
  const normal=text=>text.normalize('NFC').replace(/[‘’]/g,"'").replace(/\s+/g,' ').trim().toLocaleLowerCase('en'),delayed=new Map(),errors=[]
  for(const record of grammar){const start=record.cases.length>=12?8:4;for(let i=start;i<record.cases.length;i++){const [sentence,answer]=record.cases[i];delayed.set(normal(sentence.replace('[[1]]',answer)),`q-${record.id}-${String(i+1).padStart(3,'0')}`)}}
- for(const i of individuals)for(const c of i.workshop?.conditions??[]){const id=delayed.get(normal((c.before??'')+(c.target??'')+(c.after??'')));if(id)errors.push(`${i.lessonId}: workshop repeats delayed grammar item ${id}`)}
+ for(const i of individuals)for(const c of i.workshop?.conditions??[])for(const answer of [c.target??'',...c.accepted??[]]){const id=delayed.get(normal((c.before??'')+answer+(c.after??'')));if(id)errors.push(`${i.lessonId}: workshop repeats delayed grammar item ${id}`)}
  return errors
 }
 export function authorVisualMissions(root,catalog){

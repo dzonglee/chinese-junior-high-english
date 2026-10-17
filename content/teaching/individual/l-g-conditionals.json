@@ -1,0 +1,484 @@
+{
+  "lessonId": "l-g-conditionals",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Manipulate hypothetical conditions and their alternative outcomes, then separate conditional tense, result forms, clause order, unless/when and interrogative if.",
+  "picturePurpose": "An original rainy-indoor / dry-garden diptych supplies alternative possible plans. Selection changes the displayed outcome; explicit prompts establish the requested hypothesis, never an actual forecast.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "切换条件，看清安排怎样变",
+    "instruction": "先选题目指定的假设或结构，再把句子的两部分写对。",
+    "conditions": [
+      {
+        "label": "如果下雨，计划走哪条路",
+        "before": "If it ",
+        "target": "rains",
+        "after": " tomorrow, we will read in the library.",
+        "choices": [
+          "will rain",
+          "rains",
+          "rained"
+        ],
+        "reason": "这句话是在假设明天下雨。主句 will read 表示将来的安排，if 条件从句用现在时 rains；不是在断言明天一定下雨。",
+        "world": {
+          "kind": "logic",
+          "caption": "两种备选计划：下雨就在图书馆读书；不下雨就在花园观察。先选“假设下雨”。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的条件或结构"
+            },
+            {
+              "label": "@outcome",
+              "detail": "随条件变化的安排"
+            }
+          ],
+          "records": {
+            "title": "本题先假设下雨，点选对应方案。",
+            "missingPrompt": "按题目指定的假设选条件，再看对应计划；这不是明天的天气预报。",
+            "answer": "rain",
+            "options": [
+              {
+                "id": "rain",
+                "label": "假设明天下雨",
+                "text": "按雨天方案安排",
+                "reason": "本题指定假设明天下雨，对应室内读书方案。",
+                "outcome": "室内读书",
+                "value": 50
+              },
+              {
+                "id": "dry",
+                "label": "假设明天不下雨",
+                "text": "按干燥天气方案安排",
+                "reason": "本题指定的是下雨情形，先回到雨天方案；不下雨对应另一个计划。",
+                "outcome": "花园观察",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-weather-plans",
+            "alt": "左侧同学们在室内看书，窗外下雨；右侧同学们在晴朗的花园里观察植物。这是两种可能的安排，不是已经确定的明天天气。",
+            "artChoices": [
+              "rain",
+              "dry"
+            ]
+          }
+        }
+      },
+      {
+        "label": "换一个条件，计划也改变",
+        "before": "If it ",
+        "target": "doesn't rain",
+        "after": " tomorrow, we will explore the garden.",
+        "choices": [
+          "doesn't rain",
+          "will not rain",
+          "did not rain"
+        ],
+        "reason": "条件改为明天不下雨。if 从句用现在时的否定形式 doesn’t rain 或 does not rain，后面的 rain 保留原形。",
+        "world": {
+          "kind": "logic",
+          "caption": "继续使用同一个计划表。这次假设明天不下雨，自己写出条件。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的条件或结构"
+            },
+            {
+              "label": "@outcome",
+              "detail": "随条件变化的安排"
+            }
+          ],
+          "records": {
+            "title": "这次点选“不下雨”的方案。",
+            "missingPrompt": "按题目指定的假设选条件，再看对应计划；这不是明天的天气预报。",
+            "answer": "dry",
+            "options": [
+              {
+                "id": "dry",
+                "label": "假设明天不下雨",
+                "text": "按干燥天气方案安排",
+                "reason": "这次指定不下雨，对应花园观察。",
+                "outcome": "花园观察",
+                "value": 50
+              },
+              {
+                "id": "rain",
+                "label": "假设明天下雨",
+                "text": "按雨天方案安排",
+                "reason": "这次指定的是不下雨；雨天室内读书是另一个方案。",
+                "outcome": "室内读书",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-weather-plans",
+            "alt": "左侧同学们在室内看书，窗外下雨；右侧同学们在晴朗的花园里观察植物。这是两种可能的安排，不是已经确定的明天天气。",
+            "artChoices": [
+              "rain",
+              "dry"
+            ]
+          }
+        },
+        "input": true,
+        "inputHint": "使用 rain，写出一般现在时否定形式；缩写或完整形式都可以。",
+        "accepted": [
+          "does not rain"
+        ]
+      },
+      {
+        "label": "将来的安排，写在主句里",
+        "before": "If it is dry tomorrow, we ",
+        "target": "will walk",
+        "after": " in the garden.",
+        "choices": [
+          "will walks",
+          "will walk",
+          "walked"
+        ],
+        "reason": "条件从句已经是 is dry。主句表达将来的安排，用 will walk；will 后接原形 walk，不加 s。",
+        "world": {
+          "kind": "logic",
+          "caption": "条件部分已经写好。这次只补全主句将来的安排。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你判断的结构"
+            },
+            {
+              "label": "@outcome",
+              "detail": "对应的表达"
+            }
+          ],
+          "records": {
+            "title": "把句子的两部分各自认清。",
+            "missingPrompt": "按题目指定的假设选条件，再看对应计划；这不是明天的天气预报。",
+            "answer": "main",
+            "options": [
+              {
+                "id": "main",
+                "label": "主句表达将来安排",
+                "text": "we 后要写我们将做什么",
+                "reason": "这是计划的结果部分，用 will 加动词原形。",
+                "outcome": "will + walk",
+                "value": 50
+              },
+              {
+                "id": "condition",
+                "label": "if 从句表达条件",
+                "text": "if it is dry 已经写好",
+                "reason": "当前空格不在 if 从句里，要补的是主句的安排。",
+                "outcome": "if + 现在时",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "if 放后面，规则仍然一样",
+        "before": "We will start the walk if everybody ",
+        "target": "is",
+        "after": " ready at two tomorrow.",
+        "choices": [
+          "will be",
+          "is",
+          "was"
+        ],
+        "reason": "if 从句放在后面也仍用现在时。everybody 按单数看待，用 is，不用 will be 或 was。",
+        "world": {
+          "kind": "logic",
+          "caption": "明天两点，大家准备好了再出发。不要只按句子的前后位置判断时态。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的条件或结构"
+            },
+            {
+              "label": "@outcome",
+              "detail": "随条件变化的安排"
+            }
+          ],
+          "records": {
+            "title": "哪个部分才是出发的条件？",
+            "missingPrompt": "按题目指定的假设选条件，再看对应计划；这不是明天的天气预报。",
+            "answer": "ready",
+            "options": [
+              {
+                "id": "ready",
+                "label": "大家准备好",
+                "text": "if everybody is ready",
+                "reason": "准备好是出发条件，条件从句用现在时。",
+                "outcome": "开始散步",
+                "value": 50
+              },
+              {
+                "id": "start",
+                "label": "开始散步",
+                "text": "we will start the walk",
+                "reason": "开始散步是安排的结果，不是当前要补的条件。",
+                "outcome": "结果已写好",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "unless：除非完成，否则不参加",
+        "before": "Unless Mia ",
+        "target": "finishes",
+        "after": " her homework, she won't join the walk.",
+        "choices": [
+          "will finish",
+          "finishes",
+          "finished"
+        ],
+        "reason": "unless 表示“除非”，这里相当于 if Mia doesn’t finish。真实的将来条件用现在时，Mia 配 finishes，不另加 will。",
+        "world": {
+          "kind": "logic",
+          "caption": "约定：除非 Mia 完成作业，否则不参加散步。使用 finish 填空。",
+          "cells": [
+            {
+              "label": "unless Mia",
+              "detail": "条件的开头"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你写出的动词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "won't join",
+              "detail": "否则不参加"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "使用 finish，只写 unless 从句里缺少的一个单词。"
+      },
+      {
+        "label": "将来时间从句，也先看结构",
+        "before": "I will call you when the school bus ",
+        "target": "arrives",
+        "after": " tomorrow.",
+        "choices": [
+          "will arrive",
+          "arrives",
+          "arrived"
+        ],
+        "reason": "when 引导的将来时间从句用现在时，the school bus 是单数，用 arrives；will call 已表达主句将来要做的事。",
+        "world": {
+          "kind": "logic",
+          "caption": "约定：明天校车到达时我打电话。使用 arrive 填空。",
+          "cells": [
+            {
+              "label": "when the bus",
+              "detail": "到达时这个时间点"
+            },
+            {
+              "label": "@attempt",
+              "detail": "从句里的动词",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "使用 arrive，只写 when 从句中缺少的一个单词。"
+      },
+      {
+        "label": "主句也可以给出可行的做法",
+        "before": "If you need help tomorrow, you ",
+        "target": "can",
+        "after": " call our teacher.",
+        "choices": [
+          "did",
+          "can",
+          "was"
+        ],
+        "reason": "条件成立后，可以打电话求助，用 can call。条件句的主句不一定有 will，也可以用情态动词表达可行做法。",
+        "world": {
+          "kind": "logic",
+          "caption": "这里不是保证会打电话，而是告诉你需要帮助时可以怎样做。",
+          "cells": [
+            {
+              "label": "if you need help",
+              "detail": "求助的条件"
+            },
+            {
+              "label": "@attempt",
+              "detail": "可以采取的做法",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "同样的 if，这次是“是否”",
+        "before": "I do not know if it ",
+        "target": "will rain",
+        "after": " tomorrow.",
+        "choices": [
+          "rains",
+          "will rain",
+          "rained"
+        ],
+        "reason": "这里 if 表示“是否”，是 know 的宾语从句，不是在给出条件。谈论明天是否下雨，可以用 will rain；不能套用条件从句的规则。",
+        "world": {
+          "kind": "logic",
+          "caption": "我不知道明天是否下雨。这句 if 的意思变了，先把结构认准。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你判断的 if 含义"
+            },
+            {
+              "label": "@attempt",
+              "detail": "从句的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "这里 if 表示哪一种意思？",
+            "missingPrompt": "按题目指定的假设选条件，再看对应计划；这不是明天的天气预报。",
+            "answer": "whether",
+            "options": [
+              {
+                "id": "whether",
+                "label": "是否",
+                "text": "不知道的是明天会不会下雨",
+                "reason": "if 表示是否，引导的是不知道的内容。",
+                "outcome": "明天会不会下雨",
+                "value": 50
+              },
+              {
+                "id": "condition",
+                "label": "如果",
+                "text": "给出一个假设条件",
+                "reason": "整句是不知道是否下雨，不是“如果下雨就做某事”。",
+                "outcome": "假设 → 结果",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "input": true,
+        "inputHint": "使用 rain，写出表示将来是否下雨的两个单词。"
+      }
+    ],
+    "choices": [
+      "will rain",
+      "rains",
+      "rained",
+      "doesn't rain",
+      "will not rain",
+      "did not rain",
+      "will walks",
+      "will walk",
+      "walked",
+      "will be",
+      "is",
+      "was",
+      "will finish",
+      "finishes",
+      "finished",
+      "will arrive",
+      "arrives",
+      "arrived",
+      "did",
+      "can"
+    ],
+    "items": [
+      {
+        "id": "conditional-route",
+        "label": "条件与安排",
+        "prompt": "哪部分是假设，哪部分是安排？",
+        "answer": "",
+        "reason": "",
+        "hint": "if 也可能表示是否，先读懂整句话。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-conditionals-002",
+      "q-g-conditionals-003"
+    ],
+    "transfer": {
+      "id": "individual-g-conditionals-transfer",
+      "topicId": "g-conditionals",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "明天要检查新种下的植物：如果土壤很干，我们就给植物浇水。两空依次填什么？\nIf the soil ___ dry tomorrow, we ___ water the plants.",
+      "options": [
+        {
+          "id": "a",
+          "text": "is; will"
+        },
+        {
+          "id": "b",
+          "text": "will be; will"
+        },
+        {
+          "id": "c",
+          "text": "is; did"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "is; will"
+      },
+      "marks": 2,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先分出条件和将来的安排，再核对各自的谓语形式。",
+        "steps": [
+          {
+            "text": "if the soil is dry 是明天是否需要浇水的条件。",
+            "reason": "真实的将来条件从句用现在时；soil 在这里按不可数名词看待，用 is。"
+          },
+          {
+            "text": "we will water the plants 是条件成立后的安排。",
+            "reason": "主句用 will 表达将来，后接原形 water。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一空在真实的将来条件从句中，用 is，不把将来意义机械改成 will be。"
+          },
+          {
+            "option": "c",
+            "reason": "did 会变成过去，与明天的安排不符。"
+          }
+        ],
+        "pitfall": "tomorrow 表示整件事谈将来，不表示两部分都必须写 will。",
+        "visual": {
+          "kind": "sentence",
+          "title": "检查条件 → 执行计划",
+          "segments": [
+            {
+              "text": "if the soil is dry",
+              "role": "evidence",
+              "note": "现在时表达将来条件"
+            },
+            {
+              "text": "we will water the plants",
+              "role": "verb",
+              "note": "条件成立后的将来安排"
+            }
+          ],
+          "caption": "这是有条件的安排，不是断言明天的土壤一定干。"
+        },
+        "transfer": "如果主句改成“可以请老师帮忙”，一定要用 will 吗？"
+      }
+    }
+  }
+}

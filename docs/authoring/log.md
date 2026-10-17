@@ -829,3 +829,20 @@ and watering scenes reused; written records provide interest and remembered time
 flow,24 widths,reload and zero assessment records pass; typecheck,826 teaching/spelling and
 package pass. Next conditionals; an original alternative-weather scene is being generated.
 Unit remains unfinished;397 pending. Broad archives still represent checkpoint13.
+
+
+## 2026-10-18 (Sydney) · codex-solo · conditionals and seventeen-lesson checkpoint
+
+l-g-conditionals is reviewed:17/413. Eight tasks manipulate alternative weather hypotheses and
+show their actual different outcomes, then separate tense/clauses/unless/when/modal/if-whether.
+All models, picture and typed errors, full negative alternative and fresh soil transfer inspected.
+Review removed an exposed answer and corrected model labels. Typed alternatives now accept valid
+contractions/full forms; new regressions reject wrong forms and audit alternative delayed text.
+The science-scene delivery image was reduced/re-inspected, with affected complete flows rerun.
+
+Coherent checks pass:1,461 core/14 files,typecheck,826 teaching-spelling,7 grammar constraints,
+course/static package,all17 browser flows/137 conditions/411 widths,both adapter simulations,
+8 offline checks and refreshed ZIP CRC/exact-source comparison. File URLs remain blocked; served
+standalone once then disabled networking. Hashes/sizes and historical limits:checkpoint-17.*.
+Next object clauses; its authoring/word-builder patch are prepared outside course files. Unit
+remains claimed and unfinished;396 pending. No new native GUI pass, upload or release occurred.
