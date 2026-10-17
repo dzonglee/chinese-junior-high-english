@@ -1,0 +1,520 @@
+{
+  "lessonId": "l-g-reflexives",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Match all eight reflexive forms to speaker/addressee/person/number;distinguish same-person objects,ordinary other-person objects,by-oneself independence,emphatic self and reciprocal each-other variants.",
+  "picturePurpose": "Reuse inspected original bicycle diptych to choose solo repair versus receiving help. Exact independence and identities come from records. Coded arrows show same/different people;shuffled tiles contrast reciprocal help with helping oneself.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "找出谁做、对谁做、是不是自己",
+    "instruction": "先选与记录相符的场景，再核对说话人、听话人和人数；别只盯着人名或词尾。",
+    "conditions": [
+      {
+        "label": "独自完成，by后面指回谁",
+        "before": "Mia repaired the bike by ",
+        "target": "herself",
+        "after": ".",
+        "choices": [
+          "her",
+          "herself"
+        ],
+        "reason": "by herself表示她独自完成，反身代词与主语Mia对应。her不能替代这个固定表达中的herself。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录一：Mia独自修好了自行车，没有别人帮忙。按这条记录选图。",
+          "cells": [
+            {
+              "label": "Mia",
+              "detail": "与she对应，独自完成"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "哪幅图符合这一条修理记录？",
+            "missingPrompt": "先选与给定记录相符的场景，再核对代词。",
+            "asset": "lesson-bike-help",
+            "alt": "左图Mia独自修理自行车；右图Leo修理，Mia在旁看。",
+            "artChoices": [
+              "solo",
+              "help"
+            ],
+            "answer": "solo",
+            "options": [
+              {
+                "id": "solo",
+                "label": "Mia独自修",
+                "text": "记录一：没有别人帮忙",
+                "reason": "独自完成对应by herself。",
+                "value": 35
+              },
+              {
+                "id": "help",
+                "label": "Leo替Mia修",
+                "text": "记录二：修理的人是Leo",
+                "reason": "这条记录明确Mia独自完成，应选左图。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "换了修车的人，代词也要重新判断",
+        "before": "Leo repaired the bike for ",
+        "target": "her",
+        "after": ".",
+        "choices": [
+          "herself",
+          "her"
+        ],
+        "reason": "主语是Leo，for后指的是Mia，人与主语不同，用her。herself会错误地把另一人的指代当成回到主语。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录二：Leo替Mia修好了自行车。修理的人是Leo，接受帮助的人是Mia。用代词指Mia。",
+          "cells": [
+            {
+              "label": "Leo → Mia",
+              "detail": "做事的人与接受帮助的人不同"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "哪幅图符合这一条修理记录？",
+            "missingPrompt": "先选与给定记录相符的场景，再核对代词。",
+            "asset": "lesson-bike-help",
+            "alt": "左图Mia独自修理自行车；右图Leo修理，Mia在旁看。",
+            "artChoices": [
+              "solo",
+              "help"
+            ],
+            "answer": "help",
+            "options": [
+              {
+                "id": "solo",
+                "label": "Mia独自修",
+                "text": "记录一：没有别人帮忙",
+                "reason": "这条记录说Leo替Mia修，不是Mia独自修。",
+                "value": 35
+              },
+              {
+                "id": "help",
+                "label": "Leo替Mia修",
+                "text": "记录二：修理的人是Leo",
+                "reason": "Leo替Mia修，用her指Mia；不是指回Leo自己。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "教的人和学的人是同一个",
+        "before": "Mia taught ",
+        "target": "herself",
+        "after": " to repair bikes.",
+        "choices": [
+          "her",
+          "herself"
+        ],
+        "reason": "教与学都发生在Mia自己身上，用taught herself表示自学。her在这里通常指另一个人，不表达本题的自学。",
+        "world": {
+          "kind": "logic",
+          "caption": "学习记录：Mia通过教程自学修车，没有另一位老师教她。",
+          "cells": [
+            {
+              "label": "Mia → Mia",
+              "detail": "教的人与学的人相同"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先对上主语、人称和人数，再判断是否指回自己。",
+        "initial": "her"
+      },
+      {
+        "label": "Leo说“我”，不能按名字套himself",
+        "before": "I built the model by ",
+        "target": "myself",
+        "after": ".",
+        "choices": [
+          "himself",
+          "myself"
+        ],
+        "reason": "引语中的主语是I，反身代词用myself。虽然说话人是Leo，也不能把第一人称I机械换成第三人称himself。",
+        "world": {
+          "kind": "logic",
+          "caption": "Leo说：“这个模型是我独自做好的。”请按他自己说话的口气补全英文。",
+          "cells": [
+            {
+              "label": "I（Leo在说话）",
+              "detail": "第一人称单数"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先对上主语、人称和人数，再判断是否指回自己。",
+        "initial": "himself"
+      },
+      {
+        "label": "改成从旁叙述他独自完成",
+        "before": "Leo made the badge by ",
+        "target": "himself",
+        "after": ".",
+        "choices": [
+          "myself",
+          "himself"
+        ],
+        "reason": "这句由旁人叙述Leo独自做徽章，主语Leo对应he，用himself；不再是I的引语，所以不用myself。",
+        "world": {
+          "kind": "logic",
+          "caption": "制作记录：Leo独自做了这枚徽章。现在用Leo作主语从旁叙述。",
+          "cells": [
+            {
+              "label": "Leo → he",
+              "detail": "第三人称单数，独自完成"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "Mia和我，合起来是哪一人称",
+        "before": "Mia and I enjoyed ",
+        "target": "ourselves",
+        "after": " at the exhibition.",
+        "choices": [
+          "themselves",
+          "ourselves"
+        ],
+        "reason": "Mia and I包含说话人，相当于we，用ourselves。enjoy oneself表示玩得开心；themselves不包含“我”这个第一人称。",
+        "world": {
+          "kind": "logic",
+          "caption": "参观记录：我和Mia在展览上玩得很开心。不是在说另一群人的感受。",
+          "cells": [
+            {
+              "label": "Mia and I → we",
+              "detail": "第一人称复数"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先对上主语、人称和人数，再判断是否指回自己。",
+        "initial": "themselves"
+      },
+      {
+        "label": "直接对Mia说话，主语是you",
+        "before": "Mia, check the answers by ",
+        "target": "yourself",
+        "after": ".",
+        "choices": [
+          "herself",
+          "yourself"
+        ],
+        "reason": "这是直接对Mia说的话，祈使句省略的主语是you，用yourself。不能因为听话的人是女孩就选herself。",
+        "world": {
+          "kind": "logic",
+          "caption": "老师对Mia一人说：“请你独立核对答案。”按直接对她说话的口气补全。",
+          "cells": [
+            {
+              "label": "you（只对Mia说）",
+              "detail": "第二人称单数"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先对上主语、人称和人数，再判断是否指回自己。",
+        "initial": "herself"
+      },
+      {
+        "label": "you指两个人，词尾要变",
+        "before": "Mia and Leo, check the answers by ",
+        "target": "yourselves",
+        "after": ".",
+        "choices": [
+          "yourself",
+          "yourselves"
+        ],
+        "reason": "这里同时对Mia和Leo说话，you指两个人，用复数yourselves，不是单数yourself。",
+        "world": {
+          "kind": "logic",
+          "caption": "老师对Mia和Leo两人说：“请你们独立核对答案。”这一句仍是直接对两人说话。",
+          "cells": [
+            {
+              "label": "you（Mia和Leo）",
+              "detail": "第二人称复数"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先对上主语、人称和人数，再判断是否指回自己。",
+        "initial": "yourself"
+      },
+      {
+        "label": "动物复数，也要与主语一致",
+        "before": "The cats washed ",
+        "target": "themselves",
+        "after": " after dinner.",
+        "choices": [
+          "itself",
+          "themselves"
+        ],
+        "reason": "the cats是复数，动作回到这些猫自己身上，用themselves。itself是单数，不能对应复数主语。",
+        "world": {
+          "kind": "logic",
+          "caption": "观察记录：几只猫饭后各自清洁自己的身体。不是一只猫，也不是在清洁别的对象。",
+          "cells": [
+            {
+              "label": "the cats → they",
+              "detail": "第三人称复数"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先对上主语、人称和人数，再判断是否指回自己。",
+        "initial": "itself"
+      },
+      {
+        "label": "设备指回自己，用哪一种",
+        "before": "The timer switched ",
+        "target": "itself",
+        "after": " off after ten minutes.",
+        "choices": [
+          "himself",
+          "itself"
+        ],
+        "reason": "the timer是单数物品，用it指代；动作指回设备本身，用itself，不用指男性的himself。",
+        "world": {
+          "kind": "logic",
+          "caption": "设备记录：这个计时器十分钟后自动关机。按当前单数主语补全。",
+          "cells": [
+            {
+              "label": "the timer → it",
+              "detail": "单数物品"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先对上主语、人称和人数，再判断是否指回自己。",
+        "initial": "himself"
+      },
+      {
+        "label": "互相帮助，不等于各帮各的自己",
+        "before": "The twins helped ",
+        "target": "each other",
+        "after": " with their bags.",
+        "choices": [
+          "themselves",
+          "each other"
+        ],
+        "reason": "记录说一人帮另一人，两人互相帮助，用each other，也可以用one another。themselves会表示帮助自己，不是本题给定的互助关系。",
+        "world": {
+          "kind": "syntax",
+          "caption": "搬运记录：姐姐帮妹妹提包，妹妹也帮姐姐提包。表达的是互相帮忙，不是各自处理自己的包。",
+          "cells": [
+            {
+              "label": "themselves",
+              "detail": "核对是自己还是彼此"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先对上主语、人称和人数，再判断是否指回自己。",
+        "accepted": [
+          "one another"
+        ],
+        "tiles": [
+          "themselves",
+          "other",
+          "one",
+          "each",
+          "another"
+        ]
+      },
+      {
+        "label": "强调本人，不自动等于独自完成",
+        "before": "Mia ",
+        "target": "herself",
+        "after": " repaired the bike.",
+        "choices": [
+          "her",
+          "herself"
+        ],
+        "reason": "herself紧跟Mia，强调是她本人动手。它与by herself表示独自完成不同；单凭这句强调，不能断定她没有得到任何帮助。",
+        "world": {
+          "kind": "logic",
+          "caption": "表达任务：强调“是Mia本人修的车”。这一句只强调本人，不增加“无人帮助”的事实。",
+          "cells": [
+            {
+              "label": "Mia + ___",
+              "detail": "强调主语本人"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      }
+    ],
+    "choices": [
+      "her",
+      "herself",
+      "himself",
+      "myself",
+      "themselves",
+      "ourselves",
+      "yourself",
+      "yourselves",
+      "itself",
+      "each other"
+    ],
+    "items": [
+      {
+        "id": "reflexive-editor",
+        "label": "人物与回指",
+        "prompt": "动作回到自己、独自完成、本人强调和互相帮助，意思并不一样。",
+        "answer": "",
+        "reason": "",
+        "hint": "当前句子的主语是谁？代词又指谁？"
+      }
+    ],
+    "applicationIds": [
+      "q-g-reflexives-002",
+      "q-g-reflexives-003"
+    ],
+    "transfer": {
+      "id": "individual-g-reflexives-transfer",
+      "topicId": "g-reflexives",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "第一句直接对两位同学说话，第二句说Leo替Mia拿包。两空依次填什么？\nMia and Amy, finish the poster by ___. Leo carried the bag for Mia; he carried it for ___.",
+      "options": [
+        {
+          "id": "a",
+          "text": "yourselves; her"
+        },
+        {
+          "id": "b",
+          "text": "yourself; her"
+        },
+        {
+          "id": "c",
+          "text": "yourselves; herself"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "yourselves; her"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先分清谁在说话、对几个人说；再判断代词是否指回当前句子的主语。",
+        "steps": [
+          {
+            "text": "第一句直接对Mia和Amy两人说话，省略的主语是you。",
+            "reason": "you指两个人，by后用复数反身代词yourselves。"
+          },
+          {
+            "text": "第二句的he指Leo，for后指Mia。",
+            "reason": "Mia与Leo不是同一个人，用宾格her，不用反身代词herself。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一句对两人说话，需要复数yourselves，不是单数yourself。"
+          },
+          {
+            "option": "c",
+            "reason": "第二句for后指Mia，而主语是Leo；不同的人不构成这里的反身关系。"
+          }
+        ],
+        "pitfall": "不是看到人名就按第三人称选词，也不是所有“自己”式中文表达都用反身代词。",
+        "visual": {
+          "kind": "comparison",
+          "title": "分别核对两种指代",
+          "segments": [
+            {
+              "text": "you = Mia + Amy",
+              "role": "evidence",
+              "note": "两位听话人 → yourselves"
+            },
+            {
+              "text": "he（Leo）→ for her（Mia）",
+              "role": "evidence",
+              "note": "做事的人与接受帮助的人不同"
+            }
+          ],
+          "caption": "人称、人数和回指关系要同时对上。"
+        },
+        "transfer": "如果第一句只对Amy一人说，yourselves需要怎样改？"
+      }
+    }
+  }
+}

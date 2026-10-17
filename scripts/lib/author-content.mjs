@@ -53,12 +53,21 @@ export function authorCatalog(root) {
       const answer = kind === 'choice' ? { option: right, display: completed, ...(record.caseSensitive ? { caseSensitive: true } : {}) } : kind === 'order' ? { order: tokens.map((t) => t.id), display: completed } : { accepted: freeResponse.accepted, display: correct, ...(record.caseSensitive ? { caseSensitive: true } : {}) }
       const alternatives = freeResponse?.accepted.filter(value => value !== correct) ?? []
       const alternativeNote = alternatives.length ? `本题也接受：${alternatives.join('、')}。` : ''
+      // Keep punctuation with the expression; omit empty context cards.
+      const beginning = prefix.trim(), ending = suffix.trim()
+      const leadingPunctuation = /^[\p{P}\s]*$/u.test(beginning), endingPunctuation = /^[\p{P}\s]*$/u.test(ending)
+      const diagramSegments = [
+        ...(!leadingPunctuation ? [{ text: beginning, role: 'neutral', note: '先读完整的语境' }] : []),
+        { text: (leadingPunctuation ? beginning : '') + correct + (endingPunctuation ? ending : ''), role: 'evidence', note: alternatives.length ? '一种可用的表达' : '符合本题要求的表达' },
+        ...(!endingPunctuation ? [{ text: ending, role: 'neutral', note: '放回原句再检查' }] : []),
+      ]
+      if (diagramSegments.length === 1) diagramSegments.unshift({ text: freeResponse?.instruction ?? record.rule, role: 'neutral', note: '按题目要求判断' })
       questions.push({ id, topicId: record.id, skill: 'grammar', kind, difficulty: i % 3 === 2 ? 2 : 1, grades, stem,
         ...(kind === 'choice' ? { options } : {}), ...(kind === 'order' ? { tokens: [...tokens.slice(1), tokens[0]] } : {}), answer, marks: 1, estimatedSeconds: kind === 'order' ? 60 : 35,
         explanation: { strategy: `先判断句子的线索，再用这条规则检查：${record.rule}`,
           steps: [{ text: reason, reason: freeResponse ? '先按题目要求确定词语或含义，再检查主语、时间和句子结构。' : '根据本句的主语、时间或限定范围判断，不能只凭某个词眼熟。' }, { text: `${alternatives.length ? '一种正确写法' : '放回原句检查'}：${completed}`, reason: `${alternativeNote}${record.rule}` }],
           distractors: kind === 'choice' ? options.filter((o) => o.id !== right).map((o) => ({ option: o.id, reason: `本句不能用“${o.text}”：${reason}这里需要的是“${correct}”。` })) : [],
-          pitfall: record.pitfall, visual: { kind: 'sentence', title: '把线索与目标表达连起来', segments: [{ text: prefix.trim() || '先看句意', role: 'neutral', note: '先读完整的语境' }, { text: correct, role: 'evidence', note: alternatives.length ? '一种可用的表达' : '符合本题要求的表达' }, { text: suffix.trim() || '句子完整', role: 'neutral', note: '放回原句再检查' }], caption: reason },
+          pitfall: record.pitfall, visual: { kind: 'sentence', title: '把线索与目标表达连起来', segments: diagramSegments, caption: reason },
           transfer: '换一个主语或时间线索，这里的表达还需要变化吗？说清理由。' }, source, review: 'draft' })
     }
     lessons.push({ id: `l-${record.id}`, topicId: record.id, title: record.title, grades, objective: record.rule, questionIds: ids.slice(0, record.cases.length >= 12 ? 8 : 4), delayedQuestionIds: ids.slice(record.cases.length >= 12 ? 8 : 4), summary: [record.rule, record.pitfall, '提示后做对是练习成果，隔几天独立做对才是保留的证据。'], estimatedMinutes: 10, order: 1, review: 'draft' })

@@ -135,3 +135,17 @@ test('the compiler refuses to silently regenerate singleton blanks without autho
     }
   } finally { rmSync(fixture, { recursive: true, force: true }) }
 })
+
+test('grammar diagrams attach ending punctuation to the expression and retain meaningful trailing context', () => {
+  const compact = question('q-g-linking-verbs-002')
+  assert.deepEqual(compact.explanation.visual.segments.map(segment => segment.text), ['This blanket feels', 'soft.'])
+  assert.deepEqual(compact.answer.accepted, ['soft'])
+  assert.deepEqual(question('q-g-demonstratives-002').explanation.visual.segments.map(segment => segment.text), ['This', 'is my bag right here.'])
+  const withContext = question('q-g-auxiliaries-002')
+  assert.deepEqual(withContext.explanation.visual.segments.map(segment => segment.text), ['He does not', 'drink', 'coffee.'])
+  for (const q of catalog.questions.filter(q => q.explanation.visual.title === '把线索与目标表达连起来')) {
+    assert.ok(q.explanation.visual.segments.every(segment => !['先看句意', '句子完整'].includes(segment.text)), `${q.id}: empty context replaced with a placeholder`)
+    assert.ok(q.explanation.visual.segments.length >= 2, `${q.id}: lost the explanation relationship`)
+    assert.ok(q.explanation.visual.segments.every(segment => !/^[\p{P}\s]+$/u.test(segment.text)), `${q.id}: punctuation presented as a separate fact`)
+  }
+})

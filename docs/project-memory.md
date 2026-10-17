@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-31 of413 lessons are individually reviewed;382 remain pending. Every lesson needs bespoke tasks,
+32 of413 lessons are individually reviewed;381 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-adverb-comparison. Ten tasks compare equal-distance race records,analytic and irregular adverb forms,as-early-as,less carefully and much more clearly. Students select the fastest runner from exact proportional duration bars before completing the sentence.
+Latest:l-g-reflexives. Twelve tasks contrast self and other recipients,all eight reflexive forms,quoted I,addressed singular/plural you,reciprocal help and emphatic self versus by oneself. Shared grammar diagrams now attach punctuation to the expression and omit empty context placeholders,while retaining real context and accepted answers.
 
-All ten models and narrow-phone figures,wrong evidence/forms,expanded phrase diagrams,applications and both transfer steps were inspected. Initial wrong diagram metadata was corrected. Names and time values were separated after phone inspection found broken units. Six plot-width measurements verify authored percentages;48/56/60 encode12/14/15seconds exactly. Grades8–9 covered;reserved005–008 unexposed;zero independent records.
+All twelve models and narrow-phone figures,both wrong scene selections,typed person/number errors,reciprocal alternatives,expanded phrase diagrams,applications and both transfer steps were inspected. The opening caption was shortened. A prior linking-verbs flow was replayed in full and its new explanation layouts inspected after the shared formatter change. Eight grammar source checks pass. Grades7–9 covered;reserved005–008 unexposed;zero independent records.
 
-Checkpoint31 records the new flow/30 widths and current core,teaching,grammar,course,package,
+Checkpoint32 records the new flow/36 widths and current core,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The31 reviewed lessons cumulatively contain269 conditions/807 widths;
+recorded explicitly. The32 reviewed lessons cumulatively contain281 conditions/843 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-reflexives. A twelve-task reflexive draft stays outside course files. It reuses the inspected repair diptych to contrast solo work and help for another person,then covers all eight reflexive forms,quoted I,addressed singular/plural you,enjoy oneself,reciprocal each other/one another and emphatic self versus by oneself. Inspect each task before credit.
+Next:l-g-demonstratives. A ten-task demonstrative draft and a new near/far classroom image remain outside course files. Raw and600-pixel delivery are inspected;the32,406-byte derivative fixes Mia at the front desk while one book moves from the near desk to the back cabinet. Combine this with exact1/3-book coded counts. Transfer covers grades6–9. Audit source spatial cues and enforce explicitly requested capitalization in applications without changing ordinary case-insensitive answers. No review credit yet.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

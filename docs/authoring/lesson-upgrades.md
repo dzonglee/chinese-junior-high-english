@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **31 / 413**. Current: **l-g-reflexives**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **32 / 413**. Current: **l-g-demonstratives**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ Completed: **31 / 413**. Current: **l-g-reflexives**. Evidence lives in docs/rev
 | l-g-adjectives | 形容词放在哪里 | reviewed | [Individual review](../reviews/individual-lessons/l-g-adjectives.md) |
 | l-g-adverbs | 副词怎样修饰动作 | reviewed | [Individual review](../reviews/individual-lessons/l-g-adverbs.md) |
 | l-g-adverb-comparison | 比较动作的快慢与好坏 | reviewed | [Individual review](../reviews/individual-lessons/l-g-adverb-comparison.md) |
-| l-g-reflexives | 反身代词：动作回到谁 | pending | — |
+| l-g-reflexives | 反身代词：动作回到谁 | reviewed | [Individual review](../reviews/individual-lessons/l-g-reflexives.md) |
 | l-g-demonstratives | this、that、these、those | pending | — |
 | l-g-indefinites | 不定代词与修饰位置 | pending | — |
 | l-g-question-words | 问人、问物、问原因 | pending | — |
