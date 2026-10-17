@@ -1,7 +1,8 @@
+import {workshopExpressionActions} from '../scripts/lib/workshop-test-actions.mjs'
 import {it,expect} from 'vitest'
 import {authorCatalog} from '../scripts/lib/author-content.mjs'
 import {createLessonTeaching,freshTeaching,changeTeaching,teachingCanAdvance,restoreTeaching,teachingProblems} from './core/lesson-teaching'
-import {workshopView,workshopProblems} from './core/lesson-workshop'
+import {workshopView,workshopProblems,changeWorkshop} from './core/lesson-workshop'
 import {individualDelayedProblems} from '../scripts/lib/author-visual-missions.mjs'
 import {containsTerm,productionReady,productionMinimum} from './core/teaching-production'
 import {missionView} from './core/visual-mission'
@@ -141,4 +142,23 @@ it('accepts authored contraction alternatives and still rejects the wrong negati
 it('checks alternative typed completions against the reserved grammar sentences too',()=>{
  const grammar=[{id:'g-alt',cases:[['A [[1]].','one'],['B [[1]].','two'],['C [[1]].','three'],['D [[1]].','four'],['We [[1]] it.','do not need']]}]
  expect(individualDelayedProblems([{lessonId:'l-g-alt',workshop:{conditions:[{before:'We ',target:"don't need",accepted:['do not need'],after:' it.'}]}}],grammar)).toEqual(['l-g-alt: workshop repeats delayed grammar item q-g-alt-005'])
+})
+
+
+it('requires real clause-tile assembly, invalidates a saved answer on removal and preserves the incomplete repair',()=>{
+ const s=studio('l-g-object-clauses'),w=s.mission!.workshop!,c=w.conditions![0];let p={...freshTeaching(s,1),step:1}
+ p=changeTeaching(s,p,'workshop-choose',c.target,2);p=changeTeaching(s,p,'workshop-input',c.target,3);expect(workshopView(w,p).selected).toBe('');p=changeTeaching(s,p,'workshop-record','place',4)
+ for(const[a,v]of workshopExpressionActions(c,'where is the umbrella'))p=changeTeaching(s,p,'workshop-'+a,v,5);p=changeTeaching(s,p,'workshop-check','',6);expect(workshopView(w,p).cells[1].label).toBe('where is the umbrella');expect(workshopView(w,p).complete).toBe(false)
+ for(const[a,v]of workshopExpressionActions(c,c.target))p=changeTeaching(s,p,'workshop-'+a,v,7);p=changeTeaching(s,p,'workshop-check','',8);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-tile-add','999',9);p=changeTeaching(s,p,'workshop-tile-add',workshopView(w,p).tileAnswer[0].id,10);expect(workshopView(w,p).complete).toBe(true)
+ p=changeTeaching(s,p,'workshop-tile-remove',workshopView(w,p).tileAnswer.at(-1)!.id,11);expect(workshopView(w,p).complete).toBe(false);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),12);expect(workshopView(w,p).selected).toBe('where the umbrella');expect(workshopView(w,p).complete).toBe(false)
+})
+it('accepts both if/whether and optional-that clause variants through actual tile actions',()=>{
+ const s=studio('l-g-object-clauses'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
+ for(const i of [2,7]){const c=w.conditions![i];p=changeTeaching(s,p,'workshop-item',String(i),2);if(c.world.records)p=changeTeaching(s,p,'workshop-record',c.world.records.answer,3);for(const good of [c.target,...c.accepted!]){for(const[a,v]of workshopExpressionActions(c,good))p=changeTeaching(s,p,'workshop-'+a,v,4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).complete).toBe(true);expect(workshopView(w,p).selected).toBe(good)}}
+})
+it('keeps duplicate words as separate usable tiles and rejects an unbuildable authored answer',()=>{
+ const original=studio('l-g-object-clauses').mission!.workshop!,condition={...original.conditions![0],target:'the book and the umbrella',choices:['the book and the umbrella','the umbrella and the book'],tiles:['the','book','and','the','umbrella'],world:{kind:'syntax' as const,caption:'Find both objects',cells:[{label:'@attempt'}]}},w={...original,conditions:[condition,original.conditions![1]]};let p=freshTeaching(studio('l-g-object-clauses'),1)
+ for(const[a,v]of workshopExpressionActions(condition,condition.target))changeWorkshop(w,p,a,v);changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(true);expect(workshopView(w,p).tileAnswer.filter(t=>t.text==='the').map(t=>t.id)).toEqual(['0','3'])
+ const broken={...w,conditions:[{...condition,tiles:['the','book','and','umbrella']},original.conditions![1]]};expect(workshopProblems(broken)).toContain('Invalid clause tile bank')
 })

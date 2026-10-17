@@ -3,8 +3,8 @@
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
 The owner requires every lesson to be redesigned separately, with purposeful original pictures.
-APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **17/413** are
-individually reviewed;396 remain pending. Work stays solo. The tracker links authored tasks,
+APP-VISUAL-LESSONS stays claimed by codex-solo on author/individual-lessons. **18/413** are
+individually reviewed;395 remain pending. Work stays solo. The tracker links authored tasks,
 inspected figures, wrong-path repairs, fresh transfer and actual control results. Shared coverage
 is a functional baseline, never an individual review.
 
@@ -24,10 +24,22 @@ Exact delayed-sentence and grade guards remain enforced, including accepted type
 Earlier preposition/passive overlaps were corrected; actual reserved items were verified unchanged.
 Checkpoint11 retains its historical disclosed limitation. Content stays draft; videos deferred.
 
-Next: l-g-object-clauses, with actual editable word-tile constructions and accepted if/whether /
-optional-that alternatives. Native GUI still needs MacStudioExternal project access. The existing
-native card remains blocked; no GUI job, upload or publication occurred. Approved audio, editorial/
-cohort mapping, real devices and production setup remain separate.
+Latest individual review: l-g-object-clauses. Eight actual editable word-tile tasks accept
+if/whether and optional-that constructions, reject bypasses, retain incomplete repairs and update
+the sentence/diagram. Initial, eight models/errors/repaired expressions, alternatives, removal
+and fresh bag-location transfer inspected. Review moved controls higher and fixed orphan punctuation.
+Aggregate individual evidence:145 conditions/435 task-width checks across18 accepted reviews.
+
+Current new-snapshot checks:1,464 core/14 files,typecheck,826 teaching-spelling,static package,new
+whole browser flow/24 widths,three shared flows/57 states at three widths,both native-adapter
+simulations,8 offline checks and refreshed ZIP CRC/exact-source comparison. Previous17 full browser
+flows retain checkpoint17 scope; checkpoint18 records the new bounded checks and artifact hashes.
+
+Next: l-g-relatives. A lesson-specific draft is prepared outside course files; build person/object
+antecedent selection and clause assembly, preserve valid relative-word/omission variants. Native
+GUI still needs MacStudioExternal project access. No GUI job, upload or publication occurred.
+Approved audio, editorial/cohort mapping, real devices and production setup remain separate.
+
 
 ## Previous local delivery · 2026-10-17
 

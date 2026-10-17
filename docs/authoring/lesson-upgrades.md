@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **17 / 413**. Current: **l-g-object-clauses**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **18 / 413**. Current: **l-g-relatives**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -25,7 +25,7 @@ Completed: **17 / 413**. Current: **l-g-object-clauses**. Evidence lives in docs
 | l-g-infinitives | to do：计划、提醒与目的 | reviewed | [Individual review](../reviews/individual-lessons/l-g-infinitives.md) |
 | l-g-gerunds | doing：先看搭配，再改词形 | reviewed | [Individual review](../reviews/individual-lessons/l-g-gerunds.md) |
 | l-g-conditionals | 条件成立，结果会怎样 | reviewed | [Individual review](../reviews/individual-lessons/l-g-conditionals.md) |
-| l-g-object-clauses | 宾语从句，语序别倒过来 | pending | — |
+| l-g-object-clauses | 宾语从句：重排语序 | reviewed | [Individual review](../reviews/individual-lessons/l-g-object-clauses.md) |
 | l-g-relatives | 定语从句，先找修饰对象 | pending | — |
 | l-g-conjunctions | 把两层意思连起来 | pending | — |
 | l-g-questions | 提问与反意疑问句 | pending | — |

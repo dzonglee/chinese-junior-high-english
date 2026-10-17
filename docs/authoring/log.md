@@ -846,3 +846,20 @@ course/static package,all17 browser flows/137 conditions/411 widths,both adapter
 standalone once then disabled networking. Hashes/sizes and historical limits:checkpoint-17.*.
 Next object clauses; its authoring/word-builder patch are prepared outside course files. Unit
 remains claimed and unfinished;396 pending. No new native GUI pass, upload or release occurred.
+
+
+## 2026-10-18 (Sydney) · codex-solo · object clauses individually reviewed
+
+l-g-object-clauses is reviewed:18/413. Eight real word-tile tasks build the learner's clause inside
+the sentence, require relevant meaning/subject evidence, accept if/whether and optional-that,
+prevent choose/input bypass and invalidate completion on edits. All initial/model/error/recovery/
+alternative/removal/transfer states inspected. UI review moved controls higher, compacted art and
+removed a duplicate answer board; inline flow/punctuation checked at three widths. Three regressions
+cover bypass/edit/persistence, alternatives and duplicate words/unbuildable authored banks.
+
+Current checks pass:1,464 core/14 files,typecheck,826 teaching-spelling,package,new full flow/24
+widths,three shared flows/57 layouts at each width,both native-adapter simulations,8 offline checks
+and refreshed ZIP CRC/exact-source comparison. A test-driver input/button mix-up was fixed; no app
+answer path failed. Prior17 whole browser flows retain checkpoint17 scope. Exact new hashes and
+boundaries:checkpoint-18.json. Next relatives; its explicit draft is prepared outside course files.
+Unit remains claimed/unfinished;395 pending. Native GUI blocked; no upload or publication.
