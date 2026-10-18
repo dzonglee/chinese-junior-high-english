@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-61 of413 lessons are individually reviewed;352 remain pending. Every lesson needs bespoke tasks,
+62 of413 lessons are individually reviewed;351 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-r-course-t03. Nine original message/reply/outcome tasks connect stated difficulty to a specific help request,identify explicit privacy,limit situational difficulty,distinguish a practice plan from guarantees,and follow conditional family support and real progress. Fresh report transfer separates agreed support,first-step preparation,rehearsal and the later presentation.
+Latest:l-r-course-t04. Eight original learning-method reading tasks establish attempt-before-checking,resolve4/2 counts and those two,follow Tuesday/Thursday scopes,separate corrections from recall and refuse an invented later score. Fresh Jun log distinguishes2 recalled before checking from1 corrected after. Fixed practised/practiced across actual speaking/vocabulary models while preserving the noun practice;replaced notice-specific source-button copy and an internal-record caption with student-facing wording.
 
-Inspected all9 models,all16 wrong source choices,two partial-chain repairs,missing/removed reasons,all three full sources and their endings,320-pixel source cards,application carousels and every application/transfer diagram. Reinspected the final unambiguous in-front-of-the-class phrasing. Feelings come from explicit text,not faces or diagnoses. Grades7–9;reserved reading text2 remains unexposed;zero independent records.
+Inspected all8 models,all13 wrong source choices,three partial-chain repairs,missing/removed reasons,the full source ending,all320-pixel cards,application carousels and every application/transfer diagram. Reinspected the final source button and educational caption. The log questions analyse fictional characters;guided attempts,mastery and lesson-pass records remain zero. Grades7–9;reserved reading text2 remains unexposed.
 
-Checkpoint61 records the new flow/27 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint62 records the new flow/24 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The61 reviewed lessons cumulatively contain642 conditions/1926 widths;
+recorded explicitly. The62 reviewed lessons cumulatively contain650 conditions/1950 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-r-course-t04. Eight learning-method reading tasks are drafted outside production. Connect covered-note attempt/check order,resolve4/2 scopes and those two,separate correction from later recall,and decline to invent Thursday scores. Fresh Jun log separates2 recalled before checking from1 corrected after. A bounded audit also found unconverted practised in existing American speaking/vocabulary text;repair its edition handling with a meaningful regression.
+Next:l-r-course-t05. Eight self-management tasks plus original red-folder/front-pocket versus paper-tray art are drafted and inspected outside production. Compare expected/actual8-minute timing,match opposite destinations,keep2 books distinct,and limit one success and untried plans. Fresh Sam transfer uses12 minutes. Implement named clue slots from evidenceLabels and test their real partial/wrong/reload states before review. Plan:/tmp/next63-engine-plan.md.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

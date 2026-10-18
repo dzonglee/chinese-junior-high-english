@@ -408,3 +408,19 @@ it('uses the selected edition in main-idea source cards,full passages and feedba
   expect(workshopProblems(s.mission!.workshop!)).toEqual([])
  }
 })
+
+
+it('uses edition-specific past practice verbs in actual speaking models and vocabulary while retaining the noun',()=>{
+ const originalQuestions=c.questions.filter(q=>q.skill==='speaking'&&q.answer.display.includes('practised'))
+ expect(originalQuestions.length).toBeGreaterThan(0)
+ const singer=c.vocabulary.find(w=>w.word==='singer'&&w.example.includes('practised'))!
+ expect(singer).toBeDefined()
+ const repository=new ContentRepository({...c,questions:[...c.questions],vocabulary:[...c.vocabulary]},[],async()=>'')
+ for(const spelling of ['american','british'] as const){
+  repository.setSpelling(spelling);const expected=spelling==='american'?'practiced':'practised'
+  for(const q of originalQuestions)expect(repository.getQuestion(q.id)!.answer.display).toContain(expected)
+  expect(repository.catalog.vocabulary.find(w=>w.id===singer.id)!.example).toContain(expected)
+ }
+ expect(editionText('She practiced daily. Practice helps.','british')).toBe('She practised daily. Practice helps.')
+ expect(editionText('She practised daily. Practice helps.','american')).toBe('She practiced daily. Practice helps.')
+})
