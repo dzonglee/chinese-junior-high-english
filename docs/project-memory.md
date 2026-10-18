@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-71 of 413 lessons are individually reviewed; 342 remain pending. Work stays solo under
+72 of 413 lessons are individually reviewed; 341 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t13. Eight original teamwork tasks construct needs → division of work → group check, match opposite permission-recording/narration pictures, separate internal checking from public sharing and obtained permission, assign fact checking, explain early delay notice, recognise several necessary contributions and satisfy a two-part meeting requirement. Fresh podcast transfer changes people and day and rejects inflated roles and automatic release. The course title, objective, pitfall and application reasons now name the actual cooperation-reading skills.
+Latest: l-r-course-t14. Eight original local-history tasks construct storage → empty → display, select opposite original/current room pictures with neutral use labels, hold street identity constant while time varies, weigh a loss against a benefit, preserve unknown dates and photograph provenance, and support a balanced attitude. Fresh bridge-display transfer rejects an invented year and a one-sided inference. Course title, objective, pitfall and application reasons identify the actual reading skills; the comparison application quotes its full sentence.
 
-Inspected all eight models, all wrong source choices and both wrong role pictures, sequence decoy/swapped order/partial reload/removal after completion, three other partial chains and missing/removed reasons, every 320-pixel source/order/picture card and three named-slot figures, complete source and passage endings, application carousels and every application/transfer step. Reinspected the final credit prompt and native Chinese meeting explanation. Original and 600-pixel artwork inspected and registered. Grades 8–9; reserved reading text 2 stays unexposed; zero independent records.
+Inspected all eight models, all wrong source choices and both wrong room pictures, sequence decoy/swapped order/partial reload/removal after completion, two other partial chains and missing/removed reasons, every 320-pixel source/order/picture card and both named-slot figures, full source and passage endings, application carousels and all application/transfer steps. Final timeline explanation avoids inventing when permission was granted. Original and 600-pixel art inspected; generated street thumbnails are fictional illustrations, not historical evidence. Grades 8–9; reserved reading text 2 stays unexposed; zero independent records.
 
-Checkpoint 71 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 723 tasks / 2169 widths; earlier flows retain their original scope.
+Checkpoint 72 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 731 tasks / 2193 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t14. Eight local-history tasks and inspected original tool-room/history-display art are drafted outside production. Build storage → empty → display, use opposite original/current picture choices without giving away the time in labels, keep the street constant while time changes, weigh loss with benefit, preserve unknown dates and source provenance and support a balanced attitude. Fresh bridge-display transfer rejects invented years and one-sided inference.
+Next: l-r-course-t15. Eight family-food-story invitation tasks and inspected original noodles/dumplings art are drafted outside production. Enter a 45-minute duration, match opposite named speakers and dishes, distinguish no obligation from prohibition, combine optional photographs with permission conditions, ask about particular family experiences, handle a declined question politely and reject country-wide overgeneralisation. Fresh weekend-story transfer changes duration to 50 minutes and tests partly correct time/scope combinations.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain

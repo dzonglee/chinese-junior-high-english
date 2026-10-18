@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **71 / 413**. Current: **l-r-course-t14**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **72 / 413**. Current: **l-r-course-t15**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -79,7 +79,7 @@ Completed: **71 / 413**. Current: **l-r-course-t14**. Evidence lives in docs/rev
 | l-r-course-t11 | 家庭分工与社区生活：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t11.md) |
 | l-r-course-t12 | 志愿服务与公共帮助：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t12.md) |
 | l-r-course-t13 | 合作完成一项任务：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t13.md) |
-| l-r-course-t14 | 家乡的过去、现在与未来：读懂信息与用意 | pending | — |
+| l-r-course-t14 | 家乡的过去、现在与未来：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t14.md) |
 | l-r-course-t15 | 跨文化交流与礼貌：读懂信息与用意 | pending | — |
 | l-r-course-t16 | 理解艺术与表达感受：读懂信息与用意 | pending | — |
 | l-r-course-t17 | 体育活动与公平竞争：读懂信息与用意 | pending | — |
