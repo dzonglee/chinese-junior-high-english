@@ -157,8 +157,15 @@ describe('real authored course evidence boundaries', () => {
     expect(sentences.some(sentence => !sentence.matched)).toBe(true)
   })
 
-  it('withholds cloze answer visuals and restoration contexts that alter the source blank labels', () => {
-    for (const id of ['q-r-cloze-1-1', 'q-r-restoration-1-1']) expect(evidenceSentences(source.questions.find(question => question.id === id)!)).toEqual([])
+  it('accepts literal cloze context while withholding an absent answer word and altered restoration blanks', () => {
+    const item = source.questions.find(question => question.id === 'q-r-cloze-1-1')!
+    const matches = evidenceSentences(item).filter(sentence => sentence.matched)
+    expect(matches.map(sentence => sentence.text)).toEqual(['At first, we thought growing vegetables would be easy.', 'We planted seeds and waited, but very little happened.'])
+    expect(item.passage).toContain('turn it into a _____.')
+    const answerOnly = structuredClone(item)
+    answerOnly.explanation.visual.segments = [{text: item.answer.display, role: 'evidence', note: 'Absent missing word'}]
+    expect(evidenceSentences(answerOnly)).toEqual([])
+    expect(evidenceSentences(source.questions.find(question => question.id === 'q-r-restoration-1-1')!)).toEqual([])
   })
 
   it('offers only literal source evidence across the real catalog, never non-reading tasks', () => {

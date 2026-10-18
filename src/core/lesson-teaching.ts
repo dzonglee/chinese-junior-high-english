@@ -46,9 +46,6 @@ export function sourceEvidence(q:Question):TeachingEvidence[]{
   if(!q.passage)return[]
   const paragraphs=q.passage.split(/\n+/).filter(p=>p.trim()), chunks=paragraphs.length>=3?paragraphs:teachingSentences(q.passage)
   const quotes=q.explanation.visual.segments.filter(s=>s.role==='evidence').flatMap(s=>s.text.split(/\.{3}|…+/)).map(normalizeEvidence).filter(s=>(s.match(english)??[]).length>=3)
-  // This cloze's visual contains the missing word; these two actual phrases are its authored clues.
-  const clozeClues:Record<string,string[]>={'q-r-cloze-1-1':['growing vegetables','planted seeds'],'q-r-cloze-1-2':['thought growing vegetables would be easy','very little happened'],'q-r-cloze-1-3':['brighter place'],'q-r-cloze-1-4':['Everyone had a small job']}
-  quotes.push(...(clozeClues[q.id]??[]))
   return chunks.map((text,i)=>({id:`source-${i}`,text,supports:quotes.some(quote=>normalizeEvidence(text).includes(quote))}))
 }
 function choiceFor(q:Question):TeachingChoice{

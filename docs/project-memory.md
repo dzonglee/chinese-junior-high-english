@@ -2,22 +2,24 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-87 of 413 lessons are individually reviewed; 326 remain pending. Work stays solo under
+88 of 413 lessons are individually reviewed; 325 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t29. Ten individual lunar-journal tasks match opposite clear/cloud-blocked pictures, retain time/visible-shape/cloud notes, distinguish reflected sunlight from self-produced light and appearance from removed pieces, contrast observation drawings with explanatory models, retain labels/not-to-scale warnings and model incompleteness, and reject invented real distances. Fresh changed journal transfer preserves cloudy entries and separates observation, explanation and model limits with partly correct distractors. All four primary application evidence reasons and complete source quotes are tailored.
+Latest: l-r-cloze. Six contextual word-placement tasks and one whole-story inference check replace the broad cloze baseline. Every attempted candidate appears in the actual sentence, with specific feedback; completion requires a checked correct word, both quoted context clues and saved original reasoning. Editing or clearing invalidates completion without losing clues. Fresh reading-corner transfer changes both lighting and connector relations, requiring bright/so instead of copying dark/but. All six primary question explanations now quote literal surrounding sentences; the hardcoded cloze clue lookup is removed. The reserved question-box text stays unexposed.
 
-Inspected all ten models, both wrong pictures and every wrong source; four two-clue chains with partial reload, wrong-choice preservation, missing/removed reasoning and repair; every 320-pixel model; full source/passage endings; every application/transfer distractor and explanation step; prediction, clinic and summary. Original 1536x1024 PNG and 600x400 JPEG inspected: left crescent visible, right cloud blocks the view. Pictures are fictional visibility comparisons, not measured successive phases or evidence for dates or light sources. All controls checked at 320/390/768. Grade 9; reserved fictional-mission text stays unexposed; zero independent records. Content remains draft.
+Inspected all seven models, all twelve wrong-word choices, correct-word-without-clues states, word editing/clearing/reload and repair, every wrong source, seven partial clue chains and missing/removed reasoning, every 320-pixel model, full source/passage endings, all application/transfer distractors and explanation steps, prediction, clinic and summary. Final application evidence and all three polished wrong reasons reinspected. A visible inline-style collision was fixed by isolating the cloze block; final layout is neutral and readable, sentence text is 18 pixels, and every control/containment check passes at 320/390/768. The exact code sentence is the instructional visual, so decorative art was not added. Grades 7–9; zero independent records. Content remains draft.
 
-Checkpoint 87 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 871 tasks / 2613 widths; earlier flows retain their original scope.
+Checkpoint 88 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 878 tasks / 2634 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-cloze. Plan only: l-r-cloze. Primary original shared-garden passage has six gaps: garden, but, dark, everything, value, instead of. Preserve primary passage facts (including modest harvest) and leave reserved question-box text unexposed. Replace the broad source-card baseline with a contextual gap-building task: actual attempted words should appear in their sentence, with clue fragments on both sides, every wrong option explained and a full-story recheck. Use original art only for a task-specific literal comparison; any text/gap/labels and exact claims stay in code. Fresh transfer must change the context and require forward/backward checking rather than repeat the garden answer pattern. Canonical source read; no production implementation or art yet.
+Next: l-ls-details. Plan only: l-ls-details. Use only the four exposed scripts library-time, poster-place, bring-bottle and bus-number. Club-day and return-book are delayed and stay unexposed. This is transcript preparation while approved audio remains pending; do not claim hearing discrimination, make audio marks or add unapproved TTS. Distinguish initial 3:00 proposal from proposed/accepted 4:30, library door location, initial classroom versus confirmed art room, lunch supplied versus own water bottle, prior bus 12 versus current 21 and never invent bus 20. Consider exact labelled proposal/change/confirmation order and actionable final-detail notes. If a generated illustration is useful, use it for a literal two-place/object contrast with exact code labels; it cannot establish dialogue facts, dates or timetables. Fresh transcript task must change speakers, proposal, final agreement and question focus. Four primary scripts and existing eligibility split read; no new production lesson or art yet.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
+
+GitHub sync is blocked: the existing GH_TOKEN is invalid according to read-only gh auth status. Moon commit d495fb1 and this checkpoint remain local; f7e5342 is the last confirmed push. No credentials changed. Continue the already-locked parent claim locally and reconcile pending commits when existing GitHub access is repaired. Obsidian/Kanban remain available.
 
 ## Previous local delivery · 2026-10-17
 

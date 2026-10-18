@@ -716,3 +716,44 @@ it('rejects ambiguous phase labels and retains ordinary ordering and spelling be
  const legacy=studio('l-r-course-t27'),p={...freshTeaching(legacy,1),step:1};p.answers.workshopIndex='7';expect(workshopView(legacy.mission!.workshop!,p).orderSlots).toEqual([])
  for(const spelling of ['american','british'] as const){const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-course-t28')!,spelling);expect(s.mission!.workshop!.items[index].sourceOrderLabels).toEqual(['Before · 演练前','During · 演练中','After · 演练后']);expect(workshopProblems(s.mission!.workshop!)).toEqual([])}
 })
+
+it('requires the actual cloze word, both context clues and a saved explanation, and invalidates edited words',()=>{
+ for(const spelling of ['american','british'] as const){
+  const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-cloze')!,spelling),w=s.mission!.workshop!
+  for(const [index,item]of w.items.entries()){
+   if(!item.sourceGap)continue
+   const gap=item.sourceGap;let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item',String(index))
+   expect(workshopView(w,p).gap!.text).toBe('____');act('gap-check');expect(workshopView(w,p).gap!.correct).toBe(false)
+   for(const option of gap.options.filter(o=>o.id!==gap.answer)){act('gap',option.id);expect(workshopView(w,p).gap!.text).toBe(option.text);expect(workshopView(w,p).gap!.checked).toBe(false);act('gap-check');expect(workshopView(w,p).gap!.feedback).toBe(option.reason);expect(workshopView(w,p).correct).toBe(false)}
+   act('gap',gap.answer);act('gap-check');act('own','My explanation is saved, but no clues yet.');act('save');expect(workshopView(w,p).complete).toBe(false)
+   const groups=item.evidenceGroups!;act('choose',groups[0][0]);act('check');p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).gap!.correct).toBe(true);expect(workshopView(w,p).proofCollected).toHaveLength(1);expect(workshopView(w,p).complete).toBe(false)
+   for(const group of groups.slice(1)){act('choose',group[0]);act('check')};act('own','');act('save');expect(workshopView(w,p).correct).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+   act('own','The surrounding clues support the meaning and the relation.');act('save');expect(workshopView(w,p).complete).toBe(true)
+   delete p.checked[`workshop-${index}-proof-${groups[0][0]}`];expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false);act('choose',groups[0][0]);act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+   act('gap',gap.options.find(o=>o.id!==gap.answer)!.id);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),4);expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).proofCollected).toHaveLength(groups.length)
+   p.checked['workshop-'+index]=true;p.completed.push('workshop-'+index);expect(workshopView(w,p).tabs[index].done).toBe(false)
+   act('gap',gap.answer);expect(workshopView(w,p).correct).toBe(false);act('gap-check');act('save');expect(workshopView(w,p).complete).toBe(true)
+   act('gap','');p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),5);expect(workshopView(w,p).gap!.text).toBe('____');expect(workshopView(w,p).complete).toBe(false);act('gap','unknown-id');expect(workshopView(w,p).gap!.selected).toBe('')
+  }
+  expect(s.transfer.passage).toContain('Sunlight reached the tables');expect(s.transfer.answer.display).toBe('(1) bright; (2) so')
+ }
+})
+
+it('rejects context gaps detached from the actual material, ambiguous words or missing feedback',()=>{
+ const original=studio('l-r-cloze').mission!.workshop!
+ for(const mutate of [
+  (w:typeof original)=>{w.items[0].sourceGap!.before='Invented unrelated sentence '},
+  (w:typeof original)=>{w.items[0].sourceGap!.answer='missing'},
+  (w:typeof original)=>{w.items[0].sourceGap!.options[0].reason=''},
+  (w:typeof original)=>{w.items[0].sourceGap!.options[0].text=w.items[0].sourceGap!.options[1].text},
+  (w:typeof original)=>{w.items[0].sourceGap!.options[0].id=w.items[0].sourceGap!.options[1].id},
+  (w:typeof original)=>{w.items[0].sourceGap!.options[0].text=' garden'},
+  (w:typeof original)=>{w.kind='sound-map'}
+ ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid context gap')}
+ for(const spelling of ['american','british'] as const){const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-cloze')!,spelling);expect(workshopProblems(s.mission!.workshop!)).toEqual([])}
+ const s=studio('l-r-course-t29');expect(workshopView(s.mission!.workshop!,{...freshTeaching(s,1),step:1}).gap).toBeUndefined()
+})
+
+it('grounds every primary cloze explanation in literal passage quotes rather than the absent answer word',()=>{
+ for(const q of c.questions.filter(q=>q.id.startsWith('q-r-cloze-1-'))){const quotes=q.explanation.visual.segments.filter(s=>s.role==='evidence').map(s=>s.text);expect(quotes).toHaveLength(2);expect(quotes.every(quote=>q.passage!.includes(quote))).toBe(true);expect(quotes.some(quote=>quote===q.answer.display)).toBe(false);expect(sourceEvidence(q).filter(s=>s.supports).length).toBeGreaterThanOrEqual(2);expect(q.explanation.steps[0].text).toContain(quotes[0])}
+})
