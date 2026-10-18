@@ -171,6 +171,43 @@ try {
   await page.locator('[name=studioWorkshopOwn]').fill(inferenceItem.reason);await action('studio-workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible()
   expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length)
   checks.push('Embedded inference pictures select quoted evidence;the separate time clue and saved reasoning remain necessary offline')
+  // Exercise the new lesson all the way to its varied-key transfer with networking disabled.
+  const mainIdea=catalog.lessons.find(l=>l.id==='l-r-main-idea'),mainWorkshop=mainIdea.visualMission.workshop
+  await page.goto(`${url}#lesson?id=${mainIdea.id}`)
+  await action('studio-answer',catalog.questions.find(q=>q.id===mainIdea.questionIds[0]).answer.option);await action('studio-check');await action('studio-next')
+  for(const[i,item]of mainWorkshop.items.entries()){
+    await action('studio-workshop-item',String(i))
+    for(const group of item.evidenceGroups){await action('studio-workshop-choose',group[0]);await action('studio-workshop-check')}
+    if(item.evidenceGroups.length>1){await page.locator('[name=studioWorkshopOwn]').fill(item.reason);await action('studio-workshop-save')}
+    await expect(page.locator('.workshop-saved')).toBeVisible()
+  }
+  await action('studio-next')
+  for(const[i,id]of mainWorkshop.applicationIds.entries()){
+    await action('studio-case',String(i));await action('studio-answer',catalog.questions.find(q=>q.id===id).answer.option);await action('studio-check')
+    let supported=false
+    for(let turn=0;turn<20;turn++){
+      const source=page.locator('.reading-application'),current=await source.getAttribute('data-source')
+      await action('studio-evidence',current)
+      if((await state()).teaching[mainIdea.id].completed.includes('evidence-'+id)){supported=true;break}
+      const next=source.locator('[data-action="studio-source"]').last();await expect(next).toContainText('下一段');await next.click()
+    }
+    expect(supported).toBe(true)
+  }
+  await action('studio-next')
+  const clinics=await page.locator('[data-action="studio-clinic"]').evaluateAll(es=>es.map(e=>e.dataset.value))
+  for(const clinic of clinics){
+    await action('studio-clinic',clinic)
+    const options=await page.locator('[data-action="studio-diagnose"]').evaluateAll(es=>es.map(e=>e.dataset.value))
+    for(const option of options){await action('studio-diagnose',option);if(await page.locator('.explore-feedback.correct').count())break}
+    await expect(page.locator('.explore-feedback.correct')).toBeVisible()
+  }
+  await action('studio-next');await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','4')
+  const transfer=mainWorkshop.transfer,wrong=transfer.options.find(o=>o.id!==transfer.answer.option)
+  await action('studio-answer',wrong.id);await action('studio-check');await expect(page.locator('.explore-feedback')).not.toHaveClass(/correct/)
+  await action('studio-answer',transfer.answer.option);await action('studio-check');await expect(page.locator('.explore-feedback')).toHaveClass(/correct/)
+  await action('studio-next');await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','5')
+  expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length);expect((await state()).mastery).toEqual(beforeStudio.mastery);expect((await state()).lessonDoneAt).toEqual(beforeStudio.lessonDoneAt)
+  checks.push('Complete main-idea lesson,three-clue reasoning,source-backed applications and varied-key transfer work offline without independent credit')
   expect(network.filter(request => request !== url)).toEqual([]); expect(errors).toEqual([])
   checks.push('No remote/content requests, no page errors and no horizontal overflow at phone/tablet widths')
   writeFileSync(resolve(root, 'test-results/local/results.json'), JSON.stringify({ mode, networkDisabledAfterDocumentLoad: true, directFileNavigationValidated: mode === 'file', checks, errors, network, completedAt: new Date().toISOString() }, null, 2) + '\n')

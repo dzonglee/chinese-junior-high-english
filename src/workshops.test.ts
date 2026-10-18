@@ -1,3 +1,6 @@
+import {ContentRepository} from './services/content'
+import {readFileSync} from 'node:fs'
+import {individualChoiceLayout} from '../scripts/lib/individual-choice-layout.mjs'
 import {checkAnswer} from './core/answers'
 import {editionText} from './core/spelling'
 import {workshopExpressionActions} from '../scripts/lib/workshop-test-actions.mjs'
@@ -349,4 +352,59 @@ it('binds inference picture choices to distinct quoted evidence rather than unkn
  const unsafe=structuredClone(studio('l-r-inference').mission!.workshop!)
  unsafe.items[0].sourceArt!.asset='../outside'
  expect(workshopProblems(unsafe)).toContain('Invalid source illustration')
+})
+
+
+it('varies individual transfer letters while preserving every correct meaning and wrong-option explanation',()=>{
+ const counts={a:0,b:0,c:0};let total=0
+ for(const lesson of c.lessons){
+  const question=lesson.visualMission?.workshop?.transfer
+  if(question?.kind!=='choice')continue
+  const canonical=JSON.parse(readFileSync(`content/teaching/individual/${lesson.id}.json`,'utf8')).workshop.transfer
+  const original=JSON.stringify(canonical),right=canonical.options.find((o:{id:string})=>o.id===canonical.answer.option).text
+  expect(question.options!.find(o=>o.id===question.answer.option)!.text).toBe(right)
+  expect(checkAnswer(question,question.answer.option!)).toBe(true)
+  for(const option of question.options!.filter(o=>o.id!==question.answer.option)){
+   expect(checkAnswer(question,option.id)).toBe(false)
+   const previous=canonical.options.find((o:{text:string})=>o.text===option.text)
+   expect(question.explanation.distractors.find(d=>d.option===option.id)!.reason).toBe(canonical.explanation.distractors.find((d:{option:string})=>d.option===previous.id).reason)
+  }
+  expect(individualChoiceLayout(canonical)).toEqual(question);expect(JSON.stringify(canonical)).toBe(original)
+  if(question.options!.length===3){counts[question.answer.option as keyof typeof counts]++;total++}
+ }
+ expect(total).toBeGreaterThanOrEqual(54)
+ for(const n of Object.values(counts))expect(n).toBeGreaterThanOrEqual(Math.floor(total/6))
+})
+
+it('keeps a transfer layout stable across rebuilds and spelling changes',()=>{
+ const canonical=JSON.parse(readFileSync('content/teaching/individual/l-g-be.json','utf8')).workshop.transfer
+ const first=individualChoiceLayout(canonical)
+ expect(individualChoiceLayout(canonical)).toEqual(first)
+ const copy=structuredClone(canonical);for(const option of copy.options)option.text='Edited wording: '+option.text
+ expect(individualChoiceLayout(copy).answer.option).toBe(first.answer.option)
+ expect(individualChoiceLayout(copy).options.map((o:{id:string})=>o.id)).toEqual(first.options.map((o:{id:string})=>o.id))
+})
+
+it('invalidates stale checked letters after a transfer layout changes while retaining the learner writing',()=>{
+ const previous=structuredClone(c),lesson=previous.lessons.find(l=>l.id==='l-g-be')!
+ lesson.visualMission!.workshop!.transfer=JSON.parse(readFileSync('content/teaching/individual/l-g-be.json','utf8')).workshop.transfer
+ const old=createLessonTeaching(previous,lesson),current=studio('l-g-be'),saved=freshTeaching(old,1),own='workshopOwn-'+old.mission!.workshop!.items[0].id
+ expect(old.transfer.answer.option).not.toBe(current.transfer.answer.option)
+ saved.step=4;saved.answers['step-4-0']=old.transfer.answer.option!;saved.checked['step-4-0']=true;saved.completed.push('transfer');saved.answers[own]='My original explanation stays saved.';saved.before='My first draft.';saved.after='My revised draft.'
+ expect(restoreTeaching(old,saved,2)).toBe(saved)
+ const restored=restoreTeaching(current,saved,3)
+ expect(restored.step).toBe(0);expect(restored.checked).toEqual({});expect(restored.completed).toEqual([]);expect(restored.answers['step-4-0']).toBeUndefined();expect(restored.answers[own]).toBe(saved.answers[own]);expect(restored.before).toBe(saved.before);expect(restored.after).toBe(saved.after)
+})
+
+
+it('uses the selected edition in main-idea source cards,full passages and feedback',()=>{
+ const lesson=c.lessons.find(l=>l.id==='l-r-main-idea')!
+ for(const spelling of ['american','british'] as const){
+  const repository=new ContentRepository({...c,questions:[...c.questions]},[],async()=>'');repository.setSpelling(spelling)
+  const s=createLessonTeaching(repository.catalog,lesson,spelling),item=s.mission!.workshop!.items[5],expected=spelling==='american'?'realized':'realised'
+  expect(item.options!.find(o=>o.correct)!.text).toContain(expected)
+  expect(item.material).toContain(expected);expect(item.reason).toContain(expected)
+  expect(s.cases[0].passage).toContain(spelling==='american'?'colorful':'colourful')
+  expect(workshopProblems(s.mission!.workshop!)).toEqual([])
+ }
 })
