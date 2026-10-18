@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-75 of 413 lessons are individually reviewed; 338 remain pending. Work stays solo under
+76 of 413 lessons are individually reviewed; 337 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t17. Ten original sports-rule tasks use four selectable fictional players and changing pass logs to distinguish touches from different participants, then apply fall/teacher-check, calm disagreement, opponent-help and inclusive-purpose rules. Fresh five-player transfer has five touches but four different players and tests a partly correct combination. Explicit stacked web/native diagrams preserve English words and correct stop-before-check order; selected people now use pending dots, wrong crosses and ticks only for a checked complete participant set. Reading applications can opt into the existing fragment carousel independently of workshop kind.
+Latest: l-r-course-t18. Nine original kite-story tasks match opposite missing/attached-tail pictures, distinguish an unused could-have possibility from an actual message, identify the cousin’s suggestion, order four real events, combine adult supervision with adjustment, compare expected perfection with remembered shared work, interpret made room and preserve the qualified theme. Fresh leaky-model-boat transfer rejects both an invented hiding action and a partly correct summary that says mistakes never matter. Course title, objective, pitfall and application reasons now identify these skills.
 
-Inspected all ten models and wrong expressions, wrong/missing player selections, removal after completion and reload in each picture condition, every 320-pixel picture/record/stacked diagram, complete application and transfer passages through their final characters, application evidence errors/repairs and every explanation step. Reinspected final stop/check order, opponent-plus-skill requirements, shorter distractors, selection symbols and updated application wording. Original and 600-pixel art inspected and registered; code logs determine touches, not the portrait. Fresh five-player figure uses exact code labels, not the four-person image. Grades 7–9; reserved Ben/race text stays unexposed; zero independent records. Existing be lesson rerun at three widths, with wrong/removal/correct screenshots inspected and no new individual credit.
+Inspected all nine models, all wrong source choices and both wrong kite pictures, sequence decoy/swapped order/partial reload/removal after completion, four other partial chains and missing/removed reasoning, every 320-pixel source/order/picture card and four named-slot figures, complete source and passage endings, application evidence carousels and every application/transfer step. Reinspected final shorter cooperation/participation slots and simpler theme labels. Original and 600-pixel art inspected and registered; pictures establish tail state, not date, motives or flight success. Grades 8–9; reserved invented-book review stays unexposed; no cousin gender or exact age invented; zero independent records.
 
-Checkpoint 75 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 757 tasks / 2271 widths; earlier flows retain their original scope.
+Checkpoint 76 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 766 tasks / 2298 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t18. Nine kite-story tasks and inspected original missing/attached-paper-tail art are drafted outside production. Distinguish unused could-have possibilities from actual messages, order four real events, compare expected perfection with remembered shared work, interpret made room and preserve the qualified theme. Fresh leaky-model-boat transfer rejects partly correct overgeneralisation.
+Next: l-r-course-t19. Nine postcard tasks and inspected original close/wider paper-bird framing art are drafted outside production. Identify writer/recipient, contrast expectation with variety, apply a limited photo permission through opposite pictures, order ask/limited yes/compliance, resolve She, locate the favourite activity and preserve one-family and unstated publishing-permission boundaries. Fresh pottery sketch transfer combines permission limits with one-family scope.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
