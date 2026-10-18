@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **114 / 413**. Current: **l-ls-course-t25**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **115 / 413**. Current: **l-ls-course-t26**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -122,7 +122,7 @@ Completed: **114 / 413**. Current: **l-ls-course-t25**. Evidence lives in docs/r
 | l-ls-course-t22 | 听懂交流：介绍家乡文化与自己的身份 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t22.md) |
 | l-ls-course-t23 | 听懂交流：关心世界与辨别信息 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t23.md) |
 | l-ls-course-t24 | 听懂交流：科技、工程与发明 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t24.md) |
-| l-ls-course-t25 | 听懂交流：地理环境与自然景观 | pending | — |
+| l-ls-course-t25 | 听懂交流：地理环境与自然景观 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t25.md) |
 | l-ls-course-t26 | 听懂交流：野生动物与共同生活 | pending | — |
 | l-ls-course-t27 | 听懂交流：污染成因与可行的环保行动 | pending | — |
 | l-ls-course-t28 | 听懂交流：自然灾害与安全准备 | pending | — |

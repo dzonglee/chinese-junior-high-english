@@ -945,3 +945,28 @@ it('keeps measurement and equality spelling edition-specific in the fresh report
  const lesson=c.lessons.find(l=>l.id==='l-ls-course-t23')!
  for(const spelling of ['american','british'] as const){const s=createLessonTeaching(c,lesson,spelling),q=s.transfer,us=spelling==='american';expect(q.passage).toContain(us?'liters per day':'litres per day');expect(q.passage).toContain(us?'liters per week':'litres per week');expect(q.passage).toContain('three pools in one borough');expect(q.passage).toContain('A city and a region still have different coverage.');expect(q.options!.find(o=>o.id==='d')!.text).toContain(us?'equalize coverage':'equalise coverage');expect(teachingProblems(s,lesson)).toEqual([])}
 })
+
+it('moves the actual lake marker with a wrong saved direction and requires source-based repair without independent credit',()=>{
+ const id='l-ls-course-t25',s=studio(id),w=s.mission!.workshop!,index=w.items.findIndex(i=>!!i.sourceGap?.locationMap),item=w.items[index]
+ let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item',String(index))
+ let map=workshopView(w,p).gap!.map!;expect(map.ready).toBe(false);expect(map.cells[4]).toMatchObject({text:'Village',anchor:true});expect(map.cells.filter(x=>x.marker)).toHaveLength(0)
+ act('gap','south');act('gap-check');expect(workshopView(w,p).gap!.correct).toBe(false);expect(workshopView(w,p).gap!.map!.cells[7]).toMatchObject({text:'Lake',marker:true});expect(workshopView(w,p).complete).toBe(false)
+ for(const group of item.evidenceGroups!){act('choose',group[0]);act('check')}act('own','湖的位置在村庄北面，不代表水一定往南流。');act('save');expect(workshopView(w,p).complete).toBe(false)
+ const saved=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,saved.teaching[id],4);expect(workshopView(w,p).gap!.map!.direction).toBe('south');expect(saved.attempts).toEqual([]);expect(saved.mastery).toEqual({});expect(saved.lessonDoneAt).toEqual({})
+ act('gap','north');act('gap-check');for(const group of item.evidenceGroups!){act('choose',group[0]);act('check')}act('save');expect(workshopView(w,p).complete).toBe(true);expect(workshopView(w,p).gap!.map!.cells[1]).toMatchObject({text:'Lake',marker:true})
+ act('gap','east');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).gap!.checked).toBe(false);expect(workshopView(w,p).gap!.map!.cells[5]).toMatchObject({text:'Lake',marker:true});expect(workshopView(w,p).own).toContain('北面');expect(workshopView(w,p).proofCollected).toHaveLength(2)
+ act('gap','');expect(workshopView(w,p).gap!.map!.ready).toBe(false);expect(workshopView(w,p).gap!.map!.cells.filter(x=>x.marker)).toEqual([]);expect(workshopView(w,p).complete).toBe(false)
+})
+it('rejects location previews with non-cardinal or duplicate direction words and ambiguous place labels',()=>{
+ const original=studio('l-ls-course-t25').mission!.workshop!,index=original.items.findIndex(i=>!!i.sourceGap?.locationMap);expect(workshopProblems(original)).toEqual([])
+ for(const mutate of [
+  (w:typeof original)=>{w.items[index].sourceGap!.options[0].text='inside the school'},
+  (w:typeof original)=>{w.items[index].sourceGap!.options[0].text='NORTH'},
+  (w:typeof original)=>{w.items[index].sourceGap!.locationMap!.anchor=' Village'},
+  (w:typeof original)=>{w.items[index].sourceGap!.locationMap!.marker='Village'},
+  (w:typeof original)=>{w.items[index].sourceGap!.locationMap=null as unknown as NonNullable<typeof w.items[number]['sourceGap']>['locationMap']},
+  (w:typeof original)=>{w.items[index].evidenceGroups=[['position']]}
+ ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid context location map')}
+ const w=structuredClone(original),item=w.items[index];item.sourceGap!.options.push({id:'west',text:'west',reason:'This puts the lake west, not north.'});expect(workshopProblems(w)).toEqual([]);const s=studio('l-ls-course-t25');let p={...freshTeaching(s,1),step:1};p.answers.workshopIndex=String(index);p.answers['workshopGap-'+item.id]='west';expect(workshopView(w,p).gap!.map!.cells[3]).toMatchObject({text:'Lake',marker:true})
+ expect(workshopView(studio('l-r-cloze').mission!.workshop!,{...freshTeaching(studio('l-r-cloze'),1),step:1}).gap!.map).toBeUndefined()
+})
