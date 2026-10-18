@@ -2,7 +2,7 @@
 
 The owner has requested a further **individual lesson redesign**. The shared workshops below
 are a functional baseline; the [per-lesson tracker](docs/authoring/lesson-upgrades.md) records the
-actual individual reviews (currently 97/413), with individual evidence linked for each reviewed lesson.
+actual individual reviews (currently 98/413), with individual evidence linked for each reviewed lesson.
 
 
 A working local English practice app for mainland junior-high students, with 413 original draft
@@ -28,8 +28,10 @@ The lesson redesign now uses one coherent teaching sequence. It replaces the rej
 card-board introduction with changing grammar models, required original word use, evidence
 chains and the learner's own expression plan. The [maths comparison](docs/reviews/lesson-quality-comparison-2026-10-17.md)
 records the original problems; the [current lesson review](docs/reviews/lesson-workshops-2026-10-17.md)
-records the changes and verification boundary. Native verification of this revision still needs
-Mac project-drive access; browser checks do not establish a native pass or public release.
+records the changes and verification boundary. Mac access recovered during checkpoint 98.
+The [focused native check](docs/reviews/individual-lessons/native-checkpoint-98/README.md) verifies
+one lesson’s guest-simulator rendering and event bindings; physical touch, devices and broader
+native journeys remain open. Browser coverage does not establish public-release readiness.
 
 ## Run locally
 

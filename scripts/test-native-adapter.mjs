@@ -13,9 +13,8 @@ await build({ entryPoints: [resolve(root, '../src/native/app.ts')], bundle: true
 for (const mode of ['development', 'cloud']) {
 const data = new Map(), navigations = [], errors = [], pendingNavigation = []
 let privacyListener, privacyValue, topPage
-let cloudInitialised = false, cloudDownloads = 0, artworkLoaded = false
+let cloudInitialised = false, cloudDownloads = 0, artworkLoaded = false, failArtwork = false, artworkRequests = 0
 const wx = {
-  loadSubpackage(options) { assert.equal(options.name,'lesson-illustrations'); const app=JSON.parse(readFileSync(resolve(root,'app.json'),'utf8'));assert(app.subPackages.some(p=>p.name===options.name&&p.root==='illustrations'));setTimeout(()=>{artworkLoaded=true;options.success({})},5) },
   cloud: { init(options) { assert.equal(options.env, 'synthetic-test-env'); cloudInitialised = true }, async downloadFile({ fileID }) { cloudDownloads++; const file = manifest.find(p => cloudFileMap[p.topicId] === fileID); assert(file); return { tempFilePath: resolve(root, '../dist/packs', file.file) } } },
   getFileSystemManager: () => ({ readFile(options) { try { options.success({ data: readFileSync(options.filePath, 'utf8') }) } catch { options.fail() } } }),
   getStorageSync: key => data.get(key) || '', setStorageSync: (key, value) => data.set(key, value), removeStorageSync: key => data.delete(key),
@@ -28,7 +27,7 @@ function load(file, scope=context) {
   assert(file.startsWith(root + '/') || file.startsWith(local + '/'), 'The test loader must stay inside the mini-program package')
   const source = readFileSync(file, 'utf8'), module = { exports: {} }
   const require = path => load(resolve(dirname(file), path), scope)
-  require.async = async path => load(resolve(dirname(file), path), scope)
+  require.async = async path => { if(path==='./illustrations/index.js'){artworkRequests++;if(failArtwork)throw new Error('Simulated subpackage download failure');const app=JSON.parse(readFileSync(resolve(root,'app.json'),'utf8'));assert(app.subPackages.some(p=>p.name==='lesson-illustrations'&&p.root==='illustrations'));await new Promise(resolve=>setTimeout(resolve,5));artworkLoaded=true}return load(resolve(dirname(file), path), scope) }
   const wrapper = vm.runInContext(`(function(require,module,exports){${source}\n})`, scope, { filename: file })
   wrapper(require, module, module.exports); return module.exports
 }
@@ -60,12 +59,19 @@ app.setField('studioRecall-map','MAP');assert.equal(app.render().teaching.worksh
 app.open('lesson',{id:'l-ls-course-t05'});await app.action('studio-answer',app.render().teaching.lesson.prediction.answer.option);await app.action('studio-check');await app.action('studio-next');await app.action('studio-workshop-item',String(app.render().teaching.lesson.mission.workshop.items.findIndex(i=>!!i.sourceSettings)));
 await app.action('studio-workshop-setting','calls:off');await app.action('studio-workshop-setting','alerts:off');await app.action('studio-workshop-settings-check');assert.equal(app.render().teaching.workshop.settings.correct,false);assert.equal(app.render().teaching.workshop.settings.rows[0].value,'off');assert.equal(app.render().teaching.workshop.settings.rows[1].correct,true);
 await app.action('studio-workshop-setting','calls:on');assert.equal(app.render().teaching.workshop.settings.checked,false);await app.action('studio-workshop-settings-check');assert.equal(app.render().teaching.workshop.settings.correct,true);assert.equal(app.render().teaching.workshop.complete,false);assert.equal(app.state.attempts.length,1,'Guided settings add no independent attempt');
+app.open('settings');app.setField('grade','8');await app.action('save-profile');assert.equal(app.state.profile.grade,8);app.open('lesson',{id:'l-ls-course-t08'});await app.action('studio-answer',app.render().teaching.lesson.prediction.answer.option);await app.action('studio-check');await app.action('studio-next');await app.action('studio-workshop-item','2');
+for(const group of app.render().teaching.lesson.mission.workshop.items[2].evidenceGroups){await app.action('studio-workshop-choose',group[0]);await app.action('studio-workshop-check')}
+assert.equal(app.render().teaching.workshop.item.calculation.kind,'yuan');app.setField('studioWorkshopInput','8');await app.action('studio-workshop-check');assert.equal(app.render().teaching.workshop.correct,false);assert.equal(app.render().teaching.workshop.input,'8');
+app.setField('studioWorkshopInput','１２');await app.action('studio-workshop-check');assert.equal(app.render().teaching.workshop.correct,true);assert.equal(app.render().teaching.workshop.complete,false);app.setField('studioWorkshopOwn','二十减八等于十二，不能把支出八元当作余额。');await app.action('studio-workshop-save');assert.equal(app.render().teaching.workshop.complete,true);app.setField('studioWorkshopInput','8');assert.equal(app.render().teaching.workshop.complete,false);assert.equal(app.state.attempts.length,1,'Guided yuan entry adds no independent attempt');
 if (mode === 'cloud') { assert(cloudInitialised); assert(cloudDownloads > 0) } else { assert(!cloudInitialised); assert.equal(cloudDownloads, 0) }
+// A late callback must not report failure after the exact destination actually arrived.
+app.platform.navigate('lesson',{id:'l-ls-course-t08'});const arrived=pendingNavigation.at(-1),toastCount=errors.length,routeCount=navigations.length;topPage={route:'pages/lesson/index',options:{id:'l-ls-course-t08'}};arrived.fail({errMsg:'navigateTo:fail timeout'});assert.equal(errors.length,toastCount);assert.equal(navigations.length,routeCount);
+app.platform.navigate('lesson',{id:'l-ls-course-t08'});topPage={route:'pages/lesson/index',options:{id:'l-ls-course-t07'}};pendingNavigation.at(-1).fail({errMsg:'navigateTo:fail timeout'});assert.equal(errors.length,toastCount+1,'A different lesson on the same route is still a failed destination');topPage=undefined;
 app.platform.navigate('builder');const stale=pendingNavigation.at(-1);app.platform.navigate('session');const current=pendingNavigation.at(-1),count=navigations.length
 stale.fail({errMsg:'navigateTo:fail cancelled'});assert.equal(navigations.length,count,'A late failed navigation cannot replace the newer session')
 current.fail({errMsg:'navigateTo:fail webview count limit exceed'});assert.equal(navigations.length,count+1);assert(navigations.at(-1).startsWith('/pages/session/index'))
-let failArtwork=true,artworkRequests=0
-const retryContext=vm.createContext({wx:{...wx,loadSubpackage(options){artworkRequests++;if(failArtwork)options.fail({});else options.success({})}},console,getCurrentPages:()=>[],TextEncoder:undefined,TextDecoder:undefined})
+failArtwork=true;artworkRequests=0
+const retryContext=vm.createContext({wx:{...wx},console,getCurrentPages:()=>[],TextEncoder:undefined,TextDecoder:undefined})
 const retryAdapter=load(mode==='cloud'?resolve(local,'runtime.cjs'):resolve(root,'runtime.js'),retryContext)
 await assert.rejects(retryAdapter.ready,/插图加载未完成，请重试/);assert.equal(retryAdapter.application,undefined)
 failArtwork=false;await retryAdapter.initializeApplication();assert(retryAdapter.application);assert.equal(artworkRequests,2,'An artwork failure must be retryable without a stuck initialization promise')

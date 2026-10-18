@@ -16,9 +16,10 @@ verification boundaries and delivery artifacts, and [local instructions](local-v
 
 The [maths comparison](reviews/lesson-quality-comparison-2026-10-17.md) records the rejected baseline.
 It must not be confused with the revised workshop implementation or used as a blanket claim of
-parity. Local functional checks and human visual review have different scopes. Fresh native
-validation is blocked by unavailable MacStudioExternal project files; no old native run covers
-this revision. Approved audio remains pending for 99 scripts. The requirements below still define
+parity. Local functional checks and human visual review have different scopes. Mac project access
+recovered during individual checkpoint 98. Its focused native rendering/binding run covers one
+eight-task lesson; see [the exact scope](reviews/individual-lessons/native-checkpoint-98/README.md).
+Physical touch, devices and broader native journeys remain open. Approved audio remains pending for 99 scripts. The requirements below still define
 the eventual application and public-release acceptance.
 
 ## Product requirements

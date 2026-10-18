@@ -41,7 +41,7 @@ const platform: Platform = {
     const url = `/pages/${page}/index?${Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&')}`
     if (ROOT_SCREENS.includes(page) || page === 'onboarding') wx.reLaunch({ url })
     else if (replace) wx.redirectTo({ url })
-    else wx.navigateTo({ url, fail: (error) => { if (generation !== navigationGeneration) return; if (/limit|exceed/i.test(error.errMsg)) wx.redirectTo({ url }); else wx.showToast({ title: '页面暂未打开，请再试一次。', icon: 'none' }) } })
+    else wx.navigateTo({ url, fail: (error) => { if (generation !== navigationGeneration) return; const pages=getCurrentPages(),current=pages[pages.length-1]; if(current?.route===`pages/${page}/index`&&Object.entries(params).every(([key,value])=>current.options?.[key]===value))return; if (/limit|exceed/i.test(error.errMsg)) wx.redirectTo({ url }); else wx.showToast({ title: '页面暂未打开，请再试一次。', icon: 'none' }) } })
   },
   back() { if (getCurrentPages().length > 1) wx.navigateBack(); else platform.navigate('home') },
   toast: (title) => wx.showToast({ title, icon: 'none', duration: 3000 }),

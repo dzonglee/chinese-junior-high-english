@@ -13,6 +13,7 @@ function checkWxml(file) {
  const script=file.replace(/\.wxml$/,'.js'),host=existsSync(script)?script:resolve(dirname(file),'index.js')
  // Imported templates run in the owning component and use its event handlers.
  const wxml=readFileSync(file,'utf8'),js=readFileSync(host,'utf8'),stack=[]
+ assert(!/<[^>]*wx:else(?=\s|>)[^>]*wx:for=/.test(wxml),'Wrap a repeated wx:else body inside its own conditional block: '+file)
  for(const match of wxml.matchAll(/(?:bind|catch):?[a-z]+="([A-Za-z][A-Za-z0-9]*)"/g))assert(new RegExp(`\\b${match[1]}\\s*\\(`).test(js),`Unbound WXML event handler in ${file}: ${match[1]}`)
  for(const expression of wxml.matchAll(/\{\{([\s\S]*?)\}\}/g))assert(!/\.\w+\s*\(/.test(expression[1]),`WXML cannot call methods: ${file}`)
  for(const match of wxml.replace(/\{\{[\s\S]*?\}\}/g,'').matchAll(/<(\/?)([\w-]+)\b[^>]*?(\/?)>/g)){
@@ -22,6 +23,7 @@ function checkWxml(file) {
  assert.equal(stack.length,0,`Unclosed WXML tags in ${file}`)
 }
 function files(dir) { return readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(resolve(dir, e.name)) : [resolve(dir, e.name)]) }
+assert(!/[^{}]*>\s*\*\s*\{/.test(readFileSync(resolve(native,'app.wxss'),'utf8')),'WXSS does not accept a universal child selector; name the rendered elements')
 const all = files(native); for(const file of all.filter(f=>f.endsWith('.wxml')))checkWxml(file)
 assert((app.subPackages??[]).length<=100,'WeChat allows at most 100 subpackages')
 for(const p of app.subPackages??[]){const members=files(resolve(native,p.root));assert(members.reduce((n,f)=>n+statSync(f).size,0)<1_900_000,`Subpackage exceeds its safety budget: ${p.root}`)}

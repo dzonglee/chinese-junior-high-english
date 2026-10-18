@@ -69,7 +69,13 @@ if (!release) for (const [file, text] of generated) writeFileSync(file, text)
 const releaseOverrides = { name: 'release-catalog', setup(builder) { builder.onLoad({ filter: /generated[\\/](catalog|runtime|packs)\.ts$/ }, args => ({ contents: generated.get(args.path), loader: 'ts', resolveDir: dirname(args.path) })) } }
 writeJson(resolve(distributionRoot, 'catalog.json'), metadata)
 writeJson(resolve(distributionRoot, 'manifest.json'), manifest)
-writeFileSync(resolve(nativeRoot, 'pack-loader.js'), `const loaders = {\n${(release ? [] : manifest).map((p) => `  ${JSON.stringify(p.topicId)}: () => require.async(${JSON.stringify(nativePaths.get(p.topicId))}),`).join('\n')}\n};\nmodule.exports = { loadCatalog: async () => { await Promise.all(${JSON.stringify(illustrationPackages.map(p=>p.name))}.map(name => new Promise((resolve,reject) => wx.loadSubpackage({name,success:resolve,fail:()=>reject(new Error('插图加载未完成，请重试。'))})))); return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };\n`)
+if (illustrationPackages.length) {
+  mkdirSync(resolve(nativeRoot, 'illustrations'), { recursive: true })
+  // Requiring a module uses WeChat's documented asynchronous subpackage loader.
+  writeFileSync(resolve(nativeRoot, 'illustrations/index.js'), 'module.exports = true;\n')
+}
+writeFileSync(resolve(nativeRoot, 'pack-loader.js'), `const loaders = {\n${(release ? [] : manifest).map((p) => `  ${JSON.stringify(p.topicId)}: () => require.async(${JSON.stringify(nativePaths.get(p.topicId))}),`).join('\n')}\n};\nmodule.exports = { loadCatalog: async () => { ${illustrationPackages.length ? "await require.async('./illustrations/index.js').catch(() => { throw new Error('插图加载未完成，请重试。'); });" : ''} return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };\n`)
+
 
 mkdirSync(resolve(nativeRoot, 'content/catalog'), { recursive: true })
 await build({ entryPoints: [resolve(root, 'src/generated/catalog.ts')], bundle: true, charset: 'utf8', format: 'cjs', platform: 'neutral', target: 'es2020', outfile: resolve(nativeRoot, 'content/catalog/index.js'), plugins: release ? [releaseOverrides] : [], minify: true })

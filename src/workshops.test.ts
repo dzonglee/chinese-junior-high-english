@@ -849,3 +849,30 @@ it('rejects both plant-picture proof claims when the required pot bottom is unse
  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,state.teaching[id],4);expect(workshopView(w,p).complete).toBe(true);expect(workshopView(w,p).proofCollected.map(c=>c.id).sort()).toEqual(['hole','unseen']);expect(state.attempts).toHaveLength(0);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
  expect(item.answer).toContain('still needs checking');expect(item.reason).toContain('不是证明盆没有孔')
 })
+
+
+it('keeps spending and balance distinct in actual yuan work, including persisted wrong and edited answers',()=>{
+ const s=studio('l-ls-course-t08'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1}
+ const act=(action:string,value='')=>{p=changeTeaching(s,p,'workshop-'+action,value,2)}
+ for(const [index,answer,bad]of [[1,'8','12'],[2,'12','8']] as const){
+  act('item',String(index));const item=w.items[index];expect(item.calculation?.kind).toBe('yuan')
+  act('input',answer);act('check');expect(workshopView(w,p).correct).toBe(false)
+  for(const g of item.evidenceGroups!){act('choose',g[0]);act('check')}
+  for(const wrong of [bad,'20','012','12 yuan','-1','12.0']){act('input',wrong);act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toBe(item.calculation!.wrong)}
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{'l-ls-course-t08':p}}),c,3,true);p=restoreTeaching(s,state.teaching['l-ls-course-t08'],3);expect(workshopView(w,p).input).toBe('12.0')
+  act('input',answer.replace(/[0-9]/g,c=>String.fromCharCode(c.charCodeAt(0)+0xfee0)));act('check');expect(workshopView(w,p).correct).toBe(true)
+  if(index===2){expect(workshopView(w,p).complete).toBe(false);act('own','原有二十元，蓝色本八元，余额二十减八等于十二。');act('save')}
+  expect(workshopView(w,p).complete).toBe(true);act('input','');expect(workshopView(w,p).complete).toBe(false);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),4);expect(workshopView(w,p).input).toBe('');expect(workshopView(w,p).proofReady).toBe(true)
+  act('input',answer);act('check');if(index===2)act('save');expect(workshopView(w,p).complete).toBe(true)
+  p.answers['workshopInput-'+index]=bad;expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).tabs[index].done).toBe(false)
+  expect(state.attempts).toHaveLength(0);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ }
+})
+
+it('restricts authored yuan responses to explicit whole-yuan amounts and preserves other calculation kinds',()=>{
+ const w=structuredClone(studio('l-ls-course-t08').mission!.workshop!);expect(workshopProblems(w)).toEqual([])
+ for(const answer of ['12.5','-1','012','12 yuan','10000','']){const bad=structuredClone(w);bad.items[2].calculation!.answer=answer;expect(workshopProblems(bad)).toContain('Invalid source calculation')}
+ for(const answer of ['0','9999']){const valid=structuredClone(w);valid.items[2].calculation!.answer=answer;expect(workshopProblems(valid)).toEqual([])}
+ for(const spelling of ['american','british'] as const){const t=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-ls-course-t08')!,spelling);expect(t.mission!.workshop!.items[2].calculation!.answer).toBe('12')}
+ expect(studio('l-r-course-t12').mission!.workshop!.items[0].calculation!.kind).toBe('time');expect(studio('l-r-course-t12').mission!.workshop!.items[1].calculation!.kind).toBe('minutes')
+})

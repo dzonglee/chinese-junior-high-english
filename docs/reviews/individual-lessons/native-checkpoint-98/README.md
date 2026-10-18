@@ -1,0 +1,11 @@
+# Focused native checkpoint 98
+
+Tencent DevTools 2.02.2608080, guest mode. Job `4d2125cfddfa4c6998a96815614c2c62` completed with actual test exit 0. The script verifies the actual lesson page and bound `l-ls-course-t08`, then checks eight workshop tasks, two applications, clinic, fresh transfer and summary. Prediction/check/next and picture controls use SDK-triggered native component events; amounts use native input events. Remaining actions use the actual Application controller. Native evidence-card widths are asserted. Twenty-two final screenshots were personally inspected, including scrolled amounts and feedback. This verifies native rendering and bindings at one 367 × 794 viewport, not physical hit-testing or all-course native journeys.
+
+Actual Tencent compilation exposed a repeated `wx:else` loop and unsupported wildcard child selectors. Both were repaired; all 33 WXML files and the stylesheet passed the installed compilers. Native startup also exposed an unavailable `wx.loadSubpackage` call. The illustration subpackage now loads through a real asynchronous entry module. Both native adapter modes cover its readiness, failure and retry.
+
+The simulator reports one delayed `navigateTo:fail timeout` after the exact target lesson has arrived. Results retain that raw diagnostic with `arrived: true`. The adapter checks route and every requested query value before suppressing this false error. Both adapter modes reject a different lesson on the same path. The final inspected frames have no false failure toast.
+
+Coordinate-tap attempts after scrolling were inconsistent in this simulator and are not counted as a reliable touch pass. The final runner explicitly uses SDK event triggers; phone/physical interaction, wider native paths, approved audio and release acceptance remain open. Full explanation diagrams were inspected in the browser; native captures cover selected regions. The run restores saved learning data, leaves independent records unchanged, closes its own project and releases the shared lock. No upload or publication.
+
+[Actual results](results.json) · [Job](job.json) · [Compiler results](compiler-results.json) · [Homepage](home.png) · [Illustrated choice](notebook-repaired.png) · [Budget balance](task-2-repaired.png)

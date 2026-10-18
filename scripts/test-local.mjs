@@ -262,6 +262,16 @@ try {
   await page.locator('[name=studioWorkshopInput]').fill('13:50');await action('studio-workshop-check');await action('studio-workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible()
   expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length);expect((await state()).mastery).toEqual(beforeStudio.mastery);expect((await state()).lessonDoneAt).toEqual(beforeStudio.lessonDoneAt)
   checks.push('Evidence alone cannot reveal a calculated answer; wrong time restores offline, accepts a full-width colon, invalidates on edits and repairs without independent credit')
+  const budget=catalog.lessons.find(l=>l.id==='l-ls-course-t08'),balance=budget.visualMission.workshop.items[2]
+  await page.goto(`${url}#lesson?id=${budget.id}`);await action('studio-answer',catalog.questions.find(q=>q.id===budget.questionIds[0]).answer.option);await action('studio-check');await action('studio-next');await action('studio-workshop-item','1');await action('studio-workshop-item','2')
+  for(const group of balance.evidenceGroups){await action('studio-workshop-choose',group[0]);await action('studio-workshop-check')}
+  const yuan=page.locator('[name=studioWorkshopInput]');await expect(yuan).toHaveAttribute('inputmode','numeric');await yuan.fill('8');await action('studio-workshop-check');await expect(page.locator('.reading-conclusion')).toHaveCount(0)
+  await page.goto(`${url}#home`);await page.goto(`${url}#lesson?id=${budget.id}`);await expect(yuan).toHaveValue('8')
+  await yuan.fill('１２');await action('studio-workshop-check');await page.locator('[name=studioWorkshopOwn]').fill(balance.reason);await action('studio-workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible()
+  await yuan.fill('');await page.goto(`${url}#home`);await page.goto(`${url}#lesson?id=${budget.id}`);await expect(yuan).toHaveValue('');await expect(page.locator('.reading-conclusion')).toHaveCount(0);await expect(page.locator('.workshop-saved')).toHaveCount(0)
+  await yuan.fill('12');await action('studio-workshop-check');await action('studio-workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible()
+  expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length);expect((await state()).mastery).toEqual(beforeStudio.mastery);expect((await state()).lessonDoneAt).toEqual(beforeStudio.lessonDoneAt)
+  checks.push('Yuan balance preserves a wrong spending answer offline, accepts full-width digits, invalidates a cleared amount and repairs without independent credit')
   const privacy=catalog.lessons.find(l=>l.id==='l-r-course-t21'),privacyCondition=privacy.visualMission.workshop.conditions[1]
   await page.goto(`${url}#lesson?id=${privacy.id}`)
   await action('studio-answer',catalog.questions.find(q=>q.id===privacy.questionIds[0]).answer.option);await action('studio-check');await action('studio-next');await action('studio-workshop-item','1')

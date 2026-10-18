@@ -1,0 +1,508 @@
+{
+  "lessonId": "l-ls-course-t08",
+  "intent": "Choose for stated sufficiency, assign price/spending/balance roles, enter actual yuan amounts and track request/reason/final promise without treating a promise as completed repayment.",
+  "picturePurpose": "Original paired blue/smaller and coral/larger notebooks make choices tangible. Exact prices and adequacy come only from code/source cards, never pixel size or generated counts. No image answer marks.",
+  "reviewState": "draft",
+  "workshop": {
+    "applicationStyle": "cards",
+    "navigationLabel": "任务",
+    "kind": "proof",
+    "title": "钱花在哪，最后答应哪天",
+    "instruction": "选符合需要的笔记本，自己算金额，再把延期请求与最后承诺分开。",
+    "items": [
+      {
+        "id": "budget-1",
+        "label": "按她的需要选，不凭大小选",
+        "sourceStyle": "cards",
+        "sourceTitle": "CHOOSE FOR THE NEED",
+        "prompt": "Which pictured notebook matches Lina’s choice and stated need?",
+        "answer": "Picture A: the blue notebook has enough pages for her project.",
+        "reason": "Lina明确说蓝色本页数够用并决定买它。图只表示两种本子；是否够用来自她的话，不能只看厚薄猜页数。",
+        "hint": "先分清价格、预算与余额；说到日期时，追到最后一次明确承诺。",
+        "material": "Sam: This notebook is twelve yuan, and the blue one is eight.\nLina: The blue one has enough pages for my project. I will buy that and save the rest of my twenty yuan.\nSam: Then you will have twelve yuan left.\nLina: Yes. I do not need the larger one.\n\nLina chooses a notebook because it ____.\nOriginal picture-choice exercise: A is the blue notebook; B is the larger notebook. The image carries no exact price or page count. Use the dialogue for prices and needs.\nPicture A: choose the blue notebook.\nPicture B: choose the larger notebook.\nThis is a purchase plan, not a receipt or proof that payment happened.\nThis is transcript preparation; approved audio is pending.",
+        "evidenceGroups": [
+          [
+            "left"
+          ],
+          [
+            "need"
+          ]
+        ],
+        "options": [
+          {
+            "id": "right",
+            "text": "Picture B: choose the larger notebook.",
+            "correct": false,
+            "reason": "较大的本是另一项选择；Lina明确不需要更大的。"
+          },
+          {
+            "id": "need",
+            "text": "Lina: The blue one has enough pages for my project.",
+            "correct": true,
+            "reason": "enough pages for my project说明蓝色本满足这次项目的需要。"
+          },
+          {
+            "id": "left",
+            "text": "Picture A: choose the blue notebook.",
+            "correct": true,
+            "reason": "左图对应蓝色本，是Lina决定买的那一个。"
+          },
+          {
+            "id": "leftover",
+            "text": "Sam: Then you will have twelve yuan left.",
+            "correct": false,
+            "reason": "剩十二元是余额，不是为什么页数够用的依据。"
+          }
+        ],
+        "evidenceLabels": [
+          "选对她要买的本",
+          "核对页数够用"
+        ],
+        "sourceArt": {
+          "asset": "lesson-notebook-needs",
+          "alt": "原创选择题插图：左边是较小较薄的蓝色笔记本，右边是较大较厚的珊瑚色笔记本。图上没有价格、页数或答案标记；价格和是否够用必须回到对话核对。",
+          "choices": [
+            {
+              "id": "left",
+              "label": "A 蓝色本"
+            },
+            {
+              "id": "right",
+              "label": "B 较大的本"
+            }
+          ]
+        }
+      },
+      {
+        "id": "budget-2",
+        "label": "选定蓝色本，再读它的价格",
+        "sourceStyle": "cards",
+        "sourceTitle": "CHOOSE FOR THE NEED",
+        "prompt": "How much will Lina spend on her chosen blue notebook?",
+        "answer": "Eight yuan.",
+        "reason": "blue one对应eight，支出是八元。十二元是另一款价格，也恰好是余额；二十元是预算。",
+        "hint": "先分清价格、预算与余额；说到日期时，追到最后一次明确承诺。",
+        "material": "Sam: This notebook is twelve yuan, and the blue one is eight.\nLina: The blue one has enough pages for my project. I will buy that and save the rest of my twenty yuan.\nSam: Then you will have twelve yuan left.\nLina: Yes. I do not need the larger one.\n\nLina chooses a notebook because it ____.\nOriginal picture-choice exercise: A is the blue notebook; B is the larger notebook. The image carries no exact price or page count. Use the dialogue for prices and needs.\nPicture A: choose the blue notebook.\nPicture B: choose the larger notebook.\nThis is a purchase plan, not a receipt or proof that payment happened.\nThis is transcript preparation; approved audio is pending.",
+        "evidenceGroups": [
+          [
+            "prices"
+          ]
+        ],
+        "options": [
+          {
+            "id": "prices",
+            "text": "Sam: This notebook is twelve yuan, and the blue one is eight.",
+            "correct": true,
+            "reason": "the blue one is eight给蓝色本的价格。"
+          },
+          {
+            "id": "leftover",
+            "text": "Sam: Then you will have twelve yuan left.",
+            "correct": false,
+            "reason": "twelve yuan left是买蓝色本之后的钱，不是这次支出。"
+          },
+          {
+            "id": "plan",
+            "text": "I will buy that and save the rest of my twenty yuan.",
+            "correct": false,
+            "reason": "twenty yuan是她原有的钱，不表示必须花光。"
+          }
+        ],
+        "calculation": {
+          "kind": "yuan",
+          "answer": "8",
+          "label": "计划支出（元）",
+          "hint": "只填金额数字，不加“元”。先对准选定的蓝色本。",
+          "wrong": "先对准blue one的价格。十二既是另一款价格，也是计划余额；二十是原预算，不能把它们当作本次支出。"
+        }
+      },
+      {
+        "id": "budget-3",
+        "label": "预算减支出，别把另一款价格当理由",
+        "sourceStyle": "cards",
+        "sourceTitle": "CHOOSE FOR THE NEED",
+        "prompt": "How much will remain from twenty yuan after the planned purchase?",
+        "answer": "Twelve yuan: 20 − 8 = 12.",
+        "reason": "原有二十元，选定蓝色本八元，所以将剩十二元。另一款本也卖十二元只是数值碰巧相同，不能用它的价格代替余额计算。",
+        "hint": "先分清价格、预算与余额；说到日期时，追到最后一次明确承诺。",
+        "material": "Sam: This notebook is twelve yuan, and the blue one is eight.\nLina: The blue one has enough pages for my project. I will buy that and save the rest of my twenty yuan.\nSam: Then you will have twelve yuan left.\nLina: Yes. I do not need the larger one.\n\nLina chooses a notebook because it ____.\nOriginal picture-choice exercise: A is the blue notebook; B is the larger notebook. The image carries no exact price or page count. Use the dialogue for prices and needs.\nPicture A: choose the blue notebook.\nPicture B: choose the larger notebook.\nThis is a purchase plan, not a receipt or proof that payment happened.\nThis is transcript preparation; approved audio is pending.",
+        "evidenceGroups": [
+          [
+            "plan"
+          ],
+          [
+            "prices"
+          ]
+        ],
+        "options": [
+          {
+            "id": "large",
+            "text": "Lina: Yes. I do not need the larger one.",
+            "correct": false,
+            "reason": "不需要更大的说明偏好，不给原预算和本次支出的计算。"
+          },
+          {
+            "id": "plan",
+            "text": "I will buy that and save the rest of my twenty yuan.",
+            "correct": true,
+            "reason": "my twenty yuan给原有预算，save the rest要求留下余额。"
+          },
+          {
+            "id": "prices",
+            "text": "Sam: This notebook is twelve yuan, and the blue one is eight.",
+            "correct": true,
+            "reason": "蓝色本八元才是要从二十元中减去的支出。"
+          },
+          {
+            "id": "need",
+            "text": "Lina: The blue one has enough pages for my project.",
+            "correct": false,
+            "reason": "页数够用解释选择，但单独这句算不出余额。"
+          }
+        ],
+        "evidenceLabels": [
+          "原来有多少钱",
+          "选定的本花多少"
+        ],
+        "calculation": {
+          "kind": "yuan",
+          "answer": "12",
+          "label": "计划购买后余额（元）",
+          "hint": "只填金额数字。用原预算减去选定本子的价格。",
+          "wrong": "用原预算减去选定蓝色本的价格。先分清支出与余额；另一款本的售价不能替代余额计算。"
+        }
+      },
+      {
+        "id": "budget-4",
+        "label": "enough是够用，不是最大或花光",
+        "sourceStyle": "cards",
+        "sourceTitle": "CHOOSE FOR THE NEED",
+        "prompt": "Which reason keeps Lina’s needs and limit?",
+        "answer": "It has enough pages for her project; she does not need the larger one.",
+        "reason": "enough pages保留够用这一点；I do not need the larger one排除越大越好。她计划保留余额，不能把够用改成花光预算。",
+        "hint": "先分清价格、预算与余额；说到日期时，追到最后一次明确承诺。",
+        "material": "Sam: This notebook is twelve yuan, and the blue one is eight.\nLina: The blue one has enough pages for my project. I will buy that and save the rest of my twenty yuan.\nSam: Then you will have twelve yuan left.\nLina: Yes. I do not need the larger one.\n\nLina chooses a notebook because it ____.\nOriginal picture-choice exercise: A is the blue notebook; B is the larger notebook. The image carries no exact price or page count. Use the dialogue for prices and needs.\nPicture A: choose the blue notebook.\nPicture B: choose the larger notebook.\nThis is a purchase plan, not a receipt or proof that payment happened.\nThis is transcript preparation; approved audio is pending.",
+        "evidenceGroups": [
+          [
+            "need"
+          ],
+          [
+            "large"
+          ]
+        ],
+        "options": [
+          {
+            "id": "plan",
+            "text": "I will buy that and save the rest of my twenty yuan.",
+            "correct": false,
+            "reason": "save the rest说明要留钱；单独这句不说明页数是否满足项目。"
+          },
+          {
+            "id": "large",
+            "text": "Lina: Yes. I do not need the larger one.",
+            "correct": true,
+            "reason": "not need the larger one明确排除必须买最大的一款。"
+          },
+          {
+            "id": "need",
+            "text": "Lina: The blue one has enough pages for my project.",
+            "correct": true,
+            "reason": "enough pages for my project给这次选择的需求标准。"
+          },
+          {
+            "id": "leftover",
+            "text": "Sam: Then you will have twelve yuan left.",
+            "correct": false,
+            "reason": "余额的数字不说明页数是否够用。"
+          }
+        ],
+        "evidenceLabels": [
+          "核对项目是否够用",
+          "不必追求更大的"
+        ],
+        "sourceGap": {
+          "before": "Lina chooses a notebook because it ",
+          "after": ".",
+          "answer": "enough",
+          "options": [
+            {
+              "id": "largest",
+              "text": "is the largest one",
+              "reason": "她说不需要更大的；原文没有把最大当作选择标准。"
+            },
+            {
+              "id": "enough",
+              "text": "has enough pages for her project",
+              "reason": "enough pages说明满足项目需要，既不要求最大，也不要求花光钱。"
+            },
+            {
+              "id": "all",
+              "text": "uses her whole budget",
+              "reason": "save the rest明确要省下余额，不能改成花光二十元。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "budget-5",
+        "label": "请求、原因、最后承诺分三步",
+        "sourceStyle": "cards",
+        "sourceTitle": "FOLLOW THE FINAL PROMISE",
+        "prompt": "Put the request, reason and final promise in their dialogue order.",
+        "answer": "Request Friday → need on Thursday → final promise Wednesday.",
+        "reason": "先提出从周三推到周五，Mei说明周四要用，Ben才回到原先答应的周三。排的是对话三步，不是把星期按日历先后排序。",
+        "hint": "这是对话顺序：先请求周五还，再说明周四要用，最后答应周三还。不要按星期排序。",
+        "material": "Ben: I borrowed ten yuan from you. Could I return it on Friday instead of Wednesday?\nMei: I need it for the class collection on Thursday.\nBen: Then I will return it tomorrow, Wednesday, as promised. Thank you for reminding me.\n\nThe final Wednesday promise is not a report that repayment has already happened. No calendar date is given.\nThis is transcript preparation; approved audio is pending.",
+        "evidenceGroups": [
+          [
+            "request"
+          ],
+          [
+            "needday"
+          ],
+          [
+            "final"
+          ]
+        ],
+        "options": [
+          {
+            "id": "final",
+            "text": "Ben: Then I will return it tomorrow, Wednesday, as promised. Thank you for reminding me.",
+            "correct": true,
+            "reason": "最后一句明确回到tomorrow, Wednesday。"
+          },
+          {
+            "id": "borrow",
+            "text": "Ben: I borrowed ten yuan from you.",
+            "correct": false,
+            "reason": "借过十元是背景，不是请求延期、说明需要或最后承诺中的一步。"
+          },
+          {
+            "id": "needday",
+            "text": "Mei: I need it for the class collection on Thursday.",
+            "correct": true,
+            "reason": "Mei的Thursday需要是Ben调整提议的原因。"
+          },
+          {
+            "id": "request",
+            "text": "Could I return it on Friday instead of Wednesday?",
+            "correct": true,
+            "reason": "Friday instead of Wednesday是最初延期请求，还不是结论。"
+          }
+        ],
+        "sourceOrder": [
+          "request",
+          "needday",
+          "final"
+        ],
+        "sourceOrderLabels": [
+          "先提出延期请求",
+          "对方说明用钱日",
+          "最后明确承诺"
+        ]
+      },
+      {
+        "id": "budget-6",
+        "label": "最后答应哪天，看最后一句",
+        "sourceStyle": "cards",
+        "sourceTitle": "FOLLOW THE FINAL PROMISE",
+        "prompt": "When does Ben finally promise to return the ten yuan?",
+        "answer": "Wednesday.",
+        "reason": "最后明确说tomorrow, Wednesday；Friday只是之前的请求，Thursday是Mei要用钱的日子。没有给具体月日。",
+        "hint": "先分清价格、预算与余额；说到日期时，追到最后一次明确承诺。",
+        "material": "Ben: I borrowed ten yuan from you. Could I return it on Friday instead of Wednesday?\nMei: I need it for the class collection on Thursday.\nBen: Then I will return it tomorrow, Wednesday, as promised. Thank you for reminding me.\n\nThe final Wednesday promise is not a report that repayment has already happened. No calendar date is given.\nThis is transcript preparation; approved audio is pending.",
+        "evidenceGroups": [
+          [
+            "final"
+          ]
+        ],
+        "options": [
+          {
+            "id": "request",
+            "text": "Could I return it on Friday instead of Wednesday?",
+            "correct": false,
+            "reason": "周五出现在最初延期请求里，后面已经改回周三。"
+          },
+          {
+            "id": "final",
+            "text": "Ben: Then I will return it tomorrow, Wednesday, as promised. Thank you for reminding me.",
+            "correct": true,
+            "reason": "Then I will return it tomorrow, Wednesday给最终承诺。"
+          },
+          {
+            "id": "needday",
+            "text": "Mei: I need it for the class collection on Thursday.",
+            "correct": false,
+            "reason": "周四是Mei要交班费的日子，不是Ben最后答应还款的日子。"
+          }
+        ]
+      },
+      {
+        "id": "budget-7",
+        "label": "不能等周五，是因为周四要用",
+        "sourceStyle": "cards",
+        "sourceTitle": "FOLLOW THE FINAL PROMISE",
+        "prompt": "Why can Mei not wait until Friday?",
+        "answer": "She needs the money for the class collection on Thursday.",
+        "reason": "Mei说明周四班级收款需要这笔钱；周五晚于这个需要。不要改成周六买游戏，也不要把借款当礼物。",
+        "hint": "先分清价格、预算与余额；说到日期时，追到最后一次明确承诺。",
+        "material": "Ben: I borrowed ten yuan from you. Could I return it on Friday instead of Wednesday?\nMei: I need it for the class collection on Thursday.\nBen: Then I will return it tomorrow, Wednesday, as promised. Thank you for reminding me.\n\nThe final Wednesday promise is not a report that repayment has already happened. No calendar date is given.\nThis is transcript preparation; approved audio is pending.",
+        "evidenceGroups": [
+          [
+            "needday"
+          ]
+        ],
+        "options": [
+          {
+            "id": "borrow",
+            "text": "Ben: I borrowed ten yuan from you.",
+            "correct": false,
+            "reason": "借过十元说明钱的性质，不解释为什么不能等到周五。"
+          },
+          {
+            "id": "needday",
+            "text": "Mei: I need it for the class collection on Thursday.",
+            "correct": true,
+            "reason": "for the class collection on Thursday给用途和日期。"
+          },
+          {
+            "id": "final",
+            "text": "Ben: Then I will return it tomorrow, Wednesday, as promised. Thank you for reminding me.",
+            "correct": false,
+            "reason": "周三承诺是调整后的安排，不能替代Mei亲口给的周四需要。"
+          }
+        ]
+      },
+      {
+        "id": "budget-8",
+        "label": "会还的承诺，不等于已经还了",
+        "sourceStyle": "cards",
+        "sourceTitle": "FOLLOW THE FINAL PROMISE",
+        "prompt": "Does the final reply prove that the money has already been returned?",
+        "answer": "No. Ben promises to return it on Wednesday; repayment is not reported.",
+        "reason": "I will return是对之后的承诺，不是I have returned。可以确定最后答应周三还，不能把说了计划当作已经履行。",
+        "hint": "先分清价格、预算与余额；说到日期时，追到最后一次明确承诺。",
+        "material": "Ben: I borrowed ten yuan from you. Could I return it on Friday instead of Wednesday?\nMei: I need it for the class collection on Thursday.\nBen: Then I will return it tomorrow, Wednesday, as promised. Thank you for reminding me.\n\nThe final Wednesday promise is not a report that repayment has already happened. No calendar date is given.\nThis is transcript preparation; approved audio is pending.",
+        "evidenceGroups": [
+          [
+            "final"
+          ]
+        ],
+        "options": [
+          {
+            "id": "borrow",
+            "text": "Ben: I borrowed ten yuan from you.",
+            "correct": false,
+            "reason": "I borrowed报告曾借过钱，不是已还款。"
+          },
+          {
+            "id": "final",
+            "text": "Ben: Then I will return it tomorrow, Wednesday, as promised. Thank you for reminding me.",
+            "correct": true,
+            "reason": "I will return明确承诺之后还；此处没有实际还款结果。"
+          },
+          {
+            "id": "request",
+            "text": "Could I return it on Friday instead of Wednesday?",
+            "correct": false,
+            "reason": "Could I return询问能否延期，也不是已经还了。"
+          }
+        ]
+      }
+    ],
+    "applicationIds": [
+      "q-ls-course-t08-course-t08-1-2",
+      "q-ls-course-t08-course-t08-2-2"
+    ],
+    "transfer": {
+      "id": "individual-ls-course-t08-transfer",
+      "topicId": "ls-course-t08",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        8,
+        9
+      ],
+      "stem": "Which plan meets the pencil-case need, gives the purchase balance and keeps the final repayment promise?",
+      "passage": "NEW TRANSCRIPT PRACTICE — AUDIO PENDING\nTao: I have twenty-five yuan. This small case is six yuan, but it cannot hold all my pencils.\nRae: The nine-yuan case can hold them all. The fourteen-yuan case is larger, but you do not need that extra space.\nTao: I will buy the nine-yuan case and keep the rest.\nRae: You also borrowed six yuan from me and promised to return it on Friday.\nTao: Could I return it on Sunday instead?\nRae: I need it on Saturday.\nTao: Then I will return your six yuan on Friday as promised.\nFor the purchase balance, subtract only the case price from twenty-five yuan; the loan repayment is a separate promise. These are plans, not completed payments. Read this as preparation, not a listening score.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Plan to buy the nine-yuan case, keep sixteen yuan after that purchase and return the borrowed six yuan on Friday."
+        },
+        {
+          "id": "b",
+          "text": "Plan to buy the six-yuan case because it is cheapest, keep nineteen yuan and return the borrowed six yuan on Friday."
+        },
+        {
+          "id": "c",
+          "text": "Plan to buy the nine-yuan case, keep sixteen yuan after that purchase and return the borrowed six yuan on Sunday."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Plan to buy the nine-yuan case, keep sixteen yuan after that purchase and return the borrowed six yuan on Friday."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先检查是否装得下，再算本次购买的余额，最后追到还款的最终承诺。",
+        "steps": [
+          {
+            "text": "六元款装不下；九元款够用，所以本次购买后剩25减9等于16元。",
+            "reason": "不能只因最便宜就买；本题明确余额只减笔袋价，另六元借款是单独的之后承诺。"
+          },
+          {
+            "text": "周日只是延期请求；Rae周六需要，Tao最后仍答应周五还六元。",
+            "reason": "最后承诺保留Friday；没有说已经购买或还款，也没有给具体日期。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "19元余额与周五还款各自算对、听对，却选了明确装不下的六元款，没满足需要。"
+          },
+          {
+            "option": "c",
+            "reason": "九元款够用、购买后剩16元都对，但把最后周五承诺换回了先前提出的周日。"
+          }
+        ],
+        "pitfall": "数字对还不够：需要、金额属于哪件事、最后日期都要一起核对。",
+        "visual": {
+          "kind": "evidence",
+          "title": "需要 → 购买余额；另核对最后承诺",
+          "segments": [
+            {
+              "text": "Six-yuan case → cannot hold all pencils",
+              "role": "object",
+              "note": "便宜但不满足需要"
+            },
+            {
+              "text": "Nine-yuan case → enough space",
+              "role": "evidence",
+              "note": "按实际需要选择"
+            },
+            {
+              "text": "25 − 9 = 16 yuan",
+              "role": "evidence",
+              "note": "只算本次购买后余额"
+            },
+            {
+              "text": "Sunday request → Friday final promise",
+              "role": "evidence",
+              "note": "另六元借款的最终日期"
+            }
+          ],
+          "caption": "购买余额与之后还款是两件事；计划不是完成记录。"
+        },
+        "transfer": "如果九元款和十六元余额都选对，却写成周日还钱，为什么整个方案仍然不对？"
+      }
+    }
+  }
+}
