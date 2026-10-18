@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-64 of 413 lessons are individually reviewed; 349 remain pending. Work stays solo under
+65 of 413 lessons are individually reviewed; 348 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t06. Nine original careers-reading tasks resolve She/them in context, match backstage props and entrance tickets to opposite pictured workspaces, connect damaged objects and mismatched tickets to their respective reports, and preserve the limits of a guarantee and an observed occasion. The fresh library-event transfer keeps each volunteer’s role and report together without inventing a problem-free outcome.
+Latest: l-r-course-t07. Eight original plant-care reading tasks connect action with purpose, use opposite positive/negative picture choices, read whether/if/before conditions, join cleanup with readiness for others, identify Friday reporting roles and reject unsupported blame. A fresh art-club checklist requires clean brushes, a dry table and returned materials.
 
-Inspected all nine models, wrong source choices and both wrong picture choices, partial evidence chains and reason repairs, complete source, 320-pixel source/picture cards and named evidence slots, application carousels and every application/transfer explanation figure. Rechecked the final adjacent Mina/She source order and workspace feedback. Original and 600-pixel artwork inspected and registered. Grades 8–9; reserved reading text 2 stays unexposed; guided attempts, mastery and lesson-pass records remain zero.
+Inspected all eight models, all thirteen wrong source choices, both wrong pictures, three partial-chain repairs and missing/removed reasons, the full source ending, all 320-pixel source/picture cards and named slots, application carousels and every application/transfer explanation. Original and 600-pixel artwork are inspected, registered and hashed. Grades 7–9; reserved reading text 2 stays unexposed; zero independent records. A read-only native recheck confirmed that WeChat status responds but MacStudioExternal project-file access remains blocked; the existing blocked Kanban card was updated successfully.
 
-Checkpoint 64 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 667 tasks / 2001 widths; earlier flows retain their original scope.
+Checkpoint 65 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 675 tasks / 2025 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t07. Eight labor-procedure tasks and inspected original cloth-versus-notebook plant setups are drafted outside production. Read positive and negative picture prompts, whether/if/before conditions, cleanup and completion requirements, Friday reporting roles and limits of blame. Fresh art-club checklist requires clean brushes, a dry table and returned materials.
+Next: l-r-course-t08. Design the spending/budget lesson around single-versus-three-pack offers, total versus unit prices, current need and budget, change and unsupported quality claims. New original notebook-offer artwork is generated and inspected outside production; keep prices and quantities in code.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain

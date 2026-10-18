@@ -1483,3 +1483,16 @@ Current new lesson: 9 tasks / 27 task-width checks, reload and zero independent 
 Cumulative 667 tasks / 2001 widths; earlier flows retain scope. Hashes: checkpoint-64.*.
 Next: l-r-course-t07. Eight labor-procedure tasks and inspected original cloth-versus-notebook plant setups are drafted outside production. Read positive and negative picture prompts, whether/if/before conditions, cleanup and completion requirements, Friday reporting roles and limits of blame. Fresh art-club checklist requires clean brushes, a dry table and returned materials. Overall claim continues solo; 349 pending.
 Native GUI remains blocked by project access; no release, upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-r-course-t07 individually reviewed
+
+65/413 reviewed. Eight original plant-care reading tasks connect action with purpose, use opposite positive/negative picture choices, read whether/if/before conditions, join cleanup with readiness for others, identify Friday reporting roles and reject unsupported blame. A fresh art-club checklist requires clean brushes, a dry table and returned materials.
+
+Inspected all eight models, all thirteen wrong source choices, both wrong pictures, three partial-chain repairs and missing/removed reasons, the full source ending, all 320-pixel source/picture cards and named slots, application carousels and every application/transfer explanation. Original and 600-pixel artwork are inspected, registered and hashed. Grades 7–9; reserved reading text 2 stays unexposed; zero independent records. A read-only native recheck confirmed that WeChat status responds but MacStudioExternal project-file access remains blocked; the existing blocked Kanban card was updated successfully.
+
+Current new lesson: 8 tasks / 24 task-width checks, reload and zero independent records. Core scope: Inherited checkpoint 63 serial suite: 1491 tests in 14 files; shared engine/UI unchanged. Current final data/art compiler, typecheck, teaching/spelling, grammar, course, interactions, package, individual browser, development/cloud adapters, thirteen offline checks and exact-source archives pass. No new full core-suite run is claimed. Native adapter scope: Development/cloud simulations passed, including all 245 hashes and illustration readiness/failure/retry. No native GUI evidence. Current typecheck, 826 teaching/spelling variants, grammar/course/interaction/package checks, 13 offline checks and ZIP CRC/exact-source comparisons pass.
+
+Cumulative 675 tasks / 2025 widths; earlier flows retain scope. Hashes: checkpoint-65.*.
+Next: l-r-course-t08. Design the spending/budget lesson around single-versus-three-pack offers, total versus unit prices, current need and budget, change and unsupported quality claims. New original notebook-offer artwork is generated and inspected outside production; keep prices and quantities in code. Overall claim continues solo; 348 pending.
+Native GUI remains blocked by project access; no release, upload or complete-course parity.
