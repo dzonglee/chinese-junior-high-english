@@ -1418,3 +1418,16 @@ Current new lesson flow:8 conditions/24 task-width checks,reload and zero indepe
 Cumulative623 conditions/1869 widths;earlier flows retain scope. Hashes:checkpoint-59.*.
 Next:l-r-course-t02. Ten school-notice tasks and inspected original blue-side-gate/front-entrance art are drafted outside production. Connect meeting/waiting,bring/provide,demonstration plus permission,eligibility plus signup,and conditional or dated updates. Verify45/35-minute sessions and fresh30-minute transfer before individual credit. Overall claim continues solo;354 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-r-course-t02 individually reviewed
+
+60/413 reviewed. Ten original school-notice tasks connect an original blue-side-gate/front-entrance picture to meeting and waiting evidence,contrast bring/provide,require demonstration and actual permission before scissors use,join eligibility with signup,and follow conditional or dated updates without discarding retained rules. Original45-minute and updated35-minute sessions lead to a fresh30-minute robot-club transfer.
+
+Inspected all10 models,all13 wrong source choices,the wrong entrance picture,seven partial-chain repairs,missing/removed reasons,both full-source endings,all320-pixel source/entrance figures,application carousels and every application/transfer diagram. Reinspected final tool-use wording to distinguish actual permission from merely asking. Original and600-pixel generated art are inspected and registered with provenance/hash. Grades7–9;reserved reading text2 remains unexposed;zero independent records.
+
+Current new lesson flow:10 conditions/30 task-width checks,reload and zero independent records. Retained shared-engine coverage:1,488 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,12 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 hashes and artwork readiness/failure/retry. No native GUI evidence. Core scope:Retained checkpoint58 full serial coverage:1488 tests/14 files with unchanged limits. Shared engine/UI and answer-layout helper are unchanged;the full suite was not rerun for this data/art-only lesson. Current compiler,typecheck,teaching,grammar,course,interaction,package,real browser,adapter,twelve offline and exact-source archive checks cover the new lesson.
+
+Cumulative633 conditions/1899 widths;earlier flows retain scope. Hashes:checkpoint-60.*.
+Next:l-r-course-t03. Nine original help-reading tasks are drafted outside production around a message,a teacher reply and a later outcome. Separate explicit privacy,difficulty/request,planning/guarantees,conditional family support and limited progress. Fresh report transfer distinguishes arranged help from rehearsal and task completion. Overall claim continues solo;353 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.

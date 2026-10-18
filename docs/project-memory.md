@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-59 of413 lessons are individually reviewed;354 remain pending. Every lesson needs bespoke tasks,
+60 of413 lessons are individually reviewed;353 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-r-course-t01. Eight original daily-routine tasks use an interactive phone-beside-book/phone-on-shelf picture to select actual source evidence,require a separate action clue for interrupted reading,connect Then to homework,and distinguish duration,arrival time,unknown gaps,Tuesday exceptions and flexible buffers. Fresh18+7 transfer rejects an invented finishing time and a reassigned duration.
+Latest:l-r-course-t02. Ten original school-notice tasks connect an original blue-side-gate/front-entrance picture to meeting and waiting evidence,contrast bring/provide,require demonstration and actual permission before scissors use,join eligibility with signup,and follow conditional or dated updates without discarding retained rules. Original45-minute and updated35-minute sessions lead to a fresh30-minute robot-club transfer.
 
-Inspected all8 models,all12 wrong source choices,both wrong picture paths,four partial-chain repairs,missing/removed reasons,the full source ending,all320-pixel picture/source figures,application carousels and every application/transfer step. Checked25+5=30 and18+7=25. Original and delivered art are inspected and registered with provenance/hash. Grades7–9;reserved reading text2 remains unexposed;zero independent records.
+Inspected all10 models,all13 wrong source choices,the wrong entrance picture,seven partial-chain repairs,missing/removed reasons,both full-source endings,all320-pixel source/entrance figures,application carousels and every application/transfer diagram. Reinspected final tool-use wording to distinguish actual permission from merely asking. Original and600-pixel generated art are inspected and registered with provenance/hash. Grades7–9;reserved reading text2 remains unexposed;zero independent records.
 
-Checkpoint59 records the new flow/24 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint60 records the new flow/30 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The59 reviewed lessons cumulatively contain623 conditions/1869 widths;
+recorded explicitly. The60 reviewed lessons cumulatively contain633 conditions/1899 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-r-course-t02. Ten school-notice tasks and inspected original blue-side-gate/front-entrance art are drafted outside production. Connect meeting/waiting,bring/provide,demonstration plus permission,eligibility plus signup,and conditional or dated updates. Verify45/35-minute sessions and fresh30-minute transfer before individual credit.
+Next:l-r-course-t03. Nine original help-reading tasks are drafted outside production around a message,a teacher reply and a later outcome. Separate explicit privacy,difficulty/request,planning/guarantees,conditional family support and limited progress. Fresh report transfer distinguishes arranged help from rehearsal and task completion.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

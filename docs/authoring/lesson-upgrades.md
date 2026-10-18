@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **59 / 413**. Current: **l-r-course-t02**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **60 / 413**. Current: **l-r-course-t03**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -67,7 +67,7 @@ Completed: **59 / 413**. Current: **l-r-course-t02**. Evidence lives in docs/rev
 | l-r-inference | 推断要有原文撑住 | reviewed | [Individual review](../reviews/individual-lessons/l-r-inference.md) |
 | l-r-main-idea | 抓住主旨，不被一个细节带走 | reviewed | [Individual review](../reviews/individual-lessons/l-r-main-idea.md) |
 | l-r-course-t01 | 把一天安排得有张有弛：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t01.md) |
-| l-r-course-t02 | 校园活动与安全：读懂信息与用意 | pending | — |
+| l-r-course-t02 | 校园活动与安全：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t02.md) |
 | l-r-course-t03 | 身心健康与求助：读懂信息与用意 | pending | — |
 | l-r-course-t04 | 找到适合自己的学习方法：读懂信息与用意 | pending | — |
 | l-r-course-t05 | 认识自己与管理时间：读懂信息与用意 | pending | — |
