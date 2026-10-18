@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-73 of 413 lessons are individually reviewed; 340 remain pending. Work stays solo under
+74 of 413 lessons are individually reviewed; 339 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t15. Eight original family-food invitation tasks require an entered 45-minute duration, opposite Tao/noodles and Nora/dumplings picture matching, distinguish absence of obligation from prohibition, connect optional photographs with permission conditions, ask about particular experiences, handle a declined personal question and reject country-wide rules. Fresh weekend-story transfer changes duration to 50 minutes with partly correct time/scope distractors. Course title, objective, pitfall and application reasons now identify these specific skills.
+Latest: l-r-course-t16. Eight original poem-and-note tasks match opposite still/rippled pictures, build reflection → disturbance → return, distinguish a poetic second tree from an actual new tree, explain the returning reflection, ground differing feelings in words, read grows quiet as change and reject invented biography. Fresh sky/window metaphor changes the image and disturbance. Course title, objective, pitfall and application reasons identify these reading skills.
 
-Inspected all eight models, all thirteen wrong source choices and both wrong food pictures, three partial evidence chains and missing/removed reasoning, empty/wrong/removed numerical input and its reload, every 320-pixel source/picture card and three named-slot figures, the calculated-response control at 320 pixels, full source and passage endings, application carousels and every application/transfer step. Original and 600-pixel art inspected and registered; dish identity does not establish nationality, compulsory food bringing or fixed customs. Grades 8–9; reserved reading text 2 stays unexposed; zero independent records.
+Inspected all eight models, all wrong source choices and both wrong water pictures, sequence decoy/swapped order/partial reload/removal after completion, three other partial chains and missing/removed reasons, every 320-pixel source/order/picture card and three named-slot figures, full source and passage endings, application carousels and every application/transfer step. Reinspected the shortened tree/word-evidence slots and final biography feedback. Original and 600-pixel art inspected and registered; the real tree stays intact and the reflection changes. Grades 8–9; reserved text 2 stays unexposed; zero independent records. Read-only WeChat status succeeds, but shared project-file access remains unavailable; the existing card tracking status is blocked.
 
-Checkpoint 73 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 739 tasks / 2217 widths; earlier flows retain their original scope.
+Checkpoint 74 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 747 tasks / 2241 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t16. Eight poem-and-note tasks and inspected original still/rippled-puddle art are drafted outside production. Match opposite water states, construct reflection → disturbance → clear reflection, distinguish a poetic second tree from an actual new tree, explain the returning reflection, ground differing feelings in words, read grows quiet as a change of state and reject invented biography. Fresh window-on-lane metaphor changes tree/wheel to sky/footstep. Recheck native project-file access before the next native GUI attempt.
+Next: l-r-course-t17. Build ten sports-rule tasks using selectable players and changing pass logs, followed by fall/teacher-check, disagreement, opponent-help and participation situations. Original four-player art is inspected outside production. Fresh five-player transfer must distinguish five touches from four different players.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
