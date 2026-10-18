@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-56 of413 lessons are individually reviewed;357 remain pending. Every lesson needs bespoke tasks,
+57 of413 lessons are individually reviewed;356 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-r-details. Twelve original reading-detail tasks use visible source cards and a workshop-notice update to distinguish numbers/grades,action-specific places,bring/provide,deadline/event day and changed versus retained facts. Nine single-clue tasks finish directly;three dual-clue tasks require a short reason. Application evidence is a readable carousel.
+Latest:l-r-inference. Ten original inference tasks connect an interactive broken/rejoined bridge pair to quoted evidence,combine context and actions,and limit conclusions about worry,helping,independence,repair outcomes,future plans and universal claims. Fresh speech transfer confines the inference to the actual listener and occasion.
 
-Inspected all12 final models,320-pixel source cards,all21 wrong evidence selections,three partial-chain repairs,missing/removed reasons,application source carousels at320,all application/transfer steps and the fresh music-club source. Durations45,25 and35 minutes are checked. Reinspected both compound picture gates after a byte-identical migration;its12-task/36-width regression grants no new lesson credit. Grades6–9;reserved reading text2 remains unexposed;zero independent records.
+Inspected all10 models,320-pixel source/bridge figures,both wrong picture paths,all15 wrong source choices,five partial-chain repairs,missing/removed reasons,application carousels and every application/transfer step. Reinspected final language refinements and both full sources,including actual scrolling to the story ending. The picture supplies state,not lesson timing,motives,prizes or strength. Grades7–9;reserved reading text2 remains unexposed;zero independent records.
 
-Checkpoint56 records the new flow/36 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint57 records the new flow/30 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The56 reviewed lessons cumulatively contain597 conditions/1791 widths;
+recorded explicitly. The57 reviewed lessons cumulatively contain607 conditions/1821 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-r-inference. Ten inference tasks and original broken/rejoined paper-bridge art are drafted and inspected outside course files. Connect picture choices to actual quoted evidence;combine context/actions and retain limits on motives,prizes,future plans and universal claims. Complete its own tests and visual review before credit.
+Next:l-r-main-idea. Eight main-idea tasks are drafted outside course files around original garden-guide and photo-show texts. Connect problem/change/result,distinguish vivid true details from the whole theme,and support titles and purpose. Fresh chair-helping transfer rejects a scene detail and an invented speech. Complete its own browser and visual review before credit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

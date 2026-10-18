@@ -159,6 +159,18 @@ try {
   expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length)
   checks.push('Readable source cards preserve partial evidence,repair a wrong clue and save reasoning offline without independent credit')
 
+  const inference=catalog.lessons.find(l=>l.id==='l-r-inference'),inferenceItem=inference.visualMission.workshop.items[0]
+  await page.goto(`${url}#lesson?id=${inference.id}`)
+  const inferencePrediction=catalog.questions.find(q=>q.id===inference.questionIds[0])
+  await action('studio-answer',inferencePrediction.answer.option);await action('studio-check');await action('studio-next')
+  await expect.poll(()=>page.locator('.reading-notice .event-art').evaluate(img=>img.complete&&img.naturalWidth>0&&img.src.startsWith('data:image/jpeg;base64,'))).toBe(true)
+  await page.locator('.art-panel-button[data-value="show"]').click();await action('studio-workshop-check');await expect(page.locator('.art-panel-button.wrong-record')).toHaveCount(1);await expect(page.locator('.reading-conclusion')).toHaveCount(0)
+  await page.locator('.art-panel-button[data-value="split"]').click();await action('studio-workshop-check');await expect(page.locator('.reading-evidence.accepted')).toHaveCount(1);await expect(page.locator('.reading-conclusion')).toHaveCount(0)
+  await page.goto(`${url}#home`);await page.goto(`${url}#lesson?id=${inference.id}`);await expect(page.locator('.reading-evidence.accepted')).toHaveCount(1)
+  await action('studio-workshop-choose','time');await action('studio-workshop-check');await expect(page.locator('.reading-conclusion')).toContainText(inferenceItem.answer)
+  await page.locator('[name=studioWorkshopOwn]').fill(inferenceItem.reason);await action('studio-workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible()
+  expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length)
+  checks.push('Embedded inference pictures select quoted evidence;the separate time clue and saved reasoning remain necessary offline')
   expect(network.filter(request => request !== url)).toEqual([]); expect(errors).toEqual([])
   checks.push('No remote/content requests, no page errors and no horizontal overflow at phone/tablet widths')
   writeFileSync(resolve(root, 'test-results/local/results.json'), JSON.stringify({ mode, networkDisabledAfterDocumentLoad: true, directFileNavigationValidated: mode === 'file', checks, errors, network, completedAt: new Date().toISOString() }, null, 2) + '\n')

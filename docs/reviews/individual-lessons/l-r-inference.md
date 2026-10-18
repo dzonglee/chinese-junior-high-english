@@ -1,0 +1,9 @@
+# Reading inference: pictured state,quoted clues,bounded conclusions
+
+2026-10-18 (Sydney). Individually reviewed;content remains draft.
+
+Ten original tasks use a peer-help story and Nia's reflection. The original broken/rejoined bridge pair selects actual quoted state evidence in opposite tasks;the first inference still needs a separate explicit lesson deadline. Context,actions and later remarks support possible worry,helping,encouragement and learning. Repair does not establish a prize or load-bearing result;intentions and one helpful action do not prove all future outcomes. Fresh speech transfer keeps its improvement claim within this listener and occasion.
+
+Inspected all10 models,narrow-phone source/bridge figures,both wrong picture paths,all15 wrong source choices,five partial-chain repairs,missing/removed reasons,application carousels and every application/transfer explanation. Reinspected final English/Chinese refinements and both full sources,including actual scrolling to the story ending. Picture taps share source IDs with the readable cards;unknown/duplicate IDs are rejected. Native picture layout uses widthFix. Grades7–9;reserved text2 remains unexposed;zero independent attempts,mastery or lesson-pass records.
+
+Final full serial core suite:1484 tests/14 files pass,with unchanged time limits. Compiler/typecheck,826 teaching/spelling,nine grammar,course/interaction/package checks,new10-task/30-width browser flow,eleven offline checks and ZIP CRC/exact-source comparisons pass. Final development/cloud adapter simulations cover all245 hashes and illustration readiness/failure/retry. Offline checks cover ten record-illustrated entry lessons and the new inference image/text chain,including partial restoration and repair. Managed file URLs remain blocked;standalone loads once before networking is disabled. Native GUI still needs restored project-drive access. No upload,publication,release or complete-course parity claim.

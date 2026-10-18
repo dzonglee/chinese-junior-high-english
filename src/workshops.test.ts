@@ -67,7 +67,7 @@ it('lets learners revisit earlier teaching without discarding their writing or r
 })
 
 for(const id of ['l-r-inference','l-r-course-t01','l-r-course-t05','l-r-course-t06','l-r-course-t09','l-r-course-t11','l-ls-course-t01','l-ls-course-t08','l-ls-course-t15','l-ls-course-t20'])it(`requires both the context and decisive clue before accepting ${id}`,()=>{
- const s=studio(id),w=s.mission!.workshop!,clues=w.items[0].options!.filter(o=>o.correct);expect(clues).toHaveLength(2);let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-choose',clues[0].id,2);p=changeTeaching(s,p,'workshop-check','',3);p=changeTeaching(s,p,'workshop-own','这两处线索共同回答了问题。',4);p=changeTeaching(s,p,'workshop-save','',5);expect(teachingCanAdvance(s,p)).toBe(false);p=changeTeaching(s,p,'workshop-choose',clues[1].id,6);p=changeTeaching(s,p,'workshop-check','',7);p=changeTeaching(s,p,'workshop-save','',8);expect(teachingCanAdvance(s,p)).toBe(true)
+ const s=studio(id),w=s.mission!.workshop!,clues=w.items[0].options!.filter(o=>o.correct);expect(clues).toHaveLength(2);let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-choose',clues[0].id,2);p=changeTeaching(s,p,'workshop-check','',3);p=changeTeaching(s,p,'workshop-own','这两处线索共同回答了问题。',4);p=changeTeaching(s,p,'workshop-save','',5);expect(teachingCanAdvance(s,p)).toBe(false);p=changeTeaching(s,p,'workshop-choose',clues[1].id,6);p=changeTeaching(s,p,'workshop-check','',7);p=changeTeaching(s,p,'workshop-save','',8);expect(workshopView(w,p).complete).toBe(true);expect(teachingCanAdvance(s,p)).toBe(w.items.length===1)
 })
 
 it('keeps a mistaken suffix on the live word-building result and limits choices to the current verb',()=>{
@@ -336,4 +336,17 @@ it('finishes a single-clue card task directly but keeps a multi-clue inference a
  expect(workshopView(w,p).correct).toBe(true);expect(workshopView(w,p).complete).toBe(false)
  changeWorkshop(w,p,'save','');expect(workshopView(w,p).complete).toBe(false)
  changeWorkshop(w,p,'own',second.reason);changeWorkshop(w,p,'save','');expect(workshopView(w,p).complete).toBe(true)
+})
+
+it('binds inference picture choices to distinct quoted evidence rather than unknown source IDs',()=>{
+ const w=structuredClone(studio('l-r-inference').mission!.workshop!)
+ expect(workshopProblems(w)).toEqual([])
+ w.items[0].sourceArt!.choices[0].id='invented-evidence'
+ expect(workshopProblems(w)).toContain('Invalid source illustration')
+ const duplicate=structuredClone(studio('l-r-inference').mission!.workshop!)
+ duplicate.items[0].sourceArt!.choices[1].id=duplicate.items[0].sourceArt!.choices[0].id
+ expect(workshopProblems(duplicate)).toContain('Invalid source illustration')
+ const unsafe=structuredClone(studio('l-r-inference').mission!.workshop!)
+ unsafe.items[0].sourceArt!.asset='../outside'
+ expect(workshopProblems(unsafe)).toContain('Invalid source illustration')
 })

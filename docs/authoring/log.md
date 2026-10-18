@@ -1379,3 +1379,16 @@ Current new lesson flow:12 conditions/36 task-width checks,reload and zero indep
 Cumulative597 conditions/1791 widths;earlier flows retain scope. Hashes:checkpoint-56.*.
 Next:l-r-inference. Ten inference tasks and original broken/rejoined paper-bridge art are drafted and inspected outside course files. Connect picture choices to actual quoted evidence;combine context/actions and retain limits on motives,prizes,future plans and universal claims. Complete its own tests and visual review before credit. Overall claim continues solo;357 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-r-inference individually reviewed
+
+57/413 reviewed. Ten original inference tasks connect an interactive broken/rejoined bridge pair to quoted evidence,combine context and actions,and limit conclusions about worry,helping,independence,repair outcomes,future plans and universal claims. Fresh speech transfer confines the inference to the actual listener and occasion.
+
+Inspected all10 models,320-pixel source/bridge figures,both wrong picture paths,all15 wrong source choices,five partial-chain repairs,missing/removed reasons,application carousels and every application/transfer step. Reinspected final language refinements and both full sources,including actual scrolling to the story ending. The picture supplies state,not lesson timing,motives,prizes or strength. Grades7–9;reserved reading text2 remains unexposed;zero independent records.
+
+Current new lesson flow:10 conditions/30 task-width checks,reload and zero independent records. 1,484 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,11 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 hashes and artwork readiness/failure/retry. No native GUI evidence. Core scope:Final full serial suite:1484 tests in14 files pass with unchanged time limits. It includes source-illustration ID validation and all whole-lesson completion guards. Final polished copy and UI also pass compiler,typecheck,teaching,grammar,course,interaction,package,browser,adapter,eleven offline and exact-source archive checks.
+
+Cumulative607 conditions/1821 widths;earlier flows retain scope. Hashes:checkpoint-57.*.
+Next:l-r-main-idea. Eight main-idea tasks are drafted outside course files around original garden-guide and photo-show texts. Connect problem/change/result,distinguish vivid true details from the whole theme,and support titles and purpose. Fresh chair-helping transfer rejects a scene detail and an invented speech. Complete its own browser and visual review before credit. Overall claim continues solo;356 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.
