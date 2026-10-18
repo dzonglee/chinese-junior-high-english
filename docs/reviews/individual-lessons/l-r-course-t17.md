@@ -1,0 +1,11 @@
+# Individual review: l-r-course-t17
+
+Content remains draft.
+
+Ten original sports-rule tasks use four selectable fictional players and changing pass logs to distinguish touches from different participants, then apply fall/teacher-check, calm disagreement, opponent-help and inclusive-purpose rules. Fresh five-player transfer has five touches but four different players and tests a partly correct combination. Explicit stacked web/native diagrams preserve English words and correct stop-before-check order; selected people now use pending dots, wrong crosses and ticks only for a checked complete participant set. Reading applications can opt into the existing fragment carousel independently of workshop kind.
+
+Inspected all ten models and wrong expressions, wrong/missing player selections, removal after completion and reload in each picture condition, every 320-pixel picture/record/stacked diagram, complete application and transfer passages through their final characters, application evidence errors/repairs and every explanation step. Reinspected final stop/check order, opponent-plus-skill requirements, shorter distractors, selection symbols and updated application wording. Original and 600-pixel art inspected and registered; code logs determine touches, not the portrait. Fresh five-player figure uses exact code labels, not the four-person image. Grades 7–9; reserved Ben/race text stays unexposed; zero independent records. Existing be lesson rerun at three widths, with wrong/removal/correct screenshots inspected and no new individual credit.
+
+Ten tasks / 30 task-width checks at320/390/768, reload and zero independent records. Final full serial suite: 1498 tests in 14 files pass with unchanged limits. A meaningful new two-spelling regression checks actual changing pass logs, distinct-player sets, incomplete/repaired/removed selections and five-player transfer separation. Current compiler/typecheck, 826 teaching/spelling variants, nine grammar constraints, course/interactions/package, full sports browser flow, seven-condition existing be-lesson regression, development/cloud adapters, fifteen offline checks and exact-source archives pass. Development/cloud simulations passed, including all 245 hashes and illustration readiness/failure/retry. No native GUI evidence.
+
+[Controls and inspected screenshots](l-r-course-t17/controls.json).

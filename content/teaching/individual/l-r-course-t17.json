@@ -1,0 +1,666 @@
+{
+  "lessonId": "l-r-course-t17",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Ten original sports-rule tasks distinguish touches from distinct participants through selectable people and changing pass logs, then apply stopping, teacher-check, calm disagreement, opponent-help and participation conditions. Fresh five-player transfer changes team size and tests a partly correct combination.",
+  "picturePurpose": "Four fictional players provide actual selection targets. Code supplies names, touch logs and rules; the portrait cannot establish touch history. Fresh five-player transfer uses an exact coded diagram rather than this four-person portrait.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "applicationStyle": "cards",
+    "title": "当一回裁判：谁碰过球，何时能继续",
+    "instruction": "队里有A、B、C、D四个人。先读传球记录、点出碰过球的人，再判断能否尝试得分；后面换成安全与公平情境。",
+    "conditions": [
+      {
+        "label": "第1回合：谁还没碰球",
+        "before": "In round 1, the team ",
+        "target": "must wait",
+        "after": ".",
+        "choices": [
+          "can try to score",
+          "must wait"
+        ],
+        "reason": "记录里有4次触球，但只有A、B、C这3名不同的队员。D还没触球，所以暂时不能尝试得分。重复出现同一个字母，不会多算一个人。",
+        "world": {
+          "kind": "people-scene",
+          "caption": "Every player must touch the ball before a scoring attempt.",
+          "cells": [
+            {
+              "label": "A / B / C / D",
+              "detail": "四名队员都要触球"
+            }
+          ],
+          "scene": {
+            "asset": "lesson-four-player-team",
+            "alt": "四名虚构队员按A、B、C、D从左到右站在球场上；球放在地面，图片本身不说明谁已经触球。",
+            "people": [
+              {
+                "id": "a",
+                "name": "A",
+                "description": "最左边穿短裤的短发男生",
+                "left": 6,
+                "width": 22
+              },
+              {
+                "id": "b",
+                "name": "B",
+                "description": "左起第二位扎马尾、穿短裤的女生",
+                "left": 29,
+                "width": 20
+              },
+              {
+                "id": "c",
+                "name": "C",
+                "description": "左起第三位戴眼镜、穿长裤的男生",
+                "left": 53,
+                "width": 21
+              },
+              {
+                "id": "d",
+                "name": "D",
+                "description": "最右边短发、穿长裤的女生",
+                "left": 76,
+                "width": 20
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "a",
+              "b",
+              "c"
+            ],
+            "selectionPrompt": "① 读传球记录，点出本回合碰过球的所有队员；同一字母重复只算一个人。",
+            "formLabel": "得分条件",
+            "subjectReason": "记录里有4次触球，但只有A、B、C这3名不同的队员。D还没触球，所以暂时不能尝试得分。重复出现同一个字母，不会多算一个人。",
+            "record": {
+              "title": "第1回合传球记录",
+              "days": [
+                {
+                  "label": "第1次",
+                  "text": "A"
+                },
+                {
+                  "label": "第2次",
+                  "text": "B"
+                },
+                {
+                  "label": "第3次",
+                  "text": "A"
+                },
+                {
+                  "label": "第4次",
+                  "text": "C"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "label": "第2回合：谁还没碰球",
+        "before": "In round 2, the team ",
+        "target": "can try to score",
+        "after": ".",
+        "choices": [
+          "can try to score",
+          "must wait"
+        ],
+        "reason": "A、B、C、D四名队员都已触球，符合尝试得分的条件。can try只表示可以尝试，不保证这一球得分。",
+        "world": {
+          "kind": "people-scene",
+          "caption": "Every player must touch the ball before a scoring attempt.",
+          "cells": [
+            {
+              "label": "A / B / C / D",
+              "detail": "四名队员都要触球"
+            }
+          ],
+          "scene": {
+            "asset": "lesson-four-player-team",
+            "alt": "四名虚构队员按A、B、C、D从左到右站在球场上；球放在地面，图片本身不说明谁已经触球。",
+            "people": [
+              {
+                "id": "a",
+                "name": "A",
+                "description": "最左边穿短裤的短发男生",
+                "left": 6,
+                "width": 22
+              },
+              {
+                "id": "b",
+                "name": "B",
+                "description": "左起第二位扎马尾、穿短裤的女生",
+                "left": 29,
+                "width": 20
+              },
+              {
+                "id": "c",
+                "name": "C",
+                "description": "左起第三位戴眼镜、穿长裤的男生",
+                "left": 53,
+                "width": 21
+              },
+              {
+                "id": "d",
+                "name": "D",
+                "description": "最右边短发、穿长裤的女生",
+                "left": 76,
+                "width": 20
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "d",
+              "a",
+              "b",
+              "c"
+            ],
+            "selectionPrompt": "① 读传球记录，点出本回合碰过球的所有队员；同一字母重复只算一个人。",
+            "formLabel": "得分条件",
+            "subjectReason": "A、B、C、D四名队员都已触球，符合尝试得分的条件。can try只表示可以尝试，不保证这一球得分。",
+            "record": {
+              "title": "第2回合传球记录",
+              "days": [
+                {
+                  "label": "第1次",
+                  "text": "D"
+                },
+                {
+                  "label": "第2次",
+                  "text": "A"
+                },
+                {
+                  "label": "第3次",
+                  "text": "B"
+                },
+                {
+                  "label": "第4次",
+                  "text": "C"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "label": "第3回合：谁还没碰球",
+        "before": "In round 3, the team ",
+        "target": "must wait",
+        "after": ".",
+        "choices": [
+          "can try to score",
+          "must wait"
+        ],
+        "reason": "记录里有4次触球，但只有C这1名不同的队员。A、B、D还没触球，所以暂时不能尝试得分。重复出现同一个字母，不会多算一个人。",
+        "world": {
+          "kind": "people-scene",
+          "caption": "Every player must touch the ball before a scoring attempt.",
+          "cells": [
+            {
+              "label": "A / B / C / D",
+              "detail": "四名队员都要触球"
+            }
+          ],
+          "scene": {
+            "asset": "lesson-four-player-team",
+            "alt": "四名虚构队员按A、B、C、D从左到右站在球场上；球放在地面，图片本身不说明谁已经触球。",
+            "people": [
+              {
+                "id": "a",
+                "name": "A",
+                "description": "最左边穿短裤的短发男生",
+                "left": 6,
+                "width": 22
+              },
+              {
+                "id": "b",
+                "name": "B",
+                "description": "左起第二位扎马尾、穿短裤的女生",
+                "left": 29,
+                "width": 20
+              },
+              {
+                "id": "c",
+                "name": "C",
+                "description": "左起第三位戴眼镜、穿长裤的男生",
+                "left": 53,
+                "width": 21
+              },
+              {
+                "id": "d",
+                "name": "D",
+                "description": "最右边短发、穿长裤的女生",
+                "left": 76,
+                "width": 20
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "c"
+            ],
+            "selectionPrompt": "① 读传球记录，点出本回合碰过球的所有队员；同一字母重复只算一个人。",
+            "formLabel": "得分条件",
+            "subjectReason": "记录里有4次触球，但只有C这1名不同的队员。A、B、D还没触球，所以暂时不能尝试得分。重复出现同一个字母，不会多算一个人。",
+            "record": {
+              "title": "第3回合传球记录",
+              "days": [
+                {
+                  "label": "第1次",
+                  "text": "C"
+                },
+                {
+                  "label": "第2次",
+                  "text": "C"
+                },
+                {
+                  "label": "第3次",
+                  "text": "C"
+                },
+                {
+                  "label": "第4次",
+                  "text": "C"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "label": "第4回合：谁还没碰球",
+        "before": "In round 4, the team ",
+        "target": "can try to score",
+        "after": ".",
+        "choices": [
+          "can try to score",
+          "must wait"
+        ],
+        "reason": "A、B、C、D四名队员都已触球，符合尝试得分的条件。A重复触球不影响四个人都已参与。can try只表示可以尝试，不保证这一球得分。",
+        "world": {
+          "kind": "people-scene",
+          "caption": "Every player must touch the ball before a scoring attempt.",
+          "cells": [
+            {
+              "label": "A / B / C / D",
+              "detail": "四名队员都要触球"
+            }
+          ],
+          "scene": {
+            "asset": "lesson-four-player-team",
+            "alt": "四名虚构队员按A、B、C、D从左到右站在球场上；球放在地面，图片本身不说明谁已经触球。",
+            "people": [
+              {
+                "id": "a",
+                "name": "A",
+                "description": "最左边穿短裤的短发男生",
+                "left": 6,
+                "width": 22
+              },
+              {
+                "id": "b",
+                "name": "B",
+                "description": "左起第二位扎马尾、穿短裤的女生",
+                "left": 29,
+                "width": 20
+              },
+              {
+                "id": "c",
+                "name": "C",
+                "description": "左起第三位戴眼镜、穿长裤的男生",
+                "left": 53,
+                "width": 21
+              },
+              {
+                "id": "d",
+                "name": "D",
+                "description": "最右边短发、穿长裤的女生",
+                "left": 76,
+                "width": 20
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "a",
+              "d",
+              "b",
+              "c"
+            ],
+            "selectionPrompt": "① 读传球记录，点出本回合碰过球的所有队员；同一字母重复只算一个人。",
+            "formLabel": "得分条件",
+            "subjectReason": "A、B、C、D四名队员都已触球，符合尝试得分的条件。A重复触球不影响四个人都已参与。can try只表示可以尝试，不保证这一球得分。",
+            "record": {
+              "title": "第4回合传球记录",
+              "days": [
+                {
+                  "label": "第1次",
+                  "text": "A"
+                },
+                {
+                  "label": "第2次",
+                  "text": "D"
+                },
+                {
+                  "label": "第3次",
+                  "text": "B"
+                },
+                {
+                  "label": "第4次",
+                  "text": "C"
+                },
+                {
+                  "label": "第5次",
+                  "text": "A"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "label": "有人摔倒：先做什么",
+        "before": "If a player falls, the game ",
+        "target": "must stop",
+        "after": ".",
+        "choices": [
+          "must stop",
+          "may continue"
+        ],
+        "reason": "规则说有人摔倒就暂停，并请老师检查。不能因为想赢就继续比赛，也不能把检查放到赛后。",
+        "world": {
+          "kind": "logic",
+          "caption": "If someone falls, stop and check with the teacher before continuing.",
+          "cells": [
+            {
+              "label": "Someone falls",
+              "detail": "有人摔倒"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "你选的第一步"
+            },
+            {
+              "label": "Teacher check",
+              "detail": "继续前先请老师检查"
+            }
+          ],
+          "layout": "stacked"
+        }
+      },
+      {
+        "label": "已经暂停：老师还没检查",
+        "before": "The game has stopped, but the teacher has not checked yet. The players ",
+        "target": "must wait",
+        "after": ".",
+        "choices": [
+          "can continue",
+          "must wait"
+        ],
+        "reason": "暂停只是第一步。老师还没检查，就还不能继续；别把已经停过当成可以重新开始。",
+        "world": {
+          "kind": "logic",
+          "caption": "The teacher has not checked the fallen player yet.",
+          "cells": [
+            {
+              "label": "Game stopped",
+              "detail": "已暂停"
+            },
+            {
+              "label": "No teacher check yet",
+              "detail": "检查条件尚未满足"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "你选的处理方式"
+            }
+          ],
+          "layout": "stacked"
+        }
+      },
+      {
+        "label": "老师检查后明确说可以继续",
+        "before": "The teacher has checked and says it is safe. The players ",
+        "target": "can continue",
+        "after": ".",
+        "choices": [
+          "can continue",
+          "must quit"
+        ],
+        "reason": "这个情境明确补充：老师已经检查并说可以安全继续。因此可以恢复比赛；暂停不等于必须退出比赛。",
+        "world": {
+          "kind": "logic",
+          "caption": "The teacher says, “It is safe to continue now.”",
+          "cells": [
+            {
+              "label": "Teacher checked",
+              "detail": "已经检查"
+            },
+            {
+              "label": "Safe to continue",
+              "detail": "老师明确允许继续"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "你选的处理方式"
+            }
+          ],
+          "layout": "stacked"
+        }
+      },
+      {
+        "label": "出现争议：怎样表达",
+        "before": "When players disagree, they ",
+        "target": "should explain calmly",
+        "after": ".",
+        "choices": [
+          "should hide mistakes",
+          "should explain calmly"
+        ],
+        "reason": "calmly要求冷静解释，accept the agreed rules要求接受约定的规则。把错误藏起来不能解决争议。",
+        "world": {
+          "kind": "logic",
+          "caption": "Players should explain a disagreement calmly and accept the agreed rules.",
+          "cells": [
+            {
+              "label": "A disagreement",
+              "detail": "出现争议"
+            },
+            {
+              "label": "Agreed rules",
+              "detail": "按约定规则沟通"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "你选的处理方式"
+            }
+          ],
+          "layout": "stacked"
+        }
+      },
+      {
+        "label": "赛后回顾：也看见对方的帮助",
+        "before": "After the game, each team should ",
+        "target": "name a helpful action",
+        "after": " by the other team.",
+        "choices": [
+          "ignore helpful actions",
+          "name a helpful action"
+        ],
+        "reason": "the other team指对方队伍。赛后要说出对方一次具体的帮助行为，还要说自己接下来想练的技能，不能只谈比分。",
+        "world": {
+          "kind": "logic",
+          "caption": "After the game: one helpful action by the other team + one skill to practise next.",
+          "cells": [
+            {
+              "label": "The other team",
+              "detail": "帮助来自对方队伍"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "你选的回顾内容"
+            },
+            {
+              "label": "Your next skill",
+              "detail": "还要说下次想练的技能"
+            }
+          ],
+          "layout": "stacked",
+          "connector": "+"
+        }
+      },
+      {
+        "label": "设计目的：最强者能包办吗",
+        "before": "The passing rule is designed to ",
+        "target": "include every player",
+        "after": ".",
+        "choices": [
+          "exclude others",
+          "include every player"
+        ],
+        "reason": "everyone和practise passing说明规则要让每个人参与传球。最强者包办会让其他队员失去练习机会。",
+        "world": {
+          "kind": "logic",
+          "caption": "The aim is to practise passing, not to let the strongest player do everything.",
+          "cells": [
+            {
+              "label": "Everyone touches",
+              "detail": "每个人参与"
+            },
+            {
+              "label": "Practise passing",
+              "detail": "一起练传球"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "你选的处理方式"
+            }
+          ],
+          "layout": "stacked"
+        }
+      }
+    ],
+    "choices": [
+      "can try to score",
+      "must wait",
+      "must stop",
+      "may continue",
+      "can continue",
+      "must quit",
+      "should hide mistakes",
+      "should explain calmly",
+      "ignore helpful actions",
+      "name a helpful action",
+      "exclude others",
+      "include every player"
+    ],
+    "items": [
+      {
+        "id": "fair-play-rules",
+        "label": "让判断符合当前规则",
+        "prompt": "Read the rule and the changing situation.",
+        "answer": "",
+        "reason": "先核对条件，再作判断。",
+        "hint": "重复触球不多算一个人；安全检查不能省略。"
+      }
+    ],
+    "applicationIds": [
+      "q-r-course-t17-1-2",
+      "q-r-course-t17-1-4"
+    ],
+    "transfer": {
+      "id": "individual-r-course-t17-transfer",
+      "topicId": "r-course-t17",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which decision follows both the pass log and the safety rule?",
+      "passage": "FIVE-PLAYER PASSING GAME\nOur team has five players: L, M, N, O and P. Every player must touch the ball before the team may attempt to score. A scoring attempt does not guarantee a point. In this round, the pass log is L → M → L → N → O. If anyone falls, stop the game and ask the teacher to check. Resume only when the teacher says it is safe.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Five touches mean all five players have touched the ball; the team may attempt to score now."
+        },
+        {
+          "id": "b",
+          "text": "P still needs a turn; if anyone falls, the game must stop for a teacher check."
+        },
+        {
+          "id": "c",
+          "text": "P still needs a turn, but players should keep playing if someone falls."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "P still needs a turn; if anyone falls, the game must stop for a teacher check."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先圈不同的队员，再检查安全条件；传球次数不能直接代替人数。",
+        "steps": [
+          {
+            "text": "L出现两次，仍只算一个人。L、M、N、O共四个人，P还没触球。",
+            "reason": "五次触球不等于五个人都触球；这队需要L、M、N、O、P五个人参与。"
+          },
+          {
+            "text": "有人摔倒就暂停，请老师检查；只有老师说安全才恢复。",
+            "reason": "安全条件独立成立，不能因为P还没触球或想继续得分就忽略它。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把重复出现的L多算成一个人；五次触球只有四名不同队员，P仍未参与。"
+          },
+          {
+            "option": "c",
+            "reason": "正确找出缺少P，却违反有人摔倒就暂停并请老师检查的安全规则。"
+          }
+        ],
+        "pitfall": "组合选项必须每一部分都符合原文；前半句正确，不能替后半句的错误过关。",
+        "visual": {
+          "kind": "evidence",
+          "title": "五次触球 ≠ 五人都触球",
+          "segments": [
+            {
+              "text": "Needed: L · M · N · O · P",
+              "role": "neutral",
+              "note": "全队五人"
+            },
+            {
+              "text": "Seen: L · M · N · O",
+              "role": "evidence",
+              "note": "实际四人"
+            },
+            {
+              "text": "Missing: P",
+              "role": "object",
+              "note": "还缺一人"
+            },
+            {
+              "text": "Fall → stop → teacher check",
+              "role": "evidence",
+              "note": "另一项安全条件"
+            }
+          ],
+          "caption": "重复的L不多算一个人；尝试得分的许可也不保证得分。"
+        },
+        "transfer": "如果接下来P传给L，参与人数够了吗？这是否保证得分？若此时有人摔倒，还需要先做什么？"
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@ const esc=(v:unknown='')=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':
 export function renderLessonStudio(s:Screen,artwork:(name:string)=>string=name=>`/assets/${name}.jpg`):string{
  const v=s.teaching;if(!v)return''
  if(v.mission?.open)return `<div class="teaching-studio" data-lesson="${esc(v.lesson.id)}" data-step="${v.progress.step}" data-mode="${v.lesson.mode}">${renderVisualMission(v.mission,artwork)}</div>`
- const p=v.progress,lesson=v.lesson,phase=p.step,diagnosis=v.diagnosis,cards=v.workshop?.item.sourceStyle==='cards'
+ const p=v.progress,lesson=v.lesson,phase=p.step,diagnosis=v.diagnosis,cards=v.workshop?.item.sourceStyle==='cards'||lesson.mission?.workshop?.applicationStyle==='cards'
  const button=(action:string,value:string,text:string,selected=false,disabled=false,cls='button secondary')=>`<button class="${cls} ${selected?'selected':''}" data-action="studio-${action}" data-value="${esc(value)}" ${disabled?'disabled':''}>${esc(text)}</button>`
  const rubric=()=>`<div class="rubric">${v.rubric.map(r=>button('rubric',r.id,`${r.selected?'✓':'○'} ${r.label}`,r.selected,false,'rubric-point')).join('')}</div>`
  const task=()=>{

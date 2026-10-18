@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-74 of 413 lessons are individually reviewed; 339 remain pending. Work stays solo under
+75 of 413 lessons are individually reviewed; 338 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t16. Eight original poem-and-note tasks match opposite still/rippled pictures, build reflection → disturbance → return, distinguish a poetic second tree from an actual new tree, explain the returning reflection, ground differing feelings in words, read grows quiet as change and reject invented biography. Fresh sky/window metaphor changes the image and disturbance. Course title, objective, pitfall and application reasons identify these reading skills.
+Latest: l-r-course-t17. Ten original sports-rule tasks use four selectable fictional players and changing pass logs to distinguish touches from different participants, then apply fall/teacher-check, calm disagreement, opponent-help and inclusive-purpose rules. Fresh five-player transfer has five touches but four different players and tests a partly correct combination. Explicit stacked web/native diagrams preserve English words and correct stop-before-check order; selected people now use pending dots, wrong crosses and ticks only for a checked complete participant set. Reading applications can opt into the existing fragment carousel independently of workshop kind.
 
-Inspected all eight models, all wrong source choices and both wrong water pictures, sequence decoy/swapped order/partial reload/removal after completion, three other partial chains and missing/removed reasons, every 320-pixel source/order/picture card and three named-slot figures, full source and passage endings, application carousels and every application/transfer step. Reinspected the shortened tree/word-evidence slots and final biography feedback. Original and 600-pixel art inspected and registered; the real tree stays intact and the reflection changes. Grades 8–9; reserved text 2 stays unexposed; zero independent records. Read-only WeChat status succeeds, but shared project-file access remains unavailable; the existing card tracking status is blocked.
+Inspected all ten models and wrong expressions, wrong/missing player selections, removal after completion and reload in each picture condition, every 320-pixel picture/record/stacked diagram, complete application and transfer passages through their final characters, application evidence errors/repairs and every explanation step. Reinspected final stop/check order, opponent-plus-skill requirements, shorter distractors, selection symbols and updated application wording. Original and 600-pixel art inspected and registered; code logs determine touches, not the portrait. Fresh five-player figure uses exact code labels, not the four-person image. Grades 7–9; reserved Ben/race text stays unexposed; zero independent records. Existing be lesson rerun at three widths, with wrong/removal/correct screenshots inspected and no new individual credit.
 
-Checkpoint 74 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 747 tasks / 2241 widths; earlier flows retain their original scope.
+Checkpoint 75 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 757 tasks / 2271 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t17. Build ten sports-rule tasks using selectable players and changing pass logs, followed by fall/teacher-check, disagreement, opponent-help and participation situations. Original four-player art is inspected outside production. Fresh five-player transfer must distinguish five touches from four different players.
+Next: l-r-course-t18. Nine kite-story tasks and inspected original missing/attached-paper-tail art are drafted outside production. Distinguish unused could-have possibilities from actual messages, order four real events, compare expected perfection with remembered shared work, interpret made room and preserve the qualified theme. Fresh leaky-model-boat transfer rejects partly correct overgeneralisation.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain

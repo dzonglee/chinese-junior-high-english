@@ -549,3 +549,21 @@ it('closes a previous reading explanation on changing questions while retaining 
  expect(p.caseIndex).toBe(1);expect(p.checked.explanation).toBe(false);expect(p.checked['step-2-1']).toBeUndefined()
  p=changeTeaching(s,p,'case','0',7);expect(p.checked['step-2-0']).toBe(true);expect(p.answers['step-2-0']).toBe(s.cases[0].answer.option);expect(p.checked.explanation).toBe(false)
 })
+
+it('counts distinct players from changing sports logs and keeps five-player transfer separate',()=>{
+ for(const spelling of ['american','british'] as const){
+  const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-course-t17')!,spelling),w=s.mission!.workshop!;expect(workshopProblems(w)).toEqual([]);expect(w.applicationStyle).toBe('cards');expect(w.conditions).toHaveLength(10);expect(w.conditions!.slice(4).every(c=>c.world.layout==='stacked')).toBe(true)
+  const logs=[['a','b','a','c'],['d','a','b','c'],['c','c','c','c'],['a','d','b','c','a']]
+  for(const [i,log]of logs.entries()){
+   const condition=w.conditions![i],scene=condition.world.scene!,p={...freshTeaching(s,1),step:1};p.answers.workshopIndex=String(i)
+   expect(scene.record!.days.map(d=>d.text)).toEqual(log.map(id=>id.toUpperCase()));expect(scene.subjects).toEqual([...new Set(log)]);expect(condition.target).toBe(new Set(log).size===4?'can try to score':'must wait')
+   changeWorkshop(w,p,'choose',condition.target);changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(false)
+   for(const id of scene.subjects)changeWorkshop(w,p,'subject',id)
+   changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(true)
+   changeWorkshop(w,p,'subject',scene.subjects[0]);expect(workshopView(w,p).complete).toBe(false)
+   const restored=restoreTeaching(s,p,2);expect(workshopView(w,restored).complete).toBe(false)
+  }
+  expect(s.cases.map(q=>q.id)).toEqual(['q-r-course-t17-1-2','q-r-course-t17-1-4']);expect(s.cases.every(q=>q.passage&&!q.passage.includes('Ben'))).toBe(true)
+  expect(s.transfer.passage).toContain('L → M → L → N → O');expect(s.transfer.passage).toContain('five players');expect(s.transfer.explanation.visual!.segments).toContainEqual(expect.objectContaining({text:'Missing: P'}));expect(s.transfer.review).toBe('draft')
+ }
+})
