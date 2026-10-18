@@ -567,3 +567,17 @@ it('counts distinct players from changing sports logs and keeps five-player tran
   expect(s.transfer.passage).toContain('L → M → L → N → O');expect(s.transfer.passage).toContain('five players');expect(s.transfer.explanation.visual!.segments).toContainEqual(expect.objectContaining({text:'Missing: P'}));expect(s.transfer.review).toBe('draft')
  }
 })
+
+it('retains accepted picture premises while a postcard argument collects its other required clue',()=>{
+ const s=studio('l-r-course-t19'),w=s.mission!.workshop!
+ for(const index of [2,4]){
+  const p={...freshTeaching(s,1),step:1};p.answers.workshopIndex=String(index)
+  const item=w.items[index],picture=item.evidenceGroups![0][0],other=item.evidenceGroups![1][0],wrong=item.sourceArt!.choices.find(c=>c.id!==picture)!.id
+  changeWorkshop(w,p,'choose',picture);expect(workshopView(w,p).proofArtChoices.find(c=>c.id===picture)).toMatchObject({selected:true,accepted:false,wrong:false})
+  changeWorkshop(w,p,'check','');expect(workshopView(w,p).proofReady).toBe(false);expect(workshopView(w,p).complete).toBe(false)
+  changeWorkshop(w,p,'choose',other);expect(workshopView(w,p).proofArtChoices.find(c=>c.id===picture)).toMatchObject({selected:false,accepted:true,wrong:false})
+  changeWorkshop(w,p,'check','');expect(workshopView(w,p).proofReady).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+  changeWorkshop(w,p,'choose',wrong);changeWorkshop(w,p,'check','');let v=workshopView(w,restoreTeaching(s,p,2));expect(v.proofArtChoices.find(c=>c.id===picture)).toMatchObject({accepted:true,wrong:false});expect(v.proofArtChoices.find(c=>c.id===wrong)).toMatchObject({selected:true,accepted:false,wrong:true});expect(v.complete).toBe(false)
+  changeWorkshop(w,p,'choose',other);changeWorkshop(w,p,'check','');changeWorkshop(w,p,'own',item.reason);changeWorkshop(w,p,'save','');v=workshopView(w,p);expect(v.complete).toBe(true);expect(v.proofArtChoices.find(c=>c.id===picture)).toMatchObject({selected:false,accepted:true,wrong:false})
+ }
+})

@@ -17,3 +17,5 @@ extra players, permission to attempt a score does not guarantee a point, and eve
 combination answer must satisfy the passage. Its rendered review is separate from engine coverage.
 
 People selections show a dot before checking, a cross for a checked wrong person, and a tick only when the complete selected participant set is correct. Removing a required person clears completion and retains the unfinished selection on reload.
+
+Accepted picture evidence stays visibly marked while the learner selects another required quotation. The active quotation and accepted premises are separate states; a wrong picture shows a cross without erasing an already accepted premise. This does not complete an unfinished argument.
