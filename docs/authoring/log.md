@@ -1470,3 +1470,16 @@ Current new lesson flow:8 conditions/24 task-width checks,reload and zero indepe
 Cumulative658 conditions/1974 widths;earlier flows retain scope. Hashes:checkpoint-63.*.
 Next:l-r-course-t06. Nine careers-reading tasks and inspected original backstage-prop/entrance-ticket-desk art are drafted outside production. Resolve She/them from context,match opposite workspaces to responsibilities,follow reporting and its limits,and distinguish an observed occasion from permanent claims. Fresh library-event transfer keeps role/report ownership and rejects zero-problem guarantees. Grades8–9;complete its own browser/visual review. Overall claim continues solo;350 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-r-course-t06 individually reviewed
+
+64/413 reviewed. Nine original careers-reading tasks resolve She/them in context, match backstage props and entrance tickets to opposite pictured workspaces, connect damaged objects and mismatched tickets to their respective reports, and preserve the limits of a guarantee and an observed occasion. The fresh library-event transfer keeps each volunteer’s role and report together without inventing a problem-free outcome.
+
+Inspected all nine models, wrong source choices and both wrong picture choices, partial evidence chains and reason repairs, complete source, 320-pixel source/picture cards and named evidence slots, application carousels and every application/transfer explanation figure. Rechecked the final adjacent Mina/She source order and workspace feedback. Original and 600-pixel artwork inspected and registered. Grades 8–9; reserved reading text 2 stays unexposed; guided attempts, mastery and lesson-pass records remain zero.
+
+Current new lesson: 9 tasks / 27 task-width checks, reload and zero independent records. Core scope: Inherited checkpoint 63 serial suite: 1491 tests in 14 files; shared engine/UI unchanged. Current final data/art compiler, typecheck, teaching/spelling, grammar, course, interactions, package, individual browser, development/cloud adapters, thirteen offline checks and exact-source archives pass. No new full core-suite run is claimed. Native adapter scope: Development/cloud simulations passed, including all 245 hashes and illustration readiness/failure/retry. No native GUI evidence. Current typecheck, 826 teaching/spelling variants, grammar/course/interaction/package checks, 13 offline checks and ZIP CRC/exact-source comparisons pass.
+
+Cumulative 667 tasks / 2001 widths; earlier flows retain scope. Hashes: checkpoint-64.*.
+Next: l-r-course-t07. Eight labor-procedure tasks and inspected original cloth-versus-notebook plant setups are drafted outside production. Read positive and negative picture prompts, whether/if/before conditions, cleanup and completion requirements, Friday reporting roles and limits of blame. Fresh art-club checklist requires clean brushes, a dry table and returned materials. Overall claim continues solo; 349 pending.
+Native GUI remains blocked by project access; no release, upload or complete-course parity.

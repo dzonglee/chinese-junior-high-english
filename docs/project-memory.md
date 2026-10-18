@@ -2,24 +2,22 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-63 of413 lessons are individually reviewed;350 remain pending. Every lesson needs bespoke tasks,
-useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
-unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
+64 of 413 lessons are individually reviewed; 349 remain pending. Work stays solo under
+APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest:l-r-course-t05. Eight original self-management tasks connect opposite red-folder/front-pocket and paper-tray picture choices to actual evidence,compare expected versus actual8-minute timing,attach2 to returned books,and separate one success,remaining difficulties and an untried plan. Named clue slots show each complementary evidence role and fill from checked groups. Fresh Sam transfer uses12 minutes while preserving the untried weekly plan.
+Latest: l-r-course-t06. Nine original careers-reading tasks resolve She/them in context, match backstage props and entrance tickets to opposite pictured workspaces, connect damaged objects and mismatched tickets to their respective reports, and preserve the limits of a guarantee and an observed occasion. The fresh library-event transfer keeps each volunteer’s role and report together without inventing a problem-free outcome.
 
-Inspected all8 models,all12 wrong source choices,both wrong picture destinations,four partial-chain repairs,missing/removed reasons,the complete source ending,all320-pixel picture/source and named-slot figures,application carousels and every application/transfer diagram. Shortened and reinspected the final picture label so it fits one line at320. Original and600-pixel art are inspected,registered and hashed. Grades7–9;reserved reading text2 stays unexposed;zero independent records.
+Inspected all nine models, wrong source choices and both wrong picture choices, partial evidence chains and reason repairs, complete source, 320-pixel source/picture cards and named evidence slots, application carousels and every application/transfer explanation figure. Rechecked the final adjacent Mina/She source order and workspace feedback. Original and 600-pixel artwork inspected and registered. Grades 8–9; reserved reading text 2 stays unexposed; guided attempts, mastery and lesson-pass records remain zero.
 
-Checkpoint63 records the new flow/24 widths and the core check scope,teaching,grammar,course,package,
-interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The63 reviewed lessons cumulatively contain658 conditions/1974 widths;
-earlier browser evidence keeps its original check scope. Do not claim all-course parity.
+Checkpoint 64 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 667 tasks / 2001 widths; earlier flows retain their original scope.
+Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next:l-r-course-t06. Nine careers-reading tasks and inspected original backstage-prop/entrance-ticket-desk art are drafted outside production. Resolve She/them from context,match opposite workspaces to responsibilities,follow reporting and its limits,and distinguish an observed occasion from permanent claims. Fresh library-event transfer keeps role/report ownership and rejects zero-problem guarantees. Grades8–9;complete its own browser/visual review.
+Next: l-r-course-t07. Eight labor-procedure tasks and inspected original cloth-versus-notebook plant setups are drafted outside production. Read positive and negative picture prompts, whether/if/before conditions, cleanup and completion requirements, Friday reporting roles and limits of blame. Fresh art-club checklist requires clean brushes, a dry table and returned materials.
 
-Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
-helper works;read memory and coordinate through the existing board. Content stays draft;approved
-audio and editorial/cohort mapping remain pending. No upload or publication.
+Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
+helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
+pending. No upload or publication.
 
 ## Previous local delivery · 2026-10-17
 
