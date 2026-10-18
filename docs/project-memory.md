@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-52 of413 lessons are individually reviewed;361 remain pending. Every lesson needs bespoke tasks,
+53 of413 lessons are individually reviewed;360 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-time-clauses. Fifteen time-clause tasks connect opposite door states,overlapping past intervals,event order and full clause boundaries with future-time present forms,past narration,since origins and indirect when questions. A shared fix keeps short assembled answers with punctuation.
+Latest:l-g-reason-purpose. Fifteen cause/purpose/result tasks gate opposite transport records,select complete clause/noun/verb phrase boundaries,and repair because/of,so that/in order to,so/such including many and repeated because/so.
 
-Inspected all15 models,phone figures,four wrong records,eleven wrong word selections,partial/removal recovery and all application/transfer steps. Reinspected final timeline,bell feedback and corrected320-pixel ending. Existing participle ending was inspected after a complete regression;no extra credit. Maths river-drag/number-line examples were visually compared;no whole-course parity claim. Grades8–9;reserved005–008 unexposed;zero independent records.
+Inspected all15 models,phone figures,both wrong transport gates,all13 wrong word selections,partial/removal recovery and all application/transfer steps. Given purposes do not prove achieved outcomes;fresh lamp/map transfer rejects invented completion. Grades8–9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint52 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint53 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The52 reviewed lessons cumulatively contain542 conditions/1626 widths;
+recorded explicitly. The53 reviewed lessons cumulatively contain557 conditions/1671 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-reason-purpose. Fifteen reason/purpose/result tasks are drafted outside course files. Reuse opposite actual bus/bike records,distinguish clause/noun/verb phrase boundaries and so/such structures,and keep intended goals separate from outcomes. Check every role and explanation before review credit.
+Next:l-g-concession. Fifteen concession/condition tasks are drafted outside course files. Register inspected dry/rain playground artwork,apply the explicit activity policy,repair unless/if-not and although/despite boundaries,and distinguish necessary conditions from guaranteed results. Enforce the existing sentence-initial capital instructions in source responses.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved

@@ -1327,3 +1327,16 @@ Current new lesson flow:15 conditions/45 task-width checks,reload and zero indep
 Cumulative542 conditions/1626 widths;earlier flows retain scope. Hashes:checkpoint-52.*.
 Next:l-g-reason-purpose. Fifteen reason/purpose/result tasks are drafted outside course files. Reuse opposite actual bus/bike records,distinguish clause/noun/verb phrase boundaries and so/such structures,and keep intended goals separate from outcomes. Check every role and explanation before review credit. Overall claim continues solo;361 pending.
 Native GUI still blocked by project access;no release,upload or complete-course parity.
+
+
+## 2026-10-18 (Sydney) · codex-solo · l-g-reason-purpose individually reviewed
+
+53/413 reviewed. Fifteen cause/purpose/result tasks gate opposite transport records,select complete clause/noun/verb phrase boundaries,and repair because/of,so that/in order to,so/such including many and repeated because/so.
+
+Inspected all15 models,phone figures,both wrong transport gates,all13 wrong word selections,partial/removal recovery and all application/transfer steps. Given purposes do not prove achieved outcomes;fresh lamp/map transfer rejects invented completion. Grades8–9;reserved005–008 unexposed;zero independent records.
+
+Current new lesson flow:15 conditions/45 task-width checks,reload and zero independent records. Retained shared-engine coverage:1,481 core tests/14 files,typecheck,826 teaching/spelling,grammar/course/interaction/package checks,9 offline checks and fresh ZIP CRC/exact-source comparison pass. Native adapter scope:Final development/cloud simulations passed,including all245 hashes and artwork readiness/failure/retry. No native GUI evidence. Core scope:Retained checkpoint52 coverage:1481 distinct tests/14 files,with its documented unchanged-timeout catalogue rerun. Shared engine/UI is unchanged;the full core suite was not rerun for this data-only lesson. Current compiler/typecheck/teaching/grammar/course/interaction/package,browser,adapter,nine offline and archive checks cover the final data.
+
+Cumulative557 conditions/1671 widths;earlier flows retain scope. Hashes:checkpoint-53.*.
+Next:l-g-concession. Fifteen concession/condition tasks are drafted outside course files. Register inspected dry/rain playground artwork,apply the explicit activity policy,repair unless/if-not and although/despite boundaries,and distinguish necessary conditions from guaranteed results. Enforce the existing sentence-initial capital instructions in source responses. Overall claim continues solo;360 pending.
+Native GUI still blocked by project access;no release,upload or complete-course parity.
