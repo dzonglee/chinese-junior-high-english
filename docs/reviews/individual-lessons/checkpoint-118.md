@@ -1,6 +1,6 @@
 # Lesson checkpoint 118
 
-2026-10-18 (Sydney). 118/413 individually reviewed; 295 pending. Content remains draft.
+2026-10-18 (UTC). 118/413 individually reviewed; 295 pending. Content remains draft.
 
 Six individual notice tasks distinguish today’s postponed visit, classroom waiting and school confirmation of individual collection arrangements. Two editable two-row plans preserve the waiting place/confirmation source and site staff instructions/clear-walkway priority. Original generated clear-versus-backpacks-obstructed corridor art supports a source-linked picture task; exact labels remain in code. A live confirmed/reported/delayed gap distinguishes confirmation from a classmate’s report. Two quick clue checks and four focused own explanations; four primary cases have authored two-step coaching. Fresh study-room/individual pickup and indoor-visit transfer changes the context. No invented exit route, future date or universal emergency procedure. Third current-official-notice dialogue reserved.
 

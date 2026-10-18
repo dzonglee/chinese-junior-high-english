@@ -1,6 +1,6 @@
 # Lesson checkpoint 119
 
-2026-10-18 (Sydney). 119/413 individually reviewed; 294 pending. Content remains draft.
+2026-10-18 (UTC). 119/413 individually reviewed; 294 pending. Content remains draft.
 
 Six individually authored space-source tasks match original different-sized classroom balls versus blocks, construct two editable two-row model/observation records and reorder time/direction recording before reliable-guide checking. The classroom model is useful for movement but not accurate real distances; note omissions without declaring it useless. A moving bright point is observed; spacecraft identity remains tentative, neither confirmed nor disproven. Two quick clue checks and four focused own explanations; four primary cases have authored two-step coaching. Implausible inherited ticket-price/meal/competition distractors were replaced with specific size-ratio, incomplete-record and premature-certainty mistakes. Fresh toy-vehicle desk model and possible-plane sighting transfer changes context. Third mission-stage dialogue reserved.
 

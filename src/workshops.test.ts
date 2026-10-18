@@ -9,7 +9,7 @@ import {workshopExpressionActions} from '../scripts/lib/workshop-test-actions.mj
 import {it,expect} from 'vitest'
 import {authorCatalog} from '../scripts/lib/author-content.mjs'
 import {createLessonTeaching,teachingExplanation,freshTeaching,changeTeaching,teachingCanAdvance,restoreTeaching,teachingProblems,sourceEvidence} from './core/lesson-teaching'
-import {workshopView,workshopProblems,changeWorkshop} from './core/lesson-workshop'
+import {workshopView,workshopProblems,changeWorkshop,mapWorkshop} from './core/lesson-workshop'
 import {individualDelayedProblems} from '../scripts/lib/author-visual-missions.mjs'
 import {containsTerm,productionReady,productionMinimum} from './core/teaching-production'
 import {missionView} from './core/visual-mission'
@@ -35,7 +35,7 @@ it('requires original writing for each planned function and prevents a zero-word
 })
 it('requires word recall and actual use, preserves input per word and distinguishes word boundaries',()=>{
  const s=studio('l-v-school'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};const item=w.items[0]
- p=changeTeaching(s,p,'workshop-input',item.answer,2);p=changeTeaching(s,p,'workshop-check','',3);p=changeTeaching(s,p,'workshop-save','',4);expect(workshopView(w,p).complete).toBe(false);p=changeTeaching(s,p,'workshop-own',`May I ${item.answer} this book today?`,5);p=changeTeaching(s,p,'workshop-save','',6);expect(workshopView(w,p).complete).toBe(true);p=changeTeaching(s,p,'workshop-item','1',7);p=changeTeaching(s,p,'workshop-item','0',8);expect(workshopView(w,p).input).toBe(item.answer);p=changeTeaching(s,p,'workshop-input','wrong',9);expect(workshopView(w,p).complete).toBe(false);expect(containsTerm('This is a cat.','a')).toBe(true);expect(containsTerm('This cat sat.','a')).toBe(false)
+ p=changeTeaching(s,p,'workshop-choose',item.options!.find(o=>o.correct)!.id,2);p=changeTeaching(s,p,'workshop-input',item.answer,2);p=changeTeaching(s,p,'workshop-check','',3);p=changeTeaching(s,p,'workshop-save','',4);expect(workshopView(w,p).complete).toBe(false);p=changeTeaching(s,p,'workshop-own',`May I ${item.answer} this book today?`,5);p=changeTeaching(s,p,'workshop-save','',6);expect(workshopView(w,p).complete).toBe(true);p=changeTeaching(s,p,'workshop-item','1',7);p=changeTeaching(s,p,'workshop-item','0',8);expect(workshopView(w,p).input).toBe(item.answer);p=changeTeaching(s,p,'workshop-input','wrong',9);expect(workshopView(w,p).complete).toBe(false);expect(containsTerm('This is a cat.','a')).toBe(true);expect(containsTerm('This cat sat.','a')).toBe(false)
 })
 it('keeps a selected wrong premise visible without unlocking the conclusion',()=>{
  const s=structuredClone(studio('l-r-details')),w={...s.mission!.workshop!,items:[{...s.mission!.workshop!.items[0],sourceStyle:undefined}]};s.mission!.workshop=w;let p={...freshTeaching(s,1),step:1};const item=w.items[0],bad=item.options!.find(o=>!o.correct)!,good=item.options!.find(o=>o.correct)!
@@ -47,7 +47,7 @@ it('keeps saved repairs and feedback on the same attempted expression',()=>{
 })
 
 it('makes the borrow/lend distinction change the transfer direction rather than merely relabeling a picture',()=>{
- const s=studio('l-v-school'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-input','lend',2);p=changeTeaching(s,p,'workshop-check','',3);expect(workshopView(w,p).usageDirection).toBe('left');expect(workshopView(w,p).feedback).toContain('借入');expect(workshopView(w,p).correct).toBe(false);p=changeTeaching(s,p,'workshop-input','borrow',4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).usageDirection).toBe('right');expect(workshopView(w,p).correct).toBe(true)
+ const s=studio('l-v-school'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-choose',w.items[0].options!.find(o=>o.correct)!.id,2);p=changeTeaching(s,p,'workshop-input','lend',2);p=changeTeaching(s,p,'workshop-check','',3);expect(workshopView(w,p).usageDirection).toBe('right');expect(workshopView(w,p).feedback).toContain('借入');expect(workshopView(w,p).correct).toBe(false);p=changeTeaching(s,p,'workshop-input','borrow',4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).usageDirection).toBe('left');expect(workshopView(w,p).correct).toBe(true)
 })
 
 it('keeps vocabulary form cues consistent with the selected spelling and marks the actual stress beat',()=>{
@@ -991,4 +991,39 @@ it('rejects inconsistent and malformed count reductions instead of plotting inve
  for(const r of [null,{before:10,after:40,unit:'个',beforeLabel:'上周',afterLabel:'本周'},{before:40.5,after:10,unit:'个',beforeLabel:'上周',afterLabel:'本周'},{before:40,after:10,unit:'',beforeLabel:'上周',afterLabel:'本周'},{before:40,after:10,unit:'个',beforeLabel:'本周',afterLabel:'本周'}]){const bad=structuredClone(w);bad.items[1].calculation!.reduction=r as never;expect(workshopProblems(bad)).toContain('Invalid reduction model')}
  for(const kind of ['time','yuan','minutes']){const bad=structuredClone(w);bad.items[1].calculation!.kind=kind as never;expect(workshopProblems(bad)).toContain('Invalid reduction model')}
  const bad=structuredClone(w);bad.items[1].calculation!.answer='10';expect(workshopProblems(bad)).toContain('Invalid reduction model')
+})
+
+it('keeps a wrong semantic decision visible despite correct spelling, and invalidates saved vocabulary after changing it',()=>{
+ const s=studio('l-v-school'),w=s.mission!.workshop!,item=w.items[0],right=item.options!.find(o=>o.correct)!,wrong=item.options!.find(o=>!o.correct)!
+ expect(item.wordDecision).toBeTruthy();let p={...freshTeaching(s,1),step:1}
+ const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)}
+ act('input',item.answer);act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toContain('先选出')
+ act('choose',wrong.id);act('check');expect(workshopView(w,p).feedback).toBe(wrong.reason);expect(workshopView(w,p).selected).toBe(wrong.id);expect(workshopView(w,p).input).toBe(item.answer)
+ act('own','May I borrow a blue pen?');act('save');expect(workshopView(w,p).complete).toBe(false)
+ p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).selected).toBe(wrong.id);expect(workshopView(w,p).feedback).toBe(wrong.reason)
+ act('choose',right.id);act('check');act('own',item.material!);act('save');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).ownMissing).toBe(true);act('own','May I borrow a blue pen?');expect(workshopView(w,p).ownMissing).toBe(false);act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('choose',wrong.id);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).attempted).toBe(false);expect(workshopView(w,p).own).toBe('May I borrow a blue pen?')
+ p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),4);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).selected).toBe(wrong.id)
+ act('choose',right.id);act('input','lend');act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).usageDirection).toBe('right');expect(workshopView(w,p).choices.find(o=>o.id===right.id)!.accepted).toBe(true)
+ act('input',item.answer);act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('input','');p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),5);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).input).toBe('');expect(workshopView(w,p).selected).toBe(right.id)
+})
+it('rejects ambiguous vocabulary decisions and maps their instructional language without changing persisted option ids',()=>{
+ const original=studio('l-v-school').mission!.workshop!;expect(workshopProblems(original)).toEqual([])
+ for(const mutate of [
+  (w:typeof original)=>{w.items[0].options![1].correct=true},
+  (w:typeof original)=>{w.items[0].options![0].correct=false},
+  (w:typeof original)=>{w.items[0].options![1].id=w.items[0].options![0].id},
+  (w:typeof original)=>{w.items[0].options![1].text=w.items[0].options![0].text},
+  (w:typeof original)=>{w.items[0].options![1].reason=' '},
+  (w:typeof original)=>{w.items[0].wordDecision!.prompt=' '},
+  (w:typeof original)=>{w.items[0].wordDecision!.art!.asset='../outside'},
+  (w:typeof original)=>{w.items[0].options![0].id=undefined as unknown as string},
+  (w:typeof original)=>{w.items[0].wordDecision!.art!.asset=undefined as unknown as string},
+  (w:typeof original)=>{w.items[0].wordDecision!.art!.assetRoot=null as unknown as 'assets'},
+  (w:typeof original)=>{w.items[0].wordDecision=null as unknown as typeof w.items[0]['wordDecision']},
+  (w:typeof original)=>{w.kind='proof'}
+ ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid word decision')}
+ const us=structuredClone(original);us.items[0].wordDecision!.prompt='Which color is your favorite?';us.items[0].wordDecision!.art!.alt='The color of the ruler.';us.items[0].options![0].text='favorite color';us.items[0].hint='Check the color.'
+ const uk=mapWorkshop(us,text=>editionText(text,'british'));expect(uk.items[0].wordDecision!.prompt).toBe('Which colour is your favourite?');expect(uk.items[0].wordDecision!.art!.alt).toBe('The colour of the ruler.');expect(uk.items[0].options![0].text).toBe('favourite colour');expect(uk.items[0].hint).toBe('Check the colour.');expect(uk.items[0].options!.map(o=>o.id)).toEqual(us.items[0].options!.map(o=>o.id));expect(uk.items[0].wordDecision!.art!.asset).toBe(us.items[0].wordDecision!.art!.asset)
 })

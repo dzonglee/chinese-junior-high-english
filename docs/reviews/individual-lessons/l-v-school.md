@@ -1,0 +1,11 @@
+# Eight school words: meaning, form and own use
+
+Eight individually authored word decisions teach borrow/lend direction with original classroom art, return by Friday, prepare questions versus before-class timing, explain something to somebody, improve a direct object, real because spelling repair, uncountable advice and question versus statement. Each task requires a correct meaning choice, recalled spelling and an original self-reviewed sentence. Two changed-context rewrites and an original ruler-loan/deadline/syntax transfer follow.
+
+Inspected original 1536x1024 art and 600x400 delivery; all eight word-decision figures and both direction models at 320/390/768. Inspected all wrong meaning, absent choice, wrong spelling, repaired, missing/copied own sentence, edited/reloaded and accepted own-use paths, both rewrite self-review gates, clinic, all fresh transfer distractors and summary. Final browser flow: eight tasks/24 widths, 119 captures, errors empty and zero independent records. Final native job dfba55d7b19d47bebc1fd3d59ff7d9e7: all 54 captures inspected at 367x794, actual SDK semantic/input/own-use controls, eight full-column choice geometry assertions and edited/reopened borrow repair. Native intrinsic button-width bug corrected and verified. Neutral missing-own feedback replaces misleading success styling. Own writing checks form/length only; learner self-review covers meaning and collocation. Guided practice gives no independent attempts, mastery, lessonDone or hearing credit. Content remains draft.
+
+Full serial core passes 1536 tests in 14 files; targeted native-components passes 10 tests on a quiescent rerun after an unrelated concurrent timeout. Typecheck, teaching/spelling, grammar/course/interaction/package checks, eight-task/24-width browser flow and 24 offline checks pass. Final provenance-only rebuild, both adapters and exact ZIP CRC/source checks pass. No validation weakened.
+
+Both development/cloud simulations pass all 245 pack hashes and three artwork roots, including explicit study-table asset registration. Strict word-decision contract validates distinct choices, one correct answer and registered artwork. Actual native results are recorded separately.
+
+[Focused native evidence](native-checkpoint-120/README.md).

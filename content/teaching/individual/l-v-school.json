@@ -1,0 +1,388 @@
+{
+  "lessonId": "l-v-school",
+  "reviewState": "draft",
+  "intent": "Individually teach eight school words through borrowing/returning directions, by-deadline interpretation, grammatical object/time distinction, explain-to and improve-object patterns, real spelling repair, advice countability and question-versus-statement decisions. Each decision gates spelling and own use; protected delayed items remain untouched.",
+  "picturePurpose": "One original fictional pre-loan study-table scene supports actor/ruler orientation and asking a real question about a picture. Exact actor labels, arrows, spelling changes, deadlines and syntax stay in code; the image does not establish permission or completed transfer.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "借还、准备、解释：把词用对",
+    "instruction": "每个词先做一个情境判断，再核对拼写，最后写一句自己的话。参考与练习都不算独立掌握。",
+    "items": [
+      {
+        "id": "borrow",
+        "label": "borrow：尺子向谁移动",
+        "prompt": "图左是借入方，图右是同学。左边想借用右边的尺子，应怎样理解borrow？",
+        "wordDecision": {
+          "prompt": "图左是借入方，图右是同学。左边想借用右边的尺子，应怎样理解borrow？",
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-study-table",
+            "alt": "原创虚构课桌场景：左边青绿色衣服学生面前有练习本和铅笔，右边紫色衣服学生旁有蓝色尺子。两人手放在各自桌边，尚未发生递交。人物称呼和物品方向由代码给出，图片不代表已经同意借出。"
+          }
+        },
+        "answer": "borrow",
+        "meaning": "借入",
+        "material": "May I borrow your ruler for a minute?",
+        "before": "May I ",
+        "after": " your ruler for a minute?",
+        "reason": "borrow表示借入，lend表示借出。句中I是借入方，your说明尺子原先在对方那里。先选对方向，再把borrow拼完整；礼貌提问不等于对方已经同意。",
+        "hint": "borrow 表示借入；lend 表示借出，注意方向。",
+        "options": [
+          {
+            "id": "receive",
+            "text": "我向同学借入尺子。",
+            "correct": true,
+            "reason": "borrow表示借入，尺子从同学移到我这里；图是借用前，不等于已经获准。"
+          },
+          {
+            "id": "give",
+            "text": "我把自己的尺子借给同学。",
+            "correct": false,
+            "reason": "这是lend的方向；borrow是说话者向别人借入。"
+          }
+        ],
+        "usage": {
+          "left": "我（图左，借入方）",
+          "right": "同学（图右）",
+          "object": "尺子",
+          "caption": "只演示所填动词的方向，不表示借用已获准。",
+          "alternatives": {
+            "borrow": "left",
+            "lend": "right"
+          }
+        }
+      },
+      {
+        "id": "return",
+        "label": "return：还回去，也要看期限",
+        "prompt": "你先前从图书馆借了书。原句要求做哪件事？",
+        "wordDecision": {
+          "prompt": "你先前从图书馆借了书。原句要求做哪件事？"
+        },
+        "answer": "return",
+        "meaning": "归还；返回",
+        "material": "Please return this book by Friday.",
+        "before": "Please ",
+        "after": " this book by Friday.",
+        "reason": "return在这里表示归还，通常不再加back。by Friday是最迟周五，不是after Friday。箭头指向图书馆，具体期限按句子核对，不编造哪一天或几点。",
+        "hint": "return 本身含“回”的意思，通常不再加 back。",
+        "options": [
+          {
+            "id": "give-back",
+            "text": "在周五或之前把这本书归还。",
+            "correct": true,
+            "reason": "return是归还；by Friday是最迟周五，不是周五之后才还。"
+          },
+          {
+            "id": "after-friday",
+            "text": "等周五过后再把书还回去。",
+            "correct": false,
+            "reason": "方向虽是还书，却把by的截止时间读反；原句不允许晚于周五。"
+          },
+          {
+            "id": "new-loan",
+            "text": "最迟周五再借入一本新书。",
+            "correct": false,
+            "reason": "这是新的borrow行为；return说归还已经借来的这本书。"
+          }
+        ],
+        "usage": {
+          "left": "你（先前借书）",
+          "right": "图书馆",
+          "object": "借来的书",
+          "caption": "你是归还方；词的方向不能替代by Friday的期限。",
+          "alternatives": {
+            "return": "right",
+            "borrow": "left"
+          }
+        }
+      },
+      {
+        "id": "prepare",
+        "label": "prepare：准备的对象是什么",
+        "prompt": "在We prepare our questions before the lesson中，prepare直接准备的是什么？",
+        "wordDecision": {
+          "prompt": "在We prepare our questions before the lesson中，prepare直接准备的是什么？"
+        },
+        "answer": "prepare",
+        "meaning": "准备",
+        "material": "We prepare our questions before the lesson.",
+        "before": "We ",
+        "after": " our questions before the lesson.",
+        "reason": "prepare our questions是准备要问的问题；before the lesson说明课前。prepare for the lesson也能表达为课作准备，但不是这句中prepare直接接的对象。",
+        "hint": "prepare for 后接要为之做准备的事情。",
+        "options": [
+          {
+            "id": "questions",
+            "text": "our questions：我们要问的问题。",
+            "correct": true,
+            "reason": "prepare直接接our questions；before the lesson说明准备发生在课前。"
+          },
+          {
+            "id": "lesson",
+            "text": "the lesson：把before去掉，直接读成准备这节课。",
+            "correct": false,
+            "reason": "the lesson前有before，是时间信息；原句直接宾语是our questions。"
+          }
+        ]
+      },
+      {
+        "id": "explain",
+        "label": "explain：解释的内容和对象怎么接",
+        "prompt": "选出能表达“向我解释这一步”的结构。",
+        "wordDecision": {
+          "prompt": "选出能表达“向我解释这一步”的结构。"
+        },
+        "answer": "explain",
+        "meaning": "解释",
+        "material": "Can you explain this step to me?",
+        "before": "Can you ",
+        "after": " this step to me?",
+        "reason": "explain后先放解释的内容，再用to接听的人：explain this step to me。不能把explain me this step当作本句的结构。",
+        "hint": "向某人解释用 explain something to somebody。",
+        "options": [
+          {
+            "id": "step-to-me",
+            "text": "explain this step to me",
+            "correct": true,
+            "reason": "先接解释的内容this step，再用to me表示向谁解释。"
+          },
+          {
+            "id": "me-step",
+            "text": "explain me this step",
+            "correct": false,
+            "reason": "这里不能照搬give me a book的双宾语结构；用explain something to somebody。"
+          }
+        ]
+      },
+      {
+        "id": "improve",
+        "label": "improve：后面直接接要提高的内容",
+        "prompt": "选择符合原句搭配的短语。",
+        "wordDecision": {
+          "prompt": "选择符合原句搭配的短语。"
+        },
+        "answer": "improve",
+        "meaning": "提高；改善",
+        "material": "Reading aloud helps me improve my English.",
+        "before": "Reading aloud helps me ",
+        "after": " my English.",
+        "reason": "improve my English表示提高英语水平。Reading aloud helps me improve…里，helps me后可接动词原形；本题检查improve与宾语之间不能多加to。",
+        "hint": "improve 后可以直接接要改善的内容。",
+        "options": [
+          {
+            "id": "direct-object",
+            "text": "improve my English",
+            "correct": true,
+            "reason": "improve直接接my English，不必在两者之间加to。"
+          },
+          {
+            "id": "extra-to",
+            "text": "improve to my English",
+            "correct": false,
+            "reason": "to不能放在improve与直接宾语my English之间；注意这不是helps me to improve中的to。"
+          }
+        ]
+      },
+      {
+        "id": "mistake",
+        "label": "mistake：你来改一个拼写错误",
+        "prompt": "哪一项确实把一个spelling mistake改对了？",
+        "wordDecision": {
+          "prompt": "哪一项确实把一个spelling mistake改对了？"
+        },
+        "answer": "mistake",
+        "meaning": "错误",
+        "material": "I found a spelling mistake in my note.",
+        "before": "I found a spelling ",
+        "after": " in my note.",
+        "reason": "mistake是错误；spelling mistake是拼写错误。这里先辨认哪一处改动是纠正错误，再拼mistake。make a mistake是犯错，不用do a mistake。",
+        "hint": "make a mistake 表示犯错，注意 mistake 的拼写。",
+        "options": [
+          {
+            "id": "repair",
+            "text": "becuase → because",
+            "correct": true,
+            "reason": "because的字母顺序是b-e-c-a-u-s-e；把ua调回au才是修正。"
+          },
+          {
+            "id": "introduce-error",
+            "text": "because → becuase",
+            "correct": false,
+            "reason": "左边because原本正确；调成becuase是在制造错误，不是纠错。"
+          }
+        ]
+      },
+      {
+        "id": "advice",
+        "label": "advice：一条建议怎么说",
+        "prompt": "advice作“建议”时，哪一种数量表达正确？",
+        "wordDecision": {
+          "prompt": "advice作“建议”时，哪一种数量表达正确？"
+        },
+        "answer": "advice",
+        "meaning": "建议",
+        "material": "Your advice helped me plan my week.",
+        "before": "Your ",
+        "after": " helped me plan my week.",
+        "reason": "advice不可数，原句Your advice前不加an；一条用a piece of advice，两条用two pieces of advice。单词结尾是-ce，别与动词advise混淆。",
+        "hint": "advice 不可数，一条建议用 a piece of advice。",
+        "options": [
+          {
+            "id": "piece",
+            "text": "a piece of advice",
+            "correct": true,
+            "reason": "advice不可数，要表达一条可用a piece of advice。"
+          },
+          {
+            "id": "an-advice",
+            "text": "an advice",
+            "correct": false,
+            "reason": "不能因为中文说一条建议，就直接给advice加an。"
+          },
+          {
+            "id": "advices",
+            "text": "two advices",
+            "correct": false,
+            "reason": "数量变化用two pieces of advice；advice本身不加复数s。"
+          }
+        ]
+      },
+      {
+        "id": "question",
+        "label": "question：提问还是陈述",
+        "prompt": "哪句是在询问这张图中的信息？",
+        "wordDecision": {
+          "prompt": "哪句是在询问这张图中的信息？",
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-study-table",
+            "alt": "原创虚构课桌场景：左边青绿色衣服学生面前有练习本和铅笔，右边紫色衣服学生旁有蓝色尺子。两人手放在各自桌边，尚未发生递交。人物称呼和物品方向由代码给出，图片不代表已经同意借出。"
+          }
+        },
+        "answer": "question",
+        "meaning": "问题",
+        "material": "Write one question about the picture.",
+        "before": "Write one ",
+        "after": " about the picture.",
+        "reason": "question在这里是提问的内容。Where are the two students studying?有疑问词和疑问词序；陈述句只是给信息。写one question时名词用单数。",
+        "hint": "question 指提问的内容；problem 常指待解决的难题。",
+        "options": [
+          {
+            "id": "ask",
+            "text": "Where are the two students studying?",
+            "correct": true,
+            "reason": "Where引出地点问题，正在向别人索取信息，是question。"
+          },
+          {
+            "id": "state",
+            "text": "The two students are studying at a table.",
+            "correct": false,
+            "reason": "这句是在陈述所见，没有提出问题；句末加问号也不能自动改好词序。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-school-transfer",
+      "topicId": "v-school",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which report keeps the borrowing direction, deadline and English patterns correct?",
+      "passage": "A NEW SCHOOL-DAY NOTE\nBefore the club meeting, Mei prepares two questions. She asks to borrow Jun’s ruler; Jun agrees and lends it to her. Mei will return the ruler by Thursday, so she plans to give it back on Wednesday. Jun explains a difficult step to her. Mei follows one piece of his advice, corrects a spelling mistake and practises to improve her English. No independent listening, speaking or exam score is claimed.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mei borrows the ruler and returns it on Wednesday; Jun explains the step to her and gives one piece of advice."
+        },
+        {
+          "id": "b",
+          "text": "Mei lends the ruler to Jun and returns it on Wednesday; Jun explains the step to her and gives one piece of advice."
+        },
+        {
+          "id": "c",
+          "text": "Mei borrows the ruler and waits until Friday to return it; Jun explains the step to her and gives one piece of advice."
+        },
+        {
+          "id": "d",
+          "text": "Mei borrows the ruler and returns it on Wednesday; Jun explains her the step and gives an advice."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Mei borrows the ruler and returns it on Wednesday; Jun explains the step to her and gives one piece of advice."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先画借还方向，再核对by的期限；最后检查explain和advice的搭配。",
+        "steps": [
+          {
+            "text": "Mei借入Jun的尺子，周三归还，符合最迟周四的期限。",
+            "reason": "Mei borrows，Jun lends；by Thursday包含周四之前，不是周四之后。"
+          },
+          {
+            "text": "解释这一步用explain the step to her；一条建议用one piece of advice。",
+            "reason": "explain不照搬双宾语结构，advice不可数，不能写an advice。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把Mei从借入方改成借出方，借还方向错了；其余搭配正确也不能抵消。"
+          },
+          {
+            "option": "c",
+            "reason": "借入方向正确，但周五晚于by Thursday的截止时间。"
+          },
+          {
+            "option": "d",
+            "reason": "方向和期限正确，却错用了explain her the step和an advice。"
+          }
+        ],
+        "pitfall": "借入借出看说话者；by是最迟时间；中文“一条建议”不能直接对应an advice。",
+        "visual": {
+          "kind": "evidence",
+          "title": "方向、期限与搭配一起过关",
+          "segments": [
+            {
+              "text": "Jun → ruler → Mei",
+              "role": "evidence",
+              "note": "Mei borrows; Jun lends"
+            },
+            {
+              "text": "Wednesday ≤ Thursday",
+              "role": "evidence",
+              "note": "满足by Thursday"
+            },
+            {
+              "text": "explain the step → to her",
+              "role": "evidence",
+              "note": "内容后用to接对象"
+            },
+            {
+              "text": "one piece of advice",
+              "role": "object",
+              "note": "advice不加an或复数s"
+            }
+          ],
+          "caption": "这是新便条明确给的安排；箭头连接借还关系与句法，不代表原题或学生已经完成借用。"
+        },
+        "transfer": "如果归还日期改成周五，为什么词义和搭配都正确仍不能选这份报告？"
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **119 / 413**. Current: **l-v-school**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **120 / 413**. Current: **l-v-school-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -127,7 +127,7 @@ Completed: **119 / 413**. Current: **l-v-school**. Evidence lives in docs/review
 | l-ls-course-t27 | 听懂交流：污染成因与可行的环保行动 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t27.md) |
 | l-ls-course-t28 | 听懂交流：自然灾害与安全准备 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t28.md) |
 | l-ls-course-t29 | 听懂交流：地球、太空与探索 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t29.md) |
-| l-v-school | 校园里的常用词 · 1 | pending | — |
+| l-v-school | 校园里的常用词 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-school.md) |
 | l-v-school-2 | 校园里的常用词 · 2 | pending | — |
 | l-v-school-3 | 校园里的常用词 · 3 | pending | — |
 | l-v-daily | 日常表达与学习习惯 · 1 | pending | — |
