@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-79 of 413 lessons are individually reviewed; 334 remain pending. Work stays solo under
+80 of 413 lessons are individually reviewed; 333 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t21. Ten original photo-sharing tasks include four changing fictional masking previews. Learners hide actual name/phone fields while keeping the project title, reject automatic publishing permission, distinguish private-chat from public-use consent, choose a respectful alternative, seek help and preserve one-copy/all-copy limits. Fresh robot-project transfer rejects two partly correct plans. Web/native controls use exact opaque code masks over inspected original art. A separate native scene-root fix restores the sports illustration path.
+Latest: l-r-course-t22. Nine original exhibition-note tasks match opposite river-path/bus illustrations to the correct presenters, distinguish a family word from an invented exhibit, preserve multiple-place and no-residence-test limits, keep presenter-chosen privacy, reject town-wide labels and identify respectful participation and purpose. Fresh bridge/ticket transfer changes examples and rejects partly correct generalisation and exclusion. Shorter prompts and a plain-English application replace technical scoped wording. Course title/objective/pitfall and application reasons are specific to these skills.
 
-Inspected all ten models and wrong expressions, all four unmasked/masked previews, extra/incomplete/edited masks, partial reload/removal/repair, every 320-pixel diagram and all masking widths, all application/transfer distractors and explanation steps, source endings, prediction, clinic and summary. Original PNG and 600-pixel art inspected; fictional fields only, no real-photo upload. Grades 8–9; reserved text stays unexposed; zero independent records. Existing sports wrong/correct/removal figures reinspected without new review credit.
+Inspected all nine models, all 14 wrong source choices and both wrong pictures, six partial evidence chains with reload and missing/removed reasons, every 320-pixel source/picture card and named-slot figure, complete source/passage endings, all application/transfer distractors, evidence errors/repairs and every explanation step, prediction, clinic and summary. Reinspected shorter picture/residence prompts and final readable possessive punctuation. Original PNG and 600-pixel art inspected; fictional illustrations do not identify real places or prove family relationships. Grade 9; reserved personal essay stays unexposed; zero independent records.
 
-Checkpoint 79 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 793 tasks / 2379 widths; earlier flows retain their original scope.
+Checkpoint 80 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 802 tasks / 2406 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t22. Author exhibition-note tasks for MANY WAYS TO BELONG: distinguish a river-path drawing, a family word and a new-neighbourhood bus journey; combine ordinary objects with personal connections, retain more-than-one-place and presenter-chosen privacy limits, repair overbroad labels and choose respectful visitor questions. Fresh transfer must change the examples and reject partly correct overgeneralisation. Source read; no next-lesson content or art installed.
+Next: l-r-course-t23. Build fact-checking tasks for THE PHOTOGRAPH WITH A NEW CAPTION. Separate missing origin metadata, an earlier different-town context, the new current/local caption, unknown original details, intent of each sharer and current local conditions. Consider repeating one original fictional bridge/fence illustration in code-controlled old-post/new-caption panels so both truly use the same image. No original date/town may be invented. Fresh transfer must change the claimed event and preserve origin versus current local verification. A plan exists outside production; no next-lesson content or art installed.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
