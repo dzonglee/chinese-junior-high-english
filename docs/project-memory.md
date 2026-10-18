@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-68 of 413 lessons are individually reviewed; 345 remain pending. Work stays solo under
+69 of 413 lessons are individually reviewed; 344 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t10. Eight original friendship-email tasks separate May’s guess from Leo’s reported explanation, construct the leaving/guess/later-explanation sequence, choose opposite game/gate pictures for different times, assign requests and commitments to the right person, preserve unconfirmed acceptance and respect other plans. Fresh shared-drawing transfer distinguishes agreed storage and notice of moves from a total ban or ownership change. English possessives and contractions now use readable interior apostrophes in edition-mapped web/native models; local Leo/Tao prompts use matching punctuation.
+Latest: l-r-course-t11. Eight original family-notice tasks resolve those days, use opposite washing/table-setting pictures, distinguish role assignments from unstated sequence, preserve everyone/their own scope and Saturday availability, and connect advance notice with cooperative purpose. Fresh community-reading-room transfer changes the day and rejects automatic role carryover and speed ranking.
 
-Inspected all eight models, all eleven wrong source choices and both wrong pictures, wrong order and decoy, partial-order reload and removal after completion, four other partial chains, missing/removed reasoning, full source ending, all 320-pixel cards/order/pictures and four named-slot figures, application carousels and every application/transfer step. Reinspected the final Leo/Ben headings and Tao budget-transfer heading. Original and 600-pixel art inspected and registered. Grades 7–9; reserved reading text 2 stays unexposed; zero independent records. Existing budget lesson rerun (8 tasks/24 widths), without new individual credit.
+Inspected all eight models, all twelve wrong source choices and both wrong pictures, four partial evidence chains and missing/removed reasoning, full source ending, final adjacent reference/role cards, all 320-pixel cards/pictures and four named-slot figures, application carousels and every application/transfer explanation. Final passage endings are visible after actual scrolling at 320 pixels. Original and delivery artwork inspected and registered. Grades 7–9; reserved reading text 2 stays unexposed; zero independent records. Read-only native status succeeds but MacStudioExternal file access still fails; existing blocked card updated.
 
-Checkpoint 68 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 699 tasks / 2097 widths; earlier flows retain their original scope.
+Checkpoint 69 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 707 tasks / 2121 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t11. Eight family-notice tasks and inspected original washing-station/table-setting art are drafted outside production. Resolve those days, match opposite roles, distinguish assignments from an unstated order, keep everyone/their own scope and Saturday availability separate, and read advance notice and cooperative purpose. Fresh community-reading-room transfer changes the day and rejects automatic role carryover and speed ranking.
+Next: l-r-course-t12. Eight volunteer-notice tasks and original welcome-desk/large-print-shelf art are drafted outside production. Separate 13:50 arrival from 80-minute event duration, match opposite locations, preserve only-if permission and private-document requirements, distinguish advance notice from early arrival and respond to actual needs. Fresh Saturday transfer changes arrival to 15:45 and checks partly correct combinations.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
