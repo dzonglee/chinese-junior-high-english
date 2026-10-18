@@ -30,6 +30,17 @@ function harness(lesson?: Lesson, simulatedAudio = false) {
 
 
 function answer(q:Question):string { return q.kind==='choice'?q.answer.option!:q.kind==='order'?JSON.stringify(q.answer.order):q.kind==='speaking'||q.kind==='writing'?q.answer.display:q.answer.accepted![0] }
+it('rejects a reading application whose clue cannot be selected, even when the prediction has usable evidence',()=>{
+ const lesson=source.lessons.find(l=>l.id==='l-r-course-t26')!,studio=createLessonTeaching(source,lesson)
+ expect(studio.cases[0].id).toBe('q-r-course-t26-1-3')
+ expect(teachingProblems(studio,lesson)).toEqual([])
+ expect(studio.evidence.some(e=>e.supports)).toBe(true)
+ for(const unusable of ['identity uncertain','a nonexistent identity']){
+  const broken=structuredClone(studio),q=broken.cases[0]
+  q.explanation.visual.segments=q.explanation.visual.segments.map(segment=>segment.role==='evidence'?{...segment,text:unusable}:segment)
+  expect(teachingProblems(broken,lesson)).toContain(`l-r-course-t26: missing usable source evidence for ${q.id}`)
+ }
+})
 it.each(source.lessons)('completes the real checked-pack five-phase studio for $id without granting mastery',async lesson=>{
  const h=harness(lesson),a=h.app
  await a.action('open-lesson-studio',lesson.id)

@@ -52,3 +52,8 @@ edits remove completion and reload preserves unfinished work. A stale saved flag
 an incorrect set. Label added scenarios as simulations and do not invent measurements from the
 source. A changed factor must also answer the stated experimental question. Mixed transform tasks
 use “previous/next item” navigation rather than calling every task a sentence.
+
+
+Individual application evidence must be actionable
+
+Every selected reading/listening application is now checked for at least one source card the learner can actually accept. A valid prediction alone is insufficient: an application override can otherwise introduce an unfinishable evidence step. Use a complete literal source sentence when a short phrase is below the evidence locator's matching threshold. The wildlife lesson originally used only “identity uncertain”; its complete source sentence now supplies the selectable clue. A regression rejects both that unsupported two-word locator and a longer phrase absent from the passage. This changes authoring validation, not guided-practice scoring.

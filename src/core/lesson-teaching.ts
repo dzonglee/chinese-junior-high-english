@@ -151,6 +151,7 @@ export function teachingProblems(s:LessonTeaching,lesson:Lesson):string[]{
   if(s.diagnoses.some(d=>!d.correct||!d.options.some(o=>o.id===d.correct)||d.options.length<2||d.options.some(o=>!d.reasons[o.id])))fail('incomplete exam clinic')
   if(!s.diagnosis.correct||!s.diagnosis.options.some(o=>o.id===s.diagnosis.correct)||s.diagnosis.options.length<2)fail('missing diagnostic contrast')
   if((s.mode==='reading'||s.mode==='transcript')&&(!s.evidence.some(e=>e.supports)||s.evidence.length<2))fail('missing source evidence activity')
+  if(s.mode==='reading'||s.mode==='transcript')for(const q of s.cases)if(!sourceEvidence(q).some(e=>e.supports))fail(`missing usable source evidence for ${q.id}`)
   if(s.mode==='communication'&&(s.modelSentences.length<2||!s.rubric.length||s.transfer.id===s.prediction.id))fail('missing model/revision/fresh communication task')
   if(s.diagnosis.options.some(o=>!s.diagnosis.reasons[o.id])||new Set(s.diagnosis.options.map(o=>o.text)).size!==s.diagnosis.options.length)fail('diagnosis needs distinct options and specific reasons')
   if(s.mode==='phonetics'&&(!s.sorting||s.sorting.cards.length<2))fail('missing phonetic sorting')
