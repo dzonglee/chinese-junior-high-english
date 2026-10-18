@@ -35,3 +35,7 @@ least 48-pixel height; CSS presence alone is insufficient.
 
 The first individual vocabulary lesson supplies its own eight decisions. Shared
 engine support does not grant review credit to other vocabulary lessons.
+
+During an authored word-decision activity, both renderers omit the repeated exam-focus
+overview. It remains at prediction and later phases; the active prompt and choices
+appear sooner. This is layout support, not individual review credit for other lessons.

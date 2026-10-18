@@ -14,7 +14,7 @@
 <template wx:if="{{view.mission.open}}" is="visual-mission" data="{{m:view.mission,view:view,busy:busy}}"/>
 <view wx:if="{{view && !view.mission.open}}" class="teaching-studio">
 
- <view wx:if="{{!((view.progress.step === 1 && view.workshop.hasScene) || ((view.progress.step === 1 || view.progress.step === 2) && (view.workshop.item.sourceStyle === 'cards' || view.lesson.mission.workshop.applicationStyle === 'cards')))}}" class="exam-focus"><text class="eyebrow">这节课的应试本领</text><text class="field-label">{{view.lesson.coaching.task}}</text><text class="help">{{view.lesson.coaching.check}}</text></view><view class="phase-strip"><text wx:for="{{['预测','动手','应用','批改','迁移']}}" wx:key="index" class="phase-pill {{view.progress.step === index ? 'current' : view.progress.step > index ? 'done' : ''}}">{{index+1}} {{item}}</text></view>
+ <view wx:if="{{!((view.progress.step === 1 && (view.workshop.hasScene || view.workshop.item.wordDecision)) || ((view.progress.step === 1 || view.progress.step === 2) && (view.workshop.item.sourceStyle === 'cards' || view.lesson.mission.workshop.applicationStyle === 'cards')))}}" class="exam-focus"><text class="eyebrow">这节课的应试本领</text><text class="field-label">{{view.lesson.coaching.task}}</text><text class="help">{{view.lesson.coaching.check}}</text></view><view class="phase-strip"><text wx:for="{{['预测','动手','应用','批改','迁移']}}" wx:key="index" class="phase-pill {{view.progress.step === index ? 'current' : view.progress.step > index ? 'done' : ''}}">{{index+1}} {{item}}</text></view>
  <view class="panel studio-stage">
  <block wx:if="{{view.progress.step === 0}}">
   <text class="eyebrow">先留下自己的想法，不计独立测验分数</text>
