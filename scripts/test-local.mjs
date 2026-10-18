@@ -272,6 +272,16 @@ try {
   await yuan.fill('12');await action('studio-workshop-check');await action('studio-workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible()
   expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length);expect((await state()).mastery).toEqual(beforeStudio.mastery);expect((await state()).lessonDoneAt).toEqual(beforeStudio.lessonDoneAt)
   checks.push('Yuan balance preserves a wrong spending answer offline, accepts full-width digits, invalidates a cleared amount and repairs without independent credit')
+  const experiment=catalog.lessons.find(l=>l.id==='l-ls-course-t09'),factorPlan=experiment.visualMission.workshop.items[1]
+  await page.goto(`${url}#lesson?id=${experiment.id}`);await action('studio-answer',catalog.questions.find(q=>q.id===experiment.questionIds[0]).answer.option);await action('studio-check');await action('studio-next');await action('studio-workshop-item','1')
+  await expect(page.locator('.setting-options button')).toHaveText(['改变','保持','改变','保持','改变','保持'])
+  for(const [row,value]of [['paper','on'],['shape','on'],['coins','off']])await action('studio-workshop-setting',row+':'+value)
+  await action('studio-workshop-settings-check');await expect(page.locator('[data-setting=paper]')).toHaveClass(/setting-wrong/);await page.goto(`${url}#home`);await page.goto(`${url}#lesson?id=${experiment.id}`);await expect(page.locator('.setting-status')).toHaveText(['改变','改变','保持'])
+  await action('studio-workshop-setting','paper:off');await action('studio-workshop-settings-check');await expect(page.locator('.reading-conclusion,.workshop-saved')).toHaveCount(0)
+  for(const group of factorPlan.evidenceGroups){await action('studio-workshop-choose',group[0]);await action('studio-workshop-check')}
+  await page.locator('[name=studioWorkshopOwn]').fill(factorPlan.reason);await action('studio-workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible();await action('studio-workshop-setting','coins:on');await page.goto(`${url}#home`);await page.goto(`${url}#lesson?id=${experiment.id}`);await expect(page.locator('.workshop-saved')).toHaveCount(0);await expect(page.locator('.setting-status')).toHaveText(['保持','改变','改变']);await action('studio-workshop-setting','coins:off');await action('studio-workshop-settings-check');await action('studio-workshop-check');await action('studio-workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible()
+  expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length);expect((await state()).mastery).toEqual(beforeStudio.mastery);expect((await state()).lessonDoneAt).toEqual(beforeStudio.lessonDoneAt)
+  checks.push('Three-factor change/keep labels and actual partly wrong plan restore offline; editing invalidates completion, retains clues and repairs without independent credit')
   const privacy=catalog.lessons.find(l=>l.id==='l-r-course-t21'),privacyCondition=privacy.visualMission.workshop.conditions[1]
   await page.goto(`${url}#lesson?id=${privacy.id}`)
   await action('studio-answer',catalog.questions.find(q=>q.id===privacy.questionIds[0]).answer.option);await action('studio-check');await action('studio-next');await action('studio-workshop-item','1')

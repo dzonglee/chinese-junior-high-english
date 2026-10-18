@@ -876,3 +876,22 @@ it('restricts authored yuan responses to explicit whole-yuan amounts and preserv
  for(const spelling of ['american','british'] as const){const t=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-ls-course-t08')!,spelling);expect(t.mission!.workshop!.items[2].calculation!.answer).toBe('12')}
  expect(studio('l-r-course-t12').mission!.workshop!.items[0].calculation!.kind).toBe('time');expect(studio('l-r-course-t12').mission!.workshop!.items[1].calculation!.kind).toBe('minutes')
 })
+
+
+it('keeps a three-factor change/keep plan distinct from the old two-reminder controls',()=>{
+ const id='l-ls-course-t09',s=studio(id),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item','1')
+ expect(workshopView(w,p).settings!.labels).toEqual(['改变','保持']);act('settings-check');expect(workshopView(w,p).settings!.rows.every(r=>r.feedback.includes('先选改变或保持'))).toBe(true)
+ for(const [row,value]of [['paper','on'],['shape','on'],['coins','off']])act('setting',row+':'+value);act('settings-check');let v=workshopView(w,p);expect(v.settings!.correct).toBe(false);expect(v.settings!.rows.map(r=>r.correct)).toEqual([false,true,true]);expect(v.settings!.rows.map(r=>r.status)).toEqual(['改变','改变','保持'])
+ const stored=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,stored.teaching[id],4);expect(workshopView(w,p).settings!.rows.map(r=>r.value)).toEqual(['on','on','off'])
+ act('setting','paper:off');act('settings-check');expect(workshopView(w,p).settings!.correct).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+ for(const g of w.items[1].evidenceGroups!){act('choose',g[0]);act('check')}act('own','只改形状，纸张和硬币保持相同，并逐个加硬币。');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('setting','coins:on');v=workshopView(w,p);expect(v.complete).toBe(false);expect(v.settings!.checked).toBe(false);expect(v.proofCollected).toHaveLength(2);expect(v.own).toContain('只改形状');expect(stored.attempts).toHaveLength(0);expect(stored.mastery).toEqual({});expect(stored.lessonDoneAt).toEqual({})
+ const phone=studio('l-ls-course-t05'),phoneState={...freshTeaching(phone,1),step:1};phoneState.answers.workshopIndex='5';expect(workshopView(phone.mission!.workshop!,phoneState).settings!.labels).toEqual(['允许','静音'])
+})
+
+it('requires distinct explicit labels for both binary plan states',()=>{
+ const w=structuredClone(studio('l-ls-course-t09').mission!.workshop!);expect(workshopProblems(w)).toEqual([])
+ for(const labels of [[],['改变'],['改变','保持','其他'],['改变','改变'],[' 改变','保持'],['','保持'],['超过八个字符的状态名称','保持']]){const bad=structuredClone(w);(bad.items[1].sourceSettings as any).labels=labels;expect(workshopProblems(bad)).toContain('Invalid source settings')}
+ const legacy=structuredClone(w);delete legacy.items[1].sourceSettings!.labels;expect(workshopProblems(legacy)).toEqual([])
+ for(const spelling of ['american','british'] as const){const t=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-ls-course-t09')!,spelling);expect(t.mission!.workshop!.items[1].sourceSettings!.labels).toEqual(['改变','保持'])}
+})

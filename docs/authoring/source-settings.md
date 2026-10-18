@@ -1,4 +1,4 @@
-# Source-backed reminder settings
+# Source-backed binary plans
 
 A proof/card item may use `sourceSettings` to turn a multi-condition instruction into a live
 configuration. Its title/note and two to four rows are original lesson content. Stable row IDs
@@ -25,3 +25,7 @@ l-ls-course-t05 keeps calls on, including Mum’s calls, while silencing other a
 current exercise. It does not claim only Mum’s number is allowed, a permanent rule, or measured
 improvement. Reusing a generated phone-in-another-room picture would not prove this contact
 exception; the changing exact configuration is the useful instructional visual.
+
+For plans other than reminders, supply `labels: [onLabel, offLabel]`: both distinct, trimmed and at most eight characters. Web/native controls, selected statuses and unset feedback use these exact labels; omitted labels retain 允许/静音 for the existing reminder lesson. Accessible naming uses the actual plan title. The generic check evaluates the source-backed plan, not an operating-system setting.
+
+l-ls-course-t09 uses 改变/保持 across paper, fold shape and coins. The only intended change is shape. Changing paper as well is a partly correct plan and must preserve the correct shape/coins rows while explaining the extra factor. Keep coin-loading method separate from a completed result; interacting with the configuration performs no physical experiment and yields no new bearing-capacity measurement.
