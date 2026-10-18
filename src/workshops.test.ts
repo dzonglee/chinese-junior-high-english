@@ -6,7 +6,7 @@ import {editionText} from './core/spelling'
 import {workshopExpressionActions} from '../scripts/lib/workshop-test-actions.mjs'
 import {it,expect} from 'vitest'
 import {authorCatalog} from '../scripts/lib/author-content.mjs'
-import {createLessonTeaching,teachingExplanation,freshTeaching,changeTeaching,teachingCanAdvance,restoreTeaching,teachingProblems} from './core/lesson-teaching'
+import {createLessonTeaching,teachingExplanation,freshTeaching,changeTeaching,teachingCanAdvance,restoreTeaching,teachingProblems,sourceEvidence} from './core/lesson-teaching'
 import {workshopView,workshopProblems,changeWorkshop} from './core/lesson-workshop'
 import {individualDelayedProblems} from '../scripts/lib/author-visual-missions.mjs'
 import {containsTerm,productionReady,productionMinimum} from './core/teaching-production'
@@ -423,6 +423,22 @@ it('uses edition-specific past practice verbs in actual speaking models and voca
  }
  expect(editionText('She practiced daily. Practice helps.','british')).toBe('She practised daily. Practice helps.')
  expect(editionText('She practised daily. Practice helps.','american')).toBe('She practiced daily. Practice helps.')
+})
+
+it('keeps English possessives and contractions readable in actual lesson models without breaking evidence or answers',()=>{
+ const repository=new ContentRepository({...c,questions:[...c.questions]},[],async()=>'')
+ for(const spelling of ['american','british'] as const){
+  repository.setSpelling(spelling)
+  const s=createLessonTeaching(repository.catalog,c.lessons.find(l=>l.id==='l-r-course-t10')!,spelling)
+  const q=s.cases.find(q=>q.id==='q-r-course-t10-1-4')!
+  expect(q.stem).toContain("Ben's choice")
+  const evidence=sourceEvidence(q).filter(e=>e.supports)
+  expect(evidence.length).toBeGreaterThan(0);expect(evidence.every(e=>q.passage!.includes(e.text))).toBe(true)
+  expect(checkAnswer(q,q.answer.option!)).toBe(true)
+  const modals=createLessonTeaching(repository.catalog,c.lessons.find(l=>l.id==='l-g-modals')!,spelling)
+  expect(modals.mission!.workshop!.conditions!.some(condition=>condition.reason.includes("mustn't"))).toBe(true)
+  expect(editionText('他说：“Ben’s plan isn’t ready.”',spelling)).toBe('他说：“Ben\'s plan isn\'t ready.”')
+ }
 })
 
 it('names each evidence requirement and preserves partial groups across wrong choices and reloads',()=>{

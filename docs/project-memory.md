@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-67 of 413 lessons are individually reviewed; 346 remain pending. Work stays solo under
+68 of 413 lessons are individually reviewed; 345 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t09. Eight original problem-solving tasks separate guess from observation, build observe → test → choose from source sentences, preserve spare/borrowed ownership, compare opposite clear-pocket/direct-writing pictures and match method features to changing needs. Fresh library-notice transfer limits an indoor result instead of inventing outdoor performance. New ordered-source controls support add/remove/reset, specific decoy and misplaced-position feedback, actual-order validation, partial restoration and completion invalidation after edits.
+Latest: l-r-course-t10. Eight original friendship-email tasks separate May’s guess from Leo’s reported explanation, construct the leaving/guess/later-explanation sequence, choose opposite game/gate pictures for different times, assign requests and commitments to the right person, preserve unconfirmed acceptance and respect other plans. Fresh shared-drawing transfer distinguishes agreed storage and notice of moves from a total ban or ownership change. English possessives and contractions now use readable interior apostrophes in edition-mapped web/native models; local Leo/Tao prompts use matching punctuation.
 
-Inspected all eight models, all wrong source and picture choices, swapped-order and decoy states, partial order restore and removal after completion, three other partial evidence-chain repairs, missing/removed reasoning, full source ending, every 320-pixel source/order/picture and named-slot figure, application carousels and all application/transfer steps. Shortened and reinspected the final borrowed-box label. Original and 600-pixel artwork inspected and registered. Grades 8–9; reserved text 2 stays unexposed; zero independent records. Existing budget flow rerun after shared changes without new review credit.
+Inspected all eight models, all eleven wrong source choices and both wrong pictures, wrong order and decoy, partial-order reload and removal after completion, four other partial chains, missing/removed reasoning, full source ending, all 320-pixel cards/order/pictures and four named-slot figures, application carousels and every application/transfer step. Reinspected the final Leo/Ben headings and Tao budget-transfer heading. Original and 600-pixel art inspected and registered. Grades 7–9; reserved reading text 2 stays unexposed; zero independent records. Existing budget lesson rerun (8 tasks/24 widths), without new individual credit.
 
-Checkpoint 67 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 691 tasks / 2073 widths; earlier flows retain their original scope.
+Checkpoint 68 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 699 tasks / 2097 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t10. Eight friendship-email tasks plus inspected original board-game/school-gate art are drafted outside production. Order leaving, guessing and later explanation; use opposite pictures for a reported destination and tomorrow’s invitation; separate request ownership, personal commitment, unconfirmed acceptance and choice. Fresh shared-drawing transfer keeps agreed storage and notice of moves distinct from ownership or a total ban.
+Next: l-r-course-t11. Eight family-notice tasks and inspected original washing-station/table-setting art are drafted outside production. Resolve those days, match opposite roles, distinguish assignments from an unstated order, keep everyone/their own scope and Saturday availability separate, and read advance notice and cooperative purpose. Fresh community-reading-room transfer changes the day and rejects automatic role carryover and speed ranking.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain

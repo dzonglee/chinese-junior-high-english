@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **67 / 413**. Current: **l-r-course-t10**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **68 / 413**. Current: **l-r-course-t11**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -75,7 +75,7 @@ Completed: **67 / 413**. Current: **l-r-course-t10**. Evidence lives in docs/rev
 | l-r-course-t07 | 劳动实践与把事情做好：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t07.md) |
 | l-r-course-t08 | 消费、预算与守信：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t08.md) |
 | l-r-course-t09 | 动手改进与解决问题：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t09.md) |
-| l-r-course-t10 | 朋友之间说清楚：读懂信息与用意 | pending | — |
+| l-r-course-t10 | 朋友之间说清楚：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t10.md) |
 | l-r-course-t11 | 家庭分工与社区生活：读懂信息与用意 | pending | — |
 | l-r-course-t12 | 志愿服务与公共帮助：读懂信息与用意 | pending | — |
 | l-r-course-t13 | 合作完成一项任务：读懂信息与用意 | pending | — |

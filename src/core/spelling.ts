@@ -6,10 +6,12 @@ const dictionaries: Record<Spelling, Map<string, string>> = {
   british: new Map(pairs.filter(([british]) => (british === 'practised' || !british.startsWith('practis'))).map(([british, american]) => [american, british])),
 }
 export function editionText(text: string, spelling: Spelling): string {
+  // Keep English names and contractions together when CJK heading fonts supply curly punctuation.
+  const readable = text.replace(/([A-Za-z])’(?=[A-Za-z])/g, "$1'")
   // Preserve explicit teaching notes that compare the two spelling systems.
-  if (text.includes('英式') && text.includes('美式')) return text
+  if (text.includes('英式') && text.includes('美式')) return readable
   const dictionary = dictionaries[spelling]
-  return text.replace(/\b[A-Za-z]+\b/g, word => {
+  return readable.replace(/\b[A-Za-z]+\b/g, word => {
     const target = dictionary.get(word.toLowerCase())
     return target ? /^[A-Z]/.test(word) ? target[0].toUpperCase() + target.slice(1) : target : word
   })
