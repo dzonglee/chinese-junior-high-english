@@ -424,3 +424,28 @@ it('uses edition-specific past practice verbs in actual speaking models and voca
  expect(editionText('She practiced daily. Practice helps.','british')).toBe('She practised daily. Practice helps.')
  expect(editionText('She practised daily. Practice helps.','american')).toBe('She practiced daily. Practice helps.')
 })
+
+it('names each evidence requirement and preserves partial groups across wrong choices and reloads',()=>{
+ const s=structuredClone(studio('l-r-course-t05')),w=s.mission!.workshop!,item=w.items[0],first=item.options!.find(o=>o.id===item.evidenceGroups![0][0])!
+ item.options!.push({...first,id:'alternative-first'});item.evidenceGroups![0].push('alternative-first')
+ expect(workshopProblems(w)).toEqual([])
+ let p={...freshTeaching(s,1),step:1}
+ expect(workshopView(w,p).proofSteps.map(step=>[step.label,step.accepted])).toEqual([['原先预计',false],['实际用时',false]])
+ for(const id of [first.id,'alternative-first']){p=changeTeaching(s,p,'workshop-choose',id,2);p=changeTeaching(s,p,'workshop-check','',3)}
+ expect(workshopView(w,p).proofCollected).toHaveLength(2)
+ expect(workshopView(w,p).proofSteps.map(step=>step.accepted)).toEqual([true,false]);expect(workshopView(w,p).correct).toBe(false)
+ p=changeTeaching(s,p,'workshop-choose',item.options!.find(o=>!o.correct)!.id,4);p=changeTeaching(s,p,'workshop-check','',5)
+ p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),6)
+ expect(workshopView(w,p).proofSteps.map(step=>step.accepted)).toEqual([true,false]);expect(workshopView(w,p).complete).toBe(false)
+ p=changeTeaching(s,p,'workshop-choose',item.evidenceGroups![1][0],7);p=changeTeaching(s,p,'workshop-check','',8)
+ expect(workshopView(w,p).proofSteps.every(step=>step.accepted)).toBe(true);expect(workshopView(w,p).correct).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+})
+
+it('rejects missing,duplicate or unusable names for evidence slots without changing legacy lessons',()=>{
+ const original=structuredClone(studio('l-r-course-t05').mission!.workshop!)
+ for(const labels of [['one'],['same','same'],['','other'],[' leading','other'],['x'.repeat(25),'other']]){
+  const w=structuredClone(original);w.items[0].evidenceLabels=labels;expect(workshopProblems(w)).toContain('Invalid named evidence slots')
+ }
+ const noCards=structuredClone(original);delete noCards.items[0].sourceStyle;expect(workshopProblems(noCards)).toContain('Invalid named evidence slots')
+ const legacy=structuredClone(original);legacy.items.forEach(item=>delete item.evidenceLabels);expect(workshopProblems(legacy)).toEqual([])
+})

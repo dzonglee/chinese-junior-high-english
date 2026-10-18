@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-62 of413 lessons are individually reviewed;351 remain pending. Every lesson needs bespoke tasks,
+63 of413 lessons are individually reviewed;350 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-r-course-t04. Eight original learning-method reading tasks establish attempt-before-checking,resolve4/2 counts and those two,follow Tuesday/Thursday scopes,separate corrections from recall and refuse an invented later score. Fresh Jun log distinguishes2 recalled before checking from1 corrected after. Fixed practised/practiced across actual speaking/vocabulary models while preserving the noun practice;replaced notice-specific source-button copy and an internal-record caption with student-facing wording.
+Latest:l-r-course-t05. Eight original self-management tasks connect opposite red-folder/front-pocket and paper-tray picture choices to actual evidence,compare expected versus actual8-minute timing,attach2 to returned books,and separate one success,remaining difficulties and an untried plan. Named clue slots show each complementary evidence role and fill from checked groups. Fresh Sam transfer uses12 minutes while preserving the untried weekly plan.
 
-Inspected all8 models,all13 wrong source choices,three partial-chain repairs,missing/removed reasons,the full source ending,all320-pixel cards,application carousels and every application/transfer diagram. Reinspected the final source button and educational caption. The log questions analyse fictional characters;guided attempts,mastery and lesson-pass records remain zero. Grades7–9;reserved reading text2 remains unexposed.
+Inspected all8 models,all12 wrong source choices,both wrong picture destinations,four partial-chain repairs,missing/removed reasons,the complete source ending,all320-pixel picture/source and named-slot figures,application carousels and every application/transfer diagram. Shortened and reinspected the final picture label so it fits one line at320. Original and600-pixel art are inspected,registered and hashed. Grades7–9;reserved reading text2 stays unexposed;zero independent records.
 
-Checkpoint62 records the new flow/24 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint63 records the new flow/24 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The62 reviewed lessons cumulatively contain650 conditions/1950 widths;
+recorded explicitly. The63 reviewed lessons cumulatively contain658 conditions/1974 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-r-course-t05. Eight self-management tasks plus original red-folder/front-pocket versus paper-tray art are drafted and inspected outside production. Compare expected/actual8-minute timing,match opposite destinations,keep2 books distinct,and limit one success and untried plans. Fresh Sam transfer uses12 minutes. Implement named clue slots from evidenceLabels and test their real partial/wrong/reload states before review. Plan:/tmp/next63-engine-plan.md.
+Next:l-r-course-t06. Nine careers-reading tasks and inspected original backstage-prop/entrance-ticket-desk art are drafted outside production. Resolve She/them from context,match opposite workspaces to responsibilities,follow reporting and its limits,and distinguish an observed occasion from permanent claims. Fresh library-event transfer keeps role/report ownership and rejects zero-problem guarantees. Grades8–9;complete its own browser/visual review.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved
