@@ -30,7 +30,8 @@ for(const p of app.subPackages??[]){const members=files(resolve(native,p.root));
 const roots=(app.subPackages??[]).map(p=>p.root.replace(/\/$/,'')+'/')
 assert(roots.includes('assets/')&&existsSync(resolve(native,'assets/index.js')),'Shared artwork must stay in its loaded subpackage');
 const main = all.filter(file => !roots.some(prefix=>relative(native, file).replaceAll('\\', '/').startsWith(prefix))), mainBytes = main.reduce((n, file) => n + statSync(file).size, 0), totalBytes = all.reduce((n, file) => n + statSync(file).size, 0)
-for(const asset of JSON.parse(readFileSync(resolve(root,'content/visual-assets.json'),'utf8')).assets.filter(a=>a.file.startsWith('miniprogram/illustrations/'))) assert(roots.includes('illustrations/')&&existsSync(resolve(root,asset.file)),'Lesson artwork must be in its registered native subpackage')
+for(const asset of JSON.parse(readFileSync(resolve(root,'content/visual-assets.json'),'utf8')).assets){const match=asset.file.match(/^miniprogram\/(illustrations(?:-2)?)\//);if(match)assert(roots.includes(match[1]+'/')&&existsSync(resolve(root,asset.file)), 'Lesson artwork must be in its registered native subpackage')}
+for(const root of ['assets','illustrations','illustrations-2'].filter(root=>roots.includes(root+'/')))assert(files(resolve(native,root)).reduce((n,f)=>n+statSync(f).size,0)<=1_500_000,'Artwork root exceeds its unchanged safety budget')
 assert(mainBytes < 1_900_000, 'Main package exceeds its safety budget'); assert(totalBytes < 19_000_000, 'Total package exceeds its safety budget')
 for (const name of ['welcome', 'cards', 'notebook']) assert(existsSync(resolve(native, 'assets', `${name}.png`)), `Missing Blender artwork: ${name}`)
 assert(!all.some(file => /(?:^|[\\/])reference[\\/]/.test(file)), 'Research files must not ship in the app')

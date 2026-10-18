@@ -970,3 +970,8 @@ it('rejects location previews with non-cardinal or duplicate direction words and
  const w=structuredClone(original),item=w.items[index];item.sourceGap!.options.push({id:'west',text:'west',reason:'This puts the lake west, not north.'});expect(workshopProblems(w)).toEqual([]);const s=studio('l-ls-course-t25');let p={...freshTeaching(s,1),step:1};p.answers.workshopIndex=String(index);p.answers['workshopGap-'+item.id]='west';expect(workshopView(w,p).gap!.map!.cells[3]).toMatchObject({text:'Lake',marker:true})
  expect(workshopView(studio('l-r-cloze').mission!.workshop!,{...freshTeaching(studio('l-r-cloze'),1),step:1}).gap!.map).toBeUndefined()
 })
+
+it('keeps wildlife behavior spelling consistent with each edition and preserves the conditional limit',()=>{
+ const c=authorCatalog(process.cwd()),lesson=c.lessons.find(l=>l.id==='l-ls-course-t26')!
+ for(const spelling of ['american','british'] as const){const t=createLessonTeaching(c,lesson,spelling),item=t.mission!.workshop!.items.find(i=>i.id==='wildlife-3')!,word=spelling==='american'?'behavior':'behaviour';expect(item.material).toContain('change its '+word);expect(item.options!.find(o=>o.id==='good')!.text).toContain('change its '+word);expect(item.material).toContain('Not if it disturbs them.');expect(item.sourceSettings!.rows[1].route!.targets).toEqual(['Get closer anyway','Do not move closer']);expect(workshopProblems(t.mission!.workshop!)).toEqual([]);expect(teachingProblems(t,lesson)).toEqual([])}
+})

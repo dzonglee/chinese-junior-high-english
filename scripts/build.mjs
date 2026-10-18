@@ -14,8 +14,8 @@ const release = process.argv.includes('--release'), configArg = process.argv.ind
 if (release) { const problems = releaseProblems(releaseConfig, catalog); if (problems.length) throw new Error('Release prerequisites are incomplete:\n' + problems.join('\n')) }
 const distributionRoot = resolve(root, release ? 'dist/release' : 'dist')
 const nativeRoot = release ? resolve(distributionRoot, 'miniprogram') : resolve(root, 'miniprogram')
-const illustrationFiles = JSON.parse(readFileSync(resolve(root, 'content/visual-assets.json'), 'utf8')).assets.filter(a => a.file.startsWith('miniprogram/illustrations/'))
-const illustrationPackages = [{ root: 'assets', name: 'app-artwork', pages: [] }, ...(illustrationFiles.length ? [{ root: 'illustrations', name: 'lesson-illustrations', pages: [] }] : [])]
+const visualAssets = JSON.parse(readFileSync(resolve(root, 'content/visual-assets.json'), 'utf8')).assets
+const illustrationPackages = [{ root: 'assets', name: 'app-artwork', pages: [] }, ...['illustrations', 'illustrations-2'].filter(root => visualAssets.some(a => a.file.startsWith(`miniprogram/${root}/`))).map(root => ({ root, name: `lesson-${root}`, pages: [] }))]
 const { contentProblems } = await validationModule(root)
 const errors = contentProblems(catalog)
 if (errors.length) throw new Error(errors.join('\n'))
