@@ -1,3 +1,5 @@
+import {emptyState} from './core/learning'
+import {checkedState} from './services/storage'
 import {ContentRepository} from './services/content'
 import {readFileSync} from 'node:fs'
 import {individualChoiceLayout} from '../scripts/lib/individual-choice-layout.mjs'
@@ -58,7 +60,7 @@ it('invalidates a completed transfer when its ordered response is edited, and a 
 })
 
 it('does not infer an agreed meeting from a proposal alone and retains accepted evidence after a wrong clue',()=>{
- const s=studio('l-ls-details'),w=s.mission!.workshop!,sources=w.items[0].options!.filter(o=>o.correct);expect(sources).toHaveLength(2);let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-choose',sources[0].id,2);p=changeTeaching(s,p,'workshop-check','',3);expect(workshopView(w,p).proofCollected).toHaveLength(1);expect(workshopView(w,p).correct).toBe(false);p=changeTeaching(s,p,'workshop-choose',w.items[0].options!.find(o=>!o.correct)!.id,4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).proofCollected).toHaveLength(1);p=changeTeaching(s,p,'workshop-choose',sources[1].id,6);p=changeTeaching(s,p,'workshop-check','',7);expect(workshopView(w,p).proofCollected).toHaveLength(2);expect(workshopView(w,p).correct).toBe(true)
+ const s=studio('l-ls-details'),w=s.mission!.workshop!,sources=w.items[0].options!.filter(o=>o.correct);expect(sources).toHaveLength(2);let p={...freshTeaching(s,1),step:1};const gap=w.items[0].sourceGap;if(gap){p=changeTeaching(s,p,'workshop-gap',gap.answer,2);p=changeTeaching(s,p,'workshop-gap-check','',2);expect(workshopView(w,p).correct).toBe(false)}p=changeTeaching(s,p,'workshop-choose',sources[0].id,2);p=changeTeaching(s,p,'workshop-check','',3);expect(workshopView(w,p).proofCollected).toHaveLength(1);expect(workshopView(w,p).correct).toBe(false);p=changeTeaching(s,p,'workshop-choose',w.items[0].options!.find(o=>!o.correct)!.id,4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).proofCollected).toHaveLength(1);p=changeTeaching(s,p,'workshop-choose',sources[1].id,6);p=changeTeaching(s,p,'workshop-check','',7);expect(workshopView(w,p).proofCollected).toHaveLength(2);expect(workshopView(w,p).correct).toBe(true)
 })
 
 it('uses a new situation for vocabulary application instead of repeating the worked cloze',()=>{
@@ -70,7 +72,7 @@ it('lets learners revisit earlier teaching without discarding their writing or r
 })
 
 for(const id of ['l-r-inference','l-r-course-t01','l-r-course-t05','l-r-course-t06','l-r-course-t09','l-r-course-t11','l-ls-course-t01','l-ls-course-t08','l-ls-course-t15','l-ls-course-t20'])it(`requires both the context and decisive clue before accepting ${id}`,()=>{
- const s=studio(id),w=s.mission!.workshop!,clues=w.items[0].options!.filter(o=>o.correct);expect(clues).toHaveLength(2);let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-choose',clues[0].id,2);p=changeTeaching(s,p,'workshop-check','',3);p=changeTeaching(s,p,'workshop-own','这两处线索共同回答了问题。',4);p=changeTeaching(s,p,'workshop-save','',5);expect(teachingCanAdvance(s,p)).toBe(false);p=changeTeaching(s,p,'workshop-choose',clues[1].id,6);p=changeTeaching(s,p,'workshop-check','',7);p=changeTeaching(s,p,'workshop-save','',8);expect(workshopView(w,p).complete).toBe(true);expect(teachingCanAdvance(s,p)).toBe(w.items.length===1)
+ const s=studio(id),w=s.mission!.workshop!,clues=w.items[0].options!.filter(o=>o.correct);expect(clues).toHaveLength(2);let p={...freshTeaching(s,1),step:1};const gap=w.items[0].sourceGap;if(gap){p=changeTeaching(s,p,'workshop-gap',gap.answer,2);p=changeTeaching(s,p,'workshop-gap-check','',2);expect(workshopView(w,p).complete).toBe(false)}p=changeTeaching(s,p,'workshop-choose',clues[0].id,2);p=changeTeaching(s,p,'workshop-check','',3);p=changeTeaching(s,p,'workshop-own','这两处线索共同回答了问题。',4);p=changeTeaching(s,p,'workshop-save','',5);expect(teachingCanAdvance(s,p)).toBe(false);p=changeTeaching(s,p,'workshop-choose',clues[1].id,6);p=changeTeaching(s,p,'workshop-check','',7);p=changeTeaching(s,p,'workshop-save','',8);expect(workshopView(w,p).complete).toBe(true);expect(teachingCanAdvance(s,p)).toBe(w.items.length===1)
 })
 
 it('keeps a mistaken suffix on the live word-building result and limits choices to the current verb',()=>{
@@ -756,4 +758,26 @@ it('rejects context gaps detached from the actual material, ambiguous words or m
 
 it('grounds every primary cloze explanation in literal passage quotes rather than the absent answer word',()=>{
  for(const q of c.questions.filter(q=>q.id.startsWith('q-r-cloze-1-'))){const quotes=q.explanation.visual.segments.filter(s=>s.role==='evidence').map(s=>s.text);expect(quotes).toHaveLength(2);expect(quotes.every(quote=>q.passage!.includes(quote))).toBe(true);expect(quotes.some(quote=>quote===q.answer.display)).toBe(false);expect(sourceEvidence(q).filter(s=>s.supports).length).toBeGreaterThanOrEqual(2);expect(q.explanation.steps[0].text).toContain(quotes[0])}
+})
+
+
+it('preserves the campus role evidence and saved reasoning through actual storage validation',()=>{
+ const id='l-ls-course-t02',s=studio(id),w=s.mission!.workshop!,item=w.items[8]
+ let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)}
+ act('item','8');for(const group of item.evidenceGroups!){act('choose',group[0]);act('check')}
+ act('own','老师自己留下提醒其他人，Ben同时去通知办公室。');act('save');expect(workshopView(w,p).complete).toBe(true)
+ const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true)
+ const restored=restoreTeaching(s,state.teaching[id],4),view=workshopView(w,restored)
+ expect(view.complete).toBe(true);expect(view.proofCollected.map(o=>o.id)).toEqual(['stay','while']);expect(view.own).toContain('Ben同时去通知')
+ expect(state.attempts).toHaveLength(0);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+})
+
+it('rejects proof identifiers that cannot persist and duplicated clue identifiers',()=>{
+ const original=studio('l-ls-course-t02').mission!.workshop!
+ expect(workshopProblems(original)).toEqual([])
+ for(const mutate of [
+  (w:typeof original)=>{w.items[8].options![2].id='while_'},
+  (w:typeof original)=>{w.items[8].id='campus/9'},
+  (w:typeof original)=>{w.items[8].options![2].id=w.items[8].options![1].id}
+ ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid persistent proof identifiers')}
 })

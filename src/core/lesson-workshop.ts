@@ -180,6 +180,7 @@ export function workshopProblems(w:LessonWorkshop):string[]{
   for(const c of w.conditions??[])if(!c.label||!c.target||!c.reason||!c.world.caption||!c.world.cells.length||!w.choices?.includes(c.target)||(!!c.choices&&(!c.choices.includes(c.target)||c.choices.length<2)))errors.push('Incomplete changing condition')
  }
  for(const i of w.items){
+  if(w.kind==='proof'&&(!/^[a-z][a-z0-9-]*$/.test(i.id)||i.options?.some(o=>typeof o.id!=='string'||!/^[a-z][a-z0-9-]*$/.test(o.id))||new Set((i.options??[]).map(o=>o.id)).size!==i.options?.length))errors.push('Invalid persistent proof identifiers')
   const gap=i.sourceGap
   if(gap&&(w.kind!=='proof'||i.sourceStyle!=='cards'||i.sourceOrder||i.sourceArt||i.calculation||typeof gap.before!=='string'||!gap.before.trim()||typeof gap.after!=='string'||!gap.after.trim()||!i.material?.includes(gap.before+'____'+gap.after)||typeof gap.answer!=='string'||!Array.isArray(gap.options)||gap.options.length<2||gap.options.length>4||new Set(gap.options.map(o=>o?.id)).size!==gap.options.length||new Set(gap.options.map(o=>o?.text)).size!==gap.options.length||gap.options.some(o=>!o||typeof o.id!=='string'||!(/^[a-z][a-z0-9-]*$/).test(o.id)||typeof o.text!=='string'||!o.text.trim()||o.text!==o.text.trim()||o.text.length>40||typeof o.reason!=='string'||!o.reason.trim())||!gap.options.some(o=>o.id===gap.answer)))errors.push('Invalid context gap')
   const calculation=i.calculation

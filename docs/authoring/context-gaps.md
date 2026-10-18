@@ -15,3 +15,8 @@ The saved reasoning is a draft, not semantic grading or independent question evi
 Do not combine a contextual gap with source ordering, a calculation or source art on the same item.
 Use pictures only where they help resolve the language task; sentence meaning itself can be the
 visual model. Existing proof items retain their original behavior.
+
+Proof item IDs and clue option IDs must be unique stable lowercase identifiers matching
+`[a-z][a-z0-9-]*`. They become saved-state keys: an underscore or slash may appear to work
+until reload, then fail storage validation. The teaching audit rejects these identifiers; verify
+actual browser reload after collecting clues and saving the learner's reasoning.

@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **91 / 413**. Current: **l-ls-course-t02**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **92 / 413**. Current: **l-ls-course-t03**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -99,7 +99,7 @@ Completed: **91 / 413**. Current: **l-ls-course-t02**. Evidence lives in docs/re
 | l-ls-details | 听清时间、地点和行动 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-details.md) |
 | l-ls-purpose | 听懂说话人的意图 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-purpose.md) |
 | l-ls-course-t01 | 听懂交流：把一天安排得有张有弛 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t01.md) |
-| l-ls-course-t02 | 听懂交流：校园活动与安全 | pending | — |
+| l-ls-course-t02 | 听懂交流：校园活动与安全 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t02.md) |
 | l-ls-course-t03 | 听懂交流：身心健康与求助 | pending | — |
 | l-ls-course-t04 | 听懂交流：找到适合自己的学习方法 | pending | — |
 | l-ls-course-t05 | 听懂交流：认识自己与管理时间 | pending | — |
