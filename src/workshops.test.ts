@@ -1049,7 +1049,7 @@ it('rejects invalid or incomplete picture evidence and maps labels without movin
  const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
 })
 it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
- for(const id of ['l-v-school','l-v-school-2','l-v-school-3']){
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily']){
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))

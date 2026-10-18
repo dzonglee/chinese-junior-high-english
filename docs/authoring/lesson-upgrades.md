@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **122 / 413**. Current: **l-v-daily**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **123 / 413**. Current: **l-v-daily-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -130,7 +130,7 @@ Completed: **122 / 413**. Current: **l-v-daily**. Evidence lives in docs/reviews
 | l-v-school | 校园里的常用词 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-school.md) |
 | l-v-school-2 | 校园里的常用词 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-school-2.md) |
 | l-v-school-3 | 校园里的常用词 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-school-3.md) |
-| l-v-daily | 日常表达与学习习惯 · 1 | pending | — |
+| l-v-daily | 日常表达与学习习惯 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-daily.md) |
 | l-v-daily-2 | 日常表达与学习习惯 · 2 | pending | — |
 | l-v-daily-3 | 日常表达与学习习惯 · 3 | pending | — |
 | l-v-community | 社区与出行 · 1 | pending | — |
