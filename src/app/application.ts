@@ -94,6 +94,7 @@ export class Application {
   setField(name: string, value: string) {
     this.form[name] = value
     if(this.page==='papers'&&['paperGrade','paperTerm'].includes(name)){this.emit();return}
+    if(this.page==='lesson'&&name.startsWith('studioRecall-')){const studio=this.currentTeaching();if(studio){const p=restoreTeaching(studio,this.state.teaching?.[studio.id],this.platform.now()),next=changeTeaching(studio,p,'workshop-recall-input',name.slice(13)+':'+value,this.platform.now());this.persist({...this.state,teaching:{...this.state.teaching,[studio.id]:next},updatedAt:this.platform.now()})}return}
     if(this.page==='lesson'&&['studioMissionRecall','studioMissionOwn','studioWorkshopInput','studioWorkshopOwn'].includes(name)){const studio=this.currentTeaching();if(studio){const p=restoreTeaching(studio,this.state.teaching?.[studio.id],this.platform.now()),next=changeTeaching(studio,p,name==='studioWorkshopInput'?'workshop-input':name==='studioWorkshopOwn'?'workshop-own':name==='studioMissionRecall'?'mission-recall-answer':'mission-own-line',value,this.platform.now());this.persist({...this.state,teaching:{...this.state.teaching,[studio.id]:next},updatedAt:this.platform.now()})}return}
     if (this.page === 'lesson' && ['studioAnswer','studioBefore','studioAfter'].includes(name)) {
       const studio = this.currentTeaching(); if (!studio) return

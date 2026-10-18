@@ -51,6 +51,12 @@ for(const q of app.catalog.questions){const w=q.visualMission?.workshop;if(!w)co
 for(const file of nativeArt)assert(existsSync(resolve(root,file)),`Native lesson artwork is missing at its resolved path: ${file}`)
 assert(nativeArt.has('illustrations/lesson-four-player-team.jpg'),'The authored four-player scene must resolve through the illustration subpackage')
 assert(nativeArt.has('illustrations/lesson-project-noticeboard.jpg'),'The masking preview must resolve through the illustration subpackage')
+// Exercise the actual Application field route in both native package modes.
+app.open('lesson',{id:'l-ls-course-t04'});await app.action('studio-answer',app.render().teaching.lesson.prediction.answer.option);await app.action('studio-check');await app.action('studio-next');await app.action('studio-workshop-item','2');
+assert.equal(app.render().teaching.workshop.recall.phase,'study');await app.action('studio-workshop-recall-hide');
+for(const [id,value]of [['map','mappp'],['bridge','不记得'],['corner','corner']])app.setField('studioRecall-'+id,value);
+await app.action('studio-workshop-recall-reveal');assert.equal(app.render().teaching.workshop.recall.phase,'compare');assert.equal(app.render().teaching.workshop.recall.rows[0].attempt,'mappp');assert.equal(app.render().teaching.workshop.recall.rows[0].same,false);
+app.setField('studioRecall-map','MAP');assert.equal(app.render().teaching.workshop.recall.phase,'recall');assert(app.render().teaching.workshop.recall.rows.every(w=>w.answer===''));assert.equal(app.state.attempts.length,1,'Guided recall adds no independent attempt');
 if (mode === 'cloud') { assert(cloudInitialised); assert(cloudDownloads > 0) } else { assert(!cloudInitialised); assert.equal(cloudDownloads, 0) }
 app.platform.navigate('builder');const stale=pendingNavigation.at(-1);app.platform.navigate('session');const current=pendingNavigation.at(-1),count=navigations.length
 stale.fail({errMsg:'navigateTo:fail cancelled'});assert.equal(navigations.length,count,'A late failed navigation cannot replace the newer session')

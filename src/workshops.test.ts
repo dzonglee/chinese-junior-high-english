@@ -781,3 +781,33 @@ it('rejects proof identifiers that cannot persist and duplicated clue identifier
   (w:typeof original)=>{w.items[8].options![2].id=w.items[8].options![1].id}
  ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid persistent proof identifiers')}
 })
+
+it('keeps recall hidden until real attempts, preserves wrong drafts and requires comparison plus source reasoning',()=>{
+ for(const spelling of ['american','british'] as const){
+ const id='l-ls-course-t04',s=createLessonTeaching(c,c.lessons.find(l=>l.id===id)!,spelling),w=s.mission!.workshop!,index=w.items.findIndex(i=>!!i.sourceRecall),item=w.items[index],words=item.sourceRecall!.words
+ let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item',String(index))
+ expect(workshopView(w,p).recall!.phase).toBe('study');act('recall-input','map:map');expect(workshopView(w,p).recall!.rows[0].attempt).toBe('')
+ act('recall-hide');expect(workshopView(w,p).recall!.rows.every(w=>w.answer==='')).toBe(true);act('recall-reveal');expect(workshopView(w,p).recall!.phase).toBe('recall')
+ for(const word of words)act('recall-input',word.id+':不记得');act('recall-reveal');expect(workshopView(w,p).recall!.rows.every(w=>!w.same)).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+ const saved=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,saved.teaching[id],4);expect(workshopView(w,p).recall!.rows[0].attempt).toBe('不记得')
+ for(const group of item.evidenceGroups!){act('choose',group[0]);act('check')};act('own','先遮住自己想，再揭开找没有想起来的词。');act('save');expect(workshopView(w,p).complete).toBe(true)
+ // Completion records the guided comparison even if the recall was wrong, never mastery.
+ expect(saved.attempts).toHaveLength(0);expect(saved.mastery).toEqual({});expect(saved.lessonDoneAt).toEqual({})
+ act('recall-input',words[0].id+':'+words[0].answer.toUpperCase());expect(workshopView(w,p).recall!.phase).toBe('recall');expect(workshopView(w,p).recall!.rows.every(w=>w.answer==='')).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+ for(const word of words.slice(1))act('recall-input',word.id+':'+word.answer);act('recall-reveal');expect(workshopView(w,p).recall!.rows.every(w=>w.same)).toBe(true);act('choose',item.evidenceGroups![0][0]);act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('recall-study');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).recall!.rows[0].attempt).toBe(words[0].answer.toUpperCase())
+ p.completed.push('workshop-'+index);p.checked['workshop-'+index]=true;expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).tabs[index].done).toBe(false)
+ }
+})
+it('rejects recall exercises with unsafe identifiers, ambiguous fields or mixed task mechanisms',()=>{
+ const original=studio('l-ls-course-t04').mission!.workshop!,index=original.items.findIndex(i=>!!i.sourceRecall);expect(workshopProblems(original)).toEqual([])
+ for(const mutate of [
+  (w:typeof original)=>{w.items[index].sourceRecall!.words[0].id='map_'},
+  (w:typeof original)=>{w.items[index].sourceRecall!.words[1].id=w.items[index].sourceRecall!.words[0].id},
+  (w:typeof original)=>{w.items[index].sourceRecall!.words[0].answer=' '},
+  (w:typeof original)=>{w.items[index].sourceRecall!.words[0].cue=''},
+  (w:typeof original)=>{w.items[index].sourceRecall!.words=[]},
+  (w:typeof original)=>{w.items[index].sourceRecall!.note=''},
+  (w:typeof original)=>{w.items[index].sourceOrder=['try','check']}
+ ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid recall exercise')}
+})

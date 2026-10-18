@@ -101,3 +101,17 @@ it.each(['studioWorkshopInput','studioWorkshopOwn'])('keeps the native workshop 
  for(const value of ['My own','My own useful sentence for this task.']){component.methods.studioInput.call(context,{detail:{name,value}});expect(model.screen.teaching.workshop[name==='studioWorkshopInput'?'input':'own']).toBe(value);expect(model.screen.teaching.canAdvance).toBe(false)}
  expect(store.get().attempts).toEqual([])
 })
+
+it('updates native recall inputs, hidden references and completion immediately while typing',()=>{
+ const c=authorCatalog(process.cwd()),lesson=c.lessons.find(l=>l.id==='l-ls-course-t04')!,s=createLessonTeaching(c,lesson),p=freshTeaching(s,1)
+ p.step=1;p.answers.workshopIndex='2';p.answers['workshopRecallPhase-method-3']='compare';for(const [id,value]of [['map','map'],['bridge','bridge'],['corner','corner']])p.answers['workshopRecall-method-3-'+id]=value
+ const data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
+ store.save({...emptyState(1),profile:{cityId:'北京-北京',structure:'63',grade:7,term:'upper',editionId:'pep-legacy',dailyMinutes:20,schoolYear:2026,createdAt:1},teaching:{[lesson.id]:p}})
+ const app=new Application(new ContentRepository(c,[],async()=>''),store,{now:()=>1,navigate(){},back(){},toast(){},confirm:async()=>true,exportText:async()=>{},importText:async()=>null,copy:async()=>{},play:async()=>{},stopAudio(){},startRecording:async()=>{},stopRecording:async()=>({path:'test',durationMs:1}),removeRecordings:async()=>{}})
+ app.open('lesson',{id:lesson.id});let component:any
+ vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{Component:(value:any)=>{component=value}})
+ const model:any={screen:structuredClone(app.render())},context={application:app,setData(patch:Record<string,unknown>){for(const [path,value]of Object.entries(patch)){const keys=path.split('.');let current=model;for(const key of keys.slice(0,-1))current=current[key];current[keys[keys.length-1]]=structuredClone(value)}}}
+ expect(model.screen.teaching.workshop.recall.phase).toBe('compare')
+ for(const value of ['m','mapp']){component.methods.studioInput.call(context,{detail:{name:'studioRecall-map',value}});expect(model.screen.teaching.workshop.recall.phase).toBe('recall');expect(model.screen.teaching.workshop.recall.rows[0].attempt).toBe(value);expect(model.screen.teaching.workshop.recall.rows.every((r:any)=>r.answer==='')).toBe(true);expect(store.get().teaching![lesson.id].answers['workshopRecall-method-3-map']).toBe(value)}
+ expect(store.get().attempts).toHaveLength(0)
+})
