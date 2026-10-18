@@ -625,3 +625,36 @@ it('rejects ambiguous masking diagrams and resets masks after their source chang
  const changed=createLessonTeaching(catalog,lesson)
  const restored=restoreTeaching(changed,p,4);expect(restored.answers['worldMembers-1']).toBeUndefined();expect(restored.answers['workshopOwn-photo-sharing-checks']).toBe('My own saved explanation.')
 })
+
+it('distinguishes the repeated photo contexts without treating an accepted picture as a complete argument',()=>{
+ for(const spelling of ['american','british'] as const){
+  const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-course-t23')!,spelling),w=s.mission!.workshop!
+  expect(workshopProblems(w)).toEqual([])
+  for(const [index,context]of [[1,'old-card'],[2,'new-card']] as const){
+   const item=w.items[index];expect(item.sourceArt!.layout).toBe('repeat');expect(item.sourceArt!.asset).toBe('lesson-bridge-source')
+   let p={...freshTeaching(s,1),step:1};changeWorkshop(w,p,'item',String(index));changeWorkshop(w,p,'choose',context);changeWorkshop(w,p,'check','')
+   expect(workshopView(w,p).proofArtChoices.find(c=>c.id===context)).toMatchObject({accepted:true,caption:context==='old-card'?'Another town · several years earlier':'Our river · this morning'})
+   expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false)
+   changeWorkshop(w,p,'choose',context==='old-card'?'new-card':'old-card');changeWorkshop(w,p,'check','');p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),2)
+   expect(workshopView(w,p).proofArtChoices.filter(c=>c.accepted)).toHaveLength(1);expect(workshopView(w,p).complete).toBe(false)
+   changeWorkshop(w,p,'choose','earlier');changeWorkshop(w,p,'check','');expect(workshopView(w,p).correct).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+   changeWorkshop(w,p,'own',item.reason);changeWorkshop(w,p,'save','');expect(workshopView(w,p).complete).toBe(true)
+  }
+  expect(s.transfer.passage).toContain('one path');expect(s.transfer.explanation.distractors).toHaveLength(2);expect(s.transfer.review).toBe('draft')
+ }
+})
+
+it('rejects incomplete comparison captions and resets checked arguments when a caption changes',()=>{
+ const s=studio('l-r-course-t23'),w=s.mission!.workshop!
+ for(const mutate of [
+  (x:typeof w)=>{x.items[1].sourceArt!.choices[0].caption=undefined},
+  (x:typeof w)=>{x.items[1].sourceArt!.choices[0].caption=' '},
+  (x:typeof w)=>{x.items[1].sourceArt!.layout=undefined},
+  (x:typeof w)=>{x.items[1].sourceArt!.layout='stacked' as 'repeat'}
+ ]){const bad=structuredClone(w);mutate(bad);expect(workshopProblems(bad)).toContain('Invalid source illustration')}
+ let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-item','1',2);p=changeTeaching(s,p,'workshop-choose','old-card',3);p=changeTeaching(s,p,'workshop-check','',4);p.answers['workshopOwn-fact-check-2']='My own saved explanation.'
+ const catalog=structuredClone(c),lesson=catalog.lessons.find(l=>l.id===s.id)!
+ lesson.visualMission!.workshop!.items[1].sourceArt!.choices[0].caption='A changed reported context'
+ const updated=createLessonTeaching(catalog,lesson),restored=restoreTeaching(updated,p,5)
+ expect(workshopView(updated.mission!.workshop!,restored).proofArtChoices.every(c=>!c.accepted)).toBe(true);expect(restored.answers['workshopOwn-fact-check-2']).toBe('My own saved explanation.')
+})

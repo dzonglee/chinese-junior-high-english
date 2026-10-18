@@ -1,0 +1,11 @@
+# Individual review: l-r-course-t23
+
+Content remains draft.
+
+Nine original fact-check tasks identify missing provenance, match opposite earlier-context/new-caption cards using exactly one repeated image, retain unknown original details, separate current local checks, avoid universal intent claims, distinguish genuine images from accurate captions, order two origin-checking steps and report known plus unknown. Fresh fallen-tree/gate transfer changes the event and restricts current-notice claims to named routes. New opt-in web/native context cards keep neutral labels and exact captions in code, with readable text and persistent accepted/wrong markers. Course prompts and application wording are specific and plain.
+
+Inspected all nine models, all 16 wrong source choices and both wrong context cards, three partial evidence chains with missing/removed reasoning, ordered decoy/swapped steps/partial reload/removal/repair, every 320-pixel source/picture/order card and named-slot figure, all three comparison widths, complete source and passage endings, all application/transfer distractors, evidence errors and every explanation step, prediction, clinic and summary. Reinspected final shorter prompts and 15-pixel comparison captions. Raw and 600-pixel art inspected; one fictional bridge/fence asset is repeated unchanged. No real place/date or original-event cause invented. Grade 9; reserved survey text stays unexposed; zero independent records. Earlier exhibition wrong/right picture layouts reinspected without new review credit.
+
+Nine tasks / 27 task-width checks at 320/390/768, reload and zero independent records. Full serial core: 1503 tests in 14 files pass. Current compiler/typecheck, 826 teaching/spelling variants, nine grammar constraints, course/interactions/package, complete fact-check flow, existing exhibition compatibility flow, both native adapters, seventeen offline checks and exact-source archives pass. Actual comparison cards retain the same image source, fit their labels, use 15-pixel captions and meet touch sizes at 320/390/768. Development/cloud simulations passed: all 245 hashes, registered resolved artwork and illustration readiness/failure/retry. Native status succeeds but shared project-file access fails; no native GUI evidence.
+
+[Controls and inspected screenshots](l-r-course-t23/controls.json).

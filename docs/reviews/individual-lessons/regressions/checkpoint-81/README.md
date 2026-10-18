@@ -1,0 +1,1 @@
+Existing exhibition lesson compatibility after adding an opt-in same-image comparison layout. Nine tasks / 27 widths and full learner flow. Inspected wrong/right original picture halves and persistent accepted markers. No additional individual-review credit.

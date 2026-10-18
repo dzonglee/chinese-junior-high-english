@@ -34,3 +34,11 @@ editing a mask removes completion, reload retains the actual unfinished state, a
 cannot complete a mismatched preview. Purpose and permission remain separate checks. Both web
 and native templates resolve registered illustration assets; people scenes outside the default
 asset folder must declare `scene.assetRoot: illustrations`.
+
+For comparing captions on the same picture, `sourceArt.layout: repeat` renders the identical
+registered asset twice. Each of the two choices needs a concise `caption` (up to 80 characters).
+Use neutral card labels so the title does not reveal the answer. Keep exact reported place/time
+claims in code, retain literal source options in the full material, and distinguish a reported
+context from proof of a real event. Web/native cards preserve the same pending, accepted and wrong
+markers as other evidence pictures. The fact-check lesson requires the earlier-post quotation and
+the learner's reasoning as well as the pictured context; a picture choice alone cannot complete it.
