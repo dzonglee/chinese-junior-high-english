@@ -19,3 +19,5 @@ combination answer must satisfy the passage. Its rendered review is separate fro
 People selections show a dot before checking, a cross for a checked wrong person, and a tick only when the complete selected participant set is correct. Removing a required person clears completion and retains the unfinished selection on reload.
 
 Accepted picture evidence stays visibly marked while the learner selects another required quotation. The active quotation and accepted premises are separate states; a wrong picture shows a cross without erasing an already accepted premise. This does not complete an unfinished argument.
+
+Stacked record-and-conclusion tasks use full-width, larger quoted-record rows in both web and native templates. Keep the diagram to the selected record and its conclusion when another generic source box adds no information.

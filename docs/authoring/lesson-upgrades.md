@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **77 / 413**. Current: **l-r-course-t20**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **78 / 413**. Current: **l-r-course-t21**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -85,7 +85,7 @@ Completed: **77 / 413**. Current: **l-r-course-t20**. Evidence lives in docs/rev
 | l-r-course-t17 | 体育活动与公平竞争：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t17.md) |
 | l-r-course-t18 | 读故事、谈人物与作品：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t18.md) |
 | l-r-course-t19 | 节日、习俗与旅行见闻：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t19.md) |
-| l-r-course-t20 | 用事实介绍有贡献的人：读懂信息与用意 | pending | — |
+| l-r-course-t20 | 用事实介绍有贡献的人：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t20.md) |
 | l-r-course-t21 | 公共规则与个人信息保护：读懂信息与用意 | pending | — |
 | l-r-course-t22 | 介绍家乡文化与自己的身份：读懂信息与用意 | pending | — |
 | l-r-course-t23 | 关心世界与辨别信息：读懂信息与用意 | pending | — |
