@@ -840,3 +840,12 @@ it('rejects inconsistent or nonpersistent reminder controls and mixed source mec
   (w:typeof original)=>{w.items[index].sourceGap=w.items[0].sourceGap}
  ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid source settings')}
 })
+
+it('rejects both plant-picture proof claims when the required pot bottom is unseen',()=>{
+ const id='l-ls-course-t07',s=studio(id),w=s.mission!.workshop!,index=1,item=w.items[index];let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item',String(index))
+ for(const choice of item.sourceArt!.choices){act('choose',choice.id);act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).proofArtChoices.find(c=>c.id===choice.id)!.wrong).toBe(true);expect(workshopView(w,p).proofArtChoices.some(c=>c.accepted)).toBe(false)}
+ act('choose','hole');act('check');act('own','两图看不到盆底，叶色不证明有孔；还需要直接检查。');act('save');expect(workshopView(w,p).complete).toBe(false)
+ act('choose','unseen');act('check');act('save');expect(workshopView(w,p).complete).toBe(true);expect(workshopView(w,p).proofArtChoices.some(c=>c.accepted)).toBe(false)
+ const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,state.teaching[id],4);expect(workshopView(w,p).complete).toBe(true);expect(workshopView(w,p).proofCollected.map(c=>c.id).sort()).toEqual(['hole','unseen']);expect(state.attempts).toHaveLength(0);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ expect(item.answer).toContain('still needs checking');expect(item.reason).toContain('不是证明盆没有孔')
+})
