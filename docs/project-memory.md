@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-58 of413 lessons are individually reviewed;355 remain pending. Every lesson needs bespoke tasks,
+59 of413 lessons are individually reviewed;354 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-r-main-idea. Eight original main-idea tasks distinguish a true detail from the whole theme,connect problem/change/result,and support titles and purpose. Corrected the previously all-A reviewed choice transfers using stable build-time option layouts with answer/distractor remapping;canonical wording and correct meaning stay unchanged.
+Latest:l-r-course-t01. Eight original daily-routine tasks use an interactive phone-beside-book/phone-on-shelf picture to select actual source evidence,require a separate action clue for interrupted reading,connect Then to homework,and distinguish duration,arrival time,unknown gaps,Tuesday exceptions and flexible buffers. Fresh18+7 transfer rejects an invented finishing time and a reassigned duration.
 
-Inspected all8 models,all13 wrong source choices,three-clue and dual-clue partial recovery,full source endings,phone source cards,application carousels and every application/transfer diagram. Reinspected final American realized/colorful rendering. Three older full flows cover actual B/A/C transfer positions without new individual credit. Eligible grades8–9;reserved reading text2 remains unexposed;guided work creates zero independent records.
+Inspected all8 models,all12 wrong source choices,both wrong picture paths,four partial-chain repairs,missing/removed reasons,the full source ending,all320-pixel picture/source figures,application carousels and every application/transfer step. Checked25+5=30 and18+7=25. Original and delivered art are inspected and registered with provenance/hash. Grades7–9;reserved reading text2 remains unexposed;zero independent records.
 
-Checkpoint58 records the new flow/24 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint59 records the new flow/24 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The58 reviewed lessons cumulatively contain615 conditions/1845 widths;
+recorded explicitly. The59 reviewed lessons cumulatively contain623 conditions/1869 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-r-course-t01. Eight daily-routine tasks and an inspected original phone-beside-book/phone-on-shelf picture are drafted outside course files. Connect picture states to quoted evidence,Then to its antecedent,and distinguish activity duration,clock time,unknown gaps and conditional changes. Finish its own learner and visual review.
+Next:l-r-course-t02. Ten school-notice tasks and inspected original blue-side-gate/front-entrance art are drafted outside production. Connect meeting/waiting,bring/provide,demonstration plus permission,eligibility plus signup,and conditional or dated updates. Verify45/35-minute sessions and fresh30-minute transfer before individual credit.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved
