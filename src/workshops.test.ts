@@ -449,3 +449,44 @@ it('rejects missing,duplicate or unusable names for evidence slots without chang
  const noCards=structuredClone(original);delete noCards.items[0].sourceStyle;expect(workshopProblems(noCards)).toContain('Invalid named evidence slots')
  const legacy=structuredClone(original);legacy.items.forEach(item=>delete item.evidenceLabels);expect(workshopProblems(legacy)).toEqual([])
 })
+
+it('requires the learner to construct the source sequence and invalidates it when a step is removed',()=>{
+ const s=studio('l-r-course-t09'),w=s.mission!.workshop!,i=w.items.findIndex(item=>!!item.sourceOrder),item=w.items[i],order=item.sourceOrder!
+ let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-item',String(i),2)
+ const act=(action:string,value='')=>{p=changeTeaching(s,p,'workshop-'+action,value,3)}
+ act('order-add',order[1]);act('order-add',order[0]);act('order-add',order[2]);act('check')
+ expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toContain('先后还没对上');expect(workshopView(w,p).orderAnswer.map(card=>card.wrong)).toEqual([true,true,false])
+ act('order-clear');act('order-add',order[0]);act('order-add',order[0]);act('order-add','unknown')
+ p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),4)
+ expect(workshopView(w,p).orderAnswer.map(card=>card.id)).toEqual([order[0]])
+ expect(workshopView(w,p).orderBank.some(card=>card.id===order[0])).toBe(false)
+ act('check');expect(workshopView(w,p).correct).toBe(false)
+ const decoy=item.options!.find(o=>!o.correct)!;act('order-add',decoy.id);act('check')
+ expect(workshopView(w,p).feedback).toBe(decoy.reason);act('order-remove',decoy.id)
+ for(const id of order.slice(1))act('order-add',id)
+ act('check');expect(workshopView(w,p).correct).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+ act('save');expect(workshopView(w,p).complete).toBe(false)
+ act('own',item.reason);act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('order-remove',order[1]);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),5)
+ expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false)
+ expect(workshopView(w,p).proofCollected).toEqual([])
+ expect(workshopView(w,p).orderAnswer.map(card=>card.id)).toEqual([order[0],order[2]])
+ act('order-clear');for(const id of order)act('order-add',id);act('check');act('save')
+ expect(workshopView(w,p).complete).toBe(true)
+ // A checked flag cannot make an unknown or duplicated saved sequence correct.
+ for(const ids of [[...order,'unknown'],[order[0],order[0],order[2]]]){
+  p.answers['workshopOrder-'+item.id]=ids.join('|');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false)
+ }
+})
+
+it('rejects ambiguous source-order metadata while keeping ordinary evidence cards valid',()=>{
+ const original=structuredClone(studio('l-r-course-t09').mission!.workshop!),i=original.items.findIndex(item=>!!item.sourceOrder),order=original.items[i].sourceOrder!
+ for(const ids of [[],[order[0]],[order[0],order[0]],['unknown',order[1],order[2]],order.slice(0,2),[...order,'bad|id']]){
+  const w=structuredClone(original);w.items[i].sourceOrder=ids;expect(workshopProblems(w)).toContain('Invalid source order')
+ }
+ const labels=structuredClone(original);labels.items[i].evidenceLabels=['one','two','three'];expect(workshopProblems(labels)).toContain('Invalid source order')
+ const duplicateId=structuredClone(original);duplicateId.items[i].options!.push({...duplicateId.items[i].options![0],correct:false,text:duplicateId.items[i].material!});expect(workshopProblems(duplicateId)).toContain('Invalid source order')
+ const duplicateQuote=structuredClone(original);duplicateQuote.items[i].options!.push({...duplicateQuote.items[i].options![0],id:'duplicate-quote',correct:false});expect(workshopProblems(duplicateQuote)).toContain('Invalid source order')
+ const legacy=structuredClone(original);delete legacy.items[i].sourceOrder;expect(workshopProblems(legacy)).toEqual([])
+ expect(createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-course-t09')!,'american').mission!.workshop!.items[i].sourceOrder).toEqual(order)
+})

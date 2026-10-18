@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-66 of 413 lessons are individually reviewed; 347 remain pending. Work stays solo under
+67 of 413 lessons are individually reviewed; 346 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t08. Eight original budget-reading tasks distinguish pack total, unit price, budget, current need, actual purchase and change. Opposite picture answers select the purchased single notebook versus the cheaper-per-item three-pack. Fresh Tao transfer changes every amount (7×2=14, 17−14=3, 24÷4=6) and includes a partly correct option with an unsupported durability claim. The existing application now quotes both budget and need in full. Shared picture feedback distinguishes new selection (dot), checked wrong (cross) and accepted evidence (tick) in web and native layouts; the browser driver now navigates explanations with any number of steps.
+Latest: l-r-course-t09. Eight original problem-solving tasks separate guess from observation, build observe → test → choose from source sentences, preserve spare/borrowed ownership, compare opposite clear-pocket/direct-writing pictures and match method features to changing needs. Fresh library-notice transfer limits an indoor result instead of inventing outdoor performance. New ordered-source controls support add/remove/reset, specific decoy and misplaced-position feedback, actual-order validation, partial restoration and completion invalidation after edits.
 
-Inspected all eight models, all thirteen wrong source choices, both wrong offer pictures, three partial-chain repairs, missing/removed reasons, complete source ending, all 320-pixel cards and named slots, application carousels and every application/transfer figure. Reinspected the final opposite picture states and complete budget/need explanation. Original and 600-pixel art are inspected and registered. Grades 8–9; reserved reading text 2 stays unexposed; zero independent records. Full plant-lesson regression (8 tasks/24 widths) verifies the shared picture-symbol change and is not counted again.
+Inspected all eight models, all wrong source and picture choices, swapped-order and decoy states, partial order restore and removal after completion, three other partial evidence-chain repairs, missing/removed reasoning, full source ending, every 320-pixel source/order/picture and named-slot figure, application carousels and all application/transfer steps. Shortened and reinspected the final borrowed-box label. Original and 600-pixel artwork inspected and registered. Grades 8–9; reserved text 2 stays unexposed; zero independent records. Existing budget flow rerun after shared changes without new review credit.
 
-Checkpoint 66 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 683 tasks / 2049 widths; earlier flows retain their original scope.
+Checkpoint 67 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 691 tasks / 2073 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t09. Eight problem-solving tasks are drafted outside production, with inspected original clear-pocket/marker art. Implement and test opt-in sourceOrder so the learner constructs observe → test → choose, with decoy removal, wrong-order repair and partial reload. Preserve spare/borrowed ownership and tested-scope limits. Plan: /workspace/.onboarding/lesson-drafts/next67-sequence-plan.md.
+Next: l-r-course-t10. Eight friendship-email tasks plus inspected original board-game/school-gate art are drafted outside production. Order leaving, guessing and later explanation; use opposite pictures for a reported destination and tomorrow’s invitation; separate request ownership, personal commitment, unconfirmed acceptance and choice. Fresh shared-drawing transfer keeps agreed storage and notice of moves distinct from ownership or a total ban.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
