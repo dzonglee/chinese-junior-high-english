@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **84 / 413**. Current: **l-r-course-t27**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **85 / 413**. Current: **l-r-course-t28**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -92,7 +92,7 @@ Completed: **84 / 413**. Current: **l-r-course-t27**. Evidence lives in docs/rev
 | l-r-course-t24 | 科技、工程与发明：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t24.md) |
 | l-r-course-t25 | 地理环境与自然景观：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t25.md) |
 | l-r-course-t26 | 野生动物与共同生活：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t26.md) |
-| l-r-course-t27 | 污染成因与可行的环保行动：读懂信息与用意 | pending | — |
+| l-r-course-t27 | 污染成因与可行的环保行动：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t27.md) |
 | l-r-course-t28 | 自然灾害与安全准备：读懂信息与用意 | pending | — |
 | l-r-course-t29 | 地球、太空与探索：读懂信息与用意 | pending | — |
 | l-r-cloze | 完形填空：读懂前后关系 | pending | — |
