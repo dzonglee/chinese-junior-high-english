@@ -1,0 +1,9 @@
+# Focused native checkpoint 108
+
+Final Tencent DevTools guest job `fc06e20f56834ee9a19f22b17e624a1b` has actual native exit 0, six authored tasks, 21 inspected captures and no errors. Actual lesson route/bound ID verified. Generated action comparison uses its registered assets path; wrong, no-quote and repaired states inspected. Actual SDK order add/clear/check rejects reversed and incomplete stages. Removing the middle stage invalidates completion; actual route reopen retains remaining events, then clear/rebuild repairs the task. Both live sentences, direct clues, applications with final authored explanation moves, clinic, transfer and summary pass with zero independent records.
+
+Initial job `7b099bc8136b4410bf98ffceb5fd6c91` failed before exposing the initial page. Its cleaned-up retry `f5547b64510e4111ad57b04fb8378092` passed before the final teaching-move improvement and is superseded for application evidence. Final harness verifies initial route/app readiness, with one bounded retry only for that SDK route-read timeout category. The final run did not need that retry. This is not a universal fix for SDK startup failures. One late navigateTo timeout is retained only because exact target route and lesson had arrived.
+
+SDK-triggered picture, order add/remove/clear/check and prediction/next bindings; remaining transitions through real Application. Selected regions captured at 367×794; full action/order figures inspected at 320/390/768 in browser. Physical touch/device coverage remains open. Saved data restored, own project closed, GUI lock released. Final provenance-only registry update does not change learner content. Content draft; approved audio pending; no upload/publication.
+
+[Results](results.json) · [Job](job.json) · [Wrong action](orange-wrong.png) · [Reversed order](story-order-wrong.png) · [Reopened order](story-order-edited-reopened.png).

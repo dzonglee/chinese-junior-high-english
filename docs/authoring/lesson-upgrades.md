@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **107 / 413**. Current: **l-ls-course-t18**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **108 / 413**. Current: **l-ls-course-t19**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -115,7 +115,7 @@ Completed: **107 / 413**. Current: **l-ls-course-t18**. Evidence lives in docs/r
 | l-ls-course-t15 | 听懂交流：跨文化交流与礼貌 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t15.md) |
 | l-ls-course-t16 | 听懂交流：理解艺术与表达感受 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t16.md) |
 | l-ls-course-t17 | 听懂交流：体育活动与公平竞争 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t17.md) |
-| l-ls-course-t18 | 听懂交流：读故事、谈人物与作品 | pending | — |
+| l-ls-course-t18 | 听懂交流：读故事、谈人物与作品 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t18.md) |
 | l-ls-course-t19 | 听懂交流：节日、习俗与旅行见闻 | pending | — |
 | l-ls-course-t20 | 听懂交流：用事实介绍有贡献的人 | pending | — |
 | l-ls-course-t21 | 听懂交流：公共规则与个人信息保护 | pending | — |
