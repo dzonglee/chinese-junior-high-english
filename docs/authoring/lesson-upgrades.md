@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **104 / 413**. Current: **l-ls-course-t15**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **105 / 413**. Current: **l-ls-course-t16**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ Completed: **104 / 413**. Current: **l-ls-course-t15**. Evidence lives in docs/r
 | l-ls-course-t12 | 听懂交流：志愿服务与公共帮助 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t12.md) |
 | l-ls-course-t13 | 听懂交流：合作完成一项任务 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t13.md) |
 | l-ls-course-t14 | 听懂交流：家乡的过去、现在与未来 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t14.md) |
-| l-ls-course-t15 | 听懂交流：跨文化交流与礼貌 | pending | — |
+| l-ls-course-t15 | 听懂交流：跨文化交流与礼貌 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t15.md) |
 | l-ls-course-t16 | 听懂交流：理解艺术与表达感受 | pending | — |
 | l-ls-course-t17 | 听懂交流：体育活动与公平竞争 | pending | — |
 | l-ls-course-t18 | 听懂交流：读故事、谈人物与作品 | pending | — |
