@@ -1,9 +1,9 @@
 # Native startup and compiler checks
 
 The package keeps the artwork and question banks in named subpackages. The generated loader
-awaits `require.async('./illustrations/index.js')` before loading the catalog. That small entry
-module triggers WeChat's asynchronous subpackage loading; it does not create a page or copy
-art into the main package. Artwork-loading failure remains retryable and must block readiness.
+awaits `require.async('./assets/index.js')` and `require.async('./illustrations/index.js')` before loading the catalog. These small entry
+modules trigger WeChat's asynchronous subpackage loading without creating a page or copying
+art into the main package. Shared `/assets/` paths stay stable after moving that directory into a named subpackage; no artwork is duplicated. Both artwork roots keep the same 1,500,000-byte safety limit. Artwork-loading failure remains retryable and must block readiness.
 Do not use `wx.loadSubpackage`: it is absent from the mini-program runtime checked in DevTools.
 Adapter doubles must exercise the asynchronous module loader instead of inventing that API.
 

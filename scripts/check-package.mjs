@@ -28,6 +28,7 @@ const all = files(native); for(const file of all.filter(f=>f.endsWith('.wxml')))
 assert((app.subPackages??[]).length<=100,'WeChat allows at most 100 subpackages')
 for(const p of app.subPackages??[]){const members=files(resolve(native,p.root));assert(members.reduce((n,f)=>n+statSync(f).size,0)<1_900_000,`Subpackage exceeds its safety budget: ${p.root}`)}
 const roots=(app.subPackages??[]).map(p=>p.root.replace(/\/$/,'')+'/')
+assert(roots.includes('assets/')&&existsSync(resolve(native,'assets/index.js')),'Shared artwork must stay in its loaded subpackage');
 const main = all.filter(file => !roots.some(prefix=>relative(native, file).replaceAll('\\', '/').startsWith(prefix))), mainBytes = main.reduce((n, file) => n + statSync(file).size, 0), totalBytes = all.reduce((n, file) => n + statSync(file).size, 0)
 for(const asset of JSON.parse(readFileSync(resolve(root,'content/visual-assets.json'),'utf8')).assets.filter(a=>a.file.startsWith('miniprogram/illustrations/'))) assert(roots.includes('illustrations/')&&existsSync(resolve(root,asset.file)),'Lesson artwork must be in its registered native subpackage')
 assert(mainBytes < 1_900_000, 'Main package exceeds its safety budget'); assert(totalBytes < 19_000_000, 'Total package exceeds its safety budget')

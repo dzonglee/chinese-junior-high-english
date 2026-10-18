@@ -15,7 +15,7 @@ if (release) { const problems = releaseProblems(releaseConfig, catalog); if (pro
 const distributionRoot = resolve(root, release ? 'dist/release' : 'dist')
 const nativeRoot = release ? resolve(distributionRoot, 'miniprogram') : resolve(root, 'miniprogram')
 const illustrationFiles = JSON.parse(readFileSync(resolve(root, 'content/visual-assets.json'), 'utf8')).assets.filter(a => a.file.startsWith('miniprogram/illustrations/'))
-const illustrationPackages = illustrationFiles.length ? [{ root: 'illustrations', name: 'lesson-illustrations', pages: [] }] : []
+const illustrationPackages = [{ root: 'assets', name: 'app-artwork', pages: [] }, ...(illustrationFiles.length ? [{ root: 'illustrations', name: 'lesson-illustrations', pages: [] }] : [])]
 const { contentProblems } = await validationModule(root)
 const errors = contentProblems(catalog)
 if (errors.length) throw new Error(errors.join('\n'))
@@ -69,12 +69,12 @@ if (!release) for (const [file, text] of generated) writeFileSync(file, text)
 const releaseOverrides = { name: 'release-catalog', setup(builder) { builder.onLoad({ filter: /generated[\\/](catalog|runtime|packs)\.ts$/ }, args => ({ contents: generated.get(args.path), loader: 'ts', resolveDir: dirname(args.path) })) } }
 writeJson(resolve(distributionRoot, 'catalog.json'), metadata)
 writeJson(resolve(distributionRoot, 'manifest.json'), manifest)
-if (illustrationPackages.length) {
-  mkdirSync(resolve(nativeRoot, 'illustrations'), { recursive: true })
+for (const artwork of illustrationPackages) {
+  mkdirSync(resolve(nativeRoot, artwork.root), { recursive: true })
   // Requiring a module uses WeChat's documented asynchronous subpackage loader.
-  writeFileSync(resolve(nativeRoot, 'illustrations/index.js'), 'module.exports = true;\n')
+  writeFileSync(resolve(nativeRoot, artwork.root, 'index.js'), 'module.exports = true;\n')
 }
-writeFileSync(resolve(nativeRoot, 'pack-loader.js'), `const loaders = {\n${(release ? [] : manifest).map((p) => `  ${JSON.stringify(p.topicId)}: () => require.async(${JSON.stringify(nativePaths.get(p.topicId))}),`).join('\n')}\n};\nmodule.exports = { loadCatalog: async () => { ${illustrationPackages.length ? "await require.async('./illustrations/index.js').catch(() => { throw new Error('插图加载未完成，请重试。'); });" : ''} return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };\n`)
+writeFileSync(resolve(nativeRoot, 'pack-loader.js'), `const loaders = {\n${(release ? [] : manifest).map((p) => `  ${JSON.stringify(p.topicId)}: () => require.async(${JSON.stringify(nativePaths.get(p.topicId))}),`).join('\n')}\n};\nmodule.exports = { loadCatalog: async () => { ${illustrationPackages.map(p=>`await require.async(${JSON.stringify('./'+p.root+'/index.js')}).catch(() => { throw new Error('插图加载未完成，请重试。'); });`).join(' ')} return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };\n`)
 
 
 mkdirSync(resolve(nativeRoot, 'content/catalog'), { recursive: true })

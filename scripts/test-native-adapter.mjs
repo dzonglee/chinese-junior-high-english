@@ -13,7 +13,7 @@ await build({ entryPoints: [resolve(root, '../src/native/app.ts')], bundle: true
 for (const mode of ['development', 'cloud']) {
 const data = new Map(), navigations = [], errors = [], pendingNavigation = []
 let privacyListener, privacyValue, topPage
-let cloudInitialised = false, cloudDownloads = 0, artworkLoaded = false, failArtwork = false, artworkRequests = 0
+let cloudInitialised = false, cloudDownloads = 0, artworkLoaded = new Set(), failArtwork = false, artworkRequests = 0
 const wx = {
   cloud: { init(options) { assert.equal(options.env, 'synthetic-test-env'); cloudInitialised = true }, async downloadFile({ fileID }) { cloudDownloads++; const file = manifest.find(p => cloudFileMap[p.topicId] === fileID); assert(file); return { tempFilePath: resolve(root, '../dist/packs', file.file) } } },
   getFileSystemManager: () => ({ readFile(options) { try { options.success({ data: readFileSync(options.filePath, 'utf8') }) } catch { options.fail() } } }),
@@ -27,12 +27,12 @@ function load(file, scope=context) {
   assert(file.startsWith(root + '/') || file.startsWith(local + '/'), 'The test loader must stay inside the mini-program package')
   const source = readFileSync(file, 'utf8'), module = { exports: {} }
   const require = path => load(resolve(dirname(file), path), scope)
-  require.async = async path => { if(path==='./illustrations/index.js'){artworkRequests++;if(failArtwork)throw new Error('Simulated subpackage download failure');const app=JSON.parse(readFileSync(resolve(root,'app.json'),'utf8'));assert(app.subPackages.some(p=>p.name==='lesson-illustrations'&&p.root==='illustrations'));await new Promise(resolve=>setTimeout(resolve,5));artworkLoaded=true}return load(resolve(dirname(file), path), scope) }
+  require.async = async path => { if(['./assets/index.js','./illustrations/index.js'].includes(path)){artworkRequests++;if(failArtwork===path)throw new Error('Simulated subpackage download failure');const app=JSON.parse(readFileSync(resolve(root,'app.json'),'utf8'));assert(app.subPackages.some(p=>p.root===path.split('/')[1]));await new Promise(resolve=>setTimeout(resolve,5));artworkLoaded.add(path)}return load(resolve(dirname(file), path), scope) }
   const wrapper = vm.runInContext(`(function(require,module,exports){${source}\n})`, scope, { filename: file })
   wrapper(require, module, module.exports); return module.exports
 }
 const adapter = load(mode === 'cloud' ? resolve(local, 'runtime.cjs') : resolve(root, 'runtime.js')); await adapter.ready; const app = adapter.application
-assert(artworkLoaded,'Application readiness must wait for the illustration subpackage')
+assert.deepEqual([...artworkLoaded],['./assets/index.js','./illustrations/index.js'],'Application readiness must wait for both artwork subpackages')
 app.open('home'); assert.equal(app.render().id, 'onboarding')
 for (const [name, value] of Object.entries({ cityId: '河南-郑州', structure: '63', grade: '7', term: 'upper', editionId: 'pep-2024', schoolYear: '2026', dailyMinutes: '15' })) app.setField(name, value)
 await app.action('save-profile'); assert(navigations.at(-1).startsWith('/pages/home/index'))
@@ -72,11 +72,13 @@ app.platform.navigate('lesson',{id:'l-ls-course-t08'});topPage={route:'pages/les
 app.platform.navigate('builder');const stale=pendingNavigation.at(-1);app.platform.navigate('session');const current=pendingNavigation.at(-1),count=navigations.length
 stale.fail({errMsg:'navigateTo:fail cancelled'});assert.equal(navigations.length,count,'A late failed navigation cannot replace the newer session')
 current.fail({errMsg:'navigateTo:fail webview count limit exceed'});assert.equal(navigations.length,count+1);assert(navigations.at(-1).startsWith('/pages/session/index'))
-failArtwork=true;artworkRequests=0
+for(const failedModule of ['./assets/index.js','./illustrations/index.js']) {
+failArtwork=failedModule;artworkRequests=0
 const retryContext=vm.createContext({wx:{...wx},console,getCurrentPages:()=>[],TextEncoder:undefined,TextDecoder:undefined})
 const retryAdapter=load(mode==='cloud'?resolve(local,'runtime.cjs'):resolve(root,'runtime.js'),retryContext)
 await assert.rejects(retryAdapter.ready,/插图加载未完成，请重试/);assert.equal(retryAdapter.application,undefined)
-failArtwork=false;await retryAdapter.initializeApplication();assert(retryAdapter.application);assert.equal(artworkRequests,2,'An artwork failure must be retryable without a stuck initialization promise')
+failArtwork=false;await retryAdapter.initializeApplication();assert(retryAdapter.application);assert.equal(artworkRequests,failedModule==='./assets/index.js'?3:4,'Either artwork package must be retryable without a stuck initialization promise')
+}
 console.log(`${mode} native-adapter simulation passed.`)
 }
 console.log('Native-adapter simulation passed: CommonJS startup, async subpackage/hash loading without DOM encoders, profile, answer, storage and privacy routing.')
