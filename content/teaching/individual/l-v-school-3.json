@@ -1,0 +1,443 @@
+{
+  "lessonId": "l-v-school-3",
+  "reviewState": "draft",
+  "intent": "Teach eight school words individually through review order, bounded progress evidence, a supported reason, selectable original-picture evidence, discuss direct objects, non-guaranteed goal support, knowledge as a noun and make an effort. Preserve delayed questions and no independent credit.",
+  "picturePurpose": "Original two-desk image supports visible pencil count/colour and notebook comparison. Selected claims locate authored neutral evidence regions; overreaching effort claim has no region. Exact labels and feedback stay in code. No learning history or score inferred from the image.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "比较证据，把进步说准确",
+    "instruction": "先判断记录或图片能说明什么，再把目标词填回句子，最后写自己的例句。框选用于观察，不自动证明判断正确。",
+    "items": [
+      {
+        "id": "review",
+        "label": "review：先复习哪一组",
+        "prompt": "We review yesterday’s words before learning new ones. 哪个顺序保留了原句的before？",
+        "wordDecision": {
+          "prompt": "We review yesterday’s words before learning new ones. 哪个顺序保留了原句的before？"
+        },
+        "answer": "review",
+        "meaning": "复习；回顾",
+        "material": "We review yesterday's words before learning new ones.",
+        "before": "We ",
+        "after": " yesterday's words before learning new ones.",
+        "reason": "review是回头复习，yesterday’s words是昨天的词；before后接的是之后进行的新词学习。先认清两个动作的对象和顺序，再回忆review的拼写。",
+        "hint": "re- 有“再一次”的意思，可帮助记忆 review。",
+        "options": [
+          {
+            "id": "old-first",
+            "text": "先复习昨天的词，再学新词。",
+            "correct": true,
+            "reason": "before说明复习在前，学习新词在后；yesterday’s限定复习对象。"
+          },
+          {
+            "id": "new-first",
+            "text": "先学新词，之后才复习昨天的词。",
+            "correct": false,
+            "reason": "把before的先后顺序倒过来了；两件事都做了也不等于读对关系。"
+          },
+          {
+            "id": "only-new",
+            "text": "只学新词，昨天的词不用再看。",
+            "correct": false,
+            "reason": "review就是回头复习；不能把前一个动作从原句删掉。"
+          }
+        ]
+      },
+      {
+        "id": "progress",
+        "label": "progress：能说有进步，不能说全掌握",
+        "prompt": "两次同难度新题，每次8题：周一答对3题，周四答对6题。只根据这两次记录，哪项最准确？",
+        "wordDecision": {
+          "prompt": "两次同难度新题，每次8题：周一答对3题，周四答对6题。只根据这两次记录，哪项最准确？"
+        },
+        "answer": "progress",
+        "meaning": "进步；进展",
+        "material": "Small steps can lead to real progress.",
+        "before": "Small steps can lead to real ",
+        "after": ".",
+        "reason": "progress作进步讲通常不可数：make progress，不说a progress。3/8到6/8支持这两次任务中的表现提高，不等于全部掌握，也不能仅凭这两次记录确定提高的唯一原因。",
+        "hint": "progress 作进步讲通常不可数，不说 a progress。",
+        "options": [
+          {
+            "id": "bounded",
+            "text": "这两次练习中，答对数从3增至6，有进步。",
+            "correct": true,
+            "reason": "相同题量、同难度的新题记录支持本次表现进步；结论范围限于这两次练习。"
+          },
+          {
+            "id": "mastery",
+            "text": "已经掌握所有英语知识，以后不会再错。",
+            "correct": false,
+            "reason": "两次8题不能覆盖所有英语知识，也不能保证未来不再出错。"
+          },
+          {
+            "id": "none",
+            "text": "没有全部答对，所以毫无进步。",
+            "correct": false,
+            "reason": "从3到6是答对数增加；没全对不等于没有进步。"
+          }
+        ]
+      },
+      {
+        "id": "reason",
+        "label": "reason：理由要能支撑答案",
+        "prompt": "便条：The outdoor game was cancelled because of heavy rain. 问为什么取消游戏，哪个reason有原文支持？",
+        "wordDecision": {
+          "prompt": "便条：The outdoor game was cancelled because of heavy rain. 问为什么取消游戏，哪个reason有原文支持？"
+        },
+        "answer": "reason",
+        "meaning": "原因；理由",
+        "material": "Give a reason for your answer.",
+        "before": "Give a ",
+        "after": " for your answer.",
+        "reason": "reason是原因或理由。Give a reason for your answer要求说出支持答案的依据，不是重说结论。原文的because of引出大雨这一原因；名词搭配是a reason for。",
+        "hint": "a reason for 后接名词或动名词。",
+        "options": [
+          {
+            "id": "rain",
+            "text": "因为下了大雨。",
+            "correct": true,
+            "reason": "because of heavy rain明确给出取消的原因，能直接支撑答案。"
+          },
+          {
+            "id": "popular",
+            "text": "因为这个游戏很受欢迎。",
+            "correct": false,
+            "reason": "便条没说受欢迎；即使可能属实，也不是文中给出的取消理由。"
+          },
+          {
+            "id": "repeat",
+            "text": "因为游戏被取消了。",
+            "correct": false,
+            "reason": "只是重复结果，没有说明为什么取消，不能作为原因。"
+          }
+        ]
+      },
+      {
+        "id": "compare",
+        "label": "compare：把看得见的证据找出来",
+        "prompt": "Compare the two pictures. 哪项差异能直接从图中确认？点选说法，框住相关物品再比较。",
+        "wordDecision": {
+          "prompt": "Compare the two pictures. 哪项差异能直接从图中确认？点选说法，框住相关物品再比较。",
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-desk-comparison",
+            "alt": "原创虚构双图：两张蓝色课桌各有一本红色笔记本。左图桌面下方有一支蓝色铅笔；右图下方有一支蓝色和一支绿色铅笔。没有人物、学习过程、时间或分数记录。",
+            "evidence": [
+              {
+                "option": "green",
+                "caption": "定位右图的绿笔，再对照左图。框选只帮助观察，不代表词形已写对。",
+                "regions": [
+                  {
+                    "id": "green-pencil",
+                    "label": "右图绿色铅笔",
+                    "left": 63,
+                    "top": 58,
+                    "width": 25,
+                    "height": 5
+                  }
+                ]
+              },
+              {
+                "option": "covers",
+                "caption": "同时框住两本笔记本，比较看得见的颜色。选区本身不判对错。",
+                "regions": [
+                  {
+                    "id": "left-book",
+                    "label": "左图红色笔记本",
+                    "left": 15,
+                    "top": 25,
+                    "width": 20,
+                    "height": 26
+                  },
+                  {
+                    "id": "right-book",
+                    "label": "右图红色笔记本",
+                    "left": 65,
+                    "top": 25,
+                    "width": 20,
+                    "height": 26
+                  }
+                ]
+              },
+              {
+                "option": "effort",
+                "caption": "这两张图没有记录学习过程、用时或成绩；不能用框选补出这些信息。",
+                "regions": []
+              }
+            ]
+          }
+        },
+        "answer": "Compare",
+        "meaning": "比较",
+        "material": "Compare the two pictures before you choose.",
+        "before": "",
+        "after": " the two pictures before you choose.",
+        "reason": "compare是比较，要对准同一种可见特征。compare the two pictures就是比较两图；可说compare A with B。图中物品能支持颜色和数量的观察，不能证明学习时长、努力或成绩。 本例句在句首，用大写Compare。",
+        "hint": "句首Compare要大写；compare A with B表示把两者作比较。",
+        "options": [
+          {
+            "id": "green",
+            "text": "右图比左图多一支绿色铅笔。",
+            "correct": true,
+            "reason": "左图有一支蓝色铅笔，右图有蓝色和绿色铅笔；多出的绿笔是可见差异。"
+          },
+          {
+            "id": "covers",
+            "text": "两图笔记本的封面颜色不同。",
+            "correct": false,
+            "reason": "框住两本笔记本再看：两本封面都是红色；不能把新增的铅笔说成封面变色。"
+          },
+          {
+            "id": "effort",
+            "text": "右图的学生一定比左图的学生更努力。",
+            "correct": false,
+            "reason": "图中没有学生的学习过程或练习记录；物品多少不能证明谁更努力。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "discuss",
+        "label": "discuss：内容直接跟在动词后",
+        "prompt": "选出与“午饭后讨论计划”一致、搭配也正确的表达。",
+        "wordDecision": {
+          "prompt": "选出与“午饭后讨论计划”一致、搭配也正确的表达。"
+        },
+        "answer": "discuss",
+        "meaning": "讨论",
+        "material": "Let's discuss the plan after lunch.",
+        "before": "Let's ",
+        "after": " the plan after lunch.",
+        "reason": "discuss the plan就是讨论计划，动词后不再加about。talk about the plan也能表达谈论计划，但不是discuss about。after lunch是午饭后，词形正确还要核对时间。",
+        "hint": "discuss 后直接接讨论的内容，不再加 about。",
+        "options": [
+          {
+            "id": "direct",
+            "text": "discuss the plan after lunch",
+            "correct": true,
+            "reason": "discuss直接接the plan，after lunch说明午饭后。"
+          },
+          {
+            "id": "about",
+            "text": "discuss about the plan after lunch",
+            "correct": false,
+            "reason": "discuss后直接接讨论内容，不要照搬talk about而多加about。"
+          },
+          {
+            "id": "before",
+            "text": "discuss the plan before lunch",
+            "correct": false,
+            "reason": "discuss搭配正确，但before lunch把原句的时间关系改了。"
+          }
+        ]
+      },
+      {
+        "id": "achieve",
+        "label": "achieve：计划有帮助，不是保证",
+        "prompt": "A clear plan can help you achieve your goal. 原句的can help表示什么？",
+        "wordDecision": {
+          "prompt": "A clear plan can help you achieve your goal. 原句的can help表示什么？"
+        },
+        "answer": "achieve",
+        "meaning": "实现；达到",
+        "material": "A clear plan can help you achieve your goal.",
+        "before": "A clear plan can help you ",
+        "after": " your goal.",
+        "reason": "achieve your goal表示实现目标。can help说明计划有帮助，不能改成保证成功。achieve的字母顺序是a-c-h-i-e-v-e，中间先i后e；计划与实际行动要配合。",
+        "hint": "留意 achieve 的 ie 顺序。",
+        "options": [
+          {
+            "id": "support",
+            "text": "清楚的计划能帮助实现目标，还需要落实。",
+            "correct": true,
+            "reason": "can help说明有帮助，不是只要写计划就一定成功。"
+          },
+          {
+            "id": "guarantee",
+            "text": "只要写下计划，就保证每次考试满分。",
+            "correct": false,
+            "reason": "原句没保证结果，更没提每次考试满分；不能把help换成guarantee。"
+          },
+          {
+            "id": "replace",
+            "text": "写了计划就能完全代替实际练习。",
+            "correct": false,
+            "reason": "帮助实现目标不等于代替行动；原句没有取消练习。"
+          }
+        ]
+      },
+      {
+        "id": "knowledge",
+        "label": "knowledge：知识怎样搭配",
+        "prompt": "原句说她分享有关本地鸟类的知识，没有在数知识门类。哪种表达适合这个意思？",
+        "wordDecision": {
+          "prompt": "原句说她分享有关本地鸟类的知识，没有在数知识门类。哪种表达适合这个意思？"
+        },
+        "answer": "knowledge",
+        "meaning": "知识",
+        "material": "She shares her knowledge of local birds with us.",
+        "before": "She shares her ",
+        "after": " of local birds with us.",
+        "reason": "knowledge是名词知识，knowledge of local birds表示有关本地鸟类的知识。本句不数条目，knowledge不加复数s；具体三条可说three facts。开头k在常见读音中不发音，但拼写必须保留；这里不验证听辨。",
+        "hint": "knowledge 不可数；开头的 k 不发音。",
+        "options": [
+          {
+            "id": "some",
+            "text": "some knowledge of local birds",
+            "correct": true,
+            "reason": "knowledge作这里的知识讲不可数，some knowledge可以表达一些相关知识。"
+          },
+          {
+            "id": "three",
+            "text": "three knowledges of local birds",
+            "correct": false,
+            "reason": "本句不能给knowledge直接加复数s来数三条；可把具体内容说成three facts about local birds。"
+          },
+          {
+            "id": "doing",
+            "text": "knowledge local birds：把knowledge直接当“知道”的动词。",
+            "correct": false,
+            "reason": "knowledge是名词；“知道”用动词know，不能把knowledge当谓语动词。"
+          }
+        ]
+      },
+      {
+        "id": "effort",
+        "label": "effort：努力也要看具体行动",
+        "prompt": "选出能表达“为理解错题作出努力”的正确搭配。",
+        "wordDecision": {
+          "prompt": "选出能表达“为理解错题作出努力”的正确搭配。"
+        },
+        "answer": "effort",
+        "meaning": "努力",
+        "material": "Your effort matters more than one test result.",
+        "before": "Your ",
+        "after": " matters more than one test result.",
+        "reason": "effort在这里指投入的努力，不能由一次分数或桌面物品多少判断。make an effort to do something表示努力做某事；纠错后再试等具体行动比“我一定满分”的保证更能说明投入。",
+        "hint": "make an effort 表示作出努力，注意前面用 an。",
+        "options": [
+          {
+            "id": "an",
+            "text": "make an effort to understand a mistake",
+            "correct": true,
+            "reason": "make an effort是作出努力；effort开头是元音音素，单数前用an。"
+          },
+          {
+            "id": "do",
+            "text": "do an effort to understand a mistake",
+            "correct": false,
+            "reason": "这里的固定搭配是make an effort，不是do an effort。"
+          },
+          {
+            "id": "a",
+            "text": "make a effort to understand a mistake",
+            "correct": false,
+            "reason": "effort前应使用an；不能只看首字母是什么，还要看开头音素。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-school-3-transfer",
+      "topicId": "v-school",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which report keeps both the evidence and English usage accurate?",
+      "passage": "A NEW WORD-LEARNING PLAN\nThe class reviews old words before learning new ones. They discuss the plan after lunch. On two new ten-question checks of the same difficulty, the class average rises from four correct answers to seven. They record the change and compare reasons for mistakes. Their plan can help them achieve a goal, but it does not promise full marks.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The later check shows improvement on these tasks; the plan may help without guaranteeing full marks."
+        },
+        {
+          "id": "b",
+          "text": "The checks prove complete mastery of English, and the plan guarantees full marks."
+        },
+        {
+          "id": "c",
+          "text": "They discuss about the plan and share three knowledges about mistakes."
+        },
+        {
+          "id": "d",
+          "text": "They learn new words before reviewing old ones, and the checks show no progress."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The later check shows improvement on these tasks; the plan may help without guaranteeing full marks."
+      },
+      "marks": 2,
+      "estimatedSeconds": 95,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先把记录支持的进步范围说清，再核对计划的作用和词语搭配。",
+        "steps": [
+          {
+            "text": "同难度的两次新题记录由平均4题到7题，说明这些任务中的表现提高。",
+            "reason": "每次都是10题，平均答对数增加；这不是所有英语技能已经掌握的证据。"
+          },
+          {
+            "text": "计划can help实现目标，不保证满分；讨论用discuss the plan，知识用knowledge。",
+            "reason": "help不等于guarantee；discuss后不加about，knowledge在这里不加复数s。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把两次任务中的进步扩大为全部掌握，还把计划有帮助改成保证满分。"
+          },
+          {
+            "option": "c",
+            "reason": "discuss about多了about；本句知识不能写three knowledges，应改成具体的facts等可数内容。"
+          },
+          {
+            "option": "d",
+            "reason": "before的动作顺序读反了；平均答对数从4到7也不是毫无进步。"
+          }
+        ],
+        "pitfall": "看见数字提高，要限定结论范围；计划、努力和一次表现都不能直接当作全部掌握。",
+        "visual": {
+          "kind": "evidence",
+          "title": "记录、关系与结论范围",
+          "segments": [
+            {
+              "text": "review old → learn new",
+              "role": "evidence",
+              "note": "before的先后"
+            },
+            {
+              "text": "4/10 → 7/10",
+              "role": "evidence",
+              "note": "只支持本次任务表现提高"
+            },
+            {
+              "text": "discuss the plan",
+              "role": "object",
+              "note": "直接接内容"
+            },
+            {
+              "text": "can help ≠ guarantee",
+              "role": "evidence",
+              "note": "有帮助，不保证满分"
+            }
+          ],
+          "caption": "这是新便条明确给出的平均记录，不是这位学生的分数或独立掌握证明。"
+        },
+        "transfer": "如果后一次练习难度降低，还能直接拿答对数说明同等条件下的进步吗？需要先核对什么？"
+      }
+    }
+  }
+}

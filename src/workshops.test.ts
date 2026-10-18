@@ -1027,3 +1027,34 @@ it('rejects ambiguous vocabulary decisions and maps their instructional language
  const us=structuredClone(original);us.items[0].wordDecision!.prompt='Which color is your favorite?';us.items[0].wordDecision!.art!.alt='The color of the ruler.';us.items[0].options![0].text='favorite color';us.items[0].hint='Check the color.'
  const uk=mapWorkshop(us,text=>editionText(text,'british'));expect(uk.items[0].wordDecision!.prompt).toBe('Which colour is your favourite?');expect(uk.items[0].wordDecision!.art!.alt).toBe('The colour of the ruler.');expect(uk.items[0].options![0].text).toBe('favourite colour');expect(uk.items[0].hint).toBe('Check the colour.');expect(uk.items[0].options!.map(o=>o.id)).toEqual(us.items[0].options!.map(o=>o.id));expect(uk.items[0].wordDecision!.art!.asset).toBe(us.items[0].wordDecision!.art!.asset)
 })
+it('locates the selected picture claim without treating a highlight as a correct answer',()=>{
+ const s=studio('l-v-school-3'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,3)}
+ act('item','3');expect(workshopView(w,p).wordEvidence).toBeUndefined();act('input','Compare');act('choose','covers');let v=workshopView(w,p);expect(v.wordEvidence!.regions.map(r=>r.id)).toEqual(['left-book','right-book']);expect(v.wordEvidence!.regions[0].style).toBe('left:15%;top:25%;width:20%;height:26%;');expect(v.correct).toBe(false)
+ act('check');expect(workshopView(w,p).correct).toBe(false);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),2);expect(workshopView(w,p).wordEvidence!.regions).toHaveLength(2)
+ act('choose','effort');expect(workshopView(w,p).wordEvidence!.regions).toEqual([]);expect(workshopView(w,p).wordEvidence!.caption).toContain('没有记录');act('choose','green');expect(workshopView(w,p).wordEvidence!.regions.map(r=>r.id)).toEqual(['green-pencil']);expect(workshopView(w,p).correct).toBe(false)
+ act('input','compare');act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toContain('大小写');act('input','Compare');act('check');expect(workshopView(w,p).correct).toBe(true);expect(workshopView(w,p).complete).toBe(false);act('own','I compare two answers with the passage.');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('choose','covers');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).wordEvidence!.regions).toHaveLength(2)
+})
+it('rejects invalid or incomplete picture evidence and maps labels without moving regions',()=>{
+ const original=studio('l-v-school-3').mission!.workshop!;expect(workshopProblems(original)).toEqual([])
+ for(const mutate of [
+  (w:typeof original)=>{w.items[3].wordDecision!.art!.evidence![0].regions[0].left=90},
+  (w:typeof original)=>{w.items[3].wordDecision!.art!.evidence![0].regions[0].height=0},
+  (w:typeof original)=>{w.items[3].wordDecision!.art!.evidence![0].regions[0].top=NaN},
+  (w:typeof original)=>{w.items[3].wordDecision!.art!.evidence![0].option='absent'},
+  (w:typeof original)=>{w.items[3].wordDecision!.art!.evidence!.pop()},
+  (w:typeof original)=>{w.items[3].wordDecision!.art!.evidence![1].regions[1].id='left-book'},
+  (w:typeof original)=>{w.items[3].wordDecision!.art!.evidence![0].caption=' '},
+ ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid word picture evidence')}
+ const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
+})
+it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3']){
+  const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
+  for(const[index,item]of w.items.entries()){
+   let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
+   act('choose',good.id);act('input',item.answer);act('check');expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).correct).toBe(true);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).selected).toBe(good.id)
+  }
+  expect(new Set(positions).size).toBeGreaterThan(1);expect(positions.some(p=>p>0)).toBe(true);expect(JSON.stringify(w.items)).toBe(source)
+ }
+})

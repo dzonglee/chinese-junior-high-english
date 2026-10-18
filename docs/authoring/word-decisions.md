@@ -39,3 +39,23 @@ engine support does not grant review credit to other vocabulary lessons.
 During an authored word-decision activity, both renderers omit the repeated exam-focus
 overview. It remains at prediction and later phases; the active prompt and choices
 appear sooner. This is layout support, not individual review credit for other lessons.
+
+Optional `art.evidence` maps every choice to a short observation caption and zero
+to four labelled percentage rectangles. Coordinates must be finite, inside the
+image and uniquely identified within that choice. The map must cover each actual
+option exactly once. A claim about an unobserved process may have no region.
+
+Choosing a claim updates neutral outlines and the observation caption. Outlines
+locate what to compare; they never mark a claim correct or bypass meaning,
+spelling or own-writing gates. Switching claims/reopening restores that claim's
+actual regions. Both renderers use the full uncropped image as the coordinate
+frame. Browser checks measure every region at 320/390/768; native SDK checks
+measure the real image frame separately. Each authored region must also be
+visually checked against the delivered image. Labels and captions map with the
+spelling variant while option/region identities and coordinates stay fixed.
+
+Meaning choices use a deterministic per-word rotation of the authored options.
+This varies correct-answer positions while preserving option IDs, source content,
+saved selections and the same order during checks/reopening. It does not use the
+correctness flag to choose an order. Context tasks say “把目标词填回句子” because
+some prompts/hints show the target; they do not claim concealed-word recall.
