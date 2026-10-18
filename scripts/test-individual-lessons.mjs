@@ -60,6 +60,11 @@ try{
   }else if(w.kind==='proof'){
    for(const[i,item]of w.items.entries()){
     await act('workshop-item',String(i));await expect(page.locator('.reading-task')).toContainText(item.prompt);await expect(page.locator('.reading-evidence')).toHaveCount(item.options.length);await expect(page.locator('.reading-conclusion')).toHaveCount(0);if(item.evidenceLabels){await expect(page.locator('.reading-route-step strong')).toHaveText(item.evidenceLabels);await expect(page.locator('.reading-route-step.accepted')).toHaveCount(0)}await capture('task-start-'+i)
+    if(i===w.items.findIndex(x=>x.sourceTitle===item.sourceTitle)){
+     await act('workshop-source');await page.setViewportSize({width:320,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);const material=page.locator('.workshop-material');await expect(material).toHaveText(item.material);await capture(i===0?'source-open':'source-open-'+i)
+     if(await material.evaluate(el=>el.scrollHeight>el.clientHeight+1)){await material.hover();await page.mouse.wheel(0,2000);await expect.poll(()=>material.evaluate(el=>el.scrollTop)).toBeGreaterThan(0);await expect.poll(()=>material.evaluate(el=>{const text=el.firstChild,content=el.textContent,start=content.lastIndexOf('\n')+1,r=document.createRange();r.setStart(text,start);r.setEnd(text,content.length);const a=r.getBoundingClientRect(),b=el.getBoundingClientRect();return a.top>=b.top-1&&a.bottom<=b.bottom+1})).toBe(true);await capture('source-bottom-'+i)}
+     await act('workshop-source');await expect(material).toHaveCount(0);await page.setViewportSize({width:390,height:844})
+    }
     if(item.sourceOrder){
      const order=item.sourceOrder,decoy=item.options.find(o=>!o.correct)
      await act('workshop-order-add',decoy.id);await act('workshop-check');await expect(page.locator('.explore-feedback')).toHaveText(decoy.reason);await expect(page.locator('.reading-conclusion')).toHaveCount(0);await capture('order-'+i+'-wrong-clue');await act('workshop-order-clear')
@@ -74,11 +79,6 @@ try{
      await page.locator('[name=studioWorkshopOwn]').fill('');await act('workshop-save');await expect(page.locator('.workshop-saved')).toHaveCount(0);await page.locator('[name=studioWorkshopOwn]').fill(item.reason);await act('workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible();continue
     }
     if(item.sourceArt){await expect.poll(()=>page.locator('.reading-notice .event-art').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);for(const choice of item.sourceArt.choices.filter(c=>!item.options.find(o=>o.id===c.id).correct)){const artChoice=page.locator(`.art-panel-button[data-value="${choice.id}"]`);await artChoice.click();await expect(artChoice).toContainText('●');await act('workshop-check');await expect(page.locator('.art-panel-button.wrong-record')).toHaveCount(1);await expect(artChoice).toContainText('✕');await expect(artChoice).not.toContainText('✓');await expect(page.locator('.reading-conclusion')).toHaveCount(0);await capture('art-'+i+'-wrong-'+choice.id)}}
-    if(i===w.items.findIndex(x=>x.sourceTitle===item.sourceTitle)){
-     await act('workshop-source');const material=page.locator('.workshop-material');await expect(material).toHaveText(item.material);await capture(i===0?'source-open':'source-open-'+i)
-     if(await material.evaluate(el=>el.scrollHeight>el.clientHeight+1)){await material.hover();await page.mouse.wheel(0,2000);await expect.poll(()=>material.evaluate(el=>el.scrollTop)).toBeGreaterThan(0);await expect.poll(()=>material.evaluate(el=>{const text=el.firstChild,content=el.textContent,start=content.lastIndexOf('\n')+1,r=document.createRange();r.setStart(text,start);r.setEnd(text,content.length);const a=r.getBoundingClientRect(),b=el.getBoundingClientRect();return a.top>=b.top-1&&a.bottom<=b.bottom+1})).toBe(true);await capture('source-bottom-'+i)}
-     await act('workshop-source');await expect(material).toHaveCount(0)
-    }
     for(const[o,option]of item.options.filter(o=>!o.correct).entries()){
      await act('workshop-choose',option.id);await act('workshop-check');await expect(page.locator('.explore-feedback')).toHaveText(option.reason);await expect(page.locator('.reading-evidence.wrong-evidence')).toContainText(option.text);await expect(page.locator('.reading-conclusion')).toHaveCount(0);await expect(page.locator('.workshop-saved')).toHaveCount(0);if(item.evidenceLabels)await expect(page.locator('.reading-route-step.accepted')).toHaveCount(0);await capture('evidence-'+i+'-wrong-'+o)
     }

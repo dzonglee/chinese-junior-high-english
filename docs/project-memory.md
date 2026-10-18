@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-70 of 413 lessons are individually reviewed; 343 remain pending. Work stays solo under
+71 of 413 lessons are individually reviewed; 342 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t12. Eight original volunteer-notice tasks require entered 13:50 arrival and 80-minute duration, opposite welcome-desk/large-print-shelf picture choices, only-if permission, paired private-document instructions, distinct advance notice and early arrival, and help based on actual needs. Fresh Saturday transfer changes arrival to 15:45 and uses partly correct combination distractors. Calculated responses now require evidence and the learner's own number; edits invalidate completion and offline reload retains attempts. Web/native explanation views temporarily hide the separate evidence browser and feedback, restore it on closing, and close a previous answer's explanation when changing questions. Application reasons explain early arrival and private handling specifically; the full handling sentence is quoted.
+Latest: l-r-course-t13. Eight original teamwork tasks construct needs → division of work → group check, match opposite permission-recording/narration pictures, separate internal checking from public sharing and obtained permission, assign fact checking, explain early delay notice, recognise several necessary contributions and satisfy a two-part meeting requirement. Fresh podcast transfer changes people and day and rejects inflated roles and automatic release. The course title, objective, pitfall and application reasons now name the actual cooperation-reading skills.
 
-Inspected all eight models, thirteen wrong source choices and both wrong pictures, three partial chains, missing/removed reasoning, empty/wrong/removed numerical answers and final calculated controls at 320 pixels, the shortened private-handling slot, complete source and passage endings, application carousels and all application/transfer explanation steps. Final focused explanation screens were inspected after duplicate evidence/feedback removal. Original and 600-pixel art inspected and registered. Grades 7–9; reserved reading text 2 stays unexposed; zero independent records.
+Inspected all eight models, all wrong source choices and both wrong role pictures, sequence decoy/swapped order/partial reload/removal after completion, three other partial chains and missing/removed reasons, every 320-pixel source/order/picture card and three named-slot figures, complete source and passage endings, application carousels and every application/transfer step. Reinspected the final credit prompt and native Chinese meeting explanation. Original and 600-pixel artwork inspected and registered. Grades 8–9; reserved reading text 2 stays unexposed; zero independent records.
 
-Checkpoint 70 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 715 tasks / 2145 widths; earlier flows retain their original scope.
+Checkpoint 71 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 723 tasks / 2169 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t13. Eight teamwork tasks and inspected original permission-clipboard/microphone art are drafted outside production. Construct needs → division of work → group check, match opposite responsibilities, separate internal checking from public sharing, assign fact checking, explain early delay notice, recognise several contributions and satisfy a two-part meeting requirement. Fresh podcast transfer changes people and day, and requires obtained permission before sharing.
+Next: l-r-course-t14. Eight local-history tasks and inspected original tool-room/history-display art are drafted outside production. Build storage → empty → display, use opposite original/current picture choices without giving away the time in labels, keep the street constant while time changes, weigh loss with benefit, preserve unknown dates and source provenance and support a balanced attitude. Fresh bridge-display transfer rejects invented years and one-sided inference.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain

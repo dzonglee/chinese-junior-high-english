@@ -1,0 +1,15 @@
+# Lesson checkpoint 71
+
+2026-10-18 (Sydney). 71/413 individually reviewed; 342 pending. Content remains draft.
+
+Eight original teamwork tasks construct needs → division of work → group check, match opposite permission-recording/narration pictures, separate internal checking from public sharing and obtained permission, assign fact checking, explain early delay notice, recognise several necessary contributions and satisfy a two-part meeting requirement. Fresh podcast transfer changes people and day and rejects inflated roles and automatic release. The course title, objective, pitfall and application reasons now name the actual cooperation-reading skills.
+
+Inspected all eight models, all wrong source choices and both wrong role pictures, sequence decoy/swapped order/partial reload/removal after completion, three other partial chains and missing/removed reasons, every 320-pixel source/order/picture card and three named-slot figures, complete source and passage endings, application carousels and every application/transfer step. Reinspected the final credit prompt and native Chinese meeting explanation. Original and 600-pixel artwork inspected and registered. Grades 8–9; reserved reading text 2 stays unexposed; zero independent records.
+
+Current new lesson: 8 tasks / 24 task-width checks, reload and zero independent records. Core scope: Inherited checkpoint 70 final serial suite: 1497 tests in 14 files; shared product engine/UI unchanged. Current compiler/typecheck, 826 teaching/spelling variants, nine grammar constraints, course/interactions/package, complete teamwork browser flow, development/cloud adapters, fifteen offline checks and exact-source archives pass. The browser driver now opens and verifies the full source at 320 pixels even when the first task is an ordered sequence. Native adapter scope: Development/cloud simulations passed, including all 245 hashes and illustration readiness/failure/retry. No native GUI evidence. Current typecheck, 826 teaching/spelling variants, grammar/course/interaction/package checks, 15 offline checks and ZIP CRC/exact-source comparisons pass.
+
+Cumulative coverage: 723 authored tasks / 2169 task-width checks. Earlier flows retain their original scope; this is not 71 new full browser runs or complete-course parity. Exact delayed-text and eligible-grade guards remain enforced.
+
+The standalone app loads once before networking is disabled; managed file URLs remain blocked. Adapter checks are simulations. Native GUI validation still needs project-drive access. No upload, publication or editorial release.
+
+[Exact scope and hashes](checkpoint-71.json). Next: l-r-course-t14. Eight local-history tasks and inspected original tool-room/history-display art are drafted outside production. Build storage → empty → display, use opposite original/current picture choices without giving away the time in labels, keep the street constant while time changes, weigh loss with benefit, preserve unknown dates and source provenance and support a balanced attitude. Fresh bridge-display transfer rejects invented years and one-sided inference.
