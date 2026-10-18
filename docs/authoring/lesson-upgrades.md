@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **53 / 413**. Current: **l-g-concession**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **54 / 413**. Current: **l-g-interjections**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -61,7 +61,7 @@ Completed: **53 / 413**. Current: **l-g-concession**. Evidence lives in docs/rev
 | l-g-participles | 读懂 -ing 与 -ed 的修饰关系 | reviewed | [Individual review](../reviews/individual-lessons/l-g-participles.md) |
 | l-g-time-clauses | 时间状语从句：先后关系 | reviewed | [Individual review](../reviews/individual-lessons/l-g-time-clauses.md) |
 | l-g-reason-purpose | 说明原因、目的与结果 | reviewed | [Individual review](../reviews/individual-lessons/l-g-reason-purpose.md) |
-| l-g-concession | 虽然与除非：读懂让步和条件 | pending | — |
+| l-g-concession | 虽然与除非：读懂让步和条件 | reviewed | [Individual review](../reviews/individual-lessons/l-g-concession.md) |
 | l-g-interjections | 感叹词与语境里的情绪 | pending | — |
 | l-r-details | 找到事实，再核对选项 | pending | — |
 | l-r-inference | 推断要有原文撑住 | pending | — |

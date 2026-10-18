@@ -2,20 +2,20 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-53 of413 lessons are individually reviewed;360 remain pending. Every lesson needs bespoke tasks,
+54 of413 lessons are individually reviewed;359 remain pending. Every lesson needs bespoke tasks,
 useful pictures and actual visual inspection. Work stays solo under the claimed APP-VISUAL-LESSONS
 unit on author/individual-lessons. Shared engine coverage never supplies individual review credit.
 
-Latest:l-g-reason-purpose. Fifteen cause/purpose/result tasks gate opposite transport records,select complete clause/noun/verb phrase boundaries,and repair because/of,so that/in order to,so/such including many and repeated because/so.
+Latest:l-g-concession. Fifteen concession/condition tasks gate opposite dry/rain records,apply an explicit activity policy,repair unless/if-not and although/despite boundaries,and distinguish necessary conditions from guaranteed outcomes.
 
-Inspected all15 models,phone figures,both wrong transport gates,all13 wrong word selections,partial/removal recovery and all application/transfer steps. Given purposes do not prove achieved outcomes;fresh lamp/map transfer rejects invented completion. Grades8–9;reserved005–008 unexposed;zero independent records.
+Inspected all15 models,narrow-phone weather figures,both wrong record gates,all13 wrong word selections,typed/assembled errors,partial/removal recovery and every application/transfer step. Unless does not guarantee entry after the necessary ticket/test condition is met. Grades9;reserved005–008 unexposed;zero independent records.
 
-Checkpoint53 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
+Checkpoint54 records the new flow/45 widths and the core check scope,teaching,grammar,course,package,
 interaction and offline checks plus verified development archives. Its native adapter scope is
-recorded explicitly. The53 reviewed lessons cumulatively contain557 conditions/1671 widths;
+recorded explicitly. The54 reviewed lessons cumulatively contain572 conditions/1716 widths;
 earlier browser evidence keeps its original check scope. Do not claim all-course parity.
 
-Next:l-g-concession. Fifteen concession/condition tasks are drafted outside course files. Register inspected dry/rain playground artwork,apply the explicit activity policy,repair unless/if-not and although/despite boundaries,and distinguish necessary conditions from guaranteed results. Enforce the existing sentence-initial capital instructions in source responses.
+Next:l-g-interjections. Thirteen interjection tasks are drafted outside course files. Register the inspected upright/spilled cup artwork,require actual event records and textual emotion clues,and distinguish reactions/requests from unsupported facts. Preserve sentence-initial capital requirements.
 
 Native WeChat GUI validation remains blocked by project-drive access. The existing private MCP
 helper works;read memory and coordinate through the existing board. Content stays draft;approved
