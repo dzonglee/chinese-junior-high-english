@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-72 of 413 lessons are individually reviewed; 341 remain pending. Work stays solo under
+73 of 413 lessons are individually reviewed; 340 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t14. Eight original local-history tasks construct storage → empty → display, select opposite original/current room pictures with neutral use labels, hold street identity constant while time varies, weigh a loss against a benefit, preserve unknown dates and photograph provenance, and support a balanced attitude. Fresh bridge-display transfer rejects an invented year and a one-sided inference. Course title, objective, pitfall and application reasons identify the actual reading skills; the comparison application quotes its full sentence.
+Latest: l-r-course-t15. Eight original family-food invitation tasks require an entered 45-minute duration, opposite Tao/noodles and Nora/dumplings picture matching, distinguish absence of obligation from prohibition, connect optional photographs with permission conditions, ask about particular experiences, handle a declined personal question and reject country-wide rules. Fresh weekend-story transfer changes duration to 50 minutes with partly correct time/scope distractors. Course title, objective, pitfall and application reasons now identify these specific skills.
 
-Inspected all eight models, all wrong source choices and both wrong room pictures, sequence decoy/swapped order/partial reload/removal after completion, two other partial chains and missing/removed reasons, every 320-pixel source/order/picture card and both named-slot figures, full source and passage endings, application carousels and all application/transfer steps. Final timeline explanation avoids inventing when permission was granted. Original and 600-pixel art inspected; generated street thumbnails are fictional illustrations, not historical evidence. Grades 8–9; reserved reading text 2 stays unexposed; zero independent records.
+Inspected all eight models, all thirteen wrong source choices and both wrong food pictures, three partial evidence chains and missing/removed reasoning, empty/wrong/removed numerical input and its reload, every 320-pixel source/picture card and three named-slot figures, the calculated-response control at 320 pixels, full source and passage endings, application carousels and every application/transfer step. Original and 600-pixel art inspected and registered; dish identity does not establish nationality, compulsory food bringing or fixed customs. Grades 8–9; reserved reading text 2 stays unexposed; zero independent records.
 
-Checkpoint 72 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 731 tasks / 2193 widths; earlier flows retain their original scope.
+Checkpoint 73 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 739 tasks / 2217 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t15. Eight family-food-story invitation tasks and inspected original noodles/dumplings art are drafted outside production. Enter a 45-minute duration, match opposite named speakers and dishes, distinguish no obligation from prohibition, combine optional photographs with permission conditions, ask about particular family experiences, handle a declined question politely and reject country-wide overgeneralisation. Fresh weekend-story transfer changes duration to 50 minutes and tests partly correct time/scope combinations.
+Next: l-r-course-t16. Eight poem-and-note tasks and inspected original still/rippled-puddle art are drafted outside production. Match opposite water states, construct reflection → disturbance → clear reflection, distinguish a poetic second tree from an actual new tree, explain the returning reflection, ground differing feelings in words, read grows quiet as a change of state and reject invented biography. Fresh window-on-lane metaphor changes tree/wheel to sky/footstep. Recheck native project-file access before the next native GUI attempt.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
