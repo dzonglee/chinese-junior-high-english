@@ -9,3 +9,5 @@ Full serial core: 1511 tests in 14 files after contextual-gap state, literal clo
 Both native adapter checks are simulations; actual native GUI review remains blocked by Mac project-drive access. No release.
 
 GitHub sync is blocked: the existing GH_TOKEN is invalid according to read-only gh auth status. Moon commit d495fb1 and this checkpoint remain local; f7e5342 is the last confirmed push. No credentials changed. Continue the already-locked parent claim locally and reconcile pending commits when existing GitHub access is repaired. Obsidian/Kanban remain available.
+
+Synchronization update: GitHub synchronization recovered on retry without credential changes: Moon commit d495fb1 and cloze checkpoint d2cbf65 are now pushed, and origin/main is fetched. Earlier authentication failures are retained in the log as history. Native GUI project-drive access remains blocked.
