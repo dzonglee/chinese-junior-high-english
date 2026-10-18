@@ -1,0 +1,496 @@
+{
+  "lessonId": "l-ls-course-t24",
+  "intent": "Report actual tested plants and mistakes within the tested scope, distinguish an occupied-room test proposal from a proven sensor failure, and retain successful and failed results.",
+  "picturePurpose": "Original occupied versus empty reading-room alternatives ground occupancy vocabulary and matching the proposed seated-person test. Static art cannot establish stillness duration, detection success/failure or lighting behavior; exact claims and recording choices remain code-rendered and dialogue-grounded.",
+  "reviewState": "draft",
+  "workshop": {
+    "applicationStyle": "cards",
+    "navigationLabel": "任务",
+    "kind": "proof",
+    "title": "测试过什么，还要测什么",
+    "instruction": "亲手改测试报告，用图辨认待测场景，再决定怎样保留成功与失败记录。",
+    "items": [
+      {
+        "id": "testing-1",
+        "label": "先找真正测过的对象",
+        "sourceStyle": "cards",
+        "sourceTitle": "WHAT DID THEY ACTUALLY TEST?",
+        "prompt": "How many plants were tested?",
+        "answer": "Twelve common garden plants.",
+        "reason": "老师问测了多少，学生回答十二株常见园艺植物，并报告两次错误。every plant是待纠正的最初说法，twelve也不是twenty。十二个受测对象不能自动证明对所有植物都有效。",
+        "hint": "把已测对象、已见错误和待测问题分开；准备怎样记录，不等于测试已经有了结果。",
+        "material": "Student: Our app recognises every plant.\nTeacher: How many have you tested?\nStudent: Twelve common garden plants, and it made two mistakes.\nTeacher: Then report those results. Do not claim it works for every plant. A useful invention also needs an honest account of its limits.\n\nThe teacher asks for ____.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "results"
+          ]
+        ],
+        "options": [
+          {
+            "id": "claim",
+            "text": "Our app recognises every plant.",
+            "correct": false,
+            "reason": "every plant是学生最初的过度声称，老师接着要求核对测试依据。"
+          },
+          {
+            "id": "ask",
+            "text": "How many have you tested?",
+            "correct": false,
+            "reason": "这是老师追问测试数量的问题，还需找学生的回答。"
+          },
+          {
+            "id": "results",
+            "text": "Twelve common garden plants, and it made two mistakes.",
+            "correct": true,
+            "reason": "Twelve给受测数量，common garden plants保留对象范围；two mistakes是另一项结果。"
+          }
+        ]
+      },
+      {
+        "id": "testing-2",
+        "label": "把对象范围与错误记录分开填写",
+        "sourceStyle": "cards",
+        "sourceTitle": "WHAT DID THEY ACTUALLY TEST?",
+        "prompt": "Set the tested scope and the mistake record for the report.",
+        "answer": "Twelve common garden plants were tested; report the two mistakes and the limits.",
+        "reason": "学生实际测试十二株常见园艺植物，出现两次错误。老师要求报告这些结果并如实说明局限，不能扩成对所有植物都有效，也不能隐去错误。原文没给逐次测试记录，不额外推算准确率。",
+        "hint": "把已测对象、已见错误和待测问题分开；准备怎样记录，不等于测试已经有了结果。",
+        "material": "Student: Our app recognises every plant.\nTeacher: How many have you tested?\nStudent: Twelve common garden plants, and it made two mistakes.\nTeacher: Then report those results. Do not claim it works for every plant. A useful invention also needs an honest account of its limits.\n\nThe teacher asks for ____.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "results"
+          ],
+          [
+            "limit"
+          ],
+          [
+            "honest"
+          ]
+        ],
+        "options": [
+          {
+            "id": "limit",
+            "text": "Do not claim it works for every plant.",
+            "correct": true,
+            "reason": "Do not claim明确挡住every plant这一无依据推广。"
+          },
+          {
+            "id": "claim",
+            "text": "Our app recognises every plant.",
+            "correct": false,
+            "reason": "最初声称every plant正是老师要求修正的地方，不能照搬。"
+          },
+          {
+            "id": "honest",
+            "text": "A useful invention also needs an honest account of its limits.",
+            "correct": true,
+            "reason": "honest account of its limits说明报告还要保留局限。"
+          },
+          {
+            "id": "results",
+            "text": "Twelve common garden plants, and it made two mistakes.",
+            "correct": true,
+            "reason": "十二株对象与两次错误是已知测试数据，不能漏掉一项。"
+          }
+        ],
+        "evidenceLabels": [
+          "测了哪些对象、出现几次错误",
+          "哪种推广被老师否定",
+          "报告怎样呈现局限"
+        ],
+        "sourceSettings": {
+          "title": "我的测试报告",
+          "note": "分别填受测对象与错误记录。箭头显示你的报告会怎么写，不表示程序已经适用于未测对象。",
+          "rows": [
+            {
+              "id": "tested-scope",
+              "label": "报告测试覆盖的植物",
+              "answer": "off",
+              "reason": "只测了十二株常见园艺植物，不把有限测试扩成every plant。",
+              "wrong": "老师明确否定every plant的推广；十二株常见园艺植物不是所有植物。",
+              "route": {
+                "from": "Tested plants",
+                "targets": [
+                  "Every plant",
+                  "12 common garden plants"
+                ]
+              }
+            },
+            {
+              "id": "mistake-record",
+              "label": "怎样交代观察到的错误",
+              "answer": "on",
+              "reason": "保留two mistakes，才如实呈现测试结果和限制。",
+              "wrong": "测试报告已有two mistakes，隐藏错误会造成完美表现的错觉。",
+              "route": {
+                "from": "Observed mistakes",
+                "targets": [
+                  "Report two mistakes",
+                  "Omit the mistakes"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "testing-3",
+        "label": "把报告要求接完整",
+        "sourceStyle": "cards",
+        "sourceTitle": "WHAT DID THEY ACTUALLY TEST?",
+        "prompt": "Complete what the teacher asks the report to include.",
+        "answer": "The teacher asks for actual results and limits.",
+        "reason": "Then report those results指前面的十二株植物、两次错误；honest account of its limits再要求说明局限。不是完美表现，也不能只保留成功、不提错误。",
+        "hint": "把已测对象、已见错误和待测问题分开；准备怎样记录，不等于测试已经有了结果。",
+        "material": "Student: Our app recognises every plant.\nTeacher: How many have you tested?\nStudent: Twelve common garden plants, and it made two mistakes.\nTeacher: Then report those results. Do not claim it works for every plant. A useful invention also needs an honest account of its limits.\n\nThe teacher asks for ____.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "results"
+          ],
+          [
+            "report"
+          ],
+          [
+            "honest"
+          ]
+        ],
+        "options": [
+          {
+            "id": "report",
+            "text": "Then report those results.",
+            "correct": true,
+            "reason": "those results要接回前面的实际测试情况，不能替换成宣传语。"
+          },
+          {
+            "id": "claim",
+            "text": "Our app recognises every plant.",
+            "correct": false,
+            "reason": "every plant是老师纠正的声称，不能当已证实的结果。"
+          },
+          {
+            "id": "results",
+            "text": "Twelve common garden plants, and it made two mistakes.",
+            "correct": true,
+            "reason": "已知测试对象与两次错误，决定actual results要包含什么。"
+          },
+          {
+            "id": "honest",
+            "text": "A useful invention also needs an honest account of its limits.",
+            "correct": true,
+            "reason": "honest account of its limits明确要求如实说明局限。"
+          }
+        ],
+        "evidenceLabels": [
+          "学生实际报告了什么",
+          "those results接回什么",
+          "还要如实说明哪一方面"
+        ],
+        "sourceGap": {
+          "before": "The teacher asks for ",
+          "after": ".",
+          "answer": "actual",
+          "options": [
+            {
+              "id": "perfect",
+              "text": "a claim of perfect performance",
+              "reason": "已有两次错误，不能声称完美表现。"
+            },
+            {
+              "id": "actual",
+              "text": "actual results and limits",
+              "reason": "同时保留实际测试结果与诚实的局限说明。"
+            },
+            {
+              "id": "success-only",
+              "text": "successes without the mistakes",
+              "reason": "隐藏两次错误不符合report those results与honest account。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "testing-4",
+        "label": "区分功能介绍与待测条件",
+        "sourceStyle": "cards",
+        "sourceTitle": "A QUESTION FOR THE NEXT TEST",
+        "prompt": "Which condition does Nina want them to test?",
+        "answer": "Someone sitting very still in the room.",
+        "reason": "Nina用What if提出有人坐得很静时会怎样，Kai认为值得测试并要求先查。她没有报告测试已经失败，也没有在问房间有没有墙或灯是否永远不能亮。",
+        "hint": "把已测对象、已见错误和待测问题分开；准备怎样记录，不等于测试已经有了结果。",
+        "material": "Kai: This device switches the lights off when the room is empty.\nNina: What if someone is sitting very still?\nKai: That is a good test. We should check before saying it always knows whether a room is occupied.\nNina: Let us record both successful and failed tests.\n\nPicture A: a person seated at a desk with an open book.\nPicture B: the same reading room with no person in it.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "test"
+          ]
+        ],
+        "options": [
+          {
+            "id": "function",
+            "text": "This device switches the lights off when the room is empty.",
+            "correct": false,
+            "reason": "这是空房间时关灯的功能介绍；Nina随后另提一种需要测试的情境。"
+          },
+          {
+            "id": "test",
+            "text": "What if someone is sitting very still?",
+            "correct": true,
+            "reason": "What if提出有人坐得很静这一待测条件，尚未给检测结果。"
+          },
+          {
+            "id": "record",
+            "text": "Let us record both successful and failed tests.",
+            "correct": false,
+            "reason": "这句决定记录哪些测试，不能代替Nina提出的具体条件。"
+          }
+        ]
+      },
+      {
+        "id": "testing-5",
+        "label": "用图辨认有人就座，再找尚未确认的部分",
+        "sourceStyle": "cards",
+        "sourceTitle": "A QUESTION FOR THE NEXT TEST",
+        "prompt": "Which pictured room fits Nina’s proposed test, and what remains unknown?",
+        "answer": "Picture A has a seated person; the device’s response to that proposed condition still needs testing.",
+        "reason": "A有学生坐在桌前，能对应“有人就座”的场景；B才是空房间。坐得很静这一条件来自Nina的问句，静态图片不能证明静止时长。Kai说先查再下结论，所以此时既不能断言设备漏检，也不能保证总能检测到人。",
+        "hint": "把已测对象、已见错误和待测问题分开；准备怎样记录，不等于测试已经有了结果。",
+        "material": "Kai: This device switches the lights off when the room is empty.\nNina: What if someone is sitting very still?\nKai: That is a good test. We should check before saying it always knows whether a room is occupied.\nNina: Let us record both successful and failed tests.\n\nPicture A: a person seated at a desk with an open book.\nPicture B: the same reading room with no person in it.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "left"
+          ],
+          [
+            "test"
+          ],
+          [
+            "check"
+          ]
+        ],
+        "options": [
+          {
+            "id": "right",
+            "text": "Picture B: the same reading room with no person in it.",
+            "correct": false,
+            "reason": "B无人，符合empty，却没有呈现Nina新提出的有人坐得很静的条件。"
+          },
+          {
+            "id": "check",
+            "text": "We should check before saying it always knows whether a room is occupied.",
+            "correct": true,
+            "reason": "check before saying要求先测再下结论，尚无这次测试的成功或失败结果。"
+          },
+          {
+            "id": "left",
+            "text": "Picture A: a person seated at a desk with an open book.",
+            "correct": true,
+            "reason": "A明确显示有人就座，区别于B的无人房间。"
+          },
+          {
+            "id": "test",
+            "text": "What if someone is sitting very still?",
+            "correct": true,
+            "reason": "What if someone is sitting very still给待测条件；问句不是已失败的测试记录。"
+          }
+        ],
+        "evidenceLabels": [
+          "哪张图中有人就座",
+          "Nina新提出哪种待测条件",
+          "为什么还不能断言检测结果"
+        ],
+        "sourceArt": {
+          "assetRoot": "assets",
+          "asset": "lesson-occupied-room",
+          "alt": "原创阅读室动作对照：左边一名学生坐在桌前看打开的书，右边同一房间无人，椅子空着。两边桌椅、关着的笔记本电脑、盆栽与明亮窗户对应；没有传感器、灯光开关、运动标记或成功失败符号。静态图只显示有人就座或无人，不能证明静止时长或设备检测结果。",
+          "choices": [
+            {
+              "id": "left",
+              "label": "A 有人就座"
+            },
+            {
+              "id": "right",
+              "label": "B 房间无人"
+            }
+          ]
+        }
+      },
+      {
+        "id": "testing-6",
+        "label": "决定两类测试怎样进入记录",
+        "sourceStyle": "cards",
+        "sourceTitle": "A QUESTION FOR THE NEXT TEST",
+        "prompt": "Set which test outcomes they plan to record.",
+        "answer": "Record both successful and failed tests; the still-person condition is a proposed test, not a proven failure.",
+        "reason": "Nina说both successful and failed，两类结果都保留；不能只记成功，也不能只记失败。Kai仍在说应先测试，不能把记录方案误写成“这次静坐测试已经失败”。",
+        "hint": "把已测对象、已见错误和待测问题分开；准备怎样记录，不等于测试已经有了结果。",
+        "material": "Kai: This device switches the lights off when the room is empty.\nNina: What if someone is sitting very still?\nKai: That is a good test. We should check before saying it always knows whether a room is occupied.\nNina: Let us record both successful and failed tests.\n\nPicture A: a person seated at a desk with an open book.\nPicture B: the same reading room with no person in it.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "record"
+          ],
+          [
+            "check"
+          ]
+        ],
+        "options": [
+          {
+            "id": "check",
+            "text": "We should check before saying it always knows whether a room is occupied.",
+            "correct": true,
+            "reason": "We should check说明这仍是待测情境，不是已经出现的漏检结果。"
+          },
+          {
+            "id": "function",
+            "text": "This device switches the lights off when the room is empty.",
+            "correct": false,
+            "reason": "空房间自动关灯的功能介绍，不决定能否删掉某一类测试记录。"
+          },
+          {
+            "id": "record",
+            "text": "Let us record both successful and failed tests.",
+            "correct": true,
+            "reason": "both…and把成功与失败并列，两类测试都要记录。"
+          },
+          {
+            "id": "test",
+            "text": "What if someone is sitting very still?",
+            "correct": false,
+            "reason": "What if提出要测试的问题，单凭疑问不能断言已经失败。"
+          }
+        ],
+        "evidenceLabels": [
+          "Nina要求记录哪两类测试",
+          "这次情境是待测还是已有结果"
+        ],
+        "sourceSettings": {
+          "title": "我的测试记录方案",
+          "note": "决定两类结果是否都进入记录。这里设置的是计划，不能把“准备测试”写成“已经失败”。",
+          "rows": [
+            {
+              "id": "success-record",
+              "label": "成功的测试怎样记录",
+              "answer": "on",
+              "reason": "both successful and failed要求把成功测试也记下来。",
+              "wrong": "both包含successful，不能为了强调局限反而漏记成功。",
+              "route": {
+                "from": "Successful tests",
+                "targets": [
+                  "Keep in the record",
+                  "Leave out"
+                ]
+              }
+            },
+            {
+              "id": "failure-record",
+              "label": "失败的测试怎样记录",
+              "answer": "off",
+              "reason": "both还包含failed，失败记录同样保留，才能呈现局限。",
+              "wrong": "只记成功会隐去限制；Nina明确要记failed tests。",
+              "route": {
+                "from": "Failed tests",
+                "targets": [
+                  "Leave out",
+                  "Keep in the record"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "applicationIds": [
+      "q-ls-course-t24-course-t24-1-2",
+      "q-ls-course-t24-course-t24-2-2"
+    ],
+    "transfer": {
+      "id": "individual-ls-course-t24-transfer",
+      "topicId": "ls-course-t24",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        9
+      ],
+      "stem": "Which report and test plan keeps the evidence accurate?",
+      "passage": "NEW TRANSCRIPT PRACTICE — AUDIO PENDING\nMina: Our app can identify every bird.\nTeacher: What have you actually tested?\nMina: Eight local birds, and it made one mistake.\nTeacher: Report those results and the limits. Do not claim it works for every bird.\nOwen: Our room device turns the lights off when nobody is there. What if a reader is sitting very quietly?\nTeacher: That is a condition to test, not a result we already know. Record both successful and failed tests.\nTranscript preparation. Approved audio pending.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Report eight birds/one error; proposed test; record both outcomes."
+        },
+        {
+          "id": "b",
+          "text": "Claim it works for all birds; proposed test; record both outcomes."
+        },
+        {
+          "id": "c",
+          "text": "Report eight birds/one error; proven failure; record both outcomes."
+        },
+        {
+          "id": "d",
+          "text": "Report eight birds/one error; proposed test; record successes only."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Report eight birds/one error; proposed test; record both outcomes."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把已测对象、实际错误、待测条件和记录计划分别列清，不把问题写成结果。",
+        "steps": [
+          {
+            "text": "已知只测了八只本地鸟，出现一次错误。",
+            "reason": "Eight local birds和one mistake是报告依据；老师否定every bird的推广，没有许可隐藏错误或计算未给出的准确率。"
+          },
+          {
+            "text": "安静就座是下一步要测的情境；两类测试结果都应记录。",
+            "reason": "condition to test, not a result we already know明确区分问题与结果；both successful and failed不能缩成只记成功。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "测试计划和记录两类结果保留了，却把八只本地鸟的有限测试扩成对所有鸟都有效。"
+          },
+          {
+            "option": "c",
+            "reason": "保留实际鸟类测试数据和两类记录，却把待测的安静就座情境写成已证实失败。"
+          },
+          {
+            "option": "d",
+            "reason": "保留实际数据与待测状态，却只记成功，漏掉明确要求保留的失败测试。"
+          }
+        ],
+        "pitfall": "有限受测对象不能证明对所有对象有效；What if提出测试问题，不等于已观察到失败；both不能漏掉一边。",
+        "visual": {
+          "kind": "evidence",
+          "title": "结果与下一步分开",
+          "segments": [
+            {
+              "text": "Eight local birds → one mistake",
+              "role": "evidence",
+              "note": "保留实际对象和错误，不推广到所有鸟"
+            },
+            {
+              "text": "Quiet seated reader → condition to test",
+              "role": "evidence",
+              "note": "尚未得到结果，不能写成已证实漏检"
+            },
+            {
+              "text": "Test record → successful + failed",
+              "role": "evidence",
+              "note": "两类都保留，不只记成功"
+            }
+          ],
+          "caption": "新材料是八只鸟与一次错误，不能照搬前面的十二株植物与两次错误；没有据此推算准确率。"
+        },
+        "transfer": "如果记录成功与失败，却把“有人安静就座时会怎样”写成“设备已经漏检”，仍混淆了哪两个阶段？"
+      }
+    }
+  }
+}
