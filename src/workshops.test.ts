@@ -354,6 +354,9 @@ it('binds inference picture choices to distinct quoted evidence rather than unkn
  const unsafe=structuredClone(studio('l-r-inference').mission!.workshop!)
  unsafe.items[0].sourceArt!.asset='../outside'
  expect(workshopProblems(unsafe)).toContain('Invalid source illustration')
+ const rooted=structuredClone(studio('l-r-inference').mission!.workshop!)
+ rooted.items[0].sourceArt!.assetRoot='assets';expect(workshopProblems(rooted)).toEqual([])
+ rooted.items[0].sourceArt!.assetRoot='../outside' as 'assets';expect(workshopProblems(rooted)).toContain('Invalid source illustration')
 })
 
 
