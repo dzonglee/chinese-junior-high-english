@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **95 / 413**. Current: **l-ls-course-t06**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **96 / 413**. Current: **l-ls-course-t07**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -103,7 +103,7 @@ Completed: **95 / 413**. Current: **l-ls-course-t06**. Evidence lives in docs/re
 | l-ls-course-t03 | 听懂交流：身心健康与求助 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t03.md) |
 | l-ls-course-t04 | 听懂交流：找到适合自己的学习方法 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t04.md) |
 | l-ls-course-t05 | 听懂交流：认识自己与管理时间 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t05.md) |
-| l-ls-course-t06 | 听懂交流：了解职业与责任 | pending | — |
+| l-ls-course-t06 | 听懂交流：了解职业与责任 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-course-t06.md) |
 | l-ls-course-t07 | 听懂交流：劳动实践与把事情做好 | pending | — |
 | l-ls-course-t08 | 听懂交流：消费、预算与守信 | pending | — |
 | l-ls-course-t09 | 听懂交流：动手改进与解决问题 | pending | — |
