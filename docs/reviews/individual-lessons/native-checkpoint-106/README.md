@@ -1,0 +1,7 @@
+# Focused native checkpoint 106
+
+Final corrected Tencent DevTools guest job `e2749cdb973c49b489bfde371e7a0a06` has actual native exit 0, seven authored tasks and no errors. All 26 captures inspected. Actual route and bound lesson verified. Original lake picture loads from its registered root; wrong/no-quote/repair states inspected. Both independent timing choices change actual rendered positions; all four configurations measured and inspected. No-extra spacing keeps every base interval uniform at either pace. A correct plan still needs source clues and reasoning. Editing/reopening preserves the independent rows and accepted clues while invalidating completion. Both live sentences, applications, clinic, transfer and summary add no independent records.
+
+Initial browser/native numeric expectations mirrored a geometry error found visually; final job validates corrected base-plus-extra spacing. Earlier jobs are superseded. SDK-triggered component events verify bindings; remaining transitions use real Application. Captures show selected regions at 367 × 794; full figures inspected in browser at 320/390/768. Physical hit-testing/device coverage remains open. Saved data restored, own project closed, shared lock released. Silent static dots are illustrative, not a score or recording. Content stays draft; approved audio pending. No upload/publication.
+
+[Results](results.json) · [Job](job.json) · [Both timing choices](pacing-on-on.png) · [Uniform slower intervals](pacing-on-off.png) · [Edited reopened state](pacing-edited-reopened.png).

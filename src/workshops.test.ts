@@ -898,3 +898,16 @@ it('requires distinct explicit labels for both binary plan states',()=>{
  const legacy=structuredClone(w);delete legacy.items[1].sourceSettings!.labels;expect(workshopProblems(legacy)).toEqual([])
  for(const spelling of ['american','british'] as const){const t=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-ls-course-t09')!,spelling);expect(t.mission!.workshop!.items[1].sourceSettings!.labels).toEqual(['改变','保持'])}
 })
+
+it('changes silent pacing geometry independently and restores it without granting hearing or completion credit',()=>{
+ const id='l-ls-course-t16',s=studio(id),w=s.mission!.workshop!,index=w.items.findIndex(i=>!!i.sourceSettings?.pacing),item=w.items[index];let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item',String(index));expect(workshopView(w,p).settings!.pacing!.ready).toBe(false)
+ act('setting','slower:on');expect(workshopView(w,p).settings!.pacing!.ready).toBe(false)
+ for(const [pace,space]of [['off','off'],['on','off'],['off','on'],['on','on']]){act('setting','slower:'+pace);act('setting','spacing:'+space);const v=workshopView(w,p);expect(v.settings!.pacing).toMatchObject({ready:true,pace,space,beatGap:pace==='on'?10:4,extraGap:space==='on'?18:0,phraseGap:(pace==='on'?10:4)+(space==='on'?18:0)});expect(v.settings!.pacing!.groups.map(g=>g.dots.length)).toEqual([3,3,3]);act('settings-check');expect(workshopView(w,p).complete).toBe(false)}
+ for(const group of item.evidenceGroups!){act('choose',group[0]);act('check')};act('own','先试较慢速度并给乐句留空，点图不是已成功的演奏结果。');act('save');expect(workshopView(w,p).complete).toBe(true)
+ const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,state.teaching[id],4);expect(workshopView(w,p).settings!.pacing).toMatchObject({ready:true,beatGap:10,extraGap:18,phraseGap:28});expect(state.attempts).toHaveLength(0);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ act('setting','spacing:off');expect(workshopView(w,p).settings!.pacing!.extraGap).toBe(0);expect(workshopView(w,p).settings!.pacing!.phraseGap).toBe(10);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).proofCollected).toHaveLength(3)
+})
+it('rejects a silent pacing illustration unless its two controls are distinct existing settings',()=>{
+ const original=studio('l-ls-course-t16').mission!.workshop!,index=original.items.findIndex(i=>!!i.sourceSettings?.pacing);expect(workshopProblems(original)).toEqual([])
+ for(const pacing of [null,{},'slower',{paceRow:'slower',spaceRow:'slower'},{paceRow:'unknown',spaceRow:'spacing'},{paceRow:'slower',spaceRow:'unknown'}]){const w=structuredClone(original);(w.items[index].sourceSettings as any).pacing=pacing;expect(workshopProblems(w)).toContain('Invalid pacing diagram')}
+})
