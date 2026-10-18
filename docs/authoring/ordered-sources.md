@@ -24,3 +24,17 @@ swapped correct steps, decoys, duplicate/unknown IDs, partial restore, removal a
 reason requirements and recovery. Individual browser checks exercise the actual controls at
 320, 390 and 768 pixels. The offline suite restores and repairs an arrangement without networking.
 Native-adapter checks are simulations; current WeChat GUI validation is tracked separately.
+
+An order item can optionally set `sourceOrderLabels` to one unique trimmed label per position
+(maximum 24 characters each). Use named slots when the source establishes stages such as
+Before / During / After. All slots remain visible before selection, with a distinct empty state;
+placing or removing exact source cards preserves their slot position labels. A misplaced card
+receives a cross after checking; a complete correct arrangement receives ticks. The conclusion
+and own-reason requirement use the existing exact-order checks. Labels do not establish facts
+missing from a notice, such as an actual school signal, meeting point or evacuation route.
+
+The practice-notice regression exercises decoys, reversed stages, incomplete reload, missing
+reasoning, removal, repair and stale completion flags. Label count, uniqueness, whitespace and
+length are validated, while ordinary unlabeled orders retain their prior layout. Both renderers
+use the same slot view; browser checks inspect font size and containment at three widths, and
+the offline suite exercises the actual labelled controls without granting independent credit.

@@ -691,3 +691,28 @@ it('requires readable condition records instead of reusing quantitative or word-
   (x:typeof w)=>{x.conditions![0].world.cells[1].id='paper'}
  ]){const bad=structuredClone(w);mutate(bad);expect(workshopProblems(bad).length).toBeGreaterThan(0)}
 })
+
+it('sorts the actual practice notice into persistent named stages and rejects wrong, partial or edited orders',()=>{
+ const s=studio('l-r-course-t28'),w=s.mission!.workshop!,index=3,item=w.items[index],order=item.sourceOrder!
+ let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)}
+ act('item',String(index));expect(workshopView(w,p).orderSlots.map(x=>[x.label,x.filled])).toEqual(item.sourceOrderLabels!.map(label=>[label,false]))
+ act('order-add','race');act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).orderSlots[0]).toMatchObject({label:'Before · 演练前',id:'race',wrong:true});expect(workshopView(w,p).orderSlots.slice(1).every(x=>!x.filled)).toBe(true)
+ act('order-clear');for(const id of [...order].reverse())act('order-add',id);act('check');expect(workshopView(w,p).orderSlots.map(x=>x.wrong)).toEqual([true,false,true]);expect(workshopView(w,p).complete).toBe(false)
+ act('order-clear');act('order-add',order[0]);act('check');p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3)
+ expect(workshopView(w,p).orderSlots.map(x=>x.filled)).toEqual([true,false,false]);expect(workshopView(w,p).orderSlots[0].text).toBe(item.options!.find(o=>o.id===order[0])!.text)
+ for(const id of order.slice(1))act('order-add',id);act('check');expect(workshopView(w,p).correct).toBe(true);act('save');expect(workshopView(w,p).complete).toBe(false)
+ act('own','先听老师说明，演练中听指令，结束后查哪些还不清楚。');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('order-remove',order[1]);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),4);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).orderSlots.map(x=>x.id)).toEqual([order[0],order[2],'']);act('check');expect(workshopView(w,p).orderSlots[1].wrong).toBe(true)
+ act('order-clear');for(const id of order)act('order-add',id);act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+ p.answers['workshopOrder-'+item.id]=[order[0],order[2],order[1]].join('|');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).tabs[index].done).toBe(false)
+})
+
+it('rejects ambiguous phase labels and retains ordinary ordering and spelling behavior',()=>{
+ const original=studio('l-r-course-t28').mission!.workshop!,index=3
+ for(const labels of [[],['Before'],['Before','Before','After'],[' Before','During','After'],['Before','During','After '],['x'.repeat(25),'During','After'],['Before',42,'After']]){
+  const w=structuredClone(original);w.items[index].sourceOrderLabels=labels as string[];expect(workshopProblems(w)).toContain('Invalid named order slots')
+ }
+ const unordered=structuredClone(original);delete unordered.items[index].sourceOrder;expect(workshopProblems(unordered)).toContain('Invalid named order slots')
+ const legacy=studio('l-r-course-t27'),p={...freshTeaching(legacy,1),step:1};p.answers.workshopIndex='7';expect(workshopView(legacy.mission!.workshop!,p).orderSlots).toEqual([])
+ for(const spelling of ['american','british'] as const){const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-course-t28')!,spelling);expect(s.mission!.workshop!.items[index].sourceOrderLabels).toEqual(['Before · 演练前','During · 演练中','After · 演练后']);expect(workshopProblems(s.mission!.workshop!)).toEqual([])}
+})
