@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **55 / 413**. Current: **l-r-details**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **56 / 413**. Current: **l-r-inference**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -63,7 +63,7 @@ Completed: **55 / 413**. Current: **l-r-details**. Evidence lives in docs/review
 | l-g-reason-purpose | 说明原因、目的与结果 | reviewed | [Individual review](../reviews/individual-lessons/l-g-reason-purpose.md) |
 | l-g-concession | 虽然与除非：读懂让步和条件 | reviewed | [Individual review](../reviews/individual-lessons/l-g-concession.md) |
 | l-g-interjections | 感叹词与语境里的情绪 | reviewed | [Individual review](../reviews/individual-lessons/l-g-interjections.md) |
-| l-r-details | 找到事实，再核对选项 | pending | — |
+| l-r-details | 找到事实，再核对选项 | reviewed | [Individual review](../reviews/individual-lessons/l-r-details.md) |
 | l-r-inference | 推断要有原文撑住 | pending | — |
 | l-r-main-idea | 抓住主旨，不被一个细节带走 | pending | — |
 | l-r-course-t01 | 把一天安排得有张有弛：读懂信息与用意 | pending | — |

@@ -33,8 +33,8 @@ it('requires word recall and actual use, preserves input per word and distinguis
  p=changeTeaching(s,p,'workshop-input',item.answer,2);p=changeTeaching(s,p,'workshop-check','',3);p=changeTeaching(s,p,'workshop-save','',4);expect(workshopView(w,p).complete).toBe(false);p=changeTeaching(s,p,'workshop-own',`May I ${item.answer} this book today?`,5);p=changeTeaching(s,p,'workshop-save','',6);expect(workshopView(w,p).complete).toBe(true);p=changeTeaching(s,p,'workshop-item','1',7);p=changeTeaching(s,p,'workshop-item','0',8);expect(workshopView(w,p).input).toBe(item.answer);p=changeTeaching(s,p,'workshop-input','wrong',9);expect(workshopView(w,p).complete).toBe(false);expect(containsTerm('This is a cat.','a')).toBe(true);expect(containsTerm('This cat sat.','a')).toBe(false)
 })
 it('keeps a selected wrong premise visible without unlocking the conclusion',()=>{
- const s=studio('l-r-details'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};const item=w.items[0],bad=item.options!.find(o=>!o.correct)!,good=item.options!.find(o=>o.correct)!
- p=changeTeaching(s,p,'workshop-choose',bad.id,2);p=changeTeaching(s,p,'workshop-check','',3);expect(workshopView(w,p).selected).toBe(bad.id);expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toContain(item.prompt);p=changeTeaching(s,p,'workshop-choose',good.id,4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).correct).toBe(true);expect(teachingCanAdvance(s,p)).toBe(false);p=changeTeaching(s,p,'workshop-own','这句话直接说明了饭后的行动。',6);p=changeTeaching(s,p,'workshop-save','',6);expect(teachingCanAdvance(s,p)).toBe(true);p=changeTeaching(s,p,'workshop-choose',bad.id,6);expect(teachingCanAdvance(s,p)).toBe(false)
+ const s=structuredClone(studio('l-r-details')),w={...s.mission!.workshop!,items:[{...s.mission!.workshop!.items[0],sourceStyle:undefined}]};s.mission!.workshop=w;let p={...freshTeaching(s,1),step:1};const item=w.items[0],bad=item.options!.find(o=>!o.correct)!,good=item.options!.find(o=>o.correct)!
+ p=changeTeaching(s,p,'workshop-choose',bad.id,2);p=changeTeaching(s,p,'workshop-check','',3);expect(workshopView(w,p).selected).toBe(bad.id);expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toBe(bad.reason);p=changeTeaching(s,p,'workshop-choose',good.id,4);p=changeTeaching(s,p,'workshop-check','',5);expect(workshopView(w,p).correct).toBe(true);expect(teachingCanAdvance(s,p)).toBe(false);p=changeTeaching(s,p,'workshop-own',item.reason,6);p=changeTeaching(s,p,'workshop-save','',6);expect(teachingCanAdvance(s,p)).toBe(true);p=changeTeaching(s,p,'workshop-choose',bad.id,6);expect(teachingCanAdvance(s,p)).toBe(false)
 })
 it('keeps saved repairs and feedback on the same attempted expression',()=>{
  const s=studio('l-g-be');let p=freshTeaching(s,1);p=changeTeaching(s,p,'mission-open','',2);const m=s.mission!,v=missionView(m,p),bad=v.chips.find(c=>c.id!==v.active.answer&&c.text!==v.active.initial)!
@@ -311,4 +311,29 @@ it('keeps a short assembled verb with its final punctuation while allowing long 
  for(const[a,v]of workshopExpressionActions(long,long.target))changeWorkshop(longW,p,a,v)
  expect(workshopView(longW,p).keepEnding).toBe(false)
  expect(workshopView(longW,p).selected).toBe('Do you want tea')
+})
+
+it('refuses invented quotations or missing original notices in readable evidence cards',()=>{
+ const w=structuredClone(studio('l-r-details').mission!.workshop!)
+ expect(workshopProblems(w)).toEqual([])
+ w.items[0].options![0].text='The workshop has twenty places.'
+ expect(workshopProblems(w)).toContain('Source cards must quote the complete material')
+ const absent=structuredClone(studio('l-r-details').mission!.workshop!);absent.items[0].material=''
+ expect(workshopProblems(absent)).toContain('Source cards must quote the complete material')
+ const wrongKind=structuredClone(studio('l-r-details').mission!.workshop!);wrongKind.kind='sound-map'
+ expect(workshopProblems(wrongKind)).toContain('Source cards must quote the complete material')
+})
+
+
+it('finishes a single-clue card task directly but keeps a multi-clue inference and reflection required',()=>{
+ const s=studio('l-r-details'),w=s.mission!.workshop!,p=freshTeaching(s,1),first=w.items[0]
+ changeWorkshop(w,p,'choose',first.options!.find(o=>o.correct)!.id);changeWorkshop(w,p,'check','')
+ expect(workshopView(w,p).complete).toBe(true)
+ changeWorkshop(w,p,'choose',first.options!.find(o=>!o.correct)!.id);changeWorkshop(w,p,'check','')
+ expect(workshopView(w,p).complete).toBe(false)
+ changeWorkshop(w,p,'item','1');const second=w.items[1]
+ for(const group of second.evidenceGroups!){changeWorkshop(w,p,'choose',group[0]);changeWorkshop(w,p,'check','')}
+ expect(workshopView(w,p).correct).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+ changeWorkshop(w,p,'save','');expect(workshopView(w,p).complete).toBe(false)
+ changeWorkshop(w,p,'own',second.reason);changeWorkshop(w,p,'save','');expect(workshopView(w,p).complete).toBe(true)
 })

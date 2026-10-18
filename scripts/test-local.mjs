@@ -143,6 +143,22 @@ try {
     expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length)
   }
   checks.push('Subpackage illustrations load from embedded bytes offline; actual picture errors and repairs remain guided evidence')
+  // Readable evidence cards and multi-clue restoration must work without network access.
+  const reading=catalog.lessons.find(l=>l.id==='l-r-details'),readingItem=reading.visualMission.workshop.items[1]
+  await page.goto(`${url}#lesson?id=${reading.id}`)
+  const readingPrediction=catalog.questions.find(q=>q.id===reading.questionIds[0])
+  await action('studio-answer',readingPrediction.answer.option);await action('studio-check');await action('studio-next');await action('studio-workshop-item','1')
+  const clues=readingItem.evidenceGroups.map(g=>g[0])
+  await action('studio-workshop-choose',clues[0]);await action('studio-workshop-check')
+  await expect(page.locator('.reading-evidence.accepted')).toHaveCount(1);await expect(page.locator('.reading-conclusion')).toHaveCount(0)
+  await page.goto(`${url}#home`);await page.goto(`${url}#lesson?id=${reading.id}`)
+  await expect(page.locator('.reading-evidence.accepted')).toHaveCount(1)
+  await action('studio-workshop-choose',readingItem.options.find(o=>!o.correct).id);await action('studio-workshop-check');await expect(page.locator('.reading-conclusion')).toHaveCount(0)
+  await action('studio-workshop-choose',clues[1]);await action('studio-workshop-check');await expect(page.locator('.reading-conclusion')).toContainText(readingItem.answer)
+  await page.locator('[name=studioWorkshopOwn]').fill(readingItem.reason);await action('studio-workshop-save');await expect(page.locator('.workshop-saved')).toBeVisible()
+  expect((await state()).attempts).toHaveLength(beforeStudio.attempts.length)
+  checks.push('Readable source cards preserve partial evidence,repair a wrong clue and save reasoning offline without independent credit')
+
   expect(network.filter(request => request !== url)).toEqual([]); expect(errors).toEqual([])
   checks.push('No remote/content requests, no page errors and no horizontal overflow at phone/tablet widths')
   writeFileSync(resolve(root, 'test-results/local/results.json'), JSON.stringify({ mode, networkDisabledAfterDocumentLoad: true, directFileNavigationValidated: mode === 'file', checks, errors, network, completedAt: new Date().toISOString() }, null, 2) + '\n')
