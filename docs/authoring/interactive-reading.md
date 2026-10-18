@@ -42,3 +42,13 @@ claims in code, retain literal source options in the full material, and distingu
 context from proof of a real event. Web/native cards preserve the same pending, accepted and wrong
 markers as other evidence pictures. The fact-check lesson requires the earlier-post quotation and
 the learner's reasoning as well as the pictured context; a picture choice alone cannot complete it.
+
+`world.selection.mode: fields` presents labelled non-numerical condition records in full-width
+controls. Use a logic world, stable cell IDs and nonempty labels/details. The required IDs refer
+to the fields the learner must identify for the authored task, such as every changed experimental
+condition. There are no quantity bars. Selection shows a pending dot, a cross for a checked extra
+field, and ticks only for a checked correct set. Checking also requires the actual conclusion;
+edits remove completion and reload preserves unfinished work. A stale saved flag cannot complete
+an incorrect set. Label added scenarios as simulations and do not invent measurements from the
+source. A changed factor must also answer the stated experimental question. Mixed transform tasks
+use “previous/next item” navigation rather than calling every task a sentence.

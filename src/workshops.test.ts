@@ -658,3 +658,36 @@ it('rejects incomplete comparison captions and resets checked arguments when a c
  const updated=createLessonTeaching(catalog,lesson),restored=restoreTeaching(updated,p,5)
  expect(workshopView(updated.mission!.workshop!,restored).proofArtChoices.every(c=>!c.accepted)).toBe(true);expect(restored.answers['workshopOwn-fact-check-2']).toBe('My own saved explanation.')
 })
+
+it('checks every changed experimental condition and the question the comparison can answer',()=>{
+ for(const spelling of ['american','british'] as const){
+  const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-course-t24')!,spelling),w=s.mission!.workshop!
+  expect(workshopProblems(w)).toEqual([])
+  for(let index=0;index<5;index++){
+   const condition=w.conditions![index],scope=condition.world.selection!,changed=condition.world.cells.filter(c=>/^(Changed|Different)/.test(c.detail!)).map(c=>c.id!)
+   expect(scope.mode).toBe('fields');expect([...scope.ids].sort()).toEqual([...changed].sort())
+   expect(condition.target).toBe(changed.length===1?(changed[0]==='fold'?'can compare the folds':'do not compare folds'):'change two conditions')
+   let p={...freshTeaching(s,1),step:1};changeWorkshop(w,p,'item',String(index));changeWorkshop(w,p,'choose',condition.target);changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(false)
+   const extra=condition.world.cells.find(c=>!changed.includes(c.id!))!
+   changeWorkshop(w,p,'member',extra.id!);changeWorkshop(w,p,'check','');expect(workshopView(w,p).feedback).toContain(extra.label);expect(workshopView(w,p).cells.find(c=>c.id===extra.id)!.wrong).toBe(true)
+   changeWorkshop(w,p,'member',extra.id!)
+   for(const id of changed)changeWorkshop(w,p,'member',id)
+   changeWorkshop(w,p,'choose',condition.choices!.find(x=>x!==condition.target)!);changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(false)
+   changeWorkshop(w,p,'choose',condition.target);changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(true)
+   changeWorkshop(w,p,'member',changed[0]);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),2);expect(workshopView(w,p).complete).toBe(false)
+   p.checked[`workshop-${index}`]=true;p.completed.push(`workshop-${index}`);expect(workshopView(w,p).tabs[index].done).toBe(false)
+   changeWorkshop(w,p,'member',changed[0]);changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(true)
+  }
+  expect(s.transfer.passage).toContain('height and the base width change');expect(s.transfer.passage).toContain('Only these three classroom versions');expect(s.transfer.explanation.visual!.segments.slice(0,3).map(s=>s.text)).toEqual(['A: short + narrow','B: tall + wide','C: tall + narrow']);expect(s.transfer.review).toBe('draft')
+ }
+})
+
+it('requires readable condition records instead of reusing quantitative or word-only displays',()=>{
+ const w=studio('l-r-course-t24').mission!.workshop!
+ for(const mutate of [
+  (x:typeof w)=>{x.conditions![0].world.cells[0].detail=''},
+  (x:typeof w)=>{x.conditions![0].world.kind='scale'},
+  (x:typeof w)=>{x.conditions![0].world.selection!.ids=['missing']},
+  (x:typeof w)=>{x.conditions![0].world.cells[1].id='paper'}
+ ]){const bad=structuredClone(w);mutate(bad);expect(workshopProblems(bad).length).toBeGreaterThan(0)}
+})

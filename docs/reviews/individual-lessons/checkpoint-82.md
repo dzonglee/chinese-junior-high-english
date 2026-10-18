@@ -1,0 +1,20 @@
+# Lesson checkpoint 82
+
+2026-10-18 (Sydney). 82/413 individually reviewed; 331 pending. Content remains draft.
+
+Ten original engineering tasks compare five exact paper/gap/object/fold records, identify every changed condition, distinguish fair fold comparisons, retain supervised safety checks, limit the first comparison to its two designs, repeat later comparisons and preserve failed attempts and performance records. A new opt-in fields selector uses full-width code cards and verifies both selected fields and the conclusion. Fresh three-version tower transfer isolates height by comparing A with C while retaining failed attempts and limiting the finding. Source and application prompts are tailored.
+
+Inspected all ten models and wrong expressions, all five condition-selection records with extra/missing choices, partial reload, wrong conclusions, removal and repair, every 320-pixel model, all three selector widths, complete source/passage endings, every application/transfer distractor and explanation step, prediction, clinic and summary. Reinspected final first-comparison scope, meaningful sentence suffixes, all three fresh tower versions, exact A/B/C diagram and both partly correct transfer plans. Conditions and arrows are exact code models; no unsupported loads, dimensions or performance curves. Grade 9; reserved invention text stays unexposed; zero independent records. Existing privacy mask wrong/correct/edited states reinspected without new review credit.
+
+Current new lesson: 10 tasks / 30 task-width checks, reload and zero independent records. Core scope: Full serial core: 1505 tests in 14 files pass after the final three-version transfer correction. Current compiler/typecheck, 826 teaching/spelling variants, nine grammar constraints, course/interactions/package, complete engineering browser flow, privacy compatibility flow, both native adapters, eighteen offline checks and exact-source archives pass. All five condition selectors have readable full-width controls without misleading quantity bars at 320/390/768. Native adapter scope: Development/cloud simulations passed: all 245 hashes, registered resolved artwork and illustration readiness/failure/retry. Native status succeeds but shared project-file access fails; no native GUI evidence. Current typecheck, 826 teaching/spelling variants, grammar/course/interaction/package checks, 18 offline checks and ZIP CRC/exact-source comparisons pass.
+
+Cumulative coverage: 821 authored tasks / 2463 task-width checks. Earlier flows retain their original scope; this is not 82 new full browser runs or complete-course parity. Exact delayed-text and eligible-grade guards remain enforced.
+
+The standalone app loads once before networking is disabled; managed file URLs remain blocked. Adapter checks are simulations. Native GUI validation still needs project-drive access. No upload, publication or editorial release.
+
+[Exact scope and hashes](checkpoint-82.json). Next: l-r-course-t25. Plan, not implementation/review credit: l-r-course-t25.
+Primary text is the fictional valley walking guide. Reserve text2 (visitor centre / wooden platform / old stone bridge) must stay unexposed.
+- Purposeful original art: two fictional views, flat river path and stepped woodland path, neutral A/B labels. Match picture plus literal route evidence; pictures do not prove current opening or universal suitability.
+- Retain printed/current-information distinction, steps not suitable for everyone, barrier at viewpoints, plants/stones left in place, water/litter responsibilities, sketch order versus scale.
+- Consider a separately labelled original practice route Gate → Meadow → Lookout, avoiding reserve places. Literal order cards and route times, e.g. 18+12=30 minutes excluding stops, supplied in code notes rather than measured from art. Never present these as times or places stated by the original guide.
+- Fresh changed garden/coastal situation should test current closure, suitability and/or a new time sum, with partly correct distractors. No real travel advice or route guarantee implied.

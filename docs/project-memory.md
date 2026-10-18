@@ -2,18 +2,23 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-81 of 413 lessons are individually reviewed; 332 remain pending. Work stays solo under
+82 of 413 lessons are individually reviewed; 331 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t23. Nine original fact-check tasks identify missing provenance, match opposite earlier-context/new-caption cards using exactly one repeated image, retain unknown original details, separate current local checks, avoid universal intent claims, distinguish genuine images from accurate captions, order two origin-checking steps and report known plus unknown. Fresh fallen-tree/gate transfer changes the event and restricts current-notice claims to named routes. New opt-in web/native context cards keep neutral labels and exact captions in code, with readable text and persistent accepted/wrong markers. Course prompts and application wording are specific and plain.
+Latest: l-r-course-t24. Ten original engineering tasks compare five exact paper/gap/object/fold records, identify every changed condition, distinguish fair fold comparisons, retain supervised safety checks, limit the first comparison to its two designs, repeat later comparisons and preserve failed attempts and performance records. A new opt-in fields selector uses full-width code cards and verifies both selected fields and the conclusion. Fresh three-version tower transfer isolates height by comparing A with C while retaining failed attempts and limiting the finding. Source and application prompts are tailored.
 
-Inspected all nine models, all 16 wrong source choices and both wrong context cards, three partial evidence chains with missing/removed reasoning, ordered decoy/swapped steps/partial reload/removal/repair, every 320-pixel source/picture/order card and named-slot figure, all three comparison widths, complete source and passage endings, all application/transfer distractors, evidence errors and every explanation step, prediction, clinic and summary. Reinspected final shorter prompts and 15-pixel comparison captions. Raw and 600-pixel art inspected; one fictional bridge/fence asset is repeated unchanged. No real place/date or original-event cause invented. Grade 9; reserved survey text stays unexposed; zero independent records. Earlier exhibition wrong/right picture layouts reinspected without new review credit.
+Inspected all ten models and wrong expressions, all five condition-selection records with extra/missing choices, partial reload, wrong conclusions, removal and repair, every 320-pixel model, all three selector widths, complete source/passage endings, every application/transfer distractor and explanation step, prediction, clinic and summary. Reinspected final first-comparison scope, meaningful sentence suffixes, all three fresh tower versions, exact A/B/C diagram and both partly correct transfer plans. Conditions and arrows are exact code models; no unsupported loads, dimensions or performance curves. Grade 9; reserved invention text stays unexposed; zero independent records. Existing privacy mask wrong/correct/edited states reinspected without new review credit.
 
-Checkpoint 81 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 811 tasks / 2433 widths; earlier flows retain their original scope.
+Checkpoint 82 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 821 tasks / 2463 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t24. Author paper-bridge engineering tasks that let students identify changed conditions, distinguish a fair fold-only comparison from changing paper/gap/test objects together, retain teacher safety checks, limit conclusions to two tested designs, repeat comparisons, preserve failed attempts and distinguish appearance from performance. Use exact code models for experimental conditions; an illustration must serve a specific teaching task if added. Fresh transfer should change the model and reject partly correct claims. Original source read; no next-lesson implementation or art installed.
+Next: l-r-course-t25. Plan, not implementation/review credit: l-r-course-t25.
+Primary text is the fictional valley walking guide. Reserve text2 (visitor centre / wooden platform / old stone bridge) must stay unexposed.
+- Purposeful original art: two fictional views, flat river path and stepped woodland path, neutral A/B labels. Match picture plus literal route evidence; pictures do not prove current opening or universal suitability.
+- Retain printed/current-information distinction, steps not suitable for everyone, barrier at viewpoints, plants/stones left in place, water/litter responsibilities, sketch order versus scale.
+- Consider a separately labelled original practice route Gate → Meadow → Lookout, avoiding reserve places. Literal order cards and route times, e.g. 18+12=30 minutes excluding stops, supplied in code notes rather than measured from art. Never present these as times or places stated by the original guide.
+- Fresh changed garden/coastal situation should test current closure, suitability and/or a new time sum, with partly correct distractors. No real travel advice or route guarantee implied.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
