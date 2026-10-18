@@ -506,3 +506,46 @@ it('rejects ambiguous source-order metadata while keeping ordinary evidence card
  const legacy=structuredClone(original);delete legacy.items[i].sourceOrder;expect(workshopProblems(legacy)).toEqual([])
  expect(createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-course-t09')!,'american').mission!.workshop!.items[i].sourceOrder).toEqual(order)
 })
+
+it('requires a calculated answer as well as the text evidence and invalidates it after edits',()=>{
+ const s=studio('l-r-course-t12'),w=s.mission!.workshop!
+ let p={...freshTeaching(s,1),step:1}
+ const act=(action:string,value='')=>{p=changeTeaching(s,p,'workshop-'+action,value,2)}
+ for(const index of [0,1]){
+  act('item',String(index));const item=w.items[index],calculation=item.calculation!
+  act('input',calculation.answer);act('check');expect(workshopView(w,p).correct).toBe(false)
+  act('input','');for(const group of item.evidenceGroups!){act('choose',group[0]);act('check')}
+  expect(workshopView(w,p).proofReady).toBe(true);expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false)
+  for(const bad of index===0?['14:00','15:10','13:5','13:50 extra']:['90','60','80 minutes','080']){
+   act('input',bad);act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toBe(calculation.wrong)
+  }
+  p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).proofReady).toBe(true)
+  act('input',index===0?' １３：５０ ':'８０');act('check');expect(workshopView(w,p).correct).toBe(true)
+  if(index===0){expect(workshopView(w,p).complete).toBe(false);act('own','14点前十分钟是13点50分。');act('save')}
+  expect(workshopView(w,p).complete).toBe(true)
+  act('input','');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false)
+  p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),4);expect(workshopView(w,p).input).toBe('');expect(workshopView(w,p).proofReady).toBe(true)
+  act('input',calculation.answer);act('check');if(index===0)act('save');expect(workshopView(w,p).complete).toBe(true)
+  p.answers[`workshopInput-${index}`]='wrong';expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).tabs[index].done).toBe(false)
+ }
+})
+
+it('rejects ambiguous calculated-response metadata and preserves numeric answers across spelling maps',()=>{
+ const original=structuredClone(studio('l-r-course-t12').mission!.workshop!)
+ for(const patch of [{answer:'25:10'},{answer:'13:60'},{answer:'13:5'},{answer:' 13:50'},{kind:'hours'},{label:''},{hint:''},{wrong:''}]){
+  const w=structuredClone(original);Object.assign(w.items[0].calculation!,patch);expect(workshopProblems(w)).toContain('Invalid source calculation')
+ }
+ for(const answer of ['-1','80 minutes','080','10000']){const w=structuredClone(original);w.items[1].calculation!.answer=answer;expect(workshopProblems(w)).toContain('Invalid source calculation')}
+ const plain=structuredClone(original);delete plain.items[0].sourceStyle;expect(workshopProblems(plain)).toContain('Invalid source calculation')
+ const ordered=structuredClone(original);ordered.items[0].sourceOrder=['time','early'];expect(workshopProblems(ordered)).toContain('Invalid source calculation')
+ for(const spelling of ['american','british'] as const){const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-course-t12')!,spelling);expect(s.mission!.workshop!.items[0].calculation!.answer).toBe('13:50');expect(workshopProblems(s.mission!.workshop!)).toEqual([])}
+})
+
+it('closes a previous reading explanation on changing questions while retaining checked answers',()=>{
+ const s=studio('l-r-course-t12');let p={...freshTeaching(s,1),step:2}
+ p=changeTeaching(s,p,'answer',s.cases[0].answer.option!,2);p=changeTeaching(s,p,'check','',3);p=changeTeaching(s,p,'explanation','',4)
+ expect(p.checked.explanation).toBe(true);expect(p.checked['step-2-0']).toBe(true)
+ p=changeTeaching(s,p,'case','1',5);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),6)
+ expect(p.caseIndex).toBe(1);expect(p.checked.explanation).toBe(false);expect(p.checked['step-2-1']).toBeUndefined()
+ p=changeTeaching(s,p,'case','0',7);expect(p.checked['step-2-0']).toBe(true);expect(p.answers['step-2-0']).toBe(s.cases[0].answer.option);expect(p.checked.explanation).toBe(false)
+})

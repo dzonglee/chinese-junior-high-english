@@ -183,7 +183,7 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   if(action==='unit'&&p.step===1){const index=Number(value);if(Number.isInteger(index)&&index>=0&&index<s.assemblies.length){p.unit=index;p.order=[]}return p}
   if(action==='assemble'&&p.step===1){const u=s.assemblies[p.unit];if(assemblyCorrect(u,p.order))mark(`build-${u.id}`);else p.checked[`build-${u.id}`]=false;return p}
   if(action==='clinic'&&p.step===3){const i=Number(value);if(Number.isInteger(i)&&i>=0&&i<s.diagnoses.length){p.answers.clinicIndex=value;delete p.answers.diagnosis;delete p.checked.diagnosis}return p}
-  if(action==='case'&&p.step===2){const index=Number(value);if(index>=0&&index<s.cases.length&&Number.isInteger(index)){p.caseIndex=index;delete p.answers.source;delete p.answers.evidence;delete p.checked.evidence}return p}
+  if(action==='case'&&p.step===2){const index=Number(value);if(index>=0&&index<s.cases.length&&Number.isInteger(index)){if(index!==p.caseIndex)p.checked.explanation=false;p.caseIndex=index;delete p.answers.source;delete p.answers.evidence;delete p.checked.evidence}return p}
   if(action==='source'&&p.step===2){if(teachingEvidence(s,p).some(e=>e.id===value))p.answers.source=p.answers.source===value?'':value;return p}
   if(action==='passage'){p.checked.passage=!p.checked.passage;return p}
   if(action==='explanation'){p.checked.explanation=!p.checked.explanation;return p}

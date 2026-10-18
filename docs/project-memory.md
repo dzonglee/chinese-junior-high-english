@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-69 of 413 lessons are individually reviewed; 344 remain pending. Work stays solo under
+70 of 413 lessons are individually reviewed; 343 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t11. Eight original family-notice tasks resolve those days, use opposite washing/table-setting pictures, distinguish role assignments from unstated sequence, preserve everyone/their own scope and Saturday availability, and connect advance notice with cooperative purpose. Fresh community-reading-room transfer changes the day and rejects automatic role carryover and speed ranking.
+Latest: l-r-course-t12. Eight original volunteer-notice tasks require entered 13:50 arrival and 80-minute duration, opposite welcome-desk/large-print-shelf picture choices, only-if permission, paired private-document instructions, distinct advance notice and early arrival, and help based on actual needs. Fresh Saturday transfer changes arrival to 15:45 and uses partly correct combination distractors. Calculated responses now require evidence and the learner's own number; edits invalidate completion and offline reload retains attempts. Web/native explanation views temporarily hide the separate evidence browser and feedback, restore it on closing, and close a previous answer's explanation when changing questions. Application reasons explain early arrival and private handling specifically; the full handling sentence is quoted.
 
-Inspected all eight models, all twelve wrong source choices and both wrong pictures, four partial evidence chains and missing/removed reasoning, full source ending, final adjacent reference/role cards, all 320-pixel cards/pictures and four named-slot figures, application carousels and every application/transfer explanation. Final passage endings are visible after actual scrolling at 320 pixels. Original and delivery artwork inspected and registered. Grades 7–9; reserved reading text 2 stays unexposed; zero independent records. Read-only native status succeeds but MacStudioExternal file access still fails; existing blocked card updated.
+Inspected all eight models, thirteen wrong source choices and both wrong pictures, three partial chains, missing/removed reasoning, empty/wrong/removed numerical answers and final calculated controls at 320 pixels, the shortened private-handling slot, complete source and passage endings, application carousels and all application/transfer explanation steps. Final focused explanation screens were inspected after duplicate evidence/feedback removal. Original and 600-pixel art inspected and registered. Grades 7–9; reserved reading text 2 stays unexposed; zero independent records.
 
-Checkpoint 69 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 707 tasks / 2121 widths; earlier flows retain their original scope.
+Checkpoint 70 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 715 tasks / 2145 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t12. Eight volunteer-notice tasks and original welcome-desk/large-print-shelf art are drafted outside production. Separate 13:50 arrival from 80-minute event duration, match opposite locations, preserve only-if permission and private-document requirements, distinguish advance notice from early arrival and respond to actual needs. Fresh Saturday transfer changes arrival to 15:45 and checks partly correct combinations.
+Next: l-r-course-t13. Eight teamwork tasks and inspected original permission-clipboard/microphone art are drafted outside production. Construct needs → division of work → group check, match opposite responsibilities, separate internal checking from public sharing, assign fact checking, explain early delay notice, recognise several contributions and satisfy a two-part meeting requirement. Fresh podcast transfer changes people and day, and requires obtained permission before sharing.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
