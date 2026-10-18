@@ -1,0 +1,7 @@
+# Focused native checkpoint 103
+
+Tencent DevTools guest job `55ccb52e1eca453e86a474de1fef496c` has actual native exit 0, eight tasks and no errors. All 22 final frames inspected. Actual route/bound lesson verified. Four responsibility rows retain correct assignments during a partial error. Correct switches alone require source clues; editing the shared-check row invalidates completion, survives reopening and preserves all three clue groups. Both live sentences and proposal/purpose/exclusion order recover from wrong states. Applications, clinic, fresh transfer and summary add no independent records.
+
+SDK-triggered plan/prediction/check/next events verify actual native bindings. Remaining transitions use real Application. Captures show selected regions at 367 × 794; full diagrams reviewed in browser at 320/390/768. Physical hit-testing/devices remain open. Final run includes shorter transfer choices. Earlier job c0210f3c78a6400cb006de4655029e4a timed out in the SDK before home opened, actual native exit 1; its record is retained and is not a pass. Saved data restored, own project closed and shared GUI lock released. Content stays draft; approved audio pending. No upload/publication.
+
+[Results](results.json) · [Job](job.json) · [Partly wrong plan](cooperation-partly-wrong.png) · [Plan without source](cooperation-no-clues.png) · [Edited reopened plan](cooperation-edited-reopened.png).
