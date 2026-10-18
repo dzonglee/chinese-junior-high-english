@@ -1,0 +1,15 @@
+# Lesson checkpoint 79
+
+2026-10-18 (Sydney). 79/413 individually reviewed; 334 pending. Content remains draft.
+
+Ten original photo-sharing tasks include four changing fictional masking previews. Learners hide actual name/phone fields while keeping the project title, reject automatic publishing permission, distinguish private-chat from public-use consent, choose a respectful alternative, seek help and preserve one-copy/all-copy limits. Fresh robot-project transfer rejects two partly correct plans. Web/native controls use exact opaque code masks over inspected original art. A separate native scene-root fix restores the sports illustration path.
+
+Inspected all ten models and wrong expressions, all four unmasked/masked previews, extra/incomplete/edited masks, partial reload/removal/repair, every 320-pixel diagram and all masking widths, all application/transfer distractors and explanation steps, source endings, prediction, clinic and summary. Original PNG and 600-pixel art inspected; fictional fields only, no real-photo upload. Grades 8–9; reserved text stays unexposed; zero independent records. Existing sports wrong/correct/removal figures reinspected without new review credit.
+
+Current new lesson: 10 tasks / 30 task-width checks, reload and zero independent records. Core scope: Full serial core: 1501 tests in 14 files pass. Current compiler/typecheck, 826 teaching/spelling variants, nine grammar constraints, course/interactions/package, complete privacy learner flow, existing sports compatibility flow, both native adapters, sixteen offline checks and exact-source archives pass. Masking controls and field containment are checked at 320/390/768. Native adapter scope: Development/cloud simulations passed: all 245 hashes, registered resolved scene/record/proof/preview art files and illustration readiness/failure/retry. No native GUI evidence. Current typecheck, 826 teaching/spelling variants, grammar/course/interaction/package checks, 16 offline checks and ZIP CRC/exact-source comparisons pass.
+
+Cumulative coverage: 793 authored tasks / 2379 task-width checks. Earlier flows retain their original scope; this is not 79 new full browser runs or complete-course parity. Exact delayed-text and eligible-grade guards remain enforced.
+
+The standalone app loads once before networking is disabled; managed file URLs remain blocked. Adapter checks are simulations. Native GUI validation still needs project-drive access. No upload, publication or editorial release.
+
+[Exact scope and hashes](checkpoint-79.json). Next: l-r-course-t22. Author exhibition-note tasks for MANY WAYS TO BELONG: distinguish a river-path drawing, a family word and a new-neighbourhood bus journey; combine ordinary objects with personal connections, retain more-than-one-place and presenter-chosen privacy limits, repair overbroad labels and choose respectful visitor questions. Fresh transfer must change the examples and reject partly correct overgeneralisation. Source read; no next-lesson content or art installed.

@@ -21,3 +21,16 @@ People selections show a dot before checking, a cross for a checked wrong person
 Accepted picture evidence stays visibly marked while the learner selects another required quotation. The active quotation and accepted premises are separate states; a wrong picture shows a cross without erasing an already accepted premise. This does not complete an unfinished argument.
 
 Stacked record-and-conclusion tasks use full-width, larger quoted-record rows in both web and native templates. Keep the diagram to the selected record and its conclusion when another generic source box adds no information.
+
+A fixed fictional masking preview uses `world.selection.mode: redact` with `preview` artwork and
+non-overlapping percentage regions. Every region ID must match exactly one cell ID. The selected
+IDs specify which fields the learner must hide for the stated task; an empty set is valid only for
+this mode. Give clear task limits such as keeping a harmless title readable. Full-width hide/restore
+controls change opaque code overlays; generated artwork must have no private data or instructional
+labels. This is a teaching simulation, not a real-photo redaction or upload tool.
+
+Checking requires both the exact mask set and the bounded conclusion. Missing or extra masks fail;
+editing a mask removes completion, reload retains the actual unfinished state, and stale flags
+cannot complete a mismatched preview. Purpose and permission remain separate checks. Both web
+and native templates resolve registered illustration assets; people scenes outside the default
+asset folder must declare `scene.assetRoot: illustrations`.

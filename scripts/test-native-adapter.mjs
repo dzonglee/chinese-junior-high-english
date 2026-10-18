@@ -1,6 +1,6 @@
 // Runs the built WeChat CommonJS adapter against deterministic API doubles. This is not DevTools.
 import assert from 'node:assert/strict'
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import vm from 'node:vm'
 import { build } from 'esbuild'
@@ -46,6 +46,11 @@ let requested = false
 privacyValue = null; topPage = { selectComponent: id => { assert.equal(id, '#shell'); return { requestPrivacy: resolve => { requested = true; resolve({ event: 'agree', buttonId: 'privacy-agree' }) } } } }
 privacyListener(value => { privacyValue = value }); assert(requested); assert.equal(privacyValue.buttonId, 'privacy-agree')
 await app.content.ensureTopics(manifest.map(p=>p.topicId)); assert.equal(app.catalog.questions.length, manifest.reduce((n,p)=>n+p.questionIds.length,0), 'Every native packed topic must load and pass its hash, not only the first topic')
+const nativeArt=new Set()
+for(const q of app.catalog.questions){const w=q.visualMission?.workshop;if(!w)continue;for(const condition of w.conditions??[]){const scene=condition.world.scene,records=condition.world.records;const preview=condition.world.selection?.preview;if(preview)nativeArt.add(`illustrations/${preview.asset}.jpg`);if(scene)nativeArt.add(`${scene.assetRoot??'assets'}/${scene.asset}.jpg`);if(records?.asset)nativeArt.add(`${records.assetRoot??'assets'}/${records.asset}.jpg`)}for(const item of w.items??[])if(item.sourceArt)nativeArt.add(`illustrations/${item.sourceArt.asset}.jpg`)}
+for(const file of nativeArt)assert(existsSync(resolve(root,file)),`Native lesson artwork is missing at its resolved path: ${file}`)
+assert(nativeArt.has('illustrations/lesson-four-player-team.jpg'),'The authored four-player scene must resolve through the illustration subpackage')
+assert(nativeArt.has('illustrations/lesson-project-noticeboard.jpg'),'The masking preview must resolve through the illustration subpackage')
 if (mode === 'cloud') { assert(cloudInitialised); assert(cloudDownloads > 0) } else { assert(!cloudInitialised); assert.equal(cloudDownloads, 0) }
 app.platform.navigate('builder');const stale=pendingNavigation.at(-1);app.platform.navigate('session');const current=pendingNavigation.at(-1),count=navigations.length
 stale.fail({errMsg:'navigateTo:fail cancelled'});assert.equal(navigations.length,count,'A late failed navigation cannot replace the newer session')

@@ -2,18 +2,18 @@
 
 ## Current owner direction · individual lessons, 2026-10-18 (Sydney)
 
-78 of 413 lessons are individually reviewed; 335 remain pending. Work stays solo under
+79 of 413 lessons are individually reviewed; 334 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-r-course-t20. Eight changing record-and-conclusion tasks distinguish a fictional profile, evidence-seeking, conflicting memories before later evidence, a dated record resolving one question, discussion loans versus gifts, separate public-display permission, traceable uncertainty and accurate contribution. Fresh fictional 2010/2012 case separates date confirmation from ungranted display permission. Exact code diagrams change with the selected record and expression. Stacked web/native record rows now use larger full-width quotes with content-sized height, and the diagram omits a redundant source box. Course title, objective, pitfall and application reasons are specific to the biography.
+Latest: l-r-course-t21. Ten original photo-sharing tasks include four changing fictional masking previews. Learners hide actual name/phone fields while keeping the project title, reject automatic publishing permission, distinguish private-chat from public-use consent, choose a respectful alternative, seek help and preserve one-copy/all-copy limits. Fresh robot-project transfer rejects two partly correct plans. Web/native controls use exact opaque code masks over inspected original art. A separate native scene-root fix restores the sports illustration path.
 
-Inspected all eight models, all sixteen wrong records and eight wrong expressions, correct-record repairs and reload, every final 320-pixel record bank and two-node diagram, full application and transfer passages through their final characters, evidence carousels and every explanation step, both partly correct transfer distractors, prediction, clinic and summary. Reinspected larger text after fixing inherited flex sizing so no quote spills into another row. Grade 9; reserved interview remains unexposed; primary-profile dates stay unknown; 2010/2012 belong only to the explicit original fictional transfer; zero independent records. No AI image substitutes for documentary evidence.
+Inspected all ten models and wrong expressions, all four unmasked/masked previews, extra/incomplete/edited masks, partial reload/removal/repair, every 320-pixel diagram and all masking widths, all application/transfer distractors and explanation steps, source endings, prediction, clinic and summary. Original PNG and 600-pixel art inspected; fictional fields only, no real-photo upload. Grades 8–9; reserved text stays unexposed; zero independent records. Existing sports wrong/correct/removal figures reinspected without new review credit.
 
-Checkpoint 78 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 783 tasks / 2349 widths; earlier flows retain their original scope.
+Checkpoint 79 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 793 tasks / 2379 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-course-t21. Build a fixed fictional photo-background masking exercise using an inspected original blank noticeboard and cardboard-robot project image, with exact name/phone/title overlays and masks in code. Reuse selection state, use full-width hide/restore buttons, keep purpose/permission checks separate and never promise deletion removes all copies. Raw and 600-pixel delivery are inspected outside production; no redaction engine or next-lesson JSON exists yet. Recheck read-only native project-file access around this next lesson before any GUI attempt.
+Next: l-r-course-t22. Author exhibition-note tasks for MANY WAYS TO BELONG: distinguish a river-path drawing, a family word and a new-neighbourhood bus journey; combine ordinary objects with personal connections, retain more-than-one-place and presenter-chosen privacy limits, repair overbroad labels and choose respectful visitor questions. Fresh transfer must change the examples and reject partly correct overgeneralisation. Source read; no next-lesson content or art installed.
 
 Native GUI validation remains blocked by Mac project-drive access. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain

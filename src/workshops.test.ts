@@ -581,3 +581,47 @@ it('retains accepted picture premises while a postcard argument collects its oth
   changeWorkshop(w,p,'choose',other);changeWorkshop(w,p,'check','');changeWorkshop(w,p,'own',item.reason);changeWorkshop(w,p,'save','');v=workshopView(w,p);expect(v.complete).toBe(true);expect(v.proofArtChoices.find(c=>c.id===picture)).toMatchObject({selected:false,accepted:true,wrong:false})
  }
 })
+
+it('requires the actual privacy masks and a bounded conclusion across changing backgrounds',()=>{
+ for(const spelling of ['american','british'] as const){
+  const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-r-course-t21')!,spelling),w=s.mission!.workshop!
+  expect(workshopProblems(w)).toEqual([])
+  for(const [index,required]of [[1,['name','phone']],[2,['phone']],[3,['name']],[4,[]]] as [number,string[]][]){
+   let p={...freshTeaching(s,1),step:1};changeWorkshop(w,p,'item',String(index));const condition=w.conditions![index]
+   expect(condition.world.selection!.ids).toEqual(required)
+   changeWorkshop(w,p,'choose',condition.target)
+   // A harmless title is an extra mask, even when no private fields remain.
+   changeWorkshop(w,p,'member','project');changeWorkshop(w,p,'check','')
+   expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).redaction!.regions.find(r=>r.id==='project')).toMatchObject({masked:true,wrong:true})
+   changeWorkshop(w,p,'member','project')
+   for(const id of required.slice(0,-1))changeWorkshop(w,p,'member',id)
+   if(required.length){changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(false);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),2);expect(workshopView(w,p).redaction!.regions.filter(r=>r.masked).map(r=>r.id)).toEqual(required.slice(0,-1));changeWorkshop(w,p,'member',required.at(-1)!)}
+   changeWorkshop(w,p,'choose',condition.choices!.find(x=>x!==condition.target)!);changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(false)
+   changeWorkshop(w,p,'choose',condition.target);changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(true)
+   changeWorkshop(w,p,'member',required[0]??'project');expect(workshopView(w,p).complete).toBe(false)
+   p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).complete).toBe(false)
+   // Old persisted flags must not conceal a restored name or an unnecessary mask.
+   p.checked[`workshop-${index}`]=true;p.completed.push(`workshop-${index}`)
+   expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).tabs[index].done).toBe(false)
+   changeWorkshop(w,p,'member',required[0]??'project');changeWorkshop(w,p,'check','');expect(workshopView(w,p).complete).toBe(true)
+  }
+  expect(s.transfer.passage).toContain('only to the private class chat');expect(s.transfer.review).toBe('draft')
+ }
+})
+
+it('rejects ambiguous masking diagrams and resets masks after their source changes',()=>{
+ const s=studio('l-r-course-t21'),w=s.mission!.workshop!
+ for(const mutate of [
+  (x:typeof w)=>{x.conditions![1].world.selection!.preview!.regions[0].left=99},
+  (x:typeof w)=>{x.conditions![1].world.selection!.preview!.regions[1].top=8},
+  (x:typeof w)=>{x.conditions![1].world.selection!.preview!.regions[0].id='missing'},
+  (x:typeof w)=>{x.conditions![1].world.selection!.preview=undefined},
+  (x:typeof w)=>{x.conditions![1].world.selection!.mode='words'},
+  (x:typeof w)=>{x.conditions![1].world.kind='calendar'}
+ ]){const bad=structuredClone(w);mutate(bad);expect(workshopProblems(bad).length).toBeGreaterThan(0)}
+ let p={...freshTeaching(s,1),step:1};p=changeTeaching(s,p,'workshop-item','1',2);p=changeTeaching(s,p,'workshop-member','name',3);p.answers['workshopOwn-photo-sharing-checks']='My own saved explanation.'
+ const catalog=structuredClone(c),lesson=catalog.lessons.find(l=>l.id===s.id)!
+ lesson.visualMission!.workshop!.conditions![1].world.selection!.preview!.regions[0].text='NAME: Sample Jo'
+ const changed=createLessonTeaching(catalog,lesson)
+ const restored=restoreTeaching(changed,p,4);expect(restored.answers['worldMembers-1']).toBeUndefined();expect(restored.answers['workshopOwn-photo-sharing-checks']).toBe('My own saved explanation.')
+})

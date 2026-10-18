@@ -1,0 +1,1 @@
+Existing sports lesson compatibility check after declaring its native illustration root. Ten tasks / 30 widths, full learner flow and zero independent records. Inspected starting, wrong-person, correct and removed-person figures. No additional individual-review credit. Adapter path checks cover every loaded lesson illustration; this is not native GUI evidence.
