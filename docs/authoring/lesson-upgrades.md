@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **89 / 413**. Current: **l-ls-purpose**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **90 / 413**. Current: **l-ls-course-t01**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -97,7 +97,7 @@ Completed: **89 / 413**. Current: **l-ls-purpose**. Evidence lives in docs/revie
 | l-r-course-t29 | 地球、太空与探索：读懂信息与用意 | reviewed | [Individual review](../reviews/individual-lessons/l-r-course-t29.md) |
 | l-r-cloze | 完形填空：读懂前后关系 | reviewed | [Individual review](../reviews/individual-lessons/l-r-cloze.md) |
 | l-ls-details | 听清时间、地点和行动 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-details.md) |
-| l-ls-purpose | 听懂说话人的意图 | pending | — |
+| l-ls-purpose | 听懂说话人的意图 | reviewed | [Individual review](../reviews/individual-lessons/l-ls-purpose.md) |
 | l-ls-course-t01 | 听懂交流：把一天安排得有张有弛 | pending | — |
 | l-ls-course-t02 | 听懂交流：校园活动与安全 | pending | — |
 | l-ls-course-t03 | 听懂交流：身心健康与求助 | pending | — |
