@@ -975,3 +975,20 @@ it('keeps wildlife behavior spelling consistent with each edition and preserves 
  const c=authorCatalog(process.cwd()),lesson=c.lessons.find(l=>l.id==='l-ls-course-t26')!
  for(const spelling of ['american','british'] as const){const t=createLessonTeaching(c,lesson,spelling),item=t.mission!.workshop!.items.find(i=>i.id==='wildlife-3')!,word=spelling==='american'?'behavior':'behaviour';expect(item.material).toContain('change its '+word);expect(item.options!.find(o=>o.id==='good')!.text).toContain('change its '+word);expect(item.material).toContain('Not if it disturbs them.');expect(item.sourceSettings!.rows[1].route!.targets).toEqual(['Get closer anyway','Do not move closer']);expect(workshopProblems(t.mission!.workshop!)).toEqual([]);expect(teachingProblems(t,lesson)).toEqual([])}
 })
+
+it('plots the learner’s cup reduction without replacing a wrong count, preserving repair and zero independent credit',()=>{
+ const id='l-ls-course-t27',s=studio(id),w=s.mission!.workshop!,item=w.items[1];let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item','1');expect(workshopView(w,p).reduction!.ready).toBe(false)
+ act('input','30');act('check');expect(workshopView(w,p).correct).toBe(false)
+ for(const g of item.evidenceGroups!){act('choose',g[0]);act('check')}
+ for(const wrong of ['10','40']){act('input',wrong);act('check');const v=workshopView(w,p);expect(v.reduction!.rows.map(r=>r.value)).toEqual(['40','10',wrong]);expect(v.reduction!.rows.map(r=>r.width)).toEqual([100,25,Number(wrong)*2.5]);expect(v.correct).toBe(false)}
+ const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,state.teaching[id],4);expect(workshopView(w,p).input).toBe('40');expect(workshopView(w,p).proofReady).toBe(true)
+ act('input','３０');act('check');expect(workshopView(w,p).reduction!.rows.map(r=>r.width)).toEqual([100,25,75]);expect(workshopView(w,p).correct).toBe(true);expect(workshopView(w,p).complete).toBe(false);act('own','40减10等于30；这是杯子减少量，不能证明所有废弃物为零。');act('save');expect(workshopView(w,p).complete).toBe(true)
+ for(const bad of ['','-1','1.5','030','10000','30 cups']){act('input',bad);act('check');const v=workshopView(w,p);expect(v.complete).toBe(false);expect(v.reduction!.ready).toBe(false);expect(v.reduction!.rows[2].value).toBe('—');expect(v.reduction!.rows.every(r=>Number.isFinite(r.width)&&r.width>=0&&r.width<=100)).toBe(true)}
+ act('input','9999');expect(workshopView(w,p).reduction!.rows[2].width).toBe(100);expect(workshopView(w,p).reduction!.rows[0].value).toBe('40');expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+})
+it('rejects inconsistent and malformed count reductions instead of plotting invented arithmetic',()=>{
+ const w=structuredClone(studio('l-ls-course-t27').mission!.workshop!);expect(workshopProblems(w)).toEqual([])
+ for(const r of [null,{before:10,after:40,unit:'个',beforeLabel:'上周',afterLabel:'本周'},{before:40.5,after:10,unit:'个',beforeLabel:'上周',afterLabel:'本周'},{before:40,after:10,unit:'',beforeLabel:'上周',afterLabel:'本周'},{before:40,after:10,unit:'个',beforeLabel:'本周',afterLabel:'本周'}]){const bad=structuredClone(w);bad.items[1].calculation!.reduction=r as never;expect(workshopProblems(bad)).toContain('Invalid reduction model')}
+ for(const kind of ['time','yuan','minutes']){const bad=structuredClone(w);bad.items[1].calculation!.kind=kind as never;expect(workshopProblems(bad)).toContain('Invalid reduction model')}
+ const bad=structuredClone(w);bad.items[1].calculation!.answer='10';expect(workshopProblems(bad)).toContain('Invalid reduction model')
+})
