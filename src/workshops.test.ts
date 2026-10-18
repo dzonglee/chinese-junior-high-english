@@ -937,3 +937,11 @@ it('rejects a silent pacing illustration unless its two controls are distinct ex
  const original=studio('l-ls-course-t16').mission!.workshop!,index=original.items.findIndex(i=>!!i.sourceSettings?.pacing);expect(workshopProblems(original)).toEqual([])
  for(const pacing of [null,{},'slower',{paceRow:'slower',spaceRow:'slower'},{paceRow:'unknown',spaceRow:'spacing'},{paceRow:'slower',spaceRow:'unknown'}]){const w=structuredClone(original);(w.items[index].sourceSettings as any).pacing=pacing;expect(workshopProblems(w)).toContain('Invalid pacing diagram')}
 })
+
+it('keeps measurement and equality spelling edition-specific in the fresh report transfer without changing its scope',()=>{
+ const british='One litre; litres per day. Matching units cannot equalise coverage. It equalises, equalised and is equalising units.'
+ const american='One liter; liters per day. Matching units cannot equalize coverage. It equalizes, equalized and is equalizing units.'
+ expect(editionText(british,'american')).toBe(american);expect(editionText(american,'british')).toBe(british)
+ const lesson=c.lessons.find(l=>l.id==='l-ls-course-t23')!
+ for(const spelling of ['american','british'] as const){const s=createLessonTeaching(c,lesson,spelling),q=s.transfer,us=spelling==='american';expect(q.passage).toContain(us?'liters per day':'litres per day');expect(q.passage).toContain(us?'liters per week':'litres per week');expect(q.passage).toContain('three pools in one borough');expect(q.passage).toContain('A city and a region still have different coverage.');expect(q.options!.find(o=>o.id==='d')!.text).toContain(us?'equalize coverage':'equalise coverage');expect(teachingProblems(s,lesson)).toEqual([])}
+})
