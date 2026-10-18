@@ -2,6 +2,7 @@
 
 A proof/card item may opt into `sourceRecall` with a title, an honest note and two to four
 original cue/answer pairs. Stable word IDs follow `[a-z][a-z0-9-]*` and must be unique.
+At least two actual source-clue groups are required.
 This mechanism is separate from source gaps, order, calculations and source illustrations.
 
 The study phase shows the reference. Hide removes reference answers from the rendered recall

@@ -808,6 +808,35 @@ it('rejects recall exercises with unsafe identifiers, ambiguous fields or mixed 
   (w:typeof original)=>{w.items[index].sourceRecall!.words[0].cue=''},
   (w:typeof original)=>{w.items[index].sourceRecall!.words=[]},
   (w:typeof original)=>{w.items[index].sourceRecall!.note=''},
+  (w:typeof original)=>{w.items[index].evidenceGroups=[['try']]},
   (w:typeof original)=>{w.items[index].sourceOrder=['try','check']}
  ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid recall exercise')}
+})
+
+it('requires both reminder settings, their source constraints and reasoning through actual storage and repairs',()=>{
+ for(const spelling of ['american','british'] as const){
+ const id='l-ls-course-t05',s=createLessonTeaching(c,c.lessons.find(l=>l.id===id)!,spelling),w=s.mission!.workshop!,index=w.items.findIndex(i=>!!i.sourceSettings),item=w.items[index];let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item',String(index));act('settings-check');expect(workshopView(w,p).settings!.rows.every(r=>!r.correct)).toBe(true);expect(workshopView(w,p).settings!.rows.every(r=>r.feedback.includes('还没设置'))).toBe(true)
+ for(const values of [['off','off'],['on','on'],['off','on']]){act('setting','calls:'+values[0]);act('setting','alerts:'+values[1]);expect(workshopView(w,p).settings!.checked).toBe(false);act('settings-check');expect(workshopView(w,p).settings!.correct).toBe(false);expect(workshopView(w,p).complete).toBe(false)}
+ act('setting','calls:on');act('setting','alerts:off');act('settings-check');expect(workshopView(w,p).settings!.correct).toBe(true);expect(workshopView(w,p).correct).toBe(false)
+ for(const group of item.evidenceGroups!){act('choose',group[0]);act('check')};act('save');expect(workshopView(w,p).complete).toBe(false);act('own','保留妈妈来电，又把其他提醒静音，两个条件都要满足。');act('save');expect(workshopView(w,p).complete).toBe(true)
+ const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,state.teaching[id],4);expect(workshopView(w,p).complete).toBe(true);expect(workshopView(w,p).settings!.rows.map(r=>r.value)).toEqual(['on','off']);expect(state.attempts).toHaveLength(0);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ act('setting','calls:off');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).settings!.checked).toBe(false);expect(workshopView(w,p).proofCollected).toHaveLength(3)
+ p.completed.push('workshop-'+index);p.checked['workshop-'+index]=true;p.checked['workshopSettings-manage-8']=true;expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).tabs[index].done).toBe(false)
+ act('setting','calls:on');act('settings-check');act('choose',item.evidenceGroups![2][0]);act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('setting','calls:on:extra');act('setting','unknown:on');act('setting','calls:unknown');expect(workshopView(w,p).complete).toBe(true)
+ }
+})
+it('rejects inconsistent or nonpersistent reminder controls and mixed source mechanisms',()=>{
+ const original=studio('l-ls-course-t05').mission!.workshop!,index=original.items.findIndex(i=>!!i.sourceSettings);expect(workshopProblems(original)).toEqual([])
+ for(const mutate of [
+  (w:typeof original)=>{w.items[index].sourceSettings!.rows[0].id='calls_'},
+  (w:typeof original)=>{w.items[index].sourceSettings!.rows[1].id='calls'},
+  (w:typeof original)=>{w.items[index].sourceSettings!.rows[0].answer='yes' as 'on'},
+  (w:typeof original)=>{w.items[index].sourceSettings!.rows[0].wrong=''},
+  (w:typeof original)=>{w.items[index].sourceSettings!.rows[0].label=''},
+  (w:typeof original)=>{w.items[index].sourceSettings!.rows=[]},
+  (w:typeof original)=>{w.items[index].sourceSettings!.note=''},
+  (w:typeof original)=>{w.items[index].evidenceGroups=[['calls']]},
+  (w:typeof original)=>{w.items[index].sourceGap=w.items[0].sourceGap}
+ ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid source settings')}
 })
