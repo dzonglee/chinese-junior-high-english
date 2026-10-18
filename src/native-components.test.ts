@@ -103,7 +103,8 @@ it.each(['studioWorkshopInput','studioWorkshopOwn'])('keeps the native workshop 
 })
 
 it('updates native recall inputs, hidden references and completion immediately while typing',()=>{
- const c=authorCatalog(process.cwd()),lesson=c.lessons.find(l=>l.id==='l-ls-course-t04')!,s=createLessonTeaching(c,lesson),p=freshTeaching(s,1)
+ // Saved progress must use the American spelling selected by this PEP profile.
+ const c=authorCatalog(process.cwd()),lesson=c.lessons.find(l=>l.id==='l-ls-course-t04')!,s=createLessonTeaching(c,lesson,'american'),p=freshTeaching(s,1)
  p.step=1;p.answers.workshopIndex='2';p.answers['workshopRecallPhase-method-3']='compare';for(const [id,value]of [['map','map'],['bridge','bridge'],['corner','corner']])p.answers['workshopRecall-method-3-'+id]=value
  const data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
  store.save({...emptyState(1),profile:{cityId:'北京-北京',structure:'63',grade:7,term:'upper',editionId:'pep-legacy',dailyMinutes:20,schoolYear:2026,createdAt:1},teaching:{[lesson.id]:p}})

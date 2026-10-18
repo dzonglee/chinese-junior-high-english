@@ -844,6 +844,32 @@ it('rejects inconsistent or nonpersistent reminder controls and mixed source mec
  ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid source settings')}
 })
 
+it('keeps the actual wrong information route visible through storage and invalidates completion when its destination changes',()=>{
+ const id='l-ls-course-t21',s=studio(id),w=s.mission!.workshop!,item=w.items[0];let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)}
+ expect(workshopView(w,p).settings!.rows[0].route!.target).toBe('先选择去向或下一步')
+ act('setting','contact-route:on');act('setting','password-request:on');act('settings-check');let view=workshopView(w,p);expect(view.settings!.rows.map(r=>r.route!.target)).toEqual(['Public group','Ask a trusted adult']);expect(view.settings!.rows.map(r=>r.correct)).toEqual([false,true]);expect(view.complete).toBe(false)
+ const saved=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,saved.teaching[id],4);expect(workshopView(w,p).settings!.rows[0].route!.target).toBe('Public group')
+ act('setting','contact-route:off');act('settings-check');expect(workshopView(w,p).settings!.rows[0].route!.target).toBe('Official school system');expect(workshopView(w,p).complete).toBe(false)
+ for(const group of item.evidenceGroups!){act('choose',group[0]);act('check')}act('own','联系方式按指定系统交，索要密码的消息先问可信成人。');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('setting','password-request:off');view=workshopView(w,p);expect(view.settings!.rows[1].route!.target).toBe('Send my password');expect(view.settings!.checked).toBe(false);expect(view.complete).toBe(false);expect(view.proofCollected).toHaveLength(3);expect(view.own).toContain('可信成人')
+ const edited=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,5,true);p=restoreTeaching(s,edited.teaching[id],6);expect(workshopView(w,p).settings!.rows[1].route!.target).toBe('Send my password');expect(workshopView(w,p).complete).toBe(false);expect(edited.attempts).toEqual([]);expect(edited.mastery).toEqual({});expect(edited.lessonDoneAt).toEqual({})
+ act('setting','password-request:on');act('settings-check');act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+})
+
+it('rejects ambiguous, missing and mixed route labels while preserving translated per-row choices',()=>{
+ const original=studio('l-ls-course-t21').mission!.workshop!;expect(workshopProblems(original)).toEqual([])
+ for(const route of [null,'route',{}, {from:'',targets:['A','B']},{from:' Contact',targets:['A','B']},{from:'Contact',targets:['A']},{from:'Contact',targets:['A','A']},{from:'Contact',targets:['A',' B']},{from:'Contact',targets:['A','x'.repeat(29)]}]){const w=structuredClone(original);(w.items[0].sourceSettings!.rows[0] as any).route=route;expect(workshopProblems(w)).toContain('Invalid source route')}
+ const mixed=structuredClone(original);mixed.items[0].sourceSettings!.pacing={paceRow:'contact-route',spaceRow:'password-request'};expect(workshopProblems(mixed)).toContain('Invalid source route')
+ for(const spelling of ['american','british'] as const){const s=createLessonTeaching(c,c.lessons.find(l=>l.id==='l-ls-course-t21')!,spelling),w=s.mission!.workshop!,view=workshopView(w,freshTeaching(s,1));expect(view.settings!.rows.map(r=>r.labels)).toEqual(w.items[0].sourceSettings!.rows.map(r=>r.route!.targets));expect(view.settings!.rows.map(r=>r.route!.from)).toEqual(['Contact number','Password request'])}
+})
+
+it('keeps organiser and recognition forms consistent with the edition throughout source, live sentence and explanation',()=>{
+ const british='The organiser organises visits. Organisations recognise helpers; one organisation recognised them. Organisers are recognising help.'
+ const american='The organizer organizes visits. Organizations recognize helpers; one organization recognized them. Organizers are recognizing help.'
+ expect(editionText(british,'american')).toBe(american);expect(editionText(american,'british')).toBe(british)
+ for(const [id,britishForm,americanForm]of [['l-ls-course-t21','organiser','organizer'],['l-ls-course-t20','recognise cooperation','recognize cooperation']])for(const spelling of ['american','british'] as const){const s=createLessonTeaching(c,c.lessons.find(l=>l.id===id)!,spelling),w=s.mission!.workshop!,item=w.items.find(i=>i.sourceGap&&JSON.stringify(i).includes(spelling==='american'?americanForm:britishForm))!;expect(item).toBeDefined();expect(JSON.stringify(item)).toContain(spelling==='american'?americanForm:britishForm);expect(JSON.stringify(item)).not.toContain(spelling==='american'?britishForm:americanForm);expect(teachingProblems(s,c.lessons.find(l=>l.id===id)!)).toEqual([])}
+})
+
 it('rejects both plant-picture proof claims when the required pot bottom is unseen',()=>{
  const id='l-ls-course-t07',s=studio(id),w=s.mission!.workshop!,index=1,item=w.items[index];let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item',String(index))
  for(const choice of item.sourceArt!.choices){act('choose',choice.id);act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).proofArtChoices.find(c=>c.id===choice.id)!.wrong).toBe(true);expect(workshopView(w,p).proofArtChoices.some(c=>c.accepted)).toBe(false)}
