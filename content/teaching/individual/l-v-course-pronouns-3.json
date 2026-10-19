@@ -1,0 +1,763 @@
+{
+  "lessonId": "l-v-course-pronouns-3",
+  "reviewState": "draft",
+  "intent": "Individually authored group ownership, standalone possessives, visual descriptor and self-teaching tasks, with original draft transfer. Guided practice gives no independent or hearing credit.",
+  "picturePurpose": "Original matching helmets let the learner tap the silver-striped object rather than a black-striped or plain alternative. Exact targets and ownership come from authored code/text; no generated appearance establishes identity.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "先找物主，再把省掉的名词补回来",
+    "instruction": "圈出所属小组、点银色条纹头盔，再分清自学与别人教。",
+    "items": [
+      {
+        "id": "our",
+        "label": "our：队伍里也有说话者",
+        "prompt": "Amy, Ming and Leo repaired their team’s bridge model. Ben only watched. Amy speaks. Tap everyone meant by our.",
+        "wordDecision": {
+          "prompt": "Amy, Ming and Leo repaired their team’s bridge model. Ben only watched. Amy speaks. Tap everyone meant by our.",
+          "recordPaths": [
+            {
+              "id": "our-team",
+              "label": "先圈队员，再接名词",
+              "steps": [
+                "Amy + Ming + Leo: one team",
+                "Amy speaks → our team",
+                "our + noun; ours alone"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "layout": "people",
+            "title": "圈出our所指的全部队员",
+            "prompt": "Amy、Ming、Leo同队修模型；Ben只是在旁边看。",
+            "rows": [
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Speaks; repaired the model.",
+                "include": true
+              },
+              {
+                "id": "ming",
+                "label": "Ming",
+                "text": "Repaired it with Amy and Leo.",
+                "include": true
+              },
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "Repaired it with Amy and Ming.",
+                "include": true
+              },
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Watched; not on the team.",
+                "include": false
+              }
+            ],
+            "hint": "我们的队伍包括说话的Amy，不包括旁观者。",
+            "wrong": "只选Amy、Ming、Leo；别漏掉Amy或加上Ben。",
+            "speakerId": "amy",
+            "quote": "Our team repaired the broken bridge model."
+          }
+        },
+        "answer": "Our",
+        "meaning": "我们的",
+        "material": "Our team repaired the broken bridge model.",
+        "before": "",
+        "after": " team repaired the broken bridge model.",
+        "reason": "Our team中的our修饰名词team，表示我们队的。Amy是这支队伍的一员，所以our包含她和Ming、Leo；旁观的Ben不在队内。Our team可换成the team that Amy belongs to。独立表示我们的那个才用ours，不能写Ours team。",
+        "hint": "our + team；说话者也是队员。",
+        "options": [
+          {
+            "id": "others",
+            "text": "Ming and Leo only.",
+            "correct": false,
+            "reason": "our是我们的，不能漏掉队员兼说话者Amy。"
+          },
+          {
+            "id": "team",
+            "text": "Amy, Ming and Leo: the speaking team.",
+            "correct": true,
+            "reason": "our指Amy所在的队伍，包含Amy、Ming和Leo。"
+          },
+          {
+            "id": "ours",
+            "text": "Write Ours team.",
+            "correct": false,
+            "reason": "名词team前用our；ours独立使用，不能写ours team。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "their",
+        "label": "their：花园不是观察者的",
+        "prompt": "Ben and Mia own a garden. Amy, an outside observer, reports that it attracts butterflies in summer. Tap the garden’s owners.",
+        "wordDecision": {
+          "prompt": "Ben and Mia own a garden. Amy, an outside observer, reports that it attracts butterflies in summer. Tap the garden’s owners.",
+          "recordPaths": [
+            {
+              "id": "their-garden",
+              "label": "旁观者说别人的花园",
+              "steps": [
+                "Ben + Mia: owners",
+                "Amy: outside their group",
+                "their + garden"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "layout": "people",
+            "title": "点出their garden的物主",
+            "prompt": "Ben和Mia共同拥有花园；Amy只是在介绍。",
+            "rows": [
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Speaks; does not own it.",
+                "include": false
+              },
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Owns the garden with Mia.",
+                "include": true
+              },
+              {
+                "id": "mia",
+                "label": "Mia",
+                "text": "Owns the garden with Ben.",
+                "include": true
+              }
+            ],
+            "hint": "先找物主；不能因为Amy在说话就选Amy。",
+            "wrong": "应选Ben和Mia；Amy不是这个花园的物主。",
+            "speakerId": "amy",
+            "quote": "Their garden attracts butterflies in summer."
+          }
+        },
+        "answer": "Their",
+        "meaning": "他们的；她们的；它们的",
+        "material": "Their garden attracts butterflies in summer.",
+        "before": "",
+        "after": " garden attracts butterflies in summer.",
+        "reason": "Their garden指Ben和Mia的花园。Amy站在这个所属小组之外说话，所以用their而不是our。their后接名词，there不表示谁的。注意Their在句首要大写。",
+        "hint": "their表示所属；there不等于他们的。",
+        "options": [
+          {
+            "id": "observer",
+            "text": "Amy, because she is speaking.",
+            "correct": false,
+            "reason": "Amy在介绍别人的花园，不是花园的主人。"
+          },
+          {
+            "id": "there",
+            "text": "Write There garden.",
+            "correct": false,
+            "reason": "there表示在那里等，不表示所属；名词garden前需要their。"
+          },
+          {
+            "id": "owners",
+            "text": "Ben and Mia: the garden belongs to them.",
+            "correct": true,
+            "reason": "their指前文两位物主Ben和Mia，不含观察者Amy。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "mine",
+        "label": "mine：点出带银色条纹的头盔",
+        "prompt": "Mia says her helmet has a silver stripe. Tap that helmet, then complete her sentence.",
+        "wordDecision": {
+          "prompt": "Mia says her helmet has a silver stripe. Tap that helmet, then complete her sentence.",
+          "recordPaths": [
+            {
+              "id": "mine-helmet",
+              "label": "外观找物，话语找物主",
+              "steps": [
+                "silver stripe → the left helmet",
+                "Mia speaks about her own helmet",
+                "my helmet → mine"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-helmet-stripes",
+            "alt": "三个蓝色头盔并排：左边有银色条纹，中间有黑色条纹，右边没有条纹。",
+            "targets": [
+              {
+                "id": "left",
+                "option": "silver",
+                "label": "银条纹",
+                "left": 1,
+                "top": 3,
+                "width": 31,
+                "height": 92
+              },
+              {
+                "id": "middle",
+                "option": "black",
+                "label": "黑条纹",
+                "left": 34.5,
+                "top": 3,
+                "width": 31,
+                "height": 92
+              },
+              {
+                "id": "right",
+                "option": "plain",
+                "label": "无条纹",
+                "left": 68,
+                "top": 3,
+                "width": 31,
+                "height": 92
+              }
+            ],
+            "evidence": [
+              {
+                "option": "silver",
+                "caption": "银色条纹对应Mia描述的头盔；mine把my helmet合成一个所属形式。",
+                "regions": [
+                  {
+                    "id": "silver-stripe",
+                    "label": "silver stripe",
+                    "left": 5,
+                    "top": 16,
+                    "width": 19,
+                    "height": 39
+                  }
+                ]
+              },
+              {
+                "option": "black",
+                "caption": "黑色条纹不符合silver stripe；不能只看头盔外壳都是蓝色。",
+                "regions": [
+                  {
+                    "id": "black-stripe",
+                    "label": "black stripe",
+                    "left": 38,
+                    "top": 16,
+                    "width": 20,
+                    "height": 39
+                  }
+                ]
+              },
+              {
+                "option": "plain",
+                "caption": "这个头盔没有条纹；with the silver stripe要求银色条纹。",
+                "regions": []
+              }
+            ]
+          }
+        },
+        "answer": "mine",
+        "meaning": "我的东西",
+        "material": "The helmet with the silver stripe is mine.",
+        "before": "The helmet with the silver stripe is ",
+        "after": ".",
+        "reason": "先用with the silver stripe找出具体的头盔，再看Mia说的是自己的。mine相当于my helmet，已包含所指的名词，所以is后用mine，不再接helmet，也不加撇号。图里只能看出条纹，物主Mia由题目明确给出。",
+        "hint": "mine = my helmet；银色条纹限定是哪一个。",
+        "options": [
+          {
+            "id": "silver",
+            "text": "The helmet with the silver stripe.",
+            "correct": true,
+            "reason": "银色条纹限定了Mia说的那一个头盔；mine表示我的头盔。"
+          },
+          {
+            "id": "black",
+            "text": "The helmet with the black stripe.",
+            "correct": false,
+            "reason": "黑色条纹不是silver stripe，不能只看外壳同为蓝色。"
+          },
+          {
+            "id": "plain",
+            "text": "The plain blue helmet without a stripe.",
+            "correct": false,
+            "reason": "第三个没有银色条纹，不符合with the silver stripe。"
+          }
+        ]
+      },
+      {
+        "id": "yours",
+        "label": "yours：比的是答案长度",
+        "prompt": "Amy tells Leo her answer has 3 words; his has 6. Tap the owner of the answer meant by yours.",
+        "wordDecision": {
+          "prompt": "Amy tells Leo her answer has 3 words; his has 6. Tap the owner of the answer meant by yours.",
+          "recordPaths": [
+            {
+              "id": "yours-answer",
+              "label": "把省去的名词补回来",
+              "steps": [
+                "Amy: My answer — 3 words",
+                "Leo: your answer — 6 words",
+                "your answer → yours"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "layout": "people",
+            "title": "点出yours所指答案的主人",
+            "prompt": "Amy对Leo比较两份答案；只比较词数，不评价答案对错。",
+            "rows": [
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Speaks: “Read every day.” — 3 words.",
+                "include": false
+              },
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "Listens: “Read a short story each day.” — 6 words.",
+                "include": true
+              }
+            ],
+            "hint": "My answer属于说话者Amy；yours属于听者Leo。",
+            "wrong": "应选Leo；Amy的三词答案已经由My answer表示。",
+            "speakerId": "amy",
+            "quote": "My answer is shorter than yours."
+          }
+        },
+        "answer": "yours",
+        "meaning": "你的东西；你们的东西",
+        "material": "My answer is shorter than yours.",
+        "before": "My answer is shorter than ",
+        "after": ".",
+        "reason": "Amy在向Leo说话，My answer是Amy自己的答案，yours是Leo的答案，相当于your answer。两句分别有3词和6词，shorter只比较长度，不表示答案更正确。yours可独立使用，不写your’s，也不能在后面再加answer。",
+        "hint": "yours = your answer；不加撇号，也不再接answer。",
+        "options": [
+          {
+            "id": "amy",
+            "text": "Amy’s answer: the speaker’s three-word answer.",
+            "correct": false,
+            "reason": "My answer已经是Amy的答案；yours指另一个人的。"
+          },
+          {
+            "id": "apostrophe",
+            "text": "Write your’s.",
+            "correct": false,
+            "reason": "yours是完整的所属形式，不加撇号。"
+          },
+          {
+            "id": "leo",
+            "text": "Leo’s answer: the listener’s six-word answer.",
+            "correct": true,
+            "reason": "yours承接听者Leo的答案，即your answer。"
+          }
+        ]
+      },
+      {
+        "id": "hers",
+        "label": "hers：她的文件夹，名词不重复",
+        "prompt": "Mia is a girl. The purple folder belongs to her. Ben says he thinks it is hers. Tap the owner.",
+        "wordDecision": {
+          "prompt": "Mia is a girl. The purple folder belongs to her. Ben says he thinks it is hers. Tap the owner.",
+          "recordPaths": [
+            {
+              "id": "hers-folder",
+              "label": "同一个物主，换一种表达",
+              "steps": [
+                "Mia owns the purple folder",
+                "her + folder",
+                "the folder is hers"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "layout": "people",
+            "title": "点出紫色文件夹的物主",
+            "prompt": "Ben在说话；题目明确女孩Mia拥有这个紫色文件夹。",
+            "rows": [
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Speaks; does not own the folder.",
+                "include": false
+              },
+              {
+                "id": "mia",
+                "label": "Mia",
+                "text": "A girl; owns the purple folder.",
+                "include": true
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Owns a different green folder.",
+                "include": false
+              }
+            ],
+            "hint": "物主由题目给出，不随说话者改变。",
+            "wrong": "只选Mia；Ben在介绍，Amy的文件夹是另一个。",
+            "speakerId": "ben",
+            "quote": "I think the purple folder is hers."
+          }
+        },
+        "answer": "hers",
+        "meaning": "她的东西",
+        "material": "I think the purple folder is hers.",
+        "before": "I think the purple folder is ",
+        "after": ".",
+        "reason": "题目明确Mia是女孩，紫色文件夹属于她。her folder和The folder is hers都表示所属，但位置不同：her要接名词，hers可独立使用。不能写hers folder或her’s，也不能用is her来表示文件夹是她的。",
+        "hint": "her folder；The folder is hers。",
+        "options": [
+          {
+            "id": "her",
+            "text": "Write The folder is her.",
+            "correct": false,
+            "reason": "表示文件夹是她的要用hers；her可接名词folder或作宾语。"
+          },
+          {
+            "id": "mia",
+            "text": "Mia’s: the purple folder belongs to her.",
+            "correct": true,
+            "reason": "物主已明确为女孩Mia；hers独立表示她的文件夹。"
+          },
+          {
+            "id": "hersnoun",
+            "text": "Write hers folder.",
+            "correct": false,
+            "reason": "hers已包含her folder的意思，后面不再接folder。"
+          }
+        ]
+      },
+      {
+        "id": "ours",
+        "label": "ours：这顶属于我们队",
+        "prompt": "Amy and Leo own this tent. Ben and Mia own that tent. Amy speaks. Tap everyone whose tent she calls ours.",
+        "wordDecision": {
+          "prompt": "Amy and Leo own this tent. Ben and Mia own that tent. Amy speaks. Tap everyone whose tent she calls ours.",
+          "recordPaths": [
+            {
+              "id": "ours-tent",
+              "label": "把两顶帐篷的物主分开",
+              "steps": [
+                "Amy + Leo → this tent → ours",
+                "Ben + Mia → that tent → theirs",
+                "belongs to them: to + object pronoun"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "layout": "people",
+            "title": "圈出ours对应的所有物主",
+            "prompt": "说话的Amy与Leo共有这顶；Ben与Mia共有另一顶。",
+            "rows": [
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Speaks; owns this tent with Leo.",
+                "include": true
+              },
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "Owns this tent with Amy.",
+                "include": true
+              },
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Owns that tent with Mia.",
+                "include": false
+              },
+              {
+                "id": "mia",
+                "label": "Mia",
+                "text": "Owns that tent with Ben.",
+                "include": false
+              }
+            ],
+            "hint": "ours包含Amy；另一顶对应them，不要选进来。",
+            "wrong": "应选Amy和Leo；Ben和Mia是另一顶帐篷的物主。",
+            "speakerId": "amy",
+            "quote": "This tent is ours; that one belongs to them."
+          }
+        },
+        "answer": "ours",
+        "meaning": "我们的东西",
+        "material": "This tent is ours; that one belongs to them.",
+        "before": "This tent is ",
+        "after": "; that one belongs to them.",
+        "reason": "This tent is ours中的ours相当于our tent，属于说话的Amy和队友Leo。后半句that one是另一顶帐篷，belongs to them指Ben和Mia。位置近远用this和that区分，所属仍由题目里的两组人决定；ours不能换成单独的our。",
+        "hint": "ours = our tent；them指另一组人。",
+        "options": [
+          {
+            "id": "ourgroup",
+            "text": "Amy and Leo’s tent: it belongs to the speaking group.",
+            "correct": true,
+            "reason": "ours是说话者Amy所在小组的帐篷，不含另一组。"
+          },
+          {
+            "id": "othergroup",
+            "text": "Ben and Mia’s tent: it belongs to the other group.",
+            "correct": false,
+            "reason": "Ben和Mia对应后半句them，不能与ours混为一组。"
+          },
+          {
+            "id": "ournoun",
+            "text": "Write This tent is our.",
+            "correct": false,
+            "reason": "our后必须接名词；这里独立表示我们的帐篷用ours。"
+          }
+        ]
+      },
+      {
+        "id": "theirs",
+        "label": "theirs：另一组的船",
+        "prompt": "Amy and Leo own the smaller boat; Ben and Mia own the larger one. Amy speaks. Tap the owners meant by theirs.",
+        "wordDecision": {
+          "prompt": "Amy and Leo own the smaller boat; Ben and Mia own the larger one. Amy speaks. Tap the owners meant by theirs.",
+          "recordPaths": [
+            {
+              "id": "theirs-boat",
+              "label": "同类物品之间比较",
+              "steps": [
+                "Amy + Leo: our boat",
+                "Ben + Mia: their boat",
+                "their boat → theirs; no apostrophe"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "layout": "people",
+            "title": "圈出theirs对应的船主",
+            "prompt": "Amy对比两组人的船：自己这组的小，另一组的大。",
+            "rows": [
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Speaks; owns the smaller boat.",
+                "include": false
+              },
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "Owns the smaller boat with Amy.",
+                "include": false
+              },
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Owns the larger boat with Mia.",
+                "include": true
+              },
+              {
+                "id": "mia",
+                "label": "Mia",
+                "text": "Owns the larger boat with Ben.",
+                "include": true
+              }
+            ],
+            "hint": "先把Our boat排除，再找另一组物主。",
+            "wrong": "只选Ben和Mia；Amy和Leo对应Our boat。",
+            "speakerId": "amy",
+            "quote": "Our boat is smaller than theirs."
+          }
+        },
+        "answer": "theirs",
+        "meaning": "他们的东西；她们的东西",
+        "material": "Our boat is smaller than theirs.",
+        "before": "Our boat is smaller than ",
+        "after": ".",
+        "reason": "Our boat是说话者Amy和Leo的船，theirs相当于their boat，即Ben和Mia的船。比较的是船和船，不能把theirs理解成人，也不写their’s。比较前后都指船，不能把theirs换成表示人的them。",
+        "hint": "theirs = their boat；比较对象都是船。",
+        "options": [
+          {
+            "id": "ourboat",
+            "text": "Amy and Leo’s boat: the speaking group’s boat.",
+            "correct": false,
+            "reason": "Our boat已经表示Amy和Leo的船；theirs指另一组的。"
+          },
+          {
+            "id": "apostrophe",
+            "text": "Write their’s.",
+            "correct": false,
+            "reason": "theirs本身就是独立的所属形式，不加撇号。"
+          },
+          {
+            "id": "otherboat",
+            "text": "Ben and Mia’s boat: the other group’s boat.",
+            "correct": true,
+            "reason": "theirs代替Ben和Mia的船，不包括说话组Amy和Leo。"
+          }
+        ]
+      },
+      {
+        "id": "myself",
+        "label": "myself：自学可以查资料",
+        "prompt": "Ming learned puncture repair from a written guide. Ms Li directly taught Ben instead. Ming speaks. Tap the self-learner.",
+        "wordDecision": {
+          "prompt": "Ming learned puncture repair from a written guide. Ms Li directly taught Ben instead. Ming speaks. Tap the self-learner.",
+          "recordPaths": [
+            {
+              "id": "myself-learning",
+              "label": "教与学的角色回到同一人",
+              "steps": [
+                "Ming: chooses a written guide",
+                "Ming: learns the repair himself",
+                "I taught myself; not Ms Li taught me"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "layout": "people",
+            "title": "点出通过资料自学的人",
+            "prompt": "Ming查文字指南自学；Ms Li直接教的是Ben。",
+            "rows": [
+              {
+                "id": "ming",
+                "label": "Ming",
+                "text": "Speaks; learns from a written guide.",
+                "include": true
+              },
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Learns directly from Ms Li.",
+                "include": false
+              },
+              {
+                "id": "ms-li",
+                "label": "Ms Li",
+                "text": "Directly teaches Ben, not Ming.",
+                "include": false
+              }
+            ],
+            "hint": "自学可查资料；关键是有没有由另一人直接教。",
+            "wrong": "应选Ming；Ben是跟Ms Li直接学，不是原话的自学者。",
+            "speakerId": "ming",
+            "quote": "I taught myself to repair a puncture."
+          }
+        },
+        "answer": "myself",
+        "meaning": "我自己",
+        "material": "I taught myself to repair a puncture.",
+        "before": "I taught ",
+        "after": " to repair a puncture.",
+        "reason": "Ming说I taught myself，I与myself指同一个人：自己安排学习，把补胎学会。文字指南是自学资源，不会把自学变成Ms Li教Ming。若Ms Li直接教他，应说Ms Li taught me；by myself表示独自，不能把它与teach myself完全等同。",
+        "hint": "teach myself：自己学会；可以查资料。",
+        "options": [
+          {
+            "id": "coach",
+            "text": "Ms Li directly taught Ming.",
+            "correct": false,
+            "reason": "题目说Ms Li直接教的是Ben，不是Ming。"
+          },
+          {
+            "id": "self",
+            "text": "Ming: he used a written guide to teach himself.",
+            "correct": true,
+            "reason": "自己作为学习者，通过资料自学，不是由Ms Li直接教会。"
+          },
+          {
+            "id": "noresources",
+            "text": "Self-teaching means using no book or guide.",
+            "correct": false,
+            "reason": "自学可以使用文字指南等资料，不等于完全不借助资源。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-pronouns-3-transfer",
+      "topicId": "v-course-pronouns",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes correctly track the tent’s owners, the borrowed helmet’s owner and Leo’s learning?",
+      "passage": "CAMP EQUIPMENT NOTES\nAmy writes to Leo: “You and I own the green tent. It is ours. Ben and Mia own the blue tent. That one is theirs.”\nShe adds: “My helmet has a silver stripe. The plain blue one is yours. You may borrow mine this afternoon; it still belongs to me.”\nLeo replies: “I taught myself to mend a bag by following a written guide. No one gave me a lesson.”",
+      "options": [
+        {
+          "id": "a",
+          "text": "The green tent belongs to Amy and Leo; the silver-striped helmet still belongs to Amy; Leo learned by using a guide himself."
+        },
+        {
+          "id": "b",
+          "text": "The green tent belongs to Ben and Mia; the silver-striped helmet still belongs to Amy; Leo learned by using a guide himself."
+        },
+        {
+          "id": "c",
+          "text": "The green tent belongs to Amy and Leo; borrowing makes Leo the helmet’s owner; Leo learned by using a guide himself."
+        },
+        {
+          "id": "d",
+          "text": "The green tent belongs to Amy and Leo; the silver-striped helmet still belongs to Amy; a guide means someone directly taught Leo."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The green tent belongs to Amy and Leo; the silver-striped helmet still belongs to Amy; Leo learned by using a guide himself."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先标出每句的说话者和物主，再判断学会的方法；借用和查资料都不改变已明确的事实。",
+        "steps": [
+          {
+            "text": "Amy写给Leo，You and I就是Leo和Amy；ours指两人的绿帐篷。银条纹头盔属于Amy，借给Leo后仍是Amy的。",
+            "reason": "ours包含当前说话者；mine跟随Amy，借用不等于转让所有权。"
+          },
+          {
+            "text": "Leo说明自己跟着文字指南学补包，没有人给他上课，因此taught myself仍是自学。",
+            "reason": "自己学习可以使用资料；文字指南不是一位直接授课的人。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "Ben和Mia拥有的是蓝帐篷；绿帐篷属于写信的Amy和收信的Leo。"
+          },
+          {
+            "option": "c",
+            "reason": "原文明说借用后头盔仍属于Amy；拿在谁手上不等于归谁所有。"
+          },
+          {
+            "option": "d",
+            "reason": "Leo用的是written guide，而且明确没有人给他上课；不能把指南当成直接教他的老师。"
+          }
+        ],
+        "pitfall": "our/ours与their/theirs要跟着当前小组；借用不转移物主，自学也可以查资料。",
+        "visual": {
+          "kind": "timeline",
+          "title": "物主与学习方式分别核对",
+          "segments": [
+            {
+              "text": "Amy + Leo → green tent → ours",
+              "role": "object",
+              "note": "说话者也在所属小组内"
+            },
+            {
+              "text": "Amy → silver-striped helmet → mine",
+              "role": "object",
+              "note": "借给Leo仍属于Amy"
+            },
+            {
+              "text": "Leo + written guide → taught myself",
+              "role": "object",
+              "note": "没有直接授课者"
+            }
+          ],
+          "caption": "把省去的名词补回来，再核对谁说、谁拥有、谁学习。"
+        },
+        "transfer": "若Leo改口对Amy说绿帐篷是我们的，应使用ours还是theirs？若Ms Li直接给Leo上了一课，能否继续用I taught myself来概括这一次学习？"
+      }
+    }
+  }
+}

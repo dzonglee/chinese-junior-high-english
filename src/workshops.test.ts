@@ -1400,3 +1400,20 @@ it('keeps default JPEG word art compatible and rejects unsupported PNG roots or 
  w.items[7].wordDecision!.art!.format='svg' as 'png';expect(workshopProblems(w)).toContain('Invalid word decision');w.items[7].wordDecision!.art!.format='png';w.items[7].wordDecision!.art!.assetRoot='outside' as 'illustrations-3';expect(workshopProblems(w)).toContain('Invalid word decision')
  const legacy=studio('l-v-course-school-tools-4').mission!.workshop!;expect(legacy.items.find(i=>i.wordDecision?.art)!.wordDecision!.art!.format).toBeUndefined();expect(workshopProblems(legacy)).toEqual([])
 })
+it('tracks group owners, the silver-striped helmet and self-learning without accepting forged completion',()=>{
+ const s=studio('l-v-course-pronouns-3'),w=s.mission!.workshop!;expect(workshopProblems(w)).toEqual([]);expect(w.items.map(i=>i.answer)).toEqual(['Our','Their','mine','yours','hers','ours','theirs','myself'])
+ const ids=[['amy','ming','leo'],['ben','mia'],[],['leo'],['mia'],['amy','leo'],['ben','mia'],['ming']]
+ const owns=['Our class made a new sign for the reading corner.','Their club grows vegetables behind the school building.','The notebook beside the green bag is mine.','My drawing has fewer colors than yours.','The small umbrella beside the classroom door is hers.','This corner of the school garden is ours.','Our poster has fewer pictures than theirs.','I taught myself to fold a paper box from a guide.']
+ for(const [index,item]of w.items.entries()){
+  let p={...freshTeaching(s,1),step:1};const act=(name:string,value='')=>{p=changeTeaching(s,p,'workshop-'+name,value,2)};act('item',String(index));act('input',item.answer)
+  const record=item.wordDecision!.recordSelection
+  if(record){expect(record.rows.filter(r=>r.include).map(r=>r.id)).toEqual(ids[index]);act('choose',item.options!.find(o=>o.correct)!.id);act('record-none');act('check');expect(workshopView(w,p).correct).toBe(false);for(const id of ids[index])act('record-toggle',id)}
+  else{expect(item.wordDecision!.art!.targets!.map(t=>t.option)).toEqual(['silver','black','plain']);act('choose','black');act('check');expect(workshopView(w,p).correct).toBe(false);act('choose','silver');expect(workshopView(w,p).wordPictureTargets.filter(t=>t.selected).map(t=>t.id)).toEqual(['left'])}
+  act('check');expect(workshopView(w,p).correct).toBe(true);act('own',owns[index]);act('save');expect(workshopView(w,p).complete).toBe(true)
+  if(record)act('record-toggle',record.rows.find(r=>!r.include)!.id);else act('choose','plain');expect(workshopView(w,p).complete).toBe(false);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).own).toBe(owns[index]);expect(workshopView(w,p).complete).toBe(false)
+  const forged=structuredClone(p);forged.completed.push('workshop-'+index);forged.checked['workshop-'+index]=true;expect(workshopView(w,forged).complete).toBe(false)
+  if(record){act('record-none');for(const id of ids[index])act('record-toggle',id)}else act('choose','silver');act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ }
+ expect(w.items[3].wordDecision!.recordSelection!.rows.map(r=>r.text)).toEqual(['Speaks: “Read every day.” — 3 words.','Listens: “Read a short story each day.” — 6 words.']);expect(w.items[7].reason).toContain('文字指南是自学资源');expect(s.transfer.review).toBe('draft');expect(s.transfer.passage).toContain('it still belongs to me');expect(s.transfer.explanation!.visual!.segments).toHaveLength(3)
+})
