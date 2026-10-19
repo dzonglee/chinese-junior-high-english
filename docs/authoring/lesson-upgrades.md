@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **161 / 413**. Current: **l-v-course-weather-sky**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **162 / 413**. Current: **l-v-course-weather-sky-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -269,7 +269,7 @@ Completed: **161 / 413**. Current: **l-v-course-weather-sky**. Evidence lives in
 | l-v-course-living-nature-3 | 植物、昆虫与生态 · 3 | pending | — |
 | l-v-course-living-nature-4 | 植物、昆虫与生态 · 4 | pending | — |
 | l-v-course-living-nature-5 | 植物、昆虫与生态 · 5 | pending | — |
-| l-v-course-weather-sky | 天气、天空与季节变化 · 1 | pending | — |
+| l-v-course-weather-sky | 天气、天空与季节变化 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-weather-sky.md) |
 | l-v-course-weather-sky-2 | 天气、天空与季节变化 · 2 | pending | — |
 | l-v-course-weather-sky-3 | 天气、天空与季节变化 · 3 | pending | — |
 | l-v-course-weather-sky-4 | 天气、天空与季节变化 · 4 | pending | — |

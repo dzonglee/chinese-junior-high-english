@@ -1,0 +1,699 @@
+{
+  "lessonId": "l-v-course-weather-sky",
+  "reviewState": "draft",
+  "intent": "Eight individually authored weather/sky observations. Five controllable scenes plus exact moon/star picture targets require actual observation and evidence, not passive word definitions. Guided work gives no independent or hearing credit.",
+  "picturePurpose": "Original night-lake image contrasts moon, reflected image and a single bright point above a roof. Exact labels and semantic evidence stay in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "改变天气，看清发生了什么",
+    "instruction": "选条件、看变化，再用自己的话记录；分清实物和倒影。",
+    "items": [
+      {
+        "id": "sky",
+        "label": "sky：变色的是天空",
+        "prompt": "Tap the journal entry that matches a pink sky before sunrise. No sunrise clock time is given.",
+        "answer": "sky",
+        "meaning": "天空",
+        "material": "The sky turned pink before sunrise.",
+        "before": "The ",
+        "after": " turned pink before sunrise.",
+        "reason": "sky指天空。turned pink表示变成粉红色，before sunrise把变化放在日出前；不能换成午饭前太阳露出。此处turn是变得，后接形容词pink，不是转动粉色物体。材料未给具体日出时刻，不必猜时间。",
+        "hint": "先找变化的对象，再核对before sunrise。",
+        "wordDecision": {
+          "prompt": "Tap the journal entry that matches a pink sky before sunrise. No sunrise clock time is given.",
+          "recordPaths": [
+            {
+              "id": "sky",
+              "label": "sky：变色的是天空",
+              "steps": [
+                "sky changes colour",
+                "before sunrise",
+                "turned pink ≠ turned an object"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "选出日出前的观察记录",
+            "prompt": "按对象、颜色变化和先后顺序核对。",
+            "rows": [
+              {
+                "id": "dawn",
+                "label": "Before sunrise",
+                "text": "Sky: dark blue → pink.",
+                "include": true
+              },
+              {
+                "id": "lunch",
+                "label": "Before lunch",
+                "text": "Sun: hidden → visible.",
+                "include": false
+              },
+              {
+                "id": "lake",
+                "label": "After school",
+                "text": "Lake: pink surface.",
+                "include": false
+              }
+            ],
+            "hint": "找天空变粉红的记录；不用猜日出几点。",
+            "wrong": "只选Before sunrise：天空由深蓝变粉红，发生在日出前。"
+          }
+        },
+        "options": [
+          {
+            "id": "lunch",
+            "text": "Before lunch: the sun appears from behind a cloud.",
+            "correct": false,
+            "reason": "这是太阳重新露出的记录，不是日出前天空变粉红。"
+          },
+          {
+            "id": "dawn",
+            "text": "Before sunrise: the sky changes from dark blue to pink.",
+            "correct": true,
+            "reason": "sky是天空；颜色变化发生在日出之前。"
+          },
+          {
+            "id": "lake",
+            "text": "After school: the lake looks pink.",
+            "correct": false,
+            "reason": "湖面不是sky，时间也不是before sunrise。"
+          }
+        ]
+      },
+      {
+        "id": "sun",
+        "label": "sun：午饭前重新露出",
+        "prompt": "It is just before lunch. The sun is behind a cloud. Change the scene so the sun comes out, then observe.",
+        "answer": "sun",
+        "meaning": "太阳",
+        "material": "The sun came out just before lunch.",
+        "before": "The ",
+        "after": " came out just before lunch.",
+        "reason": "sun是太阳。结合场景，came out是太阳从云后露出；并不是太阳在午饭前才升起。just before lunch是午饭前不久。核对时要真的移开云并观察，单选条件还没有形成观察结果。",
+        "hint": "先移开云，再观察太阳重新露出。",
+        "wordDecision": {
+          "prompt": "It is just before lunch. The sun is behind a cloud. Change the scene so the sun comes out, then observe.",
+          "recordPaths": [
+            {
+              "id": "sun",
+              "label": "sun：午饭前重新露出",
+              "steps": [
+                "before lunch: sun behind cloud",
+                "cloud moves away",
+                "sun comes out ≠ sunrise"
+              ]
+            }
+          ],
+          "weather": {
+            "kind": "cloud",
+            "initial": "active",
+            "answer": "calm",
+            "title": "让太阳从云后露出来",
+            "hint": "此时是午饭前；观察云移开后的结果。",
+            "wrong": "移开云并开始观察；选中条件但没观察，或让云遮住太阳，都不符合came out。"
+          }
+        },
+        "options": [
+          {
+            "id": "rise",
+            "text": "The sun rises for the first time just before lunch.",
+            "correct": false,
+            "reason": "这里came out指云后重新露出，不能凭午饭前就改写成sunrise。"
+          },
+          {
+            "id": "cover",
+            "text": "A cloud moves in and hides the sun.",
+            "correct": false,
+            "reason": "云遮住太阳是相反变化，不是太阳露出来。"
+          },
+          {
+            "id": "clear",
+            "text": "The cloud moves away; the sun becomes visible again.",
+            "correct": true,
+            "reason": "午饭前云移开，太阳重新露出来。"
+          }
+        ]
+      },
+      {
+        "id": "moon",
+        "label": "moon：实物和倒影",
+        "prompt": "Tap the moon in the sky whose reflection appears in the lake. The image in the water is not a second moon.",
+        "answer": "moon",
+        "meaning": "月亮",
+        "material": "The moon reflected in the still lake.",
+        "before": "The ",
+        "after": " reflected in the still lake.",
+        "reason": "moon指月亮。这里reflected in表示倒映在，still修饰lake，意思是平静的，不是仍然这个副词。图中A是月亮，B是湖面的倒影，不能把B算成第二个月亮。月亮反射太阳光；本题不把它说成自发光天体。",
+        "hint": "把空中的月亮和水里的倒影分开。",
+        "wordDecision": {
+          "prompt": "Tap the moon in the sky whose reflection appears in the lake. The image in the water is not a second moon.",
+          "recordPaths": [
+            {
+              "id": "moon",
+              "label": "moon：实物和倒影",
+              "steps": [
+                "A: moon above lake",
+                "B: reflected image in still water",
+                "one moon; B is not another moon"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-moon-reflection",
+            "alt": "平静湖面上方右侧有一轮圆月，下方水中是它的倒影；左侧小屋屋顶上方有一个亮星点。",
+            "targets": [
+              {
+                "id": "moon",
+                "option": "moon",
+                "label": "A 空中",
+                "left": 67,
+                "top": 3,
+                "width": 27,
+                "height": 35
+              },
+              {
+                "id": "reflection",
+                "option": "reflection",
+                "label": "B 水中",
+                "left": 67,
+                "top": 64,
+                "width": 27,
+                "height": 34
+              },
+              {
+                "id": "star",
+                "option": "star",
+                "label": "C 亮点",
+                "left": 7,
+                "top": 3,
+                "width": 27,
+                "height": 35
+              }
+            ],
+            "evidence": [
+              {
+                "option": "moon",
+                "caption": "A是空中的月亮；水中B是同一月亮的倒影。",
+                "regions": [
+                  {
+                    "id": "moon-disc",
+                    "label": "moon in sky",
+                    "left": 72,
+                    "top": 6,
+                    "width": 19,
+                    "height": 28
+                  }
+                ]
+              },
+              {
+                "option": "reflection",
+                "caption": "B在湖面上，只是月亮的倒影，不是第二个月亮。",
+                "regions": [
+                  {
+                    "id": "water-image",
+                    "label": "reflected image",
+                    "left": 72,
+                    "top": 68,
+                    "width": 19,
+                    "height": 27
+                  }
+                ]
+              },
+              {
+                "option": "star",
+                "caption": "C是屋顶上方的一个亮点；不是右侧的圆月。",
+                "regions": [
+                  {
+                    "id": "bright-point",
+                    "label": "star above roof",
+                    "left": 12,
+                    "top": 8,
+                    "width": 17,
+                    "height": 23
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "moon",
+            "text": "A: the round moon above the lake.",
+            "correct": true,
+            "reason": "A是空中的月亮；水里B是它的倒影。"
+          },
+          {
+            "id": "reflection",
+            "text": "B: another physical moon inside the lake.",
+            "correct": false,
+            "reason": "B是倒影，不是湖里还有第二个月亮。"
+          },
+          {
+            "id": "star",
+            "text": "C: the small bright point above the roof.",
+            "correct": false,
+            "reason": "C是星星，不是湖中圆形倒影对应的月亮。"
+          }
+        ]
+      },
+      {
+        "id": "star",
+        "label": "star：屋顶上方的亮点",
+        "prompt": "Tap the single bright star above the small roof. Do not choose the round moon or its reflection.",
+        "answer": "star",
+        "meaning": "星星；明星",
+        "material": "One bright star appeared above the roof.",
+        "before": "One bright ",
+        "after": " appeared above the roof.",
+        "reason": "star在这里指星星，不是明星。One bright star是一颗亮星，above the roof说明它在屋顶上方，不是贴在屋顶上。要同时核对对象与位置；空中的月亮也亮，但不是star。",
+        "hint": "找亮点和屋顶的上下位置，不只看亮不亮。",
+        "wordDecision": {
+          "prompt": "Tap the single bright star above the small roof. Do not choose the round moon or its reflection.",
+          "recordPaths": [
+            {
+              "id": "star",
+              "label": "star：屋顶上方的亮点",
+              "steps": [
+                "one bright point",
+                "above the roof",
+                "star ≠ moon ≠ reflection"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-moon-reflection",
+            "alt": "平静湖面上方右侧有一轮圆月，下方水中是它的倒影；左侧小屋屋顶上方有一个亮星点。",
+            "targets": [
+              {
+                "id": "moon",
+                "option": "moon",
+                "label": "A 空中",
+                "left": 67,
+                "top": 3,
+                "width": 27,
+                "height": 35
+              },
+              {
+                "id": "reflection",
+                "option": "reflection",
+                "label": "B 水中",
+                "left": 67,
+                "top": 64,
+                "width": 27,
+                "height": 34
+              },
+              {
+                "id": "star",
+                "option": "star",
+                "label": "C 亮点",
+                "left": 7,
+                "top": 3,
+                "width": 27,
+                "height": 35
+              }
+            ],
+            "evidence": [
+              {
+                "option": "moon",
+                "caption": "A是空中的月亮；水中B是同一月亮的倒影。",
+                "regions": [
+                  {
+                    "id": "moon-disc",
+                    "label": "moon in sky",
+                    "left": 72,
+                    "top": 6,
+                    "width": 19,
+                    "height": 28
+                  }
+                ]
+              },
+              {
+                "option": "reflection",
+                "caption": "B在湖面上，只是月亮的倒影，不是第二个月亮。",
+                "regions": [
+                  {
+                    "id": "water-image",
+                    "label": "reflected image",
+                    "left": 72,
+                    "top": 68,
+                    "width": 19,
+                    "height": 27
+                  }
+                ]
+              },
+              {
+                "option": "star",
+                "caption": "C是屋顶上方的一个亮点；不是右侧的圆月。",
+                "regions": [
+                  {
+                    "id": "bright-point",
+                    "label": "star above roof",
+                    "left": 12,
+                    "top": 8,
+                    "width": 17,
+                    "height": 23
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "moon",
+            "text": "A: the large round moon.",
+            "correct": false,
+            "reason": "A是月亮；不能因为也亮就当作star。"
+          },
+          {
+            "id": "star",
+            "text": "C: the bright point above the roof.",
+            "correct": true,
+            "reason": "C在屋顶上方，是题目所说的一颗亮星。"
+          },
+          {
+            "id": "reflection",
+            "text": "B: the moon’s image in the water.",
+            "correct": false,
+            "reason": "B在水里，是倒影，不是屋顶上方的亮星。"
+          }
+        ]
+      },
+      {
+        "id": "cloud",
+        "label": "cloud：云遮住太阳",
+        "prompt": "Start with the sun visible. Move the dark cloud in front of it, then observe which object covers which.",
+        "answer": "cloud",
+        "meaning": "云",
+        "material": "A dark cloud covered the sun.",
+        "before": "A dark ",
+        "after": " covered the sun.",
+        "reason": "cloud在这里是可数名词，A dark cloud是一朵乌云；cloudy才是多云的形容词。covered the sun的主语是cloud，太阳是被遮住的对象。只看不见太阳，不能推断太阳本身熄灭了。",
+        "hint": "A dark后要名词cloud；核对谁遮住谁。",
+        "wordDecision": {
+          "prompt": "Start with the sun visible. Move the dark cloud in front of it, then observe which object covers which.",
+          "recordPaths": [
+            {
+              "id": "cloud",
+              "label": "cloud：云遮住太阳",
+              "steps": [
+                "cloud: covering object",
+                "sun: covered object",
+                "a cloud; cloudy is an adjective"
+              ]
+            }
+          ],
+          "weather": {
+            "kind": "cloud",
+            "initial": "calm",
+            "answer": "active",
+            "title": "让乌云遮住太阳",
+            "hint": "观察是云挡住太阳，不是太阳自己熄灭。",
+            "wrong": "让云移到太阳前并开始观察；云移开是相反变化。"
+          }
+        },
+        "options": [
+          {
+            "id": "out",
+            "text": "The cloud moves away and the sun comes out.",
+            "correct": false,
+            "reason": "这与covered的方向相反。"
+          },
+          {
+            "id": "extinguish",
+            "text": "The sun itself goes out.",
+            "correct": false,
+            "reason": "云挡住视线不等于太阳本身熄灭。"
+          },
+          {
+            "id": "cover",
+            "text": "The cloud moves in front and hides the sun.",
+            "correct": true,
+            "reason": "云是遮挡者，太阳是被遮挡者。"
+          }
+        ]
+      },
+      {
+        "id": "rain",
+        "label": "rain：从空桶到满桶",
+        "prompt": "The outdoor bucket starts empty. Choose a condition that fills it with rainwater, then observe the result.",
+        "answer": "rain",
+        "meaning": "雨；下雨",
+        "material": "Heavy rain filled the empty bucket.",
+        "before": "Heavy ",
+        "after": " filled the empty bucket.",
+        "reason": "rain在这里作雨水讲，是不可数名词；heavy rain表示大雨，不用a heavy rain来机械套单数。filled表示把桶灌满，不只是落了几滴水。先核对empty这个起点，再看雨水进入和满桶结果。其他语境rain也可作动词，这句不是。",
+        "hint": "起点空，雨水进入，结果满。",
+        "wordDecision": {
+          "prompt": "The outdoor bucket starts empty. Choose a condition that fills it with rainwater, then observe the result.",
+          "recordPaths": [
+            {
+              "id": "rain",
+              "label": "rain：从空桶到满桶",
+              "steps": [
+                "empty bucket at first",
+                "heavy rain falls into it",
+                "filled → full at the end"
+              ]
+            }
+          ],
+          "weather": {
+            "kind": "rain",
+            "initial": "calm",
+            "answer": "active",
+            "title": "把空桶接满雨水",
+            "hint": "这里只比较两种已设定的条件；大雨持续到桶满。",
+            "wrong": "选持续下大雨并观察空桶灌满；不下雨或只选条件还没有这个结果。"
+          }
+        },
+        "options": [
+          {
+            "id": "fill",
+            "text": "Heavy rain falls into the empty bucket until it is full.",
+            "correct": true,
+            "reason": "起点空、来源雨水、结果灌满，三个信息都保留。"
+          },
+          {
+            "id": "dry",
+            "text": "No rain falls; the bucket stays empty.",
+            "correct": false,
+            "reason": "没有雨、桶仍空，不符合filled。"
+          },
+          {
+            "id": "already",
+            "text": "The bucket was already full before the rain.",
+            "correct": false,
+            "reason": "原句empty bucket说明起初是空桶。"
+          }
+        ]
+      },
+      {
+        "id": "snow",
+        "label": "snow：先有脚印，后被盖住",
+        "prompt": "The ground already has footprints. Add fresh snow so it covers the old tracks, then observe.",
+        "answer": "snow",
+        "meaning": "雪；下雪",
+        "material": "Fresh snow covered our footprints.",
+        "before": "Fresh ",
+        "after": " covered our footprints.",
+        "reason": "fresh snow是新下的雪，snow在本句作覆盖地面的雪讲，通常不可数。句子先有our footprints，再有新雪把它们盖住；不能反写成雪下完后走出新脚印。covered只说明被盖住，不能据此断言脚印下的地面消失了。",
+        "hint": "先脚印、后新雪；看清covered的方向。",
+        "wordDecision": {
+          "prompt": "The ground already has footprints. Add fresh snow so it covers the old tracks, then observe.",
+          "recordPaths": [
+            {
+              "id": "snow",
+              "label": "snow：先有脚印，后被盖住",
+              "steps": [
+                "footprints already visible",
+                "fresh snow falls afterwards",
+                "new layer covers old tracks"
+              ]
+            }
+          ],
+          "weather": {
+            "kind": "snow",
+            "initial": "calm",
+            "answer": "active",
+            "title": "用新雪盖住旧脚印",
+            "hint": "先有脚印，再加新雪，核对顺序。",
+            "wrong": "选落下新雪并观察它盖住已有脚印；没有新雪时脚印还在。"
+          }
+        },
+        "options": [
+          {
+            "id": "new-tracks",
+            "text": "New footprints are made after the snow has fallen.",
+            "correct": false,
+            "reason": "这是雪后留下新脚印，先后顺序相反。"
+          },
+          {
+            "id": "cover",
+            "text": "New snow falls after the footprints and hides them.",
+            "correct": true,
+            "reason": "脚印先存在，新雪后来覆盖它们。"
+          },
+          {
+            "id": "melt",
+            "text": "The snow melts and leaves all the tracks visible.",
+            "correct": false,
+            "reason": "融雪露出脚印不是新雪盖住脚印。"
+          }
+        ]
+      },
+      {
+        "id": "wind",
+        "label": "wind：看树叶为什么移动",
+        "prompt": "Leaves start on one side of the yard. Choose the condition that carries them across, then observe.",
+        "answer": "wind",
+        "meaning": "风；缠绕",
+        "material": "The wind carried leaves across the yard.",
+        "before": "The ",
+        "after": " carried leaves across the yard.",
+        "reason": "wind在这里是风，读/wɪnd/；carried leaves across the yard说明落叶被吹过院子。wind表示缠绕或转动时读/waɪnd/，要按语境区别，不是看到同样拼写就认同一个意思。此处是书面音标对照；实际听辨需要听到合适录音。",
+        "hint": "找使落叶移动的空气；wind此处读/wɪnd/。",
+        "wordDecision": {
+          "prompt": "Leaves start on one side of the yard. Choose the condition that carries them across, then observe.",
+          "recordPaths": [
+            {
+              "id": "wind",
+              "label": "wind：看树叶为什么移动",
+              "steps": [
+                "wind /wɪnd/: moving air",
+                "leaves move across the yard",
+                "wind /waɪnd/: wrap or turn"
+              ]
+            }
+          ],
+          "weather": {
+            "kind": "wind",
+            "initial": "calm",
+            "answer": "active",
+            "title": "让落叶穿过院子",
+            "hint": "先看原处，再观察落叶是否移到另一侧。",
+            "wrong": "选起风并观察落叶移到另一侧；无风不动不符合across。"
+          }
+        },
+        "options": [
+          {
+            "id": "calm",
+            "text": "There is no wind; the leaves stay in place.",
+            "correct": false,
+            "reason": "落叶没移动，不符合carried ... across。"
+          },
+          {
+            "id": "wrap",
+            "text": "Someone winds a string around a stick.",
+            "correct": false,
+            "reason": "这是wind表示缠绕的另一个词义，不是句中吹动落叶的风。"
+          },
+          {
+            "id": "air",
+            "text": "Moving air carries the leaves to the other side.",
+            "correct": true,
+            "reason": "wind在这里是风；风使落叶移过院子。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-weather-sky-transfer",
+      "topicId": "v-course-weather-sky",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve the events and their causes?",
+      "passage": "LAKESIDE WEATHER LOG\nBefore sunrise, the sky turned pink. Just before lunch, a cloud moved away and the sun came out again.\nIn the afternoon, heavy rain filled an empty tray outside. Nobody poured water into it.\nAt night, one moon was visible above the lake. Its image appeared in the still water below.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The sun rose for the first time just before lunch; rain filled the empty tray; there was one moon."
+        },
+        {
+          "id": "b",
+          "text": "The sun reappeared before lunch; someone poured water into the tray; there was one moon."
+        },
+        {
+          "id": "c",
+          "text": "The sun reappeared before lunch; rain filled the empty tray; the water image was another moon."
+        },
+        {
+          "id": "d",
+          "text": "The sun reappeared before lunch; rain filled the empty tray; the water image was a reflection of the one moon."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "The sun reappeared before lunch; rain filled the empty tray; the water image was a reflection of the one moon."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "按时间、变化原因和实物/倒影三条线核对，不靠相同词猜答案。",
+        "steps": [
+          {
+            "text": "午饭前云移开，太阳重新露出。下午是雨水灌满起初空着的盘子，没有人倒水。",
+            "reason": "came out不等于sunrise；filled要保留起点和雨水这个来源。"
+          },
+          {
+            "text": "空中只有一个月亮，平静湖面上的是它的倒影。",
+            "reason": "倒影对应同一个实物，不能凭水中图像多算一个月亮。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "材料说午饭前太阳从云后重新露出，不是那时才日出。"
+          },
+          {
+            "option": "b",
+            "reason": "明确没有人倒水；水来自大雨。"
+          },
+          {
+            "option": "c",
+            "reason": "湖中是同一个月亮的倒影，不是第二个月亮。"
+          }
+        ],
+        "pitfall": "把重新露出当日出、把结果相同当原因相同、把倒影当第二个实物。",
+        "visual": {
+          "kind": "timeline",
+          "title": "时间、来源、实物",
+          "segments": [
+            {
+              "text": "cloud moves away → sun comes out",
+              "role": "object",
+              "note": "午饭前重新露出，不是日出"
+            },
+            {
+              "text": "empty tray + heavy rain → full tray",
+              "role": "object",
+              "note": "水来自雨；没人倒水"
+            },
+            {
+              "text": "one moon → reflected image",
+              "role": "object",
+              "note": "水中图像不增加实物数量"
+            }
+          ],
+          "caption": "每条记录都保留对象、过程和结果。"
+        },
+        "transfer": "若有人把水倒进空盘，这条记录还能证明rain filled it吗？若风吹皱湖面，原文still lake还能原样描述吗？"
+      }
+    }
+  }
+}
