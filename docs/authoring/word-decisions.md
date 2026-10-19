@@ -59,3 +59,5 @@ This varies correct-answer positions while preserving option IDs, source content
 saved selections and the same order during checks/reopening. It does not use the
 correctness flag to choose an order. Context tasks say “把目标词填回句子” because
 some prompts/hints show the target; they do not claim concealed-word recall.
+
+Vocabulary examples use inline sentence flow in both renderers. A punctuation-only tail stays with the target word; a longer tail stays inline and can wrap naturally. The view derives this presentation flag from the authored tail without changing answers or learning credit. Browser geometry checks keep the empty-target closing mark on the same line at 320/390/768, measure all eight completed sentence figures, and prevent the short repair example from splitting needlessly at 320. Native SDK checks the actual punctuation geometry separately.
