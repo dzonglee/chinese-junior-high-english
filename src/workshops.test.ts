@@ -1049,7 +1049,7 @@ it('rejects invalid or incomplete picture evidence and maps labels without movin
  const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
 })
 it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
- for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5']){
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5','l-v-course-home']){
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
@@ -1129,4 +1129,34 @@ it('strictly bounds written record paths and maps their text while preserving pe
  const us=structuredClone(original),path=us.items[0].wordDecision!.recordPaths![0];path.label='Favorite color';path.steps=['Lin','her favorite color'];const uk=mapWorkshop(us,text=>editionText(text,'british'))
  expect(uk.items[0].wordDecision!.recordPaths![0]).toEqual({id:path.id,label:'Favourite colour',steps:['Lin','her favourite colour']});expect(path.label).toBe('Favorite color');expect(uk.items[0].options!.map(o=>o.id)).toEqual(us.items[0].options!.map(o=>o.id))
  const proof=structuredClone(original);proof.kind='proof';expect(workshopProblems(proof)).toContain('Invalid word record paths')
+})
+
+it('keeps actual picture targets neutral through selection, contextual repair and restoration',()=>{
+ const s=studio('l-v-course-home'),w=s.mission!.workshop!,index=4,item=w.items[index],source=JSON.stringify(w),good=item.options!.find(o=>o.correct)!,bad=item.options!.find(o=>!o.correct)!;let p={...freshTeaching(s,1),step:1}
+ const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));expect(workshopView(w,p).wordPictureTargets.every(t=>!t.selected)).toBe(true)
+ act('choose',bad.id);let v=workshopView(w,p);expect(v.wordPictureTargets.find(t=>t.selected)!.option).toBe(bad.id);expect(v.complete).toBe(false);expect(v.wordPictureTargets.every(t=>!('accepted' in t)&&!('correct' in t))).toBe(true)
+ act('input',item.answer);act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toBe(bad.reason)
+ p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).wordPictureTargets.find(t=>t.selected)!.option).toBe(bad.id)
+ act('choose',good.id);expect(workshopView(w,p).attempted).toBe(false);expect(workshopView(w,p).complete).toBe(false);act('input','wrong');act('check');expect(workshopView(w,p).correct).toBe(false)
+ act('input',item.answer);act('check');act('save');expect(workshopView(w,p).complete).toBe(false);act('own','My bedroom has a desk beside the window.');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('choose',bad.id);expect(workshopView(w,p).complete).toBe(false);expect(p.completed).not.toContain('workshop-'+index);expect(teachingCanAdvance(s,p)).toBe(false);expect(JSON.stringify(w)).toBe(source)
+ expect(workshopView(studio('l-v-course-family-5').mission!.workshop!,freshTeaching(studio('l-v-course-family-5'),1)).wordPictureTargets).toEqual([])
+})
+it('rejects ambiguous or malformed picture targets and maps labels without changing their bindings',()=>{
+ const original=studio('l-v-course-home').mission!.workshop!;expect(workshopProblems(original)).toEqual([])
+ for(const mutate of [
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets=null as never},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets=[]},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets!.pop()},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![0].option='absent'},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![1].option=w.items[4].wordDecision!.art!.targets![0].option},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![1].id=w.items[4].wordDecision!.art!.targets![0].id},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![0].label=' '},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![0].left=NaN},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![0].width=11},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![0].height=0},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![0].top=95},
+  (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![1].left=15},
+ ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid word picture targets')}
+ const us=structuredClone(original);us.items[4].wordDecision!.art!.targets![0].label='favorite color';const uk=mapWorkshop(us,t=>editionText(t,'british')),target=uk.items[4].wordDecision!.art!.targets![0];expect(target.label).toBe('favourite colour');expect(target.id).toBe(us.items[4].wordDecision!.art!.targets![0].id);expect(target.option).toBe(us.items[4].wordDecision!.art!.targets![0].option);expect(target.left).toBe(us.items[4].wordDecision!.art!.targets![0].left);expect(us.items[4].wordDecision!.art!.targets![0].label).toBe('favorite color')
 })

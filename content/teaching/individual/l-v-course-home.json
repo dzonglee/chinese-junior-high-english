@@ -1,0 +1,723 @@
+{
+  "lessonId": "l-v-course-home",
+  "reviewState": "draft",
+  "intent": "Individually teach at home/go home,house singular/plural agreement,explicit British flat/American apartment vocabulary comparison as one dwelling,room countable versus space,bedroom compound spelling,bathroom washing,kitchen cooking and nested garden location. Original room-function art has actual neutral picture target buttons alongside sentence choices. Seven explicit own-form lists,original writing,changed rewrites and fresh chair/space reading transfer remain draft and credit free.",
+  "picturePurpose": "Three distinct original room panels show sleeping,cooking and washing facilities. Actual code-drawn picture buttons select a room claim without checking. Some furniture is cropped at panel/canvas edges; use whole-room function comparison only,no whole-furniture/count inference. Exact labels/targets/answers stay in code; fresh transfer capacity is written evidence.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "点房间、读位置，再分清房间和空间",
+    "instruction": "看图时可以点房间，也可以选描述。再填完整句子，换一个生活细节写自己的例句。",
+    "items": [
+      {
+        "id": "home",
+        "label": "home：在家用at home，回家用go home",
+        "prompt": "想说“伞在家里；我放学后回家取”。哪项把at home与go home都用对了？",
+        "wordDecision": {
+          "prompt": "想说“伞在家里；我放学后回家取”。哪项把at home与go home都用对了？",
+          "recordPaths": [
+            {
+              "id": "place",
+              "label": "物品在哪里",
+              "steps": [
+                "at home",
+                "在家"
+              ]
+            },
+            {
+              "id": "destination",
+              "label": "人回哪里",
+              "steps": [
+                "go home",
+                "回家，不加to"
+              ]
+            }
+          ]
+        },
+        "answer": "home",
+        "meaning": "家；在家",
+        "material": "I left my umbrella at home.",
+        "before": "I left my umbrella at ",
+        "after": ".",
+        "reason": "在家用at home，回家用go home。别把表示去向的go home照搬成go to home；本句I left...at home说东西落在家里。",
+        "hint": "at home：在家；go home：回家，不加to。",
+        "options": [
+          {
+            "id": "at-go",
+            "text": "My umbrella is at home. I will go home after class.",
+            "correct": true,
+            "reason": "在家用at home；go home中的home表示去向，前面不加to。"
+          },
+          {
+            "id": "extra-to",
+            "text": "My umbrella is at home. I will go to home after class.",
+            "correct": false,
+            "reason": "go home直接连用，不能把to加在这个home前面。"
+          },
+          {
+            "id": "missing-at",
+            "text": "My umbrella is home. I will go to home after class.",
+            "correct": false,
+            "reason": "伞落在家里通常说at home；后句go home也不加to。本题两处都要核对。"
+          }
+        ]
+      },
+      {
+        "id": "house",
+        "label": "house：一栋房子has，两栋房子have",
+        "prompt": "记录：拐角只有一栋房子，它有一扇绿门。哪句把数量和谓语都写对了？",
+        "wordDecision": {
+          "prompt": "记录：拐角只有一栋房子，它有一扇绿门。哪句把数量和谓语都写对了？",
+          "recordPaths": [
+            {
+              "id": "one",
+              "label": "一栋",
+              "steps": [
+                "one house",
+                "has"
+              ]
+            },
+            {
+              "id": "two",
+              "label": "两栋",
+              "steps": [
+                "two houses",
+                "have"
+              ]
+            }
+          ]
+        },
+        "answer": "house",
+        "meaning": "房子",
+        "material": "The house at the corner has a green door.",
+        "before": "The ",
+        "after": " at the corner has a green door.",
+        "reason": "house侧重房子这栋建筑，复数houses。数量和谓语一起改：one house has，two houses have。",
+        "hint": "one house has；two houses have。",
+        "options": [
+          {
+            "id": "singular-have",
+            "text": "The house at the corner have a green door.",
+            "correct": false,
+            "reason": "这里house是单数，谓语要用has，不是have。"
+          },
+          {
+            "id": "one-house",
+            "text": "The house at the corner has a green door.",
+            "correct": true,
+            "reason": "一栋用the house，单数主语后用has。"
+          },
+          {
+            "id": "plural-has",
+            "text": "The houses at the corner has green doors.",
+            "correct": false,
+            "reason": "记录是一栋，不是多栋；复数houses也要搭配have。"
+          }
+        ],
+        "ownForms": [
+          "house",
+          "houses"
+        ]
+      },
+      {
+        "id": "flat",
+        "label": "flat：一套住房，美式也说apartment",
+        "prompt": "记录：一家人搬进楼上的一套住房。flat在本课指什么？",
+        "wordDecision": {
+          "prompt": "记录：一家人搬进楼上的一套住房。flat在本课指什么？"
+        },
+        "answer": "flat",
+        "meaning": "公寓；一套住房",
+        "material": "We moved into a small flat upstairs.",
+        "before": "We moved into a small ",
+        "after": " upstairs.",
+        "reason": "英式flat与美式apartment都可指一套住房，里面可以有多个房间。它不是其中一间卧室，也不是包含多户住房的整栋楼。",
+        "hint": "英式flat和美式apartment都指一套住房；本句练习词表中的flat。",
+        "options": [
+          {
+            "id": "whole-home",
+            "text": "One home within a larger building.",
+            "correct": true,
+            "reason": "flat是一套住房，可以包含多个房间，不是其中单独一间卧室。"
+          },
+          {
+            "id": "bedroom-only",
+            "text": "Only one bedroom inside a home.",
+            "correct": false,
+            "reason": "bedroom才是卧室；一套flat可以有卧室、厨房等多个房间。"
+          },
+          {
+            "id": "whole-block",
+            "text": "The whole building containing every family’s home.",
+            "correct": false,
+            "reason": "把一套住房扩大成整栋有多户的楼，改变了这里的范围。"
+          }
+        ],
+        "ownForms": [
+          "flat",
+          "flats",
+          "apartment",
+          "apartments"
+        ]
+      },
+      {
+        "id": "room",
+        "label": "room：说空间时，不按房间数加s",
+        "prompt": "“还放得下一把椅子”说的是剩余空间。哪句保留这个意思，且主谓搭配正确？",
+        "wordDecision": {
+          "prompt": "“还放得下一把椅子”说的是剩余空间。哪句保留这个意思，且主谓搭配正确？",
+          "recordPaths": [
+            {
+              "id": "count",
+              "label": "数房间",
+              "steps": [
+                "two rooms",
+                "两间房"
+              ]
+            },
+            {
+              "id": "space",
+              "label": "说空间",
+              "steps": [
+                "room for one more chair",
+                "还放得下一把椅子"
+              ]
+            }
+          ]
+        },
+        "answer": "room",
+        "meaning": "房间；空间",
+        "material": "There is room for one more chair.",
+        "before": "There is ",
+        "after": " for one more chair.",
+        "reason": "room可以是可数的“房间”，如two rooms；说“空间”时不可数，用There is room for...。别只看中文“还放得下”，就把room当成另一间房。",
+        "hint": "two rooms：两间房；room for...：容纳……的空间。",
+        "options": [
+          {
+            "id": "a-space",
+            "text": "There are a room for one more chair.",
+            "correct": false,
+            "reason": "表示空间不用a room；a与are的单复数搭配也不对。"
+          },
+          {
+            "id": "rooms-space",
+            "text": "There is rooms for one more chair.",
+            "correct": false,
+            "reason": "这里说空间，不是几间房；rooms为复数时也不能接There is。"
+          },
+          {
+            "id": "space",
+            "text": "There is room for one more chair.",
+            "correct": true,
+            "reason": "room指空间时不可数，写There is room for...。"
+          }
+        ],
+        "ownForms": [
+          "room",
+          "rooms"
+        ]
+      },
+      {
+        "id": "bedroom",
+        "label": "bedroom：bed + room，合成一个词",
+        "prompt": "找出bedroom：可以直接点图中的房间，也可以选下面的描述。",
+        "wordDecision": {
+          "prompt": "找出bedroom：可以直接点图中的房间，也可以选下面的描述。",
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-room-functions",
+            "alt": "三个用蓝线分开的房间场景：左边有床和窗，中间有灶台、锅和料理台，右边有浴缸、洗手池和镜子。部分家具延伸到画面边缘；本题比较房间用途。",
+            "targets": [
+              {
+                "id": "left-room",
+                "label": "左边房间",
+                "left": 0.8,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "left-room"
+              },
+              {
+                "id": "middle-room",
+                "label": "中间房间",
+                "left": 34,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "middle-room"
+              },
+              {
+                "id": "right-room",
+                "label": "右边房间",
+                "left": 67.5,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "right-room"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "left-room",
+                "caption": "左边房间已选中。核对设施与题目中的房间词，再点核对。",
+                "regions": [
+                  {
+                    "id": "left-room",
+                    "label": "左边房间",
+                    "left": 0.8,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "middle-room",
+                "caption": "中间房间已选中。核对设施与题目中的房间词，再点核对。",
+                "regions": [
+                  {
+                    "id": "middle-room",
+                    "label": "中间房间",
+                    "left": 34,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "right-room",
+                "caption": "右边房间已选中。核对设施与题目中的房间词，再点核对。",
+                "regions": [
+                  {
+                    "id": "right-room",
+                    "label": "右边房间",
+                    "left": 67.5,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "bedroom",
+        "meaning": "卧室",
+        "material": "Sunlight reaches my bedroom in the afternoon.",
+        "before": "Sunlight reaches my ",
+        "after": " in the afternoon.",
+        "reason": "bedroom是卧室，由bed和room组成，写成一个词。图中左边有床，供人睡觉；后两处分别是厨房和浴室。",
+        "hint": "bed + room → bedroom；本课写成一个词。",
+        "options": [
+          {
+            "id": "left-room",
+            "text": "The left-hand room, with a bed.",
+            "correct": true,
+            "reason": "左边有床，对应供睡觉的卧室。"
+          },
+          {
+            "id": "middle-room",
+            "text": "The middle room, with a stove and a pot.",
+            "correct": false,
+            "reason": "中间有灶台和锅，对应做饭的厨房。它不对应这题要找的bedroom。"
+          },
+          {
+            "id": "right-room",
+            "text": "The right-hand room, with a bathtub and a sink.",
+            "correct": false,
+            "reason": "右边有浴缸和洗手池，对应浴室。它不对应这题要找的bedroom。"
+          }
+        ],
+        "ownForms": [
+          "bedroom",
+          "bedrooms"
+        ]
+      },
+      {
+        "id": "bathroom",
+        "label": "bathroom：看洗澡与洗漱的设施",
+        "prompt": "找出bathroom：先点房间或描述，再核对。",
+        "wordDecision": {
+          "prompt": "找出bathroom：先点房间或描述，再核对。",
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-room-functions",
+            "alt": "三个用蓝线分开的房间场景：左边有床和窗，中间有灶台、锅和料理台，右边有浴缸、洗手池和镜子。部分家具延伸到画面边缘；本题比较房间用途。",
+            "targets": [
+              {
+                "id": "left-room",
+                "label": "左边房间",
+                "left": 0.8,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "left-room"
+              },
+              {
+                "id": "middle-room",
+                "label": "中间房间",
+                "left": 34,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "middle-room"
+              },
+              {
+                "id": "right-room",
+                "label": "右边房间",
+                "left": 67.5,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "right-room"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "left-room",
+                "caption": "左边房间已选中。核对设施与题目中的房间词，再点核对。",
+                "regions": [
+                  {
+                    "id": "left-room",
+                    "label": "左边房间",
+                    "left": 0.8,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "middle-room",
+                "caption": "中间房间已选中。核对设施与题目中的房间词，再点核对。",
+                "regions": [
+                  {
+                    "id": "middle-room",
+                    "label": "中间房间",
+                    "left": 34,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "right-room",
+                "caption": "右边房间已选中。核对设施与题目中的房间词，再点核对。",
+                "regions": [
+                  {
+                    "id": "right-room",
+                    "label": "右边房间",
+                    "left": 67.5,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "bathroom",
+        "meaning": "浴室；卫生间",
+        "material": "The bathroom mirror is covered in steam.",
+        "before": "The ",
+        "after": " mirror is covered in steam.",
+        "reason": "bathroom是浴室或卫生间。图中右边有浴缸和洗手池，左边是卧室，中间是厨房。",
+        "hint": "bathroom：浴室或卫生间；图中看洗澡、洗漱设施。",
+        "options": [
+          {
+            "id": "left-room",
+            "text": "The left-hand room, with a bed.",
+            "correct": false,
+            "reason": "左边有床，对应供睡觉的卧室。它不对应这题要找的bathroom。"
+          },
+          {
+            "id": "middle-room",
+            "text": "The middle room, with a stove and a pot.",
+            "correct": false,
+            "reason": "中间有灶台和锅，对应做饭的厨房。它不对应这题要找的bathroom。"
+          },
+          {
+            "id": "right-room",
+            "text": "The right-hand room, with a bathtub and a sink.",
+            "correct": true,
+            "reason": "右边有浴缸和洗手池，对应浴室。"
+          }
+        ],
+        "ownForms": [
+          "bathroom",
+          "bathrooms"
+        ]
+      },
+      {
+        "id": "kitchen",
+        "label": "kitchen：做饭的房间，不是卧室",
+        "prompt": "晚饭正在炉子上的锅里煮。图中哪处对应kitchen？可以点房间或描述。",
+        "wordDecision": {
+          "prompt": "晚饭正在炉子上的锅里煮。图中哪处对应kitchen？可以点房间或描述。",
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-room-functions",
+            "alt": "三个用蓝线分开的房间场景：左边有床和窗，中间有灶台、锅和料理台，右边有浴缸、洗手池和镜子。部分家具延伸到画面边缘；本题比较房间用途。",
+            "targets": [
+              {
+                "id": "left-room",
+                "label": "左边房间",
+                "left": 0.8,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "left-room"
+              },
+              {
+                "id": "middle-room",
+                "label": "中间房间",
+                "left": 34,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "middle-room"
+              },
+              {
+                "id": "right-room",
+                "label": "右边房间",
+                "left": 67.5,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "right-room"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "left-room",
+                "caption": "左边房间已选中。核对设施与题目中的房间词，再点核对。",
+                "regions": [
+                  {
+                    "id": "left-room",
+                    "label": "左边房间",
+                    "left": 0.8,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "middle-room",
+                "caption": "中间房间已选中。核对设施与题目中的房间词，再点核对。",
+                "regions": [
+                  {
+                    "id": "middle-room",
+                    "label": "中间房间",
+                    "left": 34,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "right-room",
+                "caption": "右边房间已选中。核对设施与题目中的房间词，再点核对。",
+                "regions": [
+                  {
+                    "id": "right-room",
+                    "label": "右边房间",
+                    "left": 67.5,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "kitchen",
+        "meaning": "厨房",
+        "material": "Something smells wonderful in the kitchen.",
+        "before": "Something smells wonderful in the ",
+        "after": ".",
+        "reason": "kitchen是做饭的房间。图中间有炉子、锅和料理台；有床的房间是bedroom，有浴缸的房间是bathroom。",
+        "hint": "in the kitchen：在厨房；看做饭的设施。",
+        "options": [
+          {
+            "id": "left-room",
+            "text": "The left-hand room, with a bed.",
+            "correct": false,
+            "reason": "左边有床，对应供睡觉的卧室。它不对应这题要找的kitchen。"
+          },
+          {
+            "id": "middle-room",
+            "text": "The middle room, with a stove and a pot.",
+            "correct": true,
+            "reason": "中间有灶台和锅，对应做饭的厨房。"
+          },
+          {
+            "id": "right-room",
+            "text": "The right-hand room, with a bathtub and a sink.",
+            "correct": false,
+            "reason": "右边有浴缸和洗手池，对应浴室。它不对应这题要找的kitchen。"
+          }
+        ],
+        "ownForms": [
+          "kitchen",
+          "kitchens"
+        ]
+      },
+      {
+        "id": "garden",
+        "label": "garden：薄荷在盆里，盆在花园里",
+        "prompt": "薄荷种在花盆里，花盆放在花园里。哪句没有把这两层位置倒过来？",
+        "wordDecision": {
+          "prompt": "薄荷种在花盆里，花盆放在花园里。哪句没有把这两层位置倒过来？",
+          "recordPaths": [
+            {
+              "id": "location",
+              "label": "两层位置",
+              "steps": [
+                "mint",
+                "in a pot",
+                "in the garden"
+              ]
+            }
+          ]
+        },
+        "answer": "garden",
+        "meaning": "花园；菜园",
+        "material": "We grow mint in a pot in the garden.",
+        "before": "We grow mint in a pot in the ",
+        "after": ".",
+        "reason": "garden是花园或菜园，用in the garden。读in a pot in the garden时，先找小范围“盆里”，再找花盆所在的大范围“花园里”。",
+        "hint": "mint → in a pot → in the garden；小范围到大范围。",
+        "options": [
+          {
+            "id": "nested",
+            "text": "The mint is in a pot in the garden.",
+            "correct": true,
+            "reason": "先说薄荷在盆里，再说盆在花园里，两层位置都保留了。"
+          },
+          {
+            "id": "garden-in-pot",
+            "text": "The garden is in a pot beside the mint.",
+            "correct": false,
+            "reason": "把花园说成在盆里，倒换了花园与花盆的位置。"
+          },
+          {
+            "id": "pot-in-mint",
+            "text": "The pot is in the mint, outside the garden.",
+            "correct": false,
+            "reason": "把盆放到薄荷里面，还把in the garden改成了outside，改变了记录。"
+          }
+        ],
+        "ownForms": [
+          "garden",
+          "gardens"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-home-transfer",
+      "topicId": "v-course-home",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which note follows Lin’s new home record?",
+      "passage": "LIN’S NEW HOME\nOur new flat has two bedrooms, a bathroom and a kitchen. My brother and I sleep in different bedrooms. Dad cooks in the kitchen. On Friday, six people will have a reading meeting in the living room. Five chairs are ready. There is room for one more chair, but not for two more. Each person needs a chair. I left my notebook at home, so I will go home to get it before the meeting.",
+      "options": [
+        {
+          "id": "a",
+          "text": "They need one more chair, and there is enough room for it."
+        },
+        {
+          "id": "b",
+          "text": "They need to build one more room because the notice says room."
+        },
+        {
+          "id": "c",
+          "text": "The flat is the whole building containing every family’s home."
+        },
+        {
+          "id": "d",
+          "text": "Six people need two more chairs because five chairs are ready."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "They need one more chair, and there is enough room for it."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把人数、已有椅子数和剩余空间分开核对；room要放回这句里判断。",
+        "steps": [
+          {
+            "text": "六个人各需要一把椅子，已有五把，还缺一把。",
+            "reason": "six people与Each person needs a chair给出需求；Five chairs are ready给出已有数量，6−5=1。"
+          },
+          {
+            "text": "There is room for one more chair说还有空间，正好容纳缺的那一把。",
+            "reason": "room在这里不可数，表示空间，不是在要求新建一间房；but not for two more排除了再加两把。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "room在这句表示空间，不是另一间房；原文没有要求新建房间。"
+          },
+          {
+            "option": "c",
+            "reason": "本课flat是一套住房，不是包含所有住户的整栋楼。"
+          },
+          {
+            "option": "d",
+            "reason": "六个人各一把，已有五把，只缺6−5=1把，不是两把。"
+          }
+        ],
+        "pitfall": "不要把room for...的空间理解成一间新房，也别把一套住房扩大成整栋楼。",
+        "visual": {
+          "kind": "evidence",
+          "title": "先算缺多少，再查放不放得下",
+          "segments": [
+            {
+              "text": "6 people × 1 chair = 6 chairs needed",
+              "role": "evidence",
+              "note": "每人一把，共需六把"
+            },
+            {
+              "text": "6 needed − 5 ready = 1 more chair",
+              "role": "object",
+              "note": "还缺一把"
+            },
+            {
+              "text": "room for 1 more chair; not for 2 more",
+              "role": "evidence",
+              "note": "原文明确剩余空间，不靠旧图片猜"
+            },
+            {
+              "text": "at home → go home to get the notebook",
+              "role": "evidence",
+              "note": "在家用at home；回家用go home"
+            }
+          ],
+          "caption": "这里依据新记录中的人数与空间；示意房间图不能代替这份记录的容量。"
+        },
+        "transfer": "如果人数改成七人、仍有五把椅子、空间仍只容一把，能否让每人都有座位？哪两条条件产生冲突？"
+      }
+    }
+  }
+}
