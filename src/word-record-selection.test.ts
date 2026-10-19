@@ -31,3 +31,10 @@ it('binds a people view to an authored speaker without exposing answer membershi
  expect(wordRecordSelectionView(records,'').layout).toBeUndefined();expect(wordRecordSelectionView(records,'').speaker).toBeUndefined()
  for(const invalid of [{...people,speakerId:'missing'},{...people,quote:''},{...people,quote:' x '},{...people,quote:'x'.repeat(161)},{...people,layout:'cards'},{...records,speakerId:'mon'},{...records,quote:'Quote.'},{...people,layout:undefined}])expect(validWordRecordSelection(invalid)).toBe(false)
 })
+it('validates exact bowl identities and colours while keeping object views neutral and immutable',()=>{
+ const bowls:WordRecordSelection={title:'要移动的碗',prompt:'圈出蓝碗。',hint:'逐个核对。',wrong:'只选蓝碗。',layout:'objects',rows:[{id:'a',label:'A',text:'Blue bowl.',include:true,object:{shape:'bowl',colour:'blue'}},{id:'b',label:'B',text:'White bowl.',include:false,object:{shape:'bowl',colour:'white'}}]}
+ expect(validWordRecordSelection(bowls)).toBe(true);expect(wordRecordSelectionMatches(bowls,'a')).toBe(true);expect(wordRecordSelectionMatches(bowls,'a|b')).toBe(false)
+ const view=wordRecordSelectionView(bowls,'a');expect(view.layout).toBe('objects');expect(view.speaker).toBeUndefined();expect(view.noneLabel).toBe('没有符合的物品');expect(view.status).toBe('已选：A');expect(view.rows.every(r=>!('include' in r)&&!('correct' in r))).toBe(true)
+ view.rows[0].object!.colour='white';expect(bowls.rows[0].object!.colour).toBe('blue')
+ for(const invalid of [{...bowls,speakerId:'a'},{...bowls,quote:'Move them.'},{...bowls,layout:undefined},{...bowls,rows:bowls.rows.map(r=>({...r,object:undefined}))},{...bowls,rows:[{...bowls.rows[0],object:{shape:'cup',colour:'blue'}},bowls.rows[1]]},{...bowls,rows:[{...bowls.rows[0],object:{shape:'bowl',colour:'red'}},bowls.rows[1]]}])expect(validWordRecordSelection(invalid)).toBe(false)
+})

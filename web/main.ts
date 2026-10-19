@@ -1,3 +1,5 @@
+import {artworkUrl} from './artwork'
+import {artworkFormats} from '../src/generated/artwork'
 import {renderExams} from './exams'
 import { renderProduct } from './product'
 import { renderLessonStudio } from './lesson-studio'
@@ -14,7 +16,7 @@ const embeddedPacks = document.getElementById('local-packs')
 const localPacks: Record<string, string> | undefined = embeddedPacks ? JSON.parse(embeddedPacks.textContent || '{}') : undefined
 const embeddedAssets = document.getElementById('local-assets')
 const localAssets: Record<string, string> = embeddedAssets ? JSON.parse(embeddedAssets.textContent || '{}') : {}
-const artwork = (name: string) => localAssets[name] || `/assets/${name}.${(name.startsWith('lesson-')||['desk-scene','class-photo'].includes(name)) ? 'jpg' : ['types','exam_light','mistakes_light'].includes(name) ? 'webp' : 'png'}`
+const artwork = (name: string) => artworkUrl(name,localAssets,artworkFormats)
 const content = new ContentRepository(catalog, packs, async pack => {
   if (localPacks) {
     const text = localPacks[pack.file]

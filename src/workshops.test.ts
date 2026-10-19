@@ -1380,3 +1380,23 @@ it('maps the spoken quote by edition while preserving speaker and person identit
  expect(mapped.quote).toBe('What is your favourite colour?');expect(mapped.rows[1].text).toBe('Favourite colour: blue.');expect(mapped.speakerId).toBe('mr-li');expect(mapped.rows.map(r=>r.id)).toEqual(record.rows.map(r=>r.id));expect(mapped.rows.map(r=>r.include)).toEqual(record.rows.map(r=>r.include));expect(record.quote).toContain('favorite')
  const invalid=structuredClone(original);invalid.items[1].wordDecision!.recordSelection!.speakerId='absent';expect(workshopProblems(invalid)).toContain('Invalid word record selection')
 })
+it('teaches recipients, exact moving objects and ownership without awarding independent evidence',()=>{
+ const s=studio('l-v-course-pronouns-2'),w=s.mission!.workshop!;expect(workshopProblems(w)).toEqual([]);expect(w.items.map(i=>i.answer)).toEqual(['him','her','us','them','My','your','his','its'])
+ const ids=[['ben'],['mia'],['amy','ming','leo'],['a','b'],['leo'],['mia','leo'],['ben'],['bird']]
+ const owns=['I gave him a clean cup after lunch.','We thanked her for showing us the reading room.','Our teacher showed us how to use the new map.','These cups are clean; put them beside the tray.','My school bag has a small pocket at the front.','Please write your name clearly on the club form.','This blue notebook is his, and the green one is mine.','The dog lifted its head when I opened the gate.']
+ for(const [index,item]of w.items.entries()){
+  const record=item.wordDecision!.recordSelection!;expect(record.rows.filter(r=>r.include).map(r=>r.id)).toEqual(ids[index]);let p={...freshTeaching(s,1),step:1};const act=(name:string,value='')=>{p=changeTeaching(s,p,'workshop-'+name,value,2)}
+  act('item',String(index));act('choose',item.options!.find(o=>o.correct)!.id);act('input',item.answer);act('record-none');act('check');expect(workshopView(w,p).correct).toBe(false)
+  for(const id of ids[index])act('record-toggle',id);act('check');expect(workshopView(w,p).correct).toBe(true);act('own',owns[index]);act('save');expect(workshopView(w,p).complete).toBe(true)
+  act('record-toggle',record.rows.find(r=>!r.include)!.id);expect(workshopView(w,p).complete).toBe(false);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).own).toBe(owns[index]);expect(workshopView(w,p).complete).toBe(false)
+  const forged=structuredClone(p);forged.checked['workshop-'+index]=true;forged.completed.push('workshop-'+index);expect(workshopView(w,forged).complete).toBe(false)
+  act('record-none');for(const id of ids[index])act('record-toggle',id);act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ }
+ expect(w.items[3].wordDecision!.recordSelection!.rows.map(r=>r.object!.colour)).toEqual(['blue','blue','white','white']);expect(w.items[7].wordDecision!.art).toMatchObject({assetRoot:'illustrations-3',format:'png',asset:'lesson-bird-its-wings'});expect(w.items[7].reason).toContain('it is');expect(w.items[7].options!.find(o=>o.id==='itis')!.text).toBe("Use it's before wings to show ownership.");expect(w.items[5].reason).toContain('各自');expect(s.transfer.review).toBe('draft')
+})
+it('keeps default JPEG word art compatible and rejects unsupported PNG roots or formats',()=>{
+ const w=structuredClone(studio('l-v-course-pronouns-2').mission!.workshop!);expect(workshopProblems(w)).toEqual([])
+ w.items[7].wordDecision!.art!.format='svg' as 'png';expect(workshopProblems(w)).toContain('Invalid word decision');w.items[7].wordDecision!.art!.format='png';w.items[7].wordDecision!.art!.assetRoot='outside' as 'illustrations-3';expect(workshopProblems(w)).toContain('Invalid word decision')
+ const legacy=studio('l-v-course-school-tools-4').mission!.workshop!;expect(legacy.items.find(i=>i.wordDecision?.art)!.wordDecision!.art!.format).toBeUndefined();expect(workshopProblems(legacy)).toEqual([])
+})

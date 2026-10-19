@@ -28,6 +28,9 @@ for (const asset of catalog.media.filter(a => a.approvedByOwner)) {
 }
 
 mkdirSync(resolve(root, 'src/generated'), { recursive: true })
+const artworkFormats = Object.fromEntries(visualAssets.map(a => [a.id, a.file.split('.').at(-1)]))
+if (Object.values(artworkFormats).some(format => !['png','jpg','webp'].includes(format))) throw Error('Unsupported registered artwork format')
+writeFileSync(resolve(root, 'src/generated/artwork.ts'), `export const artworkFormats: Record<string,string> = ${JSON.stringify(artworkFormats)};\n`)
 if (release) {
   rmSync(nativeRoot, { recursive: true, force: true })
   cpSync(resolve(root, 'miniprogram'), nativeRoot, { recursive: true, filter: (file) => !['content', 'audio', 'runtime.js', 'pack-loader.js'].includes(relative(resolve(root, 'miniprogram'), file).split(/[\\/]/)[0]) })
