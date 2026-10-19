@@ -1485,3 +1485,21 @@ it('maps authored weather copy without sharing models or accepting invalid cause
  const w=structuredClone(studio('l-v-course-weather-sky').mission!.workshop!),weather=w.items[1].wordDecision!.weather!;weather.title='Favorite color';weather.hint='Compare the color.'
  const mapped=mapWorkshop(w,t=>editionText(t,'british')).items[1].wordDecision!.weather!;expect(mapped.title).toBe('Favourite colour');expect(mapped.hint).toBe('Compare the colour.');mapped.answer='active';expect(weather.answer).toBe('calm');weather.kind='storm' as 'cloud';expect(workshopProblems(w)).toContain('Invalid word weather')
 })
+it('requires observed storm records, precise frost targets and the negative thin-ice warning without independent credit',()=>{
+ const s=studio('l-v-course-weather-sky-2'),w=s.mission!.workshop!;expect(workshopProblems(w)).toEqual([]);expect(w.items.map(i=>i.answer)).toEqual(['storm','thunder','Lightning','fog','mist','frost','ice','Hail'])
+ const owns=['We moved the picnic table inside before the storm.','Thunder shook the windows during the storm last night.','Lightning lit up the fields beyond our house.','Thick fog delayed the early bus to town.','A little mist hung above the lake at dawn.','There was frost on the grass beside the empty field.','The ice melted slowly in the warm kitchen.','Hail left small marks on the old metal shed.']
+ for(const [index,item]of w.items.entries()){
+  let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item',String(index));act('choose',item.options!.find(o=>o.correct)!.id);act('input',item.answer)
+  const weather=item.wordDecision!.weather,record=item.wordDecision!.recordSelection,goodRows=record?.rows.filter(x=>x.include).map(x=>x.id)??[]
+  if(weather){act('weather','calm');act('weather','observe');act('check');expect(workshopView(w,p).correct).toBe(false);act('weather','active');act('check');expect(workshopView(w,p).correct).toBe(false);act('weather','observe')}
+  if(record){act('record-none');act('record-toggle',record.rows.find(x=>!x.include)!.id);act('check');expect(workshopView(w,p).correct).toBe(false);act('record-none');for(const id of goodRows)act('record-toggle',id)}
+  if(index===5){act('choose','dew');act('check');expect(workshopView(w,p).correct).toBe(false);act('choose','frost');expect(workshopView(w,p).wordPictureTargets.filter(t=>t.selected).map(t=>t.id)).toEqual(['b'])}
+  if(item.caseSensitive){act('input',item.answer.toLowerCase());act('check');expect(workshopView(w,p).correct).toBe(false);act('input',item.answer)}
+  act('check');expect(workshopView(w,p).correct).toBe(true);act('own',owns[index]);act('save');expect(workshopView(w,p).complete).toBe(true)
+  if(weather)act('weather','reset');else if(record)act('record-toggle',record.rows.find(x=>!x.include)!.id);else act('choose','dew');expect(workshopView(w,p).complete).toBe(false);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).own).toBe(owns[index]);expect(workshopView(w,p).complete).toBe(false)
+  const forged=structuredClone(p);forged.completed.push('workshop-'+index);forged.checked['workshop-'+index]=true;expect(workshopView(w,forged).complete).toBe(false)
+  if(weather)act('weather','observe');else if(record){act('record-none');for(const id of goodRows)act('record-toggle',id)}else act('choose','frost');act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ }
+ expect(w.items[3].reason).toContain('不代表对岸消失');expect(w.items[6].reason).toContain('含否定');expect(s.transfer.review).toBe('draft');expect(s.transfer.passage).toContain('bank was still there');expect(s.transfer.explanation!.visual!.segments).toHaveLength(3)
+})

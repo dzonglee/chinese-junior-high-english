@@ -13,3 +13,8 @@ it('distinguishes initial and observed scenes for each weather cause without exp
  const sun={...rain,kind:'cloud' as const,initial:'active' as const,answer:'calm' as const};expect(wordWeatherView(sun,'calm:ready').active).toBe(true);expect(wordWeatherView(sun,'calm:observed').active).toBe(false);expect(weatherMatches(sun,'calm:observed')).toBe(true)
  expect(wordWeatherView({...rain,kind:'snow'},'active:observed').reading).toContain('原来的脚印');expect(wordWeatherView({...rain,kind:'wind'},'calm:observed').reading).toContain('原处')
 })
+it('keeps written thunder, one lightning event, fog occlusion, rising mist and solid hail as distinct records',()=>{
+ const checks=[['thunder','文字记录','醒'],['lightning','一次闪电','照亮'],['fog','对岸没有消失','挡'],['mist','湖面升起','薄雾'],['hail','固态冰雹','弹开']] as const
+ for(const [kind,reading,scene]of checks){const w={...rain,kind};expect(validWordWeather(w)).toBe(true);expect(wordWeatherView(w,'active:ready').active).toBe(false);const view=wordWeatherView(w,'active:observed');expect(view.active).toBe(true);expect(view.reading).toContain(reading);expect(view.scene).toContain(scene);expect(weatherMatches(w,'calm:observed')).toBe(false);expect(weatherMatches(w,'active:observed')).toBe(true);expect(wordWeatherView(w,changeWeather('active:observed','reset')!).active).toBe(false);expect('answer' in view).toBe(false)}
+ expect(wordWeatherView({...rain,kind:'lightning'},'').choices.map(x=>x.id)).toEqual(['calm','active']);expect(wordWeatherView({...rain,kind:'hail'},'calm:observed').reading).toContain('液态');expect(wordWeatherView({...rain,kind:'fog'},'calm:observed').scene).toContain('看见')
+})

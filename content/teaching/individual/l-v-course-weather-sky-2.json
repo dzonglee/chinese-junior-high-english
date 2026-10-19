@@ -1,0 +1,531 @@
+{
+  "lessonId": "l-v-course-weather-sky-2",
+  "reviewState": "draft",
+  "intent": "Eight individual original observations distinguish event order, thunder/lightning, fog/mist, frost/dew, thin-ice meaning and hail. No audio or independent credit is implied.",
+  "picturePurpose": "Original grass macro comparison distinguishes solid frost crystals from round liquid dew. Exact target labels and regions stay coded; source art contains no text.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "看清状态，再读懂天气记录",
+    "instruction": "先改条件看结果，再分清光与声、冰晶与液滴、先与后。",
+    "items": [
+      {
+        "id": "storm",
+        "label": "storm：先搬椅子，后到暴风雨",
+        "prompt": "Put the chairs indoors before the storm. Choose the matching order.",
+        "answer": "storm",
+        "meaning": "暴风雨",
+        "material": "We brought the chairs indoors before the storm.",
+        "before": "We brought the chairs indoors before the ",
+        "after": ".",
+        "reason": "before the storm：先搬进屋，再到暴风雨。brought是bring的过去式；indoors意为“在室内”，不加介词。before只说明先后，没有给具体时刻。",
+        "hint": "把地点和先后一起核对；不要猜时刻。",
+        "wordDecision": {
+          "prompt": "Put the chairs indoors before the storm. Choose the matching order.",
+          "recordSelection": {
+            "title": "把两件事的先后对上",
+            "prompt": "先看椅子去哪儿，再看暴风雨何时到。",
+            "rows": [
+              {
+                "id": "before",
+                "label": "A · Before",
+                "text": "Chairs indoors → storm begins.",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "B · After",
+                "text": "Storm begins → chairs indoors.",
+                "include": false
+              },
+              {
+                "id": "outside",
+                "label": "C · Outside",
+                "text": "Chairs remain outside.",
+                "include": false
+              }
+            ],
+            "hint": "选搬进屋在先的记录。",
+            "wrong": "只选A：先搬进室内，后到暴风雨；B倒序，C地点不符。"
+          }
+        },
+        "options": [
+          {
+            "id": "after",
+            "text": "The storm begins first; the chairs come indoors later.",
+            "correct": false,
+            "reason": "这把before的顺序倒过来了。"
+          },
+          {
+            "id": "before",
+            "text": "Chairs indoors first; the storm begins later.",
+            "correct": true,
+            "reason": "before要求搬进屋在先，暴风雨到来在后。"
+          },
+          {
+            "id": "outside",
+            "text": "The chairs stay outside throughout the storm.",
+            "correct": false,
+            "reason": "原句indoors说明椅子已搬进室内，不是一直留在外面。"
+          }
+        ]
+      },
+      {
+        "id": "thunder",
+        "label": "thunder：雷声，不是闪光",
+        "prompt": "Read the record. Choose a loud clap of thunder and observe the dog.",
+        "answer": "thunder",
+        "meaning": "雷；雷声",
+        "material": "A loud clap of thunder woke the dog.",
+        "before": "A loud clap of ",
+        "after": " woke the dog.",
+        "reason": "thunder是雷声，通常不可数；a clap of thunder才表示“一声”。woke是wake的过去式：狗被惊醒。lightning是闪电。",
+        "hint": "看文字里的响雷和醒来；a clap才是计数单位。",
+        "wordDecision": {
+          "prompt": "Read the record. Choose a loud clap of thunder and observe the dog.",
+          "weather": {
+            "kind": "thunder",
+            "initial": "calm",
+            "answer": "active",
+            "title": "读记录：狗为什么醒来",
+            "hint": "这是文字事件对照；先核对雷声，再看醒来。",
+            "wrong": "选文字记录中的一声响雷并观察狗醒来；安静时继续睡，不符合woke。"
+          }
+        },
+        "options": [
+          {
+            "id": "light",
+            "text": "A flash of lightning brightens the hills.",
+            "correct": false,
+            "reason": "lightning是闪电的光，不是thunder这种雷声。"
+          },
+          {
+            "id": "sleep",
+            "text": "The scene stays quiet and the dog keeps sleeping.",
+            "correct": false,
+            "reason": "狗继续睡不符合woke the dog。"
+          },
+          {
+            "id": "sound",
+            "text": "A loud clap of thunder is followed by the dog waking.",
+            "correct": true,
+            "reason": "thunder是雷声；原句woke the dog说明狗被惊醒。"
+          }
+        ]
+      },
+      {
+        "id": "lightning",
+        "label": "lightning：照亮远处山丘",
+        "prompt": "Choose one lightning event. Observe the distant hills.",
+        "answer": "Lightning",
+        "meaning": "闪电",
+        "material": "Lightning lit up the distant hills.",
+        "before": "",
+        "after": " lit up the distant hills.",
+        "reason": "lightning是闪电，不是雷声thunder；也别多写e成为lightening。lit up是light up的过去式，表示照亮。句首写Lightning。",
+        "hint": "lightning没有中间那个e；句首写Lightning。",
+        "wordDecision": {
+          "prompt": "Choose one lightning event. Observe the distant hills.",
+          "weather": {
+            "kind": "lightning",
+            "initial": "calm",
+            "answer": "active",
+            "title": "让远处山丘被闪电照亮",
+            "hint": "手动切换一次结果；核对山丘由暗变亮。",
+            "wrong": "选一次闪电并观察山丘变亮；没发生闪电时山丘仍暗。"
+          }
+        },
+        "options": [
+          {
+            "id": "flash",
+            "text": "A flash makes the distant hills briefly bright.",
+            "correct": true,
+            "reason": "lightning是闪电；lit up说明山丘被照亮。"
+          },
+          {
+            "id": "dark",
+            "text": "The hills stay dark with no lightning.",
+            "correct": false,
+            "reason": "没有照亮，不符合lit up。"
+          },
+          {
+            "id": "sound",
+            "text": "A thunder record is a sound, with no light shown.",
+            "correct": false,
+            "reason": "雷声不是闪电，不能把thunder直接当成lightning。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "fog",
+        "label": "fog：看不见，不等于消失",
+        "prompt": "Add thick fog. Can you still see the far bank?",
+        "answer": "fog",
+        "meaning": "雾",
+        "material": "Thick fog hid the other side of the river.",
+        "before": "Thick ",
+        "after": " hid the other side of the river.",
+        "reason": "浓雾挡住视线，不代表对岸消失。hid是hide的过去式；fog是名词，foggy是形容词。这里要填fog。",
+        "hint": "先看遮挡前后；对岸还在，只是看不清。",
+        "wordDecision": {
+          "prompt": "Add thick fog. Can you still see the far bank?",
+          "weather": {
+            "kind": "fog",
+            "initial": "calm",
+            "answer": "active",
+            "title": "隔着雾找河对岸",
+            "hint": "对岸一直存在；只改变视线是否被雾挡住。",
+            "wrong": "选浓雾并观察它挡住对岸；无雾仍看得清，不符合hid。"
+          }
+        },
+        "options": [
+          {
+            "id": "gone",
+            "text": "The far bank stops existing when fog arrives.",
+            "correct": false,
+            "reason": "hid表示遮住、看不见，不是把对岸抹掉。"
+          },
+          {
+            "id": "hidden",
+            "text": "Thick fog blocks the view of the far bank.",
+            "correct": true,
+            "reason": "fog挡住视线；对岸仍在那里。"
+          },
+          {
+            "id": "clear",
+            "text": "The air stays clear and the far bank remains visible.",
+            "correct": false,
+            "reason": "仍清楚可见不符合Thick fog hid。"
+          }
+        ]
+      },
+      {
+        "id": "mist",
+        "label": "mist：湖面升起薄雾",
+        "prompt": "Add morning mist. Observe where it rises.",
+        "answer": "mist",
+        "meaning": "薄雾",
+        "material": "Morning mist rose from the lake.",
+        "before": "Morning ",
+        "after": " rose from the lake.",
+        "reason": "mist是薄雾，通常不可数；rose是rise的过去式，from the lake说明从湖面升起。它在水面上方，不是下落的雨或固态冰层。日常用语中mist通常比fog薄。",
+        "hint": "rose是升起；from说明从哪里来。",
+        "wordDecision": {
+          "prompt": "Add morning mist. Observe where it rises.",
+          "weather": {
+            "kind": "mist",
+            "initial": "calm",
+            "answer": "active",
+            "title": "观察晨雾从湖面升起",
+            "hint": "找薄雾在水面上方的位置，不是雨或冰。",
+            "wrong": "选湖面升起薄雾并观察；没有薄雾不能说明mist rose。"
+          }
+        },
+        "options": [
+          {
+            "id": "rain",
+            "text": "Liquid rain falls down into the lake.",
+            "correct": false,
+            "reason": "雨往下落，不是薄雾从湖面升起。"
+          },
+          {
+            "id": "ice",
+            "text": "A solid layer of ice forms on the lake.",
+            "correct": false,
+            "reason": "冰层不是薄雾，状态和位置都不符。"
+          },
+          {
+            "id": "veil",
+            "text": "A thin veil of mist rises above the morning lake.",
+            "correct": true,
+            "reason": "mist是薄雾，rose from说明从湖面升起。"
+          }
+        ]
+      },
+      {
+        "id": "frost",
+        "label": "frost：冰晶和液滴分开",
+        "prompt": "Tap the frost crystals, not the liquid drops.",
+        "answer": "frost",
+        "meaning": "霜",
+        "material": "A layer of frost covered the grass.",
+        "before": "A layer of ",
+        "after": " covered the grass.",
+        "reason": "frost是附在草叶上的霜晶，通常不可数。B是固态冰晶，A是液态露珠。a layer of frost中的layer才是可数单位；霜也不是一整片落雪。",
+        "hint": "看固态晶体和液滴；不要只按颜色猜。",
+        "wordDecision": {
+          "prompt": "Tap the frost crystals, not the liquid drops.",
+          "art": {
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-frost-dew",
+            "alt": "左半草叶上是透明圆液滴，右半绿色草叶表面和边缘附着白色分枝冰晶；两半为近距离对照。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "dew",
+                "label": "A 液滴",
+                "left": 1,
+                "top": 3,
+                "width": 47,
+                "height": 94
+              },
+              {
+                "id": "b",
+                "option": "frost",
+                "label": "B 冰晶",
+                "left": 52,
+                "top": 3,
+                "width": 47,
+                "height": 94
+              }
+            ],
+            "evidence": [
+              {
+                "option": "dew",
+                "caption": "A是表面光滑、圆润透明的液态水滴，不是霜。",
+                "regions": [
+                  {
+                    "id": "liquid-drop",
+                    "label": "round liquid drops",
+                    "left": 18,
+                    "top": 29,
+                    "width": 23,
+                    "height": 42
+                  }
+                ]
+              },
+              {
+                "option": "frost",
+                "caption": "B的白色分枝结构是固态冰晶；绿色草叶仍可见。",
+                "regions": [
+                  {
+                    "id": "solid-crystals",
+                    "label": "solid ice crystals on grass",
+                    "left": 65,
+                    "top": 23,
+                    "width": 28,
+                    "height": 52
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "dew",
+            "text": "A: round transparent liquid drops on the grass.",
+            "correct": false,
+            "reason": "A是液态露珠，不是固态霜晶。"
+          },
+          {
+            "id": "frost",
+            "text": "B: white ice crystals coating the green grass.",
+            "correct": true,
+            "reason": "B有固态冰晶，是霜；绿色草叶仍能认出。"
+          }
+        ]
+      },
+      {
+        "id": "ice",
+        "label": "ice：too thin to walk on",
+        "prompt": "Read the thin-ice notice. Choose an action that follows it.",
+        "answer": "ice",
+        "meaning": "冰",
+        "material": "The ice is too thin to walk on.",
+        "before": "The ",
+        "after": " is too thin to walk on.",
+        "reason": "too thin to walk on：薄得不能在上面走，含否定意思。ice通常不可数；on指在冰面上。按提醒留在岸边，不能仅凭冰的外观判断安全。",
+        "hint": "too ... to含否定；这里不能上冰面。",
+        "wordDecision": {
+          "prompt": "Read the thin-ice notice. Choose an action that follows it.",
+          "recordSelection": {
+            "title": "把薄冰提醒变成行动",
+            "prompt": "提示只说薄冰不可上；没有给安全通行许可。",
+            "rows": [
+              {
+                "id": "stay",
+                "label": "Stay on bank",
+                "text": "Keep off the thin ice.",
+                "include": true
+              },
+              {
+                "id": "walk",
+                "label": "Walk on ice",
+                "text": "Treat thin ice as safe.",
+                "include": false
+              },
+              {
+                "id": "guess",
+                "label": "Guess from looks",
+                "text": "Use appearance alone as proof.",
+                "include": false
+              }
+            ],
+            "hint": "按提醒留在岸边；不把外观当许可。",
+            "wrong": "只选Stay on bank；上薄冰或仅凭外观推断安全都不符合提醒。"
+          }
+        },
+        "options": [
+          {
+            "id": "stay",
+            "text": "Stay on the bank; the thin ice cannot be walked on safely.",
+            "correct": true,
+            "reason": "too thin to表示薄到不能在上面走，应留在岸边。"
+          },
+          {
+            "id": "walk",
+            "text": "Walk on it because thin means safe enough.",
+            "correct": false,
+            "reason": "把too ... to的否定含义读反了；thin不是安全依据。"
+          },
+          {
+            "id": "thick",
+            "text": "The notice proves the ice is thick enough to walk on.",
+            "correct": false,
+            "reason": "原句恰说too thin，不是thick enough。"
+          }
+        ]
+      },
+      {
+        "id": "hail",
+        "label": "hail：冰雹是固态颗粒",
+        "prompt": "Choose solid hail. Observe it bounce off the metal roof.",
+        "answer": "Hail",
+        "meaning": "冰雹；下冰雹",
+        "material": "Hail bounced off the metal roof.",
+        "before": "",
+        "after": " bounced off the metal roof.",
+        "reason": "hail是冰雹，通常不可数；一个颗粒叫a hailstone。bounced off：碰到金属屋顶后弹开。雨水流下或雪层覆盖，都不符合这条冰雹记录。句首写Hail。",
+        "hint": "看固态颗粒与弹起路径；句首写Hail。",
+        "wordDecision": {
+          "prompt": "Choose solid hail. Observe it bounce off the metal roof.",
+          "weather": {
+            "kind": "hail",
+            "initial": "calm",
+            "answer": "active",
+            "title": "看冰雹从屋顶弹开",
+            "hint": "圆点表示固态冰雹，路径表示撞击后弹开。",
+            "wrong": "选冰雹并观察弹开路径；液态雨水流下不符合hail bounced off。"
+          }
+        },
+        "options": [
+          {
+            "id": "rain",
+            "text": "Liquid raindrops fall and run down the roof.",
+            "correct": false,
+            "reason": "这是雨水，不是hail这种固态冰雹。"
+          },
+          {
+            "id": "snow",
+            "text": "A soft blanket of snow settles without the stated bounce.",
+            "correct": false,
+            "reason": "这与冰雹弹起的事件和状态不符。"
+          },
+          {
+            "id": "pellets",
+            "text": "Solid hailstones hit the metal roof and bounce away.",
+            "correct": true,
+            "reason": "hail是冰雹，固态颗粒撞到金属屋顶后弹起。"
+          }
+        ],
+        "caseSensitive": true
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-weather-sky-2-transfer",
+      "topicId": "v-course-weather-sky",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes keep the order, the observation and the thin-ice warning accurate?",
+      "passage": "WINTER FIELD NOTES\nWe brought the chairs indoors. The storm began afterwards.\nThick fog hid the far bank of the river. The bank was still there, but we could not see it clearly.\nOn the grass, patch A had round liquid water drops. Patch B had solid white ice crystals. A layer of frost covered patch B.\nA notice said the ice was too thin to walk on. We stayed on the bank.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The chairs came indoors before the storm; the hidden bank still existed; patch B had frost; we kept off the thin ice."
+        },
+        {
+          "id": "b",
+          "text": "The storm began before the chairs came indoors; the bank still existed; patch B had frost; we kept off the thin ice."
+        },
+        {
+          "id": "c",
+          "text": "The chairs came indoors first; the fog made the far bank cease to exist; patch B had frost; we kept off the thin ice."
+        },
+        {
+          "id": "d",
+          "text": "The chairs came indoors first; the bank still existed; patch A’s liquid drops were frost; thin ice was safe to walk on."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The chairs came indoors before the storm; the hidden bank still existed; patch B had frost; we kept off the thin ice."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先排事件先后，再分清看不见和不存在、液滴和冰晶，最后读懂too ... to的否定含义。",
+        "steps": [
+          {
+            "text": "椅子搬进屋在先，暴风雨开始在后。雾只挡住对岸的视线，对岸仍存在。",
+            "reason": "afterwards承接搬椅子之后；hid不能推成对岸不存在。"
+          },
+          {
+            "text": "B有固态冰晶才是霜；A是液态水滴。too thin to walk on说明不可上冰面，留在岸边。",
+            "reason": "状态区别保留frost词义；too ... to在这里含否定意思。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把原文明确的先后倒过来了：椅子先搬进屋，暴风雨后开始。"
+          },
+          {
+            "option": "c",
+            "reason": "原文明说对岸仍在那里，只是被雾挡住看不清。"
+          },
+          {
+            "option": "d",
+            "reason": "A是液滴不是霜；而薄冰提醒也没有允许上去行走。"
+          }
+        ],
+        "pitfall": "看到时间词、hid或walk就跳过先后、存在状态和否定含义。",
+        "visual": {
+          "kind": "timeline",
+          "title": "先后、遮挡、状态与行动",
+          "segments": [
+            {
+              "text": "chairs indoors → storm begins",
+              "role": "object",
+              "note": "before与afterwards互相核对"
+            },
+            {
+              "text": "fog hides view ≠ bank disappears",
+              "role": "object",
+              "note": "看不见不等于不存在"
+            },
+            {
+              "text": "solid crystals → frost; thin ice → keep off",
+              "role": "object",
+              "note": "液滴不是霜；薄冰不能上"
+            }
+          ],
+          "caption": "用原文条件核对每一条笔记。"
+        },
+        "transfer": "若把两步顺序互换，before the storm还成立吗？若B上的冰晶融成水滴，还能原样描述为a layer of frost吗？"
+      }
+    }
+  }
+}
