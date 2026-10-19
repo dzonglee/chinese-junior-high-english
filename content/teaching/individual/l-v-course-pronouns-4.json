@@ -1,0 +1,711 @@
+{
+  "lessonId": "l-v-course-pronouns-4",
+  "reviewState": "draft",
+  "intent": "Individually authored singular/plural listeners, emphatic action, same-person reminders, automatic door experiment and nearby-reference tasks. Original draft transfer; guided work gives no independent or hearing credit.",
+  "picturePurpose": "Original two-panel cape-making contrast supports a real tap decision between pupils doing the making and watching an adult. Code supplies exact roles and labels. A separate coded door experiment changes the closing cause while keeping bystanders fixed.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "谁亲自动手，动作又回到谁？",
+    "instruction": "圈人物、比较制作场景，再松手观察门会不会自己关上。",
+    "items": [
+      {
+        "id": "yourself",
+        "label": "yourself：只对一位听者说",
+        "prompt": "Ms Li tells Ming alone to leave enough rest time. Amy is not being addressed. Tap the person meant by yourself.",
+        "wordDecision": {
+          "prompt": "Ms Li tells Ming alone to leave enough rest time. Amy is not being addressed. Tap the person meant by yourself.",
+          "recordPaths": [
+            {
+              "id": "yourself",
+              "label": "省略的you与反身代词指同一人",
+              "steps": [
+                "Ms Li → Ming alone",
+                "you = Ming; yourself = Ming",
+                "Give yourself time"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出要给自己留时间的人",
+            "prompt": "Ms Li只对Ming提出休息建议；Amy没被叫到。",
+            "rows": [
+              {
+                "id": "ms-li",
+                "label": "Ms Li",
+                "text": "Speaks to Ming alone.",
+                "include": false
+              },
+              {
+                "id": "ming",
+                "label": "Ming",
+                "text": "The one person being addressed.",
+                "include": true
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Not being addressed.",
+                "include": false
+              }
+            ],
+            "hint": "yourself是听者Ming自己，不是老师。",
+            "wrong": "只选Ming；老师是说话者，Amy不在这次请求内。",
+            "layout": "people",
+            "speakerId": "ms-li",
+            "quote": "Give yourself enough time to rest."
+          }
+        },
+        "answer": "yourself",
+        "meaning": "你自己",
+        "material": "Give yourself enough time to rest.",
+        "before": "Give ",
+        "after": " enough time to rest.",
+        "reason": "祈使句Give省略了主语you。老师只对Ming说，you与yourself都指Ming：给自己留出休息时间。yourself用于单数的你自己；若同时对多人说，用yourselves。不是让Ming给老师留时间。",
+        "hint": "一位听者：yourself；多位听者：yourselves。",
+        "options": [
+          {
+            "id": "teacher",
+            "text": "Ms Li: the teacher who is speaking.",
+            "correct": false,
+            "reason": "yourself跟随听者，不是说话的老师自己。"
+          },
+          {
+            "id": "ming",
+            "text": "Ming: the one listener leaves time for himself.",
+            "correct": true,
+            "reason": "请求只面向Ming，yourself指单数听者自己。"
+          },
+          {
+            "id": "both",
+            "text": "Ming and Amy: use yourselves for both.",
+            "correct": false,
+            "reason": "题目只对Ming说，不能把未被告知的Amy加进来。"
+          }
+        ]
+      },
+      {
+        "id": "himself",
+        "label": "himself：强调是他亲手做的",
+        "prompt": "Ben is a boy. He personally built the shelf using a plan. Leo bought a ready-made one. Tap who himself emphasizes.",
+        "wordDecision": {
+          "prompt": "Ben is a boy. He personally built the shelf using a plan. Leo bought a ready-made one. Tap who himself emphasizes.",
+          "recordPaths": [
+            {
+              "id": "himself",
+              "label": "看动作由谁亲自完成",
+              "steps": [
+                "Ben → builds the shelf",
+                "He = Ben; himself emphasizes Ben",
+                "a plan is a resource, not the maker"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出亲手做架子的人",
+            "prompt": "Ben按图纸亲手制作；Leo买了一个现成架子。",
+            "rows": [
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "A boy; built the shelf from a plan.",
+                "include": true
+              },
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "Bought a ready-made shelf.",
+                "include": false
+              },
+              {
+                "id": "shelf",
+                "label": "Shelf",
+                "text": "The object Ben built.",
+                "include": false
+              }
+            ],
+            "hint": "himself指制作的Ben，不指架子或买架子的Leo。",
+            "wrong": "应选Ben；himself强调他本人完成制作。"
+          }
+        },
+        "answer": "himself",
+        "meaning": "他自己",
+        "material": "He built the little shelf himself.",
+        "before": "He built the little shelf ",
+        "after": ".",
+        "reason": "He和himself都指男孩Ben。这里himself作强调语，突出是他亲自做的；去掉himself，He built the little shelf仍是完整句子。使用图纸或工具不影响这一强调。不要把himself当成架子，也不要用宾格him替代。",
+        "hint": "himself强调他亲自做；不等于不能用工具。",
+        "options": [
+          {
+            "id": "shelf",
+            "text": "The shelf: it built something.",
+            "correct": false,
+            "reason": "架子是被做出来的物，不是himself强调的人。"
+          },
+          {
+            "id": "noresources",
+            "text": "Ben could not use any plan or tools.",
+            "correct": false,
+            "reason": "himself不表示禁止使用图纸或工具，强调的是由他亲自做。"
+          },
+          {
+            "id": "ben",
+            "text": "Ben: he did the building personally.",
+            "correct": true,
+            "reason": "himself强调Ben亲自做架子；使用图纸不改变这一点。"
+          }
+        ]
+      },
+      {
+        "id": "herself",
+        "label": "herself：提醒者与被提醒者相同",
+        "prompt": "Mia is a girl. She writes herself a reminder to check a label. Ben only reports it. Tap both roles’ shared person.",
+        "wordDecision": {
+          "prompt": "Mia is a girl. She writes herself a reminder to check a label. Ben only reports it. Tap both roles’ shared person.",
+          "recordPaths": [
+            {
+              "id": "herself",
+              "label": "把提醒的箭头接回本人",
+              "steps": [
+                "Mia: gives the reminder",
+                "Mia: receives the reminder",
+                "She reminded herself"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出既提醒又被提醒的人",
+            "prompt": "女孩Mia给自己写提醒；Ben只在转述这件事。",
+            "rows": [
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Reports what Mia did.",
+                "include": false
+              },
+              {
+                "id": "mia",
+                "label": "Mia",
+                "text": "A girl; reminds the same person: Mia.",
+                "include": true
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Receives no reminder in this event.",
+                "include": false
+              }
+            ],
+            "hint": "沿着提醒的动作，发出者和接收者都是Mia。",
+            "wrong": "只选Mia；Ben在转述，Amy不在这次提醒内。",
+            "layout": "people",
+            "speakerId": "ben",
+            "quote": "She reminded herself to check the label."
+          }
+        },
+        "answer": "herself",
+        "meaning": "她自己",
+        "material": "She reminded herself to check the label.",
+        "before": "She reminded ",
+        "after": " to check the label.",
+        "reason": "She指女孩Mia，herself也指Mia，动作回到同一个人。可理解成Mia给自己留提醒。若Mia提醒的是另一位女孩，要根据语境用her；若提醒Ben则用him。不能因为Ben在转述就把反身代词指向Ben。",
+        "hint": "She → herself：发出提醒与接受提醒的是同一人。",
+        "options": [
+          {
+            "id": "mia",
+            "text": "Mia reminded the same person: Mia.",
+            "correct": true,
+            "reason": "Mia既发出提醒，也接受提醒，herself与She指同一人。"
+          },
+          {
+            "id": "ben",
+            "text": "Mia reminded Ben instead.",
+            "correct": false,
+            "reason": "Ben只是转述，不是题目里的被提醒者。"
+          },
+          {
+            "id": "her",
+            "text": "Use her even when it means the same Mia.",
+            "correct": false,
+            "reason": "在这里明确表示提醒自己要用herself；her通常指另一位女性。"
+          }
+        ]
+      },
+      {
+        "id": "itself",
+        "label": "itself：旁边有人，也能自行关门",
+        "prompt": "Try both closing methods. Keep Amy and Leo nearby. Which observed event matches by itself?",
+        "wordDecision": {
+          "prompt": "Try both closing methods. Keep Amy and Leo nearby. Which observed event matches by itself?",
+          "recordPaths": [
+            {
+              "id": "itself",
+              "label": "保持旁观者不变，只比较关门原因",
+              "steps": [
+                "Amy + Leo stay nearby",
+                "release → automatic closer shuts the door",
+                "by itself = automatically here"
+              ]
+            }
+          ],
+          "door": {
+            "title": "松手以后，谁让门关上？",
+            "people": [
+              "Amy",
+              "Leo"
+            ],
+            "answer": "automatic",
+            "hint": "两人始终在旁边；先比较自动闭门与手推关门，再选符合原句的方式。",
+            "wrong": "原句说门自行关上。选自动闭门并松手观察；仅选方式或由人推关都不符合。"
+          }
+        },
+        "answer": "itself",
+        "meaning": "它自己；本身",
+        "material": "The door closes by itself.",
+        "before": "The door closes by ",
+        "after": ".",
+        "reason": "The door closes by itself中的by itself表示自动、自行。试验里Amy和Leo一直在旁边；选择自动闭门后松手，门会由闭门器关上。换成手推方式，松手后门保持打开，要由人推才关上。判断的是关门原因，不是房间里有没有人。",
+        "hint": "先松手观察关门原因；旁边有人不等于有人推门。",
+        "options": [
+          {
+            "id": "person",
+            "text": "A person pushes the door shut.",
+            "correct": false,
+            "reason": "这次关门由人直接推动，不是自动关上。"
+          },
+          {
+            "id": "automatic",
+            "text": "The closer shuts the door without a person pushing it.",
+            "correct": true,
+            "reason": "by itself在这里表示门自动关上，不需要人推。"
+          },
+          {
+            "id": "emptyroom",
+            "text": "There can be no people anywhere near the door.",
+            "correct": false,
+            "reason": "自动关门不要求附近没人；有人在旁边不等于有人在推门。"
+          }
+        ]
+      },
+      {
+        "id": "ourselves",
+        "label": "ourselves：自己做，不是只在旁边看",
+        "prompt": "In scene A, two pupils make their own capes. In B, the teacher makes them while pupils only watch. Which fits the pupils’ words?",
+        "wordDecision": {
+          "prompt": "In scene A, two pupils make their own capes. In B, the teacher makes them while pupils only watch. Which fits the pupils’ words?",
+          "recordPaths": [
+            {
+              "id": "ourselves",
+              "label": "先看谁动手，再看谁说we",
+              "steps": [
+                "A: the two pupils do the making",
+                "We = those two pupils",
+                "ourselves emphasizes their own action"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-costume-makers",
+            "alt": "左图两位学生在给紫色披风画星星、贴装饰；右图老师在制作披风，两位学生在旁边看。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "makers",
+                "label": "A 学生做",
+                "left": 1,
+                "top": 2,
+                "width": 48,
+                "height": 95
+              },
+              {
+                "id": "b",
+                "option": "watchers",
+                "label": "B 老师做",
+                "left": 51,
+                "top": 2,
+                "width": 48,
+                "height": 95
+              }
+            ],
+            "evidence": [
+              {
+                "option": "makers",
+                "caption": "A中两位学生都在动手；题目明确他们是说We的同一组人。",
+                "regions": [
+                  {
+                    "id": "pupil-left",
+                    "label": "pupils make",
+                    "left": 1,
+                    "top": 30,
+                    "width": 46,
+                    "height": 38
+                  }
+                ]
+              },
+              {
+                "option": "watchers",
+                "caption": "B中老师在制作，学生只看；人物在场不能代替亲自动手。",
+                "regions": [
+                  {
+                    "id": "adult-work",
+                    "label": "teacher makes",
+                    "left": 51,
+                    "top": 29,
+                    "width": 25,
+                    "height": 36
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "ourselves",
+        "meaning": "我们自己",
+        "material": "We made the costumes ourselves.",
+        "before": "We made the costumes ",
+        "after": ".",
+        "reason": "We与ourselves都指这两位学生，ourselves强调服装是他们亲手做的。材料、工具或别人提供的建议都不自动否定这种强调；关键是谁实际做。B的题设明确学生只看，制作由老师完成，所以不能用学生说We made them ourselves来概括。by ourselves可表示独自，与这里的强调用法要区分。",
+        "hint": "We → ourselves；强调我们亲自做，词尾是selves。",
+        "options": [
+          {
+            "id": "makers",
+            "text": "A: the two speaking pupils do the making.",
+            "correct": true,
+            "reason": "两位说话的学生亲自做，We与ourselves指同一组人。"
+          },
+          {
+            "id": "watchers",
+            "text": "B: the pupils only watch the teacher make them.",
+            "correct": false,
+            "reason": "B中完成制作的是老师，学生只是看，不符合学生说ourselves强调亲自做。"
+          }
+        ]
+      },
+      {
+        "id": "yourselves",
+        "label": "yourselves：两位听者各自取水",
+        "prompt": "Ms Li invites Amy and Ben to take water. She speaks to both, not to herself. Tap everyone meant by yourselves.",
+        "wordDecision": {
+          "prompt": "Ms Li invites Amy and Ben to take water. She speaks to both, not to herself. Tap everyone meant by yourselves.",
+          "recordPaths": [
+            {
+              "id": "yourselves",
+              "label": "先数清邀请面向几个人",
+              "steps": [
+                "Ms Li speaks to Amy + Ben",
+                "you = both listeners",
+                "Help yourselves to water"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "圈出被邀请自行取水的两位听者",
+            "prompt": "Ms Li同时邀请Amy和Ben；老师自己不在听者小组内。",
+            "rows": [
+              {
+                "id": "ms-li",
+                "label": "Ms Li",
+                "text": "Speaks; invites both pupils.",
+                "include": false
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Listens; may take water.",
+                "include": true
+              },
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Listens; may take water.",
+                "include": true
+              }
+            ],
+            "hint": "两位听者都要选；不要把发出邀请的老师选进来。",
+            "wrong": "应选Amy和Ben；只选一人或加入老师都不对。",
+            "layout": "people",
+            "speakerId": "ms-li",
+            "quote": "Help yourselves to some water."
+          }
+        },
+        "answer": "yourselves",
+        "meaning": "你们自己",
+        "material": "Help yourselves to some water.",
+        "before": "Help ",
+        "after": " to some water.",
+        "reason": "Help yourselves to some water是请你们自己取些水喝。祈使句省略的you指Amy和Ben两位听者，因此用复数yourselves。若只邀请Amy一人，才用yourself。这里不是让学生帮老师拿水，也不是your water这种所属用法。",
+        "hint": "两位听者用yourselves；Help yourself只对一人。",
+        "options": [
+          {
+            "id": "host",
+            "text": "Ms Li: the host takes water for herself.",
+            "correct": false,
+            "reason": "说话者是发出邀请的老师，不是yourselves所指的听者。"
+          },
+          {
+            "id": "single",
+            "text": "Amy only: use singular yourself.",
+            "correct": false,
+            "reason": "邀请同时面向两位听者，不能只指Amy或用单数形式。"
+          },
+          {
+            "id": "visitors",
+            "text": "Amy and Ben: both listeners may take water.",
+            "correct": true,
+            "reason": "yourselves是复数的你们自己，同时指Amy和Ben。"
+          }
+        ]
+      },
+      {
+        "id": "themselves",
+        "label": "themselves：孩子们亲自组织",
+        "prompt": "Amy, Ming and Leo planned and ran the game. Ms Li only watched. She reports it. Tap who themselves emphasizes.",
+        "wordDecision": {
+          "prompt": "Amy, Ming and Leo planned and ran the game. Ms Li only watched. She reports it. Tap who themselves emphasizes.",
+          "recordPaths": [
+            {
+              "id": "themselves",
+              "label": "把复数主语与强调对象对齐",
+              "steps": [
+                "Amy + Ming + Leo: the children",
+                "the same children organize the game",
+                "the children → themselves"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "圈出亲自组织游戏的孩子们",
+            "prompt": "Amy、Ming、Leo负责计划与组织；Ms Li只旁观并转述。",
+            "rows": [
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Planned and ran the game.",
+                "include": true
+              },
+              {
+                "id": "ming",
+                "label": "Ming",
+                "text": "Planned and ran it with the others.",
+                "include": true
+              },
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "Planned and ran it with the others.",
+                "include": true
+              },
+              {
+                "id": "ms-li",
+                "label": "Ms Li",
+                "text": "Speaks; watched without organizing.",
+                "include": false
+              }
+            ],
+            "hint": "themselves跟随children，不跟随转述的老师。",
+            "wrong": "应选Amy、Ming、Leo；不要漏选孩子或加入老师。",
+            "layout": "people",
+            "speakerId": "ms-li",
+            "quote": "The children organised the game themselves."
+          }
+        },
+        "answer": "themselves",
+        "meaning": "他们自己；她们自己；它们自己",
+        "material": "The children organised the game themselves.",
+        "before": "The children organised the game ",
+        "after": ".",
+        "reason": "The children与themselves对应同一组孩子。题目里Amy、Ming、Leo亲自计划并组织游戏，老师只旁观，所以themselves强调这三人自己完成组织。复数形式是themselves，不是themself，也不能用himself概括多人。",
+        "hint": "children是复数；themselves与孩子们指同一组人。",
+        "options": [
+          {
+            "id": "adult",
+            "text": "Ms Li: the adult who is reporting it.",
+            "correct": false,
+            "reason": "老师只在看和转述，不是题目里组织游戏的人。"
+          },
+          {
+            "id": "children",
+            "text": "Amy, Ming and Leo: the three children did the organizing.",
+            "correct": true,
+            "reason": "复数children与themselves指同一组三个孩子。"
+          },
+          {
+            "id": "one",
+            "text": "One child alone: use himself for everyone.",
+            "correct": false,
+            "reason": "主语是复数children，不能用单数himself替代整组人。"
+          }
+        ]
+      },
+      {
+        "id": "this",
+        "label": "this：在说话者身边的这一条",
+        "prompt": "Mia points to one path beside her that leads to the beach. Compare the route cards and select the path she means.",
+        "wordDecision": {
+          "prompt": "Mia points to one path beside her that leads to the beach. Compare the route cards and select the path she means.",
+          "recordPaths": [
+            {
+              "id": "this",
+              "label": "同时核对远近、数量与去向",
+              "steps": [
+                "speaker Mia → nearby Path A",
+                "one path → this path",
+                "Path A leads directly to the beach"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出Mia身边、直通海滩的这一条路",
+            "prompt": "先看路与Mia的位置，再核对目的地；只选一条。",
+            "rows": [
+              {
+                "id": "a",
+                "label": "Path A",
+                "text": "Beside Mia; one path directly to the beach.",
+                "include": true
+              },
+              {
+                "id": "b",
+                "label": "Path B",
+                "text": "Far from Mia; directly to the beach.",
+                "include": false
+              },
+              {
+                "id": "c",
+                "label": "Path C",
+                "text": "Beside Mia; leads into the woods.",
+                "include": false
+              }
+            ],
+            "hint": "A同时符合近处、单数和海滩；只满足一部分还不够。",
+            "wrong": "应选A；B太远，C通树林，不符合整句话。"
+          }
+        },
+        "answer": "This",
+        "meaning": "这个；这",
+        "material": "This path leads straight to the beach.",
+        "before": "",
+        "after": " path leads straight to the beach.",
+        "reason": "This path指Mia正指着的身边这一条路；path是单数。A在她身边并直通海滩，B虽通海滩但在远处，C虽近却通树林。不能只看目的地或只看远近。若改指远处那一条，通常用that path；指身边多条路则用these paths。",
+        "hint": "this + 单数；把说话者位置和去向一起核对。",
+        "options": [
+          {
+            "id": "far-beach",
+            "text": "Path B: far away, directly to the beach.",
+            "correct": false,
+            "reason": "B虽通海滩，却在远处；当前语境不能把它当作身边的this path。"
+          },
+          {
+            "id": "near-woods",
+            "text": "Path C: nearby, leading into the woods.",
+            "correct": false,
+            "reason": "C在附近，但通往树林，不符合leads straight to the beach。"
+          },
+          {
+            "id": "near-beach",
+            "text": "Path A: nearby, one path, directly to the beach.",
+            "correct": true,
+            "reason": "A同时符合身边这一条、单数和直通海滩。"
+          }
+        ],
+        "caseSensitive": true
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-pronouns-4-transfer",
+      "topicId": "v-course-pronouns",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes correctly identify the invitation, the costume makers and the cause of the door closing?",
+      "passage": "SCHOOL PLAY PREPARATIONS\nMs Li tells Amy and Ben, “Help yourselves to some water.”\nAmy says, “Ben and I made the costumes ourselves. Ms Li gave us the fabric, but she did not make the costumes.”\nAfter the pupils walk through the door, it closes automatically. Mr Wu is nearby, but he does not touch it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Both pupils may take water; Amy and Ben made the costumes; the door closes by itself despite Mr Wu being nearby."
+        },
+        {
+          "id": "b",
+          "text": "Only Ms Li may take water; Amy and Ben made the costumes; the door closes by itself despite Mr Wu being nearby."
+        },
+        {
+          "id": "c",
+          "text": "Both pupils may take water; Ms Li made the costumes because she gave the fabric; the door closes by itself."
+        },
+        {
+          "id": "d",
+          "text": "Both pupils may take water; Amy and Ben made the costumes; Mr Wu must have pushed the door because he is nearby."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Both pupils may take water; Amy and Ben made the costumes; the door closes by itself despite Mr Wu being nearby."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别找邀请面向谁、谁实际制作、谁让门关上；人物在场或提供材料都不等于完成那个动作。",
+        "steps": [
+          {
+            "text": "老师对Amy和Ben两人说，yourselves指两位听者。Amy说Ben and I made the costumes，ourselves强调两人亲手做，老师提供布料不等于替他们制作。",
+            "reason": "复数听者用yourselves；ourselves与说话的制作组是同一组人。"
+          },
+          {
+            "text": "原文写门自动关上，Mr Wu没有碰门。即使他在旁边，门这次仍是by itself关上。",
+            "reason": "判断的是关门原因；旁边有人不能推出有人推门。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "邀请面向Amy和Ben，不是说话的Ms Li自己。"
+          },
+          {
+            "option": "c",
+            "reason": "原文明说Ms Li只提供布料，没有制作服装；不能把材料提供者当成制作者。"
+          },
+          {
+            "option": "d",
+            "reason": "Mr Wu虽在旁边，却没有碰门；原文明确自动关门，不能凭在场推断他推了门。"
+          }
+        ],
+        "pitfall": "反身代词要跟着同一个人或小组；自动发生看原因，不看附近是否有人。",
+        "visual": {
+          "kind": "timeline",
+          "title": "三件事，三组依据",
+          "segments": [
+            {
+              "text": "Amy + Ben → yourselves",
+              "role": "object",
+              "note": "两位听者自己取水"
+            },
+            {
+              "text": "Amy + Ben make → ourselves",
+              "role": "object",
+              "note": "拿到布料后亲自制作"
+            },
+            {
+              "text": "automatic closing → by itself",
+              "role": "object",
+              "note": "Mr Wu在旁边但没有碰门"
+            }
+          ],
+          "caption": "把人物角色与动作原因分别对齐。"
+        },
+        "transfer": "若老师只对Amy一人邀请取水，应把yourselves改成什么？若Mr Wu直接把门推关上，by itself还符合这次事件吗？"
+      }
+    }
+  }
+}

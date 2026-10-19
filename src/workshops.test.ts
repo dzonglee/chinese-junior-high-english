@@ -1053,7 +1053,7 @@ it('varies semantic answer positions while keeping each task stable through chec
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
-   act('choose',good.id);act('input',item.answer);if(item.wordDecision?.clock)act('clock',String(item.wordDecision.clock.answer));if(item.wordDecision?.ruler)act('ruler',String(item.wordDecision.ruler.answer));if(item.wordDecision?.rotation)act('rotation',String(item.wordDecision.rotation.answer));if(item.wordDecision?.fraction){act('fraction','clear');for(let n=0;n<item.wordDecision.fraction.answer;n++)act('fraction','add')}if(item.wordDecision?.quantity){act('quantity','clear');for(let n=0;n<item.wordDecision.quantity.answer;n++)act('quantity','add')}if(item.wordDecision?.recordSelection){act('record-none');for(const row of item.wordDecision.recordSelection.rows.filter(r=>r.include))act('record-toggle',row.id)}act('check');expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).correct).toBe(true);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).selected).toBe(good.id)
+   act('choose',good.id);act('input',item.answer);if(item.wordDecision?.clock)act('clock',String(item.wordDecision.clock.answer));if(item.wordDecision?.ruler)act('ruler',String(item.wordDecision.ruler.answer));if(item.wordDecision?.door){act('door',item.wordDecision.door.answer);act('door','release');if(item.wordDecision.door.answer==='person')act('door','push')}if(item.wordDecision?.rotation)act('rotation',String(item.wordDecision.rotation.answer));if(item.wordDecision?.fraction){act('fraction','clear');for(let n=0;n<item.wordDecision.fraction.answer;n++)act('fraction','add')}if(item.wordDecision?.quantity){act('quantity','clear');for(let n=0;n<item.wordDecision.quantity.answer;n++)act('quantity','add')}if(item.wordDecision?.recordSelection){act('record-none');for(const row of item.wordDecision.recordSelection.rows.filter(r=>r.include))act('record-toggle',row.id)}act('check');expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).correct).toBe(true);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).selected).toBe(good.id)
   }
   expect(new Set(positions).size).toBeGreaterThan(1);expect(positions.some(p=>p>0)).toBe(true);expect(JSON.stringify(w.items)).toBe(source)
  }
@@ -1416,4 +1416,28 @@ it('tracks group owners, the silver-striped helmet and self-learning without acc
   const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
  }
  expect(w.items[3].wordDecision!.recordSelection!.rows.map(r=>r.text)).toEqual(['Speaks: “Read every day.” — 3 words.','Listens: “Read a short story each day.” — 6 words.']);expect(w.items[7].reason).toContain('文字指南是自学资源');expect(s.transfer.review).toBe('draft');expect(s.transfer.passage).toContain('it still belongs to me');expect(s.transfer.explanation!.visual!.segments).toHaveLength(3)
+})
+it('requires the observed closing cause and exact reflexive referents while preserving original writing',()=>{
+ const s=studio('l-v-course-pronouns-4'),w=s.mission!.workshop!;expect(workshopProblems(w)).toEqual([]);expect(w.items.map(i=>i.answer)).toEqual(['yourself','himself','herself','itself','ourselves','yourselves','themselves','This'])
+ const ids=[['ming'],['ben'],['mia'],[],[],['amy','ben'],['amy','ming','leo'],['a']]
+ const owns=['Give yourself a few minutes to check the final answer.','He painted the new sign himself using a small brush.','She reminded herself to bring a ruler for the project.','The light turns off by itself after a few minutes.','We made the paper decorations ourselves using a simple guide.','Help yourselves to the fruit on the small table.','The students checked the game rules themselves before starting.','This road goes directly to the small train station.']
+ for(const [index,item]of w.items.entries()){
+  let p={...freshTeaching(s,1),step:1};const act=(a:string,v='')=>{p=changeTeaching(s,p,'workshop-'+a,v,2)};act('item',String(index));act('choose',item.options!.find(o=>o.correct)!.id);act('input',item.answer)
+  const record=item.wordDecision!.recordSelection
+  if(record){expect(record.rows.filter(r=>r.include).map(r=>r.id)).toEqual(ids[index]);act('check');expect(workshopView(w,p).correct).toBe(false);act('record-none');for(const id of ids[index])act('record-toggle',id)}
+  if(item.wordDecision!.door){act('door','person');act('door','release');expect(workshopView(w,p).wordDoor!.closed).toBe(false);act('door','push');expect(workshopView(w,p).wordDoor!.closed).toBe(true);act('check');expect(workshopView(w,p).correct).toBe(false);act('door','automatic');act('check');expect(workshopView(w,p).correct).toBe(false);act('door','release')}
+  if(item.wordDecision!.art){act('choose','watchers');act('check');expect(workshopView(w,p).correct).toBe(false);act('choose','makers');expect(workshopView(w,p).wordPictureTargets.filter(t=>t.selected).map(t=>t.id)).toEqual(['a'])}
+  act('check');expect(workshopView(w,p).correct).toBe(true);act('own',owns[index]);act('save');expect(workshopView(w,p).complete).toBe(true)
+  if(record)act('record-toggle',record.rows.find(r=>!r.include)!.id);else if(item.wordDecision!.door)act('door','reset');else act('choose','watchers');expect(workshopView(w,p).complete).toBe(false)
+  p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).own).toBe(owns[index]);expect(workshopView(w,p).complete).toBe(false)
+  const forged=structuredClone(p);forged.checked['workshop-'+index]=true;forged.completed.push('workshop-'+index);expect(workshopView(w,forged).complete).toBe(false)
+  if(record){act('record-none');for(const id of ids[index])act('record-toggle',id)}else if(item.wordDecision!.door)act('door','release');else act('choose','makers');act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ }
+ expect(w.items[4].options).toHaveLength(2);expect(w.items[4].reason).toContain('材料、工具');expect(s.transfer.review).toBe('draft');expect(s.transfer.passage).toContain('he does not touch it')
+})
+it('maps door teaching copy while keeping bystander previews independent and cause validation strict',()=>{
+ const w=structuredClone(studio('l-v-course-pronouns-4').mission!.workshop!),d=w.items[3].wordDecision!.door!;d.title='Favorite color';d.hint='Compare the color.'
+ const mapped=mapWorkshop(w,t=>editionText(t,'british')).items[3].wordDecision!.door!;expect(mapped.title).toBe('Favourite colour');expect(mapped.hint).toBe('Compare the colour.');mapped.people[0]='Changed';expect(d.people).toEqual(['Amy','Leo'])
+ d.answer='invalid' as 'automatic';expect(workshopProblems(w)).toContain('Invalid word door')
 })
