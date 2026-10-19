@@ -3,7 +3,7 @@ import { createServer } from 'node:http'
 import { readFile, stat } from 'node:fs/promises'
 import { resolve, extname } from 'node:path'
 const root = resolve(import.meta.dirname, '..'), port = Number(process.env.PORT || 4173)
-const artwork = new Map(JSON.parse(readFileSync(resolve(root,'content/visual-assets.json'),'utf8')).assets.filter(a=>/^miniprogram\/illustrations(?:-2)?\//.test(a.file)).map(a=>['/assets/'+a.id+'.jpg',resolve(root,a.file)]))
+const artwork = new Map(JSON.parse(readFileSync(resolve(root,'content/visual-assets.json'),'utf8')).assets.filter(a=>/^miniprogram\/illustrations(?:-2)?\//.test(a.file)).map(a=>['/assets/'+a.id+extname(a.file),resolve(root,a.file)]))
 const server = createServer(async (req, res) => {
   try {
     const path = decodeURIComponent(new URL(req.url, 'http://localhost').pathname)
