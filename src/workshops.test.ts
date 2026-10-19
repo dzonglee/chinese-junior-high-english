@@ -1049,11 +1049,11 @@ it('rejects invalid or incomplete picture evidence and maps labels without movin
  const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
 })
 it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
- for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5','l-v-course-home','l-v-course-home-2','l-v-course-home-3','l-v-course-home-4','l-v-course-home-5','l-v-course-school-tools','l-v-course-school-tools-2','l-v-course-school-tools-3','l-v-course-school-tools-4','l-v-course-school-tools-5','l-v-course-time','l-v-course-time-2','l-v-course-time-3','l-v-course-time-4']){
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5','l-v-course-home','l-v-course-home-2','l-v-course-home-3','l-v-course-home-4','l-v-course-home-5','l-v-course-school-tools','l-v-course-school-tools-2','l-v-course-school-tools-3','l-v-course-school-tools-4','l-v-course-school-tools-5','l-v-course-time','l-v-course-time-2','l-v-course-time-3','l-v-course-time-4','l-v-course-time-5']){
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
-   act('choose',good.id);act('input',item.answer);if(item.wordDecision?.clock)act('clock',String(item.wordDecision.clock.answer));act('check');expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).correct).toBe(true);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).selected).toBe(good.id)
+   act('choose',good.id);act('input',item.answer);if(item.wordDecision?.clock)act('clock',String(item.wordDecision.clock.answer));if(item.wordDecision?.recordSelection){act('record-none');for(const row of item.wordDecision.recordSelection.rows.filter(r=>r.include))act('record-toggle',row.id)}act('check');expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).correct).toBe(true);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).selected).toBe(good.id)
   }
   expect(new Set(positions).size).toBeGreaterThan(1);expect(positions.some(p=>p>0)).toBe(true);expect(JSON.stringify(w.items)).toBe(source)
  }
@@ -1189,4 +1189,48 @@ it('requires the authored clock movement and invalidates completion after changi
   const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
  }
  const invalid=structuredClone(w);invalid.items[4].wordDecision!.clock!.start='24:00';expect(workshopProblems(invalid)).toContain('Invalid word clock')
+})
+
+it('requires bounded diary evidence, explicit none, and repairs without independent credit',()=>{
+ const s=studio('l-v-course-time-5'),w=s.mission!.workshop!,original=JSON.stringify(w)
+ for(const index of [4,5,7]){
+  const item=w.items[index],records=item.wordDecision!.recordSelection!;let p={...freshTeaching(s,1),step:1}
+  const act=(name:string,value='')=>{p=changeTeaching(s,p,'workshop-'+name,value,2)}
+  act('item',String(index));act('choose',item.options!.find(o=>o.correct)!.id);act('input',item.answer);act('check')
+  expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toBe(records.wrong)
+  expect(workshopView(w,p).wordRecordSelection!.noneSelected).toBe(false)
+  const before=JSON.stringify(p);act('record-toggle','absent');act('record-none','forged');expect(JSON.stringify(p)).toBe(before)
+  act('record-none');if(index!==7){act('check');expect(workshopView(w,p).correct).toBe(false)}
+  for(const row of records.rows.filter(r=>r.include))act('record-toggle',row.id)
+  act('check');expect(workshopView(w,p).correct).toBe(true);act('save');expect(workshopView(w,p).complete).toBe(false)
+  const own=index===4?'Our teacher always writes the date before class.':index===5?'I often read short stories before going to bed.':'I never share my school password with other people.'
+  act('own',own);act('save');expect(workshopView(w,p).complete).toBe(true)
+  act('record-toggle',records.rows[0].id);expect(workshopView(w,p).complete).toBe(false)
+  p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).own).toBe(own)
+  act('record-none');for(const row of records.rows.filter(r=>r.include))act('record-toggle',row.id);act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+  for(const raw of ['mon|mon|thu|fri','fri|thu|tue|mon','mon|tue|thu|fri|unknown','']){
+   const forged=structuredClone(p);forged.answers['workshopRecordSelection-'+item.id]=raw;expect(workshopView(w,forged).complete).toBe(false)
+  }
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ }
+ expect(JSON.stringify(w)).toBe(original)
+})
+it('maps diary text by edition without changing evidence identities or inclusion',()=>{
+ const original=studio('l-v-course-time-5').mission!.workshop!,us=structuredClone(original)
+ const row=us.items[4].wordDecision!.recordSelection!.rows[0];row.text='Favorite color.'
+ const uk=mapWorkshop(us,t=>editionText(t,'british')),mapped=uk.items[4].wordDecision!.recordSelection!.rows[0]
+ expect(mapped.text).toBe('Favourite colour.');expect(mapped.id).toBe(row.id);expect(mapped.include).toBe(row.include);expect(row.text).toBe('Favorite color.')
+ const malformed=structuredClone(original);malformed.items[4].wordDecision!.recordSelection!.rows[1].id='mon';expect(workshopProblems(malformed)).toContain('Invalid word record selection')
+})
+
+it('keeps a correct meaning choice correct while a separate evidence or clock setting still needs repair',()=>{
+ for(const [id,index] of [['l-v-course-time-5',4],['l-v-course-time-4',1]] as const){
+  const s=studio(id),w=s.mission!.workshop!,item=w.items[index];let p={...freshTeaching(s,1),step:1}
+  const act=(name:string,value='')=>{p=changeTeaching(s,p,'workshop-'+name,value,2)}
+  act('item',String(index));const good=item.options!.find(o=>o.correct)!,wrong=item.options!.find(o=>!o.correct)!
+  act('choose',good.id);act('input',item.answer);act('check');const v=workshopView(w,p)
+  expect(v.correct).toBe(false);expect(v.complete).toBe(false);expect(v.choices.find(o=>o.id===good.id)!.accepted).toBe(true)
+  expect(v.feedback).toBe(item.wordDecision!.recordSelection?.wrong??item.wordDecision!.clock!.wrong)
+  act('choose',wrong.id);act('check');expect(workshopView(w,p).choices.find(o=>o.id===wrong.id)!.accepted).toBe(false)
+ }
 })
