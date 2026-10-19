@@ -1,0 +1,800 @@
+{
+  "lessonId": "l-v-course-school-tools-2",
+  "reviewState": "draft",
+  "intent": "Individual tasks teach mass homework with assignment count,exercise task/activity senses,book reservation verb,textbook purpose,physical notebook,page numbering versus described page,mass paper/countable exam paper and pen. Original material identification art,strict forms,own writing and a fresh homework planning reading remain draft.",
+  "picturePurpose": "Original notebook/loose-paper/pen art supports three distinct actual picture-choice tasks. Labels remain in code. No total-page,line-count or generated-text evidence. Quantities and page/exercise numbers come from a separate authored note.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "选对文具、找对页码，再准备作业",
+    "instruction": "先认物、读语境，再补词和写自己的例子。最后读新作业记录，找页码、算用纸，不把题号当页码。",
+    "items": [
+      {
+        "id": "homework",
+        "label": "homework：数作业任务，别给homework加s",
+        "prompt": "用assignment表达“两项家庭作业”。哪个短语的词形正确？",
+        "wordDecision": {
+          "prompt": "用assignment表达“两项家庭作业”。哪个短语的词形正确？",
+          "recordPaths": [
+            {
+              "id": "mass",
+              "label": "不直接数homework",
+              "steps": [
+                "some homework",
+                "一些家庭作业"
+              ]
+            },
+            {
+              "id": "count",
+              "label": "数任务",
+              "steps": [
+                "two",
+                "homework assignments",
+                "两项作业"
+              ]
+            }
+          ]
+        },
+        "answer": "homework",
+        "meaning": "家庭作业",
+        "material": "I finished my homework before dinner.",
+        "before": "I finished my ",
+        "after": " before dinner.",
+        "reason": "homework通常不可数：some homework、much homework。要数任务，可说two homework assignments。复数落在assignment上，不是homework上。",
+        "hint": "some homework；two homework assignments。",
+        "options": [
+          {
+            "id": "homeworks",
+            "text": "two homeworks assignments",
+            "correct": false,
+            "reason": "homework在这里不可数，不能加s。"
+          },
+          {
+            "id": "singular",
+            "text": "two homework assignment",
+            "correct": false,
+            "reason": "two后需要复数assignments。"
+          },
+          {
+            "id": "assignments",
+            "text": "two homework assignments",
+            "correct": true,
+            "reason": "two数的是assignments；homework修饰它，不加s。"
+          }
+        ]
+      },
+      {
+        "id": "exercise",
+        "label": "exercise：练习题可数，身体锻炼另看语境",
+        "prompt": "记录：完成了三道英语练习题。哪句明确表达这个数量？",
+        "wordDecision": {
+          "prompt": "记录：完成了三道英语练习题。哪句明确表达这个数量？",
+          "recordPaths": [
+            {
+              "id": "tasks",
+              "label": "练习题",
+              "steps": [
+                "three exercises",
+                "三道练习"
+              ]
+            },
+            {
+              "id": "activity",
+              "label": "身体活动",
+              "steps": [
+                "get some exercise",
+                "做些运动"
+              ]
+            }
+          ]
+        },
+        "answer": "exercise",
+        "meaning": "练习；锻炼",
+        "material": "Try the last exercise without a dictionary.",
+        "before": "Try the last ",
+        "after": " without a dictionary.",
+        "reason": "exercise表示一道练习时可数，three exercises；表示身体锻炼时通常不可数，get some exercise。具体训练动作也可数。exercise还可作动词，过去式exercised，进行形式exercising。",
+        "hint": "练习题：three exercises；身体活动：some exercise。",
+        "options": [
+          {
+            "id": "singular",
+            "text": "I finished three English exercise.",
+            "correct": false,
+            "reason": "three后不能仍用单数exercise。"
+          },
+          {
+            "id": "three",
+            "text": "I finished three English exercises.",
+            "correct": true,
+            "reason": "这里指三道练习题，exercise用复数exercises。"
+          },
+          {
+            "id": "activity",
+            "text": "I got some exercise after school.",
+            "correct": false,
+            "reason": "这句说放学后做了些身体锻炼，没有表达三道英语题。"
+          }
+        ],
+        "ownForms": [
+          "exercise",
+          "exercises",
+          "exercised",
+          "exercising"
+        ]
+      },
+      {
+        "id": "book",
+        "label": "book：book a seat不是借一本书",
+        "prompt": "记录：Please book a seat before Friday. 这里book要求做什么？",
+        "wordDecision": {
+          "prompt": "记录：Please book a seat before Friday. 这里book要求做什么？",
+          "recordPaths": [
+            {
+              "id": "noun",
+              "label": "物品",
+              "steps": [
+                "a book",
+                "一本书"
+              ]
+            },
+            {
+              "id": "verb",
+              "label": "动作",
+              "steps": [
+                "book a seat",
+                "预订座位"
+              ]
+            }
+          ]
+        },
+        "answer": "book",
+        "meaning": "书",
+        "material": "The book on the left is mine.",
+        "before": "The ",
+        "after": " on the left is mine.",
+        "reason": "a book中book是书；book a seat中book是动词“预订”。看后面接什么，不能把每个book都当成一本书。过去式booked，进行形式booking。",
+        "hint": "a book：一本书；book a seat：预订座位。",
+        "options": [
+          {
+            "id": "reserve",
+            "text": "Reserve a place to sit.",
+            "correct": true,
+            "reason": "book在book a seat中作动词，意思是预订座位。"
+          },
+          {
+            "id": "borrow",
+            "text": "Borrow a story from the library.",
+            "correct": false,
+            "reason": "借故事书是borrow a book；本句book后接的是a seat。"
+          },
+          {
+            "id": "read",
+            "text": "Read the page on the left.",
+            "correct": false,
+            "reason": "读书可说read a book，但这里没有要求读左边那一页。"
+          }
+        ],
+        "ownForms": [
+          "book",
+          "books",
+          "booked",
+          "booking"
+        ]
+      },
+      {
+        "id": "textbook",
+        "label": "textbook：按清单带教科书",
+        "prompt": "清单写着Bring your English textbook. 哪项符合这条要求？",
+        "wordDecision": {
+          "prompt": "清单写着Bring your English textbook. 哪项符合这条要求？",
+          "recordPaths": [
+            {
+              "id": "purpose",
+              "label": "按用途准备",
+              "steps": [
+                "English lessons",
+                "English textbook",
+                "英语教科书"
+              ]
+            }
+          ]
+        },
+        "answer": "textbook",
+        "meaning": "教科书",
+        "material": "Bring your textbook to the first lesson.",
+        "before": "Bring your ",
+        "after": " to the first lesson.",
+        "reason": "textbook是教科书，text和book合成一个词。小说、笔记本和教科书可能都放在书包里，但按清单准备时要看用途，不靠封面颜色猜。",
+        "hint": "text + book → textbook。",
+        "options": [
+          {
+            "id": "course",
+            "text": "The course book used in English lessons.",
+            "correct": true,
+            "reason": "textbook是教科书；清单要求英语课使用的那一本。"
+          },
+          {
+            "id": "novel",
+            "text": "A novel for free reading.",
+            "correct": false,
+            "reason": "小说也属于book，但不能因此当成清单指定的教科书。"
+          },
+          {
+            "id": "blank",
+            "text": "An empty notebook for taking notes.",
+            "correct": false,
+            "reason": "notebook是记笔记的本子，不是textbook。"
+          }
+        ],
+        "ownForms": [
+          "textbook",
+          "textbooks"
+        ]
+      },
+      {
+        "id": "notebook",
+        "label": "notebook：看装订和用途，认纸质笔记本",
+        "prompt": "要找能连续记笔记的纸质notebook。点图或选描述。",
+        "wordDecision": {
+          "prompt": "要找能连续记笔记的纸质notebook。点图或选描述。",
+          "recordPaths": [
+            {
+              "id": "use",
+              "label": "用来记笔记",
+              "steps": [
+                "a notebook",
+                "write in it"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-notebook-paper-pen",
+            "alt": "蓝色分隔线把三个原创物品场景分开：左边是有装订和横线页的紫色纸质笔记本，中间是一张未装订的白纸，右边是露出书写笔尖的蓝色圆珠笔。笔记本左侧超出画面，不据图数总页数、横线数或读不存在的页码。作业题号和用纸数量由另外的文字记录给出。",
+            "targets": [
+              {
+                "id": "notebook-object",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "notebook-object"
+              },
+              {
+                "id": "paper-object",
+                "label": "中图",
+                "labelPosition": "top",
+                "left": 33.8,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "paper-object"
+              },
+              {
+                "id": "pen-object",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 67.4,
+                "top": 1,
+                "width": 32,
+                "height": 98,
+                "option": "pen-object"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "paper-object",
+                "caption": "中图已选中。看装订、纸张或笔尖，再核对用途。",
+                "regions": [
+                  {
+                    "id": "paper-object",
+                    "label": "中图",
+                    "labelPosition": "top",
+                    "left": 33.8,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "notebook-object",
+                "caption": "左图已选中。看装订、纸张或笔尖，再核对用途。",
+                "regions": [
+                  {
+                    "id": "notebook-object",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "pen-object",
+                "caption": "右图已选中。看装订、纸张或笔尖，再核对用途。",
+                "regions": [
+                  {
+                    "id": "pen-object",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 67.4,
+                    "top": 1,
+                    "width": 32,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "notebook",
+        "meaning": "笔记本",
+        "material": "I keep new phrases in a pocket notebook.",
+        "before": "I keep new phrases in a pocket ",
+        "after": ".",
+        "reason": "本题notebook指纸质笔记本。图中装订和横线页帮助认物；不需要数横线或猜总页数。notebook在电脑商品语境也可指笔记本电脑，要结合语境。",
+        "hint": "本题是纸质本子：write in a notebook。",
+        "options": [
+          {
+            "id": "paper-object",
+            "text": "The loose, unbound sheet of paper.",
+            "correct": false,
+            "reason": "中图是散页纸，没有装订成这个纸质笔记本。"
+          },
+          {
+            "id": "notebook-object",
+            "text": "The bound notebook with ruled pages.",
+            "correct": true,
+            "reason": "左图有装订和横线页，是纸质笔记本。"
+          },
+          {
+            "id": "pen-object",
+            "text": "The blue pen with a writing tip.",
+            "correct": false,
+            "reason": "右图是用来书写的笔，不是写字的本子。"
+          }
+        ],
+        "ownForms": [
+          "notebook",
+          "notebooks"
+        ]
+      },
+      {
+        "id": "page",
+        "label": "page：页码用on page12，描述某页另说",
+        "prompt": "答案在第12页。哪种写法符合“在第12页”？",
+        "wordDecision": {
+          "prompt": "答案在第12页。哪种写法符合“在第12页”？",
+          "recordPaths": [
+            {
+              "id": "number",
+              "label": "编号定位",
+              "steps": [
+                "on page 12",
+                "在第12页"
+              ]
+            },
+            {
+              "id": "description",
+              "label": "描述定位",
+              "steps": [
+                "the page with the photo",
+                "有那张照片的一页"
+              ]
+            }
+          ]
+        },
+        "answer": "page",
+        "meaning": "页",
+        "material": "Turn to the page with the bridge photo.",
+        "before": "Turn to the ",
+        "after": " with the bridge photo.",
+        "reason": "on page12是“在第12页”，page后接编号。原例句the page with the bridge photo用照片说明具体哪一页，所以保留the。不能把“编号表达不加the”推广到所有page。",
+        "hint": "on page12；the page with the photo。",
+        "options": [
+          {
+            "id": "in-page",
+            "text": "The answer is in page 12.",
+            "correct": false,
+            "reason": "这里表示在书页上，应说on page12。"
+          },
+          {
+            "id": "order",
+            "text": "The answer is on twelve page.",
+            "correct": false,
+            "reason": "页码表达是page12，不把twelve放到单数page前。"
+          },
+          {
+            "id": "numbered",
+            "text": "The answer is on page 12.",
+            "correct": true,
+            "reason": "表示答案在某一页，用on page12；这种编号表达不在page前加the。"
+          }
+        ],
+        "ownForms": [
+          "page",
+          "pages"
+        ]
+      },
+      {
+        "id": "paper",
+        "label": "paper：散页纸和试卷，数法随意思变",
+        "prompt": "找一张没有装订的paper，用来打草稿。点图或选描述。",
+        "wordDecision": {
+          "prompt": "找一张没有装订的paper，用来打草稿。点图或选描述。",
+          "recordPaths": [
+            {
+              "id": "material",
+              "label": "纸这种材料",
+              "steps": [
+                "two sheets",
+                "of paper"
+              ]
+            },
+            {
+              "id": "exam",
+              "label": "一份份试卷",
+              "steps": [
+                "two exam papers",
+                "两份试卷"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-notebook-paper-pen",
+            "alt": "蓝色分隔线把三个原创物品场景分开：左边是有装订和横线页的紫色纸质笔记本，中间是一张未装订的白纸，右边是露出书写笔尖的蓝色圆珠笔。笔记本左侧超出画面，不据图数总页数、横线数或读不存在的页码。作业题号和用纸数量由另外的文字记录给出。",
+            "targets": [
+              {
+                "id": "notebook-object",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "notebook-object"
+              },
+              {
+                "id": "paper-object",
+                "label": "中图",
+                "labelPosition": "top",
+                "left": 33.8,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "paper-object"
+              },
+              {
+                "id": "pen-object",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 67.4,
+                "top": 1,
+                "width": 32,
+                "height": 98,
+                "option": "pen-object"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "paper-object",
+                "caption": "中图已选中。看装订、纸张或笔尖，再核对用途。",
+                "regions": [
+                  {
+                    "id": "paper-object",
+                    "label": "中图",
+                    "labelPosition": "top",
+                    "left": 33.8,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "pen-object",
+                "caption": "右图已选中。看装订、纸张或笔尖，再核对用途。",
+                "regions": [
+                  {
+                    "id": "pen-object",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 67.4,
+                    "top": 1,
+                    "width": 32,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "notebook-object",
+                "caption": "左图已选中。看装订、纸张或笔尖，再核对用途。",
+                "regions": [
+                  {
+                    "id": "notebook-object",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "paper",
+        "meaning": "纸；试卷",
+        "material": "Fold the paper along the dotted line.",
+        "before": "Fold the ",
+        "after": " along the dotted line.",
+        "reason": "paper表示纸通常不可数：a sheet of paper、two sheets of paper。表示一份试卷时可数：two exam papers。本题图片只用来认散页纸，不用来数笔记本页数。",
+        "hint": "纸：sheets of paper；试卷：exam papers。",
+        "options": [
+          {
+            "id": "paper-object",
+            "text": "The loose, unbound sheet of paper.",
+            "correct": true,
+            "reason": "中图是没有装订的散页纸，符合草稿用纸的要求。"
+          },
+          {
+            "id": "pen-object",
+            "text": "The blue pen with a writing tip.",
+            "correct": false,
+            "reason": "笔可以写草稿，但本题要找承载文字的纸。"
+          },
+          {
+            "id": "notebook-object",
+            "text": "The bound notebook with ruled pages.",
+            "correct": false,
+            "reason": "左图装订成笔记本，和这题要找的未装订散页纸不同。"
+          }
+        ],
+        "ownForms": [
+          "paper",
+          "papers"
+        ]
+      },
+      {
+        "id": "pen",
+        "label": "pen：认书写工具，再检查单复数",
+        "prompt": "要找a pen来写答案。点图或选描述。",
+        "wordDecision": {
+          "prompt": "要找a pen来写答案。点图或选描述。",
+          "recordPaths": [
+            {
+              "id": "count",
+              "label": "数笔",
+              "steps": [
+                "a pen",
+                "two pens"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-notebook-paper-pen",
+            "alt": "蓝色分隔线把三个原创物品场景分开：左边是有装订和横线页的紫色纸质笔记本，中间是一张未装订的白纸，右边是露出书写笔尖的蓝色圆珠笔。笔记本左侧超出画面，不据图数总页数、横线数或读不存在的页码。作业题号和用纸数量由另外的文字记录给出。",
+            "targets": [
+              {
+                "id": "notebook-object",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "notebook-object"
+              },
+              {
+                "id": "paper-object",
+                "label": "中图",
+                "labelPosition": "top",
+                "left": 33.8,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "paper-object"
+              },
+              {
+                "id": "pen-object",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 67.4,
+                "top": 1,
+                "width": 32,
+                "height": 98,
+                "option": "pen-object"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "notebook-object",
+                "caption": "左图已选中。看装订、纸张或笔尖，再核对用途。",
+                "regions": [
+                  {
+                    "id": "notebook-object",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "pen-object",
+                "caption": "右图已选中。看装订、纸张或笔尖，再核对用途。",
+                "regions": [
+                  {
+                    "id": "pen-object",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 67.4,
+                    "top": 1,
+                    "width": 32,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "paper-object",
+                "caption": "中图已选中。看装订、纸张或笔尖，再核对用途。",
+                "regions": [
+                  {
+                    "id": "paper-object",
+                    "label": "中图",
+                    "labelPosition": "top",
+                    "left": 33.8,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "pen",
+        "meaning": "钢笔；笔",
+        "material": "This pen writes well on thick paper.",
+        "before": "This ",
+        "after": " writes well on thick paper.",
+        "reason": "pen是可数名词：a pen、two pens。图中是圆珠笔，pen也可泛指其他笔类；不能把pen一律限定成钢笔。write with a pen说用笔写。",
+        "hint": "a pen；two pens；write with a pen。",
+        "options": [
+          {
+            "id": "notebook-object",
+            "text": "The bound notebook with ruled pages.",
+            "correct": false,
+            "reason": "本子承载文字，不能把它当作书写的笔。"
+          },
+          {
+            "id": "pen-object",
+            "text": "The blue pen with a writing tip.",
+            "correct": true,
+            "reason": "右图是蓝色笔，笔尖用来书写；a pen表示一支笔。"
+          },
+          {
+            "id": "paper-object",
+            "text": "The loose, unbound sheet of paper.",
+            "correct": false,
+            "reason": "这是纸，不是用来书写的笔。"
+          }
+        ],
+        "ownForms": [
+          "pen",
+          "pens"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-school-tools-2-transfer",
+      "topicId": "v-course-school-tools",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which preparation follows this new homework plan?",
+      "passage": "TUESDAY HOMEWORK PLAN\nDo exercises 2 and 3 on page 12 of your English textbook. Write the answers in your notebook; do not tear a page out of the textbook. Use two blank sheets of paper for your first draft and one more blank sheet for a clean copy. Write the clean copy with a blue pen. If you need a library seat for Tuesday, book it online before Monday evening.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Open the textbook at page 12 and prepare three blank sheets of paper."
+        },
+        {
+          "id": "b",
+          "text": "Open the textbook at page 2 and do exercise 12."
+        },
+        {
+          "id": "c",
+          "text": "Prepare only two blank sheets, because the clean copy needs no extra paper."
+        },
+        {
+          "id": "d",
+          "text": "Tear a page out of the textbook and write the answers on it."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Open the textbook at page 12 and prepare three blank sheets of paper."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先把题号与页码分开，再把草稿和誊写的用纸相加。",
+        "steps": [
+          {
+            "text": "翻到第12页，做第2题和第3题。",
+            "reason": "exercises2and3是两道题的编号；on page12才是页码。"
+          },
+          {
+            "text": "准备三张空白纸：草稿两张，誊写再加一张。",
+            "reason": "two blank sheets加one more blank sheet等于三张；more表示在原有数量上增加。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "交换了题号与页码：记录要求第12页的第2、3题，不是第2页的第12题。"
+          },
+          {
+            "option": "c",
+            "reason": "漏掉了one more blank sheet，誊写另需一张，总共三张。"
+          },
+          {
+            "option": "d",
+            "reason": "记录明确说在notebook写答案，并要求do not tear a page out of the textbook。"
+          }
+        ],
+        "pitfall": "page12不是第12题；one more表示额外增加，不能漏算。",
+        "visual": {
+          "kind": "evidence",
+          "title": "按作业记录准备",
+          "segments": [
+            {
+              "text": "exercises 2 and 3 → 题号",
+              "role": "object",
+              "note": "做哪两道题"
+            },
+            {
+              "text": "on page 12 → 页码",
+              "role": "evidence",
+              "note": "去教科书第12页找"
+            },
+            {
+              "text": "2 draft sheets + 1 more sheet = 3 sheets",
+              "role": "evidence",
+              "note": "草稿两张，誊写另外一张"
+            },
+            {
+              "text": "answers in notebook · do not tear textbook",
+              "role": "evidence",
+              "note": "按文字指定的地方写"
+            }
+          ],
+          "caption": "题号、页码和数量由记录给出，不靠无字插画推测。"
+        },
+        "transfer": "如果誊写改用两张纸，草稿仍用两张，一共要准备几张？指出哪条数量配对要更新。"
+      }
+    }
+  }
+}

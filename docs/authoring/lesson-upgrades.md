@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **142 / 413**. Current: **l-v-course-school-tools-2**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **143 / 413**. Current: **l-v-course-school-tools-3**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -150,7 +150,7 @@ Completed: **142 / 413**. Current: **l-v-course-school-tools-2**. Evidence lives
 | l-v-course-home-4 | 房屋与家居 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-home-4.md) |
 | l-v-course-home-5 | 房屋与家居 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-home-5.md) |
 | l-v-course-school-tools | 校园与学习用品 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-school-tools.md) |
-| l-v-course-school-tools-2 | 校园与学习用品 · 2 | pending | — |
+| l-v-course-school-tools-2 | 校园与学习用品 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-school-tools-2.md) |
 | l-v-course-school-tools-3 | 校园与学习用品 · 3 | pending | — |
 | l-v-course-school-tools-4 | 校园与学习用品 · 4 | pending | — |
 | l-v-course-school-tools-5 | 校园与学习用品 · 5 | pending | — |
