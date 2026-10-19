@@ -104,7 +104,8 @@ it.each(['american','british'] as const)('audits %s spelling, all vocabulary ass
  const repo=new ContentRepository({...source,questions:[...source.questions]},[],async()=>''), words=new Set<string>()
  repo.setSpelling(spelling);for(const lesson of source.lessons){const s=createLessonTeaching(repo.catalog,lesson,spelling);expect(teachingProblems(s,lesson),lesson.id).toEqual([]);if(s.mode==='vocabulary')for(const unit of s.assemblies)words.add(unit.id);if(s.transfer.id.startsWith('teach-')){expect(questionProblems(s.transfer),s.transfer.id).toEqual([]);expect(s.transfer.passage).toBeUndefined();expect(s.transfer.mediaId).toBeUndefined();expect(s.transfer.explanation.visual.segments.some(x=>x.text===s.transfer.answer.display)).toBe(false)}}
  expect(words.size).toBe(1690)
-})
+// Both spelling audits traverse all 413 lessons; individual task timeouts stay unchanged.
+}, 20000)
 it('restores safely after content changes and rejects malformed imported course state atomically',()=>{
  const s=createLessonTeaching(source,source.lessons[0]),p=freshTeaching(s,1);p.before='My own saved draft.';p.after='My revised saved draft.';p.step=4;p.fingerprint='old'
  const restored=restoreTeaching(s,p,2);expect(restored.step).toBe(0);expect(restored.before).toBe(p.before);expect(restored.after).toBe(p.after)

@@ -1049,7 +1049,7 @@ it('rejects invalid or incomplete picture evidence and maps labels without movin
  const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
 })
 it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
- for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5','l-v-course-home','l-v-course-home-2','l-v-course-home-3','l-v-course-home-4','l-v-course-home-5','l-v-course-school-tools','l-v-course-school-tools-2','l-v-course-school-tools-3','l-v-course-school-tools-4','l-v-course-school-tools-5','l-v-course-time','l-v-course-time-2']){
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5','l-v-course-home','l-v-course-home-2','l-v-course-home-3','l-v-course-home-4','l-v-course-home-5','l-v-course-school-tools','l-v-course-school-tools-2','l-v-course-school-tools-3','l-v-course-school-tools-4','l-v-course-school-tools-5','l-v-course-time','l-v-course-time-2','l-v-course-time-3']){
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
@@ -1160,6 +1160,17 @@ it('rejects ambiguous or malformed picture targets and maps labels without chang
   (w:typeof original)=>{w.items[4].wordDecision!.art!.targets![1].left=15},
  ]){const w=structuredClone(original);mutate(w);expect(workshopProblems(w)).toContain('Invalid word picture targets')}
  const us=structuredClone(original);us.items[4].wordDecision!.art!.targets![0].label='favorite color';us.items[4].wordDecision!.art!.targets![0].labelPosition='top';const uk=mapWorkshop(us,t=>editionText(t,'british')),target=uk.items[4].wordDecision!.art!.targets![0];expect(target.label).toBe('favourite colour');expect(target.labelPosition).toBe('top');const view=workshopView(uk,{...freshTeaching(studio('l-v-course-home'),1),answers:{workshopIndex:'4'}});expect(view.wordPictureTargets[0].style).toContain('align-items:flex-start');expect(workshopView(original,{...freshTeaching(studio('l-v-course-home'),1),answers:{workshopIndex:'4'}}).wordPictureTargets[0].style).toContain('align-items:flex-end');expect(target.id).toBe(us.items[4].wordDecision!.art!.targets![0].id);expect(target.option).toBe(us.items[4].wordDecision!.art!.targets![0].option);expect(target.left).toBe(us.items[4].wordDecision!.art!.targets![0].left);expect(us.items[4].wordDecision!.art!.targets![0].label).toBe('favorite color')
+})
+it('requires slow-clock correction and preserves the learner sentence when a signed offset changes',()=>{
+ const s=studio('l-v-course-time-3'),w=s.mission!.workshop!,item=w.items[7];let p={...freshTeaching(s,1),step:1}
+ const act=(name:string,value='')=>{p=changeTeaching(s,p,'workshop-'+name,value,2)}
+ act('item','7');act('choose',item.options!.find(o=>o.correct)!.id);act('input','clock');act('check');expect(workshopView(w,p).correct).toBe(false)
+ for(const offset of ['-5','0']){act('clock',offset);act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toBe(item.wordDecision!.clock!.wrong)}
+ act('clock','5');act('check');act('own','Our kitchen clock needs a new battery.');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('clock','-5');p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).wordClock!.time).toBe('14:20');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).own).toBe('Our kitchen clock needs a new battery.')
+ const before=JSON.stringify(p);act('clock','-05');expect(JSON.stringify(p)).toBe(before)
+ act('clock','5');act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+ const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
 })
 it('requires the authored clock movement and invalidates completion after changing it',()=>{
  const s=studio('l-v-course-time-2'),w=s.mission!.workshop!

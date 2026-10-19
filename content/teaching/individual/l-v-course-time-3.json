@@ -1,0 +1,612 @@
+{
+  "lessonId": "l-v-course-time-3",
+  "reviewState": "draft",
+  "intent": "Individually authored yesterday/tonight, weekend/holiday, birthday/date/calendar/clock tasks; original changed-plan reading. No audio or mastery credit.",
+  "picturePurpose": "Original birthday table versus ordinary picnic supports a real scene-selection task. Exact dates, calendar changes, age and clock correction come only from authored text/code; candle count proves no age.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "读清改期便条，校正快慢钟",
+    "instruction": "先找到是哪一天，再辨搭配、选场景。改期只改对应活动，最后把慢钟换成实际时间。",
+    "items": [
+      {
+        "id": "yesterday",
+        "label": "yesterday：先找便条写于哪一天",
+        "prompt": "便条：Today is Friday, 23 October. We visited the river yesterday. When was the visit?",
+        "wordDecision": {
+          "prompt": "便条：Today is Friday, 23 October. We visited the river yesterday. When was the visit?",
+          "recordPaths": [
+            {
+              "id": "back",
+              "label": "往前一天",
+              "steps": [
+                "Friday 23 October",
+                "Thursday 22 October"
+              ]
+            }
+          ]
+        },
+        "answer": "yesterday",
+        "meaning": "昨天",
+        "material": "Yesterday, the river was much clearer.",
+        "before": "The river was much clearer ",
+        "after": ".",
+        "reason": "yesterday指说话或写作当天的前一天；这条便条写于周五23日，所以是周四22日。过去已发生的参观可说We visited，不把today的日期直接照抄。",
+        "hint": "Friday 23 October → yesterday: Thursday 22 October。",
+        "options": [
+          {
+            "id": "friday",
+            "text": "On Friday, 23 October.",
+            "correct": false,
+            "reason": "这是便条里的today，不是yesterday。"
+          },
+          {
+            "id": "thursday",
+            "text": "On Thursday, 22 October.",
+            "correct": true,
+            "reason": "周五23日的前一天是周四22日。"
+          },
+          {
+            "id": "saturday",
+            "text": "On Saturday, 24 October.",
+            "correct": false,
+            "reason": "这是明天，方向推反了。"
+          }
+        ]
+      },
+      {
+        "id": "tonight",
+        "label": "tonight：今晚直接用，不加this",
+        "prompt": "便条想说“今晚查天气预报”。哪句自然？",
+        "wordDecision": {
+          "prompt": "便条想说“今晚查天气预报”。哪句自然？",
+          "recordPaths": [
+            {
+              "id": "one",
+              "label": "只说今晚",
+              "steps": [
+                "tonight",
+                "今晚这一次"
+              ]
+            },
+            {
+              "id": "repeated",
+              "label": "另一个意思",
+              "steps": [
+                "every night",
+                "每晚重复"
+              ]
+            }
+          ]
+        },
+        "answer": "tonight",
+        "meaning": "今晚",
+        "material": "The sky should be clear tonight.",
+        "before": "The sky should be clear ",
+        "after": ".",
+        "reason": "tonight表示今晚，可谈今晚将做的事，也可按语境谈今晚已发生的事；不要只凭tonight就断定时态。this evening也自然，但不能拼成this tonight。",
+        "hint": "tonight = 今晚；this evening可以，this tonight不可以。",
+        "options": [
+          {
+            "id": "this",
+            "text": "Check the weather forecast this tonight.",
+            "correct": false,
+            "reason": "tonight前不能再机械加this。"
+          },
+          {
+            "id": "tonight",
+            "text": "Check the weather forecast tonight.",
+            "correct": true,
+            "reason": "tonight本身已表示今晚，直接作时间状语。"
+          },
+          {
+            "id": "every",
+            "text": "Check the weather forecast every night.",
+            "correct": false,
+            "reason": "every night说每晚，改变了只说今晚的安排。"
+          }
+        ]
+      },
+      {
+        "id": "weekend",
+        "label": "weekend：一次周末，不是每天",
+        "prompt": "安排：We are planning a picnic for the weekend. 哪个理解没有增加原文没说的频率？",
+        "wordDecision": {
+          "prompt": "安排：We are planning a picnic for the weekend. 哪个理解没有增加原文没说的频率？",
+          "recordPaths": [
+            {
+              "id": "one",
+              "label": "本次安排",
+              "steps": [
+                "for the weekend",
+                "某个周末"
+              ]
+            },
+            {
+              "id": "each",
+              "label": "重复安排",
+              "steps": [
+                "every weekend",
+                "每个周末"
+              ]
+            }
+          ]
+        },
+        "answer": "weekend",
+        "meaning": "周末",
+        "material": "We are planning a picnic for the weekend.",
+        "before": "We are planning a picnic for the ",
+        "after": ".",
+        "reason": "the weekend可说某个周末；every weekend才表示每个周末。英式常说at the weekend，美式常说on the weekend；本句for the weekend说明安排在周末，两种写法都不能凭空加上every。",
+        "hint": "for the weekend安排在周末；every weekend每个周末。",
+        "options": [
+          {
+            "id": "daily",
+            "text": "A picnic is planned for every day.",
+            "correct": false,
+            "reason": "把周末改成每天，扩大了频率。"
+          },
+          {
+            "id": "once",
+            "text": "A picnic is planned for the coming weekend.",
+            "correct": true,
+            "reason": "这说为即将到来的周末安排野餐，没有说每周都去。"
+          },
+          {
+            "id": "weekly",
+            "text": "A picnic is planned for every weekend.",
+            "correct": false,
+            "reason": "原文没说every，不能增加每个周末都去。"
+          }
+        ],
+        "ownForms": [
+          "weekend",
+          "weekends"
+        ]
+      },
+      {
+        "id": "holiday",
+        "label": "holiday：度假是状态，不是年份信息",
+        "prompt": "记录：Mia is on holiday with her family. 哪个理解有文字依据？",
+        "wordDecision": {
+          "prompt": "记录：Mia is on holiday with her family. 哪个理解有文字依据？",
+          "recordPaths": [
+            {
+              "id": "status",
+              "label": "当前状态",
+              "steps": [
+                "on holiday",
+                "在度假"
+              ]
+            },
+            {
+              "id": "limit",
+              "label": "证据边界",
+              "steps": [
+                "一条度假记录",
+                "没有生日或全年课表"
+              ]
+            }
+          ]
+        },
+        "answer": "holiday",
+        "meaning": "假期；节日",
+        "material": "Did you learn anything new during the holiday?",
+        "before": "Did you learn anything new during the ",
+        "after": "?",
+        "reason": "on holiday表示在度假；during the holiday说假期期间。holiday还可表示节日，具体看语境。图片里的野餐也可能发生在普通的一天，不能只凭野餐判断在度假。",
+        "hint": "on holiday：在度假；during the holiday：假期期间。",
+        "options": [
+          {
+            "id": "birthday",
+            "text": "It is Mia’s birthday today.",
+            "correct": false,
+            "reason": "度假不等于今天生日，记录没有生日日期。"
+          },
+          {
+            "id": "away",
+            "text": "Mia is spending a holiday with her family.",
+            "correct": true,
+            "reason": "on holiday说明在度假，with her family说明与家人一起。"
+          },
+          {
+            "id": "school",
+            "text": "Mia has no lessons for the whole year.",
+            "correct": false,
+            "reason": "度假不能推成全年不上课。"
+          }
+        ],
+        "ownForms": [
+          "holiday",
+          "holidays"
+        ]
+      },
+      {
+        "id": "birthday",
+        "label": "birthday：根据便条选择生日场景",
+        "prompt": "便条：For Lin’s birthday, we put a cake and a wrapped gift on the table. 点符合便条的场景。",
+        "wordDecision": {
+          "prompt": "便条：For Lin’s birthday, we put a cake and a wrapped gift on the table. 点符合便条的场景。",
+          "recordPaths": [
+            {
+              "id": "purpose",
+              "label": "礼物用途",
+              "steps": [
+                "for her birthday",
+                "为生日准备"
+              ]
+            },
+            {
+              "id": "time",
+              "label": "发生日期",
+              "steps": [
+                "on her birthday",
+                "生日当天"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-birthday-picnic",
+            "alt": "原创两幅场景。左边室内桌上有生日蛋糕、包装礼物和气球；右边树旁有野餐垫、篮子、水果和三明治，没有生日布置。没有文字或日期。不能从蜡烛数量推年龄，也不能凭野餐判断假期。",
+            "targets": [
+              {
+                "id": "birthday-scene",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "birthday-scene"
+              },
+              {
+                "id": "picnic-scene",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 50.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "picnic-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "birthday-scene",
+                "caption": "左图已选。核对便条里的蛋糕和包装礼物；图片不提供日期或年龄。",
+                "regions": [
+                  {
+                    "id": "birthday-scene",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "picnic-scene",
+                "caption": "右图已选。核对便条里的蛋糕和包装礼物；图片不提供日期或年龄。",
+                "regions": [
+                  {
+                    "id": "picnic-scene",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 50.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "birthday",
+        "meaning": "生日",
+        "material": "I am making a photo frame for her birthday.",
+        "before": "I am making a photo frame for her ",
+        "after": ".",
+        "reason": "for her birthday可说明为她生日准备礼物；on her birthday说在她生日当天。图片支持识别便条里的生日布置，不提供具体日期，也不能用蜡烛数量推断年龄。",
+        "hint": "for her birthday：为她生日准备；on her birthday：在她生日当天。",
+        "options": [
+          {
+            "id": "birthday-scene",
+            "text": "The indoor table with a birthday cake and a wrapped gift.",
+            "correct": true,
+            "reason": "左图的蛋糕、礼物和庆祝布置与便条相符。"
+          },
+          {
+            "id": "picnic-scene",
+            "text": "The outdoor picnic beside the tree.",
+            "correct": false,
+            "reason": "右图是普通野餐，不符合便条中蛋糕和包装礼物的布置。"
+          }
+        ],
+        "ownForms": [
+          "birthday",
+          "birthdays"
+        ]
+      },
+      {
+        "id": "date",
+        "label": "date：问几月几日，还是星期几？",
+        "prompt": "便条：Today is Friday, 23 October. Which answer gives the date?",
+        "wordDecision": {
+          "prompt": "便条：Today is Friday, 23 October. Which answer gives the date?",
+          "recordPaths": [
+            {
+              "id": "date",
+              "label": "问日期",
+              "steps": [
+                "What’s the date?",
+                "23 October"
+              ]
+            },
+            {
+              "id": "weekday",
+              "label": "问星期",
+              "steps": [
+                "What day is it?",
+                "Friday"
+              ]
+            }
+          ]
+        },
+        "answer": "date",
+        "meaning": "日期",
+        "material": "Write the date on the back of the photo.",
+        "before": "Write the ",
+        "after": " on the back of the photo.",
+        "reason": "问日期可说What’s the date?；问星期几常说What day is it?。便条把Friday和23 October都写出，做题要看问的是哪一个，不能只因为都属于时间就混选。",
+        "hint": "date → 几月几日；day of the week → 星期几。",
+        "options": [
+          {
+            "id": "date",
+            "text": "23 October.",
+            "correct": true,
+            "reason": "这是几月几日，回答日期。"
+          },
+          {
+            "id": "weekday",
+            "text": "Friday.",
+            "correct": false,
+            "reason": "这是星期几，回答day of the week。"
+          },
+          {
+            "id": "clock",
+            "text": "At 14:30.",
+            "correct": false,
+            "reason": "这是钟点，不是日期。"
+          }
+        ],
+        "ownForms": [
+          "date",
+          "dates"
+        ]
+      },
+      {
+        "id": "calendar",
+        "label": "calendar：改期后看新标记",
+        "prompt": "日历记录：Picnic — Saturday 24 October, crossed out. New plan — Sunday 25 October. Which date is current?",
+        "wordDecision": {
+          "prompt": "日历记录：Picnic — Saturday 24 October, crossed out. New plan — Sunday 25 October. Which date is current?",
+          "recordPaths": [
+            {
+              "id": "change",
+              "label": "先看改期",
+              "steps": [
+                "24 October：旧标记划掉",
+                "25 October：新安排"
+              ]
+            }
+          ]
+        },
+        "answer": "calendar",
+        "meaning": "日历",
+        "material": "Mark the school trip on your calendar.",
+        "before": "Mark the school trip on your ",
+        "after": ".",
+        "reason": "calendar用于查日期或标日程；有修改时，以新的有效标记为准。本题只改野餐日期，没有增加一次活动。calendar末尾是-ar，不是-er。",
+        "hint": "旧24日划掉 → 新25日有效；calendar结尾-ar。",
+        "options": [
+          {
+            "id": "old",
+            "text": "Saturday, 24 October.",
+            "correct": false,
+            "reason": "这是被划掉的旧日期，不能继续照用。"
+          },
+          {
+            "id": "new",
+            "text": "Sunday, 25 October.",
+            "correct": true,
+            "reason": "新安排明确写着Sunday 25 October；旧的24日已划掉。"
+          },
+          {
+            "id": "both",
+            "text": "Both 24 and 25 October.",
+            "correct": false,
+            "reason": "划掉并改期不等于增加第二次野餐。"
+          }
+        ],
+        "ownForms": [
+          "calendar",
+          "calendars"
+        ]
+      },
+      {
+        "id": "clock",
+        "label": "clock：慢五分钟，实际时间要往后推",
+        "prompt": "记录：The kitchen clock is five minutes slow. It shows 14:25. What is the actual time?",
+        "wordDecision": {
+          "prompt": "记录：The kitchen clock is five minutes slow. It shows 14:25. What is the actual time?",
+          "recordPaths": [
+            {
+              "id": "slow",
+              "label": "慢钟落后",
+              "steps": [
+                "显示14:25",
+                "加5分钟",
+                "实际14:30"
+              ]
+            },
+            {
+              "id": "fast",
+              "label": "换个条件",
+              "steps": [
+                "若快5分钟",
+                "才需要减5分钟"
+              ]
+            }
+          ],
+          "clock": {
+            "mode": "correction",
+            "title": "慢五分钟：把显示时间校正为实际时间",
+            "start": "14:25",
+            "days": [
+              "Sunday",
+              "Monday"
+            ],
+            "intervals": [
+              -5,
+              0,
+              5
+            ],
+            "answer": 5,
+            "hint": "试试往前拨或往后拨，再用slow核对：这只钟落后了五分钟。",
+            "wrong": "这只钟落后五分钟。显示14:25，实际时间要加五分钟；减五分钟会让差距更大。"
+          }
+        },
+        "answer": "clock",
+        "meaning": "钟",
+        "material": "The kitchen clock is five minutes slow.",
+        "before": "The kitchen ",
+        "after": " is five minutes slow.",
+        "reason": "a clock is five minutes slow表示钟落后五分钟；实际时间比显示时间晚五分钟。若钟快五分钟才从显示时间减去五分钟。",
+        "hint": "慢钟14:25 + 5 minutes → 实际14:30。",
+        "options": [
+          {
+            "id": "actual",
+            "text": "14:30.",
+            "correct": true,
+            "reason": "钟比实际时间慢五分钟，14:25要加五分钟。"
+          },
+          {
+            "id": "subtract",
+            "text": "14:20.",
+            "correct": false,
+            "reason": "又减五分钟，方向反了；慢钟落后于实际时间。"
+          },
+          {
+            "id": "shown",
+            "text": "14:25.",
+            "correct": false,
+            "reason": "这是慢钟显示的时间，还没校正。"
+          }
+        ],
+        "ownForms": [
+          "clock",
+          "clocks"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-time-3-transfer",
+      "topicId": "v-course-time",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan follows the updated note?",
+      "passage": "FAMILY WEEKEND UPDATE\nFriday, 23 October 2026\nWe visited the river yesterday. Lin’s birthday gathering is on Saturday, 24 October, at 15:00. Our picnic was planned for Saturday, but that date is crossed out on the calendar. The new picnic date is Sunday, 25 October, at 14:30. Pack the picnic basket tonight. The kitchen clock is five minutes slow, so when it shows 14:25 on Sunday, it is time for the picnic.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The birthday gathering and the picnic are both on Saturday, 24 October."
+        },
+        {
+          "id": "b",
+          "text": "The birthday gathering is on Saturday, 24 October; the picnic is on Sunday, 25 October, when the slow kitchen clock shows 14:25."
+        },
+        {
+          "id": "c",
+          "text": "The picnic is on Sunday, 25 October, when the slow kitchen clock shows 14:30."
+        },
+        {
+          "id": "d",
+          "text": "The family visited the river on Saturday, 24 October, the day after the note was written."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The birthday gathering is on Saturday, 24 October; the picnic is on Sunday, 25 October, when the slow kitchen clock shows 14:25."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找便条日期和改期信息，再校正慢钟；生日与野餐分别核对。",
+        "steps": [
+          {
+            "text": "生日仍在周六24日15:00；野餐旧日期划掉，改到周日25日14:30。",
+            "reason": "只改了野餐，不能把生日也移动，或把被划掉的日期当成有效安排。"
+          },
+          {
+            "text": "慢钟显示14:25时，加五分钟得到实际14:30，正好是野餐时间。",
+            "reason": "slow表示落后于实际时间；显示14:30时实际已是14:35。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "仍使用已划掉的野餐旧日期，忽略了Sunday 25 October的新安排。"
+          },
+          {
+            "option": "c",
+            "reason": "没有校正慢钟；慢钟显示14:30时实际已是14:35，晚了五分钟。"
+          },
+          {
+            "option": "d",
+            "reason": "yesterday要从周五23日往前推到周四22日，不是往后到周六24日。"
+          }
+        ],
+        "pitfall": "旧安排、新安排和不同活动分开核对；慢钟要加，快钟才减。",
+        "visual": {
+          "kind": "timeline",
+          "title": "先改日期，再校正钟点",
+          "segments": [
+            {
+              "text": "Birthday: Saturday 24 October, 15:00",
+              "role": "time",
+              "note": "生日未改期"
+            },
+            {
+              "text": "Picnic: Saturday 24 → Sunday 25 October",
+              "role": "time",
+              "note": "只改野餐日期"
+            },
+            {
+              "text": "Slow clock 14:25 + 5 minutes → actual 14:30",
+              "role": "time",
+              "note": "以实际时间为准"
+            }
+          ],
+          "caption": "日期和钟点看便条；生日图不能推出具体日期或年龄。"
+        },
+        "transfer": "如果钟改为快五分钟，野餐仍在实际14:30开始，这只钟应显示几点？为什么不再加五分钟求实际时间？"
+      }
+    }
+  }
+}

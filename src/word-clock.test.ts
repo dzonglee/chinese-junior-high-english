@@ -3,6 +3,17 @@ import {wordClockView,validWordClock,clockInterval} from './core/word-clock'
 import type {WordClock} from './core/word-clock'
 const clock:WordClock={title:'推过午夜',start:'23:45',days:['Friday','Saturday'],intervals:[0,15,30,45,60],answer:15,hint:'选择等待的时长。',wrong:'再核对时长与日期。'}
 describe('authored clock arithmetic',()=>{
+ it('lets students compare subtracting, retaining and adding the slow-clock offset',()=>{
+  const slow:WordClock={...clock,mode:'correction',start:'14:25',days:['Sunday','Monday'],intervals:[-5,0,5],answer:5}
+  expect(validWordClock(slow)).toBe(true)
+  expect(wordClockView(slow,'-5')).toMatchObject({time:'14:20',day:'Sunday',ready:true,minuteStyle:'transform:rotate(120deg);'})
+  expect(wordClockView(slow,'5')).toMatchObject({time:'14:30',hourStyle:'transform:rotate(75deg);',minuteStyle:'transform:rotate(180deg);',controlsLabel:'校正分钟数'})
+  expect(wordClockView(slow,'0').options.map(o=>o.label)).toEqual(['−5 分钟','不校正','＋5 分钟'])
+  for(const raw of ['-0','-05','+5','5.0','-5 ','-10'])expect(clockInterval(slow,raw)).toBeUndefined()
+  expect(validWordClock({...slow,start:'00:00'})).toBe(false)
+  expect(validWordClock({...slow,start:'23:59'})).toBe(false)
+  expect(validWordClock({...slow,mode:'guess'})).toBe(false)
+ })
  it('shows midnight on the following day and keeps hour/minute hands exact',()=>{
   expect(wordClockView(clock,'15')).toMatchObject({time:'00:00',day:'Saturday',hourStyle:'transform:rotate(0deg);',minuteStyle:'transform:rotate(0deg);',ready:true})
   expect(wordClockView(clock,'30')).toMatchObject({time:'00:15',day:'Saturday',hourStyle:'transform:rotate(7.5deg);',minuteStyle:'transform:rotate(90deg);'})

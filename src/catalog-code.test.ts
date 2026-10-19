@@ -12,4 +12,6 @@ it('round-trips every course catalog field through compact generated JavaScript'
   const module = { exports: {} as { catalog?: typeof metadata } }
   vm.runInNewContext(compiled.code, { module, exports: module.exports })
   expect(JSON.parse(JSON.stringify(module.exports.catalog))).toEqual(JSON.parse(JSON.stringify(metadata)))
-})
+// This traverses the entire authored catalog, compiles it and compares every field.
+// Its budget is separate from the default timeout for individual interaction tests.
+}, 20000)
