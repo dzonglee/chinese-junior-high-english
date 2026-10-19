@@ -1049,7 +1049,7 @@ it('rejects invalid or incomplete picture evidence and maps labels without movin
  const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
 })
 it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
- for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature']){
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2']){
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
@@ -1057,4 +1057,37 @@ it('varies semantic answer positions while keeping each task stable through chec
   }
   expect(new Set(positions).size).toBeGreaterThan(1);expect(positions.some(p=>p>0)).toBe(true);expect(JSON.stringify(w.items)).toBe(source)
  }
+})
+
+it('accepts authored past and plural forms in own use without relaxing context or meaning gates',()=>{
+ const id='l-v-nature-2',s=studio(id),w=s.mission!.workshop!
+ for(const [index,sentence,bad] of [[0,'We planted flowers near the classroom window.','We plantted flowers near the classroom window.'],[1,'The young plants grew quickly last spring.','The young plants growed quickly last spring.'],[2,'Several bright leaves floated down beside me.','Several bright leafs floated down beside me.']] as const){
+  const item=w.items[index],good=item.options!.find(o=>o.correct)!,wrong=item.options!.find(o=>!o.correct)!;let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index))
+  act('choose',wrong.id);act('input',item.answer);act('check');act('own',sentence);act('save');expect(workshopView(w,p).complete).toBe(false)
+  act('choose',good.id);act('input',item.ownForms![1]);act('check');expect(workshopView(w,p).correct).toBe(false)
+  act('input',item.answer);act('check');act('own',bad);act('save');expect(workshopView(w,p).complete).toBe(false);act('own',item.material!);act('save');expect(workshopView(w,p).complete).toBe(false)
+  act('own',sentence);act('save');expect(workshopView(w,p).complete).toBe(true)
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[id]:p}}),c,3,true);p=restoreTeaching(s,state.teaching[id],4);expect(workshopView(w,p).own).toBe(sentence);expect(workshopView(w,p).complete).toBe(true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+  act('own',bad);expect(workshopView(w,p).complete).toBe(false)
+ }
+})
+
+it('accepts a new conjugated rewrite only after self-review and rejects unchanged or unlisted writing',()=>{
+ const s=studio('l-v-nature-2'),item=s.mission!.workshop!.items[1],original='The young plants grew quickly last spring.';let p={...freshTeaching(s,1),step:2,caseIndex:1};p.answers['workshopOwn-'+item.id]=original
+ const act=(name:string,value='')=>{p=changeTeaching(s,p,name,value,2)}
+ act('answer','We have grown vegetables in our sunny garden.');act('check');expect(p.checked['step-2-1']).toBe(false);act('word-review');act('check');expect(p.checked['step-2-1']).toBe(true)
+ act('answer','Our plants growed quickly during the spring.');act('word-review');act('check');expect(p.checked['step-2-1']).toBe(false)
+ act('answer',original);act('word-review');act('check');expect(p.checked['step-2-1']).toBe(false)
+})
+
+it('keeps the given-form requirement when no own-use forms are authored',()=>{
+ const s=studio('l-v-nature-2'),w=structuredClone(s.mission!.workshop!),item=w.items[1];delete item.ownForms
+ let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>changeWorkshop(w,p,a,value);act('item','1');act('choose',item.options!.find(o=>o.correct)!.id);act('input',item.answer);act('check');act('own','The young plants grew quickly last spring.');act('save');expect(workshopView(w,p).complete).toBe(false);act('own','Young plants grow quickly during the spring.');act('save');expect(workshopView(w,p).complete).toBe(true)
+})
+
+it('validates explicit own-use forms and maps their spelling without inventing new accepted forms',()=>{
+ const original=studio('l-v-nature-2').mission!.workshop!;expect(workshopProblems(original)).toEqual([])
+ for(const forms of [null,'grow',[],['grow'],['grew','grown'],['grow','grow'],['grow','GROW'],['grow',' grew'],['grow','two words'],['grow',''],['grow',...Array.from({length:8},(_,i)=>'grows'+'x'.repeat(i))]]){const w=structuredClone(original);w.items[1].ownForms=forms as never;expect(workshopProblems(w)).toContain('Invalid own-use word forms')}
+ const w=structuredClone(original);w.kind='proof';expect(workshopProblems(w)).toContain('Invalid own-use word forms')
+ const us=structuredClone(original);us.items[0].answer='color';us.items[0].ownForms=['color','colors'];const uk=mapWorkshop(us,text=>editionText(text,'british'));expect(uk.items[0].ownForms).toEqual(['colour','colours']);expect(uk.items[0].id).toBe(us.items[0].id)
 })

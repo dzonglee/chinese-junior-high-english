@@ -1,5 +1,5 @@
-import {vocabularyTransfer,productionReady,containsTerm} from './teaching-production'
-import {changeWorkshop,workshopView,workshopProblems} from './lesson-workshop'
+import {vocabularyTransfer,productionReady} from './teaching-production'
+import {changeWorkshop,workshopView,workshopProblems,containsWorkshopWord} from './lesson-workshop'
 import {changeMission, editionMission, type VisualMission} from './visual-mission'
 import { phoneticSorting, type PhoneticSorting } from './phonetic-sorting'
 import type { ContentCatalog, ExplanationVisual, Lesson, Question, RubricPoint, ExamCoaching } from './types'
@@ -198,7 +198,7 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   if(action==='diagnose'&&p.step===3&&teachingDiagnosis(s,p).options.some(o=>o.id===value)){p.completed=p.completed.filter(k=>k!==`diagnosis-${p.answers.clinicIndex??0}`);p.answers.diagnosis=value;p.checked.diagnosis=value===teachingDiagnosis(s,p).correct;if(p.checked.diagnosis)mark(`diagnosis-${p.answers.clinicIndex??0}`);return p}
   if(action==='check'){
     const key=`step-${p.step}-${p.caseIndex}`,q=teachingAnswer(s,p)
-    if(p.step===2&&s.mode==='vocabulary'&&s.mission?.workshop){const item=s.mission.workshop.items[p.caseIndex],answer=p.answers[key]??'',original=p.answers[`workshopOwn-${item.id}`]??'';p.checked[key]=wordCount(answer)>=5&&containsTerm(answer,item.answer)&&normalizedAnswer(answer)!==normalizedAnswer(original)&&!!p.checked[`wordReview-${item.id}`];if(p.checked[key])mark(`case-${q.id}`);return p}
+    if(p.step===2&&s.mode==='vocabulary'&&s.mission?.workshop){const item=s.mission.workshop.items[p.caseIndex],answer=p.answers[key]??'',original=p.answers[`workshopOwn-${item.id}`]??'';p.checked[key]=wordCount(answer)>=5&&containsWorkshopWord(answer,item)&&normalizedAnswer(answer)!==normalizedAnswer(original)&&!!p.checked[`wordReview-${item.id}`];if(p.checked[key])mark(`case-${q.id}`);return p}
     if(p.step===0&&s.mode==='communication'){if(wordCount(p.before)>=4)mark('predict');return p}
     if((p.step===0||p.step===2||p.step===4)&&q){
       const answer=p.answers[key]??'',self=q.kind==='writing'||q.kind==='speaking'
