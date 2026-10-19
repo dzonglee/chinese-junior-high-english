@@ -1,0 +1,624 @@
+{
+  "lessonId": "l-v-course-time-2",
+  "reviewState": "draft",
+  "intent": "Individually authored day-part, preposition and midnight-rollover tasks, with an opt-in code clock model. All travel arrangements original; no mastery or audio credit.",
+  "picturePurpose": "The inspected original day/night courtyard supports an actual night recognition task. A code-drawn changing clock and day label supply exact time evidence; generated darkness never establishes midnight.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "拨过中午和午夜，把日期读对",
+    "instruction": "先按记录辨时间、选搭配。两次拨钟比较同样十五分钟之后的日期，再用自己的句子说清安排。",
+    "items": [
+      {
+        "id": "morning",
+        "label": "morning：通常的早晨，还是周五早上？",
+        "prompt": "记录明确说“在周五早上见面”。哪句保留了具体某一天？",
+        "wordDecision": {
+          "prompt": "记录明确说“在周五早上见面”。哪句保留了具体某一天？",
+          "recordPaths": [
+            {
+              "id": "general",
+              "label": "通常的早上",
+              "steps": [
+                "in the morning",
+                "泛指早晨或上午"
+              ]
+            },
+            {
+              "id": "specific",
+              "label": "指定哪一天",
+              "steps": [
+                "on Friday morning",
+                "周五早上"
+              ]
+            }
+          ]
+        },
+        "answer": "morning",
+        "meaning": "早晨；上午",
+        "material": "The market is busiest in the morning.",
+        "before": "The market is busiest in the ",
+        "after": ".",
+        "reason": "通常说in the morning；指定周五早上说on Friday morning。morning本身不是遇到就固定配in，先看有没有某一天或别的限定。",
+        "hint": "in the morning；on Friday morning。",
+        "options": [
+          {
+            "id": "friday",
+            "text": "We will meet on Friday morning.",
+            "correct": true,
+            "reason": "具体某天早上用on Friday morning。"
+          },
+          {
+            "id": "general",
+            "text": "We usually meet in the morning.",
+            "correct": false,
+            "reason": "这说通常在早上见面，没有保留周五这个指定日期。"
+          },
+          {
+            "id": "wrong-in",
+            "text": "We will meet in Friday morning.",
+            "correct": false,
+            "reason": "Friday限定具体某一天，此处不用in。"
+          }
+        ],
+        "ownForms": [
+          "morning",
+          "mornings"
+        ]
+      },
+      {
+        "id": "afternoon",
+        "label": "afternoon：this一出现，别再加in",
+        "prompt": "记录：我们今天下午完成海报。哪句时间表达自然？",
+        "wordDecision": {
+          "prompt": "记录：我们今天下午完成海报。哪句时间表达自然？",
+          "recordPaths": [
+            {
+              "id": "general",
+              "label": "通常时间",
+              "steps": [
+                "in the afternoon",
+                "在下午"
+              ]
+            },
+            {
+              "id": "this",
+              "label": "今天下午",
+              "steps": [
+                "this afternoon",
+                "直接作时间状语"
+              ]
+            }
+          ]
+        },
+        "answer": "afternoon",
+        "meaning": "下午",
+        "material": "Let's finish the painting this afternoon.",
+        "before": "Let's finish the painting this ",
+        "after": ".",
+        "reason": "in the afternoon说在下午；this afternoon说今天下午，直接用这个短语。afternoons可表示多个下午；不要把in the afternoon的in机械保留到this afternoon前。",
+        "hint": "in the afternoon → this afternoon，不再加in。",
+        "options": [
+          {
+            "id": "this",
+            "text": "We will finish the poster this afternoon.",
+            "correct": true,
+            "reason": "this afternoon直接作时间状语。"
+          },
+          {
+            "id": "in-this",
+            "text": "We will finish the poster in this afternoon.",
+            "correct": false,
+            "reason": "这里this afternoon前不加in。"
+          },
+          {
+            "id": "on-this",
+            "text": "We will finish the poster on this afternoon.",
+            "correct": false,
+            "reason": "这里this afternoon前不加on。"
+          }
+        ],
+        "ownForms": [
+          "afternoon",
+          "afternoons"
+        ]
+      },
+      {
+        "id": "evening",
+        "label": "evening：读清傍晚的起止时间",
+        "prompt": "原创安排：Evening walk 18:30–19:00. When does this walk finish?",
+        "wordDecision": {
+          "prompt": "原创安排：Evening walk 18:30–19:00. When does this walk finish?",
+          "recordPaths": [
+            {
+              "id": "clock",
+              "label": "按记录读钟点",
+              "steps": [
+                "18:30开始",
+                "19:00结束"
+              ]
+            },
+            {
+              "id": "length",
+              "label": "另一个问题",
+              "steps": [
+                "19:00 − 18:30",
+                "30 minutes"
+              ]
+            }
+          ]
+        },
+        "answer": "evening",
+        "meaning": "傍晚；晚上",
+        "material": "We enjoy a short walk in the evening.",
+        "before": "We enjoy a short walk in the ",
+        "after": ".",
+        "reason": "in the evening是常见搭配；on Friday evening指定周五晚上。evening的实际范围依情境而变，不能据一个词猜精确钟点；本题18:30和19:00来自原创安排。",
+        "hint": "in the evening；on Friday evening；18:30开始，19:00结束。",
+        "options": [
+          {
+            "id": "start",
+            "text": "At 18:30.",
+            "correct": false,
+            "reason": "18:30是开始时间，不能回答finish。"
+          },
+          {
+            "id": "finish",
+            "text": "At 19:00.",
+            "correct": true,
+            "reason": "同一项活动后一个钟点19:00是结束时间。"
+          },
+          {
+            "id": "length",
+            "text": "For thirty minutes.",
+            "correct": false,
+            "reason": "这说时长，不是When询问的结束钟点。"
+          }
+        ],
+        "ownForms": [
+          "evening",
+          "evenings"
+        ]
+      },
+      {
+        "id": "night",
+        "label": "night：选夜景，但别凭夜色猜午夜",
+        "prompt": "原创记录：The courtyard lights stay on at night. 点符合night的场景。",
+        "wordDecision": {
+          "prompt": "原创记录：The courtyard lights stay on at night. 点符合night的场景。",
+          "recordPaths": [
+            {
+              "id": "usual",
+              "label": "通常夜间",
+              "steps": [
+                "at night",
+                "常见搭配"
+              ]
+            },
+            {
+              "id": "specific",
+              "label": "指定哪一晚",
+              "steps": [
+                "on Friday night",
+                "周五晚上"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-day-night-school",
+            "alt": "同一学校庭院的昼夜对照。左边日光明亮，右边深蓝夜空和楼内亮灯。图片只用于辨别night，不能证明正好是午夜；精确时间来自另两题的代码钟面。",
+            "targets": [
+              {
+                "id": "day-scene",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "day-scene"
+              },
+              {
+                "id": "night-scene",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 50.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "night-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "night-scene",
+                "caption": "右图已选。核对night；夜色不提供精确钟点。",
+                "regions": [
+                  {
+                    "id": "night-scene",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 50.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "day-scene",
+                "caption": "左图已选。核对night；夜色不提供精确钟点。",
+                "regions": [
+                  {
+                    "id": "day-scene",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "night",
+        "meaning": "夜晚",
+        "material": "A small lamp stays on at night.",
+        "before": "A small lamp stays on at ",
+        "after": ".",
+        "reason": "通常说at night；on Friday night指定周五晚上。夜色只能帮助辨认night，不能证明正好是midnight。in the night在某些语境也可表示夜间发生的事，不能概括成英语里一律不存在。",
+        "hint": "at night；on Friday night；night不等于正好midnight。",
+        "options": [
+          {
+            "id": "night-scene",
+            "text": "The school courtyard at night.",
+            "correct": true,
+            "reason": "右图深蓝夜空和亮灯支持night场景。"
+          },
+          {
+            "id": "day-scene",
+            "text": "The school courtyard in daylight.",
+            "correct": false,
+            "reason": "左图是白昼，不符合本条记录。"
+          }
+        ],
+        "ownForms": [
+          "night",
+          "nights"
+        ]
+      },
+      {
+        "id": "noon",
+        "label": "noon：推过十五分钟，看是不是中午",
+        "prompt": "原创记录：It is 11:45 on Friday. We will meet fifteen minutes later. 先拨动时间模型，再选见面的时间。",
+        "wordDecision": {
+          "prompt": "原创记录：It is 11:45 on Friday. We will meet fifteen minutes later. 先拨动时间模型，再选见面的时间。",
+          "recordPaths": [
+            {
+              "id": "noon",
+              "label": "这次推时间",
+              "steps": [
+                "Friday 11:45",
+                "再过15分钟",
+                "Friday 12:00"
+              ]
+            }
+          ],
+          "clock": {
+            "title": "把等待的时间拨出来",
+            "start": "11:45",
+            "days": [
+              "Friday",
+              "Saturday"
+            ],
+            "intervals": [
+              0,
+              15,
+              30,
+              45,
+              60
+            ],
+            "answer": 15,
+            "hint": "先试不同的等待时长，再回到记录要求的fifteen minutes。",
+            "wrong": "记录要求再过十五分钟。核对你选的等待时长，再看钟点和日期。"
+          }
+        },
+        "answer": "noon",
+        "meaning": "中午",
+        "material": "Meet me outside the hall at noon.",
+        "before": "Meet me outside the hall at ",
+        "after": ".",
+        "reason": "noon指中午十二点，常说at noon。十一点四十五分再过十五分钟是当天中午；同一个钟面的十二点也可能指午夜，所以要结合24小时钟点和日期标签。",
+        "hint": "11:45 + 15 minutes = Friday 12:00，at noon。",
+        "options": [
+          {
+            "id": "noon",
+            "text": "At noon on Friday.",
+            "correct": true,
+            "reason": "11:45再过十五分钟是当天12:00，即noon。"
+          },
+          {
+            "id": "midnight",
+            "text": "At midnight between Friday and Saturday.",
+            "correct": false,
+            "reason": "noon是中午；午夜要从23:45再过十五分钟。"
+          },
+          {
+            "id": "early",
+            "text": "At 11:45 on Friday.",
+            "correct": false,
+            "reason": "这还是等待前的钟点，没有加上十五分钟。"
+          }
+        ]
+      },
+      {
+        "id": "midnight",
+        "label": "midnight：同样十五分钟，这次会换一天",
+        "prompt": "原创记录：It is 23:45 on Friday. Wait fifteen minutes. 先拨动模型，再选等候结束时的时间。",
+        "wordDecision": {
+          "prompt": "原创记录：It is 23:45 on Friday. Wait fifteen minutes. 先拨动模型，再选等候结束时的时间。",
+          "recordPaths": [
+            {
+              "id": "rollover",
+              "label": "跨过午夜",
+              "steps": [
+                "Friday 23:45",
+                "再过15分钟",
+                "Saturday 00:00"
+              ]
+            }
+          ],
+          "clock": {
+            "title": "拨过午夜，观察日期变化",
+            "start": "23:45",
+            "days": [
+              "Friday",
+              "Saturday"
+            ],
+            "intervals": [
+              0,
+              15,
+              30,
+              45,
+              60
+            ],
+            "answer": 15,
+            "hint": "先试不同的等待时长，再回到记录要求的fifteen minutes。",
+            "wrong": "记录要求再过十五分钟。核对你选的等待时长，再看是否跨入周六。"
+          }
+        },
+        "answer": "midnight",
+        "meaning": "午夜",
+        "material": "The last train leaves just before midnight.",
+        "before": "The last train leaves just before ",
+        "after": ".",
+        "reason": "midnight是午夜十二点，跨到新一天时24小时钟写00:00。Friday 23:45再过十五分钟是Saturday 00:00；别只看钟面两个指针都到十二点，就把noon和midnight混成同一时间。",
+        "hint": "Friday 23:45 + 15 minutes = Saturday 00:00。",
+        "options": [
+          {
+            "id": "noon",
+            "text": "Noon on Friday.",
+            "correct": false,
+            "reason": "23:45是深夜，不能推成当天中午。"
+          },
+          {
+            "id": "midnight",
+            "text": "Midnight, as Friday changes to Saturday.",
+            "correct": true,
+            "reason": "23:45再过十五分钟是Saturday 00:00，已经进入周六。"
+          },
+          {
+            "id": "same-day",
+            "text": "23:45 on Friday.",
+            "correct": false,
+            "reason": "没有加上记录要求的十五分钟。"
+          }
+        ]
+      },
+      {
+        "id": "today",
+        "label": "today：今天不是固定的星期几",
+        "prompt": "原创便条开头写着：Today is Friday. 哪个动作明确安排在今天？",
+        "wordDecision": {
+          "prompt": "原创便条开头写着：Today is Friday. 哪个动作明确安排在今天？",
+          "recordPaths": [
+            {
+              "id": "reference",
+              "label": "以便条为准",
+              "steps": [
+                "Today is Friday",
+                "today指Friday"
+              ]
+            },
+            {
+              "id": "tomorrow",
+              "label": "再往后一天",
+              "steps": [
+                "Friday + one day",
+                "Saturday"
+              ]
+            }
+          ]
+        },
+        "answer": "today",
+        "meaning": "今天",
+        "material": "We can make a fresh start today.",
+        "before": "We can make a fresh start ",
+        "after": ".",
+        "reason": "today通常直接作时间状语，如start today，不加on或in。今天是哪一天由便条写作时间决定；这条写着Today is Friday，换一天写便条，today的日期也会变。",
+        "hint": "本条便条：today = Friday；日期由上下文确定。",
+        "options": [
+          {
+            "id": "tomorrow",
+            "text": "Pack the bag tomorrow, on Saturday.",
+            "correct": false,
+            "reason": "Saturday是这条便条里的明天，不是今天。"
+          },
+          {
+            "id": "today",
+            "text": "Pack the bag today, on Friday.",
+            "correct": true,
+            "reason": "便条已把today限定为Friday，今天收拾包。"
+          },
+          {
+            "id": "always",
+            "text": "Pack the bag on Friday every week.",
+            "correct": false,
+            "reason": "这变成每周五的重复安排，便条只说今天。"
+          }
+        ]
+      },
+      {
+        "id": "tomorrow",
+        "label": "tomorrow：明天的日期，先找今天",
+        "prompt": "原创便条：Today is Friday. Our train leaves at 00:20 tomorrow. 这里tomorrow是哪一天？",
+        "wordDecision": {
+          "prompt": "原创便条：Today is Friday. Our train leaves at 00:20 tomorrow. 这里tomorrow是哪一天？",
+          "recordPaths": [
+            {
+              "id": "next",
+              "label": "往后一天",
+              "steps": [
+                "today: Friday",
+                "tomorrow: Saturday"
+              ]
+            },
+            {
+              "id": "after-midnight",
+              "label": "核对午夜之后",
+              "steps": [
+                "Saturday 00:00",
+                "Saturday 00:20"
+              ]
+            }
+          ]
+        },
+        "answer": "tomorrow",
+        "meaning": "明天",
+        "material": "Save the harder questions for tomorrow.",
+        "before": "Save the harder questions for ",
+        "after": ".",
+        "reason": "tomorrow表示明天；直接作时间状语时不加on，如leave tomorrow。原句for tomorrow把题目留待明天，for说明用途或安排，不等于on tomorrow。午夜后要核对日期，不能只看自己还没睡就当作同一天。",
+        "hint": "Today is Friday → tomorrow is Saturday；00:20属于新一天。",
+        "options": [
+          {
+            "id": "friday",
+            "text": "Friday.",
+            "correct": false,
+            "reason": "Friday是便条里的今天，不是明天。"
+          },
+          {
+            "id": "saturday",
+            "text": "Saturday.",
+            "correct": true,
+            "reason": "今天是Friday，下一天是Saturday；00:20已经进入新一天。"
+          },
+          {
+            "id": "sunday",
+            "text": "Sunday.",
+            "correct": false,
+            "reason": "Sunday是周五的后天，多推了一天。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-time-2-transfer",
+      "topicId": "v-course-time",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan follows this family travel note?",
+      "passage": "FRIDAY FAMILY TRAVEL NOTE\nToday is Friday. Meet our relatives outside the hall at noon today. Our train leaves at 00:20 tomorrow. Be at the station at 23:45 tonight. It takes exactly fifteen minutes to check the tickets. After checking, wait twenty more minutes for the train to leave. These are original practice arrangements, not a real train timetable.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Meet outside the hall at 00:00 on Friday and reach the station at 23:45."
+        },
+        {
+          "id": "b",
+          "text": "Reach the station at 23:45 on Saturday for a train leaving at 00:20 on Saturday."
+        },
+        {
+          "id": "c",
+          "text": "Meet outside the hall at 12:00 on Friday, reach the station at 23:45 on Friday, and leave at 00:20 on Saturday."
+        },
+        {
+          "id": "d",
+          "text": "Reach the station at 23:45 on Friday and leave at 00:00 on Saturday, as soon as checking ends."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Meet outside the hall at 12:00 on Friday, reach the station at 23:45 on Friday, and leave at 00:20 on Saturday."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先确定today是哪一天，再把中午和跨午夜后的钟点放回各自日期。",
+        "steps": [
+          {
+            "text": "今天是周五；at noon today是在周五12:00见面，今晚23:45到车站。",
+            "reason": "noon是中午，不是00:00。today和tonight都以便条开头的Friday为准。"
+          },
+          {
+            "text": "23:45检查十五分钟，到周六00:00；再等二十分钟，周六00:20发车。",
+            "reason": "跨过midnight便进入Saturday。tomorrow是周六，检查结束不是发车，还要加twenty more minutes。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把noon错当成00:00；中午应为12:00。"
+          },
+          {
+            "option": "b",
+            "reason": "把到站日也推成Saturday；周六23:45已经晚于周六00:20的发车时间。"
+          },
+          {
+            "option": "d",
+            "reason": "漏掉检查后还要等待的二十分钟，把00:00的检查结束当成发车。"
+          }
+        ],
+        "pitfall": "午夜会换日期；noon、midnight和发车时间分别核对，别把“检查结束”当成“出发”。",
+        "visual": {
+          "kind": "timeline",
+          "title": "同一段等待，跨入下一天",
+          "segments": [
+            {
+              "text": "Friday 12:00 — at noon today",
+              "role": "time",
+              "note": "中午见面"
+            },
+            {
+              "text": "Friday 23:45 + 15 minutes → Saturday 00:00",
+              "role": "time",
+              "note": "检查结束，日期已换"
+            },
+            {
+              "text": "Saturday 00:00 + 20 minutes → Saturday 00:20",
+              "role": "time",
+              "note": "再等二十分钟才发车"
+            }
+          ],
+          "caption": "日期、24小时钟点和等待时长由原创便条给出；生成的夜色不能证明午夜。"
+        },
+        "transfer": "如果到站时间改为周五23:35，检查仍需十五分钟，列车仍在周六00:20发车，检查几点结束？还要等多久？"
+      }
+    }
+  }
+}
