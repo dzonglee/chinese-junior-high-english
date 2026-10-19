@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **128 / 413**. Current: **l-v-nature**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **129 / 413**. Current: **l-v-nature-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -136,7 +136,7 @@ Completed: **128 / 413**. Current: **l-v-nature**. Evidence lives in docs/review
 | l-v-community | 社区与出行 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-community.md) |
 | l-v-community-2 | 社区与出行 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-community-2.md) |
 | l-v-community-3 | 社区与出行 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-community-3.md) |
-| l-v-nature | 自然与可持续生活 · 1 | pending | — |
+| l-v-nature | 自然与可持续生活 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-nature.md) |
 | l-v-nature-2 | 自然与可持续生活 · 2 | pending | — |
 | l-v-nature-3 | 自然与可持续生活 · 3 | pending | — |
 | l-v-course-family | 家人与日常称呼 · 1 | pending | — |
