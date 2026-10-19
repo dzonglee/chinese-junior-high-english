@@ -1,0 +1,664 @@
+{
+  "lessonId": "l-v-course-feelings",
+  "reviewState": "draft",
+  "intent": "Eight individual feeling decisions preserve explicit speakers, causes, event limits and compatible feelings without inference from a face or independent credit.",
+  "picturePurpose": "Original clay bowl/mug/vase shapes support precise reference; feelings, firstness and ownership come from written records. A coded until timeline locates an event endpoint without clock guesses.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "谁有这种感受，持续到哪件事",
+    "instruction": "读感受记录、找陶碗、移动until的终点；别漏掉but两边。",
+    "items": [
+      {
+        "id": "happy",
+        "label": "happy：对取得的进步满意",
+        "prompt": "Keep what the speaker is happy with.",
+        "answer": "happy",
+        "meaning": "高兴的；幸福的",
+        "material": "I am happy with the progress we made.",
+        "before": "I am ",
+        "after": " with the progress we made.",
+        "reason": "be happy with表示对……满意；we made修饰the progress，指我们取得的进步。I am只记录说话人的感受，不推断全组每个人都一样高兴。happy的比较级是happier。",
+        "hint": "找with后面的对象，不扩大I的范围。",
+        "wordDecision": {
+          "prompt": "Keep what the speaker is happy with.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "找出满意的对象",
+            "prompt": "只选这条感受记录支持的意思。",
+            "rows": [
+              {
+                "id": "progress",
+                "label": "Happy with progress",
+                "text": "The speaker is happy with the progress made.",
+                "include": true
+              },
+              {
+                "id": "none",
+                "label": "No progress",
+                "text": "The group made no progress.",
+                "include": false
+              },
+              {
+                "id": "everyone",
+                "label": "Everyone equally happy",
+                "text": "Every group member must feel the same.",
+                "include": false
+              }
+            ],
+            "hint": "I说自己的感受；with后面是满意的对象。",
+            "wrong": "只选Happy with progress；原句不是没进步，也没说所有人感受相同。"
+          }
+        },
+        "options": [
+          {
+            "id": "none",
+            "text": "The speaker says the group made no progress.",
+            "correct": false,
+            "reason": "made progress不是没有进步。"
+          },
+          {
+            "id": "progress",
+            "text": "The speaker is happy with the progress the group made.",
+            "correct": true,
+            "reason": "with the progress说明满意的对象；we made修饰progress。"
+          },
+          {
+            "id": "everyone",
+            "text": "Every person in the group must feel equally happy.",
+            "correct": false,
+            "reason": "I只说明说话人的感受，不能扩大到所有人。"
+          }
+        ],
+        "ownForms": [
+          "happy",
+          "happier",
+          "happiest"
+        ]
+      },
+      {
+        "id": "sad",
+        "label": "sad：感受来自说话人",
+        "prompt": "Keep the stated sadness; do not invent what happened to the birds.",
+        "answer": "sad",
+        "meaning": "伤心的；难过的",
+        "material": "The empty nest made me feel sad.",
+        "before": "The empty nest made me feel ",
+        "after": ".",
+        "reason": "made me feel sad中的made是make的过去式，make somebody feel后用形容词说明感受。空巢让说话人难过，但没有说明鸟去了哪里；sad的比较级是sadder。",
+        "hint": "分开已说出的感受和没有交代的原因。",
+        "wordDecision": {
+          "prompt": "Keep the stated sadness; do not invent what happened to the birds.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "只保留已经说出的感受",
+            "prompt": "只选这条感受记录支持的意思。",
+            "rows": [
+              {
+                "id": "sadness",
+                "label": "Speaker feels sad",
+                "text": "The empty nest made the speaker feel sad.",
+                "include": true
+              },
+              {
+                "id": "dead",
+                "label": "All birds died",
+                "text": "The sentence proves every bird died.",
+                "include": false
+              },
+              {
+                "id": "angry",
+                "label": "Speaker feels angry",
+                "text": "The speaker is angry at the nest.",
+                "include": false
+              }
+            ],
+            "hint": "空巢是看到的情境；鸟去了哪里仍未知。",
+            "wrong": "只选Speaker feels sad；不要编出鸟死亡，也不要把难过改成生气。"
+          }
+        },
+        "options": [
+          {
+            "id": "dead",
+            "text": "The sentence proves all the birds died.",
+            "correct": false,
+            "reason": "空巢不证明鸟都死了，原句没交代鸟去了哪里。"
+          },
+          {
+            "id": "angry",
+            "text": "The speaker felt angry at the nest.",
+            "correct": false,
+            "reason": "angry是生气，不是原句的sad。"
+          },
+          {
+            "id": "sadness",
+            "text": "The empty nest made the speaker feel sad.",
+            "correct": true,
+            "reason": "sad是说话人的难过；原因是看到空巢。"
+          }
+        ],
+        "ownForms": [
+          "sad",
+          "sadder",
+          "saddest"
+        ]
+      },
+      {
+        "id": "glad",
+        "label": "glad：谁高兴，因为什么",
+        "prompt": "Match the glad speaker with the found-key news.",
+        "answer": "glad",
+        "meaning": "高兴的；乐意的",
+        "material": "I am glad you found your missing key.",
+        "before": "I am ",
+        "after": " you found your missing key.",
+        "reason": "I am glad后接you found ...这件事，that可以省略：我很高兴你找到了钥匙。be glad to do也常用，如I am glad to help。这里别把找到钥匙的人和表达感受的人混在一起。",
+        "hint": "先找I，再核对found这条消息。",
+        "wordDecision": {
+          "prompt": "Match the glad speaker with the found-key news.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "分清感受者和好消息",
+            "prompt": "只选这条感受记录支持的意思。",
+            "rows": [
+              {
+                "id": "speaker",
+                "label": "I → glad",
+                "text": "You found the key; I feel glad.",
+                "include": true
+              },
+              {
+                "id": "you",
+                "label": "You → glad only",
+                "text": "Only you are stated to feel glad.",
+                "include": false
+              },
+              {
+                "id": "missing",
+                "label": "Key still missing",
+                "text": "The key has not been found.",
+                "include": false
+              }
+            ],
+            "hint": "I表达感受，you found给消息。",
+            "wrong": "只选I → glad；另外两条换了感受者，或把找到改成仍丢失。"
+          }
+        },
+        "options": [
+          {
+            "id": "speaker",
+            "text": "I feel glad because you found your missing key.",
+            "correct": true,
+            "reason": "高兴的是I；you found说明这份好消息。"
+          },
+          {
+            "id": "you",
+            "text": "The sentence states that you feel glad, not I.",
+            "correct": false,
+            "reason": "you是找到钥匙的人，I才是句中glad的主语。"
+          },
+          {
+            "id": "missing",
+            "text": "I am glad that your key is still missing.",
+            "correct": false,
+            "reason": "found说明已经找到，不是还丢着。"
+          }
+        ]
+      },
+      {
+        "id": "pleased",
+        "label": "pleased：找到她满意的陶碗",
+        "prompt": "Her note names her first clay bowl. Tap the bowl.",
+        "answer": "pleased",
+        "meaning": "高兴的；满意的",
+        "material": "She was pleased with her first clay bowl.",
+        "before": "She was ",
+        "after": " with her first clay bowl.",
+        "reason": "be pleased with表示对……满意。her first clay bowl指她的第一个陶碗；图只用来认物品，不能靠作品好不好看猜她的感受或作品的先后顺序。",
+        "hint": "先读文字记录，再找低而宽的开口碗。",
+        "wordDecision": {
+          "prompt": "Her note names her first clay bowl. Tap the bowl.",
+          "art": {
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-first-clay-bowl",
+            "alt": "冷白色桌面上有三件分开的陶器：左侧低而宽的开口碗，右下有把手的杯子，右上有细颈的花瓶。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "bowl",
+                "label": "A 碗",
+                "left": 4,
+                "top": 37,
+                "width": 54,
+                "height": 47
+              },
+              {
+                "id": "b",
+                "option": "mug",
+                "label": "B 杯子",
+                "left": 66,
+                "top": 48,
+                "width": 32,
+                "height": 43
+              },
+              {
+                "id": "c",
+                "option": "vase",
+                "label": "C 花瓶",
+                "left": 66,
+                "top": 4,
+                "width": 25,
+                "height": 42
+              }
+            ],
+            "evidence": [
+              {
+                "option": "bowl",
+                "caption": "A是低而宽的陶碗。她对自己的第一个陶碗满意，这些信息来自文字。",
+                "regions": [
+                  {
+                    "id": "bowl",
+                    "label": "clay bowl",
+                    "left": 13,
+                    "top": 47,
+                    "width": 36,
+                    "height": 27
+                  }
+                ]
+              },
+              {
+                "option": "mug",
+                "caption": "B有把手，是mug；原句说的是bowl。",
+                "regions": [
+                  {
+                    "id": "mug",
+                    "label": "handled mug",
+                    "left": 70,
+                    "top": 54,
+                    "width": 26,
+                    "height": 31
+                  }
+                ]
+              },
+              {
+                "option": "vase",
+                "caption": "C有细颈，是vase；原句没有说她对花瓶满意。",
+                "regions": [
+                  {
+                    "id": "vase",
+                    "label": "narrow-necked vase",
+                    "left": 70,
+                    "top": 13,
+                    "width": 16,
+                    "height": 28
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "mug",
+            "text": "B: she was pleased with the clay mug.",
+            "correct": false,
+            "reason": "B有把手，是mug，不是记录里的bowl。"
+          },
+          {
+            "id": "bowl",
+            "text": "A: she was pleased with her first clay bowl.",
+            "correct": true,
+            "reason": "记录明确说clay bowl，A才是碗；感受和first来自文字记录。"
+          },
+          {
+            "id": "vase",
+            "text": "C: she was pleased with the clay vase.",
+            "correct": false,
+            "reason": "C有细颈，是vase，不是记录里的bowl。"
+          }
+        ]
+      },
+      {
+        "id": "excited",
+        "label": "excited：人的感受，别放到行程上",
+        "prompt": "Choose who feels excited about the boat trip.",
+        "answer": "excited",
+        "meaning": "兴奋的",
+        "material": "The children were excited about the boat trip.",
+        "before": "The children were ",
+        "after": " about the boat trip.",
+        "reason": "be excited about表示对……感到兴奋；这里感受者是children。excited描述感受，exciting可描述令人兴奋的事物。原句本身没有说行程已经完成，不要改成游览后的评价。",
+        "hint": "看主语是谁，再区分excited和exciting。",
+        "wordDecision": {
+          "prompt": "Choose who feels excited about the boat trip.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "把感受放回正确的主体",
+            "prompt": "只选这条感受记录支持的意思。",
+            "rows": [
+              {
+                "id": "children",
+                "label": "Children → excited",
+                "text": "The children feel excited about the trip.",
+                "include": true
+              },
+              {
+                "id": "trip",
+                "label": "Trip → excited",
+                "text": "The trip itself feels excited.",
+                "include": false
+              },
+              {
+                "id": "bored",
+                "label": "Children → bored",
+                "text": "The children feel bored about the trip.",
+                "include": false
+              }
+            ],
+            "hint": "人感到excited；事情可令人觉得exciting。",
+            "wrong": "只选Children → excited；行程不能像人一样感到兴奋，bored也不是兴奋。"
+          }
+        },
+        "options": [
+          {
+            "id": "trip",
+            "text": "The boat trip itself felt excited.",
+            "correct": false,
+            "reason": "行程不是感受者；exciting才可描述令人兴奋的事物。"
+          },
+          {
+            "id": "bored",
+            "text": "The children felt bored about the trip.",
+            "correct": false,
+            "reason": "bored是感到无聊，不是excited。"
+          },
+          {
+            "id": "children",
+            "text": "The children felt excited about the trip.",
+            "correct": true,
+            "reason": "children是感受者，excited描述他们的感受。"
+          }
+        ]
+      },
+      {
+        "id": "bored",
+        "label": "bored：把until的终点放对",
+        "prompt": "Place the end of the bored period at the guide’s puzzle.",
+        "answer": "bored",
+        "meaning": "感到无聊的",
+        "material": "I felt bored until the guide gave us a puzzle.",
+        "before": "I felt ",
+        "after": " until the guide gave us a puzzle.",
+        "reason": "bored是感到无聊，boring是令人无聊。until the guide gave us a puzzle把转折点放在导游出题时，不是做出答案时。felt是feel的过去式；别把bored的感受改到boring上。",
+        "hint": "until后面写的是出题，不是解题。",
+        "wordDecision": {
+          "prompt": "Place the end of the bored period at the guide’s puzzle.",
+          "until": {
+            "title": "给无聊时段放一个终点",
+            "feeling": "bored",
+            "events": [
+              {
+                "id": "before",
+                "label": "出题前"
+              },
+              {
+                "id": "puzzle",
+                "label": "导游出题"
+              },
+              {
+                "id": "after",
+                "label": "出题后"
+              }
+            ],
+            "answer": "puzzle",
+            "hint": "这里只按事件顺序标位置，不表示实际时长。",
+            "wrong": "把终点放在导游出题时；不是出题前、出题后，更不是等到解出答案。"
+          }
+        },
+        "options": [
+          {
+            "id": "until",
+            "text": "The speaker felt bored up to the point when the guide gave the puzzle.",
+            "correct": true,
+            "reason": "until把无聊时段的终点放在出谜题这件事上。"
+          },
+          {
+            "id": "after",
+            "text": "The speaker only began to feel bored after getting the puzzle.",
+            "correct": false,
+            "reason": "这把until前后的关系读反了。"
+          },
+          {
+            "id": "solved",
+            "text": "The sentence says the speaker stayed bored until the puzzle was solved.",
+            "correct": false,
+            "reason": "原句是gave us a puzzle，不是solved the puzzle。"
+          }
+        ]
+      },
+      {
+        "id": "tired",
+        "label": "tired：累和自豪可以同时成立",
+        "prompt": "Keep both feelings after cleaning the beach.",
+        "answer": "tired",
+        "meaning": "疲倦的",
+        "material": "We were tired but proud after cleaning the beach.",
+        "before": "We were ",
+        "after": " but proud after cleaning the beach.",
+        "reason": "tired but proud说明累却自豪，两种感受可以同时存在。after cleaning给情境，不证明已经睡着。be tired of表示厌倦，和这里劳动后感到累不同。",
+        "hint": "but连接的两种感受都要保留。",
+        "wordDecision": {
+          "prompt": "Keep both feelings after cleaning the beach.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "把两种已说出的感受都留下",
+            "prompt": "只选这条感受记录支持的意思。",
+            "rows": [
+              {
+                "id": "tired",
+                "label": "Tired",
+                "text": "The group felt tired.",
+                "include": true
+              },
+              {
+                "id": "proud",
+                "label": "Proud",
+                "text": "The group also felt proud.",
+                "include": true
+              },
+              {
+                "id": "asleep",
+                "label": "Already asleep",
+                "text": "Everyone was already sleeping.",
+                "include": false
+              }
+            ],
+            "hint": "累和自豪可以同时成立；不要漏掉其中一个。",
+            "wrong": "选Tired和Proud；少一个就漏信息，Already asleep也没有根据。"
+          }
+        },
+        "options": [
+          {
+            "id": "cancel",
+            "text": "Feeling proud means the group could not feel tired.",
+            "correct": false,
+            "reason": "but不是取消前一个感受，不能删掉tired。"
+          },
+          {
+            "id": "both",
+            "text": "The group felt tired and proud after the clean-up.",
+            "correct": true,
+            "reason": "but保留两种感受：累，同时自豪。"
+          },
+          {
+            "id": "asleep",
+            "text": "The sentence proves everyone was already asleep.",
+            "correct": false,
+            "reason": "tired不等于asleep，原句没说已经睡着。"
+          }
+        ]
+      },
+      {
+        "id": "sleepy",
+        "label": "sleepy：想睡不等于已睡着",
+        "prompt": "Choose the sleepy feeling, not an unreported sleep event.",
+        "answer": "sleepy",
+        "meaning": "困倦的",
+        "material": "The warm room made me feel sleepy.",
+        "before": "The warm room made me feel ",
+        "after": ".",
+        "reason": "made me feel sleepy说明暖和的房间让说话人犯困。sleepy形容想睡的感觉，asleep表示已经睡着的状态；原句不能直接证明后来有没有睡着。",
+        "hint": "分清感受和实际已经发生的睡眠。",
+        "wordDecision": {
+          "prompt": "Choose the sleepy feeling, not an unreported sleep event.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保留犯困，不补成已经睡着",
+            "prompt": "只选这条感受记录支持的意思。",
+            "rows": [
+              {
+                "id": "drowsy",
+                "label": "Sleepy feeling",
+                "text": "The speaker felt like sleeping.",
+                "include": true
+              },
+              {
+                "id": "asleep",
+                "label": "Already asleep",
+                "text": "The speaker was already sleeping.",
+                "include": false
+              },
+              {
+                "id": "fedup",
+                "label": "Tired of the room",
+                "text": "The speaker was fed up with the room.",
+                "include": false
+              }
+            ],
+            "hint": "感到想睡，不自动等于已经睡着。",
+            "wrong": "只选Sleepy feeling；已经睡着和厌倦房间都不是原句给出的结论。"
+          }
+        },
+        "options": [
+          {
+            "id": "asleep",
+            "text": "The sentence proves the speaker was already asleep.",
+            "correct": false,
+            "reason": "sleepy不等于asleep，不能直接推出已经睡着。"
+          },
+          {
+            "id": "fedup",
+            "text": "The speaker was tired of the room and wanted to leave.",
+            "correct": false,
+            "reason": "tired of是厌倦；原句说犯困，没有说想离开。"
+          },
+          {
+            "id": "drowsy",
+            "text": "The speaker felt like sleeping in the warm room.",
+            "correct": true,
+            "reason": "sleepy是犯困、想睡，描述感受。"
+          }
+        ],
+        "ownForms": [
+          "sleepy",
+          "sleepier",
+          "sleepiest"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-feelings-transfer",
+      "topicId": "v-course-feelings",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which journal notes preserve all three details?",
+      "passage": "CLASS VISIT JOURNAL\nBefore our boat trip, the children were excited about seeing the island. That does not mean the trip itself felt excited.\nAt the gallery, I felt bored until the guide gave us a picture puzzle. I stopped feeling bored when the puzzle was given, although I had not solved it yet.\nOn the way back, we helped clean the beach. We were tired but proud of our work.\nLater, Mei wrote, “I was pleased with my first clay bowl.” Her note tells us her feeling; the bowl’s shape alone does not. In the warm classroom I felt sleepy, but I stayed awake to finish my journal.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The children felt excited; the bored period ended when the puzzle was given; the group felt both tired and proud."
+        },
+        {
+          "id": "b",
+          "text": "The trip itself felt excited; the bored period ended when the puzzle was given; the group felt both tired and proud."
+        },
+        {
+          "id": "c",
+          "text": "The children felt excited; the bored period ended only when the puzzle was solved; the group felt both tired and proud."
+        },
+        {
+          "id": "d",
+          "text": "The children felt excited; the bored period ended when the puzzle was given; feeling proud meant nobody could be tired."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The children felt excited; the bored period ended when the puzzle was given; the group felt both tired and proud."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找感受者，再找until的具体终点，最后检查but两边有没有漏信息。",
+        "steps": [
+          {
+            "text": "感到excited的是children；无聊在导游出题时结束，不是解出题时。",
+            "reason": "children were excited和when the puzzle was given直接给出主体和终点。"
+          },
+          {
+            "text": "累和自豪都保留：tired but proud不是用自豪取消累。",
+            "reason": "both tired and proud概括两种同时存在的感受。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "trip不是感受者，不能说行程本身felt excited。"
+          },
+          {
+            "option": "c",
+            "reason": "出题时无聊已结束，后面明确说还没解出；不能等到solved。"
+          },
+          {
+            "option": "d",
+            "reason": "感到自豪不排除累，原文明确同时有两种感受。"
+          }
+        ],
+        "pitfall": "把-ed感受放到事物上，把出题换成解题，或只保留but后面的信息。",
+        "visual": {
+          "kind": "timeline",
+          "title": "主体、终点、两种感受",
+          "segments": [
+            {
+              "text": "children → feel excited",
+              "role": "object",
+              "note": "主体是人，不是行程"
+            },
+            {
+              "text": "bored → puzzle given → not bored",
+              "role": "object",
+              "note": "终点在出题，解题还没完成"
+            },
+            {
+              "text": "tired + proud",
+              "role": "object",
+              "note": "两种感受同时保留"
+            }
+          ],
+          "caption": "感受来自日记记录，不靠图片或表情猜。"
+        },
+        "transfer": "如果谜题已给出却还没解出，原文说的无聊时段结束了吗？自豪是否能证明一个人不累？"
+      }
+    }
+  }
+}
