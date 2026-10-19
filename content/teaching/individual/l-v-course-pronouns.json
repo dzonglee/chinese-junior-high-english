@@ -1,0 +1,721 @@
+{
+  "lessonId": "l-v-course-pronouns",
+  "reviewState": "draft",
+  "intent": "Individually authored pronoun-reference tasks. Learners distinguish speaker, listeners, referents and subject/object positions. Guided practice only; no independent or hearing credit.",
+  "picturePurpose": "Exact named person cards and speech bubbles encode who speaks and who belongs to each group. Code draws names and relationship paths; learners never infer identity or gender from appearance.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "听懂一句话，找准代词指谁",
+    "instruction": "点出代词所指的人，分清说话者、听者和被谈论的人。",
+    "items": [
+      {
+        "id": "someone",
+        "label": "someone：有个人，但还不知道是谁",
+        "prompt": "A pair of gloves is by the gate. Its owner is unknown. Select the evidence for someone, then complete the sentence.",
+        "wordDecision": {
+          "prompt": "A pair of gloves is by the gate. Its owner is unknown. Select the evidence for someone, then complete the sentence.",
+          "recordPaths": [
+            {
+              "id": "unknown",
+              "label": "已知与未知分开",
+              "steps": [
+                "a pair of gloves by the gate",
+                "a person left them",
+                "who? unknown → someone"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "圈出原文确实提供的线索",
+            "prompt": "只圈已有证据，不圈猜出来的人名。",
+            "rows": [
+              {
+                "id": "found",
+                "label": "Found",
+                "text": "A pair of gloves is by the gate.",
+                "include": true
+              },
+              {
+                "id": "owner",
+                "label": "Owner",
+                "text": "We do not know the owner.",
+                "include": true
+              },
+              {
+                "id": "bob",
+                "label": "Bob",
+                "text": "Bob left the gloves.",
+                "include": false
+              }
+            ],
+            "hint": "someone允许身份未知，不能补造Bob。",
+            "wrong": "应圈发现手套、失主未知两条；没有证据指向Bob。"
+          }
+        },
+        "answer": "Someone",
+        "meaning": "某人；有人",
+        "material": "Someone left a pair of gloves by the gate.",
+        "before": "",
+        "after": " left a pair of gloves by the gate.",
+        "reason": "someone指某个人或有人；此处只知道手套由人留下，不知道那个人是谁。它不等于everyone。someone作主语时通常按单数处理，如Someone is waiting，不用are。原句left是leave的过去式，不能单凭left判断单复数。",
+        "hint": "有这个人，但不知道具体是谁；不要猜人名。",
+        "options": [
+          {
+            "id": "named",
+            "text": "We know Bob left the gloves.",
+            "correct": false,
+            "reason": "题目没有说是Bob，不能凭空指定人名。"
+          },
+          {
+            "id": "unknown",
+            "text": "A person left the gloves; we do not know who.",
+            "correct": true,
+            "reason": "有人留下了手套，但还不知道是谁，符合someone。"
+          },
+          {
+            "id": "everyone",
+            "text": "Every person left a pair of gloves.",
+            "correct": false,
+            "reason": "someone表示某个人，不是所有人都做了这件事。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "you",
+        "label": "you：同一个词，可以指两位听者",
+        "prompt": "Mr Li asks Ming and Amy: “Can you show us the safest path?” Tap everyone that you refers to in his question.",
+        "wordDecision": {
+          "prompt": "Mr Li asks Ming and Amy: “Can you show us the safest path?” Tap everyone that you refers to in his question.",
+          "recordPaths": [
+            {
+              "id": "address",
+              "label": "说话方向决定you",
+              "steps": [
+                "Mr Li speaks",
+                "to Ming + Amy",
+                "you → Ming + Amy"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出you所指的听者",
+            "prompt": "老师叫了Ming和Amy两人的名字。",
+            "rows": [
+              {
+                "id": "mr-li",
+                "label": "Mr Li",
+                "text": "Asks the question.",
+                "include": false
+              },
+              {
+                "id": "ming",
+                "label": "Ming",
+                "text": "Listens with Amy.",
+                "include": true
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Listens with Ming.",
+                "include": true
+              }
+            ],
+            "hint": "you在这里指两位听者，不指说话者。",
+            "wrong": "应选Ming和Amy；漏一人或选老师都不符合提问对象。",
+            "layout": "people",
+            "speakerId": "mr-li",
+            "quote": "Ming and Amy, can you show us the safest path?"
+          }
+        },
+        "answer": "you",
+        "meaning": "你；你们",
+        "material": "Can you show us the safest path?",
+        "before": "Can ",
+        "after": " show us the safest path?",
+        "reason": "you可以指你，也可以指你们，词形不变。这里老师同时向Ming和Amy提问，you指两人，不包括说话的老师。us指说话者所在的一方；不能把you和us的范围混在一起。若只向Ming一个人提问，仍然用you。",
+        "hint": "先找谁在说，再找他对谁说；两位听者也用you。",
+        "options": [
+          {
+            "id": "speaker",
+            "text": "Mr Li, the speaker.",
+            "correct": false,
+            "reason": "Mr Li正在说话；you在这句话里指他面对的听者。"
+          },
+          {
+            "id": "one",
+            "text": "Only Ming.",
+            "correct": false,
+            "reason": "老师也叫了Amy的名字，不能把她排除。"
+          },
+          {
+            "id": "listeners",
+            "text": "Ming and Amy, the two listeners.",
+            "correct": true,
+            "reason": "李老师同时向Ming和Amy提问，这里的you指两位听者。"
+          }
+        ]
+      },
+      {
+        "id": "he",
+        "label": "he：先找到男孩，再用主格",
+        "prompt": "Ming tells Amy about Bob, a boy: “He found his missing glove under the bench.” Tap the person meant by he.",
+        "wordDecision": {
+          "prompt": "Ming tells Amy about Bob, a boy: “He found his missing glove under the bench.” Tap the person meant by he.",
+          "recordPaths": [
+            {
+              "id": "he",
+              "label": "人物线索与句子位置都要对",
+              "steps": [
+                "Bob: a boy",
+                "He → Bob",
+                "He found...: subject"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出He指的那个人",
+            "prompt": "Ming正在向Amy介绍Bob。",
+            "rows": [
+              {
+                "id": "ming",
+                "label": "Ming",
+                "text": "Tells Amy about Bob.",
+                "include": false
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Listens to Ming.",
+                "include": false
+              },
+              {
+                "id": "bob",
+                "label": "Bob",
+                "text": "A boy; found his glove.",
+                "include": true
+              }
+            ],
+            "hint": "人名和动作都由文字明确给出。",
+            "wrong": "应选Bob；Ming是说话者，Amy是听者。",
+            "layout": "people",
+            "speakerId": "ming",
+            "quote": "Bob is a boy. He found his missing glove under the bench."
+          }
+        },
+        "answer": "He",
+        "meaning": "他",
+        "material": "He found his missing glove under the bench.",
+        "before": "",
+        "after": " found his missing glove under the bench.",
+        "reason": "He指前文明确介绍的男孩Bob，不凭离代词最近的名字乱猜。he作主语：He found...；作宾语用him：I helped him。句中his是他的，修饰glove，不能代替主语he。",
+        "hint": "Bob是被谈论的人；he作主语，him作宾语。",
+        "options": [
+          {
+            "id": "bob",
+            "text": "Bob, the boy Ming is talking about.",
+            "correct": true,
+            "reason": "这段话明确在说男孩Bob，He指Bob，并作found的主语。"
+          },
+          {
+            "id": "ming",
+            "text": "Ming, because he is speaking.",
+            "correct": false,
+            "reason": "Ming在介绍Bob，不是在说自己找到了手套。"
+          },
+          {
+            "id": "object",
+            "text": "Use him before found.",
+            "correct": false,
+            "reason": "found前缺主语，应填he；him通常作宾语。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "she",
+        "label": "she：她在做动作，不是her作主语",
+        "prompt": "Ben tells Leo about Amy, a girl: “She made a label for each plant.” Tap the person meant by she.",
+        "wordDecision": {
+          "prompt": "Ben tells Leo about Amy, a girl: “She made a label for each plant.” Tap the person meant by she.",
+          "recordPaths": [
+            {
+              "id": "she",
+              "label": "动作是谁做的",
+              "steps": [
+                "Amy: a girl",
+                "She → Amy",
+                "She made...: subject"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出She指的那个人",
+            "prompt": "Ben正在向Leo讲Amy做标签的事。",
+            "rows": [
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Tells Leo about Amy.",
+                "include": false
+              },
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "Listens to Ben.",
+                "include": false
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "A girl; made the labels.",
+                "include": true
+              }
+            ],
+            "hint": "先看介绍的是谁，再看谁做了动作。",
+            "wrong": "应选Amy；Ben和Leo分别是说话者、听者。",
+            "layout": "people",
+            "speakerId": "ben",
+            "quote": "Amy is a girl. She made a label for each plant."
+          }
+        },
+        "answer": "She",
+        "meaning": "她",
+        "material": "She made a label for each plant.",
+        "before": "",
+        "after": " made a label for each plant.",
+        "reason": "She指前面明确介绍的女孩Amy，并作made的主语。宾语用her，如I thanked her；her还可表示她的，如her label。不要因为her也能表示她，就写成Her made...。人物身份来自文字，不靠外表猜测。",
+        "hint": "She made...；I thanked her；her label。",
+        "options": [
+          {
+            "id": "ben",
+            "text": "Ben, because he tells the story.",
+            "correct": false,
+            "reason": "Ben在讲Amy做的事，不是讲自己做了标签。"
+          },
+          {
+            "id": "amy",
+            "text": "Amy, the girl who made the labels.",
+            "correct": true,
+            "reason": "原话明确说Amy是女孩，She承接Amy作主语。"
+          },
+          {
+            "id": "her",
+            "text": "Write Her made a label.",
+            "correct": false,
+            "reason": "made前需要主格she；her不能在这里作主语。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "it",
+        "label": "it：不是找一个物品来代替",
+        "prompt": "In “It takes patience to learn a new skill”, which activity takes patience? Select the activity, not a nearby noun.",
+        "wordDecision": {
+          "prompt": "In “It takes patience to learn a new skill”, which activity takes patience? Select the activity, not a nearby noun.",
+          "recordPaths": [
+            {
+              "id": "formal",
+              "label": "形式主语与真正的活动",
+              "steps": [
+                "It: subject position",
+                "takes patience",
+                "to learn a new skill: activity"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "圈出需要耐心的活动",
+            "prompt": "只圈活动本身，不把patience或skill这个名词当作活动。",
+            "rows": [
+              {
+                "id": "learn",
+                "label": "Activity",
+                "text": "To learn a new skill.",
+                "include": true
+              },
+              {
+                "id": "patience",
+                "label": "Quality",
+                "text": "Patience.",
+                "include": false
+              },
+              {
+                "id": "skill",
+                "label": "Thing learnt",
+                "text": "A new skill.",
+                "include": false
+              }
+            ],
+            "hint": "to learn说明做什么；patience说明需要什么。",
+            "wrong": "只圈To learn a new skill；It先占主语位置，并不指某件物品。"
+          }
+        },
+        "answer": "It",
+        "meaning": "它；这件事",
+        "material": "It takes patience to learn a new skill.",
+        "before": "",
+        "after": " takes patience to learn a new skill.",
+        "reason": "这里It是形式主语，不必找一个具体物品与它对应。真正说明活动的是to learn a new skill：学习新技能需要耐心。可按It takes + 所需事物 + to do...理解。换成It takes time to read the notice，活动是read the notice，不是time。",
+        "hint": "先问“做什么需要耐心？”再找到to learn a new skill。",
+        "options": [
+          {
+            "id": "patience",
+            "text": "Patience itself is learning a skill.",
+            "correct": false,
+            "reason": "patience是耐心，不是正在学习新技能的人或活动。"
+          },
+          {
+            "id": "object",
+            "text": "A particular object called it.",
+            "correct": false,
+            "reason": "这里It不指某件具体物品，而是先占据主语位置。"
+          },
+          {
+            "id": "activity",
+            "text": "Learning a new skill.",
+            "correct": true,
+            "reason": "真正需要耐心的是学习新技能这件事；It在句首作形式主语。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "we",
+        "label": "we：说话者也在这个小组里",
+        "prompt": "Ming says “We carried the empty boxes upstairs.” He carried them with Amy and Leo. Nina only watched. Tap everyone meant by we.",
+        "wordDecision": {
+          "prompt": "Ming says “We carried the empty boxes upstairs.” He carried them with Amy and Leo. Nina only watched. Tap everyone meant by we.",
+          "recordPaths": [
+            {
+              "id": "we",
+              "label": "加入说话者，排除旁观者",
+              "steps": [
+                "Ming speaks and carries",
+                "Amy + Leo also carry",
+                "we → Ming + Amy + Leo"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出We所指的搬运小组",
+            "prompt": "说话的Ming也搬了箱子；Nina只旁观。",
+            "rows": [
+              {
+                "id": "ming",
+                "label": "Ming",
+                "text": "Speaks; carried boxes.",
+                "include": true
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Carried boxes with Ming.",
+                "include": true
+              },
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "Carried boxes with Ming.",
+                "include": true
+              },
+              {
+                "id": "nina",
+                "label": "Nina",
+                "text": "Only watched.",
+                "include": false
+              }
+            ],
+            "hint": "we包含说话者，但不等于现场所有人。",
+            "wrong": "应选Ming、Amy和Leo；不能漏掉Ming，也不能加上旁观的Nina。",
+            "layout": "people",
+            "speakerId": "ming",
+            "quote": "We carried the empty boxes upstairs."
+          }
+        },
+        "answer": "We",
+        "meaning": "我们",
+        "material": "We carried the empty boxes upstairs.",
+        "before": "",
+        "after": " carried the empty boxes upstairs.",
+        "reason": "we表示我们，包含说话者，但不自动包括现场所有人。Ming和Amy、Leo一起搬箱子，所以We指三人，不含旁观的Nina。we作主语，宾语用us，如The teacher helped us。",
+        "hint": "we一定包括说话者；是否包括其他人，要看这次活动。",
+        "options": [
+          {
+            "id": "carriers",
+            "text": "Ming, Amy and Leo.",
+            "correct": true,
+            "reason": "Ming在说话，也参与搬箱子；We包括他和一起搬的Amy、Leo。"
+          },
+          {
+            "id": "others",
+            "text": "Amy and Leo only.",
+            "correct": false,
+            "reason": "we包括说话者，不能漏掉Ming。"
+          },
+          {
+            "id": "all",
+            "text": "Ming, Amy, Leo and Nina.",
+            "correct": false,
+            "reason": "Nina只是看着，没有参与这次搬箱子。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "they",
+        "label": "they：说话者在小组之外",
+        "prompt": "Nina says “They agreed to meet outside the museum.” She is talking about Ming, Amy and Leo, not herself. Tap everyone meant by they.",
+        "wordDecision": {
+          "prompt": "Nina says “They agreed to meet outside the museum.” She is talking about Ming, Amy and Leo, not herself. Tap everyone meant by they.",
+          "recordPaths": [
+            {
+              "id": "they",
+              "label": "被谈论的小组",
+              "steps": [
+                "Nina speaks about others",
+                "Ming + Amy + Leo",
+                "They → those three"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出They所指的见面小组",
+            "prompt": "Nina在讲另外三人的约定，自己不在小组里。",
+            "rows": [
+              {
+                "id": "nina",
+                "label": "Nina",
+                "text": "Speaks; not in the group.",
+                "include": false
+              },
+              {
+                "id": "ming",
+                "label": "Ming",
+                "text": "Will meet Amy and Leo.",
+                "include": true
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Will meet Ming and Leo.",
+                "include": true
+              },
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "Will meet Ming and Amy.",
+                "include": true
+              }
+            ],
+            "hint": "这是原话给定的三人小组；不要加入说话者。",
+            "wrong": "应选Ming、Amy、Leo；Nina只在讲述，不在约定中。",
+            "layout": "people",
+            "speakerId": "nina",
+            "quote": "They agreed to meet outside the museum."
+          }
+        },
+        "answer": "They",
+        "meaning": "他们；她们；它们",
+        "material": "They agreed to meet outside the museum.",
+        "before": "",
+        "after": " agreed to meet outside the museum.",
+        "reason": "They在这里指Ming、Amy、Leo这个小组，不包括说话的Nina。不要看见多人就选现场所有人，也不要把上一题的we范围照搬。they作主语，宾语用them；在本题这种复数指代中，be动词用are或were。",
+        "hint": "谁在讲，谁被谈论，要分别找；本题Nina在小组之外。",
+        "options": [
+          {
+            "id": "nina",
+            "text": "Nina only.",
+            "correct": false,
+            "reason": "Nina是说话者，而且明确不在这个约定见面的小组里。"
+          },
+          {
+            "id": "three",
+            "text": "Ming, Amy and Leo.",
+            "correct": true,
+            "reason": "Nina在谈论另外三人，They承接这三人，不含Nina。"
+          },
+          {
+            "id": "all",
+            "text": "All four people, including Nina.",
+            "correct": false,
+            "reason": "把Nina加进去就改变了原话明确给出的范围。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "me",
+        "label": "me：留言留给说话的我",
+        "prompt": "Mia says to Ben: “Please leave a message for me.” Amy is nearby. Tap the person who should receive the message.",
+        "wordDecision": {
+          "prompt": "Mia says to Ben: “Please leave a message for me.” Amy is nearby. Tap the person who should receive the message.",
+          "recordPaths": [
+            {
+              "id": "me",
+              "label": "说话者与留言接收者重合",
+              "steps": [
+                "Mia speaks to Ben",
+                "a message for me",
+                "me → Mia: receiver"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "点出留言应留给谁",
+            "prompt": "Mia是说话者，Ben是她提出请求的对象。",
+            "rows": [
+              {
+                "id": "mia",
+                "label": "Mia",
+                "text": "Asks for a message.",
+                "include": true
+              },
+              {
+                "id": "ben",
+                "label": "Ben",
+                "text": "Hears the request.",
+                "include": false
+              },
+              {
+                "id": "amy",
+                "label": "Amy",
+                "text": "Nearby; not the receiver.",
+                "include": false
+              }
+            ],
+            "hint": "me跟着说话者变；这里不是指听者。",
+            "wrong": "应选Mia；Ben被请求留言，Amy只是站在旁边。",
+            "layout": "people",
+            "speakerId": "mia",
+            "quote": "Please leave a message for me."
+          }
+        },
+        "answer": "me",
+        "meaning": "我（宾格）",
+        "material": "Please leave a message for me.",
+        "before": "Please leave a message for ",
+        "after": ".",
+        "reason": "me是I的宾格，都指说话者。这里for me表示给我，留言接收者是说话的Mia；Ben是接到请求的人。介词for后用me，不用I。动词后也可用me作宾语，如Please help me。",
+        "hint": "for + me；接收者是说话的Mia，不是听话的Ben。",
+        "options": [
+          {
+            "id": "ben",
+            "text": "Ben, the listener.",
+            "correct": false,
+            "reason": "Ben是被请求留言的人，不是for me指定的收信人。"
+          },
+          {
+            "id": "i",
+            "text": "Use I after for.",
+            "correct": false,
+            "reason": "for是介词，后面用宾格me，不用主格I。"
+          },
+          {
+            "id": "mia",
+            "text": "Mia, the speaker.",
+            "correct": true,
+            "reason": "me指说话的Mia；留言要留给她。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-pronouns-transfer",
+      "topicId": "v-course-pronouns",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which set of notes gets all three pronoun references right?",
+      "passage": "AT THE CLUB ROOM\nMia says to Ben, “Please leave the map for me.”\nBen replies, “Ming and I carried boxes upstairs. We will meet you here after lunch.”\nMia writes in her notebook, “Ben and Ming have a plan. They will return at one.”",
+      "options": [
+        {
+          "id": "a",
+          "text": "The map is for Mia; We means Ben and Ming; They also means Ben and Ming."
+        },
+        {
+          "id": "b",
+          "text": "The map is for Ben; We means Ben and Ming; They also means Ben and Ming."
+        },
+        {
+          "id": "c",
+          "text": "The map is for Mia; We means Mia and Ben; They means Ben and Ming."
+        },
+        {
+          "id": "d",
+          "text": "The map is for Mia; We means Ben and Ming; They means Mia, Ben and Ming."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The map is for Mia; We means Ben and Ming; They also means Ben and Ming."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "每换一个说话者，就重新找代词所指的人，不把上一句话的人称直接套过来。",
+        "steps": [
+          {
+            "text": "Mia说for me，所以地图留给Mia。Ben说Ming and I，接着用We指自己和Ming。",
+            "reason": "me指说话者；we也包括当前说话者，Ben的I是Ben。"
+          },
+          {
+            "text": "Mia记下Ben and Ming，下一句的They承接这两人；Mia没有把自己写进小组。",
+            "reason": "代词要回到本句上下文找范围，不能因为三人都出现过就全选。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "for me由Mia说出，地图给Mia，不是听者Ben。"
+          },
+          {
+            "option": "c",
+            "reason": "Ben明确说Ming and I，We指Ben和Ming，不是Mia和Ben。"
+          },
+          {
+            "option": "d",
+            "reason": "They承接Ben and Ming，没有包括记笔记的Mia。"
+          }
+        ],
+        "pitfall": "说话者换了，I、me、we的指向也可能变；they不自动包含现场所有人。",
+        "visual": {
+          "kind": "timeline",
+          "title": "沿着说话者找回指关系",
+          "segments": [
+            {
+              "text": "Mia: for me → Mia",
+              "role": "object",
+              "note": "me指当前说话者"
+            },
+            {
+              "text": "Ben: Ming and I → We",
+              "role": "object",
+              "note": "We包含Ben和Ming"
+            },
+            {
+              "text": "Mia: Ben and Ming → They",
+              "role": "object",
+              "note": "They仍指这两人，不加入Mia"
+            }
+          ],
+          "caption": "相同的小组可以因说话者不同而用we或they表达。"
+        },
+        "transfer": "若Mia也参加搬箱子，而且Ben接着说“We carried the boxes”，这次we是否也包括Mia？为什么？"
+      }
+    }
+  }
+}

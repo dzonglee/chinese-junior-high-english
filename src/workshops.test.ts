@@ -1353,3 +1353,30 @@ it('teaches final list position, exact fractions and pairs, several empty seats 
  for(const index of [6,7])expect(w.items[index].wordDecision!.recordSelection!.rows.every(r=>r.include)).toBe(true)
  expect(s.transfer.review).toBe('draft');expect(s.transfer.explanation!.visual!.segments).toHaveLength(3)
 })
+it('requires exact pronoun referents, preserves the speaker and keeps guided reference work out of independent credit',()=>{
+ const s=studio('l-v-course-pronouns'),w=s.mission!.workshop!;expect(workshopProblems(w)).toEqual([])
+ expect(w.items.map(i=>i.answer)).toEqual(['Someone','you','He','She','It','We','They','me'])
+ const expected=[['found','owner'],['ming','amy'],['bob'],['amy'],['learn'],['ming','amy','leo'],['ming','amy','leo'],['mia']]
+ const owns=['Someone left a blue scarf on the chair.','Could you carry this empty box upstairs?','He brought a warm jacket for the walk.','She put a label on the new plant.','It takes time to learn a useful skill.','We moved the chairs into the reading room.','They will meet us beside the library.','Please save a seat near the door for me.']
+ for(const [index,item] of w.items.entries()){
+  const records=item.wordDecision!.recordSelection!;expect(records.rows.filter(r=>r.include).map(r=>r.id)).toEqual(expected[index])
+  let p={...freshTeaching(s,1),step:1};const act=(name:string,value='')=>{p=changeTeaching(s,p,'workshop-'+name,value,2)}
+  act('item',String(index));act('choose',item.options!.find(o=>o.correct)!.id);act('input',item.answer);act('check');expect(workshopView(w,p).correct).toBe(false)
+  act('record-none');for(const id of expected[index])act('record-toggle',id);act('check');expect(workshopView(w,p).correct).toBe(true)
+  if(records.layout==='people')expect(workshopView(w,p).wordRecordSelection!.speaker).toEqual({name:records.rows.find(r=>r.id===records.speakerId)!.label,quote:records.quote})
+  act('own',owns[index]);act('save');expect(workshopView(w,p).complete).toBe(true)
+  act('record-toggle',records.rows.find(r=>!r.include)!.id);expect(workshopView(w,p).complete).toBe(false)
+  p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).own).toBe(owns[index])
+  const forged=structuredClone(p);forged.completed.push('workshop-'+index);forged.checked['workshop-'+index]=true;expect(workshopView(w,forged).complete).toBe(false)
+  act('record-none');for(const id of expected[index])act('record-toggle',id);act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ }
+ expect(w.items[4].reason).toContain('形式主语');expect(w.items[0].reason).toContain('不能单凭left判断单复数');expect(s.transfer.review).toBe('draft')
+})
+it('maps the spoken quote by edition while preserving speaker and person identities',()=>{
+ const original=studio('l-v-course-pronouns').mission!.workshop!,copy=structuredClone(original),record=copy.items[1].wordDecision!.recordSelection!
+ record.quote='What is your favorite color?';record.rows[1].text='Favorite color: blue.'
+ const mapped=mapWorkshop(copy,t=>editionText(t,'british')).items[1].wordDecision!.recordSelection!
+ expect(mapped.quote).toBe('What is your favourite colour?');expect(mapped.rows[1].text).toBe('Favourite colour: blue.');expect(mapped.speakerId).toBe('mr-li');expect(mapped.rows.map(r=>r.id)).toEqual(record.rows.map(r=>r.id));expect(mapped.rows.map(r=>r.include)).toEqual(record.rows.map(r=>r.include));expect(record.quote).toContain('favorite')
+ const invalid=structuredClone(original);invalid.items[1].wordDecision!.recordSelection!.speakerId='absent';expect(workshopProblems(invalid)).toContain('Invalid word record selection')
+})
