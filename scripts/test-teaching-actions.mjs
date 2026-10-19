@@ -15,12 +15,25 @@ try{
  for(let i=0;;i++){try{if((await fetch(url)).ok)break}catch{}if(i>60)throw new Error('Server unavailable');await new Promise(r=>setTimeout(r,100))}
  browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),headless:true,args:['--no-sandbox']});const page=await browser.newPage({viewport:{width:390,height:844}});page.on('pageerror',e=>errors.push(e.message));await page.goto(url)
  const act=async(id,value)=>{const b=page.locator(`[data-action="studio-${id}"]${value===undefined?'':`[data-value="${value}"]`}`).first();await expect(b).toBeEnabled();await b.click()}
+ const openSource=async(evidence,id)=>{
+  const carousel=page.locator('.reading-application')
+  if(!await carousel.count()){await act('source',id);return}
+  const target=evidence.findIndex(e=>e.id===id)
+  if(target<0)throw Error('Unknown source evidence')
+  for(let tries=0;tries<evidence.length;tries++){
+   const currentId=await carousel.getAttribute('data-source'),current=evidence.findIndex(e=>e.id===currentId)
+   if(current===target)return
+   if(current<0)throw Error('Unknown current source evidence')
+   await act('source',evidence[current+(target>current?1:-1)].id)
+  }
+  throw Error('Source carousel did not reach the requested evidence')
+ }
  const lessons=source.lessons.filter(l=>l.topicId.startsWith('p-'));for(const skill of ['vocabulary','reading','listening','writing','speaking'])lessons.push(source.lessons.find(l=>source.topics.find(t=>t.id===l.topicId).skill===skill&&!l.topicId.startsWith('p-')))
  for(const l of lessons){const s=createLessonTeaching(repo.catalog,l,'american'),p={...freshTeaching(s,Date.now()),answers:{visualPane:'study'},step:2,before:'I have an original idea for this task.',completed:['predict',...s.assemblies.map(u=>'build-'+u.id)]};const state={...emptyState(Date.now()),profile:{cityId:'北京-北京',structure:Math.min(...l.grades)===6?'54':'63',grade:Math.min(...l.grades),term:'upper',editionId:Math.min(...l.grades)===6?'pep-54':'pep-legacy',schoolYear:2026,dailyMinutes:20,createdAt:Date.now()},teaching:{[l.id]:p}}
   await page.evaluate(state=>localStorage.setItem('cjhe.state.v1',JSON.stringify(state)),state);await page.goto(url+'/?fixture='+l.id+'#lesson?id='+l.id);await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','2')
   if(s.sorting){for(const card of s.sorting.cards){await act('sort',card.id+':'+s.sorting.categories.find(g=>g.id!==card.category).id);await expect(page.locator('.sorting-card').filter({has:page.getByRole('heading',{name:card.text,exact:true})})).toContainText('还不合适');await act('sort',card.id+':'+card.category)}}
   else if(s.mode==='communication'){{const r=s.rubric[0];await act('criterion',r.id);await act('link',r.id+':'+s.roleAnchors[r.id][0])}await page.locator('[name=studioAfter]').fill(s.prediction.answer.display);await expect(page.locator('[name=studioAfter]')).toBeFocused();for(const r of s.revisionRubric)await act('rubric',r.id);await act('review');await expect(page.locator('.studio-stage')).toContainText('不是机器判定')}
-  else if(s.evidence.length){for(const[i,q]of s.cases.entries()){await act('case',String(i));if(q.kind==='choice')await act('answer',q.answer.option);else await page.locator('[name=studioAnswer]').fill(q.answer.accepted[0]);await act('check');const evidence=sourceEvidence(q),wrong=evidence.find(e=>!e.supports);if(wrong){await act('source',wrong.id);await act('evidence',wrong.id)}await act('source',evidence.find(e=>e.supports).id);await act('evidence',evidence.find(e=>e.supports).id)}}
+  else if(s.evidence.length){for(const[i,q]of s.cases.entries()){await act('case',String(i));if(q.kind==='choice')await act('answer',q.answer.option);else await page.locator('[name=studioAnswer]').fill(q.answer.accepted[0]);await act('check');const evidence=sourceEvidence(q),wrong=evidence.find(e=>!e.supports);if(wrong){await openSource(evidence,wrong.id);await act('evidence',wrong.id)}await openSource(evidence,evidence.find(e=>e.supports).id);await act('evidence',evidence.find(e=>e.supports).id)}}
   else for(const[i,q]of s.cases.entries()){await act('case',String(i));if(s.mode==='vocabulary'){await page.locator('[name=studioAnswer]').fill(`I can use ${s.mission.workshop.items[i].answer} in a different example today.`);await act('word-review')}else if(q.kind==='choice')await act('answer',q.answer.option);else await page.locator('[name=studioAnswer]').fill(q.answer.accepted[0]);await act('check')}
   await expect(page.locator('[data-action=studio-next]')).toBeEnabled();for(const width of [320,390,768]){await page.setViewportSize({width,height:844});expect(await page.locator('.teaching-studio').evaluate(el=>el.scrollWidth<=el.clientWidth+1),l.id).toBe(true)}await page.setViewportSize({width:390,height:844});await page.screenshot({path:resolve(out,l.id+'.png'),fullPage:true});await page.reload();await expect(page.locator('[data-action=studio-next]')).toBeEnabled();await act('next');await expect(page.locator('.teaching-studio')).toHaveAttribute('data-step','3');checks.push(l.id)
  }

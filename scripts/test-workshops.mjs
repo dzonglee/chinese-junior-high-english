@@ -26,6 +26,25 @@ try{
   await act('next');await expect(page.locator('.lesson-workshop')).toBeVisible();await expect(page.locator('[data-action=studio-next]')).toBeDisabled();const w=s.mission.workshop
   for(let i=0;i<(w.conditions?.length??w.items.length);i++){
    await act('workshop-item',String(i));const item=w.items[w.kind==='transform'?0:i]
+   // Source exercises must be completed through their controls before evidence can be saved.
+   if(item.sourceGap){
+    const gap=item.sourceGap,bad=gap.options.find(o=>o.id!==gap.answer)
+    await act('workshop-gap',bad.id);await act('workshop-gap-check')
+    await expect(page.locator('.gap-feedback')).toHaveText(bad.reason)
+    await expect(page.locator('.workshop-saved')).toHaveCount(0)
+    await act('workshop-gap',gap.answer);await act('workshop-gap-check')
+    await expect(page.locator('.gap-word.gap-correct')).toHaveText(gap.options.find(o=>o.id===gap.answer).text)
+    await expect(page.locator('.workshop-saved')).toHaveCount(0)
+   }
+   if(item.sourceSettings){
+    const rows=item.sourceSettings.rows,model=page.locator('.source-settings')
+    for(const row of rows)await act('workshop-setting',row.id+':'+(row.answer==='on'?'off':'on'))
+    await act('workshop-settings-check');await expect(model.locator('.setting-wrong')).toHaveCount(rows.length)
+    await expect(page.locator('.workshop-saved')).toHaveCount(0)
+    for(const row of rows)await act('workshop-setting',row.id+':'+row.answer)
+    await act('workshop-settings-check');await expect(model.locator('.setting-correct')).toHaveCount(rows.length)
+    await expect(page.locator('.workshop-saved')).toHaveCount(0)
+   }
    if(w.kind==='compose'){await act('workshop-check');await expect(page.locator('[data-action=studio-next]')).toBeDisabled();await page.locator('[name=studioWorkshopOwn]').fill('This is my own specific detail for this part.');await act('workshop-check')}
    else if(w.kind==='word-use'){if(item.wordDecision)await act('workshop-choose',item.options.find(o=>o.correct).id);await page.locator('[name=studioWorkshopInput]').fill(item.answer.toLowerCase()==='borrow'?'lend':'wrong');await act('workshop-check');if(item.answer.toLowerCase()==='borrow')await page.screenshot({path:resolve(out,id+'-direction-wrong.png'),fullPage:true});await expect(page.locator('.lesson-workshop .explore-feedback')).not.toHaveClass(/correct/);await page.locator('[name=studioWorkshopInput]').fill(item.answer);await act('workshop-check');await page.locator('[name=studioWorkshopOwn]').fill(({'borrow':'Could I borrow your ruler until lunch?','return':'I will return the library book tomorrow.','prepare':'We prepare our bags before the school trip.','explain':'Please explain this question to me after class.','improve':'I read every day to improve my English.','mistake':'I found one mistake in my English homework.','advice':'Your advice helped me choose a useful dictionary.','question':'I have a question about our science project.'})[item.answer]??`I use the word ${item.answer} in an example.`);await act('workshop-save');if(item.answer.toLowerCase()==='borrow')await page.screenshot({path:resolve(out,id+'-direction-correct.png'),fullPage:true})}
    else if(w.kind==='proof'&&item.sourceOrder){await act('workshop-order-add',item.options.find(o=>!o.correct).id);await act('workshop-check');await expect(page.locator('.lesson-workshop .explore-feedback')).not.toHaveClass(/correct/);await act('workshop-order-clear');for(const id of item.sourceOrder)await act('workshop-order-add',id);await act('workshop-check');await expect(page.locator('.workshop-saved')).toHaveCount(0);await page.locator('[name=studioWorkshopOwn]').fill('先观察问题，再测试办法，最后才作出选择。');await act('workshop-save')}
