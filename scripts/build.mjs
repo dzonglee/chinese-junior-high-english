@@ -16,7 +16,7 @@ if (release) { const problems = releaseProblems(releaseConfig, catalog); if (pro
 const distributionRoot = resolve(root, release ? 'dist/release' : 'dist')
 const nativeRoot = release ? resolve(distributionRoot, 'miniprogram') : resolve(root, 'miniprogram')
 const visualAssets = JSON.parse(readFileSync(resolve(root, 'content/visual-assets.json'), 'utf8')).assets
-const illustrationPackages = [{ root: 'assets', name: 'app-artwork', pages: [] }, ...['illustrations', 'illustrations-2'].filter(root => visualAssets.some(a => a.file.startsWith(`miniprogram/${root}/`))).map(root => ({ root, name: `lesson-${root}`, pages: [] }))]
+const illustrationPackages = [{ root: 'assets', name: 'app-artwork', pages: [] }, ...['illustrations', 'illustrations-2', 'illustrations-3'].filter(root => visualAssets.some(a => a.file.startsWith(`miniprogram/${root}/`))).map(root => ({ root, name: `lesson-${root}`, pages: [] }))]
 const { contentProblems } = await validationModule(root)
 const errors = contentProblems(catalog)
 if (errors.length) throw new Error(errors.join('\n'))

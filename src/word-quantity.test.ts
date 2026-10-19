@@ -17,3 +17,9 @@ it('rejects unbounded, malformed or arbitrary image bindings',()=>{
  expect(validWordQuantity({...q,shape:'plant',unitArt:'count-unit-seedling'})).toBe(true)
  for(const bad of [null,{}, {...q,title:' '},{...q,pluralUnit:''},{...q,unit:' egg'}, {...q,limit:0},{...q,limit:9},{...q,answer:7},{...q,answer:-1},{...q,answer:1.5},{...q,shape:'unknown'},{...q,unitArt:'https://invalid.test/x.png'},{...q,shape:'plant'},{...q,shape:'plant',unitArt:'../assets/seedling'}])expect(validWordQuantity(bad)).toBe(false)
 })
+it('resolves whole pairs through a whitelisted artwork root while keeping existing units compatible',()=>{
+ const pair:WordQuantity={...q,shape:'pair',unit:'pair',pluralUnit:'pairs',answer:3,unitArt:'count-unit-sock-pair',unitArtRoot:'illustrations-3'}
+ expect(validWordQuantity(pair)).toBe(true);expect(wordQuantityView(pair,'3')).toMatchObject({count:3,unit:'pairs',unitArt:'count-unit-sock-pair',unitArtRoot:'illustrations-3'});expect(wordQuantityView(pair,'1').unit).toBe('pair')
+ expect(wordQuantityView({...pair,unitArtRoot:undefined},'1').unitArtRoot).toBe('illustrations-2');expect(validWordQuantity({...q,shape:'cup'})).toBe(true)
+ for(const bad of [{...pair,unitArt:undefined},{...pair,unitArtRoot:'../assets'},{...pair,unitArtRoot:'https://invalid.test'},{...q,unitArtRoot:'illustrations-3'}])expect(validWordQuantity(bad)).toBe(false)
+})

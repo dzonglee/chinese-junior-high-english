@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **155 / 413**. Current: **l-v-course-quantity-5**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **156 / 413**. Current: **l-v-course-pronouns**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -163,7 +163,7 @@ Completed: **155 / 413**. Current: **l-v-course-quantity-5**. Evidence lives in 
 | l-v-course-quantity-2 | 数字与数量 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-quantity-2.md) |
 | l-v-course-quantity-3 | 数字与数量 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-quantity-3.md) |
 | l-v-course-quantity-4 | 数字与数量 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-quantity-4.md) |
-| l-v-course-quantity-5 | 数字与数量 · 5 | pending | — |
+| l-v-course-quantity-5 | 数字与数量 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-quantity-5.md) |
 | l-v-course-pronouns | 指代与限定 · 1 | pending | — |
 | l-v-course-pronouns-2 | 指代与限定 · 2 | pending | — |
 | l-v-course-pronouns-3 | 指代与限定 · 3 | pending | — |
