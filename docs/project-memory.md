@@ -2,24 +2,24 @@
 
 ## Current owner direction · individual lessons, 2026-10-19 (UTC)
 
-137 of 413 lessons are individually reviewed; 276 remain pending. Work stays solo under
+138 of 413 lessons are individually reviewed; 275 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-v-course-home. Eight individually authored tasks teach at home/go home without extra to; one house has/two houses have; flat as one home within a building with explicit British flat/American apartment comparison; room as countable rooms versus uncountable space; bedroom/bathroom/kitchen functions; and nested mint/pot/garden locations. Three actual picture-button sets use original room artwork,retain accessible sentence alternatives and select neutrally without auto-check or credit. Four coded reference sets,seven explicit own-form lists,original writing,changed home/house rewrites and a fresh six-person/five-chair reading require new evidence. Correct positions2,3,1,2,3,1,2,3. No global flat/apartment substitution is introduced.
+Latest: l-v-course-home-2. Eight individually authored tasks teach yard meaning from context without falsely excluding planted yards/gardens;floor ground surface versus explicit common British/American storey labels;on/in the wall;outside roof versus inside ceiling;at the door;windows/face agreement;and one bottom stair versus an entire flight. Original exterior/interior art supports three actual neutral picture-target sets. Five coded reference sets,eight explicit own-form lists,original writing,changed yard/floor rewrites and a fresh maintenance-note transfer require new evidence. Correct positions3,1,2,3,1,2,3,1. Native check remains pending because Mac project-drive access is unavailable.
 
-Original1536x1024 and600x400 delivery inspected: left bedroom,center kitchen,right bathroom separated by blue gutters. Some furniture ends at panel/canvas edges; no whole-furniture/count claims. All35wordstate sheets,24decision figures,24sentence figures,27neutral art-claim figures,9initial target figures,12reference figures and9empty punctuation figures inspected at320/390/768. All8accepted own sentences,both changed rewrite tabs,all errors/repairs,prediction,clinic,fresh passage/320ending,three transfer distractors,correct transfer,both explanation moves/evidence and summary inspected. Final213browser captures,8tasks/24primary widths,errors empty,independent attempts0. Nine picture-claim combinations checked by mouse at320/768 and actual focus/Enter at390;selection survives reload and all targets meet44px. All78actual native captures inspected at367x794 in jobba62a1e3984b46f8858f0cedce617834: nested0,errors empty. SDK verifies12reference-claim combinations/four sets,nine neutral picture claims/three target sets,seven strict own-form gates,three punctuation states,reopened repair and changed rewrites. Native screenshots retain viewport scope;full scroll prose/diagrams reviewed in browser. Guided writing checks form/length with meaning/collocation self-review. Content remains draft;no independent/mastery/lessonDone/hearing credit.
+Inspected original1536x1024 and600x400 delivery: blue exterior roof and interior ceiling/floor distinct. Stair flight extends beyond right frame;no step-count or whole-flight image claim. Wetness,kite,spider and maintenance states come only from written examples. All36wordstate sheets,24decision figures,24sentence figures,27art-claim figures,nine initial target figures,15reference figures and12empty punctuation figures inspected at320/390/768. All8accepted original sentences,both changed rewrite tabs,prediction,clinic,errors/repairs,full fresh passage/320ending,three transfer distractors,correct transfer,both explanation moves/evidence and summary inspected. Final220browser captures,8tasks/24primary widths,errors empty,independent attempts0. Mouse at320/768 and actual focus/Enter at390 verify nine picture claims,44px target geometry and selection after reload. Final maintenance note keeps the loose stair unused until an adult says it is safe;218final PNGs exactly match previously inspected figures and both changed passage figures separately inspected. No138native screenshots or GUI pass claimed. Guided writing checks form/length,with meaning/collocation self-review. Content stays draft;no independent/mastery/lessonDone/hearing credit.
 
-Checkpoint 137 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 1253 tasks / 3759 widths; earlier flows retain their original scope.
+Checkpoint 138 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 1261 tasks / 3783 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-v-course-home-2. Next home-2 exact eight source rows read: yard,floor,wall,roof,ceiling,door,window,stair. Original exterior/interior house art and600x400 delivery inspected: roof/ceiling/floor are distinct;stairflight continues beyond right frame,so do not count steps or claim whole flight. Plan three surface buttons and written British/American storey labels independent of artwork. Private planning only;no138source or credit.
+Next: l-v-course-home-3. Next home-3 exact source8rows read: lift,balcony,gate,key,lock,bed,sofa,chair. Original furniture-position artwork and600x400 delivery inspected: cat under bluebed,stripedcushion on tealsofa,purplechair beside roundtable. Objects/cat within frame;occluded rear legs are not all visible,so no leg-count/capacity claim. Plan three actual picture-button tasks and coded noun/verb,balconies and key-to comparisons. No139source or review credit. Queue focused native138verification after Mac project-drive access returns;latest actual native pass137.
 
-Native GUI status: Focused guest-native checkpoint137 passes8home/room tasks;all78captures inspected. Four reference sets,three real room-picture target sets/nine SDK taps,seven own-form gates,three punctuation states,rewrites and fresh changed-chair transfer verified. First actual run passed;late navigation timeout accepted only after exact route/query/boundlesson arrival. Prior data restored,own project closed,GUI released. Physical touch/devices,approved audio,editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Checkpoint138actual WeChat check pending: status succeeds,but MacStudioExternal project-drive access unavailable on repeated read-only checks. No138job or screenshots;latest actual native pass137/all78inspected. Browser220captures and both adapters pass independently. No restart/auth change or GUI interference. Resume focused native138when project-drive access returns. Physical touch/devices,approved audio,editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint136 pushed atf4d6a8f1;origin/main fetched and latest board/log read before137. Existing solo claim continues.
+Checkpoint137 pushed atd4ed886d;origin/main fetched and latest board/log read before138. Existing solo claim continues.
 
 ## Previous local delivery · 2026-10-17
 
@@ -426,3 +426,8 @@ The existing Obsidian project and mock Kanban card 463089cd-2a1c-4b3b-a26b-3c063
 are updated through the working private MCP helper. No native plugin injection, release,
 upload or publication is implied. Approved audio, actual phones, official local mapping and
 editorial review remain separate completion requirements.
+
+
+### Current native access limitation — lesson138, 2026-10-19 UTC
+
+Focused WeChat checkpoint138 is pending: wechat_status succeeds,but read_file(wechat/AGENTS.md) twice reports MacStudioExternal file access unavailable. No GUI job submitted,no restart or credential change. Local138controls passed after correcting initial-target test ordering;visual review ongoing. Latest actual native pass remains137/all78captures.

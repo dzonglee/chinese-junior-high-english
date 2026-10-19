@@ -1,0 +1,5 @@
+# WeChat checkpoint138 — pending
+
+Checkpoint138actual WeChat check pending: status succeeds,but MacStudioExternal project-drive access unavailable on repeated read-only checks. No138job or screenshots;latest actual native pass137/all78inspected. Browser220captures and both adapters pass independently. No restart/auth change or GUI interference. Resume focused native138when project-drive access returns. Physical touch/devices,approved audio,editorial/cohort mapping and production remain open.
+
+Final serial development/cloud simulations load/hash all245packs without DOM encoders and verify all3async artwork roots with failure/retry. Cancellation API-double checks pass. No138actual native SDK run: MCP wechat_status succeeds,but repeated read_file(wechat/AGENTS.md) reports MacStudioExternal file access unavailable. Board/memory tools remain usable. No GUI submission,service restart or credential change. Latest actual native evidence remains checkpoint137/all78captures;browser/adapters do not extend it.
