@@ -1,0 +1,605 @@
+{
+  "lessonId": "l-v-course-school-tools",
+  "reviewState": "draft",
+  "intent": "Individually teach school-purpose article use,class group/lesson,classroom compound,each student present/past,pupil school/eye senses without age absolutes,teacher noun versus teach,explicit headteacher/principal comparison and lesson number. Eight strict form lists,original sentences,changed school/class rewrites and fresh named-role/time/classroom-label reading remain draft.",
+  "picturePurpose": "Planned original school exterior/classroom interior image supports classroom identification. Roles,student counts and timetable come from written records,never inferred from faces or generated text.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "分清学校、课堂和人物，再安排参观",
+    "instruction": "先看场景、读句子判断，再补词、写自己的例子。最后按新记录安排参观，不凭身份猜任务。",
+    "items": [
+      {
+        "id": "school",
+        "label": "school：上学和去某所学校，留意目的",
+        "prompt": "记录：Mia每天作为学生去上学。哪句符合这个意思？",
+        "wordDecision": {
+          "prompt": "记录：Mia每天作为学生去上学。哪句符合这个意思？",
+          "recordPaths": [
+            {
+              "id": "study",
+              "label": "作为学生",
+              "steps": [
+                "go to school",
+                "去上学"
+              ]
+            },
+            {
+              "id": "place",
+              "label": "具体地点",
+              "steps": [
+                "go to the school",
+                "去某所学校"
+              ]
+            }
+          ]
+        },
+        "answer": "school",
+        "meaning": "学校",
+        "material": "Our school opens its gates at seven.",
+        "before": "Our ",
+        "after": " opens its gates at seven.",
+        "reason": "school可指学校这一机构。go to school常说作为学生去上学；go to the school可强调去某所学校，例如去那里取资料。不是看到school就一律删the。",
+        "hint": "go to school：去上学；go to the school：去某所学校。",
+        "ownForms": [
+          "school",
+          "schools"
+        ],
+        "options": [
+          {
+            "id": "attend",
+            "text": "Mia goes to school every weekday.",
+            "correct": true,
+            "reason": "这里强调作为学生去上学，通常说go to school。"
+          },
+          {
+            "id": "missing",
+            "text": "Mia goes school every weekday.",
+            "correct": false,
+            "reason": "go后不能直接接school来表达这个意思，需要to。"
+          },
+          {
+            "id": "home",
+            "text": "Mia stays at home every weekday.",
+            "correct": false,
+            "reason": "留在家里改变了每天去上学的信息。"
+          }
+        ]
+      },
+      {
+        "id": "class",
+        "label": "class：一节课还是全班，放回语境",
+        "prompt": "记录：Our class is making a poster together. 这句class指什么？",
+        "wordDecision": {
+          "prompt": "记录：Our class is making a poster together. 这句class指什么？",
+          "recordPaths": [
+            {
+              "id": "group",
+              "label": "班级",
+              "steps": [
+                "our class",
+                "the students in the group"
+              ]
+            },
+            {
+              "id": "lesson",
+              "label": "一节课",
+              "steps": [
+                "an art class",
+                "a lesson"
+              ]
+            }
+          ]
+        },
+        "answer": "class",
+        "meaning": "班级；课",
+        "material": "We have an art class after lunch.",
+        "before": "We have an art ",
+        "after": " after lunch.",
+        "reason": "class可以指班级，也能指一节课。have an art class是上美术课；our class is making...说全班在做事。classroom是教室，不能只按中文“班”猜。",
+        "hint": "an art class：美术课；our class：我们班。",
+        "ownForms": [
+          "class",
+          "classes"
+        ],
+        "options": [
+          {
+            "id": "room",
+            "text": "The room where the poster is stored.",
+            "correct": false,
+            "reason": "classroom才是教室；本句making的执行者是全班同学。"
+          },
+          {
+            "id": "one-lesson",
+            "text": "Only one art lesson after lunch.",
+            "correct": false,
+            "reason": "那是前面例句的用法；这句说全班一起制作海报，不能照搬旧语境。"
+          },
+          {
+            "id": "group",
+            "text": "The group of students working together.",
+            "correct": true,
+            "reason": "our class一起制作海报，这里指班级里的同学。"
+          }
+        ]
+      },
+      {
+        "id": "classroom",
+        "label": "classroom：教室，合成词写成一个词",
+        "prompt": "找classroom：这题要找有课桌和黑板的室内教室。点场景或选描述。",
+        "wordDecision": {
+          "prompt": "找classroom：这题要找有课桌和黑板的室内教室。点场景或选描述。",
+          "recordPaths": [
+            {
+              "id": "compound",
+              "label": "合成词",
+              "steps": [
+                "class",
+                "room",
+                "classroom"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-school-classroom",
+            "alt": "蓝线分开的两个原创场景：左边是有校门和教学楼的校园外景；右边是有课桌和空白黑板的室内教室。部分近处桌椅超出右图边缘；不据图数课桌、推算班级人数或猜测年级。参观记录中的人名、身份、时间另由文字给出。",
+            "targets": [
+              {
+                "id": "school-scene",
+                "label": "校园",
+                "labelPosition": "bottom",
+                "left": 0.8,
+                "top": 1,
+                "width": 48.4,
+                "height": 98,
+                "option": "school-scene"
+              },
+              {
+                "id": "classroom-scene",
+                "label": "教室",
+                "labelPosition": "bottom",
+                "left": 50.8,
+                "top": 1,
+                "width": 48.4,
+                "height": 98,
+                "option": "classroom-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "classroom-scene",
+                "caption": "教室已选中。对照校园外景与室内教室，再核对。",
+                "regions": [
+                  {
+                    "id": "classroom-scene",
+                    "label": "教室",
+                    "labelPosition": "bottom",
+                    "left": 50.8,
+                    "top": 1,
+                    "width": 48.4,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "school-scene",
+                "caption": "校园已选中。对照校园外景与室内教室，再核对。",
+                "regions": [
+                  {
+                    "id": "school-scene",
+                    "label": "校园",
+                    "labelPosition": "bottom",
+                    "left": 0.8,
+                    "top": 1,
+                    "width": 48.4,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "classroom",
+        "meaning": "教室",
+        "material": "The classroom looks brighter with new curtains.",
+        "before": "The ",
+        "after": " looks brighter with new curtains.",
+        "reason": "classroom由class和room组成，写成一个词。右边室内场景是教室，左边是校园外景。school可以指整所学校，classroom是其中的一间教室。",
+        "hint": "class + room → classroom。",
+        "ownForms": [
+          "classroom",
+          "classrooms"
+        ],
+        "options": [
+          {
+            "id": "classroom-scene",
+            "text": "The indoor room with desks and a board.",
+            "correct": true,
+            "reason": "教室是室内的学习空间；classroom是一个词。"
+          },
+          {
+            "id": "school-scene",
+            "text": "The outside view of the school grounds.",
+            "correct": false,
+            "reason": "这是校园外景；本题要找室内的教室。"
+          }
+        ]
+      },
+      {
+        "id": "student",
+        "label": "student：each后先用单数",
+        "prompt": "记录：每名学生各选一个主题。哪句数量和动词都合适？",
+        "wordDecision": {
+          "prompt": "记录：每名学生各选一个主题。哪句数量和动词都合适？",
+          "recordPaths": [
+            {
+              "id": "present",
+              "label": "现在的一般安排",
+              "steps": [
+                "each student",
+                "chooses"
+              ]
+            },
+            {
+              "id": "past",
+              "label": "过去的事",
+              "steps": [
+                "each student",
+                "chose"
+              ]
+            }
+          ]
+        },
+        "answer": "student",
+        "meaning": "学生",
+        "material": "Each student chose a different topic.",
+        "before": "Each ",
+        "after": " chose a different topic.",
+        "reason": "student可指中学生、大学生等。each student强调每一名学生；student用单数，若是一般现在时，动词也要配合。原例句chose是过去式，不要机械改成chooses。",
+        "hint": "each student chooses；昨天可说each student chose。",
+        "ownForms": [
+          "student",
+          "students"
+        ],
+        "options": [
+          {
+            "id": "each-students",
+            "text": "Each students chooses a topic.",
+            "correct": false,
+            "reason": "each后不能直接用复数students。"
+          },
+          {
+            "id": "each-student",
+            "text": "Each student chooses a topic.",
+            "correct": true,
+            "reason": "each后接单数student；一般现在时中主语是each student，动词用chooses。"
+          },
+          {
+            "id": "each-choose",
+            "text": "Each student choose a topic.",
+            "correct": false,
+            "reason": "主语each student是单数，动词应写chooses。"
+          }
+        ]
+      },
+      {
+        "id": "pupil",
+        "label": "pupil：学校里的学生，别用年龄一刀切",
+        "prompt": "记录：The youngest pupil read the first line. 哪项符合这里pupil的意思？",
+        "wordDecision": {
+          "prompt": "记录：The youngest pupil read the first line. 哪项符合这里pupil的意思？",
+          "recordPaths": [
+            {
+              "id": "school",
+              "label": "学校语境",
+              "steps": [
+                "youngest pupil",
+                "read the line",
+                "学生"
+              ]
+            },
+            {
+              "id": "eye",
+              "label": "眼部语境",
+              "steps": [
+                "the pupil of the eye",
+                "瞳孔"
+              ]
+            }
+          ]
+        },
+        "answer": "pupil",
+        "meaning": "小学生；学生",
+        "material": "The youngest pupil read the first line.",
+        "before": "The youngest ",
+        "after": " read the first line.",
+        "reason": "pupil在学校语境中是学生，常用于小学阶段，但不能说只允许指小学生。pupil也有瞳孔的意思；youngest pupil read...说的是学生在读。",
+        "hint": "看动作和上下文：pupil在这里指学生。",
+        "ownForms": [
+          "pupil",
+          "pupils"
+        ],
+        "options": [
+          {
+            "id": "teacher",
+            "text": "The person teaching the lesson.",
+            "correct": false,
+            "reason": "本句说pupil读第一行，并没有把这个人说成老师。"
+          },
+          {
+            "id": "learner",
+            "text": "A learner at a school.",
+            "correct": true,
+            "reason": "pupil在这里是学校里的学生，常用于小学学生，也可用于其他学校阶段。"
+          },
+          {
+            "id": "eye",
+            "text": "The dark opening in the centre of an eye.",
+            "correct": false,
+            "reason": "pupil还有瞳孔这一义项，但这里有youngest和read，是学生的语境。"
+          }
+        ]
+      },
+      {
+        "id": "teacher",
+        "label": "teacher：教的人，名词与动作分开",
+        "prompt": "句子Our ___ asked us to test the idea. 空格要填“老师”，哪项符合？",
+        "wordDecision": {
+          "prompt": "句子Our ___ asked us to test the idea. 空格要填“老师”，哪项符合？",
+          "recordPaths": [
+            {
+              "id": "role",
+              "label": "人和动作",
+              "steps": [
+                "Our teacher",
+                "asked us",
+                "test the idea"
+              ]
+            }
+          ]
+        },
+        "answer": "teacher",
+        "meaning": "教师",
+        "material": "Our teacher asked us to test the idea.",
+        "before": "Our ",
+        "after": " asked us to test the idea.",
+        "reason": "teach是教；teacher是教师。Our teacher asked...中teacher作名词，asked才是过去发生的动作。不要看到“教”就只填teach。",
+        "hint": "teach → teacher；teachers是多位老师。",
+        "ownForms": [
+          "teacher",
+          "teachers"
+        ],
+        "options": [
+          {
+            "id": "verb",
+            "text": "teach",
+            "correct": false,
+            "reason": "teach是动词原形，不能直接放在our后充当这里的“老师”。"
+          },
+          {
+            "id": "person",
+            "text": "teacher",
+            "correct": true,
+            "reason": "our后这里需要表示人的名词teacher。"
+          },
+          {
+            "id": "present",
+            "text": "teaches",
+            "correct": false,
+            "reason": "teaches是动词形式；这里不是给teach加第三人称单数。"
+          }
+        ]
+      },
+      {
+        "id": "headteacher",
+        "label": "headteacher：英美称呼在比较句中保留",
+        "prompt": "记录：In British English, the school head is often called the headteacher. 美式常用哪个对应称呼？",
+        "wordDecision": {
+          "prompt": "记录：In British English, the school head is often called the headteacher. 美式常用哪个对应称呼？",
+          "recordPaths": [
+            {
+              "id": "british",
+              "label": "英式",
+              "steps": [
+                "headteacher",
+                "学校负责人"
+              ]
+            },
+            {
+              "id": "american",
+              "label": "美式",
+              "steps": [
+                "principal",
+                "学校负责人"
+              ]
+            }
+          ]
+        },
+        "answer": "headteacher",
+        "meaning": "校长",
+        "material": "The headteacher welcomed our visitors at the gate.",
+        "before": "The ",
+        "after": " welcomed our visitors at the gate.",
+        "reason": "英式常用headteacher，美式常用principal。principal与principle不是同一个词：前者可指校长，后者是原则。这里是比较称呼，不是把所有teacher都替换成principal。",
+        "hint": "英式headteacher；美式principal。",
+        "ownForms": [
+          "headteacher",
+          "headteachers",
+          "principal",
+          "principals"
+        ],
+        "options": [
+          {
+            "id": "principle",
+            "text": "principle",
+            "correct": false,
+            "reason": "principle是原则，和principal只差一个字母，但不是校长。"
+          },
+          {
+            "id": "principal",
+            "text": "principal",
+            "correct": true,
+            "reason": "英式headteacher常对应美式principal，指学校负责人。"
+          },
+          {
+            "id": "pupil",
+            "text": "pupil",
+            "correct": false,
+            "reason": "pupil是学生，不是这里学校负责人的称呼。"
+          }
+        ]
+      },
+      {
+        "id": "lesson",
+        "label": "lesson：数一节课，two后用复数",
+        "prompt": "记录：今天有两节英语课。哪句符合数量？",
+        "wordDecision": {
+          "prompt": "记录：今天有两节英语课。哪句符合数量？",
+          "recordPaths": [
+            {
+              "id": "quantity",
+              "label": "数课程",
+              "steps": [
+                "two",
+                "English lessons",
+                "两节英语课"
+              ]
+            }
+          ]
+        },
+        "answer": "lesson",
+        "meaning": "课；一节课",
+        "material": "Today's lesson begins with a short puzzle.",
+        "before": "Today's ",
+        "after": " begins with a short puzzle.",
+        "reason": "lesson是一节课。one lesson、two lessons要配合数量。class在某些语境也能说一节课；本题比较的是lesson与classroom，不把两个近义词硬判成对错。",
+        "hint": "two lessons：两节课；two classrooms：两间教室。",
+        "ownForms": [
+          "lesson",
+          "lessons"
+        ],
+        "options": [
+          {
+            "id": "one-form",
+            "text": "We have two English lesson today.",
+            "correct": false,
+            "reason": "数量是two，lesson不能仍用单数。"
+          },
+          {
+            "id": "rooms",
+            "text": "We have two English classrooms today.",
+            "correct": false,
+            "reason": "classroom是教室，把两节课变成了两个房间。"
+          },
+          {
+            "id": "two-lessons",
+            "text": "We have two English lessons today.",
+            "correct": true,
+            "reason": "two后用复数lessons，表示两节英语课。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-school-tools-transfer",
+      "topicId": "v-course-school-tools",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan follows this new school visit note?",
+      "passage": "SCHOOL VISIT NOTE\nMs Lin, the headteacher, will welcome visitors at the gate at 8:40. Mr Chen, a teacher, will lead them to Classroom 6 at 8:50. His class has twenty-eight pupils. The first lesson begins at 9:00. Visitors can watch from the back, but they should not talk during the lesson. Student guides will take visitors to the office afterwards.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Meet Ms Lin at the gate at 8:40, then follow Mr Chen to Classroom 6 at 8:50."
+        },
+        {
+          "id": "b",
+          "text": "Meet Mr Chen at the gate at 8:40, then follow Ms Lin to Classroom 6."
+        },
+        {
+          "id": "c",
+          "text": "Talk with the pupils from the back while the lesson is in progress."
+        },
+        {
+          "id": "d",
+          "text": "Visit six classrooms before 9:00 because the note says Classroom 6."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Meet Ms Lin at the gate at 8:40, then follow Mr Chen to Classroom 6 at 8:50."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把人名、职责、地点和时间配对；地点编号不能当作数量。",
+        "steps": [
+          {
+            "text": "8:40在校门口迎接的是校长Ms Lin。",
+            "reason": "Ms Lin后面的the headteacher解释她的身份；welcome、gate和8:40属于同一安排。"
+          },
+          {
+            "text": "8:50由老师Mr Chen带到6号教室，9:00才开始上课。",
+            "reason": "第二句把Mr Chen、lead、Classroom 6和8:50配在一起。6是教室编号，不是要参观六间教室。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把两个人在这份安排中的任务对调了；并非说校长永远不能带路，而是本次记录另有分工。"
+          },
+          {
+            "option": "c",
+            "reason": "should not talk during the lesson明确要求上课时不要交谈。"
+          },
+          {
+            "option": "d",
+            "reason": "Classroom 6指6号教室；记录没有安排参观六间教室。"
+          }
+        ],
+        "pitfall": "身份词帮助认人，动词决定本次任务；别交换人名或把编号当数量。",
+        "visual": {
+          "kind": "evidence",
+          "title": "按本次安排认人、到位",
+          "segments": [
+            {
+              "text": "Ms Lin → headteacher → gate → 8:40",
+              "role": "evidence",
+              "note": "校长在门口迎接"
+            },
+            {
+              "text": "Mr Chen → teacher → Classroom 6 → 8:50",
+              "role": "evidence",
+              "note": "老师带路去6号教室"
+            },
+            {
+              "text": "9:00 → first lesson → do not talk",
+              "role": "object",
+              "note": "上课时间与参观要求"
+            },
+            {
+              "text": "Classroom 6 ≠ six classrooms",
+              "role": "evidence",
+              "note": "编号不是数量"
+            }
+          ],
+          "caption": "人名、时间和职责来自文字；不靠图片中的年龄、服装猜身份。"
+        },
+        "transfer": "如果欢迎来宾的人改为Mr Chen，哪条配对需要更新？不能只因他不是校长就否认新安排。"
+      }
+    }
+  }
+}
