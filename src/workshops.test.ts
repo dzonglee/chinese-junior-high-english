@@ -1049,11 +1049,11 @@ it('rejects invalid or incomplete picture evidence and maps labels without movin
  const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
 })
 it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
- for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5','l-v-course-home','l-v-course-home-2','l-v-course-home-3','l-v-course-home-4','l-v-course-home-5','l-v-course-school-tools','l-v-course-school-tools-2','l-v-course-school-tools-3','l-v-course-school-tools-4','l-v-course-school-tools-5','l-v-course-time','l-v-course-time-2','l-v-course-time-3','l-v-course-time-4','l-v-course-time-5','l-v-course-quantity']){
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5','l-v-course-home','l-v-course-home-2','l-v-course-home-3','l-v-course-home-4','l-v-course-home-5','l-v-course-school-tools','l-v-course-school-tools-2','l-v-course-school-tools-3','l-v-course-school-tools-4','l-v-course-school-tools-5','l-v-course-time','l-v-course-time-2','l-v-course-time-3','l-v-course-time-4','l-v-course-time-5','l-v-course-quantity','l-v-course-quantity-2']){
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
-   act('choose',good.id);act('input',item.answer);if(item.wordDecision?.clock)act('clock',String(item.wordDecision.clock.answer));if(item.wordDecision?.quantity){act('quantity','clear');for(let n=0;n<item.wordDecision.quantity.answer;n++)act('quantity','add')}if(item.wordDecision?.recordSelection){act('record-none');for(const row of item.wordDecision.recordSelection.rows.filter(r=>r.include))act('record-toggle',row.id)}act('check');expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).correct).toBe(true);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).selected).toBe(good.id)
+   act('choose',good.id);act('input',item.answer);if(item.wordDecision?.clock)act('clock',String(item.wordDecision.clock.answer));if(item.wordDecision?.ruler)act('ruler',String(item.wordDecision.ruler.answer));if(item.wordDecision?.quantity){act('quantity','clear');for(let n=0;n<item.wordDecision.quantity.answer;n++)act('quantity','add')}if(item.wordDecision?.recordSelection){act('record-none');for(const row of item.wordDecision.recordSelection.rows.filter(r=>r.include))act('record-toggle',row.id)}act('check');expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).correct).toBe(true);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).choices.map(o=>o.id)).toEqual(order);expect(workshopView(w,p).selected).toBe(good.id)
   }
   expect(new Set(positions).size).toBeGreaterThan(1);expect(positions.some(p=>p>0)).toBe(true);expect(JSON.stringify(w.items)).toBe(source)
  }
@@ -1265,4 +1265,27 @@ it('maps quantity labels by edition while preserving exact counts and image iden
  q.title='Favorite color';const uk=mapWorkshop(copy,t=>editionText(t,'british')).items[1].wordDecision!.quantity!
  expect(uk.title).toBe('Favourite colour');expect(uk.answer).toBe(q.answer);expect(uk.unitArt).toBe(q.unitArt)
  const bad=structuredClone(w);bad.items[1].wordDecision!.quantity!.limit=20;expect(workshopProblems(bad)).toContain('Invalid word quantity')
+})
+
+it('requires ruler position, meaning and spelling together and reopens changed distances without losing writing',()=>{
+ const s=studio('l-v-course-quantity-2'),w=s.mission!.workshop!,item=w.items[2],r=item.wordDecision!.ruler!;let p={...freshTeaching(s,1),step:1}
+ const act=(name:string,value='')=>{p=changeTeaching(s,p,'workshop-'+name,value,2)}
+ act('item','2');act('choose',item.options!.find(o=>o.correct)!.id);act('input',item.answer);act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toBe(r.wrong);expect(workshopView(w,p).choices.find(o=>o.selected)!.accepted).toBe(true)
+ for(const distance of r.choices){act('ruler',String(distance));act('check');expect(workshopView(w,p).correct).toBe(distance===10);expect(workshopView(w,p).complete).toBe(false)}
+ act('ruler','10');act('check');act('own','We left ten centimetres between the plant labels.');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('ruler','11');expect(workshopView(w,p).complete).toBe(false);p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).wordRuler!.reading).toBe('0 → 11 cm');expect(workshopView(w,p).own).toContain('ten centimetres')
+ const forged=structuredClone(p);forged.checked['workshop-2']=true;forged.completed.push('workshop-2');expect(workshopView(w,forged).complete).toBe(false);expect(workshopView(w,forged).tabs[2].done).toBe(false)
+ const before=JSON.stringify(p);for(const bad of ['10 ','010','16','-1']){act('ruler',bad);expect(JSON.stringify(p)).toBe(before)}
+ act('ruler','10');act('check');act('save');expect(workshopView(w,p).complete).toBe(true)
+ const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ const copy=structuredClone(w);copy.items[2].wordDecision!.ruler!.markerLabel='Favorite color';const mapped=mapWorkshop(copy,t=>editionText(t,'british'));expect(mapped.items[2].wordDecision!.ruler!.markerLabel).toBe('Favourite colour');expect(mapped.items[2].wordDecision!.ruler!.answer).toBe(10)
+ copy.items[2].wordDecision!.ruler!.choices=[10,10];expect(workshopProblems(copy)).toContain('Invalid word ruler')
+})
+it('counts whole additional jars and distinguishes remaining objects from stated totals in the second quantity lesson',()=>{
+ const s=studio('l-v-course-quantity-2'),w=s.mission!.workshop!;expect(workshopProblems(w)).toEqual([])
+ expect(w.items.map(i=>i.answer)).toEqual(['Eight','Nine','ten','eleven','twelve','Thirteen','fourteen','fifteen'])
+ expect(w.items.flatMap(i=>i.wordDecision?.quantity?[i.wordDecision.quantity.answer]:[])).toEqual([4,3,8,3,8,4])
+ expect(w.items[4].wordDecision!.quantity).toMatchObject({shape:'jar',unitArt:'count-unit-jar',answer:3,limit:6})
+ const bad=structuredClone(w);bad.items[4].wordDecision!.quantity!.unitArt=undefined;expect(workshopProblems(bad)).toContain('Invalid word quantity')
+ expect(s.transfer.passage).toContain('Each team plays once');expect(s.transfer.review).toBe('draft')
 })
