@@ -14,3 +14,5 @@ Use real buttons with accessible labels and pressed state, and retain browser ke
 The generated image supplies recognizable referents. It must not supply exact instructional
 labels or answers. Record every asset and inspect all initial and selected figures. When the
 question changes context, its written evidence takes precedence over a prior illustration.
+
+Optional `labelPosition: 'top' | 'bottom'` keeps the readable badge away from the subject. Bottom remains the default. Top uses the existing button flex layout in both renderers without shrinking its hit area. Inspect narrow-phone screenshots: a passing 44px target alone does not prove the pictured clue remains visible. The furniture lesson places badges in empty upper wall space so the cat under the bed remains visible. Invalid positions fail authoring validation.
