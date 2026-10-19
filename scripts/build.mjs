@@ -1,5 +1,6 @@
 import { build } from 'esbuild'
 import { createHash } from 'node:crypto'
+import { gzipSync, gunzipSync } from 'node:zlib'
 import { cpSync, copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { resolve, dirname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -47,7 +48,10 @@ for (const topic of catalog.topics) {
   if (Buffer.byteLength(text) > 1_500_000) throw new Error(`${topic.id} exceeds the content pack budget`)
   writeFileSync(resolve(distributionRoot, 'packs', file), text)
   if (!release) {
-    const moduleText = `module.exports = ${JSON.stringify(text)};\n`, bytes = Buffer.byteLength(moduleText)
+    const compressed = gzipSync(text, { level: 9 })
+    if (gunzipSync(compressed).toString('utf8') !== text) throw new Error(`${topic.id} compression changed its checked content`)
+    const stored = { encoding: 'gzip-hex-v1', byteLength: Buffer.byteLength(text), data: compressed.toString('hex') }
+    const moduleText = `module.exports = ${JSON.stringify(stored)};\n`, bytes = Buffer.byteLength(moduleText)
     if (bytes > nativeGroupBudget) throw new Error(`${topic.id} exceeds the native subpackage budget`)
     if (!nativeGroups.length || groupBytes + bytes > nativeGroupBudget) { nativeGroups.push(`content/group-${String(nativeGroups.length + 1).padStart(3, '0')}`); groupBytes = 0 }
     const group = nativeGroups[nativeGroups.length - 1], out = resolve(nativeRoot, group)

@@ -1049,7 +1049,7 @@ it('rejects invalid or incomplete picture evidence and maps labels without movin
  const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
 })
 it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
- for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3']){
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family']){
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
@@ -1090,4 +1090,22 @@ it('validates explicit own-use forms and maps their spelling without inventing n
  for(const forms of [null,'grow',[],['grow'],['grew','grown'],['grow','grow'],['grow','GROW'],['grow',' grew'],['grow','two words'],['grow',''],['grow',...Array.from({length:8},(_,i)=>'grows'+'x'.repeat(i))]]){const w=structuredClone(original);w.items[1].ownForms=forms as never;expect(workshopProblems(w)).toContain('Invalid own-use word forms')}
  const w=structuredClone(original);w.kind='proof';expect(workshopProblems(w)).toContain('Invalid own-use word forms')
  const us=structuredClone(original);us.items[0].answer='color';us.items[0].ownForms=['color','colors'];const uk=mapWorkshop(us,text=>editionText(text,'british'));expect(uk.items[0].ownForms).toEqual(['colour','colours']);expect(uk.items[0].id).toBe(us.items[0].id)
+})
+
+it('keeps family address capitalization and the maternal spelling consistent with each edition',()=>{
+ const lesson=c.lessons.find(l=>l.id==='l-v-course-family')!
+ for(const spelling of ['british','american'] as const){
+  const s=createLessonTeaching(c,lesson,spelling),w=s.mission!.workshop!,maternal=spelling==='british'?'Mum':'Mom'
+  expect(w.items[5].id).toBe('mum');expect(w.items[5].answer).toBe(maternal)
+  expect(w.items[5].material).toBe(`${maternal} left a note on the fridge.`)
+  expect(w.items[5].wordDecision!.prompt).toContain(`${maternal} left a note`)
+  for(const index of [4,5]){
+   let p={...freshTeaching(s,1),step:1};const item=w.items[index],act=(action:string,value='')=>{p=changeTeaching(s,p,'workshop-'+action,value,2)}
+   act('item',String(index));act('choose',item.options!.find(option=>option.correct)!.id)
+   act('input',item.answer.toLowerCase());act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).feedback).toContain('大小写')
+   act('input',item.answer);act('check');expect(workshopView(w,p).correct).toBe(true)
+   act('own',`My ${item.answer.toLowerCase()} helped me choose a new book.`);act('save');expect(workshopView(w,p).complete).toBe(true)
+   p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).complete).toBe(true)
+  }
+ }
 })
