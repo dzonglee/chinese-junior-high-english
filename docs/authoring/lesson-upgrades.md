@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **169 / 413**. Current: **l-v-course-feelings-4**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **170 / 413**. Current: **l-v-course-feelings-5**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -277,7 +277,7 @@ Completed: **169 / 413**. Current: **l-v-course-feelings-4**. Evidence lives in 
 | l-v-course-feelings | 感受、情绪与需要 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-feelings.md) |
 | l-v-course-feelings-2 | 感受、情绪与需要 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-feelings-2.md) |
 | l-v-course-feelings-3 | 感受、情绪与需要 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-feelings-3.md) |
-| l-v-course-feelings-4 | 感受、情绪与需要 · 4 | pending | — |
+| l-v-course-feelings-4 | 感受、情绪与需要 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-feelings-4.md) |
 | l-v-course-feelings-5 | 感受、情绪与需要 · 5 | pending | — |
 | l-v-course-character | 品格与相处方式 · 1 | pending | — |
 | l-v-course-character-2 | 品格与相处方式 · 2 | pending | — |
