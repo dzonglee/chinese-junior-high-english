@@ -38,3 +38,16 @@ it('validates exact bowl identities and colours while keeping object views neutr
  view.rows[0].object!.colour='white';expect(bowls.rows[0].object!.colour).toBe('blue')
  for(const invalid of [{...bowls,speakerId:'a'},{...bowls,quote:'Move them.'},{...bowls,layout:undefined},{...bowls,rows:bowls.rows.map(r=>({...r,object:undefined}))},{...bowls,rows:[{...bowls.rows[0],object:{shape:'cup',colour:'blue'}},bowls.rows[1]]},{...bowls,rows:[{...bowls.rows[0],object:{shape:'bowl',colour:'red'}},bowls.rows[1]]}])expect(validWordRecordSelection(invalid)).toBe(false)
 })
+it('allows either valid single choice without accepting both, none or noncanonical storage',()=>{
+ const entrances:WordRecordSelection={...records,selectionMode:'one',rows:[{id:'a',label:'A',text:'Open entrance.',include:true},{id:'b',label:'B',text:'Open entrance.',include:true},{id:'window',label:'Window',text:'Not an entrance.',include:false}]}
+ expect(validWordRecordSelection(entrances)).toBe(true)
+ for(const raw of ['a','b'])expect(wordRecordSelectionMatches(entrances,raw)).toBe(true)
+ for(const raw of ['', '@none','window','a|b','a|window','b|a','a|a','a|',' a','missing'])expect(wordRecordSelectionMatches(entrances,raw)).toBe(false)
+ expect(toggleWordRecord(entrances,'a','b')).toBe('a|b');expect(toggleWordRecord(entrances,'a|b','a')).toBe('b');expect(wordRecordSelectionMatches(entrances,'b')).toBe(true)
+ const view=wordRecordSelectionView(entrances,'@none');expect(view.noneLabel).toBe('都不选');expect(view.status).toBe('已选：都不选');expect(view.rows.every(r=>!('include' in r)&&!('correct' in r))).toBe(true)
+ expect(wordRecordSelectionMatches({...entrances,selectionMode:undefined},'a')).toBe(false);expect(wordRecordSelectionMatches({...entrances,selectionMode:undefined},'a|b')).toBe(true)
+})
+it('rejects an unknown selection mode or a supposed free choice with fewer than two valid alternatives',()=>{
+ for(const invalid of [{...records,selectionMode:'any'},{...records,selectionMode:1},{...records,selectionMode:'one',rows:records.rows.map(r=>({...r,include:false}))},{...records,selectionMode:'one',rows:records.rows.map((r,i)=>({...r,include:i===0}))}])expect(validWordRecordSelection(invalid)).toBe(false)
+ expect(validWordRecordSelection({...records,selectionMode:'one'})).toBe(true)
+})
