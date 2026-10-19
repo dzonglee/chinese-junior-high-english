@@ -1,0 +1,616 @@
+{
+  "lessonId": "l-v-course-quantity-3",
+  "reviewState": "draft",
+  "intent": "Individually authored number tasks with exact whole-chair units, two-session records, a clock and a labelled metre scale. Guided practice only; no independent or hearing credit.",
+  "picturePurpose": "A whole original chair supplies one counting unit; code draws every repeated chair and exact count. Students count chairs, never generated legs.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "读全数字，再分清总数和所问数量",
+    "instruction": "圈记录、摆数量、拨钟面、放终点；再把目标词填回原例句。",
+    "items": [
+      {
+        "id": "sixteen",
+        "label": "sixteen：总共能摆十六把，还差多少",
+        "prompt": "The table plan has places for sixteen chairs. Twelve chairs are already in position. How many more chairs are needed?",
+        "wordDecision": {
+          "prompt": "The table plan has places for sixteen chairs. Twelve chairs are already in position. How many more chairs are needed?",
+          "recordPaths": [
+            {
+              "id": "additional",
+              "label": "还需增加",
+              "steps": [
+                "16 chair places",
+                "12 in position",
+                "4 more chairs"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "只摆需要再加的椅子",
+            "unit": "chair",
+            "pluralUnit": "chairs",
+            "limit": 6,
+            "answer": 4,
+            "shape": "chair",
+            "hint": "每幅图是一把完整椅子；这里只摆还缺的数量。",
+            "wrong": "已有十二把，十六个位置还缺4把。",
+            "unitArt": "count-unit-chair"
+          }
+        },
+        "answer": "Sixteen",
+        "meaning": "十六；十六个",
+        "material": "Sixteen chairs fit around the long table.",
+        "before": "",
+        "after": " chairs fit around the long table.",
+        "reason": "sixteen是16，sixty是60。more chairs问还需增加的椅子，应算16−12=4；原例句说桌边能放的总数，仍填Sixteen。图中只摆需要再加的四把。",
+        "hint": "16 places − 12 chairs in position = 4 more。",
+        "options": [
+          {
+            "id": "sixteen",
+            "text": "Sixteen more chairs.",
+            "correct": false,
+            "reason": "十六是总数，不是还需增加的数量。"
+          },
+          {
+            "id": "four",
+            "text": "Four more chairs.",
+            "correct": true,
+            "reason": "十六个位置已有十二把椅子，还差四把。"
+          },
+          {
+            "id": "twelve",
+            "text": "Twelve more chairs.",
+            "correct": false,
+            "reason": "十二是已经摆好的数量；问题问还差多少。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "seventeen",
+        "label": "seventeen：两次收集，加起来才是总数",
+        "prompt": "The clean-up log says 8 bags in the morning and 9 in the afternoon. How many bags were collected in all?",
+        "wordDecision": {
+          "prompt": "The clean-up log says 8 bags in the morning and 9 in the afternoon. How many bags were collected in all?",
+          "recordPaths": [
+            {
+              "id": "sessions",
+              "label": "两次收集合计",
+              "steps": [
+                "morning: 8 bags",
+                "afternoon: 9 bags",
+                "total: 17 bags"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "圈出实际收集的两次记录",
+            "prompt": "只圈两次收集，不圈另写的合计。",
+            "rows": [
+              {
+                "id": "morning",
+                "label": "Morning",
+                "text": "Collected 8 bags.",
+                "include": true
+              },
+              {
+                "id": "afternoon",
+                "label": "Afternoon",
+                "text": "Collected 9 bags.",
+                "include": true
+              },
+              {
+                "id": "total",
+                "label": "Total",
+                "text": "17 bags in all.",
+                "include": false
+              }
+            ],
+            "hint": "上午、下午是两次收集；Total是它们的合计。",
+            "wrong": "应圈Collected 8 bags和Collected 9 bags；不要把Total再算一次。"
+          }
+        },
+        "answer": "seventeen",
+        "meaning": "十七；十七个",
+        "material": "We collected seventeen bags of litter.",
+        "before": "We collected ",
+        "after": " bags of litter.",
+        "reason": "seventeen表示17，可以按seven与teen记拼写。in all问总数，上午八袋加下午九袋是十七袋；表中的总数是两次收集合计，不能再加一次。",
+        "hint": "8 in the morning + 9 in the afternoon = 17 in all。",
+        "options": [
+          {
+            "id": "nine",
+            "text": "Nine bags.",
+            "correct": false,
+            "reason": "这只是下午收集的数量，没有包括上午八袋。"
+          },
+          {
+            "id": "eight",
+            "text": "Eight bags.",
+            "correct": false,
+            "reason": "这只是上午收集的数量，没有包括下午九袋。"
+          },
+          {
+            "id": "seventeen",
+            "text": "Seventeen bags.",
+            "correct": true,
+            "reason": "上午八袋、下午九袋，合计十七袋。"
+          }
+        ]
+      },
+      {
+        "id": "eighteen",
+        "label": "eighteen：十八人，每组六人",
+        "prompt": "Eighteen students choose the walking tour. Each group has six students. How many groups are needed?",
+        "wordDecision": {
+          "prompt": "Eighteen students choose the walking tour. Each group has six students. How many groups are needed?",
+          "recordPaths": [
+            {
+              "id": "groups",
+              "label": "人数与组数",
+              "steps": [
+                "18 students",
+                "6 in each group",
+                "3 groups"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "摆出步行游览的小组",
+            "unit": "group",
+            "pluralUnit": "groups",
+            "limit": 6,
+            "answer": 3,
+            "shape": "card",
+            "hint": "每张卡代表一组，不是一名学生。",
+            "wrong": "十八人每组六人，应摆3张小组卡。"
+          }
+        },
+        "answer": "Eighteen",
+        "meaning": "十八；十八个",
+        "material": "Eighteen students chose the walking tour.",
+        "before": "",
+        "after": " students chose the walking tour.",
+        "reason": "eighteen表示18，拼写只有一个t，不是eightteen。本题每组六人，用18÷6=3；题目中的students是人数，groups是组数。",
+        "hint": "18 students ÷ 6 students per group = 3 groups。",
+        "options": [
+          {
+            "id": "three",
+            "text": "Three groups.",
+            "correct": true,
+            "reason": "十八人，每组六人，共三组。"
+          },
+          {
+            "id": "six",
+            "text": "Six groups.",
+            "correct": false,
+            "reason": "六是每组人数，不是组数。"
+          },
+          {
+            "id": "twelve",
+            "text": "Twelve groups.",
+            "correct": false,
+            "reason": "这里要把十八人分组，不能只用十八减六。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "nineteen",
+        "label": "nineteen：先离开，再加入",
+        "prompt": "A group has nineteen members. Two leave, then two different people join. How many members are in the group now?",
+        "wordDecision": {
+          "prompt": "A group has nineteen members. Two leave, then two different people join. How many members are in the group now?",
+          "recordPaths": [
+            {
+              "id": "changes",
+              "label": "先减后加",
+              "steps": [
+                "19 members",
+                "2 leave → 17",
+                "2 join → 19"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "圈出人数变化的两步",
+            "prompt": "只圈发生变化的操作。",
+            "rows": [
+              {
+                "id": "start",
+                "label": "At first",
+                "text": "19 members in the group.",
+                "include": false
+              },
+              {
+                "id": "leave",
+                "label": "Change 1",
+                "text": "2 people leave.",
+                "include": true
+              },
+              {
+                "id": "join",
+                "label": "Change 2",
+                "text": "2 different people join.",
+                "include": true
+              }
+            ],
+            "hint": "起始人数不是一次变化；先离开，再加入。",
+            "wrong": "应圈2 people leave和2 different people join，两个变化都不能漏。"
+          }
+        },
+        "answer": "nineteen",
+        "meaning": "十九；十九个",
+        "material": "The final group arrived with nineteen members.",
+        "before": "The final group arrived with ",
+        "after": " members.",
+        "reason": "nineteen是19，保留nine末尾的e；ninety是90。人数先减少二再增加二，19−2+2=19。两次变化都要读，不能只算其中一次。",
+        "hint": "19 → −2 → 17 → +2 → 19。",
+        "options": [
+          {
+            "id": "seventeen",
+            "text": "Seventeen members.",
+            "correct": false,
+            "reason": "只扣掉离开的两人，漏掉后面新加入的两人。"
+          },
+          {
+            "id": "nineteen",
+            "text": "Nineteen members.",
+            "correct": true,
+            "reason": "十九减二再加二，仍为十九人。"
+          },
+          {
+            "id": "twenty-one",
+            "text": "Twenty-one members.",
+            "correct": false,
+            "reason": "只加新来的两人，漏掉前面离开的两人。"
+          }
+        ]
+      },
+      {
+        "id": "twenty",
+        "label": "twenty：有空位，也可能有人得等",
+        "prompt": "The stated room limit is twenty people. Seventeen are inside; four visitors are waiting. How many must keep waiting?",
+        "wordDecision": {
+          "prompt": "The stated room limit is twenty people. Seventeen are inside; four visitors are waiting. How many must keep waiting?",
+          "recordPaths": [
+            {
+              "id": "places",
+              "label": "还剩名额",
+              "steps": [
+                "20 stated places",
+                "17 inside",
+                "3 places left"
+              ]
+            },
+            {
+              "id": "wait",
+              "label": "仍须等候",
+              "steps": [
+                "4 waiting",
+                "3 enter",
+                "1 keeps waiting"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "只摆仍须等候的人",
+            "unit": "visitor",
+            "pluralUnit": "visitors",
+            "limit": 5,
+            "answer": 1,
+            "shape": "person",
+            "hint": "每个圆点代表一名访客；只摆仍须等候的人数。",
+            "wrong": "四位等候者中可进去三位，还有1位须等。"
+          }
+        },
+        "answer": "Twenty",
+        "meaning": "二十；二十个",
+        "material": "Twenty people can sit in this room.",
+        "before": "",
+        "after": " people can sit in this room.",
+        "reason": "twenty people表示二十人；the twentieth person表示第二十个人。题目给出的上限二十减已有十七，空三位；四位等候者中仍有4−3=1位须等。",
+        "hint": "20−17=3 can enter；4−3=1 still waiting。",
+        "options": [
+          {
+            "id": "three",
+            "text": "Three visitors.",
+            "correct": false,
+            "reason": "三是可进去的人数；问题问继续等候的数量。"
+          },
+          {
+            "id": "none",
+            "text": "No visitors.",
+            "correct": false,
+            "reason": "四人都进去会成二十一人，超过题目给出的二十人上限。"
+          },
+          {
+            "id": "one",
+            "text": "One visitor.",
+            "correct": true,
+            "reason": "还有三个名额，四位等候者可进去三位，另一位继续等。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "thirty",
+        "label": "thirty：三十分钟，不是十三分钟",
+        "prompt": "The rain starts at 11:10 and stops at 11:40 on Friday. How long do we wait?",
+        "wordDecision": {
+          "prompt": "The rain starts at 11:10 and stops at 11:40 on Friday. How long do we wait?",
+          "recordPaths": [
+            {
+              "id": "wait",
+              "label": "等待时长",
+              "steps": [
+                "Friday 11:10",
+                "+30 minutes",
+                "Friday 11:40"
+              ]
+            }
+          ],
+          "clock": {
+            "title": "从下雨时刻拨到停雨时刻",
+            "start": "11:10",
+            "days": [
+              "Friday",
+              "Saturday"
+            ],
+            "intervals": [
+              0,
+              13,
+              20,
+              30,
+              40
+            ],
+            "answer": 30,
+            "hint": "等到11:40；核对thirty与thirteen。",
+            "wrong": "11:10到11:40是30分钟；+13只到11:23。"
+          }
+        },
+        "answer": "thirty",
+        "meaning": "三十；三十个",
+        "material": "We waited thirty minutes for the rain to stop.",
+        "before": "We waited ",
+        "after": " minutes for the rain to stop.",
+        "reason": "thirty是30，thirteen是13，不能只看共同的thir。题目给出的时间从11:10到11:40，相隔三十分钟；11:40是结束钟点，不等于等了四十分钟。",
+        "hint": "11:10 + 30 minutes = 11:40；thirty ≠ thirteen。",
+        "options": [
+          {
+            "id": "thirty",
+            "text": "Thirty minutes.",
+            "correct": true,
+            "reason": "从11:10到11:40相隔三十分钟。"
+          },
+          {
+            "id": "thirteen",
+            "text": "Thirteen minutes.",
+            "correct": false,
+            "reason": "thirteen是13；11:10加十三分钟是11:23，还没到11:40。"
+          },
+          {
+            "id": "forty",
+            "text": "Forty minutes.",
+            "correct": false,
+            "reason": "forty是40；11:10加四十分钟是11:50，超过停止时刻。"
+          }
+        ]
+      },
+      {
+        "id": "forty",
+        "label": "forty：四十米，不能按图猜",
+        "prompt": "The path starts at 0 m and is forty metres long. Put its endpoint on the labelled scale. Which mark is right?",
+        "wordDecision": {
+          "prompt": "The path starts at 0 m and is forty metres long. Put its endpoint on the labelled scale. Which mark is right?",
+          "recordPaths": [
+            {
+              "id": "length",
+              "label": "按标注核对",
+              "steps": [
+                "start: 0 m",
+                "length: 40 m",
+                "end: 40 m"
+              ]
+            }
+          ],
+          "ruler": {
+            "title": "把路径终点放到正确刻度",
+            "end": 50,
+            "tickStep": 5,
+            "majorStep": 10,
+            "choices": [
+              10,
+              14,
+              20,
+              40,
+              50
+            ],
+            "answer": 40,
+            "unit": "m",
+            "startLabel": "Path start",
+            "markerLabel": "Path end",
+            "hint": "小刻度每格5 m，大刻度每格10 m；14 m落在10和15之间。",
+            "wrong": "forty表示40，从0 m量起，终点应在40 m。",
+            "emptyLabel": "路径终点还没定位"
+          }
+        },
+        "answer": "forty",
+        "meaning": "四十；四十个",
+        "material": "The path is forty metres long.",
+        "before": "The path is ",
+        "after": " metres long.",
+        "reason": "forty表示40，没有four中的u；fourteen表示14，保留u。题目明确长四十米，从0米量起，终点在40米。刻度和单位来自题目，不能用屏幕上的实际长度推断米数。",
+        "hint": "0 m → 40 m；forty不写成fourty。",
+        "options": [
+          {
+            "id": "fourteen",
+            "text": "14 m.",
+            "correct": false,
+            "reason": "fourteen是14，不是forty所表示的40。"
+          },
+          {
+            "id": "forty",
+            "text": "40 m.",
+            "correct": true,
+            "reason": "从0米量四十米，终点在40米刻度。"
+          },
+          {
+            "id": "fifty",
+            "text": "50 m.",
+            "correct": false,
+            "reason": "fifty是50，比题目给出的四十米多十米。"
+          }
+        ]
+      },
+      {
+        "id": "fifty",
+        "label": "fifty：一包十张，要几包",
+        "prompt": "Tickets are packed in bundles of ten. We need fifty tickets. How many full bundles are needed?",
+        "wordDecision": {
+          "prompt": "Tickets are packed in bundles of ten. We need fifty tickets. How many full bundles are needed?",
+          "recordPaths": [
+            {
+              "id": "bundles",
+              "label": "票数与包数",
+              "steps": [
+                "50 tickets",
+                "10 per bundle",
+                "5 bundles"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "摆出需要的票包",
+            "unit": "bundle",
+            "pluralUnit": "bundles",
+            "limit": 8,
+            "answer": 5,
+            "shape": "card",
+            "hint": "每张卡代表一包10张票；要准备合计50张票。",
+            "wrong": "每包十张，五十张票需要5包，不能摆成五十包。"
+          }
+        },
+        "answer": "Fifty",
+        "meaning": "五十；五十个",
+        "material": "Fifty tickets were sold before lunch.",
+        "before": "",
+        "after": " tickets were sold before lunch.",
+        "reason": "fifty表示50，不能写成fivety；fifteen表示15。题目每包十张，用50÷10=5，得到五包。图中每张卡代表一包十张，不是一张票。",
+        "hint": "50 tickets ÷ 10 tickets per bundle = 5 bundles。",
+        "options": [
+          {
+            "id": "fifty",
+            "text": "Fifty bundles.",
+            "correct": false,
+            "reason": "五十是票数；每包十张，不能把票数当包数。"
+          },
+          {
+            "id": "fifteen",
+            "text": "Fifteen bundles.",
+            "correct": false,
+            "reason": "fifteen是15包，按每包十张会有一百五十张票。"
+          },
+          {
+            "id": "five",
+            "text": "Five bundles.",
+            "correct": true,
+            "reason": "每包十张，五十张需要五包。"
+          }
+        ],
+        "caseSensitive": true
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-quantity-3-transfer",
+      "topicId": "v-course-quantity",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which summary follows the Friday note?",
+      "passage": "CLUB SETUP — FRIDAY NOTE\nThe table plan has places for sixteen chairs, and twelve chairs are already in position. Eighteen students will take the walking tour, with six in each group. The rain starts at 11:10 and stops at 11:40. We need fifty tickets, packed in bundles of ten.",
+      "options": [
+        {
+          "id": "a",
+          "text": "We need sixteen more chairs, and the rain lasts thirty minutes."
+        },
+        {
+          "id": "b",
+          "text": "We need four more chairs, and the rain lasts thirteen minutes."
+        },
+        {
+          "id": "c",
+          "text": "We need twelve more chairs, and the rain lasts thirty minutes."
+        },
+        {
+          "id": "d",
+          "text": "We need four more chairs, and the rain lasts thirty minutes."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "We need four more chairs, and the rain lasts thirty minutes."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找more所问的增加量，再用起止钟点核对时长。",
+        "steps": [
+          {
+            "text": "十六个椅位已有十二把椅子，仍需16−12=4把。",
+            "reason": "题目问more chairs，不能把总容量或已摆数量当成还需增加的数量。"
+          },
+          {
+            "text": "11:10到11:40相隔三十分钟，应读thirty，不是thirteen。",
+            "reason": "三十分钟加在起点11:10上，正好到11:40；十三分钟只到11:23。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "十六是总容量；已有十二把，只需再加四把。"
+          },
+          {
+            "option": "b",
+            "reason": "thirteen表示十三；11:10到11:40是三十分钟，应为thirty。"
+          },
+          {
+            "option": "c",
+            "reason": "十二是已摆数量，不是还需增加的数量；十六减十二才是四。"
+          }
+        ],
+        "pitfall": "more问增加量；钟点不等于时长。写全thirty/thirteen再核对数量。",
+        "visual": {
+          "kind": "timeline",
+          "title": "增加量与等待时长分别核对",
+          "segments": [
+            {
+              "text": "16 places − 12 chairs in position = 4 more chairs",
+              "role": "object",
+              "note": "只算还缺的椅子"
+            },
+            {
+              "text": "11:10 → +30 minutes → 11:40",
+              "role": "time",
+              "note": "同一天的三十分钟"
+            }
+          ],
+          "caption": "先区分总数、已有数和增加量；再算两个钟点之间的时长。"
+        },
+        "transfer": "若十六个位置已经摆了十四把椅子，还要加几把？若停雨时刻改为11:25，而起点仍是11:10，又等几分钟？"
+      }
+    }
+  }
+}

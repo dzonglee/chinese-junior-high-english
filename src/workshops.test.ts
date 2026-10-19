@@ -1049,7 +1049,7 @@ it('rejects invalid or incomplete picture evidence and maps labels without movin
  const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
 })
 it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
- for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5','l-v-course-home','l-v-course-home-2','l-v-course-home-3','l-v-course-home-4','l-v-course-home-5','l-v-course-school-tools','l-v-course-school-tools-2','l-v-course-school-tools-3','l-v-course-school-tools-4','l-v-course-school-tools-5','l-v-course-time','l-v-course-time-2','l-v-course-time-3','l-v-course-time-4','l-v-course-time-5','l-v-course-quantity','l-v-course-quantity-2']){
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2','l-v-course-family-3','l-v-course-family-4','l-v-course-family-5','l-v-course-home','l-v-course-home-2','l-v-course-home-3','l-v-course-home-4','l-v-course-home-5','l-v-course-school-tools','l-v-course-school-tools-2','l-v-course-school-tools-3','l-v-course-school-tools-4','l-v-course-school-tools-5','l-v-course-time','l-v-course-time-2','l-v-course-time-3','l-v-course-time-4','l-v-course-time-5','l-v-course-quantity','l-v-course-quantity-2','l-v-course-quantity-3']){
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
@@ -1288,4 +1288,28 @@ it('counts whole additional jars and distinguishes remaining objects from stated
  expect(w.items[4].wordDecision!.quantity).toMatchObject({shape:'jar',unitArt:'count-unit-jar',answer:3,limit:6})
  const bad=structuredClone(w);bad.items[4].wordDecision!.quantity!.unitArt=undefined;expect(workshopProblems(bad)).toContain('Invalid word quantity')
  expect(s.transfer.passage).toContain('Each team plays once');expect(s.transfer.review).toBe('draft')
+})
+
+it('teaches additional chairs, two sessions, capacity, elapsed time and bundles in the third quantity lesson',()=>{
+ const s=studio('l-v-course-quantity-3'),w=s.mission!.workshop!;expect(workshopProblems(w)).toEqual([])
+ expect(w.items.map(i=>i.answer)).toEqual(['Sixteen','seventeen','Eighteen','nineteen','Twenty','thirty','forty','Fifty'])
+ expect(w.items.flatMap(i=>i.wordDecision?.quantity?[i.wordDecision.quantity.answer]:[])).toEqual([4,3,1,5])
+ expect(w.items[0].wordDecision!.quantity).toMatchObject({shape:'chair',unitArt:'count-unit-chair',answer:4,limit:6})
+ const bad=structuredClone(w);bad.items[0].wordDecision!.quantity!.unitArt=undefined;expect(workshopProblems(bad)).toContain('Invalid word quantity')
+ expect(w.items[1].wordDecision!.recordSelection!.rows.filter(r=>r.include).map(r=>r.id)).toEqual(['morning','afternoon'])
+ expect(w.items[3].wordDecision!.recordSelection!.rows.filter(r=>r.include).map(r=>r.id)).toEqual(['leave','join'])
+ expect(w.items[5].wordDecision!.clock).toMatchObject({start:'11:10',answer:30,intervals:[0,13,20,30,40]})
+ expect(s.transfer.passage).toContain('twelve chairs are already in position');expect(s.transfer.review).toBe('draft')
+})
+it('preserves an off-tick fourteen-metre attempt and requires forty before saving the larger-scale task',()=>{
+ const s=studio('l-v-course-quantity-3'),w=s.mission!.workshop!,item=w.items[6];let p={...freshTeaching(s,1),step:1}
+ const act=(name:string,value='')=>{p=changeTeaching(s,p,'workshop-'+name,value,2)}
+ act('item','6');act('choose',item.options!.find(o=>o.correct)!.id);act('input',item.answer);act('ruler','14');act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).wordRuler!.markerStyle).toBe('left:28%;')
+ p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).wordRuler!.reading).toBe('0 → 14 m')
+ act('ruler','40');act('check');expect(workshopView(w,p).correct).toBe(true);act('own','The path beside our school is forty meters long.');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('ruler','50');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).wordRuler!.markerStyle).toBe('left:100%;')
+ const forged=structuredClone(p);forged.checked['workshop-6']=true;forged.completed.push('workshop-6');expect(workshopView(w,forged).complete).toBe(false)
+ act('ruler','40');act('check');expect(workshopView(w,p).own).toContain('forty meters');act('save');expect(workshopView(w,p).complete).toBe(true)
+ const uk=mapWorkshop(w,t=>editionText(t,'british')),us=mapWorkshop(w,t=>editionText(t,'american'));expect(uk.items[6].material).toContain('metres');expect(us.items[6].material).toContain('meters');expect(us.items[6].wordDecision!.ruler!.emptyLabel).toBe('路径终点还没定位');expect(us.items[6].wordDecision!.ruler!.tickStep).toBe(5)
+ const state=checkedState(JSON.stringify({...emptyState(1),teaching:{[s.lessonId]:p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
 })
