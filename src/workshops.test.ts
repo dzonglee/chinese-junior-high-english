@@ -1049,7 +1049,7 @@ it('rejects invalid or incomplete picture evidence and maps labels without movin
  const us=structuredClone(original),e=us.items[3].wordDecision!.art!.evidence![0];e.caption='Compare the color.';e.regions[0].label='favorite color';const uk=mapWorkshop(us,text=>editionText(text,'british')),mapped=uk.items[3].wordDecision!.art!.evidence![0];expect(mapped.caption).toBe('Compare the colour.');expect(mapped.regions[0].label).toBe('favourite colour');expect(mapped.option).toBe(e.option);expect(mapped.regions[0].left).toBe(e.regions[0].left);expect(mapped.regions[0].id).toBe(e.regions[0].id)
 })
 it('varies semantic answer positions while keeping each task stable through checks and restoration',()=>{
- for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family']){
+ for(const id of ['l-v-school','l-v-school-2','l-v-school-3','l-v-daily','l-v-daily-2','l-v-daily-3','l-v-community','l-v-community-2','l-v-community-3','l-v-nature','l-v-nature-2','l-v-nature-3','l-v-course-family','l-v-course-family-2']){
   const s=studio(id),w=s.mission!.workshop!,source=JSON.stringify(w.items),positions=[]
   for(const[index,item]of w.items.entries()){
    let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)};act('item',String(index));const good=item.options!.find(o=>o.correct)!,order=workshopView(w,p).choices.map(o=>o.id);positions.push(order.indexOf(good.id));expect(new Set(order)).toEqual(new Set(item.options!.map(o=>o.id)))
@@ -1108,4 +1108,25 @@ it('keeps family address capitalization and the maternal spelling consistent wit
    p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).complete).toBe(true)
   }
  }
+})
+
+it('shows the same written relationship records after either claim without granting answer or completion credit',()=>{
+ const s=studio('l-v-course-family-2'),w=s.mission!.workshop!;let p={...freshTeaching(s,1),step:1};const act=(a:string,value='')=>{p=changeTeaching(s,p,'workshop-'+a,value,2)}
+ const item=w.items[0],good=item.options!.find(o=>o.correct)!,wrong=item.options!.find(o=>!o.correct)!,records=structuredClone(item.wordDecision!.recordPaths)
+ expect(workshopView(w,p).wordRecordPaths).toEqual([])
+ act('input',item.answer);act('choose',wrong.id);expect(workshopView(w,p).wordRecordPaths).toEqual(records);act('check');expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).complete).toBe(false)
+ p=restoreTeaching(s,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).wordRecordPaths).toEqual(records)
+ act('choose',good.id);expect(workshopView(w,p).wordRecordPaths).toEqual(records);expect(workshopView(w,p).correct).toBe(false);expect(workshopView(w,p).choices.some(o=>o.accepted)).toBe(false)
+ act('check');expect(workshopView(w,p).correct).toBe(true);expect(workshopView(w,p).complete).toBe(false)
+ act('own','My grandfather grows tomatoes in his garden.');act('save');expect(workshopView(w,p).complete).toBe(true)
+ act('choose',wrong.id);expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).wordRecordPaths).toEqual(records)
+ act('item','4');expect(workshopView(w,p).wordRecordPaths).toEqual([]);expect(item.wordDecision!.recordPaths).toEqual(records)
+})
+it('strictly bounds written record paths and maps their text while preserving persisted ids and source records',()=>{
+ const original=studio('l-v-course-family-2').mission!.workshop!;expect(workshopProblems(original)).toEqual([])
+ const variants:unknown[]=[null,{},[],[null],Array(4).fill({id:'a',label:'record',steps:['a','b']}),[{id:'a',label:'record',steps:['a','b']},{id:'a',label:'other',steps:['c','d']}],...[{id:'../bad'},{id:'x'.repeat(41)},{label:' '},{label:' record'},{label:'x'.repeat(41)},{steps:null},{steps:['one']},{steps:['a','b','c','d','e']},{steps:['a',null]},{steps:['a',' b']},{steps:['a','x'.repeat(61)]}].map(change=>[{id:'a',label:'record',steps:['a','b'],...change}])]
+ for(const paths of variants){const w=structuredClone(original);w.items[0].wordDecision!.recordPaths=paths as never;expect(workshopProblems(w)).toContain('Invalid word record paths')}
+ const us=structuredClone(original),path=us.items[0].wordDecision!.recordPaths![0];path.label='Favorite color';path.steps=['Lin','her favorite color'];const uk=mapWorkshop(us,text=>editionText(text,'british'))
+ expect(uk.items[0].wordDecision!.recordPaths![0]).toEqual({id:path.id,label:'Favourite colour',steps:['Lin','her favourite colour']});expect(path.label).toBe('Favorite color');expect(uk.items[0].options!.map(o=>o.id)).toEqual(us.items[0].options!.map(o=>o.id))
+ const proof=structuredClone(original);proof.kind='proof';expect(workshopProblems(proof)).toContain('Invalid word record paths')
 })
