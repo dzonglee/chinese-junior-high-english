@@ -1,0 +1,632 @@
+{
+  "lessonId": "l-v-course-time",
+  "reviewState": "draft",
+  "intent": "Individually authored time-unit, frequency, calendar and picture tasks; all schedules original. No independent mastery or audio credit.",
+  "picturePurpose": "Original day and night views support an actual daylight recognition task. Exact times, durations, calendar dates and repetitions come from written records and code diagrams, never generated pixels.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "辨清时间和次数，沿计划推钟点",
+    "instruction": "先读单位和上下文，再选线索、补词并写自己的例子。最后沿活动顺序推时间，单独数每周的次数。",
+    "items": [
+      {
+        "id": "time",
+        "label": "time：数次数，还是留时间？",
+        "prompt": "记录：I checked the answer three times. 这里three times说的是什么？",
+        "wordDecision": {
+          "prompt": "记录：I checked the answer three times. 这里three times说的是什么？",
+          "recordPaths": [
+            {
+              "id": "duration",
+              "label": "时间",
+              "steps": [
+                "leave time",
+                "留出时间"
+              ]
+            },
+            {
+              "id": "repeat",
+              "label": "次数",
+              "steps": [
+                "three times",
+                "检查三次",
+                "总用时未知"
+              ]
+            }
+          ]
+        },
+        "answer": "time",
+        "meaning": "时间；次数",
+        "material": "Leave time to check your spelling.",
+        "before": "Leave ",
+        "after": " to check your spelling.",
+        "reason": "Leave time中time表示时间，通常不可数；three times中times表示三次。time还可作动词“计时”，如timed、timing。检查了三次，不等于用时三分钟。",
+        "hint": "leave time：留时间；three times：三次。",
+        "ownForms": [
+          "time",
+          "times",
+          "timed",
+          "timing"
+        ],
+        "options": [
+          {
+            "id": "minutes",
+            "text": "A total of three minutes.",
+            "correct": false,
+            "reason": "次数不等于分钟数；这句没有给出每次用时。"
+          },
+          {
+            "id": "repeats",
+            "text": "Three separate checks of the answer.",
+            "correct": true,
+            "reason": "three times表示检查了三次。"
+          },
+          {
+            "id": "clock",
+            "text": "At three o'clock.",
+            "correct": false,
+            "reason": "three times不表示三点钟。"
+          }
+        ]
+      },
+      {
+        "id": "second",
+        "label": "second：时间单位和顺序分开读",
+        "prompt": "记录：Wait for five seconds. 这条要求是什么？",
+        "wordDecision": {
+          "prompt": "记录：Wait for five seconds. 这条要求是什么？",
+          "recordPaths": [
+            {
+              "id": "unit",
+              "label": "时长",
+              "steps": [
+                "five seconds",
+                "五秒"
+              ]
+            },
+            {
+              "id": "order",
+              "label": "顺序",
+              "steps": [
+                "the second runner",
+                "第二名跑者"
+              ]
+            }
+          ]
+        },
+        "answer": "second",
+        "meaning": "秒；第二",
+        "material": "The light flashes once every second.",
+        "before": "The light flashes once every ",
+        "after": ".",
+        "reason": "second可表示秒，也可表示第二。five seconds说时长；the second runner说第二名跑者。原句every second中的every后接单数，不能据此把five seconds也写成单数。",
+        "hint": "every second：每秒；five seconds：五秒；the second：第二。",
+        "ownForms": [
+          "second",
+          "seconds"
+        ],
+        "options": [
+          {
+            "id": "duration",
+            "text": "Wait for a period of five seconds.",
+            "correct": true,
+            "reason": "five seconds用复数，表示五秒的时长。"
+          },
+          {
+            "id": "order",
+            "text": "Be the fifth person in the line.",
+            "correct": false,
+            "reason": "seconds在这里是时间单位，不是排队顺序。"
+          },
+          {
+            "id": "minutes",
+            "text": "Wait for five minutes.",
+            "correct": false,
+            "reason": "seconds不是minutes；一分钟有六十秒。"
+          }
+        ]
+      },
+      {
+        "id": "minute",
+        "label": "minute：这一分钟，到底是多少秒？",
+        "prompt": "本条计时规则明确写着：You have exactly one minute. How many seconds do you have?",
+        "wordDecision": {
+          "prompt": "本条计时规则明确写着：You have exactly one minute. How many seconds do you have?",
+          "recordPaths": [
+            {
+              "id": "exact",
+              "label": "精确计时",
+              "steps": [
+                "exactly one minute",
+                "60 seconds"
+              ]
+            },
+            {
+              "id": "speech",
+              "label": "日常口语",
+              "steps": [
+                "in a minute",
+                "可能指马上"
+              ]
+            }
+          ]
+        },
+        "answer": "minute",
+        "meaning": "分钟",
+        "material": "The water will be ready in a minute.",
+        "before": "The water will be ready in a ",
+        "after": ".",
+        "reason": "这条规则明确限定exactly one minute，所以是六十秒。日常说in a minute也可能只是“马上”，不能把所有口语都当精确计时。minutes是复数。",
+        "hint": "exactly one minute = 60 seconds；in a minute有时表示“马上”。",
+        "ownForms": [
+          "minute",
+          "minutes"
+        ],
+        "options": [
+          {
+            "id": "six",
+            "text": "Six seconds.",
+            "correct": false,
+            "reason": "不是六秒；minute和second的换算是六十进制。"
+          },
+          {
+            "id": "sixty",
+            "text": "Sixty seconds.",
+            "correct": true,
+            "reason": "明确的一分钟等于六十秒。"
+          },
+          {
+            "id": "hundred",
+            "text": "One hundred seconds.",
+            "correct": false,
+            "reason": "分钟不是一百秒。"
+          }
+        ]
+      },
+      {
+        "id": "hour",
+        "label": "hour：一小时半，先换成分钟",
+        "prompt": "记录：The walk took an hour and a half. How long was the walk?",
+        "wordDecision": {
+          "prompt": "记录：The walk took an hour and a half. How long was the walk?",
+          "recordPaths": [
+            {
+              "id": "whole",
+              "label": "一小时",
+              "steps": [
+                "1 hour",
+                "60 minutes"
+              ]
+            },
+            {
+              "id": "half",
+              "label": "加上半小时",
+              "steps": [
+                "half an hour",
+                "30 minutes"
+              ]
+            },
+            {
+              "id": "total",
+              "label": "合起来",
+              "steps": [
+                "60 + 30",
+                "90 minutes"
+              ]
+            }
+          ]
+        },
+        "answer": "hour",
+        "meaning": "小时",
+        "material": "The walk took an hour and a half.",
+        "before": "The walk took an ",
+        "after": " and a half.",
+        "reason": "an hour and a half是一小时半，也可说one and a half hours。hour的h不发音，所以用an hour；这里是文字说明，没有播放或计入听辨证据。",
+        "hint": "an hour and a half = 60 + 30 = 90 minutes。",
+        "ownForms": [
+          "hour",
+          "hours"
+        ],
+        "options": [
+          {
+            "id": "ninety",
+            "text": "Ninety minutes.",
+            "correct": true,
+            "reason": "一小时六十分钟，加半小时三十分钟，合计九十分钟。"
+          },
+          {
+            "id": "sixty",
+            "text": "Sixty minutes.",
+            "correct": false,
+            "reason": "只算了一小时，漏掉and a half。"
+          },
+          {
+            "id": "onehalf",
+            "text": "One and a half minutes.",
+            "correct": false,
+            "reason": "把hour的单位换成了minute，时长不同。"
+          }
+        ]
+      },
+      {
+        "id": "day",
+        "label": "day：白天的场景，不等于一天的时长",
+        "prompt": "原创记录：We use the courtyard during the day, while the sun is up. 点符合记录的场景。",
+        "wordDecision": {
+          "prompt": "原创记录：We use the courtyard during the day, while the sun is up. 点符合记录的场景。",
+          "recordPaths": [
+            {
+              "id": "daylight",
+              "label": "本题场景",
+              "steps": [
+                "during the day",
+                "while the sun is up"
+              ]
+            },
+            {
+              "id": "whole",
+              "label": "另一种用法",
+              "steps": [
+                "a whole day",
+                "一整天"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-day-night-school",
+            "alt": "同一学校庭院的原创昼夜对照。左边蓝天日光明亮，右边深蓝夜空中有月牙，楼内亮灯。没有钟面、数字或文字；不根据图推断钟点、白昼时长或庭院面积。",
+            "targets": [
+              {
+                "id": "day-scene",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "day-scene"
+              },
+              {
+                "id": "night-scene",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 50.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "night-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "day-scene",
+                "caption": "左图已选中。先辨昼夜，再核对during the day这条记录。",
+                "regions": [
+                  {
+                    "id": "day-scene",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "night-scene",
+                "caption": "右图已选中。先辨昼夜，再核对during the day这条记录。",
+                "regions": [
+                  {
+                    "id": "night-scene",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 50.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "day",
+        "meaning": "天；白天",
+        "material": "We spent a whole day by the lake.",
+        "before": "We spent a whole ",
+        "after": " by the lake.",
+        "reason": "day可指一天，也可指白天。本题during the day由while the sun is up限定白天；a whole day则说一整天。图片只能支持昼夜场景，不能推出钟点或白昼的小时数。",
+        "hint": "during the day：在白天；a whole day：一整天。",
+        "ownForms": [
+          "day",
+          "days"
+        ],
+        "options": [
+          {
+            "id": "day-scene",
+            "text": "The school courtyard in daylight.",
+            "correct": true,
+            "reason": "左图日光明亮，符合这条记录的during the day。"
+          },
+          {
+            "id": "night-scene",
+            "text": "The school courtyard at night.",
+            "correct": false,
+            "reason": "右图是夜间，不符合记录指定的白天。"
+          }
+        ]
+      },
+      {
+        "id": "week",
+        "label": "week：每周一次，四个完整周有几次？",
+        "prompt": "原创安排：One check each week, over four complete weeks. 每周严格一次，共要做几次？",
+        "wordDecision": {
+          "prompt": "原创安排：One check each week, over four complete weeks. 每周严格一次，共要做几次？",
+          "recordPaths": [
+            {
+              "id": "frequency",
+              "label": "每周频率",
+              "steps": [
+                "one check",
+                "each week"
+              ]
+            },
+            {
+              "id": "total",
+              "label": "四周合计",
+              "steps": [
+                "4 complete weeks",
+                "4 checks"
+              ]
+            }
+          ]
+        },
+        "answer": "week",
+        "meaning": "星期；周",
+        "material": "Return the tools by the end of the week.",
+        "before": "Return the tools by the end of the ",
+        "after": ".",
+        "reason": "once a week说每周一次。题目明确四个完整周、每周严格一次，所以四次。by the end of the week表示最迟到本周结束；不要把频率、时长和截止时间混在一起。",
+        "hint": "once a week × four complete weeks → four checks。",
+        "ownForms": [
+          "week",
+          "weeks"
+        ],
+        "options": [
+          {
+            "id": "four",
+            "text": "Four checks.",
+            "correct": true,
+            "reason": "四个完整周，每周一次，共四次。"
+          },
+          {
+            "id": "twentyeight",
+            "text": "Twenty-eight checks.",
+            "correct": false,
+            "reason": "把每周一次误读成每天一次。"
+          },
+          {
+            "id": "one",
+            "text": "Only one check in total.",
+            "correct": false,
+            "reason": "once a week是每周一次，不是整个计划只做一次。"
+          }
+        ]
+      },
+      {
+        "id": "month",
+        "label": "month：日历月，不能总当四周",
+        "prompt": "原创日期：The project runs from 1 April to 1 May in the same year. Which description fits this interval?",
+        "wordDecision": {
+          "prompt": "原创日期：The project runs from 1 April to 1 May in the same year. Which description fits this interval?",
+          "recordPaths": [
+            {
+              "id": "calendar",
+              "label": "本题日历",
+              "steps": [
+                "1 April",
+                "1 May",
+                "one month"
+              ]
+            },
+            {
+              "id": "contrast",
+              "label": "对照周数",
+              "steps": [
+                "four weeks",
+                "28 days",
+                "不是这个完整4月"
+              ]
+            }
+          ]
+        },
+        "answer": "month",
+        "meaning": "月",
+        "material": "We measure the young tree once a month.",
+        "before": "We measure the young tree once a ",
+        "after": ".",
+        "reason": "month是日历月，months是复数。这个4月有三十天；其他月份天数可能不同。不能把所有月份固定换成四周或三十天。once a month表示每月一次。",
+        "hint": "1 April → 1 May：1 calendar month；4 weeks = 28 days。",
+        "ownForms": [
+          "month",
+          "months"
+        ],
+        "options": [
+          {
+            "id": "month",
+            "text": "One calendar month.",
+            "correct": true,
+            "reason": "从4月1日到同年5月1日是一个日历月。"
+          },
+          {
+            "id": "fourweeks",
+            "text": "Exactly four weeks.",
+            "correct": false,
+            "reason": "4月有30天，四周是28天，两者不同。"
+          },
+          {
+            "id": "year",
+            "text": "One full year.",
+            "correct": false,
+            "reason": "两个日期只隔一个月，不是一年。"
+          }
+        ]
+      },
+      {
+        "id": "year",
+        "label": "year：一年一次，数清实际记录",
+        "prompt": "原创记录：The event was held once in 2024, once in 2025 and once in 2026. How many events are recorded?",
+        "wordDecision": {
+          "prompt": "原创记录：The event was held once in 2024, once in 2025 and once in 2026. How many events are recorded?",
+          "recordPaths": [
+            {
+              "id": "events",
+              "label": "逐条数活动",
+              "steps": [
+                "2024: one",
+                "2025: one",
+                "2026: one"
+              ]
+            },
+            {
+              "id": "notage",
+              "label": "不要混成校龄",
+              "steps": [
+                "活动记录",
+                "没有建校日期"
+              ]
+            }
+          ]
+        },
+        "answer": "year",
+        "meaning": "年",
+        "material": "The school celebrates its birthday every year.",
+        "before": "The school celebrates its birthday every ",
+        "after": ".",
+        "reason": "every year表示每年，this year表示今年，前面通常不加in。三个年份各一次是三次活动；年份相减得到的间隔不能替代活动次数，也不能据此断定学校的年龄。",
+        "hint": "2024一次 + 2025一次 + 2026一次 → 3 events。",
+        "ownForms": [
+          "year",
+          "years"
+        ],
+        "options": [
+          {
+            "id": "three",
+            "text": "Three events.",
+            "correct": true,
+            "reason": "三个年份各记录一次，共三次。"
+          },
+          {
+            "id": "two",
+            "text": "Two events.",
+            "correct": false,
+            "reason": "2026减2024得到两个年份间隔，不是列出的活动次数。"
+          },
+          {
+            "id": "thirtysix",
+            "text": "Thirty-six events.",
+            "correct": false,
+            "reason": "没有每月一次的安排，不能按三十六个月数活动。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-time-transfer",
+      "topicId": "v-course-time",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which set of times and checks follows this activity plan?",
+      "passage": "FRIDAY ACTIVITY PLAN\nOn Friday, start checking the spelling cards in the school hall at 14:20. Spend exactly ten minutes on the cards. Start the walk as soon as the checking time ends. The walk takes an hour and a half and ends in the school courtyard. For our separate plant project, make exactly one check each week for four complete weeks. These are original practice arrangements, not a real school notice.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Start the walk at 14:20, finish at 15:50, and make four plant checks."
+        },
+        {
+          "id": "b",
+          "text": "Start the walk at 14:30, finish at 16:00, and make four plant checks."
+        },
+        {
+          "id": "c",
+          "text": "Start the walk at 14:30, finish at 15:30, and make four plant checks."
+        },
+        {
+          "id": "d",
+          "text": "Start the walk at 14:30, finish at 16:00, and make twenty-eight plant checks."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Start the walk at 14:30, finish at 16:00, and make four plant checks."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先按先后顺序推时间，再单独计算每周活动的次数。",
+        "steps": [
+          {
+            "text": "14:20检查十分钟，14:30开始步行；走九十分钟，到16:00结束。",
+            "reason": "步行在检查结束后才开始。一小时半是六十加三十，共九十分钟：14:30到15:30一小时，再到16:00半小时。"
+          },
+          {
+            "text": "植物项目四个完整周，每周一次，共四次。",
+            "reason": "once each week限定每周一次。这个频率不能改成每天一次，也不改变周五步行的起止时间。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把14:20的检查开始时间当成步行开始时间，漏掉前面的十分钟。"
+          },
+          {
+            "option": "c",
+            "reason": "只给步行留了一小时，漏掉an hour and a half中的半小时。"
+          },
+          {
+            "option": "d",
+            "reason": "把每周一次读成每天一次，错误地算成二十八次。"
+          }
+        ],
+        "pitfall": "钟点、时长和次数分开读；先完成前一项，再推下一项的时间。",
+        "visual": {
+          "kind": "timeline",
+          "title": "沿着计划推时间，另外数周次",
+          "segments": [
+            {
+              "text": "14:20 + 10 minutes → 14:30",
+              "role": "time",
+              "note": "检查结束才开始步行"
+            },
+            {
+              "text": "14:30 + 60 + 30 minutes → 16:00",
+              "role": "time",
+              "note": "一小时半是九十分钟"
+            },
+            {
+              "text": "1 check each week × 4 complete weeks → 4 checks",
+              "role": "evidence",
+              "note": "每周频率，单独计算"
+            }
+          ],
+          "caption": "所有钟点、时长和次数都来自原创文字计划；日夜图不提供精确时间。"
+        },
+        "transfer": "如果检查卡片改为二十分钟，步行仍是一小时半，步行几点开始、几点结束？植物项目的次数要改吗？"
+      }
+    }
+  }
+}

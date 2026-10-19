@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **146 / 413**. Current: **l-v-course-time**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **147 / 413**. Current: **l-v-course-time-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -154,7 +154,7 @@ Completed: **146 / 413**. Current: **l-v-course-time**. Evidence lives in docs/r
 | l-v-course-school-tools-3 | 校园与学习用品 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-school-tools-3.md) |
 | l-v-course-school-tools-4 | 校园与学习用品 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-school-tools-4.md) |
 | l-v-course-school-tools-5 | 校园与学习用品 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-school-tools-5.md) |
-| l-v-course-time | 时间与生活节奏 · 1 | pending | — |
+| l-v-course-time | 时间与生活节奏 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-time.md) |
 | l-v-course-time-2 | 时间与生活节奏 · 2 | pending | — |
 | l-v-course-time-3 | 时间与生活节奏 · 3 | pending | — |
 | l-v-course-time-4 | 时间与生活节奏 · 4 | pending | — |
