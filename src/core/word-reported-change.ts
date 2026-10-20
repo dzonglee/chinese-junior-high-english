@@ -1,0 +1,8 @@
+/** Qualitative direction reported by a sentence; no measured amount or personality inference. */
+export interface WordReportedChange {title:string;label:string;event:string;answer:'more'|'less';hint:string;wrong:string}
+export interface WordReportedChangeView {title:string;label:string;event:string;hint:string;choice:string;chosen:boolean;symbol:string;description:string;choices:{id:string;label:string;selected:boolean}[]}
+export const wordReportedChangeKey=(id:string)=>`workshopReportedChange-${id}`
+export function validWordReportedChange(value:unknown):value is WordReportedChange {if(!value||typeof value!=='object')return false;const w=value as WordReportedChange,text=(s:unknown,max:number)=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=max;return text(w.title,40)&&text(w.label,12)&&text(w.event,110)&&['more','less'].includes(w.answer)&&text(w.hint,110)&&text(w.wrong,140)}
+export function changeReportedChange(action:string):string|undefined {return action==='reset'?'':['less','same','more'].includes(action)?action:undefined}
+export function reportedChangeMatches(w:WordReportedChange,raw:string):boolean {return raw===w.answer}
+export function wordReportedChangeView(w:WordReportedChange,raw:string):WordReportedChangeView {const choice=['less','same','more'].includes(raw)?raw:'';return{title:w.title,label:w.label,event:w.event,hint:w.hint,choice,chosen:!!choice,symbol:choice==='less'?'↓':choice==='same'?'=':choice==='more'?'↑':'?',description:choice?`本次记录：${w.label}${choice==='more'?'增强':choice==='less'?'减弱':'不变'}。只记方向，不补测量值或永久保证。`:'按原句选择变化方向；还没有记录。',choices:[{id:'less',label:'减弱 ↓',selected:choice==='less'},{id:'same',label:'不变 =',selected:choice==='same'},{id:'more',label:'增强 ↑',selected:choice==='more'}]}}
