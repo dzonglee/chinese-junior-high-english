@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **184 / 413**. Current: **l-v-course-basic-qualities-4**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **185 / 413**. Current: **l-v-course-basic-qualities-5**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -292,7 +292,7 @@ Completed: **184 / 413**. Current: **l-v-course-basic-qualities-4**. Evidence li
 | l-v-course-basic-qualities | 常用性质与比较 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-basic-qualities.md) |
 | l-v-course-basic-qualities-2 | 常用性质与比较 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-basic-qualities-2.md) |
 | l-v-course-basic-qualities-3 | 常用性质与比较 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-basic-qualities-3.md) |
-| l-v-course-basic-qualities-4 | 常用性质与比较 · 4 | pending | — |
+| l-v-course-basic-qualities-4 | 常用性质与比较 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-basic-qualities-4.md) |
 | l-v-course-basic-qualities-5 | 常用性质与比较 · 5 | pending | — |
 | l-v-course-colour-appearance | 颜色、外形与可见特征 · 1 | pending | — |
 | l-v-course-colour-appearance-2 | 颜色、外形与可见特征 · 2 | pending | — |
