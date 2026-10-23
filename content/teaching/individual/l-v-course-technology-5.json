@@ -1,0 +1,501 @@
+{
+  "lessonId": "l-v-course-technology-5",
+  "reviewState": "draft",
+  "intent": "Seven individual interface tasks preserve save-before-close, backup-before-delete, arrow beside title, text entry, password properties, limited account requirements and privacy order.",
+  "picturePurpose": "Reuse the inspected original fictional park map as actual sample-file contents. Saving, backing up, deleting and expanding change whether the same visual content is available; exact file states and click targets are rendered in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "先保存，备份后再删除",
+    "instruction": "试着操作示例文件；分清操作顺序和点击位置。",
+    "items": [
+      {
+        "id": "save",
+        "label": "save：先保存，还是先关闭？",
+        "prompt": "先保存，还是先关闭？",
+        "answer": "Save",
+        "meaning": "保存；节省；救助",
+        "material": "Save your work before closing the window.",
+        "before": "",
+        "after": " your work before closing the window.",
+        "reason": "save在这里是保存。before要求先保存再关闭；指令不报告已完成。示例中未保存就关闭，需要重新开始。",
+        "hint": "before：先保存，再关闭。",
+        "wordDecision": {
+          "prompt": "先保存，还是先关闭？",
+          "fileDesk": {
+            "mode": "save",
+            "title": "先保存，再关闭",
+            "hint": "只操作示例内容，不会关闭当前页面。",
+            "wrong": "先保存内容，再关闭示例窗口；顺序错了就重新开始。"
+          },
+          "art": {
+            "asset": "lesson-park-map",
+            "assetRoot": "illustrations-3",
+            "format": "jpg",
+            "alt": "示例文件中的虚构公园地图：湖泊、凉亭和游乐区由路径连接。"
+          }
+        },
+        "options": [
+          {
+            "id": "reverse",
+            "text": "Close the window first and save your work afterwards.",
+            "correct": false,
+            "reason": "保存与关闭的顺序反了。"
+          },
+          {
+            "id": "order",
+            "text": "Save your work first, then close the window.",
+            "correct": true,
+            "reason": "before closing要求保存先于关闭。"
+          },
+          {
+            "id": "done",
+            "text": "Your work has already been saved and the window is closed.",
+            "correct": false,
+            "reason": "指令不报告已经保存或关闭。"
+          }
+        ],
+        "ownForms": [
+          "save",
+          "saves",
+          "saved",
+          "saving"
+        ]
+      },
+      {
+        "id": "delete",
+        "label": "delete：有备份前，原文件能删吗？",
+        "prompt": "有备份前，原文件能删吗？",
+        "answer": "delete",
+        "meaning": "删除",
+        "material": "Do not delete the original until you have a backup.",
+        "before": "Do not ",
+        "after": " the original until you have a backup.",
+        "reason": "delete是删除。not ... until要求有备份前不删；有备份不代表必须删除。示例中删除原文件后，备份仍保留。",
+        "hint": "有备份才可删，不是有备份就必须删。",
+        "wordDecision": {
+          "prompt": "有备份前，原文件能删吗？",
+          "fileDesk": {
+            "mode": "backup",
+            "title": "先备份，才可删除",
+            "hint": "只操作示例文件；原文件删除后，备份副本仍保留。",
+            "wrong": "先建立备份，再试着删除示例原文件；别把条件读反。"
+          },
+          "art": {
+            "asset": "lesson-park-map",
+            "assetRoot": "illustrations-3",
+            "format": "jpg",
+            "alt": "示例文件中的虚构公园地图：湖泊、凉亭和游乐区由路径连接。"
+          }
+        },
+        "options": [
+          {
+            "id": "early",
+            "text": "Delete the original before making a backup copy.",
+            "correct": false,
+            "reason": "备份前不要删被反转成备份前删除。"
+          },
+          {
+            "id": "all",
+            "text": "Deleting the original removes every copy everywhere.",
+            "correct": false,
+            "reason": "删除原文件不等于所有副本都消失。"
+          },
+          {
+            "id": "backup",
+            "text": "Keep the original until you have a backup copy.",
+            "correct": true,
+            "reason": "not ... until把删除的最早条件限定在有备份之后。"
+          }
+        ],
+        "ownForms": [
+          "delete",
+          "deletes",
+          "deleted",
+          "deleting"
+        ]
+      },
+      {
+        "id": "click",
+        "label": "click：点标题文字，还是它旁边的箭头？",
+        "prompt": "点标题文字，还是它旁边的箭头？",
+        "answer": "Click",
+        "meaning": "点击；咔嗒声",
+        "material": "Click the small arrow beside the title.",
+        "before": "",
+        "after": " the small arrow beside the title.",
+        "reason": "click是点击。目标是the small arrow，beside the title说明位置。不是点击标题文字；点示例箭头可展开地图。",
+        "hint": "先找点击目标，再看beside的位置。",
+        "wordDecision": {
+          "prompt": "点标题文字，还是它旁边的箭头？",
+          "titleArrow": {
+            "title": "点标题旁的小箭头",
+            "hint": "点箭头展开示例地图；别点标题文字。",
+            "wrong": "点标题旁的小箭头，不是标题文字。"
+          },
+          "art": {
+            "asset": "lesson-park-map",
+            "assetRoot": "illustrations-3",
+            "format": "jpg",
+            "alt": "示例文件中的虚构公园地图：湖泊、凉亭和游乐区由路径连接。"
+          }
+        },
+        "options": [
+          {
+            "id": "arrow",
+            "text": "Click the small arrow next to the title.",
+            "correct": true,
+            "reason": "beside表示在旁边；目标是小箭头。"
+          },
+          {
+            "id": "title",
+            "text": "Click the title itself instead of the arrow.",
+            "correct": false,
+            "reason": "旁边的小箭头被换成标题文字。"
+          },
+          {
+            "id": "keyboard",
+            "text": "Type the title into a new answer box.",
+            "correct": false,
+            "reason": "click点击被换成type输入，目标也变了。"
+          }
+        ],
+        "ownForms": [
+          "click",
+          "clicks",
+          "clicked",
+          "clicking"
+        ]
+      },
+      {
+        "id": "type",
+        "label": "type：要在空框里做什么？",
+        "prompt": "要在空框里做什么？",
+        "answer": "Type",
+        "meaning": "打字；类型",
+        "material": "Type your answer in the empty box.",
+        "before": "",
+        "after": " your answer in the empty box.",
+        "reason": "type在这里是打字，不是名词种类。your answer是输入内容，in the empty box是输入位置。填词后，再用自己的句子说明一次输入操作。",
+        "hint": "type作动词：把文字输入框内。",
+        "wordDecision": {
+          "prompt": "要在空框里做什么？"
+        },
+        "options": [
+          {
+            "id": "kind",
+            "text": "Choose a type of empty box and leave the answer blank.",
+            "correct": false,
+            "reason": "type被误读成名词种类，也漏掉输入答案。"
+          },
+          {
+            "id": "enter",
+            "text": "Enter your answer as text in the empty box.",
+            "correct": true,
+            "reason": "type在这里是打字输入，empty box是空输入框。"
+          },
+          {
+            "id": "paper",
+            "text": "Write the answer on paper without entering anything in the box.",
+            "correct": false,
+            "reason": "输入框里输入被换成只写纸上。"
+          }
+        ],
+        "ownForms": [
+          "type",
+          "types",
+          "typed",
+          "typing"
+        ]
+      },
+      {
+        "id": "password",
+        "label": "password：密码应有什么特点？",
+        "prompt": "密码应有什么特点？",
+        "answer": "password",
+        "meaning": "密码",
+        "material": "Choose a password that others cannot easily guess.",
+        "before": "Choose a ",
+        "after": " that others cannot easily guess.",
+        "reason": "password是密码。that others cannot easily guess限定别人不易猜到，不保证永远安全。本题不填写或保存真实密码。",
+        "hint": "不易猜到，不等于公开给别人。",
+        "wordDecision": {
+          "prompt": "密码应有什么特点？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "选择不易猜到的密码",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "hard",
+                "label": "别人不容易猜到",
+                "text": "Choose a password that others cannot easily guess.",
+                "include": true
+              },
+              {
+                "id": "easy",
+                "label": "人人都容易猜到",
+                "text": "Choose a password that everyone can easily guess.",
+                "include": false
+              },
+              {
+                "id": "share",
+                "label": "把密码公开给所有人",
+                "text": "Share your password with everyone.",
+                "include": false
+              }
+            ],
+            "hint": "只判断句意，不填真实密码。",
+            "wrong": "只选别人不容易猜到；不能反转成易猜或公开密码。"
+          }
+        },
+        "options": [
+          {
+            "id": "easy",
+            "text": "Choose a password that everyone can easily guess.",
+            "correct": false,
+            "reason": "不容易猜到被反转成人人容易猜到。"
+          },
+          {
+            "id": "share",
+            "text": "Tell everyone your password so they do not need to guess.",
+            "correct": false,
+            "reason": "难猜的要求不等于应向所有人公开。"
+          },
+          {
+            "id": "hard",
+            "text": "Choose a password that is difficult for other people to guess.",
+            "correct": true,
+            "reason": "cannot easily guess表示别人不容易猜到。"
+          }
+        ],
+        "ownForms": [
+          "password",
+          "passwords"
+        ]
+      },
+      {
+        "id": "account",
+        "label": "account：读这一页需要账户吗？",
+        "prompt": "读这一页需要账户吗？",
+        "answer": "account",
+        "meaning": "账户；叙述",
+        "material": "You do not need an account to read this page.",
+        "before": "You do not need an ",
+        "after": " to read this page.",
+        "reason": "account这里是账户。do not need是不需要；用途只限读这一页，不能扩大到所有功能。",
+        "hint": "范围是读这一页，不能扩大到所有功能。",
+        "wordDecision": {
+          "prompt": "读这一页需要账户吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "阅读这一页无需账户",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "none",
+                "label": "读这一页无需账户",
+                "text": "You do not need an account to read this page.",
+                "include": true
+              },
+              {
+                "id": "must",
+                "label": "读这一页必须注册",
+                "text": "You must create an account to read this page.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "所有功能都无需账户",
+                "text": "Every feature works without an account.",
+                "include": false
+              }
+            ],
+            "hint": "this page限定范围。",
+            "wrong": "只选读这一页无需账户；不能反转需要或扩大到所有功能。"
+          }
+        },
+        "options": [
+          {
+            "id": "none",
+            "text": "An account is not required to read this page.",
+            "correct": true,
+            "reason": "do not need表示不需要；范围是读这一页。"
+          },
+          {
+            "id": "must",
+            "text": "You must create an account before reading this page.",
+            "correct": false,
+            "reason": "不需要被反转成必须注册。"
+          },
+          {
+            "id": "all",
+            "text": "Every page and every feature can be used without any account.",
+            "correct": false,
+            "reason": "这一页被扩大成所有页面和功能。"
+          }
+        ],
+        "ownForms": [
+          "account",
+          "accounts"
+        ]
+      },
+      {
+        "id": "privacy",
+        "label": "privacy：分享照片前先检查什么？",
+        "prompt": "分享照片前先检查什么？",
+        "answer": "privacy",
+        "meaning": "隐私",
+        "material": "Check the privacy settings before sharing photos.",
+        "before": "Check the ",
+        "after": " settings before sharing photos.",
+        "reason": "privacy settings是隐私设置。before要求先检查，再分享；检查设置不代替征求他人同意。",
+        "hint": "先检查设置，再分享；指令不报告已完成。",
+        "wordDecision": {
+          "prompt": "分享照片前先检查什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "先检查设置，再分享",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "check",
+                "label": "分享前先检查隐私设置",
+                "text": "Check the privacy settings before sharing photos.",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "先分享，再检查设置",
+                "text": "Share photos before checking the privacy settings.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "每张照片都已检查设置",
+                "text": "The privacy settings have already been checked for every photo.",
+                "include": false
+              }
+            ],
+            "hint": "before保留检查在前。",
+            "wrong": "只选先检查设置再分享；不能倒序或补已经完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "after",
+            "text": "Share the photos first and check the privacy settings later.",
+            "correct": false,
+            "reason": "先检查、后分享被反转。"
+          },
+          {
+            "id": "check",
+            "text": "Check the privacy settings before you share photos.",
+            "correct": true,
+            "reason": "privacy settings是隐私设置，before保留先后。"
+          },
+          {
+            "id": "done",
+            "text": "The privacy settings have already been checked for every photo.",
+            "correct": false,
+            "reason": "检查指令不报告全部照片都已检查。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-technology-5-transfer",
+      "topicId": "v-course-technology",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan keeps the actions in the right order?",
+      "passage": "Our class map page\nWe were making a map page for our class visit. I typed the meeting place in an empty box, saved my work and then closed the window. Before deleting the old map file, I made a backup copy. The old file disappeared from the sample folder, but the backup was still there.\nOur teacher added a small arrow beside the page title. Clicking that arrow opened the map. We could read this page without an account, although another part of the website required one to save personal progress.\nWhen I created my own account, I chose a password that other people could not easily guess. I did not put it in a public message. Before sharing our group photo, we checked the privacy settings and asked the people in the photo for permission.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Save before closing; keep a backup before deleting the original; check privacy settings before sharing photos."
+        },
+        {
+          "id": "b",
+          "text": "Close before saving; keep a backup before deleting the original; check privacy settings before sharing photos."
+        },
+        {
+          "id": "c",
+          "text": "Save before closing; delete every backup with the original; check privacy settings before sharing photos."
+        },
+        {
+          "id": "d",
+          "text": "Save before closing; keep a backup before deleting the original; share photos before checking privacy settings."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Save before closing; keep a backup before deleting the original; check privacy settings before sharing photos."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把保存、备份、分享前的准备分别对回原文。",
+        "steps": [
+          {
+            "text": "先保存，再关闭；有备份后才删除原文件，备份仍保留。",
+            "reason": "saved ... then closed与Before deleting ... made a backup给出先后，but the backup was still there说明副本未消失。"
+          },
+          {
+            "text": "先检查隐私设置，再分享照片；还要征求照片中他人的同意。",
+            "reason": "Before sharing ... checked保留检查在前；asked ... for permission是另一项准备，不能省略。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把保存和关闭的顺序反了。"
+          },
+          {
+            "option": "c",
+            "reason": "原文说备份仍保留，没有删除所有备份。"
+          },
+          {
+            "option": "d",
+            "reason": "把分享前检查改成先分享后检查。"
+          }
+        ],
+        "pitfall": "把before顺序读反，或把删除原文件扩大成所有副本都消失。",
+        "visual": {
+          "kind": "timeline",
+          "title": "先准备，再操作",
+          "segments": [
+            {
+              "text": "save → close",
+              "role": "object",
+              "note": "先保存，再关闭"
+            },
+            {
+              "text": "backup → delete original",
+              "role": "object",
+              "note": "先备份，才可删原文件"
+            },
+            {
+              "text": "check privacy → share",
+              "role": "object",
+              "note": "先检查设置，再分享"
+            }
+          ],
+          "caption": "原文件与备份、条件与已完成，要分清。"
+        },
+        "transfer": "读这一页无需账户，是否说明网站所有功能都无需账户？用原文说明。"
+      }
+    }
+  }
+}
