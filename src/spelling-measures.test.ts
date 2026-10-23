@@ -18,3 +18,16 @@ it('renders source examples and authored workshop explanations in the selected e
  expect(editionQuestion(q,'american').stem).toContain('centimeters');expect(editionQuestion(q,'british').stem).toContain('centimetres')
  expect(JSON.stringify(lesson)).toBe(raw)
 })
+
+it('maps programme to American program but preserves the computer sense of program in British English',()=>{
+ expect(editionText('The television programme explains bridges. Two programmes follow.','american')).toBe('The television program explains bridges. Two programs follow.')
+ expect(editionText('The computer program sorts names. Two programs are installed.','british')).toBe('The computer program sorts names. Two programs are installed.')
+ expect(editionText('The television programme explains bridges.','british')).toBe('The television programme explains bridges.')
+ const note='programme用英式拼法，美式拼法为program。';expect(editionText(note,'american')).toBe(note);expect(editionText(note,'british')).toBe(note)
+})
+it('uses edition spelling in the television task without mutating the exact authored source or computer program',()=>{
+ const c=authorCatalog(process.cwd()),lesson=c.lessons.find(l=>l.id==='l-v-course-technology-2')!,raw=JSON.stringify(lesson)
+ const us=createLessonTeaching(c,lesson,'american').mission!.workshop!,uk=createLessonTeaching(c,lesson,'british').mission!.workshop!
+ expect(us.items[5].material).toBe('The television program explains how bridges work.');expect(uk.items[5].material).toBe('The television programme explains how bridges work.')
+ expect(us.items[5].wordDecision!.recordSelection!.rows[0].text).toContain('television program explains');expect(uk.items[5].wordDecision!.recordSelection!.rows[0].text).toContain('television programme explains');expect(us.items[5].reason).toContain('programme用英式拼法，美式拼法为program');expect(JSON.stringify(lesson)).toBe(raw)
+})

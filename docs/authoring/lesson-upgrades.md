@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **177 / 413**. Current: **l-v-course-technology-2**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **178 / 413**. Current: **l-v-course-technology-3**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -285,7 +285,7 @@ Completed: **177 / 413**. Current: **l-v-course-technology-2**. Evidence lives i
 | l-v-course-character-4 | 品格与相处方式 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-character-4.md) |
 | l-v-course-character-5 | 品格与相处方式 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-character-5.md) |
 | l-v-course-technology | 数字工具与操作 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-technology.md) |
-| l-v-course-technology-2 | 数字工具与操作 · 2 | pending | — |
+| l-v-course-technology-2 | 数字工具与操作 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-technology-2.md) |
 | l-v-course-technology-3 | 数字工具与操作 · 3 | pending | — |
 | l-v-course-technology-4 | 数字工具与操作 · 4 | pending | — |
 | l-v-course-technology-5 | 数字工具与操作 · 5 | pending | — |

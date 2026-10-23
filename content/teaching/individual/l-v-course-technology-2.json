@@ -1,0 +1,637 @@
+{
+  "lessonId": "l-v-course-technology-2",
+  "reviewState": "draft",
+  "intent": "Eight individual media/device tasks distinguish time, silent-mode instructions, intended prevention, slow motion, broadcast channel, bridge function, replacement need and battery location.",
+  "picturePurpose": "Original cameras with and without attached straps support direct observation. The source supplies prevention purpose; no safety guarantee is inferred. A coded silent-mode task changes a simulated phone without real audio or device settings.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "调静音、辨相机，再核对记录",
+    "instruction": "调好示意手机，点出相机带；分清要求、用途和已经发生的事。",
+    "items": [
+      {
+        "id": "telephone",
+        "label": "telephone：电话什么时候响的？",
+        "prompt": "电话什么时候响的？",
+        "answer": "telephone",
+        "meaning": "电话",
+        "material": "The telephone rang just as we were leaving.",
+        "before": "The ",
+        "after": " rang just as we were leaving.",
+        "reason": "telephone在这里是电话。rang是ring的过去式，just as we were leaving表示就在我们正要离开时，不是已经离开很久。电话响了，不等于有人接听，也没有说明谁打来的。",
+        "hint": "核对just as；响了不等于接了。",
+        "wordDecision": {
+          "prompt": "电话什么时候响的？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "就在正要离开时响起",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "leaving",
+                "label": "正要离开时响了",
+                "text": "The telephone rang just as we were leaving.",
+                "include": true
+              },
+              {
+                "id": "later",
+                "label": "离开很久后才响",
+                "text": "The telephone rang long after we had left.",
+                "include": false
+              },
+              {
+                "id": "answered",
+                "label": "已经有人接听",
+                "text": "Someone answered the telephone.",
+                "include": false
+              }
+            ],
+            "hint": "rang只报告电话响。",
+            "wrong": "只选正要离开时响起；不能改时刻或补已接听。"
+          }
+        },
+        "options": [
+          {
+            "id": "later",
+            "text": "The telephone rang long after we had left.",
+            "correct": false,
+            "reason": "正要离开的时刻被换成离开很久以后。"
+          },
+          {
+            "id": "leaving",
+            "text": "The telephone rang at the moment we were leaving.",
+            "correct": true,
+            "reason": "just as把电话响起与正要离开的时刻连起来。"
+          },
+          {
+            "id": "answered",
+            "text": "We answered the telephone before we left.",
+            "correct": false,
+            "reason": "rang只报告响了，没有说谁接听。"
+          }
+        ],
+        "ownForms": [
+          "telephone",
+          "telephones"
+        ]
+      },
+      {
+        "id": "mobile",
+        "label": "mobile：按图书馆的要求设置手机。",
+        "prompt": "按图书馆的要求设置手机。",
+        "answer": "mobile",
+        "meaning": "移动的；手机",
+        "material": "Keep your mobile on silent in the library.",
+        "before": "Keep your ",
+        "after": " on silent in the library.",
+        "reason": "mobile在这里是名词，英式英语中常指手机；也可以作形容词表示移动的。on silent表示调成静音，不是让铃声响，也不等于要求关机。Keep是指令，不能补成已经人人做到。静音不说明震动是否开启。",
+        "hint": "静音不等于响铃或关机；别补震动状态。",
+        "wordDecision": {
+          "prompt": "按图书馆的要求设置手机。",
+          "phoneMode": {
+            "title": "图书馆里：把示意手机调成静音",
+            "hint": "只模拟铃声设置，不改变你的设备，也不发出声音。静音不等于关机。",
+            "wrong": "原句要求on silent：应选静音。响铃或关机都没有按本题要求设置。"
+          }
+        },
+        "options": [
+          {
+            "id": "ring",
+            "text": "Keep the mobile ringing in the library.",
+            "correct": false,
+            "reason": "silent被反转成ringing。"
+          },
+          {
+            "id": "done",
+            "text": "Every mobile has already been set to silent.",
+            "correct": false,
+            "reason": "Keep是指令，不证明所有人已经照做。"
+          },
+          {
+            "id": "silent",
+            "text": "Keep the mobile in silent mode in the library.",
+            "correct": true,
+            "reason": "on silent要求静音模式，地点是图书馆。"
+          }
+        ],
+        "ownForms": [
+          "mobile",
+          "mobiles"
+        ]
+      },
+      {
+        "id": "camera",
+        "label": "camera：点出装有相机带的相机。",
+        "prompt": "点出装有相机带的相机。",
+        "answer": "camera",
+        "meaning": "照相机",
+        "material": "The camera has a strap to prevent drops.",
+        "before": "The ",
+        "after": " has a strap to prevent drops.",
+        "reason": "camera表示照相机，a strap是带子。to prevent drops说明装带子的目的，不是说相机永远不会掉落，也没报告已经发生或避免了一次跌落。图能确认带子是否存在，防跌落用途要结合原句。",
+        "hint": "先辨带子；目的不等于保证。",
+        "wordDecision": {
+          "prompt": "点出装有相机带的相机。",
+          "art": {
+            "pictureOnly": true,
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-camera-strap",
+            "alt": "两台相同外形的相机：A左侧装有完整环形带子，B侧面的连接环为空；没有跌落过程。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "strap",
+                "label": "A 相机",
+                "left": 2,
+                "top": 4,
+                "width": 46,
+                "height": 92
+              },
+              {
+                "id": "b",
+                "option": "bare",
+                "label": "B 相机",
+                "left": 52,
+                "top": 4,
+                "width": 46,
+                "height": 92
+              }
+            ],
+            "evidence": [
+              {
+                "option": "strap",
+                "caption": "A的带子连接机身，并形成完整环圈，符合has a strap。原句给出防跌落用途，不能保证永不掉落。",
+                "regions": [
+                  {
+                    "id": "loop",
+                    "left": 3,
+                    "top": 31,
+                    "width": 39,
+                    "height": 47,
+                    "label": "连接的相机带"
+                  }
+                ]
+              },
+              {
+                "option": "bare",
+                "caption": "B侧面的连接环为空，没有装带子，不符合has a strap。",
+                "regions": [
+                  {
+                    "id": "empty",
+                    "left": 58,
+                    "top": 30,
+                    "width": 6,
+                    "height": 10,
+                    "label": "空连接环"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "strap",
+            "text": "This camera has an attached strap intended to help prevent drops.",
+            "correct": true,
+            "reason": "A有连接在机身上的带子；防跌落是原句给出的用途，不是效果保证。"
+          },
+          {
+            "id": "bare",
+            "text": "This camera has no strap attached.",
+            "correct": false,
+            "reason": "B没有装带子，不符合has a strap。"
+          }
+        ],
+        "ownForms": [
+          "camera",
+          "cameras"
+        ]
+      },
+      {
+        "id": "video",
+        "label": "video：视频怎样展示步骤？",
+        "prompt": "视频怎样展示步骤？",
+        "answer": "video",
+        "meaning": "视频；录像",
+        "material": "The video shows each step in slow motion.",
+        "before": "The ",
+        "after": " shows each step in slow motion.",
+        "reason": "video在这里是视频，复数是videos。each step表示每个步骤，in slow motion是慢动作。慢动作展示不等于画面模糊，也不证明每位观看者已经学会；本题读句意，不需要播放视频。",
+        "hint": "保留each step和slow motion。",
+        "wordDecision": {
+          "prompt": "视频怎样展示步骤？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "每步都用慢动作展示",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "slow",
+                "label": "每步用慢动作展示",
+                "text": "The video shows each step in slow motion.",
+                "include": true
+              },
+              {
+                "id": "fast",
+                "label": "步骤用高速展示",
+                "text": "The video shows the steps at high speed.",
+                "include": false
+              },
+              {
+                "id": "learned",
+                "label": "所有观众都已学会",
+                "text": "Every viewer has learned every step perfectly.",
+                "include": false
+              }
+            ],
+            "hint": "展示方式不等于学习结果。",
+            "wrong": "只选每步用慢动作展示；不能改速度或补人人学会。"
+          }
+        },
+        "options": [
+          {
+            "id": "fast",
+            "text": "The video presents the steps at high speed.",
+            "correct": false,
+            "reason": "slow被反转成high speed。"
+          },
+          {
+            "id": "slow",
+            "text": "The video presents every step in slow motion.",
+            "correct": true,
+            "reason": "each step和in slow motion都要保留。"
+          },
+          {
+            "id": "learned",
+            "text": "Every viewer has already learned every step perfectly.",
+            "correct": false,
+            "reason": "展示每步不等于每个人都已学会。"
+          }
+        ],
+        "ownForms": [
+          "video",
+          "videos"
+        ]
+      },
+      {
+        "id": "radio",
+        "label": "radio：我们通过什么听到警报？",
+        "prompt": "我们通过什么听到警报？",
+        "answer": "radio",
+        "meaning": "收音机；广播",
+        "material": "We heard the flood warning on the radio.",
+        "before": "We heard the flood warning on the ",
+        "after": ".",
+        "reason": "radio可指收音机或广播。on the radio表示通过广播；heard是hear的过去式。原句只报告我们听到洪水警报，没有说谁发布，也没有说之后采取了什么行动。",
+        "hint": "on the radio指传播渠道；别补后续行动。",
+        "wordDecision": {
+          "prompt": "我们通过什么听到警报？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "通过广播听到洪水警报",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "broadcast",
+                "label": "通过广播听到警报",
+                "text": "We heard the flood warning on the radio.",
+                "include": true
+              },
+              {
+                "id": "tv",
+                "label": "通过电视看到警报",
+                "text": "We saw the flood warning on television.",
+                "include": false
+              },
+              {
+                "id": "safe",
+                "label": "所有人已安全撤离",
+                "text": "Everyone had already reached safety.",
+                "include": false
+              }
+            ],
+            "hint": "heard报告听到，不报告撤离。",
+            "wrong": "只选通过广播听到警报；不能换渠道或补撤离结果。"
+          }
+        },
+        "options": [
+          {
+            "id": "tv",
+            "text": "We saw the flood warning on television.",
+            "correct": false,
+            "reason": "radio和heard被换成television和saw。"
+          },
+          {
+            "id": "safe",
+            "text": "Everyone had already reached safety after the warning.",
+            "correct": false,
+            "reason": "听到警报不证明所有人已经撤离或安全。"
+          },
+          {
+            "id": "broadcast",
+            "text": "We heard the flood warning in a radio broadcast.",
+            "correct": true,
+            "reason": "on the radio说明通过广播听到。"
+          }
+        ],
+        "ownForms": [
+          "radio",
+          "radios"
+        ]
+      },
+      {
+        "id": "television",
+        "label": "television：这档电视节目解释什么？",
+        "prompt": "这档电视节目解释什么？",
+        "answer": "television",
+        "meaning": "电视；电视机",
+        "material": "The television programme explains how bridges work.",
+        "before": "The ",
+        "after": " programme explains how bridges work.",
+        "reason": "television在这里修饰programme，表示电视节目，how bridges work说明桥梁如何运作。work在这里不是工人的工作时间；解释原理不等于逐一测试所有桥。programme用英式拼法，美式拼法为program。",
+        "hint": "work在这里指运作；别换成工作时间。",
+        "wordDecision": {
+          "prompt": "这档电视节目解释什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "解释桥梁如何运作",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "bridges",
+                "label": "解释桥梁运作原理",
+                "text": "The television programme explains how bridges work.",
+                "include": true
+              },
+              {
+                "id": "schedule",
+                "label": "介绍工人工作时间",
+                "text": "The programme gives bridge builders’ working hours.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "已测试世界所有桥",
+                "text": "Every bridge in the world has been tested.",
+                "include": false
+              }
+            ],
+            "hint": "work指运作，不是工时。",
+            "wrong": "只选解释桥梁如何运作；不能换主语或补全世界都测过。"
+          }
+        },
+        "options": [
+          {
+            "id": "bridges",
+            "text": "The television programme explains how bridges function.",
+            "correct": true,
+            "reason": "how bridges work是桥梁如何运作，不是时间安排。"
+          },
+          {
+            "id": "schedule",
+            "text": "The television programme gives the working hours of bridge builders.",
+            "correct": false,
+            "reason": "bridges被换成bridge builders，how被换成工作时间。"
+          },
+          {
+            "id": "all",
+            "text": "Every bridge in the world has been tested in the programme.",
+            "correct": false,
+            "reason": "解释原理不等于测试了世界上每座桥。"
+          }
+        ],
+        "ownForms": [
+          "television",
+          "televisions"
+        ]
+      },
+      {
+        "id": "remote",
+        "label": "remote：遥控器需要什么？",
+        "prompt": "遥控器需要什么？",
+        "answer": "remote",
+        "meaning": "遥远的；遥控器",
+        "material": "The remote needs new batteries.",
+        "before": "The ",
+        "after": " needs new batteries.",
+        "reason": "remote在这里是remote control的简称，作名词表示遥控器。needs new batteries说明需要换新电池，不等于已经换好，也没给出型号或数量。remote作形容词才可表示遥远的。battery的复数是batteries。",
+        "hint": "先辨remote的名词用法；需要不等于换好。",
+        "wordDecision": {
+          "prompt": "遥控器需要什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "遥控器需要换新电池",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "need",
+                "label": "遥控器需要新电池",
+                "text": "The remote control needs new batteries.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "新电池已经装好了",
+                "text": "New batteries have already been fitted.",
+                "include": false
+              },
+              {
+                "id": "far",
+                "label": "偏远村庄需要电池",
+                "text": "A distant village needs batteries.",
+                "include": false
+              }
+            ],
+            "hint": "需要不等于已换好。",
+            "wrong": "只选遥控器需要新电池；不能补已换好或把名词读成遥远的。"
+          }
+        },
+        "options": [
+          {
+            "id": "done",
+            "text": "New batteries have already been fitted in the remote.",
+            "correct": false,
+            "reason": "需要更换被换成已经装好。"
+          },
+          {
+            "id": "need",
+            "text": "The remote control needs replacement batteries.",
+            "correct": true,
+            "reason": "remote在这里是remote control；needs报告需要。"
+          },
+          {
+            "id": "far",
+            "text": "A distant village needs new batteries.",
+            "correct": false,
+            "reason": "这里的remote是名词遥控器，不是形容词遥远的。"
+          }
+        ],
+        "ownForms": [
+          "remote",
+          "remotes"
+        ]
+      },
+      {
+        "id": "battery",
+        "label": "battery：备用电池放在哪里？",
+        "prompt": "备用电池放在哪里？",
+        "answer": "battery",
+        "meaning": "电池",
+        "material": "The spare battery is in the front pocket.",
+        "before": "The spare ",
+        "after": " is in the front pocket.",
+        "reason": "battery是电池，复数要把y改为ies：batteries。spare表示备用的，front pocket是前面的口袋；原句没有说明是谁的包，也没说明电量、型号或是否适用所有设备。",
+        "hint": "只核对front pocket；别凭位置猜电量。",
+        "wordDecision": {
+          "prompt": "备用电池放在哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "备用电池在前袋",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "front",
+                "label": "备用电池在前袋",
+                "text": "The spare battery is in the front pocket.",
+                "include": true
+              },
+              {
+                "id": "back",
+                "label": "备用电池在后袋",
+                "text": "The spare battery is in the back pocket.",
+                "include": false
+              },
+              {
+                "id": "charged",
+                "label": "满电且全部通用",
+                "text": "The spare battery is fully charged and fits every device.",
+                "include": false
+              }
+            ],
+            "hint": "front不是back；位置不说明电量。",
+            "wrong": "只选备用电池在前袋；不能换位置或补电量、兼容性。"
+          }
+        },
+        "options": [
+          {
+            "id": "back",
+            "text": "The spare battery is in the back pocket.",
+            "correct": false,
+            "reason": "front被换成back。"
+          },
+          {
+            "id": "charged",
+            "text": "The spare battery is fully charged and fits every device.",
+            "correct": false,
+            "reason": "位置没有提供电量或通用兼容性。"
+          },
+          {
+            "id": "front",
+            "text": "The spare battery is in the front pocket.",
+            "correct": true,
+            "reason": "front pocket明确位置。"
+          }
+        ],
+        "ownForms": [
+          "battery",
+          "batteries"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-technology-2-transfer",
+      "topicId": "v-course-technology",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes keep the instruction, purpose and remaining need?",
+      "passage": "Our library display\nThe telephone rang just as we were leaving home. I did not recognise the number, and we were already late. At the library door, a sign said, “Keep your mobile on silent.” I changed the setting and put mine in my bag.\nLina brought a camera with a strap to help prevent drops. We used it to take photos of our display. A short video showed each step of making a paper boat in slow motion. Beside it, a television programme explained how bridges work.\nWe had heard a flood warning on the radio that morning, so our teacher checked the latest local advice before planning the journey. The remote for the display needs new batteries. There is a spare battery in the front pocket of our bag, but its label is worn. We must check its type and charge before using it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The sign requires silent mode; the strap is intended to help prevent drops; the remote still needs new batteries."
+        },
+        {
+          "id": "b",
+          "text": "The sign proves everyone selected silent mode; the strap is intended to help prevent drops; the remote still needs new batteries."
+        },
+        {
+          "id": "c",
+          "text": "The sign requires silent mode; the strap guarantees no drops; the remote still needs new batteries."
+        },
+        {
+          "id": "d",
+          "text": "The sign requires silent mode; the strap is intended to help prevent drops; new batteries are already fitted in the remote."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The sign requires silent mode; the strap is intended to help prevent drops; the remote still needs new batteries."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "依次区分指令、目的和仍需完成的事。",
+        "steps": [
+          {
+            "text": "标牌要求静音，没有报告所有人已经做到；带子用于帮助防跌落，不保证永不掉落。",
+            "reason": "Keep给出指令；to help prevent表达用途，没有承诺一定不会掉落。"
+          },
+          {
+            "text": "遥控器仍需要新电池，不是已经换好；前袋有备用电池也不证明型号、电量合适。",
+            "reason": "needs new batteries说明需要；must check保留未完成的检查。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把静音指令扩大成所有人已经照做的事实。"
+          },
+          {
+            "option": "c",
+            "reason": "把防跌落的目的扩大成永不掉落的保证。"
+          },
+          {
+            "option": "d",
+            "reason": "把仍需新电池换成新电池已经装好。"
+          }
+        ],
+        "pitfall": "把要求读成已做到，把目的读成保证，把需要读成已经完成。",
+        "visual": {
+          "kind": "timeline",
+          "title": "要求、目的、需要",
+          "segments": [
+            {
+              "text": "Keep ... on silent",
+              "role": "object",
+              "note": "指令，未报告所有人照做"
+            },
+            {
+              "text": "to help prevent drops",
+              "role": "object",
+              "note": "防跌落用途，不是保证"
+            },
+            {
+              "text": "needs new batteries",
+              "role": "object",
+              "note": "仍需更换，不是已换好"
+            }
+          ],
+          "caption": "原句说到哪一步，就保留到哪一步。"
+        },
+        "transfer": "The camera has a strap to prevent drops，能改成The camera can never fall吗？说明目的与保证的区别。"
+      }
+    }
+  }
+}
