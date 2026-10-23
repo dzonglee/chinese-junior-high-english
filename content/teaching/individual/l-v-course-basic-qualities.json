@@ -1,0 +1,651 @@
+{
+  "lessonId": "l-v-course-basic-qualities",
+  "reviewState": "draft",
+  "intent": "Eight individual adjective tasks teach contextual meaning, degree, modification, comparison and bounded time claims.",
+  "picturePurpose": "Original fine/coarse sand specimens share tray and spoon scale. Direct targets establish grain size only; the source text supplies inability to hold shape. Coded shelf cells use stated example counts while keeping four books on each shelf.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "看对象，再辨词义",
+    "instruction": "比较沙子的颗粒；给新架留空格，再核对句意。",
+    "items": [
+      {
+        "id": "good",
+        "label": "good：好地图让步行怎样？",
+        "prompt": "好地图让步行怎样？",
+        "answer": "good",
+        "meaning": "好的；有益的",
+        "material": "A good map makes a long walk easier.",
+        "before": "A ",
+        "after": " map makes a long walk easier.",
+        "reason": "good在这里评价地图有用。easier是更轻松，不等于路线更短，也不保证永不迷路。good的比较级是better。",
+        "hint": "easier更轻松，不是shorter更短。",
+        "wordDecision": {
+          "prompt": "好地图让步行怎样？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "长途步行更轻松",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "easier",
+                "label": "地图让长途步行更轻松",
+                "text": "A good map makes a long walk easier.",
+                "include": true
+              },
+              {
+                "id": "short",
+                "label": "所有路线都变短",
+                "text": "The map makes every route shorter.",
+                "include": false
+              },
+              {
+                "id": "never",
+                "label": "任何人都不会迷路",
+                "text": "The map guarantees that nobody will ever get lost.",
+                "include": false
+              }
+            ],
+            "hint": "轻松程度不是路线长度。",
+            "wrong": "只选更轻松；别补所有路线变短或永不迷路。"
+          }
+        },
+        "options": [
+          {
+            "id": "short",
+            "text": "The map makes every walking route shorter.",
+            "correct": false,
+            "reason": "更轻松被换成所有路线都更短。"
+          },
+          {
+            "id": "easier",
+            "text": "A useful map makes a long walk easier.",
+            "correct": true,
+            "reason": "good在这里是有用、好的，easier是更轻松。"
+          },
+          {
+            "id": "never",
+            "text": "A good map guarantees that no one can ever get lost.",
+            "correct": false,
+            "reason": "有用被扩大成人人永不迷路的保证。"
+          }
+        ],
+        "ownForms": [
+          "good",
+          "better",
+          "best"
+        ]
+      },
+      {
+        "id": "bad",
+        "label": "bad：排水口传来什么？",
+        "prompt": "排水口传来什么？",
+        "answer": "bad",
+        "meaning": "坏的；不好的",
+        "material": "A bad smell came from the blocked drain.",
+        "before": "A ",
+        "after": " smell came from the blocked drain.",
+        "reason": "bad修饰smell，表示难闻。came from说明来源是堵住的排水口，不报告受伤或检测结果。bad的比较级是worse。",
+        "hint": "bad smell是难闻的气味；别补伤害结果。",
+        "wordDecision": {
+          "prompt": "排水口传来什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "堵住的排水口有臭味",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "unpleasant",
+                "label": "排水口传来臭味",
+                "text": "A bad smell came from the blocked drain.",
+                "include": true
+              },
+              {
+                "id": "pleasant",
+                "label": "排水口传来香味",
+                "text": "A pleasant smell came from the drain.",
+                "include": false
+              },
+              {
+                "id": "injury",
+                "label": "所有人已经受伤",
+                "text": "Everyone near the drain had already been injured.",
+                "include": false
+              }
+            ],
+            "hint": "气味不好，不等于已有伤害记录。",
+            "wrong": "只选排水口传来臭味；不能反转气味或补全部受伤。"
+          }
+        },
+        "options": [
+          {
+            "id": "pleasant",
+            "text": "A pleasant smell came from the drain.",
+            "correct": false,
+            "reason": "难闻被反转成好闻。"
+          },
+          {
+            "id": "injury",
+            "text": "Everyone near the drain had already been injured.",
+            "correct": false,
+            "reason": "有臭味不报告所有人已经受伤。"
+          },
+          {
+            "id": "unpleasant",
+            "text": "An unpleasant smell came from the blocked drain.",
+            "correct": true,
+            "reason": "bad修饰smell，表示难闻。"
+          }
+        ],
+        "ownForms": [
+          "bad",
+          "worse",
+          "worst"
+        ]
+      },
+      {
+        "id": "great",
+        "label": "great：比第一个模型有多大进步？",
+        "prompt": "比第一个模型有多大进步？",
+        "answer": "great",
+        "meaning": "很好的；伟大的",
+        "material": "That is a great improvement on the first model.",
+        "before": "That is a ",
+        "after": " improvement on the first model.",
+        "reason": "a great improvement是很大进步，不是在说模型体积大。on the first model给出比较对象；没有说已完美或再也不能改进。",
+        "hint": "great修饰进步，不是尺寸或完美。",
+        "wordDecision": {
+          "prompt": "比第一个模型有多大进步？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "比第一个模型进步很大",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "better",
+                "label": "相较首个模型有很大进步",
+                "text": "That is a great improvement on the first model.",
+                "include": true
+              },
+              {
+                "id": "size",
+                "label": "只变大，没有改进",
+                "text": "The model is larger but has not improved.",
+                "include": false
+              },
+              {
+                "id": "perfect",
+                "label": "已经完美，不能再改进",
+                "text": "The model is perfect and cannot be improved.",
+                "include": false
+              }
+            ],
+            "hint": "improvement是进步。",
+            "wrong": "只选进步很大；不能换成仅变大或补已经完美。"
+          }
+        },
+        "options": [
+          {
+            "id": "better",
+            "text": "That is a major improvement compared with the first model.",
+            "correct": true,
+            "reason": "great修饰improvement，强调进步很大。"
+          },
+          {
+            "id": "size",
+            "text": "The model is physically larger, but it has not improved.",
+            "correct": false,
+            "reason": "进步幅度被换成外形尺寸。"
+          },
+          {
+            "id": "perfect",
+            "text": "The model is perfect and can never be improved again.",
+            "correct": false,
+            "reason": "进步很大不等于完美且不能再改。"
+          }
+        ],
+        "ownForms": [
+          "great",
+          "greater",
+          "greatest"
+        ]
+      },
+      {
+        "id": "nice",
+        "label": "nice：偶尔换个环境吃饭，体验怎样？",
+        "prompt": "偶尔换个环境吃饭，体验怎样？",
+        "answer": "nice",
+        "meaning": "好的；令人愉快的",
+        "material": "It was nice to eat outside for a change.",
+        "before": "It was ",
+        "after": " to eat outside for a change.",
+        "reason": "nice to do评价体验令人愉快。for a change表示偶尔换个平常做法，不是取消全部计划，也不保证任何天气都适合户外吃饭。",
+        "hint": "评价这次体验；别扩大成永远如此。",
+        "wordDecision": {
+          "prompt": "偶尔换个环境吃饭，体验怎样？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "换到外面吃饭很愉快",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "pleasant",
+                "label": "这次换到外面吃饭很愉快",
+                "text": "It was nice to eat outside for a change.",
+                "include": true
+              },
+              {
+                "id": "cancel",
+                "label": "取消了吃饭和所有计划",
+                "text": "We cancelled the meal and changed every plan.",
+                "include": false
+              },
+              {
+                "id": "always",
+                "label": "任何天气都适合户外吃饭",
+                "text": "Eating outside is always pleasant in every kind of weather.",
+                "include": false
+              }
+            ],
+            "hint": "一次体验，不是所有情况。",
+            "wrong": "只选这次换到外面吃饭很愉快；不能补取消或任何天气都如此。"
+          }
+        },
+        "options": [
+          {
+            "id": "cancel",
+            "text": "We cancelled the meal and changed every plan.",
+            "correct": false,
+            "reason": "换个环境被扩大成取消吃饭、改掉所有计划。"
+          },
+          {
+            "id": "pleasant",
+            "text": "Eating outside for a change was a pleasant experience.",
+            "correct": true,
+            "reason": "nice to do评价体验，for a change表示换个平常做法。"
+          },
+          {
+            "id": "always",
+            "text": "Eating outside is always pleasant in every kind of weather.",
+            "correct": false,
+            "reason": "一次体验被扩大成任何天气都总是愉快。"
+          }
+        ],
+        "ownForms": [
+          "nice",
+          "nicer",
+          "nicest"
+        ]
+      },
+      {
+        "id": "fine",
+        "label": "fine：点出颗粒细小的沙子。",
+        "prompt": "点出颗粒细小的沙子。",
+        "answer": "fine",
+        "meaning": "好的；晴朗的；细的",
+        "material": "The sand was too fine to hold the shape.",
+        "before": "The sand was too ",
+        "after": " to hold the shape.",
+        "reason": "fine这里是颗粒细，不是晴朗。too ... to ...是太……而不能……；保持不了形状来自原句，图片只比较粒度。",
+        "hint": "看颗粒大小；结果依据原句。",
+        "wordDecision": {
+          "prompt": "点出颗粒细小的沙子。",
+          "art": {
+            "asset": "lesson-fine-sand",
+            "assetRoot": "illustrations-3",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "同尺寸蓝色样品盘和茶匙：A中沙子颗粒细小，B中沙子颗粒较粗；没有形状测试或天气信息。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "fine",
+                "label": "A 图",
+                "left": 2,
+                "top": 4,
+                "width": 46,
+                "height": 92,
+                "labelPosition": "top"
+              },
+              {
+                "id": "b",
+                "option": "coarse",
+                "label": "B 图",
+                "left": 52,
+                "top": 4,
+                "width": 46,
+                "height": 92,
+                "labelPosition": "top"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "fine",
+                "caption": "A中的颗粒细小；不能保持形状来自原句。",
+                "regions": [
+                  {
+                    "id": "small",
+                    "left": 8,
+                    "top": 30,
+                    "width": 35,
+                    "height": 32,
+                    "label": "颗粒细小"
+                  }
+                ]
+              },
+              {
+                "option": "coarse",
+                "caption": "B中的颗粒较粗，不符合本句中的fine。",
+                "regions": [
+                  {
+                    "id": "coarse",
+                    "left": 58,
+                    "top": 30,
+                    "width": 35,
+                    "height": 32,
+                    "label": "颗粒较粗"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "fine",
+            "text": "Fine sand with very small grains.",
+            "correct": true,
+            "reason": "A中沙子的颗粒细小，符合fine；保持不了形状来自原句。"
+          },
+          {
+            "id": "coarse",
+            "text": "Coarse sand with visibly larger grains.",
+            "correct": false,
+            "reason": "B中的颗粒较粗，不符合fine在本句中的意思。"
+          }
+        ],
+        "ownForms": [
+          "fine",
+          "finer",
+          "finest"
+        ]
+      },
+      {
+        "id": "new",
+        "label": "new：给新架留出更多空格。",
+        "prompt": "给新架留出更多空格。",
+        "answer": "new",
+        "meaning": "新的",
+        "material": "The new shelf gives us more space.",
+        "before": "The ",
+        "after": " shelf gives us more space.",
+        "reason": "new是新的，more space是更多空间，不是更少。本题空格数量只作示意；原句没有具体数量，也不保证所有新架都比旧架好。",
+        "hint": "more更多；示例数量不是原句数据。",
+        "wordDecision": {
+          "prompt": "给新架留出更多空格。",
+          "shelfRoom": {
+            "title": "给新架留出更多空格",
+            "hint": "本题示例：两架都放4本书，旧架余2格。给新架留出更多空格。",
+            "wrong": "新架的空格要比旧架更多；相同或更少都不符合more space。"
+          }
+        },
+        "options": [
+          {
+            "id": "less",
+            "text": "The new shelf leaves us with less space.",
+            "correct": false,
+            "reason": "更多空间被反转成更少。"
+          },
+          {
+            "id": "all",
+            "text": "Every new shelf is always better than every old shelf.",
+            "correct": false,
+            "reason": "这一个新架被扩大成所有新架永远更好。"
+          },
+          {
+            "id": "more",
+            "text": "The new shelf provides us with more space.",
+            "correct": true,
+            "reason": "new是新的，more space保留更多空间。"
+          }
+        ],
+        "ownForms": [
+          "new",
+          "newer",
+          "newest"
+        ]
+      },
+      {
+        "id": "old",
+        "label": "old：旧地图显示了什么？",
+        "prompt": "旧地图显示了什么？",
+        "answer": "old",
+        "meaning": "旧的；年老的",
+        "material": "An old map showed a path across the field.",
+        "before": "An ",
+        "after": " map showed a path across the field.",
+        "reason": "old在这里是旧的，不是在说人的年纪。地图显示田间有小路；没有核实今天是否开放、安全，也不能反转成没有小路。",
+        "hint": "旧地图的信息，不等于今天已核实。",
+        "wordDecision": {
+          "prompt": "旧地图显示了什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "旧地图显示田间有小路",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "past",
+                "label": "旧地图上显示一条田间小路",
+                "text": "An old map showed a path across the field.",
+                "include": true
+              },
+              {
+                "id": "verified",
+                "label": "今天已确认小路开放安全",
+                "text": "The path is confirmed to be open and safe today.",
+                "include": false
+              },
+              {
+                "id": "none",
+                "label": "旧地图没有显示小路",
+                "text": "The old map showed no path across the field.",
+                "include": false
+              }
+            ],
+            "hint": "showed不是今天的核实记录。",
+            "wrong": "只选旧地图显示小路；不能补今天已核实或反转成没有。"
+          }
+        },
+        "options": [
+          {
+            "id": "past",
+            "text": "An old map showed a path crossing the field.",
+            "correct": true,
+            "reason": "old修饰地图，showed报告地图上显示过田间小路。"
+          },
+          {
+            "id": "verified",
+            "text": "The path is confirmed to be open and safe today.",
+            "correct": false,
+            "reason": "旧地图显示过，不等于现在已核实开放、安全。"
+          },
+          {
+            "id": "none",
+            "text": "The old map showed no path across the field.",
+            "correct": false,
+            "reason": "有小路被反转成没有小路。"
+          }
+        ],
+        "ownForms": [
+          "old",
+          "older",
+          "oldest",
+          "elder",
+          "eldest"
+        ]
+      },
+      {
+        "id": "young",
+        "label": "young：幼鸟当时学会飞了吗？",
+        "prompt": "幼鸟当时学会飞了吗？",
+        "answer": "young",
+        "meaning": "年轻的；年幼的",
+        "material": "The young bird had not learned to fly.",
+        "before": "The ",
+        "after": " bird had not learned to fly.",
+        "reason": "young是年幼的；had not learned说明当时还没学会飞。不等于永远不能飞，也没有报告受伤。young的比较级是younger。",
+        "hint": "当时未学会，不是永远不可能。",
+        "wordDecision": {
+          "prompt": "幼鸟当时学会飞了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "幼鸟当时还没学会飞",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "notyet",
+                "label": "当时还没学会飞",
+                "text": "The young bird had not learned to fly.",
+                "include": true
+              },
+              {
+                "id": "already",
+                "label": "当时已经学会飞",
+                "text": "The bird had already learned to fly.",
+                "include": false
+              },
+              {
+                "id": "never",
+                "label": "一生永远不可能飞",
+                "text": "The bird would never be able to fly in its entire life.",
+                "include": false
+              }
+            ],
+            "hint": "过去状态，不是永久判断。",
+            "wrong": "只选当时还没学会飞；不能反转成已学会或扩大成永远不能。"
+          }
+        },
+        "options": [
+          {
+            "id": "already",
+            "text": "The bird had already learned how to fly.",
+            "correct": false,
+            "reason": "还没学会被反转成已经学会。"
+          },
+          {
+            "id": "notyet",
+            "text": "The young bird had not learned how to fly at that time.",
+            "correct": true,
+            "reason": "young是年幼的，had not learned保留当时还没学会。"
+          },
+          {
+            "id": "never",
+            "text": "The bird would never be able to fly in its entire life.",
+            "correct": false,
+            "reason": "当时未学会被扩大成一生永远不会。"
+          }
+        ],
+        "ownForms": [
+          "young",
+          "younger",
+          "youngest"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-basic-qualities-transfer",
+      "topicId": "v-course-basic-qualities",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which reading keeps the words in their actual context?",
+      "passage": "A better display for our visit\nOur class was making a display about a visit to a country park. A good map made our long walk easier, although it did not make the path any shorter. An old map also showed a path across a field, but we had not checked whether that path was still open.\nFor the display, we tried to make a small landscape model. The sand was too fine to hold the shape we wanted. We changed our materials, and the next model was a great improvement on the first one. It still needed clearer labels. A new shelf gave us more space to store our work.\nAt lunchtime, it was nice to eat outside for a change. A bad smell came from a blocked drain nearby, so we chose a different table. On our way back, a park worker showed us a young bird that had not learned to fly. She explained that it was still growing; nobody said it would never fly.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The old map did not verify today’s access; the sand had small grains; the bird had not learned to fly at that time."
+        },
+        {
+          "id": "b",
+          "text": "The old map confirmed the path was safe today; the sand had small grains; the bird had not learned to fly at that time."
+        },
+        {
+          "id": "c",
+          "text": "The old map did not verify today’s access; fine meant sunny weather; the bird had not learned to fly at that time."
+        },
+        {
+          "id": "d",
+          "text": "The old map did not verify today’s access; the sand had small grains; the bird could never fly in its whole life."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The old map did not verify today’s access; the sand had small grains; the bird had not learned to fly at that time."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找修饰对象，再区分过去信息、当时状态和永久判断。",
+        "steps": [
+          {
+            "text": "old修饰地图；没有核实小路现在是否开放。fine修饰沙子，指颗粒细。",
+            "reason": "had not checked保留未核实；The sand ... too fine把fine限定在沙子的粒度。"
+          },
+          {
+            "text": "幼鸟当时还没学会飞，不等于一生永远不能飞。",
+            "reason": "had not learned说明当时状态；nobody said it would never fly明确排除永久结论。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把旧地图信息扩大成今天已确认安全。"
+          },
+          {
+            "option": "c",
+            "reason": "fine修饰沙子，被错读成晴朗天气。"
+          },
+          {
+            "option": "d",
+            "reason": "把当时未学会扩大成一生永远不能。"
+          }
+        ],
+        "pitfall": "忽略修饰对象，或把过去、当时扩大成现在核实与永久保证。",
+        "visual": {
+          "kind": "timeline",
+          "title": "修饰对象和时间要对上",
+          "segments": [
+            {
+              "text": "old → map",
+              "role": "object",
+              "note": "不是今天核实"
+            },
+            {
+              "text": "fine → sand",
+              "role": "object",
+              "note": "颗粒细，不是天气"
+            },
+            {
+              "text": "had not learned → then",
+              "role": "object",
+              "note": "当时未学会，不是永远不会"
+            }
+          ],
+          "caption": "先对对象，再看时间与范围。"
+        },
+        "transfer": "模型进步很大，是否说明已经完美？用原文支持你的判断。"
+      }
+    }
+  }
+}
