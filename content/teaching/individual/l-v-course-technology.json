@@ -1,0 +1,643 @@
+{
+  "lessonId": "l-v-course-technology",
+  "reviewState": "draft",
+  "intent": "Eight individual digital-tool tasks preserve frequency, instructions, conditions, limited comparisons, missing paper and a restricted print request.",
+  "picturePurpose": "Original desktop/laptop picture supports two real form choices; weight and habitual carriage come from the source, never appearance. A coded six-page selector makes only the pages you need operational without executing printing or claiming a completed job.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "辨设备、选页码，再核对指令",
+    "instruction": "点出笔记本，只选需要的页；保留频率、条件和比较范围。",
+    "items": [
+      {
+        "id": "computer",
+        "label": "computer：电脑多久保存一次备份？",
+        "prompt": "电脑多久保存一次备份？",
+        "answer": "computer",
+        "meaning": "计算机",
+        "material": "The computer saves a backup every hour.",
+        "before": "The ",
+        "after": " saves a backup every hour.",
+        "reason": "computer表示计算机。every hour是每小时，不是每天，也不是一直不停地保存。saves a backup报告备份保存的习惯，没有说已经测试所有文件能否恢复，也没有说明备份存在哪里。",
+        "hint": "看every hour；保存不等于恢复验证。",
+        "wordDecision": {
+          "prompt": "电脑多久保存一次备份？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "每小时保存一次备份",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "hourly",
+                "label": "每小时保存备份",
+                "text": "The computer saves a backup every hour.",
+                "include": true
+              },
+              {
+                "id": "daily",
+                "label": "每天只备份一次",
+                "text": "The computer saves only one backup each day.",
+                "include": false
+              },
+              {
+                "id": "restored",
+                "label": "已验证全部恢复",
+                "text": "Every file has been proved to restore successfully.",
+                "include": false
+              }
+            ],
+            "hint": "every hour不是each day。",
+            "wrong": "只选每小时保存备份；不能改频率或补恢复验证。"
+          }
+        },
+        "options": [
+          {
+            "id": "hourly",
+            "text": "The computer saves a backup once every hour.",
+            "correct": true,
+            "reason": "every hour明确说明每小时一次。"
+          },
+          {
+            "id": "daily",
+            "text": "The computer saves only one backup each day.",
+            "correct": false,
+            "reason": "every hour被换成each day，还加了only。"
+          },
+          {
+            "id": "restored",
+            "text": "Every file has been proved to restore successfully.",
+            "correct": false,
+            "reason": "保存备份不等于已经验证所有文件都能成功恢复。"
+          }
+        ],
+        "ownForms": [
+          "computer",
+          "computers"
+        ]
+      },
+      {
+        "id": "laptop",
+        "label": "laptop：点出屏幕和键盘连成一体的笔记本。",
+        "prompt": "点出屏幕和键盘连成一体的笔记本。",
+        "answer": "laptop",
+        "meaning": "笔记本电脑",
+        "material": "My laptop is light enough to carry daily.",
+        "before": "My ",
+        "after": " is light enough to carry daily.",
+        "reason": "laptop是笔记本电脑，屏幕和键盘连成可折叠的一体。light enough to carry daily表示够轻，适合每天携带；不是报告每天已经携带，也没有给出重量或电池时长。图帮助辨设备，不能据图测重量。",
+        "hint": "图辨设备；够轻由句子说明。",
+        "wordDecision": {
+          "prompt": "点出屏幕和键盘连成一体的笔记本。",
+          "art": {
+            "pictureOnly": true,
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-desktop-laptop",
+            "alt": "左图为分开的显示器、主机和键盘，右图为屏幕与键盘连为一体的笔记本电脑；图片不提供重量。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "desktop",
+                "label": "A 设备",
+                "left": 2,
+                "top": 4,
+                "width": 46,
+                "height": 92
+              },
+              {
+                "id": "b",
+                "option": "portable",
+                "label": "B 设备",
+                "left": 52,
+                "top": 4,
+                "width": 46,
+                "height": 92
+              }
+            ],
+            "evidence": [
+              {
+                "option": "desktop",
+                "caption": "A的显示器、主机和键盘彼此分开，是台式设备，不是本题要找的laptop。",
+                "regions": [
+                  {
+                    "id": "separate",
+                    "left": 3,
+                    "top": 17,
+                    "width": 44,
+                    "height": 60,
+                    "label": "分体设备"
+                  }
+                ]
+              },
+              {
+                "option": "portable",
+                "caption": "B的屏幕与内置键盘连成一体，是laptop。够轻适合携带由原句说明，不是看图测重量。",
+                "regions": [
+                  {
+                    "id": "hinged",
+                    "left": 53,
+                    "top": 17,
+                    "width": 44,
+                    "height": 59,
+                    "label": "一体笔记本"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "desktop",
+            "text": "The separate monitor, tower and keyboard form the laptop.",
+            "correct": false,
+            "reason": "左图是分体的台式设备，不能替代本题的笔记本。"
+          },
+          {
+            "id": "portable",
+            "text": "The hinged device with its own built-in keyboard is a laptop.",
+            "correct": true,
+            "reason": "右图是一体式笔记本；轻且适合每天携带由原句给出。"
+          }
+        ],
+        "ownForms": [
+          "laptop",
+          "laptops"
+        ]
+      },
+      {
+        "id": "keyboard",
+        "label": "keyboard：饮料应该怎样摆放？",
+        "prompt": "饮料应该怎样摆放？",
+        "answer": "keyboard",
+        "meaning": "键盘",
+        "material": "Keep drinks away from the keyboard.",
+        "before": "Keep drinks away from the ",
+        "after": ".",
+        "reason": "keyboard在这里是电脑键盘。keep A away from B表示让A远离B，Keep开头给出指令，不是报告已经搬开饮料。keyboard在音乐语境中也可指电子键盘乐器。",
+        "hint": "away from是远离；指令不等于已做到。",
+        "wordDecision": {
+          "prompt": "饮料应该怎样摆放？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "让饮料远离键盘",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "away",
+                "label": "饮料应远离键盘",
+                "text": "Drinks should be kept away from the keyboard.",
+                "include": true
+              },
+              {
+                "id": "beside",
+                "label": "饮料应紧挨键盘",
+                "text": "Drinks should be placed right beside the keyboard.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "已经全部搬开",
+                "text": "All drinks have already been moved away.",
+                "include": false
+              }
+            ],
+            "hint": "away from不是beside。",
+            "wrong": "只选饮料应远离键盘；不能反转位置或补已执行。"
+          }
+        },
+        "options": [
+          {
+            "id": "beside",
+            "text": "Drinks should be placed right beside the keyboard.",
+            "correct": false,
+            "reason": "away from被反转成right beside。"
+          },
+          {
+            "id": "done",
+            "text": "All drinks have already been moved away.",
+            "correct": false,
+            "reason": "指令不等于已经执行完。"
+          },
+          {
+            "id": "away",
+            "text": "Drinks should be kept away from the keyboard.",
+            "correct": true,
+            "reason": "away from表示远离，Keep给出指令。"
+          }
+        ],
+        "ownForms": [
+          "keyboard",
+          "keyboards"
+        ]
+      },
+      {
+        "id": "screen",
+        "label": "screen：什么情况下屏幕难看清？",
+        "prompt": "什么情况下屏幕难看清？",
+        "answer": "screen",
+        "meaning": "屏幕；屏风",
+        "material": "The screen is difficult to read in sunlight.",
+        "before": "The ",
+        "after": " is difficult to read in sunlight.",
+        "reason": "screen在这里表示屏幕，in sunlight说明阳光下这个条件。difficult to read是难看清，不等于所有地方都完全看不了，也不能直接断定设备坏了。screen在其他语境也可表示屏风。",
+        "hint": "保留in sunlight，不扩大到所有场合。",
+        "wordDecision": {
+          "prompt": "什么情况下屏幕难看清？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "阳光下难看清屏幕",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "sun",
+                "label": "阳光下难看清",
+                "text": "The screen is difficult to read in sunlight.",
+                "include": true
+              },
+              {
+                "id": "always",
+                "label": "处处都完全看不了",
+                "text": "The screen is impossible to read everywhere.",
+                "include": false
+              },
+              {
+                "id": "broken",
+                "label": "已证明屏幕坏了",
+                "text": "The screen is proved to be broken.",
+                "include": false
+              }
+            ],
+            "hint": "难看清不等于已损坏。",
+            "wrong": "只选阳光下难看清；不能扩大条件、程度或补损坏诊断。"
+          }
+        },
+        "options": [
+          {
+            "id": "sun",
+            "text": "The screen is hard to read in sunlight.",
+            "correct": true,
+            "reason": "in sunlight限定条件。"
+          },
+          {
+            "id": "always",
+            "text": "The screen is impossible to read in every place.",
+            "correct": false,
+            "reason": "sunlight被扩大成所有地方，difficult被扩大成impossible。"
+          },
+          {
+            "id": "broken",
+            "text": "The screen is proved to be broken.",
+            "correct": false,
+            "reason": "难看清不证明屏幕损坏。"
+          }
+        ],
+        "ownForms": [
+          "screen",
+          "screens"
+        ]
+      },
+      {
+        "id": "monitor",
+        "label": "monitor：这台显示器和哪一台相比？",
+        "prompt": "这台显示器和哪一台相比？",
+        "answer": "monitor",
+        "meaning": "显示器；监控",
+        "material": "This monitor uses less electricity than the old one.",
+        "before": "This ",
+        "after": " uses less electricity than the old one.",
+        "reason": "monitor在这里是名词显示器。less electricity than the old one表示比旧显示器用电少，one代替monitor；没有比较所有型号，也不表示完全不用电，没有给出节电比例。monitor作动词可表示监测。",
+        "hint": "less不是零；the old one不是所有型号。",
+        "wordDecision": {
+          "prompt": "这台显示器和哪一台相比？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "比旧显示器用电少",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "old",
+                "label": "比旧显示器省电",
+                "text": "This monitor uses less electricity than the old monitor.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "比所有型号都省电",
+                "text": "This monitor uses less electricity than every other model.",
+                "include": false
+              },
+              {
+                "id": "zero",
+                "label": "完全不需要用电",
+                "text": "This monitor uses no electricity.",
+                "include": false
+              }
+            ],
+            "hint": "保留old one这个比较对象。",
+            "wrong": "只选比旧显示器省电；不能扩大范围或把少改成零。"
+          }
+        },
+        "options": [
+          {
+            "id": "all",
+            "text": "This monitor uses less electricity than every other monitor.",
+            "correct": false,
+            "reason": "the old one被扩大成所有其他显示器。"
+          },
+          {
+            "id": "old",
+            "text": "This monitor uses less electricity than the old monitor.",
+            "correct": true,
+            "reason": "than the old one给出比较对象；one代替monitor。"
+          },
+          {
+            "id": "zero",
+            "text": "This monitor uses no electricity at all.",
+            "correct": false,
+            "reason": "less不等于none。"
+          }
+        ],
+        "ownForms": [
+          "monitor",
+          "monitors"
+        ]
+      },
+      {
+        "id": "printer",
+        "label": "printer：打印机现在缺少什么？",
+        "prompt": "打印机现在缺少什么？",
+        "answer": "printer",
+        "meaning": "打印机",
+        "material": "The printer has run out of paper.",
+        "before": "The ",
+        "after": " has run out of paper.",
+        "reason": "printer是打印机，print加-er构成表示设备的名词。has run out of paper说明纸已用完，没有说墨用完、设备坏了，或已经加纸修好。",
+        "hint": "paper是纸；别换成墨或已修好。",
+        "wordDecision": {
+          "prompt": "打印机现在缺少什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "纸已用完",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "paper",
+                "label": "打印纸已用完",
+                "text": "The printer has no paper left.",
+                "include": true
+              },
+              {
+                "id": "ink",
+                "label": "墨已经用完",
+                "text": "The printer has run out of ink.",
+                "include": false
+              },
+              {
+                "id": "fixed",
+                "label": "已经修好并补满",
+                "text": "The printer has already been repaired and refilled.",
+                "include": false
+              }
+            ],
+            "hint": "run out of后面是paper。",
+            "wrong": "只选打印纸已用完；不能换材料或补已修好。"
+          }
+        },
+        "options": [
+          {
+            "id": "ink",
+            "text": "The printer has run out of ink.",
+            "correct": false,
+            "reason": "paper被换成ink。"
+          },
+          {
+            "id": "fixed",
+            "text": "The printer has already been repaired and refilled.",
+            "correct": false,
+            "reason": "缺纸不等于已经修好并补充材料。"
+          },
+          {
+            "id": "paper",
+            "text": "The printer has no paper left.",
+            "correct": true,
+            "reason": "run out of paper表示纸用完了。"
+          }
+        ],
+        "ownForms": [
+          "printer",
+          "printers"
+        ]
+      },
+      {
+        "id": "print",
+        "label": "print：只选本题需要打印的页。",
+        "prompt": "只选本题需要打印的页。",
+        "answer": "print",
+        "meaning": "打印；印刷",
+        "material": "Please print only the pages you need.",
+        "before": "Please ",
+        "after": " only the pages you need.",
+        "reason": "print在这里是动词打印，only the pages you need表示只打印需要的页。示意任务规定只要第2、4页，漏选或多选都不符合这次要求。Please给出请求，圈选页面本身不表示已经执行打印。",
+        "hint": "only管需要的页；选择不等于已打印。",
+        "wordDecision": {
+          "prompt": "只选本题需要打印的页。",
+          "printPages": {
+            "title": "任务：只需要第2、4页",
+            "needed": [
+              2,
+              4
+            ],
+            "hint": "这份示意文件共6页；只圈选本题需要的页，不执行真实打印。",
+            "wrong": "这次只需要第2和第4页；少选或多选都不符合only the pages you need。"
+          }
+        },
+        "options": [
+          {
+            "id": "needed",
+            "text": "Select only the pages required by the task.",
+            "correct": true,
+            "reason": "only限制为需要的页；本题示意任务只要第2和第4页。"
+          },
+          {
+            "id": "all",
+            "text": "Select every page whether it is needed or not.",
+            "correct": false,
+            "reason": "删掉only的限制。"
+          },
+          {
+            "id": "done",
+            "text": "The required pages have already been printed.",
+            "correct": false,
+            "reason": "Please给出请求，不是已经打印完成。"
+          }
+        ],
+        "ownForms": [
+          "print",
+          "prints",
+          "printed",
+          "printing"
+        ]
+      },
+      {
+        "id": "phone",
+        "label": "phone：考试期间，手机应放在哪里？",
+        "prompt": "考试期间，手机应放在哪里？",
+        "answer": "phone",
+        "meaning": "电话；打电话",
+        "material": "Leave your phone in your bag during the test.",
+        "before": "Leave your ",
+        "after": " in your bag during the test.",
+        "reason": "phone是telephone的常用简写。Leave your phone in your bag是在要求把手机留在包里，during the test限定考试期间；不是报告手机已放好，也没有说明考试之外的所有时段。",
+        "hint": "保留in your bag和during the test。",
+        "wordDecision": {
+          "prompt": "考试期间，手机应放在哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "考试期间手机留在包里",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "bag",
+                "label": "考试时应留包里",
+                "text": "The phone should stay in the bag during the test.",
+                "include": true
+              },
+              {
+                "id": "desk",
+                "label": "考试时应放桌上",
+                "text": "The phone should be on the desk during the test.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "已经放进包里",
+                "text": "The phone has already been put in the bag.",
+                "include": false
+              }
+            ],
+            "hint": "Leave是指令，不是已完成。",
+            "wrong": "只选考试时应留包里；不能换位置或补已放好。"
+          }
+        },
+        "options": [
+          {
+            "id": "desk",
+            "text": "The phone should be placed on the desk during the test.",
+            "correct": false,
+            "reason": "in the bag被换成on the desk。"
+          },
+          {
+            "id": "bag",
+            "text": "The phone should stay in the bag during the test.",
+            "correct": true,
+            "reason": "in your bag和during the test分别限定位置与时段。"
+          },
+          {
+            "id": "done",
+            "text": "The phone has already been placed in the bag.",
+            "correct": false,
+            "reason": "Leave是指令，不证明已经放好。"
+          }
+        ],
+        "ownForms": [
+          "phone",
+          "phones"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-technology-transfer",
+      "topicId": "v-course-technology",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes keep the backup frequency, comparison and page requirement?",
+      "passage": "Preparing our club display\nThe computer saves a backup every hour. We still need to test whether our saved files can be restored. My laptop is light enough to carry daily, but this note does not say I actually carry it every day.\nKeep drinks away from the keyboard. The screen is hard to read in sunlight. Our new monitor uses less electricity than the old one; we did not compare every model.\nThe printer has run out of paper. Our six-page file needs only pages 2 and 4 for the display. Please print those pages after adding paper. Selecting the pages is not the same as finishing the print job.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Backups are hourly; the monitor is compared with the old one; only pages 2 and 4 are needed."
+        },
+        {
+          "id": "b",
+          "text": "Backups are daily; the monitor is compared with the old one; only pages 2 and 4 are needed."
+        },
+        {
+          "id": "c",
+          "text": "Backups are hourly; the monitor uses less electricity than every model; only pages 2 and 4 are needed."
+        },
+        {
+          "id": "d",
+          "text": "Backups are hourly; the monitor is compared with the old one; all six pages are needed."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Backups are hourly; the monitor is compared with the old one; only pages 2 and 4 are needed."
+      },
+      "marks": 2,
+      "estimatedSeconds": 105,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "依次核对备份频率、比较对象和只需要的页。",
+        "steps": [
+          {
+            "text": "备份是每小时一次；显示器只与旧的那台相比，没有比较所有型号。",
+            "reason": "every hour限定频率；than the old one和did not compare every model限定比较范围。"
+          },
+          {
+            "text": "六页文件只需要第2和第4页，多打其他页不符合要求。",
+            "reason": "only pages 2 and 4限制页码；选择页面不等于已经完成打印。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把每小时every hour换成每天daily。"
+          },
+          {
+            "option": "c",
+            "reason": "把旧显示器这一比较对象扩大成所有型号。"
+          },
+          {
+            "option": "d",
+            "reason": "忽略only，把两页扩大成六页全选。"
+          }
+        ],
+        "pitfall": "把小时换成天，把一个比较对象换成全部，把only需要的页换成整份文件。",
+        "visual": {
+          "kind": "timeline",
+          "title": "频率、范围、页码",
+          "segments": [
+            {
+              "text": "every hour",
+              "role": "object",
+              "note": "每小时一次，不是每天"
+            },
+            {
+              "text": "than the old one",
+              "role": "object",
+              "note": "只保留原比较对象"
+            },
+            {
+              "text": "only pages 2 and 4",
+              "role": "object",
+              "note": "只选需要的两页"
+            }
+          ],
+          "caption": "先核对限定词，再看是否多加结论。"
+        },
+        "transfer": "The device uses less electricity than the old one，能直接说它完全不用电吗？指出less的比较意思。"
+      }
+    }
+  }
+}

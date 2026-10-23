@@ -1,0 +1,9 @@
+/** Page selection for an explicitly authored six-page task; this never executes printing. */
+export interface WordPrintPages {title:string;needed:number[];hint:string;wrong:string}
+export interface WordPrintPagesView {title:string;hint:string;chosen:boolean;total:number;reading:string;pages:{id:string;label:string;selected:boolean}[]}
+const decode=(raw:string):number[]=>{if(!/^[1-6](?:,[1-6])*$/.test(raw))return[];const n=raw.split(',').map(Number);return n.every((v,i)=>i===0||v>n[i-1])?n:[]}
+export const wordPrintPagesKey=(id:string)=>`workshopPrintPages-${id}`
+export function validWordPrintPages(value:unknown):value is WordPrintPages {if(!value||typeof value!=='object')return false;const w=value as WordPrintPages,text=(s:unknown,max:number)=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=max;return text(w.title,60)&&Array.isArray(w.needed)&&w.needed.length>0&&w.needed.length<=6&&w.needed.every((n,i)=>Number.isInteger(n)&&n>=1&&n<=6&&(i===0||n>w.needed[i-1]))&&text(w.hint,110)&&text(w.wrong,140)}
+export function printPagesMatch(w:WordPrintPages,raw:string):boolean {return raw===w.needed.join(',')}
+export function changePrintPages(raw:string,action:string):string|undefined {if(action==='reset')return'';if(!/^[1-6]$/.test(action))return undefined;const selected=decode(raw),n=Number(action),next=selected.includes(n)?selected.filter(v=>v!==n):[...selected,n];return next.sort((a,b)=>a-b).join(',')}
+export function wordPrintPagesView(w:WordPrintPages,raw:string):WordPrintPagesView {const selected=decode(raw);return{title:w.title,hint:w.hint,chosen:selected.length>0,total:selected.length,reading:selected.length?`已选${selected.length}页：第${selected.join('、')}页。这里只选择页面，尚未执行打印。`:'还没选择页面；按任务要求圈选需要的页。',pages:Array.from({length:6},(_,i)=>({id:String(i+1),label:`第${i+1}页`,selected:selected.includes(i+1)}))}}
