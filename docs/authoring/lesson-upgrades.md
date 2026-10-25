@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **205 / 413**. Current: **l-v-course-commerce-5**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **206 / 413**. Current: **l-v-course-science**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -313,7 +313,7 @@ Completed: **205 / 413**. Current: **l-v-course-commerce-5**. Evidence lives in 
 | l-v-course-commerce-2 | 购物、金钱与选择 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-commerce-2.md) |
 | l-v-course-commerce-3 | 购物、金钱与选择 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-commerce-3.md) |
 | l-v-course-commerce-4 | 购物、金钱与选择 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-commerce-4.md) |
-| l-v-course-commerce-5 | 购物、金钱与选择 · 5 | pending | — |
+| l-v-course-commerce-5 | 购物、金钱与选择 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-commerce-5.md) |
 | l-v-course-science | 科学、测量与证据 · 1 | pending | — |
 | l-v-course-science-2 | 科学、测量与证据 · 2 | pending | — |
 | l-v-course-science-3 | 科学、测量与证据 · 3 | pending | — |
