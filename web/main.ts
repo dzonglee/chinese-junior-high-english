@@ -123,6 +123,7 @@ function render() {
   const fileDeskFocus = active instanceof HTMLButtonElement && active.matches('.word-file-desk .file-desk-control') ? active.dataset.value : undefined
   const shelfRoomFocus = active instanceof HTMLButtonElement && active.matches('.word-shelf-room .shelf-room-control') ? active.dataset.value : undefined
   const shadePanelFocus = active instanceof HTMLButtonElement && active.matches('.word-shade-panel .shade-panel-control') ? active.dataset.value : undefined
+  const robotWaveFocus = active instanceof HTMLButtonElement && active.matches('.word-robot-wave .robot-wave-control') ? active.dataset.value : undefined
   const depthLineFocus = active instanceof HTMLButtonElement && active.matches('.word-depth-line .depth-line-control') ? active.dataset.value : undefined
   const waterPairFocus = active instanceof HTMLButtonElement && active.matches('.word-water-pair .water-pair-control') ? active.dataset.value : undefined
   const queueMoveFocus = active instanceof HTMLButtonElement && active.matches('.word-queue-move .queue-move-control') ? active.dataset.value : undefined
@@ -135,6 +136,7 @@ function render() {
   root.innerHTML = `<main class="app ${s.tabs.length ? 'with-tabs' : ''} ${s.overview ? 'product-app' : ''} ${s.paperSession?'is-paper-session':''} screen-${esc(s.id)}" data-screen="${esc(s.id)}">${setupHeader}${body}${s.tabs.length ? `<nav class="tabbar" aria-label="主导航">${s.tabs.map(t => `<button class="tab ${t.selected ? 'selected' : ''}" aria-current="${t.selected ? 'page' : 'false'}" data-action="navigate" data-value="${esc(t.id)}"><span class="tab-icon"><img src="${artwork('navigation/'+t.id+(t.selected?'-on':''))}" alt=""/></span><span>${esc(t.label)}</span></button>`).join('')}</nav>` : ''}</main>`
   root.querySelectorAll<HTMLElement>('[data-passage-key]').forEach(e=>{e.scrollTop=passageScroll.get(e.dataset.passageKey)??0})
   if (shadePanelFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-shade-panel [data-value="${CSS.escape(shadePanelFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (robotWaveFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-robot-wave [data-value="${CSS.escape(robotWaveFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (depthLineFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-depth-line [data-value="${CSS.escape(depthLineFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (waterPairFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-water-pair [data-value="${CSS.escape(waterPairFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (queueMoveFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-queue-move [data-value="${CSS.escape(queueMoveFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

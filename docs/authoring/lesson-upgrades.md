@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **188 / 413**. Current: **l-v-course-colour-appearance-3**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **189 / 413**. Current: **l-v-course-colour-appearance-4**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -296,7 +296,7 @@ Completed: **188 / 413**. Current: **l-v-course-colour-appearance-3**. Evidence 
 | l-v-course-basic-qualities-5 | 常用性质与比较 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-basic-qualities-5.md) |
 | l-v-course-colour-appearance | 颜色、外形与可见特征 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-colour-appearance.md) |
 | l-v-course-colour-appearance-2 | 颜色、外形与可见特征 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-colour-appearance-2.md) |
-| l-v-course-colour-appearance-3 | 颜色、外形与可见特征 · 3 | pending | — |
+| l-v-course-colour-appearance-3 | 颜色、外形与可见特征 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-colour-appearance-3.md) |
 | l-v-course-colour-appearance-4 | 颜色、外形与可见特征 · 4 | pending | — |
 | l-v-course-colour-appearance-5 | 颜色、外形与可见特征 · 5 | pending | — |
 | l-v-course-questions-quantity | 询问、数量与可能性 · 1 | pending | — |
