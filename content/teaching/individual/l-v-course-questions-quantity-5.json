@@ -1,0 +1,583 @@
+{
+  "lessonId": "l-v-course-questions-quantity-5",
+  "reviewState": "draft",
+  "intent": "Eight individual indefinite-pronoun tasks preserve each-person allocation, all/unknown/none scope, reason knowledge, restrictions, exceptions and needed-item range.",
+  "picturePurpose": "Exact coded three-person allocations teach one item per person without mistaking a group total for individual coverage. No generated image is treated as proof of an unknown sound source or past knowledge.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "逐个人分，再找范围与例外",
+    "instruction": "每人各一件；分清所有人、某个人、没有人和例外。",
+    "items": [
+      {
+        "id": "everyone",
+        "label": "everyone：给每人分一件；总共三件就够了吗？",
+        "prompt": "给每人分一件；总共三件就够了吗？",
+        "answer": "Everyone",
+        "meaning": "每个人；所有人",
+        "material": "Everyone brought one item for the picnic.",
+        "before": "",
+        "after": " brought one item for the picnic.",
+        "reason": "Everyone brought one item是每个人各带一件，不是全组总共一件。下面另设三人练习：每个人都要恰好一件；总数三件还不够，要看是否有人拿两件、有人没拿。",
+        "hint": "everyone作单数主语；这里brought是过去式。",
+        "wordDecision": {
+          "prompt": "给每人分一件；总共三件就够了吗？",
+          "eachItem": {
+            "title": "三人练习：每个人恰好一件",
+            "hint": "每个小块表示1件物品。给每人选0、1或2件。",
+            "wrong": "逐个检查：每个人都要恰好1件；不能只看总数。"
+          }
+        },
+        "options": [
+          {
+            "id": "each",
+            "text": "Each person brought one item for the picnic.",
+            "correct": true,
+            "reason": "everyone指每个人，one item是每人一件。"
+          },
+          {
+            "id": "total",
+            "text": "The whole group brought only one item in total.",
+            "correct": false,
+            "reason": "每人一件不能改成全组总共一件。"
+          },
+          {
+            "id": "some",
+            "text": "Only some people brought one item, and others brought none.",
+            "correct": false,
+            "reason": "everyone不能漏掉任何一个人。"
+          }
+        ]
+      },
+      {
+        "id": "everybody",
+        "label": "everybody：是全体等着，还是只有一部分人在等？",
+        "prompt": "是全体等着，还是只有一部分人在等？",
+        "answer": "Everybody",
+        "meaning": "所有人；每个人",
+        "material": "Everybody waited until the smallest child was ready.",
+        "before": "",
+        "after": " waited until the smallest child was ready.",
+        "reason": "Everybody指所有人，后面通常用单数谓语；这里waited是过去式。until the smallest child was ready保留等待到孩子准备好的时间界限。",
+        "hint": "everybody写成一个词；保留until从句。",
+        "wordDecision": {
+          "prompt": "是全体等着，还是只有一部分人在等？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "全体等到孩子准备好",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "all",
+                "label": "所有人都等到最小的孩子准备好",
+                "text": "Everybody waited until the smallest child was ready.",
+                "include": true
+              },
+              {
+                "id": "some",
+                "label": "只有一部分人等，其余人早走了",
+                "text": "Only some people waited; the rest left earlier.",
+                "include": false
+              },
+              {
+                "id": "before",
+                "label": "孩子还没准备好，所有人就停止等待",
+                "text": "Everyone stopped waiting before the child was ready.",
+                "include": false
+              }
+            ],
+            "hint": "全体范围和until的时间界限都要保留。",
+            "wrong": "只选全体等到准备好；不能漏人或把时间界限反过来。"
+          }
+        },
+        "options": [
+          {
+            "id": "all",
+            "text": "All the people waited until the smallest child was ready.",
+            "correct": true,
+            "reason": "everybody是所有人；until保留等待的终点。"
+          },
+          {
+            "id": "some",
+            "text": "Only some people waited; the rest left earlier.",
+            "correct": false,
+            "reason": "everybody不能缩成一部分人。"
+          },
+          {
+            "id": "before",
+            "text": "Everyone stopped waiting before the smallest child was ready.",
+            "correct": false,
+            "reason": "until ready不是在准备好之前就停止等待。"
+          }
+        ]
+      },
+      {
+        "id": "somebody",
+        "label": "somebody：知道有人没关灯，等于知道是谁吗？",
+        "prompt": "知道有人没关灯，等于知道是谁吗？",
+        "answer": "Somebody",
+        "meaning": "某人；有人",
+        "material": "Somebody has left a light on upstairs.",
+        "before": "",
+        "after": " has left a light on upstairs.",
+        "reason": "Somebody表示某个人，但原句没有说是谁。has left说明有人把灯留在开着的状态，不是问句，也不能扩大成人人都这样做了。",
+        "hint": "somebody配has；不要加空格写成some body。",
+        "wordDecision": {
+          "prompt": "知道有人没关灯，等于知道是谁吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "有人没关灯，身份未说明",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "unknown",
+                "label": "有人没关楼上的一盏灯，未说明是谁",
+                "text": "Somebody has left a light on upstairs.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "每个人都没关楼上的灯",
+                "text": "Everybody has left a light on upstairs.",
+                "include": false
+              },
+              {
+                "id": "named",
+                "label": "明确说小梅没有关灯",
+                "text": "Mei has left a light on upstairs.",
+                "include": false
+              }
+            ],
+            "hint": "有人这个事实已陈述；身份仍未说明。",
+            "wrong": "只保留有人没关灯；不能扩大成人人或补出姓名。"
+          }
+        },
+        "options": [
+          {
+            "id": "unknown",
+            "text": "A person has left a light on upstairs, but the person is not identified.",
+            "correct": true,
+            "reason": "somebody表示某个人；原句没有指出姓名。"
+          },
+          {
+            "id": "all",
+            "text": "Every person has left a light on upstairs.",
+            "correct": false,
+            "reason": "某个人不等于每个人。"
+          },
+          {
+            "id": "named",
+            "text": "The sentence identifies Mei as the person who left the light on.",
+            "correct": false,
+            "reason": "原句没有名字，不能补出小梅。"
+          }
+        ]
+      },
+      {
+        "id": "nobody",
+        "label": "nobody：没人知道原因，等于没人知道铃停了吗？",
+        "prompt": "没人知道原因，等于没人知道铃停了吗？",
+        "answer": "Nobody",
+        "meaning": "没有人",
+        "material": "Nobody knew why the bell had stopped.",
+        "before": "",
+        "after": " knew why the bell had stopped.",
+        "reason": "Nobody是否定主语：没有人。这里没有人知道的是why引出的原因；不能换成没有人知道铃停了，也不再加not造成双重否定。",
+        "hint": "nobody本身表否定；保留knew why。",
+        "wordDecision": {
+          "prompt": "没人知道原因，等于没人知道铃停了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "没有人知道铃停的原因",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "reason",
+                "label": "没有人知道铃停的原因",
+                "text": "Nobody knew why the bell had stopped.",
+                "include": true
+              },
+              {
+                "id": "event",
+                "label": "没有人知道铃已经停了这件事",
+                "text": "Nobody knew that the bell had stopped.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "每个人都知道铃停的原因",
+                "text": "Everybody knew why the bell had stopped.",
+                "include": false
+              }
+            ],
+            "hint": "否定范围落在知道原因，不换成知道事件。",
+            "wrong": "只选无人知道原因；不能换成无人知道事件或人人知道原因。"
+          }
+        },
+        "options": [
+          {
+            "id": "reason",
+            "text": "No person knew the reason the bell had stopped.",
+            "correct": true,
+            "reason": "nobody否定的是知道为什么，也就是原因。"
+          },
+          {
+            "id": "event",
+            "text": "No person knew that the bell had stopped.",
+            "correct": false,
+            "reason": "不知道原因不能换成不知道铃停了这件事。"
+          },
+          {
+            "id": "all",
+            "text": "Every person knew why the bell had stopped.",
+            "correct": false,
+            "reason": "nobody被反转成everybody。"
+          }
+        ]
+      },
+      {
+        "id": "something",
+        "label": "something：箱里有东西在响，能直接说是钥匙吗？",
+        "prompt": "箱里有东西在响，能直接说是钥匙吗？",
+        "answer": "Something",
+        "meaning": "某物；某事",
+        "material": "Something is rattling inside the box.",
+        "before": "",
+        "after": " is rattling inside the box.",
+        "reason": "Something is rattling说箱内有东西发出咔嗒声，但没有指出物品身份，也没有给出准确件数。不能靠一张静态箱子图确认声源。",
+        "hint": "something作主语配is；物品身份没有给出。",
+        "wordDecision": {
+          "prompt": "箱里有东西在响，能直接说是钥匙吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "有东西在箱内响，身份未知",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "unknown",
+                "label": "某个未指明的东西在箱内咔嗒作响",
+                "text": "Something is rattling inside the box.",
+                "include": true
+              },
+              {
+                "id": "key",
+                "label": "已经确认是钥匙在箱内响",
+                "text": "A key is rattling inside the box.",
+                "include": false
+              },
+              {
+                "id": "empty",
+                "label": "箱里没有东西，也没有声响",
+                "text": "The box is empty and nothing is rattling.",
+                "include": false
+              }
+            ],
+            "hint": "保留有东西和在箱内；不要猜它是什么。",
+            "wrong": "只选未指明的东西；不能认定钥匙或改成没有东西。"
+          }
+        },
+        "options": [
+          {
+            "id": "unknown",
+            "text": "An unidentified thing is rattling inside the box.",
+            "correct": true,
+            "reason": "something表示某个东西，没有指出它是什么。"
+          },
+          {
+            "id": "key",
+            "text": "The sentence proves that a key is rattling inside the box.",
+            "correct": false,
+            "reason": "没有给出物品身份，不能凭猜测认作钥匙。"
+          },
+          {
+            "id": "empty",
+            "text": "The box contains nothing and there is no rattling.",
+            "correct": false,
+            "reason": "something is rattling不能改成没有东西、没有声响。"
+          }
+        ]
+      },
+      {
+        "id": "anything",
+        "label": "anything：护栏后“任何东西都别碰”，只禁碰一件吗？",
+        "prompt": "护栏后“任何东西都别碰”，只禁碰一件吗？",
+        "answer": "anything",
+        "meaning": "任何事物；某事物",
+        "material": "Do not touch anything behind the barrier.",
+        "before": "Do not touch ",
+        "after": " behind the barrier.",
+        "reason": "Do not touch anything behind the barrier禁止碰护栏后面的任何东西。anything和not一起保留否定；范围是护栏后，不能缩成只禁碰一件或扩大成任何地方。",
+        "hint": "保留not和anything；不要改成双重否定。",
+        "wordDecision": {
+          "prompt": "护栏后“任何东西都别碰”，只禁碰一件吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "禁止碰护栏后面的任何物品",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "range",
+                "label": "护栏后面的任何东西都不要碰",
+                "text": "Do not touch anything behind the barrier.",
+                "include": true
+              },
+              {
+                "id": "one",
+                "label": "只禁碰其中一件，其余都能碰",
+                "text": "Do not touch this one object; you may touch all the others.",
+                "include": false
+              },
+              {
+                "id": "everywhere",
+                "label": "任何地方的任何东西都不要碰",
+                "text": "Do not touch any object anywhere.",
+                "include": false
+              }
+            ],
+            "hint": "既看任何东西，也看护栏后这个范围。",
+            "wrong": "只保留范围内全部禁止；不要缩成一件或扩大到任何地方。"
+          }
+        },
+        "options": [
+          {
+            "id": "range",
+            "text": "Do not touch any object that is behind the barrier.",
+            "correct": true,
+            "reason": "not…anything表示这个范围内任何东西都不要碰。"
+          },
+          {
+            "id": "one",
+            "text": "Do not touch only one particular object behind the barrier; all the others are allowed.",
+            "correct": false,
+            "reason": "anything覆盖范围内任一物品，不是只禁止一件。"
+          },
+          {
+            "id": "everywhere",
+            "text": "Do not touch any object anywhere, even outside the barrier.",
+            "correct": false,
+            "reason": "原句限制behind the barrier，不能扩大成任何地方。"
+          }
+        ]
+      },
+      {
+        "id": "nothing",
+        "label": "nothing：except the leaves留下了什么例外？",
+        "prompt": "except the leaves留下了什么例外？",
+        "answer": "Nothing",
+        "meaning": "没有什么；没有东西",
+        "material": "Nothing moved except the leaves.",
+        "before": "",
+        "after": " moved except the leaves.",
+        "reason": "Nothing moved except the leaves表示除了树叶，其他东西都没动。树叶是例外，不能漏掉except，也不能把范围反转成所有东西都动。",
+        "hint": "nothing配单数谓语；这里moved是过去式。",
+        "wordDecision": {
+          "prompt": "except the leaves留下了什么例外？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保留树叶这个例外",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "exception",
+                "label": "树叶动了，其他东西都没有动",
+                "text": "The leaves moved, and nothing else moved.",
+                "include": true
+              },
+              {
+                "id": "none",
+                "label": "连树叶也没动，完全没有东西动",
+                "text": "Nothing at all moved, including the leaves.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "所有东西和树叶一起动了",
+                "text": "Everything moved together with the leaves.",
+                "include": false
+              }
+            ],
+            "hint": "except指出例外；不要把树叶也否定掉。",
+            "wrong": "只选树叶动、其他没动；不能漏例外或扩大成全动。"
+          }
+        },
+        "options": [
+          {
+            "id": "exception",
+            "text": "The leaves moved, and nothing else moved.",
+            "correct": true,
+            "reason": "except the leaves把树叶作为例外，其他东西都没动。"
+          },
+          {
+            "id": "none",
+            "text": "Absolutely nothing moved, including the leaves.",
+            "correct": false,
+            "reason": "忽略except会把树叶的例外也否定掉。"
+          },
+          {
+            "id": "all",
+            "text": "All the objects moved together with the leaves.",
+            "correct": false,
+            "reason": "只有树叶动不能反转成所有东西都动。"
+          }
+        ]
+      },
+      {
+        "id": "everything",
+        "label": "everything：everything范围是所需物品，还是所有家当？",
+        "prompt": "everything范围是所需物品，还是所有家当？",
+        "answer": "Everything",
+        "meaning": "一切；所有事物",
+        "material": "Everything we need fits in one bag.",
+        "before": "",
+        "after": " we need fits in one bag.",
+        "reason": "Everything we need指我们需要的全部东西，we need限定范围；fits用单数形式，说一个包就装得下，不代表已经打包完成。",
+        "hint": "everything作主语，保留fits的-s。",
+        "wordDecision": {
+          "prompt": "everything范围是所需物品，还是所有家当？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "一个包能装下所需的全部东西",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "needed",
+                "label": "所需的全部物品都装得下",
+                "text": "Everything we need fits in one bag.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "所有家当，无论需不需要都装得下",
+                "text": "Everything we own fits in one bag.",
+                "include": false
+              },
+              {
+                "id": "packed",
+                "label": "所需物品已经全部打包装好",
+                "text": "Everything we need has already been packed.",
+                "include": false
+              }
+            ],
+            "hint": "范围是所需物品；装得下不等于已打包。",
+            "wrong": "只选所需全部且装得下；不能扩大成所有家当或已经打包。"
+          }
+        },
+        "options": [
+          {
+            "id": "needed",
+            "text": "All the things we need can fit in one bag.",
+            "correct": true,
+            "reason": "everything的范围被we need限制为我们需要的东西。"
+          },
+          {
+            "id": "all",
+            "text": "Every possession we own can fit in one bag.",
+            "correct": false,
+            "reason": "所需物品不能扩大成我们拥有的一切。"
+          },
+          {
+            "id": "packed",
+            "text": "The sentence confirms that everything has already been packed.",
+            "correct": false,
+            "reason": "fits说装得下，不等于已经装好了。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-questions-quantity-5-transfer",
+      "topicId": "v-course-questions-quantity",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which summary preserves the picnic notes?",
+      "passage": "Checking the picnic notes\nOur club compared statements before a picnic. “Everyone brought one item” meant one item per person, not one item for the whole group. In a separate three-person practice task, a total of three was not enough: each person had to have exactly one.\nEverybody waited until the smallest child was ready. We kept both the full group and that time boundary. Somebody had left a light on upstairs; this stated that a person had done it, without naming the person. Nobody knew why a bell had stopped. That was a lack of knowledge about the reason, not a claim that nobody knew the bell had stopped.\nSomething was rattling inside a box. We did not guess its identity or an exact number of objects from that statement. A sign said not to touch anything behind a barrier. The restriction covered any object behind the barrier; it did not say all objects everywhere.\nOutside, nothing moved except the leaves. The leaves were the exception: they moved while nothing else did. Everything we needed fit in one bag. That covered the things we needed, not every possession we owned; it did not confirm that we had already packed them.",
+      "options": [
+        {
+          "id": "a",
+          "text": "One item per person; nobody knew the reason; the leaves moved while nothing else did."
+        },
+        {
+          "id": "b",
+          "text": "One item for the whole group; nobody knew the reason; the leaves moved while nothing else did."
+        },
+        {
+          "id": "c",
+          "text": "One item per person; nobody knew the bell had stopped; the leaves moved while nothing else did."
+        },
+        {
+          "id": "d",
+          "text": "One item per person; nobody knew the reason; not even the leaves moved."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "One item per person; nobody knew the reason; the leaves moved while nothing else did."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对每人一件，再找否定范围和except例外。",
+        "steps": [
+          {
+            "text": "everyone…one item是每个人各一件。",
+            "reason": "不能只看总数，也不能改成全组总共一件。"
+          },
+          {
+            "text": "不知道why是原因未知；except保留树叶例外。",
+            "reason": "原因未知不等于事件未知；树叶动，其他东西没动。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把每人各一件换成全组总共一件。"
+          },
+          {
+            "option": "c",
+            "reason": "把不知道原因换成不知道铃停了这件事。"
+          },
+          {
+            "option": "d",
+            "reason": "漏掉except的例外，把树叶也说成没动。"
+          }
+        ],
+        "pitfall": "只看到否定词，漏掉后面的范围、从句或例外。",
+        "visual": {
+          "kind": "timeline",
+          "title": "逐层找范围",
+          "segments": [
+            {
+              "text": "everyone → each person",
+              "role": "object",
+              "note": "每人一件，不只看总数"
+            },
+            {
+              "text": "nobody knew why → reason",
+              "role": "object",
+              "note": "原因未知，不是事件未知"
+            },
+            {
+              "text": "except the leaves → exception",
+              "role": "object",
+              "note": "树叶动，其他不动"
+            }
+          ],
+          "caption": "每个人、否定范围和例外都不能漏。"
+        },
+        "transfer": "Everything we need fits in one bag.为什么不能证明东西已经打包好了？"
+      }
+    }
+  }
+}
