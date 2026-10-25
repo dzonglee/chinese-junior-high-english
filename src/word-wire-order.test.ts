@@ -1,0 +1,10 @@
+import {describe,it,expect} from 'vitest'
+import {changeWireOrder,wireOrderMatch,validWordWireOrder,wordWireOrderKey,wordWireOrderView} from './core/word-wire-order'
+const w={title:'先弄直再装轮',hint:'试试先后顺序。',wrong:'先弄直，后装轮。'}
+describe('wire assembly order',()=>{
+ it('requires both operations in the stated order',()=>{expect(wireOrderMatch('')).toBe(false);const straight=changeWireOrder('','straighten')!;expect(straight).toBe('straight:ready');expect(wireOrderMatch(straight)).toBe(false);expect(wireOrderMatch(changeWireOrder(straight,'attach')!)).toBe(true)})
+ it('blocks attachment to a bent wire and lets learners recover',()=>{const blocked=changeWireOrder('','attach')!;expect(blocked).toBe('bent:blocked');expect(wordWireOrderView(w,blocked).attached).toBe(false);expect(wordWireOrderView(w,blocked).blocked).toBe(true);const straight=changeWireOrder(blocked,'straighten')!;expect(wordWireOrderView(w,straight).blocked).toBe(false);expect(wireOrderMatch(changeWireOrder(straight,'attach')!)).toBe(true)})
+ it('retains completed order on repeated actions and clears it on reset',()=>{expect(changeWireOrder('straight:attached','straighten')).toBe('straight:attached');expect(changeWireOrder('straight:attached','attach')).toBe('straight:attached');expect(changeWireOrder('straight:attached','reset')).toBe('');expect(wordWireOrderKey('Straighten')).toBe('workshopWireOrder-Straighten')})
+ it('rejects malformed states and produces independent safe views',()=>{for(const raw of ['bent:attached',' straight:attached','straight:attached ','1:1']){expect(changeWireOrder(raw,'attach')).toBeUndefined();expect(wireOrderMatch(raw)).toBe(false);expect(wordWireOrderView(w,raw).attached).toBe(false)}expect(changeWireOrder('','jump')).toBeUndefined();const a=wordWireOrderView(w,'straight:ready'),b=wordWireOrderView(w,'straight:ready');a.controls[0].label='changed';expect(b.controls[0].label).toBe('弄直铁丝');expect(w.title).toBe('先弄直再装轮')})
+ it('requires trimmed bounded configuration',()=>{expect(validWordWireOrder(w)).toBe(true);for(const x of [null,{}, {...w,title:' padded '},{...w,hint:''},{...w,wrong:'x'.repeat(141)}])expect(validWordWireOrder(x)).toBe(false)})
+})
