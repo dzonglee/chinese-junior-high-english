@@ -1,0 +1,9 @@
+/** Exact exercise checkpoints, not the source route's geography or distance. */
+export interface WordDottedRoute {title:string;hint:string;wrong:string}
+export interface WordDottedRouteView {title:string;hint:string;reading:string;nodes:{id:string;label:string;left:number;used:boolean;current:boolean}[];steps:string[];canUndo:boolean}
+export const wordDottedRouteKey=(id:string)=>`workshopDottedRoute-${id}`
+function state(raw:string):string[]|undefined {if(raw==='')return[];const ids=raw.split('|');return ids.length<=3&&new Set(ids).size===ids.length&&ids.every(id=>['start','middle','view'].includes(id))?ids:undefined}
+export function validWordDottedRoute(value:unknown):value is WordDottedRoute {if(!value||typeof value!=='object')return false;const w=value as WordDottedRoute;return [[w.title,60],[w.hint,110],[w.wrong,140]].every(([s,max])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=(max as number))}
+export function dottedRouteMatch(raw:string):boolean{return raw==='start|middle|view'}
+export function changeDottedRoute(raw:string,action:string):string|undefined {if(action==='reset')return'';const ids=state(raw);if(!ids)return undefined;if(action==='undo')return ids.length?ids.slice(0,-1).join('|'):undefined;if(!['start','middle','view'].includes(action)||ids.includes(action))return undefined;return[...ids,action].join('|')}
+export function wordDottedRouteView(w:WordDottedRoute,raw:string):WordDottedRouteView {const ids=state(raw)??[],labels:Record<string,string>={start:'起点',middle:'沿线节点',view:'观景点'};return{title:w.title,hint:w.hint,reading:ids.length?'你的路线：'+ids.map(id=>labels[id]).join(' → ')+'。':'从起点开始，沿虚线依次点到观景点。',nodes:['start','middle','view'].map((id,i)=>({id,label:labels[id],left:[15,50,85][i],used:ids.includes(id),current:ids[ids.length-1]===id})),steps:ids,canUndo:!!ids.length}}

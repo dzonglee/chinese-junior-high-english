@@ -129,6 +129,8 @@ function render() {
   const patternFocus = active instanceof HTMLButtonElement && active.matches('.word-pattern button') ? active.dataset.value : undefined
   const preferenceFocus = active instanceof HTMLButtonElement && active.matches('.word-preference button') ? active.dataset.value : undefined
   const flashFocus = active instanceof HTMLButtonElement && active.matches('.word-flash button') ? active.dataset.value : undefined
+  const routeWeatherFocus = active instanceof HTMLButtonElement && active.matches(".word-route-weather button") ? active.dataset.value : undefined
+  const dottedRouteFocus = active instanceof HTMLButtonElement && active.matches(".word-dotted-route button") ? active.dataset.value : undefined
   const stampFocus = active instanceof HTMLButtonElement && active.matches('.word-stamp-placement button') ? active.dataset.value : undefined
   const eachItemFocus = active instanceof HTMLButtonElement && active.matches('.word-each-item button') ? active.dataset.value : undefined
   const routeTrafficFocus = active instanceof HTMLButtonElement && active.matches('.word-route-traffic button') ? active.dataset.value : undefined
@@ -156,6 +158,8 @@ function render() {
   if (patternFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-pattern [data-value="${CSS.escape(patternFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (preferenceFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-preference [data-value="${CSS.escape(preferenceFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (flashFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-flash [data-value="${CSS.escape(flashFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (routeWeatherFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-weather [data-value="${CSS.escape(routeWeatherFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (dottedRouteFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-dotted-route [data-value="${CSS.escape(dottedRouteFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (stampFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stamp-placement [data-value="${CSS.escape(stampFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (eachItemFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-each-item [data-value="${CSS.escape(eachItemFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (routeTrafficFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-traffic [data-value="${CSS.escape(routeTrafficFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

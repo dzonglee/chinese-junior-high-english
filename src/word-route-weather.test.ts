@@ -1,0 +1,7 @@
+import {describe,it,expect} from 'vitest'
+import {validWordRouteWeather,routeWeatherMatch,changeRouteWeather,wordRouteWeatherView} from './core/word-route-weather'
+const config={title:'天气变了，重选路线',hint:'另给虚构规则：晴天A、雨天B。',wrong:'按练习天气重新判断。'}
+describe('fictional weather-dependent route',()=>{
+ it('requires the route named by the explicit exercise rule and clears the selection when weather changes',()=>{expect(validWordRouteWeather(config)).toBe(true);for(const weather of ['sunny','rain'])for(const route of ['a','b','-']){const raw=weather+':'+route;expect(routeWeatherMatch(raw)).toBe(route===(weather==='sunny'?'a':'b'));expect(wordRouteWeatherView(config,raw).weather).toBe(weather)}let raw=changeRouteWeather('','route-a')!;expect(routeWeatherMatch(raw)).toBe(true);raw=changeRouteWeather(raw,'weather-rain')!;expect(raw).toBe('rain:-');expect(routeWeatherMatch(raw)).toBe(false);expect(wordRouteWeatherView(config,raw).selected).toBe('');raw=changeRouteWeather(raw,'route-b')!;expect(routeWeatherMatch(raw)).toBe(true);expect(changeRouteWeather(raw,'weather-sunny')).toBe('sunny:-');expect(changeRouteWeather(raw,'reset')).toBe('')})
+ it('rejects forged weather or route states and unknown actions',()=>{for(const raw of ['sun:a','rain:c','sunny:a:b','rain:A',' rain:b','constructor']){expect(routeWeatherMatch(raw)).toBe(false);expect(changeRouteWeather(raw,'route-a')).toBeUndefined()}expect(routeWeatherMatch('')).toBe(false);expect(changeRouteWeather('','success')).toBeUndefined();expect(validWordRouteWeather({...config,hint:' '})).toBe(false)})
+})
