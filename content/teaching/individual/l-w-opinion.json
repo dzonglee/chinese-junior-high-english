@@ -1,0 +1,351 @@
+{
+  "lessonId": "l-w-opinion",
+  "reviewState": "draft",
+  "intent": "Position-neutral individual planning validates either coherent stance, two distinct reasons and a respectful response without grading agreement with the reference.",
+  "picturePurpose": "Exact coded planning cards connect both defensible positions to matching reasons and concern responses. No generated image is used as numerical or survey evidence.",
+  "workshop": {
+    "kind": "compose",
+    "title": "选立场，把理由和回应接起来",
+    "instruction": "支持或反对都可以。先在示例卡中选一个立场，再让理由和回应与它一致；自己的稿子可以采用其他合理理由。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "立场可以不同，题目不能读错",
+        "prompt": "你选择哪种立场？讨论的安排究竟是什么？",
+        "answer": "",
+        "reason": "示例立场与题目安排已核对。自己的句子可以支持，也可以反对。",
+        "hint": "反对也可以得分。这里核对的是每天十五分钟自由阅读，不是十五小时或只能读指定的一本书。",
+        "material": "班级讨论是否每天安排十五分钟自由阅读。写约 90—110 词的英文发言稿，表明观点，给出两个理由，并回应一个可能的顾虑。题目不要求固定立场。",
+        "composeBrief": {
+          "title": "立场与议题卡",
+          "hint": "选定一个立场，再保留本题的时间和阅读方式。",
+          "wrong": "支持和反对都可成立，但不能把十五分钟或自由阅读改掉。",
+          "fields": [
+            {
+              "id": "stance",
+              "label": "这次示例选择哪种立场？",
+              "answer": "support",
+              "choices": [
+                {
+                  "id": "support",
+                  "label": "支持每天设置自由阅读时间"
+                },
+                {
+                  "id": "oppose",
+                  "label": "反对每天统一设置，提出其他安排"
+                }
+              ]
+            },
+            {
+              "id": "time",
+              "label": "每天的阅读时长",
+              "answer": "fifteen",
+              "choices": [
+                {
+                  "id": "fifty",
+                  "label": "50 minutes"
+                },
+                {
+                  "id": "fifteen",
+                  "label": "15 minutes"
+                },
+                {
+                  "id": "hours",
+                  "label": "15 hours"
+                }
+              ]
+            },
+            {
+              "id": "reading",
+              "label": "讨论哪种阅读方式？",
+              "answer": "free",
+              "choices": [
+                {
+                  "id": "fixed",
+                  "label": "Everyone must read the same assigned book."
+                },
+                {
+                  "id": "free",
+                  "label": "Students choose books for free reading."
+                },
+                {
+                  "id": "exam",
+                  "label": "Every minute is an English examination."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "stance",
+            "answers": {
+              "support": {
+                "time": "fifteen",
+                "reading": "free"
+              },
+              "oppose": {
+                "time": "fifteen",
+                "reading": "free"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "用两个不同理由支撑立场",
+        "prompt": "这些理由真的支持你选的立场吗？",
+        "answer": "",
+        "reason": "示例理由与所选立场一致。再检查自己的两个理由是否不同，并有简短解释。",
+        "hint": "下面展示两条可行论证路径。自己也可以给出其他理由；不要用同一个理由换两个说法凑数。",
+        "material": "班级讨论是否每天安排十五分钟自由阅读。写约 90—110 词的英文发言稿，表明观点，给出两个理由，并回应一个可能的顾虑。题目不要求固定立场。",
+        "composeBrief": {
+          "title": "立场 → 理由一 → 理由二",
+          "hint": "切换立场后，原来的理由可能不再支持新的观点。",
+          "wrong": "两个理由要支持当前立场，不能靠虚构数据或满分保证。",
+          "fields": [
+            {
+              "id": "stance",
+              "label": "这次示例选择哪种立场？",
+              "answer": "support",
+              "choices": [
+                {
+                  "id": "support",
+                  "label": "支持每天设置自由阅读时间"
+                },
+                {
+                  "id": "oppose",
+                  "label": "反对每天统一设置，提出其他安排"
+                }
+              ]
+            },
+            {
+              "id": "reason-one",
+              "label": "第一个理由",
+              "answer": "habit",
+              "choices": [
+                {
+                  "id": "habit",
+                  "label": "A regular reading time can help students build a habit."
+                },
+                {
+                  "id": "different",
+                  "label": "Students may need to use this time for different learning needs."
+                },
+                {
+                  "id": "marks",
+                  "label": "The plan guarantees full marks for everyone."
+                }
+              ]
+            },
+            {
+              "id": "reason-two",
+              "label": "第二个不同理由",
+              "answer": "interest",
+              "choices": [
+                {
+                  "id": "pace",
+                  "label": "A fixed daily block may not suit different reading paces."
+                },
+                {
+                  "id": "interest",
+                  "label": "Choosing books can make reading more enjoyable."
+                },
+                {
+                  "id": "survey",
+                  "label": "An unnamed survey proves every student agrees."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "stance",
+            "answers": {
+              "support": {
+                "reason-one": "habit",
+                "reason-two": "interest"
+              },
+              "oppose": {
+                "reason-one": "different",
+                "reason-two": "pace"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "先听懂顾虑，再回应",
+        "prompt": "反方可能担心什么？怎样认真回应？",
+        "answer": "",
+        "reason": "示例顾虑与回应已接上。再检查自己的回应有没有处理对方真正担心的问题。",
+        "hint": "回应可以提出办法或承认条件，不必攻击持不同意见的同学。卡片是示例，不是保证真实效果。",
+        "material": "班级讨论是否每天安排十五分钟自由阅读。写约 90—110 词的英文发言稿，表明观点，给出两个理由，并回应一个可能的顾虑。题目不要求固定立场。",
+        "composeBrief": {
+          "title": "顾虑 → 回应卡",
+          "hint": "选一个与你当前立场相对的合理顾虑，再给出相应办法。",
+          "wrong": "回应要处理顾虑；辱骂、强行保证或无关话题都不能代替解释。",
+          "fields": [
+            {
+              "id": "stance",
+              "label": "这次示例选择哪种立场？",
+              "answer": "support",
+              "choices": [
+                {
+                  "id": "support",
+                  "label": "支持每天设置自由阅读时间"
+                },
+                {
+                  "id": "oppose",
+                  "label": "反对每天统一设置，提出其他安排"
+                }
+              ]
+            },
+            {
+              "id": "concern",
+              "label": "对方合理的顾虑",
+              "answer": "homework",
+              "choices": [
+                {
+                  "id": "homework",
+                  "label": "A daily reading block may leave less time for homework."
+                },
+                {
+                  "id": "habit",
+                  "label": "Without a fixed daily block, some students may seldom read."
+                },
+                {
+                  "id": "attack",
+                  "label": "Anyone who disagrees must be lazy."
+                }
+              ]
+            },
+            {
+              "id": "reply",
+              "label": "怎样回应这项顾虑？",
+              "answer": "trial",
+              "choices": [
+                {
+                  "id": "optional",
+                  "label": "We could offer regular optional reading times and help students make personal reading plans."
+                },
+                {
+                  "id": "trial",
+                  "label": "We could review the timetable and run a short trial before deciding how to fit the block in."
+                },
+                {
+                  "id": "guarantee",
+                  "label": "Everyone will immediately read faster and get full marks."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "stance",
+            "answers": {
+              "support": {
+                "concern": "homework",
+                "reply": "trial"
+              },
+              "oppose": {
+                "concern": "habit",
+                "reply": "optional"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-w-opinion-transfer",
+      "topicId": "w-opinion",
+      "skill": "writing",
+      "kind": "choice",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "Which writing plan fits this new discussion?",
+      "passage": "A new opinion task\nYour class is discussing whether to hold one optional thirty-minute quiet-study session each week. Students could read or work quietly on a subject they choose. Write 90–110 words. You may support or oppose the proposal. State your position, explain two relevant reasons and respond to one reasonable concern. Do not invent survey results.",
+      "options": [
+        {
+          "id": "a",
+          "text": "State either position, give two reasons that support it, and respond respectfully to a concern about the weekly arrangement."
+        },
+        {
+          "id": "b",
+          "text": "Support daily fifteen-minute reading and ignore the changed weekly proposal."
+        },
+        {
+          "id": "c",
+          "text": "Choose a position, give two reasons that contradict it, and insult classmates who disagree."
+        },
+        {
+          "id": "d",
+          "text": "Claim an invented survey proves everyone agrees, so no reasons or response are needed."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "State either position, give two reasons that support it, and respond respectfully to a concern about the weekly arrangement."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "重新审议题，再检查立场、理由和回应是否连贯。",
+        "steps": [
+          {
+            "text": "新议题是每周一次、可自愿参加的三十分钟安静学习。",
+            "reason": "不能照搬每天十五分钟阅读的时间和内容。"
+          },
+          {
+            "text": "支持或反对都可以，理由要支持立场，回应要处理顾虑。",
+            "reason": "评分看论证是否完成任务，不看你是否同意参考观点。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "时间、频率和活动内容都沿用了旧议题。"
+          },
+          {
+            "option": "c",
+            "reason": "理由自相矛盾，辱骂也没有回应顾虑。"
+          },
+          {
+            "option": "d",
+            "reason": "虚构调查不能代替理由和回应。"
+          }
+        ],
+        "pitfall": "背下参考立场，却没有审新议题或检查理由之间的关系。",
+        "visual": {
+          "kind": "comparison",
+          "title": "两种立场，都要论证",
+          "segments": [
+            {
+              "text": "one optional 30-minute session each week",
+              "role": "evidence",
+              "note": "新议题"
+            },
+            {
+              "text": "support OR oppose",
+              "role": "evidence",
+              "note": "立场可选"
+            },
+            {
+              "text": "two relevant reasons → one concern → a response",
+              "role": "evidence",
+              "note": "论证要求"
+            }
+          ],
+          "caption": "可选的是立场；要完成的是理由和回应。"
+        },
+        "transfer": "如果把自愿参加改成全员参加，哪些理由或顾虑需要重新考虑？"
+      }
+    }
+  }
+}

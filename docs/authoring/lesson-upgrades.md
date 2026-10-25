@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **235 / 413**. Current: **l-w-opinion**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **236 / 413**. Current: **l-w-report**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -343,7 +343,7 @@ Completed: **235 / 413**. Current: **l-w-opinion**. Evidence lives in docs/revie
 | l-w-advice | 给同学的建议，具体才有用 | reviewed | [Individual review](../reviews/individual-lessons/l-w-advice.md) |
 | l-w-notice | 通知写清谁、何时、何地 | reviewed | [Individual review](../reviews/individual-lessons/l-w-notice.md) |
 | l-w-story | 把一次改变写成完整经历 | reviewed | [Individual review](../reviews/individual-lessons/l-w-story.md) |
-| l-w-opinion | 表达观点，也给出理由 | pending | — |
+| l-w-opinion | 表达观点，也给出理由 | reviewed | [Individual review](../reviews/individual-lessons/l-w-opinion.md) |
 | l-w-report | 活动报告：事实与建议分开 | pending | — |
 | l-s-introduce | 用具体信息介绍自己 | pending | — |
 | l-s-retell | 按顺序复述一次小经历 | pending | — |

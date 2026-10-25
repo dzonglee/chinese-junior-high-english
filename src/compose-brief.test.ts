@@ -14,3 +14,16 @@ describe('invitation brief planning',()=>{
   expect(validComposeBrief({...config,fields:[{...config.fields[0],answer:'clear',choices:[{id:'clear',label:'Ambiguous reset action'},{id:'valid',label:'Valid'}]}]})).toBe(false);expect(validComposeBrief({...config,fields:[]})).toBe(false);expect(validComposeBrief({...config,fields:[config.fields[0],config.fields[0]]})).toBe(false);expect(validComposeBrief({...config,fields:[{...config.fields[0],answer:'missing'}]})).toBe(false);expect(validComposeBrief({...config,fields:[{...config.fields[0],choices:[config.fields[0].choices[0],config.fields[0].choices[0]]}]})).toBe(false)
  })
 })
+
+describe('position-neutral conditional planning',()=>{
+ const argument:ComposeBrief={title:'Two defensible positions',hint:'Choose a position and connect reasons.',wrong:'The reasons must support your chosen position.',fields:[{id:'stance',label:'Position',answer:'support',choices:[{id:'support',label:'Support daily reading'},{id:'oppose',label:'Oppose a compulsory daily block'}]},{id:'reason',label:'Reason',answer:'habit',choices:[{id:'habit',label:'A regular time can help build a habit.'},{id:'choice',label:'Different learners may need different uses of the time.'},{id:'guarantee',label:'Every learner will get full marks.'}]}],paths:{selector:'stance',answers:{support:{reason:'habit'},oppose:{reason:'choice'}}}}
+ it('accepts either coherent position and rejects stale or contradictory reasons',()=>{
+  expect(validComposeBrief(argument)).toBe(true)
+  for(const stance of ['_','0','1'])for(const reason of ['_','0','1','2']){const raw=stance+reason;expect(composeBriefMatches(argument,raw)).toBe(raw==='00'||raw==='11')}
+  let raw=changeComposeBrief(argument,'','reason:habit')!;expect(composeBriefMatches(argument,raw)).toBe(false);raw=changeComposeBrief(argument,raw,'stance:support')!;expect(composeBriefMatches(argument,raw)).toBe(true);raw=changeComposeBrief(argument,raw,'stance:oppose')!;expect(composeBriefMatches(argument,raw)).toBe(false);expect(composeBriefView(argument,raw).fields[1].reading).toContain('habit');raw=changeComposeBrief(argument,raw,'reason:choice')!;expect(composeBriefMatches(argument,raw)).toBe(true);expect(composeBriefMatches(argument,changeComposeBrief(argument,raw,'stance:clear')!)).toBe(false);expect(changeComposeBrief(argument,raw,'reset')).toBe('')
+ })
+ it('rejects incomplete, extra, inherited or invalid conditional answer mappings',()=>{
+  for(const paths of [{selector:'missing',answers:argument.paths!.answers},{selector:'stance',answers:{support:{reason:'habit'}}},{selector:'stance',answers:{support:{reason:'habit'},oppose:{reason:'missing'}}},{selector:'stance',answers:{support:{reason:'habit',extra:'choice'},oppose:{reason:'choice'}}},{selector:'stance',answers:{support:{reason:'habit'},extra:{reason:'choice'}}},{selector:'stance',answers:{support:{reason:'habit'},oppose:Object.create({reason:'choice'})}},{selector:'stance',answers:argument.paths!.answers,extra:true}])expect(validComposeBrief({...argument,paths})).toBe(false)
+  const cloned=structuredClone(argument);cloned.paths!.answers.oppose.reason='habit';expect(argument.paths!.answers.oppose.reason).toBe('choice')
+ })
+})
