@@ -1,0 +1,294 @@
+{
+  "lessonId": "l-s-compare",
+  "reviewState": "draft",
+  "intent": "Individual spoken comparison preserves approximate distance, advantages on both sides and either coherent situation-based choice without forcing the reference method or forecast.",
+  "picturePurpose": "Coded two-mode comparison and reversible example-choice cards preserve quantities and conditional reasoning without invented fares, travel times or AI-derived data. Written preparation remains separate from speech evidence.",
+  "workshop": {
+    "kind": "compose",
+    "title": "两种方式都比较，选择要有今天的理由",
+    "instruction": "先保留骑车和公交各自的优点，再比较两种示例选择。你今天选哪种都可以；理由要和天气或交通情境相符，不必照搬参考。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "两个优点都说到，距离不改",
+        "prompt": "学校有多远？骑车和公交各有什么优点？",
+        "answer": "",
+        "reason": "距离和两种方式的示例优点已核对。再检查自己的比较是否两边都说到了。",
+        "hint": "原题是约三公里，不是全程精确测量。优点可以有其他合理说法；这里先比较锻炼和雨天方便这两个示例。",
+        "material": "学校离家约三公里。说 45—60 秒，比较骑车和坐公交的各一个优点，结合天气或交通说明你今天的选择。没有唯一正确选择。",
+        "composeBrief": {
+          "title": "同一趟路，两种方式",
+          "hint": "保留约三公里，给两种方式各留一个优点。",
+          "wrong": "原题是约三公里；两种方式都要说具体优点。只下结论或解释词义，没有完成比较。",
+          "fields": [
+            {
+              "id": "distance",
+              "label": "原题给出的距离",
+              "answer": "about-three",
+              "choices": [
+                {
+                  "id": "exact-thirty",
+                  "label": "Exactly thirty kilometres."
+                },
+                {
+                  "id": "about-three",
+                  "label": "About three kilometres."
+                },
+                {
+                  "id": "time",
+                  "label": "A three-hour journey."
+                }
+              ]
+            },
+            {
+              "id": "bike",
+              "label": "骑车的一个示例优点",
+              "answer": "exercise",
+              "choices": [
+                {
+                  "id": "exercise",
+                  "label": "Cycling gives me some exercise."
+                },
+                {
+                  "id": "never",
+                  "label": "Cycling is the better choice."
+                },
+                {
+                  "id": "nothing",
+                  "label": "Cycling means travelling on a bicycle."
+                }
+              ]
+            },
+            {
+              "id": "bus",
+              "label": "公交的一个示例优点",
+              "answer": "weather",
+              "choices": [
+                {
+                  "id": "none",
+                  "label": "I take the bus to school."
+                },
+                {
+                  "id": "weather",
+                  "label": "Taking the bus can be useful in bad weather."
+                },
+                {
+                  "id": "always",
+                  "label": "The bus is always quicker, even in heavy traffic."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "选择可以不同，理由要对上",
+        "prompt": "这两种示例各怎样说明今天的选择？",
+        "answer": "",
+        "reason": "所选示例的方式和理由已对齐。再说明自己今天的选择与情境。",
+        "hint": "这张卡比较两种假设情境，不是在播报实际天气。自己的选择可以采用其他合理的天气或交通理由。",
+        "material": "学校离家约三公里。说 45—60 秒，比较骑车和坐公交的各一个优点，结合天气或交通说明你今天的选择。没有唯一正确选择。",
+        "composeBrief": {
+          "title": "今天的选择 → 情境理由",
+          "hint": "选一种示例，再接上与它一致的理由。",
+          "wrong": "两种示例都可以成立；理由要解释当前所选方式，不能前后矛盾或保证永远最快。",
+          "fields": [
+            {
+              "id": "method",
+              "label": "比较哪种示例？",
+              "answer": "bus",
+              "choices": [
+                {
+                  "id": "bus",
+                  "label": "示例一：预计有大雨，想少淋雨，今天坐公交"
+                },
+                {
+                  "id": "bike",
+                  "label": "示例二：天气干燥，想活动身体，今天骑车"
+                }
+              ]
+            },
+            {
+              "id": "reason",
+              "label": "与所选示例一致的理由",
+              "answer": "rain",
+              "choices": [
+                {
+                  "id": "rain",
+                  "label": "I would take the bus because heavy rain is expected."
+                },
+                {
+                  "id": "dry",
+                  "label": "I would cycle because it is dry and I want some exercise."
+                },
+                {
+                  "id": "forever",
+                  "label": "I prefer this method, so no explanation is needed."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "method",
+            "answers": {
+              "bus": {
+                "reason": "rain"
+              },
+              "bike": {
+                "reason": "dry"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "说清今天，不说永远最好",
+        "prompt": "怎样让听者知道你的选择为什么适合这一次？",
+        "answer": "",
+        "reason": "情境表达和任务时长已核对。再实际说一遍，检查两种优点、今天的选择和理由是否清楚。",
+        "hint": "比较时说明本次情境和优先考虑的因素；45—60秒要靠实际开口与回听检查，不是把字数当时长。",
+        "material": "学校离家约三公里。说 45—60 秒，比较骑车和坐公交的各一个优点，结合天气或交通说明你今天的选择。没有唯一正确选择。",
+        "composeBrief": {
+          "title": "情境检查卡",
+          "hint": "具体到这一次的天气或交通，再按原题开口练习。",
+          "wrong": "一次选择不能推广为所有人永远的最好方式；本题需要说45—60秒，打字提纲不能替代开口。",
+          "fields": [
+            {
+              "id": "scope",
+              "label": "哪句限定了这一次的情境？",
+              "answer": "today",
+              "choices": [
+                {
+                  "id": "today",
+                  "label": "For this trip, I would choose the bus because rain is expected."
+                },
+                {
+                  "id": "all",
+                  "label": "The bus is better."
+                },
+                {
+                  "id": "ignore",
+                  "label": "I prefer this way."
+                }
+              ]
+            },
+            {
+              "id": "duration",
+              "label": "原题的实际开口目标",
+              "answer": "seconds",
+              "choices": [
+                {
+                  "id": "words",
+                  "label": "只写45—60个词就算完成说话"
+                },
+                {
+                  "id": "seconds",
+                  "label": "说45—60秒，再回听自查"
+                },
+                {
+                  "id": "minutes",
+                  "label": "只保存提纲，不实际开口"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-compare-transfer",
+      "topicId": "s-compare",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "Which outline makes a balanced, situation-based comparison for this new task?",
+      "passage": "A different comparison\nYou are choosing between handwritten notes and digital slides for a class presentation. Prepare a 45–60-second talk. Give one advantage of each method and explain which you would use today, considering the time available or access to equipment. Either choice can be reasonable if the reasons fit the situation.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Give one advantage of handwritten notes and one of digital slides, choose either for today, and explain the choice using today’s preparation conditions."
+        },
+        {
+          "id": "b",
+          "text": "Explain why digital slides suit today’s equipment, but give no advantage of handwritten notes."
+        },
+        {
+          "id": "c",
+          "text": "Compare cycling and the bus over three kilometres, without discussing presentation preparation."
+        },
+        {
+          "id": "d",
+          "text": "Name a choice but give no advantage for the other method and no reason linked to today."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Give one advantage of handwritten notes and one of digital slides, choose either for today, and explain the choice using today’s preparation conditions."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先在同一任务里比较两种方法，再用本次条件解释选择。",
+        "steps": [
+          {
+            "text": "手写笔记和电子幻灯片各说一个优点。",
+            "reason": "两边都要比较，不能把其中一种一概说成没用。"
+          },
+          {
+            "text": "可以选任一种，但要联系今天的准备时间或设备条件。",
+            "reason": "合理与否看情境和理由，而不是是否选了参考方法。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "解释了今天选幻灯片的理由，但漏了手写笔记的优点。"
+          },
+          {
+            "option": "c",
+            "reason": "照搬了之前出行任务，没有回应展示准备。"
+          },
+          {
+            "option": "d",
+            "reason": "漏掉另一种方法的优点，也没有本次情境理由。"
+          }
+        ],
+        "pitfall": "把一个示例结论背成永远正确，却没有比较另一种方法或解释本次条件。",
+        "visual": {
+          "kind": "comparison",
+          "title": "比较两边，再做本次选择",
+          "segments": [
+            {
+              "text": "handwritten notes · one advantage",
+              "role": "evidence",
+              "note": "第一种方法"
+            },
+            {
+              "text": "digital slides · one advantage",
+              "role": "evidence",
+              "note": "第二种方法"
+            },
+            {
+              "text": "today’s time/equipment → my choice",
+              "role": "evidence",
+              "note": "本次情境与理由"
+            }
+          ],
+          "caption": "选择可以不同，比较和理由都要完整。"
+        },
+        "transfer": "如果今天能用的设备变了，你的理由或选择会怎样调整？"
+      }
+    }
+  }
+}

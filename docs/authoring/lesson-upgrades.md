@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **240 / 413**. Current: **l-s-compare**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **241 / 413**. Current: **l-s-opinion**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -348,7 +348,7 @@ Completed: **240 / 413**. Current: **l-s-compare**. Evidence lives in docs/revie
 | l-s-introduce | 用具体信息介绍自己 | reviewed | [Individual review](../reviews/individual-lessons/l-s-introduce.md) |
 | l-s-retell | 按顺序复述一次小经历 | reviewed | [Individual review](../reviews/individual-lessons/l-s-retell.md) |
 | l-s-plan | 把活动计划说得能照着做 | reviewed | [Individual review](../reviews/individual-lessons/l-s-plan.md) |
-| l-s-compare | 比较两种出行方式 | pending | — |
+| l-s-compare | 比较两种出行方式 | reviewed | [Individual review](../reviews/individual-lessons/l-s-compare.md) |
 | l-s-opinion | 说出观点，回应不同想法 | pending | — |
 | l-s-problem | 向他人说明问题并求助 | pending | — |
 | l-s-read-aloud | 朗读与跟读：把意思读清楚 | pending | — |

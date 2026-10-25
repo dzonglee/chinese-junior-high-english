@@ -2,7 +2,7 @@
 
 The owner has requested a further **individual lesson redesign**. The shared workshops below
 are a functional baseline; the [per-lesson tracker](docs/authoring/lesson-upgrades.md) records the
-actual individual reviews (currently 240/413), with individual evidence linked for each reviewed lesson.
+actual individual reviews (currently 241/413), with individual evidence linked for each reviewed lesson.
 
 
 A working local English practice app for mainland junior-high students, with 413 original draft
