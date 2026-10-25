@@ -1,0 +1,574 @@
+{
+  "lessonId": "l-v-course-commerce-2",
+  "reviewState": "draft",
+  "intent": "Eight individual tasks interpret currencies and price scope, compare a one-cent difference and choose a cheap ticket that fits an explicit practice time.",
+  "picturePurpose": "Two original fictional blank stamps make the smaller/larger comparison visible; all prices stay in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "看清单位，再比较价格和时间",
+    "instruction": "先算少一分，再选赶得上的便宜票。",
+    "items": [
+      {
+        "id": "currency",
+        "label": "currency：旅行前查currency，要查钱的单位还是行李重量？",
+        "prompt": "旅行前查currency，要查钱的单位还是行李重量？",
+        "answer": "currency",
+        "meaning": "货币",
+        "material": "Check the local currency before you travel.",
+        "before": "Check the local ",
+        "after": " before you travel.",
+        "reason": "currency在这里是货币。旅行前查清目的地用什么钱；原句没指定国家、货币名称或汇率。",
+        "hint": "local currency当地货币；不从英语用词推断目的地。",
+        "wordDecision": {
+          "prompt": "旅行前查currency，要查钱的单位还是行李重量？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "出发前查当地货币",
+            "prompt": "选出原句支持的信息。",
+            "rows": [
+              {
+                "id": "money",
+                "label": "查当地使用的货币",
+                "text": "Check the local currency before you travel.",
+                "include": true
+              },
+              {
+                "id": "weight",
+                "label": "查行李的重量",
+                "text": "Check the weight of your suitcase.",
+                "include": false
+              },
+              {
+                "id": "same",
+                "label": "各地货币一律相同",
+                "text": "Every destination uses the same currency.",
+                "include": false
+              }
+            ],
+            "hint": "保留local与before，不补目的地或汇率。",
+            "wrong": "选当地货币；不换成重量或统一货币。"
+          }
+        },
+        "options": [
+          {
+            "id": "money",
+            "text": "Find out which money is used locally before travelling.",
+            "correct": true,
+            "reason": "currency在这里指当地货币。"
+          },
+          {
+            "id": "weight",
+            "text": "Find out the weight of your suitcase.",
+            "correct": false,
+            "reason": "货币不是重量。"
+          },
+          {
+            "id": "same",
+            "text": "Assume every destination uses the same currency.",
+            "correct": false,
+            "reason": "local要求核对当地情况，不能假设各地相同。"
+          }
+        ]
+      },
+      {
+        "id": "pound",
+        "label": "pound：entrance fee后面的one pound，是入场费还是重量？",
+        "prompt": "entrance fee后面的one pound，是入场费还是重量？",
+        "answer": "pound",
+        "meaning": "英镑；磅",
+        "material": "The entrance fee is one pound.",
+        "before": "The entrance fee is one ",
+        "after": ".",
+        "reason": "pound既可指英镑，也可指重量单位磅；这里entrance fee说明是货币，入场费为一英镑。不能看到pound就判成重量。",
+        "hint": "one pound用单数；two pounds用复数。",
+        "wordDecision": {
+          "prompt": "entrance fee后面的one pound，是入场费还是重量？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "入场费是一英镑",
+            "prompt": "选出原句支持的信息。",
+            "rows": [
+              {
+                "id": "fee",
+                "label": "费用为一英镑",
+                "text": "The entrance fee is one pound.",
+                "include": true
+              },
+              {
+                "id": "weight",
+                "label": "入口的重量是一磅",
+                "text": "The entrance weighs one pound.",
+                "include": false
+              },
+              {
+                "id": "free",
+                "label": "入场不收费",
+                "text": "Entry is free.",
+                "include": false
+              }
+            ],
+            "hint": "先看fee，再判pound的意思。",
+            "wrong": "只选费用；不是重量，也不是免费。"
+          }
+        },
+        "options": [
+          {
+            "id": "fee",
+            "text": "The entry charge is one pound in money.",
+            "correct": true,
+            "reason": "fee表费用，这里pound是货币。"
+          },
+          {
+            "id": "weight",
+            "text": "The entrance weighs one pound.",
+            "correct": false,
+            "reason": "费用不是入口的重量。"
+          },
+          {
+            "id": "free",
+            "text": "Entry is free.",
+            "correct": false,
+            "reason": "one pound不是免费。"
+          }
+        ],
+        "ownForms": [
+          "pound",
+          "pounds"
+        ]
+      },
+      {
+        "id": "dollar",
+        "label": "dollar：明信片花one dollar，句子指定了哪个国家吗？",
+        "prompt": "明信片花one dollar，句子指定了哪个国家吗？",
+        "answer": "dollar",
+        "meaning": "元（美元等）",
+        "material": "The old postcard cost one dollar.",
+        "before": "The old postcard cost one ",
+        "after": ".",
+        "reason": "dollar是一些国家或地区的货币单位。原句给出明信片花了一元，没有说明是哪一国的dollar；不要自行补成美元或澳元。",
+        "hint": "one dollar；two dollars；具体币种看语境。",
+        "wordDecision": {
+          "prompt": "明信片花one dollar，句子指定了哪个国家吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "旧明信片花了一元",
+            "prompt": "选出原句支持的信息。",
+            "rows": [
+              {
+                "id": "paid",
+                "label": "给出一元费用，未写国家",
+                "text": "The old postcard cost one dollar.",
+                "include": true
+              },
+              {
+                "id": "free",
+                "label": "明信片是免费得到的",
+                "text": "The postcard was free.",
+                "include": false
+              },
+              {
+                "id": "country",
+                "label": "已经明确国家名称",
+                "text": "The sentence names the country.",
+                "include": false
+              }
+            ],
+            "hint": "金额已给，国家未给。",
+            "wrong": "选一元费用；不补国家，也不改成免费。"
+          }
+        },
+        "options": [
+          {
+            "id": "paid",
+            "text": "The old postcard cost one dollar; its country is not named.",
+            "correct": true,
+            "reason": "保留金额，不凭dollar补国家。"
+          },
+          {
+            "id": "free",
+            "text": "The postcard was free.",
+            "correct": false,
+            "reason": "one dollar不是零。"
+          },
+          {
+            "id": "country",
+            "text": "The sentence names the country whose dollar was used.",
+            "correct": false,
+            "reason": "dollar用于多地；这里没有给国家。"
+          }
+        ],
+        "ownForms": [
+          "dollar",
+          "dollars"
+        ]
+      },
+      {
+        "id": "cent",
+        "label": "cent：本练习：大邮票150分，小邮票少1分，小邮票多少？",
+        "prompt": "本练习：大邮票150分，小邮票少1分，小邮票多少？",
+        "answer": "cent",
+        "meaning": "分（货币单位）",
+        "material": "The smaller stamp costs one cent less.",
+        "before": "The smaller stamp costs one ",
+        "after": " less.",
+        "reason": "cent是分，one cent less说明便宜一分，没有给原句的总价。图是虚构邮票。这里另给练习：同一币种中大邮票150分，小邮票少1分，所以小邮票149分；150与149只属于练习。",
+        "hint": "one cent less是差一分；不要当成只卖一分。",
+        "wordDecision": {
+          "prompt": "本练习：大邮票150分，小邮票少1分，小邮票多少？",
+          "art": {
+            "asset": "lesson-stamp-sizes",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "左边是一枚较小的蓝色圆形图案虚构空白邮票，右边是一枚较大的绿色圆形图案虚构空白邮票；没有文字或面额。"
+          }
+        },
+        "options": [
+          {
+            "id": "lower",
+            "text": "The smaller stamp costs 149 cents in this exercise.",
+            "correct": true,
+            "reason": "150−1＝149分。"
+          },
+          {
+            "id": "higher",
+            "text": "The smaller stamp costs 151 cents in this exercise.",
+            "correct": false,
+            "reason": "less是减1，不是加1。"
+          },
+          {
+            "id": "difference",
+            "text": "The smaller stamp costs exactly 1 cent in this exercise.",
+            "correct": false,
+            "reason": "one cent less是差价，不是总价。"
+          }
+        ],
+        "ownForms": [
+          "cent",
+          "cents"
+        ]
+      },
+      {
+        "id": "penny",
+        "label": "penny：Every penny都去了图书馆，能说留了一部分吗？",
+        "prompt": "Every penny都去了图书馆，能说留了一部分吗？",
+        "answer": "penny",
+        "meaning": "便士",
+        "material": "Every penny from the sale went to the library.",
+        "before": "Every ",
+        "after": " from the sale went to the library.",
+        "reason": "penny是便士。Every penny在这里强调义卖所得分文不留都给了图书馆，不表示总共只有一便士，也没有给出总金额。",
+        "hint": "金额复数常用pence；数硬币个数可用pennies。",
+        "wordDecision": {
+          "prompt": "Every penny都去了图书馆，能说留了一部分吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "义卖所得全部给图书馆",
+            "prompt": "选出原句支持的信息。",
+            "rows": [
+              {
+                "id": "all",
+                "label": "每一便士都给了图书馆",
+                "text": "Every penny from the sale went to the library.",
+                "include": true
+              },
+              {
+                "id": "part",
+                "label": "留下一部分义卖收入",
+                "text": "Some money from the sale was kept back.",
+                "include": false
+              },
+              {
+                "id": "exact",
+                "label": "给出了义卖收入总金额",
+                "text": "The sentence states the exact total amount.",
+                "include": false
+              }
+            ],
+            "hint": "every说明全部，去向明确，总额未给。",
+            "wrong": "选全部去图书馆；不补留存或总额。"
+          }
+        },
+        "options": [
+          {
+            "id": "all",
+            "text": "All the money from the sale went to the library.",
+            "correct": true,
+            "reason": "Every penny强调每一分，全部都去了图书馆。"
+          },
+          {
+            "id": "part",
+            "text": "Some of the sale money was kept back.",
+            "correct": false,
+            "reason": "留一部分与Every penny冲突。"
+          },
+          {
+            "id": "exact",
+            "text": "The sentence states the exact total amount raised.",
+            "correct": false,
+            "reason": "强调全部去向，没有给总额。"
+          }
+        ],
+        "ownForms": [
+          "penny",
+          "pennies",
+          "pence"
+        ]
+      },
+      {
+        "id": "price",
+        "label": "price：价格includes水瓶，能改成必须另付水瓶钱吗？",
+        "prompt": "价格includes水瓶，能改成必须另付水瓶钱吗？",
+        "answer": "price",
+        "meaning": "价格",
+        "material": "The price includes a reusable bottle.",
+        "before": "The ",
+        "after": " includes a reusable bottle.",
+        "reason": "price是价格。includes a reusable bottle说明这笔价格包含一只可重复使用的水瓶；不说明准确金额，也不能改成另付费或只含水瓶。",
+        "hint": "The price includes...；问价格用What is the price?",
+        "wordDecision": {
+          "prompt": "价格includes水瓶，能改成必须另付水瓶钱吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这笔价格包含可重复使用的水瓶",
+            "prompt": "选出原句支持的信息。",
+            "rows": [
+              {
+                "id": "included",
+                "label": "水瓶已包含在价格中",
+                "text": "The price includes a reusable bottle.",
+                "include": true
+              },
+              {
+                "id": "extra",
+                "label": "水瓶必须在此价格外另收费",
+                "text": "The bottle always costs extra.",
+                "include": false
+              },
+              {
+                "id": "only",
+                "label": "价格只包含水瓶，没有别的",
+                "text": "The price covers only the bottle.",
+                "include": false
+              }
+            ],
+            "hint": "includes不是only，也不是另加收费。",
+            "wrong": "只选已包含水瓶；不补全部项目或附加费。"
+          }
+        },
+        "options": [
+          {
+            "id": "included",
+            "text": "A reusable bottle is included in the price.",
+            "correct": true,
+            "reason": "includes说明价格已包含水瓶。"
+          },
+          {
+            "id": "extra",
+            "text": "The bottle always costs extra on top of this price.",
+            "correct": false,
+            "reason": "原句是包含，不是必收附加费。"
+          },
+          {
+            "id": "only",
+            "text": "The price covers only the bottle and nothing else.",
+            "correct": false,
+            "reason": "includes不等于only，也未列出全部项目。"
+          }
+        ]
+      },
+      {
+        "id": "cheap",
+        "label": "cheap：本练习：活动9点开始，选哪张票才既便宜又赶得上？",
+        "prompt": "本练习：活动9点开始，选哪张票才既便宜又赶得上？",
+        "answer": "cheap",
+        "meaning": "便宜的",
+        "material": "A cheap ticket is useful only if the time suits you.",
+        "before": "A ",
+        "after": " ticket is useful only if the time suits you.",
+        "reason": "cheap是便宜的、价格低。原句强调便宜票有用还要时间合适，未给具体时刻。这里另设活动09:00开始的练习，08:40能赶上，09:20不能；时刻只属于练习，不说明票的质量。",
+        "hint": "cheap形容价格，不等于质量一定差；only if给必要条件。",
+        "wordDecision": {
+          "prompt": "本练习：活动9点开始，选哪张票才既便宜又赶得上？"
+        },
+        "options": [
+          {
+            "id": "fits",
+            "text": "Choose the cheap ticket that arrives at 08:40.",
+            "correct": true,
+            "reason": "08:40早于09:00，符合本练习的时间要求。"
+          },
+          {
+            "id": "late",
+            "text": "Choose the cheap ticket that arrives at 09:20.",
+            "correct": false,
+            "reason": "便宜也得时间合适；09:20已迟到。"
+          },
+          {
+            "id": "quality",
+            "text": "Choose any cheap ticket because low price proves poor quality.",
+            "correct": false,
+            "reason": "cheap说价格低，不证明质量差；也没核对时间。"
+          }
+        ]
+      },
+      {
+        "id": "expensive",
+        "label": "expensive：最贵的不一定最好，能推出最便宜的一定最好吗？",
+        "prompt": "最贵的不一定最好，能推出最便宜的一定最好吗？",
+        "answer": "expensive",
+        "meaning": "昂贵的",
+        "material": "The most expensive tool is not always the best.",
+        "before": "The most ",
+        "after": " tool is not always the best.",
+        "reason": "expensive是昂贵的。not always the best表示最贵的不总是最好，并不表示最贵的永远差，也不能推出最便宜的一定最好。",
+        "hint": "expensive的比较级more expensive，最高级most expensive。",
+        "wordDecision": {
+          "prompt": "最贵的不一定最好，能推出最便宜的一定最好吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "最贵不保证最好",
+            "prompt": "选出原句支持的信息。",
+            "rows": [
+              {
+                "id": "limited",
+                "label": "最贵的工具并不总是最好",
+                "text": "The most expensive tool is not always the best.",
+                "include": true
+              },
+              {
+                "id": "always",
+                "label": "最贵的工具必定最好",
+                "text": "The most expensive tool is always the best.",
+                "include": false
+              },
+              {
+                "id": "cheapest",
+                "label": "最便宜的工具必定最好",
+                "text": "The cheapest tool is always the best.",
+                "include": false
+              }
+            ],
+            "hint": "保留not always的范围，不另加保证。",
+            "wrong": "选不总是；不反成总是，也不补最便宜最好。"
+          }
+        },
+        "options": [
+          {
+            "id": "limited",
+            "text": "The highest price does not guarantee the best tool.",
+            "correct": true,
+            "reason": "not always否定的是一定最好。"
+          },
+          {
+            "id": "always",
+            "text": "The highest-priced tool is always the best.",
+            "correct": false,
+            "reason": "忽略not，意思反了。"
+          },
+          {
+            "id": "cheapest",
+            "text": "The cheapest tool is always the best.",
+            "correct": false,
+            "reason": "没有比较最便宜的一款，更没有always保证。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-commerce-2-transfer",
+      "topicId": "v-course-commerce",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which summary keeps the meanings, price difference and arrival time correct?",
+      "passage": "Choosing prices and times\nAt a small exhibition, the entrance fee was one pound. Here, pound named money, not weight. A postcard cost one dollar, but the notice did not name the country. A price included a reusable bottle, so the bottle was part of that price. Every penny from a school sale went to the library; the total was not stated.\nWe then tried two separate exercises. In a stamp exercise using one currency, the larger stamp cost 150 cents and the smaller one cost one cent less, making it 149 cents. In a ticket exercise, an activity began at 09:00. Two cheap tickets arrived at 08:40 and 09:20. Only the first arrived before the activity began. These prices and times were exercise settings.\nLow price did not prove poor quality. The most expensive tool was not always the best, which did not prove that the cheapest tool was always the best either.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The fee is a weight; the smaller stamp costs 149 cents; the 08:40 ticket arrives before 09:00."
+        },
+        {
+          "id": "b",
+          "text": "The fee is money; the smaller stamp costs 151 cents; the 08:40 ticket arrives before 09:00."
+        },
+        {
+          "id": "c",
+          "text": "The fee is money; the smaller stamp costs 149 cents; the 08:40 ticket arrives before 09:00."
+        },
+        {
+          "id": "d",
+          "text": "The fee is money; the smaller stamp costs 149 cents; the 09:20 ticket arrives before 09:00."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The fee is money; the smaller stamp costs 149 cents; the 08:40 ticket arrives before 09:00."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先用fee判断词义，再分别核对差价和时间。",
+        "steps": [
+          {
+            "text": "fee指费用；150−1＝149分。",
+            "reason": "费用不是重量；one cent less是减一分。"
+          },
+          {
+            "text": "08:40早于09:00，09:20晚于09:00。",
+            "reason": "便宜票还得能赶上活动；价格与时刻只属于练习。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把费用中的pound误解成重量。"
+          },
+          {
+            "option": "b",
+            "reason": "把less误算成加一分。"
+          },
+          {
+            "option": "d",
+            "reason": "09:20已经晚于09:00。"
+          }
+        ],
+        "pitfall": "只看低价，不核对单位、差价方向或到达时间。",
+        "visual": {
+          "kind": "timeline",
+          "title": "三个核对点",
+          "segments": [
+            {
+              "text": "entrance fee → money",
+              "role": "object",
+              "note": "按语境判断pound"
+            },
+            {
+              "text": "150 − 1 = 149 cents",
+              "role": "object",
+              "note": "减一分"
+            },
+            {
+              "text": "08:40 < 09:00 < 09:20",
+              "role": "object",
+              "note": "选赶得上的票"
+            }
+          ],
+          "caption": "邮票图片不含面额；数字与时刻均来自单独练习设定。"
+        },
+        "transfer": "最贵的不一定最好，等于最贵的永远不好吗？"
+      }
+    }
+  }
+}

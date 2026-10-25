@@ -2,24 +2,24 @@
 
 ## Current owner direction · individual lessons, 2026-10-25 (UTC)
 
-202 of 413 lessons are individually reviewed; 211 remain pending. Work stays solo under
+203 of 413 lessons are individually reviewed; 210 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-v-course-commerce. Eight individually authored shopping tasks teach buy, sell, pay, cost, spend, money, cash and coin. A new hands-on budget moves exact one-yuan tokens between bus-fare and remaining-money trays. A separate fictional exercise reserves 3 of 12 yuan, leaving 9; amounts are not invented source facts. Original cash/card imagery distinguishes payment forms. Six records preserve purchase limits, future selling, counter scope, price questions, less spending and a coin beneath a machine. Two changed rewrites and an original shopping passage test application. All content remains draft.
+Latest: l-v-course-commerce-2. Eight individually authored tasks teach currency, pound, dollar, cent, penny, price, cheap and expensive. Six contextual records preserve the sentence scope without inventing a country, exchange rate, total donation or guarantee of quality. Original two-stamp art supports a separate exercise: 150 cents minus one cent is 149 cents. A cheap-ticket task compares 08:40 and 09:20 arrivals against a 09:00 start. Plural own-example forms are accepted. Two changed rewrites and an original price-and-time passage test application. Corrected the source Chinese dollar translation to avoid inventing US currency. All content remains draft.
 
-Inspected all 223 final browser figures across 56 freshly viewed sheets at 320, 390 and 768 px. Incomplete sheet 25 replaced by all four original figures, actually viewed. Original 1536x1024 cash/card art and 600x400 delivery actually viewed: separated fictional notes/coins and complete blank chip card, no denominations or brands. Control checks cover all 0–12 allocations; visually reviewed exact token counts and tray totals in screenshots of zero, short, correct, extra and full reserve at every width. Reviewed keyboard focus, bounds, refund, reset, reopened two-yuan reserve and retained own writing. All eight starts, six contextual records, wrong meanings/spelling, copied examples, 24 sentence crops, question-mark placement and two changed rewrites inspected. Full original shopping passage read separately from integrated source. Presented transfer B and both explanation steps reviewed. Guided completion grants no independent attempts, mastery, lessonDone or hearing credit.
+Inspected all 213 final browser figures across 54 freshly viewed sheets at 320, 390 and 768 px. Incomplete sheet 23 replaced by all four original figures, actually viewed. Original 1536x1024 two-stamp art and 600x400 delivery actually viewed: complete perforated blue sun and teal circle stamps, clearly separated, no denominations or text. All eight starts, six contextual records, wrong meanings/spelling, copied examples, reopened late ticket, 24 sentence crops, punctuation and two changed rewrites inspected. Full original Choosing prices and times passage read separately from integrated source. Presented transfer C and explanation steps reviewed. Guided completion grants no independent attempts, mastery, lessonDone or hearing credit.
 
-Checkpoint 202 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 1772 tasks / 5316 widths; earlier flows retain their original scope.
+Checkpoint 203 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 1780 tasks / 5340 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-v-course-commerce-2. Continue currency, pound, dollar, cent, penny, price, cheap and expensive individually in l-v-course-commerce-2. Private original draft and generated two-stamp art are prepared and actually viewed without integration credit. Keep currency context, one-cent difference, includes scope and cheap-ticket timing separate from unstated facts. Approved audio remains separate; videos deferred.
+Next: l-v-course-commerce-3. Continue sale, discount, bargain, order, customer, service, quality and value individually in l-v-course-commerce-3. Private original draft and generated stitching art prepared and actually viewed without integration credit. Exact five-wheel order must not imply delivery; visible stitching does not prove whole-product quality. Approved audio remains separate; videos deferred.
 
-Native GUI status: Native 148–202 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–202 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–203 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–203 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint 201 pushed as 70cbae569002b137cb1910538b6d7916a6e55639 with all 569 committed source hashes verified. Origin/main fetched before 202 and current board/latest log read; ownership unchanged. Obsidian and both existing Kanban cards updated/read back successfully; native blocked through 201 pending explicit source-transfer approval. Solo parent claim continues; no all-course parity claimed.
+Checkpoint 202 pushed as aaec4cde5979f47d682d9fd98d2fe16b57ae376c with all 573 committed source hashes verified. Origin/main fetched before 203 and current board/latest log read; ownership unchanged. Obsidian and existing Kanban cards updated/read back successfully; native blocked through 202 pending explicit source-transfer approval. Solo parent claim continues; no all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 
