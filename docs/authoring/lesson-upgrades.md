@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **237 / 413**. Current: **l-s-introduce**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **238 / 413**. Current: **l-s-retell**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -345,7 +345,7 @@ Completed: **237 / 413**. Current: **l-s-introduce**. Evidence lives in docs/rev
 | l-w-story | 把一次改变写成完整经历 | reviewed | [Individual review](../reviews/individual-lessons/l-w-story.md) |
 | l-w-opinion | 表达观点，也给出理由 | reviewed | [Individual review](../reviews/individual-lessons/l-w-opinion.md) |
 | l-w-report | 活动报告：事实与建议分开 | reviewed | [Individual review](../reviews/individual-lessons/l-w-report.md) |
-| l-s-introduce | 用具体信息介绍自己 | pending | — |
+| l-s-introduce | 用具体信息介绍自己 | reviewed | [Individual review](../reviews/individual-lessons/l-s-introduce.md) |
 | l-s-retell | 按顺序复述一次小经历 | pending | — |
 | l-s-plan | 把活动计划说得能照着做 | pending | — |
 | l-s-compare | 比较两种出行方式 | pending | — |
