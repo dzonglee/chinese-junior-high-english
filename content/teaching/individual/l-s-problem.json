@@ -1,0 +1,268 @@
+{
+  "lessonId": "l-s-problem",
+  "reviewState": "draft",
+  "intent": "Individual help-request preparation distinguishes borrowing from discovery time, connects missing pages to a concrete reading difficulty and asks politely for another copy without unsupported blame.",
+  "picturePurpose": "Coded time/fact/effect/request cards keep the spoken problem precise; no invented page numbers, damage cause or guaranteed replacement is inferred from an illustration. Typed plans remain separate from speaking.",
+  "workshop": {
+    "kind": "compose",
+    "title": "把问题讲清，再提出具体请求",
+    "instruction": "先区分借书时间与发现问题的时间，再说明缺页怎样影响阅读，最后礼貌询问能否换一本。示例的时间和章节可以换，不能无证据指责别人。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "发现时间，不等于借书时间",
+        "prompt": "示例说昨天借书、刚发现缺页；怎样把两件事说清？",
+        "answer": "",
+        "reason": "借书和发现问题的时间已区分。再用自己的具体时间说明发现了什么问题。",
+        "hint": "昨天借书、刚发现缺页是本卡的假设示例，不是原题强制时间。原题要求说清发现问题的时间；几页缺失也没有指定准确页数。",
+        "material": "你在图书馆发现借来的书少了几页。向工作人员说 30—45 秒，说明发现问题的时间、缺页带来的影响，并礼貌地询问能否换一本。\n本卡示例：昨天借书，刚才阅读时发现缺了几页。",
+        "composeBrief": {
+          "title": "两件事，两处时间",
+          "hint": "按示例区分借书时间和发现时间。",
+          "wrong": "本卡示例是昨天借书，不是今天借、昨天还；刚发现少了几页，不是昨天发现或只少一张图片。",
+          "fields": [
+            {
+              "id": "borrow",
+              "label": "本卡什么时候借书？",
+              "answer": "yesterday",
+              "choices": [
+                {
+                  "id": "yesterday",
+                  "label": "I borrowed the book yesterday."
+                },
+                {
+                  "id": "next",
+                  "label": "I borrowed the book this morning."
+                },
+                {
+                  "id": "never",
+                  "label": "I returned the book yesterday."
+                }
+              ]
+            },
+            {
+              "id": "noticed",
+              "label": "本卡什么时候发现什么问题？",
+              "answer": "just-now",
+              "choices": [
+                {
+                  "id": "yesterday",
+                  "label": "I noticed the missing pages yesterday."
+                },
+                {
+                  "id": "just-now",
+                  "label": "I have just noticed that a few pages are missing."
+                },
+                {
+                  "id": "all",
+                  "label": "I have just noticed that a picture is missing."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "缺页怎样影响这次阅读",
+        "prompt": "哪句把缺页与阅读困难联系起来？",
+        "answer": "",
+        "reason": "问题与影响已连起来。再说明自己读到哪里、为什么读不下去，而不是只说不好。",
+        "hint": "桥梁章节只是示例，可以换成其他合理的阅读内容。缺页说明书有问题，不能单凭这个认定是谁弄坏的。",
+        "material": "你在图书馆发现借来的书少了几页。向工作人员说 30—45 秒，说明发现问题的时间、缺页带来的影响，并礼貌地询问能否换一本。",
+        "composeBrief": {
+          "title": "问题 → 具体影响",
+          "hint": "说明因为少了几页，哪部分内容看不明白。",
+          "wrong": "空泛评价没有解释阅读受到的影响。目前只能确认缺页，不能认定谁弄坏了书，也不知道缺页在哪里。",
+          "fields": [
+            {
+              "id": "effect",
+              "label": "哪句具体说明阅读受到的影响？",
+              "answer": "follow",
+              "choices": [
+                {
+                  "id": "vague",
+                  "label": "This book is not very good."
+                },
+                {
+                  "id": "follow",
+                  "label": "I cannot follow this explanation because a few pages are missing."
+                },
+                {
+                  "id": "blame",
+                  "label": "The librarian must have damaged this book."
+                }
+              ]
+            },
+            {
+              "id": "evidence",
+              "label": "什么是现在能确定的事实？",
+              "answer": "pages",
+              "choices": [
+                {
+                  "id": "pages",
+                  "label": "A few pages are missing from the book."
+                },
+                {
+                  "id": "who",
+                  "label": "The librarian must have torn the pages out."
+                },
+                {
+                  "id": "forever",
+                  "label": "The missing pages must be in the librarian’s bag."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "礼貌询问能否换一本",
+        "prompt": "让工作人员知道你希望得到什么帮助。",
+        "answer": "",
+        "reason": "具体请求和礼貌语气已核对。再实际开口说明问题、影响和换书请求。",
+        "hint": "原题请求换一本，不要求命令对方或索要无关物品。没有替换本时询问相似书是参考里的可选后续，不是必写内容。",
+        "material": "你在图书馆发现借来的书少了几页。向工作人员说 30—45 秒，说明发现问题的时间、缺页带来的影响，并礼貌地询问能否换一本。",
+        "composeBrief": {
+          "title": "问题说清 → 具体求助",
+          "hint": "用询问让对方知道需要换一本。",
+          "wrong": "只说Help me没有交代具体帮助；延长借期没有提出换书。实际要说30—45秒，不是只写词，也不是说几十分钟。",
+          "fields": [
+            {
+              "id": "ask",
+              "label": "哪句回应原题的换书请求？",
+              "answer": "exchange",
+              "choices": [
+                {
+                  "id": "vague",
+                  "label": "Help me with something."
+                },
+                {
+                  "id": "exchange",
+                  "label": "Could I exchange it for another copy, please?"
+                },
+                {
+                  "id": "unrelated",
+                  "label": "Could I keep this copy longer instead of exchanging it?"
+                }
+              ]
+            },
+            {
+              "id": "duration",
+              "label": "原题实际开口目标",
+              "answer": "seconds",
+              "choices": [
+                {
+                  "id": "words",
+                  "label": "只写30—45个词就当作已说完"
+                },
+                {
+                  "id": "seconds",
+                  "label": "说30—45秒，再回听是否清楚"
+                },
+                {
+                  "id": "minutes",
+                  "label": "说30—45分钟"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-problem-transfer",
+      "topicId": "s-problem",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "Which request explains this new problem clearly and politely?",
+      "passage": "A different request for help\nYou borrowed a school tablet. When you checked it this morning, it would not turn on, so you could not open the worksheet you needed. Speak to the school technician for 30–45 seconds. Say when you noticed the problem, explain its effect and politely ask whether you can exchange it for a working tablet. You do not know what caused the fault.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Describe the tablet as bad and ask for help, without explaining the time, effect or requested exchange."
+        },
+        {
+          "id": "b",
+          "text": "Explain only how a classmate helped collect papers in a corridor."
+        },
+        {
+          "id": "c",
+          "text": "Tell the technician that the borrowed tablet would not turn on when checked this morning, explain that you cannot open the worksheet, and politely ask for another working tablet."
+        },
+        {
+          "id": "d",
+          "text": "Assume that the technician caused the fault and demand an explanation without checking the cause."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Tell the technician that the borrowed tablet would not turn on when checked this morning, explain that you cannot open the worksheet, and politely ask for another working tablet."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "换了物品，也要讲清发现时间、具体影响和希望得到的帮助。",
+        "steps": [
+          {
+            "text": "今天早上检查时无法开机，因此打不开需要的练习单。",
+            "reason": "先报告能观察到的故障和影响，不编造原因。"
+          },
+          {
+            "text": "礼貌询问能否换一台能用的平板。",
+            "reason": "具体请求让工作人员知道你需要怎样的帮助。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "没有交代发现时间、具体影响或希望换一台能用的平板。"
+          },
+          {
+            "option": "b",
+            "reason": "走廊助人经历没有回应平板故障。"
+          },
+          {
+            "option": "d",
+            "reason": "不知道故障原因，不能先认定是工作人员造成的。"
+          }
+        ],
+        "pitfall": "说了很多抱怨，却没有说明何时发现、影响什么、希望怎样解决。",
+        "visual": {
+          "kind": "timeline",
+          "title": "发现问题 → 说明影响 → 礼貌求助",
+          "segments": [
+            {
+              "text": "this morning · would not turn on",
+              "role": "evidence",
+              "note": "时间与观察到的问题"
+            },
+            {
+              "text": "could not open the worksheet",
+              "role": "evidence",
+              "note": "具体影响"
+            },
+            {
+              "text": "Could I exchange it for a working tablet?",
+              "role": "evidence",
+              "note": "具体、礼貌的请求"
+            }
+          ],
+          "caption": "报告事实，不凭空认定谁造成了问题。"
+        },
+        "transfer": "如果对方没有可更换的设备，你可以怎样礼貌询问其他可行帮助？"
+      }
+    }
+  }
+}
