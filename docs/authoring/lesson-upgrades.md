@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **224 / 413**. Current: **l-v-course-manner-4**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **225 / 413**. Current: **l-v-course-manner-5**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -332,7 +332,7 @@ Completed: **224 / 413**. Current: **l-v-course-manner-4**. Evidence lives in do
 | l-v-course-manner | 程度、方式与时间副词 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-manner.md) |
 | l-v-course-manner-2 | 程度、方式与时间副词 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-manner-2.md) |
 | l-v-course-manner-3 | 程度、方式与时间副词 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-manner-3.md) |
-| l-v-course-manner-4 | 程度、方式与时间副词 · 4 | pending | — |
+| l-v-course-manner-4 | 程度、方式与时间副词 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-manner-4.md) |
 | l-v-course-manner-5 | 程度、方式与时间副词 · 5 | pending | — |
 | l-v-course-environmental-choices | 环境、资源与风险 · 1 | pending | — |
 | l-v-course-environmental-choices-2 | 环境、资源与风险 · 2 | pending | — |

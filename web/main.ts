@@ -138,6 +138,8 @@ function render() {
   const jarChangeFocus = active instanceof HTMLButtonElement && active.matches(".word-jar-change button") ? active.dataset.value : undefined
   const leafSimilarFocus = active instanceof HTMLButtonElement && active.matches(".word-leaf-similar button") ? active.dataset.value : undefined
   const gateConditionFocus = active instanceof HTMLButtonElement && active.matches(".word-gate-condition button") ? active.dataset.value : undefined
+  const regularRepeatFocus = active instanceof HTMLButtonElement && active.matches(".word-regular-repeat button") ? active.dataset.value : undefined
+  const drySeatsFocus = active instanceof HTMLButtonElement && active.matches(".word-dry-seats button") ? active.dataset.value : undefined
   const exactAlignmentFocus = active instanceof HTMLButtonElement && active.matches(".word-exact-alignment button") ? active.dataset.value : undefined
   const nearlyFinishFocus = active instanceof HTMLButtonElement && active.matches(".word-nearly-finish button") ? active.dataset.value : undefined
   const entranceFacingFocus = active instanceof HTMLButtonElement && active.matches(".word-entrance-facing button") ? active.dataset.value : undefined
@@ -185,6 +187,8 @@ function render() {
   if (jarChangeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-jar-change [data-value="${CSS.escape(jarChangeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (leafSimilarFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-leaf-similar [data-value="${CSS.escape(leafSimilarFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (gateConditionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-gate-condition [data-value="${CSS.escape(gateConditionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (regularRepeatFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-regular-repeat [data-value="${CSS.escape(regularRepeatFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (drySeatsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-dry-seats [data-value="${CSS.escape(drySeatsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (exactAlignmentFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-exact-alignment [data-value="${CSS.escape(exactAlignmentFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (nearlyFinishFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-nearly-finish [data-value="${CSS.escape(nearlyFinishFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (entranceFacingFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-entrance-facing [data-value="${CSS.escape(entranceFacingFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
