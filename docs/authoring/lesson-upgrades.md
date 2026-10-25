@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **210 / 413**. Current: **l-v-course-science-5**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **211 / 413**. Current: **l-v-course-planning-actions**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -318,7 +318,7 @@ Completed: **210 / 413**. Current: **l-v-course-science-5**. Evidence lives in d
 | l-v-course-science-2 | 科学、测量与证据 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-science-2.md) |
 | l-v-course-science-3 | 科学、测量与证据 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-science-3.md) |
 | l-v-course-science-4 | 科学、测量与证据 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-science-4.md) |
-| l-v-course-science-5 | 科学、测量与证据 · 5 | pending | — |
+| l-v-course-science-5 | 科学、测量与证据 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-science-5.md) |
 | l-v-course-planning-actions | 计划、完成与解决问题 · 1 | pending | — |
 | l-v-course-planning-actions-2 | 计划、完成与解决问题 · 2 | pending | — |
 | l-v-course-planning-actions-3 | 计划、完成与解决问题 · 3 | pending | — |
