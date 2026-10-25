@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **198 / 413**. Current: **l-v-course-communication-3**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **199 / 413**. Current: **l-v-course-communication-4**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -306,7 +306,7 @@ Completed: **198 / 413**. Current: **l-v-course-communication-3**. Evidence live
 | l-v-course-questions-quantity-5 | 询问、数量与可能性 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-questions-quantity-5.md) |
 | l-v-course-communication | 沟通、表达与联系 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-communication.md) |
 | l-v-course-communication-2 | 沟通、表达与联系 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-communication-2.md) |
-| l-v-course-communication-3 | 沟通、表达与联系 · 3 | pending | — |
+| l-v-course-communication-3 | 沟通、表达与联系 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-communication-3.md) |
 | l-v-course-communication-4 | 沟通、表达与联系 · 4 | pending | — |
 | l-v-course-communication-5 | 沟通、表达与联系 · 5 | pending | — |
 | l-v-course-commerce | 购物、金钱与选择 · 1 | pending | — |
