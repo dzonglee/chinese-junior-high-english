@@ -339,7 +339,7 @@ export function workshopView(w:LessonWorkshop,p:TeachingProgress):WorkshopView{
  else if(w.kind==='word-use'&&item.usage?.alternatives[normalizedAnswer(input)])feedback=`你输入了 ${input}，图中物品的方向也变了。${item.usage.caption} ${item.reason}`;
  else if(w.kind==='word-use'&&vCaseOnly(item,input))feedback=`词形写对了，但这里要注意大小写：${item.answer}。`;
  else if(w.kind==='word-use'){const n=[...input].findIndex((c,i)=>c.toLocaleLowerCase('en')!==item.answer[i]?.toLocaleLowerCase('en'));feedback=`句中需要表达“${item.meaning}”。${input?`从第 ${n<0?Math.min(input.length,item.answer.length)+1:n+1} 个字符起核对，注意词形和空格。`:'先根据语境写出这个词。'}${item.hint}`}
-  else if(w.kind==='compose'&&!briefMatches(item,p))feedback=item.composeOrder?.wrong??item.composeBrief?.wrong??'请先完成计划卡。';
+  else if(w.kind==='compose'&&!briefMatches(item,p))feedback=item.composeOrder&&!selectedProcessOrderMatch(item.composeOrder,p.answers['composeOrder-'+item.id]??'')?item.composeOrder.wrong:item.composeBrief?.wrong??'请先完成计划卡。';
   else if(w.kind==='proof'&&item.sourceOrder){const decoy=orderIds.map(id=>item.options?.find(o=>o.id===id)).find(o=>o&&!o.correct);feedback=decoy?decoy.reason:orderIds.length!==item.sourceOrder.length?`先排出题目限定的 ${item.sourceOrder.length} 步；现在放入了 ${orderIds.length} 句。${item.hint}`:`句子找对了，先后还没对上。${item.hint}`}
  else if(w.kind==='proof'&&item.calculation&&proofReady(item,p,k)&&p.checked[`${k}-proof-${selected}`])feedback=input.trim()?item.calculation.wrong:`依据找齐了。${item.calculation.hint}`;
  else if(w.kind==='proof'&&item.sourceGap&&proofReady(item,p,k)&&p.checked[`${k}-proof-${selected}`])feedback='原文线索已找到；再把候选词放回句子核对。';
