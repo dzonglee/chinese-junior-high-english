@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **191 / 413**. Current: **l-v-course-questions-quantity**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **192 / 413**. Current: **l-v-course-questions-quantity-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -299,7 +299,7 @@ Completed: **191 / 413**. Current: **l-v-course-questions-quantity**. Evidence l
 | l-v-course-colour-appearance-3 | 颜色、外形与可见特征 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-colour-appearance-3.md) |
 | l-v-course-colour-appearance-4 | 颜色、外形与可见特征 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-colour-appearance-4.md) |
 | l-v-course-colour-appearance-5 | 颜色、外形与可见特征 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-colour-appearance-5.md) |
-| l-v-course-questions-quantity | 询问、数量与可能性 · 1 | pending | — |
+| l-v-course-questions-quantity | 询问、数量与可能性 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-questions-quantity.md) |
 | l-v-course-questions-quantity-2 | 询问、数量与可能性 · 2 | pending | — |
 | l-v-course-questions-quantity-3 | 询问、数量与可能性 · 3 | pending | — |
 | l-v-course-questions-quantity-4 | 询问、数量与可能性 · 4 | pending | — |
