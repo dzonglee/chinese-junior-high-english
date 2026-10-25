@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **232 / 413**. Current: **l-w-advice**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **233 / 413**. Current: **l-w-notice**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -340,7 +340,7 @@ Completed: **232 / 413**. Current: **l-w-advice**. Evidence lives in docs/review
 | l-v-course-environmental-choices-4 | 环境、资源与风险 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-environmental-choices-4.md) |
 | l-v-course-environmental-choices-5 | 环境、资源与风险 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-environmental-choices-5.md) |
 | l-w-email | 写一封有用的邀请邮件 | reviewed | [Individual review](../reviews/individual-lessons/l-w-email.md) |
-| l-w-advice | 给同学的建议，具体才有用 | pending | — |
+| l-w-advice | 给同学的建议，具体才有用 | reviewed | [Individual review](../reviews/individual-lessons/l-w-advice.md) |
 | l-w-notice | 通知写清谁、何时、何地 | pending | — |
 | l-w-story | 把一次改变写成完整经历 | pending | — |
 | l-w-opinion | 表达观点，也给出理由 | pending | — |
