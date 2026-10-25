@@ -241,7 +241,7 @@ const loaders = {
   "p-sentence-stress": () => require.async("./content/group-003/p-sentence-stress.js"),
   "p-thought-groups": () => require.async("./content/group-003/p-thought-groups.js"),
   "p-connected-speech": () => require.async("./content/group-003/p-connected-speech.js"),
-  "p-intonation": () => require.async("./content/group-003/p-intonation.js"),
+  "p-intonation": () => require.async("./content/group-004/p-intonation.js"),
   "r-restoration": () => require.async("./content/group-004/r-restoration.js"),
   "r-short-answers": () => require.async("./content/group-004/r-short-answers.js"),
 };

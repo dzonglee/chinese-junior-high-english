@@ -1,0 +1,9 @@
+/** Coded layering teaches behind; this is not a real building or evacuation map. */
+export interface WordCurtainExit {title:string;hint:string;wrong:string}
+export interface WordCurtainExitView {title:string;hint:string;wrong:string;selected:string;revealed:boolean;reading:string;placements:{id:string;label:string;selected:boolean}[]}
+export const wordCurtainExitKey=(id:string)=>`workshopCurtainExit-${id}`
+function state(raw:string):{placement:string;revealed:boolean}|undefined {if(raw==='')return{placement:'',revealed:false};const m=/^(behind|front):(closed|open)$/.exec(raw);return m?{placement:m[1],revealed:m[2]==='open'}:undefined}
+export function validWordCurtainExit(v:unknown):v is WordCurtainExit {if(!v||typeof v!=='object')return false;const w=v as WordCurtainExit;return[[w.title,60],[w.hint,110],[w.wrong,140]].every(([s,n])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=(n as number))}
+export function curtainExitMatch(raw:string):boolean{return raw==='behind:open'}
+export function changeCurtainExit(raw:string,action:string):string|undefined {if(action==='reset')return'';const s=state(raw);if(!s)return undefined;if(action==='place-behind'||action==='place-front')return action.slice(6)+':closed';if(!s.placement)return undefined;if(action==='reveal')return s.placement+':open';if(action==='conceal')return s.placement+':closed';return undefined}
+export function wordCurtainExitView(w:WordCurtainExit,raw:string):WordCurtainExitView {const s=state(raw)??{placement:'',revealed:false};return{...w,selected:s.placement,revealed:s.revealed,placements:[{id:'place-behind',label:'出口在窗帘后面',selected:s.placement==='behind'},{id:'place-front',label:'出口在窗帘前面',selected:s.placement==='front'}],reading:!s.placement?'先选出口和窗帘的前后关系，再移开窗帘观察。':s.placement==='front'?'出口放在窗帘前面，不符合 behind。':s.revealed?'移开窗帘，看见原先被遮住的出口：behind the curtain。':'出口在窗帘后面，被窗帘遮住；移开窗帘再观察。'}}
