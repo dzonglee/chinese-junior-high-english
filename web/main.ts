@@ -126,6 +126,7 @@ function render() {
   const stampFocus = active instanceof HTMLButtonElement && active.matches('.word-stamp-placement button') ? active.dataset.value : undefined
   const eachItemFocus = active instanceof HTMLButtonElement && active.matches('.word-each-item button') ? active.dataset.value : undefined
   const routeTrafficFocus = active instanceof HTMLButtonElement && active.matches('.word-route-traffic button') ? active.dataset.value : undefined
+  const busBudgetFocus = active instanceof HTMLButtonElement && active.matches('.word-bus-budget button') ? active.dataset.value : undefined
   const paperUseFocus = active instanceof HTMLButtonElement && active.matches('.word-paper-use button') ? active.dataset.value : undefined
   const pathStepsFocus = active instanceof HTMLButtonElement && active.matches('.word-path-steps button') ? active.dataset.value : undefined
   const shapeFocus = active instanceof HTMLButtonElement && active.matches('.word-rectangle-ratio .shape-choice,.word-spot-wings .shape-choice') ? {action:active.dataset.action,value:active.dataset.value} : undefined
@@ -146,6 +147,7 @@ function render() {
   if (stampFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stamp-placement [data-value="${CSS.escape(stampFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (eachItemFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-each-item [data-value="${CSS.escape(eachItemFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (routeTrafficFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-traffic [data-value="${CSS.escape(routeTrafficFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (busBudgetFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-bus-budget [data-value="${CSS.escape(busBudgetFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (paperUseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-paper-use [data-value="${CSS.escape(paperUseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (pathStepsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-path-steps [data-value="${CSS.escape(pathStepsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (shapeFocus) root.querySelector<HTMLButtonElement>(`[data-action="${CSS.escape(shapeFocus.action??'')}"][data-value="${CSS.escape(shapeFocus.value??'')}"]:not(:disabled)`)?.focus({preventScroll:true})
