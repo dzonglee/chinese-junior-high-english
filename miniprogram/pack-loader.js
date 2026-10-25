@@ -212,7 +212,7 @@ const loaders = {
   "w-course-t17": () => require.async("./content/group-003/w-course-t17.js"),
   "s-course-t18": () => require.async("./content/group-003/s-course-t18.js"),
   "w-course-t18": () => require.async("./content/group-003/w-course-t18.js"),
-  "s-course-t19": () => require.async("./content/group-003/s-course-t19.js"),
+  "s-course-t19": () => require.async("./content/group-004/s-course-t19.js"),
   "w-course-t19": () => require.async("./content/group-004/w-course-t19.js"),
   "s-course-t20": () => require.async("./content/group-004/s-course-t20.js"),
   "w-course-t20": () => require.async("./content/group-004/w-course-t20.js"),
@@ -245,4 +245,4 @@ const loaders = {
   "r-restoration": () => require.async("./content/group-004/r-restoration.js"),
   "r-short-answers": () => require.async("./content/group-004/r-short-answers.js"),
 };
-module.exports = { loadCatalog: async () => { await require.async("./assets/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-2/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-3/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-4/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-5/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };
+module.exports = { loadCatalog: async () => { await require.async("./assets/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-2/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-3/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-4/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-5/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-6/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };
