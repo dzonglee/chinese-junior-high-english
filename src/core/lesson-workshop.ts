@@ -339,6 +339,7 @@ export function workshopView(w:LessonWorkshop,p:TeachingProgress):WorkshopView{
  else if(w.kind==='word-use'&&item.usage?.alternatives[normalizedAnswer(input)])feedback=`你输入了 ${input}，图中物品的方向也变了。${item.usage.caption} ${item.reason}`;
  else if(w.kind==='word-use'&&vCaseOnly(item,input))feedback=`词形写对了，但这里要注意大小写：${item.answer}。`;
  else if(w.kind==='word-use'){const n=[...input].findIndex((c,i)=>c.toLocaleLowerCase('en')!==item.answer[i]?.toLocaleLowerCase('en'));feedback=`句中需要表达“${item.meaning}”。${input?`从第 ${n<0?Math.min(input.length,item.answer.length)+1:n+1} 个字符起核对，注意词形和空格。`:'先根据语境写出这个词。'}${item.hint}`}
+  else if(w.kind==='compose'&&item.sourceRecall&&!recallReady(item,p))feedback='先遮住词表，逐格留下尝试，再揭开对照。想不起来可以写“不记得”。';
   else if(w.kind==='compose'&&!briefMatches(item,p))feedback=item.composeOrder&&!selectedProcessOrderMatch(item.composeOrder,p.answers['composeOrder-'+item.id]??'')?item.composeOrder.wrong:item.composeBrief?.wrong??'请先完成计划卡。';
   else if(w.kind==='proof'&&item.sourceOrder){const decoy=orderIds.map(id=>item.options?.find(o=>o.id===id)).find(o=>o&&!o.correct);feedback=decoy?decoy.reason:orderIds.length!==item.sourceOrder.length?`先排出题目限定的 ${item.sourceOrder.length} 步；现在放入了 ${orderIds.length} 句。${item.hint}`:`句子找对了，先后还没对上。${item.hint}`}
  else if(w.kind==='proof'&&item.calculation&&proofReady(item,p,k)&&p.checked[`${k}-proof-${selected}`])feedback=input.trim()?item.calculation.wrong:`依据找齐了。${item.calculation.hint}`;
@@ -760,7 +761,7 @@ export function changeWorkshop(w:LessonWorkshop,p:TeachingProgress,action:string
   unmark();delete p.checked[k];p.checked.workshopOwnMissing=false;return
  }
  if(action==='recall-study'||action==='recall-hide'||action==='recall-reveal'||action==='recall-input'){
-  const recall=v.item.sourceRecall;if(w.kind!=='proof'||!recall)return
+  const recall=v.item.sourceRecall;if((w.kind!=='proof'&&w.kind!=='compose')||!recall)return
   const phaseKey=recallPhaseKey(v.item.id)
   if(action==='recall-study')p.answers[phaseKey]='study'
   if(action==='recall-hide')p.answers[phaseKey]='recall'
@@ -822,7 +823,7 @@ export function changeWorkshop(w:LessonWorkshop,p:TeachingProgress,action:string
  if(action==='check'){
   if(w.kind==='proof'&&v.item.sourceOrder){const correct=sourceOrderMatches(v.item,p);p.checked[k]=correct;for(const o of v.item.options??[])p.checked[`${k}-proof-${o.id}`]=correct&&!!o.correct;if(!correct)unmark();return}
   if(w.kind==='proof'){const accepted=!!v.item.options?.find(o=>o.id===v.selected)?.correct;if(accepted)p.checked[`${k}-proof-${v.selected}`]=true;p.checked[k]=accepted&&proofReady(v.item,p,k)&&calculationMatches(v.item,v.input);if(!p.checked[k])unmark();else if(v.item.sourceStyle==='cards'&&v.proofRequired===1&&!v.item.sourceGap&&!v.item.sourceRecall&&!v.item.sourceSettings)mark();return}
-  if(w.kind==='compose'){if(!briefMatches(v.item,p)){p.checked[k]=false;unmark();p.checked.workshopOwnMissing=false}else if(longEnough(v.own,4)){mark();p.checked[k]=true;p.checked.workshopOwnMissing=false}else{p.checked[k]=false;unmark();p.checked.workshopOwnMissing=true}return}
+  if(w.kind==='compose'){if(!recallReady(v.item,p)||!briefMatches(v.item,p)){p.checked[k]=false;unmark();p.checked.workshopOwnMissing=false}else if(longEnough(v.own,4)){mark();p.checked[k]=true;p.checked.workshopOwnMissing=false}else{p.checked[k]=false;unmark();p.checked.workshopOwnMissing=true}return}
   const correct=w.kind==='transform'?matches(v.condition!,v.selected)&&v.sceneSubjectsCorrect&&v.recordCorrect&&v.membersCorrect:w.kind==='word-use'?normalizedAnswer(v.input,!!v.item.caseSensitive)===normalizedAnswer(v.item.answer,!!v.item.caseSensitive)&&wordDecisionMatches(v.item,p,k):!!v.item.options?.find(o=>o.id===v.selected)?.correct
   p.checked[k]=correct
   if(correct&&w.kind!=='word-use')mark();else if(!correct)unmark()
@@ -952,7 +953,7 @@ export function workshopProblems(w:LessonWorkshop):string[]{
   const pacing=settings?.pacing
   if(pacing!==undefined&&(pacing===null||typeof pacing!=='object'||typeof pacing.paceRow!=='string'||typeof pacing.spaceRow!=='string'||pacing.paceRow===pacing.spaceRow||!Array.isArray(settings?.rows)||![pacing.paceRow,pacing.spaceRow].every(id=>settings!.rows.some(row=>row?.id===id))))errors.push('Invalid pacing diagram')
   const recall=i.sourceRecall
-  if(recall&&((i.evidenceGroups?.length??0)<2||i.sourceSettings||w.kind!=='proof'||i.sourceStyle!=='cards'||i.sourceOrder||i.sourceArt||i.sourceGap||i.calculation||typeof recall.title!=='string'||!recall.title.trim()||typeof recall.note!=='string'||!recall.note.trim()||!Array.isArray(recall.words)||recall.words.length<2||recall.words.length>4||new Set(recall.words.map(x=>x?.id)).size!==recall.words.length||recall.words.some(x=>!x||typeof x.id!=='string'||!/^[a-z][a-z0-9-]*$/.test(x.id)||typeof x.cue!=='string'||!x.cue.trim()||x.cue.length>40||typeof x.answer!=='string'||!x.answer.trim()||x.answer!==x.answer.trim()||x.answer.length>40)))errors.push('Invalid recall exercise')
+  if(recall&&((w.kind==='compose'?(!i.composeBrief||!!i.composeOrder||i.sourceStyle!==undefined||!!i.sourceSettings||!!i.sourceArt||!!i.sourceGap||!!i.calculation):((i.evidenceGroups?.length??0)<2||i.sourceSettings||w.kind!=='proof'||i.sourceStyle!=='cards'||i.sourceOrder||i.sourceArt||i.sourceGap||i.calculation))||typeof recall.title!=='string'||!recall.title.trim()||typeof recall.note!=='string'||!recall.note.trim()||!Array.isArray(recall.words)||recall.words.length<2||recall.words.length>(w.kind==='compose'?5:4)||new Set(recall.words.map(x=>x?.id)).size!==recall.words.length||recall.words.some(x=>!x||typeof x.id!=='string'||!/^[a-z][a-z0-9-]*$/.test(x.id)||typeof x.cue!=='string'||!x.cue.trim()||x.cue.length>40||typeof x.answer!=='string'||!x.answer.trim()||x.answer!==x.answer.trim()||x.answer.length>40)))errors.push('Invalid recall exercise')
   const gap=i.sourceGap
   if(gap&&(w.kind!=='proof'||i.sourceStyle!=='cards'||i.sourceOrder||i.sourceArt||i.calculation||typeof gap.before!=='string'||!gap.before.trim()||typeof gap.after!=='string'||!gap.after.trim()||!i.material?.includes(gap.before+'____'+gap.after)||typeof gap.answer!=='string'||!Array.isArray(gap.options)||gap.options.length<2||gap.options.length>4||new Set(gap.options.map(o=>o?.id)).size!==gap.options.length||new Set(gap.options.map(o=>o?.text)).size!==gap.options.length||gap.options.some(o=>!o||typeof o.id!=='string'||!(/^[a-z][a-z0-9-]*$/).test(o.id)||typeof o.text!=='string'||!o.text.trim()||o.text!==o.text.trim()||o.text.length>40||typeof o.reason!=='string'||!o.reason.trim())||!gap.options.some(o=>o.id===gap.answer)))errors.push('Invalid context gap')
   const map=gap?.locationMap
