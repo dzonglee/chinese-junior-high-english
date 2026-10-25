@@ -1,0 +1,567 @@
+{
+  "lessonId": "l-v-course-commerce-3",
+  "reviewState": "draft",
+  "intent": "Eight individual tasks distinguish sale, discount, bargain, order, customer, service, quality and value without inventing transaction outcomes.",
+  "picturePurpose": "Original fabric samples support observing a visible stitching gap before purchase; order quantities remain coded.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "按单备货，再检查质量",
+    "instruction": "点出订单数量，找出样布的问题；别把下单当成收货。",
+    "items": [
+      {
+        "id": "sale",
+        "label": "sale：学校sale筹钱买书，能推出书已买好了吗？",
+        "prompt": "学校sale筹钱买书，能推出书已买好了吗？",
+        "answer": "sale",
+        "meaning": "出售；促销",
+        "material": "The school sale raised money for new books.",
+        "before": "The school ",
+        "after": " raised money for new books.",
+        "reason": "sale在这里是学校义卖。活动筹得的钱用于买新书，句子没有给金额，也没有确认书已买好；不能只看到sale就认定是商店打折。",
+        "hint": "school sale学校义卖；for sale待售；on sale可指减价。",
+        "wordDecision": {
+          "prompt": "学校sale筹钱买书，能推出书已买好了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "义卖筹得买新书的钱",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "raised",
+                "label": "筹到用于买新书的钱",
+                "text": "The school sale raised money for new books.",
+                "include": true
+              },
+              {
+                "id": "bought",
+                "label": "所有新书已经买好",
+                "text": "All the new books have been bought.",
+                "include": false
+              },
+              {
+                "id": "free",
+                "label": "全部物品免费送出",
+                "text": "Everything at the sale was given away free.",
+                "include": false
+              }
+            ],
+            "hint": "用途与采购完成分开，原句不提供金额。",
+            "wrong": "只选筹钱买书；不补已采购或全部免费。"
+          }
+        },
+        "options": [
+          {
+            "id": "raised",
+            "text": "The school sale collected money intended for new books.",
+            "correct": true,
+            "reason": "筹钱用途是买新书。"
+          },
+          {
+            "id": "bought",
+            "text": "All the new books have already been bought.",
+            "correct": false,
+            "reason": "筹钱不等于已采购。"
+          },
+          {
+            "id": "free",
+            "text": "All items at the sale were given away free.",
+            "correct": false,
+            "reason": "sale与筹钱不支持全部免费。"
+          }
+        ]
+      },
+      {
+        "id": "discount",
+        "label": "discount：学生有门票折扣，句子给了几折吗？",
+        "prompt": "学生有门票折扣，句子给了几折吗？",
+        "answer": "discount",
+        "meaning": "折扣",
+        "material": "Students receive a discount on museum tickets.",
+        "before": "Students receive a ",
+        "after": " on museum tickets.",
+        "reason": "discount是折扣。学生买博物馆门票有优惠，但原句没有写几折、优惠多少钱或资格核验方式，也没说免费。",
+        "hint": "a discount on tickets；折扣不等于免费。",
+        "wordDecision": {
+          "prompt": "学生有门票折扣，句子给了几折吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "学生购票享有折扣",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "lower",
+                "label": "学生的博物馆门票有优惠",
+                "text": "Students receive a discount on museum tickets.",
+                "include": true
+              },
+              {
+                "id": "rate",
+                "label": "给出了准确折扣率",
+                "text": "The sentence gives an exact discount rate.",
+                "include": false
+              },
+              {
+                "id": "free",
+                "label": "所有学生免费入馆",
+                "text": "All students enter for free.",
+                "include": false
+              }
+            ],
+            "hint": "保留students与museum tickets，不猜折扣率。",
+            "wrong": "选学生票优惠；不补折扣率或免费。"
+          }
+        },
+        "options": [
+          {
+            "id": "lower",
+            "text": "Students pay a reduced price for museum tickets.",
+            "correct": true,
+            "reason": "discount说明学生享受减价。"
+          },
+          {
+            "id": "rate",
+            "text": "The sentence gives an exact discount rate.",
+            "correct": false,
+            "reason": "未写折扣率。"
+          },
+          {
+            "id": "free",
+            "text": "Every student enters the museum for free.",
+            "correct": false,
+            "reason": "打折不等于免费。"
+          }
+        ]
+      },
+      {
+        "id": "bargain",
+        "label": "bargain：这张二手桌是a bargain，是划算还是已涨价？",
+        "prompt": "这张二手桌是a bargain，是划算还是已涨价？",
+        "answer": "bargain",
+        "meaning": "便宜货；讨价还价",
+        "material": "The second-hand desk was a real bargain.",
+        "before": "The second-hand desk was a real ",
+        "after": ".",
+        "reason": "bargain在这里是名词，指买得划算的东西或交易。二手桌很划算，不代表免费、全新或已经检验所有部位，也没写成交价格。",
+        "hint": "a real bargain真划算；bargain作动词才可指讨价还价。",
+        "wordDecision": {
+          "prompt": "这张二手桌是a bargain，是划算还是已涨价？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这张二手桌买得划算",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "value",
+                "label": "二手桌是划算的购买",
+                "text": "The second-hand desk was a real bargain.",
+                "include": true
+              },
+              {
+                "id": "rise",
+                "label": "桌子的价格猛涨",
+                "text": "The price of the desk rose sharply.",
+                "include": false
+              },
+              {
+                "id": "talk",
+                "label": "只说明正在讨价还价",
+                "text": "Someone is negotiating the price of the desk.",
+                "include": false
+              }
+            ],
+            "hint": "a real bargain评价这笔买卖，不写具体成交价。",
+            "wrong": "选买得划算；不改成涨价或只在议价。"
+          }
+        },
+        "options": [
+          {
+            "id": "value",
+            "text": "The used desk was a very good buy for its price.",
+            "correct": true,
+            "reason": "a bargain这里是划算的购买。"
+          },
+          {
+            "id": "rise",
+            "text": "The desk price had risen sharply.",
+            "correct": false,
+            "reason": "划算不等于涨价。"
+          },
+          {
+            "id": "talk",
+            "text": "The sentence only says someone was negotiating the price.",
+            "correct": false,
+            "reason": "a real bargain是名词评价，不是正在讨价还价。"
+          }
+        ]
+      },
+      {
+        "id": "order",
+        "label": "order：订单要五个替换轮，按订单备几个？",
+        "prompt": "订单要五个替换轮，按订单备几个？",
+        "answer": "order",
+        "meaning": "订单；点餐；命令",
+        "material": "We placed an order for five replacement wheels.",
+        "before": "We placed an ",
+        "after": " for five replacement wheels.",
+        "reason": "order在这里是订单。place an order for five replacement wheels是下单买五个替换轮子，没有说明交货、付款或安装完成。点五次备五个轮子的示意计数，再核对含义。",
+        "hint": "place an order for...；five后wheels用复数。",
+        "wordDecision": {
+          "prompt": "订单要五个替换轮，按订单备几个？",
+          "quantity": {
+            "title": "按订单备五个替换轮",
+            "unit": "个轮子",
+            "pluralUnit": "个轮子",
+            "shape": "wheel",
+            "limit": 7,
+            "answer": 5,
+            "hint": "每次增加一个，订单要五个；这是备货示意，不代表已经收货。",
+            "wrong": "订单写five；数量应为五个，且下单不等于已收货。"
+          }
+        },
+        "options": [
+          {
+            "id": "five",
+            "text": "The order is for five replacement wheels.",
+            "correct": true,
+            "reason": "for five给出订单数量和用途。"
+          },
+          {
+            "id": "done",
+            "text": "All five wheels have already been delivered.",
+            "correct": false,
+            "reason": "下单不等于已经收货。"
+          },
+          {
+            "id": "meal",
+            "text": "We ordered five meals.",
+            "correct": false,
+            "reason": "这里order是替换轮订单，不是点餐。"
+          }
+        ]
+      },
+      {
+        "id": "customer",
+        "label": "customer：顾客退回损坏的灯，能说已经退款了吗？",
+        "prompt": "顾客退回损坏的灯，能说已经退款了吗？",
+        "answer": "customer",
+        "meaning": "顾客",
+        "material": "The customer returned the damaged lamp.",
+        "before": "The ",
+        "after": " returned the damaged lamp.",
+        "reason": "customer是顾客。句子说顾客退回了损坏的灯，没有说明退款、换货、责任归属或处理结果。",
+        "hint": "customer顾客；returned the lamp退回灯。",
+        "wordDecision": {
+          "prompt": "顾客退回损坏的灯，能说已经退款了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "顾客退回损坏的灯",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "returned",
+                "label": "顾客把损坏的灯退回",
+                "text": "The customer returned the damaged lamp.",
+                "include": true
+              },
+              {
+                "id": "refund",
+                "label": "已经拿到全额退款",
+                "text": "The customer has received a full refund.",
+                "include": false
+              },
+              {
+                "id": "new",
+                "label": "买了一盏没有损坏的新灯",
+                "text": "The customer bought a new undamaged lamp.",
+                "include": false
+              }
+            ],
+            "hint": "退回与退款结果分开，不补责任归属。",
+            "wrong": "选退回损坏的灯；不补退款或换成买新灯。"
+          }
+        },
+        "options": [
+          {
+            "id": "returned",
+            "text": "The buyer brought the damaged lamp back.",
+            "correct": true,
+            "reason": "customer是顾客，returned说明退回。"
+          },
+          {
+            "id": "refund",
+            "text": "The customer has already received a full refund.",
+            "correct": false,
+            "reason": "退回未说明退款是否完成。"
+          },
+          {
+            "id": "new",
+            "text": "The customer bought a new lamp that had no damage.",
+            "correct": false,
+            "reason": "与returned和damaged都不符。"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "label": "service：维修服务含安全检查，能推出所有问题都修好了吗？",
+        "prompt": "维修服务含安全检查，能推出所有问题都修好了吗？",
+        "answer": "service",
+        "meaning": "服务",
+        "material": "The repair service includes a safety check.",
+        "before": "The repair ",
+        "after": " includes a safety check.",
+        "reason": "service是服务。维修服务包含安全检查，不说明所有故障已经修好，也不说明收费金额、时间或检查结果。",
+        "hint": "repair service维修服务；includes后可接检查项目。",
+        "wordDecision": {
+          "prompt": "维修服务含安全检查，能推出所有问题都修好了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "维修服务包含安全检查",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "check",
+                "label": "安全检查属于服务内容",
+                "text": "The repair service includes a safety check.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "所有可能的故障已经修好",
+                "text": "Every possible fault has been fixed.",
+                "include": false
+              },
+              {
+                "id": "excluded",
+                "label": "服务不包括安全检查",
+                "text": "A safety check is excluded from the service.",
+                "include": false
+              }
+            ],
+            "hint": "服务内容与维修结果分开。",
+            "wrong": "选包含检查；不能反成不含或扩大成全部已修好。"
+          }
+        },
+        "options": [
+          {
+            "id": "check",
+            "text": "A safety check is part of the repair service.",
+            "correct": true,
+            "reason": "includes说明服务中有这项检查。"
+          },
+          {
+            "id": "all",
+            "text": "Every possible fault has already been fixed.",
+            "correct": false,
+            "reason": "包括检查不保证全部问题已修复。"
+          },
+          {
+            "id": "excluded",
+            "text": "A safety check is excluded from the service.",
+            "correct": false,
+            "reason": "includes不能反成excluded。"
+          }
+        ]
+      },
+      {
+        "id": "quality",
+        "label": "quality：先看图：哪块样布可见断线和开口，需要进一步检查？",
+        "prompt": "先看图：哪块样布可见断线和开口，需要进一步检查？",
+        "answer": "quality",
+        "meaning": "质量；品质",
+        "material": "Check the quality of the stitching before buying.",
+        "before": "Check the ",
+        "after": " of the stitching before buying.",
+        "reason": "quality是质量。原句要求购买前检查缝线质量。另给的样布图中，右边有可见断线、开口，应进一步检查；左边线迹较整齐，也不能单凭局部图保证整件产品质量。",
+        "hint": "quality表示质量时通常不可数；before buying购买前。",
+        "wordDecision": {
+          "prompt": "先看图：哪块样布可见断线和开口，需要进一步检查？",
+          "art": {
+            "asset": "lesson-stitching-check",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "两块分开的样布：左边蓝色样布的白色线迹连续整齐；右边绿色样布的白色线迹中断，有开口和松散线头。"
+          }
+        },
+        "options": [
+          {
+            "id": "right",
+            "text": "Inspect the right sample: its stitching has a visible gap.",
+            "correct": true,
+            "reason": "右边可见断线和开口，值得进一步检查。"
+          },
+          {
+            "id": "left",
+            "text": "The left sample is the one with the visible central gap.",
+            "correct": false,
+            "reason": "左边线迹连续，图中开口在右边。"
+          },
+          {
+            "id": "guarantee",
+            "text": "The picture guarantees the whole product will last forever.",
+            "correct": false,
+            "reason": "局部照片不能保证整件产品质量，更不能保证永远耐用。"
+          }
+        ]
+      },
+      {
+        "id": "value",
+        "label": "value：简单维修恢复自行车价值，句子给了售价吗？",
+        "prompt": "简单维修恢复自行车价值，句子给了售价吗？",
+        "answer": "value",
+        "meaning": "价值；重视",
+        "material": "A simple repair restored the bicycle's value.",
+        "before": "A simple repair restored the bicycle's ",
+        "after": ".",
+        "reason": "value在这里是价值，restored说明通过简单修理让自行车重新有了价值。没有给出准确售价，也不是说旧车变成全新车。",
+        "hint": "value在这里作名词；good value表示物有所值。",
+        "wordDecision": {
+          "prompt": "简单维修恢复自行车价值，句子给了售价吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "简单维修恢复自行车价值",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "restored",
+                "label": "修理让自行车恢复价值",
+                "text": "A simple repair restored the bicycle's value.",
+                "include": true
+              },
+              {
+                "id": "price",
+                "label": "明确给出了自行车售价",
+                "text": "The sentence gives the exact selling price.",
+                "include": false
+              },
+              {
+                "id": "new",
+                "label": "自行车变成全新车",
+                "text": "The bicycle became brand-new.",
+                "include": false
+              }
+            ],
+            "hint": "恢复价值不等于给出售价或变全新。",
+            "wrong": "选价值恢复；不补售价或新旧变化。"
+          }
+        },
+        "options": [
+          {
+            "id": "restored",
+            "text": "The repair brought back value to the bicycle.",
+            "correct": true,
+            "reason": "restored说明价值恢复。"
+          },
+          {
+            "id": "price",
+            "text": "The sentence states the exact selling price.",
+            "correct": false,
+            "reason": "没有报价。"
+          },
+          {
+            "id": "new",
+            "text": "The bicycle became a brand-new bicycle.",
+            "correct": false,
+            "reason": "修理恢复价值不等于变成全新车。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-commerce-3-transfer",
+      "topicId": "v-course-commerce",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan preserves the order, visible clue and service limits?",
+      "passage": "Checking an order and a repair\nOur school sale raised money for new books. We did not yet know whether all the books had been bought. Students also received a discount on museum tickets, but no discount rate was given. A used desk was described as a real bargain: it was a good buy, not necessarily free.\nWe placed an order for five replacement wheels. The order did not prove delivery. A customer returned a damaged lamp, but no refund result was recorded. A repair service included a safety check; that did not guarantee that every possible fault had already been fixed.\nBefore another purchase, we compared two fictional fabric samples. The left sample had neat continuous stitches. The right had a visible gap and loose thread ends, so it needed closer inspection. A small picture could not guarantee the quality of a whole product. Finally, a simple repair restored a bicycle's value without stating a selling price.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Order five replacement wheels without assuming delivery; inspect the broken stitching; keep the safety check separate from a guarantee that all faults are fixed."
+        },
+        {
+          "id": "b",
+          "text": "Order five replacement wheels and assume delivery is complete; inspect the broken stitching; keep the safety check separate from a guarantee."
+        },
+        {
+          "id": "c",
+          "text": "Order five meals; inspect the broken stitching; keep the safety check separate from a guarantee."
+        },
+        {
+          "id": "d",
+          "text": "Order five replacement wheels without assuming delivery; inspect the broken stitching; assume the safety check proves all faults are fixed."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Order five replacement wheels without assuming delivery; inspect the broken stitching; keep the safety check separate from a guarantee that all faults are fixed."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核订单数量，再看可见线索，最后区分服务内容与结果。",
+        "steps": [
+          {
+            "text": "订单是五个替换轮；右边样布可见断线和开口。",
+            "reason": "five replacement wheels不是五份餐；图片线索只说明局部可见状态。"
+          },
+          {
+            "text": "安全检查是服务的一部分，不是所有故障已修好的证明。",
+            "reason": "includes说明内容，没有给检查结果或全修好保证。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "下单不证明已经交货。"
+          },
+          {
+            "option": "c",
+            "reason": "这里订单要的是替换轮，不是点餐。"
+          },
+          {
+            "option": "d",
+            "reason": "安全检查不保证所有故障已经修复。"
+          }
+        ],
+        "pitfall": "把订单、退回或检查当作已经完成的后续结果。",
+        "visual": {
+          "kind": "timeline",
+          "title": "信息能支持到哪一步",
+          "segments": [
+            {
+              "text": "order → five replacement wheels",
+              "role": "object",
+              "note": "未确认交货"
+            },
+            {
+              "text": "right sample → visible gap",
+              "role": "object",
+              "note": "检查局部线迹"
+            },
+            {
+              "text": "service → safety check",
+              "role": "object",
+              "note": "不保证所有问题已修好"
+            }
+          ],
+          "caption": "样布图只支持可见线索；不能代替整件产品的质量检验。"
+        },
+        "transfer": "顾客退回灯，等于已经收到全额退款吗？"
+      }
+    }
+  }
+}
