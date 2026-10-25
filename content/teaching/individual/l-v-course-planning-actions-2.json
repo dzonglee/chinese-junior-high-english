@@ -1,0 +1,554 @@
+{
+  "lessonId": "l-v-course-planning-actions-2",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks preserve preference roles, refusal choice, offers, restriction scope and unanswered questions.",
+  "picturePurpose": "Original paired bags support a separate exact coded-weight comparison; weight is never inferred from generated appearance.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "比偏好、选轻重、关闪光",
+    "instruction": "先摆正更喜欢的活动，再按练习重量选包、关掉示意闪光灯。",
+    "items": [
+      {
+        "id": "choose",
+        "label": "choose：选材料时，不能丢掉哪个条件？",
+        "prompt": "选材料时，不能丢掉哪个条件？",
+        "answer": "Choose",
+        "meaning": "选择",
+        "material": "Choose a material that will not rust.",
+        "before": "",
+        "after": " a material that will not rust.",
+        "reason": "choose表示选择，过去式chose，过去分词chosen。that will not rust限定材料不能生锈；原句没有点名材料，也没有说已经选好。",
+        "hint": "choose—chose—chosen；choose a material选择材料。",
+        "wordDecision": {
+          "prompt": "选材料时，不能丢掉哪个条件？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "选不会生锈的材料",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "condition",
+                "label": "材料必须符合不会生锈的条件",
+                "text": "Choose a material that will not rust.",
+                "include": true
+              },
+              {
+                "id": "any",
+                "label": "生锈的材料也可以",
+                "text": "Any material is acceptable, even if it rusts.",
+                "include": false
+              },
+              {
+                "id": "named",
+                "label": "已经选定塑料",
+                "text": "Plastic has already been chosen.",
+                "include": false
+              }
+            ],
+            "hint": "看清that后的条件，不替原句指定材料。",
+            "wrong": "选不会生锈这个条件，不是随便选或已选塑料。"
+          }
+        },
+        "options": [
+          {
+            "id": "condition",
+            "text": "Select a material that will not rust.",
+            "correct": true,
+            "reason": "that will not rust限定所选材料。"
+          },
+          {
+            "id": "any",
+            "text": "Choose any material, even if it will rust.",
+            "correct": false,
+            "reason": "丢掉不会生锈这个条件。"
+          },
+          {
+            "id": "named",
+            "text": "The sentence says that plastic has already been chosen.",
+            "correct": false,
+            "reason": "没有点名塑料，也没有报告已选好。"
+          }
+        ]
+      },
+      {
+        "id": "prefer",
+        "label": "prefer：点选更喜欢的活动，别颠倒A和B。",
+        "prompt": "点选更喜欢的活动，别颠倒A和B。",
+        "answer": "prefer",
+        "meaning": "更喜欢",
+        "material": "I prefer walking to waiting for a crowded bus.",
+        "before": "I ",
+        "after": " walking to waiting for a crowded bus.",
+        "reason": "prefer A to B表示比起B更喜欢A；本句A是walking，B是waiting for a crowded bus。这里to是介词，后接waiting，不是wait或to wait；偏好不是永远拒绝公交。",
+        "hint": "prefer doing A to doing B；to在这里是介词。",
+        "wordDecision": {
+          "prompt": "点选更喜欢的活动，别颠倒A和B。",
+          "preference": {
+            "title": "谁是更喜欢的活动？",
+            "hint": "prefer A to B：A更喜欢，B用来比较；点选后看两边的位置。",
+            "wrong": "更喜欢的是walking；不要把A和B颠倒。"
+          }
+        },
+        "options": [
+          {
+            "id": "walking",
+            "text": "I would rather walk than wait for a crowded bus.",
+            "correct": true,
+            "reason": "prefer A to B表示比起B更喜欢A。"
+          },
+          {
+            "id": "waiting",
+            "text": "I like waiting for a crowded bus more than walking.",
+            "correct": false,
+            "reason": "把更喜欢的活动颠倒。"
+          },
+          {
+            "id": "never",
+            "text": "I will never travel by bus again.",
+            "correct": false,
+            "reason": "比较偏好不等于永远不坐公交。"
+          }
+        ]
+      },
+      {
+        "id": "agree",
+        "label": "agree：agree是在认同意见，还是已经修好了？",
+        "prompt": "agree是在认同意见，还是已经修好了？",
+        "answer": "agree",
+        "meaning": "同意；一致",
+        "material": "We agree that the handle needs to be stronger.",
+        "before": "We ",
+        "after": " that the handle needs to be stronger.",
+        "reason": "agree表示同意。agree that后接所认同的观点；needs to be stronger说明把手需要更结实，没有说已经修理或测试。agree with somebody表示同意某人的观点。",
+        "hint": "agree that接句子；agree with somebody。",
+        "wordDecision": {
+          "prompt": "agree是在认同意见，还是已经修好了？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "认同把手需要更结实",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "opinion",
+                "label": "同意把手需要更结实",
+                "text": "We agree that the handle needs to be stronger.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "把手已经修好并测试",
+                "text": "The handle has already been repaired and tested.",
+                "include": false
+              },
+              {
+                "id": "weak",
+                "label": "同意把手应更脆弱",
+                "text": "We agree that the handle should be weaker.",
+                "include": false
+              }
+            ],
+            "hint": "区分认同意见和已经完成维修。",
+            "wrong": "选需要更结实，不补已经修好或反向观点。"
+          }
+        },
+        "options": [
+          {
+            "id": "opinion",
+            "text": "We share the view that the handle should be stronger.",
+            "correct": true,
+            "reason": "agree that后是大家认同的内容。"
+          },
+          {
+            "id": "done",
+            "text": "The handle has already been repaired and tested.",
+            "correct": false,
+            "reason": "认同需要加固，不等于已修好并测试。"
+          },
+          {
+            "id": "weak",
+            "text": "We agree that the handle should be weaker.",
+            "correct": false,
+            "reason": "stronger不能改成weaker。"
+          }
+        ]
+      },
+      {
+        "id": "refuse",
+        "label": "refuse：can refuse是在给选择，还是强迫接受？",
+        "prompt": "can refuse是在给选择，还是强迫接受？",
+        "answer": "refuse",
+        "meaning": "拒绝",
+        "material": "You can refuse a request that makes you uncomfortable.",
+        "before": "You can ",
+        "after": " a request that makes you uncomfortable.",
+        "reason": "refuse表示拒绝；can refuse给出可以拒绝的选择，不是要求一律拒绝，也不是必须接受。that makes you uncomfortable限定让你不舒服的请求。refuse to do表示拒绝做某事。",
+        "hint": "refuse to do；can表示可以，不等于must。",
+        "wordDecision": {
+          "prompt": "can refuse是在给选择，还是强迫接受？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "可以拒绝让自己不舒服的请求",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "choice",
+                "label": "可以拒绝这样的请求",
+                "text": "You can refuse a request that makes you uncomfortable.",
+                "include": true
+              },
+              {
+                "id": "must",
+                "label": "任何请求都必须接受",
+                "text": "You must accept every request.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "任何人的任何请求都必须拒绝",
+                "text": "You must refuse every request from everyone.",
+                "include": false
+              }
+            ],
+            "hint": "保留can和that后的范围。",
+            "wrong": "选可以拒绝，不把选择改成两个极端。"
+          }
+        },
+        "options": [
+          {
+            "id": "choice",
+            "text": "You may turn down a request that makes you uncomfortable.",
+            "correct": true,
+            "reason": "can refuse说明有权拒绝这样的请求。"
+          },
+          {
+            "id": "must",
+            "text": "You must accept every request, however uncomfortable it is.",
+            "correct": false,
+            "reason": "与可以拒绝相反。"
+          },
+          {
+            "id": "all",
+            "text": "You must refuse every request from every person.",
+            "correct": false,
+            "reason": "can不等于must，也没有every request。"
+          }
+        ]
+      },
+      {
+        "id": "accept",
+        "label": "accept：Will...accept是在问店规，还是已给答案？",
+        "prompt": "Will...accept是在问店规，还是已给答案？",
+        "answer": "accept",
+        "meaning": "接受",
+        "material": "Will the shop accept a return without a receipt?",
+        "before": "Will the shop ",
+        "after": " a return without a receipt?",
+        "reason": "accept表示同意接受，receive侧重收到。Will the shop accept...?问商店会不会接受退货；without a receipt是没有收据。不能把问题直接读成肯定或否定的店规。",
+        "hint": "accept a return接受退货；without a receipt没有收据。",
+        "wordDecision": {
+          "prompt": "Will...accept是在问店规，还是已给答案？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "询问无收据能否退货",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "question",
+                "label": "问商店会不会接受无收据退货",
+                "text": "Will the shop accept a return without a receipt?",
+                "include": true
+              },
+              {
+                "id": "yes",
+                "label": "商店肯定接受所有无收据退货",
+                "text": "The shop accepts every return without a receipt.",
+                "include": false
+              },
+              {
+                "id": "no",
+                "label": "商店肯定拒绝所有无收据退货",
+                "text": "The shop rejects every return without a receipt.",
+                "include": false
+              }
+            ],
+            "hint": "这是问句，店规和实际处理结果都没给出。",
+            "wrong": "选问题本身，不替商店回答。"
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "The question asks whether the shop will accept a receipt-free return.",
+            "correct": true,
+            "reason": "Will...?...是在询问商店是否接受。"
+          },
+          {
+            "id": "yes",
+            "text": "The shop definitely accepts every return without a receipt.",
+            "correct": false,
+            "reason": "问题没有给出肯定店规。"
+          },
+          {
+            "id": "no",
+            "text": "The shop definitely rejects every return without a receipt.",
+            "correct": false,
+            "reason": "问题也没有给出否定店规。"
+          }
+        ]
+      },
+      {
+        "id": "offer",
+        "label": "offer：另给比较：左袋3kg，右袋5kg；点较轻的一袋。",
+        "prompt": "另给比较：左袋3kg，右袋5kg；点较轻的一袋。",
+        "answer": "offer",
+        "meaning": "主动提出；提供",
+        "material": "I can offer to carry the lighter bag.",
+        "before": "I can ",
+        "after": " to carry the lighter bag.",
+        "reason": "offer to carry表示主动提出拿包，不等于已经拿过。lighter是较轻的，不是颜色较浅。另给练习左袋3kg、右袋5kg，只用于比较，不是原句包的实际重量；不能凭颜色、大小或外观推重量。",
+        "hint": "offer to do；lighter这里指重量较轻，不是颜色较浅。",
+        "wordDecision": {
+          "prompt": "另给比较：左袋3kg，右袋5kg；点较轻的一袋。",
+          "art": {
+            "asset": "lesson-two-totes",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "完整分开的两个购物袋：左青绿、右紫蓝，均有完整提手；图像本身不说明重量。",
+            "targets": [
+              {
+                "id": "left",
+                "option": "lighter",
+                "label": "左袋 · 3 kg",
+                "left": 5,
+                "top": 5,
+                "width": 42,
+                "height": 90
+              },
+              {
+                "id": "right",
+                "option": "heavier",
+                "label": "右袋 · 5 kg",
+                "left": 53,
+                "top": 5,
+                "width": 42,
+                "height": 90
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "lighter",
+            "text": "I can offer to carry the lighter bag.",
+            "correct": true,
+            "reason": "offer to do表示主动提出；另给练习3kg小于5kg，所以左袋较轻。"
+          },
+          {
+            "id": "heavier",
+            "text": "I can offer to carry the heavier bag.",
+            "correct": false,
+            "reason": "把lighter改成heavier；另给练习右袋5kg较重。"
+          }
+        ]
+      },
+      {
+        "id": "allow",
+        "label": "allow：关掉示意闪光灯，再判断限制范围。",
+        "prompt": "关掉示意闪光灯，再判断限制范围。",
+        "answer": "allow",
+        "meaning": "允许",
+        "material": "The museum does not allow flash photography.",
+        "before": "The museum does not ",
+        "after": " flash photography.",
+        "reason": "allow表示允许；does not allow flash photography是不允许闪光摄影。原句没有给其他拍照规定，不能扩大成所有拍照都禁止，也不能保证其他拍照全部允许。此处设置只是示意，不会开启真实相机。",
+        "hint": "allow somebody to do；allow doing；does not allow表示不允许。",
+        "wordDecision": {
+          "prompt": "关掉示意闪光灯，再判断限制范围。",
+          "flash": {
+            "title": "设置示意相机的闪光灯",
+            "hint": "只控制示意设置；原句禁止闪光摄影，其他拍照规定需另查。",
+            "wrong": "先关闭示意闪光灯，再核对原句限制的范围。"
+          }
+        },
+        "options": [
+          {
+            "id": "flash",
+            "text": "Flash photography is not permitted in the museum.",
+            "correct": true,
+            "reason": "does not allow否定的是flash photography。"
+          },
+          {
+            "id": "all",
+            "text": "All kinds of photography are definitely forbidden.",
+            "correct": false,
+            "reason": "原句只说闪光摄影，不能扩大到所有拍照。"
+          },
+          {
+            "id": "free",
+            "text": "Every kind of non-flash photography is definitely permitted.",
+            "correct": false,
+            "reason": "没给出其他拍照规定，不能保证全部允许。"
+          }
+        ]
+      },
+      {
+        "id": "avoid",
+        "label": "avoid：avoid后面是哪种动作？",
+        "prompt": "avoid后面是哪种动作？",
+        "answer": "Avoid",
+        "meaning": "避免",
+        "material": "Avoid walking near the edge of the cliff.",
+        "before": "",
+        "after": " walking near the edge of the cliff.",
+        "reason": "avoid表示避免，后接doing，不接to do。near the edge of the cliff限定要避免的危险行为；原句没给安全距离数值，不应编出通用的两米规则。",
+        "hint": "avoid doing；the edge of在……边缘。",
+        "wordDecision": {
+          "prompt": "avoid后面是哪种动作？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "避免靠近悬崖边缘行走",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "avoid",
+                "label": "避免靠近悬崖边缘行走",
+                "text": "Avoid walking near the edge of the cliff.",
+                "include": true
+              },
+              {
+                "id": "approach",
+                "label": "应尽量贴近悬崖边走",
+                "text": "Walk as close to the cliff edge as possible.",
+                "include": false
+              },
+              {
+                "id": "number",
+                "label": "任何地点两米距离都保证安全",
+                "text": "Exactly two metres is always a safe distance.",
+                "include": false
+              }
+            ],
+            "hint": "认清avoid doing，不补原句没有的安全数值。",
+            "wrong": "选避免靠近，不反向行走或编距离保证。"
+          }
+        },
+        "options": [
+          {
+            "id": "avoid",
+            "text": "Do not walk near the cliff edge.",
+            "correct": true,
+            "reason": "avoid walking要求避免靠近悬崖边行走。"
+          },
+          {
+            "id": "approach",
+            "text": "Walk as close as possible to the cliff edge.",
+            "correct": false,
+            "reason": "与avoid的要求相反。"
+          },
+          {
+            "id": "number",
+            "text": "The sentence gives a universally safe distance of exactly two metres.",
+            "correct": false,
+            "reason": "没有数值，也没有保证任何地点两米都安全。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-planning-actions-2-transfer",
+      "topicId": "v-course-planning-actions",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes correctly preserve the preference, the museum restriction and the shop question?",
+      "passage": "Choices on a school visit\nI prefer walking to waiting for a crowded bus. Walking is the preferred activity in this comparison, but it does not mean I will never take a bus again. We agree that a handle needs to be stronger; we have not said that it has been repaired. You can refuse a request that makes you uncomfortable. This gives you a choice, rather than requiring you to accept or refuse every request.\nAt the shop, we ask, \"Will the shop accept a return without a receipt?\" The question does not tell us the shop’s answer or policy. I can offer to carry the lighter bag. Offering is not the same as already carrying it. In a separate comparison exercise, the left bag is labelled 3 kg and the right 5 kg. Those practice labels, not the bags’ colours or visible sizes, identify the lighter bag. They are not weights supplied by the original sentence.\nThe museum does not allow flash photography. We switch the schematic flash setting off; the activity never uses a real camera. The sentence does not give every other photography rule, so we must check those separately. On our outdoor walk, we avoid walking near the cliff edge. No exact distance is stated or guaranteed safe.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Waiting is preferred; all photography is banned; the shop certainly accepts the return."
+        },
+        {
+          "id": "b",
+          "text": "Walking is preferred; flash photography is banned; acceptance is still a question."
+        },
+        {
+          "id": "c",
+          "text": "Walking is preferred; every non-flash photo is certainly allowed; acceptance is still a question."
+        },
+        {
+          "id": "d",
+          "text": "Waiting is preferred; flash photography is banned; acceptance is still a question."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Walking is preferred; flash photography is banned; acceptance is still a question."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找prefer后面的A，再看否定范围和问句有没有答案。",
+        "steps": [
+          {
+            "text": "更喜欢walking；禁止的是flash photography。",
+            "reason": "prefer A to B中的A更喜欢；does not allow后只给闪光摄影。"
+          },
+          {
+            "text": "商店是否接受无收据退货，原文仍在提问。",
+            "reason": "Will the shop accept...?没有给肯定或否定店规。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "颠倒偏好，扩大禁令，还替商店给肯定答案。"
+          },
+          {
+            "option": "c",
+            "reason": "没有其他拍照规则，不能保证非闪光拍照全部允许。"
+          },
+          {
+            "option": "d",
+            "reason": "把walking和waiting的偏好颠倒。"
+          }
+        ],
+        "pitfall": "只看关键词，没看比较关系、否定范围和疑问句。",
+        "visual": {
+          "kind": "timeline",
+          "title": "偏好、限制、问题",
+          "segments": [
+            {
+              "text": "prefer walking to waiting",
+              "role": "object",
+              "note": "更喜欢步行"
+            },
+            {
+              "text": "not allow flash photography",
+              "role": "object",
+              "note": "限制闪光摄影"
+            },
+            {
+              "text": "Will the shop accept...?",
+              "role": "object",
+              "note": "还没给商店答案"
+            }
+          ],
+          "caption": "主动提出不等于已做；练习重量与原句事实分开。"
+        },
+        "transfer": "为什么不能把不允许闪光摄影改成允许所有非闪光拍照？"
+      }
+    }
+  }
+}
