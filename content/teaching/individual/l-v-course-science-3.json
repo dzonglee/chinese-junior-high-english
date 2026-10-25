@@ -1,0 +1,573 @@
+{
+  "lessonId": "l-v-course-science-3",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks distinguish calculation, estimation, prediction, proof and conclusions supported by evidence.",
+  "picturePurpose": "Original paw-print versus shoe-tread comparison supports evidence selection without species, time or size claims. Coded ruler supplies separate arithmetic; two event sequences preserve before.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "先做判断，再找证据",
+    "instruction": "算总长、点痕迹、排先后；别把预测当结果。",
+    "items": [
+      {
+        "id": "calculate",
+        "label": "calculate：另给算绳练习：2米加3米，把总长度放到标尺上。",
+        "prompt": "另给算绳练习：2米加3米，把总长度放到标尺上。",
+        "answer": "Calculate",
+        "meaning": "计算",
+        "material": "Calculate the total length of string we need.",
+        "before": "",
+        "after": " the total length of string we need.",
+        "reason": "calculate是计算。原句要求计算所需绳子的总长度，没有给数值。另给练习是2米加3米，共5米；标尺只表示这道练习的数量，不是屏幕上的实际长度。",
+        "hint": "calculate计算；calculation是名词。",
+        "wordDecision": {
+          "prompt": "另给算绳练习：2米加3米，把总长度放到标尺上。",
+          "ruler": {
+            "title": "另给练习：2 m＋3 m",
+            "end": 10,
+            "tickStep": 1,
+            "majorStep": 5,
+            "choices": [
+              4,
+              5,
+              6
+            ],
+            "answer": 5,
+            "unit": "m",
+            "startLabel": "0 m",
+            "markerLabel": "总长度",
+            "emptyLabel": "总长度待计算",
+            "hint": "2＋3＝5；选总长度。此处是数值示意，不是屏幕实测。",
+            "wrong": "两段相加是5米；把总长度放在5 m处。"
+          }
+        },
+        "options": [
+          {
+            "id": "five",
+            "text": "In this separate exercise, two metres plus three metres make five metres.",
+            "correct": true,
+            "reason": "2＋3＝5；这是另给练习的数据。"
+          },
+          {
+            "id": "six",
+            "text": "In this separate exercise, two metres plus three metres make six metres.",
+            "correct": false,
+            "reason": "相加得五米，不是六米。"
+          },
+          {
+            "id": "given",
+            "text": "The original sentence states that exactly five metres are needed.",
+            "correct": false,
+            "reason": "原句没有给长度。"
+          }
+        ]
+      },
+      {
+        "id": "estimate",
+        "label": "estimate：先估算，再查图：把两个动作排好。",
+        "prompt": "先估算，再查图：把两个动作排好。",
+        "answer": "Estimate",
+        "meaning": "估计；估算",
+        "material": "Estimate the distance before checking the map.",
+        "before": "",
+        "after": " the distance before checking the map.",
+        "reason": "estimate是估算。before checking the map要求先估算再查地图；估算不等于精确测量，也不是看完地图后假装先前就知道。原句没给距离数值。",
+        "hint": "estimate可作动词；估算与实测要分清。",
+        "wordDecision": {
+          "prompt": "先估算，再查图：把两个动作排好。",
+          "processOrder": {
+            "title": "先估算，再查地图",
+            "hint": "before给出先后；原句没有距离数值。",
+            "wrong": "先估算距离，再查地图；不能颠倒。",
+            "events": [
+              {
+                "id": "estimate",
+                "label": "先估算距离"
+              },
+              {
+                "id": "map",
+                "label": "再查地图"
+              }
+            ],
+            "sequence": [
+              "estimate",
+              "map"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "estimate",
+            "text": "Estimate the distance first, then check the map.",
+            "correct": true,
+            "reason": "before表示先估算后查图。"
+          },
+          {
+            "id": "map",
+            "text": "Check the map first, then make the initial estimate.",
+            "correct": false,
+            "reason": "把先后顺序颠倒。"
+          },
+          {
+            "id": "exact",
+            "text": "The estimate must already be an exact measured distance.",
+            "correct": false,
+            "reason": "估算不是保证精确的实测值。"
+          }
+        ]
+      },
+      {
+        "id": "predict",
+        "label": "predict：Can you predict...？这是预测请求，还是已有结果？",
+        "prompt": "Can you predict...？这是预测请求，还是已有结果？",
+        "answer": "predict",
+        "meaning": "预测",
+        "material": "Can you predict which material will stay dry?",
+        "before": "Can you ",
+        "after": " which material will stay dry?",
+        "reason": "predict是预测。Can you predict提出预测问题，which material will stay dry指哪种材料将保持干燥；句子没给实验结果，也不能把will换成已经发生。",
+        "hint": "predict后可以接which引导的从句；预测不等于证明。",
+        "wordDecision": {
+          "prompt": "Can you predict...？这是预测请求，还是已有结果？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这是一项预测请求",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "predict",
+                "label": "请求预测哪种材料将保持干燥",
+                "text": "Can you predict which material will stay dry?",
+                "include": true
+              },
+              {
+                "id": "proved",
+                "label": "已经证明所有材料都保持干燥",
+                "text": "Every material has already been proved to stay dry.",
+                "include": false
+              },
+              {
+                "id": "wet",
+                "label": "询问哪种材料已经湿了",
+                "text": "Which material is already wet?",
+                "include": false
+              }
+            ],
+            "hint": "Can you提出请求；will指预测对象，不是已完成结果。",
+            "wrong": "选预测请求；不能补结果或反转干湿。"
+          }
+        },
+        "options": [
+          {
+            "id": "predict",
+            "text": "It asks for a prediction about which material will stay dry.",
+            "correct": true,
+            "reason": "请求预测未来情况。"
+          },
+          {
+            "id": "proved",
+            "text": "It proves that every material has already stayed dry.",
+            "correct": false,
+            "reason": "预测请求不是实验结果。"
+          },
+          {
+            "id": "wet",
+            "text": "It asks which material is already wet.",
+            "correct": false,
+            "reason": "把将保持干燥改成已经湿了。"
+          }
+        ]
+      },
+      {
+        "id": "prove",
+        "label": "prove：一测就能证明全部安全吗？看清cannot和every。",
+        "prompt": "一测就能证明全部安全吗？看清cannot和every。",
+        "answer": "prove",
+        "meaning": "证明",
+        "material": "One test cannot prove that every sample is safe.",
+        "before": "One test cannot ",
+        "after": " that every sample is safe.",
+        "reason": "prove是证明。cannot prove that every sample is safe限制证据能支持的范围；一次测试不足以证明全部安全，也不能因此说每个样品都不安全。",
+        "hint": "prove that...；cannot prove A不等于证明非A。",
+        "wordDecision": {
+          "prompt": "一测就能证明全部安全吗？看清cannot和every。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "一次测试不足以证明全部安全",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "limited",
+                "label": "不能据此证明所有样品安全",
+                "text": "One test cannot prove that every sample is safe.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "一次就证明全部安全",
+                "text": "One test proves every sample is safe.",
+                "include": false
+              },
+              {
+                "id": "unsafe",
+                "label": "已经证明所有样品都不安全",
+                "text": "Every sample has been proved unsafe.",
+                "include": false
+              }
+            ],
+            "hint": "既不能扩大成全部安全，也不能反成全部不安全。",
+            "wrong": "保留cannot和every限定的范围。"
+          }
+        },
+        "options": [
+          {
+            "id": "limited",
+            "text": "One test is not enough to establish the safety of every sample.",
+            "correct": true,
+            "reason": "一次测试不能证明全部安全。"
+          },
+          {
+            "id": "all",
+            "text": "One test proves every sample is safe.",
+            "correct": false,
+            "reason": "漏掉cannot，结论反了。"
+          },
+          {
+            "id": "unsafe",
+            "text": "The sentence proves that every sample is unsafe.",
+            "correct": false,
+            "reason": "不能证明全部安全，不等于证明全部不安全。"
+          }
+        ]
+      },
+      {
+        "id": "evidence",
+        "label": "evidence：点图找证据：哪盘痕迹更支持“小动物来过”？",
+        "prompt": "点图找证据：哪盘痕迹更支持“小动物来过”？",
+        "answer": "evidence",
+        "meaning": "证据；依据",
+        "material": "The footprints gave us evidence of a small animal.",
+        "before": "The footprints gave us ",
+        "after": " of a small animal.",
+        "reason": "evidence是证据，通常不可数。原句说脚印提供小动物来过的证据；另给虚构对比图，左边肉垫与趾印支持动物足迹判断，右边是鞋底纹。图片无比例尺，也不能确定真实大小、准确物种或经过时间。",
+        "hint": "evidence通常不可数；a piece of evidence一条证据。",
+        "wordDecision": {
+          "prompt": "点图找证据：哪盘痕迹更支持“小动物来过”？",
+          "art": {
+            "asset": "lesson-track-evidence",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "另给痕迹对比图：左盘泥中有肉垫和趾印，右盘有带规则纹路的鞋底印；两盘完整分开，无标签或比例尺。",
+            "targets": [
+              {
+                "id": "paw-zone",
+                "option": "paw",
+                "label": "左盘",
+                "left": 5,
+                "top": 8,
+                "width": 42,
+                "height": 84
+              },
+              {
+                "id": "shoe-zone",
+                "option": "shoe",
+                "label": "右盘",
+                "left": 53,
+                "top": 8,
+                "width": 42,
+                "height": 84
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "paw",
+            "text": "The paw-pad impressions on the left support an animal-track interpretation.",
+            "correct": true,
+            "reason": "左边是肉垫和趾印，右边是鞋底纹。"
+          },
+          {
+            "id": "shoe",
+            "text": "The shoe-tread impression on the right is the animal evidence.",
+            "correct": false,
+            "reason": "右边有鞋底的脚掌、鞋跟和规则纹路。"
+          }
+        ]
+      },
+      {
+        "id": "data",
+        "label": "data：数据和结论，哪个先？按原句排顺序。",
+        "prompt": "数据和结论，哪个先？按原句排顺序。",
+        "answer": "data",
+        "meaning": "数据",
+        "material": "Check the data before drawing a conclusion.",
+        "before": "Check the ",
+        "after": " before drawing a conclusion.",
+        "reason": "data是数据。before drawing a conclusion要求得出结论前先检查数据，不是先定结论再挑数据。原句没有具体数据或指定结论。",
+        "hint": "draw a conclusion得出结论；先核查，再判断。",
+        "wordDecision": {
+          "prompt": "数据和结论，哪个先？按原句排顺序。",
+          "processOrder": {
+            "title": "先检查数据，再得结论",
+            "hint": "按before排序；不能先定结论再挑数据。",
+            "wrong": "先检查数据，再得出结论。",
+            "events": [
+              {
+                "id": "check",
+                "label": "检查数据"
+              },
+              {
+                "id": "conclude",
+                "label": "得出结论"
+              }
+            ],
+            "sequence": [
+              "check",
+              "conclude"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "check",
+            "text": "Check the data first, then draw a conclusion.",
+            "correct": true,
+            "reason": "before把检查放在得结论前。"
+          },
+          {
+            "id": "conclude",
+            "text": "Decide the conclusion first, then choose data to fit it.",
+            "correct": false,
+            "reason": "颠倒顺序，并把核查改成挑数据。"
+          },
+          {
+            "id": "skip",
+            "text": "Draw a conclusion without checking the data.",
+            "correct": false,
+            "reason": "漏掉检查要求。"
+          }
+        ]
+      },
+      {
+        "id": "theory",
+        "label": "theory：用纸模型tested理论，是否等于理论已被彻底证明？",
+        "prompt": "用纸模型tested理论，是否等于理论已被彻底证明？",
+        "answer": "theory",
+        "meaning": "理论；推测",
+        "material": "We tested our theory with a paper model.",
+        "before": "We tested our ",
+        "after": " with a paper model.",
+        "reason": "theory是理论或想法。tested our theory with a paper model说明用纸模型检验，没有给检验结果，不能直接说已被完全证明；模型材料是纸。",
+        "hint": "test a theory检验理论；theories是复数。",
+        "wordDecision": {
+          "prompt": "用纸模型tested理论，是否等于理论已被彻底证明？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "用纸模型检验想法",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "tested",
+                "label": "用纸模型检验",
+                "text": "We tested our theory with a paper model.",
+                "include": true
+              },
+              {
+                "id": "proved",
+                "label": "已被完全证明",
+                "text": "The theory has been completely proved.",
+                "include": false
+              },
+              {
+                "id": "metal",
+                "label": "使用金属模型",
+                "text": "We tested the theory with a metal model.",
+                "include": false
+              }
+            ],
+            "hint": "保留tested与paper；不补结果。",
+            "wrong": "选纸模型检验；不能改成证明完毕或换模型材料。"
+          }
+        },
+        "options": [
+          {
+            "id": "tested",
+            "text": "They used a paper model to test their theory.",
+            "correct": true,
+            "reason": "保留检验方法，没有补检验结果。"
+          },
+          {
+            "id": "proved",
+            "text": "Their theory has been completely proved.",
+            "correct": false,
+            "reason": "tested不等于proved。"
+          },
+          {
+            "id": "metal",
+            "text": "They tested it with a metal model.",
+            "correct": false,
+            "reason": "paper不能改成metal。"
+          }
+        ]
+      },
+      {
+        "id": "conclusion",
+        "label": "conclusion：结论要和什么对上？",
+        "prompt": "结论要和什么对上？",
+        "answer": "conclusion",
+        "meaning": "结论",
+        "material": "Our conclusion must match the results.",
+        "before": "Our ",
+        "after": " must match the results.",
+        "reason": "conclusion是结论。must match the results要求结论与结果一致，不能为了符合愿望改写，也不保证实验一定成功。原句没有给具体结果或具体结论。",
+        "hint": "draw a conclusion；match在这里表示相符。",
+        "wordDecision": {
+          "prompt": "结论要和什么对上？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "结论必须符合结果",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "match",
+                "label": "结论必须与结果一致",
+                "text": "Our conclusion must match the results.",
+                "include": true
+              },
+              {
+                "id": "wish",
+                "label": "结果不同也必须符合愿望",
+                "text": "The conclusion must match our wishes even when results differ.",
+                "include": false
+              },
+              {
+                "id": "always",
+                "label": "结论必须说实验成功",
+                "text": "The conclusion must always say the experiment succeeded.",
+                "include": false
+              }
+            ],
+            "hint": "看results，不拿愿望替代结果。",
+            "wrong": "选符合结果；不能改为迎合愿望或必定成功。"
+          }
+        },
+        "options": [
+          {
+            "id": "match",
+            "text": "The conclusion has to agree with the results.",
+            "correct": true,
+            "reason": "must match明确约束结论。"
+          },
+          {
+            "id": "wish",
+            "text": "The conclusion must match our wishes even when results differ.",
+            "correct": false,
+            "reason": "把results换成愿望。"
+          },
+          {
+            "id": "always",
+            "text": "The conclusion must always say the experiment succeeded.",
+            "correct": false,
+            "reason": "结果不保证一定成功。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-science-3-transfer",
+      "topicId": "v-course-science",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which account preserves both event orders and the limit of the evidence?",
+      "passage": "From estimates to evidence\nWe were asked to calculate how much string we needed. The original instruction gave no lengths. A separate exercise supplied two metres and three metres, giving five metres in total. We also had to estimate a distance before checking a map. An estimate was not an exact measurement.\nA question asked us to predict which material would stay dry. It did not report a completed test. One test could not prove that every sample was safe. This did not establish that all samples were unsafe either.\nFootprints provided evidence of a small animal. A separate fictional picture compared paw-pad impressions with shoe tread. It had no scale or timestamp and did not establish an exact species. We needed to check the data before drawing a conclusion. We tested a theory with a paper model, but the record did not state that the theory had been proved. Our conclusion had to match the results, even if we had hoped for something else.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Estimate before checking the map; check data before concluding; a single test does not prove every sample safe."
+        },
+        {
+          "id": "b",
+          "text": "Check the map before the initial estimate; check data before concluding; one test does not prove every sample safe."
+        },
+        {
+          "id": "c",
+          "text": "Estimate before checking the map; choose the conclusion before checking data; one test does not prove every sample safe."
+        },
+        {
+          "id": "d",
+          "text": "Estimate before checking the map; check data before concluding; one test proves every sample safe."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Estimate before checking the map; check data before concluding; a single test does not prove every sample safe."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对两个before，再检查证据能支持多大范围。",
+        "steps": [
+          {
+            "text": "估算在查地图前，检查数据在得结论前。",
+            "reason": "两个before都不能颠倒。"
+          },
+          {
+            "text": "一次测试不足以证明每个样品都安全。",
+            "reason": "保留cannot和every；也不能反说全部不安全。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把估算与查图的先后颠倒。"
+          },
+          {
+            "option": "c",
+            "reason": "把检查数据与得结论的先后颠倒。"
+          },
+          {
+            "option": "d",
+            "reason": "漏掉cannot，扩大了证据范围。"
+          }
+        ],
+        "pitfall": "把预测或检验写成已证明的结果，或先定结论再找数据。",
+        "visual": {
+          "kind": "timeline",
+          "title": "先核查，再下结论",
+          "segments": [
+            {
+              "text": "estimate → check map",
+              "role": "object",
+              "note": "先估后查"
+            },
+            {
+              "text": "check data → conclusion",
+              "role": "object",
+              "note": "先查后判"
+            },
+            {
+              "text": "one test ≠ every sample proved safe",
+              "role": "object",
+              "note": "证据有范围"
+            }
+          ],
+          "caption": "图上的痕迹只支持可见判断，不提供物种、时间或实测大小。"
+        },
+        "transfer": "测试了一个想法，就能说它已被完全证明吗？"
+      }
+    }
+  }
+}
