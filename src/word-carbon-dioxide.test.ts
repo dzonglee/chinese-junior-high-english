@@ -1,0 +1,7 @@
+import {describe,it,expect} from 'vitest'
+import {validWordCarbonDioxide,carbonDioxideMatch,changeCarbonDioxide,wordCarbonDioxideView,wordCarbonDioxideKey} from './core/word-carbon-dioxide'
+const w={title:'比较名称',hint:'看完整词组',wrong:'需要二氧化碳'}
+describe('complete carbon dioxide name',()=>{
+ it('keeps carbon element, oxygen and carbon dioxide distinct',()=>{expect(validWordCarbonDioxide(w)).toBe(true);for(const [raw,formula,labels]of [['','?',[]],['carbon','C',['C']],['oxygen','O₂',['O','O']],['dioxide','CO₂',['O','C','O']]]as const){const v=wordCarbonDioxideView(w,raw);expect(v.formula).toBe(formula);expect(v.atoms.map(a=>a.label)).toEqual(labels);expect(carbonDioxideMatch(raw)).toBe(raw==='dioxide')}expect(wordCarbonDioxideKey('carbon')).not.toBe(wordCarbonDioxideKey('oxygen'))})
+ it('supports reversible choices and reset without accepting malformed actions',()=>{let raw='';for(const action of ['dioxide','carbon','oxygen','dioxide']){raw=changeCarbonDioxide(raw,action)!;expect(raw).toBe(action)}expect(changeCarbonDioxide(raw,'reset')).toBe('');expect(carbonDioxideMatch('')).toBe(false);for(const bad of ['__proto__','constructor','dioxide\n','CO2','oxygen ']){expect(changeCarbonDioxide('',bad)).toBeUndefined();expect(changeCarbonDioxide(bad,'dioxide')).toBeUndefined();expect(wordCarbonDioxideView(w,bad).atoms).toEqual([])}expect(validWordCarbonDioxide({...w,hint:''})).toBe(false)})
+})

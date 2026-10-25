@@ -1,0 +1,9 @@
+/** Exact substance names/symbol counts; the diagram supplies no physical sizes or colours. */
+export interface WordCarbonDioxide {title:string;hint:string;wrong:string}
+export interface WordCarbonDioxideView {title:string;hint:string;state:string;formula:string;name:string;reading:string;atoms:{id:string;label:string;element:string}[];choices:{id:string;label:string;selected:boolean}[]}
+const ids=['carbon','oxygen','dioxide'],names=['carbon：碳','oxygen：氧气','carbon dioxide：二氧化碳'],formula=['C','O₂','CO₂']
+export const wordCarbonDioxideKey=(id:string)=>`workshopCarbonDioxide-${id}`
+export function validWordCarbonDioxide(v:unknown):v is WordCarbonDioxide {if(!v||typeof v!=='object')return false;const w=v as WordCarbonDioxide;return[[w.title,60],[w.hint,110],[w.wrong,140]].every(([s,n])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=(n as number))}
+export function carbonDioxideMatch(raw:string):boolean{return raw==='dioxide'}
+export function changeCarbonDioxide(raw:string,action:string):string|undefined {if(action==='reset')return'';if(raw!==''&&!ids.includes(raw))return undefined;return ids.includes(action)?action:undefined}
+export function wordCarbonDioxideView(w:WordCarbonDioxide,raw:string):WordCarbonDioxideView {const index=ids.indexOf(raw),state=index>=0?raw:'',labels=state==='carbon'?['C']:state==='oxygen'?['O','O']:state==='dioxide'?['O','C','O']:[];return{title:w.title,hint:w.hint,state,formula:index>=0?formula[index]:'?',name:index>=0?names[index]:'先选择名称',atoms:labels.map((label,i)=>({id:String(i),label,element:label==='C'?'carbon':'oxygen'})),reading:state==='dioxide'?'CO₂对应carbon dioxide：一个C和两个O；完整名称是二氧化碳。':state==='carbon'?'C表示碳；不能删掉dioxide，把二氧化碳当成碳单质。':state==='oxygen'?'O₂对应oxygen；它不是carbon dioxide。':'先切换名称，比较字母和下标。',choices:ids.map((id,i)=>({id,label:names[i],selected:state===id}))}}
