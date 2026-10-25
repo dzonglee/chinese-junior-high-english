@@ -146,6 +146,7 @@ function render() {
   const supportLinksFocus = active instanceof HTMLButtonElement && active.matches(".word-support-links button") ? active.dataset.value : undefined
   const inlandRouteFocus = active instanceof HTMLButtonElement && active.matches(".word-inland-route button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
+  const composeBriefFocus = active instanceof HTMLButtonElement && active.matches(".compose-brief button") ? active.dataset.value : undefined
   const exactAlignmentFocus = active instanceof HTMLButtonElement && active.matches(".word-exact-alignment button") ? active.dataset.value : undefined
   const nearlyFinishFocus = active instanceof HTMLButtonElement && active.matches(".word-nearly-finish button") ? active.dataset.value : undefined
   const entranceFacingFocus = active instanceof HTMLButtonElement && active.matches(".word-entrance-facing button") ? active.dataset.value : undefined
@@ -201,6 +202,7 @@ function render() {
   if (supportLinksFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-support-links [data-value="${CSS.escape(supportLinksFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (inlandRouteFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-inland-route [data-value="${CSS.escape(inlandRouteFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeBriefFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-brief [data-value="${CSS.escape(composeBriefFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (exactAlignmentFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-exact-alignment [data-value="${CSS.escape(exactAlignmentFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (nearlyFinishFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-nearly-finish [data-value="${CSS.escape(nearlyFinishFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (entranceFacingFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-entrance-facing [data-value="${CSS.escape(entranceFacingFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
