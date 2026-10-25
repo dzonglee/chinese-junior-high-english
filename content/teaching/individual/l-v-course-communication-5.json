@@ -1,0 +1,612 @@
+{
+  "lessonId": "l-v-course-communication-5",
+  "reviewState": "draft",
+  "intent": "Eight individual tasks teach symbols, labels, useful comments, explanations, descriptions, ordered instructions, warnings and permission without inventing unstated facts.",
+  "picturePurpose": "Original three-bag contrast supports matching an explicitly supplied separate description. Exact labels and evidence regions stay in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "按描述找包，把先后排清楚",
+    "instruction": "核对颜色和前袋，再排出before前后的两件事。",
+    "items": [
+      {
+        "id": "symbol",
+        "label": "symbol：蓝色符号标出饮用水，能猜出它的具体图样吗？",
+        "prompt": "蓝色符号标出饮用水，能猜出它的具体图样吗？",
+        "answer": "symbol",
+        "meaning": "符号；象征",
+        "material": "The blue symbol marks drinking water.",
+        "before": "The blue ",
+        "after": " marks drinking water.",
+        "reason": "symbol是符号、象征。原句只说明这个蓝色符号标示饮用水，没有给出图样，也不能把所有蓝色符号都认作饮用水标志。",
+        "hint": "the blue symbol作单数主语，后用marks。",
+        "wordDecision": {
+          "prompt": "蓝色符号标出饮用水，能猜出它的具体图样吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这个蓝色符号标示饮用水",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "water",
+                "label": "标出了饮用水",
+                "text": "The blue symbol marks drinking water.",
+                "include": true
+              },
+              {
+                "id": "dirty",
+                "label": "表示水不能饮用",
+                "text": "The symbol marks water that is not for drinking.",
+                "include": false
+              },
+              {
+                "id": "shape",
+                "label": "给出了符号的具体图样",
+                "text": "The sentence describes the exact shape of the symbol.",
+                "include": false
+              }
+            ],
+            "hint": "核对这个符号的含义，不推广到所有蓝色符号。",
+            "wrong": "只选饮用水；不能反转含义或猜图样。"
+          }
+        },
+        "options": [
+          {
+            "id": "water",
+            "text": "The blue symbol indicates drinking water.",
+            "correct": true,
+            "reason": "marks说明标示的含义。"
+          },
+          {
+            "id": "dirty",
+            "text": "The blue symbol means the water is not for drinking.",
+            "correct": false,
+            "reason": "不能把饮用水反成不能饮用。"
+          },
+          {
+            "id": "shape",
+            "text": "The sentence describes the exact shape of the symbol.",
+            "correct": false,
+            "reason": "没有给出具体图样，不能凭蓝色猜形状。"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "label": "label：先读标签还是先洗夹克？",
+        "prompt": "先读标签还是先洗夹克？",
+        "answer": "label",
+        "meaning": "标签；贴标签",
+        "material": "Read the label before washing the jacket.",
+        "before": "Read the ",
+        "after": " before washing the jacket.",
+        "reason": "label这里是标签。Read the label before washing the jacket要求先读标签，再洗夹克；没有提供标签正文，不能补出水温或洗涤方式。",
+        "hint": "before后可接washing；标签上的具体要求要另读。",
+        "wordDecision": {
+          "prompt": "先读标签还是先洗夹克？",
+          "processOrder": {
+            "title": "把洗前准备排好",
+            "events": [
+              {
+                "id": "read",
+                "label": "读标签"
+              },
+              {
+                "id": "wash",
+                "label": "洗夹克"
+              }
+            ],
+            "sequence": [
+              "read",
+              "wash"
+            ],
+            "hint": "保留before的先后关系，不补标签内容。",
+            "wrong": "先读标签，再洗夹克；不能把顺序倒过来。"
+          }
+        },
+        "options": [
+          {
+            "id": "first",
+            "text": "Read the jacket label first, then wash the jacket.",
+            "correct": true,
+            "reason": "before明确读标签在洗之前。"
+          },
+          {
+            "id": "reverse",
+            "text": "Wash the jacket first, then read the label.",
+            "correct": false,
+            "reason": "顺序反了。"
+          },
+          {
+            "id": "done",
+            "text": "The jacket has already been washed correctly.",
+            "correct": false,
+            "reason": "洗前指示不等于已经正确洗完。"
+          }
+        ]
+      },
+      {
+        "id": "comment",
+        "label": "comment：有帮助的评论只是说“很好”就够了吗？",
+        "prompt": "有帮助的评论只是说“很好”就够了吗？",
+        "answer": "comment",
+        "meaning": "评论；意见",
+        "material": "A helpful comment explains what can improve.",
+        "before": "A helpful ",
+        "after": " explains what can improve.",
+        "reason": "comment是评论、意见。这里强调有帮助的评论要说明哪里可以改进，不是只夸好，也不证明建议已经执行。",
+        "hint": "a helpful comment；comment on表示评论某事。",
+        "wordDecision": {
+          "prompt": "有帮助的评论只是说“很好”就够了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "说明哪里可以改进",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "improve",
+                "label": "有帮助的评论说明改进之处",
+                "text": "A helpful comment explains what can improve.",
+                "include": true
+              },
+              {
+                "id": "praise",
+                "label": "只说一切完美即可",
+                "text": "It only says that everything is perfect.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "所有建议都已经执行",
+                "text": "Every suggested improvement has already been made.",
+                "include": false
+              }
+            ],
+            "hint": "指出改进与完成改进分开。",
+            "wrong": "选说明改进之处，不选只有夸赞或已经完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "improve",
+            "text": "A helpful comment explains what could be improved.",
+            "correct": true,
+            "reason": "explains what can improve强调指出可改进之处。"
+          },
+          {
+            "id": "praise",
+            "text": "A helpful comment only says that everything is perfect.",
+            "correct": false,
+            "reason": "只有夸赞，没有说明可以改进哪里。"
+          },
+          {
+            "id": "done",
+            "text": "Every suggested improvement has already been made.",
+            "correct": false,
+            "reason": "指出可改进之处不等于已经改好。"
+          }
+        ]
+      },
+      {
+        "id": "explanation",
+        "label": "explanation：图示让解释更好懂，等于人人马上全懂了吗？",
+        "prompt": "图示让解释更好懂，等于人人马上全懂了吗？",
+        "answer": "explanation",
+        "meaning": "解释；说明",
+        "material": "The diagram made the explanation easier to follow.",
+        "before": "The diagram made the ",
+        "after": " easier to follow.",
+        "reason": "explanation是解释、说明。easier to follow这里是更容易理解，不是跟着某个人走。比较级只说明难度降低，不能扩大成每个人都立即完全理解。",
+        "hint": "explanation的拼写中没有explain里的i。",
+        "wordDecision": {
+          "prompt": "图示让解释更好懂，等于人人马上全懂了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "图示让解释更容易理解",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "easier",
+                "label": "更容易理解解释内容",
+                "text": "The diagram made the explanation easier to follow.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "人人马上完全理解",
+                "text": "Everyone understood every detail immediately.",
+                "include": false
+              },
+              {
+                "id": "harder",
+                "label": "解释变得更难理解",
+                "text": "The diagram made it harder to follow.",
+                "include": false
+              }
+            ],
+            "hint": "看easier的比较，不扩大成人人都懂。",
+            "wrong": "只选更易理解；不能反转或夸大成完全理解。"
+          }
+        },
+        "options": [
+          {
+            "id": "easier",
+            "text": "The diagram helped people follow the explanation more easily.",
+            "correct": true,
+            "reason": "easier to follow说明更容易理解。"
+          },
+          {
+            "id": "all",
+            "text": "Every person understood every detail immediately.",
+            "correct": false,
+            "reason": "更容易不等于人人立即完全理解。"
+          },
+          {
+            "id": "harder",
+            "text": "The diagram made the explanation harder to follow.",
+            "correct": false,
+            "reason": "easier不能反成harder。"
+          }
+        ]
+      },
+      {
+        "id": "description",
+        "label": "description：练习描述：a blue bag with a front pocket。找出对应的包。",
+        "prompt": "练习描述：a blue bag with a front pocket。找出对应的包。",
+        "answer": "description",
+        "meaning": "描述",
+        "material": "Her description helped us find the missing bag.",
+        "before": "Her ",
+        "after": " helped us find the missing bag.",
+        "reason": "description是描述。原句说明她的描述帮助我们找到了丢失的包。图中找包是另给的练习：a blue bag with a front pocket，先核对颜色，再核对前袋。原句没有给出包的外形，不能把练习特征当成原句事实。",
+        "hint": "description是describe的名词；helped us find表示帮助我们找到。",
+        "wordDecision": {
+          "prompt": "练习描述：a blue bag with a front pocket。找出对应的包。",
+          "art": {
+            "asset": "lesson-bag-description",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "三个分开放置的完整包：左边是有前袋的蓝色背包，中间是绿色拉杆箱，右边是红色旅行包。",
+            "evidence": [
+              {
+                "option": "blue",
+                "caption": "蓝色＋前袋：两个线索都符合练习描述。",
+                "regions": [
+                  {
+                    "id": "blue-bag",
+                    "left": 2.5,
+                    "top": 28,
+                    "width": 26,
+                    "height": 51,
+                    "label": "蓝色背包与前袋"
+                  }
+                ]
+              },
+              {
+                "option": "green",
+                "caption": "绿色拉杆箱不符合blue；不能只看它也是行李。",
+                "regions": [
+                  {
+                    "id": "green-case",
+                    "left": 35,
+                    "top": 12,
+                    "width": 24,
+                    "height": 66,
+                    "label": "绿色拉杆箱"
+                  }
+                ]
+              },
+              {
+                "option": "red",
+                "caption": "红色旅行包不符合blue；逐项核对描述。",
+                "regions": [
+                  {
+                    "id": "red-bag",
+                    "left": 61,
+                    "top": 36,
+                    "width": 37,
+                    "height": 43,
+                    "label": "红色旅行包"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "blue",
+            "text": "The blue backpack with a front pocket.",
+            "correct": true,
+            "reason": "左边蓝色背包有清楚的前袋，两个线索都符合本练习描述。"
+          },
+          {
+            "id": "green",
+            "text": "The green wheeled suitcase in the middle.",
+            "correct": false,
+            "reason": "中间是绿色拉杆箱，不符合blue。"
+          },
+          {
+            "id": "red",
+            "text": "The red duffel bag on the right.",
+            "correct": false,
+            "reason": "右边是红色旅行包，不符合blue。"
+          }
+        ]
+      },
+      {
+        "id": "instruction",
+        "label": "instruction：按给定顺序执行，能随意换个先后吗？",
+        "prompt": "按给定顺序执行，能随意换个先后吗？",
+        "answer": "instruction",
+        "meaning": "指示；用法说明",
+        "material": "Follow each instruction in the order given.",
+        "before": "Follow each ",
+        "after": " in the order given.",
+        "reason": "instruction是指示。each instruction要求每条都执行，in the order given要求按给出的顺序；原句没有具体步骤正文，不能补出操作细节。",
+        "hint": "each后接单数instruction；一组使用说明常用instructions。",
+        "wordDecision": {
+          "prompt": "按给定顺序执行，能随意换个先后吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "每条指示都按给定顺序执行",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "given",
+                "label": "要求按给出的顺序执行每条指示",
+                "text": "Follow each instruction in the order given.",
+                "include": true
+              },
+              {
+                "id": "any",
+                "label": "顺序可以随意选择",
+                "text": "Choose any order you like.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "所有指示已经执行完毕",
+                "text": "Every instruction has already been carried out.",
+                "include": false
+              }
+            ],
+            "hint": "每条与给定顺序都保留。",
+            "wrong": "只选按给定顺序执行；不改成随意或已完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "given",
+            "text": "Carry out every instruction in the stated order.",
+            "correct": true,
+            "reason": "each与in the order given共同保留每条和顺序。"
+          },
+          {
+            "id": "any",
+            "text": "Choose any order you like for the instructions.",
+            "correct": false,
+            "reason": "不能把给定顺序换成随意顺序。"
+          },
+          {
+            "id": "done",
+            "text": "Every instruction has already been carried out.",
+            "correct": false,
+            "reason": "执行要求不等于已经执行完毕。"
+          }
+        ]
+      },
+      {
+        "id": "warning",
+        "label": "warning：警示帮行人避开危险小路，等于有人已经受伤吗？",
+        "prompt": "警示帮行人避开危险小路，等于有人已经受伤吗？",
+        "answer": "warning",
+        "meaning": "警告；警示",
+        "material": "The warning helped walkers avoid the dangerous path.",
+        "before": "The ",
+        "after": " helped walkers avoid the dangerous path.",
+        "reason": "warning是警告、警示。helped walkers avoid说明警示帮助行人避开危险小路，不等于有人已经受伤，也没有说明危险已消除。",
+        "hint": "help somebody do；avoid后接名词或动名词。",
+        "wordDecision": {
+          "prompt": "警示帮行人避开危险小路，等于有人已经受伤吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "警示帮助行人避开危险小路",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "avoid",
+                "label": "帮助行人避开危险路段",
+                "text": "The warning helped walkers avoid the dangerous path.",
+                "include": true
+              },
+              {
+                "id": "enter",
+                "label": "鼓励行人走进危险路段",
+                "text": "It encouraged walkers to enter the dangerous path.",
+                "include": false
+              },
+              {
+                "id": "injury",
+                "label": "确认已经有人受伤",
+                "text": "Someone was injured on the path.",
+                "include": false
+              }
+            ],
+            "hint": "保留avoid，不补伤情或危险已消除。",
+            "wrong": "只选帮助避开；不能反成进入或补出受伤。"
+          }
+        },
+        "options": [
+          {
+            "id": "avoid",
+            "text": "The warning helped walkers keep away from the dangerous path.",
+            "correct": true,
+            "reason": "avoid说明避开。"
+          },
+          {
+            "id": "enter",
+            "text": "The warning encouraged walkers to enter the dangerous path.",
+            "correct": false,
+            "reason": "避开不能反成鼓励进入。"
+          },
+          {
+            "id": "injury",
+            "text": "The sentence confirms that someone was injured on the path.",
+            "correct": false,
+            "reason": "没有提到伤情，不能补出有人受伤。"
+          }
+        ]
+      },
+      {
+        "id": "permission",
+        "label": "permission：先征求许可还是先录音？",
+        "prompt": "先征求许可还是先录音？",
+        "answer": "permission",
+        "meaning": "许可；允许",
+        "material": "Ask permission before recording someone's voice.",
+        "before": "Ask ",
+        "after": " before recording someone's voice.",
+        "reason": "permission是许可、允许，通常不可数。原句要求录制别人声音前先征求许可，没有说明许可已经获准。下面只排列句中的两件事；排好顺序不代表获得同意，也不会启动录音。",
+        "hint": "ask permission或ask for permission都可；不说a permission。",
+        "wordDecision": {
+          "prompt": "先征求许可还是先录音？",
+          "processOrder": {
+            "title": "先征求，再考虑录音",
+            "events": [
+              {
+                "id": "ask",
+                "label": "征求许可"
+              },
+              {
+                "id": "record",
+                "label": "录制声音"
+              }
+            ],
+            "sequence": [
+              "ask",
+              "record"
+            ],
+            "hint": "这里只排原句的先后；是否获准还要看对方答复。",
+            "wrong": "征求许可在录音之前；不能先录后问。"
+          }
+        },
+        "options": [
+          {
+            "id": "first",
+            "text": "Ask permission first, before recording the person's voice.",
+            "correct": true,
+            "reason": "before把征求许可放在录音前。"
+          },
+          {
+            "id": "reverse",
+            "text": "Record the voice first and ask permission later.",
+            "correct": false,
+            "reason": "先后反了。"
+          },
+          {
+            "id": "granted",
+            "text": "Permission has already been granted, so recording can begin.",
+            "correct": false,
+            "reason": "ask permission是征求，不等于对方已经同意。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-communication-5-transfer",
+      "topicId": "v-course-communication",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which summary preserves the instructions and picture clues?",
+      "passage": "Checking instructions on a class trip\nA blue symbol marked drinking water. We knew its meaning in this account, but no exact symbol design was supplied. Before washing a jacket, a pupil was told to read its label. The account did not supply the label text, so it gave no washing temperature.\nWe discussed how to give useful comments. A helpful comment explained what could improve; saying only that everything was perfect did not do that job. A diagram made an explanation easier to follow, but this did not prove that everybody understood every detail immediately.\nHer description helped us find a missing bag. In a separate picture exercise, the supplied description was “a blue bag with a front pocket”. A blue backpack matched both clues; a green wheeled suitcase and a red duffel bag did not. Those picture details belonged to the exercise, not to the original missing-bag sentence.\nWe were told to follow each instruction in the order given. A warning helped walkers avoid a dangerous path, without reporting an injury or saying that the danger had disappeared. Finally, we read the instruction to ask permission before recording someone's voice. Asking came first, but the instruction did not say that permission had been granted. The exercise arranged events only; it did not start a recording.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Read the label before washing; match both blue and front pocket; ask permission before recording, without assuming it has been granted."
+        },
+        {
+          "id": "b",
+          "text": "Wash before reading the label; match both blue and front pocket; ask permission before recording, without assuming it has been granted."
+        },
+        {
+          "id": "c",
+          "text": "Read the label before washing; choose the green suitcase; ask permission before recording, without assuming it has been granted."
+        },
+        {
+          "id": "d",
+          "text": "Read the label before washing; match both blue and front pocket; assume permission has already been granted."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Read the label before washing; match both blue and front pocket; ask permission before recording, without assuming it has been granted."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先排before的顺序，再逐项匹配描述。",
+        "steps": [
+          {
+            "text": "读标签在洗之前；练习包要同时符合blue和front pocket。",
+            "reason": "先后不能倒置；描述有两个线索，不是任意行李都符合。"
+          },
+          {
+            "text": "征求许可在录音前；ask不等于已经获准。",
+            "reason": "请求与对方同意是两件事，原文只给请求要求。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把读标签与洗夹克的先后倒置。"
+          },
+          {
+            "option": "c",
+            "reason": "绿色拉杆箱不符合blue的线索。"
+          },
+          {
+            "option": "d",
+            "reason": "把征求许可当成已经获得许可。"
+          }
+        ],
+        "pitfall": "只记单词中文，不看先后、描述线索与是否已经获准。",
+        "visual": {
+          "kind": "timeline",
+          "title": "把关系分开核对",
+          "segments": [
+            {
+              "text": "read label → wash",
+              "role": "object",
+              "note": "先读再洗"
+            },
+            {
+              "text": "blue + front pocket",
+              "role": "object",
+              "note": "两个线索都符合"
+            },
+            {
+              "text": "ask ≠ granted",
+              "role": "object",
+              "note": "征求不等于获准"
+            }
+          ],
+          "caption": "顺序排对，不会替代实际答复，也不会启动录音。"
+        },
+        "transfer": "The warning helped walkers avoid the path.能据此断定有人受伤了吗？"
+      }
+    }
+  }
+}
