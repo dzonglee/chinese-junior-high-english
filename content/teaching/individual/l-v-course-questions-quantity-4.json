@@ -1,0 +1,589 @@
+{
+  "lessonId": "l-v-course-questions-quantity-4",
+  "reviewState": "draft",
+  "intent": "Eight individual scope and indefinite-pronoun tasks preserve majority, least traffic, fixed-set other, singular another, noun-replacing others and open questions.",
+  "picturePurpose": "Original complete tools support an explicitly separate fixed-set selection: brush stays out, hammer and scissors go in the cupboard. Coded route counts explain least without claiming real traffic or distance.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "换位置、收工具，再核对词义",
+    "instruction": "比较车流，圈出其余工具；分清多数、最少和有没有人。",
+    "items": [
+      {
+        "id": "most",
+        "label": "most：大多数在中午前到，等于全部吗？",
+        "prompt": "大多数在中午前到，等于全部吗？",
+        "answer": "Most",
+        "meaning": "最多；大多数",
+        "material": "Most visitors arrive before midday.",
+        "before": "",
+        "after": " visitors arrive before midday.",
+        "reason": "Most visitors指大多数游客，超过一半；不能改成全部或恰好一半。原句没有给出总人数，也不能补出准确人数。",
+        "hint": "most直接修饰visitors；不用加of。",
+        "wordDecision": {
+          "prompt": "大多数在中午前到，等于全部吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保留大多数，不扩大成全部",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "majority",
+                "label": "超过一半的游客在中午前到",
+                "text": "Most visitors arrive before midday.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "每一位游客都在中午前到",
+                "text": "All visitors arrive before midday.",
+                "include": false
+              },
+              {
+                "id": "exact",
+                "label": "恰好一半的游客在中午前到",
+                "text": "Exactly half of the visitors arrive before midday.",
+                "include": false
+              }
+            ],
+            "hint": "多数、全部和恰好一半分开。",
+            "wrong": "只保留大多数；不能换成全部或恰好一半。"
+          }
+        },
+        "options": [
+          {
+            "id": "majority",
+            "text": "More than half of the visitors arrive before midday.",
+            "correct": true,
+            "reason": "most visitors指大多数游客，超过一半。"
+          },
+          {
+            "id": "all",
+            "text": "Every visitor arrives before midday.",
+            "correct": false,
+            "reason": "大多数不等于每一个。"
+          },
+          {
+            "id": "exact",
+            "text": "Exactly half of the visitors arrive before midday.",
+            "correct": false,
+            "reason": "most不是恰好一半，也没有给出准确人数。"
+          }
+        ]
+      },
+      {
+        "id": "least",
+        "label": "least：换一换路线位置，仍选车流最少的一条。",
+        "prompt": "换一换路线位置，仍选车流最少的一条。",
+        "answer": "least",
+        "meaning": "最少；最小程度",
+        "material": "Choose the route with the least traffic.",
+        "before": "Choose the route with the ",
+        "after": " traffic.",
+        "reason": "the least traffic比较几条路线的车流量，不能直接推断没有车或路程最短。下面的同一时刻车辆数是另设练习，只比较图中车流，不代表真实路况。",
+        "hint": "保留the least；traffic在这里不可数。",
+        "wordDecision": {
+          "prompt": "换一换路线位置，仍选车流最少的一条。",
+          "routeTraffic": {
+            "title": "看同一时刻，选车流最少的一条",
+            "hint": "每个小框表示1辆车。同一时刻比较；换位置后重新选。",
+            "wrong": "先比较三条路线的车辆数；选最少的一条，不固定选位置。"
+          }
+        },
+        "options": [
+          {
+            "id": "minimum",
+            "text": "Choose the route that has the smallest amount of traffic among the routes being compared.",
+            "correct": true,
+            "reason": "least traffic在比较范围内找车流量最少的一条。"
+          },
+          {
+            "id": "zero",
+            "text": "Choose a route that must have no traffic at all.",
+            "correct": false,
+            "reason": "最少不一定是零。"
+          },
+          {
+            "id": "shortest",
+            "text": "Choose the route with the shortest distance, regardless of traffic.",
+            "correct": false,
+            "reason": "车流量最少不是路程最短。"
+          }
+        ]
+      },
+      {
+        "id": "other",
+        "label": "other：刷子留着用，哪些才是other tools？",
+        "prompt": "刷子留着用，哪些才是other tools？",
+        "answer": "other",
+        "meaning": "其他的",
+        "material": "Keep the other tools in the cupboard.",
+        "before": "Keep the ",
+        "after": " tools in the cupboard.",
+        "reason": "other后面接名词，这里是the other tools。图中另设情境：刷子留在外面用，其余两件工具收进橱柜；因此圈锤子和剪刀。图不是说原句本来就有这三件工具。",
+        "hint": "other后保留tools；不要写成others tools。",
+        "wordDecision": {
+          "prompt": "刷子留着用，哪些才是other tools？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "刷子留着用，圈出要收好的其他工具",
+            "prompt": "另设练习：这三件工具中，刷子留在外面用。圈出the other tools。",
+            "rows": [
+              {
+                "id": "brush",
+                "label": "刷子：留在外面继续用",
+                "text": "The brush stays out for use.",
+                "include": false
+              },
+              {
+                "id": "hammer",
+                "label": "锤子：收进橱柜",
+                "text": "Keep the hammer in the cupboard.",
+                "include": true
+              },
+              {
+                "id": "scissors",
+                "label": "剪刀：收进橱柜",
+                "text": "Keep the scissors in the cupboard.",
+                "include": true
+              }
+            ],
+            "hint": "这里的工具范围只限图中这三件；刷子已被点明。",
+            "wrong": "锤子和剪刀都要圈；刷子留着用，不要收进去。"
+          },
+          "art": {
+            "asset": "lesson-other-tools",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "蓝色背景上分开放着完整的刷子、锤子和剪刀；图中没有预选答案。"
+          }
+        },
+        "options": [
+          {
+            "id": "remaining",
+            "text": "Keep the tools other than the one already identified in the cupboard.",
+            "correct": true,
+            "reason": "the other tools指已确定范围里除已点明那件之外的其他工具。"
+          },
+          {
+            "id": "only",
+            "text": "Keep only the tool already identified in the cupboard.",
+            "correct": false,
+            "reason": "other不是刚刚点明的那一件。"
+          },
+          {
+            "id": "form",
+            "text": "Use others directly before the noun tools.",
+            "correct": false,
+            "reason": "other修饰tools；others已代替名词，不能说others tools。"
+          }
+        ]
+      },
+      {
+        "id": "another",
+        "label": "another：是换一种装法，还是又用同一种？",
+        "prompt": "是换一种装法，还是又用同一种？",
+        "answer": "another",
+        "meaning": "另一个；再一个",
+        "material": "Let's try another way to attach the handle.",
+        "before": "Let's try ",
+        "after": " way to attach the handle.",
+        "reason": "another way表示另一种方法：another通常接单数可数名词。提议试另一种装法，不等于已经把把手装好。",
+        "hint": "another后接way单数；保留try的尝试意味。",
+        "wordDecision": {
+          "prompt": "是换一种装法，还是又用同一种？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "提议试另一种方法",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "different",
+                "label": "提议换一种装把手的方法",
+                "text": "Let's try another way to attach the handle.",
+                "include": true
+              },
+              {
+                "id": "same",
+                "label": "只重复完全相同的装法",
+                "text": "Let us use exactly the same method again.",
+                "include": false
+              },
+              {
+                "id": "finished",
+                "label": "把手已经成功装好",
+                "text": "The handle has already been attached successfully.",
+                "include": false
+              }
+            ],
+            "hint": "另一种、相同方法和已经完成分开。",
+            "wrong": "只选另一种方法；不能改成相同方法或已经装好。"
+          }
+        },
+        "options": [
+          {
+            "id": "different",
+            "text": "Let us try a different way to attach the handle.",
+            "correct": true,
+            "reason": "another way是另一种方法，way用单数。"
+          },
+          {
+            "id": "same",
+            "text": "Let us repeat exactly the same method, with no alternative.",
+            "correct": false,
+            "reason": "另一种方法被换成完全相同的方法。"
+          },
+          {
+            "id": "finished",
+            "text": "The handle has already been attached successfully.",
+            "correct": false,
+            "reason": "try表示尝试，不等于已经装好。"
+          }
+        ]
+      },
+      {
+        "id": "others",
+        "label": "others：others代替谁？需要再接pupils吗？",
+        "prompt": "others代替谁？需要再接pupils吗？",
+        "answer": "others",
+        "meaning": "其他人；其他事物",
+        "material": "Some pupils drew while others wrote labels.",
+        "before": "Some pupils drew while ",
+        "after": " wrote labels.",
+        "reason": "others在这里代替other pupils，可以独立作主语；不能再写others pupils。它没有明确说其余所有学生都写了标签。",
+        "hint": "others后直接接wrote；不要再接pupils。",
+        "wordDecision": {
+          "prompt": "others代替谁？需要再接pupils吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "找回others所代替的人",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "pupils",
+                "label": "其他学生写标签",
+                "text": "Other pupils wrote labels.",
+                "include": true
+              },
+              {
+                "id": "things",
+                "label": "其他工具写标签",
+                "text": "Other tools wrote labels.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "明确说其余每一位学生都写了标签",
+                "text": "Every remaining pupil wrote labels.",
+                "include": false
+              }
+            ],
+            "hint": "先找pupils，再看有没有all。",
+            "wrong": "others代替其他学生；不要换成工具或添加每一个。"
+          }
+        },
+        "options": [
+          {
+            "id": "pupils",
+            "text": "Other pupils wrote labels while some pupils drew.",
+            "correct": true,
+            "reason": "others代替other pupils，后面不再接pupils。"
+          },
+          {
+            "id": "things",
+            "text": "Other tools wrote the labels.",
+            "correct": false,
+            "reason": "这里的人是pupils，不能换成工具。"
+          },
+          {
+            "id": "all",
+            "text": "The sentence explicitly states that every remaining pupil wrote labels.",
+            "correct": false,
+            "reason": "others表示其他学生，原句没有all，不能擅自说其余每一个都写。"
+          }
+        ]
+      },
+      {
+        "id": "else",
+        "label": "else：anyone else问的是“还有谁”吗？",
+        "prompt": "anyone else问的是“还有谁”吗？",
+        "answer": "else",
+        "meaning": "其他；另外",
+        "material": "Does anyone else need a clean brush?",
+        "before": "Does anyone ",
+        "after": " need a clean brush?",
+        "reason": "else放在不定代词anyone后，anyone else意为还有谁、其他人。问句没有确认某个人需要，更没有说所有人都需要。",
+        "hint": "anyone在前、else在后；does后用need原形。",
+        "wordDecision": {
+          "prompt": "anyone else问的是“还有谁”吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问还有没有其他人需要刷子",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "additional",
+                "label": "询问还有谁需要一把干净刷子",
+                "text": "Does anyone else need a clean brush?",
+                "include": true
+              },
+              {
+                "id": "only",
+                "label": "只问已点明的人，不问其他人",
+                "text": "Does only that person need a clean brush?",
+                "include": false
+              },
+              {
+                "id": "confirmed",
+                "label": "确认每个人都需要干净刷子",
+                "text": "Everybody needs a clean brush.",
+                "include": false
+              }
+            ],
+            "hint": "else跟在anyone后；问句不是确认。",
+            "wrong": "只选还有谁；不能缩成只问那个人，也不能改成人人都需要。"
+          }
+        },
+        "options": [
+          {
+            "id": "additional",
+            "text": "The speaker asks whether an additional person needs a clean brush.",
+            "correct": true,
+            "reason": "anyone else是还有谁；else放在anyone后。"
+          },
+          {
+            "id": "only",
+            "text": "The speaker asks only whether the already identified person needs a clean brush.",
+            "correct": false,
+            "reason": "else引入其他人，不是只问已点明的人。"
+          },
+          {
+            "id": "confirmed",
+            "text": "The question confirms that everybody needs a clean brush.",
+            "correct": false,
+            "reason": "问有没有其他人需要，不等于所有人都需要。"
+          }
+        ]
+      },
+      {
+        "id": "anyone",
+        "label": "anyone：是在问有没有人见过，还是已知道是谁？",
+        "prompt": "是在问有没有人见过，还是已知道是谁？",
+        "answer": "anyone",
+        "meaning": "任何人；有人",
+        "material": "Has anyone seen the spare key?",
+        "before": "Has ",
+        "after": " seen the spare key?",
+        "reason": "anyone在这个问句中表示有人。Has anyone seen…询问是否有人见过，不是确认某个人见过，也不是证明没人见过。",
+        "hint": "anyone作主语，用has；后面保留seen。",
+        "wordDecision": {
+          "prompt": "是在问有没有人见过，还是已知道是谁？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保留有没有人见过的询问",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "question",
+                "label": "询问是否有人见过备用钥匙",
+                "text": "Has anyone seen the spare key?",
+                "include": true
+              },
+              {
+                "id": "named",
+                "label": "确认小梅见过备用钥匙",
+                "text": "Mei has seen the spare key.",
+                "include": false
+              },
+              {
+                "id": "none",
+                "label": "证明没有人见过备用钥匙",
+                "text": "Nobody has seen the spare key.",
+                "include": false
+              }
+            ],
+            "hint": "问有没有人；不要补姓名或把问句改成结论。",
+            "wrong": "只选询问；不能补出小梅或断言没有人。"
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "The speaker asks whether any person has seen the spare key.",
+            "correct": true,
+            "reason": "Has anyone seen…询问是否有人见过。"
+          },
+          {
+            "id": "named",
+            "text": "The speaker confirms that Mei has seen the spare key.",
+            "correct": false,
+            "reason": "问句没有给出名字或确认谁见过。"
+          },
+          {
+            "id": "none",
+            "text": "The speaker proves that nobody has seen the spare key.",
+            "correct": false,
+            "reason": "询问不能直接改成无人见过。"
+          }
+        ]
+      },
+      {
+        "id": "anybody",
+        "label": "anybody：问谁能解释，等于人人都会吗？",
+        "prompt": "问谁能解释，等于人人都会吗？",
+        "answer": "anybody",
+        "meaning": "任何人；有人",
+        "material": "Can anybody explain the final step?",
+        "before": "Can ",
+        "after": " explain the final step?",
+        "reason": "anybody在这个问句中与anyone意思接近。Can anybody explain…问有没有人能解释，不确认人人都会，也不表示已经解释过。",
+        "hint": "can后用explain原形；anybody写成一个词。",
+        "wordDecision": {
+          "prompt": "问谁能解释，等于人人都会吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问有没有人能解释最后一步",
+            "prompt": "只保留原句的意思，不补结论。",
+            "rows": [
+              {
+                "id": "ability",
+                "label": "询问是否有人能解释最后一步",
+                "text": "Can anybody explain the final step?",
+                "include": true
+              },
+              {
+                "id": "everyone",
+                "label": "确认每个人都会解释最后一步",
+                "text": "Everybody can explain the final step.",
+                "include": false
+              },
+              {
+                "id": "finished",
+                "label": "最后一步已经给大家讲解完",
+                "text": "The final step has already been explained to everyone.",
+                "include": false
+              }
+            ],
+            "hint": "能力询问、人人都会和已经讲解分开。",
+            "wrong": "只选有没有人能解释；不能改成人人都会或已经讲完。"
+          }
+        },
+        "options": [
+          {
+            "id": "ability",
+            "text": "The speaker asks whether someone can explain the final step.",
+            "correct": true,
+            "reason": "Can anybody…询问有没有人能解释。"
+          },
+          {
+            "id": "everyone",
+            "text": "The speaker confirms that everyone can explain the final step.",
+            "correct": false,
+            "reason": "anybody在问句中不等于已确认人人都会。"
+          },
+          {
+            "id": "finished",
+            "text": "The final step has already been explained to everyone.",
+            "correct": false,
+            "reason": "有没有人能解释不是说已经讲完。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-questions-quantity-4-transfer",
+      "topicId": "v-course-questions-quantity",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which summary preserves the workshop notes?",
+      "passage": "Checking the workshop notes\nOur club was getting ready for a visitors’ workshop. A note said that most visitors arrived before midday. We kept the meaning of a majority. We did not turn it into all visitors or invent an exact total.\nWe wanted the route with the least traffic. That meant comparing traffic among the routes, not choosing the shortest distance or assuming there were no vehicles. A separate practice diagram showed vehicle counts at the same moment; those counts were invented for the exercise, not reported road conditions.\nAt our workbench, the brush was staying out for use. In this separate three-tool example, the hammer and scissors were the other tools to put in the cupboard. The word other modified tools. The note about trying another way to attach the handle suggested a different method, not an already finished handle.\nSome pupils drew while others wrote labels. Here others stood for other pupils; the note did not explicitly say every remaining pupil wrote labels. Someone asked, “Does anyone else need a clean brush?” That asked about an additional person. “Has anyone seen the spare key?” and “Can anybody explain the final step?” were questions. They did not identify a person who had seen the key or prove that everyone could explain the step.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Most means a majority; least traffic need not mean no traffic; others stands for other pupils."
+        },
+        {
+          "id": "b",
+          "text": "Most means every visitor; least traffic need not mean no traffic; others stands for other pupils."
+        },
+        {
+          "id": "c",
+          "text": "Most means a majority; least traffic must mean no traffic; others stands for other pupils."
+        },
+        {
+          "id": "d",
+          "text": "Most means a majority; least traffic need not mean no traffic; others must be followed by pupils."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Most means a majority; least traffic need not mean no traffic; others stands for other pupils."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对数量范围，再判断词后是否还接名词。",
+        "steps": [
+          {
+            "text": "most是多数；least是在比较范围内最少。",
+            "reason": "大多数不能扩大成全部；最少也不一定为零。"
+          },
+          {
+            "text": "other修饰名词，others代替名词。",
+            "reason": "the other tools保留tools；others已经代替other pupils，不能再接pupils。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把大多数扩大成每一位游客。"
+          },
+          {
+            "option": "c",
+            "reason": "把车流量最少擅自算成完全没有车。"
+          },
+          {
+            "option": "d",
+            "reason": "others已经代替other pupils，后面不能再接pupils。"
+          }
+        ],
+        "pitfall": "看到最多、最少就补出全体或零；没分清other与others。",
+        "visual": {
+          "kind": "timeline",
+          "title": "范围和词形一起核对",
+          "segments": [
+            {
+              "text": "most → a majority",
+              "role": "object",
+              "note": "超过一半，不等于全部"
+            },
+            {
+              "text": "least → minimum",
+              "role": "object",
+              "note": "比较范围内最少，不一定是零"
+            },
+            {
+              "text": "other + noun / others",
+              "role": "object",
+              "note": "保留名词 / 代替名词"
+            }
+          ],
+          "caption": "先认比较范围，再看名词是否已经被代替。"
+        },
+        "transfer": "Has anyone seen the key?为什么不能当作某个人已经见过钥匙的证据？"
+      }
+    }
+  }
+}
