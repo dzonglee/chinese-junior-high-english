@@ -2,27 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-10-25 (UTC)
 
-241 of 413 lessons are individually reviewed; 172 remain pending. Work stays solo under
+242 of 413 lessons are individually reviewed; 171 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-s-compare. Transport comparison is individually redesigned around about three kilometres, an advantage for both cycling and the bus, and a choice justified by today’s weather or traffic. Three reversible cards distinguish approximate distance from invented measurements and accept both coherent example choices. Reference rain is hypothetical rather than a required forecast. Fresh handwritten-notes versus digital-slides transfer requires comparing both methods under preparation conditions. All content remains draft.
+Latest: l-s-opinion. Spoken-opinion preparation is individually redesigned around a clear view, two distinct reasons and a practical way for more group members to participate. Three reversible cards cover task, respectful tone and duration, coherent reasons for rotation or a qualified lead-speaker arrangement, and concrete inclusive plans. Reference opposition is optional. A fresh class-poster discussion checks the same requirements in a different context. All content remains draft.
 
-Inspected all 62 frozen browser figures across 16 contact sheets. Three coded boards and both complete hypothetical weather/choice paths remain readable at 320/390/768px, with natural wrapping and accessible controls. Approximate three-kilometre distance is preserved; a word definition or bare preference is distinguished from a specific advantage or situation-based reason. Checked every wrong distance/unit, advantage/function, mixed example/reason, unreasoned statement and oral-task choice; missing/cleared/reset/short-writing states, retained original outlines and reopened completion invalidation all inspected. Dry-day cycling and rainy-day bus examples both work; hypothetical labels do not claim actual forecasts. The learner may retain a different reasonable personal plan from the selected example; saved outlines are not automatically content-graded. Original 71-word revision, all three accurate self-checks, reference-role mismatch and correction inspected. Full original main brief, five-sentence reference, 2/2/2 rubric, coaching and separate objective question contexts read. Fresh handwritten-notes/digital-slides transfer presents A as correct; wrong B/C/D and both explanation steps inspected, passage top/bottom readable. Summary records guided exploration, not mastery. Actual 45–60-second speech and recording remain separate; all content draft. Actual SDK241 remains pending explicit source-transfer approval.
+Inspected all69 final browser figures across18 complete contact sheets after the reason clarification; every figure is visible in the contacts. Checked320/390/768px task cards and both coherent example views: rotation and an experienced lead speaker with others preparing and rehearsing. Distinct reasons remain separate from mere restatement; That is the view I prefer is clearly not a supporting reason. Participation actions match the selected arrangement. Wrong choices,unselected/reset states,edited/reopened retained outlines,short-writing rejection and explanatory feedback are readable and remain reversible. Main brief is45–60seconds with a view,two reasons and an inclusive practical plan; reference opposition is optional. Original73word revision,self-review,reference-role discrimination and fresh poster transfer inspected; presented correct answerC. Transfer wrong answers distinguish omitted participation,one reason and unrelated bus content. All labels wrap inside their cards at the tested widths; no clipped controls or horizontal overflow seen. Summary records exploration rather than mastery. First-pass ambiguous reason and its earlier review remain archived separately. Actual speaking and nativeSDK remain separate.
+ Complete original brief, six-sentence reference and 2/2/2 rubric separately read. Actual 45–60-second speech and self-listening remain separate. Guided planning grants no independent attempt, mastery, lessonDone or hearing credit.
 
-Full offline report inspected:120checks,10loopback document requests,0externalrequests,0pageerrors. Managed browser blocks file URLs, so the standalone inline document is loaded locally before network-disabled practice.
- Complete original speaking brief, five-sentence reference and 2/2/2 rubric separately read. Typed outlines do not measure 45–60-second speech. Guided planning grants no independent attempt, mastery, lessonDone or hearing credit.
-
-Checkpoint 241 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 2033 tasks / 6099 widths; earlier flows retain their original scope.
+Checkpoint 242 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 2036 tasks / 6108 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-s-opinion. Continue l-s-opinion individually: 45–60 seconds, clear view on the strongest speaker always representing the group, two reasons and a practical way for more students to participate. Respectful disagreement and original choices remain important; reference wording is optional. Approved audio separate, videos deferred.
+Next: l-s-problem. Continue l-s-problem individually: identify the precise problem, constraints and an actionable response. Read the complete brief, reference and rubric before choosing interactions. Approved audio separate, videos deferred.
 
-Native GUI status: Native 148–241 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–241 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–242 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–242 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint 240 pushed and all recorded hashes verified before 241. Origin/main fetched and shared board/latest log read; solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
+Checkpoint 241 pushed and all recorded hashes verified before 242. Origin/main fetched and shared board/latest log read; solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 
