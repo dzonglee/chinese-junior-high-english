@@ -1,0 +1,567 @@
+{
+  "lessonId": "l-v-course-planning-actions",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks preserve plans, questions, action order and exact quantity scope.",
+  "picturePurpose": "Exact shape instances and sequence arrows are rendered in code; no generated geometry.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "排先后、拼图案、辨计划",
+    "instruction": "先排好动作顺序，再拼三个图形；别把计划读成已经完成。",
+    "items": [
+      {
+        "id": "begin",
+        "label": "begin：will begin说明已经开始了吗？",
+        "prompt": "will begin说明已经开始了吗？",
+        "answer": "begin",
+        "meaning": "开始",
+        "material": "We will begin with the safest design.",
+        "before": "We will ",
+        "after": " with the safest design.",
+        "reason": "begin表示开始；begin with从某事开始。will begin说将要做什么，不是已经完成；safest是safe的最高级。",
+        "hint": "begin—began—begun；begin with从……开始。",
+        "wordDecision": {
+          "prompt": "will begin说明已经开始了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "将从最安全的设计开始",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "future",
+                "label": "将来从最安全的设计开始",
+                "text": "We will begin with the safest design.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "全部设计已经完成",
+                "text": "We have already completed every design.",
+                "include": false
+              },
+              {
+                "id": "unsafe",
+                "label": "将从最不安全的设计开始",
+                "text": "We will start with the least safe design.",
+                "include": false
+              }
+            ],
+            "hint": "看清will和safest，不把计划当结果。",
+            "wrong": "选将来的起点，保留最安全这个条件。"
+          }
+        },
+        "options": [
+          {
+            "id": "future",
+            "text": "We will start with the safest design.",
+            "correct": true,
+            "reason": "will begin表示将要开始；with指出从什么开始。"
+          },
+          {
+            "id": "done",
+            "text": "We have already finished every design.",
+            "correct": false,
+            "reason": "把将来开始改成已经全部完成。"
+          },
+          {
+            "id": "unsafe",
+            "text": "We will start with the least safe design.",
+            "correct": false,
+            "reason": "safest是最安全，不是最不安全。"
+          }
+        ]
+      },
+      {
+        "id": "finish",
+        "label": "finish：先画完，还是先上色？",
+        "prompt": "先画完，还是先上色？",
+        "answer": "Finish",
+        "meaning": "完成；结束",
+        "material": "Finish the drawing before adding colour.",
+        "before": "",
+        "after": " the drawing before adding colour.",
+        "reason": "finish表示完成。Finish the drawing before adding colour是要求先完成绘画，再上色，不是说已经做完。finish doing表示做完某事，不能写finish to do。",
+        "hint": "finish doing；before doing。",
+        "wordDecision": {
+          "prompt": "先画完，还是先上色？",
+          "processOrder": {
+            "title": "先完成绘画，再上色",
+            "hint": "按before排先后；不补完成时间。",
+            "events": [
+              {
+                "id": "drawing",
+                "label": "完成绘画"
+              },
+              {
+                "id": "colour",
+                "label": "再上色"
+              }
+            ],
+            "sequence": [
+              "drawing",
+              "colour"
+            ],
+            "wrong": "先完成绘画，再上色，不能倒过来。"
+          }
+        },
+        "options": [
+          {
+            "id": "order",
+            "text": "Complete the drawing first, then add colour.",
+            "correct": true,
+            "reason": "before说明完成绘画在上色之前。"
+          },
+          {
+            "id": "reverse",
+            "text": "Add colour before finishing the drawing.",
+            "correct": false,
+            "reason": "把before的先后颠倒。"
+          },
+          {
+            "id": "claim",
+            "text": "The drawing has already been finished and coloured.",
+            "correct": false,
+            "reason": "祈使句提出要求，没有报告已经完成。"
+          }
+        ]
+      },
+      {
+        "id": "complete",
+        "label": "complete：Can we complete是在提问，还是已完成？",
+        "prompt": "Can we complete是在提问，还是已完成？",
+        "answer": "complete",
+        "meaning": "完成；完整的",
+        "material": "Can we complete the bridge before the bell?",
+        "before": "Can we ",
+        "after": " the bridge before the bell?",
+        "reason": "complete作动词表示完成，也可作形容词表示完整的。Can we complete...?问能不能完成；before the bell给出时间界限，不证明桥已完成。",
+        "hint": "complete作动词或形容词；Can we...?询问能否。",
+        "wordDecision": {
+          "prompt": "Can we complete是在提问，还是已完成？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问能否在铃响前完成",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "question",
+                "label": "询问能否在铃响前完成桥",
+                "text": "Can we complete the bridge before the bell?",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "桥已经确定完成",
+                "text": "The bridge has definitely been completed.",
+                "include": false
+              },
+              {
+                "id": "after",
+                "label": "要求在铃响后才完成",
+                "text": "We must finish only after the bell.",
+                "include": false
+              }
+            ],
+            "hint": "保留问句和before，不把能否变成结果。",
+            "wrong": "选问题本身；原句没有宣布完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "The question asks whether we can finish the bridge before the bell.",
+            "correct": true,
+            "reason": "Can we...是在询问能否做到。"
+          },
+          {
+            "id": "done",
+            "text": "The bridge was definitely completed before the bell.",
+            "correct": false,
+            "reason": "疑问句不能变成已完成的事实。"
+          },
+          {
+            "id": "after",
+            "text": "The question asks about finishing after the bell.",
+            "correct": false,
+            "reason": "把before改成after。"
+          }
+        ]
+      },
+      {
+        "id": "end",
+        "label": "end：讨论要以什么收尾？",
+        "prompt": "讨论要以什么收尾？",
+        "answer": "end",
+        "meaning": "结束；尽头",
+        "material": "Let's end the discussion with one clear decision.",
+        "before": "Let's ",
+        "after": " the discussion with one clear decision.",
+        "reason": "end表示结束。Let’s end...with...是提议以某事收尾；one clear decision是一个明确决定，不能改成没有决定，也没有说全体对所有问题一致同意。",
+        "hint": "end...with...；at the end of在……结尾。",
+        "wordDecision": {
+          "prompt": "讨论要以什么收尾？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "提议以一个明确决定收尾",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "decision",
+                "label": "以一个明确决定结束讨论",
+                "text": "Let's end the discussion with one clear decision.",
+                "include": true
+              },
+              {
+                "id": "unanimous",
+                "label": "所有人已对所有问题一致同意",
+                "text": "Everyone has already agreed on every issue.",
+                "include": false
+              },
+              {
+                "id": "none",
+                "label": "不作决定就结束",
+                "text": "Let us end without any decision.",
+                "include": false
+              }
+            ],
+            "hint": "保留one、clear与提议语气。",
+            "wrong": "选明确决定，不补全体一致或已经完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "decision",
+            "text": "Let us finish the discussion with one clear decision.",
+            "correct": true,
+            "reason": "end...with...表示以……结束；one clear decision限定结果。"
+          },
+          {
+            "id": "unanimous",
+            "text": "Every participant has already agreed on every issue.",
+            "correct": false,
+            "reason": "明确决定不等于所有人已对所有问题一致同意。"
+          },
+          {
+            "id": "none",
+            "text": "Let us finish without making any decision.",
+            "correct": false,
+            "reason": "与with one clear decision相反。"
+          }
+        ]
+      },
+      {
+        "id": "continue",
+        "label": "continue：休息和继续走，哪个在前？",
+        "prompt": "休息和继续走，哪个在前？",
+        "answer": "continue",
+        "meaning": "继续",
+        "material": "We can continue the walk after a short rest.",
+        "before": "We can ",
+        "after": " the walk after a short rest.",
+        "reason": "continue表示继续；after a short rest说明先短暂休息，再继续走。can表示可以，不是已经走完，也没给休息的具体分钟数。",
+        "hint": "continue doing或continue to do；after在……之后。",
+        "wordDecision": {
+          "prompt": "休息和继续走，哪个在前？",
+          "processOrder": {
+            "title": "先休息，再继续走",
+            "hint": "按after排先后；没有具体分钟数。",
+            "events": [
+              {
+                "id": "rest",
+                "label": "短暂休息"
+              },
+              {
+                "id": "walk",
+                "label": "继续走"
+              }
+            ],
+            "sequence": [
+              "rest",
+              "walk"
+            ],
+            "wrong": "短暂休息在前，继续走在后。"
+          }
+        },
+        "options": [
+          {
+            "id": "order",
+            "text": "We can resume walking after resting briefly.",
+            "correct": true,
+            "reason": "after说明短暂休息在继续走之前。"
+          },
+          {
+            "id": "reverse",
+            "text": "We must continue walking before taking any rest.",
+            "correct": false,
+            "reason": "把after的先后颠倒。"
+          },
+          {
+            "id": "cancel",
+            "text": "We will never walk again.",
+            "correct": false,
+            "reason": "continue是继续，不是永远取消。"
+          }
+        ]
+      },
+      {
+        "id": "create",
+        "label": "create：拼一个只含三个图形的图案。",
+        "prompt": "拼一个只含三个图形的图案。",
+        "answer": "Create",
+        "meaning": "创造；创作",
+        "material": "Create a pattern using only three shapes.",
+        "before": "",
+        "after": " a pattern using only three shapes.",
+        "reason": "create表示创造或创作。using only three shapes要求只用三个图形；原句没有three different kinds，不能直接译成三种形状。这里可重复使用同一种图形。",
+        "hint": "create a pattern创作图案；three shapes三个图形。",
+        "wordDecision": {
+          "prompt": "拼一个只含三个图形的图案。",
+          "pattern": {
+            "title": "拼出三个图形的图案",
+            "hint": "点选图形，可重复；总数只用三个，不要求三种不同形状。",
+            "wrong": "数一数：图形总数必须恰好为三个，可以重复。"
+          }
+        },
+        "options": [
+          {
+            "id": "three",
+            "text": "Make a pattern with just three shapes.",
+            "correct": true,
+            "reason": "only three shapes限制图形总数为三个。"
+          },
+          {
+            "id": "four",
+            "text": "Use four shapes to make the pattern.",
+            "correct": false,
+            "reason": "四个超过only three的数量限制。"
+          },
+          {
+            "id": "kinds",
+            "text": "The sentence requires three different kinds of shapes.",
+            "correct": false,
+            "reason": "原句没有different kinds，不要求三种不同形状。"
+          }
+        ]
+      },
+      {
+        "id": "build",
+        "label": "build：plan to build等于已经搭好了吗？",
+        "prompt": "plan to build等于已经搭好了吗？",
+        "answer": "build",
+        "meaning": "建造；建立",
+        "material": "We plan to build a shelter for small birds.",
+        "before": "We plan to ",
+        "after": " a shelter for small birds.",
+        "reason": "build表示建造，过去式和过去分词是built。plan to build是计划搭建，不是已经搭好；for small birds说明用途。",
+        "hint": "build—built—built；plan to do。",
+        "wordDecision": {
+          "prompt": "plan to build等于已经搭好了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "计划给小鸟搭庇护所",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "plan",
+                "label": "计划搭建供小鸟使用的庇护所",
+                "text": "We plan to build a shelter for small birds.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "所有小鸟的庇护所都已建成",
+                "text": "Every shelter has already been built.",
+                "include": false
+              },
+              {
+                "id": "remove",
+                "label": "准备拆掉庇护所",
+                "text": "We plan to remove the shelter.",
+                "include": false
+              }
+            ],
+            "hint": "分清计划和结果，保留for small birds。",
+            "wrong": "选计划搭建，不能说已经建好或拆除。"
+          }
+        },
+        "options": [
+          {
+            "id": "plan",
+            "text": "We intend to make a shelter for small birds.",
+            "correct": true,
+            "reason": "plan to build表示打算建造。"
+          },
+          {
+            "id": "done",
+            "text": "A shelter has already been built for every bird.",
+            "correct": false,
+            "reason": "计划不等于已完成，也没有every bird。"
+          },
+          {
+            "id": "remove",
+            "text": "We plan to remove the birds’ shelter.",
+            "correct": false,
+            "reason": "build是建造，不是拆除。"
+          }
+        ]
+      },
+      {
+        "id": "develop",
+        "label": "develop：will develop在说未来，还是已验证的结果？",
+        "prompt": "will develop在说未来，还是已验证的结果？",
+        "answer": "develop",
+        "meaning": "发展；开发；形成",
+        "material": "The group will develop a safer way to cross.",
+        "before": "The group will ",
+        "after": " a safer way to cross.",
+        "reason": "develop可以表示开发、发展或形成。will develop a safer way是将形成更安全的办法；safer是比较级，不等于完全没有风险，也没说方法已经开发完成。",
+        "hint": "develop a plan形成计划；safer更安全。",
+        "wordDecision": {
+          "prompt": "will develop在说未来，还是已验证的结果？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "将形成更安全的通过办法",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "future",
+                "label": "将形成更安全的通过办法",
+                "text": "The group will develop a safer way to cross.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "方法已经证实完全无风险",
+                "text": "The method is already proved completely risk-free.",
+                "include": false
+              },
+              {
+                "id": "less",
+                "label": "将让通过变得更危险",
+                "text": "The group will make crossing less safe.",
+                "include": false
+              }
+            ],
+            "hint": "看will和safer，不把比较级变成绝对安全。",
+            "wrong": "选未来更安全的办法，不补已完成或零风险。"
+          }
+        },
+        "options": [
+          {
+            "id": "future",
+            "text": "The group will work out a safer way to cross.",
+            "correct": true,
+            "reason": "will develop表示将要形成或开发方法。"
+          },
+          {
+            "id": "done",
+            "text": "The group has already proved that crossing is completely risk-free.",
+            "correct": false,
+            "reason": "将来开发不等于已经证明绝对安全。"
+          },
+          {
+            "id": "less",
+            "text": "The group will make crossing less safe.",
+            "correct": false,
+            "reason": "safer表示更安全，不是更危险。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-planning-actions-transfer",
+      "topicId": "v-course-planning-actions",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes keep the question, the drawing order and the pattern rule correct?",
+      "passage": "Plans for the school workshop\nWe will begin with the safest design. Our teacher asks us to finish the drawing before adding colour. Finishing comes first; this instruction does not say the drawing is already done. We ask, \"Can we complete the bridge before the bell?\" That is a question about what we can achieve, not a report that the bridge has been completed.\nWe want to end the discussion with one clear decision. This does not mean every person has already agreed on every issue. We can continue our walk after a short rest, so the rest comes before we resume walking.\nOur pattern task says, \"Create a pattern using only three shapes.\" We may repeat a shape: the rule limits the total to three and does not require three different kinds. We also plan to build a shelter for small birds. The group will develop a safer way to cross. Those are plans for future work; they do not prove that construction is finished or that the crossing has no risk.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The bridge is already complete; colour comes first; use three different kinds of shapes."
+        },
+        {
+          "id": "b",
+          "text": "Completion is still a question; draw before colouring; use just three shapes."
+        },
+        {
+          "id": "c",
+          "text": "Completion is still a question; colour before drawing; use just three shapes."
+        },
+        {
+          "id": "d",
+          "text": "Completion is still a question; draw before colouring; use four shapes."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Completion is still a question; draw before colouring; use just three shapes."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先分清问题和结果，再核对before的顺序与only的数量限制。",
+        "steps": [
+          {
+            "text": "Can we complete...?是在问能否完成；画完以后才上色。",
+            "reason": "疑问句不等于完成报告；before adding colour限定先后。"
+          },
+          {
+            "text": "三个图形可以重复，不等于三种不同形状。",
+            "reason": "only three shapes限制总数；原句没有different kinds。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把问题当结果，颠倒画与上色，还添加不同种类的要求。"
+          },
+          {
+            "option": "c",
+            "reason": "把绘画和上色的顺序颠倒。"
+          },
+          {
+            "option": "d",
+            "reason": "四个图形违反only three。"
+          }
+        ],
+        "pitfall": "看到完成、计划或数量词就下结论，没有看句式、时态和限定范围。",
+        "visual": {
+          "kind": "timeline",
+          "title": "问题、顺序、数量",
+          "segments": [
+            {
+              "text": "Can we complete...?",
+              "role": "object",
+              "note": "询问能否，不是完成报告"
+            },
+            {
+              "text": "drawing → colour",
+              "role": "object",
+              "note": "先画完，再上色"
+            },
+            {
+              "text": "only three shapes",
+              "role": "object",
+              "note": "总数三个，可重复"
+            }
+          ],
+          "caption": "计划不等于完成；更安全不等于绝对无风险。"
+        },
+        "transfer": "three shapes与three different kinds of shapes有什么区别？"
+      }
+    }
+  }
+}
