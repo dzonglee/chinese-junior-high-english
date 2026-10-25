@@ -1,0 +1,5 @@
+import{it,expect}from'vitest'
+import{tornMapMatch,changeTornMap,wordTornMapView,validWordTornMap}from'./core/word-torn-map'
+const w={title:'破损与用途',hint:'另给虚构图，不代表原句实际地图。',wrong:'选择破角但路线仍可读。'}
+it('requires a torn yet readable condition rather than pristine or obscured information',()=>{expect(validWordTornMap(w)).toBe(true);for(const raw of['','intact','corner','covered'])expect(tornMapMatch(raw)).toBe(raw==='corner');expect(changeTornMap('','corner')).toBe('corner');expect(wordTornMapView(w,'corner').torn).toBe(true);expect(wordTornMapView(w,'corner').covered).toBe(false);expect(wordTornMapView(w,'covered').covered).toBe(true);expect(changeTornMap('corner','covered')).toBe('covered');expect(changeTornMap('covered','reset')).toBe('')})
+it('rejects malformed states and unknown/prototype-named actions',()=>{for(const raw of['torn','corner ','CORNER'])expect(changeTornMap(raw,'corner')).toBeUndefined();for(const a of['constructor','toString','__proto__',''])expect(changeTornMap('',a)).toBeUndefined();expect(validWordTornMap({...w,title:''})).toBe(false)})
