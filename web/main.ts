@@ -124,6 +124,7 @@ function render() {
   const shelfRoomFocus = active instanceof HTMLButtonElement && active.matches('.word-shelf-room .shelf-room-control') ? active.dataset.value : undefined
   const shadePanelFocus = active instanceof HTMLButtonElement && active.matches('.word-shade-panel .shade-panel-control') ? active.dataset.value : undefined
   const observeFocus = active instanceof HTMLButtonElement && active.matches('.word-observe button') ? active.dataset.value : undefined
+  const moleculeFocus = active instanceof HTMLButtonElement && active.matches('.word-molecule button') ? active.dataset.value : undefined
   const stampFocus = active instanceof HTMLButtonElement && active.matches('.word-stamp-placement button') ? active.dataset.value : undefined
   const eachItemFocus = active instanceof HTMLButtonElement && active.matches('.word-each-item button') ? active.dataset.value : undefined
   const routeTrafficFocus = active instanceof HTMLButtonElement && active.matches('.word-route-traffic button') ? active.dataset.value : undefined
@@ -146,6 +147,7 @@ function render() {
   root.querySelectorAll<HTMLElement>('[data-passage-key]').forEach(e=>{e.scrollTop=passageScroll.get(e.dataset.passageKey)??0})
   if (shadePanelFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-shade-panel [data-value="${CSS.escape(shadePanelFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (observeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-observe [data-value="${CSS.escape(observeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (moleculeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-molecule [data-value="${CSS.escape(moleculeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (stampFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stamp-placement [data-value="${CSS.escape(stampFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (eachItemFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-each-item [data-value="${CSS.escape(eachItemFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (routeTrafficFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-traffic [data-value="${CSS.escape(routeTrafficFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
