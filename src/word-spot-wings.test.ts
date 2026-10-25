@@ -1,0 +1,10 @@
+import {describe,it,expect} from 'vitest'
+import {changeSpotWings,spotWingsMatch,validWordSpotWings,wordSpotWingsKey,wordSpotWingsView} from './core/word-spot-wings'
+const w={title:'每边一个黑点',hint:'给两片翅鞘分别选数量。',wrong:'each要求两边各一个，不只看总数。'}
+describe('one spot on each wing case',()=>{
+ it('requires one per side across all nine complete pairs',()=>{for(const a of [0,1,2])for(const b of [0,1,2])expect(spotWingsMatch(a+':'+b)).toBe(a===1&&b===1);expect(spotWingsMatch('2:0')).toBe(false);expect(spotWingsMatch('0:2')).toBe(false)})
+ it('distinguishes unchosen from a deliberate zero and retains independent choices',()=>{let s=changeSpotWings('','a:0')!;expect(s).toBe('0:-');expect(wordSpotWingsView(w,s).sides[0].chosen).toBe(true);expect(wordSpotWingsView(w,s).sides[1].chosen).toBe(false);s=changeSpotWings(s,'b:1')!;expect(s).toBe('0:1');s=changeSpotWings(s,'a:1')!;expect(spotWingsMatch(s)).toBe(true);expect(spotWingsMatch('-:1')).toBe(false);expect(spotWingsMatch('1:-')).toBe(false)})
+ it('renders exactly selected per-side counts and resets both sides',()=>{for(const a of [0,1,2])for(const b of [0,1,2])expect(wordSpotWingsView(w,a+':'+b).sides.map(s=>s.spots.length)).toEqual([a,b]);expect(changeSpotWings('1:1','reset')).toBe('');expect(wordSpotWingsKey('spot')).toBe('workshopSpotWings-spot')})
+ it('rejects malformed input and keeps views independent',()=>{for(const raw of ['3:1','1:1 ',' 1:1','1:1:1']){expect(spotWingsMatch(raw)).toBe(false);expect(changeSpotWings(raw,'a:1')).toBeUndefined();expect(wordSpotWingsView(w,raw).sides.every(s=>!s.chosen)).toBe(true)}expect(changeSpotWings('','a:3')).toBeUndefined();const a=wordSpotWingsView(w,'1:1'),b=wordSpotWingsView(w,'1:1');a.sides[0].spots[0].style='changed';expect(b.sides[0].spots[0].style).not.toBe('changed');expect(Object.keys(b)).not.toContain('answer')})
+ it('requires trimmed bounded instructional copy',()=>{expect(validWordSpotWings(w)).toBe(true);for(const x of [null,{}, {...w,title:' padded '},{...w,hint:''},{...w,wrong:'x'.repeat(141)}])expect(validWordSpotWings(x)).toBe(false)})
+})

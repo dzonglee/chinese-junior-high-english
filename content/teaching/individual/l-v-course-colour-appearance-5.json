@@ -1,0 +1,623 @@
+{
+  "lessonId": "l-v-course-colour-appearance-5",
+  "reviewState": "draft",
+  "intent": "Eight individual tasks preserve shape operations, exact side ratios, per-side distribution, line endpoints, surface treatment, temporal order and main characteristics.",
+  "picturePurpose": "Original sleeve stripe and round chest badge provide actual form/location evidence. Exact rectangle dimensions and per-wing-case spot counts are coded, never inferred from generated imagery.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "调长宽、画斑点，找袖子条纹",
+    "instruction": "动手核对两倍和每边各一个；再找对形状与位置。",
+    "items": [
+      {
+        "id": "triangle",
+        "label": "triangle：怎样把纸变成三角形？",
+        "prompt": "怎样把纸变成三角形？",
+        "answer": "triangle",
+        "meaning": "三角形",
+        "material": "Fold the square into a triangle.",
+        "before": "Fold the square into a ",
+        "after": ".",
+        "reason": "triangle是三角形；Fold the square into a triangle要求把正方形折成三角形，不能改成剪或倒转形状。",
+        "hint": "Fold看动作，into看结果。",
+        "wordDecision": {
+          "prompt": "怎样把纸变成三角形？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "把正方形折成三角形",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "fold",
+                "label": "把正方形折成三角形",
+                "text": "Fold the square into a triangle.",
+                "include": true
+              },
+              {
+                "id": "cut",
+                "label": "不折纸，改把正方形剪成三角形",
+                "text": "Cut the square into a triangle instead of folding it.",
+                "include": false
+              },
+              {
+                "id": "reverse",
+                "label": "把三角形折成正方形",
+                "text": "Fold a triangle so that it becomes a square.",
+                "include": false
+              }
+            ],
+            "hint": "动作和前后形状一起核对。",
+            "wrong": "只选从正方形折成三角形；不能换成剪或调换形状。"
+          }
+        },
+        "options": [
+          {
+            "id": "cut",
+            "text": "Cut the square into a triangle instead of folding it.",
+            "correct": false,
+            "reason": "结果虽相同，但把fold换成cut。"
+          },
+          {
+            "id": "fold",
+            "text": "Fold the square so that it becomes a triangle.",
+            "correct": true,
+            "reason": "Fold是折，into a triangle说明结果。"
+          },
+          {
+            "id": "reverse",
+            "text": "Fold a triangle so that it becomes a square.",
+            "correct": false,
+            "reason": "起始形状和结果被调换。"
+          }
+        ],
+        "ownForms": [
+          "triangle",
+          "triangles"
+        ]
+      },
+      {
+        "id": "rectangle",
+        "label": "rectangle：把长方形的长调成宽的两倍。",
+        "prompt": "把长方形的长调成宽的两倍。",
+        "answer": "rectangle",
+        "meaning": "长方形",
+        "material": "Draw a rectangle twice as long as it is wide.",
+        "before": "Draw a ",
+        "after": " twice as long as it is wide.",
+        "reason": "rectangle是长方形；twice as long as it is wide要求长=2×宽，没有规定某一组固定尺寸。",
+        "hint": "twice是两倍；长和宽要用同一单位。",
+        "wordDecision": {
+          "prompt": "把长方形的长调成宽的两倍。",
+          "rectangleRatio": {
+            "title": "调出长是宽两倍的长方形",
+            "hint": "分别选长和宽；看看图形怎样变化。",
+            "wrong": "长要等于宽的两倍；符合关系的尺寸都可以。"
+          }
+        },
+        "options": [
+          {
+            "id": "reverse",
+            "text": "Draw a rectangle whose width is two times its length.",
+            "correct": false,
+            "reason": "长和宽的倍数关系被倒转。"
+          },
+          {
+            "id": "equal",
+            "text": "Draw a shape with equal length and width.",
+            "correct": false,
+            "reason": "长宽相等不满足本句的两倍关系。"
+          },
+          {
+            "id": "twice",
+            "text": "Draw a rectangle whose length is two times its width.",
+            "correct": true,
+            "reason": "twice as long as it is wide说明长是宽的两倍。"
+          }
+        ],
+        "ownForms": [
+          "rectangle",
+          "rectangles"
+        ]
+      },
+      {
+        "id": "line",
+        "label": "line：这条线从哪里连到哪里？",
+        "prompt": "这条线从哪里连到哪里？",
+        "answer": "line",
+        "meaning": "线；队列",
+        "material": "Draw a line from the label to the picture.",
+        "before": "Draw a ",
+        "after": " from the label to the picture.",
+        "reason": "line在这里是画出的线；from the label to the picture要求把标签连到图片，不是排队。",
+        "hint": "from看起点，to看终点。",
+        "wordDecision": {
+          "prompt": "这条线从哪里连到哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "从标签画线连到图片",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "connect",
+                "label": "用线把标签和图片连起来",
+                "text": "Draw a line from the label to the picture.",
+                "include": true
+              },
+              {
+                "id": "title",
+                "label": "从标签画线连到标题",
+                "text": "Draw a line from the label to the title instead.",
+                "include": false
+              },
+              {
+                "id": "queue",
+                "label": "在图片旁边排队",
+                "text": "Stand in a line beside the picture.",
+                "include": false
+              }
+            ],
+            "hint": "保留画线动作和两端。",
+            "wrong": "只选标签连图片；不能换终点或改成排队。"
+          }
+        },
+        "options": [
+          {
+            "id": "connect",
+            "text": "Connect the label to the picture with a drawn line.",
+            "correct": true,
+            "reason": "from the label to the picture保留线的两端。"
+          },
+          {
+            "id": "title",
+            "text": "Draw a line from the label to the title instead.",
+            "correct": false,
+            "reason": "终点picture换成title。"
+          },
+          {
+            "id": "queue",
+            "text": "Stand in a line beside the picture.",
+            "correct": false,
+            "reason": "画线被换成排队，line的词义和动作都变了。"
+          }
+        ],
+        "ownForms": [
+          "line",
+          "lines"
+        ]
+      },
+      {
+        "id": "spot",
+        "label": "spot：给两片翅鞘各画一个黑点。",
+        "prompt": "给两片翅鞘各画一个黑点。",
+        "answer": "spot",
+        "meaning": "斑点；地点；发现",
+        "material": "The ladybird has a black spot on each wing case.",
+        "before": "The ladybird has a black ",
+        "after": " on each wing case.",
+        "reason": "spot在这里是黑色斑点；each wing case要求每片翅鞘各一个。这里说这只瓢虫，不概括所有瓢虫的斑点数。",
+        "hint": "each是每一个，不能只看总数。",
+        "wordDecision": {
+          "prompt": "给两片翅鞘各画一个黑点。",
+          "spotWings": {
+            "title": "每片翅鞘各一个黑点",
+            "hint": "给A、B两片翅鞘分别选数量。",
+            "wrong": "each要求两边各一个；一边两个、另一边零个不符合。"
+          }
+        },
+        "options": [
+          {
+            "id": "one-side",
+            "text": "There are two black spots on one wing case and none on the other.",
+            "correct": false,
+            "reason": "总数虽是两个，但没有做到每边各一个。"
+          },
+          {
+            "id": "anywhere",
+            "text": "Any two black spots anywhere on the body satisfy the description.",
+            "correct": false,
+            "reason": "each wing case不能换成身体任意位置。"
+          },
+          {
+            "id": "each",
+            "text": "Each of the two wing cases has one black spot.",
+            "correct": true,
+            "reason": "a black spot on each要求两片翅鞘各一个。"
+          }
+        ],
+        "ownForms": [
+          "spot",
+          "spots",
+          "spotted",
+          "spotting"
+        ]
+      },
+      {
+        "id": "stripe",
+        "label": "stripe：点出沿袖子延伸的黄色条纹。",
+        "prompt": "点出沿袖子延伸的黄色条纹。",
+        "answer": "stripe",
+        "meaning": "条纹",
+        "material": "A yellow stripe runs along the sleeve.",
+        "before": "A yellow ",
+        "after": " runs along the sleeve.",
+        "reason": "stripe是长条状的条纹；along the sleeve说明沿袖子延伸。胸前圆章的位置和形状都不同。",
+        "hint": "stripe看长条状，along看沿着哪里。",
+        "wordDecision": {
+          "prompt": "点出沿袖子延伸的黄色条纹。",
+          "art": {
+            "asset": "lesson-sleeve-stripe",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "完整蓝色运动外套平放：画面左侧袖子有从肩部延伸到袖口的黄色条纹，胸前另有圆形黄色徽章。无文字或尺寸标记。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "stripe",
+                "label": "A 袖子",
+                "left": 2,
+                "top": 12,
+                "width": 41,
+                "height": 76,
+                "labelPosition": "top"
+              },
+              {
+                "id": "b",
+                "option": "badge",
+                "label": "B 胸前",
+                "left": 47,
+                "top": 2,
+                "width": 36,
+                "height": 80,
+                "labelPosition": "top"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "stripe",
+                "caption": "黄色长条纹沿袖子延伸。",
+                "regions": [
+                  {
+                    "id": "sleeve-stripe",
+                    "left": 8,
+                    "top": 24,
+                    "width": 27,
+                    "height": 52,
+                    "label": "袖子条纹"
+                  }
+                ]
+              },
+              {
+                "option": "badge",
+                "caption": "这是胸前圆章，不是袖子上的长条纹。",
+                "regions": [
+                  {
+                    "id": "round-badge",
+                    "left": 54,
+                    "top": 29,
+                    "width": 10,
+                    "height": 12,
+                    "label": "圆章"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "badge",
+            "text": "A round yellow badge sits on the chest.",
+            "correct": false,
+            "reason": "胸前圆章不是沿袖子延伸的条纹。"
+          },
+          {
+            "id": "stripe",
+            "text": "A long yellow stripe follows the sleeve.",
+            "correct": true,
+            "reason": "stripe是条纹，along the sleeve保留位置和延伸方向。"
+          }
+        ],
+        "ownForms": [
+          "stripe",
+          "stripes"
+        ]
+      },
+      {
+        "id": "edge",
+        "label": "edge：用砂纸打磨哪里，达到什么效果？",
+        "prompt": "用砂纸打磨哪里，达到什么效果？",
+        "answer": "edge",
+        "meaning": "边缘",
+        "material": "Smooth the sharp edge with sandpaper.",
+        "before": "Smooth the sharp ",
+        "after": " with sandpaper.",
+        "reason": "edge是边缘；Smooth the sharp edge要求用砂纸把锋利边缘磨平滑，不是只磨中间或把边缘磨尖。",
+        "hint": "edge看边缘，Smooth看要变平滑。",
+        "wordDecision": {
+          "prompt": "用砂纸打磨哪里，达到什么效果？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "用砂纸把锋利边缘磨平滑",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "smooth",
+                "label": "用砂纸把锋利边缘磨平滑",
+                "text": "Smooth the sharp edge with sandpaper.",
+                "include": true
+              },
+              {
+                "id": "centre",
+                "label": "只磨中间平面，锋利边缘不变",
+                "text": "Polish only the flat centre and leave the sharp edge unchanged.",
+                "include": false
+              },
+              {
+                "id": "sharper",
+                "label": "用砂纸把边缘磨得更锋利",
+                "text": "Use sandpaper to make the edge even sharper.",
+                "include": false
+              }
+            ],
+            "hint": "打磨对象和效果都要保留。",
+            "wrong": "只选把边缘磨平滑；不能换成中间平面或磨得更尖。"
+          }
+        },
+        "options": [
+          {
+            "id": "smooth",
+            "text": "Use sandpaper to make the sharp edge smoother.",
+            "correct": true,
+            "reason": "sharp edge是锋利边缘，Smooth要求磨平滑。"
+          },
+          {
+            "id": "centre",
+            "text": "Polish only the flat centre and leave the sharp edge unchanged.",
+            "correct": false,
+            "reason": "目标边缘换成中间平面，还保留锋利边缘。"
+          },
+          {
+            "id": "sharper",
+            "text": "Use sandpaper to make the edge even sharper.",
+            "correct": false,
+            "reason": "磨平滑被反转为磨得更锋利。"
+          }
+        ],
+        "ownForms": [
+          "edge",
+          "edges"
+        ]
+      },
+      {
+        "id": "outline",
+        "label": "outline：先画什么，再补什么？",
+        "prompt": "先画什么，再补什么？",
+        "answer": "outline",
+        "meaning": "轮廓；概要",
+        "material": "Draw the outline before adding details.",
+        "before": "Draw the ",
+        "after": " before adding details.",
+        "reason": "outline在这里是轮廓；before adding details要求先画轮廓再补细节，不是在写文章概要。",
+        "hint": "Draw给画图情境，before给先后。",
+        "wordDecision": {
+          "prompt": "先画什么，再补什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "先画轮廓，再补细节",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "first",
+                "label": "先画外部轮廓，再补细节",
+                "text": "Draw the outline before adding details.",
+                "include": true
+              },
+              {
+                "id": "reverse",
+                "label": "先补完所有细节，再画轮廓",
+                "text": "Add all the details first, then draw the outline.",
+                "include": false
+              },
+              {
+                "id": "summary",
+                "label": "这条指令要求写文章概要",
+                "text": "This instruction asks for a written summary of an article.",
+                "include": false
+              }
+            ],
+            "hint": "先轮廓，后细节。",
+            "wrong": "只选先画轮廓；不能倒转顺序或套用文章概要义。"
+          }
+        },
+        "options": [
+          {
+            "id": "reverse",
+            "text": "Add all the details first, then draw the outline.",
+            "correct": false,
+            "reason": "before的先后被反转。"
+          },
+          {
+            "id": "summary",
+            "text": "This instruction asks for a written summary of an article.",
+            "correct": false,
+            "reason": "outline的概要义不符合这里画图的情境。"
+          },
+          {
+            "id": "first",
+            "text": "Draw the outer shape first, then add the details.",
+            "correct": true,
+            "reason": "outline在这里是轮廓，before给出先后。"
+          }
+        ],
+        "ownForms": [
+          "outline",
+          "outlines"
+        ]
+      },
+      {
+        "id": "feature",
+        "label": "feature：桥的主要特点是什么？",
+        "prompt": "桥的主要特点是什么？",
+        "answer": "feature",
+        "meaning": "特征；特点",
+        "material": "The bridge's curved roof is its main feature.",
+        "before": "The bridge's curved roof is its main ",
+        "after": ".",
+        "reason": "feature是特征、特点；main feature是主要特点。本句说的是桥的弧形屋顶，不是平顶或小细节。",
+        "hint": "main看主要，curved roof看具体特点。",
+        "wordDecision": {
+          "prompt": "桥的主要特点是什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "弧形屋顶是桥的主要特点",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "roof",
+                "label": "弧形屋顶是桥的主要特点",
+                "text": "The bridge's curved roof is its main feature.",
+                "include": true
+              },
+              {
+                "id": "flat",
+                "label": "平坦屋顶是桥的主要特点",
+                "text": "The flat roof is the bridge’s main feature.",
+                "include": false
+              },
+              {
+                "id": "minor",
+                "label": "弧形屋顶只是小细节，不是主要特点",
+                "text": "The curved roof is only a minor detail, not a main feature.",
+                "include": false
+              }
+            ],
+            "hint": "主要和弧形屋顶一起保留。",
+            "wrong": "只选弧形屋顶是主要特点；不能改成平顶或小细节。"
+          }
+        },
+        "options": [
+          {
+            "id": "flat",
+            "text": "The flat roof is the bridge’s main feature.",
+            "correct": false,
+            "reason": "curved被换成flat。"
+          },
+          {
+            "id": "roof",
+            "text": "The curved roof is the bridge’s main characteristic.",
+            "correct": true,
+            "reason": "curved roof是被指出的主要特点。"
+          },
+          {
+            "id": "minor",
+            "text": "The curved roof is only a minor detail, not a main feature.",
+            "correct": false,
+            "reason": "main被反转成不重要的小细节。"
+          }
+        ],
+        "ownForms": [
+          "feature",
+          "features",
+          "featured",
+          "featuring"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-colour-appearance-5-transfer",
+      "topicId": "v-course-colour-appearance",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which report follows all three design notes?",
+      "passage": "Design notes for our trail display\nOur club made a display to explain a new walking trail. We folded a square sheet into a triangle for a sign. For another part, the instructions asked us to draw a rectangle twice as long as it was wide. They specified a relationship between the sides, not one fixed size.\nWe drew a line from a label to the matching picture. A ladybird drawing showed one black spot on each of its two wing cases. We checked each side separately: putting two on one side and none on the other would not match the note. The drawing did not describe every kind of ladybird.\nA sports jacket in the display had a long yellow stripe along one sleeve and a separate round yellow badge on its chest. The chest badge was not the sleeve stripe.\nBefore adding details to a sketch, we drew its outline. We also used sandpaper to smooth a sharp edge on a wooden display piece. A final card described a bridge whose curved roof was its main feature. We kept the shape of the roof and its importance together when writing the report.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The rectangle’s length was twice its width; each wing case had one black spot; the yellow stripe ran along the sleeve."
+        },
+        {
+          "id": "b",
+          "text": "The rectangle’s width was twice its length; each wing case had one black spot; the yellow stripe ran along the sleeve."
+        },
+        {
+          "id": "c",
+          "text": "The rectangle’s length was twice its width; two black spots were on one wing case and none on the other; the yellow stripe ran along the sleeve."
+        },
+        {
+          "id": "d",
+          "text": "The rectangle’s length was twice its width; each wing case had one black spot; the yellow stripe was the round chest badge."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The rectangle’s length was twice its width; each wing case had one black spot; the yellow stripe ran along the sleeve."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对倍数方向、each的范围，再找条纹的位置。",
+        "steps": [
+          {
+            "text": "长是宽的两倍；两片翅鞘各有一个黑点。",
+            "reason": "twice as long as it was wide不能倒转；each要求逐边核对，不只看总数。"
+          },
+          {
+            "text": "黄色条纹沿袖子延伸，圆形徽章在胸前。",
+            "reason": "形状和位置都不同，不能把圆章当作袖子条纹。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把长是宽两倍倒转成宽是长两倍。"
+          },
+          {
+            "option": "c",
+            "reason": "总数是两个，但一边两个另一边零个不满足each。"
+          },
+          {
+            "option": "d",
+            "reason": "胸前圆形徽章不是袖子上的长条纹。"
+          }
+        ],
+        "pitfall": "看到twice或总数两个就选，却没核对倍数方向和每一边。",
+        "visual": {
+          "kind": "timeline",
+          "title": "逐条核对三个关系",
+          "segments": [
+            {
+              "text": "length = 2 × width",
+              "role": "object",
+              "note": "先认准长和宽"
+            },
+            {
+              "text": "one spot × each wing case",
+              "role": "object",
+              "note": "逐边各一个"
+            },
+            {
+              "text": "stripe → sleeve; badge → chest",
+              "role": "object",
+              "note": "形状和位置一起看"
+            }
+          ],
+          "caption": "关系、分布和位置都吻合，报告才成立。"
+        },
+        "transfer": "为什么先补细节、后画轮廓不符合原文？指出表示先后的词。"
+      }
+    }
+  }
+}
