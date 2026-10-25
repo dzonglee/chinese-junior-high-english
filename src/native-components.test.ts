@@ -8,8 +8,12 @@ import { StateStore } from './services/storage'
 import { emptyState } from './core/learning'
 import { createLessonTeaching, freshTeaching } from './core/lesson-teaching'
 
+// Author the same content once; each test still receives an isolated mutable catalog.
+const nativeCatalogFixture = authorCatalog(process.cwd())
+const freshNativeCatalog = () => structuredClone(nativeCatalogFixture)
+
 it.each(['before','after'] as const)('retains the native controlled %s draft through consecutive input events',field=>{
- const c=authorCatalog(process.cwd()),lesson=c.lessons.find((l:any)=>l.topicId==='w-email')!,s=createLessonTeaching(c,lesson),p=freshTeaching(s,1)
+ const c=freshNativeCatalog(),lesson=c.lessons.find((l:any)=>l.topicId==='w-email')!,s=createLessonTeaching(c,lesson),p=freshTeaching(s,1)
  p.step=field==='before'?0:2;p.before=field==='before'?'':'My original own draft.'
  const data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
  store.save({...emptyState(1),profile:{cityId:'北京-北京',structure:'63',grade:Math.min(...lesson.grades),term:'upper',editionId:'pep-legacy',dailyMinutes:20,schoolYear:2026,createdAt:1},teaching:{[lesson.id]:p}})
@@ -48,7 +52,7 @@ it('preserves the native practice form on foreground, but opens a different retu
 })
 
 it('opens setup on a fresh native home page and preserves that setup on foreground',async()=>{
- const c=authorCatalog(process.cwd()),data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
+ const c=freshNativeCatalog(),data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
  const app=new Application(new ContentRepository(c,[],async()=>''),store,{now:()=>1,navigate(){},back(){},toast(){},confirm:async()=>true,exportText:async()=>{},importText:async()=>null,copy:async()=>{},play:async()=>{},stopAudio(){},startRecording:async()=>{},stopRecording:async()=>({path:'test',durationMs:1}),removeRecordings:async()=>{}})
  let component:any,screen:any
  vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{getApp:()=>({globalData:{application:app,ready:Promise.resolve()}}),getCurrentPages:()=>[{route:'pages/home/index'}],Component:(value:any)=>{component=value}})
@@ -93,7 +97,7 @@ it('binds an initially blank native screen when its route becomes current',async
 })
 
 it.each(['studioWorkshopInput','studioWorkshopOwn'])('keeps the native workshop input %s bound through consecutive edits',async name=>{
- const c=authorCatalog(process.cwd()),id=name==='studioWorkshopInput'?'l-v-school':'l-w-email',l=c.lessons.find((l:any)=>l.id===id)!,s=createLessonTeaching(c,l,'american'),p={...freshTeaching(s,1),step:1},data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
+ const c=freshNativeCatalog(),id=name==='studioWorkshopInput'?'l-v-school':'l-w-email',l=c.lessons.find((l:any)=>l.id===id)!,s=createLessonTeaching(c,l,'american'),p={...freshTeaching(s,1),step:1},data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
  store.save({...emptyState(1),profile:{cityId:'北京-北京',structure:Math.min(...l.grades)===6?'54':'63',grade:Math.min(...l.grades),term:'upper',editionId:Math.min(...l.grades)===6?'pep-54':'pep-legacy',dailyMinutes:20,schoolYear:2026,createdAt:1},teaching:{[id]:p}})
  const app=new Application(new ContentRepository(c,[],async()=>''),store,{now:()=>1,navigate(){},back(){},toast(){},confirm:async()=>true,exportText:async()=>{},importText:async()=>null,copy:async()=>{},play:async()=>{},stopAudio(){},startRecording:async()=>{},stopRecording:async()=>({path:'test',durationMs:1}),removeRecordings:async()=>{}});app.open('lesson',{id});if(name==='studioWorkshopInput'){const item=s.mission!.workshop!.items[0];await app.action('studio-workshop-choose',item.options!.find(o=>o.correct)!.id);app.setField('studioWorkshopInput',item.answer);await app.action('studio-workshop-check');expect(app.render().teaching!.workshop!.choices.filter(o=>o.accepted)).toHaveLength(1)}let component:any
  vm.runInNewContext(readFileSync('miniprogram/components/app-shell/index.js','utf8'),{Component:(v:any)=>{component=v}})
@@ -104,7 +108,7 @@ it.each(['studioWorkshopInput','studioWorkshopOwn'])('keeps the native workshop 
 
 it('updates native recall inputs, hidden references and completion immediately while typing',()=>{
  // Saved progress must use the American spelling selected by this PEP profile.
- const c=authorCatalog(process.cwd()),lesson=c.lessons.find(l=>l.id==='l-ls-course-t04')!,s=createLessonTeaching(c,lesson,'american'),p=freshTeaching(s,1)
+ const c=freshNativeCatalog(),lesson=c.lessons.find(l=>l.id==='l-ls-course-t04')!,s=createLessonTeaching(c,lesson,'american'),p=freshTeaching(s,1)
  p.step=1;p.answers.workshopIndex='2';p.answers['workshopRecallPhase-method-3']='compare';for(const [id,value]of [['map','map'],['bridge','bridge'],['corner','corner']])p.answers['workshopRecall-method-3-'+id]=value
  const data=new Map<string,string>(),store=new StateStore({read:k=>data.get(k)??null,write:(k,v)=>{data.set(k,v)},remove:k=>{data.delete(k)}},c,1)
  store.save({...emptyState(1),profile:{cityId:'北京-北京',structure:'63',grade:7,term:'upper',editionId:'pep-legacy',dailyMinutes:20,schoolYear:2026,createdAt:1},teaching:{[lesson.id]:p}})

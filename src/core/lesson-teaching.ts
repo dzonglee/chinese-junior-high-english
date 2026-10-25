@@ -13,6 +13,7 @@ export interface TeachingAssembly { id: string; title: string; prompt: string; t
 export interface TeachingEvidence { id: string; text: string; supports: boolean }
 export interface TeachingChoice { prompt: string; options: TeachingTile[]; correct: string; reasons: Record<string,string>; excerpt?: string }
 export interface LessonTeaching {
+  readingAloud?:true
   mission?: VisualMission
   id: string; title: string; objective: string; skill: string; fingerprint: string; mode: 'language' | 'vocabulary' | 'reading' | 'transcript' | 'communication' | 'phonetics'
   coaching: ExamCoaching; diagnoses: TeachingChoice[]; roleAnchors: Record<string,string[]>; revisionRubric: RubricPoint[]
@@ -59,6 +60,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   const topic=c.topics.find(t=>t.id===lesson.topicId)!, communication=qs.some(q=>q.kind==='writing'||q.kind==='speaking'), phonetics=topic.id.startsWith('p-')
   const mode:LessonTeaching['mode']=communication?'communication':phonetics?'phonetics':topic.skill==='vocabulary'?'vocabulary':topic.skill==='reading'?'reading':topic.skill==='listening'?'transcript':'language'
   const first=communication?qs.find(q=>q.kind==='writing'||q.kind==='speaking')!:qs[0]
+  const readAloud=lesson.id==='l-s-read-aloud'
   let transfer=communication?qs.find(q=>q.id!==first.id&&(q.kind==='writing'||q.kind==='speaking'))??editionQuestion(communicationTransfer(first),spelling):qs[qs.length-1]!
   let cases=qs.filter(q=>q.id!==transfer.id&&q.kind!=='writing'&&q.kind!=='speaking').slice(0,['vocabulary','reading','transcript'].includes(mode)?qs.length:3)
   if(mode==='vocabulary')cases=cases.slice(0,2)
@@ -80,7 +82,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
     diagnosis=first.options?.length?choiceFor(first):{prompt:'参考原文，哪一句能作为本题的依据？',options:evidence.map(s=>({id:s.id,text:s.text})),correct:evidence.find(s=>s.supports)?.id??'',reasons:Object.fromEntries(evidence.map(s=>[s.id,s.supports?first.explanation.steps[0].reason:'这处文字没有包含本题解析所引用的关键线索。']))}
     if(!first.options?.length&&evidence.filter(s=>s.supports).length>1){const accepted=evidence.find(s=>s.supports)!;diagnosis.options=diagnosis.options.filter(o=>o.id===accepted.id||!evidence.find(s=>s.id===o.id)!.supports)}
   }else if(communication){
-    assemblies.push(assembly('model-order','组织一段参考表达','先读参考表达，再按它原来的顺序重组。它只是一种可行表达，不是唯一正确写法。',modelSentences.map(s=>s.text),'model',first.explanation.strategy))
+    assemblies.push(assembly('model-order','组织一段参考表达',readAloud?'先理解原对话，再保持原台词的顺序。这里练朗读准备，不改写对话。':'先读参考表达，再按它原来的顺序重组。它只是一种可行表达，不是唯一正确写法。',modelSentences.map(s=>s.text),'model',first.explanation.strategy))
     diagnosis={prompt:'',options:[],correct:'',reasons:{}}
   }else{
     if(phonetics){
@@ -98,7 +100,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   if(communication){
     const roles=coaching.modelRoles
     if(!roles||roles.length!==modelSentences.length)throw new Error(`Model roles must match actual sentence units: ${lesson.id}: ${roles?.length}/${modelSentences.length}`)
-    rubric=roles.map((label,i)=>({id:`role-${i}`,label,marks:0,guidance:'从参考表达中选出承担这一任务的句子，再检查自己的草稿。'}))
+    rubric=roles.map((label,i)=>({id:`role-${i}`,label,marks:0,guidance:readAloud?'从原对话定位这项信息，朗读时保持原台词，不漏掉关键词。':'从参考表达中选出承担这一任务的句子，再检查自己的草稿。'}))
     rubric.forEach((r,i)=>roleAnchors[r.id]=[modelSentences[i].id])
     for(const missing of [...new Set([Math.floor(roles.length/2),0])]){
       const candidates=roles.map((text,i)=>({id:`role-${i}`,text})).filter((_,i)=>i===missing||Math.abs(i-missing)<=2).slice(0,4)
@@ -124,13 +126,14 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
       if(q){const wrong=q.explanation.distractors[0];diagnoses.push({excerpt:q.passage,prompt:`下面这条排除理由针对哪个干扰项？\n${q.stem}\n排除理由：${wrong.reason}`,options:q.options!.filter(o=>o.id!==q.answer.option),correct:wrong.option,reasons:Object.fromEntries(q.options!.filter(o=>o.id!==q.answer.option).map(o=>[o.id,o.id===wrong.option?`对应正确。${wrong.reason}`:`这个选项的问题是：${q.explanation.distractors.find(d=>d.option===o.id)!.reason}`]))})}
     }else{const q=qs.find(q=>q.id!==transfer.id&&q.options&&choiceFor(q).prompt!==diagnosis.prompt);if(q)diagnoses.push(choiceFor(q))}
   }
+  if(readAloud)for(const d of diagnoses){d.prompt='对照原对话，漏读示例少了哪项信息？';d.excerpt=d.excerpt?.replace('删减稿：','漏读示例：').replace('自己的表达可以采用别的写法。','按原台词朗读，不能自行改掉时间、地点或回应。');for(const key of Object.keys(d.reasons))d.reasons[key]=d.reasons[key].replace('参考稿删去了','漏读示例缺少了').replace('这不是唯一写法。','朗读时保留原台词。')}
   diagnosis=diagnoses[0]
   if(mode==='vocabulary')cases=cases.slice(0,2)
   if(mode==='reading'||mode==='transcript')cases=cases.filter(q=>q.id!==first.id)
   if(originalMission?.workshop?.applicationIds)cases=originalMission.workshop.applicationIds.map(id=>qs.find(q=>q.id===id)!).filter(Boolean)
   if(originalMission?.workshop?.transfer)transfer=editionQuestion(originalMission.workshop.transfer,spelling)
   const visualMission=originalMission
-  const studio:LessonTeaching={...(visualMission?{mission:editionMission(visualMission,spelling)}:{}),...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:mode==='vocabulary'&&visualMission?.workshop?.items.some(i=>i.wordDecision)?'把词放回语境，用自己的例句检查用法；隔天再做新题。':lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
+  const studio:LessonTeaching={...(readAloud?{readingAloud:true as const}:{}),...(visualMission?{mission:editionMission(visualMission,spelling)}:{}),...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:readAloud?'实际朗读并回听后自查；准备笔记不证明发音。':'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:mode==='vocabulary'&&visualMission?.workshop?.items.some(i=>i.wordDecision)?'把词放回语境，用自己的例句检查用法；隔天再做新题。':lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:readAloud?(!first.mediaId||!c.media.some(m=>m.id===first.mediaId&&m.approvedByOwner)):mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
   studio.fingerprint=hash(studio)
   return studio
 }
@@ -219,7 +222,7 @@ export function teachingCanAdvance(s:LessonTeaching,p:TeachingProgress):boolean{
   if(p.step===1)return s.assemblies.every(a=>p.completed.includes(`build-${a.id}`))
   if(p.step===2){
     if(s.sorting)return s.sorting.cards.every(card=>p.answers[`sort-${card.id}`]===card.category)
-    if(s.mode==='communication')return productionReady(s.prediction,p.after)&&p.after.trim()!==p.before.trim()&&s.rubric.some(r=>!!p.links[r.id])&&s.revisionRubric.every(r=>p.checked[`rubric-2-${r.id}`])
+    if(s.mode==='communication')return (s.readingAloud?wordCount(p.after)>=4:productionReady(s.prediction,p.after))&&p.after.trim()!==p.before.trim()&&s.rubric.some(r=>!!p.links[r.id])&&s.revisionRubric.every(r=>p.checked[`rubric-2-${r.id}`])
     if(s.mode==='reading'||s.mode==='transcript')return s.cases.filter(q=>sourceEvidence(q).some(e=>e.supports)).every(q=>p.completed.includes(`evidence-${q.id}`)&&p.completed.includes(`case-${q.id}`))
     return s.cases.slice(0,s.mode==='vocabulary'?s.cases.length:Math.min(2,s.cases.length)).every(q=>p.completed.includes(`case-${q.id}`))
   }

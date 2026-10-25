@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **243 / 413**. Current: **l-s-read-aloud**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **244 / 413**. Current: **l-w-note**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -351,7 +351,7 @@ Completed: **243 / 413**. Current: **l-s-read-aloud**. Evidence lives in docs/re
 | l-s-compare | 比较两种出行方式 | reviewed | [Individual review](../reviews/individual-lessons/l-s-compare.md) |
 | l-s-opinion | 说出观点，回应不同想法 | reviewed | [Individual review](../reviews/individual-lessons/l-s-opinion.md) |
 | l-s-problem | 向他人说明问题并求助 | reviewed | [Individual review](../reviews/individual-lessons/l-s-problem.md) |
-| l-s-read-aloud | 朗读与跟读：把意思读清楚 | pending | — |
+| l-s-read-aloud | 朗读与跟读：把意思读清楚 | reviewed | [Individual review](../reviews/individual-lessons/l-s-read-aloud.md) |
 | l-w-note | 写一张说明安排的便条 | pending | — |
 | l-s-course-t01 | 把一天安排得有张有弛：口头说清 | pending | — |
 | l-w-course-t01 | 把一天安排得有张有弛：用文字说清 | pending | — |
