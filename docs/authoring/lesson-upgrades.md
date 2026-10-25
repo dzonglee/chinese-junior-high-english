@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **218 / 413**. Current: **l-v-course-useful-qualities-3**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **219 / 413**. Current: **l-v-course-useful-qualities-4**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -326,7 +326,7 @@ Completed: **218 / 413**. Current: **l-v-course-useful-qualities-3**. Evidence l
 | l-v-course-planning-actions-5 | 计划、完成与解决问题 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-planning-actions-5.md) |
 | l-v-course-useful-qualities | 描述、判断与条件 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-useful-qualities.md) |
 | l-v-course-useful-qualities-2 | 描述、判断与条件 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-useful-qualities-2.md) |
-| l-v-course-useful-qualities-3 | 描述、判断与条件 · 3 | pending | — |
+| l-v-course-useful-qualities-3 | 描述、判断与条件 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-useful-qualities-3.md) |
 | l-v-course-useful-qualities-4 | 描述、判断与条件 · 4 | pending | — |
 | l-v-course-useful-qualities-5 | 描述、判断与条件 · 5 | pending | — |
 | l-v-course-manner | 程度、方式与时间副词 · 1 | pending | — |
