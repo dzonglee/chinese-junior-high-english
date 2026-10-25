@@ -240,9 +240,9 @@ const loaders = {
   "p-word-stress": () => require.async("./content/group-003/p-word-stress.js"),
   "p-sentence-stress": () => require.async("./content/group-003/p-sentence-stress.js"),
   "p-thought-groups": () => require.async("./content/group-003/p-thought-groups.js"),
-  "p-connected-speech": () => require.async("./content/group-003/p-connected-speech.js"),
+  "p-connected-speech": () => require.async("./content/group-004/p-connected-speech.js"),
   "p-intonation": () => require.async("./content/group-004/p-intonation.js"),
   "r-restoration": () => require.async("./content/group-004/r-restoration.js"),
   "r-short-answers": () => require.async("./content/group-004/r-short-answers.js"),
 };
-module.exports = { loadCatalog: async () => { await require.async("./assets/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-2/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-3/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-4/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };
+module.exports = { loadCatalog: async () => { await require.async("./assets/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-2/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-3/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-4/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); await require.async("./illustrations-5/index.js").catch(() => { throw new Error('插图加载未完成，请重试。'); }); return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };

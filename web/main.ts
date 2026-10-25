@@ -133,6 +133,8 @@ function render() {
   const dottedRouteFocus = active instanceof HTMLButtonElement && active.matches(".word-dotted-route button") ? active.dataset.value : undefined
   const contributionsFocus = active instanceof HTMLButtonElement && active.matches(".word-contributions button") ? active.dataset.value : undefined
   const curtainExitFocus = active instanceof HTMLButtonElement && active.matches(".word-curtain-exit button") ? active.dataset.value : undefined
+  const riverImagineFocus = active instanceof HTMLButtonElement && active.matches(".word-river-imagine button") ? active.dataset.value : undefined
+  const guessScaleFocus = active instanceof HTMLButtonElement && active.matches(".word-guess-scale button") ? active.dataset.value : undefined
   const stampFocus = active instanceof HTMLButtonElement && active.matches('.word-stamp-placement button') ? active.dataset.value : undefined
   const eachItemFocus = active instanceof HTMLButtonElement && active.matches('.word-each-item button') ? active.dataset.value : undefined
   const routeTrafficFocus = active instanceof HTMLButtonElement && active.matches('.word-route-traffic button') ? active.dataset.value : undefined
@@ -164,6 +166,8 @@ function render() {
   if (dottedRouteFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-dotted-route [data-value="${CSS.escape(dottedRouteFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (contributionsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-contributions [data-value="${CSS.escape(contributionsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (curtainExitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-curtain-exit [data-value="${CSS.escape(curtainExitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (riverImagineFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-river-imagine [data-value="${CSS.escape(riverImagineFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (guessScaleFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-guess-scale [data-value="${CSS.escape(guessScaleFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (stampFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stamp-placement [data-value="${CSS.escape(stampFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (eachItemFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-each-item [data-value="${CSS.escape(eachItemFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (routeTrafficFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-traffic [data-value="${CSS.escape(routeTrafficFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
