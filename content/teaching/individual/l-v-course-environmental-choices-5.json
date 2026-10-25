@@ -1,0 +1,576 @@
+{
+  "lessonId": "l-v-course-environmental-choices-5",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks preserve conservation support, two necessary conditions, renewable versus uninterrupted energy, solar identity, ecological relations, quiet duration, ash location and endangered status.",
+  "picturePurpose": "Original solar/wind garden-lamp contrast supports specific energy meaning; coded conjunction retains people and nature without real sustainability certification.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "两项都保留，看图辨能源",
+    "instruction": "切换people和nature保留两项，再看图辨solar；把生态关系、火山状态与濒危词义放回原句。",
+    "items": [
+      {
+        "id": "conservation",
+        "label": "conservation：supports conservation说明什么，没说明什么？",
+        "prompt": "supports conservation说明什么，没说明什么？",
+        "answer": "conservation",
+        "meaning": "保护；保育",
+        "material": "The project supports the conservation of local wetlands.",
+        "before": "The project supports the ",
+        "after": " of local wetlands.",
+        "reason": "conservation是保护、保育，常用于自然资源和生物。the conservation of local wetlands是对本地湿地的保护；supports说明项目提供支持，不等于所有湿地已经完全恢复。",
+        "hint": "the conservation of；local wetlands。",
+        "wordDecision": {
+          "prompt": "supports conservation说明什么，没说明什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "项目支持本地湿地保护",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "local",
+                "label": "项目支持本地湿地的保护",
+                "text": "The project supports the conservation of local wetlands.",
+                "include": true
+              },
+              {
+                "id": "destroy",
+                "label": "项目支持破坏本地湿地",
+                "text": "The project supports destroying local wetlands.",
+                "include": false
+              },
+              {
+                "id": "complete",
+                "label": "全球每片湿地都已完全恢复",
+                "text": "Every wetland in the world has already been fully restored.",
+                "include": false
+              }
+            ],
+            "hint": "保留保护、本地与支持，不补完成结果。",
+            "wrong": "选支持本地保护，不反转或扩大成全球已恢复。"
+          }
+        },
+        "options": [
+          {
+            "id": "local",
+            "text": "The project supports efforts to protect local wetlands.",
+            "correct": true,
+            "reason": "conservation是保护、保育，保留local范围和supports的作用。"
+          },
+          {
+            "id": "destroy",
+            "text": "The project supports destroying the local wetlands.",
+            "correct": false,
+            "reason": "反转conservation。"
+          },
+          {
+            "id": "complete",
+            "text": "Every wetland in the world has already been fully restored.",
+            "correct": false,
+            "reason": "把支持本地保护扩大成全球已全部恢复。"
+          }
+        ]
+      },
+      {
+        "id": "sustainable",
+        "label": "sustainable：and连接的两项能只留一项吗？",
+        "prompt": "and连接的两项能只留一项吗？",
+        "answer": "sustainable",
+        "meaning": "可持续的",
+        "material": "A sustainable plan must work for people and nature.",
+        "before": "A ",
+        "after": " plan must work for people and nature.",
+        "reason": "sustainable是可持续的，强调能长期保持而不耗尽资源。本句用must work for说明要求，people and nature是并列的两方面，不能只留一方。先看and两侧，再检查有没有漏掉一项。",
+        "hint": "sustainable；must；people and nature。",
+        "wordDecision": {
+          "prompt": "and连接的两项能只留一项吗？",
+          "sustainableAnd": {
+            "title": "保留and两侧的条件",
+            "hint": "切换people与nature，核对and连接的两项要求。",
+            "wrong": "must work for people and nature要求两项都保留，不能只选一项。"
+          }
+        },
+        "options": [
+          {
+            "id": "both",
+            "text": "A sustainable plan must work for both people and nature.",
+            "correct": true,
+            "reason": "and连接people和nature，must说明两项都不能漏。"
+          },
+          {
+            "id": "people",
+            "text": "A plan only needs to work for people, regardless of nature.",
+            "correct": false,
+            "reason": "删掉nature。"
+          },
+          {
+            "id": "nature",
+            "text": "A plan only needs to work for nature, regardless of people.",
+            "correct": false,
+            "reason": "删掉people。"
+          }
+        ]
+      },
+      {
+        "id": "renewable",
+        "label": "renewable：renewable等于太阳一直照、从不停供吗？",
+        "prompt": "renewable等于太阳一直照、从不停供吗？",
+        "answer": "renewable",
+        "meaning": "可再生的",
+        "material": "Sunlight is a renewable source of energy.",
+        "before": "Sunlight is a ",
+        "after": " source of energy.",
+        "reason": "renewable是可再生的，修饰source of energy。太阳光属于可再生能源，但可再生不等于每个地方全天都能获得太阳光。不要把renewable读成uninterrupted。",
+        "hint": "a renewable source of energy；不等于全天不停供。",
+        "wordDecision": {
+          "prompt": "renewable等于太阳一直照、从不停供吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "太阳光是可再生能源",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "renew",
+                "label": "太阳光是一种可再生能源",
+                "text": "Sunlight is a renewable source of energy.",
+                "include": true
+              },
+              {
+                "id": "always",
+                "label": "所有地方每时每刻都有太阳光",
+                "text": "Sunlight is available everywhere at every moment.",
+                "include": false
+              },
+              {
+                "id": "nonrenew",
+                "label": "太阳光是像煤一样的不可再生燃料",
+                "text": "Sunlight is a non-renewable fuel like coal.",
+                "include": false
+              }
+            ],
+            "hint": "区分可再生与全天持续可用。",
+            "wrong": "选可再生能源，不补始终照射或改成不可再生。"
+          }
+        },
+        "options": [
+          {
+            "id": "renew",
+            "text": "Sunlight is a source of energy that is naturally replenished.",
+            "correct": true,
+            "reason": "renewable说明可再生，不说明全天持续可用。"
+          },
+          {
+            "id": "always",
+            "text": "Sunlight is available at every place at every moment.",
+            "correct": false,
+            "reason": "把可再生误读成所有地方每时每刻都有。"
+          },
+          {
+            "id": "nonrenew",
+            "text": "Sunlight is a non-renewable fuel like coal.",
+            "correct": false,
+            "reason": "反转renewable。"
+          }
+        ]
+      },
+      {
+        "id": "solar",
+        "label": "solar：solar指太阳能，还是所有可再生能源？",
+        "prompt": "solar指太阳能，还是所有可再生能源？",
+        "answer": "solar",
+        "meaning": "太阳的；太阳能的",
+        "material": "A solar lamp lights the garden path.",
+        "before": "A ",
+        "after": " lamp lights the garden path.",
+        "reason": "solar表示太阳的、太阳能的；a solar lamp是太阳能灯。lights在这里是动词，表示照亮，the garden path是被照亮的对象。图中对比太阳能灯与风能灯，不能把所有可再生能源都叫solar。",
+        "hint": "solar lamp；lights作动词。",
+        "wordDecision": {
+          "prompt": "solar指太阳能，还是所有可再生能源？",
+          "art": {
+            "asset": "lesson-solar-wind-lamps",
+            "assetRoot": "illustrations-5",
+            "format": "jpg",
+            "alt": "园灯能源词义对比：左侧是有太阳能板的太阳能灯，右侧是有风转子的风能灯。",
+            "targets": [
+              {
+                "id": "sun-lamp",
+                "option": "solar",
+                "label": "太阳能",
+                "left": 4,
+                "top": 10,
+                "width": 43,
+                "height": 80
+              },
+              {
+                "id": "wind-lamp",
+                "option": "wind",
+                "label": "风能",
+                "left": 53,
+                "top": 10,
+                "width": 43,
+                "height": 80
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "solar",
+            "text": "A lamp powered by energy from the sun lights the garden path.",
+            "correct": true,
+            "reason": "solar表示太阳能，lights在这里是动词照亮。"
+          },
+          {
+            "id": "wind",
+            "text": "A wind-powered lamp lights the garden path.",
+            "correct": false,
+            "reason": "风能也可再生，但不是solar的意思。"
+          }
+        ]
+      },
+      {
+        "id": "ecology",
+        "label": "Ecology：ecology研究的是关系，还是只检查卫生？",
+        "prompt": "ecology研究的是关系，还是只检查卫生？",
+        "answer": "Ecology",
+        "meaning": "生态学",
+        "material": "Ecology studies how living things relate to their surroundings.",
+        "before": "",
+        "after": " studies how living things relate to their surroundings.",
+        "reason": "Ecology是生态学，句首大写；studies how ...说明研究的内容。living things是生物，surroundings是周围环境，重点是它们如何相互关联，不只是环境卫生，也不是把生物与环境分开研究。",
+        "hint": "ecology；living things；relate to surroundings。",
+        "wordDecision": {
+          "prompt": "ecology研究的是关系，还是只检查卫生？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "生态学研究生物与环境的关系",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "relations",
+                "label": "研究生物与周围环境的关系",
+                "text": "Ecology studies how living things relate to their surroundings.",
+                "include": true
+              },
+              {
+                "id": "cleaning",
+                "label": "只检查街道有没有清扫",
+                "text": "Ecology only checks whether streets have been swept.",
+                "include": false
+              },
+              {
+                "id": "isolated",
+                "label": "研究生物时完全不考虑环境",
+                "text": "Ecology studies living things without considering surroundings.",
+                "include": false
+              }
+            ],
+            "hint": "保留生物、环境与相互关系。",
+            "wrong": "选研究关系，不缩成清扫卫生或删掉环境。"
+          }
+        },
+        "options": [
+          {
+            "id": "relations",
+            "text": "Ecology examines relationships between living things and their surroundings.",
+            "correct": true,
+            "reason": "保留生物与周围环境之间的关系。"
+          },
+          {
+            "id": "cleaning",
+            "text": "Ecology only checks whether streets have been swept.",
+            "correct": false,
+            "reason": "把生态学缩成只检查街道清扫。"
+          },
+          {
+            "id": "isolated",
+            "text": "Ecology studies living things without considering their surroundings.",
+            "correct": false,
+            "reason": "删掉relate to their surroundings。"
+          }
+        ]
+      },
+      {
+        "id": "volcano",
+        "label": "volcano：quiet for many years等于永不喷发吗？",
+        "prompt": "quiet for many years等于永不喷发吗？",
+        "answer": "volcano",
+        "meaning": "火山",
+        "material": "The volcano has been quiet for many years.",
+        "before": "The ",
+        "after": " has been quiet for many years.",
+        "reason": "volcano是火山，复数常用volcanoes。has been quiet for many years把多年平静的状态连到现在；没有保证以后永不喷发，也不是说此刻正在喷发。",
+        "hint": "has been quiet；for many years。",
+        "wordDecision": {
+          "prompt": "quiet for many years等于永不喷发吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "火山已平静多年",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "quiet",
+                "label": "这座火山已平静多年",
+                "text": "The volcano has been quiet for many years.",
+                "include": true
+              },
+              {
+                "id": "never",
+                "label": "这座火山以后绝不会再次喷发",
+                "text": "The volcano can never erupt again.",
+                "include": false
+              },
+              {
+                "id": "now",
+                "label": "这座火山此刻正在喷发",
+                "text": "The volcano is erupting now.",
+                "include": false
+              }
+            ],
+            "hint": "保留多年持续状态，不补未来保证。",
+            "wrong": "选多年平静，不改成永不喷发或正在喷发。"
+          }
+        },
+        "options": [
+          {
+            "id": "quiet",
+            "text": "The volcano has remained quiet for a long time.",
+            "correct": true,
+            "reason": "保留持续多年平静的状态。"
+          },
+          {
+            "id": "never",
+            "text": "The volcano can never erupt again.",
+            "correct": false,
+            "reason": "多年平静不能保证未来永不喷发。"
+          },
+          {
+            "id": "now",
+            "text": "The volcano is erupting at this moment.",
+            "correct": false,
+            "reason": "反转has been quiet。"
+          }
+        ]
+      },
+      {
+        "id": "eruption",
+        "label": "eruption：covered nearby fields in ash限定了什么？",
+        "prompt": "covered nearby fields in ash限定了什么？",
+        "answer": "eruption",
+        "meaning": "喷发；爆发",
+        "material": "The eruption covered nearby fields in ash.",
+        "before": "The ",
+        "after": " covered nearby fields in ash.",
+        "reason": "eruption是喷发、爆发，volcanic eruption是火山喷发。covered nearby fields in ash表示灰覆盖了附近田地；nearby限定位置，ash说明覆盖物。不要补成全国田地全部毁坏。",
+        "hint": "eruption；cover ... in ash；nearby。",
+        "wordDecision": {
+          "prompt": "covered nearby fields in ash限定了什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "喷发使附近田地蒙上灰",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "ash",
+                "label": "喷发带来的灰覆盖附近田地",
+                "text": "The eruption covered nearby fields in ash.",
+                "include": true
+              },
+              {
+                "id": "water",
+                "label": "喷发使远处田地被水覆盖",
+                "text": "The eruption covered distant fields with water.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "全国每块田地都完全毁坏",
+                "text": "Every field in the country was completely destroyed.",
+                "include": false
+              }
+            ],
+            "hint": "保留附近田地与覆盖物灰。",
+            "wrong": "选灰覆盖附近田地，不换物质或扩大毁坏范围。"
+          }
+        },
+        "options": [
+          {
+            "id": "ash",
+            "text": "The eruption left nearby fields covered with ash.",
+            "correct": true,
+            "reason": "保留喷发、附近田地与灰。"
+          },
+          {
+            "id": "water",
+            "text": "The eruption covered distant fields with water.",
+            "correct": false,
+            "reason": "把附近改成远处，灰改成水。"
+          },
+          {
+            "id": "all",
+            "text": "Every field in the country was completely destroyed.",
+            "correct": false,
+            "reason": "覆盖灰不等于全国每块田完全毁坏。"
+          }
+        ]
+      },
+      {
+        "id": "endangered",
+        "label": "endangered：endangered是濒危，还是已经灭绝或很危险？",
+        "prompt": "endangered是濒危，还是已经灭绝或很危险？",
+        "answer": "endangered",
+        "meaning": "濒危的",
+        "material": "The wetland provides a home for an endangered bird.",
+        "before": "The wetland provides a home for an ",
+        "after": " bird.",
+        "reason": "endangered是濒危的，指面临灭绝风险，不等于extinct已经灭绝，也不等于dangerous危险的。an endangered bird用an；湿地给这种鸟提供栖息地，原句没有给出种名或种群数量。",
+        "hint": "an endangered bird；endangered ≠ extinct/dangerous。",
+        "wordDecision": {
+          "prompt": "endangered是濒危，还是已经灭绝或很危险？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "湿地为濒危鸟提供栖息地",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "threatened",
+                "label": "湿地为一种濒危鸟提供栖息地",
+                "text": "The wetland provides a home for an endangered bird.",
+                "include": true
+              },
+              {
+                "id": "extinct",
+                "label": "这种鸟已经灭绝",
+                "text": "The bird has already become extinct.",
+                "include": false
+              },
+              {
+                "id": "dangerous",
+                "label": "这种鸟必定对人危险",
+                "text": "The bird is necessarily dangerous to people.",
+                "include": false
+              }
+            ],
+            "hint": "区分濒危、灭绝与危险，不补种名或数量。",
+            "wrong": "选濒危鸟的栖息地，不改成灭绝或对人危险。"
+          }
+        },
+        "options": [
+          {
+            "id": "threatened",
+            "text": "The wetland is a home for a bird that is at risk of extinction.",
+            "correct": true,
+            "reason": "endangered是面临灭绝风险，仍有这种鸟。"
+          },
+          {
+            "id": "extinct",
+            "text": "The bird has already become extinct.",
+            "correct": false,
+            "reason": "把濒危改成已经灭绝。"
+          },
+          {
+            "id": "dangerous",
+            "text": "The bird is necessarily dangerous to people.",
+            "correct": false,
+            "reason": "把濒危误当成对人危险。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-environmental-choices-5-transfer",
+      "topicId": "v-course-environmental-choices",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes correctly describe the plan, the lamp and the bird?",
+      "passage": "A visit to the wetland project\nOur class visited a project supporting the conservation of local wetlands. At the entrance, the guide explained that a sustainable plan must work for people and nature. Beside the garden path stood a solar lamp. Its small information card described sunlight as a renewable source of energy.\nWe joined an ecology activity about how living things relate to their surroundings. From a viewing point, the guide showed us a part of the wetland that provided a home for an endangered bird. We wrote down what we had learned about its habitat.\nThe visitor centre also had a geology display. One panel described a volcano that had been quiet for many years. Another showed nearby fields covered in ash after an eruption. We compared the panels before returning to the path.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The plan must work for people and nature; the lamp uses solar energy; the bird is endangered, rather than already extinct."
+        },
+        {
+          "id": "b",
+          "text": "The plan only needs to work for people; the lamp uses solar energy; the bird is endangered, rather than already extinct."
+        },
+        {
+          "id": "c",
+          "text": "The plan must work for people and nature; the lamp uses wind energy; the bird is endangered, rather than already extinct."
+        },
+        {
+          "id": "d",
+          "text": "The plan must work for people and nature; the lamp uses solar energy; the bird has already become extinct."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The plan must work for people and nature; the lamp uses solar energy; the bird is endangered, rather than already extinct."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对and两侧条件、solar的具体能源和endangered的程度。",
+        "steps": [
+          {
+            "text": "计划要兼顾people和nature；园灯是solar lamp，使用太阳能。",
+            "reason": "不能漏掉nature，也不能把风能当成solar。"
+          },
+          {
+            "text": "endangered bird是面临灭绝风险的鸟。",
+            "reason": "濒危不等于已经灭绝；文中还说明湿地提供栖息地。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "删掉了and连接的nature条件。"
+          },
+          {
+            "option": "c",
+            "reason": "把太阳能灯误读成风能灯。"
+          },
+          {
+            "option": "d",
+            "reason": "把濒危误读成已经灭绝。"
+          }
+        ],
+        "pitfall": "把必要条件漏掉一半，或把相关但不同的词混为一谈。",
+        "visual": {
+          "kind": "timeline",
+          "title": "同时满足，分清近义",
+          "segments": [
+            {
+              "text": "people AND nature",
+              "role": "object",
+              "note": "两项都保留"
+            },
+            {
+              "text": "solar → sunlight",
+              "role": "object",
+              "note": "太阳能，不是风能"
+            },
+            {
+              "text": "endangered ≠ extinct",
+              "role": "object",
+              "note": "濒危不等于灭绝"
+            }
+          ],
+          "caption": "保留并列条件与具体词义。"
+        },
+        "transfer": "为什么火山平静多年，不能保证以后永不喷发？"
+      }
+    }
+  }
+}

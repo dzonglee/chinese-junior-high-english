@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **230 / 413**. Current: **l-v-course-environmental-choices-5**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **231 / 413**. Current: **l-w-email**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -338,7 +338,7 @@ Completed: **230 / 413**. Current: **l-v-course-environmental-choices-5**. Evide
 | l-v-course-environmental-choices-2 | 环境、资源与风险 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-environmental-choices-2.md) |
 | l-v-course-environmental-choices-3 | 环境、资源与风险 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-environmental-choices-3.md) |
 | l-v-course-environmental-choices-4 | 环境、资源与风险 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-environmental-choices-4.md) |
-| l-v-course-environmental-choices-5 | 环境、资源与风险 · 5 | pending | — |
+| l-v-course-environmental-choices-5 | 环境、资源与风险 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-environmental-choices-5.md) |
 | l-w-email | 写一封有用的邀请邮件 | pending | — |
 | l-w-advice | 给同学的建议，具体才有用 | pending | — |
 | l-w-notice | 通知写清谁、何时、何地 | pending | — |
