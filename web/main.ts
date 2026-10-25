@@ -123,6 +123,7 @@ function render() {
   const fileDeskFocus = active instanceof HTMLButtonElement && active.matches('.word-file-desk .file-desk-control') ? active.dataset.value : undefined
   const shelfRoomFocus = active instanceof HTMLButtonElement && active.matches('.word-shelf-room .shelf-room-control') ? active.dataset.value : undefined
   const shadePanelFocus = active instanceof HTMLButtonElement && active.matches('.word-shade-panel .shade-panel-control') ? active.dataset.value : undefined
+  const stampFocus = active instanceof HTMLButtonElement && active.matches('.word-stamp-placement button') ? active.dataset.value : undefined
   const eachItemFocus = active instanceof HTMLButtonElement && active.matches('.word-each-item button') ? active.dataset.value : undefined
   const routeTrafficFocus = active instanceof HTMLButtonElement && active.matches('.word-route-traffic button') ? active.dataset.value : undefined
   const paperUseFocus = active instanceof HTMLButtonElement && active.matches('.word-paper-use button') ? active.dataset.value : undefined
@@ -142,6 +143,7 @@ function render() {
   root.innerHTML = `<main class="app ${s.tabs.length ? 'with-tabs' : ''} ${s.overview ? 'product-app' : ''} ${s.paperSession?'is-paper-session':''} screen-${esc(s.id)}" data-screen="${esc(s.id)}">${setupHeader}${body}${s.tabs.length ? `<nav class="tabbar" aria-label="主导航">${s.tabs.map(t => `<button class="tab ${t.selected ? 'selected' : ''}" aria-current="${t.selected ? 'page' : 'false'}" data-action="navigate" data-value="${esc(t.id)}"><span class="tab-icon"><img src="${artwork('navigation/'+t.id+(t.selected?'-on':''))}" alt=""/></span><span>${esc(t.label)}</span></button>`).join('')}</nav>` : ''}</main>`
   root.querySelectorAll<HTMLElement>('[data-passage-key]').forEach(e=>{e.scrollTop=passageScroll.get(e.dataset.passageKey)??0})
   if (shadePanelFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-shade-panel [data-value="${CSS.escape(shadePanelFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (stampFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stamp-placement [data-value="${CSS.escape(stampFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (eachItemFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-each-item [data-value="${CSS.escape(eachItemFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (routeTrafficFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-traffic [data-value="${CSS.escape(routeTrafficFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (paperUseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-paper-use [data-value="${CSS.escape(paperUseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
