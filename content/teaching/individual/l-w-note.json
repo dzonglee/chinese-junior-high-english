@@ -1,0 +1,310 @@
+{
+  "lessonId": "l-w-note",
+  "reviewState": "draft",
+  "intent": "Individual note writing preserves recipient, Saturday park invitation,10am school-gate meeting and one bottle of water, with35–50words and fictional sender/no real contact details. Reference walk/birdwatching/name remain optional.",
+  "picturePurpose": "Coded recipient/activity, meeting, packing and note-format cards show actionable arrangements without invented scene details or AI timestamps.",
+  "workshop": {
+    "kind": "compose",
+    "title": "让Ben看完便条，就知道怎样赴约",
+    "instruction": "把周六去公园、上午十点在学校门口见、带一瓶水逐项写清。称呼和署名用虚构名字；不必照搬参考里的步行或观鸟安排。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "给Ben的周六公园邀请",
+        "prompt": "收条人是谁？这次邀请是哪天、去哪里？",
+        "answer": "",
+        "reason": "邀请对象、日期和活动已核对。用自己的句子把Ben需要知道的安排写清。",
+        "hint": "本题收条人是Ben，周六去公园。步行和观鸟只是参考里的可选补充，不是必写细节。",
+        "material": "你想约朋友 Ben 周六上午十点在学校门口一起去公园。写一张约 35—50 词的英文便条，说明时间、地点，以及请他带一瓶水。不写真实姓名或联系方式。",
+        "composeBrief": {
+          "title": "给谁 → 哪天 → 做什么",
+          "hint": "先把邀请对象和活动说明白。",
+          "wrong": "收条人是Ben，邀请周六去公园。图书馆工作人员不是本题对象；不能改成周日购物，也不能只问候而不交代对象和活动。",
+          "fields": [
+            {
+              "id": "person",
+              "label": "本题的收条人",
+              "answer": "ben",
+              "choices": [
+                {
+                  "id": "ben",
+                  "label": "Ben · 题中给出的朋友"
+                },
+                {
+                  "id": "library",
+                  "label": "The library staff · 图书馆工作人员"
+                },
+                {
+                  "id": "unknown",
+                  "label": "No intended reader · 不说明对象"
+                }
+              ]
+            },
+            {
+              "id": "activity",
+              "label": "本次邀请",
+              "answer": "saturday-park",
+              "choices": [
+                {
+                  "id": "sunday-shop",
+                  "label": "Go shopping on Sunday."
+                },
+                {
+                  "id": "saturday-park",
+                  "label": "Go to the park this Saturday."
+                },
+                {
+                  "id": "greeting",
+                  "label": "Hello! Nice weather!"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "上午十点，在学校门口",
+        "prompt": "哪条安排能让Ben按原题赴约？",
+        "answer": "",
+        "reason": "上午十点和学校门口已核对。再检查自己的句子有没有把时间地点同时写清。",
+        "hint": "学校门口是碰面地点，公园是要去的地方；不能只说在公园某处等，也不能照搬另一题的图书馆四点改约。",
+        "material": "你想约朋友 Ben 周六上午十点在学校门口一起去公园。写一张约 35—50 词的英文便条，说明时间、地点，以及请他带一瓶水。不写真实姓名或联系方式。",
+        "composeBrief": {
+          "title": "碰面卡 · 10:00 · 学校门口",
+          "hint": "时间要写清上午，地点按原题。",
+          "wrong": "碰面要写清周六上午十点在学校门口；公园是目的地。图书馆四点和晚上十点都不符合本题；只说某个时候也不够具体。",
+          "fields": [
+            {
+              "id": "time",
+              "label": "碰面时间",
+              "answer": "ten-am",
+              "choices": [
+                {
+                  "id": "ten-pm",
+                  "label": "22:00 · ten at night"
+                },
+                {
+                  "id": "ten-am",
+                  "label": "10:00 · ten in the morning"
+                },
+                {
+                  "id": "vague",
+                  "label": "At some time · 某个时候"
+                }
+              ]
+            },
+            {
+              "id": "place",
+              "label": "先在哪里碰面？",
+              "answer": "gate",
+              "choices": [
+                {
+                  "id": "park",
+                  "label": "Somewhere in the park."
+                },
+                {
+                  "id": "gate",
+                  "label": "At the school gate."
+                },
+                {
+                  "id": "library",
+                  "label": "In the library at four."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "提醒带一瓶水",
+        "prompt": "哪句具体提醒了原题要求的物品？",
+        "answer": "",
+        "reason": "带水提醒已核对。便条不需要复杂句，能让对方知道带什么即可。",
+        "hint": "原题是一瓶水，不是必须买某品牌，也不需要加入真实联系方式。",
+        "material": "你想约朋友 Ben 周六上午十点在学校门口一起去公园。写一张约 35—50 词的英文便条，说明时间、地点，以及请他带一瓶水。不写真实姓名或联系方式。",
+        "composeBrief": {
+          "title": "带什么 → 怎么提醒",
+          "hint": "提醒Ben带一瓶水，不用无关物品替代。",
+          "wrong": "只说带需要的东西，没有说清一瓶水；相机也不能代替原题要求的水。",
+          "fields": [
+            {
+              "id": "bring",
+              "label": "具体提醒",
+              "answer": "water",
+              "choices": [
+                {
+                  "id": "anything",
+                  "label": "Please bring what you need."
+                },
+                {
+                  "id": "water",
+                  "label": "Please bring a bottle of water."
+                },
+                {
+                  "id": "camera",
+                  "label": "Bring a camera instead of water."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-format",
+        "label": "短便条，虚构称呼与署名",
+        "prompt": "写完后怎样检查便条的形式和隐私要求？",
+        "answer": "",
+        "reason": "字数、称呼与署名已核对。最后检查安排是否准确，语言是否自然。",
+        "hint": "可以用虚构署名，不必固定写Li Hua。原题不写真实姓名或联系方式；晚归便条题里提到联系信息，不适用于这里的隐私要求。",
+        "material": "你想约朋友 Ben 周六上午十点在学校门口一起去公园。写一张约 35—50 词的英文便条，说明时间、地点，以及请他带一瓶水。不写真实姓名或联系方式。",
+        "composeBrief": {
+          "title": "写给谁 · 约35—50词 · 谁留言",
+          "hint": "保留题中Ben，署名用虚构名字，不提供真实联系方式。",
+          "wrong": "本题要写给Ben，并用虚构署名，不写真实姓名或联系方式。普通段落若不标明收条人和署名，不符合本卡的便条形式。约35—50词，不是几十句或十个零散词。",
+          "fields": [
+            {
+              "id": "format",
+              "label": "符合本题的便条形式",
+              "answer": "fictional",
+              "choices": [
+                {
+                  "id": "fictional",
+                  "label": "Address Ben and use a fictional sender name, without real contact details."
+                },
+                {
+                  "id": "real",
+                  "label": "Add my real full name, home address and phone number."
+                },
+                {
+                  "id": "anonymous",
+                  "label": "Write a general paragraph without addressing Ben or signing the note."
+                }
+              ]
+            },
+            {
+              "id": "length",
+              "label": "本题字数目标",
+              "answer": "words",
+              "choices": [
+                {
+                  "id": "sentences",
+                  "label": "Write 35–50 sentences."
+                },
+                {
+                  "id": "words",
+                  "label": "Write about 35–50 words."
+                },
+                {
+                  "id": "ten",
+                  "label": "Write only ten isolated words."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-w-note-transfer",
+      "topicId": "w-note",
+      "skill": "writing",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "Which plan gives the new reader all the required arrangements?",
+      "passage": "A different note\nWrite Anna a 35–50-word note inviting her to play badminton this Sunday. Meet at the sports-centre entrance at nine in the morning. Ask her to bring a racket. Use a fictional sender name and no real contact details.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Invite Anna to badminton on Sunday, give 9 a.m. at the sports-centre entrance, remind her to bring a racket and use a fictional sender name."
+        },
+        {
+          "id": "b",
+          "text": "Tell Ben to meet at the school gate on Saturday at ten and bring water, without mentioning the new badminton plan."
+        },
+        {
+          "id": "c",
+          "text": "Say only “See you somewhere sometime” and do not name the activity or what to bring."
+        },
+        {
+          "id": "d",
+          "text": "Invite Anna but change the meeting to Sunday night and publish real contact details."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Invite Anna to badminton on Sunday, give 9 a.m. at the sports-centre entrance, remind her to bring a racket and use a fictional sender name."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "重新核对收条人、活动、时间地点与物品，不套旧便条的安排。",
+        "steps": [
+          {
+            "text": "Anna、周日打羽毛球、上午九点在体育中心入口碰面。",
+            "reason": "对象、活动、时间和碰面地点都换了，不能沿用Ben的周六公园计划。"
+          },
+          {
+            "text": "提醒带球拍，并用虚构署名，不写真实联系方式。",
+            "reason": "便条要让对方知道如何准备，也要满足本题隐私要求。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "照搬旧题的对象、日期、时间、地点和物品，没有回应新的羽毛球邀请。"
+          },
+          {
+            "option": "c",
+            "reason": "时间地点、活动和物品都不具体，无法照着赴约。"
+          },
+          {
+            "option": "d",
+            "reason": "上午被改成晚上，而且违反不提供真实联系方式的要求。"
+          }
+        ],
+        "pitfall": "写得像便条，却把旧任务的时间地点和物品一起背了进去。",
+        "visual": {
+          "kind": "comparison",
+          "title": "新便条 · 新安排",
+          "segments": [
+            {
+              "text": "Anna · Sunday · badminton",
+              "role": "evidence",
+              "note": "新的对象和活动"
+            },
+            {
+              "text": "09:00 · sports-centre entrance",
+              "role": "evidence",
+              "note": "碰面时间地点"
+            },
+            {
+              "text": "bring a racket",
+              "role": "evidence",
+              "note": "要带的物品"
+            },
+            {
+              "text": "35–50 words · fictional sender",
+              "role": "evidence",
+              "note": "形式与隐私"
+            }
+          ],
+          "caption": "短句也可以把安排说清；不需要堆复杂句。"
+        },
+        "transfer": "如果只改了碰面地点，你怎样检查便条没有无意改掉时间和物品？"
+      }
+    }
+  }
+}
