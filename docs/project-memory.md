@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-10-25 (UTC)
 
-236 of 413 lessons are individually reviewed; 177 remain pending. Work stays solo under
+237 of 413 lessons are individually reviewed; 176 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-w-opinion. Opinion writing is individually redesigned around either defensible position. Three conditional planning cards preserve the daily fifteen-minute free-reading proposal, connect two distinct reasons to the selected stance and match a respectful response to a reasonable concern. Changing stance invalidates checked completion while retaining original writing. An original opposing revision illustrates position-neutral assessment. Fresh weekly optional quiet-study transfer requires reading new conditions. No invented survey or guaranteed outcome is accepted. All content remains draft.
+Latest: l-w-report. Observation-report writing is individually redesigned around exact facts and proposed improvements. Three reversible cards preserve the lunch-break observation, two taps not fully off, difficult-to-see library-entrance notice and classmates willing to take turns checking. Two matching suggestions address the observed problems; willingness is not converted into an established checking system. An original 90–110-word revision and separate Room 204 electricity observation test accurate reporting without invented counts or citywide claims. All content remains draft.
 
-Inspected all75frozen browser figures across all19contact sheets. At320/390/768px all three reversible planning cards show the exact15-minute daily free-reading proposal, two distinct matched reasons, a reasonable concern and its corresponding response. Both complete support and opposition paths are actually viewed on all three cards at all three widths, including saved opposition writing after reopening. Switching position invalidates checked completion until the coherent path is checked again; original writing remains saved. All wrong, partial, missing, cleared/reset and short-writing states are viewed. Both positions are explicitly allowed; example reasons and trial arrangements are not promises of real outcomes. Fresh weekly optional30-minute quiet-study transfer presentsB as correct; both explanation steps and wrongA/C/Dfeedback are inspected. Full new source passage,90–110-word main requirement, reference-role mismatch and correction, original99-word opposing revision and all four self-review controls are readable. Complete original brief,eight-sentence supportive reference and4/3/3rubric separately read. Summary records guided exploration,not mastery. No new picture used; all content remains draft. Actual SDK236 awaits explicit source-transfer approval.
- Complete original brief, eight-sentence support reference and practice rubric separately read; newly authored opposing revision read in full. Guided planning and self-review grant no independent attempt, mastery, lessonDone or hearing credit.
+Inspected all 60 frozen figures across 15 contact sheets. Sheets 0 and 1 were additionally checked through all four full originals on sheet 1; complete controls and writing remain visible. At 320/390/768px, the three reversible cards preserve lunchtime, two taps not fully off, the difficult-to-see library-entrance notice and willingness to help. Matching suggestions address each problem; observation, proposal and willingness remain distinct. All wrong choices, partial, cleared, reset, reopened, retained-writing and short-writing states inspected. Fresh Room 204 transfer presents D as correct, with both explanation steps and wrong A/B/C feedback viewed. Full changed source, original 95-word revision, reference-role mismatch and self-review are readable. Summary records guided exploration rather than mastery. Complete original brief, seven-sentence reference and rubric separately read. Content remains draft; actual SDK beyond 147 remains blocked pending explicit transfer approval.
+ Complete original brief, seven-sentence reference report and practice rubric separately read. Guided planning and self-review grant no independent attempt, mastery, lessonDone or hearing credit.
 
-Checkpoint 236 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 2018 tasks / 6054 widths; earlier flows retain their original scope.
+Checkpoint 237 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 2021 tasks / 6063 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-w-report. Continue l-w-report individually: lunch-break campus water-use observation, two taps not fully off, difficult-to-see library-entrance notice and classmates willing to take turns checking; three facts, two matching proposals, 90–110 words. No invented counts or implemented roster. Approved audio separate, videos deferred.
+Next: l-s-introduce. Continue l-s-introduce individually: read exact speaking brief and source examples, author useful interactive planning and fresh transfer while separating written preparation from actual spoken/listening evidence. Approved audio separate, videos deferred.
 
-Native GUI status: Native 148–236 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–236 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–237 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–237 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint 235 pushed and all recorded hashes verified before 236. Origin/main fetched and shared board/latest log read; solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
+Checkpoint 236 pushed and all recorded hashes verified before 237. Origin/main fetched and shared board/latest log read; solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 
