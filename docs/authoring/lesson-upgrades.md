@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **252 / 413**. Current: **l-w-course-t04**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **253 / 413**. Current: **l-s-course-t05**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -360,7 +360,7 @@ Completed: **252 / 413**. Current: **l-w-course-t04**. Evidence lives in docs/re
 | l-s-course-t03 | 身心健康与求助：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t03.md) |
 | l-w-course-t03 | 身心健康与求助：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t03.md) |
 | l-s-course-t04 | 找到适合自己的学习方法：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t04.md) |
-| l-w-course-t04 | 找到适合自己的学习方法：用文字说清 | pending | — |
+| l-w-course-t04 | 找到适合自己的学习方法：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t04.md) |
 | l-s-course-t05 | 认识自己与管理时间：口头说清 | pending | — |
 | l-w-course-t05 | 认识自己与管理时间：用文字说清 | pending | — |
 | l-s-course-t06 | 了解职业与责任：口头说清 | pending | — |
