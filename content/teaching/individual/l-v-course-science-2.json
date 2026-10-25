@@ -1,0 +1,581 @@
+{
+  "lessonId": "l-v-course-science-2",
+  "reviewState": "draft",
+  "intent": "Individually authored science vocabulary tasks preserve experimental conditions, amount comparisons and action constraints.",
+  "picturePurpose": "Original single-plant art moves only under coded controls to teach observing without moving; separate record examples teach each, and event ordering teaches before.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "看清条件，再动手",
+    "instruction": "原位观察、补齐记录、排好先后；每次只做一件事。",
+    "items": [
+      {
+        "id": "experiment",
+        "label": "experiment：把实验记录分成“比较条件”和“实验结果”。",
+        "prompt": "把实验记录分成“比较条件”和“实验结果”。",
+        "answer": "experiment",
+        "meaning": "实验",
+        "material": "Our experiment compared seeds in light and shade.",
+        "before": "Our ",
+        "after": " compared seeds in light and shade.",
+        "reason": "experiment是实验。原句记录了比较光照和阴影中种子的实验，没给结果；不能凭日常印象断定哪组长得更好。",
+        "hint": "do an experiment做实验；experiment不是预先确定的结论。",
+        "wordDecision": {
+          "prompt": "把实验记录分成“比较条件”和“实验结果”。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "实验比较什么？",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "compared",
+                "label": "比较光照和阴影中的种子",
+                "text": "Our experiment compared seeds in light and shade.",
+                "include": true
+              },
+              {
+                "id": "winner",
+                "label": "所有种子在光照中长得更好",
+                "text": "All seeds grew better in light.",
+                "include": false
+              },
+              {
+                "id": "water",
+                "label": "比较两种浇水量",
+                "text": "The experiment compared two watering amounts.",
+                "include": false
+              }
+            ],
+            "hint": "light与shade是条件；原句没有结果。",
+            "wrong": "选比较光照与阴影；不能补结果或替换条件。"
+          }
+        },
+        "options": [
+          {
+            "id": "compared",
+            "text": "The experiment compared seeds in light and shade.",
+            "correct": true,
+            "reason": "只保留比较对象与条件。"
+          },
+          {
+            "id": "winner",
+            "text": "The sentence proves that all seeds grew better in light.",
+            "correct": false,
+            "reason": "原句没有给实验结果。"
+          },
+          {
+            "id": "water",
+            "text": "The experiment compared two watering amounts.",
+            "correct": false,
+            "reason": "比较的是光照与阴影，不是两种水量。"
+          }
+        ]
+      },
+      {
+        "id": "method",
+        "label": "method：less water：是少用一些，还是完全不用？",
+        "prompt": "less water：是少用一些，还是完全不用？",
+        "answer": "method",
+        "meaning": "方法",
+        "material": "This method uses less water to clean the brushes.",
+        "before": "This ",
+        "after": " uses less water to clean the brushes.",
+        "reason": "method是方法。less water说清洗刷子时用水更少，没说完全不用水，也没给节水百分比或具体步骤。",
+        "hint": "a method of doing something；water不可数，用less。",
+        "wordDecision": {
+          "prompt": "less water：是少用一些，还是完全不用？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "清洗刷子，用水更少",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "less",
+                "label": "用水更少",
+                "text": "This method uses less water to clean the brushes.",
+                "include": true
+              },
+              {
+                "id": "none",
+                "label": "完全不用水",
+                "text": "The method uses no water at all.",
+                "include": false
+              },
+              {
+                "id": "half",
+                "label": "恰好节省一半水",
+                "text": "The method saves exactly half the water.",
+                "include": false
+              }
+            ],
+            "hint": "less不等于零，也没有具体比例。",
+            "wrong": "选更少；不能改成完全不用或补节水比例。"
+          }
+        },
+        "options": [
+          {
+            "id": "less",
+            "text": "The method uses less water to clean the brushes.",
+            "correct": true,
+            "reason": "less表示更少，不是没有。"
+          },
+          {
+            "id": "none",
+            "text": "The method uses no water at all.",
+            "correct": false,
+            "reason": "less不能改成no。"
+          },
+          {
+            "id": "more",
+            "text": "The method uses more water.",
+            "correct": false,
+            "reason": "把更少反成更多。"
+          }
+        ]
+      },
+      {
+        "id": "process",
+        "label": "process：process指图上展示的什么？",
+        "prompt": "process指图上展示的什么？",
+        "answer": "process",
+        "meaning": "过程；加工",
+        "material": "The diagram shows the process of making paper.",
+        "before": "The diagram shows the ",
+        "after": " of making paper.",
+        "reason": "process在这里是名词“过程”。图示展示造纸过程，原句没列步骤，也没说已经造完纸；不能把它当成加工指令或价格表。",
+        "hint": "the process of doing something；这里不作动词。",
+        "wordDecision": {
+          "prompt": "process指图上展示的什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "图示展示造纸过程",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "process",
+                "label": "展示造纸过程",
+                "text": "The diagram shows the process of making paper.",
+                "include": true
+              },
+              {
+                "id": "price",
+                "label": "列出每张纸的价格",
+                "text": "The diagram lists the price of every sheet.",
+                "include": false
+              },
+              {
+                "id": "finished",
+                "label": "证明造纸已经结束",
+                "text": "Paper production has already finished.",
+                "include": false
+              }
+            ],
+            "hint": "展示过程，不等于完成生产。",
+            "wrong": "选造纸过程；不补价格或完成结果。"
+          }
+        },
+        "options": [
+          {
+            "id": "process",
+            "text": "The diagram shows how paper is made.",
+            "correct": true,
+            "reason": "process在这里是过程。"
+          },
+          {
+            "id": "price",
+            "text": "The diagram gives the price of every sheet.",
+            "correct": false,
+            "reason": "原句没说价格。"
+          },
+          {
+            "id": "complete",
+            "text": "The sentence says paper production has already finished.",
+            "correct": false,
+            "reason": "展示过程不等于已经生产完。"
+          }
+        ]
+      },
+      {
+        "id": "system",
+        "label": "system：点出灌溉系统的水从哪里来。",
+        "prompt": "点出灌溉系统的水从哪里来。",
+        "answer": "system",
+        "meaning": "系统；制度",
+        "material": "The watering system runs on collected rainwater.",
+        "before": "The watering ",
+        "after": " runs on collected rainwater.",
+        "reason": "system是系统。这里的灌溉系统使用收集的雨水；没有给储水量、设备结构、供水时长或维护情况。",
+        "hint": "a watering system灌溉系统；run on表示使用某种能源或资源运行。",
+        "wordDecision": {
+          "prompt": "点出灌溉系统的水从哪里来。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "系统使用收集的雨水",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "rain",
+                "label": "使用收集的雨水",
+                "text": "The watering system runs on collected rainwater.",
+                "include": true
+              },
+              {
+                "id": "seawater",
+                "label": "使用海水",
+                "text": "The system uses seawater.",
+                "include": false
+              },
+              {
+                "id": "forever",
+                "label": "永远不需要维护",
+                "text": "The system will never need maintenance.",
+                "include": false
+              }
+            ],
+            "hint": "认准collected rainwater。",
+            "wrong": "选收集的雨水；不能换水源或补保证。"
+          }
+        },
+        "options": [
+          {
+            "id": "rain",
+            "text": "The system uses rainwater that has been collected.",
+            "correct": true,
+            "reason": "collected rainwater是收集的雨水。"
+          },
+          {
+            "id": "seawater",
+            "text": "The system uses seawater.",
+            "correct": false,
+            "reason": "原句没说海水。"
+          },
+          {
+            "id": "forever",
+            "text": "The system will never need maintenance.",
+            "correct": false,
+            "reason": "水源说明不是永不维护的保证。"
+          }
+        ]
+      },
+      {
+        "id": "cycle",
+        "label": "cycle：water cycle中的cycle是循环，还是骑车？",
+        "prompt": "water cycle中的cycle是循环，还是骑车？",
+        "answer": "cycle",
+        "meaning": "循环；骑自行车",
+        "material": "The water cycle moves water through the environment.",
+        "before": "The water ",
+        "after": " moves water through the environment.",
+        "reason": "cycle在water cycle里指循环。原句说水在环境中流动，没有给某一阶段的时长或数量；此处不是骑自行车。",
+        "hint": "the water cycle水循环；cycle也可以作动词骑自行车。",
+        "wordDecision": {
+          "prompt": "water cycle中的cycle是循环，还是骑车？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这里是水循环",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "cycle",
+                "label": "水在环境中循环流动",
+                "text": "The water cycle moves water through the environment.",
+                "include": true
+              },
+              {
+                "id": "bike",
+                "label": "水在骑自行车",
+                "text": "Water is riding a bicycle.",
+                "include": false
+              },
+              {
+                "id": "new",
+                "label": "水从无到有地被创造",
+                "text": "Water is being created from nothing.",
+                "include": false
+              }
+            ],
+            "hint": "water cycle是固定搭配；按语境选词义。",
+            "wrong": "选水循环；不能按骑车理解或凭空造水。"
+          }
+        },
+        "options": [
+          {
+            "id": "cycle",
+            "text": "Cycle means a recurring process here.",
+            "correct": true,
+            "reason": "water cycle指水循环。"
+          },
+          {
+            "id": "bike",
+            "text": "Cycle means riding a bicycle here.",
+            "correct": false,
+            "reason": "water cycle中不能按骑车理解。"
+          },
+          {
+            "id": "new",
+            "text": "The sentence says water is created from nothing.",
+            "correct": false,
+            "reason": "流动循环不等于凭空造水。"
+          }
+        ]
+      },
+      {
+        "id": "observe",
+        "label": "observe：选一种观察方式，看看花盆的位置。",
+        "prompt": "选一种观察方式，看看花盆的位置。",
+        "answer": "Observe",
+        "meaning": "观察",
+        "material": "Observe the plants without moving the pots.",
+        "before": "",
+        "after": " the plants without moving the pots.",
+        "reason": "observe是观察。without moving the pots要求不移动花盆。另给一盆虚构植物只演示动作；点击“原位观察”位置不变，点击“先搬动”位置改变，不代表原句只有一盆，也不能推断植物生长或健康。",
+        "hint": "observe仔细观察；without后接动词-ing形式。",
+        "wordDecision": {
+          "prompt": "选一种观察方式，看看花盆的位置。",
+          "observe": {
+            "title": "观察，不搬动",
+            "hint": "另给一盆虚构植物演示动作；先选怎么做，再核对without moving。",
+            "wrong": "要观察，但不移动花盆。请重新选择原位观察。"
+          },
+          "art": {
+            "asset": "lesson-observe-plant",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "一盆完整的绿色植物，装在青蓝色花盆中；虚构动作示意，不代表原句花盆数量。"
+          }
+        },
+        "options": [
+          {
+            "id": "still",
+            "text": "Observe the plants while leaving the pots where they are.",
+            "correct": true,
+            "reason": "观察植物，同时保持花盆原位。"
+          },
+          {
+            "id": "move",
+            "text": "Move the pots first, then observe the plants.",
+            "correct": false,
+            "reason": "without moving明确排除了移动花盆。"
+          },
+          {
+            "id": "none",
+            "text": "Do not look at the plants.",
+            "correct": false,
+            "reason": "observe是观察，不是不看。"
+          }
+        ]
+      },
+      {
+        "id": "record",
+        "label": "record：每条测量值旁都要有时间：圈齐两条完整记录。",
+        "prompt": "每条测量值旁都要有时间：圈齐两条完整记录。",
+        "answer": "Record",
+        "meaning": "记录；纪录",
+        "material": "Record the time beside each measurement.",
+        "before": "",
+        "after": " the time beside each measurement.",
+        "reason": "record在这里是动词“记录”。each measurement要求每个测量值旁都记时间。另给两条虚构测量记录练习核对格式，数值与时间不是原句数据，也不代表植物的生长变化。",
+        "hint": "Record在句首是祈使动词；each后用可数名词单数。",
+        "wordDecision": {
+          "prompt": "每条测量值旁都要有时间：圈齐两条完整记录。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "另给记录练习：圈齐有时间的两条",
+            "prompt": "这是另给的格式练习；圈出两条带时间的记录。",
+            "rows": [
+              {
+                "id": "first",
+                "label": "第一条：10 cm｜08:00",
+                "text": "Measurement A: 10 cm, recorded at 08:00.",
+                "include": true
+              },
+              {
+                "id": "second",
+                "label": "第二条：12 cm｜09:00",
+                "text": "Measurement B: 12 cm, recorded at 09:00.",
+                "include": true
+              },
+              {
+                "id": "missing",
+                "label": "漏记时间：14 cm｜—",
+                "text": "Measurement C: 14 cm; time missing.",
+                "include": false
+              }
+            ],
+            "hint": "另给虚构数据；圈齐两条带时间的记录，漏时间那条不选。",
+            "wrong": "带时间的两条都要选；没有时间的不符合本题格式。"
+          }
+        },
+        "options": [
+          {
+            "id": "each",
+            "text": "Write the time beside every measurement.",
+            "correct": true,
+            "reason": "each要求每一条都记录时间。"
+          },
+          {
+            "id": "one",
+            "text": "Write a time beside only one of the measurements.",
+            "correct": false,
+            "reason": "only one遗漏其他测量值。"
+          },
+          {
+            "id": "none",
+            "text": "Leave all measurement times blank.",
+            "correct": false,
+            "reason": "把记录要求反成不记录。"
+          }
+        ]
+      },
+      {
+        "id": "measure",
+        "label": "measure：动手排顺序：先量开口，还是先买架子？",
+        "prompt": "动手排顺序：先量开口，还是先买架子？",
+        "answer": "Measure",
+        "meaning": "测量；措施",
+        "material": "Measure the opening before buying a shelf.",
+        "before": "",
+        "after": " the opening before buying a shelf.",
+        "reason": "measure在这里是动词“测量”。before buying确定先量开口再买架子，原句没给尺寸、价格或架子型号。本题只排顺序，不把猜测当测量值。",
+        "hint": "measure可直接接被测对象；before后可接动词-ing。",
+        "wordDecision": {
+          "prompt": "动手排顺序：先量开口，还是先买架子？",
+          "processOrder": {
+            "title": "先量开口，再买架子",
+            "hint": "before给出先后关系；不补尺寸或型号。",
+            "wrong": "先测量开口，再购买架子；不能反过来。",
+            "events": [
+              {
+                "id": "measure",
+                "label": "测量开口"
+              },
+              {
+                "id": "buy",
+                "label": "购买架子"
+              }
+            ],
+            "sequence": [
+              "measure",
+              "buy"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "Measure the opening first; then buy a shelf.",
+            "correct": true,
+            "reason": "before确定先量后买。"
+          },
+          {
+            "id": "after",
+            "text": "Buy the shelf first; measure the opening later.",
+            "correct": false,
+            "reason": "把before的先后颠倒。"
+          },
+          {
+            "id": "guess",
+            "text": "Guess the opening size without measuring it.",
+            "correct": false,
+            "reason": "measure要求测量，不是猜。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-science-2-transfer",
+      "topicId": "v-course-science",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan follows all three instructions?",
+      "passage": "A careful observation plan\nOur experiment compared seeds in light and shade. It recorded the conditions, not a winning group. A method used less water for cleaning brushes, but it did not use zero water or state a percentage saved. A diagram showed the process of making paper, not a price list. The watering system used collected rainwater, and the water cycle moved water through the environment.\nWe were told to observe the plants without moving the pots. A separate fictional picture used one plant to show two possible actions; it did not establish how many pots were in the original sentence. We should leave the pots in place while observing.\nWe also had to record the time beside each measurement. In a separate format exercise, two entries included times and one did not. Those invented entries were not experimental results. Finally, we needed a shelf for an opening. We had to measure the opening before buying the shelf, not buy first and measure later.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Observe without moving the pots; record a time beside every measurement; measure the opening before buying."
+        },
+        {
+          "id": "b",
+          "text": "Move the pots before observing; record all times; measure before buying."
+        },
+        {
+          "id": "c",
+          "text": "Observe without moving; record a time beside only one measurement; measure before buying."
+        },
+        {
+          "id": "d",
+          "text": "Observe without moving; record all times; buy the shelf before measuring."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Observe without moving the pots; record a time beside every measurement; measure the opening before buying."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "抓三个限定：without、each、before。",
+        "steps": [
+          {
+            "text": "观察时不搬花盆；每条测量值都记时间。",
+            "reason": "without排除移动；each不能缩成只有一条。"
+          },
+          {
+            "text": "先量开口，再买架子。",
+            "reason": "before把测量放在购买前。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "先搬花盆违反without moving。"
+          },
+          {
+            "option": "c",
+            "reason": "只记一条遗漏其他测量值。"
+          },
+          {
+            "option": "d",
+            "reason": "把测量和购买的先后颠倒。"
+          }
+        ],
+        "pitfall": "词义选对了，却漏掉动作的条件、范围或先后。",
+        "visual": {
+          "kind": "timeline",
+          "title": "三个限定，三个动作",
+          "segments": [
+            {
+              "text": "without moving → keep pots in place",
+              "role": "object",
+              "note": "不搬动"
+            },
+            {
+              "text": "each measurement → a time beside it",
+              "role": "object",
+              "note": "每条都记"
+            },
+            {
+              "text": "measure → buy",
+              "role": "object",
+              "note": "先量后买"
+            }
+          ],
+          "caption": "条件、范围、顺序都要保留；另给数据不是实验结果。"
+        },
+        "transfer": "记录了光照与阴影两组，就能说哪组一定长得更好吗？"
+      }
+    }
+  }
+}
