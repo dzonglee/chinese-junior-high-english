@@ -1,0 +1,639 @@
+{
+  "lessonId": "l-v-course-colour-appearance-2",
+  "reviewState": "draft",
+  "intent": "Eight individually authored colour tasks distinguish object/location, material versus colour, sunlight context, conditional advice, shade and transparency.",
+  "picturePurpose": "Original paired natural pools reveal visible versus hidden bottom only; no count, water quality or drinking safety is inferred. Coded wall swatches separately change colour and lightness.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "配墙色，透过清水找证据",
+    "instruction": "分清颜色和材料；调出浅绿色，再找看得见的水底。",
+    "items": [
+      {
+        "id": "pink",
+        "label": "pink：哪里呈现粉红色？",
+        "prompt": "哪里呈现粉红色？",
+        "answer": "pink",
+        "meaning": "粉红色；粉红色的",
+        "material": "The sky was pink above the harbour.",
+        "before": "The sky was ",
+        "after": " above the harbour.",
+        "reason": "pink说港口上方天空的颜色；was描述当时。原句没说港口水是粉红色，也没有每天六点的规律。",
+        "hint": "颜色对象是sky，位置是港口上方。",
+        "wordDecision": {
+          "prompt": "哪里呈现粉红色？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "港口上方的天空是粉红色",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "sky",
+                "label": "港口上方天空呈粉红色",
+                "text": "The sky was pink above the harbour.",
+                "include": true
+              },
+              {
+                "id": "water",
+                "label": "港口所有水永久呈粉红色",
+                "text": "All the harbour water was permanently pink.",
+                "include": false
+              },
+              {
+                "id": "time",
+                "label": "天空每晚六点整都变粉红",
+                "text": "The sky turns pink at exactly six every evening.",
+                "include": false
+              }
+            ],
+            "hint": "保留对象和位置，不补时刻。",
+            "wrong": "只选港口上方的粉红天空；不能换成水或补每天固定钟点。"
+          }
+        },
+        "options": [
+          {
+            "id": "water",
+            "text": "All the harbour water was permanently pink.",
+            "correct": false,
+            "reason": "天空换成港口水，又补所有和永久。"
+          },
+          {
+            "id": "time",
+            "text": "The sky turns pink at exactly six every evening.",
+            "correct": false,
+            "reason": "原句没有准确钟点或每天都如此的规律。"
+          },
+          {
+            "id": "sky",
+            "text": "The sky above the harbour was pink.",
+            "correct": true,
+            "reason": "pink说天空的颜色，above the harbour说位置。"
+          }
+        ],
+        "ownForms": [
+          "pink",
+          "pinker",
+          "pinkest"
+        ]
+      },
+      {
+        "id": "purple",
+        "label": "purple：紫色围巾挂在哪里？",
+        "prompt": "紫色围巾挂在哪里？",
+        "answer": "purple",
+        "meaning": "紫色；紫色的",
+        "material": "A purple scarf hung on the chair.",
+        "before": "A ",
+        "after": " scarf hung on the chair.",
+        "reason": "purple scarf是紫色围巾；hung on the chair是“挂在椅子上”。不是紫椅子，位置也不是桌下。",
+        "hint": "purple说围巾色；hung看挂放位置。",
+        "wordDecision": {
+          "prompt": "紫色围巾挂在哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "紫围巾挂在椅子上",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "chair",
+                "label": "紫色围巾挂在椅子上",
+                "text": "A purple scarf hung on the chair.",
+                "include": true
+              },
+              {
+                "id": "table",
+                "label": "紫围巾平放在桌下",
+                "text": "The purple scarf lay under the table.",
+                "include": false
+              },
+              {
+                "id": "chair-colour",
+                "label": "椅子是紫色，那里没有围巾",
+                "text": "The chair was purple, but no scarf was there.",
+                "include": false
+              }
+            ],
+            "hint": "颜色对象和位置要一起保留。",
+            "wrong": "只选紫围巾挂椅子上；不能换位置或把紫色移给椅子。"
+          }
+        },
+        "options": [
+          {
+            "id": "table",
+            "text": "The purple scarf lay under the table.",
+            "correct": false,
+            "reason": "挂椅子换成桌下平放。"
+          },
+          {
+            "id": "chair",
+            "text": "A scarf was purple and hung on the chair.",
+            "correct": true,
+            "reason": "purple说围巾色，hung on the chair保留位置。"
+          },
+          {
+            "id": "chair-colour",
+            "text": "The chair was purple, but no scarf was there.",
+            "correct": false,
+            "reason": "紫色对象换成椅子，并否定围巾存在。"
+          }
+        ],
+        "ownForms": [
+          "purple",
+          "purpler",
+          "purplest"
+        ]
+      },
+      {
+        "id": "gold",
+        "label": "gold：戒指由什么材料制成？",
+        "prompt": "戒指由什么材料制成？",
+        "answer": "gold",
+        "meaning": "金；金色",
+        "material": "The ring is made of gold.",
+        "before": "The ring is made of ",
+        "after": ".",
+        "reason": "made of gold说明材料是金；只看颜色不能证明材质。gold作为材料名词通常不可数。",
+        "hint": "made of看材料，不只看颜色。",
+        "wordDecision": {
+          "prompt": "戒指由什么材料制成？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "戒指是金制的",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "material",
+                "label": "金是制作戒指的材料",
+                "text": "The ring is made of gold.",
+                "include": true
+              },
+              {
+                "id": "paint",
+                "label": "戒指只是塑料涂金色",
+                "text": "The ring is plastic with gold-coloured paint only.",
+                "include": false
+              },
+              {
+                "id": "place",
+                "label": "戒指在名为Gold的地点制作",
+                "text": "The ring was made inside a place named Gold.",
+                "include": false
+              }
+            ],
+            "hint": "材料关系由made of给出。",
+            "wrong": "只选金制；不能把金色涂层或生产地点当作原句的材料。"
+          }
+        },
+        "options": [
+          {
+            "id": "material",
+            "text": "Gold is the material used to make the ring.",
+            "correct": true,
+            "reason": "is made of gold说明金是制作材料。"
+          },
+          {
+            "id": "paint",
+            "text": "The ring is plastic with gold-coloured paint only.",
+            "correct": false,
+            "reason": "金制换成塑料涂金色；颜色不能代替材料。"
+          },
+          {
+            "id": "place",
+            "text": "The ring was made inside a place named Gold.",
+            "correct": false,
+            "reason": "材料关系被读成生产地点。"
+          }
+        ]
+      },
+      {
+        "id": "silver",
+        "label": "silver：手链怎样与阳光有关？",
+        "prompt": "手链怎样与阳光有关？",
+        "answer": "silver",
+        "meaning": "银；银色",
+        "material": "The silver bracelet caught the sunlight.",
+        "before": "The ",
+        "after": " bracelet caught the sunlight.",
+        "reason": "caught the sunlight说手链受光闪亮，不是抓住并储存阳光。silver描述手链。",
+        "hint": "caught the sunlight回到受光闪亮的情境。",
+        "wordDecision": {
+          "prompt": "手链怎样与阳光有关？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "手链在阳光下闪亮",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "light",
+                "label": "阳光照到银手链，使它闪亮",
+                "text": "The silver bracelet caught the sunlight.",
+                "include": true
+              },
+              {
+                "id": "catch",
+                "label": "手链永久储存了所有阳光",
+                "text": "The bracelet caught and stored all sunlight forever.",
+                "include": false
+              },
+              {
+                "id": "dark",
+                "label": "手链藏在完全黑暗中",
+                "text": "The bracelet was hidden in complete darkness.",
+                "include": false
+              }
+            ],
+            "hint": "caught在这里不是抓住实物。",
+            "wrong": "只选手链受阳光照射闪亮；不能读成储存所有光或完全黑暗。"
+          }
+        },
+        "options": [
+          {
+            "id": "catch",
+            "text": "The bracelet caught and stored all sunlight forever.",
+            "correct": false,
+            "reason": "惯用表达被读成抓住并永久储存所有阳光。"
+          },
+          {
+            "id": "dark",
+            "text": "The bracelet was hidden in complete darkness.",
+            "correct": false,
+            "reason": "阳光照射被反转成完全黑暗。"
+          },
+          {
+            "id": "light",
+            "text": "The silver bracelet shone as sunlight fell on it.",
+            "correct": true,
+            "reason": "caught the sunlight是受到阳光照射而闪亮。"
+          }
+        ]
+      },
+      {
+        "id": "bright",
+        "label": "bright：天气不好时，建议穿怎样的外套？",
+        "prompt": "天气不好时，建议穿怎样的外套？",
+        "answer": "bright",
+        "meaning": "明亮的；鲜艳的",
+        "material": "Wear a bright jacket in poor weather.",
+        "before": "Wear a ",
+        "after": " jacket in poor weather.",
+        "reason": "bright jacket是鲜亮的外套；in poor weather限定天气不好时。建议没有保证所有情形都安全。",
+        "hint": "bright说外套鲜亮，不是自发光。",
+        "wordDecision": {
+          "prompt": "天气不好时，建议穿怎样的外套？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "天气不好时穿鲜亮外套",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "jacket",
+                "label": "天气不好时穿鲜亮的外套",
+                "text": "Wear a bright jacket in poor weather.",
+                "include": true
+              },
+              {
+                "id": "lamp",
+                "label": "任何天气都用电灯代替外套",
+                "text": "Wear an electric lamp instead of a jacket in every kind of weather.",
+                "include": false
+              },
+              {
+                "id": "guarantee",
+                "label": "鲜亮外套保证所有危险中都安全",
+                "text": "A bright jacket guarantees safety in all dangerous conditions.",
+                "include": false
+              }
+            ],
+            "hint": "保留建议对象和情境，不补保证。",
+            "wrong": "只选坏天气穿鲜亮外套；不能换物品或扩大成绝对安全。"
+          }
+        },
+        "options": [
+          {
+            "id": "lamp",
+            "text": "Wear an electric lamp instead of a jacket in every kind of weather.",
+            "correct": false,
+            "reason": "外套换成灯，还扩大到任何天气。"
+          },
+          {
+            "id": "jacket",
+            "text": "Wear a brightly coloured jacket when the weather is poor.",
+            "correct": true,
+            "reason": "bright修饰jacket，poor weather给出情境。"
+          },
+          {
+            "id": "guarantee",
+            "text": "A bright jacket guarantees safety in all dangerous conditions.",
+            "correct": false,
+            "reason": "原句是穿衣建议，没有绝对安全保证。"
+          }
+        ],
+        "ownForms": [
+          "bright",
+          "brighter",
+          "brightest"
+        ]
+      },
+      {
+        "id": "dark",
+        "label": "dark：小路到哪里变暗？",
+        "prompt": "小路到哪里变暗？",
+        "answer": "dark",
+        "meaning": "黑暗的；深色的",
+        "material": "The path becomes dark beneath the trees.",
+        "before": "The path becomes ",
+        "after": " beneath the trees.",
+        "reason": "becomes dark是“变暗”；beneath the trees限定树下这段，没有说整条路或准确钟点。",
+        "hint": "becomes看变化，beneath看树下。",
+        "wordDecision": {
+          "prompt": "小路到哪里变暗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "小路在树下变暗",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "trees",
+                "label": "小路到了树下就变暗",
+                "text": "The path becomes dark beneath the trees.",
+                "include": true
+              },
+              {
+                "id": "clock",
+                "label": "整条路每天中午整都变暗",
+                "text": "Every part of the path becomes dark at exactly noon.",
+                "include": false
+              },
+              {
+                "id": "bright",
+                "label": "小路变亮，因为附近没有树",
+                "text": "The path becomes brighter because no trees are nearby.",
+                "include": false
+              }
+            ],
+            "hint": "变暗与树下范围一起保留。",
+            "wrong": "只选树下变暗；不能补准确钟点、扩大整路或反转变化。"
+          }
+        },
+        "options": [
+          {
+            "id": "trees",
+            "text": "The path becomes dark under the trees.",
+            "correct": true,
+            "reason": "beneath the trees是树下，becomes dark是变暗。"
+          },
+          {
+            "id": "clock",
+            "text": "Every part of the path becomes dark at exactly noon.",
+            "correct": false,
+            "reason": "树下范围换成整条路，又补准确中午。"
+          },
+          {
+            "id": "bright",
+            "text": "The path becomes brighter because no trees are nearby.",
+            "correct": false,
+            "reason": "变暗反转为变亮，树下也换成附近无树。"
+          }
+        ],
+        "ownForms": [
+          "dark",
+          "darker",
+          "darkest"
+        ]
+      },
+      {
+        "id": "pale",
+        "label": "pale：把墙色调成句子所说的颜色。",
+        "prompt": "把墙色调成句子所说的颜色。",
+        "answer": "pale",
+        "meaning": "苍白的；浅色的",
+        "material": "She chose a pale shade of green for the wall.",
+        "before": "She chose a ",
+        "after": " shade of green for the wall.",
+        "reason": "a pale shade of green是浅绿色；pale说颜色浅，不是她的脸色。原句只说选色，没有说已刷完。",
+        "hint": "pale看浅色，green仍是绿色。",
+        "wordDecision": {
+          "prompt": "把墙色调成句子所说的颜色。",
+          "shadePanel": {
+            "title": "给墙选浅绿色",
+            "hint": "先选色系，再选深浅；观察墙面怎样变化。",
+            "wrong": "本句选的是浅绿色：绿色和浅色都要保留。"
+          }
+        },
+        "options": [
+          {
+            "id": "dark-green",
+            "text": "She chose a very dark green colour for the wall.",
+            "correct": false,
+            "reason": "淡绿色换成深绿色。"
+          },
+          {
+            "id": "light-green",
+            "text": "She chose a light green colour for the wall.",
+            "correct": true,
+            "reason": "pale说颜色浅；of green说明仍是绿色。"
+          },
+          {
+            "id": "face",
+            "text": "Her face became pale because she was ill.",
+            "correct": false,
+            "reason": "墙色被换成生病脸色，原句没有疾病。"
+          }
+        ],
+        "ownForms": [
+          "pale",
+          "paler",
+          "palest"
+        ]
+      },
+      {
+        "id": "clear",
+        "label": "clear：点出能看清水底石头的水面。",
+        "prompt": "点出能看清水底石头的水面。",
+        "answer": "clear",
+        "meaning": "清楚的；透明的",
+        "material": "The clear water revealed stones on the bottom.",
+        "before": "The ",
+        "after": " water revealed stones on the bottom.",
+        "reason": "clear water让人看见底部石头。不说明清澈的水一定能喝；图中的可见性不能证明水质。",
+        "hint": "clear看能否透过水看见底部。",
+        "wordDecision": {
+          "prompt": "点出能看清水底石头的水面。",
+          "art": {
+            "asset": "lesson-clear-pools",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "两处完整石池：左池水清，水底石头可见；右池水浑浊，看不见池底。没有水质安全或数量标记。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "clear",
+                "label": "A 水面",
+                "left": 3,
+                "top": 12,
+                "width": 44,
+                "height": 72,
+                "labelPosition": "top"
+              },
+              {
+                "id": "b",
+                "option": "cloudy",
+                "label": "B 水面",
+                "left": 53,
+                "top": 12,
+                "width": 44,
+                "height": 72,
+                "labelPosition": "top"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "clear",
+                "caption": "能透过水看到底部石头；不能据此判断能否饮用。",
+                "regions": [
+                  {
+                    "id": "visible-bottom",
+                    "left": 12,
+                    "top": 38,
+                    "width": 25,
+                    "height": 30,
+                    "label": "可见水底"
+                  }
+                ]
+              },
+              {
+                "option": "cloudy",
+                "caption": "水面浑浊，池底看不见。",
+                "regions": [
+                  {
+                    "id": "hidden-bottom",
+                    "left": 62,
+                    "top": 38,
+                    "width": 25,
+                    "height": 30,
+                    "label": "底部不可见"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "clear",
+            "text": "The water was transparent enough to see the stones below.",
+            "correct": true,
+            "reason": "清澈的水让底部石头可见；只判断看得见。"
+          },
+          {
+            "id": "cloudy",
+            "text": "The cloudy water hid the bottom from view.",
+            "correct": false,
+            "reason": "浑浊看不清水底，不符合revealed stones。"
+          }
+        ],
+        "ownForms": [
+          "clear",
+          "clearer",
+          "clearest"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-colour-appearance-2-transfer",
+      "topicId": "v-course-colour-appearance",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which report matches the exhibition notes?",
+      "passage": "Notes for our colour exhibition\nWe prepared a small exhibition about colour and light. One photograph showed a pink sky above the harbour. A purple scarf hung on a chair beside the photograph. A card described a ring as being made of gold. We used the written description to identify its material; its colour alone could not prove what it was made of. Nearby, a silver bracelet caught the sunlight from the window.\nFor the wall behind the display, Mei chose a pale shade of green. She had not painted it yet. We placed a bright jacket by a drawing of poor weather to match a clothing suggestion. Another drawing showed a path becoming dark beneath trees. It did not give a time of day.\nThe final pair of pictures showed water. In one, the water was clear and stones were visible on the bottom. In the other, cloudy water hid the bottom. We could describe what was visible, but neither picture told us whether the water was safe to drink.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The ring description named gold as its material; Mei chose light green; clear water let the stones be seen."
+        },
+        {
+          "id": "b",
+          "text": "The ring colour alone proved its material; Mei chose light green; clear water let the stones be seen."
+        },
+        {
+          "id": "c",
+          "text": "The ring description named gold as its material; Mei chose dark green; clear water let the stones be seen."
+        },
+        {
+          "id": "d",
+          "text": "The ring description named gold as its material; Mei chose light green; the picture proved the water was safe to drink."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The ring description named gold as its material; Mei chose light green; clear water let the stones be seen."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对金的材料依据、墙色深浅与水底可见性。",
+        "steps": [
+          {
+            "text": "文字说明戒指是金制；Mei选的是浅绿色。",
+            "reason": "材料来自written description，不能只看颜色；pale shade of green保留浅和绿。"
+          },
+          {
+            "text": "清水中看得见底石，但图片不能证明能喝。",
+            "reason": "visible说明可见性；最后一句明确图片不说明safe to drink。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把文字材料依据换成单凭颜色证明材质。"
+          },
+          {
+            "option": "c",
+            "reason": "把浅绿色反转成深绿色。"
+          },
+          {
+            "option": "d",
+            "reason": "把看得见水底扩大为证明水可饮用。"
+          }
+        ],
+        "pitfall": "看见一个颜色或清澈画面，就补出原文没有的材料、时间或安全结论。",
+        "visual": {
+          "kind": "timeline",
+          "title": "材料、色调与可见性",
+          "segments": [
+            {
+              "text": "made of gold → material",
+              "role": "object",
+              "note": "材料由文字说明"
+            },
+            {
+              "text": "pale green → light green",
+              "role": "object",
+              "note": "浅，不换色系"
+            },
+            {
+              "text": "clear water → visible stones",
+              "role": "object",
+              "note": "看得见，不证明可饮用"
+            }
+          ],
+          "caption": "每个结论都保留它真正的依据。"
+        },
+        "transfer": "树下的小路变暗，是否说明整条路每天中午都变暗？指出原文给出的范围。"
+      }
+    }
+  }
+}
