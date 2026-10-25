@@ -2,24 +2,24 @@
 
 ## Current owner direction · individual lessons, 2026-10-25 (UTC)
 
-206 of 413 lessons are individually reviewed; 207 remain pending. Work stays solo under
+207 of 413 lessons are individually reviewed; 206 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-v-course-commerce-5. Eight individually authored tasks teach loss, debt, lend, owe, earn, donate, charity and fund. Learners change a lending-direction animation and order everyone-read-before-donation events. Original thick-coat versus thin-T-shirt imagery supports winter clothing identification. Six contextual records distinguish reported loss from profit or an invented amount, plans from repayment, lending from borrowing or gifting, debt direction, hopes from completed earnings and funding help from completed replacement. Two changed rewrites and an original transfer passage test application. All content remains draft.
+Latest: l-v-course-science. Eight individually authored tasks teach science, physics, chemistry, biology, geography, history, maths and laboratory. Original lobed-versus-oval leaf imagery teaches visible shape comparison. Learners assemble five material cards for a separate two-plus-three exercise without treating invented quantities as facts from the source sentence. Six contextual records distinguish investigable questions, physical explanations, classroom chemistry records, river landforms, local railway history and eye-protection instructions. Two changed rewrites and an original transfer passage test application. All content remains draft.
 
-Inspected all 223 final browser figures across 56 freshly viewed sheets at 320, 390 and 768 px. Incomplete sheets 22 and 31 replaced by all four originals each, actually viewed. Original 1536x1024 coat comparison and 600x400 delivery actually viewed: full thick coat left and short-sleeved T-shirt right. Reviewed empty, partial, reversed, correct, undone, reset and reopened donation orders. Lending animation shows lend towards me and borrow towards you without claiming the request was accepted. All eight starts, six contextual records, wrong meanings/spelling, copied examples, 24 sentence crops and two changed rewrites inspected. Full corrected Keeping directions and promises clear passage read separately from integrated source. Presented transfer B and both explanation steps reviewed. Guided completion grants no independent attempts, mastery, lessonDone or hearing credit.
+Inspected all 215 final browser figures across 54 freshly viewed sheets at 320, 390 and 768 px. Incomplete sheet 23 replaced by all four originals, actually viewed. Original 1536x1024 leaf-shape art and 600x400 delivery actually viewed: whole lobed leaf left and smooth oval leaf right, full stems, separated without labels. No exact species, ages or health inferred. Reviewed zero, four, five and limit-seven material-card states and changed/reopened counts, all eight starts, six contextual records, all wrong meanings/spelling, copied examples, 24 sentence crops and two changed rewrites. Full original Questions, observations and estimates passage read separately from integrated source. Presented transfer C and both explanation steps reviewed. Guided completion grants no independent attempts, mastery, lessonDone or hearing credit.
 
-Checkpoint 206 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 1804 tasks / 5412 widths; earlier flows retain their original scope.
+Checkpoint 207 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 1812 tasks / 5436 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-v-course-science. Continue science, physics, chemistry, biology, geography, history, maths and laboratory individually in l-v-course-science. Original private leaf-shape comparison and separate 2+3 material-card exercise prepared without integration credit. Preserve British maths and American math mapping without duplicate ownForms. Approved audio remains separate; videos deferred.
+Next: l-v-course-science-2. Continue experiment, method, process, system, cycle, observe, record and measure individually in l-v-course-science-2. Private original draft, stationary-versus-moved plant model and inspected generated plant art prepared without integration credit. Two earlier transparent art attempts rejected for edge fringing and retained. Preserve without/each/before constraints and both required timed record examples. Approved audio remains separate; videos deferred.
 
-Native GUI status: Native 148–206 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–206 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–207 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–207 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint 205 pushed as 32eed95ee3a3fb3f12cb097d92d4d71eca38268f with all 579 committed source hashes verified. Origin/main fetched before 206 and current board/latest log read; ownership unchanged. Obsidian and both existing Kanban cards updated/read back successfully; native blocked through 205 pending explicit source-transfer approval. Solo parent claim continues; no all-course parity claimed.
+Checkpoint 206 pushed as 24623df62e85e596b9c1ce36919e4fc447077e03 with all 581 committed source hashes verified. Origin/main fetched before 207 and current board/latest log read; ownership unchanged. Obsidian and both existing Kanban cards updated/read back successfully; native blocked through 206 pending explicit source-transfer approval. Solo parent claim continues; no all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 
