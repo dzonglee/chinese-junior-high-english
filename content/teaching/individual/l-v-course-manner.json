@@ -1,0 +1,568 @@
+{
+  "lessonId": "l-v-course-manner",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks preserve modifiers, conditions, completion and partial extent without inventing measurements.",
+  "picturePurpose": "Original fictional partly-versus-wholly obstructed paths support extent comparison; exact ordering and progress labels remain in code, without real-route safety claims.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "排先后、看进度、辨部分",
+    "instruction": "先排句中先后，再比较接近完成与全部完成，最后分清部分和全部。",
+    "items": [
+      {
+        "id": "very",
+        "label": "very：very修饰什么，什么时候很滑？",
+        "prompt": "very修饰什么，什么时候很滑？",
+        "answer": "very",
+        "meaning": "很；非常",
+        "material": "The narrow path is very slippery after rain.",
+        "before": "The narrow path is ",
+        "after": " slippery after rain.",
+        "reason": "very是程度副词，这里修饰形容词slippery，表示很滑。after rain限定雨后；不能把一条窄路的情况扩大成所有路一直如此，也不能凭这句话判断实际路线安全。",
+        "hint": "very + 形容词；after rain。",
+        "wordDecision": {
+          "prompt": "very修饰什么，什么时候很滑？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这条窄路雨后很滑",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "slippery",
+                "label": "这条窄路雨后很滑",
+                "text": "The narrow path is very slippery after rain.",
+                "include": true
+              },
+              {
+                "id": "safe",
+                "label": "任何天气都绝对安全",
+                "text": "The path is completely safe in all weather.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "所有小路永远都很滑",
+                "text": "Every path is always slippery.",
+                "include": false
+              }
+            ],
+            "hint": "保留这条窄路、程度和雨后条件。",
+            "wrong": "选这条窄路雨后很滑，不反转或扩大范围。"
+          }
+        },
+        "options": [
+          {
+            "id": "slippery",
+            "text": "The narrow path is very slippery after rain.",
+            "correct": true,
+            "reason": "very修饰slippery，after rain保留雨后条件。"
+          },
+          {
+            "id": "safe",
+            "text": "The path is completely safe in all weather.",
+            "correct": false,
+            "reason": "把很滑反转成任何天气都安全。"
+          },
+          {
+            "id": "all",
+            "text": "Every path is always slippery.",
+            "correct": false,
+            "reason": "一条窄路不能扩成所有路、所有时候。"
+          }
+        ]
+      },
+      {
+        "id": "really",
+        "label": "really：really在这里修饰哪个动作？",
+        "prompt": "really在这里修饰哪个动作？",
+        "answer": "really",
+        "meaning": "真正地；很",
+        "material": "I really enjoyed the quiet walk.",
+        "before": "I ",
+        "after": " enjoyed the quiet walk.",
+        "reason": "really是副词，这里修饰动词enjoyed，强调很喜欢这次安静的散步。不能改成讨厌，也不能只把really换成very写成very enjoyed；可以说enjoyed...very much。",
+        "hint": "really enjoyed；enjoyed...very much；不写very enjoyed。",
+        "wordDecision": {
+          "prompt": "really在这里修饰哪个动作？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "我很喜欢这次安静的散步",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "enjoyed",
+                "label": "我很喜欢这次安静散步",
+                "text": "I really enjoyed the quiet walk.",
+                "include": true
+              },
+              {
+                "id": "noise",
+                "label": "我讨厌吵闹的散步",
+                "text": "I hated the noisy walk.",
+                "include": false
+              },
+              {
+                "id": "very",
+                "label": "very可以直接替换really修饰enjoyed",
+                "text": "I very enjoyed the quiet walk.",
+                "include": false
+              }
+            ],
+            "hint": "核对really修饰enjoyed，不把very直接放在enjoyed前。",
+            "wrong": "选很喜欢安静散步，不反转感受或写very enjoyed。"
+          }
+        },
+        "options": [
+          {
+            "id": "enjoyed",
+            "text": "The speaker enjoyed the quiet walk very much.",
+            "correct": true,
+            "reason": "really修饰enjoyed，强调很喜欢这次散步。"
+          },
+          {
+            "id": "noise",
+            "text": "The speaker hated a noisy walk.",
+            "correct": false,
+            "reason": "反转enjoyed，还把quiet换成noisy。"
+          },
+          {
+            "id": "very",
+            "text": "The sentence can use very enjoyed in place of really enjoyed.",
+            "correct": false,
+            "reason": "very通常不能直接修饰enjoyed，不能写very enjoyed。"
+          }
+        ]
+      },
+      {
+        "id": "quite",
+        "label": "quite：quite light有什么条件？",
+        "prompt": "quite light有什么条件？",
+        "answer": "quite",
+        "meaning": "相当；完全",
+        "material": "The box is quite light without the books.",
+        "before": "The box is ",
+        "after": " light without the books.",
+        "reason": "quite在这里修饰light，表示相当轻、挺轻；without the books说明不装这些书时。不能删去条件，不能把quite一律译成完全，也没有给出准确重量。",
+        "hint": "quite light；without the books；没有准确重量。",
+        "wordDecision": {
+          "prompt": "quite light有什么条件？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "没有这些书时箱子挺轻",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "without",
+                "label": "不放这些书时箱子挺轻",
+                "text": "The box is quite light without the books.",
+                "include": true
+              },
+              {
+                "id": "with",
+                "label": "装满这些书时箱子最轻",
+                "text": "The box is lightest with all the books inside.",
+                "include": false
+              },
+              {
+                "id": "weight",
+                "label": "给出了准确重量",
+                "text": "The sentence gives an exact weight.",
+                "include": false
+              }
+            ],
+            "hint": "保留without条件，程度词不提供准确重量。",
+            "wrong": "选不放书时挺轻，不反转条件或补重量。"
+          }
+        },
+        "options": [
+          {
+            "id": "without",
+            "text": "The box is fairly light when the books are not in it.",
+            "correct": true,
+            "reason": "quite light说明挺轻，without the books保留不放书的条件。"
+          },
+          {
+            "id": "with",
+            "text": "The box is lightest when all the books are inside.",
+            "correct": false,
+            "reason": "反转without，还编造最轻的比较。"
+          },
+          {
+            "id": "weight",
+            "text": "The sentence gives the exact weight of the box.",
+            "correct": false,
+            "reason": "quite light没有给出准确质量。"
+          }
+        ]
+      },
+      {
+        "id": "rather",
+        "label": "rather：rather short是对什么来说？",
+        "prompt": "rather short是对什么来说？",
+        "answer": "rather",
+        "meaning": "相当；宁可",
+        "material": "The rope is rather short for this task.",
+        "before": "The rope is ",
+        "after": " short for this task.",
+        "reason": "rather在这里是程度副词，修饰short，表示用来做这件事有点短。for this task保留评价所针对的任务；没有给出准确长度。另一个结构would rather do表示宁愿做某事，不能套到本句。",
+        "hint": "rather short；for this task；would rather do是另一结构。",
+        "wordDecision": {
+          "prompt": "rather short是对什么来说？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "绳子对这件事来说有点短",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "task",
+                "label": "这根绳子做这件事有点短",
+                "text": "The rope is rather short for this task.",
+                "include": true
+              },
+              {
+                "id": "long",
+                "label": "长度完全足够完成任务",
+                "text": "The rope is easily long enough for this task.",
+                "include": false
+              },
+              {
+                "id": "length",
+                "label": "给出了绳子的准确长度",
+                "text": "The sentence gives the rope’s exact length.",
+                "include": false
+              }
+            ],
+            "hint": "保留short与任务范围，不补准确长度。",
+            "wrong": "选做这件事有点短，不改成长得足够。"
+          }
+        },
+        "options": [
+          {
+            "id": "task",
+            "text": "The rope is somewhat too short for this task.",
+            "correct": true,
+            "reason": "rather short在此说明做这件事有点短。"
+          },
+          {
+            "id": "long",
+            "text": "The rope is easily long enough for this task.",
+            "correct": false,
+            "reason": "反转short和任务适用情况。"
+          },
+          {
+            "id": "length",
+            "text": "The sentence gives the rope’s exact length.",
+            "correct": false,
+            "reason": "没有给出长度数值。"
+          }
+        ]
+      },
+      {
+        "id": "extremely",
+        "label": "extremely：extremely说明什么程度？",
+        "prompt": "extremely说明什么程度？",
+        "answer": "extremely",
+        "meaning": "极其；非常",
+        "material": "The metal handle became extremely hot.",
+        "before": "The metal handle became ",
+        "after": " hot.",
+        "reason": "extremely是程度副词，强调hot的程度很高；became表示变得，不是一直保持凉。原句没有温度数值，也不能凭图片判断实际物体是否可触摸。extreme直接加ly构成extremely，保留词尾e。",
+        "hint": "extreme + ly → extremely；became表示变化。",
+        "wordDecision": {
+          "prompt": "extremely说明什么程度？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "金属把手变得非常烫",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "hot",
+                "label": "金属把手变得非常烫",
+                "text": "The metal handle became extremely hot.",
+                "include": true
+              },
+              {
+                "id": "cool",
+                "label": "把手始终凉着",
+                "text": "The handle stayed cool throughout.",
+                "include": false
+              },
+              {
+                "id": "temperature",
+                "label": "给出了准确温度",
+                "text": "The sentence gives an exact temperature in degrees.",
+                "include": false
+              }
+            ],
+            "hint": "保留变得与极高程度，不补温度或实际接触判断。",
+            "wrong": "选变得非常烫，不改成凉或编温度。"
+          }
+        },
+        "options": [
+          {
+            "id": "hot",
+            "text": "The metal handle became very hot.",
+            "correct": true,
+            "reason": "became保留变化，extremely强调很高程度。"
+          },
+          {
+            "id": "cool",
+            "text": "The metal handle stayed cool throughout.",
+            "correct": false,
+            "reason": "反转became hot。"
+          },
+          {
+            "id": "temperature",
+            "text": "The sentence gives an exact temperature in degrees.",
+            "correct": false,
+            "reason": "极烫没有给出准确温度数值。"
+          }
+        ]
+      },
+      {
+        "id": "completely",
+        "label": "completely：先完全干透，还是先移动？",
+        "prompt": "先完全干透，还是先移动？",
+        "answer": "completely",
+        "meaning": "完全地",
+        "material": "Let the paint dry completely before moving the frame.",
+        "before": "Let the paint dry ",
+        "after": " before moving the frame.",
+        "reason": "completely修饰dry，要求完全干透；before moving the frame说明干透在先、移动在后。不能把部分干当成完全干，也不是报告已经移动。练习只排列句中条件，不判断真实油漆状态或提供实际施工步骤。",
+        "hint": "completely；before doing；complete + ly。",
+        "wordDecision": {
+          "prompt": "先完全干透，还是先移动？",
+          "processOrder": {
+            "title": "按原句排先后",
+            "hint": "只排列句子明确要求的两个事件，不判断实际油漆状态或施工时间。",
+            "wrong": "先完全干透，再移动框架；不能只部分干就移动，也不能把指令读成已完成。",
+            "events": [
+              {
+                "id": "move",
+                "label": "移动框架"
+              },
+              {
+                "id": "dry",
+                "label": "油漆完全干透"
+              }
+            ],
+            "sequence": [
+              "dry",
+              "move"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "Wait until the paint is fully dry before moving the frame.",
+            "correct": true,
+            "reason": "completely与before同时保留完全干透和先后条件。"
+          },
+          {
+            "id": "part",
+            "text": "Move the frame while the paint is only partly dry.",
+            "correct": false,
+            "reason": "partly dry不能替换dry completely。"
+          },
+          {
+            "id": "done",
+            "text": "The sentence reports that the frame has already been moved.",
+            "correct": false,
+            "reason": "指令不等于已经完成移动。"
+          }
+        ]
+      },
+      {
+        "id": "nearly",
+        "label": "nearly：nearly finished等于全部完成吗？",
+        "prompt": "nearly finished等于全部完成吗？",
+        "answer": "nearly",
+        "meaning": "几乎；差不多",
+        "material": "We had nearly finished when the rain began.",
+        "before": "We had ",
+        "after": " finished when the rain began.",
+        "reason": "nearly表示几乎、差不多。had nearly finished说明下雨时已经接近完成，仍没有完全完成，不能改成已经全做完或尚未开始。另给五格进度只解释接近终点的含义，不是原项目完成比例。",
+        "hint": "had nearly finished；接近完成不等于全部完成。",
+        "wordDecision": {
+          "prompt": "nearly finished等于全部完成吗？",
+          "nearlyFinish": {
+            "title": "差一点，还是全做完？",
+            "hint": "另给虚构五格进度：比较尚未开始、接近完成与全部完成，不代表原项目的完成比例。",
+            "wrong": "选接近完成但还没有全部完成的进度，不能漏掉nearly。"
+          }
+        },
+        "options": [
+          {
+            "id": "nearly",
+            "text": "We were close to finishing when the rain started.",
+            "correct": true,
+            "reason": "nearly finished是接近完成，仍不能说全部完成。"
+          },
+          {
+            "id": "done",
+            "text": "We had already completed everything before the rain started.",
+            "correct": false,
+            "reason": "把nearly漏掉，改成完全完成。"
+          },
+          {
+            "id": "start",
+            "text": "We had not started when the rain began.",
+            "correct": false,
+            "reason": "接近完成不能改成尚未开始。"
+          }
+        ]
+      },
+      {
+        "id": "partly",
+        "label": "partly：partly blocked和完全挡住一样吗？",
+        "prompt": "partly blocked和完全挡住一样吗？",
+        "answer": "partly",
+        "meaning": "部分地",
+        "material": "The path was partly blocked by fallen branches.",
+        "before": "The path was ",
+        "after": " blocked by fallen branches.",
+        "reason": "partly表示部分地，不等于completely。原句说明掉落树枝挡住小路的一部分，不是整个路面全被挡住。另给虚构对比图只演示部分与全部的范围差异；看到留白不表示真实路线可以安全通过。",
+        "hint": "partly / completely；不据插画判断实际路线安全。",
+        "wordDecision": {
+          "prompt": "partly blocked和完全挡住一样吗？",
+          "art": {
+            "alt": "虚构对比：左边树枝只遮住部分路面，右边树枝横跨整个路面。",
+            "targets": [
+              {
+                "id": "partial",
+                "option": "partial",
+                "label": "部分遮挡",
+                "left": 12,
+                "top": 19,
+                "width": 27,
+                "height": 58
+              },
+              {
+                "id": "whole",
+                "option": "whole",
+                "label": "全部遮挡",
+                "left": 61,
+                "top": 19,
+                "width": 27,
+                "height": 58
+              }
+            ],
+            "asset": "lesson-partly-blocked",
+            "assetRoot": "illustrations-5",
+            "format": "jpg"
+          }
+        },
+        "options": [
+          {
+            "id": "partial",
+            "text": "Fallen branches blocked part of the path, not all of it.",
+            "correct": true,
+            "reason": "partly保留部分，fallen branches保留挡路事物。"
+          },
+          {
+            "id": "whole",
+            "text": "Fallen branches completely blocked the whole path.",
+            "correct": false,
+            "reason": "把partly反转成completely。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-manner-transfer",
+      "topicId": "v-course-manner",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve the condition, the unfinished work and the extent of the obstruction?",
+      "passage": "Getting the display ready\nOur class was preparing a display for the school open day. I really enjoyed our quiet walk to collect ideas. After rain, one narrow path was very slippery. Fallen branches partly blocked it. Our teacher told us that the description did not establish whether the real route was safe to use.\nBack at school, a box was quite light without the books. We did not weigh it. A rope was rather short for one task, but nobody gave its exact length. A metal handle became extremely hot; the note did not record a temperature.\nWe were told to let the paint dry completely before moving a frame. This was an instruction, not a report that the frame had already been moved. We had nearly finished preparing the display when the rain began again. Some work still remained.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The box was light without the books; they were close to finishing when the rain began; branches blocked only part of the path."
+        },
+        {
+          "id": "b",
+          "text": "The box had an exact stated weight; everything was already finished; branches blocked the whole path."
+        },
+        {
+          "id": "c",
+          "text": "The box was light without the books; everything was already finished; branches blocked only part of the path."
+        },
+        {
+          "id": "d",
+          "text": "The box was light without the books; they were close to finishing when the rain began; branches blocked the whole path."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The box was light without the books; they were close to finishing when the rain began; branches blocked only part of the path."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把条件、接近完成和部分范围分开核对，程度词不能补成准确数值。",
+        "steps": [
+          {
+            "text": "quite light without the books保留不放书的条件。",
+            "reason": "没有称重，也没有给出准确质量。"
+          },
+          {
+            "text": "nearly finished仍有未完成部分；partly blocked不是全部挡住。",
+            "reason": "不能漏掉nearly或把partly换成completely。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "编造准确重量，把接近完成改成全做完，还扩大遮挡范围。"
+          },
+          {
+            "option": "c",
+            "reason": "漏掉nearly，把接近完成改成全部完成。"
+          },
+          {
+            "option": "d",
+            "reason": "把partly反转成整个路面全部挡住。"
+          }
+        ],
+        "pitfall": "只看finished或blocked，漏掉nearly与partly。",
+        "visual": {
+          "kind": "timeline",
+          "title": "条件、进度、范围",
+          "segments": [
+            {
+              "text": "without the books",
+              "role": "object",
+              "note": "不放书的条件"
+            },
+            {
+              "text": "nearly finished",
+              "role": "object",
+              "note": "还没有全做完"
+            },
+            {
+              "text": "partly blocked",
+              "role": "object",
+              "note": "部分，不是全部"
+            }
+          ],
+          "caption": "保留程度和范围，不补准确数值。"
+        },
+        "transfer": "为什么说extremely hot，还不能写出准确温度？"
+      }
+    }
+  }
+}

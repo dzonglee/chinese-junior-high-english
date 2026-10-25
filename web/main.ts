@@ -137,6 +137,7 @@ function render() {
   const uArticleFocus = active instanceof HTMLButtonElement && active.matches(".word-u-article button") ? active.dataset.value : undefined
   const jarChangeFocus = active instanceof HTMLButtonElement && active.matches(".word-jar-change button") ? active.dataset.value : undefined
   const leafSimilarFocus = active instanceof HTMLButtonElement && active.matches(".word-leaf-similar button") ? active.dataset.value : undefined
+  const nearlyFinishFocus = active instanceof HTMLButtonElement && active.matches(".word-nearly-finish button") ? active.dataset.value : undefined
   const entranceFacingFocus = active instanceof HTMLButtonElement && active.matches(".word-entrance-facing button") ? active.dataset.value : undefined
   const freeSundayFocus = active instanceof HTMLButtonElement && active.matches(".word-free-sunday button") ? active.dataset.value : undefined
   const riverImagineFocus = active instanceof HTMLButtonElement && active.matches(".word-river-imagine button") ? active.dataset.value : undefined
@@ -181,6 +182,7 @@ function render() {
   if (uArticleFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-u-article [data-value="${CSS.escape(uArticleFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (jarChangeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-jar-change [data-value="${CSS.escape(jarChangeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (leafSimilarFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-leaf-similar [data-value="${CSS.escape(leafSimilarFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (nearlyFinishFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-nearly-finish [data-value="${CSS.escape(nearlyFinishFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (entranceFacingFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-entrance-facing [data-value="${CSS.escape(entranceFacingFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (freeSundayFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-free-sunday [data-value="${CSS.escape(freeSundayFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (riverImagineFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-river-imagine [data-value="${CSS.escape(riverImagineFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

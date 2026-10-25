@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **221 / 413**. Current: **l-v-course-manner**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **222 / 413**. Current: **l-v-course-manner-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -329,7 +329,7 @@ Completed: **221 / 413**. Current: **l-v-course-manner**. Evidence lives in docs
 | l-v-course-useful-qualities-3 | 描述、判断与条件 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-useful-qualities-3.md) |
 | l-v-course-useful-qualities-4 | 描述、判断与条件 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-useful-qualities-4.md) |
 | l-v-course-useful-qualities-5 | 描述、判断与条件 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-useful-qualities-5.md) |
-| l-v-course-manner | 程度、方式与时间副词 · 1 | pending | — |
+| l-v-course-manner | 程度、方式与时间副词 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-manner.md) |
 | l-v-course-manner-2 | 程度、方式与时间副词 · 2 | pending | — |
 | l-v-course-manner-3 | 程度、方式与时间副词 · 3 | pending | — |
 | l-v-course-manner-4 | 程度、方式与时间副词 · 4 | pending | — |
