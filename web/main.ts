@@ -148,6 +148,7 @@ function render() {
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
+  const composeTouchesFocus = active instanceof HTMLButtonElement && active.matches(".compose-touches button") ? active.dataset.value : undefined
   const composeBriefFocus = active instanceof HTMLButtonElement && active.matches(".compose-brief button") ? active.dataset.value : undefined
   const exactAlignmentFocus = active instanceof HTMLButtonElement && active.matches(".word-exact-alignment button") ? active.dataset.value : undefined
   const nearlyFinishFocus = active instanceof HTMLButtonElement && active.matches(".word-nearly-finish button") ? active.dataset.value : undefined
@@ -206,6 +207,7 @@ function render() {
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeTouchesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-touches [data-value="${CSS.escape(composeTouchesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeBriefFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-brief [data-value="${CSS.escape(composeBriefFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (exactAlignmentFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-exact-alignment [data-value="${CSS.escape(exactAlignmentFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (nearlyFinishFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-nearly-finish [data-value="${CSS.escape(nearlyFinishFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
