@@ -1,0 +1,280 @@
+{
+  "lessonId": "l-s-course-t21",
+  "reviewState": "draft",
+  "intent": "Explain specific public photo use and people-shown consent before sharing, distinguishing private/public scope and request/confirmed consent.",
+  "picturePurpose": "Reversible hypothetical permission-scope controls make the exact use and consent status explicit; a generated class photo cannot establish permission.",
+  "workshop": {
+    "kind": "compose",
+    "title": "私人群聊到公开页面：用途变了，先问清楚",
+    "instruction": "先核对照片要用在哪里、应向谁确认，再切换两个明确标出的假设情境，判断许可覆盖范围。最后把分享前的要求说成2—4句。这里练表达，不上传照片或替真实人物作出同意。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "公开用途和照片中人的同意都要确认",
+        "prompt": "给新用途选对说明与沟通对象。只拍过照片，够不够用于公开页面？",
+        "answer": "",
+        "reason": "新用途与沟通对象已核对。自己的提醒要保留两项，不只说“我拍的所以能发”。",
+        "hint": "原题说想用班级照片，不代表已经获得公开许可。要讲清在哪个公开页面、什么用途，并征求照片中人的同意；自己拍摄不自动代替他们的同意。",
+        "material": "说2—4句英文。想把班级照片用于公开页面。说明分享前必须确认具体用途和照片中人的同意。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "公开用途 → 说明 → 同意",
+          "hint": "先确认新用途，不能默认旧许可都适用。",
+          "wrong": "新用途是公开页面，不是私人班级群。应说明具体使用位置和用途，并向照片中人征求同意；自己拍过或只问发帖人不能自动替代。",
+          "fields": [
+            {
+              "id": "use",
+              "label": "这次打算用在哪里？",
+              "answer": "public",
+              "choices": [
+                {
+                  "id": "public",
+                  "label": "On a public page."
+                },
+                {
+                  "id": "chat",
+                  "label": "Only in a private class chat."
+                },
+                {
+                  "id": "offline",
+                  "label": "Only in a personal offline album."
+                }
+              ]
+            },
+            {
+              "id": "people",
+              "label": "分享前还要怎样确认？",
+              "answer": "shown",
+              "choices": [
+                {
+                  "id": "shown",
+                  "label": "Explain the use and ask the people shown for consent."
+                },
+                {
+                  "id": "self",
+                  "label": "Assume taking the photograph gives me every permission."
+                },
+                {
+                  "id": "poster",
+                  "label": "Ask only the person who plans to post it."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "切换假设，看许可是否覆盖新用途",
+        "prompt": "两个假设有不同的已知信息；按所选假设判断，不能把一个情境的许可搬到另一个。",
+        "answer": "",
+        "reason": "所选假设与许可范围已配好。回到原题时，公开同意仍需确认，不能把练习假设当事实。",
+        "hint": "假设A只同意私人班级群；假设B已针对这一个公开页面、具体用途向照片中人说明并获得同意。这是理解范围的模拟，不表示原题或真实人物已经同意，也不表示任何其他用途都可用。",
+        "material": "说2—4句英文。想把班级照片用于公开页面。说明分享前必须确认具体用途和照片中人的同意。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "假设A／B · 只判断给定许可范围",
+          "hint": "许可对应具体用途，不是一次同意永久通用。",
+          "wrong": "A只有私人群聊同意，不自动覆盖公开页面；B只说明这一个明确的公开用途得到同意，不等于所有未来用途。两个假设都不能替原题补出已经同意。",
+          "fields": [
+            {
+              "id": "case",
+              "label": "比较哪个假设？",
+              "answer": "private",
+              "choices": [
+                {
+                  "id": "private",
+                  "label": "A：只同意私人班级群"
+                },
+                {
+                  "id": "specific",
+                  "label": "B：已同意这一个公开用途"
+                }
+              ]
+            },
+            {
+              "id": "coverage",
+              "label": "哪项判断符合所选假设？",
+              "answer": "private-ok",
+              "choices": [
+                {
+                  "id": "private-ok",
+                  "label": "Private-chat consent does not automatically cover the public page."
+                },
+                {
+                  "id": "specific-ok",
+                  "label": "The stated public use is covered, but other uses still need checking."
+                },
+                {
+                  "id": "all",
+                  "label": "Any earlier consent covers every future public use."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "case",
+            "answers": {
+              "private": {
+                "coverage": "private-ok"
+              },
+              "specific": {
+                "coverage": "specific-ok"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "提出请求，还不等于得到同意",
+        "prompt": "回到原题，判断目前能确认什么，再核对口头表达形式。",
+        "answer": "",
+        "reason": "请求与同意、口头形式已核对。接下来实际说2—4句，说明新用途、照片中人同意，以及私人和公开范围不同。",
+        "hint": "本题只给出想公开分享以及分享前的要求，没有给出所有人已经同意。别把“需要问”写成“已经答应”，也不要把许可核对当真实上传按钮。",
+        "material": "说2—4句英文。想把班级照片用于公开页面。说明分享前必须确认具体用途和照片中人的同意。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "主情境：需确认，不补写已同意",
+          "hint": "假设演练结束，回到原题给定事实。",
+          "wrong": "原题需要先确认用途与同意，没有已经同意的事实；发出请求也不等于得到答复。原题要2—4句口头表达，单列public/private或只写不说不能代替。",
+          "fields": [
+            {
+              "id": "status",
+              "label": "原题目前能确认什么？",
+              "answer": "need",
+              "choices": [
+                {
+                  "id": "need",
+                  "label": "The specific public use and people’s consent still need confirming before sharing."
+                },
+                {
+                  "id": "yes",
+                  "label": "Everyone has already agreed to public posting."
+                },
+                {
+                  "id": "asked",
+                  "label": "Sending a request is the same as receiving consent."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题怎样完成？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four sentences about the use, consent and private/public scope."
+                },
+                {
+                  "id": "list",
+                  "label": "Only list the words public, private and photograph."
+                },
+                {
+                  "id": "written",
+                  "label": "Write the answer without saying it aloud."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t21-transfer",
+      "topicId": "s-course-t21",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪份口头提醒说明了新用途要先确认什么，没有把私人群同意当成公开许可？",
+      "passage": "新用途资料｜根据要点说2—4句英文\n校队想把团队视频（team video）放到公开网站（public website）。出镜者以前只同意在私人团队群分享，还没有确认这个公开用途。需要说明新用途，向出镜者征求同意后再发布。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Before posting our team video on the public website, we need to explain that use and ask the people shown for consent. Their consent for a private team chat does not automatically cover this use. We have not yet confirmed their consent for public posting."
+        },
+        {
+          "id": "b",
+          "text": "The people shown agreed to sharing our team video in a private team chat. This means we can post it on any public website. We do not need to explain the new use or ask them again."
+        },
+        {
+          "id": "c",
+          "text": "We should explain the public website use to the person who wants to post our team video. Asking that person proves that everyone shown has already agreed. We can post it before receiving any other reply."
+        },
+        {
+          "id": "d",
+          "text": "We made the team video ourselves. Making it automatically gives us consent from everyone shown to post it publicly. We do not need to check what they agreed to."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Before posting our team video on the public website, we need to explain that use and ask the people shown for consent. Their consent for a private team chat does not automatically cover this use. We have not yet confirmed their consent for public posting."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先分清原许可和新用途，再比较四份实际口头提醒。",
+        "steps": [
+          {
+            "text": "团队视频原先只同意在私人团队群分享；公开网站是新用途。",
+            "reason": "材料换成视频，许可范围仍不能自动从私人扩成公开。"
+          },
+          {
+            "text": "正确提醒保留说明新用途、征求出镜者同意，以及公开同意尚未确认。",
+            "reason": "只问想发的人、自己制作视频或发出请求，都不能证明所有出镜者已经同意。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把私人群许可扩大到任意公开网站。"
+          },
+          {
+            "option": "c",
+            "reason": "沟通对象不完整，还把询问当成已经得到同意。"
+          },
+          {
+            "option": "d",
+            "reason": "制作视频不能自动代替出镜者对公开用途的同意。"
+          }
+        ],
+        "pitfall": "把“以前同意过”或“我制作的”当成所有新用途都已获同意。",
+        "visual": {
+          "kind": "comparison",
+          "title": "新用途变更：私人团队群 → 公开网站",
+          "segments": [
+            {
+              "text": "private team chat",
+              "role": "evidence",
+              "note": "原许可范围"
+            },
+            {
+              "text": "public website",
+              "role": "evidence",
+              "note": "新用途"
+            },
+            {
+              "text": "explain and ask people shown",
+              "role": "evidence",
+              "note": "分享前需确认"
+            },
+            {
+              "text": "request ≠ confirmed consent",
+              "role": "neutral",
+              "note": "不补写已同意"
+            }
+          ],
+          "caption": "许可范围按具体使用情境确认，不靠猜测。"
+        },
+        "transfer": "如果用途从这一个网站再变成别的宣传用途，为什么不能只说“以前问过一次”？"
+      }
+    }
+  }
+}
