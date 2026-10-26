@@ -5,6 +5,14 @@ const dictionaries: Record<Spelling, Map<string, string>> = {
   american: new Map(pairs),
   british: new Map(pairs.filter(([british]) => !['metre', 'metres', 'programme', 'programmes'].includes(british) && (british === 'practised' || !british.startsWith('practis'))).map(([british, american]) => [american, british])),
 }
+// Compile once and visit only words whose spelling can change. Full catalog loads
+// otherwise rebuild the quantity pattern and call a replacement for every word.
+const spellingPatterns: Record<Spelling, RegExp> = {
+  american: new RegExp('\\b(?:' + [...dictionaries.american.keys()].join('|') + ')\\b', 'gi'),
+  british: new RegExp('\\b(?:' + [...dictionaries.british.keys()].join('|') + ')\\b', 'gi'),
+}
+const quantity = '(?:[0-9]+(?:,[0-9]{3})*(?:[.][0-9]+)?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand)'
+const quantifiedMeters = new RegExp('\\b(' + quantity + ')([ -])(meters?)\\b', 'gi')
 export function editionText(text: string, spelling: Spelling): string {
   // Keep English names and contractions together when CJK heading fonts supply curly punctuation.
   const readable = text.replace(/([A-Za-z])’(?=[A-Za-z])/g, "$1'")
@@ -13,9 +21,8 @@ export function editionText(text: string, spelling: Spelling): string {
   const dictionary = dictionaries[spelling]
   // Standalone meter can mean a device in British English. Convert it only after
   // an explicit written quantity; compounds such as parking/water meter stay intact.
-  const quantity = '(?:[0-9]+(?:,[0-9]{3})*(?:[.][0-9]+)?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand)'
-  const units = spelling === 'british' ? readable.replace(new RegExp('\\b(' + quantity + ')([ -])(meters?)\\b', 'gi'), (_match, amount: string, gap: string, unit: string) => amount + gap + (/^[A-Z]/.test(unit) ? 'M' : 'm') + (unit.toLowerCase() === 'meters' ? 'etres' : 'etre')) : readable
-  return units.replace(/\b[A-Za-z]+\b/g, word => {
+  const units = spelling === 'british' ? readable.replace(quantifiedMeters, (_match, amount: string, gap: string, unit: string) => amount + gap + (/^[A-Z]/.test(unit) ? 'M' : 'm') + (unit.toLowerCase() === 'meters' ? 'etres' : 'etre')) : readable
+  return units.replace(spellingPatterns[spelling], word => {
     const target = dictionary.get(word.toLowerCase())
     return target ? /^[A-Z]/.test(word) ? target[0].toUpperCase() + target.slice(1) : target : word
   })

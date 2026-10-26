@@ -2,6 +2,12 @@ import {it,expect} from 'vitest'
 import {editionText,editionQuestion} from './core/spelling'
 import {authorCatalog} from '../scripts/lib/author-content.mjs'
 import {createLessonTeaching} from './core/lesson-teaching'
+it('preserves word boundaries, case and contractions across repeated edition conversions',()=>{
+ for(let i=0;i<3;i++){
+  expect(editionText("Colours colourful colourless colouring; colour_code discolouration 2colour. Ben’s favourite theatre.",'american')).toBe("Colors colorful colorless coloring; colour_code discolouration 2colour. Ben's favorite theater.")
+  expect(editionText("Colors colorful colorless coloring; color_code discoloration 2color. Ben’s favorite theater.",'british')).toBe("Colours colourful colourless colouring; color_code discoloration 2color. Ben's favourite theatre.")
+ }
+})
 it('maps whole singular/plural metric words in both directions without altering other words or numbers',()=>{
  const uk='One centimetre, ten centimetres; one metre and forty metres. A kilometre is 1,000 metres.',us='One centimeter, ten centimeters; one meter and forty meters. A kilometer is 1,000 meters.'
  expect(editionText(uk,'american')).toBe(us);expect(editionText(us,'british')).toBe(uk)
