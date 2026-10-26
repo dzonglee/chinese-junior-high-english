@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-10-26 (UTC)
 
-284 of 413 lessons are individually reviewed; 129 remain pending. Work stays solo under
+285 of 413 lessons are individually reviewed; 128 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-s-course-t20. Three individual speaking cards separate fictional volunteer status from recorded photograph provenance and checked dates, reconstruct the two-step check-before-display workflow, and compare two supported contribution angles without invented awards or universal results. Personal sentence organisation remains flexible. Fresh fictional Lin/old-map/printing-date transfer changes the profile. All content remains draft.
+Latest: l-w-course-t20. Three individual writing cards repair embedded-where statement order while preserving a fictional profile, compare before-adding and before-she-adds sentence frames, and connect specific source/date work with a supported contribution in two to four written sentences. Fresh fictional Mei/old-letter transfer changes the profile. All content remains draft.
 
-Inspected all 63 final captures across 16 contact sheets, including 320, 390 and 768 widths. Three cards distinguish fictional status, photograph provenance and checked dates; both contribution branches match their evidence. The two-step check-before-display model fits all widths. Initial, partial, reversed, reset, retained and reopened states give specific feedback. Wrong status, source, date, basis, limit and form choices remain blocked. Short writing is rejected. Reference-role feedback matches the selected sentence. The original revision contains 36 English words, three sentences and three self-checks. All four fresh map responses are three sentences; presented D is correct. All three distractor feedback states, both explanation steps and the complete Chinese essential-facts passage were inspected. No clipping or misleading award/biography inference found. Guided work remains separate from independent evidence and actual speaking/hearing. No illustration was needed: the provenance fields and process diagram carry the task.
- All four original speaking tasks,references,coaching and2/2/2rubrics read. Main2–4spoken sentences explicitly fictional Rao,photograph-source records,date checks and supported contribution. No real biography,awards or universal result invented. Guided preparation grants no independent attempt,mastery,lessonDone or hearing credit.
+Inspected all 60 final captures across 15 contact sheets. Three cards fit 320, 390 and 768 widths. The embedded source clause uses statement order and rejects independent-question inversion and misplaced subjects. Both before-adding and before-she-adds branches are accepted with matched sentences; switching the branch invalidates its previous saved match. Fictional scope, evidence-supported contribution and written form remain distinct. Initial, missing, reset, edited/reopened and short-writing states are coherent; drafts are retained without preserving stale completion. Reference roles and missing-sentence feedback match the source. Original revision: 36 English words, three sentences, three self-checks. The fresh old-letter task presents four actual three-sentence responses; presented D is correct. All distractor feedback, both explanation steps and the full Chinese essential-facts passage were read. No clipped content or invented biography/award claim accepted. Guided preparation and self-review grant no independent writing or mastery. No portrait needed: coded clause and evidence comparisons explain the task.
+ All four original writing tasks,references,coaching and4/3/3rubrics read. Main2–4written sentences explicitly fictional Rao,photo-source records,date checks and supported contribution. Embedded where uses statement order;both before frames preserve check-before-display. No real biography or awards invented. Guided preparation grants no independent attempt,mastery,lessonDone or hearing credit.
 
-Checkpoint 284 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 2162 tasks / 6486 widths; earlier flows retain their original scope.
+Checkpoint 285 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 2165 tasks / 6495 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-w-course-t20. Continue l-w-course-t20 individually;read all original writing tasks,references,rubrics and coaching. Preserve fictional status and evidence for contributions. Approved audio separate;videos deferred.
+Next: l-s-course-t21. Continue l-s-course-t21 individually;read all original tasks,references,rubrics and coaching. Approved audio separate;videos deferred.
 
-Native GUI status: Native 148–284 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–284 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–285 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–285 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint283 pushed and all recorded hashes verified before284. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
+Checkpoint284 pushed and all recorded hashes verified before285. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 
