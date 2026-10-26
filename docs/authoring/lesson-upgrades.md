@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **266 / 413**. Current: **l-w-course-t11**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **267 / 413**. Current: **l-s-course-t12**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -374,7 +374,7 @@ Completed: **266 / 413**. Current: **l-w-course-t11**. Evidence lives in docs/re
 | l-s-course-t10 | 朋友之间说清楚：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t10.md) |
 | l-w-course-t10 | 朋友之间说清楚：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t10.md) |
 | l-s-course-t11 | 家庭分工与社区生活：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t11.md) |
-| l-w-course-t11 | 家庭分工与社区生活：用文字说清 | pending | — |
+| l-w-course-t11 | 家庭分工与社区生活：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t11.md) |
 | l-s-course-t12 | 志愿服务与公共帮助：口头说清 | pending | — |
 | l-w-course-t12 | 志愿服务与公共帮助：用文字说清 | pending | — |
 | l-s-course-t13 | 合作完成一项任务：口头说清 | pending | — |

@@ -1,0 +1,304 @@
+{
+  "lessonId": "l-w-course-t11",
+  "reviewState": "draft",
+  "intent": "Write distinct Monday household roles and advance notice if unable, repair future forms and accept coherent cannot/unable conditional structures.",
+  "picturePurpose": "Reuse the original washing/table-setting scenes to ground distinct verbs and assigned roles before repairing will-plus-base-verb forms. Day,relationship and future-plan status remain supplied by task text; exact grammar labels remain coded.",
+  "workshop": {
+    "kind": "compose",
+    "title": "把两人的分工与提前告知写清楚",
+    "instruction": "写计划时先核对周一与两人的不同任务，再检查will后的动词和if条件句。不能把安排写成自己已经做完全部工作。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "will后用原形，任务不换人",
+        "prompt": "先看洗菜与摆餐具两个动作，再按原题的未完成计划配好分工。will后的动词怎样写？",
+        "answer": "",
+        "reason": "两人的任务与will后的动词形式已核对。继续补上不能做时的提前告知。",
+        "hint": "I will wash ...；my brother will set ...。will后都用动词原形，不因brother是单数就把set改成sets。",
+        "material": "写2—4句英文。家庭计划中，你周一洗菜，弟弟摆餐具。向家人确认分工，并说明若不能做会提前告知。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "两项分工修复台",
+          "hint": "先确认谁做什么，再检查will后是否为动词原形。",
+          "wrong": "原题自己洗菜、弟弟摆餐具，不能互换，也不能写成自己已完成两项。will后接原形wash或set，不加-s，也不用setting。",
+          "fields": [
+            {
+              "id": "roles",
+              "label": "哪句保留两人的分工？",
+              "answer": "correct",
+              "choices": [
+                {
+                  "id": "correct",
+                  "label": "I will wash the vegetables, and my brother will set the table."
+                },
+                {
+                  "id": "swap",
+                  "label": "I will set the table, and my brother will wash the vegetables."
+                },
+                {
+                  "id": "done",
+                  "label": "I have already washed the vegetables and set the table."
+                }
+              ]
+            },
+            {
+              "id": "verb",
+              "label": "修复 My brother will sets the table.",
+              "answer": "set",
+              "choices": [
+                {
+                  "id": "set",
+                  "label": "My brother will set the table."
+                },
+                {
+                  "id": "sets",
+                  "label": "My brother will sets the table."
+                },
+                {
+                  "id": "setting",
+                  "label": "My brother will setting the table."
+                }
+              ]
+            }
+          ]
+        },
+        "composeArt": {
+          "asset": "lesson-household-roles",
+          "assetRoot": "illustrations-6",
+          "format": "jpg",
+          "alt": "虚构动作示例：左图一名穿蓝色上衣的学生在水池边洗菜；右图一名穿绿色上衣的学生摆放碗和勺子。",
+          "caption": "复用虚构动作示例：图示帮助辨认洗菜与摆餐具。周一、两人的分工和计划状态来自题目文字；画面不证明这些工作已完成，也不证明人物关系。",
+          "frames": 2,
+          "frameShape": "wide"
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "if后写条件，主句写会怎样做",
+        "prompt": "选一种条件表达，再配上准确的提前告知句。",
+        "answer": "",
+        "reason": "条件和行动已配好。自己的稿子也可以用其他自然准确的句式。",
+        "hint": "If I cannot do ...和If I am unable to do ...都能说明不能做的条件；后面用I will tell ...说明行动。这里比较一般未来的实际安排，不用will放进本卡的if条件从句。",
+        "material": "写2—4句英文。家庭计划中，你周一洗菜，弟弟摆餐具。向家人确认分工，并说明若不能做会提前告知。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "If条件 → will行动",
+          "hint": "条件句不是说已经做完，而是安排不能完成时怎样沟通。",
+          "wrong": "两个正确示例都可用，但要与所选结构一致。cannot后用do，am unable后用to do；本卡的if条件从句用现在形式，主句用will说明将来的告知。will和cannot不能这样连用。",
+          "fields": [
+            {
+              "id": "pattern",
+              "label": "比较哪种条件说法？",
+              "answer": "cannot",
+              "choices": [
+                {
+                  "id": "cannot",
+                  "label": "If I cannot do my part, ..."
+                },
+                {
+                  "id": "unable",
+                  "label": "If I am unable to do my part, ..."
+                }
+              ]
+            },
+            {
+              "id": "sentence",
+              "label": "哪句与所选结构一致？",
+              "answer": "cannot-ok",
+              "choices": [
+                {
+                  "id": "cannot-ok",
+                  "label": "If I cannot do my part, I will tell the family in advance."
+                },
+                {
+                  "id": "unable-ok",
+                  "label": "If I am unable to do my part, I will tell the family in advance."
+                },
+                {
+                  "id": "wrong",
+                  "label": "If I will cannot do my part, I tell the family too late."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "pattern",
+            "answers": {
+              "cannot": {
+                "sentence": "cannot-ok"
+              },
+              "unable": {
+                "sentence": "unable-ok"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "日期、提前与书面形式，一起自查",
+        "prompt": "哪一项保留周一计划和提前沟通？",
+        "answer": "",
+        "reason": "日期、提前告知与写作形式已核对。实际完成自己的2—4句英文，不只保存关键词或口头计划。",
+        "hint": "on Monday是本题日期；提前告知让家人有时间调整。原题没有规定几点，不必硬套一个钟点。",
+        "material": "写2—4句英文。家庭计划中，你周一洗菜，弟弟摆餐具。向家人确认分工，并说明若不能做会提前告知。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "交稿前核对三件事",
+          "hint": "日期不能换，提前不能写成事后才说，任务形式是写作。",
+          "wrong": "原题是周一，不是周六，也不是未经确认的每天。不能做时要提前告知，不是事后解释或悄悄离开。本题写2—4句完整英文，只列任务词或只交口头提纲都不够。",
+          "fields": [
+            {
+              "id": "day",
+              "label": "原题的日期",
+              "answer": "monday",
+              "choices": [
+                {
+                  "id": "monday",
+                  "label": "on Monday"
+                },
+                {
+                  "id": "saturday",
+                  "label": "on Saturday"
+                },
+                {
+                  "id": "daily",
+                  "label": "every day without checking the plan"
+                }
+              ]
+            },
+            {
+              "id": "notice",
+              "label": "哪句明确说明提前告知？",
+              "answer": "advance",
+              "choices": [
+                {
+                  "id": "advance",
+                  "label": "I will tell the family before the work needs to begin."
+                },
+                {
+                  "id": "after",
+                  "label": "I will tell the family only after they discover the job was not done."
+                },
+                {
+                  "id": "silent",
+                  "label": "I will leave the job without telling anyone."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "这次提交什么？",
+              "answer": "written",
+              "choices": [
+                {
+                  "id": "written",
+                  "label": "Two to four written English sentences confirming both jobs and advance notice."
+                },
+                {
+                  "id": "words",
+                  "label": "Only the words Monday and table."
+                },
+                {
+                  "id": "oral",
+                  "label": "Only a spoken outline without a written response."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-w-course-t11-transfer",
+      "topicId": "w-course-t11",
+      "skill": "writing",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "周六你负责扫地，哥哥负责浇植物。工作是计划中的安排，不能做时要提前告知家人。哪段书面回答保留了这些条件？",
+      "passage": "A different written family plan\nOn Saturday, you will sweep the floor and your older brother will water the plants. Write two to four English sentences confirming the two different jobs and explaining that you will tell the family in advance if you cannot do your part. The jobs are planned, not already completed.",
+      "options": [
+        {
+          "id": "a",
+          "text": "On Saturday, I will sweep the floor. My older brother will water the plants. If I cannot do my part, I will tell the family beforehand."
+        },
+        {
+          "id": "b",
+          "text": "On Monday, I will wash the vegetables. My brother will set the table. If I cannot do my part, I will tell the family in advance."
+        },
+        {
+          "id": "c",
+          "text": "I have already swept the floor for Saturday. I have also watered all the plants myself. Both jobs are finished, so I do not need to tell anyone in advance."
+        },
+        {
+          "id": "d",
+          "text": "On Saturday, I will sweep the floor. My older brother will water the plants. If I cannot do my part, I will tell the family only after the work has been delayed."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "On Saturday, I will sweep the floor. My older brother will water the plants. If I cannot do my part, I will tell the family beforehand."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对新日期与两项分工，再检查未来计划和提前告知。",
+        "steps": [
+          {
+            "text": "新题是周六：自己扫地，哥哥浇植物。",
+            "reason": "不能照搬周一洗菜与摆餐具，也不能把哥哥的任务算成自己已完成。"
+          },
+          {
+            "text": "若不能完成自己的部分，要提前告知家人。",
+            "reason": "用自然准确的条件句说明安排，完成2—4句书面英文；事后才解释不算提前。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "日期和任务照搬旧题。"
+          },
+          {
+            "option": "c",
+            "reason": "计划没有说已完成，而且漏掉提前告知。"
+          },
+          {
+            "option": "d",
+            "reason": "耽误工作以后才解释，不符合提前沟通。"
+          }
+        ],
+        "pitfall": "句式套对了，却换错任务承担者，或把提前告知写成事后解释。",
+        "visual": {
+          "kind": "comparison",
+          "title": "新分工 → 未来计划 → 提前告知",
+          "segments": [
+            {
+              "text": "Saturday · I sweep the floor",
+              "role": "evidence",
+              "note": "自己的任务"
+            },
+            {
+              "text": "my older brother waters the plants",
+              "role": "evidence",
+              "note": "另一人的任务"
+            },
+            {
+              "text": "if unable → tell the family in advance",
+              "role": "evidence",
+              "note": "条件与行动"
+            }
+          ],
+          "caption": "先核对内容，再检查will后的原形与if条件句。"
+        },
+        "transfer": "用If I cannot ...和If I am unable to ...分别表达同一个提前告知安排，哪些动词形式需要跟着改变？"
+      }
+    }
+  }
+}
