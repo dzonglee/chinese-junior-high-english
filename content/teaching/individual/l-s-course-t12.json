@@ -1,0 +1,321 @@
+{
+  "lessonId": "l-s-course-t12",
+  "reviewState": "draft",
+  "intent": "Distinguish Sunday9:45volunteer arrival from10:00event start, explain the introduction purpose, accept equivalent time readings and avoid inferring exact briefing duration from the15minute gap.",
+  "picturePurpose": "Exact coded time-role fields and a reversible three-event timeline separate arrival, introduction and public start; no generated clock labels.",
+  "workshop": {
+    "kind": "compose",
+    "title": "分清到场时间与活动开始时间",
+    "instruction": "周日九点四十五到场听介绍，十点活动才开始。先把两个时间与用途对上，再说明提前到的原因。十五分钟是两时刻的间隔，不等于介绍一定持续十五分钟。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "两个时间，各有用途",
+        "prompt": "哪一个是志愿者到场时间，哪一个是活动开始时间？",
+        "answer": "",
+        "reason": "周日与两个时间的用途已核对。接下来按时间顺序安排到场、听介绍和开始活动。",
+        "hint": "原题只说周日志愿活动，没有限定一定是换书活动。九点四十五到场听介绍；十点才开始活动，不把两个时间互换。",
+        "material": "说2—4句英文。周日志愿活动十点开始，你要九点四十五到场听介绍。向同伴说明到场时间和原因。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "时间 ↔ 用途",
+          "hint": "先看arrive与begin分别说哪件事，再填时间。",
+          "wrong": "原题是周日；志愿者九点四十五到场，不是十点才到。活动十点开始，不是九点四十五就对外开始。",
+          "fields": [
+            {
+              "id": "day",
+              "label": "原题哪一天？",
+              "answer": "sunday",
+              "choices": [
+                {
+                  "id": "sunday",
+                  "label": "Sunday"
+                },
+                {
+                  "id": "saturday",
+                  "label": "Saturday"
+                },
+                {
+                  "id": "monday",
+                  "label": "Monday"
+                }
+              ]
+            },
+            {
+              "id": "arrive",
+              "label": "志愿者什么时候到场？",
+              "answer": "nine-forty-five",
+              "choices": [
+                {
+                  "id": "nine-forty-five",
+                  "label": "9:45"
+                },
+                {
+                  "id": "ten",
+                  "label": "10:00"
+                },
+                {
+                  "id": "ten-fifteen",
+                  "label": "10:15"
+                }
+              ]
+            },
+            {
+              "id": "begin",
+              "label": "活动什么时候开始？",
+              "answer": "ten",
+              "choices": [
+                {
+                  "id": "ten",
+                  "label": "10:00"
+                },
+                {
+                  "id": "nine-forty-five",
+                  "label": "9:45"
+                },
+                {
+                  "id": "nine-thirty",
+                  "label": "9:30"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "到场后先听介绍，再开始活动",
+        "prompt": "按原题排列三件事，再选出提前听介绍的目的。",
+        "answer": "",
+        "reason": "先后顺序与提前介绍的目的已核对。自己的说法可以换，不把到场当成活动开始。",
+        "hint": "听介绍是为了先了解分工和该怎样提供帮助，不是说活动已经九点四十五对外开始。",
+        "material": "说2—4句英文。周日志愿活动十点开始，你要九点四十五到场听介绍。向同伴说明到场时间和原因。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "提前到，为什么？",
+          "hint": "理由要能解释为什么志愿者需要在活动前到场。",
+          "wrong": "提前听介绍，是为了让志愿者了解分工，不是说介绍只讲给访客听。9:45是到场时间，活动仍在10:00开始，不能把两件事混成同一时刻。",
+          "fields": [
+            {
+              "id": "why",
+              "label": "哪句解释提前听介绍的目的？",
+              "answer": "roles",
+              "choices": [
+                {
+                  "id": "roles",
+                  "label": "We need to understand our roles before the event begins."
+                },
+                {
+                  "id": "visitors",
+                  "label": "We can arrive at ten because the introduction is only for visitors."
+                },
+                {
+                  "id": "start",
+                  "label": "Arriving at 9:45 means the public event begins at 9:45."
+                }
+              ]
+            }
+          ]
+        },
+        "composeOrder": {
+          "title": "9:45到场 → 听介绍 → 10:00开始",
+          "hint": "按原题先后点击三件事。介绍安排在到场之后、活动开始之前，题目没有给出介绍的准确时长。",
+          "wrong": "志愿者先九点四十五到场，再听介绍，十点活动开始；不能活动开始后才补上提前介绍。",
+          "events": [
+            {
+              "id": "begin",
+              "label": "The event begins at 10:00"
+            },
+            {
+              "id": "arrive",
+              "label": "Volunteers arrive at 9:45"
+            },
+            {
+              "id": "intro",
+              "label": "Listen to the talk"
+            }
+          ],
+          "sequence": [
+            "arrive",
+            "intro",
+            "begin"
+          ]
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "同一到场时间，两种自然说法",
+        "prompt": "选一种读法，再核对九点四十五与十点之间的间隔。",
+        "answer": "",
+        "reason": "两种到场时间说法与十五分钟间隔已核对。实际用2—4句说明到场时间和提前听介绍的原因。",
+        "hint": "nine forty-five和a quarter to ten都表示九点四十五；a quarter past ten是十点十五。10:00−9:45=15分钟，只能确定提前到的时间间隔，不知道介绍是否占满十五分钟。",
+        "material": "说2—4句英文。周日志愿活动十点开始，你要九点四十五到场听介绍。向同伴说明到场时间和原因。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "时间读法与证据范围",
+          "hint": "读法可以换，时间不能变；间隔也不能被当作介绍的准确时长。",
+          "wrong": "两种正确读法都表示9:45，但要与所选读法一致；a quarter past ten是10:15。10:00减9:45是15分钟，不是30分钟；这个间隔不能证明介绍恰好持续15分钟。",
+          "fields": [
+            {
+              "id": "reading",
+              "label": "比较哪种读法？",
+              "answer": "digital",
+              "choices": [
+                {
+                  "id": "digital",
+                  "label": "用nine forty-five表达"
+                },
+                {
+                  "id": "quarter",
+                  "label": "用a quarter to ten表达"
+                }
+              ]
+            },
+            {
+              "id": "sentence",
+              "label": "哪句与所选读法一致？",
+              "answer": "digital-ok",
+              "choices": [
+                {
+                  "id": "digital-ok",
+                  "label": "Volunteers should arrive at nine forty-five."
+                },
+                {
+                  "id": "quarter-ok",
+                  "label": "Volunteers should arrive at a quarter to ten."
+                },
+                {
+                  "id": "wrong",
+                  "label": "Volunteers should arrive at a quarter past ten."
+                }
+              ]
+            },
+            {
+              "id": "interval",
+              "label": "两个时间能确定什么？",
+              "answer": "gap",
+              "choices": [
+                {
+                  "id": "gap",
+                  "label": "Arrival is 15 minutes before the event; the exact introduction length is not given."
+                },
+                {
+                  "id": "length",
+                  "label": "The introduction must last exactly 15 minutes."
+                },
+                {
+                  "id": "thirty",
+                  "label": "Arrival is 30 minutes before the event."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "reading",
+            "answers": {
+              "digital": {
+                "sentence": "digital-ok",
+                "interval": "gap"
+              },
+              "quarter": {
+                "sentence": "quarter-ok",
+                "interval": "gap"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t12-transfer",
+      "topicId": "s-course-t12",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "周六活动中午12点开始，志愿者11:40到场听介绍、了解分工；介绍时长未说明。哪段回答分清了到场、开始和提前的原因？",
+      "passage": "A different volunteer schedule\nOn Saturday, a community event begins at noon. Volunteers should arrive at 11:40 for a briefing so they understand their roles before visitors arrive. In two to four spoken English sentences, explain when volunteers should arrive and why. The exact briefing length is not provided.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The event begins at 11:40 on Saturday. Volunteers should arrive at noon for a briefing. We need to understand our roles before helping visitors."
+        },
+        {
+          "id": "b",
+          "text": "The event begins at ten on Sunday. Volunteers should arrive at nine forty-five. We need to hear the introduction so we understand our roles."
+        },
+        {
+          "id": "c",
+          "text": "The event begins at noon on Saturday. We should arrive at 11:40 to hear the briefing and understand our roles. That is twenty minutes before the start, but the exact briefing length is not given."
+        },
+        {
+          "id": "d",
+          "text": "The event begins at noon on Saturday. Volunteers should arrive at 11:40 to understand their roles. The briefing must last exactly twenty minutes."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The event begins at noon on Saturday. We should arrive at 11:40 to hear the briefing and understand our roles. That is twenty minutes before the start, but the exact briefing length is not given."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把新到场时间与活动开始时间分别对应，再解释提前介绍的目的。",
+        "steps": [
+          {
+            "text": "周六十一点四十到场，中午十二点活动开始，提前二十分钟。",
+            "reason": "不能把两个时间互换，也不能照搬周日旧安排。"
+          },
+          {
+            "text": "先听介绍，了解分工，才能在访客到来时提供帮助。",
+            "reason": "二十分钟是到场与开始的间隔；题目没有说介绍一定占满二十分钟。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把到场与活动开始时间互换。"
+          },
+          {
+            "option": "b",
+            "reason": "没有更新周六和新时间。"
+          },
+          {
+            "option": "d",
+            "reason": "把两时刻的间隔当成已知的介绍准确时长。"
+          }
+        ],
+        "pitfall": "把提前到场说成对外开始，或从时间间隔编造介绍的准确时长。",
+        "visual": {
+          "kind": "timeline",
+          "title": "11:40到场 → 听介绍 → 12:00活动开始",
+          "segments": [
+            {
+              "text": "Saturday ·11:40 arrival",
+              "role": "evidence",
+              "note": "志愿者到场"
+            },
+            {
+              "text": "briefing · understand roles",
+              "role": "evidence",
+              "note": "提前的目的"
+            },
+            {
+              "text": "noon · public event begins",
+              "role": "evidence",
+              "note": "到场后20分钟"
+            }
+          ],
+          "caption": "间隔能计算，介绍的准确时长仍未给出。"
+        },
+        "transfer": "如果到场时间提前了，而活动开始时间没变，哪些信息要重新说明，哪些事实不能自行改变？"
+      }
+    }
+  }
+}
