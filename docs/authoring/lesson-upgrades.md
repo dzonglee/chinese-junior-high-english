@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **260 / 413**. Current: **l-w-course-t08**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **261 / 413**. Current: **l-s-course-t09**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -368,7 +368,7 @@ Completed: **260 / 413**. Current: **l-w-course-t08**. Evidence lives in docs/re
 | l-s-course-t07 | 劳动实践与把事情做好：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t07.md) |
 | l-w-course-t07 | 劳动实践与把事情做好：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t07.md) |
 | l-s-course-t08 | 消费、预算与守信：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t08.md) |
-| l-w-course-t08 | 消费、预算与守信：用文字说清 | pending | — |
+| l-w-course-t08 | 消费、预算与守信：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t08.md) |
 | l-s-course-t09 | 动手改进与解决问题：口头说清 | pending | — |
 | l-w-course-t09 | 动手改进与解决问题：用文字说清 | pending | — |
 | l-s-course-t10 | 朋友之间说清楚：口头说清 | pending | — |

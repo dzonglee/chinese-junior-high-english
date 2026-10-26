@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { authorCatalog } from '../../scripts/lib/author-content.mjs'
-import { evidenceFeedback, evidenceSentences } from './reading-evidence'
+import { evidenceFeedback, evidenceSentences, passageSentences } from './reading-evidence'
 import type { ContentCatalog, Question } from './types'
 import { q as fixture } from '../test-fixtures'
 
@@ -14,6 +14,29 @@ function reading(passage: string, quote: string): Question {
 const source: ContentCatalog = authorCatalog(process.cwd())
 
 describe('literal post-answer reading evidence', () => {
+  it('keeps literal sentences and current evidence independent from earlier returned values', () => {
+    const text = 'Dr. Li chose the hall. We met outside.'
+    const item = reading(text, 'chose the hall')
+    const earlier = passageSentences(text)
+    earlier[0] = 'An invented sentence.'
+    earlier.push('Another invented sentence.')
+    expect(passageSentences(text)).toEqual(['Dr. Li chose the hall.', 'We met outside.'])
+    const evidence = evidenceSentences(item)
+    evidence[0].text = 'An invented sentence.'
+    evidence[0].matched = false
+    expect(evidenceSentences(item)[0]).toEqual({ id: 'evidence-sentence-1', text: 'Dr. Li chose the hall.', matched: true })
+    item.explanation.visual.segments[0].text = 'We met outside'
+    item.explanation.steps = [{ text: 'We met outside', reason: 'The current clue identifies their meeting place.' }]
+    expect(evidenceFeedback(item, 'evidence-sentence-1').correct).toBe(false)
+    expect(evidenceFeedback(item, 'evidence-sentence-2').message).toContain('The current clue identifies their meeting place.')
+    item.passage = 'Dr. Li chose a room. We waited inside.'
+    item.explanation.visual.segments[0].text = 'We waited inside'
+    expect(evidenceSentences(item).map(s => s.text)).toEqual(['Dr. Li chose a room.', 'We waited inside.'])
+    const long = 'x'.repeat(17_000) + '. Then we met in the hall.'
+    const longSentences = passageSentences(long)
+    longSentences[0] = 'An invented sentence.'
+    expect(passageSentences(long)[0]).toBe('x'.repeat(17_000) + '.')
+  })
   it('returns complete original sentences with stable IDs and leaves other sentences selectable', () => {
     const item = reading('The class planned to meet outside. Rain changed the plan. We will meet in the hall instead.', 'meet in the hall')
     expect(evidenceSentences(item)).toEqual([

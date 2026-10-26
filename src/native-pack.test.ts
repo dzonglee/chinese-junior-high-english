@@ -9,6 +9,34 @@ import { catalog, q } from './test-fixtures'
 const stored = (text: string) => ({ encoding: 'gzip-hex-v1', byteLength: Buffer.byteLength(text), data: gzipSync(text, { level: 9 }).toString('hex') })
 
 describe('lossless native content storage', () => {
+  it('publishes fully converted concurrent packs and refreshes a pack arriving during an earlier flush', async () => {
+    for (const late of [false, true]) {
+      const questions = ['a', 'b'].map(id => ({ ...structuredClone(q), id: `q-batch-${id}`, topicId: `g-batch-${id}`, stem: 'The colour ___ bright.' }))
+      const texts = questions.map(question => JSON.stringify({ version: 1, topicId: question.topicId, questions: [question] }))
+      const descriptors = questions.map((question, i) => ({ topicId: question.topicId, sha256: bytesToHex(sha256(utf8ToBytes(texts[i]))), file: `batch-${i}.json`, questionIds: [question.id] }))
+      const data = catalog(); data.questions = []
+      const ready = new Map<string, (text: string) => void>()
+      const repo = new ContentRepository(data, descriptors, descriptor => new Promise(resolve => ready.set(descriptor.topicId, resolve)))
+      repo.setSpelling('american')
+      const convert = repo.setSpelling.bind(repo)
+      let conversions = 0
+      repo.setSpelling = spelling => {
+        conversions++
+        convert(spelling)
+        if (late && conversions === 1) ready.get(questions[1].topicId)!(texts[1])
+      }
+      const loading = repo.ensureTopics(descriptors.map(d => d.topicId))
+      ready.get(questions[0].topicId)!(texts[0])
+      if (!late) ready.get(questions[1].topicId)!(texts[1])
+      await loading
+      expect(conversions).toBe(late ? 2 : 1)
+      expect(data.questions.map(question => [question.id, question.stem])).toEqual(questions.map(question => [question.id, 'The color ___ bright.']))
+      await repo.ensureTopics(descriptors.map(d => d.topicId))
+      expect(conversions).toBe(late ? 2 : 1)
+      repo.setSpelling('british')
+      expect(data.questions.map(question => question.stem)).toEqual(questions.map(() => 'The colour ___ bright.'))
+    }
+  })
   it('preserves exact Chinese, emoji, escapes, punctuation, ordering and whitespace for the existing hash check', () => {
     const text = '{"topicId":"test","quoted":"妈妈说：\\\"Hello!\\\" 🌳","line":"a\\nb","number":1}\n'
     expect(decodeNativePack(stored(text))).toBe(text)
