@@ -1,0 +1,306 @@
+{
+  "lessonId": "l-s-course-t10",
+  "reviewState": "draft",
+  "intent": "Explain an earlier misunderstanding, preserve the known younger-sister reason and acknowledge asking before guessing without inferring motive from a picture.",
+  "picturePurpose": "Two fictional scenes separate visible departure/meeting from unobservable anger, relationships and motive; exact relationships and causes come from the task text.",
+  "workshop": {
+    "kind": "compose",
+    "title": "把误会与后来知道的事实分开说",
+    "instruction": "看示例中可见的动作，别从表情猜动机。说明自己原来的误会、后来知道的接妹妹原因，并承认应该先问。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "看得见走开，看不见动机",
+        "prompt": "左图能直接看见什么？妹妹关系与原因从哪里确认？",
+        "answer": "",
+        "reason": "可见动作与文字事实已区分。接下来说明自己原来的猜测。",
+        "hint": "画面只是虚构情境示例，原题没有规定游戏种类。走开不等于生气；妹妹关系和接她的原因来自题目文字，不能从外貌认定。",
+        "material": "说2—4句英文。朋友突然离开游戏，你后来知道他要接妹妹。向他说明原来的误会，并承认应先询问。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "动作 ↔ 动机",
+          "hint": "先描述可见动作，不把心里的解释当成画面证据。",
+          "wrong": "图能显示离开活动或与一位小学生见面，不能直接证明生气或家庭关系；原题文字给出了接妹妹的原因。",
+          "fields": [
+            {
+              "id": "visible",
+              "label": "左图可以直接支持哪句话？",
+              "answer": "leaving",
+              "choices": [
+                {
+                  "id": "leaving",
+                  "label": "The boy is walking away from the game."
+                },
+                {
+                  "id": "angry",
+                  "label": "The boy is definitely angry with his friends."
+                },
+                {
+                  "id": "dislike",
+                  "label": "The boy no longer likes his friends."
+                }
+              ]
+            },
+            {
+              "id": "source",
+              "label": "怎样确认他要接妹妹？",
+              "answer": "brief",
+              "choices": [
+                {
+                  "id": "brief",
+                  "label": "The task text gives that information."
+                },
+                {
+                  "id": "face",
+                  "label": "His facial expression proves the family relationship."
+                },
+                {
+                  "id": "clothes",
+                  "label": "Their clothes prove why he left."
+                }
+              ]
+            }
+          ]
+        },
+        "composeArt": {
+          "asset": "lesson-friend-misunderstanding",
+          "assetRoot": "illustrations-6",
+          "format": "jpg",
+          "alt": "虚构情境示例：左图一名男生离开桌上游戏，两位朋友留在桌旁；右图同一男生与一位较小的学生在校门附近见面。",
+          "caption": "游戏种类只是图示。可见动作不证明生气；右图人物关系及接妹妹的原因由题目文字给出，不能从画面猜。",
+          "frames": 2,
+          "frameShape": "wide"
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "原先误会可以不同，真实原因不能换",
+        "prompt": "选一种原来误会的示例，再与后来知道的事实分开。",
+        "answer": "",
+        "reason": "所选误会和后来事实已配好。自己的误会可以合理说明，不必逐字照抄。",
+        "hint": "误以为他生气或不想一起玩，都可以作为合理的误会示例。原题固定的是后来知道他要接妹妹，不把猜测改成朋友实际动机。",
+        "material": "说2—4句英文。朋友突然离开游戏，你后来知道他要接妹妹。向他说明原来的误会，并承认应先询问。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "I thought ... → Now I know ...",
+          "hint": "I thought标记原先的想法；Now I know标记后来知道的信息。",
+          "wrong": "两种误会示例都可以，但要与所选示例一致。原先的猜测不能继续写成事实；后来知道的原因是接妹妹，不能改成哥哥或讨厌朋友。",
+          "fields": [
+            {
+              "id": "guess",
+              "label": "比较哪种误会示例？",
+              "answer": "angry",
+              "choices": [
+                {
+                  "id": "angry",
+                  "label": "示例一：以为他生自己的气"
+                },
+                {
+                  "id": "play",
+                  "label": "示例二：以为他不想一起玩了"
+                }
+              ]
+            },
+            {
+              "id": "thought",
+              "label": "与所选示例一致的说法",
+              "answer": "angry",
+              "choices": [
+                {
+                  "id": "angry",
+                  "label": "I thought you were angry with me."
+                },
+                {
+                  "id": "play",
+                  "label": "I thought you no longer wanted to play with me."
+                },
+                {
+                  "id": "fact",
+                  "label": "I know that you dislike me."
+                }
+              ]
+            },
+            {
+              "id": "known",
+              "label": "后来知道什么？",
+              "answer": "sister",
+              "choices": [
+                {
+                  "id": "sister",
+                  "label": "Now I know you needed to pick up your younger sister."
+                },
+                {
+                  "id": "brother",
+                  "label": "Now I know you needed to meet your older brother."
+                },
+                {
+                  "id": "angry",
+                  "label": "Now I know my first guess must have been right."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "guess",
+            "answers": {
+              "angry": {
+                "thought": "angry",
+                "known": "sister"
+              },
+              "play": {
+                "thought": "play",
+                "known": "sister"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "承认应先问，再实际说清楚",
+        "prompt": "这张卡练习反思过去：哪句承认自己应先询问？",
+        "answer": "",
+        "reason": "反思表达与口头任务已核对。实际用2—4句说明误会、后来原因和自己应先询问。",
+        "hint": "I should have asked you first表示当时本该先问。自己的成稿也可用其他自然说法表达反思；不要只责怪朋友，或把离开永远等同于生气。",
+        "material": "说2—4句英文。朋友突然离开游戏，你后来知道他要接妹妹。向他说明原来的误会，并承认应先询问。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "先问，而不是先猜",
+          "hint": "本卡比较过去反思句的形式与含义，不要求整段逐字套用。",
+          "wrong": "should have后用过去分词asked；责怪对方不能替代承认自己应先询问。本题要实际说2—4句英文，只存两个单词或改交长篇报告，都没有完成口头说明。",
+          "fields": [
+            {
+              "id": "reflection",
+              "label": "哪句正确表达过去反思？",
+              "answer": "asked",
+              "choices": [
+                {
+                  "id": "asked",
+                  "label": "I should have asked you first instead of guessing."
+                },
+                {
+                  "id": "ask",
+                  "label": "I should have ask you first instead of guessing."
+                },
+                {
+                  "id": "blame",
+                  "label": "You caused the misunderstanding, so I have nothing to change."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "实际要完成什么？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four English sentences covering the misunderstanding, real reason and reflection."
+                },
+                {
+                  "id": "words",
+                  "label": "Save only the words game and sister."
+                },
+                {
+                  "id": "essay",
+                  "label": "Write a long report instead of speaking."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t10-transfer",
+      "topicId": "s-course-t10",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "同学突然离开彩排，你后来知道他要向音乐老师归还借来的乐器。哪段回答更新了误会，并反思了自己的沟通？",
+      "passage": "A different misunderstanding\nA classmate suddenly left a group rehearsal. You later learned that they needed to return a borrowed instrument to the music teacher. In two to four spoken English sentences, explain your earlier misunderstanding and admit that you should have asked before guessing. The exact earlier misunderstanding is for you to describe reasonably.",
+      "options": [
+        {
+          "id": "a",
+          "text": "You left the rehearsal because you dislike our group. I know my first guess was right. I do not need to ask you about it."
+        },
+        {
+          "id": "b",
+          "text": "I thought you left because you were angry with us. Now I understand that you needed to return a borrowed instrument to the music teacher. I should have asked you first instead of guessing."
+        },
+        {
+          "id": "c",
+          "text": "I thought you left because you were angry with me. Now I know you needed to pick up your younger sister. I should have asked you first."
+        },
+        {
+          "id": "d",
+          "text": "We had a group rehearsal today. Some classmates were singing and others were playing instruments. We practised together in the music room."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "I thought you left because you were angry with us. Now I understand that you needed to return a borrowed instrument to the music teacher. I should have asked you first instead of guessing."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把原先想法与后来知道的新事实分开，再反思自己的沟通。",
+        "steps": [
+          {
+            "text": "新原因是归还借来的乐器，不是接妹妹，也不是已证明讨厌小组。",
+            "reason": "要根据新任务更新事实，不能继续把猜测当动机。"
+          },
+          {
+            "text": "说明原来的合理误会，并承认当时应该先问。",
+            "reason": "只说新的原因还没有回应反思要求；实际说出2—4句并回听。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把未经证实的讨厌动机继续当事实。"
+          },
+          {
+            "option": "c",
+            "reason": "照搬旧任务接妹妹的原因。"
+          },
+          {
+            "option": "d",
+            "reason": "没有说明误会与自己应先询问的反思。"
+          }
+        ],
+        "pitfall": "用后来知道的原因更新事实，却仍把原来的猜测说成已证实的动机。",
+        "visual": {
+          "kind": "comparison",
+          "title": "原先以为 → 后来知道 → 应先询问",
+          "segments": [
+            {
+              "text": "my earlier thought",
+              "role": "neutral",
+              "note": "合理说明原先误会"
+            },
+            {
+              "text": "return a borrowed instrument",
+              "role": "evidence",
+              "note": "新任务给出的原因"
+            },
+            {
+              "text": "I should have asked first",
+              "role": "evidence",
+              "note": "自己的反思"
+            }
+          ],
+          "caption": "误会与事实分开，反思落到自己的沟通。"
+        },
+        "transfer": "如果还没有听到对方解释，怎样用一个礼貌问题核实，而不宣布自己已经知道原因？"
+      }
+    }
+  }
+}
