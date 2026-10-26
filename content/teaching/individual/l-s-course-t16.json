@@ -1,0 +1,303 @@
+{
+  "lessonId": "l-s-course-t16",
+  "reviewState": "draft",
+  "intent": "Describe two visible artwork details and a personal feeling in two to four spoken sentences, distinguish observation from interpretation and avoid unsupported artist-biography claims while allowing different grounded responses.",
+  "picturePurpose": "Original empty-chair/bright-window/open-door-space painting makes actual visual observation possible. Its objects are demonstration details, not universal required objects for every work; no artist life or intent inferred.",
+  "workshop": {
+    "kind": "compose",
+    "title": "先说画里有什么，再说它给你的感觉",
+    "instruction": "观察这幅原创示例画，选出两个看得见的细节，再比较两种个人感受。感受可以不同，不能把自己的解释当成艺术家人生的事实；自己的回答可选其他真实可见细节。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "从画面找两个可见细节",
+        "prompt": "先看这幅原创示例，哪些描述能直接用画面核对？",
+        "answer": "",
+        "reason": "两个可见细节已核对。自己的表达可以换其他画面依据，不用把参考物件套到不同作品上。",
+        "hint": "本卡选椅子、窗户和门边空间作示例；不是规定所有作品都要有这些物件。原题只要求两个可见细节，个人感受另外说。",
+        "material": "说2—4句英文。描述一幅画中你能直接看到的两个细节，再用一句话说个人感受，区分观察与解释。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "可见细节 → 画面可核对",
+          "hint": "本画先看椅子和窗户，再看门边空间。",
+          "wrong": "图中椅子空着，旁边是明亮的窗户；门边留有空地。不能添画中没有的人或家具，也不能把艺术家的心情当成看得见的物件。",
+          "fields": [
+            {
+              "id": "chair",
+              "label": "本画中椅子与窗户的细节",
+              "answer": "empty",
+              "choices": [
+                {
+                  "id": "empty",
+                  "label": "An empty chair beside a bright window."
+                },
+                {
+                  "id": "person",
+                  "label": "A person sitting on the chair."
+                },
+                {
+                  "id": "dark",
+                  "label": "A chair beside a completely dark window."
+                }
+              ]
+            },
+            {
+              "id": "door",
+              "label": "本画门边能直接看到什么？",
+              "answer": "space",
+              "choices": [
+                {
+                  "id": "space",
+                  "label": "Open floor space near the door."
+                },
+                {
+                  "id": "table",
+                  "label": "A large table blocking the door."
+                },
+                {
+                  "id": "sad",
+                  "label": "Proof that the artist felt sad."
+                }
+              ]
+            }
+          ]
+        },
+        "composeArt": {
+          "asset": "lesson-observe-art",
+          "assetRoot": "illustrations-6",
+          "format": "jpg",
+          "alt": "原创虚构室内画：明亮窗边有一把空椅子，蓝色门旁留着空地，没有人物。",
+          "caption": "这幅画用于练习观察。椅子、光线和空间可见；艺术家的经历、心情与创作意图没有由画面证实。"
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "感受可以不同，写明这是个人解释",
+        "prompt": "比较安静与亲切感两种示例，给所选感受配一句带个人范围的表达。",
+        "answer": "",
+        "reason": "所选个人感受与解释范围已配好。实际回答时可联系可见细节说明自己的合理感受。",
+        "hint": "To me或I find it可以标出自己的理解。本卡比较quiet和welcoming，不把它们当唯一可接受感受，也不声称作者本来就想表达其中一种。",
+        "material": "说2—4句英文。描述一幅画中你能直接看到的两个细节，再用一句话说个人感受，区分观察与解释。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "我看到的 ↔ 我感受到的",
+          "hint": "两种感受都可以讨论，但要与所选表达对应。",
+          "wrong": "安静和亲切两种感受都可以，本卡要把所选感受与对应句配好。To me标出个人理解；自己的发言也可用其他准确表达。声称艺术家本人一定孤独，则把感受变成了未经证实的生平事实。",
+          "fields": [
+            {
+              "id": "feeling",
+              "label": "比较哪种个人感受示例？",
+              "answer": "quiet",
+              "choices": [
+                {
+                  "id": "quiet",
+                  "label": "quiet · 感觉安静"
+                },
+                {
+                  "id": "welcoming",
+                  "label": "welcoming · 让人觉得亲切"
+                }
+              ]
+            },
+            {
+              "id": "sentence",
+              "label": "哪句与所选感受一致？",
+              "answer": "quiet-ok",
+              "choices": [
+                {
+                  "id": "quiet-ok",
+                  "label": "To me, the scene feels quiet."
+                },
+                {
+                  "id": "welcoming-ok",
+                  "label": "To me, the scene feels welcoming."
+                },
+                {
+                  "id": "biography",
+                  "label": "The artist was definitely lonely in real life."
+                }
+              ]
+            },
+            {
+              "id": "status",
+              "label": "这些感受应怎样理解？",
+              "answer": "personal",
+              "choices": [
+                {
+                  "id": "personal",
+                  "label": "Personal interpretations that can be discussed with picture details."
+                },
+                {
+                  "id": "proven",
+                  "label": "Proven facts about the artist’s life."
+                },
+                {
+                  "id": "only",
+                  "label": "The only responses anyone may give."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "feeling",
+            "answers": {
+              "quiet": {
+                "sentence": "quiet-ok",
+                "status": "personal"
+              },
+              "welcoming": {
+                "sentence": "welcoming-ok",
+                "status": "personal"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "把观察、解释和表达要求分开",
+        "prompt": "自己的感受能证明艺术家的真实经历吗？怎样完成本题？",
+        "answer": "",
+        "reason": "事实边界与表达要求已核对。接下来实际说，再回听两个细节和个人范围是否都清楚。",
+        "hint": "可以依据空椅子、光线或留白讨论感受；这些依据仍不能单独证明艺术家的生平。实际说2—4句，包含两个可见细节和个人感受，并标明解释范围。",
+        "material": "说2—4句英文。描述一幅画中你能直接看到的两个细节，再用一句话说个人感受，区分观察与解释。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "有画面依据 ≠ 已证实作者生平",
+          "hint": "可以讨论作品，不把解释强加成唯一事实。",
+          "wrong": "一个感受不能证明艺术家当时孤独；但这不表示画里没有可描述的细节。原题需要两个细节和个人感受，关键词清单或只写不说不能代替口头表达。",
+          "fields": [
+            {
+              "id": "limit",
+              "label": "关于作者，能得出什么？",
+              "answer": "limit",
+              "choices": [
+                {
+                  "id": "limit",
+                  "label": "The picture alone does not prove the artist’s personal history."
+                },
+                {
+                  "id": "lonely",
+                  "label": "An empty chair proves the artist was lonely."
+                },
+                {
+                  "id": "nothing",
+                  "label": "There are no visible details to describe."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "本题需要怎样完成？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four sentences with two visible details and a personal feeling."
+                },
+                {
+                  "id": "facts-only",
+                  "label": "Name one object without giving any personal feeling."
+                },
+                {
+                  "id": "written",
+                  "label": "Write a list without speaking."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t16-transfer",
+      "topicId": "s-course-t16",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "一件虚构雕塑有两块弯曲的蓝色构件，中间留着较大的空隙，未提供作者资料。下面哪份英文发言既描述了可见细节，又把个人感受与作者事实分开？",
+      "passage": "A different artwork\nA fictional sculpture has two curved blue pieces with a large gap between them. Describe two visible details and give a personal feeling in two to four spoken English sentences. No information about the maker’s life or intention is supplied.",
+      "options": [
+        {
+          "id": "a",
+          "text": "I can see two curved blue pieces. There is a large gap between them. To me, the sculpture feels balanced, but that does not prove anything about the maker’s life."
+        },
+        {
+          "id": "b",
+          "text": "I can see an empty chair beside a bright window. There is open space near the door. To me, this picture feels quiet."
+        },
+        {
+          "id": "c",
+          "text": "I can see two curved blue pieces. There is a large gap between them. The blue colour proves that the maker was sad throughout their life."
+        },
+        {
+          "id": "d",
+          "text": "Different people can have different feelings about this sculpture. That means there are no visible details anyone can describe. It is impossible to discuss its colour or shape."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "I can see two curved blue pieces. There is a large gap between them. To me, the sculpture feels balanced, but that does not prove anything about the maker’s life."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先更新作品的可见细节，再把个人感受与作者事实分开。",
+        "steps": [
+          {
+            "text": "新作品可见两块弯曲的蓝色构件，中间有较大的空隙。",
+            "reason": "不能套用旧画的椅子与窗户。可以从形状、颜色、数量和空间中选两个细节。"
+          },
+          {
+            "text": "To me, it feels balanced标出个人解释，不证明作者生平。",
+            "reason": "不同感受可以讨论，仍应联系作品依据；没有生平资料时不能由颜色推定作者一生的心情。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "发言仍在描述旧画的椅子、窗户和门边空间，漏掉了新雕塑的蓝色构件与空隙。"
+          },
+          {
+            "option": "c",
+            "reason": "前两句更新了可见细节，但末句把颜色当成作者一生悲伤的证明；题目没有提供这种生平依据。"
+          },
+          {
+            "option": "d",
+            "reason": "感受可以不同，不等于形状、颜色和空间都无法观察，也不妨碍结合细节讨论作品。"
+          }
+        ],
+        "pitfall": "把看得见的物件与自己的感受混在一起，再误推成作者经历。",
+        "visual": {
+          "kind": "comparison",
+          "title": "雕塑：观察与解释分开",
+          "segments": [
+            {
+              "text": "two curved blue pieces",
+              "role": "evidence",
+              "note": "数量、形状、颜色"
+            },
+            {
+              "text": "a large gap",
+              "role": "evidence",
+              "note": "可见空间"
+            },
+            {
+              "text": "To me, it feels balanced.",
+              "role": "neutral",
+              "note": "个人感受，不是作者生平"
+            }
+          ],
+          "caption": "先指出依据，再说明这是你的理解。"
+        },
+        "transfer": "如果同学觉得这件作品充满张力，你可以请他指出哪个可见细节，而不先否定他的感受吗？"
+      }
+    }
+  }
+}

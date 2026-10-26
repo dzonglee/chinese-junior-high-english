@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-10-26 (UTC)
 
-275 of 413 lessons are individually reviewed; 138 remain pending. Work stays solo under
+276 of 413 lessons are individually reviewed; 137 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-w-course-t15. Three individual writing cards repair the bounded would-like-to-share frame, compare do-not-need-to and modal need-not forms without changing obligation, and check uncountable experience agreement, personal scope and written form. The original two-scene family/story illustration supports an individual visual distinction. Fresh family birthday-tradition/no-objects transfer compares four actual student responses and changes the topic without requiring national representation. All content remains draft.
+Latest: l-s-course-t16. Three individual speaking cards inspect two visible details in an original artwork, compare quiet and welcoming personal interpretations, and separate image evidence from unsupported artist-biography claims. Other grounded feelings and visible details remain allowed. Fresh curved-blue-piece sculpture/gap transfer changes the artwork. All content remains draft.
 
-Inspected all 75 final figures on sheets 0–18 in full at 320, 390 and 768 pixels. Also opened the original390px alternative-frame screenshot to verify the full comparison heading fits rather than relying on adjoining contact-sheet columns. Three cards preserve the intended would-like-to-share frame, both equivalent no-obligation structures and uncountable experience agreement in this fixed sentence; other accurate invitations remain allowed. Every wrong/missing choice, short writing, clearing, resetting and edited/reopened state was read. Both reused art panels at all three widths retain relevant heads, hands, shoes, meal table/visible chairs, school stools and story card. Original and delivered art were separately actually viewed during274; natural seated-person occlusion is not clipping. The art does not require a photo, food, national representation or inferred nationality. Fresh birthday-tradition task changes the topic and object requirement; source A is presented D. Correct answer, both explanation steps and all distractor-specific feedback were visually read. Original revision contains29words in three sentences with all three self-checks. No clipped controls, overlapping text or other new visual issue observed. Guided writing and self-review grant no independent attempts, mastery, lessonDone or hearing credit; actual SDK testing remains separate.
- All four original writing tasks, references, coaching and4/3/3 rubrics separately read. Main2–4written sentences invite a personal family-dish story with no food requirement or national representation. Other grammatical invitation frames remain allowed. Guided preparation grants no independent attempt, mastery, lessonDone or hearing credit.
+Inspected all 69 final browser figures on sheets 0–17, including 320/390/768px control and artwork views. The empty chair and legs, bright window, blue doorway and open floor support the observation prompts; background architecture, plant and rug naturally meet the artwork edges. Both quiet and welcoming interpretation paths fit, with no single-feeling or artist-biography claim. Inspected every incorrect field, partial selection, undo, reset, too-short response, invalidated completion and reopened retained original writing. Three reference roles, wrong-role feedback, the original 36-word three-sentence revision and all three self-checks are clear. Fresh sculpture transfer has four actual three-sentence responses; source A is presented C. Both explanation steps, visual evidence labels, full passage and all three distractor feedback paths were inspected. No clipped control text or unsupported picture target found. Guided planning and self-review remain separate from actual speech, independent attempts, mastery and lesson completion.
+ All four original speaking tasks, references, coaching and2/2/2 rubrics separately read. Main2–4spoken sentences describe two visible details and a personal feeling, distinguishing observation from interpretation. Reference objects demonstrate one painting and are not mandatory details for every artwork. Guided planning grants no independent attempt, mastery, lessonDone or hearing credit; actual speech remains separate.
 
-Checkpoint 275 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 2135 tasks / 6405 widths; earlier flows retain their original scope.
+Checkpoint 276 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 2138 tasks / 6414 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-s-course-t16. Continue l-s-course-t16 individually. Read all original tasks, references, rubrics and coaching before choosing interactions. Approved audio separate; videos deferred.
+Next: l-w-course-t16. Continue l-w-course-t16 individually. Read all original writing tasks, references, rubrics and coaching. Keep visible observation distinct from personal interpretation and unsupported artist biography. Approved audio separate; videos deferred.
 
-Native GUI status: Native 148–275 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–275 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–276 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–276 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint274 pushed and all recorded hashes verified before275. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
+Checkpoint275 pushed and all recorded hashes verified before276. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 
