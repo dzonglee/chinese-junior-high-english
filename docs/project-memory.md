@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-10-26 (UTC)
 
-278 of 413 lessons are individually reviewed; 135 remain pending. Work stays solo under
+279 of 413 lessons are individually reviewed; 134 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-s-course-t17. Three individual speaking cards simulate four distinct players touching before a score, distinguish that necessary condition from a guaranteed score or equal individual points, and compare passing/participation purposes. Any touch order is allowed. Fresh three-member equipment checks before an activity change number, action and boundary. All content remains draft.
+Latest: l-w-course-t17. Three individual writing cards reuse the four-player touch simulation, repair Each team has agreement, compare equivalent before and only-after rules, and distinguish passing/participation purposes from guaranteed or equal scores. Fresh five-member safety-card-before-experiment transfer changes number, action and boundary with four actual three-sentence responses and essential new facts in Chinese. All content remains draft.
 
-Inspected all 74 final browser figures on sheets 0–18. The new four-player diagram was actually viewed in all twelve initial/three-before/four-after/four-before × 320/390/768px combinations. Four separate player markers and distinct-member counts are clear, all labels wrap within their buttons, and before/after states show different truthful readings. Three people do not satisfy everyone; four after the score also fail; four before only meets the touch condition and does not guarantee scoring or equal points. Browser Space-key focus preservation passed. Inspected every wrong field, partial choice, undo, reset, too-short response and invalidated/reopened original writing. Both passing and participation paths are allowed when matched. Reference roles, wrong-role feedback and the original 43-word three-sentence revision with three self-checks were inspected. Fresh three-member equipment transfer source A is presented B; four actual three-sentence responses update number/action/time boundary. Both explanation steps, full passage, coded comparison and all three wrong-feedback paths were inspected. No clipped labels or invented match outcomes found. Guided simulation and self-review remain separate from actual speech, independent attempts, mastery and lessonDone.
- All four original speaking tasks, references, coaching and2/2/2 rubrics separately read. Main2–4spoken sentences preserve four players, all touching before score and passing/participation. No fixed passing order, exactly-one-touch rule, universal official rule, automatic score or same-score guarantee is added. Guided simulation and preparation grant no independent attempt, mastery, lessonDone or hearing credit.
+Inspected all 74 final browser figures on sheets 0–18, including all twelve initial/three-before/four-after/four-before × 320/390/768px diagram views. Reused distinct-player markers and counts are clear; labels wrap within their controls and before/after readings preserve the necessary-condition boundary. This writing lesson independently checks Each team has, the given four-member count, both before and only-after frames, purpose, scope and complete written form. Inspected every wrong field, missing choice, undo, reset, too-short response and invalidated/reopened retained original sentence. Reference roles and wrong-role feedback fit; the original 39-word three-sentence revision and all three self-checks were inspected. Fresh five-member safety-card transfer source A is presented B. All four actual three-sentence responses, both explanation steps, full passage, coded comparison and each distractor feedback path were inspected. No clipped label or invented scoring result found. Guided planning, model completion and self-review remain separate from independent attempts, mastery, lessonDone and hearing.
+ All four original writing tasks, references, coaching and4/3/3 rubrics separately read. Main2–4written sentences preserve four players, everyone touching before score and passing/participation purpose. Before and only after express the same required sequence here; neither guarantees a score. Other accurate forms remain allowed. Guided simulation and preparation grant no independent attempt, mastery, lessonDone or hearing credit.
 
-Checkpoint 278 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 2144 tasks / 6432 widths; earlier flows retain their original scope.
+Checkpoint 279 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 2147 tasks / 6441 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-w-course-t17. Continue l-w-course-t17 individually. Read all original writing tasks, references, rubrics and coaching. Preserve four distinct participants, before-score timing, passing/participation purpose and necessary-condition limits. Approved audio separate; videos deferred.
+Next: l-s-course-t18. Continue l-s-course-t18 individually. Read all original tasks, references, rubrics and coaching before choosing interactions. Approved audio separate; videos deferred.
 
-Native GUI status: Native 148–278 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–278 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–279 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–279 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint277 pushed and all recorded hashes verified before278. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
+Checkpoint278 pushed and all recorded hashes verified before279. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 
