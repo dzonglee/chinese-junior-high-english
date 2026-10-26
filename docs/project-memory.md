@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-10-26 (UTC)
 
-279 of 413 lessons are individually reviewed; 134 remain pending. Work stays solo under
+280 of 413 lessons are individually reviewed; 133 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-w-course-t17. Three individual writing cards reuse the four-player touch simulation, repair Each team has agreement, compare equivalent before and only-after rules, and distinguish passing/participation purposes from guaranteed or equal scores. Fresh five-member safety-card-before-experiment transfer changes number, action and boundary with four actual three-sentence responses and essential new facts in Chinese. All content remains draft.
+Latest: l-s-course-t18. Three individual speaking cards inspect an unfinished kite, connect Ella admitting the truth with an honest character judgement through two equivalent organisations, and distinguish an opportunity to suggest shared work from an already completed result. Original AI art supports object-state observation; exact identities and communication come from text. Fresh Leo/poster/responsible transfer compares four actual three-sentence student responses in a new story. All content remains draft.
 
-Inspected all 74 final browser figures on sheets 0–18, including all twelve initial/three-before/four-after/four-before × 320/390/768px diagram views. Reused distinct-player markers and counts are clear; labels wrap within their controls and before/after readings preserve the necessary-condition boundary. This writing lesson independently checks Each team has, the given four-member count, both before and only-after frames, purpose, scope and complete written form. Inspected every wrong field, missing choice, undo, reset, too-short response and invalidated/reopened retained original sentence. Reference roles and wrong-role feedback fit; the original 39-word three-sentence revision and all three self-checks were inspected. Fresh five-member safety-card transfer source A is presented B. All four actual three-sentence responses, both explanation steps, full passage, coded comparison and each distractor feedback path were inspected. No clipped label or invented scoring result found. Guided planning, model completion and self-review remain separate from independent attempts, mastery, lessonDone and hearing.
- All four original writing tasks, references, coaching and4/3/3 rubrics separately read. Main2–4written sentences preserve four players, everyone touching before score and passing/participation purpose. Before and only after express the same required sequence here; neither guarantees a score. Other accurate forms remain allowed. Guided simulation and preparation grant no independent attempt, mastery, lessonDone or hearing credit.
+Inspected all 67 final browser figures on sheets 0–16, plus the original 320px artwork capture to check the narrow crop directly. The original 1536×1024 image and delivered 600×400 JPEG were also separately viewed in this continuation. Both people, heads, hands, shoes, table and unfinished kite remain visible at 320/390/768px; captions explain that identity and honest communication come from the text, not appearance. All three fact/action/meaning cards, every wrong field, missing choice, undo, reset, too-short response, and edited/reopened retained sentence were inspected. Both action-first and judgement-first organisations work without restricting other natural original speaking. Reference roles and wrong-role feedback fit. The 31-word, two-sentence original revision and both self-checks are visible. Fresh Leo/poster/responsible transfer source A is presented A. All four actual three-sentence student responses, the full Chinese essential-fact passage, both explanation steps, comparison diagram and every distractor feedback path were inspected. No clipping or invented completed result found. Guided planning and self-review grant no independent speaking, mastery, lessonDone, hearing or actual speech credit.
+ All four original speaking tasks, references, coaching and2/2/2 rubrics read. Main2–4spoken sentences use Ella admitting the unfinished kite to support honest; no required missing tail,chosen colours or delay reason. A chance to suggest joint completion is not completed work. Guided preparation grants no independent attempt,mastery,lessonDone or hearing credit.
 
-Checkpoint 279 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 2147 tasks / 6441 widths; earlier flows retain their original scope.
+Checkpoint 280 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 2150 tasks / 6450 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-s-course-t18. Continue l-s-course-t18 individually. Read all original tasks, references, rubrics and coaching before choosing interactions. Approved audio separate; videos deferred.
+Next: l-w-course-t18. Continue l-w-course-t18 individually. Read all original writing tasks, references, rubrics and coaching. Keep action evidence and opportunity/result distinct. Approved audio separate; videos deferred.
 
-Native GUI status: Native 148–279 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–279 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–280 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–280 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint278 pushed and all recorded hashes verified before279. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
+Checkpoint279 pushed and all recorded hashes verified before280. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 

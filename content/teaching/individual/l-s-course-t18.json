@@ -1,0 +1,287 @@
+{
+  "lessonId": "l-s-course-t18",
+  "reviewState": "draft",
+  "intent": "Support an honest character judgement with the explicit unfinished-kite admission and distinguish an opportunity to suggest joint work from completed work.",
+  "picturePurpose": "Original unfinished kite scene supports object-state observation; identities, communication and character evaluation are grounded in exact text, never inferred from faces.",
+  "workshop": {
+    "kind": "compose",
+    "title": "别只说honest：用故事里的行动作证",
+    "instruction": "先找风筝的真实状态，再核对Ella告诉表弟的话。把行动与人物评价连起来，最后区分“有机会一起完成”和“已经一起完成”。画面是原创示例，人物身份和沟通事实以题目文字为准。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "风筝没完成，不等于人物不诚实",
+        "prompt": "观察示例图，再对照题目：风筝是什么状态？Ella怎样面对这个事实？",
+        "answer": "",
+        "reason": "未完成与如实告知两条事实已核对。评价人物要看她如何沟通，不是只看礼物是否做完。",
+        "hint": "图示用未贴完的纸表现未完成；原题没有规定缺哪一部分。不能凭笑容、衣服或眼神判断诚实，也不要补写延迟原因。",
+        "material": "说2—4句英文。介绍虚构故事中的 Ella：风筝没做完，她没有假装完成，而是告诉表弟。用行为支持人物评价。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "物品状态 → 人物行动",
+          "hint": "依据题目文字；图帮助看见未完成的物品。",
+          "wrong": "原题是风筝未完成，Ella告诉表弟实情，没有假装准备好了。未完成不自动说明她说谎；表情也不能证明诚实。",
+          "fields": [
+            {
+              "id": "state",
+              "label": "原题中风筝的状态",
+              "answer": "unfinished",
+              "choices": [
+                {
+                  "id": "unfinished",
+                  "label": "The kite is not finished."
+                },
+                {
+                  "id": "ready",
+                  "label": "The kite is ready to fly."
+                },
+                {
+                  "id": "broken",
+                  "label": "The finished kite has broken."
+                }
+              ]
+            },
+            {
+              "id": "action",
+              "label": "哪项行动由原题支持？",
+              "answer": "tells",
+              "choices": [
+                {
+                  "id": "tells",
+                  "label": "Ella tells her cousin that it is not finished."
+                },
+                {
+                  "id": "pretends",
+                  "label": "Ella pretends the kite is ready."
+                },
+                {
+                  "id": "hides",
+                  "label": "Ella hides the unfinished kite and says nothing."
+                }
+              ]
+            }
+          ]
+        },
+        "composeArt": {
+          "asset": "lesson-kite-honesty",
+          "assetRoot": "illustrations-6",
+          "format": "jpg",
+          "alt": "原创示例：紫色连帽衫女孩指向桌上只贴好部分纸面的风筝，旁边站着一名较年幼男孩；两人没有在共同完成风筝。",
+          "caption": "图示未完成的风筝。Ella与表弟的身份、她如实告知的行动来自题目文字；画面表情不能证明人物诚实。"
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "because后面要有行动依据",
+        "prompt": "比较两种组织方式：先给评价再举证，或先说行动再给评价。",
+        "answer": "",
+        "reason": "人物评价与行动依据已配好。自己的口头表达可用其他自然写法，但不要编造情节。",
+        "hint": "两条都支持honest，不规定自己的句子必须按某个顺序。外貌和“我喜欢她”都不能替代故事里的行动。",
+        "material": "说2—4句英文。介绍虚构故事中的 Ella：风筝没做完，她没有假装完成，而是告诉表弟。用行为支持人物评价。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "评价 ↔ 行动证据",
+          "hint": "两种组织方式都可用；先选一种再配对应句。",
+          "wrong": "判断诚实的依据是她承认没完成而非假装准备好。喜欢她或她面带笑容都不是这项评价的情节证据。",
+          "fields": [
+            {
+              "id": "pattern",
+              "label": "比较哪种组织方式？",
+              "answer": "judgement",
+              "choices": [
+                {
+                  "id": "judgement",
+                  "label": "先评价，再用because举证"
+                },
+                {
+                  "id": "action",
+                  "label": "先说行动，再说明评价"
+                }
+              ]
+            },
+            {
+              "id": "sentence",
+              "label": "哪句与所选组织方式对应？",
+              "answer": "judgement-ok",
+              "choices": [
+                {
+                  "id": "judgement-ok",
+                  "label": "Ella seems honest because she tells her cousin the kite is not finished."
+                },
+                {
+                  "id": "action-ok",
+                  "label": "Ella admits the kite is not finished, so I think she is honest."
+                },
+                {
+                  "id": "looks",
+                  "label": "Ella seems honest because she is smiling."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "pattern",
+            "answers": {
+              "judgement": {
+                "sentence": "judgement-ok"
+              },
+              "action": {
+                "sentence": "action-ok"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "机会不是已经发生的结果",
+        "prompt": "如实告知能给表弟什么机会？再核对原题的口头表达要求。",
+        "answer": "",
+        "reason": "机会与结果、口头任务形式已核对。接下来实际说2—4句，用行动支持评价，不用照抄参考表达。",
+        "hint": "参考表达说表弟有机会提出一起完成，不表示他已经提出、答应或做完。没有要求说明没完成的原因，也不把承认延迟说成永远不必负责。",
+        "material": "说2—4句英文。介绍虚构故事中的 Ella：风筝没做完，她没有假装完成，而是告诉表弟。用行为支持人物评价。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "如实告知 → 可以商量下一步",
+          "hint": "chance表示机会，不是已完成的结果。",
+          "wrong": "真实告知让表弟有机会建议共同完成；没有证据说两人已经完成或保证一定完成。原题要2—4句口头表达，形容词清单或只写不说不能代替。",
+          "fields": [
+            {
+              "id": "opportunity",
+              "label": "哪句没有把机会写成结果？",
+              "answer": "chance",
+              "choices": [
+                {
+                  "id": "chance",
+                  "label": "Her message gives her cousin a chance to suggest finishing it together."
+                },
+                {
+                  "id": "finished",
+                  "label": "They have already finished the kite together."
+                },
+                {
+                  "id": "guarantee",
+                  "label": "Her honesty guarantees that they will finish it today."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题怎样完成？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four sentences, using her action to support your judgement."
+                },
+                {
+                  "id": "labels",
+                  "label": "Say only honest, nice and good."
+                },
+                {
+                  "id": "written",
+                  "label": "Write the answer without saying it aloud."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t18-transfer",
+      "topicId": "s-course-t18",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪份口头表达用故事中的行动支持评价，而且没有编造结果？",
+      "passage": "新故事｜根据要点说2—4句英文\n小组的海报（poster）还没有完成。Leo没有假装准备好了，而是如实告诉组员。大家因此有机会商量下一步；故事没有说他们已经一起完成海报。请用他的行动说明为什么可以评价他有责任心（responsible）。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Leo seems responsible because he tells the group that the poster is not finished. He does not pretend it is ready. His message gives them a chance to discuss what to do next."
+        },
+        {
+          "id": "b",
+          "text": "Leo seems irresponsible because the poster is not finished. I do not need to consider what he tells the group. An unfinished poster is enough to judge his character."
+        },
+        {
+          "id": "c",
+          "text": "Leo seems responsible because he looks cheerful. His smile shows that he always tells the truth. I do not need any evidence from his actions."
+        },
+        {
+          "id": "d",
+          "text": "Leo tells the group that the poster is not finished. This can support calling him responsible. They have already finished it together."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Leo seems responsible because he tells the group that the poster is not finished. He does not pretend it is ready. His message gives them a chance to discuss what to do next."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先定位人物做了什么，再用行动支持评价，区分机会和结果。",
+        "steps": [
+          {
+            "text": "第一份表达先用tells the group说明行动，再把它与responsible连起来。",
+            "reason": "这个沟通行动可以支持responsible的评价；未完成本身和外貌都不能代替行动依据。"
+          },
+          {
+            "text": "最后一句只说组员获得商量下一步的机会，没有编造已经完成海报的结果。",
+            "reason": "chance只表示机会，不能把它扩写成已经发生的结果。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "只看成品状态，漏掉他如实告知的行动。"
+          },
+          {
+            "option": "c",
+            "reason": "把笑容当作负责任、总是诚实的证据，还放弃核对故事中的行动。"
+          },
+          {
+            "option": "d",
+            "reason": "把商量的机会改写成已完成，添加了原文没有的结果。"
+          }
+        ],
+        "pitfall": "背下honest或responsible，却说不出哪项行动支持评价；或把机会夸大成结果。",
+        "visual": {
+          "kind": "comparison",
+          "title": "新故事：行动作证，结果不编",
+          "segments": [
+            {
+              "text": "poster not finished",
+              "role": "evidence",
+              "note": "新的物品状态"
+            },
+            {
+              "text": "tells the group honestly",
+              "role": "evidence",
+              "note": "支持评价的行动"
+            },
+            {
+              "text": "chance to discuss",
+              "role": "evidence",
+              "note": "沟通带来的机会"
+            },
+            {
+              "text": "not already completed",
+              "role": "neutral",
+              "note": "不添加结果"
+            }
+          ],
+          "caption": "人物评价要与故事中可核对的行动相连。"
+        },
+        "transfer": "如果故事只说人物面带笑容，却没写他怎样处理问题，足够评价他负责任吗？还需要什么行动证据？"
+      }
+    }
+  }
+}
