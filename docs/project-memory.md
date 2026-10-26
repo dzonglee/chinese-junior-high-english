@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-10-26 (UTC)
 
-276 of 413 lessons are individually reviewed; 137 remain pending. Work stays solo under
+277 of 413 lessons are individually reviewed; 136 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-s-course-t16. Three individual speaking cards inspect two visible details in an original artwork, compare quiet and welcoming personal interpretations, and separate image evidence from unsupported artist-biography claims. Other grounded feelings and visible details remain allowed. Fresh curved-blue-piece sculpture/gap transfer changes the artwork. All content remains draft.
+Latest: l-w-course-t16. Three individual writing cards reuse the original painting for can-see observation repair, compare feels-quiet and find-the-scene-quiet adjective complements, and preserve personal scope in two to four written sentences. Other grounded feelings and visible details remain allowed. Fresh red-umbrella/stone-wall/path photograph transfer compares four actual three-sentence student responses with essential new facts in Chinese; one response supplies visible facts but omits the required personal feeling. No duplicate shipping image; all content remains draft.
 
-Inspected all 69 final browser figures on sheets 0–17, including 320/390/768px control and artwork views. The empty chair and legs, bright window, blue doorway and open floor support the observation prompts; background architecture, plant and rug naturally meet the artwork edges. Both quiet and welcoming interpretation paths fit, with no single-feeling or artist-biography claim. Inspected every incorrect field, partial selection, undo, reset, too-short response, invalidated completion and reopened retained original writing. Three reference roles, wrong-role feedback, the original 36-word three-sentence revision and all three self-checks are clear. Fresh sculpture transfer has four actual three-sentence responses; source A is presented C. Both explanation steps, visual evidence labels, full passage and all three distractor feedback paths were inspected. No clipped control text or unsupported picture target found. Guided planning and self-review remain separate from actual speech, independent attempts, mastery and lesson completion.
- All four original speaking tasks, references, coaching and2/2/2 rubrics separately read. Main2–4spoken sentences describe two visible details and a personal feeling, distinguishing observation from interpretation. Reference objects demonstrate one painting and are not mandatory details for every artwork. Guided planning grants no independent attempt, mastery, lessonDone or hearing credit; actual speech remains separate.
+Inspected all 67 final browser figures on sheets 0–16 at 320/390/768px. Independently reviewed the reused artwork: complete empty chair and legs, bright window, doorway and open floor support this writing task; background decorative edges naturally meet the canvas. The original 390px can-see prompt screenshot was also opened and fits its 328px content width. Both feels-quiet and find-the-scene-quiet paths fit and work without treating the alternative as ungrammatical. Inspected all wrong fields, missing selections, undo, reset, too-short writing, invalidated and reopened retained responses. Reference roles and wrong-role feedback are clear; the original 34-word three-sentence revision and three self-checks were inspected. Fresh photograph transfer source A is presented C; all four responses contain three actual sentences. Both explanation steps, full passage, visual evidence labels and all distractor feedback were inspected, including correct observations that omit a personal feeling. No clipped controls found. Guided planning and self-review add no independent attempt, mastery, lessonDone or hearing credit.
+ All four original writing tasks, references, coaching and4/3/3 rubrics separately read. Main2–4written sentences describe two visible details and a personal feeling, distinguishing observation from interpretation. Example objects and quiet are not universal required content. Guided preparation grants no independent attempt, mastery, lessonDone or hearing credit.
 
-Checkpoint 276 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 2138 tasks / 6414 widths; earlier flows retain their original scope.
+Checkpoint 277 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 2141 tasks / 6423 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-w-course-t16. Continue l-w-course-t16 individually. Read all original writing tasks, references, rubrics and coaching. Keep visible observation distinct from personal interpretation and unsupported artist biography. Approved audio separate; videos deferred.
+Next: l-s-course-t17. Continue l-s-course-t17 individually. Read all original tasks, references, rubrics and coaching before choosing interactions. Approved audio separate; videos deferred.
 
-Native GUI status: Native 148–276 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–276 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–277 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–277 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint275 pushed and all recorded hashes verified before276. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
+Checkpoint276 pushed and all recorded hashes verified before277. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 
