@@ -5,10 +5,25 @@ import { sha256 } from '@noble/hashes/sha256'
 import { bytesToHex, utf8ToBytes } from '@noble/hashes/utils'
 import { ContentRepository } from './services/content'
 import { catalog, q } from './test-fixtures'
+import { utf8Bytes, utf8ByteLength } from './core/utf8'
 
 const stored = (text: string) => ({ encoding: 'gzip-hex-v1', byteLength: Buffer.byteLength(text), data: gzipSync(text, { level: 9 }).toString('hex') })
 
 describe('lossless native content storage', () => {
+  it('preserves standard UTF-8 bytes, malformed-surrogate replacement and fresh buffers without TextEncoder', () => {
+    const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'TextEncoder')!
+    Object.defineProperty(globalThis, 'TextEncoder', { configurable: true, writable: true, value: undefined })
+    try {
+      const strings = ['', '\u0000\u007f\u0080\u07ff\u0800\ud7ff\ue000\uffff', '中文：标签与误会。', 'A😀𝄞\u{10ffff}Z', '\ud800', '\udbff', '\udc00', '\udfff', '\ud800x\udc00', '\ud800\ud800\udc00', '\udc00\udfff\udbff', 'a\r\n\u2028\u2029z', '中文😀\ud800 ASCII\u0000'.repeat(4000)]
+      for (const text of strings) {
+        const expected = Buffer.from(text, 'utf8'), actual = utf8Bytes(text)
+        expect(Buffer.from(actual).toString('hex')).toBe(expected.toString('hex'))
+        expect(utf8ByteLength(text)).toBe(expected.length)
+        if (actual.length) actual[0] ^= 0xff
+        expect(Buffer.from(utf8Bytes(text)).toString('hex')).toBe(expected.toString('hex'))
+      }
+    } finally { Object.defineProperty(globalThis, 'TextEncoder', descriptor) }
+  })
   it('publishes fully converted concurrent packs and refreshes a pack arriving during an earlier flush', async () => {
     for (const late of [false, true]) {
       const questions = ['a', 'b'].map(id => ({ ...structuredClone(q), id: `q-batch-${id}`, topicId: `g-batch-${id}`, stem: 'The colour ___ bright.' }))
