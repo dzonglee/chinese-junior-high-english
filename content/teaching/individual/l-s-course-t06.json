@@ -1,0 +1,301 @@
+{
+  "lessonId": "l-s-course-t06",
+  "reviewState": "draft",
+  "intent": "Describe two reasonable duties of a female theatre props worker without confusing backstage work with acting.",
+  "picturePurpose": "Two original backstage scenes distinguish observable checking and communication from inferred job identity, safety results and invented dialogue. Exact duties remain in code.",
+  "workshop": {
+    "kind": "compose",
+    "title": "把幕后职责说具体",
+    "instruction": "先观察检查道具和沟通的场景，再选择两项合理职责。不要把道具工作人员写成演员；自己的表达可以换成其他合理职责。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "看动作，分清检查与沟通",
+        "prompt": "哪幅在检查物品，哪幅在和同事沟通？",
+        "answer": "",
+        "reason": "检查与沟通的可见动作已区分。再用自己的话说出两项合理工作。",
+        "hint": "图中只能看出动作；她的岗位来自题目。图片不证明检查已通过，也不能让我们猜演员说了什么。",
+        "material": "说2—4句英文。在职业分享中介绍一位舞台道具工作人员。说明她做的两件事，不要把她说成台上的演员。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "观察幕后工作",
+          "hint": "看人物正在做什么，不从表情猜工作成果。",
+          "wrong": "左图在查看物品，右图有人交谈；这不说明检查都已通过，也不提供具体对话内容。她的岗位由原题说明，不是台上演员。",
+          "fields": [
+            {
+              "id": "scene",
+              "label": "哪幅在与同事沟通？",
+              "answer": "right",
+              "choices": [
+                {
+                  "id": "left",
+                  "label": "Left: she is examining the objects."
+                },
+                {
+                  "id": "right",
+                  "label": "Right: she is talking with another person."
+                }
+              ]
+            },
+            {
+              "id": "evidence",
+              "label": "图片能直接支持哪句话？",
+              "answer": "checking",
+              "choices": [
+                {
+                  "id": "checking",
+                  "label": "She is looking at the objects in front of her."
+                },
+                {
+                  "id": "passed",
+                  "label": "Every object has passed all safety checks."
+                },
+                {
+                  "id": "words",
+                  "label": "The actor has asked for a different cup."
+                }
+              ]
+            }
+          ]
+        },
+        "composeArt": {
+          "asset": "lesson-stage-props",
+          "assetRoot": "illustrations-6",
+          "format": "jpg",
+          "alt": "虚构幕后工作示例：左图女工作人员查看托盘上的物品，右图同一工作人员与另一人讨论道具。人物头部、手势和托盘物品都在各自画面内，桌车遮住了部分腿部。",
+          "caption": "左：查看物品。右：与同事沟通。岗位由题目说明；图片不能证明安全检查结果，也不能告诉我们对话内容。",
+          "frames": 2,
+          "frameShape": "wide"
+        }
+      },
+      {
+        "id": "check-duties",
+        "label": "两项职责，可以有不同合理组合",
+        "prompt": "把一组具体职责配完整。",
+        "answer": "",
+        "reason": "两项示例职责已配齐。自己的两项合理职责也应具体，不能只说she helps。",
+        "hint": "检查道具、确认变动、按清单准备、用后归位都可作为合理例子。原题没有指定必须照抄参考的两件事。",
+        "material": "说2—4句英文。在职业分享中介绍一位舞台道具工作人员。说明她做的两件事，不要把她说成台上的演员。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "两项职责板",
+          "hint": "先选示例组合，再配好两件不同的具体工作。",
+          "wrong": "这张卡要配齐所选示例的两项职责；另一组也可切换后配齐，自己的其他合理职责仍可用。台上演角色会换错岗位，some other things又不够具体。",
+          "fields": [
+            {
+              "id": "pair",
+              "label": "比较哪组职责？",
+              "answer": "check-talk",
+              "choices": [
+                {
+                  "id": "check-talk",
+                  "label": "检查物品 + 确认变动"
+                },
+                {
+                  "id": "prepare-return",
+                  "label": "按清单准备 + 用后归位"
+                }
+              ]
+            },
+            {
+              "id": "first",
+              "label": "第一项职责",
+              "answer": "check",
+              "choices": [
+                {
+                  "id": "check",
+                  "label": "She checks the objects needed on stage."
+                },
+                {
+                  "id": "prepare",
+                  "label": "She prepares the props on the list."
+                },
+                {
+                  "id": "act",
+                  "label": "She plays the main character on stage."
+                }
+              ]
+            },
+            {
+              "id": "second",
+              "label": "第二项职责",
+              "answer": "talk",
+              "choices": [
+                {
+                  "id": "talk",
+                  "label": "She asks the actors about changes before the show."
+                },
+                {
+                  "id": "return",
+                  "label": "She returns the props to their places after the show."
+                },
+                {
+                  "id": "vague",
+                  "label": "She does some other things."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "pair",
+            "answers": {
+              "check-talk": {
+                "first": "check",
+                "second": "talk"
+              },
+              "prepare-return": {
+                "first": "prepare",
+                "second": "return"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-role",
+        "label": "说清幕后岗位，注意she后的动词",
+        "prompt": "哪句既保留她的岗位，又把句子说完整？",
+        "answer": "",
+        "reason": "岗位与动词形式已核对。接下来实际说出自己的2—4句话，再回听。",
+        "hint": "一般现在时介绍她的职责，she后用checks、prepares等第三人称单数形式。演员需要道具，但两种岗位不等同。",
+        "material": "说2—4句英文。在职业分享中介绍一位舞台道具工作人员。说明她做的两件事，不要把她说成台上的演员。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "岗位与表达卡",
+          "hint": "内容和语法都要检查；不要只修动词却换错岗位。",
+          "wrong": "she后用第三人称单数动词，且不能把道具岗位改成台上演员。最后需实际说2—4句并回听，选卡或只写稿不能代替口头介绍。",
+          "fields": [
+            {
+              "id": "sentence",
+              "label": "哪句符合这项任务？",
+              "answer": "checks",
+              "choices": [
+                {
+                  "id": "check",
+                  "label": "She check the stage props before the show."
+                },
+                {
+                  "id": "checks",
+                  "label": "She checks the stage props before the show."
+                },
+                {
+                  "id": "acts",
+                  "label": "She acts as the main character in the show."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "最后需要完成什么？",
+              "answer": "speak",
+              "choices": [
+                {
+                  "id": "speak",
+                  "label": "Say two to four English sentences and listen back."
+                },
+                {
+                  "id": "outline",
+                  "label": "Choose the correct duty cards and finish without giving an oral introduction."
+                },
+                {
+                  "id": "essay",
+                  "label": "Write a complete introduction, but do not say it aloud."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t06-transfer",
+      "topicId": "s-course-t06",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "Which outline fits the new job introduction?",
+      "passage": "A different backstage role\nIntroduce a female theatre lighting worker in two to four spoken English sentences. Explain two reasonable duties. Keep her work distinct from acting in the performance. You may propose sensible examples; no exact duties are prescribed.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Introduce her lighting role and explain that she checks the lamps before the show, then describe her other main duty as playing a character on stage during the performance."
+        },
+        {
+          "id": "b",
+          "text": "Introduce her lighting role and explain two duties: checking the lamps before the show and agreeing lighting cues with the team. Keep these duties distinct from acting in the performance."
+        },
+        {
+          "id": "c",
+          "text": "Introduce her lighting role and explain how she checks the lamps before the show, adding details about each lamp, but leave out a second distinct duty in the introduction."
+        },
+        {
+          "id": "d",
+          "text": "Introduce her role by explaining that she checks the stage props and returns the props to their places after the show, keeping the earlier props-worker duties for this new introduction."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Introduce her lighting role and explain two duties: checking the lamps before the show and agreeing lighting cues with the team. Keep these duties distinct from acting in the performance."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先确认新岗位，再把两项具体职责与岗位对齐。",
+        "steps": [
+          {
+            "text": "新任务介绍灯光工作人员，不是道具工作人员，也不是台上演员。",
+            "reason": "照搬旧任务的道具细节会换错岗位。"
+          },
+          {
+            "text": "检查灯具、与团队确认灯光提示等，是两项合理示例。",
+            "reason": "要说清她做什么；自己的其他合理例子也可以。最后实际说出2—4句并回听。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "保留了一项灯光职责，却把第二项职责写成扮演角色，混淆了幕后岗位与台上演员。"
+          },
+          {
+            "option": "c",
+            "reason": "检查每盏灯的细节仍属于同一项检查职责，没有给出第二项不同的具体工作。"
+          },
+          {
+            "option": "d",
+            "reason": "照搬道具细节，没有介绍新任务的灯光职责。"
+          }
+        ],
+        "pitfall": "把岗位名称当成完整介绍，或把所有剧场工作人员都说成演员。",
+        "visual": {
+          "kind": "comparison",
+          "title": "岗位 → 两项职责 → 口头介绍",
+          "segments": [
+            {
+              "text": "lighting worker",
+              "role": "evidence",
+              "note": "新岗位"
+            },
+            {
+              "text": "check lamps · agree cues",
+              "role": "evidence",
+              "note": "两项可行示例"
+            },
+            {
+              "text": "two to four spoken sentences",
+              "role": "neutral",
+              "note": "完成形式"
+            }
+          ],
+          "caption": "示例职责可以换，岗位和任务形式不能换。"
+        },
+        "transfer": "如果改为介绍音响工作人员，哪些具体职责需要重新选择？"
+      }
+    }
+  }
+}
