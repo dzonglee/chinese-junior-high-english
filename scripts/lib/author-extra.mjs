@@ -79,7 +79,14 @@ export function authorExtra(root, catalog) {
     }
     const topicWords = vocabulary.filter(w => w.topicId === id)
     for (const [n, word] of topicWords.entries()) {
-      const decoys = topicWords.filter(w => w.meaning !== word.meaning && w.id !== word.id).filter((w, i, list) => list.findIndex(other => other.meaning === w.meaning) === i).slice(0, 2)
+      const decoys = [], seenMeanings = new Set()
+      // Keep the same first two distinct meanings without building unused distractors.
+      for (const candidate of topicWords) {
+        if (candidate.meaning === word.meaning || candidate.id === word.id || seenMeanings.has(candidate.meaning)) continue
+        seenMeanings.add(candidate.meaning)
+        decoys.push(candidate)
+        if (decoys.length === 2) break
+      }
       if (decoys.length !== 2) throw new Error(`Vocabulary topic needs three distinct meanings: ${id}`)
       const labels = [word, ...decoys], rotated = labels.map((_, k) => labels[(k + n) % 3])
       const options = rotated.map((w, k) => ({ id: ['a', 'b', 'c'][k], text: w.meaning })), right = options.find(o => o.text === word.meaning).id

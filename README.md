@@ -2,7 +2,7 @@
 
 The owner has requested a further **individual lesson redesign**. The shared workshops below
 are a functional baseline; the [per-lesson tracker](docs/authoring/lesson-upgrades.md) records the
-actual individual reviews (currently 259/413), with individual evidence linked for each reviewed lesson.
+actual individual reviews (currently 260/413), with individual evidence linked for each reviewed lesson.
 
 
 A working local English practice app for mainland junior-high students, with 413 original draft
@@ -84,6 +84,9 @@ No production AppID is included. See [native verification evidence](docs/reviews
 
 `npm run check` keeps test files serial for the expanded lesson data; the original test timeouts
 remain unchanged.
+
+Vitest reuses compiled TypeScript in its ignored `node_modules/.vitest-cache` directory.
+The cache is keyed by source content, tool version and configuration; every test still runs.
 
 ```bash
 npm run check
