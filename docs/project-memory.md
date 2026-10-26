@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-10-26 (UTC)
 
-286 of 413 lessons are individually reviewed; 127 remain pending. Work stays solo under
+287 of 413 lessons are individually reviewed; 126 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-s-course-t21. Three individual speaking cards identify a planned public photo use and the people whose consent is needed, compare explicitly hypothetical private-only and specifically confirmed public-use cases,and return to the main task without inventing agreement. Fresh team-video/private-chat/public-website transfer compares four actual three-sentence responses against new Chinese essential facts. No photo upload or real consent is implied; all content remains draft.
+Latest: l-w-course-t21. Three individual writing cards repair uncountable permission agreement, compare must-plus-base and need-to-plus-base requirements,and preserve the distinction between requesting and receiving specific public-use consent in two to four written sentences. Fresh voice-recording/people-heard/private-project-group/public-school-page transfer compares four actual three-sentence responses against Chinese essential facts and updates who needs to be asked. All content remains draft.
 
-Inspected all 60 final captures across 15 contact sheets at 320, 390 and 768 widths. Public purpose and people-shown consent fields fit. Both explicitly hypothetical permission branches match their stated scope; the main-task card returns to consent not yet confirmed. Wrong use, people, hypothetical coverage, request/confirmation and spoken-form choices give accurate feedback. Initial, missing, short, reset, edited/reopened and retained drafts preserve the evidence boundary. Reference-role feedback matches the chosen sentence. Original revision: 42 English words, three sentences and three self-checks. The fresh video task has four actual three-sentence responses; presented A is correct. Full Chinese essential facts, all three distractor feedback states and both explanation steps were read. No clipping or actual-consent inference found. No photo upload, independent evidence, mastery, actual speech or hearing credit is implied. No image needed: a picture would not establish consent; coded scenario fields make the distinction.
- All four original speaking tasks,references,coaching and2/2/2rubrics read. Main2–4spoken sentences explain public use,people-shown consent and private/public scope. Hypothetical permissions do not create actual main-task consent;request is not confirmation. Guided preparation grants no independent attempt,mastery,lessonDone or hearing credit.
+Inspected all 60 final captures across 15 contact sheets at 320, 390 and 768 widths. Permission takes does, and the meaning field preserves not automatically without implying permanent prohibition or existing consent. Both must-plus-base and need-to-plus-base branches match complete reminder sentences. Wrong verb, meaning, frame, consent-status and written-form choices give specific feedback. Initial, missing, reset, edited/reopened and short-writing states retain drafts and invalidate stale completion. Reference roles match source sentences. Original revision: 44 English words, three sentences, three self-checks. The fresh voice-recording task compares four actual three-sentence responses; presented A is correct. Full Chinese essential facts, all three distractor feedback states and both explanation steps were read, including the old-photo distractor and explicit text-only instruction. No clipping or actual-consent inference found. No hearing, independent evidence or mastery credit is implied. Coded grammar and scope comparisons carry the explanation; no picture could establish consent.
+ All four original writing tasks,references,coaching and4/3/3rubrics read. Main2–4written sentences explain publicphoto use,people-shown consent and private/public scope;asking does not imply consent. A text-only audio-use case updates the people to ask without playback or hearing credit. Guided preparation grants no independent attempt,mastery,lessonDone or hearing credit.
 
-Checkpoint 286 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 2168 tasks / 6504 widths; earlier flows retain their original scope.
+Checkpoint 287 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 2171 tasks / 6513 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-w-course-t21. Continue l-w-course-t21 individually;read original writing tasks,references,rubrics and coaching. Keep specific-use consent and request/confirmation distinct. Approved audio separate;videos deferred.
+Next: l-s-course-t22. Continue l-s-course-t22 individually;read original tasks,references,rubrics and coaching. Approved audio separate;videos deferred.
 
-Native GUI status: Native 148–286 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–286 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–287 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–287 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Checkpoint285 pushed and all recorded hashes verified before286. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
+Checkpoint286 pushed and all recorded hashes verified before287. Origin/main fetched and shared board/latest log read;solo ownership unchanged. Existing memory and lesson/native cards updated and read back. No all-course parity claimed.
 
 ## Previous local delivery · 2026-10-17
 

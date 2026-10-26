@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **286 / 413**. Current: **l-w-course-t21**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **287 / 413**. Current: **l-s-course-t22**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -394,7 +394,7 @@ Completed: **286 / 413**. Current: **l-w-course-t21**. Evidence lives in docs/re
 | l-s-course-t20 | 用事实介绍有贡献的人：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t20.md) |
 | l-w-course-t20 | 用事实介绍有贡献的人：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t20.md) |
 | l-s-course-t21 | 公共规则与个人信息保护：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t21.md) |
-| l-w-course-t21 | 公共规则与个人信息保护：用文字说清 | pending | — |
+| l-w-course-t21 | 公共规则与个人信息保护：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t21.md) |
 | l-s-course-t22 | 介绍家乡文化与自己的身份：口头说清 | pending | — |
 | l-w-course-t22 | 介绍家乡文化与自己的身份：用文字说清 | pending | — |
 | l-s-course-t23 | 关心世界与辨别信息：口头说清 | pending | — |
