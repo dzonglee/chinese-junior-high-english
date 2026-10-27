@@ -151,6 +151,7 @@ function render() {
   const composeTouchesFocus = active instanceof HTMLButtonElement && active.matches(".compose-touches button") ? active.dataset.value : undefined
   const composeConditionsFocus = active instanceof HTMLButtonElement && active.matches(".compose-conditions button") ? active.dataset.value : undefined
   const composeWatchFocus = active instanceof HTMLButtonElement && active.matches('.compose-watch button') ? {action:active.dataset.action,value:active.dataset.value} : undefined
+  const composeCoverageFocus = active instanceof HTMLButtonElement && active.matches('.compose-coverage button') ? {action:active.dataset.action,value:active.dataset.value} : undefined
   const composeBriefFocus = active instanceof HTMLButtonElement && active.matches(".compose-brief button") ? active.dataset.value : undefined
   const exactAlignmentFocus = active instanceof HTMLButtonElement && active.matches(".word-exact-alignment button") ? active.dataset.value : undefined
   const nearlyFinishFocus = active instanceof HTMLButtonElement && active.matches(".word-nearly-finish button") ? active.dataset.value : undefined
@@ -212,6 +213,7 @@ function render() {
   if (composeTouchesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-touches [data-value="${CSS.escape(composeTouchesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeConditionsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-conditions [data-value="${CSS.escape(composeConditionsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeWatchFocus?.action !== undefined && composeWatchFocus.value !== undefined) root.querySelector<HTMLButtonElement>(`.compose-watch [data-action="${CSS.escape(composeWatchFocus.action)}"][data-value="${CSS.escape(composeWatchFocus.value)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeCoverageFocus?.action !== undefined && composeCoverageFocus.value !== undefined) root.querySelector<HTMLButtonElement>(`.compose-coverage [data-action="${CSS.escape(composeCoverageFocus.action)}"][data-value="${CSS.escape(composeCoverageFocus.value)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeBriefFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-brief [data-value="${CSS.escape(composeBriefFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (exactAlignmentFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-exact-alignment [data-value="${CSS.escape(exactAlignmentFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (nearlyFinishFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-nearly-finish [data-value="${CSS.escape(nearlyFinishFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
