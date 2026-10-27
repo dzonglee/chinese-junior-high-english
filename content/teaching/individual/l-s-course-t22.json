@@ -1,0 +1,286 @@
+{
+  "lessonId": "l-s-course-t22",
+  "reviewState": "draft",
+  "intent": "Explain an ordinary own or fictional hometown object through a specific personal connection and limited sense of belonging while recognising different experiences.",
+  "picturePurpose": "Original optional drawing card makes the ordinary object observable; memories, family relations and hometown belonging remain grounded in personal or fictional text.",
+  "workshop": {
+    "kind": "compose",
+    "title": "普通物品也能讲归属：说出你的联系",
+    "instruction": "观察一张可选的原创画卡，区分看得见的物品与需要讲述的记忆，再比较两个虚构个人例子。用物品、个人联系和感受组织2—4句，不把自己的归属感当成所有居民的经历。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "看见物品，不替它编个人经历",
+        "prompt": "先看这张原创画卡：什么由画面直接支持？什么还需要主人讲述？",
+        "answer": "",
+        "reason": "物品外观与个人记忆已分开。介绍时补上自己的具体联系，不只讲颜色或“很好看”。",
+        "hint": "河边小路画卡只是可选物品；原题允许其他普通物品，也可虚构。画里没有人物，不能凭图证明谁和爷爷走过这里，或认定它属于真实城市。",
+        "material": "说2—4句英文。介绍一件让你想到家乡的普通物品，可虚构。说清与自己的联系，不代表所有居民。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "物品可见 · 记忆需要讲述",
+          "hint": "这是一张虚构景物画，不是真实地点证据。",
+          "wrong": "图中是画有河流与小路的画卡，不是车票或钥匙扣。谁与谁散步、为什么像家都不能从图中证明，需要在个人或虚构故事中讲清。",
+          "fields": [
+            {
+              "id": "object",
+              "label": "本图的可选物品是什么？",
+              "answer": "drawing",
+              "choices": [
+                {
+                  "id": "drawing",
+                  "label": "A drawing card showing a river path."
+                },
+                {
+                  "id": "ticket",
+                  "label": "A bus ticket."
+                },
+                {
+                  "id": "keyring",
+                  "label": "A plain keyring."
+                }
+              ]
+            },
+            {
+              "id": "evidence",
+              "label": "个人联系怎样说明？",
+              "answer": "story",
+              "choices": [
+                {
+                  "id": "story",
+                  "label": "Tell a specific personal or invented memory connected with the object."
+                },
+                {
+                  "id": "picture",
+                  "label": "Assume the picture proves who walked there with a grandparent."
+                },
+                {
+                  "id": "all",
+                  "label": "Assume everyone in the town shares the same memory."
+                }
+              ]
+            }
+          ]
+        },
+        "composeArt": {
+          "asset": "lesson-hometown-drawing",
+          "assetRoot": "illustrations-7",
+          "format": "jpg",
+          "alt": "原创可选物品：一张完整的蓝边画卡，画有虚构河流、河边小路、树和小桥，旁边有一支短紫色彩笔；没有人物或真实地名。",
+          "caption": "画卡只是可选例子，不证明真实家乡、亲属关系或共同经历。个人记忆与归属感由自己的或虚构的故事说明。"
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "从物品连到记忆，再说为什么像家",
+        "prompt": "比较两个虚构例子，选出与所选物品一致的个人联系。",
+        "answer": "",
+        "reason": "物品与个人记忆已配好。下一步说明这种联系为什么让你想到家，而不是只说物品贵重。",
+        "hint": "例A是河边小路画，联系与爷爷散步的回忆；例B是普通钥匙扣，联系与阿姨去骑车的回忆。只是两种示例，不规定你的亲属、物品或经历。重要的是把物品与具体个人联系连起来。",
+        "material": "说2—4句英文。介绍一件让你想到家乡的普通物品，可虚构。说清与自己的联系，不代表所有居民。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "两个虚构个人例子 · 物品 → 联系",
+          "hint": "例子可以不同，联系要具体且一致。",
+          "wrong": "画卡例对应与爷爷散步，钥匙扣例对应与阿姨骑车。不能把另一例的经历随意拼接，也不能由一个人的联系推断全镇一样。",
+          "fields": [
+            {
+              "id": "example",
+              "label": "比较哪个虚构例子？",
+              "answer": "drawing",
+              "choices": [
+                {
+                  "id": "drawing",
+                  "label": "A：河边小路画卡"
+                },
+                {
+                  "id": "keyring",
+                  "label": "B：普通钥匙扣"
+                }
+              ]
+            },
+            {
+              "id": "memory",
+              "label": "哪句对应所选例子的个人联系？",
+              "answer": "drawing-ok",
+              "choices": [
+                {
+                  "id": "drawing-ok",
+                  "label": "The drawing reminds me of walks with my grandfather."
+                },
+                {
+                  "id": "keyring-ok",
+                  "label": "The keyring reminds me of cycle rides with my aunt."
+                },
+                {
+                  "id": "town",
+                  "label": "Every resident has exactly the same family memory."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "example",
+            "answers": {
+              "drawing": {
+                "memory": "drawing-ok"
+              },
+              "keyring": {
+                "memory": "keyring-ok"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "“对我像家”不代表所有居民",
+        "prompt": "选出有个人范围的感受，再核对口头表达形式。",
+        "answer": "",
+        "reason": "个人感受、不同经历与口头形式已核对。接下来实际说2—4句，包含物品、联系和个人范围。",
+        "hint": "To me和my connection标出个人范围。别人可通过语言、朋友或日常活动与同一地方建立不同联系；不按居住年限或物品价值给归属感排名。",
+        "material": "说2—4句英文。介绍一件让你想到家乡的普通物品，可虚构。说清与自己的联系，不代表所有居民。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "个人联系 → 我的归属感 · 别人可能不同",
+          "hint": "承认差异，不否定自己的经历。",
+          "wrong": "应说这份个人联系让这个地方对我像家，同时承认别人经历可能不同；不能说所有居民一样，也不能凭住得较久就给人排名。原题要2—4句口头表达，不是物品清单或只写不说。",
+          "fields": [
+            {
+              "id": "scope",
+              "label": "哪句范围恰当？",
+              "answer": "personal",
+              "choices": [
+                {
+                  "id": "personal",
+                  "label": "This connection makes the place feel like home to me; others may connect differently."
+                },
+                {
+                  "id": "all",
+                  "label": "Every resident must feel at home for exactly the same reason."
+                },
+                {
+                  "id": "rank",
+                  "label": "People who have lived here longer always belong more."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题怎样完成？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four sentences about an object, your connection and different experiences."
+                },
+                {
+                  "id": "list",
+                  "label": "Only list several ordinary objects."
+                },
+                {
+                  "id": "written",
+                  "label": "Write the answer without saying it aloud."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t22-transfer",
+      "topicId": "s-course-t22",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪份口头介绍把新物品、个人回忆和家的感觉连起来，也保留了别人的不同经历？",
+      "passage": "新的虚构个人例子｜根据要点说2—4句英文\n一张旧公交线路卡（bus-route card）让讲述者想起与朋友周末去市场。这份联系让这个地方对讲述者有家的感觉。其他居民可能有不同经历（different experiences）。这是个人故事，不代表所有居民。",
+      "options": [
+        {
+          "id": "a",
+          "text": "This old bus-route card reminds me of weekend trips to the market with a friend. That memory makes the place feel like home to me. Other residents may connect with the same town in different ways."
+        },
+        {
+          "id": "b",
+          "text": "This old bus-route card reminds me of weekend trips to the market with a friend. Every resident made exactly the same trips with that friend. We all feel at home for exactly the same reason."
+        },
+        {
+          "id": "c",
+          "text": "This is my old bus-route card. It shows the route of a bus. It is the ordinary object I want to introduce."
+        },
+        {
+          "id": "d",
+          "text": "This old bus-route card reminds me of weekend trips to the market with a friend. I have lived here longer than some other people. This proves I belong more, and newcomers cannot feel at home here."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "This old bus-route card reminds me of weekend trips to the market with a friend. That memory makes the place feel like home to me. Other residents may connect with the same town in different ways."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "读新物品的个人故事，再比较四份实际口头介绍是否把联系与个人范围说清。",
+        "steps": [
+          {
+            "text": "新物品是旧公交线路卡，联系与朋友周末去市场的经历。",
+            "reason": "不能只说颜色，也不要照搬画卡、爷爷或钥匙扣的记忆。"
+          },
+          {
+            "text": "这个联系让讲述者对地方有家的感觉，别人可有不同联系。",
+            "reason": "个人归属不是全镇统一经历，也不能按居住年限排高低。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把讲述者的经历变成所有居民与同一个朋友的共同经历。"
+          },
+          {
+            "option": "c",
+            "reason": "只介绍线路卡是什么，遗漏与朋友去市场的个人记忆和家的感觉。"
+          },
+          {
+            "option": "d",
+            "reason": "用居住年限给归属排名并否定新居民，与尊重不同联系的要求相反。"
+          }
+        ],
+        "pitfall": "只展示物品不讲联系，或把个人记忆变成所有人的经历。",
+        "visual": {
+          "kind": "comparison",
+          "title": "线路卡 → 与朋友的市场之行 → 对我像家",
+          "segments": [
+            {
+              "text": "old bus-route card",
+              "role": "evidence",
+              "note": "新物品"
+            },
+            {
+              "text": "market trips with a friend",
+              "role": "evidence",
+              "note": "个人记忆"
+            },
+            {
+              "text": "feels like home to this speaker",
+              "role": "evidence",
+              "note": "个人感受"
+            },
+            {
+              "text": "others may connect differently",
+              "role": "neutral",
+              "note": "承认不同经历"
+            }
+          ],
+          "caption": "物品普通也能有意义，关键是具体的个人联系。"
+        },
+        "transfer": "如果另一个人用同一张线路卡想起不同的事情，两种归属感一定要分出高低吗？你会怎样表达？"
+      }
+    }
+  }
+}
