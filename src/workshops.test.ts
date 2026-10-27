@@ -3330,3 +3330,37 @@ it('isolates written obstruction metadata and verb or noun evidence frames',()=>
  const t=studio('l-w-course-t29'),w=t.mission!.workshop!,mapped=mapWorkshop(w,x=>'X '+x);expect(mapped.items[0].composeOcclusion!.hint).toBe('X '+w.items[0].composeOcclusion!.hint);mapped.items[0].composeOcclusion!.title='changed';expect(w.items[0].composeOcclusion!.title).not.toBe('changed');mapped.items[1].composeBrief!.paths!.answers.noun.sentence='verb-ok';expect(w.items[1].composeBrief!.paths!.answers.noun.sentence).toBe('noun-ok');for(const patch of [{title:''},{actualObservationTime:'invented'}]){const invalid=structuredClone(w);Object.assign(invalid.items[0].composeOcclusion!,patch);expect(workshopProblems(invalid)).toContain('Invalid compose occlusion')}
  const invalid=structuredClone(w);invalid.items[1].composeBrief!.paths!.answers.noun.sentence='missing';expect(workshopProblems(invalid)).toContain('Invalid compose brief')
 })
+
+it('keeps articles, both packed objects and stated causes distinct in linking words',()=>{
+ const t=studio('l-v-course-linking'),w=t.mission!.workshop!,owns=["A bicycle stood near my school.", "I put an umbrella in my bag.", "The nearest window is beside our table.", "I packed bread and a bottle of water.", "The bag looks large, but it is nearly empty.", "Would you like tea or water?", "The door was locked, so we waited.", "I stayed inside because the rain was heavy."];
+ expect(workshopProblems(w)).toEqual([]);expect(w.items.map(i=>i.answer)).toEqual(['A','an','the','and','but','or','so','because']);
+ for(const[index,item]of w.items.entries()){
+  let progress={...freshTeaching(t,1),step:1};const act=(a:string,v='')=>{progress=changeTeaching(t,progress,'workshop-'+a,v,2)};
+  act('item',String(index));act('input',item.answer);
+  const decision=item.wordDecision!,good=item.options!.find(o=>o.correct)!;
+  const solve=()=>{act('choose',good.id);if(decision.uArticle){act('uArticle','reset');act('uArticle','useful-a');act('uArticle','unusual-an')}if(decision.processOrder){act('processOrder','reset');for(const event of decision.processOrder.sequence)act('processOrder',event)}if(decision.recordSelection){act('record-none');for(const row of decision.recordSelection.rows.filter(r=>r.include))act('record-toggle',row.id)}};
+  solve();act('check');expect(workshopView(w,progress).correct).toBe(true);
+  if(decision.recordSelection){for(let bits=0;bits<8;bits++){act('record-none');decision.recordSelection.rows.forEach((row,j)=>{if(bits&(1<<j))act('record-toggle',row.id)});act('check');expect(workshopView(w,progress).correct).toBe(bits===3)}}
+  else for(const bad of item.options!.filter(o=>!o.correct)){act('choose',bad.id);act('check');expect(workshopView(w,progress).correct).toBe(false);expect(workshopView(w,progress).feedback).toBe(bad.reason)}
+  solve();act('input',index===0?'a':'incorrect');act('check');expect(workshopView(w,progress).correct).toBe(false);act('input',item.answer);act('check');act('own','Too short');act('save');expect(workshopView(w,progress).complete).toBe(false);act('own',owns[index]);act('save');expect(workshopView(w,progress).complete).toBe(true);
+  if(decision.recordSelection)act('record-toggle','umbrella');else if(decision.uArticle)act('uArticle','useful-an');else if(decision.processOrder)act('processOrder','undo');else act('choose',item.options!.find(o=>!o.correct)!.id);
+  expect(workshopView(w,progress).complete).toBe(false);progress=restoreTeaching(t,JSON.parse(JSON.stringify(progress)),3);expect(workshopView(w,progress).own).toBe(owns[index]);expect(workshopView(w,progress).complete).toBe(false);
+  const forged=structuredClone(progress);forged.completed.push('workshop-'+index);forged.checked['workshop-'+index]=true;expect(workshopView(w,forged).complete).toBe(false);
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{'l-v-course-linking':progress}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({});
+ }
+ expect(w.items[3].wordDecision!.meaningFromRecords).toBe(true);expect(w.items[3].wordDecision!.recordSelection!.rows.map(r=>[r.id,r.include])).toEqual([['sandwiches',true],['tea',true],['umbrella',false]]);
+ expect(w.items[4].wordDecision!.art).toMatchObject({asset:'lesson-bag-contrast',assetRoot:'illustrations-7',pictureOnly:true});expect(w.items[4].wordDecision!.art!.targets!.map(t=>t.option)).toEqual(['outside','inside']);
+ expect(w.items[6].wordDecision!.processOrder!.sequence).toEqual(['locked','waited']);expect(w.items[7].wordDecision!.processOrder!.sequence).toEqual(['full','stairs']);expect(t.transfer.passage).toContain('umbrella');expect(t.transfer.passage).toContain('雨大');expect(t.transfer.review).toBe('draft');
+})
+it('requires both written sound cues and the stated cause order while preserving linking-word writing',()=>{
+ const t=studio('l-v-course-linking'),w=t.mission!.workshop!;
+ for(const useful of ['a','an'])for(const unusual of ['a','an']){
+  let progress={...freshTeaching(t,1),step:1};const act=(a:string,v='')=>{progress=changeTeaching(t,progress,'workshop-'+a,v,2)};act('item','0');act('input','A');act('choose','first');act('uArticle','useful-'+useful);act('check');expect(workshopView(w,progress).correct).toBe(false);act('uArticle','unusual-'+unusual);act('check');expect(workshopView(w,progress).correct).toBe(useful==='a'&&unusual==='an');
+ }
+ for(const index of [6,7])for(const reversed of [false,true]){
+  const item=w.items[index],order=item.wordDecision!.processOrder!;let progress={...freshTeaching(t,1),step:1};const act=(a:string,v='')=>{progress=changeTeaching(t,progress,'workshop-'+a,v,2)};act('item',String(index));act('input',item.answer);act('choose',item.options!.find(o=>o.correct)!.id);for(const event of (reversed?[...order.sequence].reverse():order.sequence))act('processOrder',event);act('check');expect(workshopView(w,progress).correct).toBe(!reversed);
+  if(!reversed){act('own',["A bicycle stood near my school.", "I put an umbrella in my bag.", "The nearest window is beside our table.", "I packed bread and a bottle of water.", "The bag looks large, but it is nearly empty.", "Would you like tea or water?", "The door was locked, so we waited.", "I stayed inside because the rain was heavy."][index]);act('save');expect(workshopView(w,progress).complete).toBe(true);act('processOrder','reset');expect(workshopView(w,progress).complete).toBe(false);progress=restoreTeaching(t,JSON.parse(JSON.stringify(progress)),3);expect(workshopView(w,progress).own).toBe(["A bicycle stood near my school.", "I put an umbrella in my bag.", "The nearest window is beside our table.", "I packed bread and a bottle of water.", "The bag looks large, but it is nearly empty.", "Would you like tea or water?", "The door was locked, so we waited.", "I stayed inside because the rain was heavy."][index])}
+ }
+ const mapped=mapWorkshop(w,x=>'X '+x);mapped.items[4].wordDecision!.art!.evidence![1].regions[0].left=0;expect(w.items[4].wordDecision!.art!.evidence![1].regions[0].left).toBe(67);mapped.items[3].wordDecision!.recordSelection!.rows[0].include=false;expect(w.items[3].wordDecision!.recordSelection!.rows[0].include).toBe(true);mapped.items[7].wordDecision!.processOrder!.sequence.reverse();expect(w.items[7].wordDecision!.processOrder!.sequence).toEqual(['full','stairs']);
+ const invalid=structuredClone(w);(invalid.items[4].wordDecision!.art as {assetRoot:string}).assetRoot='illustrations-8';expect(workshopProblems(invalid).length).toBeGreaterThan(0);
+})
