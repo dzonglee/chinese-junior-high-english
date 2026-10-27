@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **301 / 413**. Current: **l-s-course-t29**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **302 / 413**. Current: **l-w-course-t29**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -409,7 +409,7 @@ Completed: **301 / 413**. Current: **l-s-course-t29**. Evidence lives in docs/re
 | l-w-course-t27 | 污染成因与可行的环保行动：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t27.md) |
 | l-s-course-t28 | 自然灾害与安全准备：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t28.md) |
 | l-w-course-t28 | 自然灾害与安全准备：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t28.md) |
-| l-s-course-t29 | 地球、太空与探索：口头说清 | pending | — |
+| l-s-course-t29 | 地球、太空与探索：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t29.md) |
 | l-w-course-t29 | 地球、太空与探索：用文字说清 | pending | — |
 | l-p-letter-sound | 字母名与词中的音 | pending | — |
 | l-p-vowels | 元音音标与常见拼写 | pending | — |
