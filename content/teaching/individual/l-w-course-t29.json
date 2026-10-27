@@ -1,0 +1,279 @@
+{
+  "lessonId": "l-w-course-t29",
+  "reviewState": "draft",
+  "intent": "Write accurate observation records with plural clouds agreement, two valid evidence-limit expressions and no invented times or lunar phases.",
+  "picturePurpose": "Reuse the exact coded obstruction model for a writing task, then distinguish plural/singular agreement and verb/noun evidence-limit frames; model pixels are not actual observations.",
+  "workshop": {
+    "kind": "compose",
+    "title": "把观察写准确：clouds block，证据有边界",
+    "instruction": "先操作遮挡模型并修主谓，再比较prove与proof，最后写清记录项目和证据边界。自己写2—4句，不编造实测数据。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "Clouds block：看模型，也检查主谓",
+        "prompt": "选择模型状态，再修好clouds的谓语，保留实际记录项目。",
+        "hint": "Clouds是复数，本句用block。遮挡模型只演示看不清，不提供真实月相或时间；记录方法要写时间、可见外观和云遮挡。",
+        "reason": "模型状态、主谓和记录项目已核对。自己的稿子不必照抄这句，但不能由模型编造实际观测。",
+        "material": "写2—4句英文。介绍月球观测记录：记时间、外形和云遮挡。说明看不见不等于月球消失。 人名可用虚构名字，不写真实住址或联系方式。",
+        "answer": "",
+        "composeBrief": {
+          "title": "复数clouds → block → 记录条件",
+          "hint": "Clouds是复数，本句用block。遮挡模型只演示看不清，不提供真实月相或时间；记录方法要写时间、可见外观和云遮挡。",
+          "wrong": "复数Clouds接block，不接blocks；单独用blocking也缺少本句的谓语。时间、可见外观和云遮挡都应记录，模型画面不是今晚的实测。",
+          "fields": [
+            {
+              "id": "verb",
+              "label": "Clouds ___ our view of the Moon.",
+              "answer": "block",
+              "choices": [
+                {
+                  "id": "blocks",
+                  "label": "blocks"
+                },
+                {
+                  "id": "block",
+                  "label": "block"
+                },
+                {
+                  "id": "blocking",
+                  "label": "blocking"
+                }
+              ]
+            },
+            {
+              "id": "record",
+              "label": "哪组记录项目回应原题？",
+              "answer": "conditions",
+              "choices": [
+                {
+                  "id": "conditions",
+                  "label": "The time, the Moon’s visible shape and clouds blocking our view."
+                },
+                {
+                  "id": "phase",
+                  "label": "Only the Moon’s phase, without the time or cloud conditions."
+                },
+                {
+                  "id": "gone",
+                  "label": "A claim that an unseen Moon must have disappeared."
+                }
+              ]
+            }
+          ]
+        },
+        "composeOcclusion": {
+          "title": "遮住与移开：只看模型中的遮挡",
+          "hint": "选择遮住或移开示意云。月球标记不移动；圆形标记不是实际月相。",
+          "wrong": "先选择模型状态，再说明为什么看不到不能直接证明消失。模型没有给出真实时间、月相或观测地点。"
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "prove与proof：两种准确写法",
+        "prompt": "选动词或名词框架，再配完整句。",
+        "hint": "does not prove that用动词prove；is not proof that用名词proof。两种都能说明证据不足，不把另一种准确写法判成错误。",
+        "reason": "所选框架与完整句已对应。自己的表达可以换准确写法，仍要保留不能仅凭看不清就断言消失的意思。",
+        "material": "写2—4句英文。介绍月球观测记录：记时间、外形和云遮挡。说明看不见不等于月球消失。 人名可用虚构名字，不写真实住址或联系方式。",
+        "answer": "",
+        "composeBrief": {
+          "title": "does not prove that ↔ is not proof that",
+          "hint": "does not prove that用动词prove；is not proof that用名词proof。两种都能说明证据不足，不把另一种准确写法判成错误。",
+          "wrong": "动词框架写does not prove that，名词框架写is not proof that。does not proof把名词误放在动词位置；两种正确表达本身都能使用。",
+          "fields": [
+            {
+              "id": "pattern",
+              "label": "比较哪种框架？",
+              "answer": "verb",
+              "choices": [
+                {
+                  "id": "verb",
+                  "label": "动词：does not prove that…"
+                },
+                {
+                  "id": "noun",
+                  "label": "名词：is not proof that…"
+                }
+              ]
+            },
+            {
+              "id": "sentence",
+              "label": "哪句与所选框架一致？",
+              "answer": "verb-ok",
+              "choices": [
+                {
+                  "id": "verb-ok",
+                  "label": "A blocked view does not prove that the Moon disappeared."
+                },
+                {
+                  "id": "noun-ok",
+                  "label": "A blocked view is not proof that the Moon disappeared."
+                },
+                {
+                  "id": "bad",
+                  "label": "A blocked view does not proof that the Moon disappeared."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "pattern",
+            "answers": {
+              "verb": {
+                "sentence": "verb-ok"
+              },
+              "noun": {
+                "sentence": "noun-ok"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "观察受阻，别补写不存在的实测",
+        "prompt": "核对结论边界，再检查书面形式。",
+        "hint": "可以说明云影响视线，不能只凭看不到就断言月球消失。题目没有日期、实际月相或测量结果，不能自行补写。最终写2—4句完整英文。",
+        "reason": "结论与书面要求已核对。再逐句检查时间、可见外观、遮挡条件和证据边界是否都写清。",
+        "material": "写2—4句英文。介绍月球观测记录：记时间、外形和云遮挡。说明看不见不等于月球消失。 人名可用虚构名字，不写真实住址或联系方式。",
+        "answer": "",
+        "composeBrief": {
+          "title": "描述受阻 → 限定结论 → 书面句子",
+          "hint": "可以说明云影响视线，不能只凭看不到就断言月球消失。题目没有日期、实际月相或测量结果，不能自行补写。最终写2—4句完整英文。",
+          "wrong": "看不清不等于对象消失，也不代表记录条件没有价值。原题需要完整书面句子，只有词表或录音不算完成这份写作。",
+          "fields": [
+            {
+              "id": "limit",
+              "label": "哪种结论没有超出证据？",
+              "answer": "bounded",
+              "choices": [
+                {
+                  "id": "bounded",
+                  "label": "A blocked view alone does not prove that the Moon disappeared."
+                },
+                {
+                  "id": "gone",
+                  "label": "If the Moon cannot be seen, it certainly no longer exists."
+                },
+                {
+                  "id": "worthless",
+                  "label": "If clouds block our view, recording conditions is pointless."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题交什么？",
+              "answer": "written",
+              "choices": [
+                {
+                  "id": "written",
+                  "label": "Two to four complete written English sentences about the records and their limit."
+                },
+                {
+                  "id": "spoken",
+                  "label": "Only a recording without written sentences."
+                },
+                {
+                  "id": "keywords",
+                  "label": "Only the words time, Moon and clouds."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-w-course-t29-transfer",
+      "topicId": "w-course-t29",
+      "skill": "writing",
+      "kind": "choice",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "遮布挡住了壁画，哪份英文稿既符合记录要求，又正确使用了The cover的谓语？",
+      "passage": "换一个观察对象，自己记录\n某虚构观察任务中，一幅壁画（mural）被遮布（cover）挡住了。记录应包括观察时间和能看到的内容。仅凭看不到，不能证明壁画已被移除（removed）。题目没有提供实际观察时间或移除资料。请写2—4句英文说明。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The cover block our view of the mural. We should record when we observe it and what can be seen. A blocked view does not prove that the mural has been removed."
+        },
+        {
+          "id": "b",
+          "text": "The cover blocks our view of the mural. We should record when we observe it and what can be seen. Because we cannot see the mural, it has definitely been removed."
+        },
+        {
+          "id": "c",
+          "text": "The cover blocks our view of the mural. We should record when we observe it and what can be seen. A blocked view does not prove that the mural has been removed."
+        },
+        {
+          "id": "d",
+          "text": "Clouds block our view of the Moon. We should record the time, the Moon’s visible shape and the clouds. A blocked view does not prove that the Moon disappeared."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The cover blocks our view of the mural. We should record when we observe it and what can be seen. A blocked view does not prove that the mural has been removed."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "更新观察对象与遮挡物，再检查主谓和结论范围。",
+        "steps": [
+          {
+            "text": "新对象是壁画，遮挡物是单数the cover，因此本句写blocks。",
+            "reason": "不能机械沿用复数Clouds block，也不能继续只介绍旧题月球。"
+          },
+          {
+            "text": "记录观察时间与可见情况，但不能仅凭受阻就写壁画已移除。",
+            "reason": "语法正确不代表结论有依据；题目没有提供真实时间或移除记录。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "新事实和结论边界正确，但单数The cover应接blocks，不是block。"
+          },
+          {
+            "option": "b",
+            "reason": "主谓正确，末句却把看不见直接当成壁画已被移除的证明。"
+          },
+          {
+            "option": "d",
+            "reason": "句子本身准确，却仍在介绍月球与云层，没有回应壁画与遮布的新记录。"
+          }
+        ],
+        "pitfall": "只记住block原形，不随新主语调整；或修对语法却把观察受阻写成对象消失。",
+        "visual": {
+          "kind": "comparison",
+          "title": "主语变了，事实也要更新",
+          "segments": [
+            {
+              "text": "Clouds block… → The cover blocks…",
+              "role": "verb",
+              "note": "复数与单数谓语"
+            },
+            {
+              "text": "mural / cover / observation time",
+              "role": "evidence",
+              "note": "新的记录对象与条件"
+            },
+            {
+              "text": "does not prove / is not proof that",
+              "role": "evidence",
+              "note": "两种准确的证据边界表达"
+            }
+          ],
+          "caption": "完整句子中同时检查语言、任务信息和结论依据。"
+        },
+        "transfer": "如果把主语改成Two covers，谓语怎样改？改变遮挡物数量后，能否直接推断壁画已被移除？"
+      }
+    }
+  }
+}
