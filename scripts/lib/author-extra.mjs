@@ -61,6 +61,7 @@ export function authorExtra(root, catalog) {
     }
     lessons.push({ id: `l-${r.id}`, topicId: r.id, title: r.title, grades, objective: r.goal, questionIds: ids.slice(0, 4), delayedQuestionIds: ids.slice(4), summary: [r.goal, '先听再答，检查后才看文字。'], estimatedMinutes: 8, order: 1, review: 'draft' })
   }
+  const contextualMeanings = new Map(), meaningInExample = word => contextualMeanings.get(`${word.topicId}:${word.word}`) ?? word.meaning
   const groups = { school: ['v-school', '校园里的常用词', 6], daily: ['v-daily', '日常表达与学习习惯', 6], community: ['v-community', '社区与出行', 7], nature: ['v-nature', '自然与可持续生活', 8] }
   for (const group of optional(root, 'content/course-vocabulary-groups.json')) groups[group.key] = [group.id, group.title, group.minGrade]
   const lines = [readFileSync(resolve(root, 'content/vocabulary.tsv'), 'utf8'), ...(existsSync(resolve(root, 'content/course-vocabulary.tsv')) ? [readFileSync(resolve(root, 'content/course-vocabulary.tsv'), 'utf8')] : [])].join('\n').split('\n').filter(line => line && !line.startsWith('#'))
@@ -68,29 +69,30 @@ export function authorExtra(root, catalog) {
     const grades = gradesFrom(minimum), ids = []
     topics.push({ id, title, skill: 'vocabulary', grades, goal: '结合原句理解词义，再独立拼写并检查搭配。', commonError: '看懂例句不等于能独立回忆，拼写也要自己试。', prerequisites: [], order: 60 + minimum })
     for (const line of lines.filter(line => line.startsWith(key + '|'))) {
-      const [, word, meaning, example, exampleMeaning, note, variants = ''] = line.split('|')
-      if (!note) throw new Error('Vocabulary entry is incomplete: ' + word)
+      const [, word, meaning, example, exampleMeaning, note, variants = '', contextualMeaning = meaning] = line.split('|')
+      if (!note || !contextualMeaning.trim() || contextualMeaning !== contextualMeaning.trim()) throw new Error('Vocabulary entry is incomplete: ' + word)
       const acceptedSpellings = [...new Set([...(word === 'neighbour' ? ['neighbor'] : []), ...variants.split(',').map(v => v.trim()).filter(Boolean)])]
-      const wid = `word-${word}`, qid = `q-${id}-${word}`; ids.push(qid)
+      const wid = `word-${word}`, qid = `q-${id}-${word}`; ids.push(qid); contextualMeanings.set(`${id}:${word}`, contextualMeaning)
       vocabulary.push({ id: wid, word, meaning, example, exampleMeaning, topicId: id, grade: minimum, spelling: ['neighbour', 'mum', 'yoghurt', 'memorise', 'theatre', 'colour', 'aeroplane', 'tyre', 'harbour', 'neighbourhood', 'centre', 'grey'].includes(word) ? 'british' : 'shared', acceptedSpellings, explanation: note })
       const masked = example.replace(new RegExp(`\\b${word}\\b`, 'i'), '_____')
       questions.push({ id: qid, topicId: id, skill: 'vocabulary', kind: 'blank', feedbackGroup: wid, difficulty: minimum >= 8 ? 2 : 1, grades, stem: `填写本课词表中的目标词：${meaning}（首字母 ${word[0]}，${acceptedSpellings.length ? '英美拼写均可' : `${word.replaceAll('-', '').length} 个字母`}）\n${masked}`, answer: { accepted: [word, ...acceptedSpellings], display: word }, marks: 1, estimatedSeconds: 40, source, review: 'draft',
-        explanation: { strategy: '先用中文释义和句意确定词，再检查拼写与搭配。', steps: [{ text: `本句是“${exampleMeaning}”，目标词为 ${word}。`, reason: `这里需要表达“${meaning}”。` }, { text: `放回原句：${example}`, reason: note }], distractors: [], pitfall: note, visual: { kind: 'sentence', title: '词义与用法放在一起记', segments: [{ text: word, role: 'evidence', note: meaning }, { text: example, role: 'neutral', note: '在原句中检查用法' }], caption: note }, transfer: `换一个与自己有关的语境，用 ${word} 说一个短句。` } })
+        explanation: { strategy: '先用中文释义和句意确定词，再检查拼写与搭配。', steps: [{ text: `本句是“${exampleMeaning}”，目标词为 ${word}。`, reason: `这里需要表达“${contextualMeaning}”。` }, { text: `放回原句：${example}`, reason: note }], distractors: [], pitfall: note, visual: { kind: 'sentence', title: '词义与用法放在一起记', segments: [{ text: word, role: 'evidence', note: contextualMeaning }, { text: example, role: 'neutral', note: '在原句中检查用法' }], caption: note }, transfer: `换一个与自己有关的语境，用 ${word} 说一个短句。` } })
     }
     const topicWords = vocabulary.filter(w => w.topicId === id)
     for (const [n, word] of topicWords.entries()) {
+      const sentenceMeaning = meaningInExample(word)
       const decoys = [], seenMeanings = new Set()
       // Keep the same first two distinct meanings without building unused distractors.
       for (const candidate of topicWords) {
-        if (candidate.meaning === word.meaning || candidate.id === word.id || seenMeanings.has(candidate.meaning)) continue
-        seenMeanings.add(candidate.meaning)
+        if (meaningInExample(candidate) === sentenceMeaning || candidate.id === word.id || seenMeanings.has(meaningInExample(candidate))) continue
+        seenMeanings.add(meaningInExample(candidate))
         decoys.push(candidate)
         if (decoys.length === 2) break
       }
       if (decoys.length !== 2) throw new Error(`Vocabulary topic needs three distinct meanings: ${id}`)
       const labels = [word, ...decoys], rotated = labels.map((_, k) => labels[(k + n) % 3])
-      const options = rotated.map((w, k) => ({ id: ['a', 'b', 'c'][k], text: w.meaning })), right = options.find(o => o.text === word.meaning).id
-      questions.push({ id: `q-${id}-${word.word}-meaning`, topicId: id, skill: 'vocabulary', kind: 'choice', feedbackGroup: word.id, difficulty: 1, grades, stem: `本句中的 ${word.word} 是什么意思？`, passage: word.example, options, answer: { option: right, display: word.meaning }, marks: 1, estimatedSeconds: 35, source, review: 'draft', explanation: { strategy: '读完整句，结合搭配确认这个词在本句中的意思。', steps: [{ text: word.exampleMeaning, reason: `本句表达的是“${word.meaning}”。` }, { text: word.explanation, reason: '词义必须与句中位置及实际用法同时吻合。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: `“${o.text}”在本课对应 ${decoys.find(w => w.meaning === o.text).word}，不是本句中 ${word.word} 的意思。${word.exampleMeaning}` })), pitfall: word.explanation, visual: { kind: 'sentence', title: '回到例句核对词义', segments: [{ text: word.word, role: 'evidence', note: word.meaning }, { text: word.example, role: 'neutral', note: word.exampleMeaning }], caption: word.explanation }, transfer: `不用原句，试着用 ${word.word} 再表达一件自己的事。` } })
+      const options = rotated.map((w, k) => ({ id: ['a', 'b', 'c'][k], text: meaningInExample(w) })), right = options.find(o => o.text === sentenceMeaning).id
+      questions.push({ id: `q-${id}-${word.word}-meaning`, topicId: id, skill: 'vocabulary', kind: 'choice', feedbackGroup: word.id, difficulty: 1, grades, stem: `本句中的 ${word.word} 是什么意思？`, passage: word.example, options, answer: { option: right, display: sentenceMeaning }, marks: 1, estimatedSeconds: 35, source, review: 'draft', explanation: { strategy: '读完整句，结合搭配确认这个词在本句中的意思。', steps: [{ text: word.exampleMeaning, reason: `本句表达的是“${sentenceMeaning}”。` }, { text: word.explanation, reason: '词义必须与句中位置及实际用法同时吻合。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: `“${o.text}”在本课对应 ${decoys.find(w => meaningInExample(w) === o.text).word}，不是本句中 ${word.word} 的意思。${word.exampleMeaning}` })), pitfall: word.explanation, visual: { kind: 'sentence', title: '回到例句核对词义', segments: [{ text: word.word, role: 'evidence', note: sentenceMeaning }, { text: word.example, role: 'neutral', note: word.exampleMeaning }], caption: word.explanation }, transfer: `不用原句，试着用 ${word.word} 再表达一件自己的事。` } })
     }
     const count = Math.max(1, Math.ceil(ids.length / 8)), size = Math.floor(ids.length / count), extra = ids.length % count
     let start = 0
