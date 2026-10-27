@@ -1,0 +1,301 @@
+{
+  "lessonId": "l-s-course-t28",
+  "reviewState": "draft",
+  "intent": "Explain a planned exercise without turning it into a live warning, ask for current arrangements politely, and place confirmation before practice without inventing meeting details.",
+  "picturePurpose": "Exact coded notice classification, paired teacher-request forms and before-start checks teach information boundaries; no disaster image or invented signal is used as evidence.",
+  "workshop": {
+    "kind": "compose",
+    "title": "把演练通知讲清楚，不猜安排",
+    "instruction": "先给通知分类，再试两种礼貌询问，最后把确认安排放在开始前。实际说2—4句，不把练习文本转成真实警报。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "先分清：演练通知不是实时警报",
+        "prompt": "给这份通知分类，再找出题目没有提供的信息。",
+        "hint": "本题明确是计划演练。实际集合信号、集合点和时间没有给出，不能用自己的猜测补上。",
+        "reason": "通知性质与信息边界已核对。自己的发言要把计划中的练习说清，不把它转成真实灾情警报。",
+        "material": "说2—4句英文。向同学说明一份演练通知是计划中的练习，不是实时灾情警报。提醒先听老师说明集合信号。 人名可用虚构名字，不写真实住址或联系方式。",
+        "answer": "",
+        "composeBrief": {
+          "title": "通知性质 → 已知与待确认",
+          "hint": "本题明确是计划演练。实际集合信号、集合点和时间没有给出，不能用自己的猜测补上。",
+          "wrong": "题目说明的是计划演练，不是真实灾情。集合信号与具体安排尚未提供；不能由一段练习文本推断现在有灾情或自行指定集合点。",
+          "fields": [
+            {
+              "id": "notice",
+              "label": "题目明确说明了什么？",
+              "answer": "exercise",
+              "choices": [
+                {
+                  "id": "live",
+                  "label": "A live warning about a real emergency."
+                },
+                {
+                  "id": "exercise",
+                  "label": "A notice about a planned safety exercise."
+                },
+                {
+                  "id": "cancelled",
+                  "label": "An announcement that the exercise has been cancelled."
+                }
+              ]
+            },
+            {
+              "id": "known",
+              "label": "具体集合信号现在知道了吗？",
+              "answer": "unknown",
+              "choices": [
+                {
+                  "id": "unknown",
+                  "label": "No. The task says to listen to the teacher’s explanation."
+                },
+                {
+                  "id": "invent",
+                  "label": "Yes. We can choose any signal ourselves."
+                },
+                {
+                  "id": "universal",
+                  "label": "Yes. Every school always uses exactly the same signal."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "两种问法，都先向老师确认",
+        "prompt": "选一种礼貌问法，再配上与它对应的完整句子。",
+        "hint": "可以直接问约定信号是什么，也可以请老师解释。两种问法都可用；问题本身不是已经获得的答案。",
+        "reason": "所选请求与完整句已对应。接下来要实际听当前安排；不能把提出问题当成老师已经确认某个信号。",
+        "material": "说2—4句英文。向同学说明一份演练通知是计划中的练习，不是实时灾情警报。提醒先听老师说明集合信号。 人名可用虚构名字，不写真实住址或联系方式。",
+        "answer": "",
+        "composeBrief": {
+          "title": "礼貌提问 → 等待当前说明",
+          "hint": "可以直接问约定信号是什么，也可以请老师解释。两种问法都可用；问题本身不是已经获得的答案。",
+          "wrong": "两种句子都能向老师询问。本卡只要求与所选问法对应；不能把另一种正确问法判成错误，也不能认为问过就已经知道信号。",
+          "fields": [
+            {
+              "id": "request",
+              "label": "试哪种礼貌问法？",
+              "answer": "question",
+              "choices": [
+                {
+                  "id": "question",
+                  "label": "直接问：What is…?"
+                },
+                {
+                  "id": "explain",
+                  "label": "请求说明：Could you explain…?"
+                }
+              ]
+            },
+            {
+              "id": "sentence",
+              "label": "哪句与所选问法对应？",
+              "answer": "question-ok",
+              "choices": [
+                {
+                  "id": "question-ok",
+                  "label": "What is our agreed signal for this exercise?"
+                },
+                {
+                  "id": "explain-ok",
+                  "label": "Could you explain our agreed signal for this exercise?"
+                },
+                {
+                  "id": "assume",
+                  "label": "I have not checked, but I already know the signal must be the same everywhere."
+                }
+              ]
+            },
+            {
+              "id": "status",
+              "label": "提出问题之后，下一步是什么？",
+              "answer": "listen",
+              "choices": [
+                {
+                  "id": "listen",
+                  "label": "Listen to the teacher explain the current plan and signal."
+                },
+                {
+                  "id": "resolved",
+                  "label": "Claim that asking the question proves the signal is confirmed."
+                },
+                {
+                  "id": "guess",
+                  "label": "Replace the school plan with our own guess."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "request",
+            "answers": {
+              "question": {
+                "sentence": "question-ok",
+                "status": "listen"
+              },
+              "explain": {
+                "sentence": "explain-ok",
+                "status": "listen"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "先听清当前安排，再开始练习",
+        "prompt": "把行动放在正确阶段，再确认原题要求。",
+        "hint": "先听老师说明当前计划和约定信号，再开始演练。题目没有规定哪所学校、几点或哪条路线；实际说2—4句，而不是只列关键词。",
+        "reason": "事前确认与口头表达要求已核对。自己的发言应包含通知性质、当前安排和约定信号，不补造细节。",
+        "material": "说2—4句英文。向同学说明一份演练通知是计划中的练习，不是实时灾情警报。提醒先听老师说明集合信号。 人名可用虚构名字，不写真实住址或联系方式。",
+        "answer": "",
+        "composeBrief": {
+          "title": "开始前 → 当前说明 → 口头表达",
+          "hint": "先听老师说明当前计划和约定信号，再开始演练。题目没有规定哪所学校、几点或哪条路线；实际说2—4句，而不是只列关键词。",
+          "wrong": "不应先开始再猜信号，也不能靠无日期截图替代学校当前说明。原题要求实际说2—4句；写好提纲或列词不能代替开口。",
+          "fields": [
+            {
+              "id": "when",
+              "label": "什么时候先听当前安排和信号？",
+              "answer": "before",
+              "choices": [
+                {
+                  "id": "before",
+                  "label": "Before the exercise begins."
+                },
+                {
+                  "id": "after",
+                  "label": "Only after everyone has started the exercise."
+                },
+                {
+                  "id": "never",
+                  "label": "There is no need to listen if an undated screenshot looks official."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "本题怎样完成？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four English sentences explaining the notice and what to confirm first."
+                },
+                {
+                  "id": "keywords",
+                  "label": "List only the words exercise, teacher and signal."
+                },
+                {
+                  "id": "written",
+                  "label": "Write a paragraph without speaking it."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t28-transfer",
+      "topicId": "s-course-t28",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成博物馆参观前的演练，哪份英文发言符合通知要求？",
+      "passage": "换一份通知，自己组织发言\n这份通知安排的是博物馆参观前的计划演练，并非实时警报。演练开始前，须听活动负责人（activity leader）说明当前集合安排和约定信号。题目没有提供具体集合地点、时间或信号。请用2—4句英文说明通知内容和开始前该做什么。",
+      "options": [
+        {
+          "id": "a",
+          "text": "This notice confirms that there is a real emergency now. We should follow any undated screenshot that looks official. We do not need to ask the activity leader."
+        },
+        {
+          "id": "b",
+          "text": "This notice is about a planned practice for a museum visit, not a live warning. Before the practice begins, we should listen to the activity leader explain the current meeting arrangements. We should check the agreed signal rather than invent one."
+        },
+        {
+          "id": "c",
+          "text": "This notice is about a planned museum-visit practice. Everyone must meet at the north gate at nine. We can choose our own signal."
+        },
+        {
+          "id": "d",
+          "text": "This notice is about a planned museum-visit practice, not a live warning. We should start the practice before listening to the meeting arrangements. We can guess the signal after we begin."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "This notice is about a planned practice for a museum visit, not a live warning. Before the practice begins, we should listen to the activity leader explain the current meeting arrangements. We should check the agreed signal rather than invent one."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对新活动的性质与负责说明的人，再检查开始前的安排和信息边界。",
+        "steps": [
+          {
+            "text": "新活动是博物馆参观前的计划演练，由活动负责人说明安排，不是学校实时灾情。",
+            "reason": "换情境后，要更新活动与信息来源，不能套用旧题或把演练说成真实警报。"
+          },
+          {
+            "text": "开始前听当前集合安排与约定信号；地点、时间和信号细节没有给出。",
+            "reason": "先听说明不等于自行编一个安排；没有日期的截图也不能单独证明适用于当前活动。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把计划演练说成真实紧急情况，还用无日期截图代替负责人当前说明。"
+          },
+          {
+            "option": "c",
+            "reason": "擅自增加北门、九点和自己选择信号的安排，题目没有提供这些信息。"
+          },
+          {
+            "option": "d",
+            "reason": "活动性质写对了，却把事前听安排改成先开始、后猜信号，颠倒了关键时点。"
+          }
+        ],
+        "pitfall": "记住了演练这个词，却漏掉开始前确认当前安排，或自行填入题目没给的细节。",
+        "visual": {
+          "kind": "comparison",
+          "title": "新通知：性质、来源、时点、边界",
+          "segments": [
+            {
+              "text": "planned museum-visit practice",
+              "role": "evidence",
+              "note": "计划演练，不是实时警报"
+            },
+            {
+              "text": "activity leader / current arrangements",
+              "role": "evidence",
+              "note": "更新负责人和当前说明"
+            },
+            {
+              "text": "before it begins",
+              "role": "evidence",
+              "note": "开始前先听"
+            },
+            {
+              "text": "no invented place, time or signal",
+              "role": "neutral",
+              "note": "未提供的细节保留待确认"
+            }
+          ],
+          "caption": "这是原创英语练习，不替代现实活动的当前安排。"
+        },
+        "transfer": "如果负责人尚未说明集合点，你应该怎样询问，而不是把自己猜的地点说成已确认安排？"
+      }
+    }
+  }
+}
