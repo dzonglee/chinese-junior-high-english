@@ -3177,3 +3177,35 @@ it('isolates written causal branches without converting uncertainty into a false
  const t=studio('l-w-course-t23'),w=t.mission!.workshop!,mapped=mapWorkshop(w,x=>'X '+x);mapped.items[1].composeBrief!.paths!.answers.because.sentence='so-ok';expect(w.items[1].composeBrief!.paths!.answers.because.sentence).toBe('because-ok');mapped.items[0].composeBrief!.fields[0].label='Changed';expect(w.items[0].composeBrief!.fields[0].label).not.toBe('Changed');for(const patch of [{selector:'missing',answers:{}},{selector:'pattern',answers:{because:{sentence:'because-ok'}}}]){const invalid=structuredClone(w);Object.assign(invalid.items[1].composeBrief!,{paths:patch});expect(workshopProblems(invalid)).toContain('Invalid compose brief')}
  const before={...freshTeaching(t,1),step:1};expect(changeTeaching(t,before,'workshop-composeFrame','1',2).answers['composeFrame-check-0']).toBeUndefined();expect(w.items[1].hint).toContain('自己的段落');expect(w.items[0].hint).toContain('不可数')
 })
+
+it('plans fair paper-bridge comparisons without inventing performance results',()=>{
+ const t=studio('l-s-course-t24'),w=t.mission!.workshop!,owns=["We will compare two folded paper-bridge designs under the same classroom conditions.", "It is a classroom model, and its results cannot establish that paper can replace real road bridges."];expect(w.items).toHaveLength(2);expect(workshopProblems(w)).toEqual([])
+ for(const[index,item]of w.items.entries()){
+  let p={...freshTeaching(t,1),step:1};const act=(action:string,value='')=>{p=changeTeaching(t,p,'workshop-'+action,value,2)}
+  act('item',String(index));act('own',owns[index]);for(const f of item.composeBrief!.fields)act('composeBrief',f.id+':'+f.answer)
+  if(item.composeConditions){
+   act('check');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).composeConditions!.chosen).toBe(0)
+   for(const row of item.composeConditions.rows)act('composeConditions',row.id+':same')
+  }
+  act('check');expect(workshopView(w,p).complete).toBe(true)
+  if(item.composeConditions)for(const row of item.composeConditions.rows){
+   act('composeConditions',row.id+':changed');act('check');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).feedback).toBe(item.composeConditions.wrong)
+   p=restoreTeaching(t,JSON.parse(JSON.stringify(p)),3);expect(workshopView(w,p).own).toBe(owns[index]);expect(workshopView(w,p).composeConditions!.rows.find(x=>x.id===row.id)!.selected).toBe('changed')
+   act('composeConditions',row.id+':same');act('check');expect(workshopView(w,p).complete).toBe(true)
+   act('composeConditions',row.id+':clear');expect(workshopView(w,p).complete).toBe(false);act('composeConditions',row.id+':same');act('check');expect(workshopView(w,p).complete).toBe(true)
+  }
+  for(const f of item.composeBrief!.fields)for(const bad of f.choices.filter(x=>x.id!==f.answer)){
+   act('composeBrief',f.id+':'+bad.id);act('check');expect(workshopView(w,p).complete).toBe(false);act('composeBrief',f.id+':'+f.answer);act('check');expect(workshopView(w,p).complete).toBe(true)
+  }
+  act('own','Too short');act('check');expect(workshopView(w,p).complete).toBe(false);act('own',owns[index]);act('check');expect(workshopView(w,p).complete).toBe(true)
+  if(item.composeConditions){act('composeConditions','reset');expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).composeConditions!.chosen).toBe(0);expect(workshopView(w,p).own).toBe(owns[index])}
+  const state=checkedState(JSON.stringify({...emptyState(1),teaching:{'l-s-course-t24':p}}),c,3,true);expect(state.attempts).toEqual([]);expect(state.mastery).toEqual({});expect(state.lessonDoneAt).toEqual({})
+ }
+ expect(t.prediction.kind).toBe('speaking');expect(t.prediction.stem).toContain('2—4句');expect(w.items[0].composeConditions!.rows.map(x=>x.id)).toEqual(['paper','gap','objects']);expect(w.items[0].reason).toContain('不必逐项');expect(w.items[1].composeBrief!.fields.map(x=>x.answer)).toEqual(['model','not-given','spoken']);expect(t.transfer.passage).toContain('paper-rotor');expect(t.transfer.passage).toContain('No test results');expect(t.transfer.review).toBe('draft')
+})
+it('isolates comparison-condition metadata and rejects missing or duplicated condition types',()=>{
+ const t=studio('l-s-course-t24'),w=t.mission!.workshop!,mapped=mapWorkshop(w,x=>'X '+x);mapped.items[0].composeConditions!.rows[0].same='Changed';expect(w.items[0].composeConditions!.rows[0].same).not.toBe('Changed');mapped.items[1].composeBrief!.fields[0].choices[0].label='Changed';expect(w.items[1].composeBrief!.fields[0].choices[0].label).not.toBe('Changed')
+ for(const rows of [w.items[0].composeConditions!.rows.slice(0,2),[w.items[0].composeConditions!.rows[0],w.items[0].composeConditions!.rows[0],w.items[0].composeConditions!.rows[2]]]){const invalid=structuredClone(w);invalid.items[0].composeConditions!.rows=rows;expect(workshopProblems(invalid)).toContain('Invalid compose conditions')}
+ const invalid=structuredClone(w);invalid.items[0].composeConditions!.rows[0].same='';expect(workshopProblems(invalid)).toContain('Invalid compose conditions')
+ let p={...freshTeaching(t,1),step:1};for(const f of w.items[0].composeBrief!.fields)p=changeTeaching(t,p,'workshop-composeBrief',f.id+':'+f.answer,2);p=changeTeaching(t,p,'workshop-own','We compare two designs under the same classroom conditions.',2);p.completed.push('workshop-0');p.checked['workshop-0']=true;expect(workshopView(w,p).complete).toBe(false);expect(workshopView(w,p).composeConditions!.chosen).toBe(0)
+})
