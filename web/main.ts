@@ -152,6 +152,7 @@ function render() {
   const pathRoleFocus = active instanceof HTMLButtonElement && active.matches(".word-path-role button") ? active.dataset.value : undefined
   const spatialFrameFocus = active instanceof HTMLButtonElement && active.matches(".word-spatial-frame button") ? active.dataset.value : undefined
   const relationSceneFocus = active instanceof HTMLButtonElement && active.matches(".word-relation-scene button") ? active.dataset.value : undefined
+  const routeFrameFocus = active instanceof HTMLButtonElement && active.matches(".word-route-frame button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -222,6 +223,7 @@ function render() {
   if (pathRoleFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-path-role [data-value="${CSS.escape(pathRoleFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (spatialFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-spatial-frame [data-value="${CSS.escape(spatialFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (relationSceneFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-relation-scene [data-value="${CSS.escape(relationSceneFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (routeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-frame [data-value="${CSS.escape(routeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
