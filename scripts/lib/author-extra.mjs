@@ -61,7 +61,7 @@ export function authorExtra(root, catalog) {
     }
     lessons.push({ id: `l-${r.id}`, topicId: r.id, title: r.title, grades, objective: r.goal, questionIds: ids.slice(0, 4), delayedQuestionIds: ids.slice(4), summary: [r.goal, '先听再答，检查后才看文字。'], estimatedMinutes: 8, order: 1, review: 'draft' })
   }
-  const contextualMeanings = new Map(), meaningInExample = word => contextualMeanings.get(`${word.topicId}:${word.word}`) ?? word.meaning
+  const authoredMeaningDecoys = new Map(), contextualMeanings = new Map(), meaningInExample = word => contextualMeanings.get(`${word.topicId}:${word.word}`) ?? word.meaning
   const groups = { school: ['v-school', '校园里的常用词', 6], daily: ['v-daily', '日常表达与学习习惯', 6], community: ['v-community', '社区与出行', 7], nature: ['v-nature', '自然与可持续生活', 8] }
   for (const group of optional(root, 'content/course-vocabulary-groups.json')) groups[group.key] = [group.id, group.title, group.minGrade]
   const lines = [readFileSync(resolve(root, 'content/vocabulary.tsv'), 'utf8'), ...(existsSync(resolve(root, 'content/course-vocabulary.tsv')) ? [readFileSync(resolve(root, 'content/course-vocabulary.tsv'), 'utf8')] : [])].join('\n').split('\n').filter(line => line && !line.startsWith('#'))
@@ -69,10 +69,15 @@ export function authorExtra(root, catalog) {
     const grades = gradesFrom(minimum), ids = []
     topics.push({ id, title, skill: 'vocabulary', grades, goal: '结合原句理解词义，再独立拼写并检查搭配。', commonError: '看懂例句不等于能独立回忆，拼写也要自己试。', prerequisites: [], order: 60 + minimum })
     for (const line of lines.filter(line => line.startsWith(key + '|'))) {
-      const [, word, meaning, example, exampleMeaning, note, variants = '', contextualMeaning = meaning] = line.split('|')
+      const [, word, meaning, example, exampleMeaning, note, variants = '', contextualMeaning = meaning, meaningDecoyWords = ''] = line.split('|')
       if (!note || !contextualMeaning.trim() || contextualMeaning !== contextualMeaning.trim()) throw new Error('Vocabulary entry is incomplete: ' + word)
       const acceptedSpellings = [...new Set([...(word === 'neighbour' ? ['neighbor'] : []), ...variants.split(',').map(v => v.trim()).filter(Boolean)])]
       const wid = `word-${word}`, qid = `q-${id}-${word}`; ids.push(qid); contextualMeanings.set(`${id}:${word}`, contextualMeaning)
+      if (meaningDecoyWords) {
+        const pair = meaningDecoyWords.split(',')
+        if (pair.length !== 2 || new Set(pair).size !== 2 || pair.some(x => !x.trim() || x !== x.trim() || x === word)) throw new Error('Invalid authored vocabulary meaning distractors: ' + word)
+        authoredMeaningDecoys.set(`${id}:${word}`, pair)
+      }
       vocabulary.push({ id: wid, word, meaning, example, exampleMeaning, topicId: id, grade: minimum, spelling: ['neighbour', 'mum', 'yoghurt', 'memorise', 'theatre', 'colour', 'aeroplane', 'tyre', 'harbour', 'neighbourhood', 'centre', 'grey'].includes(word) ? 'british' : 'shared', acceptedSpellings, explanation: note })
       const masked = example.replace(new RegExp(`\\b${word}\\b`, 'i'), '_____')
       questions.push({ id: qid, topicId: id, skill: 'vocabulary', kind: 'blank', feedbackGroup: wid, difficulty: minimum >= 8 ? 2 : 1, grades, stem: `填写本课词表中的目标词：${meaning}（首字母 ${word[0]}，${acceptedSpellings.length ? '英美拼写均可' : `${word.replaceAll('-', '').length} 个字母`}）\n${masked}`, answer: { accepted: [word, ...acceptedSpellings], display: word }, marks: 1, estimatedSeconds: 40, source, review: 'draft',
@@ -82,12 +87,21 @@ export function authorExtra(root, catalog) {
     for (const [n, word] of topicWords.entries()) {
       const sentenceMeaning = meaningInExample(word)
       const decoys = [], seenMeanings = new Set()
-      // Keep the same first two distinct meanings without building unused distractors.
-      for (const candidate of topicWords) {
-        if (meaningInExample(candidate) === sentenceMeaning || candidate.id === word.id || seenMeanings.has(meaningInExample(candidate))) continue
-        seenMeanings.add(meaningInExample(candidate))
-        decoys.push(candidate)
-        if (decoys.length === 2) break
+      const authoredPair = authoredMeaningDecoys.get(`${id}:${word.word}`)
+      if (authoredPair) {
+        for (const headword of authoredPair) {
+          const candidate = topicWords.find(w => w.word === headword)
+          if (!candidate || candidate.id === word.id || meaningInExample(candidate) === sentenceMeaning || seenMeanings.has(meaningInExample(candidate))) throw new Error('Invalid authored vocabulary meaning distractor: ' + word.word)
+          seenMeanings.add(meaningInExample(candidate)); decoys.push(candidate)
+        }
+      } else {
+        // Preserve the default first two distinct meanings exactly for all other rows.
+        for (const candidate of topicWords) {
+          if (meaningInExample(candidate) === sentenceMeaning || candidate.id === word.id || seenMeanings.has(meaningInExample(candidate))) continue
+          seenMeanings.add(meaningInExample(candidate))
+          decoys.push(candidate)
+          if (decoys.length === 2) break
+        }
       }
       if (decoys.length !== 2) throw new Error(`Vocabulary topic needs three distinct meanings: ${id}`)
       const labels = [word, ...decoys], rotated = labels.map((_, k) => labels[(k + n) % 3])

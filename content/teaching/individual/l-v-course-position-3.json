@@ -1,0 +1,486 @@
+{
+  "lessonId": "l-v-course-position-3",
+  "reviewState": "draft",
+  "intent": "Individually distinguish under/over/above/below, static inside/outside and movement into/onto, with fixed references, flexible alignment and truthful instruction/completion scope.",
+  "picturePurpose": "Six reversible coded scenes make semantic placement or movement explicit. Labels and geometry remain in code; no decorative image or invented measurements are needed.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "摆位置、看去向：空间关系实验室",
+    "instruction": "固定参照物，改变靴子、桥、标牌、答案、混合物和小猫的状态。再圈出原句支持的信息，独立拼写并写自己的完整例句；不要把示意当成真实测量。",
+    "items": [
+      {
+        "id": "word-under",
+        "label": "在……下面",
+        "prompt": "把靴子摆到under the bench的位置。",
+        "answer": "under",
+        "caseSensitive": false,
+        "meaning": "在……下面",
+        "before": "Leave your muddy boots ",
+        "after": " the bench.",
+        "reason": "under the bench要保留长椅下面的关系，不能只看靴子是否靠近长椅。",
+        "hint": "先看长椅，再在下面、椅面上和旁边之间切换。原句Leave…提出存放要求，示意不证明现实中已放好，也不提供真实尺寸。",
+        "material": "Leave your muddy boots under the bench.",
+        "wordDecision": {
+          "prompt": "把靴子摆到under the bench的位置。",
+          "relationScene": {
+            "kind": "under",
+            "title": "参照长椅，摆放靴子",
+            "hint": "切换下面、上面和旁边；这只是句意演示，不提供真实尺寸或执行记录。",
+            "wrong": "under要求在长椅下面；椅面上和旁边都改变了本句的位置。"
+          }
+        },
+        "options": [
+          {
+            "id": "under",
+            "text": "要求把沾泥的靴子放在长椅下面。",
+            "correct": true,
+            "reason": "保留under的位置和指令语气。"
+          },
+          {
+            "id": "on",
+            "text": "要求把靴子放到椅面上。",
+            "correct": false,
+            "reason": "那是on，不是under。"
+          },
+          {
+            "id": "done",
+            "text": "这句已经证明靴子放好了。",
+            "correct": false,
+            "reason": "Leave是要求，不是已完成的报告。"
+          }
+        ]
+      },
+      {
+        "id": "word-over",
+        "label": "横跨（小溪）（本句）",
+        "prompt": "让桥与小溪形成over the stream的关系。",
+        "answer": "over",
+        "caseSensitive": false,
+        "meaning": "横跨（小溪）（本句）",
+        "before": "A narrow bridge leads ",
+        "after": " the stream.",
+        "reason": "over在本句突出跨越关系，不只是桥和水出现在同一张图里。",
+        "hint": "本句说一座窄桥横跨小溪。示意不提供长度、宽度数值、承重或安全检查结果；不要把桥沿岸边摆放当成横跨。",
+        "material": "A narrow bridge leads over the stream.",
+        "wordDecision": {
+          "prompt": "让桥与小溪形成over the stream的关系。",
+          "relationScene": {
+            "kind": "over",
+            "title": "把桥摆成横跨关系",
+            "hint": "两岸和小溪固定；比较横跨、沿岸与溪水中，图中距离不是真实测量。",
+            "wrong": "本句的桥横跨小溪；沿岸摆放或放进溪水中都不是这句话的关系。"
+          }
+        },
+        "options": [
+          {
+            "id": "across",
+            "text": "一座窄桥横跨小溪，连接两岸。",
+            "correct": true,
+            "reason": "与本句leads over the stream对应。"
+          },
+          {
+            "id": "bank",
+            "text": "桥沿着同一侧岸边，没有跨溪。",
+            "correct": false,
+            "reason": "改变了横跨的关系。"
+          },
+          {
+            "id": "safe",
+            "text": "over已经说明桥能承受多少人通过。",
+            "correct": false,
+            "reason": "介词不提供承重或安全检验信息。"
+          }
+        ]
+      },
+      {
+        "id": "word-above",
+        "label": "在……上方；高于",
+        "prompt": "above一定要正对窗口中心吗？试摆标牌。",
+        "answer": "above",
+        "caseSensitive": false,
+        "meaning": "在……上方；高于",
+        "before": "The sign hangs ",
+        "after": " the ticket window.",
+        "reason": "above表达高于窗口的位置，不要求垂直对准中心，也不能改成下方。",
+        "hint": "把标牌挂到窗口左上方或右上方，都能表达这里的above。原句没有给精确偏移和高度；示意只比较相对位置。",
+        "material": "The sign hangs above the ticket window.",
+        "wordDecision": {
+          "prompt": "above一定要正对窗口中心吗？试摆标牌。",
+          "relationScene": {
+            "kind": "above",
+            "title": "试试两个不同的上方位置",
+            "hint": "窗口固定；左上方和右上方都可，再与下方比较。不把示意当成实际安装图。",
+            "wrong": "above表示这里的上方；两个偏向不同的上方位置都可，下方不对应。"
+          }
+        },
+        "options": [
+          {
+            "id": "higher",
+            "text": "标牌在售票窗口上方，不一定正对中心。",
+            "correct": true,
+            "reason": "保留above的相对高低关系。"
+          },
+          {
+            "id": "center",
+            "text": "只有正对窗口中心的正上方才允许用above。",
+            "correct": false,
+            "reason": "把above缩成没有给出的精确对齐要求。"
+          },
+          {
+            "id": "below",
+            "text": "标牌挂在窗口下方。",
+            "correct": false,
+            "reason": "把above的方向反过来了。"
+          }
+        ]
+      },
+      {
+        "id": "word-below",
+        "label": "在……下方；低于",
+        "prompt": "把答案框摆到below the picture的位置。",
+        "answer": "below",
+        "caseSensitive": false,
+        "meaning": "在……下方；低于",
+        "before": "Write your answer ",
+        "after": " the picture.",
+        "reason": "below保留下方关系；答案写在图内或图上方都不能代替这个要求。",
+        "hint": "图片保持固定，比较左下方、右下方与图片上方。原题只要求在图片下方，没有要求一定居中，也没有给真实版面尺寸。",
+        "material": "Write your answer below the picture.",
+        "wordDecision": {
+          "prompt": "把答案框摆到below the picture的位置。",
+          "relationScene": {
+            "kind": "below",
+            "title": "图片固定，答案写到哪里？",
+            "hint": "试试左右两个下方位置，再摆到上方比较；示意不规定真实行距。",
+            "wrong": "below要求图片下方；左右下方都保留关系，图片上方不对应。"
+          }
+        },
+        "options": [
+          {
+            "id": "lower",
+            "text": "把答案写在图片下方，不必固定在正中间。",
+            "correct": true,
+            "reason": "与below the picture相符。"
+          },
+          {
+            "id": "upper",
+            "text": "把答案写在图片上方。",
+            "correct": false,
+            "reason": "把below变成了above。"
+          },
+          {
+            "id": "inside",
+            "text": "把答案写进图片里面。",
+            "correct": false,
+            "reason": "inside不能代替下方关系。"
+          }
+        ]
+      },
+      {
+        "id": "word-inside",
+        "label": "在盒子里面（本句）",
+        "prompt": "便条inside the box：哪些信息是这句话真的说了的？",
+        "answer": "inside",
+        "caseSensitive": false,
+        "meaning": "在盒子里面（本句）",
+        "before": "The note was hidden ",
+        "after": " the box.",
+        "reason": "inside与in在这里都可表达内部位置；要区分内部和外部，不给原句添人物信息。",
+        "hint": "inside the box说明便条在盒子内部。这里inside作介词；in也能表达内部位置。原句没有说藏便条的人是谁，也没有说便条贴在盒子外面。",
+        "material": "The note was hidden inside the box.",
+        "wordDecision": {
+          "prompt": "便条inside the box：哪些信息是这句话真的说了的？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "位置明确，人物未知",
+            "rows": [
+              {
+                "id": "inside",
+                "label": "位置",
+                "include": true,
+                "text": "便条在盒子内部"
+              },
+              {
+                "id": "who",
+                "label": "藏放者",
+                "include": true,
+                "text": "藏便条的人未说明"
+              },
+              {
+                "id": "outside",
+                "label": "相反位置",
+                "include": false,
+                "text": "便条在盒子外侧"
+              }
+            ],
+            "wrong": "inside the box说明盒子内部；这是过去情况的报告，没有给出藏便条的人。in也能表达这里的内部位置。",
+            "prompt": "只圈原句支持的位置和人物信息，不补原句没说的细节。",
+            "hint": "inside the box说明便条在盒子内部。这里inside作介词；in也能表达内部位置。原句没有说藏便条的人是谁，也没有说便条贴在盒子外面。"
+          }
+        },
+        "options": [
+          {
+            "id": "inside",
+            "text": "便条被藏在盒子内部。",
+            "correct": true,
+            "reason": "保留inside的位置和过去的报告。"
+          },
+          {
+            "id": "outside",
+            "text": "便条贴在盒子外侧。",
+            "correct": false,
+            "reason": "outside与这里的inside相反。"
+          },
+          {
+            "id": "who",
+            "text": "这句话说出了是谁把便条藏进去。",
+            "correct": false,
+            "reason": "原句没有给人物姓名或身份。"
+          }
+        ]
+      },
+      {
+        "id": "word-outside",
+        "label": "在外面（本句，单独作副词）",
+        "prompt": "outside后面没有地点名词，这句能完整吗？",
+        "answer": "outside",
+        "caseSensitive": false,
+        "meaning": "在外面（本句，单独作副词）",
+        "before": "Please leave wet umbrellas ",
+        "after": ".",
+        "reason": "本句outside单独作副词；也可作介词接地点。",
+        "hint": "Please leave wet umbrellas outside中，outside单独作副词，句子可以完整。外面的具体参照范围要结合语境；原句没有说门口、哪一面墙或几点已放好。",
+        "material": "Please leave wet umbrellas outside.",
+        "wordDecision": {
+          "prompt": "outside后面没有地点名词，这句能完整吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "分清结构和执行状态",
+            "rows": [
+              {
+                "id": "adverb",
+                "label": "本句词性",
+                "include": true,
+                "text": "本句outside单独作副词"
+              },
+              {
+                "id": "instruction",
+                "label": "句子用途",
+                "include": true,
+                "text": "这是要求，不是已放好的报告"
+              },
+              {
+                "id": "done",
+                "label": "实际完成",
+                "include": false,
+                "text": "所有湿伞已经放好"
+              }
+            ],
+            "wrong": "本句outside单独使用，Please leave提出要求；没有指定具体门口，也没有报告已经执行。",
+            "prompt": "只圈原句支持的信息，不把要求当成已经完成，也不补没有提供的位置。",
+            "hint": "Please leave wet umbrellas outside中，outside单独作副词，句子可以完整。外面的具体参照范围要结合语境；原句没有说门口、哪一面墙或几点已放好。"
+          }
+        },
+        "options": [
+          {
+            "id": "outside",
+            "text": "请把湿伞放在外面；这句outside可以单独使用。",
+            "correct": true,
+            "reason": "本句outside作副词，不必再补地点名词。"
+          },
+          {
+            "id": "must",
+            "text": "outside后面必须补地点名词，否则这句一定不完整。",
+            "correct": false,
+            "reason": "把可以接名词误当成必须接名词。"
+          },
+          {
+            "id": "done",
+            "text": "所有湿伞已经放在指定门外。",
+            "correct": false,
+            "reason": "指令不证明已完成；原句也没指定是哪扇门。"
+          }
+        ]
+      },
+      {
+        "id": "word-into",
+        "label": "到……里面",
+        "prompt": "into不只是“已经在里面”：演示混合物的去向。",
+        "answer": "into",
+        "caseSensitive": false,
+        "meaning": "到……里面",
+        "before": "Pour the mixture ",
+        "after": " a clean bowl.",
+        "reason": "into突出进入内部的去向，不把这条指令改成已经完成的状态报告。",
+        "hint": "从没倒入、倒进碗里和倒在碗旁之间切换。原句Pour…是指令；演示进入关系，不提供配方、用量或现实执行记录。",
+        "material": "Pour the mixture into a clean bowl.",
+        "wordDecision": {
+          "prompt": "into不只是“已经在里面”：演示混合物的去向。",
+          "relationScene": {
+            "kind": "into",
+            "title": "从外面进入内部",
+            "hint": "碗保持固定；切换尚未倒入、进入碗里或到碗旁。蓝色只是示意，不表示成分或用量。",
+            "wrong": "into要求进入碗的内部；未倒入或倒在碗旁都没有体现这个去向。"
+          }
+        },
+        "options": [
+          {
+            "id": "into",
+            "text": "要求把混合物倒进干净的碗里。",
+            "correct": true,
+            "reason": "保留倒入内部的去向和指令。"
+          },
+          {
+            "id": "in",
+            "text": "只报告混合物已经在碗里，没有倒入要求。",
+            "correct": false,
+            "reason": "把进入的指令改成静态报告。"
+          },
+          {
+            "id": "beside",
+            "text": "要求把混合物倒在碗旁。",
+            "correct": false,
+            "reason": "没有进入碗内，去向改变了。"
+          }
+        ]
+      },
+      {
+        "id": "word-onto",
+        "label": "到……上面",
+        "prompt": "onto the chair：小猫的落点在哪里？",
+        "answer": "onto",
+        "caseSensitive": false,
+        "meaning": "到……上面",
+        "before": "The kitten jumped ",
+        "after": " the empty chair.",
+        "reason": "onto突出移到表面的落点；在上方空中不等于已经落到椅面。",
+        "hint": "比较地面、椅面和仍在椅子上方空中的状态。原句用jumped报告一次跳跃到椅面，不保证小猫此后永远不离开。",
+        "material": "The kitten jumped onto the empty chair.",
+        "wordDecision": {
+          "prompt": "onto the chair：小猫的落点在哪里？",
+          "relationScene": {
+            "kind": "onto",
+            "title": "到表面，还是还在空中？",
+            "hint": "椅子保持固定；切换跳前地面、椅面落点与空中。示意不提供真实高度或动作录像。",
+            "wrong": "onto the chair突出落到椅面；还在地面或只在上方空中都不对应这个落点。"
+          }
+        },
+        "options": [
+          {
+            "id": "onto",
+            "text": "小猫跳到了空椅子的椅面上。",
+            "correct": true,
+            "reason": "保留jumped onto的运动和表面落点。"
+          },
+          {
+            "id": "air",
+            "text": "小猫还停在椅子上方空中，未落到椅面。",
+            "correct": false,
+            "reason": "那没有体现onto所表示的表面落点。"
+          },
+          {
+            "id": "forever",
+            "text": "这句保证小猫以后一直待在椅子上。",
+            "correct": false,
+            "reason": "一次跳到椅面不等于以后永久停留。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-position-3-transfer",
+      "topicId": "v-course-position",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪组三句话保留了进入内部、上方和下方的关系？",
+      "passage": "新情境｜把蓝色纸条放进信封（envelope）。把标牌挂在门口上方，不要求正对中心。把答案写在图片下方。这些都是指令，原题没有说它们已经完成，也没有提供真实距离。请选择准确的三句话版本。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Put the blue strip into the envelope. Hang the sign above the doorway, not necessarily in the middle. Write your answer below the picture."
+        },
+        {
+          "id": "b",
+          "text": "Put the blue strip on top of the envelope. Hang the sign above the doorway, not necessarily in the middle. Write your answer below the picture."
+        },
+        {
+          "id": "c",
+          "text": "Put the blue strip into the envelope. Hang the sign below the doorway. Write your answer above the picture."
+        },
+        {
+          "id": "d",
+          "text": "Leave your muddy boots under the bench. A narrow bridge leads over the stream. The kitten jumped onto the empty chair."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Put the blue strip into the envelope. Hang the sign above the doorway, not necessarily in the middle. Write your answer below the picture."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先分清进入内部的去向，再用固定参照物核对上方和下方。",
+        "steps": [
+          {
+            "text": "into the envelope要求纸条进入信封内部，不是停在信封表面。",
+            "reason": "into的进入去向不能改成on top of的表面位置。"
+          },
+          {
+            "text": "above the doorway保留标牌上方且不必居中；below the picture保留答案下方。",
+            "reason": "换了任务对象，仍要核对参照物与方向；不能把上下倒置或照搬旧例句。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把放进信封内部改成放在信封表面，改变了into的去向。"
+          },
+          {
+            "option": "c",
+            "reason": "把标牌的上方和答案的下方都倒了过来。"
+          },
+          {
+            "option": "d",
+            "reason": "照搬旧靴子、桥和小猫，没有回应新纸条、标牌和答案任务。"
+          }
+        ],
+        "pitfall": "只看到都提到了同样的物品，却没有核对内部/表面和上方/下方，或把指令误报成已经完成。",
+        "visual": {
+          "kind": "comparison",
+          "title": "内部去向 · 上方 · 下方",
+          "segments": [
+            {
+              "text": "into the envelope",
+              "role": "evidence",
+              "note": "进入内部，不是停在表面"
+            },
+            {
+              "text": "above the doorway",
+              "role": "evidence",
+              "note": "上方，不必居中"
+            },
+            {
+              "text": "below the picture",
+              "role": "evidence",
+              "note": "图片下方"
+            }
+          ],
+          "caption": "三条指令的语义关系要保留；图示不提供真实尺寸或完成记录。"
+        },
+        "transfer": "把Put the strip into the envelope改成The strip is in the envelope后，进入的要求和已经描述的位置有何不同？"
+      }
+    }
+  }
+}
