@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **308 / 413**. Current: **l-v-course-position**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **309 / 413**. Current: **l-v-course-position-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -174,7 +174,7 @@ Completed: **308 / 413**. Current: **l-v-course-position**. Evidence lives in do
 | l-v-course-linking-3 | 句子中的联系 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-linking-3.md) |
 | l-v-course-linking-4 | 句子中的联系 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-linking-4.md) |
 | l-v-course-linking-5 | 句子中的联系 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-linking-5.md) |
-| l-v-course-position | 位置与路径 · 1 | pending | — |
+| l-v-course-position | 位置与路径 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-position.md) |
 | l-v-course-position-2 | 位置与路径 · 2 | pending | — |
 | l-v-course-position-3 | 位置与路径 · 3 | pending | — |
 | l-v-course-position-4 | 位置与路径 · 4 | pending | — |
