@@ -1,0 +1,562 @@
+{
+  "lessonId": "l-v-course-core-actions-3",
+  "reviewState": "draft",
+  "intent": "Individually distinguish explicit needs, desire versus acquired skill, verb-like preference, both love constructions, unknown ownership information, think-before-write order, did-plus-base written say and tell-clause statement order.",
+  "picturePurpose": "Purposeful coded requirement tokens and clause-role diagrams avoid invented growth, actual notice content, route details or audio evidence.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "需求、愿望与句子结构",
+    "instruction": "圈需求、摆顺序、修句架，再写自己的句子。",
+    "items": [
+      {
+        "id": "word-need",
+        "label": "需要光和水（本句）",
+        "prompt": "圈出本句提出的需求：有水就够了，还是还需要光照？",
+        "answer": "need",
+        "caseSensitive": false,
+        "meaning": "需要光和水（本句）",
+        "before": "Young plants ",
+        "after": " light as well as water.",
+        "reason": "light as well as water把光照与水分都包括在内；不能漏掉一项，也没说这就是全部生长条件。",
+        "hint": "这里need后直接接光和水；as well as把两项都包括在内。",
+        "material": "Young plants need light as well as water.",
+        "wordDecision": {
+          "prompt": "圈出本句提出的需求：有水就够了，还是还需要光照？",
+          "plantNeeds": {
+            "title": "圈出本句提出的两项需求",
+            "hint": "light和water都是本句提出的需求。",
+            "wrong": "as well as把光和水都包括在内，不能漏掉一项。"
+          }
+        },
+        "options": [
+          {
+            "id": "both",
+            "text": "本句明确说光照和水分都需要。",
+            "correct": true,
+            "reason": "as well as把两项都连起来；不是只有水。"
+          },
+          {
+            "id": "water",
+            "text": "只需要水，明确不需要光照。",
+            "correct": false,
+            "reason": "漏掉light，并把原句的光照需求否定了。"
+          },
+          {
+            "id": "guarantee",
+            "text": "只要点亮这两项，现实中的幼苗就一定长好。",
+            "correct": false,
+            "reason": "句子没有说这两项是充分条件；练习也不测量真实生长。"
+          }
+        ],
+        "ownForms": [
+          "need",
+          "needs",
+          "needed",
+          "needing"
+        ]
+      },
+      {
+        "id": "word-want",
+        "label": "想学习（本句）",
+        "prompt": "想学会和已经学会，能画等号吗？圈出这句话明确说的两条。",
+        "answer": "want",
+        "caseSensitive": false,
+        "meaning": "想学习（本句）",
+        "before": "I ",
+        "after": " to learn how to mend a net.",
+        "reason": "want to learn表示想学习；how to mend a net说明想学什么，不等于已经会补网。",
+        "hint": "want to learn表示想学习，不等于已经学会。",
+        "material": "I want to learn how to mend a net.",
+        "wordDecision": {
+          "prompt": "想学会和已经学会，能画等号吗？圈出这句话明确说的两条。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "想学什么，学会了吗？",
+            "prompt": "圈出愿望和学习目标，不补已经学会的结果。",
+            "hint": "want to learn是愿望，how to mend a net是学习内容。",
+            "wrong": "原句说想学习补网，没有说已经会补或已经补好。",
+            "rows": [
+              {
+                "id": "desire",
+                "label": "愿望",
+                "text": "想要学习。",
+                "include": true
+              },
+              {
+                "id": "skill",
+                "label": "学习内容",
+                "text": "学习怎样补网。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经学会补网。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "desire",
+            "text": "想学习怎样补网，但没有说已经学会。",
+            "correct": true,
+            "reason": "保留want to learn的愿望与学习目标。"
+          },
+          {
+            "id": "done",
+            "text": "已经学会怎样补网。",
+            "correct": false,
+            "reason": "原句没有完成或熟练程度的信息。"
+          },
+          {
+            "id": "ban-to",
+            "text": "want后在本句必须直接写learn，不能加to。",
+            "correct": false,
+            "reason": "本句want to learn结构正确，不能删掉to。"
+          }
+        ],
+        "ownForms": [
+          "want",
+          "wants",
+          "wanted",
+          "wanting"
+        ]
+      },
+      {
+        "id": "word-like",
+        "label": "喜欢用色方式（本句）",
+        "prompt": "这里的like是“喜欢”，还是在说“长得像”？先看它后面的the way。",
+        "answer": "like",
+        "caseSensitive": false,
+        "meaning": "喜欢用色方式（本句）",
+        "before": "I ",
+        "after": " the way you used those colours.",
+        "reason": "本句like是动词，表示喜欢对方运用颜色的方式，不是介词“像”。",
+        "hint": "这里like作动词，后接the way，表示喜欢这种方式。",
+        "material": "I like the way you used those colours.",
+        "wordDecision": {
+          "prompt": "这里的like是“喜欢”，还是在说“长得像”？先看它后面的the way。"
+        },
+        "options": [
+          {
+            "id": "enjoy",
+            "text": "喜欢对方运用这些颜色的方式。",
+            "correct": true,
+            "reason": "I like后接the way，表达对用色方式的喜好。"
+          },
+          {
+            "id": "similar",
+            "text": "像对方那样用颜色，而不是表示喜好。",
+            "correct": false,
+            "reason": "本句like作谓语，后接the way，表示喜欢这种方式。"
+          },
+          {
+            "id": "purchase",
+            "text": "想购买所有出现的颜色。",
+            "correct": false,
+            "reason": "喜欢一种用色方式不等于要购买这些颜色。"
+          }
+        ],
+        "ownForms": [
+          "like",
+          "likes",
+          "liked",
+          "liking"
+        ]
+      },
+      {
+        "id": "word-love",
+        "label": "喜爱步行探索（本句）",
+        "prompt": "love exploring只能这样写吗？圈出保留“喜爱步行探索老街”的两种可行表达。",
+        "answer": "love",
+        "caseSensitive": false,
+        "meaning": "喜爱步行探索（本句）",
+        "before": "They ",
+        "after": " exploring old streets on foot.",
+        "reason": "love exploring和love to explore都可以表达喜爱这项活动；on foot说明步行。",
+        "hint": "love exploring和love to explore都可以；on foot是步行。",
+        "material": "They love exploring old streets on foot.",
+        "wordDecision": {
+          "prompt": "love exploring只能这样写吗？圈出保留“喜爱步行探索老街”的两种可行表达。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "喜好与步行方式都保留",
+            "prompt": "圈出两种语法可行、意思相符的表达。",
+            "hint": "两种搭配都可以，on foot不能改成乘车。",
+            "wrong": "两种喜爱步行探索的表达都成立；改成只喜欢开车不符合on foot。",
+            "rows": [
+              {
+                "id": "ing",
+                "label": "使用动名词",
+                "text": "They love exploring old streets on foot.",
+                "include": true
+              },
+              {
+                "id": "to",
+                "label": "使用不定式",
+                "text": "They love to explore old streets on foot.",
+                "include": true
+              },
+              {
+                "id": "car",
+                "label": "换了交通方式",
+                "text": "They only love exploring old streets by car.",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "both",
+            "text": "love exploring与love to explore都可用于这里的喜好表达。",
+            "correct": true,
+            "reason": "两种动词搭配都可以；步行方式还要保留。"
+          },
+          {
+            "id": "ban-to",
+            "text": "love to explore只要出现to就一定错误。",
+            "correct": false,
+            "reason": "love后可以用不定式表达喜好，不能绝对排除。"
+          },
+          {
+            "id": "drive",
+            "text": "原句说明只喜欢开车穿过老街。",
+            "correct": false,
+            "reason": "on foot是步行，不是开车。"
+          }
+        ],
+        "ownForms": [
+          "love",
+          "loves",
+          "loved",
+          "loving"
+        ]
+      },
+      {
+        "id": "word-know",
+        "label": "知道归属（本句）",
+        "prompt": "这句问的是谁拥有围巾，还是已经告诉了我们主人姓名？",
+        "answer": "know",
+        "caseSensitive": false,
+        "meaning": "知道归属（本句）",
+        "before": "Do you ",
+        "after": " who owns this scarf?",
+        "reason": "Do you know…?是在询问是否知道主人是谁；没有提供姓名或对方回答。",
+        "hint": "Do后用原形know；问句没有给出主人姓名。",
+        "material": "Do you know who owns this scarf?",
+        "wordDecision": {
+          "prompt": "这句问的是谁拥有围巾，还是已经告诉了我们主人姓名？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问句给了哪些信息？",
+            "prompt": "圈出问的内容和仍未给出的信息。",
+            "hint": "问主人是谁，但没有主人姓名或回答。",
+            "wrong": "询问所有者是谁成立，姓名未给出；不能擅自说主人叫小梅。",
+            "rows": [
+              {
+                "id": "question",
+                "label": "问什么",
+                "text": "询问谁拥有这条围巾。",
+                "include": true
+              },
+              {
+                "id": "unknown",
+                "label": "仍未给出",
+                "text": "没有提供主人的姓名或回答。",
+                "include": true
+              },
+              {
+                "id": "mei",
+                "label": "补出的姓名",
+                "text": "主人已经确定叫小梅。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "information",
+            "text": "询问是否知道这条围巾是谁的。",
+            "correct": true,
+            "reason": "who owns this scarf是想知道的信息。"
+          },
+          {
+            "id": "name",
+            "text": "明确宣布主人叫小梅。",
+            "correct": false,
+            "reason": "原句没有姓名，也没有回答问句。"
+          },
+          {
+            "id": "knew",
+            "text": "Do后面必须用过去式knew。",
+            "correct": false,
+            "reason": "本句Do后用原形know，不能直接换成knew。"
+          }
+        ],
+        "ownForms": [
+          "know",
+          "knows",
+          "knew",
+          "known",
+          "knowing"
+        ]
+      },
+      {
+        "id": "word-think",
+        "label": "思考结尾（本句）",
+        "prompt": "先想结尾还是先开始写？把Think about和before的要求一起看。",
+        "answer": "Think",
+        "caseSensitive": true,
+        "meaning": "思考结尾（本句）",
+        "before": "",
+        "after": " about the ending before you write.",
+        "reason": "Think about the ending要求思考结尾；before you write要求思考在写作前。",
+        "hint": "句首Think大写；看before，思考要在写作之前。",
+        "material": "Think about the ending before you write.",
+        "wordDecision": {
+          "prompt": "先想结尾还是先开始写？把Think about和before的要求一起看。",
+          "processOrder": {
+            "title": "先想结尾，再开始写作",
+            "hint": "按before摆出原句要求的先后。",
+            "wrong": "先思考结尾，再开始写作；不要把before的关系倒过来。",
+            "events": [
+              {
+                "id": "think",
+                "label": "思考"
+              },
+              {
+                "id": "write",
+                "label": "写作"
+              }
+            ],
+            "sequence": [
+              "think",
+              "write"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "写作前先思考结尾。",
+            "correct": true,
+            "reason": "保留think about的思考对象与before的先后。"
+          },
+          {
+            "id": "after",
+            "text": "文章写完以后才第一次思考结尾。",
+            "correct": false,
+            "reason": "把before的要求倒成了之后。"
+          },
+          {
+            "id": "done",
+            "text": "原句宣布文章已经写完。",
+            "correct": false,
+            "reason": "祈使要求不能当作实际完成记录。"
+          }
+        ],
+        "ownForms": [
+          "think",
+          "thinks",
+          "thought",
+          "thinking"
+        ]
+      },
+      {
+        "id": "word-say",
+        "label": "写着（本句）",
+        "prompt": "did已经表示过去，say还要变said吗？点句架看差别。",
+        "answer": "say",
+        "caseSensitive": false,
+        "meaning": "写着（本句）",
+        "before": "What did the sign ",
+        "after": " about bicycles?",
+        "reason": "What did the sign say…?在did后用原形say；本句问告示写着什么，不是让告示真的发声。",
+        "hint": "did后用原形say；告示的实际内容没有给出。",
+        "material": "What did the sign say about bicycles?",
+        "wordDecision": {
+          "prompt": "did已经表示过去，say还要变said吗？点句架看差别。",
+          "reportFrame": {
+            "kind": "say",
+            "title": "did后面，用哪个动词形式？",
+            "hint": "did已经表示过去，后面的动词用原形。",
+            "wrong": "did后用原形say，不用said或says；问句没有提供实际告示规定。"
+          }
+        },
+        "options": [
+          {
+            "id": "base",
+            "text": "did后用原形say，问告示对自行车写了什么。",
+            "correct": true,
+            "reason": "did承担过去标记，say用原形；内容仍未提供。"
+          },
+          {
+            "id": "past",
+            "text": "只要问过去的事，did后还必须用said。",
+            "correct": false,
+            "reason": "本句不能did与过去式said叠加，did后用say。"
+          },
+          {
+            "id": "policy",
+            "text": "问句已经明确宣布这里禁止自行车。",
+            "correct": false,
+            "reason": "问告示写什么不等于已经提供某项具体规定。"
+          }
+        ],
+        "ownForms": [
+          "say",
+          "says",
+          "said",
+          "saying"
+        ]
+      },
+      {
+        "id": "word-tell",
+        "label": "告诉（本句）",
+        "prompt": "告诉谁？告诉什么？把me和后面的从句分开，再修正语序。",
+        "answer": "Tell",
+        "caseSensitive": true,
+        "meaning": "告诉（本句）",
+        "before": "",
+        "after": " me which path you chose.",
+        "reason": "Tell me which path you chose：me是信息接收者，后面的从句用陈述语序。",
+        "hint": "句首Tell大写。me是接收者，后面的从句用陈述语序。",
+        "material": "Tell me which path you chose.",
+        "wordDecision": {
+          "prompt": "告诉谁？告诉什么？把me和后面的从句分开，再修正语序。",
+          "reportFrame": {
+            "kind": "tell",
+            "title": "接收者与内容，从句怎样排？",
+            "hint": "把接收者me和后面的内容分开看。",
+            "wrong": "本句Tell me后用which path you chose这个陈述语序，不写独立问句倒装，也不写Say me…。"
+          }
+        },
+        "options": [
+          {
+            "id": "statement",
+            "text": "Tell me which path you chose：从句用陈述语序。",
+            "correct": true,
+            "reason": "本句有接收者me；which path后是you chose，不再倒装。"
+          },
+          {
+            "id": "question",
+            "text": "Tell me后必须保留which path did you choose这个独立问句语序。",
+            "correct": false,
+            "reason": "这里是嵌入的内容从句，应写which path you chose。"
+          },
+          {
+            "id": "say-me",
+            "text": "把Tell直接换成Say，Say me…仍是本句的正确结构。",
+            "correct": false,
+            "reason": "本句用tell me；say something to me是另一种结构。"
+          }
+        ],
+        "ownForms": [
+          "tell",
+          "tells",
+          "told",
+          "telling"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-core-actions-3-transfer",
+      "topicId": "v-course-core-actions",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "新情境中，哪份三句表达既准确又合乎语法？",
+      "passage": "模型车与手工活动\n这辆电动模型车需要电池，也需要车轮。我还不会编篮子，想学习怎样编。请告诉我你选了哪种颜色；具体颜色未给出。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The model car needs batteries but no wheels. I want to learn how to weave a basket. Tell me which colour you chose."
+        },
+        {
+          "id": "b",
+          "text": "The model car needs batteries as well as wheels. I already know how to weave a basket. Tell me which colour you chose."
+        },
+        {
+          "id": "c",
+          "text": "The model car needs batteries as well as wheels. I want to learn how to weave a basket. Tell me which colour did you choose."
+        },
+        {
+          "id": "d",
+          "text": "The model car needs batteries as well as wheels. I want to learn how to weave a basket. Tell me which colour you chose."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "The model car needs batteries as well as wheels. I want to learn how to weave a basket. Tell me which colour you chose."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对是否保留两项需求和想学的状态，再看tell后的从句语序。",
+        "steps": [
+          {
+            "text": "电池与车轮都需要；还不会编篮子，所以只是想学。",
+            "reason": "as well as包括两项，want to learn不能换成already know。"
+          },
+          {
+            "text": "Tell me后写which colour you chose。",
+            "reason": "作为内容从句用陈述语序，不保留独立问句did you choose的倒装。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "原文说模型车需要车轮，这一组却写成不需要。"
+          },
+          {
+            "option": "b",
+            "reason": "把还不会、想学习，改成了已经会。"
+          },
+          {
+            "option": "c",
+            "reason": "最后一句嵌入了独立问句倒装，应该用which colour you chose。"
+          }
+        ],
+        "pitfall": "把两项需求漏成一项，或者把愿望当成已经掌握；从句中又多加疑问倒装。",
+        "visual": {
+          "kind": "comparison",
+          "title": "需求、愿望与信息结构分开看",
+          "segments": [
+            {
+              "text": "batteries + wheels",
+              "role": "evidence",
+              "note": "两项都需要"
+            },
+            {
+              "text": "want to learn ≠ already know",
+              "role": "evidence",
+              "note": "想学≠已会"
+            },
+            {
+              "text": "Tell me | which colour you chose",
+              "role": "evidence",
+              "note": "接收者＋陈述语序内容"
+            }
+          ],
+          "caption": "不编模型车完成记录、掌握程度或实际颜色。"
+        },
+        "transfer": "如果把Tell me改成独立问题Which colour did you choose?，语序为什么不同？先看它是不是嵌入的内容从句。"
+      }
+    }
+  }
+}
