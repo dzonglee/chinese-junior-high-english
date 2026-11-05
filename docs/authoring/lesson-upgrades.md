@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **323 / 413**. Current: **l-v-course-food**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **324 / 413**. Current: **l-v-course-food-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -189,7 +189,7 @@ Completed: **323 / 413**. Current: **l-v-course-food**. Evidence lives in docs/r
 | l-v-course-movement-3 | 动作与操作 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-movement-3.md) |
 | l-v-course-movement-4 | 动作与操作 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-movement-4.md) |
 | l-v-course-movement-5 | 动作与操作 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-movement-5.md) |
-| l-v-course-food | 食物与饮品 · 1 | pending | — |
+| l-v-course-food | 食物与饮品 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-food.md) |
 | l-v-course-food-2 | 食物与饮品 · 2 | pending | — |
 | l-v-course-food-3 | 食物与饮品 · 3 | pending | — |
 | l-v-course-food-4 | 食物与饮品 · 4 | pending | — |

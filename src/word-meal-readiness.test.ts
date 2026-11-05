@@ -1,0 +1,8 @@
+import{describe,it,expect}from'vitest'
+import{mealReadinessMatch,changeMealReadiness,wordMealReadinessView,validWordMealReadiness}from'./core/word-meal-readiness'
+const x={title:'再过十分钟',hint:'只看相对时间。',wrong:'不是用餐时长。'}
+describe('in-ten-minutes readiness',()=>{
+ it('distinguishes a future point from duration and already-ready state',()=>{for(const s of ['','after','duration','already'])expect(mealReadinessMatch(x,s)).toBe(s==='after');expect(wordMealReadinessView(x,'after')).toMatchObject({marker:75,duration:false});expect(wordMealReadinessView(x,'already')).toMatchObject({marker:25,duration:false});expect(wordMealReadinessView(x,'duration')).toMatchObject({duration:true});expect(wordMealReadinessView(x,'duration').marker).toBeUndefined()})
+ it('supports only closed reversible controls and does not repair corrupt state without reset',()=>{let s='';for(const a of ['duration','already','after'])s=changeMealReadiness(x,s,a)!;expect(s).toBe('after');expect(changeMealReadiness(x,s,'reset')).toBe('');for(const a of ['finish','10','before','__proto__'])expect(changeMealReadiness(x,'',a)).toBeUndefined();expect(changeMealReadiness(x,'corrupt','after')).toBeUndefined();expect(changeMealReadiness(x,'corrupt','reset')).toBe('')})
+ it('requires bounded metadata and returns an isolated explicitly unchosen view',()=>{expect(validWordMealReadiness(x)).toBe(true);for(const bad of [null,[],{...x,currentClock:'18:00'},{...x,title:' '},{...x,wrong:'a'.repeat(141)}])expect(validWordMealReadiness(bad)).toBe(false);const v=wordMealReadinessView(x,'corrupt');expect(v.selected).toBe('');expect(v.marker).toBeUndefined();expect(v.choices.every(c=>!c.selected)).toBe(true);v.choices[0].label='Changed';expect(wordMealReadinessView(x,'').choices[0].label).toBe('十分钟后准备好')})
+})
