@@ -174,6 +174,8 @@ function render() {
   const mealReadinessFocus = active instanceof HTMLButtonElement && active.matches(".word-meal-readiness button") ? active.dataset.value : undefined
   const foodPortionsFocus = active instanceof HTMLButtonElement && active.matches(".word-food-portions button") ? active.dataset.value : undefined
   const noodleFallFocus = active instanceof HTMLButtonElement && active.matches(".word-noodle-fall button") ? active.dataset.value : undefined
+  const foodRolesFocus = active instanceof HTMLButtonElement && active.matches(".word-food-roles button") ? active.dataset.value : undefined
+  const remainingTinFocus = active instanceof HTMLButtonElement && active.matches(".word-remaining-tin button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -266,6 +268,8 @@ function render() {
   if (mealReadinessFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-meal-readiness [data-value="${CSS.escape(mealReadinessFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (foodPortionsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-portions [data-value="${CSS.escape(foodPortionsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (noodleFallFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-noodle-fall [data-value="${CSS.escape(noodleFallFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodRolesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-roles [data-value="${CSS.escape(foodRolesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (remainingTinFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-remaining-tin [data-value="${CSS.escape(remainingTinFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

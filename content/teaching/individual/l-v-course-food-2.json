@@ -1,0 +1,559 @@
+{
+  "lessonId": "l-v-course-food-2",
+  "reviewState": "draft",
+  "intent": "Distinguish singular and mass-noun phrases, decorating object and material, one remaining biscuit inside the tin bottom, packing versus eating, after-event sharing, bean food with accompaniment and a stirring purpose.",
+  "picturePurpose": "Proposed coded phrase roles and remaining-biscuit/tin geometry carry exact relationships. No raster or actual food handling, recipe, volume or temperature assumed.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "看清一块、配什么、先做什么",
+    "instruction": "点句架、摆饼干、排先后。把原句的信息保留下来，再写自己的英语。",
+    "items": [
+      {
+        "id": "word-dumpling",
+        "label": "饺子",
+        "prompt": "this dumpling为什么用单数？a little vinegar怎么搭配？点句架比较。",
+        "answer": "dumpling",
+        "caseSensitive": false,
+        "meaning": "饺子",
+        "before": "Try this ",
+        "after": " with a little vinegar.",
+        "reason": "this dumpling是这个饺子；a little vinegar是少量醋。",
+        "hint": "这是品尝建议，没有说已经吃过，也没给醋的毫升数。",
+        "material": "Try this dumpling with a little vinegar.",
+        "wordDecision": {
+          "prompt": "this dumpling为什么用单数？a little vinegar怎么搭配？点句架比较。",
+          "foodRoles": {
+            "kind": "dumpling",
+            "title": "一个饺子，少量醋",
+            "hint": "比较名词和限定词。",
+            "wrong": "this dumpling中的dumpling用单数；vinegar在这里不可数，少量用a little。"
+          }
+        },
+        "options": [
+          {
+            "id": "suggest",
+            "text": "尝尝这个饺子，配一点醋。",
+            "correct": true,
+            "reason": "保留Try的建议和a little的少量。"
+          },
+          {
+            "id": "many",
+            "text": "原句要配大量的醋。",
+            "correct": false,
+            "reason": "a little是少量，不是大量。"
+          },
+          {
+            "id": "done",
+            "text": "这句话记录了已经吃完饺子。",
+            "correct": false,
+            "reason": "Try是一条建议，没有给出实际品尝结果。"
+          }
+        ],
+        "ownForms": [
+          "dumpling",
+          "dumplings"
+        ]
+      },
+      {
+        "id": "word-bun",
+        "label": "小圆面包；包子",
+        "prompt": "热的小面包或包子，暖了谁的手？圈出原句说到的两点。",
+        "answer": "bun",
+        "caseSensitive": false,
+        "meaning": "小圆面包；包子",
+        "before": "A hot ",
+        "after": " warmed my hands.",
+        "reason": "A hot bun指一个热的小面包或包子；warmed my hands表示暖了我的双手。",
+        "hint": "没给馅料、制作方法或实际温度。",
+        "material": "A hot bun warmed my hands.",
+        "wordDecision": {
+          "prompt": "热的小面包或包子，暖了谁的手？圈出原句说到的两点。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "热食与暖手的结果",
+            "prompt": "圈出原句支持的两点。",
+            "hint": "不补原句没说的事。",
+            "wrong": "保留原句的信息，不把推断当成事实。",
+            "rows": [
+              {
+                "id": "food",
+                "label": "食物",
+                "text": "一个热的小面包或包子。",
+                "include": true
+              },
+              {
+                "id": "effect",
+                "label": "作用",
+                "text": "暖了说话者的双手。",
+                "include": true
+              },
+              {
+                "id": "eaten",
+                "label": "额外动作",
+                "text": "说话者已经把它吃完。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "warm",
+            "text": "一个热的小面包或包子暖了我的双手。",
+            "correct": true,
+            "reason": "hot说食物热，warmed my hands说暖手的结果。"
+          },
+          {
+            "id": "cold",
+            "text": "一个冰冷的小面包让双手更冷。",
+            "correct": false,
+            "reason": "把hot和warmed都改反了。"
+          },
+          {
+            "id": "eaten",
+            "text": "我已经吃掉了所有包子。",
+            "correct": false,
+            "reason": "没有吃完或全部的记录。"
+          }
+        ],
+        "ownForms": [
+          "bun",
+          "buns"
+        ]
+      },
+      {
+        "id": "word-cake",
+        "label": "蛋糕",
+        "prompt": "装饰什么？用什么装饰？把with两边的角色分开看。",
+        "answer": "cake",
+        "caseSensitive": false,
+        "meaning": "蛋糕",
+        "before": "We decorated the ",
+        "after": " with fresh fruit.",
+        "reason": "decorated的对象是cake，用来装饰的是fresh fruit。",
+        "hint": "decorated是过去式；没有提供蛋糕片数。",
+        "material": "We decorated the cake with fresh fruit.",
+        "wordDecision": {
+          "prompt": "装饰什么？用什么装饰？把with两边的角色分开看。",
+          "foodRoles": {
+            "kind": "cake",
+            "title": "对象和材料别换位",
+            "hint": "比较装饰对象与所用材料。",
+            "wrong": "原句说用新鲜水果装饰蛋糕，不是用蛋糕装饰水果，也不是只说制作蛋糕。"
+          }
+        },
+        "options": [
+          {
+            "id": "decorate",
+            "text": "用新鲜水果装饰了蛋糕。",
+            "correct": true,
+            "reason": "保留decorated、the cake和with fresh fruit。"
+          },
+          {
+            "id": "make",
+            "text": "原句只说用水果做了蛋糕，没有说装饰。",
+            "correct": false,
+            "reason": "decorated明确说装饰，不等于只说制作。"
+          },
+          {
+            "id": "reverse",
+            "text": "用新鲜蛋糕装饰了水果。",
+            "correct": false,
+            "reason": "调换了装饰对象和材料。"
+          }
+        ],
+        "ownForms": [
+          "cake",
+          "cakes"
+        ]
+      },
+      {
+        "id": "word-biscuit",
+        "label": "饼干",
+        "prompt": "One和at the bottom要同时满足。把剩下的饼干摆到盒里。",
+        "answer": "biscuit",
+        "caseSensitive": false,
+        "meaning": "饼干",
+        "before": "One ",
+        "after": " remained at the bottom of the tin.",
+        "reason": "One biscuit remained说明剩一块；at the bottom of the tin是在铁盒里面的底部。",
+        "hint": "原来有几块、谁拿走了其他饼干，都没有给出。",
+        "material": "One biscuit remained at the bottom of the tin.",
+        "wordDecision": {
+          "prompt": "One和at the bottom要同时满足。把剩下的饼干摆到盒里。",
+          "remainingTin": {
+            "title": "剩几块？在盒子的哪里？",
+            "hint": "只还原剩余状态，不猜原来数量。",
+            "wrong": "要同时保留一块和盒内底部；盒沿或盒外都不符合。"
+          }
+        },
+        "options": [
+          {
+            "id": "one-bottom",
+            "text": "铁盒内底部还剩一块饼干。",
+            "correct": true,
+            "reason": "One给数量，at the bottom给位置。"
+          },
+          {
+            "id": "outside",
+            "text": "铁盒外面下方剩一块饼干。",
+            "correct": false,
+            "reason": "本句是盒内底部，不是盒外下方。"
+          },
+          {
+            "id": "two",
+            "text": "盒内底部还剩两块饼干。",
+            "correct": false,
+            "reason": "One是一块，不是两块。"
+          }
+        ],
+        "ownForms": [
+          "biscuit",
+          "biscuits"
+        ]
+      },
+      {
+        "id": "word-sandwich",
+        "label": "三明治",
+        "prompt": "packed说明装好了，还是吃完了？圈出内容与用途。",
+        "answer": "sandwich",
+        "caseSensitive": false,
+        "meaning": "三明治",
+        "before": "I packed a cheese ",
+        "after": " for the journey.",
+        "reason": "packed是装好；a cheese sandwich是一个奶酪三明治，for the journey说明旅途用途。",
+        "hint": "没有给出吃过、旅途完成或交通方式。",
+        "material": "I packed a cheese sandwich for the journey.",
+        "wordDecision": {
+          "prompt": "packed说明装好了，还是吃完了？圈出内容与用途。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "准备了什么，用来做什么？",
+            "prompt": "圈出原句支持的两点。",
+            "hint": "不补原句没说的事。",
+            "wrong": "保留原句的信息，不把推断当成事实。",
+            "rows": [
+              {
+                "id": "content",
+                "label": "准备内容",
+                "text": "装好了一个奶酪三明治。",
+                "include": true
+              },
+              {
+                "id": "purpose",
+                "label": "用途",
+                "text": "为旅途准备。",
+                "include": true
+              },
+              {
+                "id": "eaten",
+                "label": "额外结果",
+                "text": "已经在火车上吃完。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "packed",
+            "text": "为旅途装好了一个奶酪三明治。",
+            "correct": true,
+            "reason": "保留packed、cheese和for the journey。"
+          },
+          {
+            "id": "eaten",
+            "text": "已经在旅途中吃完奶酪三明治。",
+            "correct": false,
+            "reason": "packed不等于ate，原句也没给出已经吃完。"
+          },
+          {
+            "id": "plural",
+            "text": "a后面必须写sandwiches。",
+            "correct": false,
+            "reason": "a后用单数sandwich；复数sandwiches用于多个。"
+          }
+        ],
+        "ownForms": [
+          "sandwich",
+          "sandwiches"
+        ]
+      },
+      {
+        "id": "word-pizza",
+        "label": "比萨饼",
+        "prompt": "先比赛，还是先分吃？把after表达的先后摆出来。",
+        "answer": "pizza",
+        "caseSensitive": false,
+        "meaning": "比萨饼",
+        "before": "We shared a vegetable ",
+        "after": " after the match.",
+        "reason": "shared表示分着吃；after the match说明在比赛后。",
+        "hint": "没有说切成几片，也没有说每人各吃一整张。",
+        "material": "We shared a vegetable pizza after the match.",
+        "wordDecision": {
+          "prompt": "先比赛，还是先分吃？把after表达的先后摆出来。",
+          "processOrder": {
+            "title": "比赛后分吃比萨",
+            "hint": "按原句摆出两件事的先后。",
+            "wrong": "after the match把分吃比萨放在比赛之后。",
+            "events": [
+              {
+                "id": "match",
+                "label": "比赛"
+              },
+              {
+                "id": "share",
+                "label": "分吃"
+              }
+            ],
+            "sequence": [
+              "match",
+              "share"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "after",
+            "text": "比赛后，大家分吃了一张蔬菜比萨。",
+            "correct": true,
+            "reason": "保留shared、vegetable和after。"
+          },
+          {
+            "id": "before",
+            "text": "大家分吃比萨后才开始比赛。",
+            "correct": false,
+            "reason": "把after的先后关系倒过来了。"
+          },
+          {
+            "id": "each",
+            "text": "每人都独自吃了一整张比萨。",
+            "correct": false,
+            "reason": "shared说分着吃，不支持每人各一整张。"
+          }
+        ],
+        "ownForms": [
+          "pizza",
+          "pizzas"
+        ]
+      },
+      {
+        "id": "word-hamburger",
+        "label": "汉堡包",
+        "prompt": "bean说什么，with salad又补了什么？点句架保留两条信息。",
+        "answer": "hamburger",
+        "caseSensitive": false,
+        "meaning": "汉堡包",
+        "before": "The cafe serves a bean ",
+        "after": " with salad.",
+        "reason": "bean hamburger是豆类汉堡，with salad补充搭配沙拉。",
+        "hint": "没有列出全部配料，也没有规定沙拉具体摆在哪里。",
+        "material": "The cafe serves a bean hamburger with salad.",
+        "wordDecision": {
+          "prompt": "bean说什么，with salad又补了什么？点句架保留两条信息。",
+          "foodRoles": {
+            "kind": "hamburger",
+            "title": "汉堡与搭配的信息",
+            "hint": "只看文字明确给出的食物。",
+            "wrong": "保留bean和with salad；不能凭hamburger里的字母猜含火腿，也不能删掉沙拉。"
+          }
+        },
+        "options": [
+          {
+            "id": "bean-salad",
+            "text": "咖啡馆供应豆类汉堡，搭配沙拉。",
+            "correct": true,
+            "reason": "bean和with salad都保留了。"
+          },
+          {
+            "id": "ham",
+            "text": "hamburger这个词本身就保证含火腿。",
+            "correct": false,
+            "reason": "不能从词形猜配料；本句明确给出的限定是bean。"
+          },
+          {
+            "id": "no-salad",
+            "text": "只供应汉堡，没有搭配沙拉。",
+            "correct": false,
+            "reason": "删掉了with salad这条信息。"
+          }
+        ],
+        "ownForms": [
+          "hamburger",
+          "hamburgers"
+        ]
+      },
+      {
+        "id": "word-soup",
+        "label": "汤",
+        "prompt": "要做什么？目的是怎样受热？把要求和结果记录分开。",
+        "answer": "soup",
+        "caseSensitive": false,
+        "meaning": "汤",
+        "before": "Stir the ",
+        "after": " so it heats evenly.",
+        "reason": "Stir the soup要求搅汤；so it heats evenly说明目的是让汤受热均匀。",
+        "hint": "没有说已经搅过，也没有实测温度。",
+        "material": "Stir the soup so it heats evenly.",
+        "wordDecision": {
+          "prompt": "要做什么？目的是怎样受热？把要求和结果记录分开。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "动作与目的分开看",
+            "prompt": "圈出原句支持的两点。",
+            "hint": "不补原句没说的事。",
+            "wrong": "保留原句的信息，不把推断当成事实。",
+            "rows": [
+              {
+                "id": "action",
+                "label": "要求",
+                "text": "搅一搅汤。",
+                "include": true
+              },
+              {
+                "id": "purpose",
+                "label": "目的",
+                "text": "让汤受热均匀。",
+                "include": true
+              },
+              {
+                "id": "result",
+                "label": "额外结果",
+                "text": "已经测得整锅汤各处温度相同。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "purpose",
+            "text": "要求搅汤，让汤受热均匀。",
+            "correct": true,
+            "reason": "保留Stir的要求与so从句的目的。"
+          },
+          {
+            "id": "done",
+            "text": "已经完成搅拌并证明各处一样热。",
+            "correct": false,
+            "reason": "要求和目的不等于实际完成或实测结果。"
+          },
+          {
+            "id": "count",
+            "text": "原句已经明确有三碗汤。",
+            "correct": false,
+            "reason": "the soup没有给碗数。"
+          }
+        ],
+        "ownForms": [
+          "soup",
+          "soups"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-food-2-transfer",
+      "topicId": "v-course-food",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "数量和食物换了，哪组三句准确保留了信息？",
+      "passage": "散步前的准备\n铁盒内底部剩两块饼干。我为散步装好了一个番茄三明治，是否吃过未给出。请搅汤让它受热均匀，实际操作结果未给出。",
+      "options": [
+        {
+          "id": "a",
+          "text": "One biscuit remained at the bottom of the tin. I packed a tomato sandwich for the walk. Stir the soup so it heats evenly."
+        },
+        {
+          "id": "b",
+          "text": "Two biscuits remained on the rim of the tin. I packed a tomato sandwich for the walk. Stir the soup so it heats evenly."
+        },
+        {
+          "id": "c",
+          "text": "Two biscuits remained at the bottom of the tin. I packed a tomato sandwich for the walk. Stir the soup so it heats evenly."
+        },
+        {
+          "id": "d",
+          "text": "Two biscuits remained at the bottom of the tin. I ate a tomato sandwich during the walk. Stir the soup so it heats evenly."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Two biscuits remained at the bottom of the tin. I packed a tomato sandwich for the walk. Stir the soup so it heats evenly."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐句核对剩余数量与位置、准备动作和搅汤目的。",
+        "steps": [
+          {
+            "text": "两块饼干用two biscuits。",
+            "reason": "保留原记录的数量；one biscuit只剩一块。"
+          },
+          {
+            "text": "盒内底部用at the bottom of the tin。",
+            "reason": "on the rim指盒沿，改变了所在位置。"
+          },
+          {
+            "text": "I packed a tomato sandwich for the walk说明为散步装好了三明治。",
+            "reason": "packed是装好；原记录没有说已经吃过。"
+          },
+          {
+            "text": "Stir the soup so it heats evenly保留搅汤的要求和目的。",
+            "reason": "这是操作要求，不表示已经搅过或受热均匀。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把两块改成一块，没有保留新数量。"
+          },
+          {
+            "option": "b",
+            "reason": "把盒内底部改成了盒沿。"
+          },
+          {
+            "option": "d",
+            "reason": "把装好三明治改成已经在散步时吃过。"
+          }
+        ],
+        "pitfall": "熟词相同也可能偷换数量、位置或动作。",
+        "visual": {
+          "kind": "comparison",
+          "title": "每句保留一个关键关系",
+          "segments": [
+            {
+              "text": "Two biscuits | at the bottom",
+              "role": "evidence",
+              "note": "数量与盒内位置"
+            },
+            {
+              "text": "packed ≠ ate",
+              "role": "evidence",
+              "note": "准备不等于吃过"
+            },
+            {
+              "text": "Stir → so it heats evenly",
+              "role": "evidence",
+              "note": "要求与目的"
+            }
+          ],
+          "caption": "新情境不是原句照抄；没有提供实际搅拌结果。"
+        },
+        "transfer": "如果剩三块，biscuits要不要加s？原来有几块能直接知道吗？"
+      }
+    }
+  }
+}
