@@ -167,6 +167,9 @@ function render() {
   const actionGoalFocus = active instanceof HTMLButtonElement && active.matches(".word-action-goal button") ? active.dataset.value : undefined
   const entrySequenceFocus = active instanceof HTMLButtonElement && active.matches(".word-entry-sequence button") ? active.dataset.value : undefined
   const lineIntersectionFocus = active instanceof HTMLButtonElement && active.matches(".word-line-intersection button") ? active.dataset.value : undefined
+  const armPoseFocus = active instanceof HTMLButtonElement && active.matches(".word-arm-pose button") ? active.dataset.value : undefined
+  const clothPiecesFocus = active instanceof HTMLButtonElement && active.matches(".word-cloth-pieces button") ? active.dataset.value : undefined
+  const cornerFoldFocus = active instanceof HTMLButtonElement && active.matches(".word-corner-fold button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -252,6 +255,9 @@ function render() {
   if (actionGoalFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-action-goal [data-value="${CSS.escape(actionGoalFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (entrySequenceFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-entry-sequence [data-value="${CSS.escape(entrySequenceFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (lineIntersectionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-line-intersection [data-value="${CSS.escape(lineIntersectionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (armPoseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-arm-pose [data-value="${CSS.escape(armPoseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (clothPiecesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cloth-pieces [data-value="${CSS.escape(clothPiecesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (cornerFoldFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-corner-fold [data-value="${CSS.escape(cornerFoldFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
