@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **319 / 413**. Current: **l-v-course-movement-2**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **320 / 413**. Current: **l-v-course-movement-3**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -185,7 +185,7 @@ Completed: **319 / 413**. Current: **l-v-course-movement-2**. Evidence lives in 
 | l-v-course-core-actions-4 | 日常动作与状态 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-core-actions-4.md) |
 | l-v-course-core-actions-5 | 日常动作与状态 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-core-actions-5.md) |
 | l-v-course-movement | 动作与操作 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-movement.md) |
-| l-v-course-movement-2 | 动作与操作 · 2 | pending | — |
+| l-v-course-movement-2 | 动作与操作 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-movement-2.md) |
 | l-v-course-movement-3 | 动作与操作 · 3 | pending | — |
 | l-v-course-movement-4 | 动作与操作 · 4 | pending | — |
 | l-v-course-movement-5 | 动作与操作 · 5 | pending | — |

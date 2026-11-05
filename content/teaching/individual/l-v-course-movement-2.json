@@ -1,0 +1,633 @@
+{
+  "lessonId": "l-v-course-movement-2",
+  "reviewState": "draft",
+  "intent": "Individually distinguish safe stopping conditions, an everyone-arrives boundary, unanswered two-person carrying ability, a steady held object over an interval, relative pull/push force, labelled opening end and closure purpose.",
+  "picturePurpose": "Original complete closed-carton art makes the labelled end observable. Coded relative force arrows change with the reference person; a stipulated three-member arrival group reveals everyone without inventing source headcounts or motion.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "等到齐、换边推拉、找到标签端",
+    "instruction": "改到达情况、换边看推拉、点图找标签端，再用新句子试一试。",
+    "items": [
+      {
+        "id": "word-stop",
+        "label": "停下（本句）",
+        "prompt": "at后面是什么？原句要求停在哪里，能漏掉safe吗？",
+        "answer": "Stop",
+        "caseSensitive": true,
+        "meaning": "停下（本句）",
+        "before": "",
+        "after": " at the next safe place.",
+        "reason": "Stop at后接停下的地点；next与safe都限定这个地方。",
+        "hint": "句首Stop大写。at接地点，next和safe两个条件都不能漏。",
+        "material": "Stop at the next safe place.",
+        "wordDecision": {
+          "prompt": "at后面是什么？原句要求停在哪里，能漏掉safe吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "地点条件不能少",
+            "prompt": "圈出地点的两个限定。",
+            "hint": "只核对这条指令，不编交通工具或真实停车记录。",
+            "wrong": "next与safe都限定停下的地方；没有已完成的记录。",
+            "rows": [
+              {
+                "id": "next",
+                "label": "顺序",
+                "text": "下一个地方。",
+                "include": true
+              },
+              {
+                "id": "safe",
+                "label": "条件",
+                "text": "这个地方要安全。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经停好。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "place",
+            "text": "在下一个安全的地方停下。",
+            "correct": true,
+            "reason": "保留next safe place这个地点要求。"
+          },
+          {
+            "id": "anywhere",
+            "text": "在下一个地方停下，是否安全无所谓。",
+            "correct": false,
+            "reason": "漏掉safe这个条件。"
+          },
+          {
+            "id": "done",
+            "text": "已经在安全地点停好。",
+            "correct": false,
+            "reason": "指令不等于已完成的记录。"
+          }
+        ],
+        "ownForms": [
+          "stop",
+          "stops",
+          "stopped",
+          "stopping"
+        ]
+      },
+      {
+        "id": "word-wait",
+        "label": "等候（本句）",
+        "prompt": "until everyone arrives：只来一人就算到终点吗？改一改演示小组的到达情况。",
+        "answer": "Wait",
+        "caseSensitive": true,
+        "meaning": "等候（本句）",
+        "before": "",
+        "after": " by the fountain until everyone arrives.",
+        "reason": "everyone要求全部到齐；by the fountain给出等候地点。",
+        "hint": "句首Wait大写。until everyone arrives表示等到所有人到齐。",
+        "material": "Wait by the fountain until everyone arrives.",
+        "wordDecision": {
+          "prompt": "until everyone arrives：只来一人就算到终点吗？改一改演示小组的到达情况。",
+          "everyoneArrived": {
+            "title": "示例三人，谁到了才算到齐？",
+            "hint": "本例设甲、乙、丙三人。点到达者，比较是否全部到齐；原句没给人数。",
+            "wrong": "until everyone arrives要等到所有人到齐；示例仍有人未到，不能算终点。"
+          }
+        },
+        "options": [
+          {
+            "id": "all",
+            "text": "在喷泉旁等到所有人到齐。",
+            "correct": true,
+            "reason": "保留地点by the fountain与终点everyone arrives。"
+          },
+          {
+            "id": "one",
+            "text": "只等第一个人到，就算满足终点。",
+            "correct": false,
+            "reason": "把everyone缩成一个人。"
+          },
+          {
+            "id": "inside",
+            "text": "要求到喷泉水池里面等。",
+            "correct": false,
+            "reason": "by the fountain是在喷泉旁，不是里面。"
+          }
+        ],
+        "ownForms": [
+          "wait",
+          "waits",
+          "waited",
+          "waiting"
+        ]
+      },
+      {
+        "id": "word-carry",
+        "label": "搬运（本句）",
+        "prompt": "Can two people carry…?问了人数与能力，已经给出答案了吗？",
+        "answer": "carry",
+        "caseSensitive": false,
+        "meaning": "搬运（本句）",
+        "before": "Can two people ",
+        "after": " the heavy basket?",
+        "reason": "can后用原形carry；two people是两个搬运者，heavy描述篮子重。",
+        "hint": "can后用原形carry；carried是过去式。问题还没有给出回答。",
+        "material": "Can two people carry the heavy basket?",
+        "wordDecision": {
+          "prompt": "Can two people carry…?问了人数与能力，已经给出答案了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问题中给了什么？",
+            "prompt": "圈出人数、对象和未回答的边界。",
+            "hint": "原句给了two，未给公斤数或成功回答。",
+            "wrong": "两人能否抬动重篮子还是问题，实际重量与完成结果未知。",
+            "rows": [
+              {
+                "id": "people",
+                "label": "人数",
+                "text": "两个人。",
+                "include": true
+              },
+              {
+                "id": "basket",
+                "label": "对象",
+                "text": "一个重篮子。",
+                "include": true
+              },
+              {
+                "id": "unknown",
+                "label": "答案",
+                "text": "能否抬动尚未回答。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经搬运完成。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "询问两个人能否抬动重篮子。",
+            "correct": true,
+            "reason": "保留two people、heavy basket与提问。"
+          },
+          {
+            "id": "done",
+            "text": "已经证实两个人能抬动重篮子。",
+            "correct": false,
+            "reason": "问句还没有给出回答，不能改成已经证实的结论。"
+          },
+          {
+            "id": "weight",
+            "text": "篮子已经测得正好重二十公斤。",
+            "correct": false,
+            "reason": "heavy不提供具体重量。"
+          }
+        ],
+        "ownForms": [
+          "carry",
+          "carries",
+          "carried",
+          "carrying"
+        ]
+      },
+      {
+        "id": "word-hold",
+        "label": "扶稳（本句）",
+        "prompt": "Hold…the ladder steady：是扶稳梯子，还是举行活动？while限定哪一段？",
+        "answer": "Hold",
+        "caseSensitive": true,
+        "meaning": "扶稳（本句）",
+        "before": "",
+        "after": " the ladder steady while I climb.",
+        "reason": "hold接the ladder这个对象，steady说明要保持稳，while I climb是攀爬期间。",
+        "hint": "句首Hold大写。steady是稳，while I climb是我攀爬期间。",
+        "material": "Hold the ladder steady while I climb.",
+        "wordDecision": {
+          "prompt": "Hold…the ladder steady：是扶稳梯子，还是举行活动？while限定哪一段？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "扶什么，保持怎样，持续何时？",
+            "prompt": "圈出原句的三条要求。",
+            "hint": "不要把要求当成真实攀爬或安全证明。",
+            "wrong": "对象是梯子，要扶稳，并在我攀爬期间持续；不是仅在之前扶一下。",
+            "rows": [
+              {
+                "id": "object",
+                "label": "对象",
+                "text": "梯子。",
+                "include": true
+              },
+              {
+                "id": "steady",
+                "label": "状态",
+                "text": "保持稳。",
+                "include": true
+              },
+              {
+                "id": "during",
+                "label": "期间",
+                "text": "我攀爬时。",
+                "include": true
+              },
+              {
+                "id": "only-before",
+                "label": "错误范围",
+                "text": "只需在攀爬之前。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "during",
+            "text": "我爬梯子期间，请扶稳梯子。",
+            "correct": true,
+            "reason": "保留对象、steady状态与while期间。"
+          },
+          {
+            "id": "before",
+            "text": "只要在攀爬之前扶一下就够了。",
+            "correct": false,
+            "reason": "把while期间改成只在之前。"
+          },
+          {
+            "id": "meeting",
+            "text": "等我爬完以后再扶稳梯子。",
+            "correct": false,
+            "reason": "while I climb要求攀爬期间扶稳，不是爬完后才扶。"
+          }
+        ],
+        "ownForms": [
+          "hold",
+          "holds",
+          "held",
+          "holding"
+        ]
+      },
+      {
+        "id": "word-pull",
+        "label": "拉（本句）",
+        "prompt": "拉还是推？换一下人物站的位置，力的箭头一定永远朝左吗？",
+        "answer": "Pull",
+        "caseSensitive": true,
+        "meaning": "拉（本句）",
+        "before": "",
+        "after": " the rope gently to raise the flag.",
+        "reason": "pull演示拉向自己；gently要求轻轻，to raise the flag说明目的。",
+        "hint": "句首Pull大写。gently是轻轻地；to raise the flag说明目的。",
+        "material": "Pull the rope gently to raise the flag.",
+        "wordDecision": {
+          "prompt": "拉还是推？换一下人物站的位置，力的箭头一定永远朝左吗？",
+          "forceDirection": {
+            "kind": "pull",
+            "title": "人物换边，怎样才是拉？",
+            "hint": "换人物所在一侧，再看箭头相对人物的方向。这里只示意施力，不画实际移动。",
+            "wrong": "pull在这个简化示例中是拉向自己；不要固定记成向左，也不要改成向外推。"
+          }
+        },
+        "options": [
+          {
+            "id": "purpose",
+            "text": "轻轻拉绳子，目的是把旗升起来。",
+            "correct": true,
+            "reason": "保留拉、轻轻与目的。"
+          },
+          {
+            "id": "push",
+            "text": "把绳子向外推，原句意思不变。",
+            "correct": false,
+            "reason": "把pull改成push。"
+          },
+          {
+            "id": "done",
+            "text": "旗已经升起并测得具体拉力。",
+            "correct": false,
+            "reason": "原句没有完成结果或拉力数值。"
+          }
+        ],
+        "ownForms": [
+          "pull",
+          "pulls",
+          "pulled",
+          "pulling"
+        ]
+      },
+      {
+        "id": "word-push",
+        "label": "推（本句）",
+        "prompt": "instead of pulling：这扇门要求推还是拉？换个人物位置再判断。",
+        "answer": "push",
+        "caseSensitive": false,
+        "meaning": "推（本句）",
+        "before": "Please ",
+        "after": " the door instead of pulling it.",
+        "reason": "Please后用原形push，instead of pulling排除这次拉门的做法。",
+        "hint": "instead of pulling是推而不是拉；instead of后接动词-ing形式。",
+        "material": "Please push the door instead of pulling it.",
+        "wordDecision": {
+          "prompt": "instead of pulling：这扇门要求推还是拉？换个人物位置再判断。",
+          "forceDirection": {
+            "kind": "push",
+            "title": "换个人物位置，再判断推",
+            "hint": "换边再比较推和拉。箭头表示施力方向，不表示门已经打开。",
+            "wrong": "本句要求push而不是pull；在示例中应背离自己施力，不是拉向自己。"
+          }
+        },
+        "options": [
+          {
+            "id": "push",
+            "text": "请推门，不要拉。",
+            "correct": true,
+            "reason": "保留push与instead of pulling的替代关系。"
+          },
+          {
+            "id": "both",
+            "text": "先拉再推，两种动作都要求做。",
+            "correct": false,
+            "reason": "instead of不是两件都做。"
+          },
+          {
+            "id": "pull",
+            "text": "只拉门，不推。",
+            "correct": false,
+            "reason": "把要求反了。"
+          }
+        ],
+        "ownForms": [
+          "push",
+          "pushes",
+          "pushed",
+          "pushing"
+        ]
+      },
+      {
+        "id": "word-open",
+        "label": "打开（本句）",
+        "prompt": "with the label限定哪一端？看图后点出要从哪端打开。",
+        "answer": "Open",
+        "caseSensitive": true,
+        "meaning": "打开（本句）",
+        "before": "",
+        "after": " the box at the end with the label.",
+        "reason": "Open是打开这个动作，at the end with the label指定有标签的那一端。",
+        "hint": "句首Open大写。with the label指定有标签的那端。",
+        "material": "Open the box at the end with the label.",
+        "wordDecision": {
+          "prompt": "with the label限定哪一端？看图后点出要从哪端打开。",
+          "art": {
+            "asset": "lesson-labelled-carton",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创完整长纸盒横放在浅蓝背景上，两端均可见；左端附近贴着一张大白色空标签，右端无标签，盒子保持关闭。",
+            "targets": [
+              {
+                "id": "label",
+                "option": "label",
+                "label": "左端",
+                "labelPosition": "top",
+                "left": 2,
+                "top": 3,
+                "width": 37,
+                "height": 94
+              },
+              {
+                "id": "plain",
+                "option": "plain",
+                "label": "右端",
+                "labelPosition": "top",
+                "left": 63,
+                "top": 3,
+                "width": 35,
+                "height": 94
+              }
+            ],
+            "evidence": [
+              {
+                "option": "label",
+                "caption": "左端附近可见白色标签，符合the end with the label。图中盒子仍关闭，标签没有文字。",
+                "regions": [
+                  {
+                    "id": "blank-label",
+                    "label": "空标签",
+                    "left": 8,
+                    "top": 33,
+                    "width": 18,
+                    "height": 26
+                  }
+                ]
+              },
+              {
+                "option": "plain",
+                "caption": "右端没有标签，不符合本句指定的那一端。不能从空标签推断地址或盒中物品。",
+                "regions": [
+                  {
+                    "id": "plain-end",
+                    "label": "无标签端",
+                    "left": 84,
+                    "top": 30,
+                    "width": 12,
+                    "height": 35
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "label",
+            "text": "从有标签的那端打开。",
+            "correct": true,
+            "reason": "with the label限定要打开的端。"
+          },
+          {
+            "id": "plain",
+            "text": "从没有标签的另一端打开。",
+            "correct": false,
+            "reason": "与with the label的限定不符。"
+          }
+        ],
+        "ownForms": [
+          "open",
+          "opens",
+          "opened",
+          "opening"
+        ]
+      },
+      {
+        "id": "word-close",
+        "label": "盖上（本句）",
+        "prompt": "to keep the rice warm说明目的，还是已经测出了温度？",
+        "answer": "Close",
+        "caseSensitive": true,
+        "meaning": "盖上（本句）",
+        "before": "",
+        "after": " the lid to keep the rice warm.",
+        "reason": "Close是盖上盖子的动作，to keep the rice warm说明保温目的。",
+        "hint": "本句close是盖上，词尾读/z/；表示近的时读/s/。句首Close大写。",
+        "material": "Close the lid to keep the rice warm.",
+        "wordDecision": {
+          "prompt": "to keep the rice warm说明目的，还是已经测出了温度？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "动作与目的分开看",
+            "prompt": "圈出原句动作与目的。",
+            "hint": "有保温目的，不代表已经测得保温效果。",
+            "wrong": "动作是盖上盖子，目的是让米饭保温；实际温度与时长没有给出。",
+            "rows": [
+              {
+                "id": "action",
+                "label": "动作",
+                "text": "盖上盖子。",
+                "include": true
+              },
+              {
+                "id": "purpose",
+                "label": "目的",
+                "text": "给米饭保温。",
+                "include": true
+              },
+              {
+                "id": "temperature",
+                "label": "额外测量",
+                "text": "已测得恒定温度。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "purpose",
+            "text": "盖好盖子，目的是给米饭保温。",
+            "correct": true,
+            "reason": "保留动作与to引出的目的。"
+          },
+          {
+            "id": "near",
+            "text": "把盖子放在米饭附近就行。",
+            "correct": false,
+            "reason": "把动作close误作形容词near。"
+          },
+          {
+            "id": "measured",
+            "text": "已经测得米饭恒温八十度两小时。",
+            "correct": false,
+            "reason": "原句没有温度、时长或实际效果。"
+          }
+        ],
+        "ownForms": [
+          "close",
+          "closes",
+          "closed",
+          "closing"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-movement-2-transfer",
+      "topicId": "v-course-movement",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪组三句保留了集合、推门和保护模型的要求？",
+      "passage": "新活动准备\n在老树旁等到所有人到齐。请推门，不要拉门。盖好箱子，目的是保护模型；没有保证能防止一切损坏。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wait by the old tree until the first person arrives. Please push the gate instead of pulling it. Close the box to protect the models."
+        },
+        {
+          "id": "b",
+          "text": "Wait by the old tree until everyone arrives. Please pull the gate instead of pushing it. Close the box to protect the models."
+        },
+        {
+          "id": "c",
+          "text": "Wait by the old tree until everyone arrives. Please push the gate instead of pulling it. Close the box to protect the models."
+        },
+        {
+          "id": "d",
+          "text": "Wait by the old tree until everyone arrives. Please push the gate instead of pulling it. Closing the box will prevent every kind of damage."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Wait by the old tree until everyone arrives. Please push the gate instead of pulling it. Close the box to protect the models."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐句核对终点、推拉替代和目的，别把要求改成结果保证。",
+        "steps": [
+          {
+            "text": "everyone指所有人，push instead of pulling指推而不是拉。",
+            "reason": "不能把到齐缩成一人，也不能交换推拉。"
+          },
+          {
+            "text": "to protect说明保护模型的目的。",
+            "reason": "有目的不等于保证所有模型避免一切损坏。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把所有人到齐改成第一个人到达。"
+          },
+          {
+            "option": "b",
+            "reason": "把推门改成了拉门。"
+          },
+          {
+            "option": "d",
+            "reason": "把保护目的夸大成防止所有损坏的绝对保证。"
+          }
+        ],
+        "pitfall": "只认动作词，漏掉everyone、instead of或to引出的目的。",
+        "visual": {
+          "kind": "comparison",
+          "title": "终点、动作、目的逐一核对",
+          "segments": [
+            {
+              "text": "everyone arrives",
+              "role": "evidence",
+              "note": "所有人到齐"
+            },
+            {
+              "text": "push ≠ pull",
+              "role": "evidence",
+              "note": "推而不拉"
+            },
+            {
+              "text": "to protect",
+              "role": "evidence",
+              "note": "目的非保证"
+            }
+          ],
+          "caption": "地点、门和保护对象都换了；不补实际完成或损坏结果。"
+        },
+        "transfer": "为什么把everyone换成the first person会改变等待的终点？"
+      }
+    }
+  }
+}
