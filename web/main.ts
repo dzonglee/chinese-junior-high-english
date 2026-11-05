@@ -165,6 +165,8 @@ function render() {
   const forceDirectionFocus = active instanceof HTMLButtonElement && active.matches(".word-force-direction button") ? active.dataset.value : undefined
   const everyoneArrivedFocus = active instanceof HTMLButtonElement && active.matches(".word-everyone-arrived button") ? active.dataset.value : undefined
   const actionGoalFocus = active instanceof HTMLButtonElement && active.matches(".word-action-goal button") ? active.dataset.value : undefined
+  const entrySequenceFocus = active instanceof HTMLButtonElement && active.matches(".word-entry-sequence button") ? active.dataset.value : undefined
+  const lineIntersectionFocus = active instanceof HTMLButtonElement && active.matches(".word-line-intersection button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -248,6 +250,8 @@ function render() {
   if (forceDirectionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-force-direction [data-value="${CSS.escape(forceDirectionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (everyoneArrivedFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-everyone-arrived [data-value="${CSS.escape(everyoneArrivedFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (actionGoalFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-action-goal [data-value="${CSS.escape(actionGoalFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (entrySequenceFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-entry-sequence [data-value="${CSS.escape(entrySequenceFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (lineIntersectionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-line-intersection [data-value="${CSS.escape(lineIntersectionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
