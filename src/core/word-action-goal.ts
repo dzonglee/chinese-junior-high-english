@@ -1,0 +1,10 @@
+/** Selecting an intended aim or route is language exploration, never measured performance. */
+export interface WordActionGoal {kind:'hit'|'kick';title:string;hint:string;wrong:string}
+export interface WordActionGoalView {kind:WordActionGoal['kind'];title:string;hint:string;selected:string;chosen:boolean;reading:string;markerStyle:string;choices:{id:string;label:string;selected:boolean}[]}
+const choices={hit:[['centre','选靶心'],['ring','选外圈'],['outside','选靶外']],kick:[['ground','沿地面'],['air','走高空'],['held','拿着不动']]}as const
+export const wordActionGoalKey=(id:string)=>`workshopActionGoal-${id}`
+export function validWordActionGoal(v:unknown):v is WordActionGoal {if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordActionGoal;return Object.keys(w).length===4&&Object.keys(w).every(k=>['kind','title','hint','wrong'].includes(k))&&typeof w.kind==='string'&&Object.prototype.hasOwnProperty.call(choices,w.kind)&&([[w.title,60],[w.hint,110],[w.wrong,140]]as const).every(([s,n])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=n)}
+const valid=(w:WordActionGoal,raw:string)=>raw===''||choices[w.kind].some(c=>c[0]===raw)
+export const actionGoalMatch=(w:WordActionGoal,raw:string)=>raw===(w.kind==='hit'?'centre':'ground')
+export function changeActionGoal(w:WordActionGoal,raw:string,action:string):string|undefined {if(action==='reset')return'';if(!valid(w,raw))return;return choices[w.kind].some(c=>c[0]===action)?action:undefined}
+export function wordActionGoalView(w:WordActionGoal,raw:string):WordActionGoalView {const selected=valid(w,raw)?raw:'',hit=w.kind==='hit';return{kind:w.kind,title:w.title,hint:w.hint,selected,chosen:!!selected,markerStyle:!selected?'':hit?'left:'+(selected==='centre'?43:selected==='ring'?70:90)+'%;top:50%;':'left:'+(selected==='held'?18:72)+'%;top:'+(selected==='air'?24:78)+'%;',reading:!selected?'先选目标或路线。':hit?(selected==='centre'?'所选位置是靶心；不代表已经击中。':selected==='ring'?'选的是外圈；原句要求靶心。':'选在靶外；原句要求靶心。'):(selected==='ground'?'路线沿地面，符合along the ground；没有实际踢球记录。':selected==='air'?'路线在空中，不符合along the ground。':'拿着不动，不是沿地面踢球。'),choices:choices[w.kind].map(([id,label])=>({id,label,selected:id===selected}))}}

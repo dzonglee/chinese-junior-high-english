@@ -53,7 +53,7 @@ for (const topic of catalog.topics) {
   if (!release) {
     const compressed = gzipSync(text, { level: 9 })
     if (gunzipSync(compressed).toString('utf8') !== text) throw new Error(`${topic.id} compression changed its checked content`)
-    const stored = { encoding: 'gzip-hex-v1', byteLength: Buffer.byteLength(text), data: compressed.toString('hex') }
+    const stored = { encoding: 'gzip-base64-v1', byteLength: Buffer.byteLength(text), data: compressed.toString('base64') }
     const moduleText = `module.exports = ${JSON.stringify(stored)};\n`, bytes = Buffer.byteLength(moduleText)
     if (bytes > nativeGroupBudget) throw new Error(`${topic.id} exceeds the native subpackage budget`)
     if (!nativeGroups.length || groupBytes + bytes > nativeGroupBudget) { nativeGroups.push(`content/group-${String(nativeGroups.length + 1).padStart(3, '0')}`); groupBytes = 0 }

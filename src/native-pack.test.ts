@@ -8,8 +8,43 @@ import { catalog, q } from './test-fixtures'
 import { utf8Bytes, utf8ByteLength } from './core/utf8'
 
 const stored = (text: string) => ({ encoding: 'gzip-hex-v1', byteLength: Buffer.byteLength(text), data: gzipSync(text, { level: 9 }).toString('hex') })
+const storedBase64 = (text: string) => ({ ...stored(text), encoding: 'gzip-base64-v1', data: gzipSync(text, { level: 9 }).toString('base64') })
 
 describe('lossless native content storage', () => {
+  it('restores compact base64 and legacy hex to identical text for every padding length', () => {
+    const padding = new Set<number>()
+    for (let n = 1; n <= 80; n++) {
+      const text = JSON.stringify({ text: '中文😀\\\"\n'.repeat(n), n }) + '\n'
+      const compact = storedBase64(text), legacy = stored(text)
+      padding.add(compact.data.endsWith('==') ? 2 : compact.data.endsWith('=') ? 1 : 0)
+      expect(compact.data.length).toBeLessThan(legacy.data.length)
+      expect(decodeNativePack(compact)).toBe(text)
+      expect(decodeNativePack(legacy)).toBe(text)
+    }
+    expect([...padding].sort()).toEqual([0, 1, 2])
+  })
+
+  it('rejects malformed and noncanonical base64, bounds allocation and retains gzip length guards', () => {
+    const compact = storedBase64('abcde')
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+    const malformed = ['', 'A'.repeat(23), 'A'.repeat(2_000_004), compact.data + 'A', compact.data + '\n',
+      compact.data.replace(/./, '-'), compact.data.slice(0, 4) + '=' + compact.data.slice(5), compact.data.slice(0, -3) + '===']
+    for (let n = 1; n < 30; n++) {
+      const pack = storedBase64('x'.repeat(n)), pad = pack.data.endsWith('==') ? 2 : pack.data.endsWith('=') ? 1 : 0
+      if (pad) {
+        const index = pack.data.length - pad - 1
+        const data = pack.data.slice(0, index) + alphabet[alphabet.indexOf(pack.data[index]) | 1] + pack.data.slice(index + 1)
+        expect(() => decodeNativePack({ ...pack, data })).toThrow('内容包格式不正确')
+      }
+    }
+    for (const data of malformed) expect(() => decodeNativePack({ ...compact, data })).toThrow('内容包格式不正确')
+    for (const byteLength of [0, -1, 1.5, 2_000_001, 4, 6]) expect(() => decodeNativePack({ ...compact, byteLength })).toThrow('内容包格式不正确')
+    const damaged = Buffer.from(compact.data, 'base64'); damaged[3] = 8
+    expect(() => decodeNativePack({ ...compact, data: damaged.toString('base64') })).toThrow('内容包格式不正确')
+    const overrun = Buffer.from(compact.data, 'base64'); overrun.writeUInt32LE(4, overrun.length - 4)
+    expect(() => decodeNativePack({ ...compact, byteLength: 4, data: overrun.toString('base64') })).toThrow('内容包格式不正确')
+  })
+
   it('preserves standard UTF-8 bytes, malformed-surrogate replacement and fresh buffers without TextEncoder', () => {
     const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'TextEncoder')!
     Object.defineProperty(globalThis, 'TextEncoder', { configurable: true, writable: true, value: undefined })
@@ -91,10 +126,10 @@ describe('lossless native content storage', () => {
     const descriptor = { topicId: q.topicId, sha256: bytesToHex(sha256(utf8ToBytes(text))), file: 'test.json', questionIds: [q.id] }
     const data = catalog(); data.questions = []
     const changed = text.replace('Mia ___ ready for school.', 'Mia ___ late for school.')
-    const bad = new ContentRepository(data, [descriptor], async () => decodeNativePack(stored(changed)))
+    const bad = new ContentRepository(data, [descriptor], async () => decodeNativePack(storedBase64(changed)))
     await expect(bad.ensureTopics([q.topicId])).rejects.toThrow('内容校验没有通过')
     expect(data.questions).toEqual([])
-    const good = new ContentRepository(data, [descriptor], async () => decodeNativePack(stored(text)))
+    const good = new ContentRepository(data, [descriptor], async () => decodeNativePack(storedBase64(text)))
     await good.ensureTopics([q.topicId])
     expect(data.questions.map(question => question.id)).toEqual([q.id])
   })

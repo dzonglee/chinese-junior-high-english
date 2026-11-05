@@ -1,0 +1,652 @@
+{
+  "lessonId": "l-v-course-movement-3",
+  "reviewState": "draft",
+  "intent": "Individually interpret purpose, only-ripe eligibility, negative instructions, direction without arrival, unanswered one-hand ability, centre aiming, ground routes and instructor conditions.",
+  "picturePurpose": "Original attached ripe/unripe demonstration berries support selecting eligible fruit. Deterministic target and route diagrams let students compare aim and route without recording physical performance.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "只摘熟果、保留否定、分清目标与结果",
+    "instruction": "点果实、拼提醒、选靶心和球路。再把词填回原句，写一句自己的话。",
+    "items": [
+      {
+        "id": "word-shut",
+        "label": "关上（本句）",
+        "prompt": "关什么，为什么关？圈出指令与目的，别当成已完成。",
+        "answer": "Shut",
+        "caseSensitive": true,
+        "meaning": "关上（本句）",
+        "before": "",
+        "after": " the gate so the dog cannot escape.",
+        "reason": "Shut是关上门这个动作；so the dog cannot escape说明防止狗跑出的目的。",
+        "hint": "句首Shut大写。shut的过去式不变；本句是关门指令。",
+        "material": "Shut the gate so the dog cannot escape.",
+        "wordDecision": {
+          "prompt": "关什么，为什么关？圈出指令与目的，别当成已完成。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "动作与目的分开看",
+            "prompt": "圈出这句话要求做什么、为了什么。",
+            "hint": "没有实际关门或狗跑出的记录。",
+            "wrong": "指令要求关门，目的是防止狗跑出，不是报告已经做到。",
+            "rows": [
+              {
+                "id": "action",
+                "label": "动作",
+                "text": "关上门。",
+                "include": true
+              },
+              {
+                "id": "purpose",
+                "label": "目的",
+                "text": "防止狗跑出去。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经关好门。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "purpose",
+            "text": "关上门，目的是不让狗跑出去。",
+            "correct": true,
+            "reason": "保留动作与目的。"
+          },
+          {
+            "id": "escaped",
+            "text": "狗已经跑出去，门也已经关好。",
+            "correct": false,
+            "reason": "把目的改成了两件已发生的事。"
+          },
+          {
+            "id": "open",
+            "text": "打开门让狗出去。",
+            "correct": false,
+            "reason": "把shut与目的都反了。"
+          }
+        ],
+        "ownForms": [
+          "shut",
+          "shuts",
+          "shutting"
+        ]
+      },
+      {
+        "id": "word-pick",
+        "label": "采摘（本句）",
+        "prompt": "only ripe：本例两颗示范果，哪颗符合可采摘的条件？",
+        "answer": "Pick",
+        "caseSensitive": true,
+        "meaning": "采摘（本句）",
+        "before": "",
+        "after": " only the ripe strawberries.",
+        "reason": "Pick在这里是采摘；only把范围限制在熟透的草莓。",
+        "hint": "句首Pick大写。只摘熟果，不等于必须摘完所有熟果；原句没给总数。",
+        "material": "Pick only the ripe strawberries.",
+        "wordDecision": {
+          "prompt": "only ripe：本例两颗示范果，哪颗符合可采摘的条件？",
+          "art": {
+            "asset": "lesson-ripe-strawberries",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创草莓对比图：本例左果已熟，右果未熟，均连在茎上。图中两果只是教学示例。",
+            "targets": [
+              {
+                "id": "ripe",
+                "option": "ripe",
+                "label": "已熟",
+                "labelPosition": "top",
+                "left": 22,
+                "top": 3,
+                "width": 32,
+                "height": 94
+              },
+              {
+                "id": "unripe",
+                "option": "unripe",
+                "label": "未熟",
+                "labelPosition": "top",
+                "left": 67,
+                "top": 3,
+                "width": 32,
+                "height": 94
+              }
+            ],
+            "evidence": [
+              {
+                "option": "ripe",
+                "caption": "本例左果已熟，符合only ripe。果实仍连在茎上；没有实际采摘记录。",
+                "regions": [
+                  {
+                    "id": "ripe-fruit",
+                    "label": "已熟示范果",
+                    "left": 33,
+                    "top": 35,
+                    "width": 12,
+                    "height": 19
+                  }
+                ]
+              },
+              {
+                "option": "unripe",
+                "caption": "本例右果未熟，不符合ripe。only限制可摘范围，不要求摘完全部熟果。",
+                "regions": [
+                  {
+                    "id": "unripe-fruit",
+                    "label": "未熟示范果",
+                    "left": 87,
+                    "top": 37,
+                    "width": 8,
+                    "height": 17
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "ripe",
+            "text": "左边：本例已熟的草莓。",
+            "correct": true,
+            "reason": "本例已熟，符合only ripe的限制。"
+          },
+          {
+            "id": "unripe",
+            "text": "右边：本例未熟的草莓。",
+            "correct": false,
+            "reason": "未熟果不符合ripe的条件。"
+          }
+        ],
+        "ownForms": [
+          "pick",
+          "picks",
+          "picked",
+          "picking"
+        ]
+      },
+      {
+        "id": "word-drop",
+        "label": "使掉落（本句）",
+        "prompt": "把not放对位置：这是提醒别掉落，还是要求主动扔下去？",
+        "answer": "drop",
+        "caseSensitive": false,
+        "meaning": "使掉落（本句）",
+        "before": "Be careful not to ",
+        "after": " the glass jar.",
+        "reason": "Be careful not to drop表达小心别让物品掉下，not不能漏。",
+        "hint": "to后用原形drop；not表示别让罐子掉下。过去式为dropped。",
+        "material": "Be careful not to drop the glass jar.",
+        "wordDecision": {
+          "prompt": "把not放对位置：这是提醒别掉落，还是要求主动扔下去？",
+          "processOrder": {
+            "title": "把否定提醒拼完整",
+            "hint": "拼的是原句结构，不是玻璃罐掉落过程。not修饰to drop这一动作。",
+            "wrong": "顺序应为Be careful / not to drop / the glass jar；不能把not漏掉或移到错误位置。",
+            "events": [
+              {
+                "id": "careful",
+                "label": "Be careful"
+              },
+              {
+                "id": "negative",
+                "label": "not to drop"
+              },
+              {
+                "id": "object",
+                "label": "the glass jar"
+              }
+            ],
+            "sequence": [
+              "careful",
+              "negative",
+              "object"
+            ],
+            "layout": "downward"
+          }
+        },
+        "options": [
+          {
+            "id": "negative",
+            "text": "小心，别让玻璃罐掉下来。",
+            "correct": true,
+            "reason": "保留提醒与否定。"
+          },
+          {
+            "id": "drop",
+            "text": "要求把玻璃罐扔到地上。",
+            "correct": false,
+            "reason": "漏掉not，把避免的事变成要求。"
+          },
+          {
+            "id": "broken",
+            "text": "罐子已经掉下并碎了。",
+            "correct": false,
+            "reason": "编造了完成与破碎结果。"
+          }
+        ],
+        "ownForms": [
+          "drop",
+          "drops",
+          "dropped",
+          "dropping"
+        ]
+      },
+      {
+        "id": "word-throw",
+        "label": "投（本句）",
+        "prompt": "towards给的是方向，还是已经投进桶里的结果？",
+        "answer": "Throw",
+        "caseSensitive": true,
+        "meaning": "投（本句）",
+        "before": "",
+        "after": " the ball towards the empty bucket.",
+        "reason": "Throw是投球；towards the empty bucket给出投向哪里。",
+        "hint": "句首Throw大写。towards只表示朝向，不等于已经投进。",
+        "material": "Throw the ball towards the empty bucket.",
+        "wordDecision": {
+          "prompt": "towards给的是方向，还是已经投进桶里的结果？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "方向不是结果",
+            "prompt": "圈出对象、目标方向和结果边界。",
+            "hint": "只按文字判断，不模拟真实轨迹或保证命中。",
+            "wrong": "对象是球，投向空桶；是否投进尚未给出。",
+            "rows": [
+              {
+                "id": "ball",
+                "label": "对象",
+                "text": "投球。",
+                "include": true
+              },
+              {
+                "id": "direction",
+                "label": "朝向",
+                "text": "空桶方向。",
+                "include": true
+              },
+              {
+                "id": "unknown",
+                "label": "结果边界",
+                "text": "是否投进桶尚未给出。",
+                "include": true
+              },
+              {
+                "id": "inside",
+                "label": "额外结果",
+                "text": "已经投进桶。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "towards",
+            "text": "把球投向空桶，是否进桶尚未给出。",
+            "correct": true,
+            "reason": "保留方向，不补结果。"
+          },
+          {
+            "id": "inside",
+            "text": "球已经落在桶里。",
+            "correct": false,
+            "reason": "把方向指令改成了已入桶。"
+          },
+          {
+            "id": "kick",
+            "text": "用脚把桶踢走。",
+            "correct": false,
+            "reason": "改了动作和对象。"
+          }
+        ],
+        "ownForms": [
+          "throw",
+          "throws",
+          "threw",
+          "thrown",
+          "throwing"
+        ]
+      },
+      {
+        "id": "word-catch",
+        "label": "接住（本句）",
+        "prompt": "Can you…with one hand?是提问，还是已经证实成功？",
+        "answer": "catch",
+        "caseSensitive": false,
+        "meaning": "接住（本句）",
+        "before": "Can you ",
+        "after": " the ball with one hand?",
+        "reason": "catch the ball是接住球，with one hand限定单手。",
+        "hint": "can后用原形catch；with one hand指单手。问句尚未给出回答。",
+        "material": "Can you catch the ball with one hand?",
+        "wordDecision": {
+          "prompt": "Can you…with one hand?是提问，还是已经证实成功？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问题给了哪些条件？",
+            "prompt": "圈出动作、方式和未回答的边界。",
+            "hint": "不能从问句推断某位学生的真实能力。",
+            "wrong": "问的是单手接球，答案和完成结果仍未知。",
+            "rows": [
+              {
+                "id": "action",
+                "label": "动作",
+                "text": "接住球。",
+                "include": true
+              },
+              {
+                "id": "hand",
+                "label": "方式",
+                "text": "用一只手。",
+                "include": true
+              },
+              {
+                "id": "unknown",
+                "label": "回答",
+                "text": "是否能做到尚未回答。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结论",
+                "text": "已经接球成功。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "询问能否用一只手接住球。",
+            "correct": true,
+            "reason": "保留能力提问与单手条件。"
+          },
+          {
+            "id": "confirmed",
+            "text": "已经证明能单手接住球。",
+            "correct": false,
+            "reason": "把尚未回答的问题变成了肯定结论。"
+          },
+          {
+            "id": "bus",
+            "text": "询问能否赶上公共汽车。",
+            "correct": false,
+            "reason": "把the ball换成了bus。"
+          }
+        ],
+        "ownForms": [
+          "catch",
+          "catches",
+          "caught",
+          "catching"
+        ]
+      },
+      {
+        "id": "word-hit",
+        "label": "击中（本句）",
+        "prompt": "centre限定哪里？在示意靶上选出要瞄准的位置。",
+        "answer": "hit",
+        "caseSensitive": false,
+        "meaning": "击中（本句）",
+        "before": "Try to ",
+        "after": " the centre of the target.",
+        "reason": "hit the centre要求击中靶心，不是任意靶圈；try to表示尝试。",
+        "hint": "to后用原形hit；try to表示尝试，不代表已经命中。",
+        "material": "Try to hit the centre of the target.",
+        "wordDecision": {
+          "prompt": "centre限定哪里？在示意靶上选出要瞄准的位置。",
+          "actionGoal": {
+            "kind": "hit",
+            "title": "选出要瞄准的位置",
+            "hint": "点靶心、外圈或靶外，比较centre的范围；示意不计得分。",
+            "wrong": "the centre指靶心；外圈或靶外都不是本句要求的目标。"
+          }
+        },
+        "options": [
+          {
+            "id": "centre",
+            "text": "尝试击中靶心，不代表已经成功。",
+            "correct": true,
+            "reason": "保留centre与try的边界。"
+          },
+          {
+            "id": "ring",
+            "text": "只要碰到任意外圈就一定符合。",
+            "correct": false,
+            "reason": "把centre扩大成任意靶圈。"
+          },
+          {
+            "id": "success",
+            "text": "已经准确命中靶心十次。",
+            "correct": false,
+            "reason": "原句没有成功次数。"
+          }
+        ],
+        "ownForms": [
+          "hit",
+          "hits",
+          "hitting"
+        ]
+      },
+      {
+        "id": "word-kick",
+        "label": "踢（本句）",
+        "prompt": "用脚还是用手？along the ground要求球走哪条路线？",
+        "answer": "Kick",
+        "caseSensitive": true,
+        "meaning": "踢（本句）",
+        "before": "",
+        "after": " the ball along the ground.",
+        "reason": "Kick是用脚踢；along the ground限定沿地面的路线。",
+        "hint": "句首Kick大写。用脚踢，球的路线要沿地面。",
+        "material": "Kick the ball along the ground.",
+        "wordDecision": {
+          "prompt": "用脚还是用手？along the ground要求球走哪条路线？",
+          "actionGoal": {
+            "kind": "kick",
+            "title": "选择球应走的路线",
+            "hint": "点选路线，比较along the ground；示意不代表真实踢球。",
+            "wrong": "along the ground要求沿地面，不是高空路线或拿着不动；动作是用脚踢。"
+          }
+        },
+        "options": [
+          {
+            "id": "ground",
+            "text": "用脚踢球，让球沿地面运行。",
+            "correct": true,
+            "reason": "同时保留kick与along the ground。"
+          },
+          {
+            "id": "air",
+            "text": "用手把球高高抛向空中。",
+            "correct": false,
+            "reason": "改了动作方式和路线。"
+          },
+          {
+            "id": "held",
+            "text": "把球拿在手里不移动。",
+            "correct": false,
+            "reason": "不是kick the ball。"
+          }
+        ],
+        "ownForms": [
+          "kick",
+          "kicks",
+          "kicked",
+          "kicking"
+        ]
+      },
+      {
+        "id": "word-climb",
+        "label": "攀爬（本句）",
+        "prompt": "Only…with an instructor：有教练是必要条件，还是安全保证？",
+        "answer": "climb",
+        "caseSensitive": false,
+        "meaning": "攀爬（本句）",
+        "before": "Only ",
+        "after": " the wall with an instructor.",
+        "reason": "Only climb…with an instructor要求有教练在场才能攀墙。",
+        "hint": "必须有教练在场，不等于绝对安全。climb中的b不发音。",
+        "material": "Only climb the wall with an instructor.",
+        "wordDecision": {
+          "prompt": "Only…with an instructor：有教练是必要条件，还是安全保证？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "必要条件不是保证",
+            "prompt": "圈出本句明确要求和没有保证的边界。",
+            "hint": "这里理解语言，不提供实际攀爬训练。",
+            "wrong": "教练在场是本句要求；不能推断已经攀爬或绝对安全。",
+            "rows": [
+              {
+                "id": "instructor",
+                "label": "条件",
+                "text": "教练在场。",
+                "include": true
+              },
+              {
+                "id": "limit",
+                "label": "边界",
+                "text": "不保证绝对安全。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经完成攀爬。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "condition",
+            "text": "必须有教练在场才能攀墙。",
+            "correct": true,
+            "reason": "保留only与with的条件。"
+          },
+          {
+            "id": "alone",
+            "text": "没有教练也可以独自攀墙。",
+            "correct": false,
+            "reason": "去掉了必要条件。"
+          },
+          {
+            "id": "guarantee",
+            "text": "只要有教练就保证不会出任何问题。",
+            "correct": false,
+            "reason": "把必要条件夸大为安全保证。"
+          }
+        ],
+        "ownForms": [
+          "climb",
+          "climbs",
+          "climbed",
+          "climbing"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-movement-3-transfer",
+      "topicId": "v-course-movement",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪组三句话保留了采摘范围、否定提醒和投掷方向？",
+      "passage": "换个活动\n只摘熟透的西红柿。小心，别让玻璃瓶掉下来。把沙包投向空筐；没有说已经投进。beanbag指沙包。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pick only the ripe tomatoes. Be careful not to drop the glass bottle. Throw the beanbag towards the empty basket."
+        },
+        {
+          "id": "b",
+          "text": "Pick every tomato, even the unripe ones. Be careful not to drop the glass bottle. Throw the beanbag towards the empty basket."
+        },
+        {
+          "id": "c",
+          "text": "Pick only the ripe tomatoes. Drop the glass bottle onto the floor. Throw the beanbag towards the empty basket."
+        },
+        {
+          "id": "d",
+          "text": "Pick only the ripe tomatoes. Be careful not to drop the glass bottle. The beanbag has already landed inside the basket."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Pick only the ripe tomatoes. Be careful not to drop the glass bottle. Throw the beanbag towards the empty basket."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对only限制、not否定和towards方向，不补实际完成。",
+        "steps": [
+          {
+            "text": "only ripe排除未熟果；not to drop保留别掉落的提醒。",
+            "reason": "不能把限制去掉，也不能把避免的事变成要求。"
+          },
+          {
+            "text": "towards只说明朝空筐投。",
+            "reason": "指令不是已经投进的记录。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把只摘熟果改成连未熟果也摘。"
+          },
+          {
+            "option": "c",
+            "reason": "漏掉小心别掉落的否定，把应避免的事变成指令。"
+          },
+          {
+            "option": "d",
+            "reason": "把投向方向的要求改成了已经进筐的结果。"
+          }
+        ],
+        "pitfall": "只认动作词，漏掉only或not，或把方向当成已成功。",
+        "visual": {
+          "kind": "comparison",
+          "title": "范围、否定、方向三处核对",
+          "segments": [
+            {
+              "text": "only ripe",
+              "role": "evidence",
+              "note": "只摘熟果"
+            },
+            {
+              "text": "not to drop",
+              "role": "evidence",
+              "note": "别让它掉下"
+            },
+            {
+              "text": "towards the basket",
+              "role": "evidence",
+              "note": "朝向，未说投进"
+            }
+          ],
+          "caption": "果实、容器和投掷物都换了；不补收获数量、破碎或命中结果。"
+        },
+        "transfer": "去掉not后，第二句的要求会发生什么变化？"
+      }
+    }
+  }
+}
