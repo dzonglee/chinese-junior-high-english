@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **326 / 413**. Current: **l-v-course-food-4**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **327 / 413**. Current: **l-v-course-food-5**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -192,7 +192,7 @@ Completed: **326 / 413**. Current: **l-v-course-food-4**. Evidence lives in docs
 | l-v-course-food | 食物与饮品 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-food.md) |
 | l-v-course-food-2 | 食物与饮品 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-food-2.md) |
 | l-v-course-food-3 | 食物与饮品 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-food-3.md) |
-| l-v-course-food-4 | 食物与饮品 · 4 | pending | — |
+| l-v-course-food-4 | 食物与饮品 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-food-4.md) |
 | l-v-course-food-5 | 食物与饮品 · 5 | pending | — |
 | l-v-course-fruit-vegetables | 水果、蔬菜与味道 · 1 | pending | — |
 | l-v-course-fruit-vegetables-2 | 水果、蔬菜与味道 · 2 | pending | — |
