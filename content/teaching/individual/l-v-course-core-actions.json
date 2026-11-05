@@ -1,0 +1,654 @@
+{
+  "lessonId": "l-v-course-core-actions",
+  "reviewState": "draft",
+  "intent": "Individually distinguish common verb roles and required base forms, exact possession/task facts, suggested order, request versus completed arrival, contextual get-rest, make capability and take carry.",
+  "picturePurpose": "Original jar/lamp illustration distinguishes source material and possible creation. Exact coded targets do not claim actual completion or measured performance.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "是状态，还是动作？把常用词用准",
+    "instruction": "摆先后、圈事实、点材料与成品，先理解本句中的意思，再拼写并写自己的句子。建议和要求不当成已经完成的事实。",
+    "items": [
+      {
+        "id": "word-be",
+        "label": "处于准备好的状态（本句）",
+        "prompt": "先摆出准备要求与铃声的先后，再选Please后面的正确形式。",
+        "answer": "be",
+        "caseSensitive": false,
+        "meaning": "处于准备好的状态（本句）",
+        "before": "Please ",
+        "after": " ready before the bell rings.",
+        "reason": "Please be ready：这里用原形be，ready说明要达到的状态；在铃响前准备好。",
+        "hint": "这是要求，不是已经准备好的记录。Please后不能直接把本句be换成is或are；其他主语和时态有相应形式。",
+        "material": "Please be ready before the bell rings.",
+        "wordDecision": {
+          "prompt": "先摆出准备要求与铃声的先后，再选Please后面的正确形式。",
+          "processOrder": {
+            "title": "铃响前准备好",
+            "hint": "按题意摆相对先后，不提供具体钟点，也不声称你已经准备好。",
+            "wrong": "原句要求先准备好，再到铃响；不能等铃响以后才开始准备。",
+            "events": [
+              {
+                "id": "ready",
+                "label": "准备好 · 要求"
+              },
+              {
+                "id": "bell",
+                "label": "铃响 · 边界"
+              }
+            ],
+            "sequence": [
+              "ready",
+              "bell"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "base",
+            "text": "Please be ready：用原形be，表示准备好。",
+            "correct": true,
+            "reason": "祈使句省略主语you，用原形be接形容词ready。"
+          },
+          {
+            "id": "is",
+            "text": "Please is ready：因为有单数对象就用is。",
+            "correct": false,
+            "reason": "本句是祈使结构，不是he is ready这样的主语加谓语结构。"
+          },
+          {
+            "id": "doing",
+            "text": "Please be ready就是“请正在做作业”。",
+            "correct": false,
+            "reason": "ready描述准备好的状态；没有给出做作业这个动作。"
+          }
+        ],
+        "ownForms": [
+          "be",
+          "am",
+          "is",
+          "are",
+          "was",
+          "were",
+          "been",
+          "being"
+        ]
+      },
+      {
+        "id": "word-have",
+        "label": "有（备用钥匙）（本句）",
+        "prompt": "只圈原句能支持的事实：我们有备用钥匙，是否等于门现在开着？",
+        "answer": "have",
+        "caseSensitive": false,
+        "meaning": "有（备用钥匙）（本句）",
+        "before": "We ",
+        "after": " a spare key for the shed.",
+        "reason": "have在本句是拥有；a spare key说明有一把备用钥匙，不证明门当前打开。",
+        "hint": "have还可用于经历或完成时等结构；这里只判断We have a spare key for the shed这个句子。",
+        "material": "We have a spare key for the shed.",
+        "wordDecision": {
+          "prompt": "只圈原句能支持的事实：我们有备用钥匙，是否等于门现在开着？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "有钥匙，能推出什么？",
+            "prompt": "圈出本句明确的信息；门的当前状态没有提供。",
+            "hint": "保留拥有和用途，别把有钥匙推成已经开门。",
+            "wrong": "原句支持我们有备用钥匙、这把钥匙用于棚屋；没有说门已经打开。",
+            "rows": [
+              {
+                "id": "possess",
+                "label": "拥有关系",
+                "text": "我们有一把备用钥匙。",
+                "include": true
+              },
+              {
+                "id": "shed",
+                "label": "钥匙用途",
+                "text": "这把备用钥匙用于棚屋。",
+                "include": true
+              },
+              {
+                "id": "door",
+                "label": "额外推断",
+                "text": "棚屋门现在已经敞开。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "possession",
+            "text": "我们有一把棚屋备用钥匙。",
+            "correct": true,
+            "reason": "have表示拥有，spare key是备用钥匙。"
+          },
+          {
+            "id": "perfect",
+            "text": "have在本句只是完成时助动词，后面必须补过去分词。",
+            "correct": false,
+            "reason": "have后面直接接a spare key这个名词短语，表示拥有。"
+          },
+          {
+            "id": "open",
+            "text": "有钥匙就证明棚屋门现在敞开。",
+            "correct": false,
+            "reason": "钥匙的拥有关系不能推出门的当前开关状态。"
+          }
+        ],
+        "ownForms": [
+          "have",
+          "has",
+          "had",
+          "having"
+        ]
+      },
+      {
+        "id": "word-do",
+        "label": "做（任务）（本句）",
+        "prompt": "这条要求让谁一起做什么？圈出任务和合作方式，再判断do的作用。",
+        "answer": "do",
+        "caseSensitive": false,
+        "meaning": "做（任务）（本句）",
+        "before": "Please ",
+        "after": " the final task with a partner.",
+        "reason": "do the final task表示做最后一项任务；with a partner要求与搭档合作。",
+        "hint": "本句do是实义动词，不是帮助构成疑问句的助动词。指令没有证明任务已完成，也没说要制作一盏灯。",
+        "material": "Please do the final task with a partner.",
+        "wordDecision": {
+          "prompt": "这条要求让谁一起做什么？圈出任务和合作方式，再判断do的作用。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "任务卡只保留两条要求",
+            "prompt": "圈出要做的事和合作方式；不要把要求当完成记录。",
+            "hint": "final task和with a partner都要保留。",
+            "wrong": "应圈最后一项任务和与搭档合作；任务已经完成没有依据。",
+            "rows": [
+              {
+                "id": "task",
+                "label": "任务对象",
+                "text": "做最后一项任务。",
+                "include": true
+              },
+              {
+                "id": "partner",
+                "label": "合作方式",
+                "text": "与一位搭档一起做。",
+                "include": true
+              },
+              {
+                "id": "finished",
+                "label": "额外推断",
+                "text": "任务已经做完。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "lexical",
+            "text": "do表示做这项任务，与搭档一起完成。",
+            "correct": true,
+            "reason": "do接the final task，with a partner说明合作方式。"
+          },
+          {
+            "id": "helper",
+            "text": "do在这里不表示任何动作，只是疑问句助动词。",
+            "correct": false,
+            "reason": "这不是Do you…?这样的疑问句；do本身表示做任务。"
+          },
+          {
+            "id": "lamp",
+            "text": "本句要求独自制作一盏灯。",
+            "correct": false,
+            "reason": "原句是with a partner做任务，没有说独自或制作灯。"
+          }
+        ],
+        "ownForms": [
+          "do",
+          "does",
+          "did",
+          "done",
+          "doing"
+        ]
+      },
+      {
+        "id": "word-go",
+        "label": "去；前往",
+        "prompt": "午饭和去安静处的建议，先后怎样？Let’s后面写go还是went？",
+        "answer": "go",
+        "caseSensitive": false,
+        "meaning": "去；前往",
+        "before": "Let's ",
+        "after": " somewhere quiet after lunch.",
+        "reason": "Let’s go是提出一起前往的建议；after lunch把这次建议的行动放在午饭后。",
+        "hint": "没有指定安静地点、实际距离或钟点，也没有说已经去过。go的过去式went不能直接替换Let’s后的原形。",
+        "material": "Let's go somewhere quiet after lunch.",
+        "wordDecision": {
+          "prompt": "午饭和去安静处的建议，先后怎样？Let’s后面写go还是went？",
+          "processOrder": {
+            "title": "午饭后再出发 · 建议",
+            "hint": "只摆建议中的先后，不表示建议已被接受或已经到达。",
+            "wrong": "先午饭，再按建议去安静的地方；不能把after倒成之前。",
+            "events": [
+              {
+                "id": "lunch",
+                "label": "午饭"
+              },
+              {
+                "id": "go",
+                "label": "去安静处 · 建议"
+              }
+            ],
+            "sequence": [
+              "lunch",
+              "go"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "suggestion",
+            "text": "Let’s go：建议午饭后去某个安静的地方。",
+            "correct": true,
+            "reason": "保留原形go、建议语气和after lunch的先后。"
+          },
+          {
+            "id": "past",
+            "text": "Let’s went：只要提到午饭就必须用过去式。",
+            "correct": false,
+            "reason": "Let’s后接动词原形；after lunch并不独自确定过去时。"
+          },
+          {
+            "id": "before",
+            "text": "原句说午饭前已经到达了安静的地方。",
+            "correct": false,
+            "reason": "after是之后，而且Let’s表达建议，不是已经到达。"
+          }
+        ],
+        "ownForms": [
+          "go",
+          "goes",
+          "went",
+          "gone",
+          "going"
+        ]
+      },
+      {
+        "id": "word-come",
+        "label": "来；到来",
+        "prompt": "明天早一点来，这是询问请求，还是已经发生的到达记录？",
+        "answer": "come",
+        "caseSensitive": false,
+        "meaning": "来；到来",
+        "before": "Can you ",
+        "after": " a little earlier tomorrow?",
+        "reason": "Can you come a little earlier tomorrow?是在询问对方明天能否早一点来，不保证已经同意。",
+        "hint": "come要结合相关地点和说话视角理解；原句没有固定当前站位、地址或早几分钟，不用一条箭头伪造这些信息。",
+        "material": "Can you come a little earlier tomorrow?",
+        "wordDecision": {
+          "prompt": "明天早一点来，这是询问请求，还是已经发生的到达记录？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "请求里说了什么？",
+            "prompt": "圈出时间信息和相对变化；分钟数没有提供。",
+            "hint": "明天、比原定时间早一点；是否答应仍未知。",
+            "wrong": "tomorrow和a little earlier有依据；提前十分钟没有依据。",
+            "rows": [
+              {
+                "id": "tomorrow",
+                "label": "哪一天",
+                "text": "请求的是明天来。",
+                "include": true
+              },
+              {
+                "id": "earlier",
+                "label": "相对时间",
+                "text": "希望比原定时间早一点。",
+                "include": true
+              },
+              {
+                "id": "ten",
+                "label": "额外数字",
+                "text": "明确要求提前十分钟。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "request",
+            "text": "询问对方明天能不能早一点来。",
+            "correct": true,
+            "reason": "Can you…?是询问请求，tomorrow是明天。"
+          },
+          {
+            "id": "done",
+            "text": "对方已经在昨天提前到了。",
+            "correct": false,
+            "reason": "tomorrow不是昨天，问句也不证明到达已经发生。"
+          },
+          {
+            "id": "minutes",
+            "text": "已明确要求提前整整十分钟。",
+            "correct": false,
+            "reason": "a little earlier只给相对提前，没有十分钟这个数。"
+          }
+        ],
+        "ownForms": [
+          "come",
+          "comes",
+          "came",
+          "coming"
+        ]
+      },
+      {
+        "id": "word-get",
+        "label": "休息一下（get some rest，本句）",
+        "prompt": "Get some rest要先做什么？把休息与长途步行排好，再选get在搭配中的意思。",
+        "answer": "Get",
+        "caseSensitive": true,
+        "meaning": "休息一下（get some rest，本句）",
+        "before": "",
+        "after": " some rest before the long walk.",
+        "reason": "get some rest表示休息一下；before the long walk要求先休息，后长途步行。",
+        "hint": "句首Get大写。没有给休息分钟数，也不表示已经恢复体力；get在其他搭配中可以表示得到或变得。",
+        "material": "Get some rest before the long walk.",
+        "wordDecision": {
+          "prompt": "Get some rest要先做什么？把休息与长途步行排好，再选get在搭配中的意思。",
+          "processOrder": {
+            "title": "先休息，再长途步行",
+            "hint": "示意要求中的先后；不提供休息时长或实际恢复程度。",
+            "wrong": "原句要求休息在长途步行之前；不代表已经休息或已经出发。",
+            "events": [
+              {
+                "id": "rest",
+                "label": "休息一下 · 要求"
+              },
+              {
+                "id": "walk",
+                "label": "长途步行"
+              }
+            ],
+            "sequence": [
+              "rest",
+              "walk"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "rest",
+            "text": "Get some rest：休息一下。",
+            "correct": true,
+            "reason": "整组搭配表示休息，不是领取一个名叫rest的物品。"
+          },
+          {
+            "id": "object",
+            "text": "得到一个具体物品，名叫rest。",
+            "correct": false,
+            "reason": "some rest在这个搭配中表示休息，而不是可拿取的物品。"
+          },
+          {
+            "id": "after",
+            "text": "长途步行结束后才必须休息。",
+            "correct": false,
+            "reason": "before把休息放在步行前，不能倒置。"
+          }
+        ],
+        "ownForms": [
+          "get",
+          "gets",
+          "got",
+          "gotten",
+          "getting"
+        ]
+      },
+      {
+        "id": "word-make",
+        "label": "制作（灯）（本句）",
+        "prompt": "空罐子可以用来制作灯。点出“制作出来的物品”，再判断can make有没有证明已经做好。",
+        "answer": "make",
+        "caseSensitive": false,
+        "meaning": "制作（灯）（本句）",
+        "before": "We can ",
+        "after": " a lamp from this empty jar.",
+        "reason": "make a lamp表示制作灯，from this empty jar说明材料；can make不是has made。",
+        "hint": "原创图是可能成品的示意，不证明原句的人已制作完成，也不说明灯的实际亮度、续航或性能。",
+        "material": "We can make a lamp from this empty jar.",
+        "wordDecision": {
+          "prompt": "空罐子可以用来制作灯。点出“制作出来的物品”，再判断can make有没有证明已经做好。",
+          "art": {
+            "asset": "lesson-jar-lamp",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "alt": "原创对照示意：左边空玻璃罐，右边用同款罐子做成的封闭式LED小灯。",
+            "caption": "可能成品的示意；can make没有说现实中已经做完。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "material",
+                "option": "material",
+                "label": "材料",
+                "labelPosition": "top",
+                "left": 8,
+                "top": 3,
+                "width": 34,
+                "height": 92
+              },
+              {
+                "id": "create",
+                "option": "create",
+                "label": "成品",
+                "labelPosition": "top",
+                "left": 58,
+                "top": 3,
+                "width": 34,
+                "height": 92
+              }
+            ],
+            "evidence": [
+              {
+                "option": "material",
+                "caption": "空罐子是制作材料，还不是图示小灯。",
+                "regions": [
+                  {
+                    "id": "jar-region",
+                    "label": "空罐",
+                    "left": 14,
+                    "top": 17,
+                    "width": 23,
+                    "height": 72
+                  }
+                ]
+              },
+              {
+                "option": "create",
+                "caption": "用罐子做成小灯的可能成品示意；can make不等于现实中已经做好。",
+                "regions": [
+                  {
+                    "id": "lamp-region",
+                    "label": "小灯",
+                    "left": 63,
+                    "top": 4,
+                    "width": 23,
+                    "height": 87
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "create",
+            "text": "可以用空罐子制作灯；图示的是可能成品。",
+            "correct": true,
+            "reason": "make表示制作；can没有说明现实中已经做好。"
+          },
+          {
+            "id": "material",
+            "text": "空罐子本身就是已经制作出来的灯。",
+            "correct": false,
+            "reason": "空罐子是材料；右边才是可能制成的灯的示意。图不证明实际制作完成。"
+          }
+        ],
+        "ownForms": [
+          "make",
+          "makes",
+          "made",
+          "making"
+        ]
+      },
+      {
+        "usage": {
+          "left": "出发地",
+          "right": "步行途中",
+          "object": "water",
+          "caption": "从出发地带走一瓶水，去步行途中使用。",
+          "alternatives": {
+            "take": "right",
+            "bring": "left"
+          }
+        },
+        "id": "word-take",
+        "label": "随身带上（本句）",
+        "prompt": "从出发处把水带上步行途中，箭头朝哪边？再选take在本句中的意思。",
+        "answer": "Take",
+        "caseSensitive": true,
+        "meaning": "随身带上（本句）",
+        "before": "",
+        "after": " a bottle of water on the walk.",
+        "reason": "Take a bottle of water on the walk：要求步行时带上一瓶水，这里不是花费时间。",
+        "hint": "句首Take大写。箭头只按这张图明确给出的出发地→步行途中视角；不把所有bring/take情境都套进同一方向。",
+        "material": "Take a bottle of water on the walk.",
+        "wordDecision": {
+          "prompt": "从出发处把水带上步行途中，箭头朝哪边？再选take在本句中的意思。"
+        },
+        "options": [
+          {
+            "id": "carry",
+            "text": "步行时随身带上一瓶水。",
+            "correct": true,
+            "reason": "take在这个句子中表示带上物品，on the walk是使用情境。"
+          },
+          {
+            "id": "time",
+            "text": "本句是在说走路花费一瓶水的时间。",
+            "correct": false,
+            "reason": "a bottle of water是携带物，不是时间长短。"
+          },
+          {
+            "id": "done",
+            "text": "说明已经喝完水，并且步行结束了。",
+            "correct": false,
+            "reason": "祈使要求不证明已经携带、喝完或结束行程。"
+          }
+        ],
+        "ownForms": [
+          "take",
+          "takes",
+          "took",
+          "taken",
+          "taking"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-core-actions-transfer",
+      "topicId": "v-course-core-actions",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "把新要求写成英文：哪份三句提示准确？",
+      "passage": "活动准备\n公交车到达前请准备好。这个空铁罐可以用来制作笔筒，没有说已经做好或测试过。出行时带上一瓶水。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Please is ready before the bus arrives. We can make a pen holder from the empty tin. Take a bottle of water on the trip."
+        },
+        {
+          "id": "b",
+          "text": "Please be ready after the bus arrives. We can make a pen holder from the empty tin. Take a bottle of water on the trip."
+        },
+        {
+          "id": "c",
+          "text": "Please be ready before the bus arrives. We can make a pen holder from the empty tin. Take a bottle of water on the trip."
+        },
+        {
+          "id": "d",
+          "text": "Please be ready before the bus arrives. We have already made and tested the pen holder. Leave the water at home."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Please be ready before the bus arrives. We can make a pen holder from the empty tin. Take a bottle of water on the trip."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐句核对结构、先后、是否已经发生，以及应带的物品。",
+        "steps": [
+          {
+            "text": "Please后用原形be，准备好要在公交车到来前。",
+            "reason": "be ready是状态要求；before不能改成after。"
+          },
+          {
+            "text": "can make只说可以制作；take要求出行时带水。",
+            "reason": "不能补出已完成或测试，也不能把带水改成留在家。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "Please后应使用原形be，不是is。"
+          },
+          {
+            "option": "b",
+            "reason": "把准备好放到公交车到达后，与新要求相反。"
+          },
+          {
+            "option": "d",
+            "reason": "编造已经制作测试，并把带水的要求改成不带。"
+          }
+        ],
+        "pitfall": "把can误当完成事实，或只认出单词却没核对先后和要求。",
+        "visual": {
+          "kind": "comparison",
+          "title": "状态、制作与携带分开核对",
+          "segments": [
+            {
+              "text": "be ready → bus arrives",
+              "role": "evidence",
+              "note": "先准备好"
+            },
+            {
+              "text": "can make a pen holder",
+              "role": "evidence",
+              "note": "可以制作≠已做好"
+            },
+            {
+              "text": "take water on the trip",
+              "role": "evidence",
+              "note": "随身带上"
+            }
+          ],
+          "caption": "只使用通知给出的信息，不从示意图推断实际制作或行程完成。"
+        },
+        "transfer": "如果把can make改成have made，是否还只是说明可以制作？先找出是否增加了完成的说法。"
+      }
+    }
+  }
+}
