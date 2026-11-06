@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **354 / 413**. Current: **l-v-course-learning-2**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **355 / 413**. Current: **l-v-course-learning-3**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -220,7 +220,7 @@ Completed: **354 / 413**. Current: **l-v-course-learning-2**. Evidence lives in 
 | l-v-course-health-4 | 健康与照护 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-health-4.md) |
 | l-v-course-health-5 | 健康与照护 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-health-5.md) |
 | l-v-course-learning | 学习、语言与信息 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-learning.md) |
-| l-v-course-learning-2 | 学习、语言与信息 · 2 | pending | — |
+| l-v-course-learning-2 | 学习、语言与信息 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-learning-2.md) |
 | l-v-course-learning-3 | 学习、语言与信息 · 3 | pending | — |
 | l-v-course-learning-4 | 学习、语言与信息 · 4 | pending | — |
 | l-v-course-learning-5 | 学习、语言与信息 · 5 | pending | — |
