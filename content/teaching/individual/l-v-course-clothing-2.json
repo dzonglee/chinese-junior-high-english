@@ -1,0 +1,502 @@
+{
+  "lessonId": "l-v-course-clothing-2",
+  "reviewState": "draft",
+  "intent": "Teach excessive length for cycling, grass stains at both knees, packing shorts for indoor sport, a useful hidden pocket, old curtains made into a dress, a grey suit on stage, one sock missing in the wash and a stone inside the left shoe.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "衣物细节，动手核对",
+    "instruction": "看长度、找部位、分清材料与成品；每次改一处，再对照原句。",
+    "items": [
+      {
+        "id": "word-trousers",
+        "label": "裤子",
+        "prompt": "too long是在说长度太长，还是正合适？切换长度，保留for cycling的用途。",
+        "answer": "trousers",
+        "caseSensitive": false,
+        "meaning": "裤子",
+        "before": "These ",
+        "after": " are too long for cycling.",
+        "reason": "These trousers are too long for cycling说明这条裤子太长，不便骑行；没有给具体厘米数。",
+        "hint": "trousers是复数形式，一条裤子仍可说a pair of trousers。",
+        "material": "These trousers are too long for cycling.",
+        "wordDecision": {
+          "prompt": "too long是在说长度太长，还是正合适？切换长度，保留for cycling的用途。",
+          "cyclingLength": {
+            "title": "太长，还是正合适？",
+            "hint": "示意长度差别，不代表实际裤长。",
+            "wrong": "应保留太长、不便骑行，不能改成太短或正合适。"
+          }
+        },
+        "options": [
+          {
+            "id": "long",
+            "text": "这条裤子太长，不便骑行。",
+            "correct": true,
+            "reason": "保留too long与for cycling。"
+          },
+          {
+            "id": "short",
+            "text": "这条裤子太短，不便骑行。",
+            "correct": false,
+            "reason": "too short把too long的长度方向反了。"
+          },
+          {
+            "id": "fit",
+            "text": "这条裤子的长度正适合骑行。",
+            "correct": false,
+            "reason": "正合适丢掉too long表示过长的问题。"
+          }
+        ]
+      },
+      {
+        "id": "word-jeans",
+        "label": "牛仔裤",
+        "prompt": "点出both knees对应的草渍区域，别把膝盖与裤脚混在一起。",
+        "answer": "jeans",
+        "caseSensitive": false,
+        "meaning": "牛仔裤",
+        "before": "My ",
+        "after": " have grass stains on both knees.",
+        "reason": "My jeans have grass stains on both knees说明牛仔裤两边膝盖处都有草渍；both不是只有一边。",
+        "hint": "图只说明草渍的位置；不能推断草渍是怎样沾上的。",
+        "material": "My jeans have grass stains on both knees.",
+        "wordDecision": {
+          "prompt": "点出both knees对应的草渍区域，别把膝盖与裤脚混在一起。",
+          "art": {
+            "asset": "lesson-jeans-both-knees",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创蓝色牛仔裤平铺示意，两边膝盖处各有一块绿色草渍，裤脚干净。 观察草渍位置，不推断沾染经过。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "knees",
+                "label": "两边膝盖",
+                "option": "knees",
+                "labelPosition": "bottom",
+                "left": 29,
+                "top": 36,
+                "width": 42,
+                "height": 31
+              },
+              {
+                "id": "hems",
+                "label": "干净裤脚",
+                "option": "hems",
+                "labelPosition": "bottom",
+                "left": 28,
+                "top": 70,
+                "width": 42,
+                "height": 30
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "knees",
+            "text": "两边膝盖上的草渍。",
+            "correct": true,
+            "reason": "保留grass stains与both knees。"
+          },
+          {
+            "id": "hems",
+            "text": "两边裤脚的蓝色布料。",
+            "correct": false,
+            "reason": "裤脚不是knees，蓝色布料也不是绿色草渍。"
+          }
+        ]
+      },
+      {
+        "id": "word-shorts",
+        "label": "短裤",
+        "prompt": "Pack是在提醒带短裤，还是说已经收拾好了？for说明哪场活动？",
+        "answer": "shorts",
+        "caseSensitive": false,
+        "meaning": "短裤",
+        "before": "Pack ",
+        "after": " for the indoor sports session.",
+        "reason": "Pack shorts for the indoor sports session提醒带上室内体育活动穿的短裤，没有报告已经打包好。",
+        "hint": "shorts是短裤；short表示短的。indoor不是户外。",
+        "material": "Pack shorts for the indoor sports session.",
+        "wordDecision": {
+          "prompt": "Pack是在提醒带短裤，还是说已经收拾好了？for说明哪场活动？",
+          "recordSelection": {
+            "title": "要求和用途，都要保留",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "不把提醒补成完成记录。",
+            "wrong": "保留带短裤的要求与室内体育活动的用途。",
+            "rows": [
+              {
+                "id": "request",
+                "label": "要求",
+                "text": "带上短裤。",
+                "include": true
+              },
+              {
+                "id": "purpose",
+                "label": "用途",
+                "text": "室内体育活动。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外完成记录",
+                "text": "已经收拾好了。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        },
+        "options": [
+          {
+            "id": "request",
+            "text": "提醒带上室内体育活动穿的短裤。",
+            "correct": true,
+            "reason": "保留Pack的要求、shorts与indoor sports session。"
+          },
+          {
+            "id": "outdoor",
+            "text": "提醒带上户外体育活动穿的短裤。",
+            "correct": false,
+            "reason": "outdoor把indoor室内改成户外。"
+          },
+          {
+            "id": "done",
+            "text": "已经把短裤装进行李了。",
+            "correct": false,
+            "reason": "Pack是要求，没有报告完成情况。"
+          }
+        ]
+      },
+      {
+        "id": "word-skirt",
+        "label": "半身裙",
+        "prompt": "hidden是在说暗袋，还是说没有口袋？切换口袋状态，再核对。",
+        "answer": "skirt",
+        "caseSensitive": false,
+        "meaning": "半身裙",
+        "before": "The ",
+        "after": " has a useful hidden pocket.",
+        "reason": "The skirt has a useful hidden pocket说明裙子有一个实用的暗袋；hidden不等于不存在。",
+        "hint": "skirt是裙子，shirt是衬衫；图不推断裙子的颜色或穿着者。",
+        "material": "The skirt has a useful hidden pocket.",
+        "wordDecision": {
+          "prompt": "hidden是在说暗袋，还是说没有口袋？切换口袋状态，再核对。",
+          "hiddenPocket": {
+            "title": "藏起来，不等于不存在",
+            "hint": "虚线只标示暗袋位置；不表示袋子透明，也不补装了什么。",
+            "wrong": "应保留有实用暗袋，不能改成没有口袋或外露口袋。"
+          }
+        },
+        "options": [
+          {
+            "id": "hidden",
+            "text": "裙子有个实用的暗袋。",
+            "correct": true,
+            "reason": "保留has、useful与hidden pocket。"
+          },
+          {
+            "id": "none",
+            "text": "这条裙子没有口袋。",
+            "correct": false,
+            "reason": "没有口袋与has a pocket相反。"
+          },
+          {
+            "id": "open",
+            "text": "原句说口袋一直露在外面。",
+            "correct": false,
+            "reason": "露在外面改变了hidden暗藏的意思。"
+          }
+        ]
+      },
+      {
+        "id": "word-dress",
+        "label": "连衣裙（名词）",
+        "prompt": "made…from把什么变成了什么？分别改材料与成品，再保留原句。",
+        "answer": "dress",
+        "caseSensitive": false,
+        "meaning": "连衣裙（名词）",
+        "before": "She made a simple ",
+        "after": " from old curtains.",
+        "reason": "She made a simple dress from old curtains记录她用旧窗帘做了一条简单的连衣裙。",
+        "hint": "dress在a simple dress中是名词；不是穿衣动作。旧窗帘是材料，不是成品。",
+        "material": "She made a simple dress from old curtains.",
+        "wordDecision": {
+          "prompt": "made…from把什么变成了什么？分别改材料与成品，再保留原句。",
+          "curtainDress": {
+            "title": "旧窗帘是材料，连衣裙是成品",
+            "hint": "箭头只表示材料变成成品，不补裁剪步骤、尺寸或制作时长。",
+            "wrong": "应保留旧窗帘→连衣裙，不能换成新布料或反向制作。"
+          }
+        },
+        "options": [
+          {
+            "id": "curtain-dress",
+            "text": "她用旧窗帘做了一条简单的连衣裙。",
+            "correct": true,
+            "reason": "保留old curtains作材料，dress作成品与made的过去。"
+          },
+          {
+            "id": "new-dress",
+            "text": "她用全新的布料做了连衣裙。",
+            "correct": false,
+            "reason": "新布料替换了old curtains旧窗帘。"
+          },
+          {
+            "id": "dress-curtain",
+            "text": "她把连衣裙做成了窗帘。",
+            "correct": false,
+            "reason": "材料与成品的方向颠倒。"
+          }
+        ]
+      },
+      {
+        "id": "word-suit",
+        "label": "套装（名词）",
+        "prompt": "grey说颜色，on stage说地点。分别切换，保留两条细节。",
+        "answer": "suit",
+        "caseSensitive": false,
+        "meaning": "套装（名词）",
+        "before": "The actor wore a grey ",
+        "after": " on stage.",
+        "reason": "The actor wore a grey suit on stage记录演员在台上穿了一套灰色套装。",
+        "hint": "suit在a grey suit中是名词，不是动词适合；没有给演出的类型。",
+        "material": "The actor wore a grey suit on stage.",
+        "wordDecision": {
+          "prompt": "grey说颜色，on stage说地点。分别切换，保留两条细节。",
+          "stageSuit": {
+            "title": "颜色与地点，分别核对",
+            "hint": "只用色块和位置标签比较原句信息；不推断演员身份、剧目或衣料。",
+            "wrong": "应保留灰色与台上，不能换蓝色或后台。"
+          }
+        },
+        "options": [
+          {
+            "id": "grey-stage",
+            "text": "演员在台上穿了一套灰色套装。",
+            "correct": true,
+            "reason": "保留grey suit、on stage和wore。"
+          },
+          {
+            "id": "blue-stage",
+            "text": "演员在台上穿了一套蓝色套装。",
+            "correct": false,
+            "reason": "蓝色改掉了grey灰色。"
+          },
+          {
+            "id": "grey-back",
+            "text": "演员在后台穿了一套灰色套装。",
+            "correct": false,
+            "reason": "后台改掉了on stage台上的地点。"
+          }
+        ]
+      },
+      {
+        "id": "word-sock",
+        "label": "短袜",
+        "prompt": "One给的是一只还是一双？went missing报告了什么，没报告什么？",
+        "answer": "sock",
+        "caseSensitive": false,
+        "meaning": "短袜",
+        "before": "One ",
+        "after": " went missing in the wash.",
+        "reason": "One sock went missing in the wash记录洗衣时一只袜子不见了；没有说明它被丢弃或找到。",
+        "hint": "One后用单数sock；一双是a pair of socks。",
+        "material": "One sock went missing in the wash.",
+        "wordDecision": {
+          "prompt": "One给的是一只还是一双？went missing报告了什么，没报告什么？",
+          "recordSelection": {
+            "title": "数量与状态，分开判断",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "不补丢失原因或找到的结果。",
+            "wrong": "应保留一只袜子与洗衣时不见了。",
+            "rows": [
+              {
+                "id": "one",
+                "label": "数量",
+                "text": "一只袜子。",
+                "include": true
+              },
+              {
+                "id": "missing",
+                "label": "发生的事",
+                "text": "洗衣时不见了。",
+                "include": true
+              },
+              {
+                "id": "found",
+                "label": "额外结果",
+                "text": "后来已经找到了。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        },
+        "options": [
+          {
+            "id": "one-missing",
+            "text": "洗衣时有一只袜子不见了。",
+            "correct": true,
+            "reason": "保留One、went missing与in the wash。"
+          },
+          {
+            "id": "pair",
+            "text": "洗衣时有一双袜子都不见了。",
+            "correct": false,
+            "reason": "One sock是一只，不是一双。"
+          },
+          {
+            "id": "found",
+            "text": "洗衣时找到了那只袜子。",
+            "correct": false,
+            "reason": "找到与went missing不见了相反。"
+          }
+        ]
+      },
+      {
+        "id": "word-shoe",
+        "label": "鞋",
+        "prompt": "inside和left分别限制什么？改变鞋子与石子位置，保留两处细节。",
+        "answer": "shoe",
+        "caseSensitive": false,
+        "meaning": "鞋",
+        "before": "There is a stone inside my left ",
+        "after": ".",
+        "reason": "There is a stone inside my left shoe说明我的左鞋里面有一颗小石子。",
+        "hint": "left按穿鞋者的左右判断；示意图会标左右鞋，不按屏幕左右猜。",
+        "material": "There is a stone inside my left shoe.",
+        "wordDecision": {
+          "prompt": "inside和left分别限制什么？改变鞋子与石子位置，保留两处细节。",
+          "leftShoeStone": {
+            "title": "左鞋里面，还是别处？",
+            "hint": "鞋子按穿鞋者的左右标注；只比较位置，不推断穿着或怎样进了石子。",
+            "wrong": "应保留左鞋里面，不能换右鞋或鞋外。"
+          }
+        },
+        "options": [
+          {
+            "id": "left-in",
+            "text": "我的左鞋里面有一颗小石子。",
+            "correct": true,
+            "reason": "保留inside与my left shoe。"
+          },
+          {
+            "id": "right-in",
+            "text": "我的右鞋里面有一颗小石子。",
+            "correct": false,
+            "reason": "right改掉了left。"
+          },
+          {
+            "id": "left-out",
+            "text": "小石子在我的左鞋外面。",
+            "correct": false,
+            "reason": "outside与inside相反。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-clothing-2-transfer",
+      "topicId": "v-course-clothing",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "换成围巾、钱包和硬币，哪组表达保留了全部细节？",
+      "passage": "三条新信息\n这条围巾太长，不便跑步。这个钱包有个实用的暗袋。我的左边口袋里有一枚硬币。\n词语提示：scarf 围巾；wallet 钱包；coin 硬币。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The scarf is just right for running. The wallet has a useful hidden pocket. There is a coin inside my left pocket."
+        },
+        {
+          "id": "b",
+          "text": "The scarf is too long for running. The wallet has no pockets. There is a coin inside my left pocket."
+        },
+        {
+          "id": "c",
+          "text": "The scarf is too long for running. The wallet has a useful hidden pocket. There is a coin inside my left pocket."
+        },
+        {
+          "id": "d",
+          "text": "The scarf is too long for running. The wallet has a useful hidden pocket. There is a coin outside my right pocket."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The scarf is too long for running. The wallet has a useful hidden pocket. There is a coin inside my left pocket."
+      },
+      "marks": 1,
+      "estimatedSeconds": 70,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把三条新信息逐一对照，保留程度、存在与位置。",
+        "steps": [
+          {
+            "text": "保留太长，不适合跑步：too long for running。",
+            "reason": "just right改变了长度判断。"
+          },
+          {
+            "text": "钱包有实用暗袋：has a useful hidden pocket。",
+            "reason": "hidden不等于no pockets。"
+          },
+          {
+            "text": "硬币在左边口袋里面：inside my left pocket。",
+            "reason": "outside与right各改了一处位置。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "just right把太长改成正合适。"
+          },
+          {
+            "option": "b",
+            "reason": "no pockets把有暗袋改成没有口袋。"
+          },
+          {
+            "option": "d",
+            "reason": "outside my right pocket同时改变里面和左边。"
+          }
+        ],
+        "pitfall": "每组都要逐条核对；不能只认出熟悉的名词。",
+        "visual": {
+          "kind": "sentence",
+          "title": "三条细节，逐条核对",
+          "segments": [
+            {
+              "text": "too long for running",
+              "role": "evidence",
+              "note": "太长，不便跑步"
+            },
+            {
+              "text": "has a hidden pocket",
+              "role": "evidence",
+              "note": "有暗袋，不是没有"
+            },
+            {
+              "text": "inside my left pocket",
+              "role": "evidence",
+              "note": "左边口袋里面"
+            }
+          ],
+          "caption": "换名词后，程度、存在与位置仍要完整。"
+        },
+        "transfer": "如果暗袋不容易看见，能不能说钱包没有口袋？为什么？"
+      }
+    }
+  },
+  "picturePurpose": "Original jeans picture identifies grass stains on both knees versus clean hems. Code supplies exact targets without inventing wearer identity or stain cause beyond source text."
+}

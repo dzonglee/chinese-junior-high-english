@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **339 / 413**. Current: **l-v-course-clothing-2**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **340 / 413**. Current: **l-v-course-clothing-3**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -205,7 +205,7 @@ Completed: **339 / 413**. Current: **l-v-course-clothing-2**. Evidence lives in 
 | l-v-course-kitchen-tools-4 | 厨房、烹饪与餐桌 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-kitchen-tools-4.md) |
 | l-v-course-kitchen-tools-5 | 厨房、烹饪与餐桌 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-kitchen-tools-5.md) |
 | l-v-course-clothing | 衣着与随身物品 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-clothing.md) |
-| l-v-course-clothing-2 | 衣着与随身物品 · 2 | pending | — |
+| l-v-course-clothing-2 | 衣着与随身物品 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-clothing-2.md) |
 | l-v-course-clothing-3 | 衣着与随身物品 · 3 | pending | — |
 | l-v-course-clothing-4 | 衣着与随身物品 · 4 | pending | — |
 | l-v-course-clothing-5 | 衣着与随身物品 · 5 | pending | — |

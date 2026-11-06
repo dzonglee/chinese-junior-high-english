@@ -86,7 +86,7 @@ export function authorExtra(root, catalog) {
     const topicWords = vocabulary.filter(w => w.topicId === id)
     for (const [n, word] of topicWords.entries()) {
       const sentenceMeaning = meaningInExample(word)
-      const exactClothingMeaning = id === 'v-course-clothing' && ["clothes", "shirt", "blouse", "t-shirt", "coat", "jacket", "sweater", "jumper"].includes(word.word)
+      const exactClothingMeaning = id === 'v-course-clothing' && ["clothes", "shirt", "blouse", "t-shirt", "coat", "jacket", "sweater", "jumper", "trousers", "jeans", "shorts", "skirt", "dress", "suit", "sock", "shoe"].includes(word.word)
       const decoys = [], seenMeanings = new Set()
       const authoredPair = authoredMeaningDecoys.get(`${id}:${word.word}`)
       if (authoredPair) {

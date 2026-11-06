@@ -226,6 +226,11 @@ function render() {
   const hoodScopeFocus = active instanceof HTMLButtonElement && active.matches(".word-hood-scope button") ? active.dataset.value : undefined
   const woolWarmFocus = active instanceof HTMLButtonElement && active.matches(".word-wool-warm button") ? active.dataset.value : undefined
   const chairBackFocus = active instanceof HTMLButtonElement && active.matches(".word-chair-back button") ? active.dataset.value : undefined
+  const cyclingLengthFocus = active instanceof HTMLButtonElement && active.matches(".word-cycling-length button") ? active.dataset.value : undefined
+  const hiddenPocketFocus = active instanceof HTMLButtonElement && active.matches(".word-hidden-pocket button") ? active.dataset.value : undefined
+  const curtainDressFocus = active instanceof HTMLButtonElement && active.matches(".word-curtain-dress button") ? active.dataset.value : undefined
+  const stageSuitFocus = active instanceof HTMLButtonElement && active.matches(".word-stage-suit button") ? active.dataset.value : undefined
+  const leftShoeStoneFocus = active instanceof HTMLButtonElement && active.matches(".word-left-shoe-stone button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -370,6 +375,11 @@ function render() {
   if (hoodScopeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-hood-scope [data-value="${CSS.escape(hoodScopeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (woolWarmFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-wool-warm [data-value="${CSS.escape(woolWarmFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (chairBackFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-chair-back [data-value="${CSS.escape(chairBackFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (cyclingLengthFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cycling-length [data-value="${CSS.escape(cyclingLengthFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (hiddenPocketFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-hidden-pocket [data-value="${CSS.escape(hiddenPocketFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (curtainDressFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-curtain-dress [data-value="${CSS.escape(curtainDressFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (stageSuitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stage-suit [data-value="${CSS.escape(stageSuitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (leftShoeStoneFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-left-shoe-stone [data-value="${CSS.escape(leftShoeStoneFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

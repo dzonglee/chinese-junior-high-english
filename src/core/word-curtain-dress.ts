@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordCurtainDress{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordCurtainDress(v:unknown):v is WordCurtainDress{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordCurtainDress;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordCurtainDressKey=(id:string)=>'workshopCurtainDress-'+id
+function decode(raw:string){if(raw==='')return{"material": "?", "result": "?"};const m="^(\\?|curtains|newcloth)\\|(\\?|dress|curtains)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{material:v[1],result:v[2]}:null}
+export function changeCurtainDress(_w:WordCurtainDress,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["material-curtains", "material-newcloth"].includes(action))return action.slice(9)+"|"+s.result;if(["result-dress", "result-curtains"].includes(action))return s.material+"|"+action.slice(7);return undefined}
+export function curtainDressMatch(_w:WordCurtainDress,raw:string){const s=decode(raw);return!!s&&s.material==="curtains"&&s.result==="dress"}
+export function wordCurtainDressView(w:WordCurtainDress,raw:string){const s=decode(raw)??{"material": "?", "result": "?"};return{title:w.title,hint:w.hint,material:s.material,result:s.result,groups:[{label:"材料",choices:[{"id": "material-curtains", "label": "旧窗帘"}, {"id": "material-newcloth", "label": "新布料"}].map(c=>({...c,selected:c.id==="material-"+s.material}))},{label:"成品",choices:[{"id": "result-dress", "label": "连衣裙"}, {"id": "result-curtains", "label": "窗帘"}].map(c=>({...c,selected:c.id==="result-"+s.result}))}],reading:curtainDressMatch(w,raw)?"她用旧窗帘做了简单的连衣裙；材料与成品方向不反。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordCurtainDressView=ReturnType<typeof wordCurtainDressView>
