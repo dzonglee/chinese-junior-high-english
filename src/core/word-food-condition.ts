@@ -1,0 +1,10 @@
+/** Select the explicit condition and directive without inventing a converse or diagnosis. */
+export interface WordFoodCondition {title:string;hint:string;wrong:string;kind:'mushroom'|'nut'}
+export interface WordFoodConditionView {title:string;hint:string;kind:string;mask:number;chosen:boolean;reading:string;rows:{id:string;label:string;text:string;selected:boolean}[]}
+const bounded=(v:unknown,n:number)=>typeof v==='string'&&!!v.trim()&&v===v.trim()&&v.length<=n
+export function validWordFoodCondition(v:unknown):v is WordFoodCondition {if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordFoodCondition;return Object.keys(w).length===4&&Object.keys(w).every(k=>['title','hint','wrong','kind'].includes(k))&&['mushroom','nut'].includes(w.kind)&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+const known=(raw:string)=>raw===''||/^[1-7]$/.test(raw)
+export const wordFoodConditionKey=(id:string)=>`workshopFoodCondition-${id}`
+export const foodConditionMatch=(_w:WordFoodCondition,raw:string)=>raw==='3'
+export function changeFoodCondition(_w:WordFoodCondition,raw:string,action:string):string|undefined {if(action==='reset')return'';if(!known(raw))return undefined;const bit=action==='condition'?1:action==='directive'?2:action==='extra'?4:0;if(!bit)return undefined;const next=Number(raw)^bit;return next?String(next):''}
+export function wordFoodConditionView(w:WordFoodCondition,raw:string):WordFoodConditionView {const mask=known(raw)?Number(raw):0;const mushroom=w.kind==='mushroom';const rows=mushroom?[{id:'condition',label:'限定对象',text:'无法辨认的野生蘑菇。'},{id:'directive',label:'要求',text:'不要吃。'},{id:'extra',label:'额外推断',text:'认得名称就一定可以吃。'}]:[{id:'condition',label:'条件',text:'如果对坚果过敏。'},{id:'directive',label:'要求',text:'查看标签。'},{id:'extra',label:'额外推断',text:'读者本人已经被确诊过敏。'}];return{title:w.title,hint:w.hint,kind:w.kind,mask,chosen:mask!==0,reading:!mask?'把条件和对应要求分别圈出来。':mask===3?(mushroom?'对了，原句禁止吃无法辨认的野生蘑菇；不能反推认得就能吃。':'对了，有坚果过敏这一条件时，要查看标签；没有诊断读者本人。'):mask&4?'这个额外推断不在原句中。':'还要把条件和要求一起保留。',rows:rows.map((r,j)=>({...r,selected:!!(mask&(1<<j))}))}}

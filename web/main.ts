@@ -194,6 +194,9 @@ function render() {
   const vegetablePrepFocus = active instanceof HTMLButtonElement && active.matches(".word-vegetable-prep button") ? active.dataset.value : undefined
   const vegetableEffectFocus = active instanceof HTMLButtonElement && active.matches(".word-vegetable-effect button") ? active.dataset.value : undefined
   const peaMotionFocus = active instanceof HTMLButtonElement && active.matches(".word-pea-motion button") ? active.dataset.value : undefined
+  const foodConditionFocus = active instanceof HTMLButtonElement && active.matches(".word-food-condition button") ? active.dataset.value : undefined
+  const flavourSenseFocus = active instanceof HTMLButtonElement && active.matches(".word-flavour-sense button") ? active.dataset.value : undefined
+  const heavyForOneFocus = active instanceof HTMLButtonElement && active.matches(".word-heavy-for-one button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -306,6 +309,9 @@ function render() {
   if (vegetablePrepFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-vegetable-prep [data-value="${CSS.escape(vegetablePrepFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (vegetableEffectFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-vegetable-effect [data-value="${CSS.escape(vegetableEffectFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (peaMotionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-pea-motion [data-value="${CSS.escape(peaMotionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodConditionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-condition [data-value="${CSS.escape(foodConditionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (flavourSenseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-flavour-sense [data-value="${CSS.escape(flavourSenseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (heavyForOneFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-heavy-for-one [data-value="${CSS.escape(heavyForOneFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
