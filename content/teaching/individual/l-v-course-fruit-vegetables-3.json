@@ -1,0 +1,489 @@
+{
+  "lessonId": "l-v-course-fruit-vegetables-3",
+  "reviewState": "draft",
+  "intent": "Individually teach stronger-support needs, grating into a bowl, eyes water, thin strips, sliced cucumber crunch, planted bean beside a window, a singular pea rolled off a plate and past golden corn.",
+  "picturePurpose": "All operation, result and movement comparisons remain coded; no new raster asset.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "切形状、看变化，别补没说的结果",
+    "instruction": "调整形状与位置，比较因果和颜色变化，再把事实说完整。",
+    "items": [
+      {
+        "id": "word-tomato",
+        "label": "番茄",
+        "prompt": "needs是需要还是已经有了？stronger强调哪种比较？圈出有依据的信息。",
+        "answer": "tomato",
+        "caseSensitive": false,
+        "meaning": "番茄",
+        "before": "The ",
+        "after": " plant needs a stronger stick.",
+        "reason": "The tomato plant needs a stronger stick说明这株番茄需要更结实的支架。",
+        "hint": "stronger是比较级，但没有给支架材料、尺寸，也没说已经换好。",
+        "material": "The tomato plant needs a stronger stick.",
+        "wordDecision": {
+          "prompt": "needs是需要还是已经有了？stronger强调哪种比较？圈出有依据的信息。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "有需要，不等于已完成",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "只保留原句给出的信息。",
+            "wrong": "应保留番茄植株和更结实的支架这个需要，不补已经更换。",
+            "rows": [
+              {
+                "id": "plant",
+                "label": "对象",
+                "text": "说的是番茄植株。",
+                "include": true
+              },
+              {
+                "id": "need",
+                "label": "需要",
+                "text": "需要更结实的支架。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经换好了支架。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "needs",
+            "text": "这株番茄需要更结实的支架。",
+            "correct": true,
+            "reason": "保留needs和stronger。"
+          },
+          {
+            "id": "has",
+            "text": "这株番茄已经换好了更结实的支架。",
+            "correct": false,
+            "reason": "needs不等于已经换好。"
+          },
+          {
+            "id": "same",
+            "text": "这株番茄只需要同样结实的支架。",
+            "correct": false,
+            "reason": "stronger要求更结实，不能改为同样结实。"
+          }
+        ]
+      },
+      {
+        "id": "word-carrot",
+        "label": "胡萝卜",
+        "prompt": "Grate是什么处理方法？into the salad bowl又限定哪里？把形状和位置一起调对。",
+        "answer": "carrot",
+        "caseSensitive": false,
+        "meaning": "胡萝卜",
+        "before": "Grate the ",
+        "after": " into the salad bowl.",
+        "reason": "Grate the carrot into the salad bowl要求把胡萝卜擦成丝放进沙拉碗。",
+        "hint": "grate不是切大片；into要求进碗里，不是放在碗旁边。",
+        "material": "Grate the carrot into the salad bowl.",
+        "wordDecision": {
+          "prompt": "Grate是什么处理方法？into the salad bowl又限定哪里？把形状和位置一起调对。",
+          "vegetablePrep": {
+            "title": "处理方法和位置，都要保留",
+            "hint": "丝的条数和长度仅作方法示意，不代表实际数量或尺寸。",
+            "wrong": "应擦成丝并放进沙拉碗；切大片或放在碗旁边都不符合。",
+            "kind": "carrot"
+          }
+        },
+        "options": [
+          {
+            "id": "grate",
+            "text": "把胡萝卜擦成丝放进沙拉碗。",
+            "correct": true,
+            "reason": "同时保留grate和into the salad bowl。"
+          },
+          {
+            "id": "slice",
+            "text": "把胡萝卜切成大片放进沙拉碗。",
+            "correct": false,
+            "reason": "grate不是切大片。"
+          },
+          {
+            "id": "beside",
+            "text": "把擦好的胡萝卜丝放在碗旁边。",
+            "correct": false,
+            "reason": "beside不能替代into。"
+          }
+        ]
+      },
+      {
+        "id": "word-onion",
+        "label": "洋葱",
+        "prompt": "eyes water里的water是喝水吗？切换结果，看谁让谁怎样。",
+        "answer": "onion",
+        "caseSensitive": false,
+        "meaning": "洋葱",
+        "before": "The ",
+        "after": " made my eyes water.",
+        "reason": "The onion made my eyes water说明洋葱使我的眼睛流泪。",
+        "hint": "water在这里是动词“流泪”；原句没说喝水、悲伤或过敏诊断。",
+        "material": "The onion made my eyes water.",
+        "wordDecision": {
+          "prompt": "eyes water里的water是喝水吗？切换结果，看谁让谁怎样。",
+          "vegetableEffect": {
+            "title": "water在这里做什么？",
+            "hint": "改变句中结果示意，不推断情绪或健康状况。",
+            "wrong": "应保留洋葱使眼睛流泪；不是喝水，也不能补充悲伤。",
+            "kind": "onion"
+          }
+        },
+        "options": [
+          {
+            "id": "tears",
+            "text": "洋葱让我眼睛流泪。",
+            "correct": true,
+            "reason": "made my eyes water保留了引起流泪的关系。"
+          },
+          {
+            "id": "drink",
+            "text": "洋葱让我喝了一杯水。",
+            "correct": false,
+            "reason": "这里water是eyes的动作，不是喝水。"
+          },
+          {
+            "id": "sad",
+            "text": "原句确定我因悲伤而哭。",
+            "correct": false,
+            "reason": "流泪原因是洋葱；没有说明悲伤。"
+          }
+        ]
+      },
+      {
+        "id": "word-cabbage",
+        "label": "卷心菜",
+        "prompt": "thin strips是细条，还是厚条、块状？点形状比较，别丢掉thin。",
+        "answer": "cabbage",
+        "caseSensitive": false,
+        "meaning": "卷心菜",
+        "before": "Cut the ",
+        "after": " into thin strips.",
+        "reason": "Cut the cabbage into thin strips要求把卷心菜切成细条。",
+        "hint": "into在这里给变化结果；不是说切到容器里面。示意宽度不对应真实尺寸。",
+        "material": "Cut the cabbage into thin strips.",
+        "wordDecision": {
+          "prompt": "thin strips是细条，还是厚条、块状？点形状比较，别丢掉thin。",
+          "vegetablePrep": {
+            "title": "into在这里说切成什么",
+            "hint": "宽窄只作对比，没有原句之外的毫米数或条数。",
+            "wrong": "应切成细条；厚条或块状都改变了thin strips。",
+            "kind": "cabbage"
+          }
+        },
+        "options": [
+          {
+            "id": "thin",
+            "text": "把卷心菜切成细条。",
+            "correct": true,
+            "reason": "同时保留条状和thin。"
+          },
+          {
+            "id": "thick",
+            "text": "把卷心菜切成粗厚的条。",
+            "correct": false,
+            "reason": "厚条丢掉了thin的限制。"
+          },
+          {
+            "id": "chunks",
+            "text": "把卷心菜切成块。",
+            "correct": false,
+            "reason": "chunks不是strips。"
+          }
+        ]
+      },
+      {
+        "id": "word-cucumber",
+        "label": "黄瓜",
+        "prompt": "sliced说明什么样的黄瓜？adds crunch增加的是口感还是甜味？切换示意比较。",
+        "answer": "cucumber",
+        "caseSensitive": false,
+        "meaning": "黄瓜",
+        "before": "A sliced ",
+        "after": " adds crunch to the sandwich.",
+        "reason": "A sliced cucumber adds crunch to the sandwich说明切片黄瓜让三明治吃起来更爽脆。",
+        "hint": "crunch在这里说爽脆口感；没有说甜、加热或已经吃完。",
+        "material": "A sliced cucumber adds crunch to the sandwich.",
+        "wordDecision": {
+          "prompt": "sliced说明什么样的黄瓜？adds crunch增加的是口感还是甜味？切换示意比较。",
+          "vegetableEffect": {
+            "title": "加的是什么口感？",
+            "hint": "切片形状仅作说明；不代表实际片数。",
+            "wrong": "应保留切片黄瓜和爽脆口感，不能改成整根或更甜。",
+            "kind": "cucumber"
+          }
+        },
+        "options": [
+          {
+            "id": "crunch",
+            "text": "切片黄瓜让三明治吃起来更爽脆。",
+            "correct": true,
+            "reason": "保留sliced和adds crunch。"
+          },
+          {
+            "id": "sweet",
+            "text": "切片黄瓜让三明治更甜。",
+            "correct": false,
+            "reason": "crunch不是sweetness。"
+          },
+          {
+            "id": "whole",
+            "text": "原句说的是未切的整根黄瓜。",
+            "correct": false,
+            "reason": "sliced给出了已切片的状态。"
+          }
+        ]
+      },
+      {
+        "id": "word-bean",
+        "label": "豆子",
+        "prompt": "planted和beside给出了哪些事实？能确定已经长大吗？",
+        "answer": "bean",
+        "caseSensitive": false,
+        "meaning": "豆子",
+        "before": "We planted a ",
+        "after": " beside the classroom window.",
+        "reason": "We planted a bean beside the classroom window记录我们在教室窗边种了一颗豆子。",
+        "hint": "a bean在这里是种下的豆子；beside是窗边，不是窗外。没有报告发芽或长大。",
+        "material": "We planted a bean beside the classroom window.",
+        "wordDecision": {
+          "prompt": "planted和beside给出了哪些事实？能确定已经长大吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "种下了，不等于长大了",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "只保留原句给出的信息。",
+            "wrong": "保留种下一颗豆子和教室窗边；不补窗外、发芽或长大。",
+            "rows": [
+              {
+                "id": "seed",
+                "label": "做了什么",
+                "text": "种了一颗豆子。",
+                "include": true
+              },
+              {
+                "id": "beside",
+                "label": "位置",
+                "text": "在教室窗边。",
+                "include": true
+              },
+              {
+                "id": "grown",
+                "label": "额外结果",
+                "text": "豆苗已经长大。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "planted",
+            "text": "我们在教室窗边种了一颗豆子。",
+            "correct": true,
+            "reason": "保留种植动作、单数和窗边位置。"
+          },
+          {
+            "id": "outside",
+            "text": "我们把豆子种在教室窗外。",
+            "correct": false,
+            "reason": "beside没有给窗外的位置。"
+          },
+          {
+            "id": "grown",
+            "text": "原句确定豆苗已经长大。",
+            "correct": false,
+            "reason": "planted不等于长大；没有给生长结果。"
+          }
+        ]
+      },
+      {
+        "id": "word-pea",
+        "label": "豌豆",
+        "prompt": "a tiny pea滚出了盘子：摆出数量和盘子的位置关系，不替它找落点。",
+        "answer": "pea",
+        "caseSensitive": false,
+        "meaning": "豌豆",
+        "before": "A tiny ",
+        "after": " rolled off the plate.",
+        "reason": "A tiny pea rolled off the plate报告一颗小豌豆从盘子上滚落。",
+        "hint": "a限定一颗；off说明离开盘子。原句没有给滚落后的目的地。",
+        "material": "A tiny pea rolled off the plate.",
+        "wordDecision": {
+          "prompt": "a tiny pea滚出了盘子：摆出数量和盘子的位置关系，不替它找落点。",
+          "peaMotion": {
+            "title": "从盘子上滚落的是几颗？",
+            "hint": "只示意与盘子的关系；图中空白不是实际落点。",
+            "wrong": "应是一颗小豌豆已经滚离盘子；不是整盘，也不是仍在盘内。"
+          }
+        },
+        "options": [
+          {
+            "id": "one",
+            "text": "一颗小豌豆从盘子上滚落。",
+            "correct": true,
+            "reason": "保留一颗、小和rolled off。"
+          },
+          {
+            "id": "many",
+            "text": "一整盘豌豆都滚落了。",
+            "correct": false,
+            "reason": "a tiny pea只说一颗，不能扩成整盘。"
+          },
+          {
+            "id": "inside",
+            "text": "那颗豌豆仍留在盘子里。",
+            "correct": false,
+            "reason": "rolled off表示已经离开盘子。"
+          }
+        ]
+      },
+      {
+        "id": "word-corn",
+        "label": "玉米；谷物",
+        "prompt": "turned golden说已经变成金黄，还是一直绿色、将要变黄？切换状态比较。",
+        "answer": "corn",
+        "caseSensitive": false,
+        "meaning": "玉米；谷物",
+        "before": "The field of ",
+        "after": " turned golden in autumn.",
+        "reason": "The field of corn turned golden in autumn记录这片玉米地在秋天变得金黄。",
+        "hint": "turned是过去的变化；没有给收割完成或亩数。corn也可泛指谷物，不能一概改掉词典义。",
+        "material": "The field of corn turned golden in autumn.",
+        "wordDecision": {
+          "prompt": "turned golden说已经变成金黄，还是一直绿色、将要变黄？切换状态比较。",
+          "vegetableEffect": {
+            "title": "看清颜色变化与时间",
+            "hint": "田块只示意颜色，不表示实际面积、数量或成熟度诊断。",
+            "wrong": "应记录秋天已经变成金黄；不能改成仍绿色或将要变黄。",
+            "kind": "corn"
+          }
+        },
+        "options": [
+          {
+            "id": "golden",
+            "text": "玉米地在秋天变得金黄。",
+            "correct": true,
+            "reason": "保留变成金黄和过去变化。"
+          },
+          {
+            "id": "green",
+            "text": "玉米地在秋天仍是绿色。",
+            "correct": false,
+            "reason": "仍绿色不能保留turned golden。"
+          },
+          {
+            "id": "future",
+            "text": "玉米地将来才会变成金黄。",
+            "correct": false,
+            "reason": "turned不是will turn。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-fruit-vegetables-3-transfer",
+      "topicId": "v-course-fruit-vegetables",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成豆苗、西葫芦和玉米粒，哪组三句保留了全部信息？",
+      "passage": "新观察与提示\n豆苗需要更结实的支架。把西葫芦（courgette）擦成丝放进汤碗。一小粒玉米（a grain of corn）从碟子（saucer）上滚落，没有说明落点。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The bean plant needs a stronger stick. Grate the courgette into the soup bowl. A tiny grain of corn rolled off the saucer."
+        },
+        {
+          "id": "b",
+          "text": "The bean plant already has a stronger stick. Grate the courgette into the soup bowl. A tiny grain of corn rolled off the saucer."
+        },
+        {
+          "id": "c",
+          "text": "The bean plant needs a stronger stick. Grate the courgette beside the soup bowl. A tiny grain of corn rolled off the saucer."
+        },
+        {
+          "id": "d",
+          "text": "The bean plant needs a stronger stick. Grate the courgette into the soup bowl. Two tiny grains of corn rolled off the saucer."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The bean plant needs a stronger stick. Grate the courgette into the soup bowl. A tiny grain of corn rolled off the saucer."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对需要、处理方法与位置、滚落数量。",
+        "steps": [
+          {
+            "text": "需要更结实的支架：needs a stronger stick。",
+            "reason": "needs没有说已经提供；already has添加了结果。"
+          },
+          {
+            "text": "擦成丝并放进汤碗：Grate…into the soup bowl。",
+            "reason": "beside说在旁边，不能替代into。"
+          },
+          {
+            "text": "一粒滚落：A tiny grain…rolled off the saucer。",
+            "reason": "a限定一粒；off保留离开碟子，不补落点。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "already has把需要改成已经有了。"
+          },
+          {
+            "option": "c",
+            "reason": "beside把碗里改成碗旁。"
+          },
+          {
+            "option": "d",
+            "reason": "Two…grains把一粒改成两粒。"
+          }
+        ],
+        "pitfall": "熟悉食物名也要核对needs、into与a。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三个信息，分开核对",
+          "segments": [
+            {
+              "text": "needs ≠ already has",
+              "role": "evidence",
+              "note": "需要不等于已有"
+            },
+            {
+              "text": "grate → into the bowl",
+              "role": "evidence",
+              "note": "方法与位置"
+            },
+            {
+              "text": "one grain → off",
+              "role": "evidence",
+              "note": "数量与离开关系"
+            }
+          ],
+          "caption": "没有给出的结果和落点不补写。"
+        },
+        "transfer": "如果改成两粒玉米，grain和动词的形式该怎样核对？"
+      }
+    }
+  }
+}
