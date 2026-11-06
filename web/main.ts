@@ -208,6 +208,9 @@ function render() {
   const textureResultFocus = active instanceof HTMLButtonElement && active.matches(".word-texture-result button") ? active.dataset.value : undefined
   const bananaOverFocus = active instanceof HTMLButtonElement && active.matches(".word-banana-over button") ? active.dataset.value : undefined
   const lemonSliceFocus = active instanceof HTMLButtonElement && active.matches(".word-lemon-slice button") ? active.dataset.value : undefined
+  const mainRoleFocus = active instanceof HTMLButtonElement && active.matches(".word-main-role button") ? active.dataset.value : undefined
+  const tableDustFocus = active instanceof HTMLButtonElement && active.matches(".word-table-dust button") ? active.dataset.value : undefined
+  const kitchenConditionFocus = active instanceof HTMLButtonElement && active.matches(".word-kitchen-condition button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -334,6 +337,9 @@ function render() {
   if (textureResultFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-texture-result [data-value="${CSS.escape(textureResultFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (bananaOverFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-banana-over [data-value="${CSS.escape(bananaOverFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (lemonSliceFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-lemon-slice [data-value="${CSS.escape(lemonSliceFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (mainRoleFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-main-role [data-value="${CSS.escape(mainRoleFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (tableDustFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-table-dust [data-value="${CSS.escape(tableDustFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (kitchenConditionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-kitchen-condition [data-value="${CSS.escape(kitchenConditionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

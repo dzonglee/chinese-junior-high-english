@@ -1,0 +1,10 @@
+/** Three source-specific meanings: too hot to touch, low heat and required warm-up duration. */
+export interface WordKitchenCondition {title:string;hint:string;wrong:string;kind:'pan'|'pot'|'oven'}
+export interface WordKitchenConditionView {title:string;hint:string;kind:WordKitchenCondition['kind'];selected:string;visible:boolean;claim:string;reading:string;choices:{id:string;label:string;selected:boolean}[]}
+const choices={pan:[['too','太烫，不能碰'],['enough','温度正好，可以碰'],['cold','太凉，不能碰']],pot:[['low','保持小火'],['high','保持大火'],['off','关火']],oven:[['warm','预热需要十分钟'],['cook','食物烤十分钟'],['elapsed','已经预热十分钟']]}as const
+const bounded=(v:unknown,n:number)=>typeof v==='string'&&!!v.trim()&&v===v.trim()&&v.length<=n,known=(w:WordKitchenCondition,s:string)=>s===''||choices[w.kind].some(c=>c[0]===s)
+export function validWordKitchenCondition(v:unknown):v is WordKitchenCondition {if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordKitchenCondition;return Object.keys(w).length===4&&Object.keys(w).every(k=>['title','hint','wrong','kind'].includes(k))&&['pan','pot','oven'].includes(w.kind)&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordKitchenConditionKey=(id:string)=>`workshopKitchenCondition-${id}`
+export const kitchenConditionMatch=(w:WordKitchenCondition,raw:string)=>raw===choices[w.kind][0][0]
+export function changeKitchenCondition(w:WordKitchenCondition,raw:string,action:string):string|undefined {if(action==='reset')return'';if(!known(w,raw))return undefined;return choices[w.kind].some(c=>c[0]===action)?action:undefined}
+export function wordKitchenConditionView(w:WordKitchenCondition,raw:string):WordKitchenConditionView {const selected=known(w,raw)?raw:'';return{title:w.title,hint:w.hint,kind:w.kind,selected,visible:!!selected,claim:selected?choices[w.kind].find(c=>c[0]===selected)![1]:'句意标签待选',reading:!selected?'先选与原句相符的条件，不默认温度、火力或时长类型。':!kitchenConditionMatch(w,raw)?w.wrong:w.kind==='pan'?'对了，too hot to touch是烫得不能碰，不表示实际碰过。':w.kind==='pot'?'对了，保持小火；这不是关火或已经煮熟的记录。':'对了，十分钟是预热所需时长，不是已经经过的时间。',choices:choices[w.kind].map(([id,label])=>({id,label,selected:id===selected}))}}
