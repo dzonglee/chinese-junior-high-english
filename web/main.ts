@@ -211,6 +211,10 @@ function render() {
   const mainRoleFocus = active instanceof HTMLButtonElement && active.matches(".word-main-role button") ? active.dataset.value : undefined
   const tableDustFocus = active instanceof HTMLButtonElement && active.matches(".word-table-dust button") ? active.dataset.value : undefined
   const kitchenConditionFocus = active instanceof HTMLButtonElement && active.matches(".word-kitchen-condition button") ? active.dataset.value : undefined
+  const kitchenPlaceFocus = active instanceof HTMLButtonElement && active.matches(".word-kitchen-place button") ? active.dataset.value : undefined
+  const tapWhileFocus = active instanceof HTMLButtonElement && active.matches(".word-tap-while button") ? active.dataset.value : undefined
+  const neededFillFocus = active instanceof HTMLButtonElement && active.matches(".word-needed-fill button") ? active.dataset.value : undefined
+  const vesselDetailFocus = active instanceof HTMLButtonElement && active.matches(".word-vessel-detail button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -340,6 +344,10 @@ function render() {
   if (mainRoleFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-main-role [data-value="${CSS.escape(mainRoleFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (tableDustFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-table-dust [data-value="${CSS.escape(tableDustFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (kitchenConditionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-kitchen-condition [data-value="${CSS.escape(kitchenConditionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (kitchenPlaceFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-kitchen-place [data-value="${CSS.escape(kitchenPlaceFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (tapWhileFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-tap-while [data-value="${CSS.escape(tapWhileFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (neededFillFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-needed-fill [data-value="${CSS.escape(neededFillFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (vesselDetailFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-vessel-detail [data-value="${CSS.escape(vesselDetailFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
