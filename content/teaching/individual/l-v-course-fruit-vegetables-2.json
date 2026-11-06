@@ -1,0 +1,526 @@
+{
+  "lessonId": "l-v-course-fruit-vegetables-2",
+  "reviewState": "draft",
+  "intent": "Individually teach plum landing, cherry before-order, first-strawberry colour scope, cooled watermelon before slicing, pineapple skin identification, mango stone sides, personal never-cooked restriction and potato centre endpoint.",
+  "picturePurpose": "An original AI pineapple supports skin versus leaf/shadow identification. Exact targets and all other placement/order/scope/core diagrams remain coded.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "落点、顺序、果核与中心",
+    "instruction": "调落点、排动作，点出果皮，再核对果核两侧和中心条件。",
+    "items": [
+      {
+        "id": "word-plum",
+        "label": "李子",
+        "prompt": "dropped onto the grass说最后落在哪里？比较落点，不凭颜色判断成熟。",
+        "answer": "plum",
+        "caseSensitive": false,
+        "meaning": "李子",
+        "before": "A ripe ",
+        "after": " dropped onto the grass.",
+        "reason": "A ripe plum dropped onto the grass报告一个熟李子落到了草地上。",
+        "hint": "ripe表示成熟；onto给落到的表面。原句没有说从哪里掉下。",
+        "material": "A ripe plum dropped onto the grass.",
+        "wordDecision": {
+          "prompt": "dropped onto the grass说最后落在哪里？比较落点，不凭颜色判断成熟。",
+          "fruitScene": {
+            "title": "落到哪里，才保留onto？",
+            "hint": "落点示意；成熟由ripe说明，不由图中颜色推断。",
+            "wrong": "应保留李子已落到草地上；悬在上方或掉进篮子都改变原意。",
+            "kind": "plum"
+          }
+        },
+        "options": [
+          {
+            "id": "grass",
+            "text": "一个熟李子落到了草地上。",
+            "correct": true,
+            "reason": "保留成熟、掉落和草地这个落点。"
+          },
+          {
+            "id": "above",
+            "text": "李子还停在草地上方，没有落下。",
+            "correct": false,
+            "reason": "dropped onto报告已经落到草地上。"
+          },
+          {
+            "id": "basket",
+            "text": "李子掉进了篮子。",
+            "correct": false,
+            "reason": "原句落点是the grass，不是篮子。"
+          }
+        ]
+      },
+      {
+        "id": "word-cherry",
+        "label": "樱桃",
+        "prompt": "before eating把去核放在哪一步？按要求排顺序。",
+        "answer": "cherry",
+        "caseSensitive": false,
+        "meaning": "樱桃",
+        "before": "Remove the stone before eating the ",
+        "after": ".",
+        "reason": "Remove the stone before eating the cherry要求吃樱桃前先去核。",
+        "hint": "stone在这里是果核；before给先后，不说明已经吃过。",
+        "material": "Remove the stone before eating the cherry.",
+        "wordDecision": {
+          "prompt": "before eating把去核放在哪一步？按要求排顺序。",
+          "processOrder": {
+            "title": "去核在前，吃在后",
+            "wrong": "先去核，再吃樱桃；原句没有报告已经做完。",
+            "hint": "按before的关系排序；这里只模拟要求。",
+            "events": [
+              {
+                "id": "remove",
+                "label": "去核"
+              },
+              {
+                "id": "eat",
+                "label": "吃樱桃"
+              }
+            ],
+            "sequence": [
+              "remove",
+              "eat"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "吃樱桃前先去核。",
+            "correct": true,
+            "reason": "去核在前，吃在后。"
+          },
+          {
+            "id": "after",
+            "text": "吃完樱桃后再去核。",
+            "correct": false,
+            "reason": "把before的顺序倒过来了。"
+          },
+          {
+            "id": "done",
+            "text": "原句说明樱桃已经去核并吃完。",
+            "correct": false,
+            "reason": "这是要求，不是吃过的记录。"
+          }
+        ]
+      },
+      {
+        "id": "word-strawberry",
+        "label": "草莓",
+        "prompt": "first限定哪一颗？turned red是已经变红，还是将要变红？",
+        "answer": "strawberry",
+        "caseSensitive": false,
+        "meaning": "草莓",
+        "before": "The first ",
+        "after": " of the season turned red.",
+        "reason": "The first strawberry of the season turned red报告这一季的第一颗草莓变红了。",
+        "hint": "first说第一个；turned是过去式。其他草莓的颜色和总数没有给出。",
+        "material": "The first strawberry of the season turned red.",
+        "wordDecision": {
+          "prompt": "first限定哪一颗？turned red是已经变红，还是将要变红？",
+          "fruitScene": {
+            "title": "第一颗，还是全部？",
+            "hint": "三个位置仅作范围示意；不代表这一季的实际总数。",
+            "wrong": "应记录第一颗草莓已经变红；不能改成全部或将要变红。",
+            "kind": "strawberry"
+          }
+        },
+        "options": [
+          {
+            "id": "first",
+            "text": "这一季的第一颗草莓变红了。",
+            "correct": true,
+            "reason": "保留第一颗和过去的颜色变化。"
+          },
+          {
+            "id": "all",
+            "text": "这一季的全部草莓都变红了。",
+            "correct": false,
+            "reason": "the first只限定第一颗，不能扩成全部。"
+          },
+          {
+            "id": "future",
+            "text": "这一季的第一颗草莓将要变红。",
+            "correct": false,
+            "reason": "turned red报告过去变化，不是will turn。"
+          }
+        ]
+      },
+      {
+        "id": "word-watermelon",
+        "label": "西瓜",
+        "prompt": "先降温还是先切？把before两侧的动作排好。",
+        "answer": "watermelon",
+        "caseSensitive": false,
+        "meaning": "西瓜",
+        "before": "We cooled the ",
+        "after": " before slicing it.",
+        "reason": "We cooled the watermelon before slicing it报告先让西瓜凉下来，再切片。",
+        "hint": "cooled没有限定冰箱、冰块、具体温度或时长；it指西瓜。",
+        "material": "We cooled the watermelon before slicing it.",
+        "wordDecision": {
+          "prompt": "先降温还是先切？把before两侧的动作排好。",
+          "processOrder": {
+            "title": "先降温，再切片",
+            "wrong": "应先降温，再切片；cooled不等于冻成冰。",
+            "hint": "按原句排先后；不补降温设备、温度或时长。",
+            "events": [
+              {
+                "id": "cool",
+                "label": "降温"
+              },
+              {
+                "id": "slice",
+                "label": "切片"
+              }
+            ],
+            "sequence": [
+              "cool",
+              "slice"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "cool",
+            "text": "先让西瓜凉下来，再切片。",
+            "correct": true,
+            "reason": "保留cooled在slicing之前。"
+          },
+          {
+            "id": "slice",
+            "text": "先把西瓜切成片，再让它凉下来。",
+            "correct": false,
+            "reason": "把before的先后关系倒置。"
+          },
+          {
+            "id": "ice",
+            "text": "原句明确说把西瓜冻成了冰。",
+            "correct": false,
+            "reason": "cool不是freeze；原句没有给结冰结果。"
+          }
+        ]
+      },
+      {
+        "id": "word-pineapple",
+        "label": "菠萝",
+        "prompt": "rough, spiky skin描述哪一部分？点图里的果皮，再核对英文。",
+        "answer": "pineapple",
+        "caseSensitive": false,
+        "meaning": "菠萝",
+        "before": "The ",
+        "after": " has a rough, spiky skin.",
+        "reason": "The pineapple has a rough, spiky skin描述菠萝果皮粗糙、带尖刺。",
+        "hint": "skin在水果语境指果皮；不是人的皮肤，也不是顶部的叶子。",
+        "material": "The pineapple has a rough, spiky skin.",
+        "wordDecision": {
+          "prompt": "rough, spiky skin描述哪一部分？点图里的果皮，再核对英文。",
+          "art": {
+            "asset": "lesson-pineapple-skin",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创教学插画：一个完整菠萝，金黄色果皮有明显凹凸和尖刺，顶部是绿色叶冠，右边桌面上有影子。图中果皮、叶子与影子分开可见；一个示范菠萝不表示原句之外的数量。",
+            "targets": [
+              {
+                "id": "skin",
+                "option": "skin",
+                "label": "果皮",
+                "labelPosition": "bottom",
+                "left": 32,
+                "top": 46,
+                "width": 30,
+                "height": 49
+              },
+              {
+                "id": "pineapple-leaves",
+                "option": "leaves",
+                "label": "叶子",
+                "labelPosition": "top",
+                "left": 31,
+                "top": 1,
+                "width": 36,
+                "height": 42
+              },
+              {
+                "id": "shadow",
+                "option": "shadow",
+                "label": "影子",
+                "labelPosition": "bottom",
+                "left": 64,
+                "top": 64,
+                "width": 33,
+                "height": 35
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "skin",
+            "text": "菠萝的果皮粗糙，带着尖刺。",
+            "correct": true,
+            "reason": "rough与spiky都修饰skin。"
+          },
+          {
+            "id": "leaves",
+            "text": "原句只说菠萝顶部的叶子。",
+            "correct": false,
+            "reason": "被描述的是skin，不是leaves。"
+          },
+          {
+            "id": "shadow",
+            "text": "被描述的是菠萝旁边的影子。",
+            "correct": false,
+            "reason": "shadow不是skin；影子也不是果皮。"
+          }
+        ]
+      },
+      {
+        "id": "word-mango",
+        "label": "芒果",
+        "prompt": "either side of the stone：标出果核两侧，别把线画进核里。",
+        "answer": "mango",
+        "caseSensitive": false,
+        "meaning": "芒果",
+        "before": "Cut the ",
+        "after": " on either side of the stone.",
+        "reason": "Cut the mango on either side of the stone要求沿芒果核的两侧切开。",
+        "hint": "stone在这里是果核；本句either side指两侧。图中切线只是位置示意。",
+        "material": "Cut the mango on either side of the stone.",
+        "wordDecision": {
+          "prompt": "either side of the stone：标出果核两侧，别把线画进核里。",
+          "stoneSides": {
+            "title": "把线放在果核两侧",
+            "hint": "只调示意切线的位置；不演示实际用刀。",
+            "wrong": "核的两侧都要保留；不能穿过核，也不能只标一侧。"
+          }
+        },
+        "options": [
+          {
+            "id": "sides",
+            "text": "沿芒果核的两侧切开。",
+            "correct": true,
+            "reason": "保留核的两侧这个位置条件。"
+          },
+          {
+            "id": "through",
+            "text": "直接从芒果核中间切过去。",
+            "correct": false,
+            "reason": "through the stone不等于on either side of the stone。"
+          },
+          {
+            "id": "done",
+            "text": "芒果已经切好了。",
+            "correct": false,
+            "reason": "Cut是要求，没有报告完成结果。"
+          }
+        ]
+      },
+      {
+        "id": "word-vegetable",
+        "label": "蔬菜（本句）",
+        "prompt": "never cooked说谁以前没做过？能换成从没吃过吗？",
+        "answer": "vegetable",
+        "caseSensitive": false,
+        "meaning": "蔬菜（本句）",
+        "before": "Choose a ",
+        "after": " you have never cooked before.",
+        "reason": "Choose a vegetable you have never cooked before要求选一种你以前从未烹调过的蔬菜。",
+        "hint": "a vegetable在本句是单数；never cooked不等于never eaten，也不等于从来没有人做过。",
+        "material": "Choose a vegetable you have never cooked before.",
+        "wordDecision": {
+          "prompt": "never cooked说谁以前没做过？能换成从没吃过吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "你没做过，不等于没人做过",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "要求不等于已经做完。",
+            "wrong": "保留一种蔬菜和你的烹调经历，不补没吃过或所有人的经历。",
+            "rows": [
+              {
+                "id": "vegetable",
+                "label": "对象",
+                "text": "选一种蔬菜。",
+                "include": true
+              },
+              {
+                "id": "you",
+                "label": "经历",
+                "text": "你以前从未烹调过。",
+                "include": true
+              },
+              {
+                "id": "eaten",
+                "label": "额外条件",
+                "text": "你从未吃过这种蔬菜。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "never",
+            "text": "选一种你以前从未烹调过的蔬菜。",
+            "correct": true,
+            "reason": "保留对象、you和never cooked。"
+          },
+          {
+            "id": "eaten",
+            "text": "选一种你以前从未吃过的蔬菜。",
+            "correct": false,
+            "reason": "没有吃过不等于没有烹调过。"
+          },
+          {
+            "id": "world",
+            "text": "选一种世界上从未有人烹调过的蔬菜。",
+            "correct": false,
+            "reason": "you限定你，不是世界上所有人。"
+          }
+        ]
+      },
+      {
+        "id": "word-potato",
+        "label": "土豆",
+        "prompt": "until its centre is soft：只看表面够吗？比较中心状态。",
+        "answer": "potato",
+        "caseSensitive": false,
+        "meaning": "土豆",
+        "before": "Bake the ",
+        "after": " until its centre is soft.",
+        "reason": "Bake the potato until its centre is soft要求把土豆烤到中心变软。",
+        "hint": "until给停止条件；centre是中心，不是只看表面，也没有报告已经烤好。",
+        "material": "Bake the potato until its centre is soft.",
+        "wordDecision": {
+          "prompt": "until its centre is soft：只看表面够吗？比较中心状态。",
+          "softCentre": {
+            "title": "外面软，中心就一定软？",
+            "hint": "剖面只比较状态；不提供实际温度或烘烤时长。",
+            "wrong": "要求中心变软；只软表面或中心状态未知都不能确认符合。"
+          }
+        },
+        "options": [
+          {
+            "id": "centre",
+            "text": "把土豆烤到中心变软。",
+            "correct": true,
+            "reason": "保留烘烤动作与中心变软的终点条件。"
+          },
+          {
+            "id": "surface",
+            "text": "只要土豆表面变软，就符合要求。",
+            "correct": false,
+            "reason": "表面变软不能替代its centre is soft。"
+          },
+          {
+            "id": "ready",
+            "text": "土豆现在已经烤好了。",
+            "correct": false,
+            "reason": "原句给要求，不保证已经完成。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-fruit-vegetables-2-transfer",
+      "topicId": "v-course-fruit-vegetables",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成杏子、甜瓜和红薯，哪组三句完整保留要求与记录？",
+      "passage": "新的厨房提示\n吃杏子（apricot）前先去核。我们先让甜瓜（melon）凉下来，再切片。把红薯（sweet potato）烤到中心变软。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Remove the stone after eating the apricot. We cooled the melon before slicing it. Bake the sweet potato until its centre is soft."
+        },
+        {
+          "id": "b",
+          "text": "Remove the stone before eating the apricot. We sliced the melon before cooling it. Bake the sweet potato until its centre is soft."
+        },
+        {
+          "id": "c",
+          "text": "Remove the stone before eating the apricot. We cooled the melon before slicing it. Bake the sweet potato until its centre is soft."
+        },
+        {
+          "id": "d",
+          "text": "Remove the stone before eating the apricot. We cooled the melon before slicing it. Bake the sweet potato until only its surface is soft."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Remove the stone before eating the apricot. We cooled the melon before slicing it. Bake the sweet potato until its centre is soft."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "食物换了，before的顺序和until的终点仍要逐项保留。",
+        "steps": [
+          {
+            "text": "去核在吃之前：Remove the stone before eating the apricot.",
+            "reason": "after eating把要求的顺序颠倒。"
+          },
+          {
+            "text": "先让甜瓜凉下来，再切片：cooled…before slicing。",
+            "reason": "不能改成先切再降温；原记录没有给冰箱或温度。"
+          },
+          {
+            "text": "烤到中心变软：until its centre is soft。",
+            "reason": "centre是中心；只说表面变软，不能确认达到要求。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "after把先去核再吃倒成吃后去核。"
+          },
+          {
+            "option": "b",
+            "reason": "把先降温再切片倒成先切片再降温。"
+          },
+          {
+            "option": "d",
+            "reason": "only its surface is soft把中心条件换成只有表面软。"
+          }
+        ],
+        "pitfall": "只认出食物名称，漏看动作先后和条件限定。",
+        "visual": {
+          "kind": "comparison",
+          "title": "两个顺序，一个终点",
+          "segments": [
+            {
+              "text": "remove stone → eat",
+              "role": "evidence",
+              "note": "先去核，再吃"
+            },
+            {
+              "text": "cool → slice",
+              "role": "evidence",
+              "note": "先降温，再切片"
+            },
+            {
+              "text": "until centre is soft",
+              "role": "evidence",
+              "note": "看中心，不只看表面"
+            }
+          ],
+          "caption": "去核与烘烤是要求；甜瓜的降温、切片是过去记录。"
+        },
+        "transfer": "把centre换成surface，终点条件发生了什么变化？"
+      }
+    }
+  }
+}

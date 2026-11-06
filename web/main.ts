@@ -188,6 +188,9 @@ function render() {
   const fruitPrepFocus = active instanceof HTMLButtonElement && active.matches(".word-fruit-prep button") ? active.dataset.value : undefined
   const containerFitFocus = active instanceof HTMLButtonElement && active.matches(".word-container-fit button") ? active.dataset.value : undefined
   const fruitFallFocus = active instanceof HTMLButtonElement && active.matches(".word-fruit-fall button") ? active.dataset.value : undefined
+  const fruitSceneFocus = active instanceof HTMLButtonElement && active.matches(".word-fruit-scene button") ? active.dataset.value : undefined
+  const stoneSidesFocus = active instanceof HTMLButtonElement && active.matches(".word-stone-sides button") ? active.dataset.value : undefined
+  const softCentreFocus = active instanceof HTMLButtonElement && active.matches(".word-soft-centre button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -294,6 +297,9 @@ function render() {
   if (fruitPrepFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-fruit-prep [data-value="${CSS.escape(fruitPrepFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (containerFitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-container-fit [data-value="${CSS.escape(containerFitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (fruitFallFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-fruit-fall [data-value="${CSS.escape(fruitFallFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (fruitSceneFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-fruit-scene [data-value="${CSS.escape(fruitSceneFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (stoneSidesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stone-sides [data-value="${CSS.escape(stoneSidesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (softCentreFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-soft-centre [data-value="${CSS.escape(softCentreFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
