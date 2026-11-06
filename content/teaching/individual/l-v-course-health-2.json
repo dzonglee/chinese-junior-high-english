@@ -1,0 +1,4683 @@
+{
+  "lessonId": "l-v-course-health-2",
+  "reviewState": "draft",
+  "intent": "Teach worsening versus improvement; booking versus completed care; reporting pain to nurse; conditional advice to adult; legs after climb; ankle pain as unanswered question; knee injury and departure; gentle wound cleaning without cure inference.",
+  "picturePurpose": "Five individually authored coded diagrams clarify condition/effect, conditional advice, body location/time, unanswered question and departure; no decorative or diagnostic bitmap is needed.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "疼在哪里，原句说到了哪一步？",
+    "instruction": "改图、圈证据，分清加重、预约和提问；不替原句补诊断或结果。",
+    "items": [
+      {
+        "id": "word-headache",
+        "label": "头痛",
+        "prompt": "原句是哪种光线，头痛又怎样变化？分别改图核对。",
+        "answer": "headache",
+        "caseSensitive": false,
+        "meaning": "头痛",
+        "before": "The bright light made my ",
+        "after": " worse.",
+        "reason": "The bright light made my headache worse说强光让原有的头痛更厉害了；worse不是好转。",
+        "hint": "只比较句中的变化方向，不给疼痛分数或推断疾病。",
+        "material": "The bright light made my headache worse.",
+        "options": [
+          {
+            "id": "bright-worse",
+            "text": "强光让我的头痛更厉害了。",
+            "correct": true,
+            "reason": "保留bright light、headache和worse。"
+          },
+          {
+            "id": "dim",
+            "text": "昏暗的光让我的头痛更厉害了。",
+            "correct": false,
+            "reason": "昏暗改变了bright强烈、明亮的光线。"
+          },
+          {
+            "id": "better",
+            "text": "强光让我的头痛好转了。",
+            "correct": false,
+            "reason": "好转与worse加重相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "原句是哪种光线，头痛又怎样变化？分别改图核对。",
+          "sceneLab": {
+            "id": "headache-worse",
+            "title": "光线与变化，分别核对",
+            "hint": "图只表示光线条件和加重方向，不表示真实疼痛程度。",
+            "wrong": "应强光让头痛加重，不能改昏暗或好转。",
+            "axes": [
+              {
+                "id": "light",
+                "label": "光线",
+                "choices": [
+                  {
+                    "id": "bright",
+                    "label": "强光"
+                  },
+                  {
+                    "id": "dim",
+                    "label": "昏暗"
+                  }
+                ]
+              },
+              {
+                "id": "effect",
+                "label": "头痛的变化",
+                "choices": [
+                  {
+                    "id": "worse",
+                    "label": "更厉害了"
+                  },
+                  {
+                    "id": "better",
+                    "label": "好转了"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 28,
+                    "width": 22,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "neck",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 57,
+                    "width": 7,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "head-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 73,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "头痛"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光线待选"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 2,
+                    "width": 53,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "变化待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|worse",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 28,
+                    "width": 22,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "neck",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 57,
+                    "width": 7,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "head-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 73,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "头痛"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光线待选"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 2,
+                    "width": 53,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "→ 加重"
+                  }
+                ]
+              },
+              {
+                "signature": "?|better",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 28,
+                    "width": 22,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "neck",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 57,
+                    "width": 7,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "head-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 73,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "头痛"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光线待选"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 2,
+                    "width": 53,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "→ 好转"
+                  }
+                ]
+              },
+              {
+                "signature": "bright|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 28,
+                    "width": 22,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "neck",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 57,
+                    "width": 7,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "head-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 73,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "头痛"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "强光"
+                  },
+                  {
+                    "id": "lamp",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 28,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ray1",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 26,
+                    "width": 16,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ray2",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 39,
+                    "width": 17,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ray3",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 52,
+                    "width": 16,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 2,
+                    "width": 53,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "变化待选"
+                  }
+                ]
+              },
+              {
+                "signature": "bright|worse",
+                "reading": "强光让我的头痛更厉害了。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 28,
+                    "width": 22,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "neck",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 57,
+                    "width": 7,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "head-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 73,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "头痛"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "强光"
+                  },
+                  {
+                    "id": "lamp",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 28,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ray1",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 26,
+                    "width": 16,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ray2",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 39,
+                    "width": 17,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ray3",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 52,
+                    "width": 16,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 2,
+                    "width": 53,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "→ 加重"
+                  }
+                ]
+              },
+              {
+                "signature": "bright|better",
+                "reading": "应强光让头痛加重，不能改昏暗或好转。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 28,
+                    "width": 22,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "neck",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 57,
+                    "width": 7,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "head-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 73,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "头痛"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "强光"
+                  },
+                  {
+                    "id": "lamp",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 28,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ray1",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 26,
+                    "width": 16,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ray2",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 39,
+                    "width": 17,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ray3",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 52,
+                    "width": 16,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 2,
+                    "width": 53,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "→ 好转"
+                  }
+                ]
+              },
+              {
+                "signature": "dim|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 28,
+                    "width": 22,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "neck",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 57,
+                    "width": 7,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "head-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 73,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "头痛"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "昏暗"
+                  },
+                  {
+                    "id": "lamp",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 28,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 2,
+                    "width": 53,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "变化待选"
+                  }
+                ]
+              },
+              {
+                "signature": "dim|worse",
+                "reading": "应强光让头痛加重，不能改昏暗或好转。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 28,
+                    "width": 22,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "neck",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 57,
+                    "width": 7,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "head-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 73,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "头痛"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "昏暗"
+                  },
+                  {
+                    "id": "lamp",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 28,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 2,
+                    "width": 53,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "→ 加重"
+                  }
+                ]
+              },
+              {
+                "signature": "dim|better",
+                "reading": "应强光让头痛加重，不能改昏暗或好转。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 28,
+                    "width": 22,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "neck",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 57,
+                    "width": 7,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "head-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 73,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "头痛"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "昏暗"
+                  },
+                  {
+                    "id": "lamp",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 28,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 2,
+                    "width": 53,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "→ 好转"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-toothache",
+        "label": "牙痛",
+        "prompt": "booked停在哪一步？圈出牙痛和预约，别补已经治疗。",
+        "answer": "toothache",
+        "caseSensitive": false,
+        "meaning": "牙痛",
+        "before": "He booked a dental appointment for his ",
+        "after": ".",
+        "reason": "He booked a dental appointment for his toothache说他因牙痛预约了牙医；预约不等于已经就诊或治好。",
+        "hint": "toothache是本课目标词，拼成一个词；原句没有诊疗结果。",
+        "material": "He booked a dental appointment for his toothache.",
+        "options": [
+          {
+            "id": "booked",
+            "text": "他因牙痛预约了牙医。",
+            "correct": true,
+            "reason": "保留toothache与booked a dental appointment。"
+          },
+          {
+            "id": "treated",
+            "text": "他已经就诊并完成了治疗。",
+            "correct": false,
+            "reason": "booked只报告预约，没有报告已经就诊治疗。"
+          },
+          {
+            "id": "head",
+            "text": "他因头痛预约了牙医。",
+            "correct": false,
+            "reason": "头痛改变了toothache牙痛。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "booked停在哪一步？圈出牙痛和预约，别补已经治疗。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "牙痛与预约",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "只记录原句，不补治疗或恢复情况。",
+            "wrong": "应牙痛与预约，不补已经就诊或痊愈。",
+            "rows": [
+              {
+                "id": "tooth",
+                "label": "原因",
+                "text": "他牙痛。",
+                "include": true
+              },
+              {
+                "id": "booking",
+                "label": "已报告的行动",
+                "text": "他预约了牙医。",
+                "include": true
+              },
+              {
+                "id": "cured",
+                "label": "额外结果",
+                "text": "牙痛已经治好了。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-stomachache",
+        "label": "胃痛；腹痛",
+        "prompt": "我把什么情况告诉了谁？圈出两条信息。",
+        "answer": "stomachache",
+        "caseSensitive": false,
+        "meaning": "胃痛；腹痛",
+        "before": "I told the nurse about my ",
+        "after": ".",
+        "reason": "I told the nurse about my stomachache说我把肚子疼的情况告诉了护士；没有给检查或治疗结果。",
+        "hint": "本课目标词写stomachache；stomach ache也是正确写法。",
+        "material": "I told the nurse about my stomachache.",
+        "options": [
+          {
+            "id": "told-nurse",
+            "text": "我把肚子疼的情况告诉了护士。",
+            "correct": true,
+            "reason": "保留stomachache、told与the nurse。"
+          },
+          {
+            "id": "teacher",
+            "text": "我把肚子疼的情况告诉了老师。",
+            "correct": false,
+            "reason": "老师改变了the nurse护士。"
+          },
+          {
+            "id": "recovered",
+            "text": "原句已经说肚子疼好了。",
+            "correct": false,
+            "reason": "告诉护士不等于已经恢复。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "我把什么情况告诉了谁？圈出两条信息。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "不适与报告对象",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "只记录原句，不补治疗或恢复情况。",
+            "wrong": "应腹痛与告诉护士，不换对象或补已经恢复。",
+            "rows": [
+              {
+                "id": "pain",
+                "label": "报告内容",
+                "text": "我肚子疼。",
+                "include": true
+              },
+              {
+                "id": "nurse",
+                "label": "交流",
+                "text": "我把情况告诉了护士。",
+                "include": true
+              },
+              {
+                "id": "recovered",
+                "label": "额外结果",
+                "text": "肚子疼已经好了。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "spellings": [
+          "stomachache",
+          "stomach ache"
+        ],
+        "ownForms": [
+          "stomachache",
+          "stomach ache"
+        ]
+      },
+      {
+        "id": "word-pain",
+        "label": "疼痛（名词）",
+        "prompt": "if提出什么条件，tell要求告诉谁？分别选对。",
+        "answer": "pain",
+        "caseSensitive": false,
+        "meaning": "疼痛（名词）",
+        "before": "Tell an adult if the ",
+        "after": " gets worse.",
+        "reason": "Tell an adult if the pain gets worse要求疼痛加重时告诉成年人；这是带条件的要求，不是已完成的报告。",
+        "hint": "没有断言疼痛已经加重，也没有说其他时候不能求助。",
+        "material": "Tell an adult if the pain gets worse.",
+        "options": [
+          {
+            "id": "if-adult",
+            "text": "疼痛加重时，要告诉成年人。",
+            "correct": true,
+            "reason": "保留if…gets worse与tell an adult。"
+          },
+          {
+            "id": "already",
+            "text": "疼痛已经加重，而且已经告诉了成年人。",
+            "correct": false,
+            "reason": "把条件要求改成了已经发生、已经完成。"
+          },
+          {
+            "id": "child",
+            "text": "疼痛加重时，只要告诉另一个孩子。",
+            "correct": false,
+            "reason": "孩子不是原句要求的an adult。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "if提出什么条件，tell要求告诉谁？分别选对。",
+          "sceneLab": {
+            "id": "pain-condition",
+            "title": "什么条件，告诉谁？",
+            "hint": "只比较原句条件与求助对象，不诊断当前疼痛，也不限制其他求助。",
+            "wrong": "应疼痛加重时告诉成年人，不补已经发生或改成只告诉孩子。",
+            "axes": [
+              {
+                "id": "condition",
+                "label": "原句的条件",
+                "choices": [
+                  {
+                    "id": "worse",
+                    "label": "疼痛加重时"
+                  },
+                  {
+                    "id": "same",
+                    "label": "疼痛没有加重"
+                  }
+                ]
+              },
+              {
+                "id": "recipient",
+                "label": "要求告诉谁",
+                "choices": [
+                  {
+                    "id": "adult",
+                    "label": "成年人"
+                  },
+                  {
+                    "id": "child",
+                    "label": "另一个孩子"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 19,
+                    "width": 43,
+                    "height": 49,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 24,
+                    "width": 41,
+                    "height": 38,
+                    "tone": "ink",
+                    "text": "条件待选"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 34,
+                    "width": 18,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "recipient-label",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 30,
+                    "width": 29,
+                    "height": 34,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|adult",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 19,
+                    "width": 43,
+                    "height": 49,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 24,
+                    "width": 41,
+                    "height": 38,
+                    "tone": "ink",
+                    "text": "条件待选"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 34,
+                    "width": 18,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "recipient-head",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 21,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-body",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 39,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 78,
+                    "width": 34,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "成年人"
+                  }
+                ]
+              },
+              {
+                "signature": "?|child",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 19,
+                    "width": 43,
+                    "height": 49,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 24,
+                    "width": 41,
+                    "height": 38,
+                    "tone": "ink",
+                    "text": "条件待选"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 34,
+                    "width": 18,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "recipient-head",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 38,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-body",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 56,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 78,
+                    "width": 34,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "孩子"
+                  }
+                ]
+              },
+              {
+                "signature": "worse|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 19,
+                    "width": 43,
+                    "height": 49,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 24,
+                    "width": 41,
+                    "height": 38,
+                    "tone": "ink",
+                    "text": "疼痛加重时"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 34,
+                    "width": 18,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "recipient-label",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 30,
+                    "width": 29,
+                    "height": 34,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "worse|adult",
+                "reading": "疼痛加重时，要告诉成年人。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 19,
+                    "width": 43,
+                    "height": 49,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 24,
+                    "width": 41,
+                    "height": 38,
+                    "tone": "ink",
+                    "text": "疼痛加重时"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 34,
+                    "width": 18,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "recipient-head",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 21,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-body",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 39,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 78,
+                    "width": 34,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "成年人"
+                  }
+                ]
+              },
+              {
+                "signature": "worse|child",
+                "reading": "应疼痛加重时告诉成年人，不补已经发生或改成只告诉孩子。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 19,
+                    "width": 43,
+                    "height": 49,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 24,
+                    "width": 41,
+                    "height": 38,
+                    "tone": "ink",
+                    "text": "疼痛加重时"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 34,
+                    "width": 18,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "recipient-head",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 38,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-body",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 56,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 78,
+                    "width": 34,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "孩子"
+                  }
+                ]
+              },
+              {
+                "signature": "same|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 19,
+                    "width": 43,
+                    "height": 49,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 24,
+                    "width": 41,
+                    "height": 38,
+                    "tone": "ink",
+                    "text": "疼痛未加重"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 34,
+                    "width": 18,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "recipient-label",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 30,
+                    "width": 29,
+                    "height": 34,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "same|adult",
+                "reading": "应疼痛加重时告诉成年人，不补已经发生或改成只告诉孩子。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 19,
+                    "width": 43,
+                    "height": 49,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 24,
+                    "width": 41,
+                    "height": 38,
+                    "tone": "ink",
+                    "text": "疼痛未加重"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 34,
+                    "width": 18,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "recipient-head",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 21,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-body",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 39,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 78,
+                    "width": 34,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "成年人"
+                  }
+                ]
+              },
+              {
+                "signature": "same|child",
+                "reading": "应疼痛加重时告诉成年人，不补已经发生或改成只告诉孩子。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 19,
+                    "width": 43,
+                    "height": 49,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 24,
+                    "width": 41,
+                    "height": 38,
+                    "tone": "ink",
+                    "text": "疼痛未加重"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 34,
+                    "width": 18,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "recipient-head",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 38,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-body",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 56,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "recipient-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 78,
+                    "width": 34,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "孩子"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-ache",
+        "label": "疼痛；隐隐作痛（动词）",
+        "prompt": "哪里疼，发生在长时间攀登之前还是之后？改图核对。",
+        "answer": "ache",
+        "caseSensitive": false,
+        "meaning": "疼痛；隐隐作痛（动词）",
+        "before": "My legs ",
+        "after": " after the long climb.",
+        "reason": "My legs ache after the long climb说长时间攀登后我的双腿隐隐作痛；ache在这里是动词。",
+        "hint": "after说明先后，不给具体时长或受伤诊断；ache与hurt有词义重叠。",
+        "material": "My legs ache after the long climb.",
+        "options": [
+          {
+            "id": "legs-after",
+            "text": "长时间攀登后，我的双腿隐隐作痛。",
+            "correct": true,
+            "reason": "保留legs与after the long climb。"
+          },
+          {
+            "id": "arms",
+            "text": "长时间攀登后，我的双臂隐隐作痛。",
+            "correct": false,
+            "reason": "双臂改变了legs双腿。"
+          },
+          {
+            "id": "before",
+            "text": "长时间攀登前，我的双腿隐隐作痛。",
+            "correct": false,
+            "reason": "之前与after之后相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪里疼，发生在长时间攀登之前还是之后？改图核对。",
+          "sceneLab": {
+            "id": "legs-after",
+            "title": "部位与先后，分别看",
+            "hint": "图只比较部位和先后，不推断损伤原因或给出时间数值。",
+            "wrong": "应双腿与攀登之后，不能换双臂或之前。",
+            "axes": [
+              {
+                "id": "part",
+                "label": "疼痛部位",
+                "choices": [
+                  {
+                    "id": "legs",
+                    "label": "双腿"
+                  },
+                  {
+                    "id": "arms",
+                    "label": "双臂"
+                  }
+                ]
+              },
+              {
+                "id": "time",
+                "label": "与长时间攀登的先后",
+                "choices": [
+                  {
+                    "id": "after",
+                    "label": "之后"
+                  },
+                  {
+                    "id": "before",
+                    "label": "之前"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "step1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 63,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step2",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 10,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step3",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 35,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "climb",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 5,
+                    "width": 40,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "长时间攀登"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 20,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 34,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-arm",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-arm",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 2,
+                    "width": 41,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  },
+                  {
+                    "id": "order",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 36,
+                    "width": 25,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|after",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "step1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 63,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step2",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 10,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step3",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 35,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "climb",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 5,
+                    "width": 40,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "长时间攀登"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 20,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 34,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-arm",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-arm",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 2,
+                    "width": 41,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  },
+                  {
+                    "id": "order",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 36,
+                    "width": 25,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "→ 之后"
+                  }
+                ]
+              },
+              {
+                "signature": "?|before",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "step1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 63,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step2",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 10,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step3",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 35,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "climb",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 5,
+                    "width": 40,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "长时间攀登"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 20,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 34,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-arm",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-arm",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 2,
+                    "width": 41,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  },
+                  {
+                    "id": "order",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 36,
+                    "width": 25,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "← 之前"
+                  }
+                ]
+              },
+              {
+                "signature": "legs|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "step1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 63,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step2",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 10,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step3",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 35,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "climb",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 5,
+                    "width": 40,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "长时间攀登"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 20,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 34,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-arm",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-arm",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 2,
+                    "width": 41,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "双腿疼"
+                  },
+                  {
+                    "id": "order",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 36,
+                    "width": 25,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "待选"
+                  }
+                ]
+              },
+              {
+                "signature": "legs|after",
+                "reading": "长时间攀登后，我的双腿隐隐作痛。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "step1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 63,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step2",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 10,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step3",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 35,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "climb",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 5,
+                    "width": 40,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "长时间攀登"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 20,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 34,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-arm",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-arm",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 2,
+                    "width": 41,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "双腿疼"
+                  },
+                  {
+                    "id": "order",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 36,
+                    "width": 25,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "→ 之后"
+                  }
+                ]
+              },
+              {
+                "signature": "legs|before",
+                "reading": "应双腿与攀登之后，不能换双臂或之前。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "step1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 63,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step2",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 10,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step3",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 35,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "climb",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 5,
+                    "width": 40,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "长时间攀登"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 20,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 34,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-arm",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-arm",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 2,
+                    "width": 41,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "双腿疼"
+                  },
+                  {
+                    "id": "order",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 36,
+                    "width": 25,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "← 之前"
+                  }
+                ]
+              },
+              {
+                "signature": "arms|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "step1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 63,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step2",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 10,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step3",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 35,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "climb",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 5,
+                    "width": 40,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "长时间攀登"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 20,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 34,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-arm",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-arm",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 2,
+                    "width": 41,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "双臂疼"
+                  },
+                  {
+                    "id": "order",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 36,
+                    "width": 25,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "待选"
+                  }
+                ]
+              },
+              {
+                "signature": "arms|after",
+                "reading": "应双腿与攀登之后，不能换双臂或之前。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "step1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 63,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step2",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 10,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step3",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 35,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "climb",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 5,
+                    "width": 40,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "长时间攀登"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 20,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 34,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-arm",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-arm",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 2,
+                    "width": 41,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "双臂疼"
+                  },
+                  {
+                    "id": "order",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 36,
+                    "width": 25,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "→ 之后"
+                  }
+                ]
+              },
+              {
+                "signature": "arms|before",
+                "reading": "应双腿与攀登之后，不能换双臂或之前。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "step1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 63,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step2",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 10,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "step3",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 35,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "climb",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 5,
+                    "width": 40,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "长时间攀登"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 20,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 34,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-arm",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-arm",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 35,
+                    "width": 7,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 59,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 2,
+                    "width": 41,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "双臂疼"
+                  },
+                  {
+                    "id": "order",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 36,
+                    "width": 25,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "← 之前"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-hurt",
+        "label": "疼；感到疼痛（本句）",
+        "prompt": "这是在提问，还是已经得到“疼”的回答？同时核对脚踝。",
+        "answer": "hurt",
+        "caseSensitive": false,
+        "meaning": "疼；感到疼痛（本句）",
+        "before": "Does your ankle ",
+        "after": " when you walk?",
+        "reason": "Does your ankle hurt when you walk?是在问走路时脚踝疼不疼；原句没有给出回答。",
+        "hint": "hurt在这里是动词；不能从问句推断已经受伤，也不能把when改成因果。",
+        "material": "Does your ankle hurt when you walk?",
+        "options": [
+          {
+            "id": "ankle-question",
+            "text": "在问走路时脚踝疼不疼，尚未给答案。",
+            "correct": true,
+            "reason": "保留ankle、when you walk与提问语气。"
+          },
+          {
+            "id": "yes",
+            "text": "原句已经确认走路时脚踝疼。",
+            "correct": false,
+            "reason": "问句没有提供肯定回答。"
+          },
+          {
+            "id": "wrist",
+            "text": "在问走路时手腕疼不疼。",
+            "correct": false,
+            "reason": "手腕改变了ankle脚踝。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "这是在提问，还是已经得到“疼”的回答？同时核对脚踝。",
+          "sceneLab": {
+            "id": "ankle-question",
+            "title": "核对部位，保留问号",
+            "hint": "标记只指出询问部位，不代表已经疼痛；问号没有给答案。",
+            "wrong": "应询问走路时脚踝是否疼，不能改手腕或补肯定回答。",
+            "axes": [
+              {
+                "id": "part",
+                "label": "询问部位",
+                "choices": [
+                  {
+                    "id": "ankle",
+                    "label": "脚踝"
+                  },
+                  {
+                    "id": "wrist",
+                    "label": "手腕"
+                  }
+                ]
+              },
+              {
+                "id": "mode",
+                "label": "原句语气",
+                "choices": [
+                  {
+                    "id": "ask",
+                    "label": "提问，未给答案"
+                  },
+                  {
+                    "id": "assert",
+                    "label": "已经确认疼"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 34,
+                    "y": 6,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 24,
+                    "width": 18,
+                    "height": 30,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 29,
+                    "width": 22,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wrist",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 28,
+                    "width": 8,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 32,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "ankle",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 81,
+                    "width": 11,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 78,
+                    "width": 30,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "询问部位待选"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 47,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "walking",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 10,
+                    "width": 41,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "走路时"
+                  }
+                ]
+              },
+              {
+                "signature": "?|ask",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 34,
+                    "y": 6,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 24,
+                    "width": 18,
+                    "height": 30,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 29,
+                    "width": 22,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wrist",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 28,
+                    "width": 8,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 32,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "ankle",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 81,
+                    "width": 11,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 78,
+                    "width": 30,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "询问部位待选"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 47,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "疼吗？"
+                  },
+                  {
+                    "id": "walking",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 10,
+                    "width": 41,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "走路时"
+                  }
+                ]
+              },
+              {
+                "signature": "?|assert",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 34,
+                    "y": 6,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 24,
+                    "width": 18,
+                    "height": 30,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 29,
+                    "width": 22,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wrist",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 28,
+                    "width": 8,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 32,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "ankle",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 81,
+                    "width": 11,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 78,
+                    "width": 30,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "询问部位待选"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 47,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "已经确认疼"
+                  },
+                  {
+                    "id": "walking",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 10,
+                    "width": 41,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "走路时"
+                  }
+                ]
+              },
+              {
+                "signature": "ankle|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 34,
+                    "y": 6,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 24,
+                    "width": 18,
+                    "height": 30,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 29,
+                    "width": 22,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wrist",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 28,
+                    "width": 8,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 32,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "ankle",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 81,
+                    "width": 11,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 78,
+                    "width": 30,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "脚踝"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 47,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "walking",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 10,
+                    "width": 41,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "走路时"
+                  }
+                ]
+              },
+              {
+                "signature": "ankle|ask",
+                "reading": "在问走路时脚踝疼不疼，尚未给答案。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 34,
+                    "y": 6,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 24,
+                    "width": 18,
+                    "height": 30,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 29,
+                    "width": 22,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wrist",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 28,
+                    "width": 8,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 32,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "ankle",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 81,
+                    "width": 11,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 78,
+                    "width": 30,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "脚踝"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 47,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "疼吗？"
+                  },
+                  {
+                    "id": "walking",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 10,
+                    "width": 41,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "走路时"
+                  }
+                ]
+              },
+              {
+                "signature": "ankle|assert",
+                "reading": "应询问走路时脚踝是否疼，不能改手腕或补肯定回答。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 34,
+                    "y": 6,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 24,
+                    "width": 18,
+                    "height": 30,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 29,
+                    "width": 22,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wrist",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 28,
+                    "width": 8,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 32,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "ankle",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 81,
+                    "width": 11,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 78,
+                    "width": 30,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "脚踝"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 47,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "已经确认疼"
+                  },
+                  {
+                    "id": "walking",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 10,
+                    "width": 41,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "走路时"
+                  }
+                ]
+              },
+              {
+                "signature": "wrist|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 34,
+                    "y": 6,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 24,
+                    "width": 18,
+                    "height": 30,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 29,
+                    "width": 22,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wrist",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 28,
+                    "width": 8,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 32,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "ankle",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 81,
+                    "width": 11,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 78,
+                    "width": 30,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "手腕"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 47,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "walking",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 10,
+                    "width": 41,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "走路时"
+                  }
+                ]
+              },
+              {
+                "signature": "wrist|ask",
+                "reading": "应询问走路时脚踝是否疼，不能改手腕或补肯定回答。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 34,
+                    "y": 6,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 24,
+                    "width": 18,
+                    "height": 30,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 29,
+                    "width": 22,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wrist",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 28,
+                    "width": 8,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 32,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "ankle",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 81,
+                    "width": 11,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 78,
+                    "width": 30,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "手腕"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 47,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "疼吗？"
+                  },
+                  {
+                    "id": "walking",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 10,
+                    "width": 41,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "走路时"
+                  }
+                ]
+              },
+              {
+                "signature": "wrist|assert",
+                "reading": "应询问走路时脚踝是否疼，不能改手腕或补肯定回答。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 34,
+                    "y": 6,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 24,
+                    "width": 18,
+                    "height": 30,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 29,
+                    "width": 22,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wrist",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 28,
+                    "width": 8,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 32,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 55,
+                    "width": 7,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "ankle",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 81,
+                    "width": 11,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 78,
+                    "width": 30,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "手腕"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 47,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "已经确认疼"
+                  },
+                  {
+                    "id": "walking",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 10,
+                    "width": 41,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "走路时"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-injury",
+        "label": "伤；损伤（名词）",
+        "prompt": "哪里受伤，队员离开还是留在球场？分别改一处。",
+        "answer": "injury",
+        "caseSensitive": false,
+        "meaning": "伤；损伤（名词）",
+        "before": "The player left the court with a knee ",
+        "after": ".",
+        "reason": "The player left the court with a knee injury说队员膝盖受伤，离开了球场；injury是名词。",
+        "hint": "没有给受伤过程、损伤类型或恢复结果；不能补骨折。",
+        "material": "The player left the court with a knee injury.",
+        "options": [
+          {
+            "id": "knee-left",
+            "text": "队员膝盖受伤，离开了球场。",
+            "correct": true,
+            "reason": "保留knee injury与left the court。"
+          },
+          {
+            "id": "ankle",
+            "text": "队员脚踝受伤，离开了球场。",
+            "correct": false,
+            "reason": "脚踝改变了knee膝盖。"
+          },
+          {
+            "id": "stayed",
+            "text": "队员膝盖受伤，继续留在球场。",
+            "correct": false,
+            "reason": "继续留下与left离开相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪里受伤，队员离开还是留在球场？分别改一处。",
+          "sceneLab": {
+            "id": "knee-exit",
+            "title": "受伤部位与离场，分别核对",
+            "hint": "图只标句中的部位和离场状态，不展示或判断伤情。",
+            "wrong": "应膝盖受伤并离开球场，不能换脚踝或继续留下。",
+            "axes": [
+              {
+                "id": "part",
+                "label": "受伤部位",
+                "choices": [
+                  {
+                    "id": "knee",
+                    "label": "膝盖"
+                  },
+                  {
+                    "id": "ankle",
+                    "label": "脚踝"
+                  }
+                ]
+              },
+              {
+                "id": "place",
+                "label": "队员的行动",
+                "choices": [
+                  {
+                    "id": "left",
+                    "label": "离开球场"
+                  },
+                  {
+                    "id": "stayed",
+                    "label": "继续留在球场"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 16,
+                    "width": 50,
+                    "height": 76,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "court-line",
+                    "kind": "line",
+                    "x": 28,
+                    "y": 18,
+                    "width": 1,
+                    "height": 70,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "court-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 1,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球场"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 49,
+                    "y": 23,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 38,
+                    "width": 14,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 1,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 88,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|left",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 16,
+                    "width": 50,
+                    "height": 76,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "court-line",
+                    "kind": "line",
+                    "x": 28,
+                    "y": 18,
+                    "width": 1,
+                    "height": 70,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "court-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 1,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球场"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 74,
+                    "y": 23,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 38,
+                    "width": 14,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 81,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 1,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "已离场"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 88,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|stayed",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 16,
+                    "width": 50,
+                    "height": 76,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "court-line",
+                    "kind": "line",
+                    "x": 28,
+                    "y": 18,
+                    "width": 1,
+                    "height": 70,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "court-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 1,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球场"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 22,
+                    "y": 23,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 38,
+                    "width": 14,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 1,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "继续留下"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 88,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  }
+                ]
+              },
+              {
+                "signature": "knee|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 16,
+                    "width": 50,
+                    "height": 76,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "court-line",
+                    "kind": "line",
+                    "x": 28,
+                    "y": 18,
+                    "width": 1,
+                    "height": 70,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "court-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 1,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球场"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 49,
+                    "y": 23,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 38,
+                    "width": 14,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 1,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "part-marker",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 67,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 88,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "膝盖"
+                  }
+                ]
+              },
+              {
+                "signature": "knee|left",
+                "reading": "队员膝盖受伤，离开了球场。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 16,
+                    "width": 50,
+                    "height": 76,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "court-line",
+                    "kind": "line",
+                    "x": 28,
+                    "y": 18,
+                    "width": 1,
+                    "height": 70,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "court-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 1,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球场"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 74,
+                    "y": 23,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 38,
+                    "width": 14,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 81,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 1,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "已离场"
+                  },
+                  {
+                    "id": "part-marker",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 67,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 88,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "膝盖"
+                  }
+                ]
+              },
+              {
+                "signature": "knee|stayed",
+                "reading": "应膝盖受伤并离开球场，不能换脚踝或继续留下。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 16,
+                    "width": 50,
+                    "height": 76,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "court-line",
+                    "kind": "line",
+                    "x": 28,
+                    "y": 18,
+                    "width": 1,
+                    "height": 70,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "court-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 1,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球场"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 22,
+                    "y": 23,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 38,
+                    "width": 14,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 1,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "继续留下"
+                  },
+                  {
+                    "id": "part-marker",
+                    "kind": "ellipse",
+                    "x": 18,
+                    "y": 67,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 88,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "膝盖"
+                  }
+                ]
+              },
+              {
+                "signature": "ankle|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 16,
+                    "width": 50,
+                    "height": 76,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "court-line",
+                    "kind": "line",
+                    "x": 28,
+                    "y": 18,
+                    "width": 1,
+                    "height": 70,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "court-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 1,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球场"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 49,
+                    "y": 23,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 38,
+                    "width": 14,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 1,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "part-marker",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 80,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 88,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "脚踝"
+                  }
+                ]
+              },
+              {
+                "signature": "ankle|left",
+                "reading": "应膝盖受伤并离开球场，不能换脚踝或继续留下。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 16,
+                    "width": 50,
+                    "height": 76,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "court-line",
+                    "kind": "line",
+                    "x": 28,
+                    "y": 18,
+                    "width": 1,
+                    "height": 70,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "court-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 1,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球场"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 74,
+                    "y": 23,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 38,
+                    "width": 14,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 81,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 1,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "已离场"
+                  },
+                  {
+                    "id": "part-marker",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 80,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 88,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "脚踝"
+                  }
+                ]
+              },
+              {
+                "signature": "ankle|stayed",
+                "reading": "应膝盖受伤并离开球场，不能换脚踝或继续留下。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 16,
+                    "width": 50,
+                    "height": 76,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "court-line",
+                    "kind": "line",
+                    "x": 28,
+                    "y": 18,
+                    "width": 1,
+                    "height": 70,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "court-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 1,
+                    "width": 47,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球场"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 22,
+                    "y": 23,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 38,
+                    "width": 14,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "left-leg",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right-leg",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 62,
+                    "width": 5,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 1,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "继续留下"
+                  },
+                  {
+                    "id": "part-marker",
+                    "kind": "ellipse",
+                    "x": 18,
+                    "y": 80,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "part-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 88,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "脚踝"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-wound",
+        "label": "伤口",
+        "prompt": "谁做了什么，方式怎样？圈出清理和轻柔，不补伤口已愈合。",
+        "answer": "wound",
+        "caseSensitive": false,
+        "meaning": "伤口",
+        "before": "The nurse cleaned the ",
+        "after": " gently.",
+        "reason": "The nurse cleaned the wound gently说护士轻轻清理了伤口；gently说明方式，不表示已经愈合。",
+        "hint": "伤口wound读/wuːnd/；wind的过去式wound读/waʊnd/，拼写相同、发音不同。",
+        "material": "The nurse cleaned the wound gently.",
+        "options": [
+          {
+            "id": "gentle-clean",
+            "text": "护士轻轻清理了伤口。",
+            "correct": true,
+            "reason": "保留nurse、cleaned the wound与gently。"
+          },
+          {
+            "id": "rough",
+            "text": "护士用力粗暴地清理了伤口。",
+            "correct": false,
+            "reason": "粗暴与gently轻柔相反。"
+          },
+          {
+            "id": "healed",
+            "text": "原句已经说伤口完全愈合。",
+            "correct": false,
+            "reason": "清理不等于已经完全愈合。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁做了什么，方式怎样？圈出清理和轻柔，不补伤口已愈合。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "行动与方式",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "只记录原句，不补治疗或恢复情况。",
+            "wrong": "应护士清理伤口与动作轻柔，不补完全愈合。",
+            "rows": [
+              {
+                "id": "clean",
+                "label": "行动",
+                "text": "护士清理了伤口。",
+                "include": true
+              },
+              {
+                "id": "gentle",
+                "label": "方式",
+                "text": "动作轻柔。",
+                "include": true
+              },
+              {
+                "id": "healed",
+                "label": "额外结果",
+                "text": "伤口已经完全愈合。",
+                "include": false
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-health-2-transfer",
+      "topicId": "v-course-health",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成大雨、参观和开门，哪组保留了全部信息？",
+      "passage": "三条新信息\n大雨让问题更严重了。她预约了去博物馆参观。有人问：“开门时会有声音吗？”\n词语提示：problem 问题；museum 博物馆；noise 声音。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The heavy rain made the problem better. She booked a museum visit. Does the door make a noise when you open it?"
+        },
+        {
+          "id": "b",
+          "text": "The heavy rain made the problem worse. She has already visited the museum. Does the door make a noise when you open it?"
+        },
+        {
+          "id": "c",
+          "text": "The heavy rain made the problem worse. She booked a museum visit. The door definitely makes a noise when you open it."
+        },
+        {
+          "id": "d",
+          "text": "The heavy rain made the problem worse. She booked a museum visit. Does the door make a noise when you open it?"
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "The heavy rain made the problem worse. She booked a museum visit. Does the door make a noise when you open it?"
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对变化方向、预约进度与问句是否给答案。",
+        "steps": [
+          {
+            "text": "问题更严重了：made the problem worse。",
+            "reason": "better好转改变了变化方向。"
+          },
+          {
+            "text": "只报告预约：booked a museum visit。",
+            "reason": "已经参观把预约推进成已经完成。"
+          },
+          {
+            "text": "仍在询问开门时是否有声音：Does…make a noise…?",
+            "reason": "definitely makes把没有答案的问句改成了确定回答。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "better把更严重改成了好转。"
+          },
+          {
+            "option": "b",
+            "reason": "has already visited补出了已经完成参观的结果。"
+          },
+          {
+            "option": "c",
+            "reason": "definitely makes替未回答的问句补了确定结论。"
+          }
+        ],
+        "pitfall": "加重不是好转，预约不是已完成，问句也不是肯定回答。",
+        "visual": {
+          "kind": "comparison",
+          "title": "每条信息，停在原句给出的地方",
+          "segments": [
+            {
+              "text": "worse",
+              "role": "evidence",
+              "note": "更严重"
+            },
+            {
+              "text": "booked",
+              "role": "evidence",
+              "note": "预约，未报告完成"
+            },
+            {
+              "text": "Does…?",
+              "role": "evidence",
+              "note": "提问，未给答案"
+            }
+          ],
+          "caption": "换了情境，变化、进度和语气仍要一致。"
+        },
+        "transfer": "把booked改成has already visited，多出了哪一步？"
+      }
+    }
+  }
+}
