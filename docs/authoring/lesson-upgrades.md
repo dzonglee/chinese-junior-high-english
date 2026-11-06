@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **344 / 413**. Current: **l-v-course-body-2**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **345 / 413**. Current: **l-v-course-body-3**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -210,7 +210,7 @@ Completed: **344 / 413**. Current: **l-v-course-body-2**. Evidence lives in docs
 | l-v-course-clothing-4 | 衣着与随身物品 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-clothing-4.md) |
 | l-v-course-clothing-5 | 衣着与随身物品 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-clothing-5.md) |
 | l-v-course-body | 身体与感官 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-body.md) |
-| l-v-course-body-2 | 身体与感官 · 2 | pending | — |
+| l-v-course-body-2 | 身体与感官 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-body-2.md) |
 | l-v-course-body-3 | 身体与感官 · 3 | pending | — |
 | l-v-course-body-4 | 身体与感官 · 4 | pending | — |
 | l-v-course-body-5 | 身体与感官 · 5 | pending | — |

@@ -249,6 +249,10 @@ function render() {
   const headStillFocus = active instanceof HTMLButtonElement && active.matches(".word-head-still button") ? active.dataset.value : undefined
   const faceSplashFocus = active instanceof HTMLButtonElement && active.matches(".word-face-splash button") ? active.dataset.value : undefined
   const eyeCloseFocus = active instanceof HTMLButtonElement && active.matches(".word-eye-close button") ? active.dataset.value : undefined
+  const lipWhileFocus = active instanceof HTMLButtonElement && active.matches(".word-lip-while button") ? active.dataset.value : undefined
+  const scarfNeckFocus = active instanceof HTMLButtonElement && active.matches(".word-scarf-neck button") ? active.dataset.value : undefined
+  const helpArmFocus = active instanceof HTMLButtonElement && active.matches(".word-help-arm button") ? active.dataset.value : undefined
+  const frameContactFocus = active instanceof HTMLButtonElement && active.matches(".word-frame-contact button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -416,6 +420,10 @@ function render() {
   if (headStillFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-head-still [data-value="${CSS.escape(headStillFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (faceSplashFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-face-splash [data-value="${CSS.escape(faceSplashFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (eyeCloseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-eye-close [data-value="${CSS.escape(eyeCloseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (lipWhileFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-lip-while [data-value="${CSS.escape(lipWhileFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (scarfNeckFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-scarf-neck [data-value="${CSS.escape(scarfNeckFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (helpArmFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-help-arm [data-value="${CSS.escape(helpArmFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (frameContactFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-frame-contact [data-value="${CSS.escape(frameContactFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

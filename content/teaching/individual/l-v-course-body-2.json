@@ -1,0 +1,516 @@
+{
+  "lessonId": "l-v-course-body-2",
+  "reviewState": "draft",
+  "intent": "Individually distinguish lip biting while thinking, checked sore tooth without cure, hot soup burning tongue without recovery claim, scarf keeping neck warm, shoulder versus bag, raising one arm conditional on help, elbow contacting door frame and washing each hand carefully before eating.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "找准部位，再看条件和动作",
+    "instruction": "改时机、换部位、排先后；每次只动一个细节，再对照原句。",
+    "items": [
+      {
+        "id": "word-lip",
+        "label": "嘴唇",
+        "prompt": "while把咬嘴唇放在什么时候？移动时间标签，再核对。",
+        "answer": "lip",
+        "caseSensitive": false,
+        "meaning": "嘴唇",
+        "before": "He bit his ",
+        "after": " while thinking.",
+        "reason": "He bit his lip while thinking说他思考时咬着嘴唇；while把两件事放在同一时段。",
+        "hint": "原句没指定上嘴唇或下嘴唇，也没说为什么这样做。",
+        "material": "He bit his lip while thinking.",
+        "options": [
+          {
+            "id": "while",
+            "text": "他思考时咬着嘴唇。",
+            "correct": true,
+            "reason": "保留while thinking的同时关系。"
+          },
+          {
+            "id": "before",
+            "text": "他在开始思考之前咬了嘴唇。",
+            "correct": false,
+            "reason": "之前改变了while的同时关系。"
+          },
+          {
+            "id": "after",
+            "text": "他思考结束以后才咬嘴唇。",
+            "correct": false,
+            "reason": "之后改变了while的同时关系。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "while把咬嘴唇放在什么时候？移动时间标签，再核对。",
+          "lipWhile": {
+            "title": "咬嘴唇与思考，什么时候发生？",
+            "hint": "比较同时、之前与之后，不表示实际用时。",
+            "wrong": "原句说的是思考时咬着嘴唇，不能改成思考前或思考后。"
+          }
+        }
+      },
+      {
+        "id": "word-tooth",
+        "label": "牙齿",
+        "prompt": "checked是检查还是治好？圈出谁做了什么、检查哪个部位。",
+        "answer": "tooth",
+        "caseSensitive": false,
+        "meaning": "牙齿",
+        "before": "The dentist checked the sore ",
+        "after": ".",
+        "reason": "The dentist checked the sore tooth说牙医检查了那颗疼痛的牙；checked不等于已经治好。",
+        "hint": "tooth是单数，复数是teeth；没有说检查结果或治疗方式。",
+        "material": "The dentist checked the sore tooth.",
+        "options": [
+          {
+            "id": "checked",
+            "text": "牙医检查了那颗疼痛的牙。",
+            "correct": true,
+            "reason": "保留checked和sore tooth。"
+          },
+          {
+            "id": "cured",
+            "text": "牙医已经治好了那颗疼痛的牙。",
+            "correct": false,
+            "reason": "治好补出了checked没有说明的结果。"
+          },
+          {
+            "id": "tongue",
+            "text": "牙医检查了疼痛的舌头。",
+            "correct": false,
+            "reason": "舌头改变了tooth牙齿。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "checked是检查还是治好？圈出谁做了什么、检查哪个部位。",
+          "recordSelection": {
+            "title": "检查动作与检查对象",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "分清句中事实和自己补出的结果。",
+            "wrong": "检查了不等于治好了；检查对象是疼痛的牙。",
+            "rows": [
+              {
+                "id": "check",
+                "label": "动作",
+                "text": "牙医检查了。",
+                "include": true
+              },
+              {
+                "id": "tooth",
+                "label": "对象",
+                "text": "那颗疼痛的牙。",
+                "include": true
+              },
+              {
+                "id": "cure",
+                "label": "额外结果",
+                "text": "那颗牙已经治好了。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-tongue",
+        "label": "舌头",
+        "prompt": "什么烫到了哪个部位？圈出两条，不补烫伤程度。",
+        "answer": "tongue",
+        "caseSensitive": false,
+        "meaning": "舌头",
+        "before": "The hot soup burned my ",
+        "after": ".",
+        "reason": "The hot soup burned my tongue说热汤烫了我的舌头；这是句中发生过的事。",
+        "hint": "hot没有给温度；burned没有说明严重程度或恢复情况。",
+        "material": "The hot soup burned my tongue.",
+        "options": [
+          {
+            "id": "soup-tongue",
+            "text": "热汤烫了我的舌头。",
+            "correct": true,
+            "reason": "保留hot soup、burned和my tongue。"
+          },
+          {
+            "id": "cold",
+            "text": "冷汤烫了我的舌头。",
+            "correct": false,
+            "reason": "冷汤改变了hot soup。"
+          },
+          {
+            "id": "hand",
+            "text": "热汤烫了我的手。",
+            "correct": false,
+            "reason": "手改变了tongue舌头。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "什么烫到了哪个部位？圈出两条，不补烫伤程度。",
+          "recordSelection": {
+            "title": "热汤与受影响的部位",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "分清句中事实和自己补出的结果。",
+            "wrong": "保留热汤烫到舌头，不补恢复结果。",
+            "rows": [
+              {
+                "id": "soup",
+                "label": "什么",
+                "text": "热汤。",
+                "include": true
+              },
+              {
+                "id": "tongue",
+                "label": "发生了什么",
+                "text": "烫了我的舌头。",
+                "include": true
+              },
+              {
+                "id": "healed",
+                "label": "额外结果",
+                "text": "舌头已经恢复好了。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-neck",
+        "label": "脖子",
+        "prompt": "kept…warm保留哪个部位、什么状态？分别换一处。",
+        "answer": "neck",
+        "caseSensitive": false,
+        "meaning": "脖子",
+        "before": "The scarf kept my ",
+        "after": " warm.",
+        "reason": "The scarf kept my neck warm说围巾让我的脖子保持暖和；neck是脖子，不是咽喉。",
+        "hint": "warm说暖和，没给具体温度；原句没说全身都暖和。",
+        "material": "The scarf kept my neck warm.",
+        "options": [
+          {
+            "id": "neck-warm",
+            "text": "围巾让我的脖子保持暖和。",
+            "correct": true,
+            "reason": "保留my neck与warm。"
+          },
+          {
+            "id": "hands",
+            "text": "围巾让我的双手保持暖和。",
+            "correct": false,
+            "reason": "双手改变了neck脖子。"
+          },
+          {
+            "id": "cold",
+            "text": "围巾让我的脖子保持冰冷。",
+            "correct": false,
+            "reason": "冰冷改变了warm暖和。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "kept…warm保留哪个部位、什么状态？分别换一处。",
+          "scarfNeck": {
+            "title": "保暖的是哪里？",
+            "hint": "标签只比较部位与状态，不表示温度读数。",
+            "wrong": "原句说围巾让脖子保持暖和，不能把脖子换成双手，也不能把暖和改成冰冷。"
+          }
+        }
+      },
+      {
+        "id": "word-shoulder",
+        "label": "肩膀",
+        "prompt": "点出shoulder肩膀，别把它和包本身混在一起。",
+        "answer": "shoulder",
+        "caseSensitive": false,
+        "meaning": "肩膀",
+        "before": "She rested the bag on her ",
+        "after": ".",
+        "reason": "She rested the bag on her shoulder说她把包挎在肩上；shoulder指身体部位，不是包。",
+        "hint": "on her shoulder给出放置位置；原句没说包的重量。",
+        "material": "She rested the bag on her shoulder.",
+        "options": [
+          {
+            "id": "shoulder",
+            "text": "包带搭着的肩膀。",
+            "correct": true,
+            "reason": "shoulder是肩膀，on说明位置。"
+          },
+          {
+            "id": "bag",
+            "text": "下面挂着的包。",
+            "correct": false,
+            "reason": "包对应bag，不是shoulder。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出shoulder肩膀，别把它和包本身混在一起。",
+          "art": {
+            "asset": "lesson-bag-on-shoulder",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创女子肩挎紫色布包；肩部与下方包身分开可见。图片用于辨认肩膀，不提供重量。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "body-shoulder",
+                "option": "shoulder",
+                "label": "肩膀",
+                "labelPosition": "bottom",
+                "left": 31,
+                "top": 28,
+                "width": 24,
+                "height": 31
+              },
+              {
+                "id": "shoulder-bag",
+                "option": "bag",
+                "label": "包",
+                "labelPosition": "bottom",
+                "left": 29,
+                "top": 63,
+                "width": 22,
+                "height": 32
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-arm",
+        "label": "手臂（本句）",
+        "prompt": "if给什么条件，one给多少？两项分别改，再核对。",
+        "answer": "arm",
+        "caseSensitive": false,
+        "meaning": "手臂（本句）",
+        "before": "Raise one ",
+        "after": " if you need help.",
+        "reason": "Raise one arm if you need help要求需要帮助时举起一只手臂；if给条件，one限定数量。",
+        "hint": "没有说现在一定需要帮助；也不是不管需不需要都必须举。",
+        "material": "Raise one arm if you need help.",
+        "options": [
+          {
+            "id": "one-help",
+            "text": "需要帮助时，举起一只手臂。",
+            "correct": true,
+            "reason": "保留one arm和if you need help。"
+          },
+          {
+            "id": "two",
+            "text": "需要帮助时，举起两只手臂。",
+            "correct": false,
+            "reason": "两只改变了one。"
+          },
+          {
+            "id": "always",
+            "text": "不管需不需要帮助，都必须举起一只手臂。",
+            "correct": false,
+            "reason": "不管需不需要取消了if给出的条件。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "if给什么条件，one给多少？两项分别改，再核对。",
+          "helpArm": {
+            "title": "条件与数量，都要有",
+            "hint": "这是条件下的动作要求，不报告当前需要帮助或已经举手。",
+            "wrong": "原句要求需要帮助时举起一只手臂，不能改成两只，也不能去掉需要帮助这个条件。"
+          }
+        }
+      },
+      {
+        "id": "word-elbow",
+        "label": "肘；胳膊肘",
+        "prompt": "哪个部位碰到了门的哪里？每次只换一项。",
+        "answer": "elbow",
+        "caseSensitive": false,
+        "meaning": "肘；胳膊肘",
+        "before": "My ",
+        "after": " knocked against the door frame.",
+        "reason": "My elbow knocked against the door frame说我的胳膊肘碰到了门框；不是手碰到门板。",
+        "hint": "against给出碰到的对象；没有说受伤程度或碰撞力度。",
+        "material": "My elbow knocked against the door frame.",
+        "options": [
+          {
+            "id": "elbow-frame",
+            "text": "我的胳膊肘碰到了门框。",
+            "correct": true,
+            "reason": "保留elbow与door frame。"
+          },
+          {
+            "id": "hand-frame",
+            "text": "我的手碰到了门框。",
+            "correct": false,
+            "reason": "手改变了elbow胳膊肘。"
+          },
+          {
+            "id": "elbow-panel",
+            "text": "我的胳膊肘碰到了门板。",
+            "correct": false,
+            "reason": "门板改变了door frame门框。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪个部位碰到了门的哪里？每次只换一项。",
+          "frameContact": {
+            "title": "哪个部位，碰到了什么？",
+            "hint": "只画句中部位与碰到的对象，不补受伤或力度。",
+            "wrong": "原句说胳膊肘碰到了门框，不能把胳膊肘换成手，也不能把门框换成门板。"
+          }
+        }
+      },
+      {
+        "id": "word-hand",
+        "label": "手（本句）",
+        "prompt": "each要求只洗一只，还是每只都洗？before又把洗手放在哪一步？",
+        "answer": "hand",
+        "caseSensitive": false,
+        "meaning": "手（本句）",
+        "before": "Wash each ",
+        "after": " carefully before eating.",
+        "reason": "Wash each hand carefully before eating要求吃东西前仔细洗每只手；each hand用单数hand。",
+        "hint": "each不是只挑一只；carefully是仔细地，before是吃之前。",
+        "material": "Wash each hand carefully before eating.",
+        "options": [
+          {
+            "id": "each-before",
+            "text": "吃东西前仔细洗每只手。",
+            "correct": true,
+            "reason": "保留each、carefully与before。"
+          },
+          {
+            "id": "one",
+            "text": "只洗一只手就吃东西。",
+            "correct": false,
+            "reason": "只洗一只丢掉了each每只。"
+          },
+          {
+            "id": "after",
+            "text": "吃完东西后再仔细洗每只手。",
+            "correct": false,
+            "reason": "吃完后改变了before。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "each要求只洗一只，还是每只都洗？before又把洗手放在哪一步？",
+          "processOrder": {
+            "title": "先洗每只手，再吃东西",
+            "hint": "排出原句要求的顺序，不当作已经完成。",
+            "wrong": "应先仔细洗每只手，再吃东西。",
+            "events": [
+              {
+                "id": "wash",
+                "label": "仔细洗每只手"
+              },
+              {
+                "id": "eat",
+                "label": "吃东西"
+              }
+            ],
+            "sequence": [
+              "wash",
+              "eat"
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-body-2-transfer",
+      "topicId": "v-course-body",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "换成旗、灯和车票，哪组三句完整保留了信息？",
+      "passage": "三条新信息\n需要帮助就举起一面旗。技师检查了坏掉的灯。她等车时握着车票。\n词语提示：flag 旗；technician 技师；held是hold的过去式。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Raise one flag if you need help. The technician checked the broken lamp. She held her ticket while waiting for the bus."
+        },
+        {
+          "id": "b",
+          "text": "Raise two flags if you need help. The technician checked the broken lamp. She held her ticket while waiting for the bus."
+        },
+        {
+          "id": "c",
+          "text": "Raise one flag if you need help. The technician fixed the broken lamp. She held her ticket while waiting for the bus."
+        },
+        {
+          "id": "d",
+          "text": "Raise one flag if you need help. The technician checked the broken lamp. She held her ticket after waiting for the bus."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Raise one flag if you need help. The technician checked the broken lamp. She held her ticket while waiting for the bus."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对条件和数量、已知动作与结果、同时关系。",
+        "steps": [
+          {
+            "text": "需要帮助就举一面旗：Raise one flag if you need help。",
+            "reason": "one不能改two；if不能被当作现在一定需要帮助。"
+          },
+          {
+            "text": "技师检查了灯：The technician checked the broken lamp。",
+            "reason": "checked不是fixed，检查不保证修好。"
+          },
+          {
+            "text": "等车时握着车票：held her ticket while waiting for the bus。",
+            "reason": "while表示同时；after改成等完以后。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "two把一面旗改成两面。"
+          },
+          {
+            "option": "c",
+            "reason": "fixed把检查改成修好，补出原句没有给的结果。"
+          },
+          {
+            "option": "d",
+            "reason": "after把等车时改成等完以后。"
+          }
+        ],
+        "pitfall": "条件、数量、动作与结果要分清；while不能改成after。",
+        "visual": {
+          "kind": "sentence",
+          "title": "条件、动作、时机",
+          "segments": [
+            {
+              "text": "one flag if you need help",
+              "role": "evidence",
+              "note": "需要帮助时；一面旗"
+            },
+            {
+              "text": "checked the broken lamp",
+              "role": "evidence",
+              "note": "检查，不等于修好"
+            },
+            {
+              "text": "while waiting for the bus",
+              "role": "evidence",
+              "note": "等车同时，不是之后"
+            }
+          ],
+          "caption": "保留原句的限制，不补目前情况或动作结果。"
+        },
+        "transfer": "checked换成fixed，新增了什么原句没说的结果？"
+      }
+    }
+  },
+  "picturePurpose": "Original shoulder-and-bag picture separates the body part from the carried object. Code supplies labels and targets; no weight or completed placement is proved by still art."
+}

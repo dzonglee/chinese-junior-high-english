@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured anatomy or temperature claims. */
+export interface WordFrameContact{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordFrameContact(v:unknown):v is WordFrameContact{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordFrameContact;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordFrameContactKey=(id:string)=>'workshopFrameContact-'+id
+function decode(raw:string){if(raw==='')return{"part": "?", "target": "?"};const m="^(\\?|elbow|hand)\\|(\\?|frame|panel)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{part:v[1],target:v[2]}:null}
+export function changeFrameContact(_w:WordFrameContact,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["part-elbow", "part-hand"].includes(action))return action.slice(5)+"|"+s.target;if(["target-frame", "target-panel"].includes(action))return s.part+"|"+action.slice(7);return undefined}
+export function frameContactMatch(_w:WordFrameContact,raw:string){const s=decode(raw);return!!s&&s.part==="elbow"&&s.target==="frame"}
+export function wordFrameContactView(w:WordFrameContact,raw:string){const s=decode(raw)??{"part": "?", "target": "?"};return{title:w.title,hint:w.hint,part:s.part,target:s.target,groups:[{label:"碰到东西的部位",choices:[{"id": "part-elbow", "label": "胳膊肘"}, {"id": "part-hand", "label": "手"}].map(c=>({...c,selected:c.id==="part-"+s.part}))},{label:"碰到的对象",choices:[{"id": "target-frame", "label": "门框"}, {"id": "target-panel", "label": "门板"}].map(c=>({...c,selected:c.id==="target-"+s.target}))}],reading:frameContactMatch(w,raw)?"我的胳膊肘碰到了门框；没有说受伤或碰撞力度。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordFrameContactView=ReturnType<typeof wordFrameContactView>
