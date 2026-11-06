@@ -1,0 +1,502 @@
+{
+  "lessonId": "l-v-course-clothing-5",
+  "reviewState": "draft",
+  "intent": "Individually distinguish glove fit, blue buttons matching stripe of unspecified colour, cloth versus lens, cotton shirt, local wool woven blanket, silk scarf cool sensation, leather bag strong handles and shared umbrella until bus stop.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "合身、相配与材料，各看哪条证据？",
+    "instruction": "改大小、换材料、移时间范围；图片能认物，事实还要回句子核对。",
+    "items": [
+      {
+        "id": "word-fit",
+        "label": "大小合适（本句）",
+        "prompt": "fit perfectly说大小刚好，还是太大、太小？调手套大小，再核对。",
+        "answer": "fit",
+        "caseSensitive": false,
+        "meaning": "大小合适（本句）",
+        "before": "These gloves ",
+        "after": " perfectly.",
+        "reason": "These gloves fit perfectly说明这副手套大小刚好；fit在这里是动词，不是颜色相配。",
+        "hint": "gloves是复数，动词用fit；没有给真实尺寸，不能凭示意选尺码。",
+        "material": "These gloves fit perfectly.",
+        "options": [
+          {
+            "id": "fit",
+            "text": "这副手套大小刚好。",
+            "correct": true,
+            "reason": "保留fit perfectly。"
+          },
+          {
+            "id": "small",
+            "text": "这副手套太小。",
+            "correct": false,
+            "reason": "太小不保留perfectly合适。"
+          },
+          {
+            "id": "large",
+            "text": "这副手套太大。",
+            "correct": false,
+            "reason": "太大不保留perfectly合适。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "fit perfectly说大小刚好，还是太大、太小？调手套大小，再核对。",
+          "gloveFit": {
+            "title": "手套与手的大小关系",
+            "hint": "左边的手不变，切换右边的手套，比较大小。",
+            "wrong": "原句说这副手套大小刚好，不是太大或太小。"
+          }
+        }
+      },
+      {
+        "id": "word-match",
+        "label": "相配（动词）",
+        "prompt": "blue修饰什么？match是相配还是比赛？分别换一处。",
+        "answer": "match",
+        "caseSensitive": false,
+        "meaning": "相配（动词）",
+        "before": "The blue buttons ",
+        "after": " the stripe on the sleeve.",
+        "reason": "The blue buttons match the stripe on the sleeve说明蓝色纽扣与袖上的条纹相配；没有给出条纹颜色。",
+        "hint": "buttons是复数，动词用match；这里是相配，不是比赛，也不说明条纹一定是蓝色。",
+        "material": "The blue buttons match the stripe on the sleeve.",
+        "options": [
+          {
+            "id": "blue-match",
+            "text": "蓝色纽扣和袖子上的条纹很配。",
+            "correct": true,
+            "reason": "保留blue buttons与match。"
+          },
+          {
+            "id": "red-match",
+            "text": "红色纽扣和袖子上的条纹很配。",
+            "correct": false,
+            "reason": "red改变了blue。"
+          },
+          {
+            "id": "compete",
+            "text": "蓝色纽扣参加了袖子条纹比赛。",
+            "correct": false,
+            "reason": "match在此不是比赛。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "blue修饰什么？match是相配还是比赛？分别换一处。",
+          "buttonMatch": {
+            "title": "蓝色对象与相配关系",
+            "hint": "条纹颜色未给出；图只标明纽扣颜色与所选关系。",
+            "wrong": "原句说蓝色纽扣与条纹相配，不能换成红色纽扣，也不能把match理解成比赛。"
+          }
+        }
+      },
+      {
+        "id": "word-cloth",
+        "label": "布；抹布",
+        "prompt": "点出cloth这块布，不要把它和镜头混在一起。",
+        "answer": "cloth",
+        "caseSensitive": false,
+        "meaning": "布；抹布",
+        "before": "Wipe the lens with a soft ",
+        "after": ".",
+        "reason": "Wipe the lens with a soft cloth要求用软布擦镜头；cloth是布，lens是镜头。",
+        "hint": "soft和擦拭要求要读原句；静图不能证明柔软程度或已擦完。",
+        "material": "Wipe the lens with a soft cloth.",
+        "options": [
+          {
+            "id": "cloth",
+            "text": "这块清洁布。",
+            "correct": true,
+            "reason": "cloth对应布，不是clothes衣服。"
+          },
+          {
+            "id": "lens",
+            "text": "旁边的相机镜头。",
+            "correct": false,
+            "reason": "镜头对应lens，不是cloth。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出cloth这块布，不要把它和镜头混在一起。",
+          "art": {
+            "asset": "lesson-cloth-and-lens",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创折叠清洁布与分开放置的相机镜头。图片仅辨认物品，soft及Wipe要求需由原句核对。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "cloth-fabric",
+                "option": "cloth",
+                "label": "清洁布",
+                "labelPosition": "bottom",
+                "left": 6,
+                "top": 43,
+                "width": 37,
+                "height": 39
+              },
+              {
+                "id": "cloth-lens",
+                "option": "lens",
+                "label": "镜头",
+                "labelPosition": "bottom",
+                "left": 61,
+                "top": 26,
+                "width": 29,
+                "height": 52
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-cotton",
+        "label": "棉；棉布",
+        "prompt": "made of后面给了什么材料？换棉、丝或羊毛，再回原句核对。",
+        "answer": "cotton",
+        "caseSensitive": false,
+        "meaning": "棉；棉布",
+        "before": "This shirt is made of ",
+        "after": ".",
+        "reason": "This shirt is made of cotton说明这件衬衫是棉制的，cotton在这里是材料名词。",
+        "hint": "没有给材料百分比、颜色或柔软程度。",
+        "material": "This shirt is made of cotton.",
+        "options": [
+          {
+            "id": "cotton",
+            "text": "这件衬衫是棉制的。",
+            "correct": true,
+            "reason": "保留made of cotton。"
+          },
+          {
+            "id": "silk",
+            "text": "这件衬衫是丝制的。",
+            "correct": false,
+            "reason": "silk改变了cotton。"
+          },
+          {
+            "id": "wool",
+            "text": "这件衬衫是羊毛制的。",
+            "correct": false,
+            "reason": "wool改变了cotton。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "made of后面给了什么材料？换棉、丝或羊毛，再回原句核对。",
+          "cottonShirt": {
+            "title": "衬衫的材料是什么？",
+            "hint": "材料由原句给出，不能靠颜色或质感猜。",
+            "wrong": "原句说衬衫是棉制的，不能换成丝或羊毛。"
+          }
+        }
+      },
+      {
+        "id": "word-wool",
+        "label": "羊毛（本句）",
+        "prompt": "woven from和local分别给了什么？改织法或来源，再对照。",
+        "answer": "wool",
+        "caseSensitive": false,
+        "meaning": "羊毛（本句）",
+        "before": "The blanket is woven from local ",
+        "after": ".",
+        "reason": "The blanket is woven from local wool说明毯子用本地羊毛织成；local修饰羊毛来源。",
+        "hint": "没有说是哪里，也没有给毛线团数量或生产日期。",
+        "material": "The blanket is woven from local wool.",
+        "options": [
+          {
+            "id": "local-woven",
+            "text": "这条毯子是用本地羊毛织的。",
+            "correct": true,
+            "reason": "保留woven与local wool。"
+          },
+          {
+            "id": "imported",
+            "text": "这条毯子用的是进口羊毛。",
+            "correct": false,
+            "reason": "进口改变了local本地。"
+          },
+          {
+            "id": "printed",
+            "text": "只是在毯子上印了羊毛图案。",
+            "correct": false,
+            "reason": "印图案不保留woven from由羊毛织成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "woven from和local分别给了什么？改织法或来源，再对照。",
+          "localWool": {
+            "title": "材料从哪里来，怎样制成？",
+            "hint": "local修饰羊毛来源；woven说明是织成的。",
+            "wrong": "毯子是用本地羊毛织成的；进口羊毛或只印羊毛图案都不符合原句。"
+          }
+        }
+      },
+      {
+        "id": "word-silk",
+        "label": "丝；丝绸",
+        "prompt": "silk说材料；feels cool说谁的感觉？圈出材料与触感。",
+        "answer": "silk",
+        "caseSensitive": false,
+        "meaning": "丝；丝绸",
+        "before": "The ",
+        "after": " scarf feels cool against my skin.",
+        "reason": "The silk scarf feels cool against my skin说明丝巾贴着我的皮肤感觉凉凉的，不是所有丝制品的温度结论。",
+        "hint": "感觉凉不等于给了摄氏温度；cool在这里说触感，不是夸样式酷。",
+        "material": "The silk scarf feels cool against my skin.",
+        "options": [
+          {
+            "id": "silk-cool",
+            "text": "丝巾贴着我的皮肤，感觉凉凉的。",
+            "correct": true,
+            "reason": "保留silk scarf与feels cool。"
+          },
+          {
+            "id": "wool",
+            "text": "羊毛围巾贴着皮肤感觉凉。",
+            "correct": false,
+            "reason": "wool改变了silk材料。"
+          },
+          {
+            "id": "hot",
+            "text": "丝巾贴着皮肤感觉烫。",
+            "correct": false,
+            "reason": "hot改变了cool触感。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "silk说材料；feels cool说谁的感觉？圈出材料与触感。",
+          "recordSelection": {
+            "title": "材料与触感，逐条核对",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "圈出材料和触感；原句没有给具体温度。",
+            "wrong": "应保留丝制围巾与凉凉的触感，没有温度数值。",
+            "rows": [
+              {
+                "id": "silk",
+                "label": "材料",
+                "text": "这条围巾是丝制的。",
+                "include": true
+              },
+              {
+                "id": "cool",
+                "label": "触感",
+                "text": "贴着我的皮肤感觉凉凉的。",
+                "include": true
+              },
+              {
+                "id": "temperature",
+                "label": "额外数值",
+                "text": "原句给了具体摄氏温度。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-leather",
+        "label": "皮革",
+        "prompt": "leather说包的材料，strong修饰哪里？圈出两条信息。",
+        "answer": "leather",
+        "caseSensitive": false,
+        "meaning": "皮革",
+        "before": "The old ",
+        "after": " bag has strong handles.",
+        "reason": "The old leather bag has strong handles说明旧包是皮革材质，结实的是提手；没有给整包承重保证。",
+        "hint": "old不是new；材料不是用途，strong handles不等于整包永不会坏。",
+        "material": "The old leather bag has strong handles.",
+        "options": [
+          {
+            "id": "leather-handles",
+            "text": "旧皮包的提手很结实。",
+            "correct": true,
+            "reason": "保留old leather bag与strong handles。"
+          },
+          {
+            "id": "cloth",
+            "text": "旧布包的提手很结实。",
+            "correct": false,
+            "reason": "布改变了leather皮革。"
+          },
+          {
+            "id": "weak",
+            "text": "旧皮包的提手不结实。",
+            "correct": false,
+            "reason": "不结实与strong结实相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "leather说包的材料，strong修饰哪里？圈出两条信息。",
+          "recordSelection": {
+            "title": "包的材料与提手特点",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "圈出包的材料和提手特点；别把结实扩大成永不损坏。",
+            "wrong": "应保留旧皮包与结实的提手，不补永不损坏的保证。",
+            "rows": [
+              {
+                "id": "leather",
+                "label": "材料",
+                "text": "这只旧包是皮革材质。",
+                "include": true
+              },
+              {
+                "id": "strong",
+                "label": "部位特点",
+                "text": "提手很结实。",
+                "include": true
+              },
+              {
+                "id": "guarantee",
+                "label": "额外保证",
+                "text": "整只包永远不会坏。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-umbrella",
+        "label": "伞",
+        "prompt": "until把共撑范围指到哪里？换终点或起点，再核对。",
+        "answer": "umbrella",
+        "caseSensitive": false,
+        "meaning": "伞",
+        "before": "Share my ",
+        "after": " until we reach the bus stop.",
+        "reason": "Share my umbrella until we reach the bus stop邀请对方共撑伞直到到达公交站；没有说明到站之后怎样。",
+        "hint": "until不是from；本句my umbrella不用an。单独说一把伞可用an umbrella。",
+        "material": "Share my umbrella until we reach the bus stop.",
+        "options": [
+          {
+            "id": "until-stop",
+            "text": "和我共撑这把伞，直到到达公交站。",
+            "correct": true,
+            "reason": "保留Share与until we reach the bus stop。"
+          },
+          {
+            "id": "from-stop",
+            "text": "从到达公交站以后才开始共撑伞。",
+            "correct": false,
+            "reason": "from开始与until截止不同。"
+          },
+          {
+            "id": "school",
+            "text": "和我共撑伞，直到到达学校。",
+            "correct": false,
+            "reason": "学校改变了bus stop公交站。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "until把共撑范围指到哪里？换终点或起点，再核对。",
+          "umbrellaUntil": {
+            "title": "共撑要求覆盖哪段？",
+            "hint": "时间线只画所要求的范围；到站以后未说明。",
+            "wrong": "原句要求共撑到公交站，不能改成到站后才开始，也不能把终点换成学校。"
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-clothing-5-transfer",
+      "topicId": "v-course-clothing",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "换成围巾、篮子和地图，哪组三句完整保留了信息？",
+      "passage": "三条新信息\n红围巾和外套上的图案相配。篮子是用本地柳条编的。与我共看这张地图，直到到达车站。\n词语提示：pattern 图案；willow 柳条；station 车站。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The red scarf matches the pattern on the coat. The basket is woven from local willow. Share this map with me from the time we reach the station."
+        },
+        {
+          "id": "b",
+          "text": "The blue scarf matches the pattern on the coat. The basket is woven from local willow. Share this map with me until we reach the station."
+        },
+        {
+          "id": "c",
+          "text": "The red scarf matches the pattern on the coat. The basket is woven from imported willow. Share this map with me until we reach the station."
+        },
+        {
+          "id": "d",
+          "text": "The red scarf matches the pattern on the coat. The basket is woven from local willow. Share this map with me until we reach the station."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "The red scarf matches the pattern on the coat. The basket is woven from local willow. Share this map with me until we reach the station."
+      },
+      "marks": 1,
+      "estimatedSeconds": 70,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐条核对修饰对象、材料来源和until的范围。",
+        "steps": [
+          {
+            "text": "红围巾与图案相配：red scarf matches the pattern。",
+            "reason": "没有给图案颜色，不把red挪给图案。"
+          },
+          {
+            "text": "本地柳条编篮子：woven from local willow。",
+            "reason": "imported把本地改成进口。"
+          },
+          {
+            "text": "共看地图直到到站：Share…until we reach the station。",
+            "reason": "from把截至到站改成到站后开始。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "from把until的截止范围改成开始时间。"
+          },
+          {
+            "option": "b",
+            "reason": "blue把红围巾改成蓝围巾。"
+          },
+          {
+            "option": "c",
+            "reason": "imported把本地材料改成进口材料。"
+          }
+        ],
+        "pitfall": "相配不保证同色；材料来源与截至时间都须逐条保留。",
+        "visual": {
+          "kind": "sentence",
+          "title": "修饰、来源与范围",
+          "segments": [
+            {
+              "text": "red scarf matches the pattern",
+              "role": "evidence",
+              "note": "红围巾相配；图案颜色未知"
+            },
+            {
+              "text": "woven from local willow",
+              "role": "evidence",
+              "note": "本地柳条编成"
+            },
+            {
+              "text": "until we reach the station",
+              "role": "evidence",
+              "note": "共看到站；之后未说明"
+            }
+          ],
+          "caption": "保留三条信息，不补颜色或到站后的结果。"
+        },
+        "transfer": "until改成from，要求覆盖的时间范围怎样变了？"
+      }
+    }
+  },
+  "picturePurpose": "Original cloth-and-lens picture separates cleaning cloth from camera lens. Code supplies exact targets; the image does not establish that the cleaning request has been completed."
+}

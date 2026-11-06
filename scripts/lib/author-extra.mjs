@@ -86,7 +86,7 @@ export function authorExtra(root, catalog) {
     const topicWords = vocabulary.filter(w => w.topicId === id)
     for (const [n, word] of topicWords.entries()) {
       const sentenceMeaning = meaningInExample(word)
-      const exactClothingMeaning = id === 'v-course-clothing' && ["clothes", "shirt", "blouse", "t-shirt", "coat", "jacket", "sweater", "jumper", "trousers", "jeans", "shorts", "skirt", "dress", "suit", "sock", "shoe", "boot", "trainer", "sandal", "slipper", "hat", "cap", "scarf", "glove", "belt", "pocket", "button", "zip", "collar", "sleeve", "size", "wear"].includes(word.word)
+      const exactClothingMeaning = id === 'v-course-clothing' && ["clothes", "shirt", "blouse", "t-shirt", "coat", "jacket", "sweater", "jumper", "trousers", "jeans", "shorts", "skirt", "dress", "suit", "sock", "shoe", "boot", "trainer", "sandal", "slipper", "hat", "cap", "scarf", "glove", "belt", "pocket", "button", "zip", "collar", "sleeve", "size", "wear", "fit", "match", "cloth", "cotton", "wool", "silk", "leather", "umbrella"].includes(word.word)
       const decoys = [], seenMeanings = new Set()
       const authoredPair = authoredMeaningDecoys.get(`${id}:${word.word}`)
       if (authoredPair) {
@@ -108,6 +108,15 @@ export function authorExtra(root, catalog) {
       const labels = [word, ...decoys], rotated = labels.map((_, k) => labels[(k + n) % 3])
       const options = rotated.map((w, k) => ({ id: ['a', 'b', 'c'][k], text: meaningInExample(w) })), right = options.find(o => o.text === sentenceMeaning).id
       const clothingPartReason = {
+        fit: "本句fit表示手套大小合适，是动词；“衣服”是物品名称，不能表达大小关系。",
+        match: "本句match表示纽扣与条纹相配，是动词；“衣服”不能表达相配关系。",
+        cloth: "本句cloth指擦镜头用的布，不能换成clothes“衣服”。",
+        cotton: "本句cotton表示衬衫的棉质材料；“衣服”是物品类别，不是这种材料。",
+        wool: "本句wool指织毯子用的羊毛；“衣服”不是这里的材料名称。",
+        silk: "本句silk表示围巾的丝质材料；“衣服”不是这里的材料名称。",
+        leather: "本句leather表示包的皮革材料；“衣服”不是这里的材料名称。",
+        umbrella: "本句umbrella指共撑的伞，不是“衣服”。",
+
         belt: '本句belt指腰带；“衣服”没有表达这个具体对象。',
         pocket: '本句pocket指口袋这个部位；“衣服”没有表达这个具体部位。',
         button: '本句button指开门用的按钮，不是“衣服”。',

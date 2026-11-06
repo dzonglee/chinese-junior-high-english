@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordUmbrellaUntil{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordUmbrellaUntil(v:unknown):v is WordUmbrellaUntil{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordUmbrellaUntil;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordUmbrellaUntilKey=(id:string)=>'workshopUmbrellaUntil-'+id
+function decode(raw:string){if(raw==='')return{"range": "?", "endpoint": "?"};const m="^(\\?|until|from)\\|(\\?|stop|school)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{range:v[1],endpoint:v[2]}:null}
+export function changeUmbrellaUntil(_w:WordUmbrellaUntil,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["range-until", "range-from"].includes(action))return action.slice(6)+"|"+s.endpoint;if(["endpoint-stop", "endpoint-school"].includes(action))return s.range+"|"+action.slice(9);return undefined}
+export function umbrellaUntilMatch(_w:WordUmbrellaUntil,raw:string){const s=decode(raw);return!!s&&s.range==="until"&&s.endpoint==="stop"}
+export function wordUmbrellaUntilView(w:WordUmbrellaUntil,raw:string){const s=decode(raw)??{"range": "?", "endpoint": "?"};return{title:w.title,hint:w.hint,range:s.range,endpoint:s.endpoint,placeLabel:s.endpoint==='stop'?'公交站':s.endpoint==='school'?'学校':'地点待选',groups:[{label:"共撑范围",choices:[{"id": "range-until", "label": "直到到达"}, {"id": "range-from", "label": "从到达后开始"}].map(c=>({...c,selected:c.id==="range-"+s.range}))},{label:"所到地点",choices:[{"id": "endpoint-stop", "label": "公交站"}, {"id": "endpoint-school", "label": "学校"}].map(c=>({...c,selected:c.id==="endpoint-"+s.endpoint}))}],reading:umbrellaUntilMatch(w,raw)?"共撑直到公交站；到站以后怎样，原句未说。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordUmbrellaUntilView=ReturnType<typeof wordUmbrellaUntilView>

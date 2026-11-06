@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordButtonMatch{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordButtonMatch(v:unknown):v is WordButtonMatch{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordButtonMatch;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordButtonMatchKey=(id:string)=>'workshopButtonMatch-'+id
+function decode(raw:string){if(raw==='')return{"colour": "?", "relation": "?"};const m="^(\\?|blue|red)\\|(\\?|match|compete)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{colour:v[1],relation:v[2]}:null}
+export function changeButtonMatch(_w:WordButtonMatch,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["colour-blue", "colour-red"].includes(action))return action.slice(7)+"|"+s.relation;if(["relation-match", "relation-compete"].includes(action))return s.colour+"|"+action.slice(9);return undefined}
+export function buttonMatchMatch(_w:WordButtonMatch,raw:string){const s=decode(raw);return!!s&&s.colour==="blue"&&s.relation==="match"}
+export function wordButtonMatchView(w:WordButtonMatch,raw:string){const s=decode(raw)??{"colour": "?", "relation": "?"};return{title:w.title,hint:w.hint,colour:s.colour,relation:s.relation,buttonColour:s.colour==='blue'?'#357abc':s.colour==='red'?'#bd5068':'#d6e3ef',groups:[{label:"纽扣颜色",choices:[{"id": "colour-blue", "label": "蓝色纽扣"}, {"id": "colour-red", "label": "红色纽扣"}].map(c=>({...c,selected:c.id==="colour-"+s.colour}))},{label:"与条纹的关系",choices:[{"id": "relation-match", "label": "相配"}, {"id": "relation-compete", "label": "比赛"}].map(c=>({...c,selected:c.id==="relation-"+s.relation}))}],reading:buttonMatchMatch(w,raw)?"蓝色纽扣与袖上条纹相配；条纹颜色未给出。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordButtonMatchView=ReturnType<typeof wordButtonMatchView>

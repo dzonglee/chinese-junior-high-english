@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordLocalWool{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordLocalWool(v:unknown):v is WordLocalWool{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordLocalWool;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordLocalWoolKey=(id:string)=>'workshopLocalWool-'+id
+function decode(raw:string){if(raw==='')return{"origin": "?", "method": "?"};const m="^(\\?|local|imported)\\|(\\?|woven|printed)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{origin:v[1],method:v[2]}:null}
+export function changeLocalWool(_w:WordLocalWool,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["origin-local", "origin-imported"].includes(action))return action.slice(7)+"|"+s.method;if(["method-woven", "method-printed"].includes(action))return s.origin+"|"+action.slice(7);return undefined}
+export function localWoolMatch(_w:WordLocalWool,raw:string){const s=decode(raw);return!!s&&s.origin==="local"&&s.method==="woven"}
+export function wordLocalWoolView(w:WordLocalWool,raw:string){const s=decode(raw)??{"origin": "?", "method": "?"};return{title:w.title,hint:w.hint,origin:s.origin,method:s.method,originLabel:s.origin==='local'?'本地羊毛':s.origin==='imported'?'进口羊毛':'来源待选',groups:[{label:"羊毛来源",choices:[{"id": "origin-local", "label": "本地"}, {"id": "origin-imported", "label": "进口"}].map(c=>({...c,selected:c.id==="origin-"+s.origin}))},{label:"制成关系",choices:[{"id": "method-woven", "label": "羊毛织成"}, {"id": "method-printed", "label": "只印羊毛图案"}].map(c=>({...c,selected:c.id==="method-"+s.method}))}],reading:localWoolMatch(w,raw)?"毯子由本地羊毛织成；没有给具体地名。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordLocalWoolView=ReturnType<typeof wordLocalWoolView>
