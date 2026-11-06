@@ -1,0 +1,2659 @@
+{
+  "lessonId": "l-v-course-learning-5",
+  "reviewState": "draft",
+  "intent": "Teach each fact before sharing; personal opinion without treating opinions as automatically false; comparative rather than superlative; both projected benefits; note of unspecified hours with an explicitly new 09:00–17:00 example; already chosen river-wildlife scope; short paraphrase without banning all repeated words; water change with an explicitly new30→20litre example; labelling two shown features in an explicitly new flower schematic.",
+  "picturePurpose": "Six original coded information graphics support personal-scope comparison, accurate notes, topic scope, paraphrase, numeric chart interpretation and two-part schematic labels. One before-sharing order and one exact projected-benefits selection complete the lesson. Numerical data and passages are explicitly new original examples.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "事实、看法和图表，怎样读准确？",
+    "instruction": "排核实顺序、辨认看法、改写总结、读新图表；每步只抓关键证据。",
+    "items": [
+      {
+        "id": "word-fact",
+        "label": "事实",
+        "prompt": "each要求核实多少？把逐项核实放在分享报告之前。",
+        "answer": "fact",
+        "caseSensitive": false,
+        "meaning": "事实",
+        "before": "Check each ",
+        "after": " before sharing the report.",
+        "reason": "Check each fact before sharing the report要求先核实每个事实，再分享报告；each不是只挑几个，也没说核实已经完成。",
+        "hint": "先核实和后分享是两步；原句没有列出具体事实。",
+        "material": "Check each fact before sharing the report.",
+        "options": [
+          {
+            "id": "each-before",
+            "text": "分享报告前核实每个事实。",
+            "correct": true,
+            "reason": "保留each fact与before sharing。"
+          },
+          {
+            "id": "some",
+            "text": "只挑几个事实检查，其他不用看。",
+            "correct": false,
+            "reason": "只挑几个丢掉了each每个。"
+          },
+          {
+            "id": "after",
+            "text": "先分享报告，之后才核实事实。",
+            "correct": false,
+            "reason": "与before的先后相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "each要求核实多少？把逐项核实放在分享报告之前。",
+          "processOrder": {
+            "title": "核实在前，分享在后",
+            "hint": "把核实每个事实作为一步，不漏掉each的范围。",
+            "wrong": "要先逐项核实，再分享报告，不能倒过来。",
+            "events": [
+              {
+                "id": "check",
+                "label": "逐项核实"
+              },
+              {
+                "id": "share",
+                "label": "分享报告"
+              }
+            ],
+            "sequence": [
+              "check",
+              "share"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-opinion",
+        "label": "意见；看法",
+        "prompt": "这是谁的看法？切换my和所有人，再比较better与best。",
+        "answer": "opinion",
+        "caseSensitive": false,
+        "meaning": "意见；看法",
+        "before": "In my ",
+        "after": ", the simpler design works better.",
+        "reason": "In my opinion, the simpler design works better表示说话者认为较简单的设计效果更好；不是所有人的一致结论，也不是最好。",
+        "hint": "个人看法不等于一定错误；本句只是明确标出看法来自谁。",
+        "material": "In my opinion, the simpler design works better.",
+        "options": [
+          {
+            "id": "my-better",
+            "text": "在我看来，较简单的设计效果更好。",
+            "correct": true,
+            "reason": "保留my opinion与比较级simpler、better。"
+          },
+          {
+            "id": "everyone",
+            "text": "所有人都已经证实这种设计效果最好。",
+            "correct": false,
+            "reason": "把个人看法扩大成所有人的证明，并把better改成最好。"
+          },
+          {
+            "id": "false",
+            "text": "因为是个人看法，所以一定错误。",
+            "correct": false,
+            "reason": "opinion说明这是看法，并不自动表示错误。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "这是谁的看法？切换my和所有人，再比较better与best。",
+          "sceneLab": {
+            "id": "opinion-scope",
+            "title": "谁的看法，哪种比较？",
+            "hint": "my标出说话者；better是更好，不是best最好。",
+            "wrong": "原句是我的看法，比较的是效果更好；不能扩大成所有人的结论或最好。",
+            "axes": [
+              {
+                "id": "speaker",
+                "label": "看法来自",
+                "choices": [
+                  {
+                    "id": "mine",
+                    "label": "我"
+                  },
+                  {
+                    "id": "everyone",
+                    "label": "所有人"
+                  }
+                ]
+              },
+              {
+                "id": "degree",
+                "label": "原句的比较程度",
+                "choices": [
+                  {
+                    "id": "better",
+                    "label": "效果更好"
+                  },
+                  {
+                    "id": "best",
+                    "label": "效果最好"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bubble",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 14,
+                    "width": 84,
+                    "height": 57,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 20,
+                    "width": 76,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "谁的看法待选"
+                  },
+                  {
+                    "id": "design",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 43,
+                    "width": 76,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "较简单的设计"
+                  },
+                  {
+                    "id": "degree",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "比较程度待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|better",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bubble",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 14,
+                    "width": 84,
+                    "height": 57,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 20,
+                    "width": 76,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "谁的看法待选"
+                  },
+                  {
+                    "id": "design",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 43,
+                    "width": 76,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "较简单的设计"
+                  },
+                  {
+                    "id": "degree",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "效果更好（better）"
+                  }
+                ]
+              },
+              {
+                "signature": "?|best",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bubble",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 14,
+                    "width": 84,
+                    "height": 57,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 20,
+                    "width": 76,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "谁的看法待选"
+                  },
+                  {
+                    "id": "design",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 43,
+                    "width": 76,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "较简单的设计"
+                  },
+                  {
+                    "id": "degree",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "效果最好（best）"
+                  }
+                ]
+              },
+              {
+                "signature": "mine|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bubble",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 14,
+                    "width": 84,
+                    "height": 57,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 20,
+                    "width": 76,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "在我看来"
+                  },
+                  {
+                    "id": "design",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 43,
+                    "width": 76,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "较简单的设计"
+                  },
+                  {
+                    "id": "degree",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "比较程度待选"
+                  }
+                ]
+              },
+              {
+                "signature": "mine|better",
+                "reading": "在我看来，较简单的设计效果更好。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "bubble",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 14,
+                    "width": 84,
+                    "height": 57,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 20,
+                    "width": 76,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "在我看来"
+                  },
+                  {
+                    "id": "design",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 43,
+                    "width": 76,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "较简单的设计"
+                  },
+                  {
+                    "id": "degree",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "效果更好（better）"
+                  }
+                ]
+              },
+              {
+                "signature": "mine|best",
+                "reading": "原句是我的看法，比较的是效果更好；不能扩大成所有人的结论或最好。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bubble",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 14,
+                    "width": 84,
+                    "height": 57,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 20,
+                    "width": 76,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "在我看来"
+                  },
+                  {
+                    "id": "design",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 43,
+                    "width": 76,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "较简单的设计"
+                  },
+                  {
+                    "id": "degree",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "效果最好（best）"
+                  }
+                ]
+              },
+              {
+                "signature": "everyone|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bubble",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 14,
+                    "width": 84,
+                    "height": 57,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 20,
+                    "width": 76,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "所有人都这样认为"
+                  },
+                  {
+                    "id": "design",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 43,
+                    "width": 76,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "较简单的设计"
+                  },
+                  {
+                    "id": "degree",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "比较程度待选"
+                  }
+                ]
+              },
+              {
+                "signature": "everyone|better",
+                "reading": "原句是我的看法，比较的是效果更好；不能扩大成所有人的结论或最好。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bubble",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 14,
+                    "width": 84,
+                    "height": 57,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 20,
+                    "width": 76,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "所有人都这样认为"
+                  },
+                  {
+                    "id": "design",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 43,
+                    "width": 76,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "较简单的设计"
+                  },
+                  {
+                    "id": "degree",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "效果更好（better）"
+                  }
+                ]
+              },
+              {
+                "signature": "everyone|best",
+                "reading": "原句是我的看法，比较的是效果更好；不能扩大成所有人的结论或最好。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bubble",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 14,
+                    "width": 84,
+                    "height": 57,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 20,
+                    "width": 76,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "所有人都这样认为"
+                  },
+                  {
+                    "id": "design",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 43,
+                    "width": 76,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "较简单的设计"
+                  },
+                  {
+                    "id": "degree",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "效果最好（best）"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-idea",
+        "label": "想法；主意",
+        "prompt": "both连接了哪两项好处？圈出预计能节省的两样东西。",
+        "answer": "idea",
+        "caseSensitive": false,
+        "meaning": "想法；主意",
+        "before": "Your ",
+        "after": " would save both time and paper.",
+        "reason": "Your idea would save both time and paper说这个主意预计既省时间又省纸；would不是已经实际省下，也没有给数量。",
+        "hint": "both A and B两项都要保留；不要把预计好处说成已完成的结果。",
+        "material": "Your idea would save both time and paper.",
+        "options": [
+          {
+            "id": "both",
+            "text": "你的主意既能省时间，又能省纸。",
+            "correct": true,
+            "reason": "保留idea、would与both time and paper。"
+          },
+          {
+            "id": "time-only",
+            "text": "这个主意只省时间，完全不省纸。",
+            "correct": false,
+            "reason": "只保留时间，丢掉了both中的paper。"
+          },
+          {
+            "id": "done",
+            "text": "已经省下了具体数量的时间和纸张。",
+            "correct": false,
+            "reason": "把would的预计效果说成已完成，还补了未给数量。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "both连接了哪两项好处？圈出预计能节省的两样东西。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "预计的好处是哪两项？",
+            "prompt": "圈出原句支持的两项好处。",
+            "hint": "时间和纸张都要选；不补实际数量。",
+            "wrong": "预计的好处包括省时间和省纸；没有已完成或具体数量的信息。",
+            "rows": [
+              {
+                "id": "time",
+                "label": "预计节省",
+                "text": "时间。",
+                "include": true
+              },
+              {
+                "id": "paper",
+                "label": "预计节省",
+                "text": "纸张。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经实际省下，且知道具体数量。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-note",
+        "label": "记录；笔记（本句）",
+        "prompt": "make a note要求记下什么？用新开放时间例子练习准确记录。",
+        "answer": "note",
+        "caseSensitive": false,
+        "meaning": "记录；笔记（本句）",
+        "before": "Make a ",
+        "after": " of the opening times.",
+        "reason": "Make a note of the opening times要求记下开放时间；原句没有给具体时刻，也不是已经完成记录。",
+        "hint": "新例子的告示是Open 09:00–17:00。只根据这个新告示核对记录。",
+        "material": "Make a note of the opening times.",
+        "options": [
+          {
+            "id": "times",
+            "text": "记下开放时间。",
+            "correct": true,
+            "reason": "保留make a note of与opening times。"
+          },
+          {
+            "id": "price",
+            "text": "只记票价，不记开放时间。",
+            "correct": false,
+            "reason": "票价不是opening times。"
+          },
+          {
+            "id": "already",
+            "text": "说开放时间已经记好了。",
+            "correct": false,
+            "reason": "Make是要求，不能改成已完成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "make a note要求记下什么？用新开放时间例子练习准确记录。",
+          "sceneLab": {
+            "id": "note-times",
+            "title": "新例子：记录与告示一致吗？",
+            "hint": "新告示Open 09:00–17:00；这些时刻并不是原句给出的信息。",
+            "wrong": "新告示写09:00–17:00，记录不能改成09:00–19:00。",
+            "axes": [
+              {
+                "id": "note",
+                "label": "记下哪条开放时间",
+                "choices": [
+                  {
+                    "id": "same",
+                    "label": "09:00–17:00"
+                  },
+                  {
+                    "id": "changed",
+                    "label": "09:00–19:00"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "先选一种解释，再回原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新告示：Open 09:00–17:00"
+                  },
+                  {
+                    "id": "notice",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 24,
+                    "width": 84,
+                    "height": 25,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "notice-copy",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 28,
+                    "width": 80,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "09:00–17:00"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 52,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "↓ 记下时间"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 73,
+                    "width": 84,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "note-copy",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 76,
+                    "width": 80,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "记录待选"
+                  }
+                ]
+              },
+              {
+                "signature": "same",
+                "reading": "记下开放时间。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新告示：Open 09:00–17:00"
+                  },
+                  {
+                    "id": "notice",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 24,
+                    "width": 84,
+                    "height": 25,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "notice-copy",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 28,
+                    "width": 80,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "09:00–17:00"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 52,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "↓ 记下时间"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 73,
+                    "width": 84,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "note-copy",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 76,
+                    "width": 80,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "09:00–17:00"
+                  }
+                ]
+              },
+              {
+                "signature": "changed",
+                "reading": "新告示写09:00–17:00，记录不能改成09:00–19:00。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新告示：Open 09:00–17:00"
+                  },
+                  {
+                    "id": "notice",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 24,
+                    "width": 84,
+                    "height": 25,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "notice-copy",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 28,
+                    "width": 80,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "09:00–17:00"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 52,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "↓ 记下时间"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 73,
+                    "width": 84,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "note-copy",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 76,
+                    "width": 80,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "09:00–19:00"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-topic",
+        "label": "话题；主题",
+        "prompt": "river wildlife限定了什么主题？换一张主题卡，检查范围有没有变。",
+        "answer": "topic",
+        "caseSensitive": false,
+        "meaning": "话题；主题",
+        "before": "We chose river wildlife as our ",
+        "after": ".",
+        "reason": "We chose river wildlife as our topic说我们已经选河流中的野生动物为主题；不是桥梁工程，也不是所有环境中的所有动物。",
+        "hint": "chose是过去式；river修饰wildlife，范围要保留。",
+        "material": "We chose river wildlife as our topic.",
+        "options": [
+          {
+            "id": "river",
+            "text": "我们选了河流中的野生动物作为主题。",
+            "correct": true,
+            "reason": "保留chose、river wildlife与topic。"
+          },
+          {
+            "id": "bridge",
+            "text": "我们选的是桥梁建设工程。",
+            "correct": false,
+            "reason": "桥梁工程改变了river wildlife野生动物主题。"
+          },
+          {
+            "id": "future",
+            "text": "说我们还没有选主题，只打算以后再选。",
+            "correct": false,
+            "reason": "chose说明已经作出选择。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "river wildlife限定了什么主题？换一张主题卡，检查范围有没有变。",
+          "sceneLab": {
+            "id": "topic-river",
+            "title": "主题卡有没有保留river？",
+            "hint": "只比较主题范围，不补原句没有给的动物种类或调查结果。",
+            "wrong": "原句选的是河流中的野生动物，不能换桥梁工程，也不能删去river的范围。",
+            "axes": [
+              {
+                "id": "choice",
+                "label": "我们选定的主题",
+                "choices": [
+                  {
+                    "id": "river",
+                    "label": "河流中的野生动物"
+                  },
+                  {
+                    "id": "bridge",
+                    "label": "桥梁工程"
+                  },
+                  {
+                    "id": "all",
+                    "label": "所有环境中的动物"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "先选一种解释，再回原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "past",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "We chose：已经选定"
+                  },
+                  {
+                    "id": "topic",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 28,
+                    "width": 84,
+                    "height": 40,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "topic-copy",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 38,
+                    "width": 78,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "主题待选"
+                  }
+                ]
+              },
+              {
+                "signature": "river",
+                "reading": "我们选了河流中的野生动物作为主题。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "past",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "We chose：已经选定"
+                  },
+                  {
+                    "id": "topic",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 28,
+                    "width": 84,
+                    "height": 40,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "topic-copy",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 38,
+                    "width": 78,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "河流中的野生动物"
+                  },
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "保留河流环境与野生动物"
+                  }
+                ]
+              },
+              {
+                "signature": "bridge",
+                "reading": "原句选的是河流中的野生动物，不能换桥梁工程，也不能删去river的范围。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "past",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "We chose：已经选定"
+                  },
+                  {
+                    "id": "topic",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 28,
+                    "width": 84,
+                    "height": 40,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "topic-copy",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 38,
+                    "width": 78,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "桥梁工程"
+                  },
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "把野生动物换成建设工程"
+                  }
+                ]
+              },
+              {
+                "signature": "all",
+                "reading": "原句选的是河流中的野生动物，不能换桥梁工程，也不能删去river的范围。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "past",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "We chose：已经选定"
+                  },
+                  {
+                    "id": "topic",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 28,
+                    "width": 84,
+                    "height": 40,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "topic-copy",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 38,
+                    "width": 78,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "所有环境中的动物"
+                  },
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "删掉了river限定的环境"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-summary",
+        "label": "摘要；总结",
+        "prompt": "怎样简短总结，又不照抄整句？用新短文选择改写。",
+        "answer": "summary",
+        "caseSensitive": false,
+        "meaning": "摘要；总结",
+        "before": "Write a short ",
+        "after": " without copying whole sentences.",
+        "reason": "Write a short summary without copying whole sentences要求写简短总结，不照抄整句；并不是所有原词都不能再用。",
+        "hint": "新短文讲收集旧纸、做成笔记本。总结要保留主旨，不编没有发生的事。",
+        "material": "Write a short summary without copying whole sentences.",
+        "options": [
+          {
+            "id": "short",
+            "text": "写简短总结，不照抄完整句子。",
+            "correct": true,
+            "reason": "保留short summary与without copying whole sentences。"
+          },
+          {
+            "id": "copy",
+            "text": "把原文整句照抄一遍就够了。",
+            "correct": false,
+            "reason": "与without copying whole sentences相反。"
+          },
+          {
+            "id": "no-words",
+            "text": "原文里出现过的任何单词都禁止使用。",
+            "correct": false,
+            "reason": "不照抄整句不等于禁止复用所有原词。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "怎样简短总结，又不照抄整句？用新短文选择改写。",
+          "sceneLab": {
+            "id": "summary-rewrite",
+            "title": "新短文：哪句是简短改写？",
+            "hint": "新短文：Our class collected used paper. We made notebooks from it. This reduced waste.",
+            "wrong": "要保留旧纸做笔记本的主旨；不能照抄整句，也不能编购买新电脑的事。",
+            "axes": [
+              {
+                "id": "choice",
+                "label": "哪份是保留主旨的简短改写",
+                "choices": [
+                  {
+                    "id": "paraphrase",
+                    "label": "旧纸再利用，做成笔记本"
+                  },
+                  {
+                    "id": "copy",
+                    "label": "照抄第一整句"
+                  },
+                  {
+                    "id": "invent",
+                    "label": "改说买了新电脑"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "先选一种解释，再回原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "新短文：旧纸→笔记本→减少浪费"
+                  },
+                  {
+                    "id": "summary",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 35,
+                    "width": 90,
+                    "height": 48,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "first-line",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 42,
+                    "width": 84,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "先选一份总结"
+                  },
+                  {
+                    "id": "second-line",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 61,
+                    "width": 84,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "总结待选"
+                  }
+                ]
+              },
+              {
+                "signature": "paraphrase",
+                "reading": "写简短总结，不照抄完整句子。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "新短文：旧纸→笔记本→减少浪费"
+                  },
+                  {
+                    "id": "summary",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 35,
+                    "width": 90,
+                    "height": 48,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "first-line",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 42,
+                    "width": 84,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "We reused paper"
+                  },
+                  {
+                    "id": "second-line",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 61,
+                    "width": 84,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "to make notebooks."
+                  }
+                ]
+              },
+              {
+                "signature": "copy",
+                "reading": "要保留旧纸做笔记本的主旨；不能照抄整句，也不能编购买新电脑的事。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "新短文：旧纸→笔记本→减少浪费"
+                  },
+                  {
+                    "id": "summary",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 35,
+                    "width": 90,
+                    "height": 48,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "first-line",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 42,
+                    "width": 84,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "Our class collected"
+                  },
+                  {
+                    "id": "second-line",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 61,
+                    "width": 84,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "used paper."
+                  }
+                ]
+              },
+              {
+                "signature": "invent",
+                "reading": "要保留旧纸做笔记本的主旨；不能照抄整句，也不能编购买新电脑的事。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "新短文：旧纸→笔记本→减少浪费"
+                  },
+                  {
+                    "id": "summary",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 35,
+                    "width": 90,
+                    "height": 48,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "first-line",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 42,
+                    "width": 84,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "We bought"
+                  },
+                  {
+                    "id": "second-line",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 61,
+                    "width": 84,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "new computers."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-chart",
+        "label": "图表",
+        "prompt": "图表怎样显示变化？读一个有明确数值的新用水例子。",
+        "answer": "chart",
+        "caseSensitive": false,
+        "meaning": "图表",
+        "before": "The ",
+        "after": " shows how our water use changed.",
+        "reason": "The chart shows how our water use changed说图表显示用水量如何变化；原句没有说升降方向或具体数值。",
+        "hint": "新例子：之前30升，之后20升。只在这个例子里判断减少；原句本身未给方向。",
+        "material": "The chart shows how our water use changed.",
+        "options": [
+          {
+            "id": "change",
+            "text": "图表显示我们的用水量如何变化。",
+            "correct": true,
+            "reason": "保留chart、our water use与changed。"
+          },
+          {
+            "id": "guarantee",
+            "text": "原句已经证明所有人都节约了用水。",
+            "correct": false,
+            "reason": "原句没有所有人、节约方向或证明结果。"
+          },
+          {
+            "id": "exact",
+            "text": "原句已经给出了具体升数和变化方向。",
+            "correct": false,
+            "reason": "这些具体信息并未在原句中给出。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "图表怎样显示变化？读一个有明确数值的新用水例子。",
+          "sceneLab": {
+            "id": "chart-water",
+            "title": "新例子：30升变成20升",
+            "hint": "这是另加的数值：之前30升，之后20升；不是原句已经报告的数据。",
+            "wrong": "新例子从30升变成20升，减少10升，不能画成增加；原句本身没给数值。",
+            "axes": [
+              {
+                "id": "direction",
+                "label": "新例子的图表应该显示",
+                "choices": [
+                  {
+                    "id": "down",
+                    "label": "30→20：减少10升"
+                  },
+                  {
+                    "id": "up",
+                    "label": "20→30：增加10升"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "先选一种解释，再回原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新数据：之前30升，之后20升"
+                  },
+                  {
+                    "id": "baseline",
+                    "kind": "line",
+                    "x": 12,
+                    "y": 77,
+                    "width": 76,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "before",
+                    "kind": "label",
+                    "x": 20,
+                    "y": 83,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "之前"
+                  },
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "之后"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 37,
+                    "width": 96,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "选择与数据一致的变化"
+                  }
+                ]
+              },
+              {
+                "signature": "down",
+                "reading": "图表显示我们的用水量如何变化。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新数据：之前30升，之后20升"
+                  },
+                  {
+                    "id": "baseline",
+                    "kind": "line",
+                    "x": 12,
+                    "y": 77,
+                    "width": 76,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "before",
+                    "kind": "label",
+                    "x": 20,
+                    "y": 83,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "之前"
+                  },
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "之后"
+                  },
+                  {
+                    "id": "bar-0",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 34.0,
+                    "width": 18,
+                    "height": 42.0,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "value-0",
+                    "kind": "label",
+                    "x": 22,
+                    "y": 17.0,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "30升"
+                  },
+                  {
+                    "id": "bar-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 48.0,
+                    "width": 18,
+                    "height": 28.0,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "value-1",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 31.0,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "20升"
+                  }
+                ]
+              },
+              {
+                "signature": "up",
+                "reading": "新例子从30升变成20升，减少10升，不能画成增加；原句本身没给数值。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新数据：之前30升，之后20升"
+                  },
+                  {
+                    "id": "baseline",
+                    "kind": "line",
+                    "x": 12,
+                    "y": 77,
+                    "width": 76,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "before",
+                    "kind": "label",
+                    "x": 20,
+                    "y": 83,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "之前"
+                  },
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "之后"
+                  },
+                  {
+                    "id": "bar-0",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 48.0,
+                    "width": 18,
+                    "height": 28.0,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "value-0",
+                    "kind": "label",
+                    "x": 22,
+                    "y": 31.0,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "20升"
+                  },
+                  {
+                    "id": "bar-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 34.0,
+                    "width": 18,
+                    "height": 42.0,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "value-1",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 17.0,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "30升"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-diagram",
+        "label": "示意图；图解",
+        "prompt": "Label each part要求逐个标哪里？在新花朵示意图中配好两个名称。",
+        "answer": "diagram",
+        "caseSensitive": false,
+        "meaning": "示意图；图解",
+        "before": "Label each part of the flower in the ",
+        "after": ".",
+        "reason": "Label each part of the flower in the diagram要求给花的各个部位标名称；原句没有提供具体图或标签。这里另画花瓣与花心作新例子。",
+        "hint": "新示意图外圈是花瓣，中间是花心；两处名称都要配对。",
+        "material": "Label each part of the flower in the diagram.",
+        "options": [
+          {
+            "id": "each",
+            "text": "给示意图中的花各部位标上名称。",
+            "correct": true,
+            "reason": "保留Label、each part与in the diagram。"
+          },
+          {
+            "id": "one-only",
+            "text": "只标其中一个部位，其他都不用标。",
+            "correct": false,
+            "reason": "只标一处不符合each每个的范围。"
+          },
+          {
+            "id": "done",
+            "text": "说各部位的名称已经全部标好了。",
+            "correct": false,
+            "reason": "Label是要求，不是已完成报告。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "Label each part要求逐个标哪里？在新花朵示意图中配好两个名称。",
+          "sceneLab": {
+            "id": "diagram-flower",
+            "title": "新示意图：外圈与中间分别是什么？",
+            "hint": "这里只示意花瓣和花心两个特征，不是原句给出的真实图。",
+            "wrong": "新示意图外圈配花瓣，中间配花心；不能把两个名称颠倒。",
+            "axes": [
+              {
+                "id": "outer",
+                "label": "外圈的名称",
+                "choices": [
+                  {
+                    "id": "petal",
+                    "label": "花瓣"
+                  },
+                  {
+                    "id": "core",
+                    "label": "花心"
+                  }
+                ]
+              },
+              {
+                "id": "centre",
+                "label": "中间的名称",
+                "choices": [
+                  {
+                    "id": "core",
+                    "label": "花心"
+                  },
+                  {
+                    "id": "petal",
+                    "label": "花瓣"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "新示意图：只看花瓣与花心"
+                  },
+                  {
+                    "id": "petal-0",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 17,
+                    "width": 20,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-1",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-2",
+                    "kind": "ellipse",
+                    "x": 51,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-3",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-4",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "centre",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 39,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "outer-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "外圈：待选"
+                  },
+                  {
+                    "id": "centre-label",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "中间：待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|core",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "新示意图：只看花瓣与花心"
+                  },
+                  {
+                    "id": "petal-0",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 17,
+                    "width": 20,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-1",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-2",
+                    "kind": "ellipse",
+                    "x": 51,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-3",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-4",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "centre",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 39,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "outer-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "外圈：待选"
+                  },
+                  {
+                    "id": "centre-label",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "中间：花心"
+                  }
+                ]
+              },
+              {
+                "signature": "?|petal",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "新示意图：只看花瓣与花心"
+                  },
+                  {
+                    "id": "petal-0",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 17,
+                    "width": 20,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-1",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-2",
+                    "kind": "ellipse",
+                    "x": 51,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-3",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-4",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "centre",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 39,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "outer-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "外圈：待选"
+                  },
+                  {
+                    "id": "centre-label",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "中间：花瓣"
+                  }
+                ]
+              },
+              {
+                "signature": "petal|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "新示意图：只看花瓣与花心"
+                  },
+                  {
+                    "id": "petal-0",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 17,
+                    "width": 20,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-1",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-2",
+                    "kind": "ellipse",
+                    "x": 51,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-3",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-4",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "centre",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 39,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "outer-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "外圈：花瓣"
+                  },
+                  {
+                    "id": "centre-label",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "中间：待选"
+                  }
+                ]
+              },
+              {
+                "signature": "petal|core",
+                "reading": "给示意图中的花各部位标上名称。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "新示意图：只看花瓣与花心"
+                  },
+                  {
+                    "id": "petal-0",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 17,
+                    "width": 20,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-1",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-2",
+                    "kind": "ellipse",
+                    "x": 51,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-3",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-4",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "centre",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 39,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "outer-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "外圈：花瓣"
+                  },
+                  {
+                    "id": "centre-label",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "中间：花心"
+                  }
+                ]
+              },
+              {
+                "signature": "petal|petal",
+                "reading": "新示意图外圈配花瓣，中间配花心；不能把两个名称颠倒。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "新示意图：只看花瓣与花心"
+                  },
+                  {
+                    "id": "petal-0",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 17,
+                    "width": 20,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-1",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-2",
+                    "kind": "ellipse",
+                    "x": 51,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-3",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-4",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "centre",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 39,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "outer-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "外圈：花瓣"
+                  },
+                  {
+                    "id": "centre-label",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "中间：花瓣"
+                  }
+                ]
+              },
+              {
+                "signature": "core|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "新示意图：只看花瓣与花心"
+                  },
+                  {
+                    "id": "petal-0",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 17,
+                    "width": 20,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-1",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-2",
+                    "kind": "ellipse",
+                    "x": 51,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-3",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-4",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "centre",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 39,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "outer-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "外圈：花心"
+                  },
+                  {
+                    "id": "centre-label",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "中间：待选"
+                  }
+                ]
+              },
+              {
+                "signature": "core|core",
+                "reading": "新示意图外圈配花瓣，中间配花心；不能把两个名称颠倒。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "新示意图：只看花瓣与花心"
+                  },
+                  {
+                    "id": "petal-0",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 17,
+                    "width": 20,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-1",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-2",
+                    "kind": "ellipse",
+                    "x": 51,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-3",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-4",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "centre",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 39,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "outer-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "外圈：花心"
+                  },
+                  {
+                    "id": "centre-label",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "中间：花心"
+                  }
+                ]
+              },
+              {
+                "signature": "core|petal",
+                "reading": "新示意图外圈配花瓣，中间配花心；不能把两个名称颠倒。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "新示意图：只看花瓣与花心"
+                  },
+                  {
+                    "id": "petal-0",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 17,
+                    "width": 20,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-1",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-2",
+                    "kind": "ellipse",
+                    "x": 51,
+                    "y": 30,
+                    "width": 28,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-3",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "petal-4",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 49,
+                    "width": 25,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "centre",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 39,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "outer-label",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "外圈：花心"
+                  },
+                  {
+                    "id": "centre-label",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 80,
+                    "width": 47,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "中间：花瓣"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-learning-5-transfer",
+      "topicId": "v-course-learning",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成通知、路线和计划，哪组三句完整保留了信息？",
+      "passage": "三条新信息\n发布通知前核实每个数字。在我看来，较短的路线更容易走。你的计划既能省水，又能节能。\n词语提示：figure 数字；route 路线；energy 能源。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Check some figures before posting the notice. In my opinion, the shorter route is easier. Your plan would save both water and energy."
+        },
+        {
+          "id": "b",
+          "text": "Check each figure before posting the notice. Everyone has proved that the shorter route is the easiest. Your plan would save both water and energy."
+        },
+        {
+          "id": "c",
+          "text": "Check each figure before posting the notice. In my opinion, the shorter route is easier. Your plan would save both water and energy."
+        },
+        {
+          "id": "d",
+          "text": "Check each figure before posting the notice. In my opinion, the shorter route is easier. Your plan would save only water, not energy."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Check each figure before posting the notice. In my opinion, the shorter route is easier. Your plan would save both water and energy."
+      },
+      "marks": 1,
+      "estimatedSeconds": 80,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对each的范围、个人看法与比较级、both的两项内容。",
+        "steps": [
+          {
+            "text": "发布前核实每个数字：each figure before posting。",
+            "reason": "some只保留部分，不能替换each；也不能把核实放到发布之后。"
+          },
+          {
+            "text": "这是我的看法：In my opinion；路线是更容易走，不是最容易。",
+            "reason": "不能换成所有人都已证明，也不能把easier换成easiest。"
+          },
+          {
+            "text": "计划预计既省水又节能：would save both water and energy。",
+            "reason": "both两项都要保留，would没有说已经实际节省。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "some把每个数字缩成只检查部分。"
+          },
+          {
+            "option": "b",
+            "reason": "Everyone has proved和easiest分别扩大了个人看法与比较程度。"
+          },
+          {
+            "option": "d",
+            "reason": "only water, not energy丢掉了both中的节能。"
+          }
+        ],
+        "pitfall": "事实核实与个人看法要分清；更好不是最好；预计效果不是完成结果。",
+        "visual": {
+          "kind": "comparison",
+          "title": "范围、看法、两项好处",
+          "segments": [
+            {
+              "text": "each figure before posting",
+              "role": "evidence",
+              "note": "发布前逐项核实"
+            },
+            {
+              "text": "In my opinion ... easier",
+              "role": "evidence",
+              "note": "我的看法：更容易"
+            },
+            {
+              "text": "both water and energy",
+              "role": "evidence",
+              "note": "水和能源，两项都保留"
+            }
+          ],
+          "caption": "不缩小each，不扩大my opinion，不漏掉both。"
+        },
+        "transfer": "把In my opinion改成Everyone has proved，会多出什么原文不支持的信息？"
+      }
+    }
+  }
+}
