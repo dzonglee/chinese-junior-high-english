@@ -1,0 +1,10 @@
+/** Schematic texture/result categories, not a physical viscosity, temperature or cut-count measurement. */
+export interface WordTextureResult {title:string;hint:string;wrong:string;kind:'stir'|'chop'}
+export interface WordTextureResultView {title:string;hint:string;kind:string;selected:string;reading:string;display:string;caption:string;choices:{id:string;label:string;selected:boolean}[]}
+const stir=[['smooth','搅拌到顺滑'],['lumpy','搅拌到结块'],['boiled','搅拌到煮沸']]as const,chop=[['small','切成小块'],['large','切成大块'],['whole','保持整颗不切']]as const
+const bounded=(s:unknown,n:number)=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=n,options=(w:WordTextureResult)=>w.kind==='stir'?stir:chop,known=(w:WordTextureResult,s:string)=>s===''||options(w).some(c=>c[0]===s)
+export function validWordTextureResult(v:unknown):v is WordTextureResult {if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordTextureResult;return Object.keys(w).length===4&&Object.keys(w).every(k=>['title','hint','wrong','kind'].includes(k))&&['stir','chop'].includes(w.kind)&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordTextureResultKey=(id:string)=>`workshopTextureResult-${id}`
+export const textureResultMatch=(w:WordTextureResult,raw:string)=>raw===(w.kind==='stir'?'smooth':'small')
+export function changeTextureResult(w:WordTextureResult,raw:string,action:string):string|undefined {if(action==='reset')return'';if(!known(w,raw))return undefined;return options(w).some(c=>c[0]===action)?action:undefined}
+export function wordTextureResultView(w:WordTextureResult,raw:string):WordTextureResultView {const selected=known(w,raw)?raw:'';return{title:w.title,hint:w.hint,kind:w.kind,selected,display:selected,reading:!selected?'先选原句要求的结果；不默认已经完成。':textureResultMatch(w,raw)?(w.kind==='stir'?'对了，终点是酱汁顺滑，不是结块或煮沸。':'对了，结果是小块，不是大块或整颗；没有给块数。'):w.wrong,caption:w.kind==='stir'?'纹理类别示意 · 不测实际黏度或温度':'相对形态示意 · 原句没有给块数或尺寸',choices:options(w).map(([id,label])=>({id,label,selected:id===selected}))}}
