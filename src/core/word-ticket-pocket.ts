@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordTicketPocket{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordTicketPocket(v:unknown):v is WordTicketPocket{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordTicketPocket;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordTicketPocketKey=(id:string)=>'workshopTicketPocket-'+id
+function decode(raw:string){if(raw==='')return{"place": "?", "zip": "?"};const m="^(\\?|in|outside)\\|(\\?|zipped|open)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{place:v[1],zip:v[2]}:null}
+export function changeTicketPocket(_w:WordTicketPocket,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["place-in", "place-outside"].includes(action))return action.slice(6)+"|"+s.zip;if(["zip-zipped", "zip-open"].includes(action))return s.place+"|"+action.slice(4);return undefined}
+export function ticketPocketMatch(_w:WordTicketPocket,raw:string){const s=decode(raw);return!!s&&s.place==="in"&&s.zip==="zipped"}
+export function wordTicketPocketView(w:WordTicketPocket,raw:string){const s=decode(raw)??{"place": "?", "zip": "?"};return{title:w.title,hint:w.hint,showTicket:s.place!=='?',ticketLeft:s.place==='in'?35:82,zip:s.zip,place:s.place,groups:[{label:"车票位置",choices:[{"id": "place-in", "label": "口袋里面"}, {"id": "place-outside", "label": "口袋外面"}].map(c=>({...c,selected:c.id==="place-"+s.place}))},{label:"口袋状态",choices:[{"id": "zip-zipped", "label": "有拉链并拉好"}, {"id": "zip-open", "label": "敞开"}].map(c=>({...c,selected:c.id==="zip-"+s.zip}))}],reading:ticketPocketMatch(w,raw)?"按要求把车票放在拉好拉链的口袋里。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordTicketPocketView=ReturnType<typeof wordTicketPocketView>

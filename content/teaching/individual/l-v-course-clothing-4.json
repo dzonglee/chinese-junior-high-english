@@ -1,0 +1,516 @@
+{
+  "lessonId": "l-v-course-clothing-4",
+  "reviewState": "draft",
+  "intent": "Teach belt too loose to support trousers, ticket in zipped pocket, green button request and goal, stuck backpack zip, puppy red collar with tag, sleeve before dishwashing, helmet size question and bright clothing during night cycling.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "看部位，分清要求与现状",
+    "instruction": "调松紧、移车票、分先后；每次只改一个细节，再回原句核对。",
+    "items": [
+      {
+        "id": "word-belt",
+        "label": "腰带（本句）",
+        "prompt": "too loose to hold…up说明能撑住，还是撑不住？换松紧，看看解释怎么变。",
+        "answer": "belt",
+        "caseSensitive": false,
+        "meaning": "腰带（本句）",
+        "before": "The ",
+        "after": " is too loose to hold these trousers up.",
+        "reason": "The belt is too loose to hold these trousers up说明腰带太松，撑不住这条裤子。",
+        "hint": "too…to…在这里表示太……而不能……；没有给腰围或调节量。",
+        "material": "The belt is too loose to hold these trousers up.",
+        "options": [
+          {
+            "id": "loose",
+            "text": "腰带太松，撑不住这条裤子。",
+            "correct": true,
+            "reason": "保留too loose to…。"
+          },
+          {
+            "id": "tight",
+            "text": "腰带太紧，勒住了这条裤子。",
+            "correct": false,
+            "reason": "tight与loose相反。"
+          },
+          {
+            "id": "fit",
+            "text": "腰带松紧正合适，能撑住裤子。",
+            "correct": false,
+            "reason": "正合适与too loose不能撑住相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "too loose to hold…up说明能撑住，还是撑不住？换松紧，看看解释怎么变。",
+          "beltSupport": {
+            "title": "太松，还是正合适？",
+            "hint": "只示意松紧与句意，不提供真实腰围。",
+            "wrong": "原句是太松而撑不住，不是太紧或正合适。"
+          }
+        }
+      },
+      {
+        "id": "word-pocket",
+        "label": "口袋",
+        "prompt": "in和zipped各限制什么？移动车票，再改变口袋状态。",
+        "answer": "pocket",
+        "caseSensitive": false,
+        "meaning": "口袋",
+        "before": "Keep your ticket in a zipped ",
+        "after": ".",
+        "reason": "Keep your ticket in a zipped pocket要求把车票放在拉好拉链的口袋里；in指里面，zipped限定口袋。",
+        "hint": "这是保管要求，不报告已经放好，也不说明衣服颜色。",
+        "material": "Keep your ticket in a zipped pocket.",
+        "options": [
+          {
+            "id": "in-zipped",
+            "text": "把车票放在拉好拉链的口袋里。",
+            "correct": true,
+            "reason": "同时保留in与zipped。"
+          },
+          {
+            "id": "outside",
+            "text": "把车票放在口袋外面。",
+            "correct": false,
+            "reason": "外面不保留in。"
+          },
+          {
+            "id": "open",
+            "text": "把车票放在敞开的口袋里。",
+            "correct": false,
+            "reason": "敞开不保留zipped的状态。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "in和zipped各限制什么？移动车票，再改变口袋状态。",
+          "ticketPocket": {
+            "title": "车票在哪里，口袋什么状态？",
+            "hint": "口袋与票只示意原句要求，不报告已放好。",
+            "wrong": "车票要在拉好拉链的口袋里，不能改外面或敞开的口袋。"
+          }
+        }
+      },
+      {
+        "id": "word-button",
+        "label": "按钮（本句）",
+        "prompt": "green修饰按钮；to open给的是目的。圈出两条要求。",
+        "answer": "button",
+        "caseSensitive": false,
+        "meaning": "按钮（本句）",
+        "before": "Press the green ",
+        "after": " to open the gate.",
+        "reason": "Press the green button to open the gate要求按绿色按钮来开门；button是按钮，不是衣服纽扣。",
+        "hint": "要求和目的不等于门已经打开；没有说还要按红色按钮。",
+        "material": "Press the green button to open the gate.",
+        "options": [
+          {
+            "id": "green",
+            "text": "按绿色按钮来开门。",
+            "correct": true,
+            "reason": "保留green button与to open。"
+          },
+          {
+            "id": "red",
+            "text": "按红色按钮来开门。",
+            "correct": false,
+            "reason": "red改掉了green。"
+          },
+          {
+            "id": "done",
+            "text": "门已经打开了。",
+            "correct": false,
+            "reason": "to open是目的，不能当完成结果。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "green修饰按钮；to open给的是目的。圈出两条要求。",
+          "recordSelection": {
+            "title": "按哪个，目的是什么？",
+            "prompt": "圈出原句给出的两条信息。",
+            "hint": "按原句判断，不补已完成的结果。",
+            "wrong": "应保留按绿色按钮及开门目的，不能补门已打开。",
+            "rows": [
+              {
+                "id": "green",
+                "label": "动作与对象",
+                "text": "按绿色按钮。",
+                "include": true
+              },
+              {
+                "id": "open",
+                "label": "目的",
+                "text": "打开门。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "门已经打开了。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-zip",
+        "label": "拉链（名词）",
+        "prompt": "The zip里的zip是什么词性？stuck是卡住、顺畅还是断掉？分别核对。",
+        "answer": "zip",
+        "caseSensitive": false,
+        "meaning": "拉链（名词）",
+        "before": "The ",
+        "after": " on my backpack is stuck.",
+        "reason": "The zip on my backpack is stuck说明背包上的拉链卡住了；zip在这里是名词，不是拉上拉链的动作。",
+        "hint": "卡住不等于断掉，也没有说它已经修好。",
+        "material": "The zip on my backpack is stuck.",
+        "options": [
+          {
+            "id": "stuck",
+            "text": "我背包上的拉链卡住了。",
+            "correct": true,
+            "reason": "保留名词zip与stuck。"
+          },
+          {
+            "id": "free",
+            "text": "我背包上的拉链很顺畅。",
+            "correct": false,
+            "reason": "顺畅与stuck卡住相反。"
+          },
+          {
+            "id": "broken",
+            "text": "我背包上的拉链已经断了。",
+            "correct": false,
+            "reason": "stuck不说明断掉，不能补损坏结果。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "The zip里的zip是什么词性？stuck是卡住、顺畅还是断掉？分别核对。",
+          "zipState": {
+            "title": "拉链现在什么状态？",
+            "hint": "文字与停滞示意表达卡住；不补修理方法。",
+            "wrong": "应是拉链卡住，不是顺畅或已经断掉。"
+          }
+        }
+      },
+      {
+        "id": "word-collar",
+        "label": "项圈（本句）",
+        "prompt": "点出小狗的红项圈；姓名牌与项圈是两个部件。",
+        "answer": "collar",
+        "caseSensitive": false,
+        "meaning": "项圈（本句）",
+        "before": "The puppy has a red ",
+        "after": " with a name tag.",
+        "reason": "The puppy has a red collar with a name tag中的collar是项圈，red修饰项圈，with a name tag说明带有姓名牌。",
+        "hint": "图只帮助辨认项圈和牌子，不提供真实姓名。",
+        "material": "The puppy has a red collar with a name tag.",
+        "options": [
+          {
+            "id": "collar",
+            "text": "小狗的红项圈。",
+            "correct": true,
+            "reason": "collar对应项圈。"
+          },
+          {
+            "id": "tag",
+            "text": "挂着的姓名牌。",
+            "correct": false,
+            "reason": "姓名牌对应name tag，不是collar。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出小狗的红项圈；姓名牌与项圈是两个部件。",
+          "art": {
+            "asset": "lesson-puppy-red-collar",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创小狗戴着红项圈，项圈上挂一块无字姓名牌。代码标注项圈与牌子，不从图片读取姓名。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "collar-red",
+                "option": "collar",
+                "label": "红项圈",
+                "labelPosition": "bottom",
+                "left": 28,
+                "top": 24,
+                "width": 34,
+                "height": 30
+              },
+              {
+                "id": "collar-tag",
+                "option": "tag",
+                "label": "姓名牌",
+                "labelPosition": "top",
+                "left": 27,
+                "top": 55,
+                "width": 35,
+                "height": 40
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-sleeve",
+        "label": "袖子",
+        "prompt": "before要求先卷袖子还是先洗碗？点卡片排一排。",
+        "answer": "sleeve",
+        "caseSensitive": false,
+        "meaning": "袖子",
+        "before": "Roll up your ",
+        "after": " before washing the dishes.",
+        "reason": "Roll up your sleeve before washing the dishes要求先卷起袖子，再洗碗；不是报告两件事已经做完。",
+        "hint": "sleeve在原句用单数；不改写成原句没有给出的双袖动作。",
+        "material": "Roll up your sleeve before washing the dishes.",
+        "options": [
+          {
+            "id": "before",
+            "text": "先卷起袖子，再洗碗。",
+            "correct": true,
+            "reason": "保留before的先后。"
+          },
+          {
+            "id": "after",
+            "text": "先洗碗，再卷起袖子。",
+            "correct": false,
+            "reason": "顺序与before相反。"
+          },
+          {
+            "id": "done",
+            "text": "袖子已卷好，碗也已洗完。",
+            "correct": false,
+            "reason": "要求不是完成记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before要求先卷袖子还是先洗碗？点卡片排一排。",
+          "processOrder": {
+            "title": "洗碗前先做什么？",
+            "hint": "排原句要求的先后，不补完成结果。",
+            "wrong": "应先卷起袖子，再洗碗。",
+            "events": [
+              {
+                "id": "roll",
+                "label": "卷起袖子"
+              },
+              {
+                "id": "wash",
+                "label": "洗碗"
+              }
+            ],
+            "sequence": [
+              "roll",
+              "wash"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-size",
+        "label": "尺寸；大小",
+        "prompt": "What size是在问尺码、颜色还是数量？原句给了答案吗？",
+        "answer": "size",
+        "caseSensitive": false,
+        "meaning": "尺寸；大小",
+        "before": "What ",
+        "after": " helmet do you need?",
+        "reason": "What size helmet do you need?询问所需头盔的尺码，句中没有给出具体号码。",
+        "hint": "问句不是说已经选好了，也不能从空白补小号或大号。",
+        "material": "What size helmet do you need?",
+        "options": [
+          {
+            "id": "size",
+            "text": "你需要多大号的头盔？",
+            "correct": true,
+            "reason": "What size问尺码。"
+          },
+          {
+            "id": "colour",
+            "text": "你需要什么颜色的头盔？",
+            "correct": false,
+            "reason": "颜色应问What colour，不是size。"
+          },
+          {
+            "id": "number",
+            "text": "你需要几个头盔？",
+            "correct": false,
+            "reason": "几个问数量，不是尺码。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "What size是在问尺码、颜色还是数量？原句给了答案吗？",
+          "helmetAsk": {
+            "title": "这句在问什么？",
+            "hint": "问号保留未知；不捏造头围、尺码或适配结论。",
+            "wrong": "What size问尺码，不是颜色或头盔数量；具体尺码仍未知。"
+          }
+        }
+      },
+      {
+        "id": "word-wear",
+        "label": "穿着（本句）",
+        "prompt": "bright与when cycling at night各给了什么要求？圈出两条。",
+        "answer": "Wear",
+        "caseSensitive": true,
+        "meaning": "穿着（本句）",
+        "before": "",
+        "after": " bright colours when cycling at night.",
+        "reason": "Wear bright colours when cycling at night要求夜间骑行时穿颜色鲜亮的衣服，不报告已经穿好。",
+        "hint": "bright不是深暗；只读穿着要求，不把它当成完整骑行安全说明。",
+        "material": "Wear bright colours when cycling at night.",
+        "options": [
+          {
+            "id": "bright-night",
+            "text": "夜间骑行时穿颜色鲜亮的衣服。",
+            "correct": true,
+            "reason": "保留bright colours与when cycling at night。"
+          },
+          {
+            "id": "dark",
+            "text": "夜间骑行时穿深暗颜色的衣服。",
+            "correct": false,
+            "reason": "深暗改掉了bright鲜亮。"
+          },
+          {
+            "id": "done",
+            "text": "已经穿上了鲜亮的衣服。",
+            "correct": false,
+            "reason": "Wear是要求，不是已完成记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "bright与when cycling at night各给了什么要求？圈出两条。",
+          "recordSelection": {
+            "title": "穿着特点与适用场景",
+            "prompt": "圈出原句给出的两条信息。",
+            "hint": "按原句判断，不补已完成的结果。",
+            "wrong": "保留鲜亮颜色与夜间骑行，不能补已穿好。",
+            "rows": [
+              {
+                "id": "bright",
+                "label": "穿着特点",
+                "text": "颜色鲜亮的衣服。",
+                "include": true
+              },
+              {
+                "id": "night",
+                "label": "场景",
+                "text": "夜间骑行时。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经穿好了。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-clothing-4-transfer",
+      "topicId": "v-course-clothing",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "换成手套、洗手和钥匙，哪组三句完整保留了信息？",
+      "passage": "三条新信息\n手套太小，戴不上。吃东西前先洗手。把钥匙放在拉好拉链的包里。\n词语提示：glove 手套；wash your hands 洗手；bag 包。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The glove is too small to put on. Wash your hands after eating. Keep the key in a zipped bag."
+        },
+        {
+          "id": "b",
+          "text": "The glove is too small to put on. Wash your hands before eating. Keep the key in a zipped bag."
+        },
+        {
+          "id": "c",
+          "text": "The glove is too large to put on. Wash your hands before eating. Keep the key in a zipped bag."
+        },
+        {
+          "id": "d",
+          "text": "The glove is too small to put on. Wash your hands before eating. Keep the key outside the bag."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The glove is too small to put on. Wash your hands before eating. Keep the key in a zipped bag."
+      },
+      "marks": 1,
+      "estimatedSeconds": 70,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐条核对太……不能……、先后顺序和里面的位置。",
+        "steps": [
+          {
+            "text": "手套太小，戴不上：too small to put on。",
+            "reason": "large会把小改大；没有给手套尺寸。"
+          },
+          {
+            "text": "先洗手，再吃东西：Wash your hands before eating。",
+            "reason": "after将顺序反转。"
+          },
+          {
+            "text": "钥匙放在拉好拉链的包里：in a zipped bag。",
+            "reason": "outside丢掉了里面的位置。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "after把吃前洗手改成吃后洗手。"
+          },
+          {
+            "option": "c",
+            "reason": "large把太小改成太大。"
+          },
+          {
+            "option": "d",
+            "reason": "outside把里面改成外面。"
+          }
+        ],
+        "pitfall": "换词后仍要保留否定含义、先后与位置；要求不等于已完成。",
+        "visual": {
+          "kind": "sentence",
+          "title": "三处关系，逐条对照",
+          "segments": [
+            {
+              "text": "too small to put on",
+              "role": "evidence",
+              "note": "太小，戴不上"
+            },
+            {
+              "text": "before eating",
+              "role": "evidence",
+              "note": "吃前，不是吃后"
+            },
+            {
+              "text": "in a zipped bag",
+              "role": "evidence",
+              "note": "拉好拉链的包里"
+            }
+          ],
+          "caption": "大小关系、先后、位置都保留。"
+        },
+        "transfer": "如果改成Wash your hands after eating，时间顺序怎样变了？"
+      }
+    }
+  },
+  "picturePurpose": "Original puppy picture separates the red collar from its name tag. Code supplies labels and targets; the image does not prove ownership or a prior event."
+}

@@ -236,6 +236,10 @@ function render() {
   const capIntoFocus = active instanceof HTMLButtonElement && active.matches(".word-cap-into button") ? active.dataset.value : undefined
   const scarfWrapFocus = active instanceof HTMLButtonElement && active.matches(".word-scarf-wrap button") ? active.dataset.value : undefined
   const gloveFoundFocus = active instanceof HTMLButtonElement && active.matches(".word-glove-found button") ? active.dataset.value : undefined
+  const beltSupportFocus = active instanceof HTMLButtonElement && active.matches(".word-belt-support button") ? active.dataset.value : undefined
+  const ticketPocketFocus = active instanceof HTMLButtonElement && active.matches(".word-ticket-pocket button") ? active.dataset.value : undefined
+  const zipStateFocus = active instanceof HTMLButtonElement && active.matches(".word-zip-state button") ? active.dataset.value : undefined
+  const helmetAskFocus = active instanceof HTMLButtonElement && active.matches(".word-helmet-ask button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -390,6 +394,10 @@ function render() {
   if (capIntoFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cap-into [data-value="${CSS.escape(capIntoFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (scarfWrapFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-scarf-wrap [data-value="${CSS.escape(scarfWrapFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (gloveFoundFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-glove-found [data-value="${CSS.escape(gloveFoundFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (beltSupportFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-belt-support [data-value="${CSS.escape(beltSupportFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (ticketPocketFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-ticket-pocket [data-value="${CSS.escape(ticketPocketFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (zipStateFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-zip-state [data-value="${CSS.escape(zipStateFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (helmetAskFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-helmet-ask [data-value="${CSS.escape(helmetAskFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

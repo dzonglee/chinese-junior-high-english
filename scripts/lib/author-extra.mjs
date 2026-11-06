@@ -86,7 +86,7 @@ export function authorExtra(root, catalog) {
     const topicWords = vocabulary.filter(w => w.topicId === id)
     for (const [n, word] of topicWords.entries()) {
       const sentenceMeaning = meaningInExample(word)
-      const exactClothingMeaning = id === 'v-course-clothing' && ["clothes", "shirt", "blouse", "t-shirt", "coat", "jacket", "sweater", "jumper", "trousers", "jeans", "shorts", "skirt", "dress", "suit", "sock", "shoe", "boot", "trainer", "sandal", "slipper", "hat", "cap", "scarf", "glove"].includes(word.word)
+      const exactClothingMeaning = id === 'v-course-clothing' && ["clothes", "shirt", "blouse", "t-shirt", "coat", "jacket", "sweater", "jumper", "trousers", "jeans", "shorts", "skirt", "dress", "suit", "sock", "shoe", "boot", "trainer", "sandal", "slipper", "hat", "cap", "scarf", "glove", "belt", "pocket", "button", "zip", "collar", "sleeve", "size", "wear"].includes(word.word)
       const decoys = [], seenMeanings = new Set()
       const authoredPair = authoredMeaningDecoys.get(`${id}:${word.word}`)
       if (authoredPair) {
@@ -107,7 +107,17 @@ export function authorExtra(root, catalog) {
       if (decoys.length !== 2) throw new Error(`Vocabulary topic needs three distinct meanings: ${id}`)
       const labels = [word, ...decoys], rotated = labels.map((_, k) => labels[(k + n) % 3])
       const options = rotated.map((w, k) => ({ id: ['a', 'b', 'c'][k], text: meaningInExample(w) })), right = options.find(o => o.text === sentenceMeaning).id
-      questions.push({ id: `q-${id}-${word.word}-meaning`, topicId: id, skill: 'vocabulary', kind: 'choice', feedbackGroup: word.id, difficulty: 1, grades, stem: exactClothingMeaning ? `本句中的 ${word.word} 最准确、具体的词义是哪项？` : `本句中的 ${word.word} 是什么意思？`, passage: word.example, options, answer: { option: right, display: sentenceMeaning }, marks: 1, estimatedSeconds: 35, source, review: 'draft', explanation: { strategy: '读完整句，结合搭配确认这个词在本句中的意思。', steps: [{ text: word.exampleMeaning, reason: `本句表达的是“${sentenceMeaning}”。` }, { text: word.explanation, reason: '词义必须与句中位置及实际用法同时吻合。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: exactClothingMeaning && o.text === '衣服' && ['boot','trainer','sandal','slipper'].includes(word.word) ? `本句需要具体的鞋类名称：${word.word}指“${sentenceMeaning}”；“衣服”没有表达这个具体词义。` : exactClothingMeaning && o.text === '衣服' && word.word !== 'clothes' ? `“衣服”只是总称，没有给出 ${word.word} 更具体的词义“${sentenceMeaning}”；不是说这种衣物不属于衣服。` : exactClothingMeaning && word.word === 'blouse' && o.text === '衬衫' ? '女式衬衫属于衬衫；本题要选更准确、具体的词义，blouse比shirt具体。' : `“${o.text}”在本课对应 ${decoys.find(w => meaningInExample(w) === o.text).word}，不是本句中 ${word.word} 的意思。${word.exampleMeaning}` })), pitfall: word.explanation, visual: { kind: 'sentence', title: '回到例句核对词义', segments: [{ text: word.word, role: 'evidence', note: sentenceMeaning }, { text: word.example, role: 'neutral', note: word.exampleMeaning }], caption: word.explanation }, transfer: `不用原句，试着用 ${word.word} 再表达一件自己的事。` } })
+      const clothingPartReason = {
+        belt: '本句belt指腰带；“衣服”没有表达这个具体对象。',
+        pocket: '本句pocket指口袋这个部位；“衣服”没有表达这个具体部位。',
+        button: '本句button指开门用的按钮，不是“衣服”。',
+        zip: '本句zip指拉链这个部件；“衣服”没有表达这个具体部件。',
+        collar: '本句collar指小狗的项圈，不是“衣服”。',
+        sleeve: '本句sleeve指袖子这个部位；“衣服”没有表达这个具体部位。',
+        size: '本句size表示头盔的尺寸；“衣服”是物品名称，不能表示所问的尺寸。',
+        wear: '本句wear表示“穿着”；“衣服”是名词，不能表达这里的穿着要求。'
+      }[word.word]
+      questions.push({ id: `q-${id}-${word.word}-meaning`, topicId: id, skill: 'vocabulary', kind: 'choice', feedbackGroup: word.id, difficulty: 1, grades, stem: exactClothingMeaning ? `本句中的 ${word.word} 最准确、具体的词义是哪项？` : `本句中的 ${word.word} 是什么意思？`, passage: word.example, options, answer: { option: right, display: sentenceMeaning }, marks: 1, estimatedSeconds: 35, source, review: 'draft', explanation: { strategy: '读完整句，结合搭配确认这个词在本句中的意思。', steps: [{ text: word.exampleMeaning, reason: `本句表达的是“${sentenceMeaning}”。` }, { text: word.explanation, reason: '词义必须与句中位置及实际用法同时吻合。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: exactClothingMeaning && o.text === '衣服' && clothingPartReason ? clothingPartReason : exactClothingMeaning && o.text === '衣服' && ['boot','trainer','sandal','slipper'].includes(word.word) ? `本句需要具体的鞋类名称：${word.word}指“${sentenceMeaning}”；“衣服”没有表达这个具体词义。` : exactClothingMeaning && o.text === '衣服' && word.word !== 'clothes' ? `“衣服”只是总称，没有给出 ${word.word} 更具体的词义“${sentenceMeaning}”；不是说这种衣物不属于衣服。` : exactClothingMeaning && word.word === 'blouse' && o.text === '衬衫' ? '女式衬衫属于衬衫；本题要选更准确、具体的词义，blouse比shirt具体。' : `“${o.text}”在本课对应 ${decoys.find(w => meaningInExample(w) === o.text).word}，不是本句中 ${word.word} 的意思。${word.exampleMeaning}` })), pitfall: word.explanation, visual: { kind: 'sentence', title: '回到例句核对词义', segments: [{ text: word.word, role: 'evidence', note: sentenceMeaning }, { text: word.example, role: 'neutral', note: word.exampleMeaning }], caption: word.explanation }, transfer: `不用原句，试着用 ${word.word} 再表达一件自己的事。` } })
     }
     const count = Math.max(1, Math.ceil(ids.length / 8)), size = Math.floor(ids.length / count), extra = ids.length % count
     let start = 0
