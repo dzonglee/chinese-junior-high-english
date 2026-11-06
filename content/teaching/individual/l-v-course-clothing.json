@@ -1,0 +1,481 @@
+{
+  "lessonId": "l-v-course-clothing",
+  "reviewState": "draft",
+  "intent": "Individually teach wet clothes near a window, loose collar button, blue floral pattern on a white blouse, plain fabric without invented colour, coat advice with strengthening wind, hood-only waterproof scope, wool warmth on a boat and jumper on chair back.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "把衣着细节摆对，再说完整句",
+    "instruction": "改状态、找位置、看修饰范围；每次只改一处，再对照原句。",
+    "items": [
+      {
+        "id": "word-clothes",
+        "label": "衣服",
+        "prompt": "wet和near分别限制什么？改变衣服状态和与窗户的距离，再保留两条要求。",
+        "answer": "clothes",
+        "caseSensitive": false,
+        "meaning": "衣服",
+        "before": "Hang your wet ",
+        "after": " near the window.",
+        "reason": "Hang your wet clothes near the window要求把湿衣服挂在窗边，没有报告已经挂好或已经晾干。",
+        "hint": "clothes是复数；示意衣物数量不代表原句给了几件。",
+        "material": "Hang your wet clothes near the window.",
+        "options": [
+          {
+            "id": "wet-near",
+            "text": "把湿衣服挂在窗边。",
+            "correct": true,
+            "reason": "保留wet与near the window，Hang仍是要求。"
+          },
+          {
+            "id": "dry-near",
+            "text": "把已经干了的衣服挂在窗边。",
+            "correct": false,
+            "reason": "dry把wet湿的改成干的。"
+          },
+          {
+            "id": "wet-far",
+            "text": "把湿衣服挂在远离窗户的地方。",
+            "correct": false,
+            "reason": "far from与near方向相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "wet和near分别限制什么？改变衣服状态和与窗户的距离，再保留两条要求。",
+          "clothesWindow": {
+            "title": "湿衣服，要挂在哪里？",
+            "hint": "位置与状态是示意；不模拟风速、干燥时间或已完成操作。",
+            "wrong": "应保留湿衣服与窗边，不能换成干衣服或远处。"
+          }
+        }
+      },
+      {
+        "id": "word-shirt",
+        "label": "衬衫",
+        "prompt": "松的是哪一处？把纽扣状态和位置分开调整，别补成纽扣已经掉了。",
+        "answer": "shirt",
+        "caseSensitive": false,
+        "meaning": "衬衫",
+        "before": "The ",
+        "after": " has a loose button at the collar.",
+        "reason": "The shirt has a loose button at the collar说明衬衫领口有一颗松动的纽扣。",
+        "hint": "loose是松动，不等于已掉落；at the collar不是袖口。",
+        "material": "The shirt has a loose button at the collar.",
+        "options": [
+          {
+            "id": "loose-collar",
+            "text": "衬衫领口有颗纽扣松了。",
+            "correct": true,
+            "reason": "保留loose button和at the collar。"
+          },
+          {
+            "id": "loose-cuff",
+            "text": "衬衫袖口有颗纽扣松了。",
+            "correct": false,
+            "reason": "袖口改变了collar领口的位置。"
+          },
+          {
+            "id": "fallen",
+            "text": "领口那颗纽扣已经掉了。",
+            "correct": false,
+            "reason": "松动loose不等于已经掉落。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "松的是哪一处？把纽扣状态和位置分开调整，别补成纽扣已经掉了。",
+          "buttonDetail": {
+            "title": "松动，还是已经掉了？",
+            "hint": "虚线只作松动示意，不表示具体松了几毫米或需要怎样修补。",
+            "wrong": "应保留领口与松动两条信息，不补已掉落。"
+          }
+        }
+      },
+      {
+        "id": "word-blouse",
+        "label": "女式衬衫",
+        "prompt": "点出blue flowers对应的部分，别把花纹颜色与衣料底色混在一起。",
+        "answer": "blouse",
+        "caseSensitive": false,
+        "meaning": "女式衬衫",
+        "before": "Her white ",
+        "after": " has tiny blue flowers.",
+        "reason": "Her white blouse has tiny blue flowers中white修饰衬衫底色，blue修饰小花图案。",
+        "hint": "小花是衣服上的图案；图不能说明是谁的衣服，也没有给花纹实际数量。",
+        "material": "Her white blouse has tiny blue flowers.",
+        "options": [
+          {
+            "id": "flowers",
+            "text": "蓝色的小花图案。",
+            "correct": true,
+            "reason": "blue flowers指蓝色花纹，白色是衣服底色。"
+          },
+          {
+            "id": "base",
+            "text": "白色的衣服底色。",
+            "correct": false,
+            "reason": "白色底色对应white blouse，不是blue flowers。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出blue flowers对应的部分，别把花纹颜色与衣料底色混在一起。",
+          "art": {
+            "asset": "lesson-white-blue-blouse",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创白色女式衬衫示意图，衣料上印有蓝色小花。",
+            "caption": "只看底色与花纹；不推断穿着者或场合。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "blouse-flowers",
+                "option": "flowers",
+                "label": "蓝花",
+                "left": 27,
+                "top": 26,
+                "width": 24,
+                "height": 30,
+                "labelPosition": "bottom"
+              },
+              {
+                "id": "blouse-white",
+                "option": "base",
+                "label": "白底",
+                "left": 52,
+                "top": 57,
+                "width": 22,
+                "height": 31,
+                "labelPosition": "bottom"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-t-shirt",
+        "label": "T恤衫",
+        "prompt": "plain描述T恤的哪一点？切换花纹，保留原句给出的外观。",
+        "answer": "t-shirt",
+        "caseSensitive": false,
+        "meaning": "T恤衫",
+        "before": "I wore a plain ",
+        "after": " for the race.",
+        "reason": "I wore a plain T-shirt for the race记录比赛时穿了一件素色T恤，没有给具体颜色。",
+        "hint": "plain在这里说没有花纹；不能由素色推断一定是白色。保留T-shirt的连字符。",
+        "material": "I wore a plain T-shirt for the race.",
+        "options": [
+          {
+            "id": "plain",
+            "text": "比赛时我穿了一件没有花纹的T恤。",
+            "correct": true,
+            "reason": "保留plain、wore和for the race。"
+          },
+          {
+            "id": "pattern",
+            "text": "比赛时我穿了一件满是花纹的T恤。",
+            "correct": false,
+            "reason": "花纹改变了plain。"
+          },
+          {
+            "id": "white",
+            "text": "原句说明这件T恤一定是白色的。",
+            "correct": false,
+            "reason": "plain没有给出白色或其他具体颜色。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "plain描述T恤的哪一点？切换花纹，保留原句给出的外观。",
+          "plainFabric": {
+            "title": "素色，不等于白色",
+            "hint": "图形只比较有无花纹；颜色是示意，不是原句给出的颜色。",
+            "wrong": "应保留没有花纹，不能补具体颜色。"
+          }
+        }
+      },
+      {
+        "id": "word-coat",
+        "label": "外套；大衣",
+        "prompt": "风在怎样变化？Take是在提醒带外套，还是记录已经穿上？",
+        "answer": "coat",
+        "caseSensitive": false,
+        "meaning": "外套；大衣",
+        "before": "Take a ",
+        "after": "; the wind is getting stronger.",
+        "reason": "Take a coat; the wind is getting stronger提醒带件外套，因为风正在变大，没有报告已经带好或穿好。",
+        "hint": "getting stronger是越来越大；take在本句是带上，不能自动换成已经穿上。",
+        "material": "Take a coat; the wind is getting stronger.",
+        "options": [
+          {
+            "id": "advice",
+            "text": "提醒带件外套，风正在变大。",
+            "correct": true,
+            "reason": "保留Take的提醒与getting stronger的变化。"
+          },
+          {
+            "id": "weaker",
+            "text": "提醒带件外套，因为风正在减弱。",
+            "correct": false,
+            "reason": "减弱与getting stronger相反。"
+          },
+          {
+            "id": "done",
+            "text": "原句已经报告我穿上了外套。",
+            "correct": false,
+            "reason": "Take是提醒，没有给穿好外套的完成记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "风在怎样变化？Take是在提醒带外套，还是记录已经穿上？",
+          "recordSelection": {
+            "title": "提醒与原因，都要保留",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "不补完成情况或具体风速。",
+            "wrong": "应圈出带外套的提醒和风正在变大。",
+            "rows": [
+              {
+                "id": "advice",
+                "label": "提醒",
+                "text": "带上一件外套。",
+                "include": true
+              },
+              {
+                "id": "wind",
+                "label": "变化",
+                "text": "风正在变大。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经穿上了外套。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-jacket",
+        "label": "夹克；短外套",
+        "prompt": "waterproof修饰谁？改变修饰范围，比较兜帽和整件夹克。",
+        "answer": "jacket",
+        "caseSensitive": false,
+        "meaning": "夹克；短外套",
+        "before": "This ",
+        "after": " has a waterproof hood.",
+        "reason": "This jacket has a waterproof hood说明这件夹克有一个防水的兜帽，没有保证整件夹克都防水。",
+        "hint": "a waterproof hood只描述兜帽；不能扩大到袖子、口袋或整件衣服。",
+        "material": "This jacket has a waterproof hood.",
+        "options": [
+          {
+            "id": "hood",
+            "text": "这件夹克有个防水兜帽。",
+            "correct": true,
+            "reason": "waterproof修饰hood。"
+          },
+          {
+            "id": "all",
+            "text": "原句保证这整件夹克都防水。",
+            "correct": false,
+            "reason": "原句只描述hood，没有保证整件夹克。"
+          },
+          {
+            "id": "nohood",
+            "text": "这件夹克没有兜帽。",
+            "correct": false,
+            "reason": "has a hood明说有兜帽。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "waterproof修饰谁？改变修饰范围，比较兜帽和整件夹克。",
+          "hoodScope": {
+            "title": "防水说的是哪一部分？",
+            "hint": "高亮表示英语的修饰范围，不是产品测试，也不补实际防水等级。",
+            "wrong": "waterproof只修饰hood，不保证整件夹克都防水。"
+          }
+        }
+      },
+      {
+        "id": "word-sweater",
+        "label": "针织套衫",
+        "prompt": "wool说材质，on the boat说地点。分别改一项，哪组仍和原句一致？",
+        "answer": "sweater",
+        "caseSensitive": false,
+        "meaning": "针织套衫",
+        "before": "The wool ",
+        "after": " kept me warm on the boat.",
+        "reason": "The wool sweater kept me warm on the boat记录羊毛衫让我在船上保持温暖。",
+        "hint": "warm不是温度读数，也没有说羊毛衫主动发热；wool不能改成cotton。",
+        "material": "The wool sweater kept me warm on the boat.",
+        "options": [
+          {
+            "id": "wool-boat",
+            "text": "羊毛衫让我在船上保持温暖。",
+            "correct": true,
+            "reason": "保留wool、kept me warm和on the boat。"
+          },
+          {
+            "id": "cotton-boat",
+            "text": "棉质套衫让我在船上保持温暖。",
+            "correct": false,
+            "reason": "cotton改变了wool材质。"
+          },
+          {
+            "id": "wool-bus",
+            "text": "羊毛衫让我在公交车上保持温暖。",
+            "correct": false,
+            "reason": "公交车改变了boat地点。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "wool说材质，on the boat说地点。分别改一项，哪组仍和原句一致？",
+          "woolWarm": {
+            "title": "材质与地点，分别核对",
+            "hint": "只核对句中信息，不模拟体温、保温效果或真实船只。",
+            "wrong": "应保留羊毛材质和船上地点，不补温度或发热功能。"
+          }
+        }
+      },
+      {
+        "id": "word-jumper",
+        "label": "套头毛衣",
+        "prompt": "the back of the chair是哪一处？把毛衣移到椅背、椅面或地上比较。",
+        "answer": "jumper",
+        "caseSensitive": false,
+        "meaning": "套头毛衣",
+        "before": "I left my ",
+        "after": " on the back of the chair.",
+        "reason": "I left my jumper on the back of the chair记录我把套头毛衣落在椅背上。",
+        "hint": "英式jumper在本句指套头毛衣；back在这里是椅背，不是椅子后面的地面。",
+        "material": "I left my jumper on the back of the chair.",
+        "options": [
+          {
+            "id": "back",
+            "text": "我把套头毛衣落在椅背上。",
+            "correct": true,
+            "reason": "保留my jumper和on the back of the chair。"
+          },
+          {
+            "id": "seat",
+            "text": "我把套头毛衣落在椅面上。",
+            "correct": false,
+            "reason": "椅面seat不是椅背back。"
+          },
+          {
+            "id": "floor",
+            "text": "我把套头毛衣落在椅子后面的地上。",
+            "correct": false,
+            "reason": "behind the chair不是on the back of the chair。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "the back of the chair是哪一处？把毛衣移到椅背、椅面或地上比较。",
+          "chairBack": {
+            "title": "椅背上，还是椅子后面？",
+            "hint": "位置示意；颜色与比例不是原句给出的信息。",
+            "wrong": "应在椅背上，不是椅面或椅子后面的地面。"
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-clothing-transfer",
+      "topicId": "v-course-clothing",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成毛巾、帽子和书包，哪组三句保留了全部细节？",
+      "passage": "新要求与记录\n把湿毛巾（towels）挂在门边。这顶帽子（hat）有一个防水的帽檐（brim）。我把书包（bag）落在椅背上。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hang your wet towels near the door. This hat has a waterproof brim. I left my bag on the back of the chair."
+        },
+        {
+          "id": "b",
+          "text": "Hang your dry towels near the door. This hat has a waterproof brim. I left my bag on the back of the chair."
+        },
+        {
+          "id": "c",
+          "text": "Hang your wet towels near the door. Every part of this hat is waterproof. I left my bag on the back of the chair."
+        },
+        {
+          "id": "d",
+          "text": "Hang your wet towels near the door. This hat has a waterproof brim. I left my bag behind the chair on the floor."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Hang your wet towels near the door. This hat has a waterproof brim. I left my bag on the back of the chair."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对状态与位置，再找准修饰范围，最后核对椅背。",
+        "steps": [
+          {
+            "text": "湿毛巾挂在门边：wet towels near the door。",
+            "reason": "dry把湿改成干。"
+          },
+          {
+            "text": "防水的是帽檐：a waterproof brim。",
+            "reason": "Every part扩大为整顶帽子都防水，原句没有保证。"
+          },
+          {
+            "text": "书包落在椅背上：on the back of the chair。",
+            "reason": "behind the chair on the floor换成椅子后面的地面。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "dry改变了wet的状态。"
+          },
+          {
+            "option": "c",
+            "reason": "Every part扩大了防水的范围。"
+          },
+          {
+            "option": "d",
+            "reason": "behind…the floor改变了椅背上的位置。"
+          }
+        ],
+        "pitfall": "看懂名词还不够，wet、修饰范围和on the back都不能漏。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三处细节，逐一核对",
+          "segments": [
+            {
+              "text": "wet towels → near the door",
+              "role": "evidence",
+              "note": "保留湿与门边"
+            },
+            {
+              "text": "waterproof → brim",
+              "role": "evidence",
+              "note": "防水只描述帽檐"
+            },
+            {
+              "text": "bag → on chair back",
+              "role": "evidence",
+              "note": "椅背上，不是椅后地面"
+            }
+          ],
+          "caption": "换名词后，状态、范围、位置仍要完整。"
+        },
+        "transfer": "如果只知道帽檐防水，能不能说整顶帽子都防水？为什么？"
+      }
+    }
+  },
+  "picturePurpose": "Original white blouse picture distinguishes blue flower motifs from white fabric. Code supplies exact targets; the picture does not establish ownership, flower counts or wearing occasion."
+}

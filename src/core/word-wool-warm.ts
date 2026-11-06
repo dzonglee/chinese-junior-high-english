@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordWoolWarm{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordWoolWarm(v:unknown):v is WordWoolWarm{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordWoolWarm;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordWoolWarmKey=(id:string)=>'workshopWoolWarm-'+id
+function decode(raw:string){if(raw==='')return{"material": "?", "place": "?"};const m="^(\\?|wool|cotton)\\|(\\?|boat|bus)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{material:v[1],place:v[2]}:null}
+export function changeWoolWarm(_w:WordWoolWarm,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["material-wool", "material-cotton"].includes(action))return action.slice(9)+"|"+s.place;if(["place-boat", "place-bus"].includes(action))return s.material+"|"+action.slice(6);return undefined}
+export function woolWarmMatch(_w:WordWoolWarm,raw:string){const s=decode(raw);return!!s&&s.material==="wool"&&s.place==="boat"}
+export function wordWoolWarmView(w:WordWoolWarm,raw:string){const s=decode(raw)??{"material": "?", "place": "?"};return{title:w.title,hint:w.hint,material:s.material,place:s.place,groups:[{label:"套衫材质",choices:[{"id": "material-wool", "label": "羊毛"}, {"id": "material-cotton", "label": "棉"}].map(c=>({...c,selected:c.id==="material-"+s.material}))},{label:"保持温暖的地点",choices:[{"id": "place-boat", "label": "船上"}, {"id": "place-bus", "label": "公交车上"}].map(c=>({...c,selected:c.id==="place-"+s.place}))}],reading:woolWarmMatch(w,raw)?"羊毛衫让我在船上保持温暖；没有给温度或主动发热功能。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordWoolWarmView=ReturnType<typeof wordWoolWarmView>

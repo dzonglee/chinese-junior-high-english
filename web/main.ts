@@ -220,6 +220,12 @@ function render() {
   const stickThroughFocus = active instanceof HTMLButtonElement && active.matches(".word-stick-through button") ? active.dataset.value : undefined
   const eachNapkinFocus = active instanceof HTMLButtonElement && active.matches(".word-each-napkin button") ? active.dataset.value : undefined
   const jamJarFocus = active instanceof HTMLButtonElement && active.matches(".word-jam-jar button") ? active.dataset.value : undefined
+  const clothesWindowFocus = active instanceof HTMLButtonElement && active.matches(".word-clothes-window button") ? active.dataset.value : undefined
+  const buttonDetailFocus = active instanceof HTMLButtonElement && active.matches(".word-button-detail button") ? active.dataset.value : undefined
+  const plainFabricFocus = active instanceof HTMLButtonElement && active.matches(".word-plain-fabric button") ? active.dataset.value : undefined
+  const hoodScopeFocus = active instanceof HTMLButtonElement && active.matches(".word-hood-scope button") ? active.dataset.value : undefined
+  const woolWarmFocus = active instanceof HTMLButtonElement && active.matches(".word-wool-warm button") ? active.dataset.value : undefined
+  const chairBackFocus = active instanceof HTMLButtonElement && active.matches(".word-chair-back button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -358,6 +364,12 @@ function render() {
   if (stickThroughFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stick-through [data-value="${CSS.escape(stickThroughFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (eachNapkinFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-each-napkin [data-value="${CSS.escape(eachNapkinFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (jamJarFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-jam-jar [data-value="${CSS.escape(jamJarFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (clothesWindowFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-clothes-window [data-value="${CSS.escape(clothesWindowFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (buttonDetailFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-button-detail [data-value="${CSS.escape(buttonDetailFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (plainFabricFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-plain-fabric [data-value="${CSS.escape(plainFabricFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (hoodScopeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-hood-scope [data-value="${CSS.escape(hoodScopeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (woolWarmFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-wool-warm [data-value="${CSS.escape(woolWarmFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (chairBackFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-chair-back [data-value="${CSS.escape(chairBackFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

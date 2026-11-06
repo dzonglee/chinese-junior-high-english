@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordButtonDetail{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordButtonDetail(v:unknown):v is WordButtonDetail{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordButtonDetail;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordButtonDetailKey=(id:string)=>'workshopButtonDetail-'+id
+function decode(raw:string){if(raw==='')return{"state": "?", "place": "?"};const m="^(\\?|loose|fallen)\\|(\\?|collar|cuff)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{state:v[1],place:v[2]}:null}
+export function changeButtonDetail(_w:WordButtonDetail,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["state-loose", "state-fallen"].includes(action))return action.slice(6)+"|"+s.place;if(["place-collar", "place-cuff"].includes(action))return s.state+"|"+action.slice(6);return undefined}
+export function buttonDetailMatch(_w:WordButtonDetail,raw:string){const s=decode(raw);return!!s&&s.state==="loose"&&s.place==="collar"}
+export function wordButtonDetailView(w:WordButtonDetail,raw:string){const s=decode(raw)??{"state": "?", "place": "?"};return{title:w.title,hint:w.hint,buttonLeft:s.place==='?'?null:s.place==='collar'?50:83,buttonTop:s.place==='?'?null:s.place==='collar'?24:72,loose:s.state==='loose',fallen:s.state==='fallen',groups:[{label:"纽扣状态",choices:[{"id": "state-loose", "label": "松动"}, {"id": "state-fallen", "label": "已经掉落"}].map(c=>({...c,selected:c.id==="state-"+s.state}))},{label:"纽扣位置",choices:[{"id": "place-collar", "label": "领口"}, {"id": "place-cuff", "label": "袖口"}].map(c=>({...c,selected:c.id==="place-"+s.place}))}],reading:buttonDetailMatch(w,raw)?"领口有一颗松动纽扣；松动不等于已掉落。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordButtonDetailView=ReturnType<typeof wordButtonDetailView>
