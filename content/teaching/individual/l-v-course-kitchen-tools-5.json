@@ -1,0 +1,494 @@
+{
+  "lessonId": "l-v-course-kitchen-tools-5",
+  "reviewState": "draft",
+  "intent": "Teach tool-purpose uncertainty, handle direction, long-spoon versus spoonful, one chopstick passing through, each versus one and beside versus on, drinks on a tray, refill-before-walk and a clean jar with jam inside.",
+  "picturePurpose": "Original tray illustration teaches the observable on relation only; exact labels and targets are code-owned. Still art does not prove carrying or real source quantity.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "朝向、穿过、每一个：把要求摆出来",
+    "instruction": "转方向、改数量、摆位置，再核对原句到底说了什么。",
+    "items": [
+      {
+        "id": "word-fork",
+        "label": "餐叉",
+        "prompt": "test whether是在检查什么？原句有没有已经得出土豆软了的结论？",
+        "answer": "fork",
+        "caseSensitive": false,
+        "meaning": "餐叉",
+        "before": "Use a ",
+        "after": " to test whether the potato is soft.",
+        "reason": "Use a fork to test whether the potato is soft要求用餐叉检查土豆是否软了，没有报告检查结果。",
+        "hint": "fork在这里是餐叉；whether是是否，不是已经证实。",
+        "material": "Use a fork to test whether the potato is soft.",
+        "options": [
+          {
+            "id": "test",
+            "text": "用餐叉检查土豆是否软了。",
+            "correct": true,
+            "reason": "保留工具fork和检查whether。"
+          },
+          {
+            "id": "result",
+            "text": "原句已经确认土豆完全软了。",
+            "correct": false,
+            "reason": "test whether提出检查，尚未给结果。"
+          },
+          {
+            "id": "road",
+            "text": "这里的fork指道路分岔。",
+            "correct": false,
+            "reason": "检查土豆的工具语境中fork指餐叉。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "test whether是在检查什么？原句有没有已经得出土豆软了的结论？",
+          "recordSelection": {
+            "title": "要求检查，不是已经知道结果",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "不补测量或完成记录。",
+            "wrong": "应保留餐叉检查土豆是否软了，不提前给结果。",
+            "rows": [
+              {
+                "id": "tool",
+                "label": "工具",
+                "text": "使用餐叉。",
+                "include": true
+              },
+              {
+                "id": "purpose",
+                "label": "目的",
+                "text": "检查土豆是否软了。",
+                "include": true
+              },
+              {
+                "id": "result",
+                "label": "未给结果",
+                "text": "已经确认土豆软了。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-knife",
+        "label": "刀",
+        "prompt": "谁是me？转动示意刀具，让刀柄朝向说话者。",
+        "answer": "knife",
+        "caseSensitive": false,
+        "meaning": "刀",
+        "before": "Pass the ",
+        "after": " with the handle facing me.",
+        "reason": "Pass the knife with the handle facing me要求递刀时让刀柄朝向说话者。",
+        "hint": "这里只理解朝向要求，不操作真实刀具；k不发音，复数为knives。",
+        "material": "Pass the knife with the handle facing me.",
+        "options": [
+          {
+            "id": "handle",
+            "text": "递刀时，刀柄朝向说话者。",
+            "correct": true,
+            "reason": "保留handle facing me。"
+          },
+          {
+            "id": "blade",
+            "text": "递刀时，刀刃一端朝向说话者。",
+            "correct": false,
+            "reason": "刀柄handle不能换成刀刃blade。"
+          },
+          {
+            "id": "away",
+            "text": "刀柄背向说话者。",
+            "correct": false,
+            "reason": "背向不能保留facing me。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁是me？转动示意刀具，让刀柄朝向说话者。",
+          "utensilFacing": {
+            "title": "让哪一端朝向me？",
+            "hint": "方向示意；不操作真实刀具，也不表示已经递完。",
+            "wrong": "应让刀柄朝向说话者，不是刀刃或背向。"
+          }
+        }
+      },
+      {
+        "id": "word-spoon",
+        "label": "勺子",
+        "prompt": "long说勺子的什么特征？比较长短，别把spoon看成spoonful。",
+        "answer": "spoon",
+        "caseSensitive": false,
+        "meaning": "勺子",
+        "before": "Stir the cocoa with a long ",
+        "after": ".",
+        "reason": "Stir the cocoa with a long spoon要求用长勺搅拌可可饮品。",
+        "hint": "long给长短，没有厘米数；spoon是器具，spoonful才说一勺的量。",
+        "material": "Stir the cocoa with a long spoon.",
+        "options": [
+          {
+            "id": "long",
+            "text": "用长勺搅拌可可饮品。",
+            "correct": true,
+            "reason": "保留stir、cocoa与long spoon。"
+          },
+          {
+            "id": "short",
+            "text": "用短勺搅拌可可饮品。",
+            "correct": false,
+            "reason": "short改变了long。"
+          },
+          {
+            "id": "amount",
+            "text": "原句只说明可可有一勺。",
+            "correct": false,
+            "reason": "a long spoon是器具，不是a spoonful的份量。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "long说勺子的什么特征？比较长短，别把spoon看成spoonful。",
+          "spoonLength": {
+            "title": "长勺还是一勺？",
+            "hint": "只作相对长短示意，没有给真实尺寸或饮品份量。",
+            "wrong": "应保留长勺这个器具，不能改成短勺或一勺的量。"
+          }
+        }
+      },
+      {
+        "id": "word-chopstick",
+        "label": "筷子（单根）",
+        "prompt": "One是几根？through是穿过，还是在旁边？分别改一项再比较。",
+        "answer": "chopstick",
+        "caseSensitive": false,
+        "meaning": "筷子（单根）",
+        "before": "One ",
+        "after": " slipped through the hole.",
+        "reason": "One chopstick slipped through the hole记录一根筷子从洞中滑过，最终落点没有说明。",
+        "hint": "one chopstick是单根，不是一双；图只比较数量和路径。",
+        "material": "One chopstick slipped through the hole.",
+        "options": [
+          {
+            "id": "one",
+            "text": "一根筷子从洞中滑过。",
+            "correct": true,
+            "reason": "保留One、slipped和through。"
+          },
+          {
+            "id": "pair",
+            "text": "一双筷子从洞中滑过。",
+            "correct": false,
+            "reason": "一双增加成两根，改变了One。"
+          },
+          {
+            "id": "beside",
+            "text": "一根筷子在洞旁边滑过，没有穿过。",
+            "correct": false,
+            "reason": "beside不能替代through。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "One是几根？through是穿过，还是在旁边？分别改一项再比较。",
+          "stickThrough": {
+            "title": "数量与路径都保留",
+            "hint": "位置示意，不补起点、落点或洞的实际尺寸。",
+            "wrong": "应保留一根和穿过洞；一双或旁边都改变原句。"
+          }
+        }
+      },
+      {
+        "id": "word-napkin",
+        "label": "餐巾",
+        "prompt": "each覆盖几个盘子？切换摆法，比较每个旁边与只放一处。",
+        "answer": "napkin",
+        "caseSensitive": false,
+        "meaning": "餐巾",
+        "before": "Place a ",
+        "after": " beside each plate.",
+        "reason": "Place a napkin beside each plate要求在每个盘子旁放一张餐巾。",
+        "hint": "图中的盘子数量只是练习示例，原句没有给餐桌上实际有几个盘子。",
+        "material": "Place a napkin beside each plate.",
+        "options": [
+          {
+            "id": "each",
+            "text": "每个盘子旁边都放一张餐巾。",
+            "correct": true,
+            "reason": "保留a napkin、beside和each plate。"
+          },
+          {
+            "id": "one",
+            "text": "只在一个盘子旁放餐巾，其余都不放。",
+            "correct": false,
+            "reason": "只放一处丢掉each的覆盖范围。"
+          },
+          {
+            "id": "on",
+            "text": "在每个盘子里面放餐巾。",
+            "correct": false,
+            "reason": "盘内不能保留beside旁边。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "each覆盖几个盘子？切换摆法，比较每个旁边与只放一处。",
+          "eachNapkin": {
+            "title": "each要覆盖每一处",
+            "hint": "两个盘子是示例，不代表原句的实际数量或餐巾材质。",
+            "wrong": "应在每个盘子旁边放餐巾，不能只放一处或改成盘内。"
+          }
+        }
+      },
+      {
+        "id": "word-tray",
+        "label": "托盘",
+        "prompt": "先看图：饮料放在托盘上，还是旁边的桌面上？点出相应位置。",
+        "answer": "tray",
+        "caseSensitive": false,
+        "meaning": "托盘",
+        "before": "Carry the drinks on a ",
+        "after": ".",
+        "reason": "Carry the drinks on a tray要求用托盘端饮料；图只帮助观察on的位置关系。",
+        "hint": "图片没有报告已经端走，也没有给原句饮料的实际数量、种类或温度。",
+        "material": "Carry the drinks on a tray.",
+        "options": [
+          {
+            "id": "on",
+            "text": "图中的饮料放在托盘上。",
+            "correct": true,
+            "reason": "杯底接触托盘内部，支持on的位置关系。"
+          },
+          {
+            "id": "beside",
+            "text": "图中的饮料放在托盘旁的桌面上。",
+            "correct": false,
+            "reason": "桌面右侧没有饮料；图中饮料放在托盘内部。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先看图：饮料放在托盘上，还是旁边的桌面上？点出相应位置。",
+          "art": {
+            "asset": "lesson-drinks-on-tray",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创示意图：两只饮料杯放在青色托盘内，托盘右侧是空桌面。",
+            "caption": "只观察位置；Carry仍是原句中的要求。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "tray-drinks",
+                "option": "on",
+                "label": "盘上饮料",
+                "left": 17,
+                "top": 32,
+                "width": 40,
+                "height": 36,
+                "labelPosition": "bottom"
+              },
+              {
+                "id": "tray-tabletop",
+                "option": "beside",
+                "label": "桌面",
+                "left": 76,
+                "top": 57,
+                "width": 23,
+                "height": 40,
+                "labelPosition": "bottom"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bottle",
+        "label": "瓶子",
+        "prompt": "before要求先做什么？把重新装水与步行排好顺序。",
+        "answer": "bottle",
+        "caseSensitive": false,
+        "meaning": "瓶子",
+        "before": "Refill your ",
+        "after": " before the walk.",
+        "reason": "Refill your bottle before the walk要求步行前重新把水瓶灌满。",
+        "hint": "这是事前要求，没有说明已经装好或给出容量。",
+        "material": "Refill your bottle before the walk.",
+        "options": [
+          {
+            "id": "before",
+            "text": "步行前把水瓶重新灌满。",
+            "correct": true,
+            "reason": "保留Refill和before the walk。"
+          },
+          {
+            "id": "after",
+            "text": "步行结束以后再重新灌水。",
+            "correct": false,
+            "reason": "after把先后顺序颠倒了。"
+          },
+          {
+            "id": "done",
+            "text": "原句已经报告水瓶重新灌满了。",
+            "correct": false,
+            "reason": "Refill是要求，没有报告完成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before要求先做什么？把重新装水与步行排好顺序。",
+          "processOrder": {
+            "title": "先重新装水，再出发步行",
+            "hint": "两个事件表示要求的顺序，不是已完成记录。",
+            "wrong": "before要求先重新装水，再开始步行。",
+            "events": [
+              {
+                "id": "refill",
+                "label": "重新装满水瓶"
+              },
+              {
+                "id": "walk",
+                "label": "出发步行"
+              }
+            ],
+            "sequence": [
+              "refill",
+              "walk"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-jar",
+        "label": "广口瓶；罐子",
+        "prompt": "clean与in分别限制什么？改变瓶子状态和果酱位置，保留两条要求。",
+        "answer": "jar",
+        "caseSensitive": false,
+        "meaning": "广口瓶；罐子",
+        "before": "Keep the jam in a clean ",
+        "after": ".",
+        "reason": "Keep the jam in a clean jar要求把果酱保存在干净的广口瓶里。",
+        "hint": "没有给保存天数、温度或已完成记录；图不是食品保存指南。",
+        "material": "Keep the jam in a clean jar.",
+        "options": [
+          {
+            "id": "clean-in",
+            "text": "把果酱保存在干净的广口瓶里。",
+            "correct": true,
+            "reason": "保留in与clean jar。"
+          },
+          {
+            "id": "dirty-in",
+            "text": "把果酱保存在脏的广口瓶里。",
+            "correct": false,
+            "reason": "dirty与clean相反。"
+          },
+          {
+            "id": "beside",
+            "text": "把果酱放在干净广口瓶旁边。",
+            "correct": false,
+            "reason": "beside不能保留in。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "clean与in分别限制什么？改变瓶子状态和果酱位置，保留两条要求。",
+          "jamJar": {
+            "title": "干净与瓶内，少一条都不行",
+            "hint": "只比较英语中的条件与位置；没有给保存时长或温度。",
+            "wrong": "应保留干净容器与果酱在瓶内两条要求。"
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-kitchen-tools-5-transfer",
+      "topicId": "v-course-kitchen-tools",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成刷子、骑车和碗，哪组三句保留了全部要求？",
+      "passage": "新要求\n递刷子（brush）时把刷柄（handle）朝向我。骑车前把水瓶重新灌满。在每个碗（bowl）旁放一张垫子（mat）。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pass the brush with the handle facing away from me. Refill your bottle before the ride. Place a mat beside each bowl."
+        },
+        {
+          "id": "b",
+          "text": "Pass the brush with the handle facing me. Refill your bottle after the ride. Place a mat beside each bowl."
+        },
+        {
+          "id": "c",
+          "text": "Pass the brush with the handle facing me. Refill your bottle before the ride. Place a mat beside only one bowl."
+        },
+        {
+          "id": "d",
+          "text": "Pass the brush with the handle facing me. Refill your bottle before the ride. Place a mat beside each bowl."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "Pass the brush with the handle facing me. Refill your bottle before the ride. Place a mat beside each bowl."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐一核对朝向、顺序与each的覆盖范围。",
+        "steps": [
+          {
+            "text": "刷柄朝向我：with the handle facing me。",
+            "reason": "away from me变成背向，改变朝向。"
+          },
+          {
+            "text": "骑车前重新装水：Refill…before the ride。",
+            "reason": "after the ride把要求改成事后。"
+          },
+          {
+            "text": "每个碗旁都放垫子：beside each bowl。",
+            "reason": "only one bowl丢掉每个的范围。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "away from me改变了刷柄朝向。"
+          },
+          {
+            "option": "b",
+            "reason": "after the ride颠倒先装水后骑车的顺序。"
+          },
+          {
+            "option": "c",
+            "reason": "only one bowl不能保留each bowl。"
+          }
+        ],
+        "pitfall": "with、before和each分别锁定朝向、顺序与范围，不能只认出名词。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三个要求，分别核对",
+          "segments": [
+            {
+              "text": "handle → facing me",
+              "role": "evidence",
+              "note": "刷柄朝向说话者"
+            },
+            {
+              "text": "refill → before → ride",
+              "role": "evidence",
+              "note": "先装水，后骑车"
+            },
+            {
+              "text": "a mat → beside → each bowl",
+              "role": "evidence",
+              "note": "每个碗旁都要有"
+            }
+          ],
+          "caption": "不反朝向、不倒顺序、不漏对象。"
+        },
+        "transfer": "如果只说在一个碗旁放垫子，还应该用each吗？为什么？"
+      }
+    }
+  }
+}

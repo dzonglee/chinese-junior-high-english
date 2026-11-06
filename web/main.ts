@@ -215,6 +215,11 @@ function render() {
   const tapWhileFocus = active instanceof HTMLButtonElement && active.matches(".word-tap-while button") ? active.dataset.value : undefined
   const neededFillFocus = active instanceof HTMLButtonElement && active.matches(".word-needed-fill button") ? active.dataset.value : undefined
   const vesselDetailFocus = active instanceof HTMLButtonElement && active.matches(".word-vessel-detail button") ? active.dataset.value : undefined
+  const utensilFacingFocus = active instanceof HTMLButtonElement && active.matches(".word-utensil-facing button") ? active.dataset.value : undefined
+  const spoonLengthFocus = active instanceof HTMLButtonElement && active.matches(".word-spoon-length button") ? active.dataset.value : undefined
+  const stickThroughFocus = active instanceof HTMLButtonElement && active.matches(".word-stick-through button") ? active.dataset.value : undefined
+  const eachNapkinFocus = active instanceof HTMLButtonElement && active.matches(".word-each-napkin button") ? active.dataset.value : undefined
+  const jamJarFocus = active instanceof HTMLButtonElement && active.matches(".word-jam-jar button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -348,6 +353,11 @@ function render() {
   if (tapWhileFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-tap-while [data-value="${CSS.escape(tapWhileFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (neededFillFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-needed-fill [data-value="${CSS.escape(neededFillFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (vesselDetailFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-vessel-detail [data-value="${CSS.escape(vesselDetailFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (utensilFacingFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-utensil-facing [data-value="${CSS.escape(utensilFacingFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (spoonLengthFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-spoon-length [data-value="${CSS.escape(spoonLengthFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (stickThroughFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stick-through [data-value="${CSS.escape(stickThroughFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (eachNapkinFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-each-napkin [data-value="${CSS.escape(eachNapkinFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (jamJarFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-jam-jar [data-value="${CSS.escape(jamJarFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
