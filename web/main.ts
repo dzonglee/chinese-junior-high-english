@@ -201,6 +201,9 @@ function render() {
   const ripeNowFocus = active instanceof HTMLButtonElement && active.matches(".word-ripe-now button") ? active.dataset.value : undefined
   const rawBoardFocus = active instanceof HTMLButtonElement && active.matches(".word-raw-board button") ? active.dataset.value : undefined
   const appleRemovalFocus = active instanceof HTMLButtonElement && active.matches(".word-apple-removal button") ? active.dataset.value : undefined
+  const cookingEndpointFocus = active instanceof HTMLButtonElement && active.matches(".word-cooking-endpoint button") ? active.dataset.value : undefined
+  const steamCoverFocus = active instanceof HTMLButtonElement && active.matches(".word-steam-cover button") ? active.dataset.value : undefined
+  const gentleHeatFocus = active instanceof HTMLButtonElement && active.matches(".word-gentle-heat button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -320,6 +323,9 @@ function render() {
   if (ripeNowFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-ripe-now [data-value="${CSS.escape(ripeNowFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (rawBoardFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-raw-board [data-value="${CSS.escape(rawBoardFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (appleRemovalFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-apple-removal [data-value="${CSS.escape(appleRemovalFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (cookingEndpointFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cooking-endpoint [data-value="${CSS.escape(cookingEndpointFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (steamCoverFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-steam-cover [data-value="${CSS.escape(steamCoverFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (gentleHeatFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-gentle-heat [data-value="${CSS.escape(gentleHeatFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

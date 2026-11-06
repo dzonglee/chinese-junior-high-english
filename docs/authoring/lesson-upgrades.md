@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **333 / 413**. Current: **l-v-course-kitchen-tools**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **334 / 413**. Current: **l-v-course-kitchen-tools-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -199,7 +199,7 @@ Completed: **333 / 413**. Current: **l-v-course-kitchen-tools**. Evidence lives 
 | l-v-course-fruit-vegetables-3 | 水果、蔬菜与味道 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-fruit-vegetables-3.md) |
 | l-v-course-fruit-vegetables-4 | 水果、蔬菜与味道 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-fruit-vegetables-4.md) |
 | l-v-course-fruit-vegetables-5 | 水果、蔬菜与味道 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-fruit-vegetables-5.md) |
-| l-v-course-kitchen-tools | 厨房、烹饪与餐桌 · 1 | pending | — |
+| l-v-course-kitchen-tools | 厨房、烹饪与餐桌 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-kitchen-tools.md) |
 | l-v-course-kitchen-tools-2 | 厨房、烹饪与餐桌 · 2 | pending | — |
 | l-v-course-kitchen-tools-3 | 厨房、烹饪与餐桌 · 3 | pending | — |
 | l-v-course-kitchen-tools-4 | 厨房、烹饪与餐桌 · 4 | pending | — |
