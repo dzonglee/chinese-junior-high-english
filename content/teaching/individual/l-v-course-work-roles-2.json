@@ -1,0 +1,3206 @@
+{
+  "lessonId": "l-v-course-work-roles-2",
+  "reviewState": "draft",
+  "intent": "Teach hourly recording without invented data; metal artwork versus scrap; local musician helping tune guitar; quiet practice before show; one actor with two distinct roles; warmup before stage; questions about her new novel without all; reading beside river without inferring recitation.",
+  "picturePurpose": "Four individually authored code scenes, one past warmup order, two exact evidence subsets and one original metal-bird sculpture/material picture. Original and derivative actually opened; phone geometry and all app checks pending.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "做了什么、何时做？用证据认识职业",
+    "instruction": "比较记录间隔、改变练习条件、配角色、排先后；图片分清作品和材料。",
+    "items": [
+      {
+        "id": "word-scientist",
+        "label": "科学家",
+        "prompt": "every hour是每隔一小时，还是每天一次？用新时间例子比较间隔。",
+        "answer": "scientist",
+        "caseSensitive": false,
+        "meaning": "科学家",
+        "before": "The ",
+        "after": " recorded the temperature every hour.",
+        "reason": "The scientist recorded the temperature every hour说科学家每小时记录一次温度；没有给具体温度，也没有给起止时间或总次数。",
+        "hint": "图中的09:00、10:00、11:00只是新例子，不是原句给出的时刻；scientist指科学家。",
+        "material": "The scientist recorded the temperature every hour.",
+        "options": [
+          {
+            "id": "hour",
+            "text": "科学家每小时记录一次温度。",
+            "correct": true,
+            "reason": "保留recorded、temperature与every hour。"
+          },
+          {
+            "id": "day",
+            "text": "科学家每天只记录一次温度。",
+            "correct": false,
+            "reason": "每天一次把every hour改成了every day。"
+          },
+          {
+            "id": "value",
+            "text": "原句已经给出了每次的具体温度。",
+            "correct": false,
+            "reason": "句子只有记录间隔，没有温度数值。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "every hour是每隔一小时，还是每天一次？用新时间例子比较间隔。",
+          "sceneLab": {
+            "id": "scientist-hourly",
+            "title": "新例子：两次记录间隔多久？",
+            "hint": "用新例子09:00→10:00→11:00理解every hour；没有温度数值。",
+            "wrong": "every hour是每小时一次，不能换成每天一次，也不能补具体温度。",
+            "axes": [
+              {
+                "id": "interval",
+                "label": "every hour对应哪组新例子",
+                "choices": [
+                  {
+                    "id": "hour",
+                    "label": "每隔一小时"
+                  },
+                  {
+                    "id": "day",
+                    "label": "每天一次"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "先选一种解释，再回原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：不含温度数值"
+                  },
+                  {
+                    "id": "clock-0",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "时刻待选"
+                  },
+                  {
+                    "id": "record-0",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 18,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "record-label-0",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 20,
+                    "width": 39,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "记录一次"
+                  },
+                  {
+                    "id": "clock-1",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "时刻待选"
+                  },
+                  {
+                    "id": "record-1",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 44,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "record-label-1",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 46,
+                    "width": 39,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "记录一次"
+                  },
+                  {
+                    "id": "clock-2",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 70,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "时刻待选"
+                  },
+                  {
+                    "id": "record-2",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 70,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "record-label-2",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 72,
+                    "width": 39,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "记录一次"
+                  }
+                ]
+              },
+              {
+                "signature": "hour",
+                "reading": "科学家每小时记录一次温度。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：不含温度数值"
+                  },
+                  {
+                    "id": "clock-0",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "09:00"
+                  },
+                  {
+                    "id": "record-0",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 18,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "record-label-0",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 20,
+                    "width": 39,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "记录一次"
+                  },
+                  {
+                    "id": "clock-1",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "10:00"
+                  },
+                  {
+                    "id": "record-1",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 44,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "record-label-1",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 46,
+                    "width": 39,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "记录一次"
+                  },
+                  {
+                    "id": "clock-2",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 70,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "11:00"
+                  },
+                  {
+                    "id": "record-2",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 70,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "record-label-2",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 72,
+                    "width": 39,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "记录一次"
+                  }
+                ]
+              },
+              {
+                "signature": "day",
+                "reading": "every hour是每小时一次，不能换成每天一次，也不能补具体温度。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：不含温度数值"
+                  },
+                  {
+                    "id": "clock-0",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "第1天09:00"
+                  },
+                  {
+                    "id": "record-0",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 18,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "record-label-0",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 20,
+                    "width": 39,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "记录一次"
+                  },
+                  {
+                    "id": "clock-1",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "第2天09:00"
+                  },
+                  {
+                    "id": "record-1",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 44,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "record-label-1",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 46,
+                    "width": 39,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "记录一次"
+                  },
+                  {
+                    "id": "clock-2",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 70,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "第3天09:00"
+                  },
+                  {
+                    "id": "record-2",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 70,
+                    "width": 43,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "record-label-2",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 72,
+                    "width": 39,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "记录一次"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-artist",
+        "label": "艺术家",
+        "prompt": "点出废金属做成的小鸟作品，别把旁边原材料当成完成作品。",
+        "answer": "artist",
+        "caseSensitive": false,
+        "meaning": "艺术家",
+        "before": "The ",
+        "after": " made a bird from scrap metal.",
+        "reason": "The artist made a bird from scrap metal说艺术家用废金属做成了一件小鸟作品；不是活鸟，也没有说作品价格或艺术家是否有名。",
+        "hint": "单独说一位艺术家可用an artist；本句用The artist。冠词要看后面紧接的发音，如a young artist。",
+        "material": "The artist made a bird from scrap metal.",
+        "options": [
+          {
+            "id": "artwork",
+            "text": "做成的小鸟作品。",
+            "correct": true,
+            "reason": "made a bird强调做成的作品；图中可见金属鸟造型。"
+          },
+          {
+            "id": "scrap",
+            "text": "旁边还没做成小鸟的原材料。",
+            "correct": false,
+            "reason": "这是scrap metal原材料，不是完成的小鸟作品。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出废金属做成的小鸟作品，别把旁边原材料当成完成作品。",
+          "art": {
+            "asset": "lesson-metal-bird-material",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创教学图，左边是用旧金属拼成的立体小鸟作品，右边是分开的金属片、垫圈和旧勺子；没有文字或价格。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "metal-bird",
+                "option": "artwork",
+                "label": "作品",
+                "labelPosition": "bottom",
+                "left": 2,
+                "top": 18,
+                "width": 43,
+                "height": 63
+              },
+              {
+                "id": "scrap-metal",
+                "option": "scrap",
+                "label": "材料",
+                "labelPosition": "bottom",
+                "left": 55,
+                "top": 51,
+                "width": 43,
+                "height": 31
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-musician",
+        "label": "音乐家",
+        "prompt": "谁来帮忙，帮忙做什么？圈出两条，不改成另一个乐器或活动。",
+        "answer": "musician",
+        "caseSensitive": false,
+        "meaning": "音乐家",
+        "before": "A local ",
+        "after": " helped us tune the guitar.",
+        "reason": "A local musician helped us tune the guitar说一位本地音乐家帮我们给吉他调音；不是修钢琴，也不是给我们开音乐会。",
+        "hint": "local说明来自本地，tune the guitar说明帮忙做的事；没有给具体音高。",
+        "material": "A local musician helped us tune the guitar.",
+        "options": [
+          {
+            "id": "guitar",
+            "text": "一位本地音乐家帮我们给吉他调音。",
+            "correct": true,
+            "reason": "保留local musician、helped与tune the guitar。"
+          },
+          {
+            "id": "piano",
+            "text": "一位外地音乐家帮我们修钢琴。",
+            "correct": false,
+            "reason": "外地改变local，修钢琴也改变tune the guitar。"
+          },
+          {
+            "id": "concert",
+            "text": "音乐家已经为我们开了一场音乐会。",
+            "correct": false,
+            "reason": "开音乐会不是原句所说的帮忙调音。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁来帮忙，帮忙做什么？圈出两条，不改成另一个乐器或活动。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "帮助者与具体任务",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "只保留句子给出的内容，不补结果、数量或原因。",
+            "wrong": "原句说本地音乐家帮忙给吉他调音，没有说开音乐会。",
+            "rows": [
+              {
+                "id": "local",
+                "label": "帮助者",
+                "text": "一位本地音乐家。",
+                "include": true
+              },
+              {
+                "id": "tune",
+                "label": "帮忙做的事",
+                "text": "给吉他调音。",
+                "include": true
+              },
+              {
+                "id": "concert",
+                "label": "额外活动",
+                "text": "为我们开了一场音乐会。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-singer",
+        "label": "歌手",
+        "prompt": "quietly说练习声音，before说先后；每次只改一项。",
+        "answer": "singer",
+        "caseSensitive": false,
+        "meaning": "歌手",
+        "before": "The ",
+        "after": " practised quietly before the show.",
+        "reason": "The singer practised quietly before the show说歌手在演出前轻声练习；不能改成大声练习，也不能把练习移到演出之后。",
+        "hint": "音量线只区分轻声与大声，不表示分贝数；practised是过去式。",
+        "material": "The singer practised quietly before the show.",
+        "options": [
+          {
+            "id": "quiet-before",
+            "text": "歌手在演出前轻声练习。",
+            "correct": true,
+            "reason": "保留quietly与before the show。"
+          },
+          {
+            "id": "loud",
+            "text": "歌手在演出前大声练习。",
+            "correct": false,
+            "reason": "大声改变了quietly轻声。"
+          },
+          {
+            "id": "after",
+            "text": "歌手演出结束后才轻声练习。",
+            "correct": false,
+            "reason": "演出后改变了before演出前。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "quietly说练习声音，before说先后；每次只改一项。",
+          "sceneLab": {
+            "id": "singer-practice",
+            "title": "练习声音与演出先后",
+            "hint": "两条条件分别是quietly与before；不补具体时刻或练习时长。",
+            "wrong": "原句说演出前轻声练习，不能改成大声，也不能改到演出后。",
+            "axes": [
+              {
+                "id": "volume",
+                "label": "练习声音",
+                "choices": [
+                  {
+                    "id": "quiet",
+                    "label": "轻声"
+                  },
+                  {
+                    "id": "loud",
+                    "label": "大声"
+                  }
+                ]
+              },
+              {
+                "id": "time",
+                "label": "练习与演出的先后",
+                "choices": [
+                  {
+                    "id": "before",
+                    "label": "演出前"
+                  },
+                  {
+                    "id": "after",
+                    "label": "演出后"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "volume",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "声音待选"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 5,
+                    "y": 72,
+                    "width": 90,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "show-point",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 59,
+                    "width": 2,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "show",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "演出"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 29,
+                    "width": 96,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "练习在演出前还是后？"
+                  }
+                ]
+              },
+              {
+                "signature": "?|before",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "volume",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "声音待选"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 5,
+                    "y": 72,
+                    "width": 90,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "show-point",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 59,
+                    "width": 2,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "show",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "演出"
+                  },
+                  {
+                    "id": "practice",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 24,
+                    "width": 24,
+                    "height": 19,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "practice-label",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 25,
+                    "width": 22,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "练习"
+                  },
+                  {
+                    "id": "sound-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 48,
+                    "width": 40,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "声音待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|after",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "volume",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "声音待选"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 5,
+                    "y": 72,
+                    "width": 90,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "show-point",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 59,
+                    "width": 2,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "show",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "演出"
+                  },
+                  {
+                    "id": "practice",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 24,
+                    "width": 24,
+                    "height": 19,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "practice-label",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 25,
+                    "width": 22,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "练习"
+                  },
+                  {
+                    "id": "sound-pending",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 48,
+                    "width": 40,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "声音待选"
+                  }
+                ]
+              },
+              {
+                "signature": "quiet|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "volume",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "轻声练习"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 5,
+                    "y": 72,
+                    "width": 90,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "show-point",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 59,
+                    "width": 2,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "show",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "演出"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 29,
+                    "width": 96,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "练习在演出前还是后？"
+                  }
+                ]
+              },
+              {
+                "signature": "quiet|before",
+                "reading": "歌手在演出前轻声练习。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "volume",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "轻声练习"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 5,
+                    "y": 72,
+                    "width": 90,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "show-point",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 59,
+                    "width": 2,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "show",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "演出"
+                  },
+                  {
+                    "id": "practice",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 24,
+                    "width": 24,
+                    "height": 19,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "practice-label",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 25,
+                    "width": 22,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "练习"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 58,
+                    "width": 3,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 58,
+                    "width": 3,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 58,
+                    "width": 3,
+                    "height": 8,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "quiet|after",
+                "reading": "原句说演出前轻声练习，不能改成大声，也不能改到演出后。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "volume",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "轻声练习"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 5,
+                    "y": 72,
+                    "width": 90,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "show-point",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 59,
+                    "width": 2,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "show",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "演出"
+                  },
+                  {
+                    "id": "practice",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 24,
+                    "width": 24,
+                    "height": 19,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "practice-label",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 25,
+                    "width": 22,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "练习"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 58,
+                    "width": 3,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 58,
+                    "width": 3,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 83,
+                    "y": 58,
+                    "width": 3,
+                    "height": 8,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "loud|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "volume",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "大声练习"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 5,
+                    "y": 72,
+                    "width": 90,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "show-point",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 59,
+                    "width": 2,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "show",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "演出"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 29,
+                    "width": 96,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "练习在演出前还是后？"
+                  }
+                ]
+              },
+              {
+                "signature": "loud|before",
+                "reading": "原句说演出前轻声练习，不能改成大声，也不能改到演出后。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "volume",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "大声练习"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 5,
+                    "y": 72,
+                    "width": 90,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "show-point",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 59,
+                    "width": 2,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "show",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "演出"
+                  },
+                  {
+                    "id": "practice",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 24,
+                    "width": 24,
+                    "height": 19,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "practice-label",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 25,
+                    "width": 22,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "练习"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 46,
+                    "width": 3,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 46,
+                    "width": 3,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 46,
+                    "width": 3,
+                    "height": 20,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "loud|after",
+                "reading": "原句说演出前轻声练习，不能改成大声，也不能改到演出后。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "volume",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "大声练习"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 5,
+                    "y": 72,
+                    "width": 90,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "show-point",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 59,
+                    "width": 2,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "show",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "演出"
+                  },
+                  {
+                    "id": "practice",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 24,
+                    "width": 24,
+                    "height": 19,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "practice-label",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 25,
+                    "width": 22,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "练习"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 46,
+                    "width": 3,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 46,
+                    "width": 3,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 83,
+                    "y": 46,
+                    "width": 3,
+                    "height": 20,
+                    "tone": "blue"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-actor",
+        "label": "演员",
+        "prompt": "一位演员演了几个怎样的角色？换数量与差别，再回原句核对。",
+        "answer": "actor",
+        "caseSensitive": false,
+        "meaning": "演员",
+        "before": "The ",
+        "after": " played two very different characters.",
+        "reason": "The actor played two very different characters说同一位演员扮演了两个截然不同的角色；不是两位演员，也没有给具体角色名称。",
+        "hint": "actor可以指不同性别的演员；图中的角色甲、乙只是示意，不是原句给出的姓名。",
+        "material": "The actor played two very different characters.",
+        "options": [
+          {
+            "id": "two-different",
+            "text": "一位演员扮演了两个截然不同的角色。",
+            "correct": true,
+            "reason": "保留The actor、two与very different characters。"
+          },
+          {
+            "id": "two-actors",
+            "text": "两位演员各演了一个角色。",
+            "correct": false,
+            "reason": "原句The actor是同一位演员，two修饰characters。"
+          },
+          {
+            "id": "same",
+            "text": "这位演员只重复扮演同一个角色。",
+            "correct": false,
+            "reason": "同一个角色丢掉了two very different。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "一位演员演了几个怎样的角色？换数量与差别，再回原句核对。",
+          "sceneLab": {
+            "id": "actor-roles",
+            "title": "一个演员与几个角色",
+            "hint": "图只表示角色数量和差别；不补故事、性别或角色姓名。",
+            "wrong": "原句是一位演员扮演两个截然不同的角色，不能增加角色数，也不能改成同一个角色。",
+            "axes": [
+              {
+                "id": "count",
+                "label": "同一位演员扮演几个角色",
+                "choices": [
+                  {
+                    "id": "two",
+                    "label": "两个"
+                  },
+                  {
+                    "id": "three",
+                    "label": "三个"
+                  }
+                ]
+              },
+              {
+                "id": "difference",
+                "label": "这些角色的差别",
+                "choices": [
+                  {
+                    "id": "different",
+                    "label": "截然不同"
+                  },
+                  {
+                    "id": "same",
+                    "label": "同一个角色"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "actor-head",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 3,
+                    "width": 12,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-body",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 19,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一位演员"
+                  },
+                  {
+                    "id": "count-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 68,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "角色数量待选"
+                  },
+                  {
+                    "id": "difference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "差别待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|different",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "actor-head",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 3,
+                    "width": 12,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-body",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 19,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一位演员"
+                  },
+                  {
+                    "id": "count-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 68,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "角色数量待选"
+                  },
+                  {
+                    "id": "difference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "角色很不同"
+                  }
+                ]
+              },
+              {
+                "signature": "?|same",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "actor-head",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 3,
+                    "width": 12,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-body",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 19,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一位演员"
+                  },
+                  {
+                    "id": "count-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 68,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "角色数量待选"
+                  },
+                  {
+                    "id": "difference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "都标成同一个角色"
+                  }
+                ]
+              },
+              {
+                "signature": "two|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "actor-head",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 3,
+                    "width": 12,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-body",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 19,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一位演员"
+                  },
+                  {
+                    "id": "stem",
+                    "kind": "line",
+                    "x": 49,
+                    "y": 55,
+                    "width": 2,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "branch",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 59,
+                    "width": 67,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "role-0",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-0",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色？"
+                  },
+                  {
+                    "id": "role-1",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-1",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色？"
+                  },
+                  {
+                    "id": "difference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "差别待选"
+                  }
+                ]
+              },
+              {
+                "signature": "two|different",
+                "reading": "一位演员扮演了两个截然不同的角色。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "actor-head",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 3,
+                    "width": 12,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-body",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 19,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一位演员"
+                  },
+                  {
+                    "id": "stem",
+                    "kind": "line",
+                    "x": 49,
+                    "y": 55,
+                    "width": 2,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "branch",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 59,
+                    "width": 67,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "role-0",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-0",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色甲"
+                  },
+                  {
+                    "id": "role-1",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-1",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色乙"
+                  },
+                  {
+                    "id": "difference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "角色很不同"
+                  }
+                ]
+              },
+              {
+                "signature": "two|same",
+                "reading": "原句是一位演员扮演两个截然不同的角色，不能增加角色数，也不能改成同一个角色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "actor-head",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 3,
+                    "width": 12,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-body",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 19,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一位演员"
+                  },
+                  {
+                    "id": "stem",
+                    "kind": "line",
+                    "x": 49,
+                    "y": 55,
+                    "width": 2,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "branch",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 59,
+                    "width": 67,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "role-0",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-0",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色甲"
+                  },
+                  {
+                    "id": "role-1",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-1",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色甲"
+                  },
+                  {
+                    "id": "difference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "都标成同一个角色"
+                  }
+                ]
+              },
+              {
+                "signature": "three|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "actor-head",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 3,
+                    "width": 12,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-body",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 19,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一位演员"
+                  },
+                  {
+                    "id": "stem",
+                    "kind": "line",
+                    "x": 49,
+                    "y": 55,
+                    "width": 2,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "branch",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 59,
+                    "width": 88,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "role-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色？"
+                  },
+                  {
+                    "id": "role-1",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-1",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色？"
+                  },
+                  {
+                    "id": "role-2",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-2",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色？"
+                  },
+                  {
+                    "id": "difference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "差别待选"
+                  }
+                ]
+              },
+              {
+                "signature": "three|different",
+                "reading": "原句是一位演员扮演两个截然不同的角色，不能增加角色数，也不能改成同一个角色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "actor-head",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 3,
+                    "width": 12,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-body",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 19,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一位演员"
+                  },
+                  {
+                    "id": "stem",
+                    "kind": "line",
+                    "x": 49,
+                    "y": 55,
+                    "width": 2,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "branch",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 59,
+                    "width": 88,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "role-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色甲"
+                  },
+                  {
+                    "id": "role-1",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-1",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色乙"
+                  },
+                  {
+                    "id": "role-2",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "rose",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-2",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色丙"
+                  },
+                  {
+                    "id": "difference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "角色很不同"
+                  }
+                ]
+              },
+              {
+                "signature": "three|same",
+                "reading": "原句是一位演员扮演两个截然不同的角色，不能增加角色数，也不能改成同一个角色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "actor-head",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 3,
+                    "width": 12,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-body",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 19,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "actor-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一位演员"
+                  },
+                  {
+                    "id": "stem",
+                    "kind": "line",
+                    "x": 49,
+                    "y": 55,
+                    "width": 2,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "branch",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 59,
+                    "width": 88,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "role-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色甲"
+                  },
+                  {
+                    "id": "role-1",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-1",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色甲"
+                  },
+                  {
+                    "id": "role-2",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 66,
+                    "width": 26,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "role-label-2",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 68,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色甲"
+                  },
+                  {
+                    "id": "difference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "都标成同一个角色"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-dancer",
+        "label": "舞者",
+        "prompt": "before把热身放在哪一步？按原句顺序排好，再写dancer。",
+        "answer": "dancer",
+        "caseSensitive": false,
+        "meaning": "舞者",
+        "before": "The ",
+        "after": " warmed up before going on stage.",
+        "reason": "The dancer warmed up before going on stage说舞者上台前做了热身；不能改成先上台再热身，也不能补热身后保证不会受伤。",
+        "hint": "warmed up是过去式；原句叙述上台前的热身，没有报告演出结果。",
+        "material": "The dancer warmed up before going on stage.",
+        "options": [
+          {
+            "id": "before",
+            "text": "舞者上台前做了热身。",
+            "correct": true,
+            "reason": "保留warmed up与before going on stage。"
+          },
+          {
+            "id": "after",
+            "text": "舞者先上台，之后才做热身。",
+            "correct": false,
+            "reason": "把before的顺序倒过来了。"
+          },
+          {
+            "id": "guarantee",
+            "text": "做了热身，所以保证演出中不会受伤。",
+            "correct": false,
+            "reason": "原句没有给任何不会受伤的保证。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before把热身放在哪一步？按原句顺序排好，再写dancer。",
+          "processOrder": {
+            "title": "热身与上台，谁在前？",
+            "hint": "排出原句给出的先后，不补演出结果。",
+            "wrong": "应先热身，再上台，不能把before倒过来。",
+            "events": [
+              {
+                "id": "warm",
+                "label": "热身"
+              },
+              {
+                "id": "stage",
+                "label": "上台"
+              }
+            ],
+            "sequence": [
+              "warm",
+              "stage"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-writer",
+        "label": "作家；作者",
+        "prompt": "回答了什么问题？圈出已给信息，别把一些问题扩大成全部。",
+        "answer": "writer",
+        "caseSensitive": false,
+        "meaning": "作家；作者",
+        "before": "The ",
+        "after": " answered questions about her new novel.",
+        "reason": "The writer answered questions about her new novel说作家回答了有关她的新小说的问题；没有说所有问题都答完，也没有给书名或出版日期。",
+        "hint": "her new novel保留她的和新的；questions是复数，但不等于all questions。",
+        "material": "The writer answered questions about her new novel.",
+        "options": [
+          {
+            "id": "novel",
+            "text": "作家回答了有关她的新小说的问题。",
+            "correct": true,
+            "reason": "保留answered questions与her new novel。"
+          },
+          {
+            "id": "other",
+            "text": "作家回答的是另一位作者的旧小说问题。",
+            "correct": false,
+            "reason": "另一位作者的旧小说改变了her new novel。"
+          },
+          {
+            "id": "all",
+            "text": "作家已经回答了现场的全部问题。",
+            "correct": false,
+            "reason": "原句没有all，不能扩大成全部答完。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "回答了什么问题？圈出已给信息，别把一些问题扩大成全部。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "回答的内容与范围",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "只保留句子给出的内容，不补结果、数量或原因。",
+            "wrong": "保留回答问题和她的新小说；原句没有说所有问题都答完了。",
+            "rows": [
+              {
+                "id": "answered",
+                "label": "已发生的事",
+                "text": "作家回答了问题。",
+                "include": true
+              },
+              {
+                "id": "novel",
+                "label": "问题围绕",
+                "text": "她的新小说。",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "额外范围",
+                "text": "所有问题都已经回答完。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-poet",
+        "label": "诗人",
+        "prompt": "read说阅读，beside说位置；换动作或位置，别凭诗人身份补朗诵。",
+        "answer": "poet",
+        "caseSensitive": false,
+        "meaning": "诗人",
+        "before": "A young ",
+        "after": " read beside the river.",
+        "reason": "A young poet read beside the river说一位年轻诗人在河边阅读；没有说读的是什么，也没有明确说出声朗诵，更没有说在河里写作。",
+        "hint": "poet是人，poem是诗歌作品；read的过去式拼写不变。不要从职业猜阅读内容或声音。",
+        "material": "A young poet read beside the river.",
+        "options": [
+          {
+            "id": "read-beside",
+            "text": "一位年轻诗人在河边阅读。",
+            "correct": true,
+            "reason": "保留young poet、read与beside the river。"
+          },
+          {
+            "id": "write",
+            "text": "一位年轻诗人在河边写作。",
+            "correct": false,
+            "reason": "写作改变了read阅读。"
+          },
+          {
+            "id": "in",
+            "text": "一位年轻诗人在河里阅读。",
+            "correct": false,
+            "reason": "河里改变了beside河边。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "read说阅读，beside说位置；换动作或位置，别凭诗人身份补朗诵。",
+          "sceneLab": {
+            "id": "poet-reading",
+            "title": "在做什么，在哪里？",
+            "hint": "人、书页与河道只作位置示意，不给阅读内容或具体年龄。",
+            "wrong": "原句说年轻诗人在河边阅读，不能换成写作，也不能改到河里。",
+            "axes": [
+              {
+                "id": "action",
+                "label": "原句中的活动",
+                "choices": [
+                  {
+                    "id": "read",
+                    "label": "阅读"
+                  },
+                  {
+                    "id": "write",
+                    "label": "写作"
+                  }
+                ]
+              },
+              {
+                "id": "place",
+                "label": "人物与河流的位置",
+                "choices": [
+                  {
+                    "id": "beside",
+                    "label": "河边"
+                  },
+                  {
+                    "id": "inside",
+                    "label": "河里"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 0,
+                    "width": 36,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河道"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 18,
+                    "width": 32,
+                    "height": 64,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "water-a",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 30,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "water-b",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 72,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  },
+                  {
+                    "id": "place-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 37,
+                    "width": 54,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "人物位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|beside",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 0,
+                    "width": 36,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河道"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 18,
+                    "width": 32,
+                    "height": 64,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "water-a",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 30,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "water-b",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 72,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 26,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 41,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "?|inside",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 0,
+                    "width": 36,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河道"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 18,
+                    "width": 32,
+                    "height": 64,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "water-a",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 30,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "water-b",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 72,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 67,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 41,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "read|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 0,
+                    "width": 36,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河道"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 18,
+                    "width": 32,
+                    "height": 64,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "water-a",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 30,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "water-b",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 72,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阅读"
+                  },
+                  {
+                    "id": "place-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 37,
+                    "width": 54,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "人物位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "read|beside",
+                "reading": "一位年轻诗人在河边阅读。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 0,
+                    "width": 36,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河道"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 18,
+                    "width": 32,
+                    "height": 64,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "water-a",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 30,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "water-b",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 72,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阅读"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 26,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 41,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "page-left",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 43,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "page-right",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 43,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "read|inside",
+                "reading": "原句说年轻诗人在河边阅读，不能换成写作，也不能改到河里。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 0,
+                    "width": 36,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河道"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 18,
+                    "width": 32,
+                    "height": 64,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "water-a",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 30,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "water-b",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 72,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阅读"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 67,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 41,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "page-left",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 43,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "page-right",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 43,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "write|?",
+                "reading": "先把两处条件选好，再与原句核对。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 0,
+                    "width": 36,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河道"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 18,
+                    "width": 32,
+                    "height": 64,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "water-a",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 30,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "water-b",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 72,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "写作"
+                  },
+                  {
+                    "id": "place-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 37,
+                    "width": 54,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "人物位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "write|beside",
+                "reading": "原句说年轻诗人在河边阅读，不能换成写作，也不能改到河里。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 0,
+                    "width": 36,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河道"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 18,
+                    "width": 32,
+                    "height": 64,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "water-a",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 30,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "water-b",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 72,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "写作"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 26,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 41,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "page-left",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 43,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "page-right",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 43,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pen",
+                    "kind": "line",
+                    "x": 51,
+                    "y": 42,
+                    "width": 2,
+                    "height": 17,
+                    "tone": "ink"
+                  }
+                ]
+              },
+              {
+                "signature": "write|inside",
+                "reading": "原句说年轻诗人在河边阅读，不能换成写作，也不能改到河里。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 0,
+                    "width": 36,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河道"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 18,
+                    "width": 32,
+                    "height": 64,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "water-a",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 30,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "water-b",
+                    "kind": "line",
+                    "x": 65,
+                    "y": 72,
+                    "width": 25,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "写作"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 67,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 41,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "page-left",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 43,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "page-right",
+                    "kind": "rect",
+                    "x": 86,
+                    "y": 43,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pen",
+                    "kind": "line",
+                    "x": 92,
+                    "y": 42,
+                    "width": 2,
+                    "height": 17,
+                    "tone": "ink"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-work-roles-2-transfer",
+      "topicId": "v-course-work-roles",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成园丁、导游和访客，哪组三句完整保留了信息？",
+      "passage": "三条新信息\n园丁每小时记录一次温度。导游在讲解前轻声练习。一位年轻访客在池塘边阅读。\n词语提示：gardener 园丁；talk 讲解；visitor 访客；pond 池塘。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The gardener recorded the temperature every day. The guide practised quietly before the talk. A young visitor read beside the pond."
+        },
+        {
+          "id": "b",
+          "text": "The gardener recorded the temperature every hour. The guide practised quietly before the talk. A young visitor read beside the pond."
+        },
+        {
+          "id": "c",
+          "text": "The gardener recorded the temperature every hour. The guide practised quietly after the talk. A young visitor read beside the pond."
+        },
+        {
+          "id": "d",
+          "text": "The gardener recorded the temperature every hour. The guide practised quietly before the talk. A young visitor read in the pond."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The gardener recorded the temperature every hour. The guide practised quietly before the talk. A young visitor read beside the pond."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对记录间隔、练习声音与先后、阅读位置；不凭人物身份补活动。",
+        "steps": [
+          {
+            "text": "每小时记录一次：recorded the temperature every hour。",
+            "reason": "every hour不是every day；原句没有具体温度值。"
+          },
+          {
+            "text": "讲解前轻声练习：practised quietly before the talk。",
+            "reason": "quietly与before都要保留；after把顺序改反。"
+          },
+          {
+            "text": "年轻访客在池塘边阅读：A young visitor read beside the pond。",
+            "reason": "beside是旁边，不是in里面；read没有明确说出声朗诵。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "every day把每小时的间隔改成每天。"
+          },
+          {
+            "option": "c",
+            "reason": "after把讲解前改成讲解后。"
+          },
+          {
+            "option": "d",
+            "reason": "in把池塘边改成池塘里。"
+          }
+        ],
+        "pitfall": "every后的单位、before的顺序、beside的位置都影响句意；人物身份不能替代原文证据。",
+        "visual": {
+          "kind": "comparison",
+          "title": "间隔、先后、位置",
+          "segments": [
+            {
+              "text": "every hour",
+              "role": "evidence",
+              "note": "每小时，不是每天"
+            },
+            {
+              "text": "quietly before the talk",
+              "role": "evidence",
+              "note": "讲解前，轻声练习"
+            },
+            {
+              "text": "read beside the pond",
+              "role": "evidence",
+              "note": "在池塘边阅读"
+            }
+          ],
+          "caption": "保留限制词，不补具体温度、朗诵活动或演出结果。"
+        },
+        "transfer": "把beside换成in，访客的位置发生了什么变化？"
+      }
+    }
+  }
+}
