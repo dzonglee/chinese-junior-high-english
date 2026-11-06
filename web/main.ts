@@ -231,6 +231,11 @@ function render() {
   const curtainDressFocus = active instanceof HTMLButtonElement && active.matches(".word-curtain-dress button") ? active.dataset.value : undefined
   const stageSuitFocus = active instanceof HTMLButtonElement && active.matches(".word-stage-suit button") ? active.dataset.value : undefined
   const leftShoeStoneFocus = active instanceof HTMLButtonElement && active.matches(".word-left-shoe-stone button") ? active.dataset.value : undefined
+  const bootMudFocus = active instanceof HTMLButtonElement && active.matches(".word-boot-mud button") ? active.dataset.value : undefined
+  const slipperUnderFocus = active instanceof HTMLButtonElement && active.matches(".word-slipper-under button") ? active.dataset.value : undefined
+  const capIntoFocus = active instanceof HTMLButtonElement && active.matches(".word-cap-into button") ? active.dataset.value : undefined
+  const scarfWrapFocus = active instanceof HTMLButtonElement && active.matches(".word-scarf-wrap button") ? active.dataset.value : undefined
+  const gloveFoundFocus = active instanceof HTMLButtonElement && active.matches(".word-glove-found button") ? active.dataset.value : undefined
   const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
   const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
   const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
@@ -380,6 +385,11 @@ function render() {
   if (curtainDressFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-curtain-dress [data-value="${CSS.escape(curtainDressFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (stageSuitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stage-suit [data-value="${CSS.escape(stageSuitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (leftShoeStoneFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-left-shoe-stone [data-value="${CSS.escape(leftShoeStoneFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (bootMudFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-boot-mud [data-value="${CSS.escape(bootMudFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (slipperUnderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-slipper-under [data-value="${CSS.escape(slipperUnderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (capIntoFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cap-into [data-value="${CSS.escape(capIntoFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (scarfWrapFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-scarf-wrap [data-value="${CSS.escape(scarfWrapFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (gloveFoundFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-glove-found [data-value="${CSS.escape(gloveFoundFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
   if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})

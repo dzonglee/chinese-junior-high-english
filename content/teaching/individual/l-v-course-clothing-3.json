@@ -1,0 +1,502 @@
+{
+  "lessonId": "l-v-course-clothing-3",
+  "reviewState": "draft",
+  "intent": "Individually teach a right boot sinking into mud, trainer as muddy footwear, sandal strap needing repair, one slipper beneath the bed, a wide hat protecting the face, cap blown into a pond, scarf loosely around neck and a missing glove found in a coat pocket.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "鞋帽在哪里，发生了什么？",
+    "instruction": "看位置、分清状态、找修饰对象；改一处，再核对原句。",
+    "items": [
+      {
+        "id": "word-boot",
+        "label": "靴子",
+        "prompt": "right和sank into分别说明什么？换一只靴子、换一种位置，再对照。",
+        "answer": "boot",
+        "caseSensitive": false,
+        "meaning": "靴子",
+        "before": "My right ",
+        "after": " sank into the mud.",
+        "reason": "My right boot sank into the mud记录右靴陷进泥里，不是左靴，也不只是停在泥面上。",
+        "hint": "按穿靴者标左右；没有给陷入深度或事故后果。",
+        "material": "My right boot sank into the mud.",
+        "options": [
+          {
+            "id": "right-in",
+            "text": "我的右靴陷进了泥里。",
+            "correct": true,
+            "reason": "保留right与sank into。"
+          },
+          {
+            "id": "left-in",
+            "text": "我的左靴陷进了泥里。",
+            "correct": false,
+            "reason": "left改掉了right。"
+          },
+          {
+            "id": "right-on",
+            "text": "我的右靴只是放在泥面上。",
+            "correct": false,
+            "reason": "放在表面丢掉了sank into陷进去的动作。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "right和sank into分别说明什么？换一只靴子、换一种位置，再对照。",
+          "bootMud": {
+            "title": "哪只靴子，陷在哪里？",
+            "hint": "泥面和靴子位置只是语言示意，不给实际深度。",
+            "wrong": "应保留右靴陷进泥里，不能改左靴或只放在表面。"
+          }
+        }
+      },
+      {
+        "id": "word-trainer",
+        "label": "运动鞋（本句）",
+        "prompt": "点出trainer所指的运动鞋，别把鞋子与垫子上的印子混在一起。",
+        "answer": "trainer",
+        "caseSensitive": false,
+        "meaning": "运动鞋（本句）",
+        "before": "A muddy ",
+        "after": " left a mark on the mat.",
+        "reason": "结合本课给出的中文语境，trainer指沾泥的运动鞋，mark是垫子上留下的印子。",
+        "hint": "trainer在其他语境也可指教练；本题按所给运动鞋语境辨认。图不能证明印子形成的时间。",
+        "material": "A muddy trainer left a mark on the mat.",
+        "options": [
+          {
+            "id": "shoe",
+            "text": "沾泥的运动鞋。",
+            "correct": true,
+            "reason": "本课语境中的trainer是运动鞋。"
+          },
+          {
+            "id": "mark",
+            "text": "垫子上的泥印。",
+            "correct": false,
+            "reason": "泥印对应mark，不是trainer运动鞋。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出trainer所指的运动鞋，别把鞋子与垫子上的印子混在一起。",
+          "art": {
+            "asset": "lesson-muddy-trainer-mark",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创一只沾泥的蓝白运动鞋在浅青色垫子上，旁边有一处清楚的泥脚印。 辨认鞋和印子；不从静图推断时间。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "shoe",
+                "label": "运动鞋",
+                "option": "shoe",
+                "labelPosition": "bottom",
+                "left": 5,
+                "top": 6,
+                "width": 45,
+                "height": 50
+              },
+              {
+                "id": "mark",
+                "label": "垫上泥印",
+                "option": "mark",
+                "labelPosition": "bottom",
+                "left": 51,
+                "top": 51,
+                "width": 40,
+                "height": 34
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-sandal",
+        "label": "凉鞋",
+        "prompt": "需要修的是带子，还是鞋底？needs fixing是已经修好了吗？",
+        "answer": "sandal",
+        "caseSensitive": false,
+        "meaning": "凉鞋",
+        "before": "The strap on this ",
+        "after": " needs fixing.",
+        "reason": "The strap on this sandal needs fixing说明这只凉鞋的带子需要修理，没有报告已经修好。",
+        "hint": "strap指凉鞋上的带子，不是鞋底；原句没有说明具体修法。",
+        "material": "The strap on this sandal needs fixing.",
+        "options": [
+          {
+            "id": "strap",
+            "text": "这只凉鞋的带子需要修理。",
+            "correct": true,
+            "reason": "保留strap与needs fixing。"
+          },
+          {
+            "id": "sole",
+            "text": "这只凉鞋的鞋底需要修理。",
+            "correct": false,
+            "reason": "鞋底改变了strap带子的部位。"
+          },
+          {
+            "id": "done",
+            "text": "凉鞋的带子已经修好了。",
+            "correct": false,
+            "reason": "needs fixing不是已经修好。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "需要修的是带子，还是鞋底？needs fixing是已经修好了吗？",
+          "recordSelection": {
+            "title": "部位和状态，都要保留",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "不补修理方法或完成情况。",
+            "wrong": "应保留凉鞋带子需要修理，不是已修好。",
+            "rows": [
+              {
+                "id": "part",
+                "label": "部位",
+                "text": "这只凉鞋的带子。",
+                "include": true
+              },
+              {
+                "id": "need",
+                "label": "状态",
+                "text": "需要修理。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经修好了。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-slipper",
+        "label": "一只拖鞋",
+        "prompt": "beneath是床下、床上还是床边？移动拖鞋，再核对。",
+        "answer": "slipper",
+        "caseSensitive": false,
+        "meaning": "一只拖鞋",
+        "before": "One ",
+        "after": " is hiding beneath the bed.",
+        "reason": "One slipper is hiding beneath the bed说明一只拖鞋藏在床底下，没有给另一只的位置。",
+        "hint": "One slipper是一只；hiding是说藏着，不是拖鞋自己会行动。",
+        "material": "One slipper is hiding beneath the bed.",
+        "options": [
+          {
+            "id": "under",
+            "text": "一只拖鞋藏在床底下。",
+            "correct": true,
+            "reason": "保留One与beneath the bed。"
+          },
+          {
+            "id": "on",
+            "text": "一只拖鞋在床上。",
+            "correct": false,
+            "reason": "on改变了beneath床下的位置。"
+          },
+          {
+            "id": "beside",
+            "text": "一只拖鞋在床边。",
+            "correct": false,
+            "reason": "床边不等于床底下。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "beneath是床下、床上还是床边？移动拖鞋，再核对。",
+          "slipperUnder": {
+            "title": "拖鞋在床的哪里？",
+            "hint": "图只比较相对床的位置，不推断另一只拖鞋。",
+            "wrong": "应保留一只拖鞋在床底下，不能换床上或床边。"
+          }
+        }
+      },
+      {
+        "id": "word-hat",
+        "label": "帽子",
+        "prompt": "wide说明帽子有什么特点？原句说保护哪里？圈出两条信息。",
+        "answer": "hat",
+        "caseSensitive": false,
+        "meaning": "帽子",
+        "before": "A wide ",
+        "after": " protects your face from the sun.",
+        "reason": "A wide hat protects your face from the sun说明宽檐帽有助于脸部遮阳；没有保证完全阻挡所有阳光。",
+        "hint": "本句不是保护脚或全身，也没有给防晒指数。",
+        "material": "A wide hat protects your face from the sun.",
+        "options": [
+          {
+            "id": "wide-face",
+            "text": "宽檐帽能为脸部遮阳。",
+            "correct": true,
+            "reason": "保留wide hat与protects your face from the sun。"
+          },
+          {
+            "id": "feet",
+            "text": "宽檐帽是给双脚遮阳的。",
+            "correct": false,
+            "reason": "feet改掉了face脸部。"
+          },
+          {
+            "id": "all",
+            "text": "原句保证它能完全阻挡所有阳光。",
+            "correct": false,
+            "reason": "原句没有给完全阻挡或防晒指数的保证。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "wide说明帽子有什么特点？原句说保护哪里？圈出两条信息。",
+          "recordSelection": {
+            "title": "帽子特点与保护对象",
+            "prompt": "圈出原句给出的两条信息。",
+            "hint": "不补防晒指数或完全遮挡的保证。",
+            "wrong": "应保留宽檐帽与为脸部遮阳。",
+            "rows": [
+              {
+                "id": "wide",
+                "label": "特点",
+                "text": "宽檐帽。",
+                "include": true
+              },
+              {
+                "id": "face",
+                "label": "保护对象",
+                "text": "脸部免受日晒。",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "额外保证",
+                "text": "完全阻挡所有阳光。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-cap",
+        "label": "鸭舌帽（本句）",
+        "prompt": "blew into是吹进、朝着，还是吹出？切换方向与结果，再核对。",
+        "answer": "cap",
+        "caseSensitive": false,
+        "meaning": "鸭舌帽（本句）",
+        "before": "My ",
+        "after": " blew into the pond.",
+        "reason": "My cap blew into the pond记录帽子被吹进池塘；into给出了进入池塘的方向和结果。",
+        "hint": "cap这里是帽子，不是瓶盖；没有说后来捞回来了。",
+        "material": "My cap blew into the pond.",
+        "options": [
+          {
+            "id": "into",
+            "text": "我的帽子被吹进了池塘。",
+            "correct": true,
+            "reason": "保留blew的过去与into进入。"
+          },
+          {
+            "id": "toward",
+            "text": "只知道帽子朝池塘方向移动，还不知道是否进入。",
+            "correct": false,
+            "reason": "towards不保留into已经进入的结果。"
+          },
+          {
+            "id": "out",
+            "text": "帽子从池塘里被吹了出来。",
+            "correct": false,
+            "reason": "吹出与into吹进相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "blew into是吹进、朝着，还是吹出？切换方向与结果，再核对。",
+          "capInto": {
+            "title": "吹进池塘，还是只朝它移动？",
+            "hint": "只对照into、towards和out of的差别，不模拟风力或漂浮。",
+            "wrong": "应保留被吹进池塘，不能换成只朝它移动或吹出。"
+          }
+        }
+      },
+      {
+        "id": "word-scarf",
+        "label": "围巾",
+        "prompt": "loosely说松紧，around your neck说位置。分别改，再保留两条要求。",
+        "answer": "scarf",
+        "caseSensitive": false,
+        "meaning": "围巾",
+        "before": "Wrap the ",
+        "after": " loosely around your neck.",
+        "reason": "Wrap the scarf loosely around your neck要求把围巾松松地围在脖子上，不是紧紧绑在手腕上。",
+        "hint": "这是要求，不报告已经围好；loosely不是tightly。",
+        "material": "Wrap the scarf loosely around your neck.",
+        "options": [
+          {
+            "id": "loose-neck",
+            "text": "把围巾松松地围在脖子上。",
+            "correct": true,
+            "reason": "保留loosely与around your neck。"
+          },
+          {
+            "id": "tight-neck",
+            "text": "把围巾紧紧地围在脖子上。",
+            "correct": false,
+            "reason": "tightly改变了loosely松松地。"
+          },
+          {
+            "id": "loose-wrist",
+            "text": "把围巾松松地围在手腕上。",
+            "correct": false,
+            "reason": "手腕改变了neck脖子的位置。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "loosely说松紧，around your neck说位置。分别改，再保留两条要求。",
+          "scarfWrap": {
+            "title": "松紧与位置，分别核对",
+            "hint": "线圈只示意所选语言，不给真实系法或松紧尺寸。",
+            "wrong": "应保留松松地围在脖子上，不能改紧紧地或手腕上。"
+          }
+        }
+      },
+      {
+        "id": "word-glove",
+        "label": "一只手套",
+        "prompt": "found之后还算没找到吗？in my coat pocket给了什么位置？分别调整。",
+        "answer": "glove",
+        "caseSensitive": false,
+        "meaning": "一只手套",
+        "before": "I found the missing ",
+        "after": " in my coat pocket.",
+        "reason": "I found the missing glove in my coat pocket记录我在大衣口袋里找到了先前不见的手套。",
+        "hint": "missing描述先前丢失的手套；found已报告找到，不说明是谁把它放进去的。",
+        "material": "I found the missing glove in my coat pocket.",
+        "options": [
+          {
+            "id": "found-coat",
+            "text": "我在大衣口袋里找到了先前不见的手套。",
+            "correct": true,
+            "reason": "保留found与in my coat pocket。"
+          },
+          {
+            "id": "missing",
+            "text": "那只手套仍然没找到。",
+            "correct": false,
+            "reason": "仍然没找到与found已找到相反。"
+          },
+          {
+            "id": "found-bag",
+            "text": "我在包里找到了手套。",
+            "correct": false,
+            "reason": "包改变了coat pocket大衣口袋的位置。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "found之后还算没找到吗？in my coat pocket给了什么位置？分别调整。",
+          "gloveFound": {
+            "title": "先前不见，现在找到",
+            "hint": "只对照找到的状态与位置，不推断放入经过。",
+            "wrong": "应保留已经找到与大衣口袋，不能换成仍未找到或包里。"
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-clothing-3-transfer",
+      "topicId": "v-course-clothing",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "换成球、毛巾和钥匙，哪组完整保留了三条信息？",
+      "passage": "三条新信息\n球滚进了篮子。一条毛巾藏在椅子底下。我在大衣口袋里找到了先前不见的钥匙。\n词语提示：basket 篮子；towel 毛巾；key 钥匙。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The ball rolled into the basket. One towel is hiding beneath the chair. I found the missing key in my coat pocket."
+        },
+        {
+          "id": "b",
+          "text": "The ball rolled towards the basket. One towel is hiding beneath the chair. I found the missing key in my coat pocket."
+        },
+        {
+          "id": "c",
+          "text": "The ball rolled into the basket. One towel is on the chair. I found the missing key in my coat pocket."
+        },
+        {
+          "id": "d",
+          "text": "The ball rolled into the basket. One towel is hiding beneath the chair. The key is still missing."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The ball rolled into the basket. One towel is hiding beneath the chair. I found the missing key in my coat pocket."
+      },
+      "marks": 1,
+      "estimatedSeconds": 70,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "按进入结果、上下位置、找到状态逐条核对。",
+        "steps": [
+          {
+            "text": "滚进篮子：rolled into the basket。",
+            "reason": "towards只表示朝向，没保留进入的结果。"
+          },
+          {
+            "text": "一条毛巾在椅下：One towel…beneath the chair。",
+            "reason": "on the chair改成椅上。"
+          },
+          {
+            "text": "钥匙已在大衣口袋里找到：found…in my coat pocket。",
+            "reason": "still missing与found相反。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "towards没有保留滚进篮子的结果。"
+          },
+          {
+            "option": "c",
+            "reason": "on把椅下改成椅上。"
+          },
+          {
+            "option": "d",
+            "reason": "still missing把已经找到改成仍未找到。"
+          }
+        ],
+        "pitfall": "换名词后，方向、位置、状态仍须完整。",
+        "visual": {
+          "kind": "sentence",
+          "title": "三处细节，分别核对",
+          "segments": [
+            {
+              "text": "rolled into the basket",
+              "role": "evidence",
+              "note": "滚进，不只是朝向"
+            },
+            {
+              "text": "beneath the chair",
+              "role": "evidence",
+              "note": "椅下，不是椅上"
+            },
+            {
+              "text": "found…in my coat pocket",
+              "role": "evidence",
+              "note": "已找到，位置是大衣口袋"
+            }
+          ],
+          "caption": "进入结果、位置与找到状态都保留。"
+        },
+        "transfer": "如果只知道球朝篮子滚去，能否断定球已滚进篮子？为什么？"
+      }
+    }
+  },
+  "picturePurpose": "Original muddy trainer picture separates the shoe itself from its muddy mark. Code supplies exact targets; a noun is not replaced by a footprint or an inferred action."
+}

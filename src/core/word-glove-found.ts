@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordGloveFound{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordGloveFound(v:unknown):v is WordGloveFound{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordGloveFound;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordGloveFoundKey=(id:string)=>'workshopGloveFound-'+id
+function decode(raw:string){if(raw==='')return{"status": "?", "place": "?"};const m="^(\\?|found|missing)\\|(\\?|coat|bag)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{status:v[1],place:v[2]}:null}
+export function changeGloveFound(_w:WordGloveFound,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["status-found", "status-missing"].includes(action))return action.slice(7)+"|"+s.place;if(["place-coat", "place-bag"].includes(action))return s.status+"|"+action.slice(6);return undefined}
+export function gloveFoundMatch(_w:WordGloveFound,raw:string){const s=decode(raw);return!!s&&s.status==="found"&&s.place==="coat"}
+export function wordGloveFoundView(w:WordGloveFound,raw:string){const s=decode(raw)??{"status": "?", "place": "?"};return{title:w.title,hint:w.hint,status:s.status,place:s.place,groups:[{label:"找到的状态",choices:[{"id": "status-found", "label": "已经找到"}, {"id": "status-missing", "label": "仍未找到"}].map(c=>({...c,selected:c.id==="status-"+s.status}))},{label:"找到的位置",choices:[{"id": "place-coat", "label": "大衣口袋"}, {"id": "place-bag", "label": "包里"}].map(c=>({...c,selected:c.id==="place-"+s.place}))}],reading:gloveFoundMatch(w,raw)?"先前不见的手套已在大衣口袋里找到；不补放入经过。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordGloveFoundView=ReturnType<typeof wordGloveFoundView>
