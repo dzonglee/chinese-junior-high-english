@@ -1,0 +1,3733 @@
+{
+  "lessonId": "l-v-course-health-4",
+  "reviewState": "draft",
+  "intent": "Teach dentist as the demonstrator; aunt working at a children’s hospital without assuming a job title; village clinic opening early; treatment helping recovery quickly; needing recovery time; ankle rest before sport; trying a regular nightly bedtime; already asleep at arrival.",
+  "picturePurpose": "Original dentist/model picture provides separate person versus object targets. Five individually coded scenes and a reversible rest/play order clarify workplace activity, opening time, need versus result, nightly regularity and state at arrival. Exact labels stay in code.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "谁在做什么，先后怎样？",
+    "instruction": "点人物、改图、排先后；区分工作与就诊、需要时间与已经完成。",
+    "items": [
+      {
+        "id": "word-dentist",
+        "label": "牙医",
+        "prompt": "结合原句，点出dentist所指的人，别选教学模型。",
+        "answer": "dentist",
+        "caseSensitive": false,
+        "meaning": "牙医",
+        "before": "The ",
+        "after": " showed me how to brush properly.",
+        "reason": "The dentist showed me how to brush properly说牙医教我怎样正确刷牙；dentist指人，不是牙齿模型。",
+        "hint": "这是配合原句的示意图，职业由原句给出；不补治疗经过。",
+        "material": "The dentist showed me how to brush properly.",
+        "options": [
+          {
+            "id": "dentist",
+            "text": "图示牙医。",
+            "correct": true,
+            "reason": "dentist指教我刷牙的牙医。"
+          },
+          {
+            "id": "model",
+            "text": "牙齿教学模型。",
+            "correct": false,
+            "reason": "模型是教学用品，不是dentist这个人。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "结合原句，点出dentist所指的人，别选教学模型。",
+          "art": {
+            "asset": "lesson-dentist-model-demo",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创牙医使用牙刷和牙齿模型进行教学的示意图，人物在左、模型在右；职业由原句给出，不凭服装推断。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "dentist-person",
+                "option": "dentist",
+                "label": "牙医",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 4,
+                "width": 34,
+                "height": 48
+              },
+              {
+                "id": "dentist-model",
+                "option": "model",
+                "label": "模型",
+                "labelPosition": "bottom",
+                "left": 57,
+                "top": 43,
+                "width": 38,
+                "height": 51
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-hospital",
+        "label": "医院",
+        "prompt": "阿姨在哪里，是工作还是住院？分别改地点和活动。",
+        "answer": "hospital",
+        "caseSensitive": false,
+        "meaning": "医院",
+        "before": "My aunt works in the children's ",
+        "after": ".",
+        "reason": "My aunt works in the children's hospital说我阿姨在儿童医院工作；没有说她在那里住院，也没有交代具体职业。",
+        "hint": "works说明工作；不能把医院里的工作者都推断为医生或护士。",
+        "material": "My aunt works in the children's hospital.",
+        "options": [
+          {
+            "id": "work",
+            "text": "我阿姨在儿童医院工作。",
+            "correct": true,
+            "reason": "保留aunt、works和children’s hospital。"
+          },
+          {
+            "id": "patient",
+            "text": "我阿姨在儿童医院住院。",
+            "correct": false,
+            "reason": "住院改变了works工作。"
+          },
+          {
+            "id": "school",
+            "text": "我阿姨在学校工作。",
+            "correct": false,
+            "reason": "学校改变了children’s hospital儿童医院。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "阿姨在哪里，是工作还是住院？分别改地点和活动。",
+          "sceneLab": {
+            "id": "hospital-work",
+            "title": "在哪里，是工作还是住院？",
+            "hint": "地点和角色分别核对；图中不补具体职业。",
+            "wrong": "应是阿姨在儿童医院工作，不能改学校或把工作改住院。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "工作地点",
+                "choices": [
+                  {
+                    "id": "hospital",
+                    "label": "儿童医院"
+                  },
+                  {
+                    "id": "school",
+                    "label": "学校"
+                  }
+                ]
+              },
+              {
+                "id": "role",
+                "label": "句中活动",
+                "choices": [
+                  {
+                    "id": "work",
+                    "label": "工作"
+                  },
+                  {
+                    "id": "patient",
+                    "label": "住院"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 28,
+                    "width": 52,
+                    "height": 59,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 59,
+                    "width": 16,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-left",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-right",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "aunt-head",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 33,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt-body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 52,
+                    "width": 19,
+                    "height": 31,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 86,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阿姨"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 50,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "活动待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|work",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 28,
+                    "width": 52,
+                    "height": 59,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 59,
+                    "width": 16,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-left",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-right",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "aunt-head",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 33,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt-body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 52,
+                    "width": 19,
+                    "height": 31,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 86,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阿姨"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 50,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "在这里工作"
+                  }
+                ]
+              },
+              {
+                "signature": "?|patient",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 28,
+                    "width": 52,
+                    "height": 59,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 59,
+                    "width": 16,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-left",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-right",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "aunt-head",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 33,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt-body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 52,
+                    "width": 19,
+                    "height": 31,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 86,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阿姨"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 50,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "在这里住院"
+                  }
+                ]
+              },
+              {
+                "signature": "hospital|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "儿童医院"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 28,
+                    "width": 52,
+                    "height": 59,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 59,
+                    "width": 16,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-left",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-right",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "aunt-head",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 33,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt-body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 52,
+                    "width": 19,
+                    "height": 31,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 86,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阿姨"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 50,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "活动待选"
+                  }
+                ]
+              },
+              {
+                "signature": "hospital|work",
+                "reading": "我阿姨在儿童医院工作。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "儿童医院"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 28,
+                    "width": 52,
+                    "height": 59,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 59,
+                    "width": 16,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-left",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-right",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "aunt-head",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 33,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt-body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 52,
+                    "width": 19,
+                    "height": 31,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 86,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阿姨"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 50,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "在这里工作"
+                  }
+                ]
+              },
+              {
+                "signature": "hospital|patient",
+                "reading": "应是阿姨在儿童医院工作，不能改学校或把工作改住院。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "儿童医院"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 28,
+                    "width": 52,
+                    "height": 59,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 59,
+                    "width": 16,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-left",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-right",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "aunt-head",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 33,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt-body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 52,
+                    "width": 19,
+                    "height": 31,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 86,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阿姨"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 50,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "在这里住院"
+                  }
+                ]
+              },
+              {
+                "signature": "school|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 28,
+                    "width": 52,
+                    "height": 59,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 59,
+                    "width": 16,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-left",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-right",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "aunt-head",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 33,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt-body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 52,
+                    "width": 19,
+                    "height": 31,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 86,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阿姨"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 50,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "活动待选"
+                  }
+                ]
+              },
+              {
+                "signature": "school|work",
+                "reading": "应是阿姨在儿童医院工作，不能改学校或把工作改住院。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 28,
+                    "width": 52,
+                    "height": 59,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 59,
+                    "width": 16,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-left",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-right",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "aunt-head",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 33,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt-body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 52,
+                    "width": 19,
+                    "height": 31,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 86,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阿姨"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 50,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "在这里工作"
+                  }
+                ]
+              },
+              {
+                "signature": "school|patient",
+                "reading": "应是阿姨在儿童医院工作，不能改学校或把工作改住院。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 28,
+                    "width": 52,
+                    "height": 59,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 60,
+                    "y": 59,
+                    "width": 16,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-left",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-right",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "aunt-head",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 33,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt-body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 52,
+                    "width": 19,
+                    "height": 31,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "aunt",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 86,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阿姨"
+                  },
+                  {
+                    "id": "activity",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 50,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "在这里住院"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-clinic",
+        "label": "诊所",
+        "prompt": "诊所在哪里，开门早还是晚？分别调一项。",
+        "answer": "clinic",
+        "caseSensitive": false,
+        "meaning": "诊所",
+        "before": "The village ",
+        "after": " opens early.",
+        "reason": "The village clinic opens early说村里的诊所很早就开门；没有给具体几点。",
+        "hint": "opens是一般现在时，这里表示通常的情况；不推断今天已经开门。",
+        "material": "The village clinic opens early.",
+        "options": [
+          {
+            "id": "village-early",
+            "text": "村里的诊所很早就开门。",
+            "correct": true,
+            "reason": "保留village、clinic和early。"
+          },
+          {
+            "id": "city",
+            "text": "城里的诊所很早就开门。",
+            "correct": false,
+            "reason": "城里改变了village村里。"
+          },
+          {
+            "id": "late",
+            "text": "村里的诊所很晚才开门。",
+            "correct": false,
+            "reason": "很晚与early很早相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "诊所在哪里，开门早还是晚？分别调一项。",
+          "sceneLab": {
+            "id": "clinic-early",
+            "title": "地点与开门时间，分别核对",
+            "hint": "早晚只作语言比较，不给真实营业时间。",
+            "wrong": "应是村里的诊所开门早，不能改城里或很晚。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "诊所在哪里",
+                "choices": [
+                  {
+                    "id": "village",
+                    "label": "村里"
+                  },
+                  {
+                    "id": "city",
+                    "label": "城里"
+                  }
+                ]
+              },
+              {
+                "id": "time",
+                "label": "开门早晚",
+                "choices": [
+                  {
+                    "id": "early",
+                    "label": "早"
+                  },
+                  {
+                    "id": "late",
+                    "label": "晚"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "clinic",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 34,
+                    "width": 42,
+                    "height": 50,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 59,
+                    "width": 11,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "clinic-label",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 37,
+                    "width": 42,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "诊所"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 1,
+                    "width": 45,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 51,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "开门时间待选"
+                  },
+                  {
+                    "id": "no-hours",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 87,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "原句没有给几点"
+                  }
+                ]
+              },
+              {
+                "signature": "?|early",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "clinic",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 34,
+                    "width": 42,
+                    "height": 50,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 59,
+                    "width": 11,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "clinic-label",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 37,
+                    "width": 42,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "诊所"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 1,
+                    "width": 45,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 51,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "开门早"
+                  },
+                  {
+                    "id": "sun",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 38,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "no-hours",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 87,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "原句没有给几点"
+                  }
+                ]
+              },
+              {
+                "signature": "?|late",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "clinic",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 34,
+                    "width": 42,
+                    "height": 50,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 59,
+                    "width": 11,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "clinic-label",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 37,
+                    "width": 42,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "诊所"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 1,
+                    "width": 45,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 51,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "开门晚"
+                  },
+                  {
+                    "id": "sun",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 66,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "no-hours",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 87,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "原句没有给几点"
+                  }
+                ]
+              },
+              {
+                "signature": "village|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "clinic",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 34,
+                    "width": 42,
+                    "height": 50,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 59,
+                    "width": 11,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "clinic-label",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 37,
+                    "width": 42,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "诊所"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 1,
+                    "width": 45,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "村里"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 51,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "开门时间待选"
+                  },
+                  {
+                    "id": "house",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 59,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "line",
+                    "x": 3,
+                    "y": 54,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "no-hours",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 87,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "原句没有给几点"
+                  }
+                ]
+              },
+              {
+                "signature": "village|early",
+                "reading": "村里的诊所很早就开门。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "clinic",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 34,
+                    "width": 42,
+                    "height": 50,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 59,
+                    "width": 11,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "clinic-label",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 37,
+                    "width": 42,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "诊所"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 1,
+                    "width": 45,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "村里"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 51,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "开门早"
+                  },
+                  {
+                    "id": "house",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 59,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "line",
+                    "x": 3,
+                    "y": 54,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "sun",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 38,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "no-hours",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 87,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "原句没有给几点"
+                  }
+                ]
+              },
+              {
+                "signature": "village|late",
+                "reading": "应是村里的诊所开门早，不能改城里或很晚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "clinic",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 34,
+                    "width": 42,
+                    "height": 50,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 59,
+                    "width": 11,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "clinic-label",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 37,
+                    "width": 42,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "诊所"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 1,
+                    "width": 45,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "村里"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 51,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "开门晚"
+                  },
+                  {
+                    "id": "house",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 59,
+                    "width": 16,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "line",
+                    "x": 3,
+                    "y": 54,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "sun",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 66,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "no-hours",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 87,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "原句没有给几点"
+                  }
+                ]
+              },
+              {
+                "signature": "city|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "clinic",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 34,
+                    "width": 42,
+                    "height": 50,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 59,
+                    "width": 11,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "clinic-label",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 37,
+                    "width": 42,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "诊所"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 1,
+                    "width": 45,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "城里"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 51,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "开门时间待选"
+                  },
+                  {
+                    "id": "tower1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 36,
+                    "width": 12,
+                    "height": 48,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "tower2",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 44,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "no-hours",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 87,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "原句没有给几点"
+                  }
+                ]
+              },
+              {
+                "signature": "city|early",
+                "reading": "应是村里的诊所开门早，不能改城里或很晚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "clinic",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 34,
+                    "width": 42,
+                    "height": 50,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 59,
+                    "width": 11,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "clinic-label",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 37,
+                    "width": 42,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "诊所"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 1,
+                    "width": 45,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "城里"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 51,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "开门早"
+                  },
+                  {
+                    "id": "tower1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 36,
+                    "width": 12,
+                    "height": 48,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "tower2",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 44,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sun",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 38,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "no-hours",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 87,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "原句没有给几点"
+                  }
+                ]
+              },
+              {
+                "signature": "city|late",
+                "reading": "应是村里的诊所开门早，不能改城里或很晚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "clinic",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 34,
+                    "width": 42,
+                    "height": 50,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 59,
+                    "width": 11,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "clinic-label",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 37,
+                    "width": 42,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "诊所"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 1,
+                    "width": 45,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "城里"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 1,
+                    "width": 51,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "开门晚"
+                  },
+                  {
+                    "id": "tower1",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 36,
+                    "width": 12,
+                    "height": 48,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "tower2",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 44,
+                    "width": 10,
+                    "height": 40,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sun",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 66,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "no-hours",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 87,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "原句没有给几点"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-treatment",
+        "label": "治疗（本句）",
+        "prompt": "治疗起了什么作用，恢复速度怎样？圈出两条信息。",
+        "answer": "treatment",
+        "caseSensitive": false,
+        "meaning": "治疗（本句）",
+        "before": "The ",
+        "after": " helped her recover quickly.",
+        "reason": "The treatment helped her recover quickly说治疗帮助她很快恢复了；treatment在这里是治疗，不是待人方式。",
+        "hint": "这是这一次治疗的事实，不代表任何治疗都一定迅速见效。",
+        "material": "The treatment helped her recover quickly.",
+        "options": [
+          {
+            "id": "help-quick",
+            "text": "治疗帮助她很快恢复了。",
+            "correct": true,
+            "reason": "保留helped her recover和quickly。"
+          },
+          {
+            "id": "slow",
+            "text": "治疗帮助她恢复，但恢复得很慢。",
+            "correct": false,
+            "reason": "很慢改掉了quickly很快。"
+          },
+          {
+            "id": "plan",
+            "text": "只是计划接受治疗，还没有接受。",
+            "correct": false,
+            "reason": "计划不能替代原句已报告的helped。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "治疗起了什么作用，恢复速度怎样？圈出两条信息。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "作用与恢复速度",
+            "prompt": "圈出原句给出的两条信息。",
+            "hint": "只保留这一次的事实，不推广成所有治疗的保证。",
+            "wrong": "应保留帮助恢复与很快，不扩成所有治疗的保证。",
+            "rows": [
+              {
+                "id": "help",
+                "label": "作用",
+                "text": "治疗帮助她恢复。",
+                "include": true
+              },
+              {
+                "id": "quick",
+                "label": "速度",
+                "text": "恢复很快。",
+                "include": true
+              },
+              {
+                "id": "always",
+                "label": "额外保证",
+                "text": "所有治疗都保证迅速见效。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-recover",
+        "label": "恢复；康复（本句）",
+        "prompt": "生病后需要什么，原句说已经康复了吗？切换状态核对。",
+        "answer": "recover",
+        "caseSensitive": false,
+        "meaning": "恢复；康复（本句）",
+        "before": "You need time to ",
+        "after": " after being ill.",
+        "reason": "You need time to recover after being ill说生病后恢复需要时间；没有给具体天数，也没有报告已完全康复。",
+        "hint": "need time to…表示做某事需要时间；after being ill给出恢复所处的阶段。",
+        "material": "You need time to recover after being ill.",
+        "options": [
+          {
+            "id": "need",
+            "text": "生病后恢复需要时间。",
+            "correct": true,
+            "reason": "保留need time、recover和after being ill。"
+          },
+          {
+            "id": "immediate",
+            "text": "生病后不需要时间，立刻就能恢复。",
+            "correct": false,
+            "reason": "不需要时间与need time相反。"
+          },
+          {
+            "id": "done",
+            "text": "原句已经确认完全康复。",
+            "correct": false,
+            "reason": "需要时间不等于已经完成康复。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "生病后需要什么，原句说已经康复了吗？切换状态核对。",
+          "sceneLab": {
+            "id": "recover-time",
+            "title": "需要时间，还是已经康复？",
+            "hint": "时间段不带天数，不模拟或诊断真实恢复进度。",
+            "wrong": "应是生病后恢复需要时间，不能改成立刻恢复或已经完全康复。",
+            "axes": [
+              {
+                "id": "state",
+                "label": "原句说到了哪一步",
+                "choices": [
+                  {
+                    "id": "need",
+                    "label": "恢复需要时间"
+                  },
+                  {
+                    "id": "instant",
+                    "label": "立刻就能恢复"
+                  },
+                  {
+                    "id": "done",
+                    "label": "已经完全康复"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 3,
+                    "width": 60,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "生病后"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 37,
+                    "width": 25,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "ill",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 43,
+                    "width": 25,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "生病"
+                  },
+                  {
+                    "id": "line",
+                    "kind": "line",
+                    "x": 32,
+                    "y": 55,
+                    "width": 35,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "goal",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 37,
+                    "width": 26,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "recover",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 43,
+                    "width": 26,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "恢复"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 77,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "先选解释"
+                  }
+                ]
+              },
+              {
+                "signature": "need",
+                "reading": "生病后恢复需要时间。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 3,
+                    "width": 60,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "生病后"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 37,
+                    "width": 25,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "ill",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 43,
+                    "width": 25,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "生病"
+                  },
+                  {
+                    "id": "line",
+                    "kind": "line",
+                    "x": 32,
+                    "y": 55,
+                    "width": 35,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "goal",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 37,
+                    "width": 26,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "recover",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 43,
+                    "width": 26,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "恢复"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 77,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "需要时间"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 29,
+                    "width": 33,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "时间"
+                  }
+                ]
+              },
+              {
+                "signature": "instant",
+                "reading": "应是生病后恢复需要时间，不能改成立刻恢复或已经完全康复。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 3,
+                    "width": 60,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "生病后"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 37,
+                    "width": 25,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "ill",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 43,
+                    "width": 25,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "生病"
+                  },
+                  {
+                    "id": "line",
+                    "kind": "line",
+                    "x": 32,
+                    "y": 55,
+                    "width": 35,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "goal",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 37,
+                    "width": 26,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "recover",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 43,
+                    "width": 26,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "恢复"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 77,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "立刻恢复"
+                  }
+                ]
+              },
+              {
+                "signature": "done",
+                "reading": "应是生病后恢复需要时间，不能改成立刻恢复或已经完全康复。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 3,
+                    "width": 60,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "生病后"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 37,
+                    "width": 25,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "ill",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 43,
+                    "width": 25,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "生病"
+                  },
+                  {
+                    "id": "line",
+                    "kind": "line",
+                    "x": 32,
+                    "y": 55,
+                    "width": 35,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "goal",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 37,
+                    "width": 26,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "recover",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 43,
+                    "width": 26,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "恢复"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 77,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "已经完全康复"
+                  },
+                  {
+                    "id": "completed",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 16,
+                    "width": 20,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "✓"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-rest",
+        "label": "休息（名词）",
+        "prompt": "before要求先休息还是先再次运动？点卡片排一排。",
+        "answer": "rest",
+        "caseSensitive": false,
+        "meaning": "休息（名词）",
+        "before": "Your ankle needs ",
+        "after": " before you play again.",
+        "reason": "Your ankle needs rest before you play again说再次运动前脚踝需要休息；rest在这里是休息，不是其余部分。",
+        "hint": "只判断原句的先后；没有给休息时长，也没有说休息后一定适合运动。",
+        "material": "Your ankle needs rest before you play again.",
+        "options": [
+          {
+            "id": "rest-first",
+            "text": "再次运动前，脚踝需要先休息。",
+            "correct": true,
+            "reason": "保留ankle、rest和before。"
+          },
+          {
+            "id": "play-first",
+            "text": "先再次运动，再让脚踝休息。",
+            "correct": false,
+            "reason": "先后与before相反。"
+          },
+          {
+            "id": "done",
+            "text": "脚踝已经休息好，可以立即运动。",
+            "correct": false,
+            "reason": "原句没有给已休息好或可以立即运动的结论。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before要求先休息还是先再次运动？点卡片排一排。",
+          "processOrder": {
+            "title": "先休息，再运动",
+            "hint": "排句中的要求，不补休息时长或已经恢复。",
+            "wrong": "原句要求脚踝先休息，再次运动在后。",
+            "events": [
+              {
+                "id": "rest",
+                "label": "脚踝休息"
+              },
+              {
+                "id": "play",
+                "label": "再次运动"
+              }
+            ],
+            "sequence": [
+              "rest",
+              "play"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-sleep",
+        "label": "睡觉（动词）",
+        "prompt": "each night与at the same time各要求什么？换夜晚范围和时间规律。",
+        "answer": "sleep",
+        "caseSensitive": false,
+        "meaning": "睡觉（动词）",
+        "before": "Try to ",
+        "after": " at the same time each night.",
+        "reason": "Try to sleep at the same time each night要求尽量每晚在同一时间睡觉；Try to不是报告已经养成习惯。",
+        "hint": "try to后接动词原形sleep，不能直接接形容词asleep；原句没有给具体几点。",
+        "material": "Try to sleep at the same time each night.",
+        "options": [
+          {
+            "id": "same-each",
+            "text": "尽量每晚在同一时间睡觉。",
+            "correct": true,
+            "reason": "保留Try to、each night与same time。"
+          },
+          {
+            "id": "different",
+            "text": "尽量每晚在不同时间睡觉。",
+            "correct": false,
+            "reason": "不同改变了at the same time同一时间。"
+          },
+          {
+            "id": "some",
+            "text": "只要偶尔几晚在同一时间睡觉。",
+            "correct": false,
+            "reason": "偶尔几晚丢掉了each night每晚。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "each night与at the same time各要求什么？换夜晚范围和时间规律。",
+          "sceneLab": {
+            "id": "sleep-regular",
+            "title": "哪几晚，时间是否相同？",
+            "hint": "夜晚卡只示意范围和规律，不代表具体天数或真实作息记录。",
+            "wrong": "应尽量每晚在同一时间睡觉，不能改偶尔几晚或不同时间。",
+            "axes": [
+              {
+                "id": "scope",
+                "label": "适用夜晚",
+                "choices": [
+                  {
+                    "id": "each",
+                    "label": "每晚"
+                  },
+                  {
+                    "id": "some",
+                    "label": "偶尔几晚"
+                  }
+                ]
+              },
+              {
+                "id": "pattern",
+                "label": "睡觉时间规律",
+                "choices": [
+                  {
+                    "id": "same",
+                    "label": "同一时间"
+                  },
+                  {
+                    "id": "different",
+                    "label": "不同时间"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "night-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-0",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-1",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-2",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pattern",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 81,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "规律待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|same",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "night-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-0",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-0",
+                    "kind": "line",
+                    "x": 8,
+                    "y": 57,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-1",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-1",
+                    "kind": "line",
+                    "x": 40,
+                    "y": 57,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-2",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-2",
+                    "kind": "line",
+                    "x": 72,
+                    "y": 57,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pattern",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 81,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一时间"
+                  }
+                ]
+              },
+              {
+                "signature": "?|different",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "night-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-0",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-0",
+                    "kind": "line",
+                    "x": 8,
+                    "y": 51,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-1",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-1",
+                    "kind": "line",
+                    "x": 40,
+                    "y": 61,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-2",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-2",
+                    "kind": "line",
+                    "x": 72,
+                    "y": 68,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pattern",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 81,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "不同时间"
+                  }
+                ]
+              },
+              {
+                "signature": "each|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "每晚"
+                  },
+                  {
+                    "id": "night-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-0",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-1",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-2",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pattern",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 81,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "规律待选"
+                  }
+                ]
+              },
+              {
+                "signature": "each|same",
+                "reading": "尽量每晚在同一时间睡觉。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "每晚"
+                  },
+                  {
+                    "id": "night-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-0",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-0",
+                    "kind": "line",
+                    "x": 8,
+                    "y": 57,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-1",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-1",
+                    "kind": "line",
+                    "x": 40,
+                    "y": 57,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-2",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-2",
+                    "kind": "line",
+                    "x": 72,
+                    "y": 57,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pattern",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 81,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一时间"
+                  }
+                ]
+              },
+              {
+                "signature": "each|different",
+                "reading": "应尽量每晚在同一时间睡觉，不能改偶尔几晚或不同时间。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "每晚"
+                  },
+                  {
+                    "id": "night-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-0",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-0",
+                    "kind": "line",
+                    "x": 8,
+                    "y": 51,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-1",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-1",
+                    "kind": "line",
+                    "x": 40,
+                    "y": 61,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-2",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-2",
+                    "kind": "line",
+                    "x": 72,
+                    "y": 68,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pattern",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 81,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "不同时间"
+                  }
+                ]
+              },
+              {
+                "signature": "some|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "偶尔几晚"
+                  },
+                  {
+                    "id": "night-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-0",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-1",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-2",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pattern",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 81,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "规律待选"
+                  }
+                ]
+              },
+              {
+                "signature": "some|same",
+                "reading": "应尽量每晚在同一时间睡觉，不能改偶尔几晚或不同时间。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "偶尔几晚"
+                  },
+                  {
+                    "id": "night-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-0",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-0",
+                    "kind": "line",
+                    "x": 8,
+                    "y": 57,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-1",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-2",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-2",
+                    "kind": "line",
+                    "x": 72,
+                    "y": 57,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pattern",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 81,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "同一时间"
+                  }
+                ]
+              },
+              {
+                "signature": "some|different",
+                "reading": "应尽量每晚在同一时间睡觉，不能改偶尔几晚或不同时间。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 1,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "偶尔几晚"
+                  },
+                  {
+                    "id": "night-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-0",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-0",
+                    "kind": "line",
+                    "x": 8,
+                    "y": 51,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-1",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "night-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 28,
+                    "width": 28,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "moon-2",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time-2",
+                    "kind": "line",
+                    "x": 72,
+                    "y": 68,
+                    "width": 20,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pattern",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 81,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "不同时间"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-asleep",
+        "label": "睡着的",
+        "prompt": "when we arrived说的是我们到达时。宝宝当时是什么状态？换一换，再核对。",
+        "answer": "asleep",
+        "caseSensitive": false,
+        "meaning": "睡着的",
+        "before": "The baby was already ",
+        "after": " when we arrived.",
+        "reason": "The baby was already asleep when we arrived说我们到达时宝宝已经睡着了；没有说到达后才睡着。",
+        "hint": "was asleep用形容词表示睡着的状态；sleep是动词。原句没有说到达导致入睡。",
+        "material": "The baby was already asleep when we arrived.",
+        "options": [
+          {
+            "id": "already",
+            "text": "我们到时，宝宝已经睡着了。",
+            "correct": true,
+            "reason": "保留already asleep与when we arrived。"
+          },
+          {
+            "id": "after",
+            "text": "我们到达后，宝宝才睡着。",
+            "correct": false,
+            "reason": "之后才睡着改变了到达时已经睡着。"
+          },
+          {
+            "id": "awake",
+            "text": "我们到时，宝宝还醒着。",
+            "correct": false,
+            "reason": "醒着与asleep睡着相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "when we arrived说的是我们到达时。宝宝当时是什么状态？换一换，再核对。",
+          "sceneLab": {
+            "id": "asleep-arrival",
+            "title": "到达时，宝宝是什么状态？",
+            "hint": "只标到达这一刻，不给入睡时刻或睡眠时长。",
+            "wrong": "应是到达时已经睡着，不能改醒着或到达后才睡着。",
+            "axes": [
+              {
+                "id": "state",
+                "label": "到达与睡着的关系",
+                "choices": [
+                  {
+                    "id": "already",
+                    "label": "到达时已经睡着"
+                  },
+                  {
+                    "id": "after",
+                    "label": "到达后才睡着"
+                  },
+                  {
+                    "id": "awake",
+                    "label": "到达时还醒着"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "arrival",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "我们到达时"
+                  },
+                  {
+                    "id": "cot",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 52,
+                    "width": 59,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "baby-head",
+                    "kind": "ellipse",
+                    "x": 25,
+                    "y": 45,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "blanket",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 54,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrival-mark",
+                    "kind": "line",
+                    "x": 82,
+                    "y": 27,
+                    "width": 1,
+                    "height": 59,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 94,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "already",
+                "reading": "我们到时，宝宝已经睡着了。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "arrival",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "我们到达时"
+                  },
+                  {
+                    "id": "cot",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 52,
+                    "width": 59,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "baby-head",
+                    "kind": "ellipse",
+                    "x": 25,
+                    "y": 45,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "blanket",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 54,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrival-mark",
+                    "kind": "line",
+                    "x": 82,
+                    "y": 27,
+                    "width": 1,
+                    "height": 59,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 94,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "已经睡着"
+                  },
+                  {
+                    "id": "sleep",
+                    "kind": "label",
+                    "x": 39,
+                    "y": 27,
+                    "width": 34,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "Z z"
+                  }
+                ]
+              },
+              {
+                "signature": "after",
+                "reading": "应是到达时已经睡着，不能改醒着或到达后才睡着。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "arrival",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "我们到达时"
+                  },
+                  {
+                    "id": "cot",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 52,
+                    "width": 59,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "baby-head",
+                    "kind": "ellipse",
+                    "x": 25,
+                    "y": 45,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "blanket",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 54,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrival-mark",
+                    "kind": "line",
+                    "x": 82,
+                    "y": 27,
+                    "width": 1,
+                    "height": 59,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 94,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "之后才睡着"
+                  },
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 24,
+                    "width": 40,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "→ 之后"
+                  }
+                ]
+              },
+              {
+                "signature": "awake",
+                "reading": "应是到达时已经睡着，不能改醒着或到达后才睡着。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "arrival",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "我们到达时"
+                  },
+                  {
+                    "id": "cot",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 52,
+                    "width": 59,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "baby-head",
+                    "kind": "ellipse",
+                    "x": 25,
+                    "y": 45,
+                    "width": 13,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "blanket",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 54,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrival-mark",
+                    "kind": "line",
+                    "x": 82,
+                    "y": 27,
+                    "width": 1,
+                    "height": 59,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 94,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "还醒着"
+                  },
+                  {
+                    "id": "awake",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 26,
+                    "width": 40,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "睁眼"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-health-4-transfer",
+      "topicId": "v-course-health",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成图书馆、油漆和小狗，哪组三句保留了全部信息？",
+      "passage": "三条新信息\n我叔叔在村里的图书馆工作。油漆变干需要时间。我开门时，小狗已经睡着了。\n词语提示：uncle 叔叔；paint 油漆；dry 变干。",
+      "options": [
+        {
+          "id": "a",
+          "text": "My uncle works in the village library. The paint needs time to dry. The dog was already asleep when I opened the door."
+        },
+        {
+          "id": "b",
+          "text": "My uncle borrows books from the village library. The paint needs time to dry. The dog was already asleep when I opened the door."
+        },
+        {
+          "id": "c",
+          "text": "My uncle works in the village library. The paint is already completely dry. The dog was already asleep when I opened the door."
+        },
+        {
+          "id": "d",
+          "text": "My uncle works in the village library. The paint needs time to dry. The dog fell asleep after I opened the door."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "My uncle works in the village library. The paint needs time to dry. The dog was already asleep when I opened the door."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对活动、完成进度与到达某一刻的状态。",
+        "steps": [
+          {
+            "text": "叔叔在那里工作：works in the village library。",
+            "reason": "borrows books借书不是原句的工作。"
+          },
+          {
+            "text": "油漆变干需要时间：needs time to dry。",
+            "reason": "already completely dry补出了已经完全变干的结果。"
+          },
+          {
+            "text": "开门时已经睡着：was already asleep when I opened the door。",
+            "reason": "fell asleep after把已经睡着改成了开门后才入睡。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "borrows books把工作改成了借书。"
+          },
+          {
+            "option": "c",
+            "reason": "already completely dry把需要时间改成了已经完全变干。"
+          },
+          {
+            "option": "d",
+            "reason": "fell asleep after把开门时已经睡着改成开门后才睡着。"
+          }
+        ],
+        "pitfall": "在哪里工作不等于去那里办事；需要时间不等于已经完成；已经睡着是指定时刻的状态。",
+        "visual": {
+          "kind": "comparison",
+          "title": "活动、进度、状态，逐条看",
+          "segments": [
+            {
+              "text": "works in…",
+              "role": "evidence",
+              "note": "在那里工作"
+            },
+            {
+              "text": "needs time to dry",
+              "role": "evidence",
+              "note": "需要时间，未说完成"
+            },
+            {
+              "text": "already asleep when…",
+              "role": "evidence",
+              "note": "开门时已经睡着"
+            }
+          ],
+          "caption": "每一句都停在原文给出的事实。"
+        },
+        "transfer": "把was already asleep改成fell asleep after，先后和状态怎样改变了？"
+      }
+    }
+  }
+}
