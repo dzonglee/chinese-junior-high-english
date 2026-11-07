@@ -1,0 +1,2572 @@
+{
+  "lessonId": "l-v-course-journeys-2",
+  "reviewState": "draft",
+  "intent": "Teach map visibility, halfway planned rest, passport instruction, whether-before booking, return coverage, conditional cheaper fare, aisle clearance and suitcase identification.",
+  "picturePurpose": "An original suitcase/backpack image supports object identification; four changing coded diagrams, one order and two evidence tasks explain source relationships. The image does not establish seat fit or actual transport rules.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "出行前，先把信息核对好",
+    "instruction": "折图、排顺序、比位置、认物品；只保留原句给出的要求和事实。",
+    "items": [
+      {
+        "id": "word-map",
+        "label": "地图",
+        "prompt": "折图是为了让哪里露出来？要求能直接变成“已经做到了”吗？",
+        "answer": "map",
+        "caseSensitive": false,
+        "meaning": "地图",
+        "before": "Fold the ",
+        "after": " so the river is visible.",
+        "reason": "Fold the map so the river is visible要求折好地图，让河流部分露出来；没有报告已经折好了。",
+        "hint": "on the map表示在地图上；so引出这里要达到的效果，不是已经完成的报告。",
+        "material": "Fold the map so the river is visible.",
+        "options": [
+          {
+            "id": "visible",
+            "text": "折好地图，让河流部分露出来。",
+            "correct": true,
+            "reason": "保留Fold、map与river is visible。"
+          },
+          {
+            "id": "hidden",
+            "text": "把地图折起来，让河流部分藏在里面。",
+            "correct": false,
+            "reason": "藏起来与visible看得见相反。"
+          },
+          {
+            "id": "done",
+            "text": "原句已经说地图折好了。",
+            "correct": false,
+            "reason": "祈使句提出要求，没有报告完成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "折图是为了让哪里露出来？要求能直接变成“已经做到了”吗？",
+          "sceneLab": {
+            "id": "map-visible",
+            "title": "折图后，要看见什么？",
+            "hint": "虚构地图只演示河流可见与遮挡；不提供真实路线。",
+            "wrong": "让河流部分露出来；不能改成藏起河流或补已经完成。",
+            "axes": [
+              {
+                "id": "visibility",
+                "label": "河流部分怎样放",
+                "choices": [
+                  {
+                    "id": "visible",
+                    "label": "露在外面"
+                  },
+                  {
+                    "id": "hidden",
+                    "label": "藏在里面"
+                  }
+                ]
+              },
+              {
+                "id": "tone",
+                "label": "原句是在要求还是报告",
+                "choices": [
+                  {
+                    "id": "instruction",
+                    "label": "提出折图要求"
+                  },
+                  {
+                    "id": "done",
+                    "label": "报告已经折好"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "map",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 90,
+                    "height": 54,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "折法待选"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 40,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "先选择折法"
+                  }
+                ]
+              },
+              {
+                "signature": "?|instruction",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "map",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 90,
+                    "height": 54,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "折法待选"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "折图要求"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 40,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "先选择折法"
+                  }
+                ]
+              },
+              {
+                "signature": "?|done",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "map",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 90,
+                    "height": 54,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "折法待选"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已经折好"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 40,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "先选择折法"
+                  }
+                ]
+              },
+              {
+                "signature": "visible|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "map",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 90,
+                    "height": 54,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河流露出"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "river-a",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 25,
+                    "width": 3,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-b",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 38,
+                    "width": 15,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-c",
+                    "kind": "line",
+                    "x": 64,
+                    "y": 38,
+                    "width": 3,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "fold",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 35,
+                    "height": 54,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 45,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河流"
+                  }
+                ]
+              },
+              {
+                "signature": "visible|instruction",
+                "reading": "折好地图，让河流部分露出来。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "map",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 90,
+                    "height": 54,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河流露出"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "折图要求"
+                  },
+                  {
+                    "id": "river-a",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 25,
+                    "width": 3,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-b",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 38,
+                    "width": 15,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-c",
+                    "kind": "line",
+                    "x": 64,
+                    "y": 38,
+                    "width": 3,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "fold",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 35,
+                    "height": 54,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 45,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河流"
+                  }
+                ]
+              },
+              {
+                "signature": "visible|done",
+                "reading": "让河流部分露出来；不能改成藏起河流或补已经完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "map",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 90,
+                    "height": 54,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河流露出"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已经折好"
+                  },
+                  {
+                    "id": "river-a",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 25,
+                    "width": 3,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-b",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 38,
+                    "width": 15,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-c",
+                    "kind": "line",
+                    "x": 64,
+                    "y": 38,
+                    "width": 3,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "fold",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 35,
+                    "height": 54,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "river-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 45,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河流"
+                  }
+                ]
+              },
+              {
+                "signature": "hidden|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "map",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 90,
+                    "height": 54,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河流被遮"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "river-a",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 25,
+                    "width": 3,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-b",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 38,
+                    "width": 15,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-c",
+                    "kind": "line",
+                    "x": 64,
+                    "y": 38,
+                    "width": 3,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "fold",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 21,
+                    "width": 50,
+                    "height": 54,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "hidden|instruction",
+                "reading": "让河流部分露出来；不能改成藏起河流或补已经完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "map",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 90,
+                    "height": 54,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河流被遮"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "折图要求"
+                  },
+                  {
+                    "id": "river-a",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 25,
+                    "width": 3,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-b",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 38,
+                    "width": 15,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-c",
+                    "kind": "line",
+                    "x": 64,
+                    "y": 38,
+                    "width": 3,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "fold",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 21,
+                    "width": 50,
+                    "height": 54,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "hidden|done",
+                "reading": "让河流部分露出来；不能改成藏起河流或补已经完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "map",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 21,
+                    "width": 90,
+                    "height": 54,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "河流被遮"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已经折好"
+                  },
+                  {
+                    "id": "river-a",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 25,
+                    "width": 3,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-b",
+                    "kind": "line",
+                    "x": 52,
+                    "y": 38,
+                    "width": 15,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "river-c",
+                    "kind": "line",
+                    "x": 64,
+                    "y": 38,
+                    "width": 3,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "fold",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 21,
+                    "width": 50,
+                    "height": 54,
+                    "tone": "muted"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-plan",
+        "label": "计划；安排（名词，本句）",
+        "prompt": "计划在哪里休息？计划中的安排等于已经发生吗？",
+        "answer": "plan",
+        "caseSensitive": false,
+        "meaning": "计划；安排（名词，本句）",
+        "before": "Our ",
+        "after": " includes a rest at the halfway point.",
+        "reason": "Our plan includes a rest at the halfway point说计划包括在半程处休息；没有报告已经休息或给出实际距离。",
+        "hint": "plan to do表示计划做某事；本句plan是名词。halfway point是半程处，不是任意中途位置。",
+        "material": "Our plan includes a rest at the halfway point.",
+        "options": [
+          {
+            "id": "halfway-plan",
+            "text": "计划包括在半程处休息。",
+            "correct": true,
+            "reason": "保留plan、a rest与halfway point。"
+          },
+          {
+            "id": "end",
+            "text": "计划包括到终点再休息。",
+            "correct": false,
+            "reason": "终点改变了halfway point半程处。"
+          },
+          {
+            "id": "done",
+            "text": "大家已经在半程处休息过了。",
+            "correct": false,
+            "reason": "计划包含安排，不等于已经发生。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "计划在哪里休息？计划中的安排等于已经发生吗？",
+          "sceneLab": {
+            "id": "plan-halfway",
+            "title": "半程的位置，计划的语气",
+            "hint": "只表示相对路程的一半，不给实际公里数、时间或已经到达的位置。",
+            "wrong": "计划在半程处休息；终点或已经休息都改变了信息。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "休息点",
+                "choices": [
+                  {
+                    "id": "halfway",
+                    "label": "半程处"
+                  },
+                  {
+                    "id": "end",
+                    "label": "终点"
+                  }
+                ]
+              },
+              {
+                "id": "phase",
+                "label": "原句的进度",
+                "choices": [
+                  {
+                    "id": "plan",
+                    "label": "计划包含"
+                  },
+                  {
+                    "id": "done",
+                    "label": "已经完成"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 4,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "半程"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 43,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start-dot",
+                    "kind": "ellipse",
+                    "x": 8,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "half-dot",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "end-dot",
+                    "kind": "ellipse",
+                    "x": 88,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "进度待选"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 58,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "休息点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|plan",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 4,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "半程"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 43,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start-dot",
+                    "kind": "ellipse",
+                    "x": 8,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "half-dot",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "end-dot",
+                    "kind": "ellipse",
+                    "x": 88,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "计划含休息"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 58,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "休息点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|done",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 4,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "半程"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 43,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start-dot",
+                    "kind": "ellipse",
+                    "x": 8,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "half-dot",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "end-dot",
+                    "kind": "ellipse",
+                    "x": 88,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已经休息"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 58,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "休息点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "halfway|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 4,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "半程"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 43,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start-dot",
+                    "kind": "ellipse",
+                    "x": 8,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "half-dot",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "end-dot",
+                    "kind": "ellipse",
+                    "x": 88,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "进度待选"
+                  },
+                  {
+                    "id": "rest",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 51,
+                    "width": 16,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "rest-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 54,
+                    "width": 16,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "休息"
+                  }
+                ]
+              },
+              {
+                "signature": "halfway|plan",
+                "reading": "计划包括在半程处休息。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 4,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "半程"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 43,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start-dot",
+                    "kind": "ellipse",
+                    "x": 8,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "half-dot",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "end-dot",
+                    "kind": "ellipse",
+                    "x": 88,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "计划含休息"
+                  },
+                  {
+                    "id": "rest",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 51,
+                    "width": 16,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "rest-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 54,
+                    "width": 16,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "休息"
+                  }
+                ]
+              },
+              {
+                "signature": "halfway|done",
+                "reading": "计划在半程处休息；终点或已经休息都改变了信息。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 4,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "半程"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 43,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start-dot",
+                    "kind": "ellipse",
+                    "x": 8,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "half-dot",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "end-dot",
+                    "kind": "ellipse",
+                    "x": 88,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已经休息"
+                  },
+                  {
+                    "id": "rest",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 51,
+                    "width": 16,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "rest-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 54,
+                    "width": 16,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "休息"
+                  }
+                ]
+              },
+              {
+                "signature": "end|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 4,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "半程"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 43,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start-dot",
+                    "kind": "ellipse",
+                    "x": 8,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "half-dot",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "end-dot",
+                    "kind": "ellipse",
+                    "x": 88,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "进度待选"
+                  },
+                  {
+                    "id": "rest",
+                    "kind": "rect",
+                    "x": 82,
+                    "y": 51,
+                    "width": 16,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "rest-label",
+                    "kind": "label",
+                    "x": 82,
+                    "y": 54,
+                    "width": 16,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "休息"
+                  }
+                ]
+              },
+              {
+                "signature": "end|plan",
+                "reading": "计划在半程处休息；终点或已经休息都改变了信息。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 4,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "半程"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 43,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start-dot",
+                    "kind": "ellipse",
+                    "x": 8,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "half-dot",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "end-dot",
+                    "kind": "ellipse",
+                    "x": 88,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "计划含休息"
+                  },
+                  {
+                    "id": "rest",
+                    "kind": "rect",
+                    "x": 82,
+                    "y": 51,
+                    "width": 16,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "rest-label",
+                    "kind": "label",
+                    "x": 82,
+                    "y": 54,
+                    "width": 16,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "休息"
+                  }
+                ]
+              },
+              {
+                "signature": "end|done",
+                "reading": "计划在半程处休息；终点或已经休息都改变了信息。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 4,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "半程"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 4,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 43,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start-dot",
+                    "kind": "ellipse",
+                    "x": 8,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "half-dot",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "end-dot",
+                    "kind": "ellipse",
+                    "x": 88,
+                    "y": 40,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已经休息"
+                  },
+                  {
+                    "id": "rest",
+                    "kind": "rect",
+                    "x": 82,
+                    "y": 51,
+                    "width": 16,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "rest-label",
+                    "kind": "label",
+                    "x": 82,
+                    "y": 54,
+                    "width": 16,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "休息"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-passport",
+        "label": "护照",
+        "prompt": "要求保管什么、怎样保管？圈出要求，不补已经办妥。",
+        "answer": "passport",
+        "caseSensitive": false,
+        "meaning": "护照",
+        "before": "Keep your ",
+        "after": " somewhere secure.",
+        "reason": "Keep your passport somewhere secure要求把护照放在安全的地方；没有报告已经放好，也没有给有效期信息。",
+        "hint": "passport是国际旅行证件；keep在这里提出保管要求，没有报告已经做完。",
+        "material": "Keep your passport somewhere secure.",
+        "options": [
+          {
+            "id": "secure",
+            "text": "把护照放在安全的地方。",
+            "correct": true,
+            "reason": "保留passport与somewhere secure。"
+          },
+          {
+            "id": "done",
+            "text": "护照已经保管好了。",
+            "correct": false,
+            "reason": "要求不等于已经做到。"
+          },
+          {
+            "id": "visa",
+            "text": "把签证放在安全的地方。",
+            "correct": false,
+            "reason": "visa签证不是本句的passport护照。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "要求保管什么、怎样保管？圈出要求，不补已经办妥。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保管对象与要求",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "只核对原句，不补已经完成或未给出的安排。",
+            "wrong": "圈出护照和保管要求；原句没说已经放好。",
+            "rows": [
+              {
+                "id": "object",
+                "label": "保管对象",
+                "text": "护照。",
+                "include": true
+              },
+              {
+                "id": "request",
+                "label": "要求",
+                "text": "放在安全的地方。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经保管好了。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-visa",
+        "label": "签证",
+        "prompt": "先核对是否需要签证，还是先预订？把原句的顺序排出来。",
+        "answer": "visa",
+        "caseSensitive": false,
+        "meaning": "签证",
+        "before": "Check whether you need a ",
+        "after": " before booking.",
+        "reason": "Check whether you need a visa before booking要求预订前核对是否需要签证；whether保留“是否”，没有断言每个人都需要。",
+        "hint": "apply for a visa表示申请签证；核对是否需要不等于已经申请或获批。",
+        "material": "Check whether you need a visa before booking.",
+        "options": [
+          {
+            "id": "check-before",
+            "text": "预订前先核对是否需要签证。",
+            "correct": true,
+            "reason": "保留whether与before booking。"
+          },
+          {
+            "id": "after",
+            "text": "预订后再核对是否需要签证。",
+            "correct": false,
+            "reason": "after与before的先后相反。"
+          },
+          {
+            "id": "must",
+            "text": "原句说每个人都必须申请签证。",
+            "correct": false,
+            "reason": "whether提出是否需要，没有给出一律需要的答案。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先核对是否需要签证，还是先预订？把原句的顺序排出来。",
+          "processOrder": {
+            "title": "先核对，再预订",
+            "hint": "只排要求的先后；不表示已经预订、需要签证或获批。",
+            "wrong": "先核对是否需要签证，再预订；不能倒过来。",
+            "events": [
+              {
+                "id": "check",
+                "label": "核对签证要求"
+              },
+              {
+                "id": "book",
+                "label": "预订"
+              }
+            ],
+            "sequence": [
+              "check",
+              "book"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-ticket",
+        "label": "票",
+        "prompt": "这是谁的票，包含哪段行程？圈出信息，别补已经返程。",
+        "answer": "ticket",
+        "caseSensitive": false,
+        "meaning": "票",
+        "before": "Your ",
+        "after": " includes the return journey.",
+        "reason": "Your ticket includes the return journey说你的票包含返程；没有给出完成行程的记录、出发时刻或去程覆盖情况。",
+        "hint": "a ticket to后可接目的地或演出；本句只明确提到返程，不要自行补去程细节。",
+        "material": "Your ticket includes the return journey.",
+        "options": [
+          {
+            "id": "return",
+            "text": "你的票包含返程。",
+            "correct": true,
+            "reason": "保留Your ticket与includes the return journey。"
+          },
+          {
+            "id": "not-return",
+            "text": "你的票不包含返程。",
+            "correct": false,
+            "reason": "否定了includes。"
+          },
+          {
+            "id": "done",
+            "text": "你已经完成了返程。",
+            "correct": false,
+            "reason": "票包含返程不等于已经完成旅行。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "这是谁的票，包含哪段行程？圈出信息，别补已经返程。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "票与返程",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "只核对原句，不补已经完成或未给出的安排。",
+            "wrong": "圈出你的票和包含返程；原句没说已经走完。",
+            "rows": [
+              {
+                "id": "whose",
+                "label": "票的归属",
+                "text": "这是你的票。",
+                "include": true
+              },
+              {
+                "id": "return",
+                "label": "包含的行程",
+                "text": "包含返程。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经完成返程。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-fare",
+        "label": "公交车费（本句）",
+        "prompt": "使用学生卡，车费更低、更高，还是已经知道免费？切换核对。",
+        "answer": "fare",
+        "caseSensitive": false,
+        "meaning": "公交车费（本句）",
+        "before": "The bus ",
+        "after": " is cheaper with a student card.",
+        "reason": "The bus fare is cheaper with a student card说使用学生卡车费更低；没有给出具体价格，也不能直接断定免费。",
+        "hint": "fare指乘坐交通工具的费用；cheaper比较费用，不是faster更快。",
+        "material": "The bus fare is cheaper with a student card.",
+        "options": [
+          {
+            "id": "cheaper",
+            "text": "使用学生卡，公交车费更低。",
+            "correct": true,
+            "reason": "保留bus fare、cheaper与with a student card。"
+          },
+          {
+            "id": "higher",
+            "text": "使用学生卡，公交车费更高。",
+            "correct": false,
+            "reason": "更高与cheaper更低相反。"
+          },
+          {
+            "id": "free",
+            "text": "使用学生卡一定免费。",
+            "correct": false,
+            "reason": "更便宜没有给出零元的具体结论。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "使用学生卡，车费更低、更高，还是已经知道免费？切换核对。",
+          "sceneLab": {
+            "id": "fare-card",
+            "title": "有学生卡，费用怎样比较？",
+            "hint": "柱条只表示费用高低，不是实际金额，也不是乘车时间。",
+            "wrong": "原句只说明更便宜，不能改成更贵或断定免费。",
+            "axes": [
+              {
+                "id": "effect",
+                "label": "cheaper保留哪种比较",
+                "choices": [
+                  {
+                    "id": "lower",
+                    "label": "更低"
+                  },
+                  {
+                    "id": "higher",
+                    "label": "更高"
+                  },
+                  {
+                    "id": "free",
+                    "label": "一定免费"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "使用学生卡，比较费用"
+                  },
+                  {
+                    "id": "base",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 75,
+                    "width": 42,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "未用卡"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 75,
+                    "width": 42,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "用学生卡"
+                  },
+                  {
+                    "id": "base-bar",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 32,
+                    "width": 20,
+                    "height": 37,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 39,
+                    "width": 45,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "待选"
+                  }
+                ]
+              },
+              {
+                "signature": "lower",
+                "reading": "使用学生卡，公交车费更低。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "使用学生卡，比较费用"
+                  },
+                  {
+                    "id": "base",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 75,
+                    "width": 42,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "未用卡"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 75,
+                    "width": 42,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "用学生卡"
+                  },
+                  {
+                    "id": "base-bar",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 32,
+                    "width": 20,
+                    "height": 37,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "card-bar",
+                    "kind": "rect",
+                    "x": 65,
+                    "y": 48,
+                    "width": 20,
+                    "height": 21,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "higher",
+                "reading": "原句只说明更便宜，不能改成更贵或断定免费。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "使用学生卡，比较费用"
+                  },
+                  {
+                    "id": "base",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 75,
+                    "width": 42,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "未用卡"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 75,
+                    "width": 42,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "用学生卡"
+                  },
+                  {
+                    "id": "base-bar",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 32,
+                    "width": 20,
+                    "height": 37,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "card-bar",
+                    "kind": "rect",
+                    "x": 65,
+                    "y": 24,
+                    "width": 20,
+                    "height": 45,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "free",
+                "reading": "原句只说明更便宜，不能改成更贵或断定免费。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "使用学生卡，比较费用"
+                  },
+                  {
+                    "id": "base",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 75,
+                    "width": 42,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "未用卡"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 75,
+                    "width": 42,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "用学生卡"
+                  },
+                  {
+                    "id": "base-bar",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 32,
+                    "width": 20,
+                    "height": 37,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 39,
+                    "width": 45,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "免费？"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-luggage",
+        "label": "行李（总称）",
+        "prompt": "新示意里，哪种摆法没有占住过道？换位置试一试。",
+        "answer": "luggage",
+        "caseSensitive": false,
+        "meaning": "行李（总称）",
+        "before": "Keep your ",
+        "after": " clear of the aisle.",
+        "reason": "Keep your luggage clear of the aisle要求行李不要堵住过道；只堵一部分也不符合clear of。",
+        "hint": "luggage不可数，不加s；clear of表示避开，不是只留下一条小缝。",
+        "material": "Keep your luggage clear of the aisle.",
+        "options": [
+          {
+            "id": "clear",
+            "text": "让行李完全避开过道。",
+            "correct": true,
+            "reason": "clear of the aisle要求不占过道。"
+          },
+          {
+            "id": "part",
+            "text": "让行李占住过道的一部分就行。",
+            "correct": false,
+            "reason": "部分占住也不符合clear of。"
+          },
+          {
+            "id": "full",
+            "text": "把行李放在过道中央。",
+            "correct": false,
+            "reason": "中央挡住通行，与要求相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "新示意里，哪种摆法没有占住过道？换位置试一试。",
+          "sceneLab": {
+            "id": "luggage-aisle",
+            "title": "移动行李，留出过道",
+            "hint": "新示意只比较行李有没有占过道；原句未给行李尺寸。",
+            "wrong": "行李要避开过道；部分或全部挡住都不符合要求。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "行李与过道",
+                "choices": [
+                  {
+                    "id": "clear",
+                    "label": "完全避开"
+                  },
+                  {
+                    "id": "part",
+                    "label": "部分占住"
+                  },
+                  {
+                    "id": "full",
+                    "label": "放在中央"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新示意：留出过道"
+                  },
+                  {
+                    "id": "aisle",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 22,
+                    "width": 34,
+                    "height": 61,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "aisle-label",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 87,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "过道"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 45,
+                    "width": 44,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "clear",
+                "reading": "让行李完全避开过道。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新示意：留出过道"
+                  },
+                  {
+                    "id": "aisle",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 22,
+                    "width": 34,
+                    "height": 61,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "aisle-label",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 87,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "过道"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 42,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 47,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "行李"
+                  }
+                ]
+              },
+              {
+                "signature": "part",
+                "reading": "行李要避开过道；部分或全部挡住都不符合要求。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新示意：留出过道"
+                  },
+                  {
+                    "id": "aisle",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 22,
+                    "width": 34,
+                    "height": 61,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "aisle-label",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 87,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "过道"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 42,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 25,
+                    "y": 47,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "行李"
+                  }
+                ]
+              },
+              {
+                "signature": "full",
+                "reading": "行李要避开过道；部分或全部挡住都不符合要求。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新示意：留出过道"
+                  },
+                  {
+                    "id": "aisle",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 22,
+                    "width": 34,
+                    "height": 61,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "aisle-label",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 87,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "过道"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 42,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 47,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "行李"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-suitcase",
+        "label": "旅行箱",
+        "prompt": "图中哪一件是旅行箱？先辨认物品，尺寸信息再回原句核对。",
+        "answer": "suitcase",
+        "caseSensitive": false,
+        "meaning": "旅行箱",
+        "before": "The small ",
+        "after": " fits under the seat.",
+        "reason": "suitcase指旅行箱，是行李的一种。原句说这个小旅行箱放得进座位下；fits不等于已经放好。",
+        "hint": "pack a suitcase表示收拾旅行箱；fits是放得进，不是已经放好了。",
+        "material": "The small suitcase fits under the seat.",
+        "options": [
+          {
+            "id": "suitcase",
+            "text": "旅行箱",
+            "correct": true,
+            "reason": "左边是硬壳旅行箱。"
+          },
+          {
+            "id": "backpack",
+            "text": "背包",
+            "correct": false,
+            "reason": "右边是带肩带的背包，不是本题要找的旅行箱。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "图中哪一件是旅行箱？先辨认物品，尺寸信息再回原句核对。",
+          "art": {
+            "asset": "lesson-suitcase-backpack",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "左边是蓝色硬壳拉杆旅行箱，右边是绿色双肩背包，两件物品完整分开。",
+            "caption": "新图辨认物品；原句另说小旅行箱放得进座位下。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "suitcase",
+                "option": "suitcase",
+                "label": "旅行箱",
+                "labelPosition": "bottom",
+                "left": 8,
+                "top": 4,
+                "width": 36,
+                "height": 87
+              },
+              {
+                "id": "backpack",
+                "option": "backpack",
+                "label": "背包",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 22,
+                "width": 45,
+                "height": 68
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-journeys-2-transfer",
+      "topicId": "v-course-journeys",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成卡片、日程和会员卡，哪组保留了三条信息？",
+      "passage": "三条新信息\n折好卡片，让地址露出来。日程包括在半程处短暂休息。使用会员卡，价格更低。\n词语提示：address 地址；schedule 日程；membership card 会员卡。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fold the card so the address is hidden. The schedule includes a short break at the halfway point. The price is lower with a membership card."
+        },
+        {
+          "id": "b",
+          "text": "Fold the card so the address is visible. We have already taken a short break at the halfway point. The price is lower with a membership card."
+        },
+        {
+          "id": "c",
+          "text": "Fold the card so the address is visible. The schedule includes a short break at the halfway point. The price is lower with a membership card."
+        },
+        {
+          "id": "d",
+          "text": "Fold the card so the address is visible. The schedule includes a short break at the halfway point. It is always free with a membership card."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Fold the card so the address is visible. The schedule includes a short break at the halfway point. The price is lower with a membership card."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对可见与遮挡、安排与完成、费用更低与免费。",
+        "steps": [
+          {
+            "text": "让地址露出来：so the address is visible。",
+            "reason": "hidden藏起来与visible相反。"
+          },
+          {
+            "text": "日程含半程休息：includes a short break at the halfway point。",
+            "reason": "have already taken补出了已经完成休息。"
+          },
+          {
+            "text": "有会员卡价格更低：lower with a membership card。",
+            "reason": "always free补成了一律免费。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "hidden把要求的可见改成了遮挡。"
+          },
+          {
+            "option": "b",
+            "reason": "have already taken把安排变成已完成。"
+          },
+          {
+            "option": "d",
+            "reason": "always free把更低的价格变成了每次免费。"
+          }
+        ],
+        "pitfall": "要求和安排不是完成记录，便宜也不等于已知免费。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三个关系，逐一核对",
+          "segments": [
+            {
+              "text": "visible",
+              "role": "evidence",
+              "note": "看得见"
+            },
+            {
+              "text": "schedule · includes",
+              "role": "evidence",
+              "note": "安排中包含"
+            },
+            {
+              "text": "lower",
+              "role": "evidence",
+              "note": "更低，未给金额"
+            }
+          ],
+          "caption": "名词一样，也要看效果、进度和比较范围。"
+        },
+        "transfer": "把includes a break改成have already taken a break，多出了什么结果？"
+      }
+    }
+  }
+}
