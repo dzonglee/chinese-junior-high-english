@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **400 / 413**. Current: **l-v-course-living-nature-3**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **401 / 413**. Current: **l-v-course-living-nature-4**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -266,7 +266,7 @@ Completed: **400 / 413**. Current: **l-v-course-living-nature-3**. Evidence live
 | l-v-course-animals-5 | 动物与栖息环境 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-animals-5.md) |
 | l-v-course-living-nature | 植物、昆虫与生态 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-living-nature.md) |
 | l-v-course-living-nature-2 | 植物、昆虫与生态 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-living-nature-2.md) |
-| l-v-course-living-nature-3 | 植物、昆虫与生态 · 3 | pending | — |
+| l-v-course-living-nature-3 | 植物、昆虫与生态 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-living-nature-3.md) |
 | l-v-course-living-nature-4 | 植物、昆虫与生态 · 4 | pending | — |
 | l-v-course-living-nature-5 | 植物、昆虫与生态 · 5 | pending | — |
 | l-v-course-weather-sky | 天气、天空与季节变化 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-weather-sky.md) |
