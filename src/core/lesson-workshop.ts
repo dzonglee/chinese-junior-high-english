@@ -9,10 +9,10 @@ import type {ComposeConditions} from './compose-conditions'
 import {validComposeTouches,composeTouchesKey,composeTouchesMatch,composeTouchesView,changeComposeTouches} from './compose-touches'
 import type {ComposeTouches,ComposeTouchesView} from './compose-touches'
 import type {TeachingProgress} from './lesson-teaching'
-import {wordCount,normalizedAnswer} from './answers'
+import {wordCount,normalizedAnswer,latinLetterRange} from './answers'
 import {validComposeBrief,composeBriefKey,composeBriefMatches,composeBriefView,changeComposeBrief} from './compose-brief'
 import type {ComposeBrief} from './compose-brief'
-import {containsTerm} from './teaching-production'
+import {containsTerm,validAuthoredWordForm} from './teaching-production'
 import type {Question} from './types'
 import {questionProblems} from './validation'
 import {tileIdsForText} from './tile-expression.mjs'
@@ -660,6 +660,15 @@ const longEnough=(text:string,min=5)=>wordCount(text)>=min
 /** Explicit authored forms support guided writing; this is not a grammar judgement. */
 export const containsWorkshopWord=(text:string,item:WorkshopItem)=>(item.ownForms??[item.answer]).some(form=>containsTerm(text,form))
 const targetSpellingMatches=(item:WorkshopItem,input:string)=>(item.spellings??[item.answer]).some(form=>normalizedAnswer(input,!!item.caseSensitive)===normalizedAnswer(form,!!item.caseSensitive))
+// An accepted spelling variant alone does not make a copied reference a new example.
+const exampleWithCanonicalSpelling=(text:string,item:WorkshopItem)=>{
+ const normalized=normalizedAnswer(text)
+ if(!item.spellings)return normalized
+ const forms=item.spellings.map(form=>normalizedAnswer(form)).sort((a,b)=>b.length-a.length)
+ const pattern=new RegExp(`(^|[^${latinLetterRange}])(?:${forms.join('|')})(?=$|[^${latinLetterRange}])`,'gi')
+ return normalized.replace(pattern,(_match,prefix:string)=>prefix+normalizedAnswer(item.answer))
+}
+const sameWorkshopExample=(text:string,item:WorkshopItem)=>exampleWithCanonicalSpelling(text,item)===exampleWithCanonicalSpelling(item.material??'',item)
 const vCaseOnly=(item:WorkshopItem,input:string)=>!!item.caseSensitive&&input!==item.answer&&normalizedAnswer(input)===normalizedAnswer(item.answer)
 export function workshopView(w:LessonWorkshop,p:TeachingProgress):WorkshopView{
  const total=w.conditions?.length??w.items.length,index=indexOf(p,total),condition=w.conditions?.[index],item=w.items[w.kind==='transform'?0:index],k=key(index),tileIds=[...new Set((p.answers[`workshopTiles-${index}`]??'').split('|').filter(id=>/^(0|[1-9][0-9]*)$/.test(id)&&condition?.tiles?.[Number(id)]!==undefined))],selected=condition?.tiles?tileIds.map(id=>condition.tiles![Number(id)]).join(condition?.tileMode==='morpheme'?'':' '):p.answers[k]??condition?.initial??'',input=p.answers[`workshopInput-${index}`]??'',own=p.answers[ownKey(item.id)]??'',attempted=typeof p.checked[k]==='boolean',correct=!!p.checked[k]&&wordDecisionMatches(item,p,k)&&briefMatches(item,p)&&settingsMatch(item,p)&&recallReady(item,p)&&sourceGapMatches(item,p)&&(!item.sourceGap||proofReady(item,p,k))&&sourceOrderMatches(item,p)&&calculationMatches(item,input)&&selectionMatches(w,p,index),complete=!!p.completed.includes(k)&&wordDecisionMatches(item,p,k)&&briefMatches(item,p)&&settingsCompletion(item,p,k)&&recallReady(item,p)&&sourceGapCompletion(item,p,k)&&sourceOrderMatches(item,p)&&calculationMatches(item,input)&&selectionMatches(w,p,index)
@@ -1784,7 +1793,7 @@ export function changeWorkshop(w:LessonWorkshop,p:TeachingProgress,action:string
  if(action==='save'&&w.kind==='proof'){if(v.correct&&v.own.replace(/\s/g,'').length>=6){mark();p.checked.workshopOwnMissing=false}else{p.checked.workshopOwnMissing=true;unmark()}return}
  if(action==='save'&&w.kind==='word-use'){
   if(!v.correct){p.checked.workshopOwnMissing=false;unmark();return}
-  if(v.correct&&longEnough(v.own)&&containsWorkshopWord(v.own,v.item)&&normalizedAnswer(v.own)!==normalizedAnswer(v.item.material??'')){mark();p.checked.workshopOwnMissing=false}else{p.checked.workshopOwnMissing=true;unmark()}return
+  if(v.correct&&longEnough(v.own)&&containsWorkshopWord(v.own,v.item)&&!sameWorkshopExample(v.own,v.item)){mark();p.checked.workshopOwnMissing=false}else{p.checked.workshopOwnMissing=true;unmark()}return
  }
 }
 
@@ -1816,8 +1825,8 @@ export function workshopProblems(w:LessonWorkshop):string[]{
   if(i.composeOcclusion!==undefined&&(w.kind!=='compose'||!validComposeOcclusion(i.composeOcclusion)))errors.push('Invalid compose occlusion')
   if(i.composeOrder!==undefined&&(w.kind!=='compose'||!validWordProcessOrder(i.composeOrder)))errors.push('Invalid compose order')
   if(i.composeArt!==undefined&&(w.kind!=='compose'||(!i.composeBrief&&!i.composeOrder)||!validComposeArt(i.composeArt)))errors.push('Invalid compose art')
-  if(i.spellings!==undefined&&(w.kind!=='word-use'||!Array.isArray(i.spellings)||i.spellings.length<2||i.spellings.length>8||i.spellings.some(form=>typeof form!=='string'||form.length>60||!/^[a-zA-Z]+(?:[-'][a-zA-Z]+)*(?: [a-zA-Z]+(?:[-'][a-zA-Z]+)*){0,2}$/.test(form))||new Set(i.spellings.map(form=>normalizedAnswer(form,!!i.caseSensitive))).size!==i.spellings.length||typeof i.answer!=='string'||!i.spellings.includes(i.answer)))errors.push('Invalid target spellings')
-  if(i.ownForms!==undefined&&(w.kind!=='word-use'||!Array.isArray(i.ownForms)||i.ownForms.length<2||i.ownForms.length>8||i.ownForms.some(form=>typeof form!=='string'||form.length>60||!/^[a-z]+(?:[-'][a-z]+)*(?: [a-z]+(?:[-'][a-z]+)*){0,2}$/.test(form))||new Set(i.ownForms).size!==i.ownForms.length||typeof i.answer!=='string'||!i.ownForms.includes(normalizedAnswer(i.answer))))errors.push('Invalid own-use word forms')
+  if(i.spellings!==undefined&&(w.kind!=='word-use'||!Array.isArray(i.spellings)||i.spellings.length<2||i.spellings.length>8||i.spellings.some(form=>!validAuthoredWordForm(form))||new Set(i.spellings.map(form=>normalizedAnswer(form,!!i.caseSensitive))).size!==i.spellings.length||typeof i.answer!=='string'||!i.spellings.includes(i.answer)))errors.push('Invalid target spellings')
+  if(i.ownForms!==undefined&&(w.kind!=='word-use'||!Array.isArray(i.ownForms)||i.ownForms.length<2||i.ownForms.length>8||i.ownForms.some(form=>!validAuthoredWordForm(form,true))||new Set(i.ownForms).size!==i.ownForms.length||typeof i.answer!=='string'||!i.ownForms.includes(normalizedAnswer(i.answer))))errors.push('Invalid own-use word forms')
   const decision=i.wordDecision
   if(decision!==undefined&&(w.kind!=='word-use'||!decision||typeof decision.prompt!=='string'||!decision.prompt.trim()||decision.prompt!==decision.prompt.trim()||decision.prompt.length>140||!Array.isArray(i.options)||i.options.length<2||i.options.length>4||i.options.filter(o=>o.correct===true).length!==1||new Set(i.options.map(o=>o.id)).size!==i.options.length||new Set(i.options.map(o=>o.text)).size!==i.options.length||i.options.some(o=>typeof o.id!=='string'||!(/^[a-z][a-z0-9-]*$/).test(o.id)||typeof o.correct!=='boolean'||[o.text,o.reason].some(t=>typeof t!=='string'||!t.trim()||t!==t.trim()))||(decision.art!==undefined&&(!decision.art||(decision.art.assetRoot!==undefined&&!['assets','illustrations','illustrations-2','illustrations-3','illustrations-4','illustrations-5','illustrations-6','illustrations-7','illustrations-8'].includes(decision.art.assetRoot))||(decision.art.format!==undefined&&!['jpg','png'].includes(decision.art.format))||typeof decision.art.asset!=='string'||!(/^[a-z0-9-]+$/).test(decision.art.asset)||typeof decision.art.alt!=='string'||!decision.art.alt.trim()))))errors.push('Invalid word decision')
   if(decision?.art?.pictureOnly!==undefined&&(decision.art.pictureOnly!==true||decision.meaningFromRecords||decision.recordPaths||!decision.art.targets||decision.art.targets.length!==i.options?.length||(i.options??[]).some(o=>!decision.art!.targets!.some(t=>t.option===o.id))))errors.push('Invalid picture-only decision')

@@ -31,8 +31,11 @@ export function selfReviewScore(rubric: RubricPoint[], selected: string[]): numb
   return rubric.reduce((score, point) => score + (ids.has(point.id) ? point.marks : 0), 0)
 }
 
+// Latin letters include ordinary accented English loanwords; multiplication and division signs are excluded.
+export const latinLetterRange = 'A-Za-zÀ-ÖØ-öø-ɏ'
+const wordPattern = new RegExp(`[${latinLetterRange}]+(?:['’-][${latinLetterRange}]+)*`, 'g')
 export function wordCount(text: string): number {
-  return (text.match(/[A-Za-z]+(?:['’\-][A-Za-z]+)*/g) ?? []).length
+  return (text.normalize('NFC').match(wordPattern) ?? []).length
 }
 
 export function answerText(question: Question, answer: string): string {
