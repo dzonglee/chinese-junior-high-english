@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **392 / 413**. Current: **l-v-course-outdoor-land-5**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **393 / 413**. Current: **l-v-course-animals**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -258,7 +258,7 @@ Completed: **392 / 413**. Current: **l-v-course-outdoor-land-5**. Evidence lives
 | l-v-course-outdoor-land-2 | 户外地貌与水域 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-outdoor-land-2.md) |
 | l-v-course-outdoor-land-3 | 户外地貌与水域 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-outdoor-land-3.md) |
 | l-v-course-outdoor-land-4 | 户外地貌与水域 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-outdoor-land-4.md) |
-| l-v-course-outdoor-land-5 | 户外地貌与水域 · 5 | pending | — |
+| l-v-course-outdoor-land-5 | 户外地貌与水域 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-outdoor-land-5.md) |
 | l-v-course-animals | 动物与栖息环境 · 1 | pending | — |
 | l-v-course-animals-2 | 动物与栖息环境 · 2 | pending | — |
 | l-v-course-animals-3 | 动物与栖息环境 · 3 | pending | — |
