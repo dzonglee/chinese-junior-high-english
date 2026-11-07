@@ -1,26 +1,14 @@
 # Project memory
 
-## Current owner direction · individual lessons, 2026-11-07 (UTC)
+## Current local milestone · 2026-11-07 (UTC)
 
-413 of 413 lessons are individually reviewed; 0 remain pending. Work stays solo under
-APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
+All 413 lessons are individually redesigned and visually reviewed. The final complete local/platform checks, whole-app navigation and eight original mock-paper journeys pass. All 2,820 core tests/212 files and 245 canonical content packs pass. [Final review](reviews/individual-lessons/final-local-review-2026-11-07.md) and [audit](reviews/individual-lessons/final-course-audit.json) give the exact scope and per-lesson evidence.
 
-Latest: l-r-short-answers. Individually extract library/Sunday/towel/button with actual one-word recall, then distinguish promises, reference direction and hopes, and repair a word-count/number error. A generated towel/button pair supports distinguishing requested objects. A new screw/chair transfer checks target, word count and singular form. Strict recall requires correcting typed answers and eight source explanations remain concrete. Content stays draft. Two Chinese questions are clarified: bag is not narrowed to schoolbag, and the winter-direction prompt names the requested relationship directly. English passages and accepted answers are retained. Sunday and Friday use the existing case-sensitive assessment rule, so lowercase weekday names are not awarded a correct answer.
+APP-VISUAL-LESSONS is ready for squash merge from author/individual-lessons. Local artifacts are `dist/local/index.html`, `dist/local-english-app.zip` and `dist/english-wechat-development.zip`. Final source hashes match the final application checkpoint; the historical lesson413 checkpoint is retained unchanged. Nothing is released or published.
 
-Inspected all139 final activity figures across35sheets. Sixteen sheets retained only after each PNG was proved SHA256-identical to actually opened earlier images; all other19current sheets were actually opened. All8 task starts, required typed extraction, wrong evidence, own-reason missing/save/invalidation, partial two-clue chain, case-sensitive Sunday versus ordinary case-insensitive nouns, image choices and all4picture targets at320/390/768px inspected. Full original paragraph/top/bottom and all final source question feedback read. Source order, singular/one-word choices and actual wrong reasons agree. Fresh screw/chair transfer explicitly states learning; its full passage,4options/3steps/3wrong routes and summary inspected. SourceB is presentedB; A repeats loose and uses2words, C is plural, D is location. Browser control preflight passed141 actual operations plus23 state/absence assertions; all164programmatic core/adapter events remain a separate guard scope. All eight new standalone320px feedback screens were actually opened after the final complete pipeline passed. All2819 core tests/212 files,292 complete offline checks and both complete245-pack adapter modes pass. Cancellation and driver syntax checks pass. The single-clue strict-recall reason field and corrective feedback are present in both renderers; current browser screenshots confirm them. The two declared Chinese stem clarifications and two weekday case rules preserve all English passages and accepted answer strings. All content remains draft; no actual SDK beyond147, audio/speech score, production or release claim.
+APP-NATIVE remains blocked: automatic approval review rejected development-source ZIP egress for lack of source-code transfer permission. Actual SDK coverage remains through 147, with 805 inspected figures; 148–413 are pending. No alternative transfer or GUI job was attempted. Approved audio for 99 scripts, physical devices, editorial/cohort mapping and production remain open. Videos are deferred. Research is not declared complete.
 
-
-Checkpoint 413 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 3095 tasks / 9285 widths; earlier flows retain their original scope.
-Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
-
-Next: complete. Complete the next individually authored lesson, then inspect the whole home-to-course-to-mock flow. Approved audio, physical devices and production remain separate; videos deferred.
-
-Native GUI status: Native 148–413 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–413 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
-helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
-pending. No upload or publication.
-
-Accepted412 pushed as 4bf98f5b3888782b3e0cb94a4917d0fe2fae6eb3; all1459source hashes and clean application verified before admission. Fresh fetch/full board/latest log and owner/cards read.
+Continue using the existing Studio MCP project note and two Kanban cards; preserve the shared GUI coordination protocol. Owner requested solo work.
 
 ## Previous local delivery · 2026-10-17
 
@@ -436,4 +424,4 @@ Focused WeChat checkpoint138 is pending: wechat_status succeeds,but read_file(we
 
 ## Final application check · 2026-11-07 (UTC)
 
-All413 individual lesson upgrades remain accepted. The whole-app review found that immediate wrong-answer feedback could describe another distractor. It now uses the student's actual selected option, with regression checks for both wrong options in practice and submitted mock-paper review. All2820 core tests/212 files pass. A fresh complete offline, both245-pack adapter and whole-product/mock/visual run is in progress; final application acceptance and squash merge remain pending. All245 canonical content packs and individual lesson definitions are unchanged. Generated catalog metadata changes only the application source fingerprint. APP-VISUAL-LESSONS stays claimed until this final review passes. Actual SDK147/805 and the source-transfer permission block remain unchanged.
+All 413 individual lesson upgrades remain accepted. The whole-app review found that immediate wrong-answer feedback could describe another distractor. It now uses the student's actual selected option, with regression checks for both wrong options in practice and submitted mock-paper review. All 2,820 core tests/212 files pass. A fresh complete offline, both245-pack adapter and whole-product/mock/visual run is in progress; final application acceptance and squash merge remain pending. All245 canonical content packs and individual lesson definitions are unchanged. Generated catalog metadata changes only the application source fingerprint. APP-VISUAL-LESSONS stays claimed until this final review passes. Actual SDK147/805 and the source-transfer permission block remain unchanged.

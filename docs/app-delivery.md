@@ -67,3 +67,8 @@ when available; clearly distinguish it from browser or mocked-platform checks.
 An unavailable external service blocks only the operations that depend on it. Continue all
 independent implementation and validation. Do not invent audio-model approval, AppID, cloud
 deployment, licensed material, native screenshots, MCP writes or publication success.
+
+
+## Individual lesson milestone · 2026-11-07
+
+The separate 413-lesson redesign and local visual review are complete, including the final home-to-lesson-to-mock journey. See [the final review](reviews/individual-lessons/final-local-review-2026-11-07.md). Native coverage remains147/805; later SDK checks await source-transfer permission. The eventual application and release requirements above remain in force.

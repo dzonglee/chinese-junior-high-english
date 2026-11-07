@@ -6,6 +6,8 @@ tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspe
 
 Completed: **413 / 413**. Current: **complete**. Evidence lives in docs/reviews/individual-lessons/.
 
+See the [final local app review and screenshots](../reviews/individual-lessons/final-local-review-2026-11-07.md) and [whole-course audit](../reviews/individual-lessons/final-course-audit.json). These local reviews are separate from current native compilation, approved audio and release approval.
+
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
 | l-g-be | 先看主语，再选 be 动词 | reviewed | [Class-photo review](../reviews/individual-lessons/l-g-be.md) |

@@ -19,8 +19,8 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | APP-UI | Redesign the complete app to the maths product standard | done | codex-solo | main | Whole-app redesign delivered; checked native screenshots and comparison in the UI review |
 | APP-EXAM-LESSONS | Strengthen exam teaching in every individual lesson | done | codex-solo | main | 413 lessons coached; 991 tests, native and visual evidence in exam-teaching review |
 | APP-MOCKS | Deliver authored mock papers and exam corrections | done | codex-solo | main | Eight original papers delivered; 1,006 tests, complete native flows and correction/writing checks |
-| APP-VISUAL-LESSONS | Redesign and inspect each lesson individually | claimed | codex-solo | author/individual-lessons | 413/413 individually reviewed; next complete; track docs/authoring/lesson-upgrades.md |
-| APP-NATIVE | Prepare native validation and publication | open | — | — | SDK and visual review through 147; 148–413 await source-transfer approval. Physical devices, approved audio and production remain |
+| APP-VISUAL-LESSONS | Redesign and inspect each lesson individually | review | codex-solo | author/individual-lessons | 413/413 locally reviewed; whole-app checks passed; ready for squash merge. See final local review |
+| APP-NATIVE | Prepare native validation and publication | blocked | — | — | Historical SDK147/805; current build and lessons 148–413 await source-transfer approval. Physical devices, approved audio and production remain |
 
 ### Delivery checklist
 
@@ -32,7 +32,7 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | Listening, speaking and writing | 29 themes across skills; 99 scripts await approved audio |
 | Exams, question builder and private questions | Implemented and tested |
 | Progress, mistakes and data controls | Implemented and tested |
-| Functional testing and visual review | Shared workshops checked; owner requires individual redesign of every lesson; 413/413 individually reviewed under new acceptance |
+| Functional testing and visual review | All 413 individually reviewed locally; whole-app and mock checks pass. Full native coverage remains pending |
 | Release preparation | Real device, production configuration and owner review pending |
 
 The existing Obsidian project memory and Kanban cards are maintained through Studio MCP; see project-memory.md.
