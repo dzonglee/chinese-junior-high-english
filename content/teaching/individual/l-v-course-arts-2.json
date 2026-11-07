@@ -1,0 +1,3443 @@
+{
+  "lessonId": "l-v-course-arts-2",
+  "reviewState": "draft",
+  "intent": "Identify drum versus flute in inspected original art; distinguish high/clear flute melody without equating pitch and loudness; identify unanswered instrument question and low sound from exact evidence; direct concert funds to village library without amount or completion claims; preserve school band square/performed; orchestra waiting versus inferred performance; recurring Tuesday hall choir with British practises; align new four-beat handclap model without claiming source rhythm or real audio assessment.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "认乐器、排周历，跟着线索读音乐情境",
+    "instruction": "点图认乐器；改音高、地点和日期，再核对原句。音高与节奏图是新示意，不代替听力。",
+    "items": [
+      {
+        "id": "word-drum",
+        "label": "鼓",
+        "prompt": "新图中哪件是drum？点选，再核对原句的声音比喻。",
+        "answer": "drum",
+        "caseSensitive": false,
+        "meaning": "鼓",
+        "before": "The deep ",
+        "after": " sounded like distant thunder.",
+        "reason": "低沉的鼓声像远处的雷声。sounded like是听起来像，不证明当时真的打雷。",
+        "hint": "drum在本句是名词“鼓”；作动词时过去式为drummed。",
+        "material": "The deep drum sounded like distant thunder.",
+        "options": [
+          {
+            "id": "drum",
+            "text": "低沉的鼓声像远处的雷声。",
+            "correct": true,
+            "reason": "保留drum与sounded like distant thunder。"
+          },
+          {
+            "id": "flute",
+            "text": "长笛声像远处的雷声。",
+            "correct": false,
+            "reason": "长笛是flute，改变了drum。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "新图中哪件是drum？点选，再核对原句的声音比喻。",
+          "art": {
+            "asset": "lesson-drum-flute",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "新例子：左边圆筒形木鼓，右边银色横笛，蓝色背景中分开摆放。",
+            "caption": "乐器识别新例子；图不能说明实际音高或当时是否打雷。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "instrument-drum",
+                "option": "drum",
+                "label": "鼓",
+                "labelPosition": "bottom",
+                "left": 2,
+                "top": 27,
+                "width": 38,
+                "height": 50
+              },
+              {
+                "id": "instrument-flute",
+                "option": "flute",
+                "label": "长笛",
+                "labelPosition": "bottom",
+                "left": 47,
+                "top": 15,
+                "width": 51,
+                "height": 68
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-flute",
+        "label": "长笛",
+        "prompt": "这段旋律高还是低？清亮还是含混？分别切换。",
+        "answer": "flute",
+        "caseSensitive": false,
+        "meaning": "长笛",
+        "before": "The ",
+        "after": " played a clear, high melody.",
+        "reason": "长笛奏出了清亮、高亢的旋律。high指音高，不是站得高或音量大。",
+        "hint": "flute中的u读/uː/；high melody说旋律音调高，不等于声音响。",
+        "material": "The flute played a clear, high melody.",
+        "options": [
+          {
+            "id": "high-clear",
+            "text": "长笛奏出了清亮、高亢的旋律。",
+            "correct": true,
+            "reason": "同时保留clear与high。"
+          },
+          {
+            "id": "low",
+            "text": "长笛奏出了清亮、低沉的旋律。",
+            "correct": false,
+            "reason": "低沉改变了high。"
+          },
+          {
+            "id": "unclear",
+            "text": "长笛奏出的旋律含混不清。",
+            "correct": false,
+            "reason": "含混不清改变了clear。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "这段旋律高还是低？清亮还是含混？分别切换。",
+          "sceneLab": {
+            "id": "flute-high",
+            "title": "音高与清晰度，分开比较",
+            "hint": "图只比较词义，不给出实际音符、赫兹或音量。",
+            "wrong": "原句同时说清亮和高亢，不能把high改成低音或把clear改成含混。",
+            "axes": [
+              {
+                "id": "pitch",
+                "label": "旋律的音高",
+                "choices": [
+                  {
+                    "id": "high",
+                    "label": "高亢"
+                  },
+                  {
+                    "id": "low",
+                    "label": "低沉"
+                  }
+                ]
+              },
+              {
+                "id": "clarity",
+                "label": "旋律的特点",
+                "choices": [
+                  {
+                    "id": "clear",
+                    "label": "清亮"
+                  },
+                  {
+                    "id": "unclear",
+                    "label": "含混"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "相对音高与词义示意"
+                  },
+                  {
+                    "id": "height",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 24,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "高"
+                  },
+                  {
+                    "id": "low",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 67,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "低"
+                  },
+                  {
+                    "id": "axis",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 23,
+                    "width": 1,
+                    "height": 55,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "clarity",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 81,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "特点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|clear",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "相对音高与词义示意"
+                  },
+                  {
+                    "id": "height",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 24,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "高"
+                  },
+                  {
+                    "id": "low",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 67,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "低"
+                  },
+                  {
+                    "id": "axis",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 23,
+                    "width": 1,
+                    "height": 55,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "clarity",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 81,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "清亮"
+                  }
+                ]
+              },
+              {
+                "signature": "?|unclear",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "相对音高与词义示意"
+                  },
+                  {
+                    "id": "height",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 24,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "高"
+                  },
+                  {
+                    "id": "low",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 67,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "低"
+                  },
+                  {
+                    "id": "axis",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 23,
+                    "width": 1,
+                    "height": 55,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "clarity",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 81,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "含混"
+                  }
+                ]
+              },
+              {
+                "signature": "high|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "相对音高与词义示意"
+                  },
+                  {
+                    "id": "height",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 24,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "高"
+                  },
+                  {
+                    "id": "low",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 67,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "低"
+                  },
+                  {
+                    "id": "axis",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 23,
+                    "width": 1,
+                    "height": 55,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "clarity",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 81,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "特点待选"
+                  },
+                  {
+                    "id": "pitch",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 53,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pitch-label",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 43,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "高音"
+                  }
+                ]
+              },
+              {
+                "signature": "high|clear",
+                "reading": "长笛奏出了清亮、高亢的旋律。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "相对音高与词义示意"
+                  },
+                  {
+                    "id": "height",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 24,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "高"
+                  },
+                  {
+                    "id": "low",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 67,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "低"
+                  },
+                  {
+                    "id": "axis",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 23,
+                    "width": 1,
+                    "height": 55,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "clarity",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 81,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "清亮"
+                  },
+                  {
+                    "id": "pitch",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 53,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pitch-label",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 43,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "高音"
+                  }
+                ]
+              },
+              {
+                "signature": "high|unclear",
+                "reading": "原句同时说清亮和高亢，不能把high改成低音或把clear改成含混。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "相对音高与词义示意"
+                  },
+                  {
+                    "id": "height",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 24,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "高"
+                  },
+                  {
+                    "id": "low",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 67,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "低"
+                  },
+                  {
+                    "id": "axis",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 23,
+                    "width": 1,
+                    "height": 55,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "clarity",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 81,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "含混"
+                  },
+                  {
+                    "id": "pitch",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 53,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pitch-label",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 43,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "高音"
+                  }
+                ]
+              },
+              {
+                "signature": "low|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "相对音高与词义示意"
+                  },
+                  {
+                    "id": "height",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 24,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "高"
+                  },
+                  {
+                    "id": "low",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 67,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "低"
+                  },
+                  {
+                    "id": "axis",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 23,
+                    "width": 1,
+                    "height": 55,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "clarity",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 81,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "特点待选"
+                  },
+                  {
+                    "id": "pitch",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 69,
+                    "width": 53,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pitch-label",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 49,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "低音"
+                  }
+                ]
+              },
+              {
+                "signature": "low|clear",
+                "reading": "原句同时说清亮和高亢，不能把high改成低音或把clear改成含混。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "相对音高与词义示意"
+                  },
+                  {
+                    "id": "height",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 24,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "高"
+                  },
+                  {
+                    "id": "low",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 67,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "低"
+                  },
+                  {
+                    "id": "axis",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 23,
+                    "width": 1,
+                    "height": 55,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "clarity",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 81,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "清亮"
+                  },
+                  {
+                    "id": "pitch",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 69,
+                    "width": 53,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pitch-label",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 49,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "低音"
+                  }
+                ]
+              },
+              {
+                "signature": "low|unclear",
+                "reading": "原句同时说清亮和高亢，不能把high改成低音或把clear改成含混。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "相对音高与词义示意"
+                  },
+                  {
+                    "id": "height",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 24,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "高"
+                  },
+                  {
+                    "id": "low",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 67,
+                    "width": 16,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "低"
+                  },
+                  {
+                    "id": "axis",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 23,
+                    "width": 1,
+                    "height": 55,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "clarity",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 81,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "含混"
+                  },
+                  {
+                    "id": "pitch",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 69,
+                    "width": 53,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "pitch-label",
+                    "kind": "label",
+                    "x": 43,
+                    "y": 49,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "低音"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-instrument",
+        "label": "乐器（本句）",
+        "prompt": "问句已经告诉了什么？圈线索，别替它回答。",
+        "answer": "instrument",
+        "caseSensitive": false,
+        "meaning": "乐器（本句）",
+        "before": "Which ",
+        "after": " is making that low sound?",
+        "reason": "问句在问哪种乐器正在发出那种低音，没有给出具体乐器名称。",
+        "hint": "musical instrument指乐器；Which在这里提问，不能当成已确认的答案。",
+        "material": "Which instrument is making that low sound?",
+        "options": [
+          {
+            "id": "question",
+            "text": "正在问哪种乐器发出那种低音。",
+            "correct": true,
+            "reason": "保留Which instrument与that low sound，身份还未知。"
+          },
+          {
+            "id": "known",
+            "text": "原句已经确认是小提琴发出低音。",
+            "correct": false,
+            "reason": "Which是在问，没有给出violin。"
+          },
+          {
+            "id": "high",
+            "text": "正在问哪种乐器发出那种高音。",
+            "correct": false,
+            "reason": "高音改变了low。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "问句已经告诉了什么？圈线索，别替它回答。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "分清问了什么与已经知道什么",
+            "prompt": "圈出原句确实给出的两条线索。",
+            "hint": "保留低音线索，不猜具体乐器。",
+            "wrong": "问句给出低音，但没给出具体乐器名称。",
+            "rows": [
+              {
+                "id": "which",
+                "label": "正在提问",
+                "text": "哪一种乐器？",
+                "include": true
+              },
+              {
+                "id": "low",
+                "label": "声音线索",
+                "text": "那种低音。",
+                "include": true
+              },
+              {
+                "id": "violin",
+                "label": "额外答案",
+                "text": "已经确认是小提琴。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-concert",
+        "label": "音乐会",
+        "prompt": "钱从什么活动筹来，为谁筹？调换方向与用途看看。",
+        "answer": "concert",
+        "caseSensitive": false,
+        "meaning": "音乐会",
+        "before": "The ",
+        "after": " raised money for the village library.",
+        "reason": "这场音乐会为村图书馆筹集了资金。raised money for给出筹款活动与受益对象，不说明金额或工程已完工。",
+        "hint": "give a concert表示举办音乐会；raise money for是为……筹款。",
+        "material": "The concert raised money for the village library.",
+        "options": [
+          {
+            "id": "library",
+            "text": "音乐会为村图书馆筹集了资金。",
+            "correct": true,
+            "reason": "保留concert raised money for the village library。"
+          },
+          {
+            "id": "school",
+            "text": "音乐会为新学校筹集了资金。",
+            "correct": false,
+            "reason": "新学校改变了village library。"
+          },
+          {
+            "id": "reverse",
+            "text": "村图书馆为这场音乐会筹集了资金。",
+            "correct": false,
+            "reason": "颠倒了筹款活动与受益对象。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "钱从什么活动筹来，为谁筹？调换方向与用途看看。",
+          "sceneLab": {
+            "id": "concert-funds",
+            "title": "筹款活动与受益对象",
+            "hint": "箭头只表示筹款去向，不代表金额、付款进度或建成结果。",
+            "wrong": "音乐会为村图书馆筹款，不能改受益对象或倒转关系。",
+            "axes": [
+              {
+                "id": "recipient",
+                "label": "筹款关系",
+                "choices": [
+                  {
+                    "id": "library",
+                    "label": "音乐会为村图书馆筹款"
+                  },
+                  {
+                    "id": "school",
+                    "label": "音乐会为新学校筹款"
+                  },
+                  {
+                    "id": "reverse",
+                    "label": "图书馆为音乐会筹款"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "筹款活动 → 受益对象"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 30,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 31,
+                    "width": 16,
+                    "height": 26,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 66,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "音乐会"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 62,
+                    "y": 66,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "library",
+                "reading": "音乐会为村图书馆筹集了资金。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "筹款活动 → 受益对象"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 30,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 31,
+                    "width": 16,
+                    "height": 26,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 66,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "音乐会"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 62,
+                    "y": 66,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "村图书馆"
+                  }
+                ]
+              },
+              {
+                "signature": "school",
+                "reading": "音乐会为村图书馆筹款，不能改受益对象或倒转关系。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "筹款活动 → 受益对象"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 30,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 31,
+                    "width": 16,
+                    "height": 26,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 66,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "音乐会"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 62,
+                    "y": 66,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新学校"
+                  }
+                ]
+              },
+              {
+                "signature": "reverse",
+                "reading": "音乐会为村图书馆筹款，不能改受益对象或倒转关系。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "筹款活动 → 受益对象"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 30,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 31,
+                    "width": 16,
+                    "height": 26,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 66,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "村图书馆"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 62,
+                    "y": 66,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "音乐会"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-band",
+        "label": "乐队（本句）",
+        "prompt": "谁在哪里演出？换地点，别把band读成带子。",
+        "answer": "band",
+        "caseSensitive": false,
+        "meaning": "乐队（本句）",
+        "before": "The school ",
+        "after": " performed in the square.",
+        "reason": "学校乐队在广场演出了。这里band指一群演奏者，不是带子；in the square给出地点。",
+        "hint": "band这里是一起演奏的乐队；performed是过去的演出，不是仅有计划。",
+        "material": "The school band performed in the square.",
+        "options": [
+          {
+            "id": "square",
+            "text": "学校乐队在广场演出了。",
+            "correct": true,
+            "reason": "保留school band与performed in the square。"
+          },
+          {
+            "id": "hall",
+            "text": "学校乐队在礼堂演出了。",
+            "correct": false,
+            "reason": "礼堂改变了square。"
+          },
+          {
+            "id": "plan",
+            "text": "学校乐队只是计划在广场演出。",
+            "correct": false,
+            "reason": "只是计划改变了performed这个过去事实。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁在哪里演出？换地点，别把band读成带子。",
+          "sceneLab": {
+            "id": "band-square",
+            "title": "地点与是否演出",
+            "hint": "新图比较广场、礼堂与演出/计划，不推断原乐队人数或乐器。",
+            "wrong": "原句是乐队已经在广场演出，不能换礼堂或仅有计划。",
+            "axes": [
+              {
+                "id": "case",
+                "label": "核对地点和动作",
+                "choices": [
+                  {
+                    "id": "square",
+                    "label": "已在广场演出"
+                  },
+                  {
+                    "id": "hall",
+                    "label": "已在礼堂演出"
+                  },
+                  {
+                    "id": "plan",
+                    "label": "仅计划在广场演出"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校乐队在哪里、做了什么？"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 28,
+                    "width": 90,
+                    "height": 38,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 39,
+                    "width": 84,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 79,
+                    "width": 84,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "square",
+                "reading": "学校乐队在广场演出了。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校乐队在哪里、做了什么？"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 28,
+                    "width": 90,
+                    "height": 38,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 39,
+                    "width": 84,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "广场"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 79,
+                    "width": 84,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "已经演出"
+                  }
+                ]
+              },
+              {
+                "signature": "hall",
+                "reading": "原句是乐队已经在广场演出，不能换礼堂或仅有计划。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校乐队在哪里、做了什么？"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 28,
+                    "width": 90,
+                    "height": 38,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 39,
+                    "width": 84,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "礼堂"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 79,
+                    "width": 84,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "已经演出"
+                  }
+                ]
+              },
+              {
+                "signature": "plan",
+                "reading": "原句是乐队已经在广场演出，不能换礼堂或仅有计划。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校乐队在哪里、做了什么？"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 28,
+                    "width": 90,
+                    "height": 38,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "place-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 39,
+                    "width": 84,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "广场"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 79,
+                    "width": 84,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "仅有计划"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-orchestra",
+        "label": "管弦乐队",
+        "prompt": "等指挥示意，等于已经开始演奏吗？切换状态。",
+        "answer": "orchestra",
+        "caseSensitive": false,
+        "meaning": "管弦乐队",
+        "before": "The ",
+        "after": " waited for the conductor's signal.",
+        "reason": "管弦乐队等候指挥的示意。waited for不能推成已经收到示意或开始演奏。",
+        "hint": "单独说“一支管弦乐队”用an orchestra；原句已有The，不再加an。",
+        "material": "The orchestra waited for the conductor's signal.",
+        "options": [
+          {
+            "id": "wait",
+            "text": "管弦乐队等候指挥的示意。",
+            "correct": true,
+            "reason": "保留waited for the conductor’s signal。"
+          },
+          {
+            "id": "start",
+            "text": "管弦乐队已经开始演奏。",
+            "correct": false,
+            "reason": "等候示意没有说明已经开演。"
+          },
+          {
+            "id": "audience",
+            "text": "管弦乐队在等观众的示意。",
+            "correct": false,
+            "reason": "观众改变了conductor。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "等指挥示意，等于已经开始演奏吗？切换状态。",
+          "sceneLab": {
+            "id": "orchestra-wait",
+            "title": "等谁的示意，能推出开演吗？",
+            "hint": "图比较等候对象与可确认状态，不报告后来是否开演。",
+            "wrong": "只确认乐队等指挥示意，不改成观众或已经开演。",
+            "axes": [
+              {
+                "id": "state",
+                "label": "哪种解释保留原句",
+                "choices": [
+                  {
+                    "id": "wait",
+                    "label": "等指挥示意"
+                  },
+                  {
+                    "id": "start",
+                    "label": "已经开始演奏"
+                  },
+                  {
+                    "id": "audience",
+                    "label": "等观众示意"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "已知：等谁的什么？"
+                  },
+                  {
+                    "id": "players",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 35,
+                    "height": 26,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "signal",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 30,
+                    "width": 34,
+                    "height": 26,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "orchestra",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 63,
+                    "width": 38,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "管弦乐队"
+                  },
+                  {
+                    "id": "person",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 63,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "wait",
+                "reading": "管弦乐队等候指挥的示意。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "已知：等谁的什么？"
+                  },
+                  {
+                    "id": "players",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 35,
+                    "height": 26,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "signal",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 30,
+                    "width": 34,
+                    "height": 26,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "orchestra",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 63,
+                    "width": 38,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "管弦乐队"
+                  },
+                  {
+                    "id": "person",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 63,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "指挥"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "等候示意"
+                  }
+                ]
+              },
+              {
+                "signature": "start",
+                "reading": "只确认乐队等指挥示意，不改成观众或已经开演。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "已知：等谁的什么？"
+                  },
+                  {
+                    "id": "players",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 35,
+                    "height": 26,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "signal",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 30,
+                    "width": 34,
+                    "height": 26,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "orchestra",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 63,
+                    "width": 38,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "管弦乐队"
+                  },
+                  {
+                    "id": "person",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 63,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "指挥"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "已经开演"
+                  }
+                ]
+              },
+              {
+                "signature": "audience",
+                "reading": "只确认乐队等指挥示意，不改成观众或已经开演。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "已知：等谁的什么？"
+                  },
+                  {
+                    "id": "players",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 35,
+                    "height": 26,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "signal",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 30,
+                    "width": 34,
+                    "height": 26,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "orchestra",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 63,
+                    "width": 38,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "管弦乐队"
+                  },
+                  {
+                    "id": "person",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 63,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "观众"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "等候示意"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-choir",
+        "label": "合唱团",
+        "prompt": "每周几、在哪里排练？改周历与地点核对。",
+        "answer": "choir",
+        "caseSensitive": false,
+        "meaning": "合唱团",
+        "before": "Our ",
+        "after": " practises in the hall on Tuesdays.",
+        "reason": "我们合唱团每周二在礼堂排练。on Tuesdays表示每周二，不是只说某一次或每周四。",
+        "hint": "choir开头读/kw/；原句practises保留英式拼写。",
+        "material": "Our choir practises in the hall on Tuesdays.",
+        "options": [
+          {
+            "id": "tuesday-hall",
+            "text": "合唱团每周二在礼堂排练。",
+            "correct": true,
+            "reason": "保留on Tuesdays与in the hall。"
+          },
+          {
+            "id": "thursday",
+            "text": "合唱团每周四在礼堂排练。",
+            "correct": false,
+            "reason": "周四改变了Tuesdays。"
+          },
+          {
+            "id": "square",
+            "text": "合唱团每周二在广场排练。",
+            "correct": false,
+            "reason": "广场改变了hall。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "每周几、在哪里排练？改周历与地点核对。",
+          "sceneLab": {
+            "id": "choir-schedule",
+            "title": "日期与地点都要对",
+            "hint": "周历是重复安排示意，不给出具体日期、时刻或排练时长。",
+            "wrong": "合唱团每周二在礼堂排练，不能换周四或广场。",
+            "axes": [
+              {
+                "id": "day",
+                "label": "哪一天排练",
+                "choices": [
+                  {
+                    "id": "tue",
+                    "label": "每周二"
+                  },
+                  {
+                    "id": "thu",
+                    "label": "每周四"
+                  }
+                ]
+              },
+              {
+                "id": "place",
+                "label": "在哪里排练",
+                "choices": [
+                  {
+                    "id": "hall",
+                    "label": "礼堂"
+                  },
+                  {
+                    "id": "square",
+                    "label": "广场"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周重复安排示意"
+                  },
+                  {
+                    "id": "text-mon",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "text-tue",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "text-wed",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "text-thu",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "text-fri",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "text-sat",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "text-sun",
+                    "kind": "label",
+                    "x": 86,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日"
+                  },
+                  {
+                    "id": "weekday",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 61,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日期待选"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|hall",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周重复安排示意"
+                  },
+                  {
+                    "id": "text-mon",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "text-tue",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "text-wed",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "text-thu",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "text-fri",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "text-sat",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "text-sun",
+                    "kind": "label",
+                    "x": 86,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日"
+                  },
+                  {
+                    "id": "weekday",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 61,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日期待选"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "礼堂"
+                  }
+                ]
+              },
+              {
+                "signature": "?|square",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周重复安排示意"
+                  },
+                  {
+                    "id": "text-mon",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "text-tue",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "text-wed",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "text-thu",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "text-fri",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "text-sat",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "text-sun",
+                    "kind": "label",
+                    "x": 86,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日"
+                  },
+                  {
+                    "id": "weekday",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 61,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日期待选"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "广场"
+                  }
+                ]
+              },
+              {
+                "signature": "tue|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周重复安排示意"
+                  },
+                  {
+                    "id": "text-mon",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "day-tue",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 29,
+                    "width": 12,
+                    "height": 22,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-tue",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "text-wed",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "text-thu",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "text-fri",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "text-sat",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "text-sun",
+                    "kind": "label",
+                    "x": 86,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日"
+                  },
+                  {
+                    "id": "weekday",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 61,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周二"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "tue|hall",
+                "reading": "合唱团每周二在礼堂排练。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周重复安排示意"
+                  },
+                  {
+                    "id": "text-mon",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "day-tue",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 29,
+                    "width": 12,
+                    "height": 22,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-tue",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "text-wed",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "text-thu",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "text-fri",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "text-sat",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "text-sun",
+                    "kind": "label",
+                    "x": 86,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日"
+                  },
+                  {
+                    "id": "weekday",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 61,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周二"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "礼堂"
+                  }
+                ]
+              },
+              {
+                "signature": "tue|square",
+                "reading": "合唱团每周二在礼堂排练，不能换周四或广场。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周重复安排示意"
+                  },
+                  {
+                    "id": "text-mon",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "day-tue",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 29,
+                    "width": 12,
+                    "height": 22,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-tue",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "text-wed",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "text-thu",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "text-fri",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "text-sat",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "text-sun",
+                    "kind": "label",
+                    "x": 86,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日"
+                  },
+                  {
+                    "id": "weekday",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 61,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周二"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "广场"
+                  }
+                ]
+              },
+              {
+                "signature": "thu|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周重复安排示意"
+                  },
+                  {
+                    "id": "text-mon",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "text-tue",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "text-wed",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "day-thu",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 29,
+                    "width": 12,
+                    "height": 22,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-thu",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "text-fri",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "text-sat",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "text-sun",
+                    "kind": "label",
+                    "x": 86,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日"
+                  },
+                  {
+                    "id": "weekday",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 61,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周四"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "thu|hall",
+                "reading": "合唱团每周二在礼堂排练，不能换周四或广场。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周重复安排示意"
+                  },
+                  {
+                    "id": "text-mon",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "text-tue",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "text-wed",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "day-thu",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 29,
+                    "width": 12,
+                    "height": 22,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-thu",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "text-fri",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "text-sat",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "text-sun",
+                    "kind": "label",
+                    "x": 86,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日"
+                  },
+                  {
+                    "id": "weekday",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 61,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周四"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "礼堂"
+                  }
+                ]
+              },
+              {
+                "signature": "thu|square",
+                "reading": "合唱团每周二在礼堂排练，不能换周四或广场。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周重复安排示意"
+                  },
+                  {
+                    "id": "text-mon",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "text-tue",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "text-wed",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "day-thu",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 29,
+                    "width": 12,
+                    "height": 22,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-thu",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "text-fri",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "text-sat",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "text-sun",
+                    "kind": "label",
+                    "x": 86,
+                    "y": 32,
+                    "width": 12,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "日"
+                  },
+                  {
+                    "id": "weekday",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 61,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每周四"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "广场"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-rhythm",
+        "label": "节奏",
+        "prompt": "让新例子的拍手标记跟上节拍，而不是错开。",
+        "answer": "rhythm",
+        "caseSensitive": false,
+        "meaning": "节奏",
+        "before": "Clap your hands to the ",
+        "after": ".",
+        "reason": "跟着节奏拍手。to the rhythm在这里是按照节奏，原句没有给出具体节奏型或速度。",
+        "hint": "rhythm拼写里没有a、e、i、o、u；y在这个词里表示元音。",
+        "material": "Clap your hands to the rhythm.",
+        "options": [
+          {
+            "id": "align",
+            "text": "按节奏拍手。",
+            "correct": true,
+            "reason": "保留Clap your hands to the rhythm这条指令。"
+          },
+          {
+            "id": "off",
+            "text": "故意让拍手与节拍错开。",
+            "correct": false,
+            "reason": "错开改变了to the rhythm。"
+          },
+          {
+            "id": "stamp",
+            "text": "按节奏跺脚，不拍手。",
+            "correct": false,
+            "reason": "跺脚改变了Clap your hands。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "让新例子的拍手标记跟上节拍，而不是错开。",
+          "sceneLab": {
+            "id": "rhythm-align",
+            "title": "让动作跟上节拍",
+            "hint": "新四拍标记只说明对齐关系；原句节奏型、速度与完成情况未知。",
+            "wrong": "指令是按节奏拍手，不能错拍或把拍手换成跺脚。",
+            "axes": [
+              {
+                "id": "action",
+                "label": "按原指令做什么",
+                "choices": [
+                  {
+                    "id": "align",
+                    "label": "跟着节奏拍手"
+                  },
+                  {
+                    "id": "off",
+                    "label": "拍手故意错拍"
+                  },
+                  {
+                    "id": "stamp",
+                    "label": "跟着节奏跺脚"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新四拍示意，不是原句节奏型"
+                  },
+                  {
+                    "id": "beat-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 27,
+                    "width": 24,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "节拍"
+                  },
+                  {
+                    "id": "act-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 59,
+                    "width": 24,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作"
+                  },
+                  {
+                    "id": "beat-0",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "beat-1",
+                    "kind": "ellipse",
+                    "x": 50,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "beat-2",
+                    "kind": "ellipse",
+                    "x": 65,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "beat-3",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "align",
+                "reading": "按节奏拍手。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新四拍示意，不是原句节奏型"
+                  },
+                  {
+                    "id": "beat-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 27,
+                    "width": 24,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "节拍"
+                  },
+                  {
+                    "id": "act-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 59,
+                    "width": 24,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作"
+                  },
+                  {
+                    "id": "beat-0",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-0",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "beat-1",
+                    "kind": "ellipse",
+                    "x": 50,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-1",
+                    "kind": "ellipse",
+                    "x": 50,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "beat-2",
+                    "kind": "ellipse",
+                    "x": 65,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-2",
+                    "kind": "ellipse",
+                    "x": 65,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "beat-3",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-3",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "拍手与节拍对齐"
+                  }
+                ]
+              },
+              {
+                "signature": "off",
+                "reading": "指令是按节奏拍手，不能错拍或把拍手换成跺脚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新四拍示意，不是原句节奏型"
+                  },
+                  {
+                    "id": "beat-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 27,
+                    "width": 24,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "节拍"
+                  },
+                  {
+                    "id": "act-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 59,
+                    "width": 24,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作"
+                  },
+                  {
+                    "id": "beat-0",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-0",
+                    "kind": "ellipse",
+                    "x": 41,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "beat-1",
+                    "kind": "ellipse",
+                    "x": 50,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-1",
+                    "kind": "ellipse",
+                    "x": 56,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "beat-2",
+                    "kind": "ellipse",
+                    "x": 65,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-2",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "beat-3",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-3",
+                    "kind": "ellipse",
+                    "x": 86,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "拍手与节拍错开"
+                  }
+                ]
+              },
+              {
+                "signature": "stamp",
+                "reading": "指令是按节奏拍手，不能错拍或把拍手换成跺脚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新四拍示意，不是原句节奏型"
+                  },
+                  {
+                    "id": "beat-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 27,
+                    "width": 24,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "节拍"
+                  },
+                  {
+                    "id": "act-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 59,
+                    "width": 24,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作"
+                  },
+                  {
+                    "id": "beat-0",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-0",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "beat-1",
+                    "kind": "ellipse",
+                    "x": 50,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-1",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "beat-2",
+                    "kind": "ellipse",
+                    "x": 65,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-2",
+                    "kind": "rect",
+                    "x": 65,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "beat-3",
+                    "kind": "ellipse",
+                    "x": 80,
+                    "y": 29,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "action-3",
+                    "kind": "rect",
+                    "x": 80,
+                    "y": 61,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "按节奏跺脚"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-arts-2-transfer",
+      "topicId": "v-course-arts",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换到新音乐会与排练安排，哪组三句保留全部信息？",
+      "passage": "三条新信息\n学校音乐会为动物收容所筹集了资金。我们合唱团每周四在图书馆排练。管弦乐队等候指挥的示意。\n词语提示：shelter收容所；conductor指挥。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The school concert raised money for the sports centre. Our choir practises in the library on Thursdays. The orchestra waited for the conductor’s signal."
+        },
+        {
+          "id": "b",
+          "text": "The school concert raised money for the animal shelter. Our choir practises in the library on Thursdays. The orchestra waited for the conductor’s signal."
+        },
+        {
+          "id": "c",
+          "text": "The school concert raised money for the animal shelter. Our choir practises in the library on Tuesdays. The orchestra waited for the conductor’s signal."
+        },
+        {
+          "id": "d",
+          "text": "The school concert raised money for the animal shelter. Our choir practises in the library on Thursdays. The orchestra had already begun to play."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The school concert raised money for the animal shelter. Our choir practises in the library on Thursdays. The orchestra waited for the conductor’s signal."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对筹款对象、重复安排的日期地点，以及等候与已经开演的区别。",
+        "steps": [
+          {
+            "text": "The school concert raised money for the animal shelter.",
+            "reason": "animal shelter是动物收容所，不是体育中心。"
+          },
+          {
+            "text": "Our choir practises in the library on Thursdays.",
+            "reason": "on Thursdays是每周四，in the library是在图书馆。"
+          },
+          {
+            "text": "The orchestra waited for the conductor’s signal.",
+            "reason": "waited for只说等候指挥示意，没有说明已经开始演奏。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "sports centre把动物收容所换成体育中心。"
+          },
+          {
+            "option": "c",
+            "reason": "Tuesdays把每周四换成每周二。"
+          },
+          {
+            "option": "d",
+            "reason": "had already begun to play擅自补入已经开演。"
+          }
+        ],
+        "pitfall": "安排里的日期与地点分别核对；等候不能直接推出后来已行动。",
+        "visual": {
+          "kind": "comparison",
+          "title": "对象、安排、已知状态",
+          "segments": [
+            {
+              "text": "for the animal shelter",
+              "role": "evidence",
+              "note": "筹款对象"
+            },
+            {
+              "text": "in the library on Thursdays",
+              "role": "evidence",
+              "note": "地点与日期"
+            },
+            {
+              "text": "waited for",
+              "role": "evidence",
+              "note": "只确认等候"
+            }
+          ],
+          "caption": "一项信息改动，也会改变整组句子的意思。"
+        },
+        "transfer": "如果把on Thursdays换成on Tuesdays，哪条安排被改变了？"
+      }
+    }
+  },
+  "picturePurpose": "The original drum/flute picture supports instrument identification; six code diagrams explain pitch, funds, event status, recurring dates and rhythm alignment without claiming real audio assessment."
+}
