@@ -1,0 +1,3314 @@
+{
+  "lessonId": "l-v-course-arts-4",
+  "reviewState": "draft",
+  "intent": "Need for drama costume designer without completion; nervous shopkeeper as role not actor biography; final scene beside sea in explicitly new three-scene coastal model; mark own script lines only; old curtain material direction; not paint over pencilled lines yet as temporary negative instruction; harbour/dawn painting content without painter-location claim; describe new animal example without naming. Six changing diagrams and two exact evidence tasks; preserve British pencilled/harbour.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "标台词、换场景，读准角色和绘画指令",
+    "instruction": "改变人物、地点或材料，观察图怎么变；按原句标台词，区分暂时别做与永远不做。",
+    "items": [
+      {
+        "id": "word-drama",
+        "label": "戏剧",
+        "prompt": "戏剧社需要谁做什么？圈线索，别添加已经完成的结果。",
+        "answer": "drama",
+        "caseSensitive": false,
+        "meaning": "戏剧",
+        "before": "The ",
+        "after": " club needs someone to design costumes.",
+        "reason": "戏剧社需要有人设计戏服。needs someone to design说明有这个需要，没说已经找到人或做好戏服。",
+        "hint": "drama常用于戏剧活动或文学体裁；drama club是戏剧社。",
+        "material": "The drama club needs someone to design costumes.",
+        "options": [
+          {
+            "id": "need",
+            "text": "戏剧社需要有人设计戏服。",
+            "correct": true,
+            "reason": "保留needs someone to design costumes。"
+          },
+          {
+            "id": "done",
+            "text": "戏剧社的戏服已经全部设计好了。",
+            "correct": false,
+            "reason": "需要有人设计不等于已经设计完。"
+          },
+          {
+            "id": "music",
+            "text": "戏剧社需要有人谱写音乐。",
+            "correct": false,
+            "reason": "谱曲改变了design costumes。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "戏剧社需要谁做什么？圈线索，别添加已经完成的结果。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "需要的人与任务",
+            "prompt": "圈出原句给出的两条线索。",
+            "hint": "需要做，不等于已经做完。",
+            "wrong": "戏剧社需要有人设计戏服，没有给出完成结果。",
+            "rows": [
+              {
+                "id": "club",
+                "label": "提出需要",
+                "text": "戏剧社。",
+                "include": true
+              },
+              {
+                "id": "design",
+                "label": "要做的事",
+                "text": "有人设计戏服。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "戏服已经全部设计好。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-role",
+        "label": "角色（本句）",
+        "prompt": "他扮演谁，角色是什么状态？分别改一项。",
+        "answer": "role",
+        "caseSensitive": false,
+        "meaning": "角色（本句）",
+        "before": "He took the ",
+        "after": " of a nervous shopkeeper.",
+        "reason": "他扮演一个紧张的店主。nervous修饰角色，不是说演员本人就是店主或很紧张。",
+        "hint": "play a role in也表示在……中起作用；本句role是扮演的角色。",
+        "material": "He took the role of a nervous shopkeeper.",
+        "options": [
+          {
+            "id": "nervous-shopkeeper",
+            "text": "他扮演一个紧张的店主。",
+            "correct": true,
+            "reason": "保留role of a nervous shopkeeper。"
+          },
+          {
+            "id": "calm",
+            "text": "他扮演一个镇定的店主。",
+            "correct": false,
+            "reason": "镇定改变了nervous。"
+          },
+          {
+            "id": "doctor",
+            "text": "他扮演一个紧张的医生。",
+            "correct": false,
+            "reason": "医生改变了shopkeeper。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "他扮演谁，角色是什么状态？分别改一项。",
+          "sceneLab": {
+            "id": "role-character",
+            "title": "演员与角色别混淆",
+            "hint": "图只描述所扮演的角色，不给演员本人的职业或情绪。",
+            "wrong": "角色是紧张的店主，不能换成镇定或医生。",
+            "axes": [
+              {
+                "id": "job",
+                "label": "所扮角色的职业",
+                "choices": [
+                  {
+                    "id": "shopkeeper",
+                    "label": "店主"
+                  },
+                  {
+                    "id": "doctor",
+                    "label": "医生"
+                  }
+                ]
+              },
+              {
+                "id": "mood",
+                "label": "角色的情绪",
+                "choices": [
+                  {
+                    "id": "nervous",
+                    "label": "紧张"
+                  },
+                  {
+                    "id": "calm",
+                    "label": "镇定"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是角色，不是演员本人"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 25,
+                    "width": 14,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "职业待选"
+                  },
+                  {
+                    "id": "mood",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "情绪待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|nervous",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是角色，不是演员本人"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 25,
+                    "width": 14,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "职业待选"
+                  },
+                  {
+                    "id": "mood",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "紧张"
+                  },
+                  {
+                    "id": "worry-a",
+                    "kind": "line",
+                    "x": 32,
+                    "y": 25,
+                    "width": 4,
+                    "height": 8,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "worry-b",
+                    "kind": "line",
+                    "x": 64,
+                    "y": 25,
+                    "width": 4,
+                    "height": 8,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "?|calm",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是角色，不是演员本人"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 25,
+                    "width": 14,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "职业待选"
+                  },
+                  {
+                    "id": "mood",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "镇定"
+                  }
+                ]
+              },
+              {
+                "signature": "shopkeeper|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是角色，不是演员本人"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 25,
+                    "width": 14,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "店主"
+                  },
+                  {
+                    "id": "mood",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "情绪待选"
+                  }
+                ]
+              },
+              {
+                "signature": "shopkeeper|nervous",
+                "reading": "他扮演一个紧张的店主。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是角色，不是演员本人"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 25,
+                    "width": 14,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "店主"
+                  },
+                  {
+                    "id": "mood",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "紧张"
+                  },
+                  {
+                    "id": "worry-a",
+                    "kind": "line",
+                    "x": 32,
+                    "y": 25,
+                    "width": 4,
+                    "height": 8,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "worry-b",
+                    "kind": "line",
+                    "x": 64,
+                    "y": 25,
+                    "width": 4,
+                    "height": 8,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "shopkeeper|calm",
+                "reading": "角色是紧张的店主，不能换成镇定或医生。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是角色，不是演员本人"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 25,
+                    "width": 14,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "店主"
+                  },
+                  {
+                    "id": "mood",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "镇定"
+                  }
+                ]
+              },
+              {
+                "signature": "doctor|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是角色，不是演员本人"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 25,
+                    "width": 14,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "医生"
+                  },
+                  {
+                    "id": "mood",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "情绪待选"
+                  }
+                ]
+              },
+              {
+                "signature": "doctor|nervous",
+                "reading": "角色是紧张的店主，不能换成镇定或医生。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是角色，不是演员本人"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 25,
+                    "width": 14,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "医生"
+                  },
+                  {
+                    "id": "mood",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "紧张"
+                  },
+                  {
+                    "id": "worry-a",
+                    "kind": "line",
+                    "x": 32,
+                    "y": 25,
+                    "width": 4,
+                    "height": 8,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "worry-b",
+                    "kind": "line",
+                    "x": 64,
+                    "y": 25,
+                    "width": 4,
+                    "height": 8,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "doctor|calm",
+                "reading": "角色是紧张的店主，不能换成镇定或医生。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是角色，不是演员本人"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 25,
+                    "width": 14,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "医生"
+                  },
+                  {
+                    "id": "mood",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 76,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "镇定"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-scene",
+        "label": "一幕（本句）",
+        "prompt": "第几幕、发生在哪里？改幕次，再把地点移近或移远海边。",
+        "answer": "scene",
+        "caseSensitive": false,
+        "meaning": "一幕（本句）",
+        "before": "The final ",
+        "after": " takes place beside the sea.",
+        "reason": "最后一幕发生在海边。final不是第一幕，beside the sea不是远离海边。",
+        "hint": "scene与seen同音，但scene是名词，seen是see的过去分词。",
+        "material": "The final scene takes place beside the sea.",
+        "options": [
+          {
+            "id": "final-beside",
+            "text": "最后一幕发生在海边。",
+            "correct": true,
+            "reason": "保留final scene与beside the sea。"
+          },
+          {
+            "id": "first",
+            "text": "第一幕发生在海边。",
+            "correct": false,
+            "reason": "第一幕改变了final。"
+          },
+          {
+            "id": "inland",
+            "text": "最后一幕发生在远离海的内陆。",
+            "correct": false,
+            "reason": "远离海改变了beside the sea。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "第几幕、发生在哪里？改幕次，再把地点移近或移远海边。",
+          "sceneLab": {
+            "id": "scene-final",
+            "title": "幕次与海边位置",
+            "hint": "新三幕和海岸示意，不给原剧总幕数、海岸形状或距离。",
+            "wrong": "原句最后一幕在海边，不能改第一幕或远离海边。",
+            "axes": [
+              {
+                "id": "scene",
+                "label": "哪一幕",
+                "choices": [
+                  {
+                    "id": "last",
+                    "label": "最后一幕"
+                  },
+                  {
+                    "id": "first",
+                    "label": "第一幕"
+                  }
+                ]
+              },
+              {
+                "id": "place",
+                "label": "场景位置",
+                "choices": [
+                  {
+                    "id": "beside",
+                    "label": "海边"
+                  },
+                  {
+                    "id": "inland",
+                    "label": "远离海边"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三幕与海岸示意"
+                  },
+                  {
+                    "id": "scene-first",
+                    "kind": "rect",
+                    "x": 2,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-first",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "第一幕"
+                  },
+                  {
+                    "id": "scene-middle",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间幕"
+                  },
+                  {
+                    "id": "scene-last",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-last",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "最后幕"
+                  },
+                  {
+                    "id": "sea",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 51,
+                    "width": 32,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sea-label",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 54,
+                    "width": 16,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "海"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|beside",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三幕与海岸示意"
+                  },
+                  {
+                    "id": "scene-first",
+                    "kind": "rect",
+                    "x": 2,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-first",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "第一幕"
+                  },
+                  {
+                    "id": "scene-middle",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间幕"
+                  },
+                  {
+                    "id": "scene-last",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-last",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "最后幕"
+                  },
+                  {
+                    "id": "sea",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 51,
+                    "width": 32,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sea-label",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 54,
+                    "width": 16,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "海"
+                  },
+                  {
+                    "id": "location",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 60,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "在海边"
+                  }
+                ]
+              },
+              {
+                "signature": "?|inland",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三幕与海岸示意"
+                  },
+                  {
+                    "id": "scene-first",
+                    "kind": "rect",
+                    "x": 2,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-first",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "第一幕"
+                  },
+                  {
+                    "id": "scene-middle",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间幕"
+                  },
+                  {
+                    "id": "scene-last",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-last",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "最后幕"
+                  },
+                  {
+                    "id": "sea",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 51,
+                    "width": 32,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sea-label",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 54,
+                    "width": 16,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "海"
+                  },
+                  {
+                    "id": "location",
+                    "kind": "ellipse",
+                    "x": 12,
+                    "y": 60,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "远离海边"
+                  }
+                ]
+              },
+              {
+                "signature": "last|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三幕与海岸示意"
+                  },
+                  {
+                    "id": "scene-first",
+                    "kind": "rect",
+                    "x": 2,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-first",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "第一幕"
+                  },
+                  {
+                    "id": "scene-middle",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间幕"
+                  },
+                  {
+                    "id": "scene-last",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "text-last",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "最后幕"
+                  },
+                  {
+                    "id": "sea",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 51,
+                    "width": 32,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sea-label",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 54,
+                    "width": 16,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "海"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "last|beside",
+                "reading": "最后一幕发生在海边。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三幕与海岸示意"
+                  },
+                  {
+                    "id": "scene-first",
+                    "kind": "rect",
+                    "x": 2,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-first",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "第一幕"
+                  },
+                  {
+                    "id": "scene-middle",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间幕"
+                  },
+                  {
+                    "id": "scene-last",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "text-last",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "最后幕"
+                  },
+                  {
+                    "id": "sea",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 51,
+                    "width": 32,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sea-label",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 54,
+                    "width": 16,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "海"
+                  },
+                  {
+                    "id": "location",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 60,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "在海边"
+                  }
+                ]
+              },
+              {
+                "signature": "last|inland",
+                "reading": "原句最后一幕在海边，不能改第一幕或远离海边。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三幕与海岸示意"
+                  },
+                  {
+                    "id": "scene-first",
+                    "kind": "rect",
+                    "x": 2,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-first",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "第一幕"
+                  },
+                  {
+                    "id": "scene-middle",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间幕"
+                  },
+                  {
+                    "id": "scene-last",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "text-last",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "最后幕"
+                  },
+                  {
+                    "id": "sea",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 51,
+                    "width": 32,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sea-label",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 54,
+                    "width": 16,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "海"
+                  },
+                  {
+                    "id": "location",
+                    "kind": "ellipse",
+                    "x": 12,
+                    "y": 60,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "远离海边"
+                  }
+                ]
+              },
+              {
+                "signature": "first|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三幕与海岸示意"
+                  },
+                  {
+                    "id": "scene-first",
+                    "kind": "rect",
+                    "x": 2,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "text-first",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "第一幕"
+                  },
+                  {
+                    "id": "scene-middle",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间幕"
+                  },
+                  {
+                    "id": "scene-last",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-last",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "最后幕"
+                  },
+                  {
+                    "id": "sea",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 51,
+                    "width": 32,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sea-label",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 54,
+                    "width": 16,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "海"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "first|beside",
+                "reading": "原句最后一幕在海边，不能改第一幕或远离海边。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三幕与海岸示意"
+                  },
+                  {
+                    "id": "scene-first",
+                    "kind": "rect",
+                    "x": 2,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "text-first",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "第一幕"
+                  },
+                  {
+                    "id": "scene-middle",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间幕"
+                  },
+                  {
+                    "id": "scene-last",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-last",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "最后幕"
+                  },
+                  {
+                    "id": "sea",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 51,
+                    "width": 32,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sea-label",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 54,
+                    "width": 16,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "海"
+                  },
+                  {
+                    "id": "location",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 60,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "在海边"
+                  }
+                ]
+              },
+              {
+                "signature": "first|inland",
+                "reading": "原句最后一幕在海边，不能改第一幕或远离海边。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三幕与海岸示意"
+                  },
+                  {
+                    "id": "scene-first",
+                    "kind": "rect",
+                    "x": 2,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "text-first",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "第一幕"
+                  },
+                  {
+                    "id": "scene-middle",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-middle",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间幕"
+                  },
+                  {
+                    "id": "scene-last",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 24,
+                    "width": 30,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "text-last",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 26,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "最后幕"
+                  },
+                  {
+                    "id": "sea",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 51,
+                    "width": 32,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "sea-label",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 54,
+                    "width": 16,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "海"
+                  },
+                  {
+                    "id": "location",
+                    "kind": "ellipse",
+                    "x": 12,
+                    "y": 60,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "远离海边"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-script",
+        "label": "剧本（本句）",
+        "prompt": "在新剧本示意中，标谁的台词？只标自己那行。",
+        "answer": "script",
+        "caseSensitive": false,
+        "meaning": "剧本（本句）",
+        "before": "Mark your lines in the ",
+        "after": ".",
+        "reason": "在剧本中标出你的台词。your不是别人的，也不是全部台词；lines在这里不是几何直线。",
+        "hint": "script可指剧本或程序脚本；本句lines是表演台词。",
+        "material": "Mark your lines in the script.",
+        "options": [
+          {
+            "id": "own",
+            "text": "在剧本中标出自己的台词。",
+            "correct": true,
+            "reason": "保留Mark your lines in the script。"
+          },
+          {
+            "id": "all",
+            "text": "把剧本中所有人的台词都标出来。",
+            "correct": false,
+            "reason": "所有人的台词扩大了your lines。"
+          },
+          {
+            "id": "other",
+            "text": "只标别人的台词，不标自己的。",
+            "correct": false,
+            "reason": "别人的改变了your。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "在新剧本示意中，标谁的台词？只标自己那行。",
+          "sceneLab": {
+            "id": "script-lines",
+            "title": "自己的台词，别全标",
+            "hint": "新三行只表示不同角色的台词，不是原剧本真实内容或行数。",
+            "wrong": "要求标出自己的台词，不能只标别人或标全部。",
+            "axes": [
+              {
+                "id": "lines",
+                "label": "标出谁的台词",
+                "choices": [
+                  {
+                    "id": "own",
+                    "label": "只标自己的"
+                  },
+                  {
+                    "id": "all",
+                    "label": "所有人的都标"
+                  },
+                  {
+                    "id": "other",
+                    "label": "只标别人的"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三行台词示意"
+                  },
+                  {
+                    "id": "person-other-a",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 26,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "别人甲"
+                  },
+                  {
+                    "id": "line-other-a",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 30,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "person-own",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 47,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "自己"
+                  },
+                  {
+                    "id": "line-own",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 51,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "person-other-b",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "别人乙"
+                  },
+                  {
+                    "id": "line-other-b",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 72,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "own",
+                "reading": "在剧本中标出自己的台词。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三行台词示意"
+                  },
+                  {
+                    "id": "person-other-a",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 26,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "别人甲"
+                  },
+                  {
+                    "id": "line-other-a",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 30,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "person-own",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 47,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "自己"
+                  },
+                  {
+                    "id": "line-own",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 51,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "person-other-b",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "别人乙"
+                  },
+                  {
+                    "id": "line-other-b",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 72,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "all",
+                "reading": "要求标出自己的台词，不能只标别人或标全部。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三行台词示意"
+                  },
+                  {
+                    "id": "person-other-a",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 26,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "别人甲"
+                  },
+                  {
+                    "id": "line-other-a",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 30,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "person-own",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 47,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "自己"
+                  },
+                  {
+                    "id": "line-own",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 51,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "person-other-b",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "别人乙"
+                  },
+                  {
+                    "id": "line-other-b",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 72,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "other",
+                "reading": "要求标出自己的台词，不能只标别人或标全部。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三行台词示意"
+                  },
+                  {
+                    "id": "person-other-a",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 26,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "别人甲"
+                  },
+                  {
+                    "id": "line-other-a",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 30,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "person-own",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 47,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "自己"
+                  },
+                  {
+                    "id": "line-own",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 51,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "person-other-b",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 35,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "别人乙"
+                  },
+                  {
+                    "id": "line-other-b",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 72,
+                    "width": 48,
+                    "height": 5,
+                    "tone": "teal"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-costume",
+        "label": "戏服（本句）",
+        "prompt": "旧窗帘和戏服，谁是材料、谁是成品？调换箭头。",
+        "answer": "costume",
+        "caseSensitive": false,
+        "meaning": "戏服（本句）",
+        "before": "The ",
+        "after": " was made from old curtains.",
+        "reason": "这件戏服是用旧窗帘做的。made from给出材料与成品，不能换成新窗帘或把制作方向倒过来。",
+        "hint": "costume常指表演或特殊场合的服装；本句是戏服。",
+        "material": "The costume was made from old curtains.",
+        "options": [
+          {
+            "id": "old-curtains",
+            "text": "戏服是用旧窗帘做的。",
+            "correct": true,
+            "reason": "保留costume was made from old curtains。"
+          },
+          {
+            "id": "new",
+            "text": "戏服是用新窗帘做的。",
+            "correct": false,
+            "reason": "新改变了old。"
+          },
+          {
+            "id": "reverse",
+            "text": "这些旧窗帘是用戏服做的。",
+            "correct": false,
+            "reason": "颠倒材料与成品。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "旧窗帘和戏服，谁是材料、谁是成品？调换箭头。",
+          "sceneLab": {
+            "id": "costume-material",
+            "title": "旧材料变成戏服",
+            "hint": "箭头只表示材料关系，不指定服装样式、件数或颜色。",
+            "wrong": "原句是旧窗帘做成戏服，不能改新窗帘或倒转制作方向。",
+            "axes": [
+              {
+                "id": "material",
+                "label": "制作关系",
+                "choices": [
+                  {
+                    "id": "old",
+                    "label": "旧窗帘做成戏服"
+                  },
+                  {
+                    "id": "new",
+                    "label": "新窗帘做成戏服"
+                  },
+                  {
+                    "id": "reverse",
+                    "label": "戏服做成旧窗帘"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "材料 → 成品"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 29,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "product",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 30,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 67,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "right",
+                    "kind": "label",
+                    "x": 62,
+                    "y": 67,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "戏服"
+                  }
+                ]
+              },
+              {
+                "signature": "old",
+                "reading": "戏服是用旧窗帘做的。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "材料 → 成品"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 29,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "product",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 30,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 67,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "旧窗帘"
+                  },
+                  {
+                    "id": "right",
+                    "kind": "label",
+                    "x": 62,
+                    "y": 67,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "戏服"
+                  }
+                ]
+              },
+              {
+                "signature": "new",
+                "reading": "原句是旧窗帘做成戏服，不能改新窗帘或倒转制作方向。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "材料 → 成品"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 29,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "product",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 30,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 67,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新窗帘"
+                  },
+                  {
+                    "id": "right",
+                    "kind": "label",
+                    "x": 62,
+                    "y": 67,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "戏服"
+                  }
+                ]
+              },
+              {
+                "signature": "reverse",
+                "reading": "原句是旧窗帘做成戏服，不能改新窗帘或倒转制作方向。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "材料 → 成品"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 29,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "product",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 34,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 30,
+                    "width": 16,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 67,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "戏服"
+                  },
+                  {
+                    "id": "right",
+                    "kind": "label",
+                    "x": 62,
+                    "y": 67,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "旧窗帘"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-paint",
+        "label": "涂颜料（本句）",
+        "prompt": "现在能不能盖住铅笔线？切换指令，看看yet的作用。",
+        "answer": "paint",
+        "caseSensitive": false,
+        "meaning": "涂颜料（本句）",
+        "before": "Do not ",
+        "after": " over the pencilled lines yet.",
+        "reason": "先不要用颜料盖住铅笔线。Do not...yet说目前先别这样做，不是永远禁止，也不是马上涂盖。",
+        "hint": "paint可指颜料，也可表示绘画；本句paint over是用颜料盖住。",
+        "material": "Do not paint over the pencilled lines yet.",
+        "options": [
+          {
+            "id": "not-yet",
+            "text": "现在先不要用颜料盖住铅笔线。",
+            "correct": true,
+            "reason": "保留Do not...yet与paint over the pencilled lines。"
+          },
+          {
+            "id": "now",
+            "text": "现在马上用颜料盖住铅笔线。",
+            "correct": false,
+            "reason": "马上做改变了Do not...yet。"
+          },
+          {
+            "id": "never",
+            "text": "以后永远都不能盖住铅笔线。",
+            "correct": false,
+            "reason": "yet不表示永远禁止。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "现在能不能盖住铅笔线？切换指令，看看yet的作用。",
+          "sceneLab": {
+            "id": "paint-not-yet",
+            "title": "暂时别盖住，不是永远禁止",
+            "hint": "新线条示意比较指令，不表示学生已经涂过或原画的形状。",
+            "wrong": "原句目前先别盖住铅笔线，不能马上盖住或推成永久禁止。",
+            "axes": [
+              {
+                "id": "instruction",
+                "label": "not...yet怎么理解",
+                "choices": [
+                  {
+                    "id": "not-yet",
+                    "label": "现在先不要"
+                  },
+                  {
+                    "id": "now",
+                    "label": "现在马上做"
+                  },
+                  {
+                    "id": "never",
+                    "label": "永远都不能"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新铅笔线与涂盖指令示意"
+                  },
+                  {
+                    "id": "paper",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 24,
+                    "width": 90,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pencil-a",
+                    "kind": "line",
+                    "x": 18,
+                    "y": 36,
+                    "width": 63,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "pencil-b",
+                    "kind": "line",
+                    "x": 18,
+                    "y": 50,
+                    "width": 63,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "instruction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "指令待选"
+                  }
+                ]
+              },
+              {
+                "signature": "not-yet",
+                "reading": "现在先不要用颜料盖住铅笔线。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新铅笔线与涂盖指令示意"
+                  },
+                  {
+                    "id": "paper",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 24,
+                    "width": 90,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pencil-a",
+                    "kind": "line",
+                    "x": 18,
+                    "y": 36,
+                    "width": 63,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "pencil-b",
+                    "kind": "line",
+                    "x": 18,
+                    "y": 50,
+                    "width": 63,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "instruction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "现在先别涂盖"
+                  }
+                ]
+              },
+              {
+                "signature": "now",
+                "reading": "原句目前先别盖住铅笔线，不能马上盖住或推成永久禁止。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新铅笔线与涂盖指令示意"
+                  },
+                  {
+                    "id": "paper",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 24,
+                    "width": 90,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pencil-a",
+                    "kind": "line",
+                    "x": 18,
+                    "y": 36,
+                    "width": 63,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "pencil-b",
+                    "kind": "line",
+                    "x": 18,
+                    "y": 50,
+                    "width": 63,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "paint",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 30,
+                    "width": 70,
+                    "height": 28,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "instruction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "现在就涂盖"
+                  }
+                ]
+              },
+              {
+                "signature": "never",
+                "reading": "原句目前先别盖住铅笔线，不能马上盖住或推成永久禁止。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新铅笔线与涂盖指令示意"
+                  },
+                  {
+                    "id": "paper",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 24,
+                    "width": 90,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pencil-a",
+                    "kind": "line",
+                    "x": 18,
+                    "y": 36,
+                    "width": 63,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "pencil-b",
+                    "kind": "line",
+                    "x": 18,
+                    "y": 50,
+                    "width": 63,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "instruction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "永远不能涂盖"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-painting",
+        "label": "画作（本句）",
+        "prompt": "画中是什么地方、什么时间？圈出两条证据。",
+        "answer": "painting",
+        "caseSensitive": false,
+        "meaning": "画作（本句）",
+        "before": "The ",
+        "after": " shows the harbour at dawn.",
+        "reason": "这幅画描绘了黎明时的港口。at dawn不是中午，harbour不是森林；句子描述画中内容，不证明画家当时就在现场。",
+        "hint": "painting可指绘画活动，也可指一幅画；本句是一幅画。",
+        "material": "The painting shows the harbour at dawn.",
+        "options": [
+          {
+            "id": "harbour-dawn",
+            "text": "画中是黎明时的港口。",
+            "correct": true,
+            "reason": "保留shows the harbour at dawn。"
+          },
+          {
+            "id": "noon",
+            "text": "画中是中午的港口。",
+            "correct": false,
+            "reason": "中午改变了at dawn。"
+          },
+          {
+            "id": "forest",
+            "text": "画中是黎明时的森林。",
+            "correct": false,
+            "reason": "森林改变了harbour。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "画中是什么地方、什么时间？圈出两条证据。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "画中地点与时间",
+            "prompt": "圈出原句给出的两条线索。",
+            "hint": "从句子确认内容，不补画家位置。",
+            "wrong": "原句只给画中黎明的港口，不给画家所在位置。",
+            "rows": [
+              {
+                "id": "place",
+                "label": "地点",
+                "text": "港口。",
+                "include": true
+              },
+              {
+                "id": "time",
+                "label": "时间",
+                "text": "黎明。",
+                "include": true
+              },
+              {
+                "id": "artist",
+                "label": "额外推断",
+                "text": "画家当时一定就在港口。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-picture",
+        "label": "图片（本句）",
+        "prompt": "哪种描述遵守without naming？切换“描述特征”和“说名字”。",
+        "answer": "picture",
+        "caseSensitive": false,
+        "meaning": "图片（本句）",
+        "before": "Describe the ",
+        "after": " without naming the animal.",
+        "reason": "描述这张图片，但不要说出动物名字。without naming限制描述方式，不是要求说名字或完全不描述。",
+        "hint": "take a picture是拍照；without后动词用-ing，这里是naming。",
+        "material": "Describe the picture without naming the animal.",
+        "options": [
+          {
+            "id": "describe",
+            "text": "描述图片中的特征，但不说出动物名字。",
+            "correct": true,
+            "reason": "同时保留Describe与without naming the animal。"
+          },
+          {
+            "id": "name",
+            "text": "直接说出图片中动物的名字。",
+            "correct": false,
+            "reason": "说出名字违背without naming。"
+          },
+          {
+            "id": "nothing",
+            "text": "不描述图片，也不提供任何线索。",
+            "correct": false,
+            "reason": "不描述违背Describe。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪种描述遵守without naming？切换“描述特征”和“说名字”。",
+          "sceneLab": {
+            "id": "picture-without-name",
+            "title": "描述特征，但不说名字",
+            "hint": "新兔形示意只比较表达方式，不指定原图动物或评价真实口语。",
+            "wrong": "要求描述但不说动物名字，不能说名字或完全不描述。",
+            "axes": [
+              {
+                "id": "way",
+                "label": "怎样回应描述要求",
+                "choices": [
+                  {
+                    "id": "describe",
+                    "label": "描述特征，不说名字"
+                  },
+                  {
+                    "id": "name",
+                    "label": "直接说出名字"
+                  },
+                  {
+                    "id": "nothing",
+                    "label": "不描述，不给线索"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：描述但不说名字"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 45,
+                    "width": 32,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 36,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ear-a",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 19,
+                    "width": 5,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ear-b",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 19,
+                    "width": 5,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "tail",
+                    "kind": "ellipse",
+                    "x": 7,
+                    "y": 47,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "eye",
+                    "kind": "ellipse",
+                    "x": 46,
+                    "y": 42,
+                    "width": 2,
+                    "height": 2,
+                    "tone": "ink"
+                  }
+                ]
+              },
+              {
+                "signature": "describe",
+                "reading": "描述图片中的特征，但不说出动物名字。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：描述但不说名字"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 45,
+                    "width": 32,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 36,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ear-a",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 19,
+                    "width": 5,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ear-b",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 19,
+                    "width": 5,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "tail",
+                    "kind": "ellipse",
+                    "x": 7,
+                    "y": 47,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "eye",
+                    "kind": "ellipse",
+                    "x": 46,
+                    "y": 42,
+                    "width": 2,
+                    "height": 2,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "description",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "耳朵很长"
+                  }
+                ]
+              },
+              {
+                "signature": "name",
+                "reading": "要求描述但不说动物名字，不能说名字或完全不描述。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：描述但不说名字"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 45,
+                    "width": 32,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 36,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ear-a",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 19,
+                    "width": 5,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ear-b",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 19,
+                    "width": 5,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "tail",
+                    "kind": "ellipse",
+                    "x": 7,
+                    "y": 47,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "eye",
+                    "kind": "ellipse",
+                    "x": 46,
+                    "y": 42,
+                    "width": 2,
+                    "height": 2,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "description",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "这是一只兔子"
+                  }
+                ]
+              },
+              {
+                "signature": "nothing",
+                "reading": "要求描述但不说动物名字，不能说名字或完全不描述。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：描述但不说名字"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 45,
+                    "width": 32,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 36,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ear-a",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 19,
+                    "width": 5,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "ear-b",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 19,
+                    "width": 5,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "tail",
+                    "kind": "ellipse",
+                    "x": 7,
+                    "y": 47,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "eye",
+                    "kind": "ellipse",
+                    "x": 46,
+                    "y": 42,
+                    "width": 2,
+                    "height": 2,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "description",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "什么也不描述"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-arts-4-transfer",
+      "topicId": "v-course-arts",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成河边一幕与旧毯子戏服，哪组三句保留全部信息？",
+      "passage": "三条新信息\n最后一幕发生在河边。戏服是用旧毯子做的。先不要用颜料盖住铅笔线。\n词语提示：blanket毯子；pencilled用铅笔画出的。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The first scene takes place beside the river. The costume was made from old blankets. Do not paint over the pencilled lines yet."
+        },
+        {
+          "id": "b",
+          "text": "The final scene takes place beside the river. The costume was made from new blankets. Do not paint over the pencilled lines yet."
+        },
+        {
+          "id": "c",
+          "text": "The final scene takes place beside the river. The costume was made from old blankets. Paint over the pencilled lines now."
+        },
+        {
+          "id": "d",
+          "text": "The final scene takes place beside the river. The costume was made from old blankets. Do not paint over the pencilled lines yet."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "The final scene takes place beside the river. The costume was made from old blankets. Do not paint over the pencilled lines yet."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对幕次与地点，保留材料的新旧，再看现在该做还是先别做。",
+        "steps": [
+          {
+            "text": "The final scene takes place beside the river.",
+            "reason": "final是最后一幕，beside the river是在河边。"
+          },
+          {
+            "text": "The costume was made from old blankets.",
+            "reason": "old blankets是旧毯子，made from说明制作材料。"
+          },
+          {
+            "text": "Do not paint over the pencilled lines yet.",
+            "reason": "Do not...yet表示目前先别涂盖，不是现在就涂。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "first把最后一幕改成第一幕。"
+          },
+          {
+            "option": "b",
+            "reason": "new把旧毯子改成新毯子。"
+          },
+          {
+            "option": "c",
+            "reason": "now与肯定指令把暂时别涂改成立即涂盖。"
+          }
+        ],
+        "pitfall": "最后与第一、旧与新、先别做与马上做，都要逐项保留。",
+        "visual": {
+          "kind": "comparison",
+          "title": "幕次、材料、当前指令",
+          "segments": [
+            {
+              "text": "final / beside the river",
+              "role": "evidence",
+              "note": "最后一幕在河边"
+            },
+            {
+              "text": "made from old blankets",
+              "role": "evidence",
+              "note": "旧毯子制成"
+            },
+            {
+              "text": "Do not ... yet",
+              "role": "evidence",
+              "note": "目前先别做"
+            }
+          ],
+          "caption": "先别做只说明当前，不代表永远禁止。"
+        },
+        "transfer": "如果去掉not并把yet换成now，指令有什么变化？"
+      }
+    }
+  },
+  "picturePurpose": "Six changing diagrams explain role attributes, scene location, whose lines, material direction, current instructions and description mode; two evidence tasks distinguish stated facts from assumptions."
+}
