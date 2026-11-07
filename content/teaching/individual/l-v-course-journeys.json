@@ -1,0 +1,2906 @@
+{
+  "lessonId": "l-v-course-journeys",
+  "reviewState": "draft",
+  "intent": "Distinguish travel preference with a condition, duration units, tour starting place, asking versus reaching/permission, hope versus completion, final destination and fewer-step counts.",
+  "picturePurpose": "Six changing code-owned diagrams explain conditions, duration, starting role, hope, destination and a clearly fictional step-count comparison. Two evidence tasks retain unanswered inquiries.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "旅行信息，别多走一步",
+    "instruction": "改图、数时长、圈原句：分清偏好、询问、希望和已经发生。",
+    "items": [
+      {
+        "id": "word-travel",
+        "label": "旅行（动词，本句）",
+        "prompt": "条件允许时，更喜欢哪种出行方式？“偏好”能改成“总是”吗？",
+        "answer": "travel",
+        "caseSensitive": false,
+        "meaning": "旅行（动词，本句）",
+        "before": "We prefer to ",
+        "after": " by train when possible.",
+        "reason": "We prefer to travel by train when possible说条件允许时更愿意坐火车旅行；没有说每次都坐火车。",
+        "hint": "travel在这里是动词；作名词时通常不可数，trip作行程名词时可数。",
+        "material": "We prefer to travel by train when possible.",
+        "options": [
+          {
+            "id": "prefer-train",
+            "text": "条件允许时，我们更愿意坐火车旅行。",
+            "correct": true,
+            "reason": "保留prefer、by train与when possible。"
+          },
+          {
+            "id": "bus",
+            "text": "条件允许时，我们更愿意坐公交车旅行。",
+            "correct": false,
+            "reason": "公交车改变了by train。"
+          },
+          {
+            "id": "always",
+            "text": "我们每次都必须坐火车旅行。",
+            "correct": false,
+            "reason": "偏好不是必须，when possible也不是每次都能做到。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "条件允许时，更喜欢哪种出行方式？“偏好”能改成“总是”吗？",
+          "sceneLab": {
+            "id": "travel-preference",
+            "title": "条件与偏好，分别核对",
+            "hint": "切换的是对原句的解释，不是真实交通安排。",
+            "wrong": "保留条件允许、偏好和火车，不能补成每次必须。",
+            "axes": [
+              {
+                "id": "vehicle",
+                "label": "出行方式",
+                "choices": [
+                  {
+                    "id": "train",
+                    "label": "火车"
+                  },
+                  {
+                    "id": "bus",
+                    "label": "公交车"
+                  }
+                ]
+              },
+              {
+                "id": "tone",
+                "label": "原句的语气",
+                "choices": [
+                  {
+                    "id": "prefer",
+                    "label": "条件允许时更愿意"
+                  },
+                  {
+                    "id": "always",
+                    "label": "每次都必须"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 3,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "条件允许时"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 76,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "vehicle",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 40,
+                    "width": 80,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "方式待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|prefer",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 3,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "条件允许时"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 76,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "更愿意"
+                  },
+                  {
+                    "id": "vehicle",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 40,
+                    "width": 80,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "方式待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|always",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 3,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "条件允许时"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 76,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "每次必须"
+                  },
+                  {
+                    "id": "vehicle",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 40,
+                    "width": 80,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "方式待选"
+                  }
+                ]
+              },
+              {
+                "signature": "train|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 3,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "条件允许时"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 76,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "vehicle",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 30,
+                    "width": 70,
+                    "height": 30,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 26,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "track",
+                    "kind": "line",
+                    "x": 9,
+                    "y": 72,
+                    "width": 82,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "vehicle-name",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 20,
+                    "width": 40,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "火车"
+                  }
+                ]
+              },
+              {
+                "signature": "train|prefer",
+                "reading": "条件允许时，我们更愿意坐火车旅行。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 3,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "条件允许时"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 76,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "更愿意"
+                  },
+                  {
+                    "id": "vehicle",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 30,
+                    "width": 70,
+                    "height": 30,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 26,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "track",
+                    "kind": "line",
+                    "x": 9,
+                    "y": 72,
+                    "width": 82,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "vehicle-name",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 20,
+                    "width": 40,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "火车"
+                  }
+                ]
+              },
+              {
+                "signature": "train|always",
+                "reading": "保留条件允许、偏好和火车，不能补成每次必须。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 3,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "条件允许时"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 76,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "每次必须"
+                  },
+                  {
+                    "id": "vehicle",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 30,
+                    "width": 70,
+                    "height": 30,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 26,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "track",
+                    "kind": "line",
+                    "x": 9,
+                    "y": 72,
+                    "width": 82,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "vehicle-name",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 20,
+                    "width": 40,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "火车"
+                  }
+                ]
+              },
+              {
+                "signature": "bus|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 3,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "条件允许时"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 76,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "vehicle",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 30,
+                    "width": 70,
+                    "height": 30,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 26,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "vehicle-name",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 20,
+                    "width": 40,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "公交车"
+                  }
+                ]
+              },
+              {
+                "signature": "bus|prefer",
+                "reading": "保留条件允许、偏好和火车，不能补成每次必须。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 3,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "条件允许时"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 76,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "更愿意"
+                  },
+                  {
+                    "id": "vehicle",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 30,
+                    "width": 70,
+                    "height": 30,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 26,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "vehicle-name",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 20,
+                    "width": 40,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "公交车"
+                  }
+                ]
+              },
+              {
+                "signature": "bus|always",
+                "reading": "保留条件允许、偏好和火车，不能补成每次必须。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 3,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "条件允许时"
+                  },
+                  {
+                    "id": "tone",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 76,
+                    "width": 92,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "每次必须"
+                  },
+                  {
+                    "id": "vehicle",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 30,
+                    "width": 70,
+                    "height": 30,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 36,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 26,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 60,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "vehicle-name",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 20,
+                    "width": 40,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "公交车"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-trip",
+        "label": "一次旅行；行程（名词，本句）",
+        "prompt": "three days是三天、三夜还是三周？改图核对时长单位。",
+        "answer": "trip",
+        "caseSensitive": false,
+        "meaning": "一次旅行；行程（名词，本句）",
+        "before": "Our ",
+        "after": " to the coast lasted three days.",
+        "reason": "Our trip to the coast lasted three days说海边之行持续三天；没有给出三夜或具体日期。",
+        "hint": "trip是可数名词；本句用our trip。go on a trip也常表示去旅行。",
+        "material": "Our trip to the coast lasted three days.",
+        "options": [
+          {
+            "id": "days",
+            "text": "海边之行持续了三天。",
+            "correct": true,
+            "reason": "three days给出三天的时长。"
+          },
+          {
+            "id": "nights",
+            "text": "海边之行持续了三夜。",
+            "correct": false,
+            "reason": "days不是nights；不能自行换算住宿夜数。"
+          },
+          {
+            "id": "weeks",
+            "text": "海边之行持续了三周。",
+            "correct": false,
+            "reason": "weeks改变了days的单位。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "three days是三天、三夜还是三周？改图核对时长单位。",
+          "sceneLab": {
+            "id": "trip-duration",
+            "title": "数目相同，单位不能换",
+            "hint": "三格表示相对时长，不给出日历日期或住宿夜数。",
+            "wrong": "原句是三天，不能换成三夜或三周。",
+            "axes": [
+              {
+                "id": "unit",
+                "label": "three后面的单位",
+                "choices": [
+                  {
+                    "id": "days",
+                    "label": "天"
+                  },
+                  {
+                    "id": "nights",
+                    "label": "夜"
+                  },
+                  {
+                    "id": "weeks",
+                    "label": "周"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "coast",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 3,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "海边之行：相对时长"
+                  },
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 78,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "单位待选"
+                  },
+                  {
+                    "id": "cell-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "1"
+                  },
+                  {
+                    "id": "cell-1",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-1",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "2"
+                  },
+                  {
+                    "id": "cell-2",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-2",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "3"
+                  }
+                ]
+              },
+              {
+                "signature": "days",
+                "reading": "海边之行持续了三天。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "coast",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 3,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "海边之行：相对时长"
+                  },
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 78,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "三天"
+                  },
+                  {
+                    "id": "cell-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "1"
+                  },
+                  {
+                    "id": "cell-1",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-1",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "2"
+                  },
+                  {
+                    "id": "cell-2",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-2",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "3"
+                  }
+                ]
+              },
+              {
+                "signature": "nights",
+                "reading": "原句是三天，不能换成三夜或三周。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "coast",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 3,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "海边之行：相对时长"
+                  },
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 78,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "三夜"
+                  },
+                  {
+                    "id": "cell-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "1"
+                  },
+                  {
+                    "id": "cell-1",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-1",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "2"
+                  },
+                  {
+                    "id": "cell-2",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-2",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "3"
+                  }
+                ]
+              },
+              {
+                "signature": "weeks",
+                "reading": "原句是三天，不能换成三夜或三周。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "coast",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 3,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "海边之行：相对时长"
+                  },
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 78,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "三周"
+                  },
+                  {
+                    "id": "cell-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "1"
+                  },
+                  {
+                    "id": "cell-1",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-1",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "2"
+                  },
+                  {
+                    "id": "cell-2",
+                    "kind": "rect",
+                    "x": 69,
+                    "y": 32,
+                    "width": 26,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "cell-label-2",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 39,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "3"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-tour",
+        "label": "游览；参观活动（名词，本句）",
+        "prompt": "博物馆参观从哪里开始？把地点和起终点角色分别选对。",
+        "answer": "tour",
+        "caseSensitive": false,
+        "meaning": "游览；参观活动（名词，本句）",
+        "before": "The museum ",
+        "after": " starts at the front desk.",
+        "reason": "The museum tour starts at the front desk说博物馆参观从前台开始；没有给出终点或导游安排。",
+        "hint": "a tour of后常接游览地点；本句用museum tour。starts只说明开始的位置。",
+        "material": "The museum tour starts at the front desk.",
+        "options": [
+          {
+            "id": "desk-start",
+            "text": "博物馆参观从前台开始。",
+            "correct": true,
+            "reason": "保留starts与front desk。"
+          },
+          {
+            "id": "end",
+            "text": "博物馆参观在前台结束。",
+            "correct": false,
+            "reason": "结束与starts开始相反。"
+          },
+          {
+            "id": "gate",
+            "text": "博物馆参观从大门开始。",
+            "correct": false,
+            "reason": "大门改变了front desk前台。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "博物馆参观从哪里开始？把地点和起终点角色分别选对。",
+          "sceneLab": {
+            "id": "tour-start",
+            "title": "地点和角色，分开看",
+            "hint": "只标原句的起点，不画出未经说明的终点、路径或导游。",
+            "wrong": "原句从前台开始；结束或大门都改变了信息。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "地点",
+                "choices": [
+                  {
+                    "id": "desk",
+                    "label": "前台"
+                  },
+                  {
+                    "id": "gate",
+                    "label": "大门"
+                  }
+                ]
+              },
+              {
+                "id": "role",
+                "label": "在行程中的角色",
+                "choices": [
+                  {
+                    "id": "start",
+                    "label": "开始处"
+                  },
+                  {
+                    "id": "end",
+                    "label": "结束处"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色待选"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 35,
+                    "width": 80,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 44,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 79,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|start",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 35,
+                    "width": 80,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 44,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 79,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "从这里开始"
+                  }
+                ]
+              },
+              {
+                "signature": "?|end",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 35,
+                    "width": 80,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 44,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 79,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "在这里结束"
+                  }
+                ]
+              },
+              {
+                "signature": "desk|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色待选"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 35,
+                    "width": 80,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 44,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "前台"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 79,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "待选"
+                  }
+                ]
+              },
+              {
+                "signature": "desk|start",
+                "reading": "博物馆参观从前台开始。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 35,
+                    "width": 80,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 44,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "前台"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 79,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "从这里开始"
+                  }
+                ]
+              },
+              {
+                "signature": "desk|end",
+                "reading": "原句从前台开始；结束或大门都改变了信息。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 35,
+                    "width": 80,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 44,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "前台"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 79,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "在这里结束"
+                  }
+                ]
+              },
+              {
+                "signature": "gate|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色待选"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 35,
+                    "width": 80,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 44,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "大门"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 79,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "待选"
+                  }
+                ]
+              },
+              {
+                "signature": "gate|start",
+                "reading": "原句从前台开始；结束或大门都改变了信息。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "起点"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 35,
+                    "width": 80,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 44,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "大门"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 79,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "从这里开始"
+                  }
+                ]
+              },
+              {
+                "signature": "gate|end",
+                "reading": "原句从前台开始；结束或大门都改变了信息。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "终点"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 35,
+                    "width": 80,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 44,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "大门"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 79,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "在这里结束"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-tourist",
+        "label": "游客（人）",
+        "prompt": "游客问了谁、问什么？圈出询问，不补已经到达。",
+        "answer": "tourist",
+        "caseSensitive": false,
+        "meaning": "游客（人）",
+        "before": "A ",
+        "after": " asked me how to reach the harbour.",
+        "reason": "A tourist asked me how to reach the harbour只报告游客向我问去港口的方法，没有报告他已经到达。",
+        "hint": "tour加ist构成tourist；asked me说明问的是谁，how to reach说明问的是去港口的方法。",
+        "material": "A tourist asked me how to reach the harbour.",
+        "options": [
+          {
+            "id": "asked",
+            "text": "一位游客向我问去港口的方法。",
+            "correct": true,
+            "reason": "保留人物、asked me与how to reach。"
+          },
+          {
+            "id": "arrived",
+            "text": "这位游客已经到达港口。",
+            "correct": false,
+            "reason": "询问路线不能证明已经到达。"
+          },
+          {
+            "id": "station",
+            "text": "这位游客问怎样去火车站。",
+            "correct": false,
+            "reason": "火车站改变了harbour港口。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "游客问了谁、问什么？圈出询问，不补已经到达。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问路，不是到达",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "询问不等于已经得到答复或采取行动。",
+            "wrong": "圈出游客和问路；原句没说已经到达。",
+            "rows": [
+              {
+                "id": "person",
+                "label": "询问者",
+                "text": "一位游客。",
+                "include": true
+              },
+              {
+                "id": "question",
+                "label": "问的内容",
+                "text": "向我问怎样去港口。",
+                "include": true
+              },
+              {
+                "id": "arrived",
+                "label": "额外结果",
+                "text": "已经到达港口。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-holidaymaker",
+        "label": "度假者（人）",
+        "prompt": "度假者在询问什么？能由“询问”推出已经安全下水吗？",
+        "answer": "holidaymaker",
+        "caseSensitive": false,
+        "meaning": "度假者（人）",
+        "before": "The ",
+        "after": " asked about safe swimming places.",
+        "reason": "The holidaymaker asked about safe swimming places说度假者询问安全的游泳地点；没有给出地点答案、安全核实或下水许可。",
+        "hint": "holidaymaker是英式常用表达；本句只报告询问，不推荐任何真实游泳地点。",
+        "material": "The holidaymaker asked about safe swimming places.",
+        "options": [
+          {
+            "id": "asked",
+            "text": "度假者询问安全的游泳地点。",
+            "correct": true,
+            "reason": "保留asked about与safe swimming places。"
+          },
+          {
+            "id": "swam",
+            "text": "度假者已经在安全地点下水。",
+            "correct": false,
+            "reason": "询问不等于已经下水，也没有给出地点安全核实。"
+          },
+          {
+            "id": "shops",
+            "text": "度假者询问购物地点。",
+            "correct": false,
+            "reason": "购物改变了swimming。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "度假者在询问什么？能由“询问”推出已经安全下水吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "询问与结果分开",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "询问不等于已经得到答复或采取行动。",
+            "wrong": "圈出度假者和询问内容；不能补安全核实、许可或已经下水。",
+            "rows": [
+              {
+                "id": "person",
+                "label": "询问者",
+                "text": "一位度假者。",
+                "include": true
+              },
+              {
+                "id": "question",
+                "label": "问的内容",
+                "text": "询问安全的游泳地点。",
+                "include": true
+              },
+              {
+                "id": "permission",
+                "label": "额外结论",
+                "text": "已获准安全下水。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-visit",
+        "label": "参观（动词，本句）",
+        "prompt": "hope to visit到了哪一步？切换希望、已完成和必然完成。",
+        "answer": "visit",
+        "caseSensitive": false,
+        "meaning": "参观（动词，本句）",
+        "before": "We hope to ",
+        "after": " the new science centre.",
+        "reason": "We hope to visit the new science centre说我们希望参观新的科学中心；希望不等于已经参观或保证成行。",
+        "hint": "visit后可直接接地点或人；本句to visit接在hope后，表达希望参观。",
+        "material": "We hope to visit the new science centre.",
+        "options": [
+          {
+            "id": "hope",
+            "text": "我们希望参观新的科学中心。",
+            "correct": true,
+            "reason": "hope to visit保留希望。"
+          },
+          {
+            "id": "done",
+            "text": "我们已经参观过新的科学中心。",
+            "correct": false,
+            "reason": "原句没有报告完成。"
+          },
+          {
+            "id": "certain",
+            "text": "我们一定会完成这次参观。",
+            "correct": false,
+            "reason": "希望不是保证将来完成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "hope to visit到了哪一步？切换希望、已完成和必然完成。",
+          "sceneLab": {
+            "id": "visit-hope",
+            "title": "希望、完成，别混在一起",
+            "hint": "建筑只是对象示意，不表示已经到达或参观。",
+            "wrong": "hope to visit只表达希望，不能改成已经完成或保证成行。",
+            "axes": [
+              {
+                "id": "phase",
+                "label": "hope to visit表达哪一步",
+                "choices": [
+                  {
+                    "id": "hope",
+                    "label": "希望参观"
+                  },
+                  {
+                    "id": "done",
+                    "label": "已经参观"
+                  },
+                  {
+                    "id": "certain",
+                    "label": "保证成行"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "subject",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新科学中心"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 42,
+                    "width": 60,
+                    "height": 38,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 60,
+                    "width": 12,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 50,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 50,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 83,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "进度待选"
+                  }
+                ]
+              },
+              {
+                "signature": "hope",
+                "reading": "我们希望参观新的科学中心。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "subject",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新科学中心"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 42,
+                    "width": 60,
+                    "height": 38,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 60,
+                    "width": 12,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 50,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 50,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 83,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "希望参观"
+                  }
+                ]
+              },
+              {
+                "signature": "done",
+                "reading": "hope to visit只表达希望，不能改成已经完成或保证成行。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "subject",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新科学中心"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 42,
+                    "width": 60,
+                    "height": 38,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 60,
+                    "width": 12,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 50,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 50,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 83,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已参观"
+                  }
+                ]
+              },
+              {
+                "signature": "certain",
+                "reading": "hope to visit只表达希望，不能改成已经完成或保证成行。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "subject",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新科学中心"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 42,
+                    "width": 60,
+                    "height": 38,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 60,
+                    "width": 12,
+                    "height": 20,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-a",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 50,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "window-b",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 50,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 83,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一定成行"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-destination",
+        "label": "目的地；计划到达的地方",
+        "prompt": "山中的村庄是最终目的地，还是出发地或已经到达之处？",
+        "answer": "destination",
+        "caseSensitive": false,
+        "meaning": "目的地；计划到达的地方",
+        "before": "Our final ",
+        "after": " is a village in the hills.",
+        "reason": "Our final destination is a village in the hills给出最终目的地：山中的村庄；没有报告当前所在位置或已经到达。",
+        "hint": "destination指计划到达的地方；final限定最终目的地，不是每个途经点。",
+        "material": "Our final destination is a village in the hills.",
+        "options": [
+          {
+            "id": "final",
+            "text": "最终目的地是山中的一个村庄。",
+            "correct": true,
+            "reason": "保留final destination与village in the hills。"
+          },
+          {
+            "id": "start",
+            "text": "出发地点是山中的一个村庄。",
+            "correct": false,
+            "reason": "起点与最终目的地不是同一信息。"
+          },
+          {
+            "id": "reached",
+            "text": "我们已经到达这个村庄。",
+            "correct": false,
+            "reason": "给出目的地没有报告已经到达。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "山中的村庄是最终目的地，还是出发地或已经到达之处？",
+          "sceneLab": {
+            "id": "destination-final",
+            "title": "给目的地，不补已到达",
+            "hint": "村庄和山只是位置关系示意，不是实际地图。",
+            "wrong": "原句给出最终目的地，没有说起点或已经到达。",
+            "axes": [
+              {
+                "id": "role",
+                "label": "final destination给出什么",
+                "choices": [
+                  {
+                    "id": "final",
+                    "label": "最终目的地"
+                  },
+                  {
+                    "id": "start",
+                    "label": "出发地点"
+                  },
+                  {
+                    "id": "reached",
+                    "label": "已经到达"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 3,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "山中的村庄"
+                  },
+                  {
+                    "id": "hill-a",
+                    "kind": "ellipse",
+                    "x": 2,
+                    "y": 38,
+                    "width": 51,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "hill-b",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 38,
+                    "width": 51,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "house-a",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 43,
+                    "width": 13,
+                    "height": 26,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "house-b",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 36,
+                    "width": 14,
+                    "height": 33,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "house-c",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 45,
+                    "width": 13,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 82,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "角色待选"
+                  }
+                ]
+              },
+              {
+                "signature": "final",
+                "reading": "最终目的地是山中的一个村庄。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 3,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "山中的村庄"
+                  },
+                  {
+                    "id": "hill-a",
+                    "kind": "ellipse",
+                    "x": 2,
+                    "y": 38,
+                    "width": 51,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "hill-b",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 38,
+                    "width": 51,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "house-a",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 43,
+                    "width": 13,
+                    "height": 26,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "house-b",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 36,
+                    "width": 14,
+                    "height": 33,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "house-c",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 45,
+                    "width": 13,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 82,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "最终目的地"
+                  }
+                ]
+              },
+              {
+                "signature": "start",
+                "reading": "原句给出最终目的地，没有说起点或已经到达。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 3,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "山中的村庄"
+                  },
+                  {
+                    "id": "hill-a",
+                    "kind": "ellipse",
+                    "x": 2,
+                    "y": 38,
+                    "width": 51,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "hill-b",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 38,
+                    "width": 51,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "house-a",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 43,
+                    "width": 13,
+                    "height": 26,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "house-b",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 36,
+                    "width": 14,
+                    "height": 33,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "house-c",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 45,
+                    "width": 13,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 82,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "出发地"
+                  }
+                ]
+              },
+              {
+                "signature": "reached",
+                "reading": "原句给出最终目的地，没有说起点或已经到达。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 3,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "山中的村庄"
+                  },
+                  {
+                    "id": "hill-a",
+                    "kind": "ellipse",
+                    "x": 2,
+                    "y": 38,
+                    "width": 51,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "hill-b",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 38,
+                    "width": 51,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "house-a",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 43,
+                    "width": 13,
+                    "height": 26,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "house-b",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 36,
+                    "width": 14,
+                    "height": 33,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "house-c",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 45,
+                    "width": 13,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "role",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 82,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已到达"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-route",
+        "label": "路线",
+        "prompt": "新示意中，哪条路线的陡台阶更少？少一些等于一个也没有吗？",
+        "answer": "route",
+        "caseSensitive": false,
+        "meaning": "路线",
+        "before": "Choose the ",
+        "after": " with fewer steep steps.",
+        "reason": "Choose the route with fewer steep steps要求选择陡台阶较少的路线；fewer比较数量，不代表最短、没有台阶或已经核实安全。",
+        "hint": "route指具体路线；新图的4级和2级只用于比较，不是原句提供的实际数量。",
+        "material": "Choose the route with fewer steep steps.",
+        "options": [
+          {
+            "id": "fewer",
+            "text": "选择陡台阶较少的路线。",
+            "correct": true,
+            "reason": "fewer修饰可数的steps，比较台阶数量。"
+          },
+          {
+            "id": "more",
+            "text": "选择陡台阶较多的路线。",
+            "correct": false,
+            "reason": "较多与fewer较少相反。"
+          },
+          {
+            "id": "none",
+            "text": "较少说明这条路线没有台阶。",
+            "correct": false,
+            "reason": "少于另一条不等于零；也不能据此判断距离或安全。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "新示意中，哪条路线的陡台阶更少？少一些等于一个也没有吗？",
+          "sceneLab": {
+            "id": "route-fewer",
+            "title": "新示意：比较陡台阶数量",
+            "hint": "两条虚构路线仅比较4级和2级陡台阶；不表示距离或安全。",
+            "wrong": "应比较陡台阶的数量；2比4少，但不是没有台阶。",
+            "axes": [
+              {
+                "id": "choice",
+                "label": "应选择哪条路线",
+                "choices": [
+                  {
+                    "id": "fewer",
+                    "label": "B：2级比4级少"
+                  },
+                  {
+                    "id": "more",
+                    "label": "A：4级比2级多"
+                  },
+                  {
+                    "id": "none",
+                    "label": "B：少就是没有台阶"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "row-a",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "A：4级陡台阶"
+                  },
+                  {
+                    "id": "row-b",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 52,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "B：2级陡台阶"
+                  },
+                  {
+                    "id": "a-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "a-1",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "a-2",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "a-3",
+                    "kind": "rect",
+                    "x": 65,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "b-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 74,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "b-1",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 74,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "fewer",
+                "reading": "选择陡台阶较少的路线。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "row-a",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "A：4级陡台阶"
+                  },
+                  {
+                    "id": "row-b",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 52,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "B：2级陡台阶"
+                  },
+                  {
+                    "id": "a-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "a-1",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "a-2",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "a-3",
+                    "kind": "rect",
+                    "x": 65,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "b-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 74,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "b-1",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 74,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "more",
+                "reading": "应比较陡台阶的数量；2比4少，但不是没有台阶。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "row-a",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "A：4级陡台阶"
+                  },
+                  {
+                    "id": "row-b",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 52,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "B：2级陡台阶"
+                  },
+                  {
+                    "id": "a-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "a-1",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "a-2",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "a-3",
+                    "kind": "rect",
+                    "x": 65,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "b-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 74,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "b-1",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 74,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "none",
+                "reading": "应比较陡台阶的数量；2比4少，但不是没有台阶。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "row-a",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 5,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "A：4级陡台阶"
+                  },
+                  {
+                    "id": "row-b",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 52,
+                    "width": 90,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "B：2级陡台阶"
+                  },
+                  {
+                    "id": "a-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "a-1",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "a-2",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "a-3",
+                    "kind": "rect",
+                    "x": 65,
+                    "y": 27,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "b-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 74,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "b-1",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 74,
+                    "width": 13,
+                    "height": 15,
+                    "tone": "blue"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-journeys-transfer",
+      "topicId": "v-course-journeys",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成公交车、图书馆和湖边村庄，哪组完整保留了信息？",
+      "passage": "三条新信息\n条件允许时，我们更愿意坐公交车旅行。我们希望参观新的图书馆。我们的最终目的地是湖边的一个村庄。\n词语提示：library 图书馆；lake 湖。",
+      "options": [
+        {
+          "id": "a",
+          "text": "We prefer to travel by bus when possible. We hope to visit the new library. Our final destination is a village by the lake."
+        },
+        {
+          "id": "b",
+          "text": "We always have to travel by bus. We hope to visit the new library. Our final destination is a village by the lake."
+        },
+        {
+          "id": "c",
+          "text": "We prefer to travel by bus when possible. We have already visited the new library. Our final destination is a village by the lake."
+        },
+        {
+          "id": "d",
+          "text": "We prefer to travel by bus when possible. We hope to visit the new library. Our starting point is a village by the lake."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "We prefer to travel by bus when possible. We hope to visit the new library. Our final destination is a village by the lake."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐条核对条件与偏好、希望与完成、最终目的地与起点。",
+        "steps": [
+          {
+            "text": "更愿意、条件允许：prefer…when possible。",
+            "reason": "always have to多出了每次必须。"
+          },
+          {
+            "text": "希望参观：hope to visit。",
+            "reason": "have already visited把希望改成已经完成。"
+          },
+          {
+            "text": "最终目的地：final destination。",
+            "reason": "starting point换成了出发地。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "always have to把有条件的偏好改成每次必须。"
+          },
+          {
+            "option": "c",
+            "reason": "have already visited补出了已经参观的结果。"
+          },
+          {
+            "option": "d",
+            "reason": "starting point把最终目的地改成了出发地。"
+          }
+        ],
+        "pitfall": "偏好不是必须，希望不是完成，最终目的地也不是起点。",
+        "visual": {
+          "kind": "comparison",
+          "title": "逐条对齐，不替原句多走一步",
+          "segments": [
+            {
+              "text": "prefer · when possible",
+              "role": "evidence",
+              "note": "有条件的偏好"
+            },
+            {
+              "text": "hope to visit",
+              "role": "evidence",
+              "note": "希望，未报告完成"
+            },
+            {
+              "text": "final destination",
+              "role": "evidence",
+              "note": "最终计划到达处"
+            }
+          ],
+          "caption": "三个名词都对，也可能因关系词不同而答错。"
+        },
+        "transfer": "把hope to visit改成have already visited，多出了什么事实？"
+      }
+    }
+  }
+}
