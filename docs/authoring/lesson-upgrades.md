@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **363 / 413**. Current: **l-v-course-sport**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **364 / 413**. Current: **l-v-course-sport-2**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -229,7 +229,7 @@ Completed: **363 / 413**. Current: **l-v-course-sport**. Evidence lives in docs/
 | l-v-course-work-roles-3 | 职业与分工 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-work-roles-3.md) |
 | l-v-course-work-roles-4 | 职业与分工 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-work-roles-4.md) |
 | l-v-course-work-roles-5 | 职业与分工 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-work-roles-5.md) |
-| l-v-course-sport | 运动、比赛与合作 · 1 | pending | — |
+| l-v-course-sport | 运动、比赛与合作 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-sport.md) |
 | l-v-course-sport-2 | 运动、比赛与合作 · 2 | pending | — |
 | l-v-course-sport-3 | 运动、比赛与合作 · 3 | pending | — |
 | l-v-course-sport-4 | 运动、比赛与合作 · 4 | pending | — |
