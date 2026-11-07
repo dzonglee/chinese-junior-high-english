@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **403 / 413**. Current: **l-p-letter-sound**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **404 / 413**. Current: **l-p-vowels**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -411,7 +411,7 @@ Completed: **403 / 413**. Current: **l-p-letter-sound**. Evidence lives in docs/
 | l-w-course-t28 | 自然灾害与安全准备：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t28.md) |
 | l-s-course-t29 | 地球、太空与探索：口头说清 | reviewed | [Individual review](../reviews/individual-lessons/l-s-course-t29.md) |
 | l-w-course-t29 | 地球、太空与探索：用文字说清 | reviewed | [Individual review](../reviews/individual-lessons/l-w-course-t29.md) |
-| l-p-letter-sound | 字母名与词中的音 | pending | — |
+| l-p-letter-sound | 字母名与词中的音 | reviewed | [Individual review](../reviews/individual-lessons/l-p-letter-sound.md) |
 | l-p-vowels | 元音音标与常见拼写 | pending | — |
 | l-p-consonants | 辅音、辅音组合与词尾 | pending | — |
 | l-p-word-stress | 单词重音放在哪一节 | pending | — |
