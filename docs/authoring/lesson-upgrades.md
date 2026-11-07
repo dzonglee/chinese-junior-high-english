@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **411 / 413**. Current: **l-r-restoration**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **412 / 413**. Current: **l-r-short-answers**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -419,5 +419,5 @@ Completed: **411 / 413**. Current: **l-r-restoration**. Evidence lives in docs/r
 | l-p-thought-groups | 意群与有意义的停顿 | reviewed | [Individual review](../reviews/individual-lessons/l-p-thought-groups.md) |
 | l-p-connected-speech | 连读与弱读的书面准备 | reviewed | [Individual review](../reviews/individual-lessons/l-p-connected-speech.md) |
 | l-p-intonation | 语调、态度与对话意图 | reviewed | [Individual review](../reviews/individual-lessons/l-p-intonation.md) |
-| l-r-restoration | 句子还原：看前后照应 | pending | — |
+| l-r-restoration | 句子还原：看前后照应 | reviewed | [Individual review](../reviews/individual-lessons/l-r-restoration.md) |
 | l-r-short-answers | 任务型阅读：按要求提取信息 | pending | — |

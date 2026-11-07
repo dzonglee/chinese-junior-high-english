@@ -188,7 +188,13 @@ describe('real authored course evidence boundaries', () => {
     const answerOnly = structuredClone(item)
     answerOnly.explanation.visual.segments = [{text: item.answer.display, role: 'evidence', note: 'Absent missing word'}]
     expect(evidenceSentences(answerOnly)).toEqual([])
-    expect(evidenceSentences(source.questions.find(question => question.id === 'q-r-restoration-1-1')!)).toEqual([])
+    const restoration = source.questions.find(question => question.id === 'q-r-restoration-1-1')!
+    expect(evidenceSentences(restoration).filter(sentence => sentence.matched).map(sentence => sentence.text)).toEqual(['When our science club began, I thought a good question had to sound difficult.', '[1]_____ Our teacher listened and asked us to look around the room.'])
+    const altered = structuredClone(restoration)
+    altered.explanation.visual.segments = [{text: restoration.passage!.split('\n')[0].replace('[1]_____', '[本空]'), role:'evidence',note:'Altered blank is not a literal quote'}]
+    expect(evidenceSentences(altered)).toEqual([])
+    altered.explanation.visual.segments = [{text: restoration.answer.display,role:'evidence',note:'Absent restored sentence'}]
+    expect(evidenceSentences(altered)).toEqual([])
   })
 
   it('offers only literal source evidence across the real catalog, never non-reading tasks', () => {

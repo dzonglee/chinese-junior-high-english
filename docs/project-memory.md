@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-11-07 (UTC)
 
-411 of 413 lessons are individually reviewed; 2 remain pending. Work stays solo under
+412 of 413 lessons are individually reviewed; 1 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-p-intonation. Eight individually authored activities compare neutral questions, explicit choices, list endings, context-dependent attitudes and corrective focus. Exact directional diagrams and eight concrete explanations reject absolute pitch rules. A bus/train transfer follows an explicit two-choice teaching pattern. Content stays draft.
+Latest: l-r-restoration. Eight individually authored activities restore all five science-club gaps using both neighbours, complete sentence insertion and a student explanation, then trace it/That question and reject unsupported water claims. Original generated notebook/plant art supports reference identification. All30wrong gap choices and60source-question distractors have context-specific feedback. Ten explanations distinguish proposed sentences from literal source evidence. A new sign-change transfer tests both links. Chinese task instructions retain the original English passages and answers. Content stays draft. Lossless JPEG encoding saves180950bytes with every decoded RGB pixel and dimension verified identical; fixed package limits remain enforced.
 
-Inspected all55 final browser figures across14sheets and all8standalone320px source-question feedback screens after the complete successful run. Read all8FINAL questions and full explanations. Eight contextual diagrams compare neutral questions, explicit choices, list endings, attitudes, corrective focus and limits of written knowledge. All4sorting cards, wrong corrections, reload and320/390/768px layouts checked. Full bus/train transfer/passages/4options/3steps/3wrong routes inspected: sourceB presentedA; wrongB deletes train, C treats all or contexts identically, D reverses the specified contour. Chinese and arrows agree; no universal pitch or speech-performance claim. Content remains draft.
+Inspected all186 final activity PNGs across47sheets at320/390/768px. Six previously inspected sheets were retained only after every individual PNG was proved SHA256-identical; the remaining41sheets were opened from the final successful browser snapshot. All8 tasks, every sentence choice and wrong contextual reason, missing/partial evidence, required own explanations, saved work, restoration and changed-answer invalidation were examined. Generated notebook/plant targets were inspected at all widths. All10 FINAL source questions/full passages/complete feedback were read; all10 new standalone320px feedback screens were then actually opened after the complete platform rerun passed. Primary answers E/C/G/A/F and delayed D/F/B/G/A agree with the passage links. Before/after evidence is highlighted; candidate insertions stay neutral. Every wrong candidate has a specific contextual reason. Full new sign-change transfer, all4options/3steps/3wrong routes and summary inspected: sourceB presentedB. Native Chinese task directions, source order and That question reference quote were checked. The first full offline attempt exposed a test-only own-field click; corrected actual textarea entry and native setField dispatch, then reran all291 offline checks and both complete adapter modes successfully. App/core source and final browser snapshot stayed unchanged during that correction. Lossless packaging changes preserve every decoded RGB byte and dimension. Content remains draft; no actual SDK beyond147, listening, speech or public-release claim.
 
 
-Checkpoint 411 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 3079 tasks / 9237 widths; earlier flows retain their original scope.
+Checkpoint 412 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 3087 tasks / 9261 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-r-restoration. Continue l-r-restoration solo after fresh clean-source guard, full board/latest log and owner/cards. Approved audio remains separate; videos deferred.
+Next: l-r-short-answers. Complete the next individually authored lesson, then inspect the whole home-to-course-to-mock flow. Approved audio, physical devices and production remain separate; videos deferred.
 
-Native GUI status: Native 148–411 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–411 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–412 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–412 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Accepted410 pushed as 039cccf18e1b06ea9c734968e30c2a0628555205; all1452 source hashes and clean application verified before411admission. Fresh fetch/full board/latest410log and owner/cards read.
+Accepted411 pushed as c00cefb18c7e7b66107832564f44838253e6997e; all1454source hashes and clean application verified before admission. Fresh fetch/full board/latest log and owner/cards read.
 
 ## Previous local delivery · 2026-10-17
 
