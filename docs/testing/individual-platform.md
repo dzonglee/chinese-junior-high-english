@@ -15,3 +15,5 @@ The selected case is extracted from the existing full-suite source with the Type
 Offline checks cover fresh onboarding and embedded home artwork, the complete selected offline fixture, independent-evidence boundaries, and network/error guards. Only local document navigation may briefly enable networking; practice remains offline and other requests are blocked. Adapter checks retain actual CommonJS startup, artwork-subpackage readiness, privacy routing, a real independent baseline question, all 245 canonical topic/hash loads and the selected case in both development and cloud simulations. They are separate from WeChat DevTools and physical-device testing.
 
 Keep full core tests and per-lesson browser/visual review. Run the complete platform suites whenever shared behavior changes and at the final all-course review. Preserve earlier full-suite evidence and explicitly identify inherited scope in each lesson checkpoint.
+
+The catalog generator and build entry point also belong to the byte-compared shared baseline. Changing their packaging behavior requires the complete standalone and both complete adapter suites before a new focused baseline can be established.

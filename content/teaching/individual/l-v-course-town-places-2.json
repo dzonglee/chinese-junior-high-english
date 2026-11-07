@@ -1,0 +1,2753 @@
+{
+  "lessonId": "l-v-course-town-places-2",
+  "reviewState": "draft",
+  "intent": "Teach district and lane attributes, neighbourhood weekly frequency, centre location, Saturday square market, landmark-relative turning, avenue comparison, church front/back and path endpoint/material.",
+  "picturePurpose": "Original avenue/lane comparison supports a precise picture task; four changing diagrams teach centre, relative turn, church lane position and gate endpoint, with three evidence tasks for attributes and frequency.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "在街区里找位置",
+    "instruction": "移动喷泉、改变转向、切换前后位置，再核对小路终点。",
+    "items": [
+      {
+        "id": "word-district",
+        "label": "地区；区",
+        "prompt": "哪片区域？巷子有什么特点？圈出信息，不猜年代和宽度。",
+        "answer": "district",
+        "caseSensitive": false,
+        "meaning": "地区；区",
+        "before": "The old ",
+        "after": " has narrow lanes.",
+        "reason": "The old district has narrow lanes说老城区有狭窄的小巷；old修饰district，narrow修饰lanes。",
+        "hint": "district常指行政区或有特征的区域；本句不提供正式行政级别、建成年代、小巷条数或具体宽度。",
+        "material": "The old district has narrow lanes.",
+        "options": [
+          {
+            "id": "old-narrow",
+            "text": "老城区有狭窄的小巷。",
+            "correct": true,
+            "reason": "保留old district与narrow lanes。"
+          },
+          {
+            "id": "new",
+            "text": "新城区有狭窄的小巷。",
+            "correct": false,
+            "reason": "new新与old老相反。"
+          },
+          {
+            "id": "wide",
+            "text": "老城区有宽阔的小巷。",
+            "correct": false,
+            "reason": "wide宽与narrow窄相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪片区域？巷子有什么特点？圈出信息，不猜年代和宽度。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "区域与巷子特点",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "不补行政级别、年代、条数或米数。",
+            "wrong": "应圈出老城区和窄巷，不补具体年代或宽度。",
+            "rows": [
+              {
+                "id": "old",
+                "label": "区域",
+                "text": "老城区。",
+                "include": true
+              },
+              {
+                "id": "narrow",
+                "label": "巷子特点",
+                "text": "小巷狭窄。",
+                "include": true
+              },
+              {
+                "id": "date",
+                "label": "额外年代",
+                "text": "原句给出建成年份。",
+                "include": false
+              },
+              {
+                "id": "width",
+                "label": "额外宽度",
+                "text": "原句给出巷宽米数。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-neighbourhood",
+        "label": "街区；附近地区",
+        "prompt": "多久一次？是街市还是商场？圈出原句，不指定星期几。",
+        "answer": "neighbourhood",
+        "caseSensitive": false,
+        "meaning": "街区；附近地区",
+        "before": "Our ",
+        "after": " has a weekly street market.",
+        "reason": "Our neighbourhood has a weekly street market说我们这个街区每周有一次街市；weekly不是每天，street market不是封闭商场。",
+        "hint": "英式neighbourhood对应美式neighborhood，两种拼写都接受。weekly说明每周的频率，不提供具体星期、地点地址或摊位数。",
+        "material": "Our neighbourhood has a weekly street market.",
+        "options": [
+          {
+            "id": "weekly",
+            "text": "我们这个街区每周有一次街市。",
+            "correct": true,
+            "reason": "保留Our neighbourhood与weekly street market。"
+          },
+          {
+            "id": "daily",
+            "text": "我们这个街区每天都有街市。",
+            "correct": false,
+            "reason": "daily每天不是weekly每周。"
+          },
+          {
+            "id": "saturday",
+            "text": "原句指定街市只在每周六举行。",
+            "correct": false,
+            "reason": "weekly没有指定星期六。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "多久一次？是街市还是商场？圈出原句，不指定星期几。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "街市与频率",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "不把weekly读成daily，也不把下一句的Saturday搬过来。",
+            "wrong": "应圈出本街区有街市与每周一次，不指定星期六或每天。",
+            "rows": [
+              {
+                "id": "market",
+                "label": "活动",
+                "text": "本街区有街市。",
+                "include": true
+              },
+              {
+                "id": "weekly",
+                "label": "频率",
+                "text": "每周一次。",
+                "include": true
+              },
+              {
+                "id": "saturday",
+                "label": "额外日期",
+                "text": "已指定每周六。",
+                "include": false
+              },
+              {
+                "id": "daily",
+                "label": "额外频率",
+                "text": "每天举行。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "spellings": [
+          "neighbourhood",
+          "neighborhood"
+        ],
+        "ownForms": [
+          "neighbourhood",
+          "neighborhood"
+        ]
+      },
+      {
+        "id": "word-centre",
+        "label": "中心",
+        "prompt": "喷泉在中央还是边缘？换个物体，检查句意有没有变。",
+        "answer": "centre",
+        "caseSensitive": false,
+        "meaning": "中心",
+        "before": "A fountain stands in the ",
+        "after": " of the square.",
+        "reason": "A fountain stands in the centre of the square说广场中央有一座喷泉；centre不是edge，fountain不是tree。",
+        "hint": "英式centre对应美式center，两种拼写都接受。本句stands描述位置，不表示喷泉一定正在喷水；图中圆形只作物体标记，不给实际尺寸。",
+        "material": "A fountain stands in the centre of the square.",
+        "options": [
+          {
+            "id": "fountain-centre",
+            "text": "广场中央有一座喷泉。",
+            "correct": true,
+            "reason": "保留fountain与in the centre of the square。"
+          },
+          {
+            "id": "edge",
+            "text": "广场边缘有一座喷泉。",
+            "correct": false,
+            "reason": "edge边缘不是centre中心。"
+          },
+          {
+            "id": "tree",
+            "text": "广场中央有一棵树。",
+            "correct": false,
+            "reason": "tree树不是fountain喷泉。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "喷泉在中央还是边缘？换个物体，检查句意有没有变。",
+          "sceneLab": {
+            "id": "square-centre",
+            "title": "物体与广场中的位置",
+            "hint": "圆形只标物体；中心与边缘按示意区域比较，不给尺寸或喷水状态。",
+            "wrong": "应是中央的喷泉，不能换成边缘或树。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "在广场哪里",
+                "choices": [
+                  {
+                    "id": "centre",
+                    "label": "中央"
+                  },
+                  {
+                    "id": "edge",
+                    "label": "边缘"
+                  }
+                ]
+              },
+              {
+                "id": "object",
+                "label": "什么物体",
+                "choices": [
+                  {
+                    "id": "fountain",
+                    "label": "喷泉"
+                  },
+                  {
+                    "id": "tree",
+                    "label": "树"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "广场示意"
+                  },
+                  {
+                    "id": "square",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 23,
+                    "width": 86,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "物体待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|fountain",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "广场示意"
+                  },
+                  {
+                    "id": "square",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 23,
+                    "width": 86,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "喷泉"
+                  }
+                ]
+              },
+              {
+                "signature": "?|tree",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "广场示意"
+                  },
+                  {
+                    "id": "square",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 23,
+                    "width": 86,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "树"
+                  }
+                ]
+              },
+              {
+                "signature": "centre|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "广场示意"
+                  },
+                  {
+                    "id": "square",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 23,
+                    "width": 86,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "物体待选"
+                  },
+                  {
+                    "id": "position-label",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 59,
+                    "width": 24,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "中央"
+                  }
+                ]
+              },
+              {
+                "signature": "centre|fountain",
+                "reading": "广场中央有一座喷泉。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "广场示意"
+                  },
+                  {
+                    "id": "square",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 23,
+                    "width": 86,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "喷泉"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 43.5,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-label",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 59,
+                    "width": 24,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "中央"
+                  }
+                ]
+              },
+              {
+                "signature": "centre|tree",
+                "reading": "应是中央的喷泉，不能换成边缘或树。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "广场示意"
+                  },
+                  {
+                    "id": "square",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 23,
+                    "width": 86,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "树"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 43.5,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-label",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 59,
+                    "width": 24,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "中央"
+                  }
+                ]
+              },
+              {
+                "signature": "edge|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "广场示意"
+                  },
+                  {
+                    "id": "square",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 23,
+                    "width": 86,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "物体待选"
+                  },
+                  {
+                    "id": "position-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 59,
+                    "width": 24,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "边缘"
+                  }
+                ]
+              },
+              {
+                "signature": "edge|fountain",
+                "reading": "应是中央的喷泉，不能换成边缘或树。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "广场示意"
+                  },
+                  {
+                    "id": "square",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 23,
+                    "width": 86,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "喷泉"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 43.5,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 59,
+                    "width": 24,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "边缘"
+                  }
+                ]
+              },
+              {
+                "signature": "edge|tree",
+                "reading": "应是中央的喷泉，不能换成边缘或树。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "广场示意"
+                  },
+                  {
+                    "id": "square",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 23,
+                    "width": 86,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "树"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 43.5,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 59,
+                    "width": 24,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "边缘"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "spellings": [
+          "centre",
+          "center"
+        ],
+        "ownForms": [
+          "centre",
+          "center"
+        ]
+      },
+      {
+        "id": "word-square",
+        "label": "广场（本句）",
+        "prompt": "市场在哪里？每周哪一天？把频率与地点一起保留。",
+        "answer": "square",
+        "caseSensitive": false,
+        "meaning": "广场（本句）",
+        "before": "The market fills the ",
+        "after": " every Saturday.",
+        "reason": "The market fills the square every Saturday说每周六市场摊位会摆满广场；square在这里是广场，不是正方形。",
+        "hint": "square也表示正方形；本句是公共广场，不保证形状一定为正方形。every Saturday不表示每天，也不表示今天一定是周六。",
+        "material": "The market fills the square every Saturday.",
+        "options": [
+          {
+            "id": "saturday-square",
+            "text": "每周六，市场摊位会摆满广场。",
+            "correct": true,
+            "reason": "保留fills the square与every Saturday。"
+          },
+          {
+            "id": "daily",
+            "text": "每天，市场摊位都会摆满广场。",
+            "correct": false,
+            "reason": "every Saturday是每周六，不是每天。"
+          },
+          {
+            "id": "shape",
+            "text": "原句只说明市场是正方形。",
+            "correct": false,
+            "reason": "square在本句指广场，不是在说明形状。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "市场在哪里？每周哪一天？把频率与地点一起保留。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "广场上的周六市场",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "保留每周六与摆满广场；不补今天日期、实际面积或摊位数。",
+            "wrong": "应圈出市场摆满广场与每周六，不改每天或正方形。",
+            "rows": [
+              {
+                "id": "square",
+                "label": "地点与情况",
+                "text": "市场摊位摆满广场。",
+                "include": true
+              },
+              {
+                "id": "saturday",
+                "label": "时间",
+                "text": "每周六。",
+                "include": true
+              },
+              {
+                "id": "daily",
+                "label": "额外频率",
+                "text": "每天如此。",
+                "include": false
+              },
+              {
+                "id": "shape",
+                "label": "额外形状",
+                "text": "原句说明市场是正方形。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-corner",
+        "label": "拐角（本句）",
+        "prompt": "以朝上的箭头为前进方向：在什么店旁转？往左还是往右？",
+        "answer": "corner",
+        "caseSensitive": false,
+        "meaning": "拐角（本句）",
+        "before": "Turn left at the ",
+        "after": " with the bakery.",
+        "reason": "Turn left at the corner with the bakery要求在有面包店的拐角左转；left不是right，bakery不是library。",
+        "hint": "at the corner指在拐角处；这是方向指令，不表示已经转弯。示意从下往上走，左右相对前进方向，不表示真实地理方位。",
+        "material": "Turn left at the corner with the bakery.",
+        "options": [
+          {
+            "id": "left-bakery",
+            "text": "在有面包店的拐角左转。",
+            "correct": true,
+            "reason": "保留Turn left与the corner with the bakery。"
+          },
+          {
+            "id": "right",
+            "text": "在有面包店的拐角右转。",
+            "correct": false,
+            "reason": "right右与left左相反。"
+          },
+          {
+            "id": "library",
+            "text": "在有图书馆的拐角左转。",
+            "correct": false,
+            "reason": "library图书馆不是bakery面包店。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "以朝上的箭头为前进方向：在什么店旁转？往左还是往右？",
+          "sceneLab": {
+            "id": "bakery-corner",
+            "title": "地标与转向",
+            "hint": "先从下往上走，再看左/右；不是实际地图，也不报告已经走完。",
+            "wrong": "应在面包店拐角左转，不能换成右转或图书馆。",
+            "axes": [
+              {
+                "id": "turn",
+                "label": "向哪边转",
+                "choices": [
+                  {
+                    "id": "left",
+                    "label": "左转"
+                  },
+                  {
+                    "id": "right",
+                    "label": "右转"
+                  }
+                ]
+              },
+              {
+                "id": "landmark",
+                "label": "拐角的地标",
+                "choices": [
+                  {
+                    "id": "bakery",
+                    "label": "面包店"
+                  },
+                  {
+                    "id": "library",
+                    "label": "图书馆"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "orientation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "先从下往上走"
+                  },
+                  {
+                    "id": "approach",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 48,
+                    "width": 4,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "junction",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 46,
+                    "width": 72,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 67,
+                    "width": 26,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "↑"
+                  },
+                  {
+                    "id": "landmark",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 20,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "地标待选"
+                  },
+                  {
+                    "id": "turn",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "转向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|bakery",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "orientation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "先从下往上走"
+                  },
+                  {
+                    "id": "approach",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 48,
+                    "width": 4,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "junction",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 46,
+                    "width": 72,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 67,
+                    "width": 26,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "↑"
+                  },
+                  {
+                    "id": "landmark",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 20,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "面包店"
+                  },
+                  {
+                    "id": "turn",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "转向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|library",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "orientation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "先从下往上走"
+                  },
+                  {
+                    "id": "approach",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 48,
+                    "width": 4,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "junction",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 46,
+                    "width": 72,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 67,
+                    "width": 26,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "↑"
+                  },
+                  {
+                    "id": "landmark",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 20,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "turn",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "转向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "left|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "orientation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "先从下往上走"
+                  },
+                  {
+                    "id": "approach",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 48,
+                    "width": 4,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "junction",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 46,
+                    "width": 72,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 67,
+                    "width": 26,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "↑"
+                  },
+                  {
+                    "id": "landmark",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 20,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "地标待选"
+                  },
+                  {
+                    "id": "turn",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "向左转"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 43,
+                    "width": 30,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 18,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "left|bakery",
+                "reading": "在有面包店的拐角左转。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "orientation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "先从下往上走"
+                  },
+                  {
+                    "id": "approach",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 48,
+                    "width": 4,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "junction",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 46,
+                    "width": 72,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 67,
+                    "width": 26,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "↑"
+                  },
+                  {
+                    "id": "landmark",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 20,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "面包店"
+                  },
+                  {
+                    "id": "turn",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "向左转"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 43,
+                    "width": 30,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 18,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "left|library",
+                "reading": "应在面包店拐角左转，不能换成右转或图书馆。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "orientation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "先从下往上走"
+                  },
+                  {
+                    "id": "approach",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 48,
+                    "width": 4,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "junction",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 46,
+                    "width": 72,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 67,
+                    "width": 26,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "↑"
+                  },
+                  {
+                    "id": "landmark",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 20,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "turn",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "向左转"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 43,
+                    "width": 30,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 18,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "right|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "orientation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "先从下往上走"
+                  },
+                  {
+                    "id": "approach",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 48,
+                    "width": 4,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "junction",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 46,
+                    "width": 72,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 67,
+                    "width": 26,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "↑"
+                  },
+                  {
+                    "id": "landmark",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 20,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "地标待选"
+                  },
+                  {
+                    "id": "turn",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "向右转"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 43,
+                    "width": 30,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 36,
+                    "width": 18,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "right|bakery",
+                "reading": "应在面包店拐角左转，不能换成右转或图书馆。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "orientation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "先从下往上走"
+                  },
+                  {
+                    "id": "approach",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 48,
+                    "width": 4,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "junction",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 46,
+                    "width": 72,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 67,
+                    "width": 26,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "↑"
+                  },
+                  {
+                    "id": "landmark",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 20,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "面包店"
+                  },
+                  {
+                    "id": "turn",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "向右转"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 43,
+                    "width": 30,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 36,
+                    "width": 18,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "right|library",
+                "reading": "应在面包店拐角左转，不能换成右转或图书馆。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "orientation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "先从下往上走"
+                  },
+                  {
+                    "id": "approach",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 48,
+                    "width": 4,
+                    "height": 31,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "junction",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 46,
+                    "width": 72,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 67,
+                    "width": 26,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "↑"
+                  },
+                  {
+                    "id": "landmark",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 20,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "turn",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "向右转"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 43,
+                    "width": 30,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 36,
+                    "width": 18,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-avenue",
+        "label": "林荫大道；大街",
+        "prompt": "点出两旁种着小树的大道，别选房屋间的窄巷。",
+        "answer": "avenue",
+        "caseSensitive": false,
+        "meaning": "林荫大道；大街",
+        "before": "Young trees line both sides of the ",
+        "after": ".",
+        "reason": "Young trees line both sides of the avenue说大道两旁种着小树；both sides不是只有一侧，young trees不是大树。",
+        "hint": "avenue常出现在街道名称中。原创图片只帮助区分大道与窄巷；不按图数树、不测宽度，也不代表所有avenue都有相同树木或形状。",
+        "material": "Young trees line both sides of the avenue.",
+        "options": [
+          {
+            "id": "avenue",
+            "text": "大道两旁种着小树。",
+            "correct": true,
+            "reason": "保留Young trees、both sides与avenue。"
+          },
+          {
+            "id": "lane",
+            "text": "原句说的是房屋之间的一条窄巷。",
+            "correct": false,
+            "reason": "窄巷是lane，不是本句avenue。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出两旁种着小树的大道，别选房屋间的窄巷。",
+          "art": {
+            "asset": "lesson-avenue-lane-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创双幅街道示意：左侧宽阔大道两旁种着树冠较小的细干树，右侧白色房屋之间是一条较窄的小巷；无文字、行人、车、地标或真实城市。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "avenue-target",
+                "option": "avenue",
+                "label": "大道",
+                "labelPosition": "bottom",
+                "left": 5,
+                "top": 5,
+                "width": 41,
+                "height": 90
+              },
+              {
+                "id": "lane-target",
+                "option": "lane",
+                "label": "窄巷",
+                "labelPosition": "bottom",
+                "left": 58,
+                "top": 5,
+                "width": 37,
+                "height": 90
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-lane",
+        "label": "小巷（本句）",
+        "prompt": "巷子在教堂前还是后？宽还是窄？按入口标记辨认位置。",
+        "answer": "lane",
+        "caseSensitive": false,
+        "meaning": "小巷（本句）",
+        "before": "Follow the narrow ",
+        "after": " behind the church.",
+        "reason": "Follow the narrow lane behind the church要求沿教堂后面的窄巷走；behind不是in front of，narrow不是wide。",
+        "hint": "cycle lane指自行车道；本句narrow lane指小巷。教堂入口一侧在图中明确标作前面；这是指路，不报告已经走完，也不补距离或真实朝向。",
+        "material": "Follow the narrow lane behind the church.",
+        "options": [
+          {
+            "id": "narrow-behind",
+            "text": "沿教堂后面的窄巷走。",
+            "correct": true,
+            "reason": "保留Follow、narrow lane与behind the church。"
+          },
+          {
+            "id": "front",
+            "text": "沿教堂前面的窄巷走。",
+            "correct": false,
+            "reason": "in front of前面不是behind后面。"
+          },
+          {
+            "id": "wide",
+            "text": "沿教堂后面的宽巷走。",
+            "correct": false,
+            "reason": "wide宽改变了narrow窄。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "巷子在教堂前还是后？宽还是窄？按入口标记辨认位置。",
+          "sceneLab": {
+            "id": "church-lane",
+            "title": "巷子的宽窄与前后",
+            "hint": "入口一侧是前面；只比较关系，不给真实方向、米数或完成情况。",
+            "wrong": "应沿教堂后面的窄巷走，不能换成前面或宽巷。",
+            "axes": [
+              {
+                "id": "width",
+                "label": "巷子宽窄",
+                "choices": [
+                  {
+                    "id": "narrow",
+                    "label": "窄巷"
+                  },
+                  {
+                    "id": "wide",
+                    "label": "宽巷"
+                  }
+                ]
+              },
+              {
+                "id": "position",
+                "label": "相对教堂的位置",
+                "choices": [
+                  {
+                    "id": "behind",
+                    "label": "后面"
+                  },
+                  {
+                    "id": "front",
+                    "label": "前面"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂后面"
+                  },
+                  {
+                    "id": "church",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 30,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 35,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "label",
+                    "x": 23,
+                    "y": 61,
+                    "width": 54,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "入口＝前面"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "宽窄待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|behind",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂后面"
+                  },
+                  {
+                    "id": "church",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 30,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 35,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "label",
+                    "x": 23,
+                    "y": 61,
+                    "width": 54,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "入口＝前面"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "宽窄待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|front",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂后面"
+                  },
+                  {
+                    "id": "church",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 30,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 35,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "label",
+                    "x": 23,
+                    "y": 61,
+                    "width": 54,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "入口＝前面"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "宽窄待选"
+                  }
+                ]
+              },
+              {
+                "signature": "narrow|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂后面"
+                  },
+                  {
+                    "id": "church",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 30,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 35,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "label",
+                    "x": 23,
+                    "y": 61,
+                    "width": 54,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "入口＝前面"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "窄巷"
+                  }
+                ]
+              },
+              {
+                "signature": "narrow|behind",
+                "reading": "沿教堂后面的窄巷走。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂后面"
+                  },
+                  {
+                    "id": "church",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 30,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 35,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "label",
+                    "x": 23,
+                    "y": 61,
+                    "width": 54,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "入口＝前面"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "窄巷"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 20,
+                    "width": 84,
+                    "height": 4,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "narrow|front",
+                "reading": "应沿教堂后面的窄巷走，不能换成前面或宽巷。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂后面"
+                  },
+                  {
+                    "id": "church",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 30,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 35,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "label",
+                    "x": 23,
+                    "y": 61,
+                    "width": 54,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "入口＝前面"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "窄巷"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 76,
+                    "width": 84,
+                    "height": 4,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "wide|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂后面"
+                  },
+                  {
+                    "id": "church",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 30,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 35,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "label",
+                    "x": 23,
+                    "y": 61,
+                    "width": 54,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "入口＝前面"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "宽巷"
+                  }
+                ]
+              },
+              {
+                "signature": "wide|behind",
+                "reading": "应沿教堂后面的窄巷走，不能换成前面或宽巷。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂后面"
+                  },
+                  {
+                    "id": "church",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 30,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 35,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "label",
+                    "x": 23,
+                    "y": 61,
+                    "width": 54,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "入口＝前面"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "宽巷"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 20,
+                    "width": 84,
+                    "height": 8,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "wide|front",
+                "reading": "应沿教堂后面的窄巷走，不能换成前面或宽巷。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂后面"
+                  },
+                  {
+                    "id": "church",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 31,
+                    "width": 30,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 35,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "教堂"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "label",
+                    "x": 23,
+                    "y": 61,
+                    "width": 54,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "入口＝前面"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "宽巷"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 76,
+                    "width": 84,
+                    "height": 8,
+                    "tone": "teal"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-path",
+        "label": "小路（本句）",
+        "prompt": "小路到门前结束，还是经过门后继续？再换门的材料。",
+        "answer": "path",
+        "caseSensitive": false,
+        "meaning": "小路（本句）",
+        "before": "The ",
+        "after": " ends at a wooden gate.",
+        "reason": "The path ends at a wooden gate说小路尽头是一扇木门；ends at不是经过后继续，wooden不是metal。",
+        "hint": "path的复数是paths；本句用单数path。ends at说明终点，不说明从哪里起步、木门是否开着或是否允许通行。",
+        "material": "The path ends at a wooden gate.",
+        "options": [
+          {
+            "id": "end-wood",
+            "text": "小路尽头是一扇木门。",
+            "correct": true,
+            "reason": "保留ends at与a wooden gate。"
+          },
+          {
+            "id": "past",
+            "text": "小路经过木门后继续延伸。",
+            "correct": false,
+            "reason": "继续经过改变了ends at终止于。"
+          },
+          {
+            "id": "metal",
+            "text": "小路尽头是一扇金属门。",
+            "correct": false,
+            "reason": "metal金属不是wooden木制。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "小路到门前结束，还是经过门后继续？再换门的材料。",
+          "sceneLab": {
+            "id": "gate-path",
+            "title": "终点与门的材料",
+            "hint": "线段只示意结束/继续；不表示距离、开关状态或通行许可。",
+            "wrong": "应到木门为止，不能换成继续延伸或金属门。",
+            "axes": [
+              {
+                "id": "relation",
+                "label": "小路在门处怎样",
+                "choices": [
+                  {
+                    "id": "end",
+                    "label": "到门为止"
+                  },
+                  {
+                    "id": "past",
+                    "label": "经过后继续"
+                  }
+                ]
+              },
+              {
+                "id": "material",
+                "label": "门的材料",
+                "choices": [
+                  {
+                    "id": "wood",
+                    "label": "木门"
+                  },
+                  {
+                    "id": "metal",
+                    "label": "金属门"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "gate",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 5,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "终点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|wood",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "木门"
+                  },
+                  {
+                    "id": "gate",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 5,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "终点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|metal",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "金属门"
+                  },
+                  {
+                    "id": "gate",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 5,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "终点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "end|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "gate",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 5,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "到门为止"
+                  },
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 48,
+                    "width": 53,
+                    "height": 4,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "end|wood",
+                "reading": "小路尽头是一扇木门。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "木门"
+                  },
+                  {
+                    "id": "gate",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 5,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "到门为止"
+                  },
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 48,
+                    "width": 53,
+                    "height": 4,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "end|metal",
+                "reading": "应到木门为止，不能换成继续延伸或金属门。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "金属门"
+                  },
+                  {
+                    "id": "gate",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 5,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "到门为止"
+                  },
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 48,
+                    "width": 53,
+                    "height": 4,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "past|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "gate",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 5,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "经过后继续"
+                  },
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 48,
+                    "width": 81,
+                    "height": 4,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "past|wood",
+                "reading": "应到木门为止，不能换成继续延伸或金属门。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "木门"
+                  },
+                  {
+                    "id": "gate",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 5,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "经过后继续"
+                  },
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 48,
+                    "width": 81,
+                    "height": 4,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "past|metal",
+                "reading": "应到木门为止，不能换成继续延伸或金属门。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "金属门"
+                  },
+                  {
+                    "id": "gate",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 29,
+                    "width": 5,
+                    "height": 43,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "经过后继续"
+                  },
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 48,
+                    "width": 81,
+                    "height": 4,
+                    "tone": "teal"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-town-places-2-transfer",
+      "topicId": "v-course-town-places",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成公园、图书馆与金属门，哪组英文保留了三条信息？",
+      "passage": "三条新信息\n公园中央有一座雕像。在有图书馆的拐角右转。小路尽头是一扇金属门。\n词语提示：statue 雕像；park 公园；metal 金属。",
+      "options": [
+        {
+          "id": "a",
+          "text": "A statue stands at the edge of the park. Turn right at the corner with the library. The path ends at a metal gate."
+        },
+        {
+          "id": "b",
+          "text": "A statue stands in the centre of the park. Turn right at the corner with the library. The path ends at a metal gate."
+        },
+        {
+          "id": "c",
+          "text": "A statue stands in the centre of the park. Turn left at the corner with the library. The path ends at a metal gate."
+        },
+        {
+          "id": "d",
+          "text": "A statue stands in the centre of the park. Turn right at the corner with the library. The path ends at a wooden gate."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "A statue stands in the centre of the park. Turn right at the corner with the library. The path ends at a metal gate."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "重新核对中央、地标、左右转向与终点材料。",
+        "steps": [
+          {
+            "text": "雕像在公园中央：in the centre of the park。",
+            "reason": "edge是边缘；不能把中心换成边缘。"
+          },
+          {
+            "text": "在图书馆拐角右转：Turn right at the corner with the library。",
+            "reason": "新情境是right，不沿用上一句的left。"
+          },
+          {
+            "text": "小路止于金属门：ends at a metal gate。",
+            "reason": "metal不是wooden；ends at仍表示终点。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "edge把公园中央改成边缘。"
+          },
+          {
+            "option": "c",
+            "reason": "left把右转改成左转。"
+          },
+          {
+            "option": "d",
+            "reason": "wooden把金属门改成木门。"
+          }
+        ],
+        "pitfall": "换情境后按新地标和新方向判断；不要照抄上一题的左转、木门。",
+        "visual": {
+          "kind": "comparison",
+          "title": "位置、转向与终点",
+          "segments": [
+            {
+              "text": "statue → centre of park",
+              "role": "evidence",
+              "note": "雕像；公园中央"
+            },
+            {
+              "text": "library corner → right",
+              "role": "evidence",
+              "note": "图书馆；右转"
+            },
+            {
+              "text": "path ends → metal gate",
+              "role": "evidence",
+              "note": "终点；金属门"
+            }
+          ],
+          "caption": "不补朝向、距离、门的开关状态或已完成行走。"
+        },
+        "transfer": "把right换成left、ends at换成continues past，分别改了哪条关系？"
+      }
+    }
+  }
+}
