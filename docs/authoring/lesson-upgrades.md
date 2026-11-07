@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **409 / 413**. Current: **l-p-connected-speech**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **410 / 413**. Current: **l-p-intonation**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -417,7 +417,7 @@ Completed: **409 / 413**. Current: **l-p-connected-speech**. Evidence lives in d
 | l-p-word-stress | 单词重音放在哪一节 | reviewed | [Individual review](../reviews/individual-lessons/l-p-word-stress.md) |
 | l-p-sentence-stress | 句子重音改变对比焦点 | reviewed | [Individual review](../reviews/individual-lessons/l-p-sentence-stress.md) |
 | l-p-thought-groups | 意群与有意义的停顿 | reviewed | [Individual review](../reviews/individual-lessons/l-p-thought-groups.md) |
-| l-p-connected-speech | 连读与弱读的书面准备 | pending | — |
+| l-p-connected-speech | 连读与弱读的书面准备 | reviewed | [Individual review](../reviews/individual-lessons/l-p-connected-speech.md) |
 | l-p-intonation | 语调、态度与对话意图 | pending | — |
 | l-r-restoration | 句子还原：看前后照应 | pending | — |
 | l-r-short-answers | 任务型阅读：按要求提取信息 | pending | — |

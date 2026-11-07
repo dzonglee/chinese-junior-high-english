@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-11-07 (UTC)
 
-409 of 413 lessons are individually reviewed; 4 remain pending. Work stays solo under
+410 of 413 lessons are individually reviewed; 3 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-p-thought-groups. Eight individually authored boundary activities preserve complete phrases, subjects, conditions, places, steps, causes and inserted identities. Reversible diagrams and eight concrete explanations reject mechanical word-count cuts while allowing contextual variants. A new before-leaving transfer applies an explicit boundary goal. Content stays draft.
+Latest: l-p-connected-speech. Eight individually authored activities contrast consonant-vowel links, weak a/can, plosive release, spelling versus final sounds and preserved word meanings. Eight concrete explanations and reversible sound-boundary diagrams lead to a new close-it-up transfer using explicit phonetic evidence. Content stays draft.
 
-Inspected all47screenshots across12sheets at320/390/768px; after the feedback correction, all47final PNGs were SHA256-proved byte-identical to those actually inspected. All8FINAL primary questions/full feedback reread, and all8new standalone320px feedback screenshots actually inspected after final success. Corrected step2 explicitly names the compared boundary, avoiding a correct-boundary/wrong-note mismatch. All8reversible boundary diagrams/wrong routes,2sorting cards/corrections/reload, clinic/prediction/summary and full Before-you-leave transfer/passages/4options/3steps/3wrong routes inspected: sourceB presentedD. WrongA breaks clause and object, B breaks object, C breaks Before clause. Supplemental capture selects stable option identity and verifies actual American edition conversion. Content draft; no SDK or actual speech claim.
+Inspected all55 final browser figures across14sheets and all8standalone320px source-question feedback screens after the complete successful run. Read all8FINAL questions and full explanations. Eight reversible diagrams show pick-it-up, weak a/can, an-apple, good-boy release, take final /k/, not-at-all and actual-practice limits. All4sorting cards/wrong corrections/reload at320/390/768px, prediction, clinic and summary checked. Full close-it-up transfer/passages/4options/3steps/3wrong routes inspected: sourceB presentedD; wrongA only separation, B drops up, C drops it. The /z/ final in the given verb close is explicit; no deletion or universal accent claims. Current coaching check derives from authored pitfall; all adjacent catalog identical. Content draft; no SDK, actual listening or speech grade claimed.
 
 
-Checkpoint 409 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 3063 tasks / 9189 widths; earlier flows retain their original scope.
+Checkpoint 410 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 3071 tasks / 9213 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-p-connected-speech. Continue l-p-connected-speech solo after fresh clean-source guard, full board/latest log and owner/cards. Approved audio remains separate; videos deferred.
+Next: l-p-intonation. Continue l-p-intonation solo after fresh clean-source guard, full board/latest log and owner/cards. Approved audio remains separate; videos deferred.
 
-Native GUI status: Native 148–409 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–409 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–410 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–410 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Accepted408 pushed as 03d72b4728b196c255aa61a7b57e788bc2ce0946; all1448 source hashes and clean application verified before409admission. Fresh fetch/full board/latest408log and owner/cards read.
+Accepted409 pushed as 060a294f260098cf3d7920e00fd2ce91ce8ca645; all1450 source hashes and clean application verified before410admission. Fresh fetch/full board/latest409log and owner/cards read.
 
 ## Previous local delivery · 2026-10-17
 
