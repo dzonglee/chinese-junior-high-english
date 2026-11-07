@@ -76,3 +76,13 @@ it('loads a paper result safely after a cold deep link before its packs have arr
 it('counts a whitespace-only answer as unanswered in the submission confirmation',async()=>{
  const h=harness(papers[0]);await h.app.action('start-paper',papers[0].id);await h.app.action('jump','21');h.app.setField('answer','   ');h.app.flush();let message='';h.platform.confirm=async(_title,text)=>{message=text;return false};await h.app.action('submit');expect(message).toContain('25 道题未作答');expect(h.app.render().id).toBe('session')
 })
+
+it('reports the actual selected wrong option in practice and submitted paper review',async()=>{
+ const p=papers.find(p=>p.id==='mock-7-upper')!,qid=paperQuestionIds(p)[13];
+ for(const [choice,expected,unrelated]of [['a','大包','鼓是音乐'],['c','鼓','大包']])for(const mode of ['practice','paper']){
+  const h=harness(p),a=h.app;
+  if(mode==='practice'){await a.action('start-question',qid);await a.action('choose',choice);await a.action('check')}
+  else{await a.action('start-paper',p.id);await a.action('jump','13');await a.action('choose',choice);await a.action('submit');await a.action('review-question','13')}
+  expect(a.render().question?.id).toBe(qid);expect(a.render().question?.feedback).toContain(expected);expect(a.render().question?.feedback).not.toContain(unrelated);expect(a.state.sessions[a.state.activeSessionId!].answers[qid].result?.correct).toBe(false)
+ }
+})

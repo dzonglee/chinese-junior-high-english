@@ -432,3 +432,8 @@ editorial review remain separate completion requirements.
 ### Current native access limitation — lesson138, 2026-10-19 UTC
 
 Focused WeChat checkpoint138 is pending: wechat_status succeeds,but read_file(wechat/AGENTS.md) twice reports MacStudioExternal file access unavailable. No GUI job submitted,no restart or credential change. Local138controls passed after correcting initial-target test ordering;visual review ongoing. Latest actual native pass remains137/all78captures.
+
+
+## Final application check · 2026-11-07 (UTC)
+
+All413 individual lesson upgrades remain accepted. The whole-app review found that immediate wrong-answer feedback could describe another distractor. It now uses the student's actual selected option, with regression checks for both wrong options in practice and submitted mock-paper review. All2820 core tests/212 files pass. A fresh complete offline, both245-pack adapter and whole-product/mock/visual run is in progress; final application acceptance and squash merge remain pending. All245 canonical content packs and individual lesson definitions are unchanged. Generated catalog metadata changes only the application source fingerprint. APP-VISUAL-LESSONS stays claimed until this final review passes. Actual SDK147/805 and the source-transfer permission block remain unchanged.
