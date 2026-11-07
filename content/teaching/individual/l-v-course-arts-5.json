@@ -1,0 +1,1694 @@
+{
+  "lessonId": "l-v-course-arts-5",
+  "reviewState": "draft",
+  "intent": "Recognise original portrait versus landscape without assigning fictional appearance to source caretaker; quick sketch before selecting colours; broken pencil-case zip exact evidence with pencil case variant; contrasting colour in new blue-ground example without unique-source-white/red claim; darker green exact evidence without recipe; cloud changes shape while moving; leaf pattern not leaf material; fewer wood pieces not less mass. Four closed diagrams, one order, two records and original portrait art. colour/color and pencil-case/pencil case accepted and own forms retained.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "辨肖像、试对比色，看形状和数量怎样变",
+    "instruction": "先点图认肖像，再换颜色、移动云朵、增减木块；每次只改一个条件，回原句核对。",
+    "items": [
+      {
+        "id": "word-portrait",
+        "label": "肖像",
+        "prompt": "新图中哪幅是portrait？点选，再核对原句画的是谁。",
+        "answer": "portrait",
+        "caseSensitive": false,
+        "meaning": "肖像",
+        "before": "She drew a ",
+        "after": " of the school caretaker.",
+        "reason": "她画了一幅学校管理员的肖像。肖像表现某个人；图里的虚构人物不能证明原句人物的外貌。",
+        "hint": "portrait通常表现某个人；of the school caretaker说明肖像画的是谁。",
+        "material": "She drew a portrait of the school caretaker.",
+        "options": [
+          {
+            "id": "portrait",
+            "text": "她画了一幅学校管理员的肖像。",
+            "correct": true,
+            "reason": "保留drew a portrait of the school caretaker。"
+          },
+          {
+            "id": "landscape",
+            "text": "她画了一幅学校附近的山水风景。",
+            "correct": false,
+            "reason": "山水风景改变了portrait of the school caretaker。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "新图中哪幅是portrait？点选，再核对原句画的是谁。",
+          "art": {
+            "asset": "lesson-portrait-landscape",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "两个新例子：左边是虚构成年人的半身肖像，右边是没有人物的山与河流风景画。",
+            "caption": "新图只辨认肖像与风景；学校管理员的身份来自原句。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "portrait-frame",
+                "option": "portrait",
+                "label": "肖像",
+                "labelPosition": "bottom",
+                "left": 5,
+                "top": 14,
+                "width": 38,
+                "height": 73
+              },
+              {
+                "id": "landscape-frame",
+                "option": "landscape",
+                "label": "风景画",
+                "labelPosition": "bottom",
+                "left": 57,
+                "top": 14,
+                "width": 38,
+                "height": 73
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-sketch",
+        "label": "速写（本句）",
+        "prompt": "先画速写，还是先选颜色？按指令排先后。",
+        "answer": "sketch",
+        "caseSensitive": false,
+        "meaning": "速写（本句）",
+        "before": "Make a quick ",
+        "after": " before choosing your colours.",
+        "reason": "选颜色前先画一张速写。before给出顺序，quick给出快速，不表示已经完成。",
+        "hint": "sketch的复数加es，写作sketches；before choosing保留先后。",
+        "material": "Make a quick sketch before choosing your colours.",
+        "options": [
+          {
+            "id": "before",
+            "text": "先快速画一张速写，再选颜色。",
+            "correct": true,
+            "reason": "保留quick sketch before choosing colours。"
+          },
+          {
+            "id": "after",
+            "text": "先选颜色，再快速画速写。",
+            "correct": false,
+            "reason": "倒转了before的顺序。"
+          },
+          {
+            "id": "slow",
+            "text": "指令要求慢慢画详细的成品画。",
+            "correct": false,
+            "reason": "慢慢画成品改变了quick sketch。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先画速写，还是先选颜色？按指令排先后。",
+          "processOrder": {
+            "title": "速写与选色的先后",
+            "hint": "这是操作指令，不是已经完成的记录。",
+            "wrong": "先画速写，后选颜色，不能倒序。",
+            "events": [
+              {
+                "id": "sketch",
+                "label": "画速写"
+              },
+              {
+                "id": "colours",
+                "label": "选择颜色"
+              }
+            ],
+            "sequence": [
+              "sketch",
+              "colours"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-pencil-case",
+        "label": "铅笔盒",
+        "prompt": "什么物品的哪一部分坏了？圈线索，不添加修复结果。",
+        "answer": "pencil-case",
+        "caseSensitive": false,
+        "meaning": "铅笔盒",
+        "before": "My ",
+        "after": " has a broken zip.",
+        "reason": "我的铅笔盒拉链坏了。坏的是拉链，不是说铅笔断了，也没说已经修好。",
+        "hint": "pencil-case也常写为两个词pencil case；zip是拉链。",
+        "material": "My pencil-case has a broken zip.",
+        "options": [
+          {
+            "id": "zip",
+            "text": "我的铅笔盒拉链坏了。",
+            "correct": true,
+            "reason": "保留pencil-case与broken zip。"
+          },
+          {
+            "id": "pencil",
+            "text": "我的铅笔断了。",
+            "correct": false,
+            "reason": "铅笔断了改变了铅笔盒的拉链坏了。"
+          },
+          {
+            "id": "fixed",
+            "text": "我的铅笔盒拉链已经修好。",
+            "correct": false,
+            "reason": "修好改变了broken。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "什么物品的哪一部分坏了？圈线索，不添加修复结果。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "物品与损坏部位",
+            "prompt": "圈出原句给出的两条线索。",
+            "hint": "只确认损坏部位，不补修好或丢失。",
+            "wrong": "原句说铅笔盒的拉链坏了，不是铅笔断了或已经修好。",
+            "rows": [
+              {
+                "id": "case",
+                "label": "物品",
+                "text": "我的铅笔盒。",
+                "include": true
+              },
+              {
+                "id": "zip",
+                "label": "部位与状态",
+                "text": "拉链坏了。",
+                "include": true
+              },
+              {
+                "id": "fixed",
+                "label": "额外结果",
+                "text": "拉链已经修好。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "ownForms": [
+          "pencil-case",
+          "pencil case"
+        ],
+        "spellings": [
+          "pencil-case",
+          "pencil case"
+        ]
+      },
+      {
+        "id": "word-colour",
+        "label": "颜色（本句）",
+        "prompt": "在新蓝底上试颜色：哪种与背景有明显区别？",
+        "answer": "colour",
+        "caseSensitive": false,
+        "meaning": "颜色（本句）",
+        "before": "Choose a ",
+        "after": " that stands out against blue.",
+        "reason": "选一种在蓝色背景上显眼的颜色。原句没有指定唯一颜色；新例子用白色与相同蓝色作比较。",
+        "hint": "英式写法需要 6 个字符；美式写法需要 5 个字符；首字母是 c。stands out是显眼，不是融入背景。",
+        "material": "Choose a colour that stands out against blue.",
+        "options": [
+          {
+            "id": "contrast",
+            "text": "选一种在蓝色背景上显眼的颜色。",
+            "correct": true,
+            "reason": "保留stands out against blue，不指定原句唯一颜色。"
+          },
+          {
+            "id": "blend",
+            "text": "特意选与蓝色背景融为一体的颜色。",
+            "correct": false,
+            "reason": "融为一体改变了stands out。"
+          },
+          {
+            "id": "red",
+            "text": "原句规定只能选红色。",
+            "correct": false,
+            "reason": "原句没有指定red或唯一颜色。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "在新蓝底上试颜色：哪种与背景有明显区别？",
+          "sceneLab": {
+            "id": "colour-contrast",
+            "title": "新蓝底上的对比",
+            "hint": "白色只是新例子，不是原句唯一答案；不把辨色能力记成英语成绩。",
+            "wrong": "指令要显眼的颜色，不能改成融入背景或断言只能红色。",
+            "axes": [
+              {
+                "id": "sample",
+                "label": "怎样理解显眼",
+                "choices": [
+                  {
+                    "id": "white",
+                    "label": "新例子试白色"
+                  },
+                  {
+                    "id": "blend",
+                    "label": "新例子试相同蓝色"
+                  },
+                  {
+                    "id": "only-red",
+                    "label": "原句只能选红色"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新蓝底示意，不限唯一颜色"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 25,
+                    "width": 88,
+                    "height": 46,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "caption",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "颜色待选"
+                  }
+                ]
+              },
+              {
+                "signature": "white",
+                "reading": "选一种在蓝色背景上显眼的颜色。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新蓝底示意，不限唯一颜色"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 25,
+                    "width": 88,
+                    "height": 46,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "caption",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新白色：与蓝底有区别"
+                  },
+                  {
+                    "id": "sample",
+                    "kind": "ellipse",
+                    "x": 39,
+                    "y": 36,
+                    "width": 22,
+                    "height": 22,
+                    "tone": "white"
+                  }
+                ]
+              },
+              {
+                "signature": "blend",
+                "reading": "指令要显眼的颜色，不能改成融入背景或断言只能红色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新蓝底示意，不限唯一颜色"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 25,
+                    "width": 88,
+                    "height": 46,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "caption",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "同色：与蓝底融为一体"
+                  },
+                  {
+                    "id": "sample",
+                    "kind": "ellipse",
+                    "x": 39,
+                    "y": 36,
+                    "width": 22,
+                    "height": 22,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "only-red",
+                "reading": "指令要显眼的颜色，不能改成融入背景或断言只能红色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新蓝底示意，不限唯一颜色"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 25,
+                    "width": 88,
+                    "height": 46,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "caption",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "错误推断：只能选红色"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "ownForms": [
+          "colour",
+          "color"
+        ],
+        "spellings": [
+          "colour",
+          "color"
+        ]
+      },
+      {
+        "id": "word-shade",
+        "label": "色调（本句）",
+        "prompt": "调出的是什么颜色、深浅怎样变？圈两条线索。",
+        "answer": "shade",
+        "caseSensitive": false,
+        "meaning": "色调（本句）",
+        "before": "We mixed a darker ",
+        "after": " of green.",
+        "reason": "我们调出了一种更深的绿色。shade在这里是色调，不是阴凉处；darker是更深，不是更浅。",
+        "hint": "shade可指色调或遮阴处；a darker shade of green是更深的绿色。",
+        "material": "We mixed a darker shade of green.",
+        "options": [
+          {
+            "id": "darker-green",
+            "text": "调出了一种更深的绿色。",
+            "correct": true,
+            "reason": "同时保留darker与green。"
+          },
+          {
+            "id": "lighter",
+            "text": "调出了一种更浅的绿色。",
+            "correct": false,
+            "reason": "更浅改变了darker。"
+          },
+          {
+            "id": "blue",
+            "text": "调出了一种更深的蓝色。",
+            "correct": false,
+            "reason": "蓝色改变了green。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "调出的是什么颜色、深浅怎样变？圈两条线索。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "色相与深浅",
+            "prompt": "圈出原句给出的两条线索。",
+            "hint": "只确认文字里的绿色与更深，不猜配方比例。",
+            "wrong": "原句给出更深的绿色，没有给颜料配方或比例。",
+            "rows": [
+              {
+                "id": "green",
+                "label": "颜色",
+                "text": "绿色。",
+                "include": true
+              },
+              {
+                "id": "darker",
+                "label": "比较",
+                "text": "色调更深。",
+                "include": true
+              },
+              {
+                "id": "ratio",
+                "label": "额外配方",
+                "text": "黑色颜料占一半。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-shape",
+        "label": "形状（本句）",
+        "prompt": "移动新例子的云朵，再比较改变的是形状还是颜色。",
+        "answer": "shape",
+        "caseSensitive": false,
+        "meaning": "形状（本句）",
+        "before": "The cloud changed ",
+        "after": " as it moved.",
+        "reason": "云移动时改变了形状。as it moved在这里表示移动时，不是只改变位置或颜色。",
+        "hint": "in the shape of是呈……形状；本句shape是形状这个名词。",
+        "material": "The cloud changed shape as it moved.",
+        "options": [
+          {
+            "id": "change",
+            "text": "云在移动时改变了形状。",
+            "correct": true,
+            "reason": "保留changed shape as it moved。"
+          },
+          {
+            "id": "same",
+            "text": "云虽然移动，形状却完全没变。",
+            "correct": false,
+            "reason": "形状没变改变了changed shape。"
+          },
+          {
+            "id": "colour",
+            "text": "云只改变颜色，形状一直没变。",
+            "correct": false,
+            "reason": "只改变颜色不能替代changed shape。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "移动新例子的云朵，再比较改变的是形状还是颜色。",
+          "sceneLab": {
+            "id": "shape-cloud",
+            "title": "同一朵云，位置与形状分别看",
+            "hint": "新云形只演示形状改变，不指定原云轮廓、颜色、方向或速度。",
+            "wrong": "原句云移动时形状改变，不能说形状没变或只变颜色。",
+            "axes": [
+              {
+                "id": "change",
+                "label": "移动时什么发生改变",
+                "choices": [
+                  {
+                    "id": "change",
+                    "label": "形状改变"
+                  },
+                  {
+                    "id": "same",
+                    "label": "形状没变"
+                  },
+                  {
+                    "id": "colour",
+                    "label": "只改颜色"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新轮廓示意，移动时比较"
+                  },
+                  {
+                    "id": "before",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 25,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "移动前"
+                  },
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "移动时"
+                  },
+                  {
+                    "id": "old",
+                    "kind": "ellipse",
+                    "x": 9,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "reading",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "条件待选"
+                  }
+                ]
+              },
+              {
+                "signature": "change",
+                "reading": "云在移动时改变了形状。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新轮廓示意，移动时比较"
+                  },
+                  {
+                    "id": "before",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 25,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "移动前"
+                  },
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "移动时"
+                  },
+                  {
+                    "id": "old",
+                    "kind": "ellipse",
+                    "x": 9,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "new",
+                    "kind": "ellipse",
+                    "x": 58,
+                    "y": 49,
+                    "width": 36,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "reading",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "形状改变"
+                  }
+                ]
+              },
+              {
+                "signature": "same",
+                "reading": "原句云移动时形状改变，不能说形状没变或只变颜色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新轮廓示意，移动时比较"
+                  },
+                  {
+                    "id": "before",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 25,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "移动前"
+                  },
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "移动时"
+                  },
+                  {
+                    "id": "old",
+                    "kind": "ellipse",
+                    "x": 9,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "new",
+                    "kind": "ellipse",
+                    "x": 58,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "reading",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "形状不变"
+                  }
+                ]
+              },
+              {
+                "signature": "colour",
+                "reading": "原句云移动时形状改变，不能说形状没变或只变颜色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新轮廓示意，移动时比较"
+                  },
+                  {
+                    "id": "before",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 25,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "移动前"
+                  },
+                  {
+                    "id": "after",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "移动时"
+                  },
+                  {
+                    "id": "old",
+                    "kind": "ellipse",
+                    "x": 9,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "new",
+                    "kind": "ellipse",
+                    "x": 58,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "reading",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只改颜色，形状不变"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-pattern",
+        "label": "图案（本句）",
+        "prompt": "换树叶与条纹，比较围巾上的pattern。",
+        "answer": "pattern",
+        "caseSensitive": false,
+        "meaning": "图案（本句）",
+        "before": "The scarf has a simple leaf ",
+        "after": ".",
+        "reason": "围巾上有简单的树叶图案。leaf是图案内容，不是说围巾用真树叶制成。",
+        "hint": "pattern也可指反复出现的规律；本句是围巾上的图案。",
+        "material": "The scarf has a simple leaf pattern.",
+        "options": [
+          {
+            "id": "leaf",
+            "text": "围巾上有简单的树叶图案。",
+            "correct": true,
+            "reason": "保留simple leaf pattern。"
+          },
+          {
+            "id": "stripe",
+            "text": "围巾上只有简单条纹。",
+            "correct": false,
+            "reason": "只有条纹改变了leaf pattern。"
+          },
+          {
+            "id": "material",
+            "text": "围巾是用真正的树叶做的。",
+            "correct": false,
+            "reason": "图案内容不能推成制作材料。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "换树叶与条纹，比较围巾上的pattern。",
+          "sceneLab": {
+            "id": "pattern-leaf",
+            "title": "图案内容，不是制作材料",
+            "hint": "新围巾和两片叶形仅示意图案，不是原图案叶片数量或颜色。",
+            "wrong": "原句是树叶图案，不能换条纹或推成真树叶做的围巾。",
+            "axes": [
+              {
+                "id": "pattern",
+                "label": "图案与材料怎么分",
+                "choices": [
+                  {
+                    "id": "leaf",
+                    "label": "简单树叶图案"
+                  },
+                  {
+                    "id": "stripe",
+                    "label": "只有条纹图案"
+                  },
+                  {
+                    "id": "material",
+                    "label": "用真树叶制成"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新围巾图案示意"
+                  },
+                  {
+                    "id": "scarf",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 92,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "reading",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "图案待选"
+                  }
+                ]
+              },
+              {
+                "signature": "leaf",
+                "reading": "围巾上有简单的树叶图案。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新围巾图案示意"
+                  },
+                  {
+                    "id": "scarf",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 92,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "leaf-0",
+                    "kind": "ellipse",
+                    "x": 25,
+                    "y": 37,
+                    "width": 13,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "vein-0",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 39,
+                    "width": 1,
+                    "height": 18,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "leaf-1",
+                    "kind": "ellipse",
+                    "x": 62,
+                    "y": 37,
+                    "width": 13,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "vein-1",
+                    "kind": "line",
+                    "x": 68,
+                    "y": 39,
+                    "width": 1,
+                    "height": 18,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "reading",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "树叶图案"
+                  }
+                ]
+              },
+              {
+                "signature": "stripe",
+                "reading": "原句是树叶图案，不能换条纹或推成真树叶做的围巾。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新围巾图案示意"
+                  },
+                  {
+                    "id": "scarf",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 92,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "stripe-0",
+                    "kind": "rect",
+                    "x": 16,
+                    "y": 31,
+                    "width": 6,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "stripe-1",
+                    "kind": "rect",
+                    "x": 34,
+                    "y": 31,
+                    "width": 6,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "stripe-2",
+                    "kind": "rect",
+                    "x": 52,
+                    "y": 31,
+                    "width": 6,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "stripe-3",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 31,
+                    "width": 6,
+                    "height": 34,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "reading",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只有条纹"
+                  }
+                ]
+              },
+              {
+                "signature": "material",
+                "reading": "原句是树叶图案，不能换条纹或推成真树叶做的围巾。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新围巾图案示意"
+                  },
+                  {
+                    "id": "scarf",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 28,
+                    "width": 92,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "leaf-0",
+                    "kind": "ellipse",
+                    "x": 25,
+                    "y": 37,
+                    "width": 13,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "vein-0",
+                    "kind": "line",
+                    "x": 31,
+                    "y": 39,
+                    "width": 1,
+                    "height": 18,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "leaf-1",
+                    "kind": "ellipse",
+                    "x": 62,
+                    "y": 37,
+                    "width": 13,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "vein-1",
+                    "kind": "line",
+                    "x": 68,
+                    "y": 39,
+                    "width": 1,
+                    "height": 18,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "reading",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "错误推断：真树叶制成"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-design",
+        "label": "设计方案（本句）",
+        "prompt": "切换新方案的木块数，判断fewer比较的是数量。",
+        "answer": "design",
+        "caseSensitive": false,
+        "meaning": "设计方案（本句）",
+        "before": "Our ",
+        "after": " uses fewer pieces of wood.",
+        "reason": "我们的设计使用的木料块数更少。fewer pieces比较可数的块数，不提供实际数量、重量或价格。",
+        "hint": "design可作名词或动词；本句是设计方案，fewer修饰pieces。",
+        "material": "Our design uses fewer pieces of wood.",
+        "options": [
+          {
+            "id": "fewer",
+            "text": "我们的设计使用的木料块数更少。",
+            "correct": true,
+            "reason": "保留uses fewer pieces of wood，不把块数换成重量。"
+          },
+          {
+            "id": "more",
+            "text": "我们的设计使用的木料块数更多。",
+            "correct": false,
+            "reason": "更多改变了fewer。"
+          },
+          {
+            "id": "weight",
+            "text": "原句明确说木料总重量更轻。",
+            "correct": false,
+            "reason": "块数更少不自动证明总重量更轻。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "切换新方案的木块数，判断fewer比较的是数量。",
+          "sceneLab": {
+            "id": "design-fewer",
+            "title": "比较木块数，别猜重量",
+            "hint": "新例子以四块作参照，不是原句实际块数；不比较重量和价格。",
+            "wrong": "原句只说木料块数更少，不能改成更多或断言重量更轻。",
+            "axes": [
+              {
+                "id": "amount",
+                "label": "新方案怎样比较木块数",
+                "choices": [
+                  {
+                    "id": "fewer",
+                    "label": "比参照方案少"
+                  },
+                  {
+                    "id": "more",
+                    "label": "比参照方案多"
+                  },
+                  {
+                    "id": "weight",
+                    "label": "把块数当重量结论"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：以四块作参照"
+                  },
+                  {
+                    "id": "baseline",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 25,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "参照方案"
+                  },
+                  {
+                    "id": "newlabel",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 59,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "新方案"
+                  },
+                  {
+                    "id": "base-0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-1",
+                    "kind": "rect",
+                    "x": 26,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-2",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-3",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "fewer",
+                "reading": "我们的设计使用的木料块数更少。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：以四块作参照"
+                  },
+                  {
+                    "id": "baseline",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 25,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "参照方案"
+                  },
+                  {
+                    "id": "newlabel",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 59,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "新方案"
+                  },
+                  {
+                    "id": "base-0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-1",
+                    "kind": "rect",
+                    "x": 26,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-2",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-3",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "new-0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "new-1",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "more",
+                "reading": "原句只说木料块数更少，不能改成更多或断言重量更轻。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：以四块作参照"
+                  },
+                  {
+                    "id": "baseline",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 25,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "参照方案"
+                  },
+                  {
+                    "id": "newlabel",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 59,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "新方案"
+                  },
+                  {
+                    "id": "base-0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-1",
+                    "kind": "rect",
+                    "x": 26,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-2",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-3",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "new-0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "new-1",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "new-2",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "new-3",
+                    "kind": "rect",
+                    "x": 52,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "new-4",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "new-5",
+                    "kind": "rect",
+                    "x": 80,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "weight",
+                "reading": "原句只说木料块数更少，不能改成更多或断言重量更轻。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新例子：以四块作参照"
+                  },
+                  {
+                    "id": "baseline",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 25,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "参照方案"
+                  },
+                  {
+                    "id": "newlabel",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 59,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "新方案"
+                  },
+                  {
+                    "id": "base-0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-1",
+                    "kind": "rect",
+                    "x": 26,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-2",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "base-3",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 43,
+                    "width": 12,
+                    "height": 8,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "new-0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "new-1",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "new-2",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "new-3",
+                    "kind": "rect",
+                    "x": 52,
+                    "y": 78,
+                    "width": 10,
+                    "height": 8,
+                    "tone": "teal"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-arts-5-transfer",
+      "topicId": "v-course-arts",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成选材料、星星图案和纸板，哪组三句保留全部信息？",
+      "passage": "三条新信息\n选材料前先快速画一张草图。包上有简单的星星图案。我们的设计使用的纸板块数更少。\n词语提示：material材料；cardboard纸板。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Make a quick sketch before choosing your materials. The bag has a simple star pattern. Our design uses fewer pieces of cardboard."
+        },
+        {
+          "id": "b",
+          "text": "Make a quick sketch after choosing your materials. The bag has a simple star pattern. Our design uses fewer pieces of cardboard."
+        },
+        {
+          "id": "c",
+          "text": "Make a quick sketch before choosing your materials. The bag has a simple leaf pattern. Our design uses fewer pieces of cardboard."
+        },
+        {
+          "id": "d",
+          "text": "Make a quick sketch before choosing your materials. The bag has a simple star pattern. Our design uses more pieces of cardboard."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Make a quick sketch before choosing your materials. The bag has a simple star pattern. Our design uses fewer pieces of cardboard."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对操作顺序、图案内容和可数材料的数量比较。",
+        "steps": [
+          {
+            "text": "Make a quick sketch before choosing your materials.",
+            "reason": "before表示先画草图、后选材料。"
+          },
+          {
+            "text": "The bag has a simple star pattern.",
+            "reason": "star是星星图案，不是树叶，也不是制作材料。"
+          },
+          {
+            "text": "Our design uses fewer pieces of cardboard.",
+            "reason": "fewer pieces比较纸板块数更少，不直接比较重量。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "after倒转了先画草图、后选材料的顺序。"
+          },
+          {
+            "option": "c",
+            "reason": "leaf把星星图案改成树叶图案。"
+          },
+          {
+            "option": "d",
+            "reason": "more把块数更少改成更多。"
+          }
+        ],
+        "pitfall": "图案不是材料；数量不是重量；before不能换after。",
+        "visual": {
+          "kind": "comparison",
+          "title": "顺序、图案、数量",
+          "segments": [
+            {
+              "text": "before choosing materials",
+              "role": "evidence",
+              "note": "先草图后选材"
+            },
+            {
+              "text": "simple star pattern",
+              "role": "evidence",
+              "note": "星星图案"
+            },
+            {
+              "text": "fewer pieces",
+              "role": "evidence",
+              "note": "块数更少"
+            }
+          ],
+          "caption": "每次核对一条，别把没有给出的重量加进去。"
+        },
+        "transfer": "如果每块纸板的重量不同，只知道块数更少，能确定总重量更轻吗？"
+      }
+    }
+  },
+  "picturePurpose": "Original portrait versus landscape image supports direct identification; four changing diagrams compare contrast, shape, leaf pattern and piece counts. Two evidence tasks and a downward sketch-before-colour order preserve exact source scope."
+}
