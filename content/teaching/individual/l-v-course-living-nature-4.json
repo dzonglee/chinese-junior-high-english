@@ -1,0 +1,1330 @@
+{
+  "lessonId": "l-v-course-living-nature-4",
+  "reviewState": "draft",
+  "intent": "Teach rain order, into/out directions, trace surfaces, until limits, one-wing ability, landing endpoints, fur detail and tail contact.",
+  "picturePurpose": "Original spider/snail recognition; four reversible models and two evidence tasks. No actual scale, animal-safety or medical inference.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "动物细节：时间、方向与接触",
+    "instruction": "辨认动物，移动落点和接触位置，再核对句中的限制条件。",
+    "items": [
+      {
+        "id": "word-spider",
+        "label": "蜘蛛",
+        "prompt": "点出spider，再找重新结网发生在下雨前还是雨后。",
+        "answer": "spider",
+        "caseSensitive": false,
+        "meaning": "蜘蛛",
+        "before": "The ",
+        "after": " rebuilt its web after the rain.",
+        "reason": "spider是蜘蛛，有八条腿，不属于insect昆虫。rebuilt是重新结网，after the rain是雨后；图片不证明时间或雨是否毁坏了旧网。",
+        "hint": "图片辨认动物；re-和after的信息回到文字找。",
+        "material": "The spider rebuilt its web after the rain.",
+        "options": [
+          {
+            "id": "spider",
+            "text": "蜘蛛。",
+            "correct": true,
+            "reason": "左图是蜘蛛。"
+          },
+          {
+            "id": "snail",
+            "text": "蜗牛。",
+            "correct": false,
+            "reason": "右图是蜗牛，不是spider。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出spider，再找重新结网发生在下雨前还是雨后。",
+          "art": {
+            "asset": "lesson-spider-snail-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创动物对照：左侧俯视蜘蛛，右侧有螺旋壳的蜗牛。不按真实大小比例，不表示结网时间、雨、石头或爬行痕迹。",
+            "targets": [
+              {
+                "id": "spider-target",
+                "option": "spider",
+                "label": "蜘蛛",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 5,
+                "width": 44,
+                "height": 90
+              },
+              {
+                "id": "snail-target",
+                "option": "snail",
+                "label": "蜗牛",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 20,
+                "width": 44,
+                "height": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-worm",
+        "label": "蠕虫（本句）",
+        "prompt": "它钻进湿土，还是钻出来？切换穿过土表的方向。",
+        "answer": "worm",
+        "caseSensitive": false,
+        "meaning": "蠕虫（本句）",
+        "before": "A ",
+        "after": " disappeared into the damp soil.",
+        "reason": "worm泛指蠕虫，earthworm特指蚯蚓。本句disappeared into是钻进土里而看不见了，不是出来；damp是潮湿，没有给水分比例。",
+        "hint": "into标进入；不要添加具体物种或深度。",
+        "material": "A worm disappeared into the damp soil.",
+        "options": [
+          {
+            "id": "into",
+            "text": "一条蠕虫钻进湿土里，不见了。",
+            "correct": true,
+            "reason": "保留disappeared into与damp soil。"
+          },
+          {
+            "id": "out",
+            "text": "一条蠕虫从湿土里钻了出来。",
+            "correct": false,
+            "reason": "出来改变了into进入。"
+          },
+          {
+            "id": "dry",
+            "text": "一条蠕虫钻进干燥的土里。",
+            "correct": false,
+            "reason": "干燥改变了damp。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "它钻进湿土，还是钻出来？切换穿过土表的方向。",
+          "sceneLab": {
+            "id": "worm-soil-direction",
+            "title": "进入土里还是出来",
+            "hint": "箭头跨越土表；不表示真实种类、深度或水分比例。",
+            "wrong": "应进入湿土，不是从土里出来。",
+            "axes": [
+              {
+                "id": "direction",
+                "label": "跨越土表的方向",
+                "choices": [
+                  {
+                    "id": "into",
+                    "label": "进入湿土"
+                  },
+                  {
+                    "id": "out",
+                    "label": "从湿土出来"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "soil",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 74,
+                    "height": 28,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "穿过土表：进入与出来"
+                  },
+                  {
+                    "id": "soil-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灰区表示湿土"
+                  },
+                  {
+                    "id": "unknown",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "方向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "into",
+                "reading": "一条蠕虫钻进湿土里，不见了。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "soil",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 74,
+                    "height": 28,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "direction-shaft",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 37,
+                    "width": 4,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head-0",
+                    "kind": "rect",
+                    "x": 42.0,
+                    "y": 58,
+                    "width": 16,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head-1",
+                    "kind": "rect",
+                    "x": 45.0,
+                    "y": 61,
+                    "width": 10,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head-2",
+                    "kind": "rect",
+                    "x": 48.0,
+                    "y": 64,
+                    "width": 4,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "穿过土表：进入与出来"
+                  },
+                  {
+                    "id": "soil-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灰区表示湿土"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "进入湿土"
+                  }
+                ]
+              },
+              {
+                "signature": "out",
+                "reading": "应进入湿土，不是从土里出来。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "soil",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 49,
+                    "width": 74,
+                    "height": 28,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "direction-shaft",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 40,
+                    "width": 4,
+                    "height": 25,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head-0",
+                    "kind": "rect",
+                    "x": 48.0,
+                    "y": 35,
+                    "width": 4,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head-1",
+                    "kind": "rect",
+                    "x": 45.0,
+                    "y": 38,
+                    "width": 10,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "head-2",
+                    "kind": "rect",
+                    "x": 42.0,
+                    "y": 41,
+                    "width": 16,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "穿过土表：进入与出来"
+                  },
+                  {
+                    "id": "soil-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灰区表示湿土"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "从湿土出来"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-snail",
+        "label": "蜗牛",
+        "prompt": "点出snail，再找痕迹留在了什么表面。",
+        "answer": "snail",
+        "caseSensitive": false,
+        "meaning": "蜗牛",
+        "before": "The ",
+        "after": " left a shiny trail on the stone.",
+        "reason": "snail是蜗牛，ai读/eɪ/。left a shiny trail on the stone说在石头上留下亮亮的痕迹，没有给距离、速度或经过多久。图片只辨认蜗牛。",
+        "hint": "on the stone限定表面；shiny说痕迹的样子。",
+        "material": "The snail left a shiny trail on the stone.",
+        "options": [
+          {
+            "id": "spider",
+            "text": "蜘蛛。",
+            "correct": false,
+            "reason": "左图是蜘蛛，不是snail。"
+          },
+          {
+            "id": "snail",
+            "text": "蜗牛。",
+            "correct": true,
+            "reason": "右图是蜗牛。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出snail，再找痕迹留在了什么表面。",
+          "art": {
+            "asset": "lesson-spider-snail-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创动物对照：左侧俯视蜘蛛，右侧有螺旋壳的蜗牛。不按真实大小比例，不表示结网时间、雨、石头或爬行痕迹。",
+            "targets": [
+              {
+                "id": "spider-target",
+                "option": "spider",
+                "label": "蜘蛛",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 5,
+                "width": 44,
+                "height": 90
+              },
+              {
+                "id": "snail-target",
+                "option": "snail",
+                "label": "蜗牛",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 20,
+                "width": 44,
+                "height": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-nest",
+        "label": "鸟窝（本句）",
+        "prompt": "until把不打扰的要求保持到什么时候？之后必须打扰吗？",
+        "answer": "nest",
+        "caseSensitive": false,
+        "meaning": "鸟窝（本句）",
+        "before": "Leave the ",
+        "after": " undisturbed until the birds leave.",
+        "reason": "Leave the nest undisturbed until the birds leave要求在鸟离巢前不打扰鸟窝；没有命令离巢后必须打扰，也没有给几天。",
+        "hint": "直到离巢是界限，不是后续必须做什么的命令。",
+        "material": "Leave the nest undisturbed until the birds leave.",
+        "options": [
+          {
+            "id": "until",
+            "text": "鸟离巢前不要打扰鸟窝。",
+            "correct": true,
+            "reason": "保留undisturbed until the birds leave。"
+          },
+          {
+            "id": "must",
+            "text": "鸟一离巢，就必须打扰鸟窝。",
+            "correct": false,
+            "reason": "until没有必须打扰的命令。"
+          },
+          {
+            "id": "today",
+            "text": "只需要今天不打扰。",
+            "correct": false,
+            "reason": "原句以鸟离巢为界，没有限定今天。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "until把不打扰的要求保持到什么时候？之后必须打扰吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "要求与时间界限",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "不推断具体日期或离巢后的命令。",
+            "wrong": "应圈出不打扰和鸟离巢这一界限，不选今天或之后必须打扰。",
+            "rows": [
+              {
+                "id": "quiet",
+                "label": "要求",
+                "text": "不要打扰鸟窝。",
+                "include": true
+              },
+              {
+                "id": "today",
+                "label": "额外日期",
+                "text": "要求只持续到今天。",
+                "include": false
+              },
+              {
+                "id": "leave",
+                "label": "界限",
+                "text": "以鸟离巢为时间界限。",
+                "include": true
+              },
+              {
+                "id": "must",
+                "label": "额外命令",
+                "text": "鸟离巢后必须打扰鸟窝。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-wing",
+        "label": "翅膀（本句）",
+        "prompt": "受伤的鸟有一只翅膀能抬起，还是抬不起来？切换示意。",
+        "answer": "wing",
+        "caseSensitive": false,
+        "meaning": "翅膀（本句）",
+        "before": "The injured bird could not lift one ",
+        "after": ".",
+        "reason": "could not lift one wing说有一只翅膀抬不起来，不是能抬起。本句wing是鸟的翅膀，不是机翼；没有说明另一只翅膀的状态或伤势程度。",
+        "hint": "保留not与one；不要补另一只也不能动。",
+        "material": "The injured bird could not lift one wing.",
+        "options": [
+          {
+            "id": "cannot",
+            "text": "有一只翅膀抬不起来。",
+            "correct": true,
+            "reason": "保留could not lift one wing。"
+          },
+          {
+            "id": "can",
+            "text": "那只翅膀可以抬起来。",
+            "correct": false,
+            "reason": "可以改变了could not。"
+          },
+          {
+            "id": "both",
+            "text": "原句明确说两只翅膀都抬不起来。",
+            "correct": false,
+            "reason": "原句只说one，没有给另一只的状态。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "受伤的鸟有一只翅膀能抬起，还是抬不起来？切换示意。",
+          "sceneLab": {
+            "id": "wing-ability-limit",
+            "title": "所述一侧能否抬起",
+            "hint": "只示意句中一只翅膀能否抬起，不判断另一侧、伤势或治疗。",
+            "wrong": "应是所述一侧抬不起来，不能切换成能抬起。",
+            "axes": [
+              {
+                "id": "ability",
+                "label": "所述一只翅膀的能力",
+                "choices": [
+                  {
+                    "id": "cannot",
+                    "label": "抬不起来"
+                  },
+                  {
+                    "id": "can",
+                    "label": "可以抬起"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wing-marker",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 51,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "只看句中所述的一只翅膀"
+                  },
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "另一只翅膀的状态未说明"
+                  },
+                  {
+                    "id": "unknown",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "能力待选"
+                  }
+                ]
+              },
+              {
+                "signature": "cannot",
+                "reading": "有一只翅膀抬不起来。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "wing-marker",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 51,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lift",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 38,
+                    "width": 4,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lift-tip",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 35,
+                    "width": 4,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lift-head",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 38,
+                    "width": 10,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bar",
+                    "kind": "rect",
+                    "x": 34,
+                    "y": 33,
+                    "width": 32,
+                    "height": 3,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "只看句中所述的一只翅膀"
+                  },
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "另一只翅膀的状态未说明"
+                  },
+                  {
+                    "id": "ability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "抬不起来"
+                  }
+                ]
+              },
+              {
+                "signature": "can",
+                "reading": "应是所述一侧抬不起来，不能切换成能抬起。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wing-marker",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 51,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lift",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 38,
+                    "width": 4,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lift-tip",
+                    "kind": "rect",
+                    "x": 48,
+                    "y": 35,
+                    "width": 4,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lift-head",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 38,
+                    "width": 10,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "只看句中所述的一只翅膀"
+                  },
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "另一只翅膀的状态未说明"
+                  },
+                  {
+                    "id": "ability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "可以抬起"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-feather",
+        "label": "羽毛",
+        "prompt": "羽毛已经落在小路上，还是仍在上方？移动落点。",
+        "answer": "feather",
+        "caseSensitive": false,
+        "meaning": "羽毛",
+        "before": "A soft ",
+        "after": " drifted onto the path.",
+        "reason": "drifted onto the path是飘落到小路上；onto包含到达表面的结果，不是仍在上方。soft是柔软，没有给风速或落下用了几秒。",
+        "hint": "核对onto的终点；不把位置图当真实动作录像。",
+        "material": "A soft feather drifted onto the path.",
+        "options": [
+          {
+            "id": "onto",
+            "text": "柔软的羽毛飘落在小路上。",
+            "correct": true,
+            "reason": "保留soft和drifted onto the path。"
+          },
+          {
+            "id": "above",
+            "text": "羽毛一直停在小路上方，没有落下。",
+            "correct": false,
+            "reason": "未落下改变了onto到达表面。"
+          },
+          {
+            "id": "water",
+            "text": "羽毛飘落到水里。",
+            "correct": false,
+            "reason": "水里改变了the path。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "羽毛已经落在小路上，还是仍在上方？移动落点。",
+          "sceneLab": {
+            "id": "feather-path-endpoint",
+            "title": "小路上与小路上方",
+            "hint": "标记表示终点是否到达小路表面；不提供风速、距离或时长。",
+            "wrong": "应已到达小路表面，不能仍留在上方。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "羽毛是否已经落下",
+                "choices": [
+                  {
+                    "id": "onto",
+                    "label": "到达小路表面"
+                  },
+                  {
+                    "id": "above",
+                    "label": "仍在小路上方"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 65,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "羽毛终点：表面与上方"
+                  },
+                  {
+                    "id": "path-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "小路表面在灰区上沿"
+                  },
+                  {
+                    "id": "unknown",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "终点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "onto",
+                "reading": "柔软的羽毛飘落在小路上。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 65,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "feather-marker",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 59,
+                    "width": 12,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "羽毛终点：表面与上方"
+                  },
+                  {
+                    "id": "path-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "小路表面在灰区上沿"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "已落在小路表面"
+                  }
+                ]
+              },
+              {
+                "signature": "above",
+                "reading": "应已到达小路表面，不能仍留在上方。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 65,
+                    "width": 74,
+                    "height": 12,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "feather-marker",
+                    "kind": "ellipse",
+                    "x": 45,
+                    "y": 40,
+                    "width": 12,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "羽毛终点：表面与上方"
+                  },
+                  {
+                    "id": "path-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "小路表面在灰区上沿"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "仍在上方，未落下"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-fur",
+        "label": "皮毛（本句）",
+        "prompt": "句子写了谁的什么特征？有说皮毛几厘米厚吗？",
+        "answer": "fur",
+        "caseSensitive": false,
+        "meaning": "皮毛（本句）",
+        "before": "The rabbit has thick winter ",
+        "after": ".",
+        "reason": "The rabbit has thick winter fur说这只兔子有浓密冬毛。fur通常不可数，不等于羽毛；thick没有提供厘米数，也没有推到所有兔子。",
+        "hint": "保留rabbit、thick与winter，不补数值。",
+        "material": "The rabbit has thick winter fur.",
+        "options": [
+          {
+            "id": "thick",
+            "text": "这只兔子有浓密的冬毛。",
+            "correct": true,
+            "reason": "保留对象和thick winter fur。"
+          },
+          {
+            "id": "feather",
+            "text": "这只兔子长着厚厚的羽毛。",
+            "correct": false,
+            "reason": "羽毛是feather，不是fur。"
+          },
+          {
+            "id": "cm",
+            "text": "原句给出了皮毛的确切厚度。",
+            "correct": false,
+            "reason": "thick没有数值或单位。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "句子写了谁的什么特征？有说皮毛几厘米厚吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "对象与皮毛特征",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "不补具体厚度或推广到所有动物。",
+            "wrong": "应选这只兔子和浓密冬毛，不选羽毛或厘米数。",
+            "rows": [
+              {
+                "id": "rabbit",
+                "label": "对象",
+                "text": "说的是这只兔子。",
+                "include": true
+              },
+              {
+                "id": "feather",
+                "label": "改动部位",
+                "text": "说的是羽毛。",
+                "include": false
+              },
+              {
+                "id": "thick",
+                "label": "特征",
+                "text": "有浓密的冬毛。",
+                "include": true
+              },
+              {
+                "id": "cm",
+                "label": "额外数值",
+                "text": "原句给出了多少厘米厚。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-tail",
+        "label": "尾巴",
+        "prompt": "狗尾巴扫到腿了，还是没有碰到？切换接触。",
+        "answer": "tail",
+        "caseSensitive": false,
+        "meaning": "尾巴",
+        "before": "The dog's ",
+        "after": " brushed against my leg.",
+        "reason": "brushed against my leg说尾巴轻轻扫过并接触了我的腿，不是隔着距离掠过。tail与tale同音；没有说狗咬人或人的感受。",
+        "hint": "against保留接触关系，不推断咬伤或情绪。",
+        "material": "The dog's tail brushed against my leg.",
+        "options": [
+          {
+            "id": "touch",
+            "text": "狗尾巴扫过并碰到了我的腿。",
+            "correct": true,
+            "reason": "保留brushed against my leg。"
+          },
+          {
+            "id": "gap",
+            "text": "狗尾巴从腿旁经过，没有碰到。",
+            "correct": false,
+            "reason": "没碰到改变了against的接触。"
+          },
+          {
+            "id": "bite",
+            "text": "狗咬了我的腿。",
+            "correct": false,
+            "reason": "尾巴扫过不等于狗咬。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "狗尾巴扫到腿了，还是没有碰到？切换接触。",
+          "sceneLab": {
+            "id": "tail-leg-contact",
+            "title": "尾巴是否扫到腿",
+            "hint": "用两条标记比较接触与间隔；不表示真实长度、咬伤或情绪。",
+            "wrong": "应扫到腿并有接触，不是留着间隔。",
+            "axes": [
+              {
+                "id": "contact",
+                "label": "尾巴是否扫到腿",
+                "choices": [
+                  {
+                    "id": "touch",
+                    "label": "扫到腿，有接触"
+                  },
+                  {
+                    "id": "gap",
+                    "label": "经过旁边，未接触"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 36,
+                    "width": 12,
+                    "height": 37,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "尾巴与腿：接触还是留空"
+                  },
+                  {
+                    "id": "leg-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 79,
+                    "width": 31,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "腿"
+                  },
+                  {
+                    "id": "unknown",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "接触关系待选"
+                  }
+                ]
+              },
+              {
+                "signature": "touch",
+                "reading": "狗尾巴扫过并碰到了我的腿。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 36,
+                    "width": 12,
+                    "height": 37,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "tail-marker",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 53,
+                    "width": 44,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "尾巴与腿：接触还是留空"
+                  },
+                  {
+                    "id": "leg-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 79,
+                    "width": 31,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "腿"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "尾巴扫到腿"
+                  }
+                ]
+              },
+              {
+                "signature": "gap",
+                "reading": "应扫到腿并有接触，不是留着间隔。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 36,
+                    "width": 12,
+                    "height": 37,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "tail-marker",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 53,
+                    "width": 29,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "尾巴与腿：接触还是留空"
+                  },
+                  {
+                    "id": "leg-label",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 79,
+                    "width": 31,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "腿"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "尾巴没有碰到腿"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-living-nature-4-transfer",
+      "topicId": "v-course-living-nature",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "方向、能力和羽毛落点都变了，哪组英文全保留？",
+      "passage": "三条新记录\n一条蠕虫从湿土里钻了出来。鸟可以抬起其中一只翅膀。一根羽毛停在小路上方，没有落下。\n词语提示：came out of从……出来；could lift可以抬起；without landing没有落下。",
+      "options": [
+        {
+          "id": "a",
+          "text": "A worm came out of the damp soil. The bird could lift one wing. A feather stayed above the path without landing."
+        },
+        {
+          "id": "b",
+          "text": "A worm disappeared into the damp soil. The bird could lift one wing. A feather stayed above the path without landing."
+        },
+        {
+          "id": "c",
+          "text": "A worm came out of the damp soil. The bird could not lift one wing. A feather stayed above the path without landing."
+        },
+        {
+          "id": "d",
+          "text": "A worm came out of the damp soil. The bird could lift one wing. A feather drifted onto the path."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "A worm came out of the damp soil. The bird could lift one wing. A feather stayed above the path without landing."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐项核对穿过土表的方向、能否抬起与是否已经落下。",
+        "steps": [
+          {
+            "text": "从湿土出来：came out of the damp soil。",
+            "reason": "新方向是出来，不是into进入。"
+          },
+          {
+            "text": "可以抬起一只翅膀：could lift one wing。",
+            "reason": "新记录是可以，不保留not。"
+          },
+          {
+            "text": "在上方未落下：stayed above the path without landing。",
+            "reason": "新记录没有到达表面，不能沿用onto。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "into把出来改成进入。"
+          },
+          {
+            "option": "c",
+            "reason": "could not把能抬起改成不能。"
+          },
+          {
+            "option": "d",
+            "reason": "onto把未落下改成已落在小路上。"
+          }
+        ],
+        "pitfall": "动物名词没变，方向词、否定词和终点仍要重新核对。",
+        "visual": {
+          "kind": "comparison",
+          "title": "核对三条新记录",
+          "segments": [
+            {
+              "text": "out of",
+              "role": "evidence",
+              "note": "出来"
+            },
+            {
+              "text": "could lift",
+              "role": "evidence",
+              "note": "可以抬起"
+            },
+            {
+              "text": "above / without landing",
+              "role": "evidence",
+              "note": "在上方未落下"
+            }
+          ],
+          "caption": "不推断另一只翅膀、真实伤势、距离或时间。"
+        },
+        "transfer": "把could换成could not，所述翅膀的状态怎么变？"
+      }
+    }
+  }
+}
