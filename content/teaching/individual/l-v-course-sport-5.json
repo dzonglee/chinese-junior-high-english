@@ -1,0 +1,3547 @@
+{
+  "lessonId": "l-v-course-sport-5",
+  "reviewState": "draft",
+  "intent": "Individually teach gym as destination when raining without invented classes, shallow-end beginners without numeric depth, twice whistle blows with silent t preserved, referee stop after injury without inferred resumption, silver medal/event without composition proof, every opponent subset, must respect even when losing without actual-loss inference, and each runner completed one lap using explicitly new three-runner example. Six changing diagrams, one order task and one exact evidence task; no new bitmap needed.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "数次数、看范围，分清要求与事实",
+    "instruction": "切换地点、次数和适用范围，再核对比赛记录；不把要求当成已经完成。",
+    "items": [
+      {
+        "id": "word-gym",
+        "label": "体育馆（本句）",
+        "prompt": "下雨时转到哪里？切换地点，别把when改成雨停以后。",
+        "answer": "gym",
+        "caseSensitive": false,
+        "meaning": "体育馆（本句）",
+        "before": "Our class moved to the ",
+        "after": " when it rained.",
+        "reason": "下雨时，我们班转移到了体育馆。原句没有说是在上课、比赛还是做别的活动。",
+        "hint": "gym是gymnasium的常用简写；when it rained给出下雨这一时间背景。",
+        "material": "Our class moved to the gym when it rained.",
+        "options": [
+          {
+            "id": "gym",
+            "text": "下雨时，我们班转移到了体育馆。",
+            "correct": true,
+            "reason": "保留moved to the gym与when it rained。"
+          },
+          {
+            "id": "field",
+            "text": "下雨时，我们班转移到了露天运动场。",
+            "correct": false,
+            "reason": "露天运动场改变了gym。"
+          },
+          {
+            "id": "after",
+            "text": "原句明确说雨完全停了以后才转移。",
+            "correct": false,
+            "reason": "雨停以后改变了when it rained。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "下雨时转到哪里？切换地点，别把when改成雨停以后。",
+          "sceneLab": {
+            "id": "gym-rain",
+            "title": "下雨时，转到什么地点？",
+            "hint": "只比较原句地点和时间背景，不补上课或比赛。",
+            "wrong": "原句是下雨时转到体育馆，不能换成露天场地或雨停以后。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "转移目的地",
+                "choices": [
+                  {
+                    "id": "gym",
+                    "label": "体育馆"
+                  },
+                  {
+                    "id": "field",
+                    "label": "露天运动场"
+                  }
+                ]
+              },
+              {
+                "id": "time",
+                "label": "时间背景",
+                "choices": [
+                  {
+                    "id": "rain",
+                    "label": "下雨时"
+                  },
+                  {
+                    "id": "stopped",
+                    "label": "雨完全停后"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "时间待选"
+                  },
+                  {
+                    "id": "class",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 40,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "class-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "班级"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 41,
+                    "width": 17,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 68,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|rain",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "下雨时"
+                  },
+                  {
+                    "id": "class",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 40,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "class-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "班级"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 41,
+                    "width": 17,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 68,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|stopped",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "雨完全停后"
+                  },
+                  {
+                    "id": "class",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 40,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "class-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "班级"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 41,
+                    "width": 17,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 68,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "gym|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "时间待选"
+                  },
+                  {
+                    "id": "class",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 40,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "class-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "班级"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 41,
+                    "width": 17,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 68,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "体育馆"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 31,
+                    "width": 42,
+                    "height": 32,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "rect",
+                    "x": 51,
+                    "y": 27,
+                    "width": 46,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 48,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "gym|rain",
+                "reading": "下雨时，我们班转移到了体育馆。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "下雨时"
+                  },
+                  {
+                    "id": "class",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 40,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "class-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "班级"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 41,
+                    "width": 17,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 68,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "体育馆"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 31,
+                    "width": 42,
+                    "height": 32,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "rect",
+                    "x": 51,
+                    "y": 27,
+                    "width": 46,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 48,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "gym|stopped",
+                "reading": "原句是下雨时转到体育馆，不能换成露天场地或雨停以后。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "雨完全停后"
+                  },
+                  {
+                    "id": "class",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 40,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "class-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "班级"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 41,
+                    "width": 17,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 68,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "体育馆"
+                  },
+                  {
+                    "id": "building",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 31,
+                    "width": 42,
+                    "height": 32,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "rect",
+                    "x": 51,
+                    "y": 27,
+                    "width": 46,
+                    "height": 4,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 48,
+                    "width": 8,
+                    "height": 15,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "field|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "时间待选"
+                  },
+                  {
+                    "id": "class",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 40,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "class-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "班级"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 41,
+                    "width": 17,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 68,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "露天场地"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 45,
+                    "width": 42,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "field|rain",
+                "reading": "原句是下雨时转到体育馆，不能换成露天场地或雨停以后。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "下雨时"
+                  },
+                  {
+                    "id": "class",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 40,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "class-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "班级"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 41,
+                    "width": 17,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 68,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "露天场地"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 45,
+                    "width": 42,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "field|stopped",
+                "reading": "原句是下雨时转到体育馆，不能换成露天场地或雨停以后。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "雨完全停后"
+                  },
+                  {
+                    "id": "class",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 40,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "class-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 68,
+                    "width": 24,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "班级"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 41,
+                    "width": 17,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 68,
+                    "width": 46,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "露天场地"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 45,
+                    "width": 42,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-pool",
+        "label": "游泳池（本句）",
+        "prompt": "浅水区供谁使用？改变区域和对象，再比较原句。",
+        "answer": "pool",
+        "caseSensitive": false,
+        "meaning": "游泳池（本句）",
+        "before": "The shallow end of the ",
+        "after": " is for beginners.",
+        "reason": "游泳池浅水区供初学者使用。shallow与deep相对，for beginners给出使用对象。",
+        "hint": "原句没有给水深数值，也不表示初学者可以无人看护地游泳。",
+        "material": "The shallow end of the pool is for beginners.",
+        "options": [
+          {
+            "id": "shallow",
+            "text": "浅水区供初学者使用。",
+            "correct": true,
+            "reason": "保留shallow end与for beginners。"
+          },
+          {
+            "id": "deep",
+            "text": "深水区供初学者使用。",
+            "correct": false,
+            "reason": "深水区改变了shallow end。"
+          },
+          {
+            "id": "experts",
+            "text": "浅水区只供专业运动员使用。",
+            "correct": false,
+            "reason": "只供专业运动员改变了for beginners。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "浅水区供谁使用？改变区域和对象，再比较原句。",
+          "sceneLab": {
+            "id": "pool-shallow",
+            "title": "浅还是深？供谁使用？",
+            "hint": "深浅仅作对比，不给真实水深、安全等级或独自游泳许可。",
+            "wrong": "原句是浅水区供初学者使用，不能换成深水区或只供专业运动员。",
+            "axes": [
+              {
+                "id": "end",
+                "label": "原句的区域",
+                "choices": [
+                  {
+                    "id": "shallow",
+                    "label": "浅水区"
+                  },
+                  {
+                    "id": "deep",
+                    "label": "深水区"
+                  }
+                ]
+              },
+              {
+                "id": "users",
+                "label": "使用对象",
+                "choices": [
+                  {
+                    "id": "beginners",
+                    "label": "初学者"
+                  },
+                  {
+                    "id": "experts",
+                    "label": "只供专业运动员"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "深浅对比，不给米数"
+                  },
+                  {
+                    "id": "shallow-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "浅水区"
+                  },
+                  {
+                    "id": "deep-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "深水区"
+                  },
+                  {
+                    "id": "shallow",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 39,
+                    "height": 21,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "deep",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 42,
+                    "width": 39,
+                    "height": 39,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "users",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 85,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|beginners",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "深浅对比，不给米数"
+                  },
+                  {
+                    "id": "shallow-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "浅水区"
+                  },
+                  {
+                    "id": "deep-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "深水区"
+                  },
+                  {
+                    "id": "shallow",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 39,
+                    "height": 21,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "deep",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 42,
+                    "width": 39,
+                    "height": 39,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "users",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 85,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "供初学者使用"
+                  }
+                ]
+              },
+              {
+                "signature": "?|experts",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "深浅对比，不给米数"
+                  },
+                  {
+                    "id": "shallow-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "浅水区"
+                  },
+                  {
+                    "id": "deep-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "深水区"
+                  },
+                  {
+                    "id": "shallow",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 39,
+                    "height": 21,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "deep",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 42,
+                    "width": 39,
+                    "height": 39,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "users",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 85,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "只供专业运动员"
+                  }
+                ]
+              },
+              {
+                "signature": "shallow|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "深浅对比，不给米数"
+                  },
+                  {
+                    "id": "shallow-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "浅水区"
+                  },
+                  {
+                    "id": "deep-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "深水区"
+                  },
+                  {
+                    "id": "shallow",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 39,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "deep",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 42,
+                    "width": 39,
+                    "height": 39,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "users",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 85,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "shallow|beginners",
+                "reading": "浅水区供初学者使用。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "深浅对比，不给米数"
+                  },
+                  {
+                    "id": "shallow-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "浅水区"
+                  },
+                  {
+                    "id": "deep-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "深水区"
+                  },
+                  {
+                    "id": "shallow",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 39,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "deep",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 42,
+                    "width": 39,
+                    "height": 39,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "users",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 85,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "供初学者使用"
+                  }
+                ]
+              },
+              {
+                "signature": "shallow|experts",
+                "reading": "原句是浅水区供初学者使用，不能换成深水区或只供专业运动员。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "深浅对比，不给米数"
+                  },
+                  {
+                    "id": "shallow-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "浅水区"
+                  },
+                  {
+                    "id": "deep-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "深水区"
+                  },
+                  {
+                    "id": "shallow",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 39,
+                    "height": 21,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "deep",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 42,
+                    "width": 39,
+                    "height": 39,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "users",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 85,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "只供专业运动员"
+                  }
+                ]
+              },
+              {
+                "signature": "deep|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "深浅对比，不给米数"
+                  },
+                  {
+                    "id": "shallow-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "浅水区"
+                  },
+                  {
+                    "id": "deep-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "深水区"
+                  },
+                  {
+                    "id": "shallow",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 39,
+                    "height": 21,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "deep",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 42,
+                    "width": 39,
+                    "height": 39,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "users",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 85,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "deep|beginners",
+                "reading": "原句是浅水区供初学者使用，不能换成深水区或只供专业运动员。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "深浅对比，不给米数"
+                  },
+                  {
+                    "id": "shallow-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "浅水区"
+                  },
+                  {
+                    "id": "deep-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "深水区"
+                  },
+                  {
+                    "id": "shallow",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 39,
+                    "height": 21,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "deep",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 42,
+                    "width": 39,
+                    "height": 39,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "users",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 85,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "供初学者使用"
+                  }
+                ]
+              },
+              {
+                "signature": "deep|experts",
+                "reading": "原句是浅水区供初学者使用，不能换成深水区或只供专业运动员。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "深浅对比，不给米数"
+                  },
+                  {
+                    "id": "shallow-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "浅水区"
+                  },
+                  {
+                    "id": "deep-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 23,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "深水区"
+                  },
+                  {
+                    "id": "shallow",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 39,
+                    "height": 21,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "deep",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 42,
+                    "width": 39,
+                    "height": 39,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "users",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 85,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "只供专业运动员"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-whistle",
+        "label": "哨子（本句）",
+        "prompt": "twice是几次？改变次数，看哨声记录怎样变化。",
+        "answer": "whistle",
+        "caseSensitive": false,
+        "meaning": "哨子（本句）",
+        "before": "The referee blew the ",
+        "after": " twice.",
+        "reason": "裁判吹了两次哨子。twice是两次，不是一次或三次。",
+        "hint": "whistle的t不发音，但拼写不能漏t；blew是blow的过去式。",
+        "material": "The referee blew the whistle twice.",
+        "options": [
+          {
+            "id": "two",
+            "text": "裁判吹了两次哨子。",
+            "correct": true,
+            "reason": "保留blew the whistle twice。"
+          },
+          {
+            "id": "one",
+            "text": "裁判只吹了一次哨子。",
+            "correct": false,
+            "reason": "一次改变了twice。"
+          },
+          {
+            "id": "three",
+            "text": "裁判吹了三次哨子。",
+            "correct": false,
+            "reason": "三次改变了twice。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "twice是几次？改变次数，看哨声记录怎样变化。",
+          "sceneLab": {
+            "id": "whistle-twice",
+            "title": "一次、两次还是三次？",
+            "hint": "图只计吹哨次数，不表示真实声音、时长或比赛信号含义。",
+            "wrong": "原句twice是两次，不能改成一次或三次。",
+            "axes": [
+              {
+                "id": "count",
+                "label": "twice是多少次",
+                "choices": [
+                  {
+                    "id": "one",
+                    "label": "一次"
+                  },
+                  {
+                    "id": "two",
+                    "label": "两次"
+                  },
+                  {
+                    "id": "three",
+                    "label": "三次"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每个标记表示一次吹哨"
+                  },
+                  {
+                    "id": "count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "次数待选"
+                  }
+                ]
+              },
+              {
+                "signature": "one",
+                "reading": "原句twice是两次，不能改成一次或三次。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每个标记表示一次吹哨"
+                  },
+                  {
+                    "id": "count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一次"
+                  },
+                  {
+                    "id": "body-0",
+                    "kind": "ellipse",
+                    "x": 10,
+                    "y": 39,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mouth-0",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 39,
+                    "width": 12,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hole-0",
+                    "kind": "ellipse",
+                    "x": 14,
+                    "y": 43,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "ink",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "two",
+                "reading": "裁判吹了两次哨子。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每个标记表示一次吹哨"
+                  },
+                  {
+                    "id": "count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两次"
+                  },
+                  {
+                    "id": "body-0",
+                    "kind": "ellipse",
+                    "x": 10,
+                    "y": 39,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mouth-0",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 39,
+                    "width": 12,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hole-0",
+                    "kind": "ellipse",
+                    "x": 14,
+                    "y": 43,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "ink",
+                    "outline": true
+                  },
+                  {
+                    "id": "body-1",
+                    "kind": "ellipse",
+                    "x": 39,
+                    "y": 39,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mouth-1",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 12,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hole-1",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 43,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "ink",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "three",
+                "reading": "原句twice是两次，不能改成一次或三次。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每个标记表示一次吹哨"
+                  },
+                  {
+                    "id": "count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "三次"
+                  },
+                  {
+                    "id": "body-0",
+                    "kind": "ellipse",
+                    "x": 10,
+                    "y": 39,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mouth-0",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 39,
+                    "width": 12,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hole-0",
+                    "kind": "ellipse",
+                    "x": 14,
+                    "y": 43,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "ink",
+                    "outline": true
+                  },
+                  {
+                    "id": "body-1",
+                    "kind": "ellipse",
+                    "x": 39,
+                    "y": 39,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mouth-1",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 12,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hole-1",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 43,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "ink",
+                    "outline": true
+                  },
+                  {
+                    "id": "body-2",
+                    "kind": "ellipse",
+                    "x": 68,
+                    "y": 39,
+                    "width": 16,
+                    "height": 16,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mouth-2",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 39,
+                    "width": 12,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hole-2",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 43,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "ink",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-referee",
+        "label": "裁判员",
+        "prompt": "受伤与裁判叫停比赛，哪个在前？按原句排列。",
+        "answer": "referee",
+        "caseSensitive": false,
+        "meaning": "裁判员",
+        "before": "The ",
+        "after": " stopped the game after the injury.",
+        "reason": "有人受伤后，裁判叫停了比赛。after标出先后，没有说后来是否恢复。",
+        "hint": "referee指人，重音在末音节；不补受伤部位、伤势或停赛时长。",
+        "material": "The referee stopped the game after the injury.",
+        "options": [
+          {
+            "id": "after",
+            "text": "受伤之后，裁判叫停了比赛。",
+            "correct": true,
+            "reason": "保留referee stopped与after the injury。"
+          },
+          {
+            "id": "before",
+            "text": "裁判先叫停比赛，随后才有人受伤。",
+            "correct": false,
+            "reason": "颠倒了after的先后。"
+          },
+          {
+            "id": "resume",
+            "text": "原句明确说比赛一分钟后恢复。",
+            "correct": false,
+            "reason": "原句没有恢复比赛或一分钟的信息。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "受伤与裁判叫停比赛，哪个在前？按原句排列。",
+          "processOrder": {
+            "title": "先受伤，还是先叫停？",
+            "hint": "只排原句给出的先后，不推断停赛时长或是否恢复。",
+            "wrong": "原句是受伤后叫停比赛，不能倒序或补恢复时刻。",
+            "events": [
+              {
+                "id": "injury",
+                "label": "有人受伤"
+              },
+              {
+                "id": "stop",
+                "label": "裁判叫停"
+              }
+            ],
+            "sequence": [
+              "injury",
+              "stop"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-medal",
+        "label": "奖牌",
+        "prompt": "获得什么奖牌，在哪个项目？圈出两条，不补纯银材质。",
+        "answer": "medal",
+        "caseSensitive": false,
+        "meaning": "奖牌",
+        "before": "She won a silver ",
+        "after": " in the relay.",
+        "reason": "她在接力赛中获得了一枚银牌。silver medal是银牌，不直接证明奖牌由纯银制成。",
+        "hint": "medal是奖牌，metal是金属；比较中间的d与t。",
+        "material": "She won a silver medal in the relay.",
+        "options": [
+          {
+            "id": "silver",
+            "text": "她在接力赛中获得银牌。",
+            "correct": true,
+            "reason": "保留won、silver medal与in the relay。"
+          },
+          {
+            "id": "gold",
+            "text": "她在接力赛中获得金牌。",
+            "correct": false,
+            "reason": "金牌改变了silver medal。"
+          },
+          {
+            "id": "material",
+            "text": "原句证明这枚奖牌由纯银制成。",
+            "correct": false,
+            "reason": "silver medal的名称不提供具体材质证明。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "获得什么奖牌，在哪个项目？圈出两条，不补纯银材质。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "奖牌与项目",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "不补奖牌的具体材质或比赛用时。",
+            "wrong": "保留银牌与接力赛，不改成金牌或补纯银材质。",
+            "rows": [
+              {
+                "id": "medal",
+                "label": "奖牌",
+                "text": "她获得一枚银牌。",
+                "include": true
+              },
+              {
+                "id": "event",
+                "label": "项目",
+                "text": "接力赛。",
+                "include": true
+              },
+              {
+                "id": "material",
+                "label": "额外材质",
+                "text": "奖牌由纯银制成。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-champion",
+        "label": "冠军",
+        "prompt": "every opponent包括谁？切换握手范围。",
+        "answer": "champion",
+        "caseSensitive": false,
+        "meaning": "冠军",
+        "before": "The ",
+        "after": " shook hands with every opponent.",
+        "reason": "冠军与每位对手都握了手。every覆盖每位对手，不是只一位，也不等于全部观众。",
+        "hint": "champion可以指个人或队伍；本图只比较每位对手的范围，不给真实人数。",
+        "material": "The champion shook hands with every opponent.",
+        "options": [
+          {
+            "id": "all",
+            "text": "冠军与每位对手都握了手。",
+            "correct": true,
+            "reason": "保留shook hands with every opponent。"
+          },
+          {
+            "id": "one",
+            "text": "冠军只与其中一位对手握手。",
+            "correct": false,
+            "reason": "只一位缩小了every的范围。"
+          },
+          {
+            "id": "audience",
+            "text": "冠军与全部观众握手。",
+            "correct": false,
+            "reason": "观众改变了opponent对手。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "every opponent包括谁？切换握手范围。",
+          "sceneLab": {
+            "id": "champion-every",
+            "title": "每位对手，不是全部观众",
+            "hint": "分组示意只比较握手对象，不表示真实人数或比赛名次。",
+            "wrong": "原句说每位对手，不能缩成只一位或扩成全部观众。",
+            "axes": [
+              {
+                "id": "scope",
+                "label": "与谁握手",
+                "choices": [
+                  {
+                    "id": "all",
+                    "label": "每位对手"
+                  },
+                  {
+                    "id": "one",
+                    "label": "只一位对手"
+                  },
+                  {
+                    "id": "audience",
+                    "label": "全部观众"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "握手对象的范围"
+                  },
+                  {
+                    "id": "opponents",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 52,
+                    "height": 37,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "audience",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 30,
+                    "width": 33,
+                    "height": 37,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "opponent-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 38,
+                    "width": 48,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "对手"
+                  },
+                  {
+                    "id": "audience-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 38,
+                    "width": 29,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "观众"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  }
+                ]
+              },
+              {
+                "signature": "all",
+                "reading": "冠军与每位对手都握了手。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "握手对象的范围"
+                  },
+                  {
+                    "id": "opponents",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 52,
+                    "height": 37,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "audience",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 30,
+                    "width": 33,
+                    "height": 37,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "opponent-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 38,
+                    "width": 48,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "对手"
+                  },
+                  {
+                    "id": "audience-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 38,
+                    "width": 29,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "观众"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每位对手"
+                  }
+                ]
+              },
+              {
+                "signature": "one",
+                "reading": "原句说每位对手，不能缩成只一位或扩成全部观众。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "握手对象的范围"
+                  },
+                  {
+                    "id": "opponents",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 52,
+                    "height": 37,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "audience",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 30,
+                    "width": 33,
+                    "height": 37,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "opponent-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 38,
+                    "width": 48,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "对手"
+                  },
+                  {
+                    "id": "audience-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 38,
+                    "width": 29,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "观众"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只一位对手"
+                  },
+                  {
+                    "id": "one",
+                    "kind": "ellipse",
+                    "x": 24,
+                    "y": 57,
+                    "width": 8,
+                    "height": 8,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "audience",
+                "reading": "原句说每位对手，不能缩成只一位或扩成全部观众。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "握手对象的范围"
+                  },
+                  {
+                    "id": "opponents",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 52,
+                    "height": 37,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "audience",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 30,
+                    "width": 33,
+                    "height": 37,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "opponent-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 38,
+                    "width": 48,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "对手"
+                  },
+                  {
+                    "id": "audience-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 38,
+                    "width": 29,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "观众"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "全部观众"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-opponent",
+        "label": "对手",
+        "prompt": "输了还必须尊重对手吗？改变条件，比较even when。",
+        "answer": "opponent",
+        "caseSensitive": false,
+        "meaning": "对手",
+        "before": "We must respect our ",
+        "after": " even when we lose.",
+        "reason": "即使输了，我们也必须尊重对手。must保留必须，even when表明输的时候也不能例外。",
+        "hint": "本句是our opponent；另说一位对手可用an opponent，不能写an our opponent。",
+        "material": "We must respect our opponent even when we lose.",
+        "options": [
+          {
+            "id": "must",
+            "text": "即使输了，我们也必须尊重对手。",
+            "correct": true,
+            "reason": "保留must、respect与even when we lose。"
+          },
+          {
+            "id": "win",
+            "text": "只有赢了才需要尊重对手。",
+            "correct": false,
+            "reason": "只有赢了改变了even when we lose。"
+          },
+          {
+            "id": "done",
+            "text": "原句证明我们已经输了这场比赛。",
+            "correct": false,
+            "reason": "即使输了的要求不等于已经输掉的记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "输了还必须尊重对手吗？改变条件，比较even when。",
+          "sceneLab": {
+            "id": "opponent-even",
+            "title": "输了也必须，还是只有赢了才？",
+            "hint": "图比较要求的适用条件，不报告实际输赢或是否已遵守。",
+            "wrong": "原句要求即使输了也必须尊重对手，不能限于赢时或说已经输了。",
+            "axes": [
+              {
+                "id": "rule",
+                "label": "even when说明什么",
+                "choices": [
+                  {
+                    "id": "both",
+                    "label": "即使输了也必须尊重"
+                  },
+                  {
+                    "id": "win",
+                    "label": "只有赢时才需要尊重"
+                  },
+                  {
+                    "id": "done",
+                    "label": "证明我们已经输了"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "尊重对手的要求"
+                  },
+                  {
+                    "id": "win",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 34,
+                    "width": 40,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lose",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 34,
+                    "width": 40,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "win-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 40,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "赢时"
+                  },
+                  {
+                    "id": "lose-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 40,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "输时"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "要求待选"
+                  }
+                ]
+              },
+              {
+                "signature": "both",
+                "reading": "即使输了，我们也必须尊重对手。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "尊重对手的要求"
+                  },
+                  {
+                    "id": "win",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 34,
+                    "width": 40,
+                    "height": 27,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lose",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 34,
+                    "width": 40,
+                    "height": 27,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "win-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 40,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "赢时"
+                  },
+                  {
+                    "id": "lose-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 40,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "输时"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "输时也必须尊重"
+                  }
+                ]
+              },
+              {
+                "signature": "win",
+                "reading": "原句要求即使输了也必须尊重对手，不能限于赢时或说已经输了。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "尊重对手的要求"
+                  },
+                  {
+                    "id": "win",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 34,
+                    "width": 40,
+                    "height": 27,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lose",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 34,
+                    "width": 40,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "win-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 40,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "赢时"
+                  },
+                  {
+                    "id": "lose-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 40,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "输时"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "仅赢时才尊重"
+                  }
+                ]
+              },
+              {
+                "signature": "done",
+                "reading": "原句要求即使输了也必须尊重对手，不能限于赢时或说已经输了。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "尊重对手的要求"
+                  },
+                  {
+                    "id": "win",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 34,
+                    "width": 40,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lose",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 34,
+                    "width": 40,
+                    "height": 27,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "win-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 40,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "赢时"
+                  },
+                  {
+                    "id": "lose-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 40,
+                    "width": 36,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "输时"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "补出已经输了"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-relay",
+        "label": "接力赛（本句）",
+        "prompt": "Each runner与one lap共同说明什么？给新例子的每人配好圈数。",
+        "answer": "relay",
+        "caseSensitive": false,
+        "meaning": "接力赛（本句）",
+        "before": "Each runner in the ",
+        "after": " completed one lap.",
+        "reason": "接力赛中每名跑者都完成了一圈。不是每人两圈，也不是只有一名跑者完成。",
+        "hint": "新例子用三人表示每人一圈，不是原句的实际人数；原句没有距离或总用时。",
+        "material": "Each runner in the relay completed one lap.",
+        "options": [
+          {
+            "id": "each-one",
+            "text": "每名跑者都完成了一圈。",
+            "correct": true,
+            "reason": "同时保留Each runner、completed和one lap。"
+          },
+          {
+            "id": "each-two",
+            "text": "每名跑者都完成了两圈。",
+            "correct": false,
+            "reason": "两圈改变了one lap。"
+          },
+          {
+            "id": "one-only",
+            "text": "只有一名跑者完成了一圈。",
+            "correct": false,
+            "reason": "只有一名改变了Each runner。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "Each runner与one lap共同说明什么？给新例子的每人配好圈数。",
+          "sceneLab": {
+            "id": "relay-each",
+            "title": "每人一圈，不是全队只有一圈",
+            "hint": "新三人例子只比较each与one，不表示真实人数、赛程或用时。",
+            "wrong": "原句是每名跑者都完成一圈，不能换成每人两圈或只有一人。",
+            "axes": [
+              {
+                "id": "scope",
+                "label": "完成的跑者范围",
+                "choices": [
+                  {
+                    "id": "each",
+                    "label": "每名跑者"
+                  },
+                  {
+                    "id": "one",
+                    "label": "只有一名"
+                  }
+                ]
+              },
+              {
+                "id": "laps",
+                "label": "每人的完成圈数",
+                "choices": [
+                  {
+                    "id": "one",
+                    "label": "一圈"
+                  },
+                  {
+                    "id": "two",
+                    "label": "两圈"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三人例子：每个圆是一圈"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "runner-0",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 27,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者1"
+                  },
+                  {
+                    "id": "lap-0-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-1",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 44,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者2"
+                  },
+                  {
+                    "id": "lap-1-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-2",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 61,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者3"
+                  },
+                  {
+                    "id": "lap-2-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "?|one",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三人例子：每个圆是一圈"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "runner-0",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 27,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者1"
+                  },
+                  {
+                    "id": "lap-0-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-1",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 44,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者2"
+                  },
+                  {
+                    "id": "lap-1-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-2",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 61,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者3"
+                  },
+                  {
+                    "id": "lap-2-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "?|two",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三人例子：每个圆是一圈"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "runner-0",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 27,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者1"
+                  },
+                  {
+                    "id": "lap-0-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lap-0-1",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-1",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 44,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者2"
+                  },
+                  {
+                    "id": "lap-1-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lap-1-1",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-2",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 61,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者3"
+                  },
+                  {
+                    "id": "lap-2-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lap-2-1",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "each|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三人例子：每个圆是一圈"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每人"
+                  },
+                  {
+                    "id": "runner-0",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 27,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者1"
+                  },
+                  {
+                    "id": "lap-0-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-1",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 44,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者2"
+                  },
+                  {
+                    "id": "lap-1-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-2",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 61,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者3"
+                  },
+                  {
+                    "id": "lap-2-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "each|one",
+                "reading": "每名跑者都完成了一圈。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三人例子：每个圆是一圈"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每人"
+                  },
+                  {
+                    "id": "runner-0",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 27,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者1"
+                  },
+                  {
+                    "id": "lap-0-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "runner-1",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 44,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者2"
+                  },
+                  {
+                    "id": "lap-1-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "runner-2",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 61,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者3"
+                  },
+                  {
+                    "id": "lap-2-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "each|two",
+                "reading": "原句是每名跑者都完成一圈，不能换成每人两圈或只有一人。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三人例子：每个圆是一圈"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "每人"
+                  },
+                  {
+                    "id": "runner-0",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 27,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者1"
+                  },
+                  {
+                    "id": "lap-0-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lap-0-1",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "runner-1",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 44,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者2"
+                  },
+                  {
+                    "id": "lap-1-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lap-1-1",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "runner-2",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 61,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者3"
+                  },
+                  {
+                    "id": "lap-2-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lap-2-1",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "one|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三人例子：每个圆是一圈"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只一人"
+                  },
+                  {
+                    "id": "runner-0",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 27,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者1"
+                  },
+                  {
+                    "id": "lap-0-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-1",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 44,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者2"
+                  },
+                  {
+                    "id": "lap-1-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-2",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 61,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者3"
+                  },
+                  {
+                    "id": "lap-2-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "one|one",
+                "reading": "原句是每名跑者都完成一圈，不能换成每人两圈或只有一人。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三人例子：每个圆是一圈"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只一人"
+                  },
+                  {
+                    "id": "runner-0",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 27,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者1"
+                  },
+                  {
+                    "id": "lap-0-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "runner-1",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 44,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者2"
+                  },
+                  {
+                    "id": "lap-1-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-2",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 61,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者3"
+                  },
+                  {
+                    "id": "lap-2-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "one|two",
+                "reading": "原句是每名跑者都完成一圈，不能换成每人两圈或只有一人。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新三人例子：每个圆是一圈"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只一人"
+                  },
+                  {
+                    "id": "runner-0",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 27,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者1"
+                  },
+                  {
+                    "id": "lap-0-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lap-0-1",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 27,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "runner-1",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 44,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者2"
+                  },
+                  {
+                    "id": "lap-1-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lap-1-1",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 44,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "runner-2",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 61,
+                    "width": 34,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "跑者3"
+                  },
+                  {
+                    "id": "lap-2-0",
+                    "kind": "ellipse",
+                    "x": 54,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lap-2-1",
+                    "kind": "ellipse",
+                    "x": 71,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-sport-5-transfer",
+      "topicId": "v-course-sport",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成铃声、规则和画画，哪组三句保留全部信息？",
+      "passage": "三条新信息\n图书管理员打了两次铃。即使累了，我们也必须遵守规则。每个孩子都完成了一幅画。\n词语提示：librarian图书管理员；rang the bell打铃；drawing画。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The librarian rang the bell once. We must follow the rules even when we are tired. Each child completed one drawing."
+        },
+        {
+          "id": "b",
+          "text": "The librarian rang the bell twice. We must follow the rules only when we are not tired. Each child completed one drawing."
+        },
+        {
+          "id": "c",
+          "text": "The librarian rang the bell twice. We must follow the rules even when we are tired. Each child completed one drawing."
+        },
+        {
+          "id": "d",
+          "text": "The librarian rang the bell twice. We must follow the rules even when we are tired. Only one child completed one drawing."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The librarian rang the bell twice. We must follow the rules even when we are tired. Each child completed one drawing."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先数两次，再保留即使累了也必须的要求，最后核对每个孩子都完成一幅。",
+        "steps": [
+          {
+            "text": "The librarian rang the bell twice.",
+            "reason": "twice是两次，不能变成once一次。"
+          },
+          {
+            "text": "We must follow the rules even when we are tired.",
+            "reason": "must是必须；even when tired不能变成只有不累时。"
+          },
+          {
+            "text": "Each child completed one drawing.",
+            "reason": "Each覆盖每个孩子，completed是已经完成，one是一幅。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "once把两次改成一次。"
+          },
+          {
+            "option": "b",
+            "reason": "only when we are not tired把累时也必须改成只在不累时。"
+          },
+          {
+            "option": "d",
+            "reason": "Only one child把每个孩子缩成只有一个。"
+          }
+        ],
+        "pitfall": "次数、适用条件和每人的范围都要核对；要求不等于已经发生的结果。",
+        "visual": {
+          "kind": "comparison",
+          "title": "次数、条件与每人",
+          "segments": [
+            {
+              "text": "twice",
+              "role": "evidence",
+              "note": "两次"
+            },
+            {
+              "text": "must … even when",
+              "role": "evidence",
+              "note": "即使……也必须"
+            },
+            {
+              "text": "Each … completed one",
+              "role": "evidence",
+              "note": "每个都完成一个"
+            }
+          ],
+          "caption": "一项一项核对，不漏twice、even与Each。"
+        },
+        "transfer": "如果把Each child换成Only one child，完成画的人数范围会怎样改变？"
+      }
+    }
+  },
+  "picturePurpose": "Code-owned diagrams let learners change destination and time, shallow/deep areas and users, whistle count, handshake scope, conditional requirements and each-runner laps. Exact record selection and a reversible timeline preserve evidence and order; no bitmap is needed to explain these changing relationships."
+}
