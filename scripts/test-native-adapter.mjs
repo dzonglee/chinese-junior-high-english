@@ -1,3 +1,4 @@
+import {workshopExpressionActions} from '../scripts/lib/workshop-test-actions.mjs'
 // Runs the built WeChat CommonJS adapter against deterministic API doubles. This is not DevTools.
 import assert from 'node:assert/strict'
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
@@ -948,6 +949,10 @@ app.open('lesson',{id:'l-p-vowels'});await app.action('studio-answer','a');await
 for(const[index,condition]of conditions405.entries()){
  await app.action('studio-workshop-item',String(index));await app.action('studio-workshop-choose',condition.target);await app.action('studio-workshop-check');assert.equal(app.render().teaching.workshop.complete,true);await app.action('studio-workshop-choose',condition.choices.find(x=>x!==condition.target));assert.equal(app.render().teaching.workshop.complete,false);app.open('home');app.open('lesson',{id:'l-p-vowels'});assert.equal(app.render().teaching.workshop.complete,false);await app.action('studio-workshop-choose',condition.target);await app.action('studio-workshop-check');assert.equal(app.render().teaching.workshop.complete,true)
 }assert.equal(app.state.attempts.length,1,'Guided vowel notation adds no independent attempt');
+app.open('lesson',{id:'l-p-consonants'});await app.action('studio-answer','a');await app.action('studio-check');await app.action('studio-next');const conditions406=app.render().teaching.lesson.mission.workshop.conditions;
+for(const[index,condition]of conditions406.entries()){
+ await app.action('studio-workshop-item',String(index));for(const[a,v]of workshopExpressionActions(condition,condition.target))await app.action('studio-workshop-'+a,v);await app.action('studio-workshop-check');assert.equal(app.render().teaching.workshop.complete,true);for(const[a,v]of workshopExpressionActions(condition,condition.choices.find(x=>x!==condition.target)))await app.action('studio-workshop-'+a,v);assert.equal(app.render().teaching.workshop.complete,false);app.open('home');app.open('lesson',{id:'l-p-consonants'});assert.equal(app.render().teaching.workshop.complete,false);for(const[a,v]of workshopExpressionActions(condition,condition.target))await app.action('studio-workshop-'+a,v);await app.action('studio-workshop-check');assert.equal(app.render().teaching.workshop.complete,true)
+}assert.equal(app.state.attempts.length,1,'Guided consonant notation adds no independent attempt');
 if (mode === 'cloud') { assert(cloudInitialised); assert(cloudDownloads > 0) } else { assert(!cloudInitialised); assert.equal(cloudDownloads, 0) }
 // A late callback must not report failure after the exact destination actually arrived.
 app.platform.navigate('lesson',{id:'l-ls-course-t08'});const arrived=pendingNavigation.at(-1),toastCount=errors.length,routeCount=navigations.length;topPage={route:'pages/lesson/index',options:{id:'l-ls-course-t08'}};arrived.fail({errMsg:'navigateTo:fail timeout'});assert.equal(errors.length,toastCount);assert.equal(navigations.length,routeCount);

@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-11-07 (UTC)
 
-405 of 413 lessons are individually reviewed; 8 remain pending. Work stays solo under
+406 of 413 lessons are individually reviewed; 7 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-p-vowels. Eight individually authored vowel mappings contrast ship/sheep, cat/bed, bike, day, now and boy. Reversible code-rendered diagrams and eight specific two-step explanations distinguish vowel quality, length and diphthongs; British bed notation stays explicit. A pit/peat transfer uses new written phonetic evidence. Content stays draft.
+Latest: l-p-consonants. Eight individually authored consonant contrasts distinguish th, sh/ch, letter j versus phoneme /j/, final ng, street clusters and plural s. Reversible diagrams and a real symbol tile bank expose inserted vowels. Eight source questions have specific two-step feedback, and a thank/those transfer uses new given evidence. Content stays draft.
 
-Inspected all 55 final browser figures across 14 sheets at 320/390/768 widths after the complete successful platform run. All eight reversible vowel diagrams and wrong routes, sorting cards and wrong correction/reload, prediction, clinic and summary are legible. The full pit/peat transfer and all four options, three steps and three wrong explanations were inspected. Source B is presented B. Inspected all eight standalone 320px notation feedback screenshots and read all eight final source questions and complete feedback. British bed notation, vowel quality versus duration, and one-syllable diphthongs remain explicit. No generated art is needed for exact symbolic comparisons. No SDK or listening/speech-score claim.
+Inspected all58 final browser screenshots across15sheets after the successful complete rerun, plus the masked juice condition original reopened individually. All8coded consonant contrasts, allwrong routes, street tile start/add/remove/extra-vowel correction, and320px diagrams are legible. Sorting think/this/thin/that checked at320/390/768px with correction and reload. Full thank/those transfer, allfour options,3steps and3wrong routes inspected: sourceB presentedB. All8final questions and complete feedback read; all8standalone feedback screens inspected. The generated adapter tile-helper import was corrected to resolve from scripts and .local; the whole pipeline reran without relaxed assertions. No SDK, actual listening or speech scoring claim; content draft.
 
 
-Checkpoint 405 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 3031 tasks / 9093 widths; earlier flows retain their original scope.
+Checkpoint 406 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 3039 tasks / 9117 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-p-consonants. Continue l-p-consonants solo from fresh accepted405clean source guard, full board/latest log and MCP owner/cards. Read original source fully and author contextual consonant contrasts. Approved audio remains separate; videos deferred.
+Next: l-p-word-stress. Continue l-p-word-stress solo from fresh accepted406 clean source guard and full board/latest log/owner cards. Author contextual word-stress comparisons; approved audio stays separate.
 
-Native GUI status: Native 148–405 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–405 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–406 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–406 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Accepted404 pushed as b18701163200229c3c59ac30120bff87f2e845ce; all1440 source hashes and clean application verified before405admission. Fresh fetch/full board/latest404log and owner/cards read.
+Accepted405 pushed as 4c5e5e70da31c4edc6b0d743d6bf94feb1d6ff5e; all1442 source hashes and clean application verified before406admission. Fresh fetch/full board/latest405log and owner/cards read.
 
 ## Previous local delivery · 2026-10-17
 
