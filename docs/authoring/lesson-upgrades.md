@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **382 / 413**. Current: **l-v-course-transport-5**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **383 / 413**. Current: **l-v-course-town-places**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -248,7 +248,7 @@ Completed: **382 / 413**. Current: **l-v-course-transport-5**. Evidence lives in
 | l-v-course-transport-2 | 交通工具与出行 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-transport-2.md) |
 | l-v-course-transport-3 | 交通工具与出行 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-transport-3.md) |
 | l-v-course-transport-4 | 交通工具与出行 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-transport-4.md) |
-| l-v-course-transport-5 | 交通工具与出行 · 5 | pending | — |
+| l-v-course-transport-5 | 交通工具与出行 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-transport-5.md) |
 | l-v-course-town-places | 城镇空间与建筑 · 1 | pending | — |
 | l-v-course-town-places-2 | 城镇空间与建筑 · 2 | pending | — |
 | l-v-course-town-places-3 | 城镇空间与建筑 · 3 | pending | — |
