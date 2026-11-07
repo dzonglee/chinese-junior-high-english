@@ -2,25 +2,25 @@
 
 ## Current owner direction · individual lessons, 2026-11-07 (UTC)
 
-406 of 413 lessons are individually reviewed; 7 remain pending. Work stays solo under
+407 of 413 lessons are individually reviewed; 6 remain pending. Work stays solo under
 APP-VISUAL-LESSONS on author/individual-lessons. Shared engine coverage does not grant individual credit.
 
-Latest: l-p-consonants. Eight individually authored consonant contrasts distinguish th, sh/ch, letter j versus phoneme /j/, final ng, street clusters and plural s. Reversible diagrams and a real symbol tile bank expose inserted vowels. Eight source questions have specific two-step feedback, and a thank/those transfer uses new given evidence. Content stays draft.
+Latest: l-p-word-stress. Eight individually authored stress activities contrast teacher, about, banana, computer, important and photograph, then distinguish begin stress from pausing and verify new words. Exact reversible syllable diagrams accompany eight concrete two-step explanations and a new holiday/remember transfer. Content stays draft.
 
-Inspected all58 final browser screenshots across15sheets after the successful complete rerun, plus the masked juice condition original reopened individually. All8coded consonant contrasts, allwrong routes, street tile start/add/remove/extra-vowel correction, and320px diagrams are legible. Sorting think/this/thin/that checked at320/390/768px with correction and reload. Full thank/those transfer, allfour options,3steps and3wrong routes inspected: sourceB presentedB. All8final questions and complete feedback read; all8standalone feedback screens inspected. The generated adapter tile-helper import was corrected to resolve from scripts and .local; the whole pipeline reran without relaxed assertions. No SDK, actual listening or speech scoring claim; content draft.
+Inspected all55 final browser figures across14sheets after the successful complete rerun, plus all8standalone320px source-question feedback screens. Read all8final primary questions and full explanations. Eight reversible diagrams correctly place teacher/about/banana/computer/important/photograph stress, distinguish begin stress from pausing, and require dictionary checking for new words. All sorting cards and wrong corrections/reloads checked at320/390/768px. Full holiday/remember transfer/passages/allfour options/3steps/3wrong routes inspected: sourceB presentedC; wrongA pause, B reversed, D final stress. Legacy banana beat test migrated to rendered cell without losing first/second beat assertions; extra correctness assertions added. Derived current coaching check updates with the authored pitfall; adjacent catalog identical. Draft written knowledge only; no SDK/listening/speech-grade claim.
 
 
-Checkpoint 406 records the current flow, verification scope and exact hashes. Cumulative reviewed
-coverage is 3039 tasks / 9117 widths; earlier flows retain their original scope.
+Checkpoint 407 records the current flow, verification scope and exact hashes. Cumulative reviewed
+coverage is 3047 tasks / 9141 widths; earlier flows retain their original scope.
 Do not claim all-course parity or a native GUI pass from browser/adapter simulations.
 
-Next: l-p-word-stress. Continue l-p-word-stress solo from fresh accepted406 clean source guard and full board/latest log/owner cards. Author contextual word-stress comparisons; approved audio stays separate.
+Next: l-p-sentence-stress. Continue l-p-sentence-stress solo after fresh clean-source guard, full board/latest log and owner/cards. Approved audio remains separate; videos deferred.
 
-Native GUI status: Native 148–406 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–406 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
+Native GUI status: Native 148–407 not run: automatic approval review rejected the 148 development-source ZIP transfer for source-code egress permission. No 149–407 transfer or shared GUI job was attempted. Explicit transfer approval remains pending. Actual SDK through 147 and 805 inspected figures retain their scope. Physical devices, approved audio, editorial/cohort mapping and production remain open. Use the existing private MCP
 helper and shared board. Content stays draft; approved audio and editorial/cohort mapping remain
 pending. No upload or publication.
 
-Accepted405 pushed as 4c5e5e70da31c4edc6b0d743d6bf94feb1d6ff5e; all1442 source hashes and clean application verified before406admission. Fresh fetch/full board/latest405log and owner/cards read.
+Accepted406 pushed as 57c5f7d21dcc8786ec127ae79af688ea4ae3eae0; all1444 source hashes and clean application verified before407admission. Fresh fetch/full board/latest406log and owner/cards read.
 
 ## Previous local delivery · 2026-10-17
 
