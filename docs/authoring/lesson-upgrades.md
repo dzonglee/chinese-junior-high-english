@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **379 / 413**. Current: **l-v-course-transport-2**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **380 / 413**. Current: **l-v-course-transport-3**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -245,7 +245,7 @@ Completed: **379 / 413**. Current: **l-v-course-transport-2**. Evidence lives in
 | l-v-course-journeys-4 | 旅行与行程 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-journeys-4.md) |
 | l-v-course-journeys-5 | 旅行与行程 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-journeys-5.md) |
 | l-v-course-transport | 交通工具与出行 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-transport.md) |
-| l-v-course-transport-2 | 交通工具与出行 · 2 | pending | — |
+| l-v-course-transport-2 | 交通工具与出行 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-transport-2.md) |
 | l-v-course-transport-3 | 交通工具与出行 · 3 | pending | — |
 | l-v-course-transport-4 | 交通工具与出行 · 4 | pending | — |
 | l-v-course-transport-5 | 交通工具与出行 · 5 | pending | — |
