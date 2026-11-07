@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **361 / 413**. Current: **l-v-course-work-roles-4**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **362 / 413**. Current: **l-v-course-work-roles-5**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -227,7 +227,7 @@ Completed: **361 / 413**. Current: **l-v-course-work-roles-4**. Evidence lives i
 | l-v-course-work-roles | 职业与分工 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-work-roles.md) |
 | l-v-course-work-roles-2 | 职业与分工 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-work-roles-2.md) |
 | l-v-course-work-roles-3 | 职业与分工 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-work-roles-3.md) |
-| l-v-course-work-roles-4 | 职业与分工 · 4 | pending | — |
+| l-v-course-work-roles-4 | 职业与分工 · 4 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-work-roles-4.md) |
 | l-v-course-work-roles-5 | 职业与分工 · 5 | pending | — |
 | l-v-course-sport | 运动、比赛与合作 · 1 | pending | — |
 | l-v-course-sport-2 | 运动、比赛与合作 · 2 | pending | — |
