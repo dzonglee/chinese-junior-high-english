@@ -1,0 +1,2654 @@
+{
+  "lessonId": "l-v-course-sport-2",
+  "reviewState": "draft",
+  "intent": "Teach beyond-fence ball position; simultaneous permitted rugby actions; field-hockey context; ongoing golf learning at club; race starting beside bridge; entry not victory; eight teams not eight people; team choosing captain without reversing roles. Six coded changing models and two evidence tasks; no new bitmap needed for these relations.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "看准位置、同时动作和参赛信息",
+    "instruction": "移动球和起点、换人数单位、检查参赛与获胜；只保留原句明确的信息。",
+    "items": [
+      {
+        "id": "word-baseball",
+        "label": "棒球（球体，本句）",
+        "prompt": "just beyond落在哪一侧？移动棒球，别补实际米数。",
+        "answer": "baseball",
+        "caseSensitive": false,
+        "meaning": "棒球（球体，本句）",
+        "before": "The ",
+        "after": " landed just beyond the fence.",
+        "reason": "棒球落在刚过围栏的位置；baseball在这里指球体，不是整场运动。",
+        "hint": "图中只比较相对位置，不代表实际距离，也不说明谁击球或得分。",
+        "material": "The baseball landed just beyond the fence.",
+        "options": [
+          {
+            "id": "beyond",
+            "text": "棒球落在刚过围栏的位置。",
+            "correct": true,
+            "reason": "保留landed just beyond the fence。"
+          },
+          {
+            "id": "before",
+            "text": "棒球落在还没到围栏的位置。",
+            "correct": false,
+            "reason": "还没到改变了beyond。"
+          },
+          {
+            "id": "on",
+            "text": "棒球停在围栏顶上。",
+            "correct": false,
+            "reason": "顶上不是围栏那边。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "just beyond落在哪一侧？移动棒球，别补实际米数。",
+          "sceneLab": {
+            "id": "baseball-beyond",
+            "title": "落点在围栏哪边",
+            "hint": "用图中标出的参照侧比较前后；没有实测距离。",
+            "wrong": "原句落点刚过围栏，不能换成围栏前或顶上。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "棒球落点",
+                "choices": [
+                  {
+                    "id": "beyond",
+                    "label": "刚过围栏"
+                  },
+                  {
+                    "id": "before",
+                    "label": "还没到围栏"
+                  },
+                  {
+                    "id": "on",
+                    "label": "围栏顶上"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "落点待选"
+                  },
+                  {
+                    "id": "fence",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 30,
+                    "width": 3,
+                    "height": 44,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "reference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "参照侧"
+                  },
+                  {
+                    "id": "other",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 80,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "围栏那边"
+                  }
+                ]
+              },
+              {
+                "signature": "beyond",
+                "reading": "棒球落在刚过围栏的位置。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "刚过围栏"
+                  },
+                  {
+                    "id": "fence",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 30,
+                    "width": 3,
+                    "height": 44,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "reference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "参照侧"
+                  },
+                  {
+                    "id": "other",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 80,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "围栏那边"
+                  },
+                  {
+                    "id": "ball",
+                    "kind": "ellipse",
+                    "x": 61,
+                    "y": 54,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "before",
+                "reading": "原句落点刚过围栏，不能换成围栏前或顶上。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "围栏之前"
+                  },
+                  {
+                    "id": "fence",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 30,
+                    "width": 3,
+                    "height": 44,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "reference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "参照侧"
+                  },
+                  {
+                    "id": "other",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 80,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "围栏那边"
+                  },
+                  {
+                    "id": "ball",
+                    "kind": "ellipse",
+                    "x": 31,
+                    "y": 54,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "on",
+                "reading": "原句落点刚过围栏，不能换成围栏前或顶上。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "围栏顶上"
+                  },
+                  {
+                    "id": "fence",
+                    "kind": "line",
+                    "x": 50,
+                    "y": 30,
+                    "width": 3,
+                    "height": 44,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "reference",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "参照侧"
+                  },
+                  {
+                    "id": "other",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 80,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "围栏那边"
+                  },
+                  {
+                    "id": "ball",
+                    "kind": "ellipse",
+                    "x": 46,
+                    "y": 20,
+                    "width": 10,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-rugby",
+        "label": "橄榄球运动",
+        "prompt": "can和while分别说明什么？圈出两条，不补已经得分。",
+        "answer": "Rugby",
+        "caseSensitive": true,
+        "meaning": "橄榄球运动",
+        "before": "",
+        "after": " players can carry the ball while running.",
+        "reason": "橄榄球运动员可以在跑动时持球。while把持球与跑动放在同一时段，没有报告这次已经得分。",
+        "hint": "这里只学原句给出的运动特点，不据此推断这项运动的全部规则。",
+        "material": "Rugby players can carry the ball while running.",
+        "options": [
+          {
+            "id": "while",
+            "text": "运动员可以在跑动时持球。",
+            "correct": true,
+            "reason": "保留can carry与while running。"
+          },
+          {
+            "id": "before",
+            "text": "必须先跑完，之后才可以拿球。",
+            "correct": false,
+            "reason": "先后分开改变了while同时。"
+          },
+          {
+            "id": "scored",
+            "text": "这些运动员已经持球跑动并得分。",
+            "correct": false,
+            "reason": "can没有报告实际得分。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "can和while分别说明什么？圈出两条，不补已经得分。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "可以做什么，什么时候做",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "能力、学习过程和已经完成的结果要分开。",
+            "wrong": "原句说可以在跑动时持球，没有报告实际得分。",
+            "rows": [
+              {
+                "id": "carry",
+                "label": "允许的动作",
+                "text": "运动员可以持球。",
+                "include": true
+              },
+              {
+                "id": "while",
+                "label": "时间关系",
+                "text": "在跑动时持球。",
+                "include": true
+              },
+              {
+                "id": "score",
+                "label": "额外结果",
+                "text": "已经跑动并得分。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-hockey",
+        "label": "曲棍球（本句）",
+        "prompt": "field支持哪种训练场景？换场地再核对。",
+        "answer": "hockey",
+        "caseSensitive": false,
+        "meaning": "曲棍球（本句）",
+        "before": "Our ",
+        "after": " team practises on the new field.",
+        "reason": "我们的曲棍球队在新场地训练。field支持场地上的曲棍球场景，不能直接改成冰面。",
+        "hint": "hockey也可用于冰球语境；本句要结合field理解，不能只背一个中文词义。",
+        "material": "Our hockey team practises on the new field.",
+        "options": [
+          {
+            "id": "field",
+            "text": "我们的曲棍球队在新场地训练。",
+            "correct": true,
+            "reason": "保留practises与new field。"
+          },
+          {
+            "id": "ice",
+            "text": "原句明确球队在新冰面训练。",
+            "correct": false,
+            "reason": "原句是field，没有提供ice冰面信息。"
+          },
+          {
+            "id": "win",
+            "text": "原句已经说明球队赢得比赛。",
+            "correct": false,
+            "reason": "训练不等于报告获胜。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "field支持哪种训练场景？换场地再核对。",
+          "sceneLab": {
+            "id": "hockey-field",
+            "title": "训练场景与结果要分开",
+            "hint": "场地只是语境示意，不代表真实草皮材料、天气或比分。",
+            "wrong": "原句是新场地训练，不能改成明确冰面或已经获胜。",
+            "axes": [
+              {
+                "id": "context",
+                "label": "怎样理解训练场景",
+                "choices": [
+                  {
+                    "id": "field",
+                    "label": "新场地训练"
+                  },
+                  {
+                    "id": "ice",
+                    "label": "明确冰面训练"
+                  },
+                  {
+                    "id": "win",
+                    "label": "已经赢得比赛"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "场景待选"
+                  },
+                  {
+                    "id": "surface",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 84,
+                    "height": 39,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 40,
+                    "width": 80,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "训练不等于获胜"
+                  }
+                ]
+              },
+              {
+                "signature": "field",
+                "reading": "我们的曲棍球队在新场地训练。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "场地训练"
+                  },
+                  {
+                    "id": "surface",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 84,
+                    "height": 39,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 40,
+                    "width": 80,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "field"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "训练不等于获胜"
+                  }
+                ]
+              },
+              {
+                "signature": "ice",
+                "reading": "原句是新场地训练，不能改成明确冰面或已经获胜。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "冰面训练"
+                  },
+                  {
+                    "id": "surface",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 84,
+                    "height": 39,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 40,
+                    "width": 80,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "ice"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "训练不等于获胜"
+                  }
+                ]
+              },
+              {
+                "signature": "win",
+                "reading": "原句是新场地训练，不能改成明确冰面或已经获胜。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "补出了获胜结果"
+                  },
+                  {
+                    "id": "surface",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 84,
+                    "height": 39,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 40,
+                    "width": 80,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "原句未给比分"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "训练不等于获胜"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-golf",
+        "label": "高尔夫球运动",
+        "prompt": "is learning和at a local club给出什么？圈出两条。",
+        "answer": "golf",
+        "caseSensitive": false,
+        "meaning": "高尔夫球运动",
+        "before": "My uncle is learning to play ",
+        "after": " at a local club.",
+        "reason": "叔叔正在当地俱乐部学打高尔夫，没有说已经学会或赢得比赛。",
+        "hint": "这里的club是俱乐部，不是golf club高尔夫球杆。",
+        "material": "My uncle is learning to play golf at a local club.",
+        "options": [
+          {
+            "id": "learning",
+            "text": "叔叔正在当地俱乐部学打高尔夫。",
+            "correct": true,
+            "reason": "保留is learning与at a local club。"
+          },
+          {
+            "id": "mastered",
+            "text": "叔叔已经完全掌握高尔夫并获胜。",
+            "correct": false,
+            "reason": "正在学习没有给出精通或获胜结果。"
+          },
+          {
+            "id": "home",
+            "text": "叔叔只在自己家里学打高尔夫。",
+            "correct": false,
+            "reason": "自己家里改变了at a local club。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "is learning和at a local club给出什么？圈出两条。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "学习状态与地点",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "能力、学习过程和已经完成的结果要分开。",
+            "wrong": "原句给出正在学习和当地俱乐部，没有给出精通或获胜。",
+            "rows": [
+              {
+                "id": "learning",
+                "label": "状态",
+                "text": "正在学打高尔夫。",
+                "include": true
+              },
+              {
+                "id": "club",
+                "label": "地点",
+                "text": "当地俱乐部。",
+                "include": true
+              },
+              {
+                "id": "mastered",
+                "label": "额外结果",
+                "text": "已经完全掌握并获胜。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-race",
+        "label": "自行车赛（本句）",
+        "prompt": "starts beside限制了什么？换起终点和位置。",
+        "answer": "race",
+        "caseSensitive": false,
+        "meaning": "自行车赛（本句）",
+        "before": "The bicycle ",
+        "after": " starts beside the old bridge.",
+        "reason": "自行车赛在老桥旁开始，不能换成在桥上或在那里结束。",
+        "hint": "图只比较开始/结束与桥旁/桥上，不给赛程、速度或获胜者。",
+        "material": "The bicycle race starts beside the old bridge.",
+        "options": [
+          {
+            "id": "start-beside",
+            "text": "自行车赛在老桥旁开始。",
+            "correct": true,
+            "reason": "保留bicycle race、starts和beside。"
+          },
+          {
+            "id": "end",
+            "text": "自行车赛在老桥旁结束。",
+            "correct": false,
+            "reason": "结束改变了starts。"
+          },
+          {
+            "id": "on",
+            "text": "自行车赛在老桥上开始。",
+            "correct": false,
+            "reason": "桥上改变了beside。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "starts beside限制了什么？换起终点和位置。",
+          "sceneLab": {
+            "id": "race-start-beside",
+            "title": "起点还是终点，桥旁还是桥上",
+            "hint": "只示意位置与事件角色，不代表真实桥梁比例。",
+            "wrong": "原句在老桥旁开始，不能换成结束或桥上。",
+            "axes": [
+              {
+                "id": "event",
+                "label": "桥边是哪个事件",
+                "choices": [
+                  {
+                    "id": "start",
+                    "label": "开始"
+                  },
+                  {
+                    "id": "end",
+                    "label": "结束"
+                  }
+                ]
+              },
+              {
+                "id": "place",
+                "label": "与桥的位置关系",
+                "choices": [
+                  {
+                    "id": "beside",
+                    "label": "桥旁"
+                  },
+                  {
+                    "id": "on",
+                    "label": "桥上"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "事件待选"
+                  },
+                  {
+                    "id": "bridge-deck",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 44,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-a",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-b",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 74,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|beside",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "事件待选"
+                  },
+                  {
+                    "id": "bridge-deck",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 44,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-a",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-b",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 74,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "桥旁"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 14,
+                    "y": 48,
+                    "width": 12,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "?|on",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "事件待选"
+                  },
+                  {
+                    "id": "bridge-deck",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 44,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-a",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-b",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 74,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "桥上"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 56,
+                    "y": 32,
+                    "width": 12,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "start|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "比赛开始"
+                  },
+                  {
+                    "id": "bridge-deck",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 44,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-a",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-b",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 74,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "start|beside",
+                "reading": "自行车赛在老桥旁开始。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "比赛开始"
+                  },
+                  {
+                    "id": "bridge-deck",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 44,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-a",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-b",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 74,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "桥旁"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 14,
+                    "y": 48,
+                    "width": 12,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "start|on",
+                "reading": "原句在老桥旁开始，不能换成结束或桥上。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "比赛开始"
+                  },
+                  {
+                    "id": "bridge-deck",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 44,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-a",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-b",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 74,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "桥上"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 56,
+                    "y": 32,
+                    "width": 12,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "end|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "比赛结束"
+                  },
+                  {
+                    "id": "bridge-deck",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 44,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-a",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-b",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 74,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "end|beside",
+                "reading": "原句在老桥旁开始，不能换成结束或桥上。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "比赛结束"
+                  },
+                  {
+                    "id": "bridge-deck",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 44,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-a",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-b",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 74,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "桥旁"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 14,
+                    "y": 48,
+                    "width": 12,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "end|on",
+                "reading": "原句在老桥旁开始，不能换成结束或桥上。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "比赛结束"
+                  },
+                  {
+                    "id": "bridge-deck",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 44,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-a",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pier-b",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 49,
+                    "width": 6,
+                    "height": 22,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 74,
+                    "width": 40,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "桥上"
+                  },
+                  {
+                    "id": "marker",
+                    "kind": "ellipse",
+                    "x": 56,
+                    "y": 32,
+                    "width": 12,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-competition",
+        "label": "比赛（本句）",
+        "prompt": "entered证明参赛还是获胜？切换后看多补了什么。",
+        "answer": "competition",
+        "caseSensitive": false,
+        "meaning": "比赛（本句）",
+        "before": "Our school entered a bridge-building ",
+        "after": ".",
+        "reason": "我们学校参加了造桥比赛；没有给出获胜、名次或桥梁成绩。",
+        "hint": "competition和game在中文里都可能译作比赛；本句根据bridge-building理解比赛项目。",
+        "material": "Our school entered a bridge-building competition.",
+        "options": [
+          {
+            "id": "entered",
+            "text": "学校参加了造桥比赛。",
+            "correct": true,
+            "reason": "保留entered与bridge-building competition。"
+          },
+          {
+            "id": "won",
+            "text": "学校已经赢得造桥比赛冠军。",
+            "correct": false,
+            "reason": "获胜改变了entered参赛的信息范围。"
+          },
+          {
+            "id": "race",
+            "text": "原句说学校参加的是自行车速度赛。",
+            "correct": false,
+            "reason": "自行车速度赛改变了bridge-building。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "entered证明参赛还是获胜？切换后看多补了什么。",
+          "sceneLab": {
+            "id": "competition-entry",
+            "title": "参赛不等于获胜",
+            "hint": "图只区分参赛、获胜与换项目，不给名次或成绩。",
+            "wrong": "原句只是参加造桥比赛，不能补获胜或换成自行车赛。",
+            "axes": [
+              {
+                "id": "value",
+                "label": "entered说明什么",
+                "choices": [
+                  {
+                    "id": "entered",
+                    "label": "参加造桥比赛"
+                  },
+                  {
+                    "id": "won",
+                    "label": "已经获得冠军"
+                  },
+                  {
+                    "id": "race",
+                    "label": "参加自行车赛"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "信息待选"
+                  },
+                  {
+                    "id": "school",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 37,
+                    "width": 27,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "school-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 42,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 38,
+                    "width": 23,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "contest",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 37,
+                    "width": 31,
+                    "height": 27,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "contest-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 71,
+                    "width": 37,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "造桥比赛"
+                  },
+                  {
+                    "id": "result",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "结果未知"
+                  }
+                ]
+              },
+              {
+                "signature": "entered",
+                "reading": "学校参加了造桥比赛。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "参加比赛"
+                  },
+                  {
+                    "id": "school",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 37,
+                    "width": 27,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "school-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 42,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 38,
+                    "width": 23,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "contest",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 37,
+                    "width": 31,
+                    "height": 27,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "contest-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 71,
+                    "width": 37,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "造桥比赛"
+                  },
+                  {
+                    "id": "result",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "结果未知"
+                  }
+                ]
+              },
+              {
+                "signature": "won",
+                "reading": "原句只是参加造桥比赛，不能补获胜或换成自行车赛。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "补出了冠军"
+                  },
+                  {
+                    "id": "school",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 37,
+                    "width": 27,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "school-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 42,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 38,
+                    "width": 23,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "contest",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 37,
+                    "width": 31,
+                    "height": 27,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "contest-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 71,
+                    "width": 37,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "造桥比赛"
+                  },
+                  {
+                    "id": "result",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "与原句不符"
+                  }
+                ]
+              },
+              {
+                "signature": "race",
+                "reading": "原句只是参加造桥比赛，不能补获胜或换成自行车赛。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "换成自行车赛"
+                  },
+                  {
+                    "id": "school",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 37,
+                    "width": 27,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "school-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 42,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 38,
+                    "width": 23,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "contest",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 37,
+                    "width": 31,
+                    "height": 27,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "contest-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 71,
+                    "width": 37,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车赛"
+                  },
+                  {
+                    "id": "result",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 55,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "与原句不符"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-tournament",
+        "label": "锦标赛（本句）",
+        "prompt": "Eight teams数的是队还是人？换数量和单位。",
+        "answer": "tournament",
+        "caseSensitive": false,
+        "meaning": "锦标赛（本句）",
+        "before": "Eight teams joined the weekend ",
+        "after": ".",
+        "reason": "八支队伍参加了周末的锦标赛，不是总共只有八个人，也没有给出赛制或冠军。",
+        "hint": "图中每个队框代表一支队伍，不代表每队人数；不据此推算比赛场数。",
+        "material": "Eight teams joined the weekend tournament.",
+        "options": [
+          {
+            "id": "eight-teams",
+            "text": "八支队伍参加了周末的锦标赛。",
+            "correct": true,
+            "reason": "保留Eight teams与weekend tournament。"
+          },
+          {
+            "id": "people",
+            "text": "参加者总共只有八个人。",
+            "correct": false,
+            "reason": "把队伍单位换成个人，原句没有给总人数。"
+          },
+          {
+            "id": "seven",
+            "text": "只有七支队伍参加。",
+            "correct": false,
+            "reason": "七改变了Eight。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "Eight teams数的是队还是人？换数量和单位。",
+          "sceneLab": {
+            "id": "tournament-teams",
+            "title": "八个队框，不是八个人",
+            "hint": "队框数量可数；每队人数和赛制未知。",
+            "wrong": "原句是八支队伍，不能换成七队或总共八人。",
+            "axes": [
+              {
+                "id": "value",
+                "label": "数量与单位",
+                "choices": [
+                  {
+                    "id": "eight",
+                    "label": "八支队伍"
+                  },
+                  {
+                    "id": "seven",
+                    "label": "七支队伍"
+                  },
+                  {
+                    "id": "people",
+                    "label": "八个人"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "计数待选"
+                  },
+                  {
+                    "id": "unit-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-1",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-2",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-3",
+                    "kind": "rect",
+                    "x": 77,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-4",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-5",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-6",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-7",
+                    "kind": "rect",
+                    "x": 77,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "legend",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "方框：一支队伍"
+                  }
+                ]
+              },
+              {
+                "signature": "eight",
+                "reading": "八支队伍参加了周末的锦标赛。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "八支队伍"
+                  },
+                  {
+                    "id": "unit-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-1",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-2",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-3",
+                    "kind": "rect",
+                    "x": 77,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-4",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-5",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-6",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-7",
+                    "kind": "rect",
+                    "x": 77,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "legend",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "方框：一支队伍"
+                  }
+                ]
+              },
+              {
+                "signature": "seven",
+                "reading": "原句是八支队伍，不能换成七队或总共八人。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "七支队伍"
+                  },
+                  {
+                    "id": "unit-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-1",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-2",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-3",
+                    "kind": "rect",
+                    "x": 77,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-4",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-5",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "unit-6",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "legend",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "方框：一支队伍"
+                  }
+                ]
+              },
+              {
+                "signature": "people",
+                "reading": "原句是八支队伍，不能换成七队或总共八人。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "八个人"
+                  },
+                  {
+                    "id": "unit-0",
+                    "kind": "ellipse",
+                    "x": 5,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "unit-1",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "unit-2",
+                    "kind": "ellipse",
+                    "x": 53,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "unit-3",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 28,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "unit-4",
+                    "kind": "ellipse",
+                    "x": 5,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "unit-5",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "unit-6",
+                    "kind": "ellipse",
+                    "x": 53,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "unit-7",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 53,
+                    "width": 17,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "legend",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "圆点：个人"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-team",
+        "label": "队；团队",
+        "prompt": "谁选了谁？换选择方向，不补投票程序。",
+        "answer": "team",
+        "caseSensitive": false,
+        "meaning": "队；团队",
+        "before": "Our ",
+        "after": " chose a new captain.",
+        "reason": "我们队选了一位新队长。team指团队，captain指队长；不能把选择方向倒过来。",
+        "hint": "chose不说明具体投票方式、票数、队长性别或以后成绩。",
+        "material": "Our team chose a new captain.",
+        "options": [
+          {
+            "id": "team-captain",
+            "text": "我们队选了新队长。",
+            "correct": true,
+            "reason": "保留team作选择者、captain作被选择者。"
+          },
+          {
+            "id": "reverse",
+            "text": "新队长选择了我们队。",
+            "correct": false,
+            "reason": "把选择者与被选择者对调。"
+          },
+          {
+            "id": "vote",
+            "text": "原句给出了全体一致的具体票数。",
+            "correct": false,
+            "reason": "原句没有投票过程或票数。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁选了谁？换选择方向，不补投票程序。",
+          "sceneLab": {
+            "id": "team-captain",
+            "title": "团队选队长，别倒转角色",
+            "hint": "箭头只示意选择关系；不代表队伍人数、投票数或性别。",
+            "wrong": "原句是团队选新队长，不能倒转选择关系或补票数。",
+            "axes": [
+              {
+                "id": "direction",
+                "label": "谁选择谁",
+                "choices": [
+                  {
+                    "id": "forward",
+                    "label": "团队选队长"
+                  },
+                  {
+                    "id": "reverse",
+                    "label": "队长选团队"
+                  },
+                  {
+                    "id": "vote",
+                    "label": "给出了具体票数"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "选择关系待选"
+                  },
+                  {
+                    "id": "team",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 36,
+                    "width": 29,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "captain",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 36,
+                    "width": 25,
+                    "height": 27,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "team-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 70,
+                    "width": 29,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "团队"
+                  },
+                  {
+                    "id": "captain-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 70,
+                    "width": 33,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新队长"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 37,
+                    "width": 24,
+                    "height": 25,
+                    "tone": "ink",
+                    "text": "?"
+                  }
+                ]
+              },
+              {
+                "signature": "forward",
+                "reading": "我们队选了新队长。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "团队选队长"
+                  },
+                  {
+                    "id": "team",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 36,
+                    "width": 29,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "captain",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 36,
+                    "width": 25,
+                    "height": 27,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "team-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 70,
+                    "width": 29,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "团队"
+                  },
+                  {
+                    "id": "captain-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 70,
+                    "width": 33,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新队长"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 37,
+                    "width": 24,
+                    "height": 25,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "reverse",
+                "reading": "原句是团队选新队长，不能倒转选择关系或补票数。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "队长选团队"
+                  },
+                  {
+                    "id": "team",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 36,
+                    "width": 29,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "captain",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 36,
+                    "width": 25,
+                    "height": 27,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "team-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 70,
+                    "width": 29,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "团队"
+                  },
+                  {
+                    "id": "captain-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 70,
+                    "width": 33,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新队长"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 37,
+                    "width": 24,
+                    "height": 25,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "vote",
+                "reading": "原句是团队选新队长，不能倒转选择关系或补票数。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "补出了具体票数"
+                  },
+                  {
+                    "id": "team",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 36,
+                    "width": 29,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "captain",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 36,
+                    "width": 25,
+                    "height": 27,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "team-label",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 70,
+                    "width": 29,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "团队"
+                  },
+                  {
+                    "id": "captain-label",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 70,
+                    "width": 33,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新队长"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 38,
+                    "y": 37,
+                    "width": 24,
+                    "height": 25,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-sport-2-transfer",
+      "topicId": "v-course-sport",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成步行活动、小组和班长，哪组三句完整保留信息？",
+      "passage": "三条新信息\n步行活动从博物馆旁开始。六个小组参加了周末的比赛。我们班选了一位新班长。\n词语提示：museum博物馆；group小组；monitor班长。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The walk ends beside the museum. Six groups joined the weekend competition. Our class chose a new monitor."
+        },
+        {
+          "id": "b",
+          "text": "The walk starts beside the museum. Six groups joined the weekend competition. Our class chose a new monitor."
+        },
+        {
+          "id": "c",
+          "text": "The walk starts beside the museum. Six people joined the weekend competition. Our class chose a new monitor."
+        },
+        {
+          "id": "d",
+          "text": "The walk starts beside the museum. Six groups joined the weekend competition. A new monitor chose our class."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The walk starts beside the museum. Six groups joined the weekend competition. Our class chose a new monitor."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先检查开始的位置，再核对数量单位，最后核对谁选择谁。",
+        "steps": [
+          {
+            "text": "The walk starts beside the museum.",
+            "reason": "starts表示开始，beside表示旁边，不能换成结束。"
+          },
+          {
+            "text": "Six groups joined the weekend competition.",
+            "reason": "Six groups是六个小组，不是总共六个人。"
+          },
+          {
+            "text": "Our class chose a new monitor.",
+            "reason": "班级是选择者，新班长是被选择者，不能倒转。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "ends把开始改成结束。"
+          },
+          {
+            "option": "c",
+            "reason": "Six people把小组换成个人。"
+          },
+          {
+            "option": "d",
+            "reason": "把班级选择班长倒转为班长选择班级。"
+          }
+        ],
+        "pitfall": "数量要连同单位读，动作要连同角色读；参赛不等于获胜。",
+        "visual": {
+          "kind": "comparison",
+          "title": "位置、数量单位与选择方向",
+          "segments": [
+            {
+              "text": "starts beside",
+              "role": "evidence",
+              "note": "从旁边开始"
+            },
+            {
+              "text": "Six groups",
+              "role": "evidence",
+              "note": "六个小组"
+            },
+            {
+              "text": "class → chose → monitor",
+              "role": "evidence",
+              "note": "班级选班长"
+            }
+          ],
+          "caption": "不补人数、投票数或获胜结果。"
+        },
+        "transfer": "把Six groups改成Six people后，计数单位发生什么变化？"
+      }
+    }
+  },
+  "picturePurpose": "Code-owned changing diagrams teach relative landing position, field versus ice context, race start location, entry versus victory, team units and selection direction. Exact labels stay in code; no new bitmap is needed."
+}
