@@ -1,0 +1,502 @@
+{
+  "lessonId": "l-g-object-clauses",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Physically rebuild embedded questions, restore agreement after removing do-support, distinguish subject who, preserve requested past reference and accept valid if/whether or optional-that variants.",
+  "picturePurpose": "The original umbrella/book image grounds a real location question. Direct-question diagrams change to the learner-built clause; no picture is treated as proof of ownership or past events.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "把问题放进去，亲手重排语序",
+    "instruction": "点词块拼从句；点已放入的词块可撤回，多余的词不用。",
+    "conditions": [
+      {
+        "label": "问位置：is 放到谁后面",
+        "before": "Can you tell me ",
+        "target": "where the umbrella is",
+        "after": "?",
+        "choices": [
+          "where is the umbrella",
+          "where the umbrella is"
+        ],
+        "input": true,
+        "tiles": [
+          "is",
+          "umbrella",
+          "where",
+          "the",
+          "whose"
+        ],
+        "reason": "问的是位置，用 where。放进 tell me 后，从句按 the umbrella + is 排列，不再沿用 where is the umbrella 的独立问句语序。",
+        "world": {
+          "kind": "syntax",
+          "caption": "访客想找图中的雨伞。把“雨伞在哪里”嵌进 Can you tell me 后，点词块组句。",
+          "cells": [
+            {
+              "label": "Where is the umbrella?",
+              "detail": "原问句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的从句",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "先确认访客在问什么。",
+            "missingPrompt": "先判断要问的内容或主语，再用词块组句。",
+            "answer": "place",
+            "options": [
+              {
+                "id": "place",
+                "label": "位置",
+                "text": "雨伞在哪里",
+                "reason": "这是问位置，先保留 where，再按主语加谓语排列。",
+                "value": 50
+              },
+              {
+                "id": "owner",
+                "label": "物主",
+                "text": "雨伞是谁的",
+                "reason": "访客问位置，不是问物主。图中也没有给出所有者。",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-book-umbrella",
+            "alt": "左边是一本蓝色书，右边是一把橙色雨伞。访客想问雨伞的位置；物品属于谁并未给出。"
+          }
+        }
+      },
+      {
+        "label": "拿掉 does，动词恢复单数形式",
+        "before": "Do you know ",
+        "target": "what time the club starts",
+        "after": "?",
+        "choices": [
+          "what time does the club start",
+          "what time the club starts"
+        ],
+        "input": true,
+        "tiles": [
+          "does",
+          "starts",
+          "club",
+          "what",
+          "the",
+          "start",
+          "time"
+        ],
+        "reason": "从句是 what time + the club + starts。独立问句中的 does 不再保留，club 是单数，start 要恢复为 starts。",
+        "world": {
+          "kind": "syntax",
+          "caption": "要问社团几点开始。不能只把 does 删除后留下 start，主语和动词也要配好。",
+          "cells": [
+            {
+              "label": "What time does the club start?",
+              "detail": "原问句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的从句",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "是否能参加：if / whether 都可以",
+        "before": "I wonder ",
+        "target": "if Amy can join us",
+        "after": ".",
+        "choices": [
+          "if can Amy join us",
+          "if Amy can join us"
+        ],
+        "input": true,
+        "tiles": [
+          "can",
+          "Amy",
+          "whether",
+          "us",
+          "join",
+          "if"
+        ],
+        "reason": "原问句只能回答能或不能，用 if 或 whether 表示是否。从句按 Amy + can join 排列，不能把 can 放在 Amy 前面。",
+        "world": {
+          "kind": "syntax",
+          "caption": "想知道 Amy 能否参加。选 if 或 whether 其中一个引导从句，不要两个都放。",
+          "cells": [
+            {
+              "label": "Can Amy join us?",
+              "detail": "原问句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的从句",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "这是问“是否”，还是在陈述确定的事实？",
+            "missingPrompt": "先判断要问的内容或主语，再用词块组句。",
+            "answer": "yesno",
+            "options": [
+              {
+                "id": "yesno",
+                "label": "是否能参加",
+                "text": "原问题可回答 yes / no",
+                "reason": "用 if 或 whether 引出是否能参加，从句仍用陈述语序。",
+                "value": 50
+              },
+              {
+                "id": "fact",
+                "label": "已经确定能参加",
+                "text": "直接陈述事实",
+                "reason": "wonder 表示尚不确定，不能把是否当作已经确认的事实。",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "accepted": [
+          "whether Amy can join us"
+        ]
+      },
+      {
+        "label": "who 自己就是主语，不必乱换位置",
+        "before": "Do you know ",
+        "target": "who took the blue book",
+        "after": "?",
+        "choices": [
+          "who the blue book took",
+          "who took the blue book"
+        ],
+        "input": true,
+        "tiles": [
+          "book",
+          "the",
+          "who",
+          "blue",
+          "took"
+        ],
+        "reason": "这里 who 就是 took 的主语，the blue book 是被拿走的物品。嵌进 know 后仍是 who took the blue book，不把物品错放成动作执行者。",
+        "world": {
+          "kind": "syntax",
+          "caption": "记录：一个同学拿走了蓝色书，我们不知道是谁。先找 took 的主语。",
+          "cells": [
+            {
+              "label": "Who took the blue book?",
+              "detail": "原问句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的从句",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "took 的主语是谁？",
+            "missingPrompt": "先判断要问的内容或主语，再用词块组句。",
+            "answer": "who",
+            "options": [
+              {
+                "id": "who",
+                "label": "who",
+                "text": "尚不知道的拿书人",
+                "reason": "who 在从句中作主语，语序本来就是主语加谓语。",
+                "value": 50
+              },
+              {
+                "id": "book",
+                "label": "the blue book",
+                "text": "被拿走的物品",
+                "reason": "书是动作的对象，不是拿走别人的人。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "回到当时：先放主语，再放 were",
+        "before": "Leo asked ",
+        "target": "where we were going",
+        "after": ".",
+        "choices": [
+          "where were we going",
+          "where we were going"
+        ],
+        "input": true,
+        "tiles": [
+          "going",
+          "were",
+          "where",
+          "we",
+          "was"
+        ],
+        "reason": "题目回忆上周当时的去向，用 we were going。where 后先放主语 we，再放 were going，不保留独立问句的倒装。",
+        "world": {
+          "kind": "syntax",
+          "caption": "回忆上周五：Leo 当时问我们正要去哪里。转述时 we 指我们，时间也回到当时。",
+          "cells": [
+            {
+              "label": "Where are you going?",
+              "detail": "原问句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的从句",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "问价格：保留 how much 这一组",
+        "before": "Could you tell me ",
+        "target": "how much the ruler costs",
+        "after": "?",
+        "choices": [
+          "how much does the ruler cost",
+          "how much the ruler costs"
+        ],
+        "input": true,
+        "tiles": [
+          "the",
+          "does",
+          "costs",
+          "ruler",
+          "how",
+          "cost",
+          "much"
+        ],
+        "reason": "how much 作为疑问词组放前面，从句按 the ruler + costs 排列。does 不再保留，cost 恢复成第三人称单数 costs。",
+        "world": {
+          "kind": "syntax",
+          "caption": "想问这把尺子的价格。保留 how much，再把主语和谓语接好。",
+          "cells": [
+            {
+              "label": "How much does the ruler cost?",
+              "detail": "原问句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的从句",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "or not 紧跟连接词时用 whether",
+        "before": "I need to find out ",
+        "target": "whether or not the gate is locked",
+        "after": ".",
+        "choices": [
+          "if or not the gate is locked",
+          "whether or not the gate is locked"
+        ],
+        "input": true,
+        "tiles": [
+          "is",
+          "whether",
+          "gate",
+          "or",
+          "locked",
+          "the",
+          "not",
+          "if"
+        ],
+        "reason": "or not 紧跟在连接词后时，用 whether or not，不用 if or not。后面仍按 the gate + is locked 排列。",
+        "world": {
+          "kind": "syntax",
+          "caption": "要确认门是否锁上。按要求保留 or not，并把它紧放在连接词之后。",
+          "cells": [
+            {
+              "label": "Is the gate locked?",
+              "detail": "原问句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的从句",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "that 可以省，但主语和谓语不能倒",
+        "before": "The teacher said ",
+        "target": "that reading helps us learn",
+        "after": ".",
+        "choices": [
+          "that reading help us learn",
+          "that reading helps us learn"
+        ],
+        "input": true,
+        "tiles": [
+          "helps",
+          "that",
+          "learn",
+          "reading",
+          "us",
+          "help"
+        ],
+        "reason": "that 引导陈述内容，在这里也可以省略。reading 这项活动作单数主语，用 helps；题目要求保留一般现在时表达这条建议。",
+        "world": {
+          "kind": "syntax",
+          "caption": "用一般现在时转述老师的这条建议：阅读帮助我们学习。that 可保留，也可省略。",
+          "cells": [
+            {
+              "label": "Reading helps us learn.",
+              "detail": "原陈述句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的从句",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "reading helps us learn"
+        ]
+      }
+    ],
+    "choices": [
+      "where is the umbrella",
+      "where the umbrella is",
+      "what time does the club start",
+      "what time the club starts",
+      "if can Amy join us",
+      "if Amy can join us",
+      "who the blue book took",
+      "who took the blue book",
+      "where were we going",
+      "where we were going",
+      "how much does the ruler cost",
+      "how much the ruler costs",
+      "if or not the gate is locked",
+      "whether or not the gate is locked",
+      "that reading help us learn",
+      "that reading helps us learn"
+    ],
+    "items": [
+      {
+        "id": "embedded-question",
+        "label": "从问句到从句",
+        "prompt": "主语和谓语该怎样接？",
+        "answer": "",
+        "reason": "",
+        "hint": "不是所有疑问词后的句子都需要改动；who 可能自己就是主语。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-object-clauses-002",
+      "q-g-object-clauses-003"
+    ],
+    "transfer": {
+      "id": "individual-g-object-clauses-transfer",
+      "topicId": "g-object-clauses",
+      "skill": "grammar",
+      "kind": "order",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "帮志愿者询问客人把包放在哪里。保持开头 Do you know，拼出后面的从句；句末问号已给出。\nDo you know ___?",
+      "tokens": [
+        {
+          "id": "t3",
+          "text": "have"
+        },
+        {
+          "id": "t6",
+          "text": "bags"
+        },
+        {
+          "id": "t0",
+          "text": "where"
+        },
+        {
+          "id": "t2",
+          "text": "guests"
+        },
+        {
+          "id": "t5",
+          "text": "their"
+        },
+        {
+          "id": "t1",
+          "text": "the"
+        },
+        {
+          "id": "t4",
+          "text": "put"
+        }
+      ],
+      "answer": {
+        "order": [
+          "t0",
+          "t1",
+          "t2",
+          "t3",
+          "t4",
+          "t5",
+          "t6"
+        ],
+        "display": "where the guests have put their bags"
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "疑问词 where 放在从句前，之后恢复主语加谓语。",
+        "steps": [
+          {
+            "text": "先写 where，再放主语 the guests。",
+            "reason": "问地点，但宾语从句不能保留 have the guests 的倒装。"
+          },
+          {
+            "text": "主语后接 have put，再接 their bags。",
+            "reason": "have put 是完整谓语，their bags 是放置的对象。"
+          }
+        ],
+        "distractors": [],
+        "pitfall": "整句 Do you know…? 是问句，不代表嵌入的从句也要倒装。",
+        "visual": {
+          "kind": "sentence",
+          "title": "主句问，里面仍按陈述语序",
+          "segments": [
+            {
+              "text": "Do you know",
+              "role": "neutral",
+              "note": "主句承担疑问形式"
+            },
+            {
+              "text": "where",
+              "role": "evidence",
+              "note": "问地点的连接词"
+            },
+            {
+              "text": "the guests",
+              "role": "subject",
+              "note": "从句的主语"
+            },
+            {
+              "text": "have put their bags",
+              "role": "verb",
+              "note": "从句谓语在主语后"
+            }
+          ],
+          "caption": "Do you know where the guests have put their bags?"
+        },
+        "transfer": "如果改成“他们何时放下包”，疑问词和谓语时态怎样配合？"
+      }
+    }
+  }
+}

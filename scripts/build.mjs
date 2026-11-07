@@ -1,5 +1,6 @@
 import { build } from 'esbuild'
 import { createHash } from 'node:crypto'
+import { gzipSync, gunzipSync } from 'node:zlib'
 import { cpSync, copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { resolve, dirname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -14,6 +15,8 @@ const release = process.argv.includes('--release'), configArg = process.argv.ind
 if (release) { const problems = releaseProblems(releaseConfig, catalog); if (problems.length) throw new Error('Release prerequisites are incomplete:\n' + problems.join('\n')) }
 const distributionRoot = resolve(root, release ? 'dist/release' : 'dist')
 const nativeRoot = release ? resolve(distributionRoot, 'miniprogram') : resolve(root, 'miniprogram')
+const visualAssets = JSON.parse(readFileSync(resolve(root, 'content/visual-assets.json'), 'utf8')).assets
+const illustrationPackages = [{ root: 'assets', name: 'app-artwork', pages: [] }, ...['illustrations', 'illustrations-2', 'illustrations-3', 'illustrations-4', 'illustrations-5', 'illustrations-6', 'illustrations-7', 'illustrations-8'].filter(root => visualAssets.some(a => a.file.startsWith(`miniprogram/${root}/`))).map(root => ({ root, name: `lesson-${root}`, pages: [] }))]
 const { contentProblems } = await validationModule(root)
 const errors = contentProblems(catalog)
 if (errors.length) throw new Error(errors.join('\n'))
@@ -25,6 +28,9 @@ for (const asset of catalog.media.filter(a => a.approvedByOwner)) {
 }
 
 mkdirSync(resolve(root, 'src/generated'), { recursive: true })
+const artworkFormats = Object.fromEntries(visualAssets.map(a => [a.id, a.file.split('.').at(-1)]))
+if (Object.values(artworkFormats).some(format => !['png','jpg','webp'].includes(format))) throw Error('Unsupported registered artwork format')
+writeFileSync(resolve(root, 'src/generated/artwork.ts'), `export const artworkFormats: Record<string,string> = ${JSON.stringify(artworkFormats)};\n`)
 if (release) {
   rmSync(nativeRoot, { recursive: true, force: true })
   cpSync(resolve(root, 'miniprogram'), nativeRoot, { recursive: true, filter: (file) => !['content', 'audio', 'runtime.js', 'pack-loader.js'].includes(relative(resolve(root, 'miniprogram'), file).split(/[\\/]/)[0]) })
@@ -45,7 +51,10 @@ for (const topic of catalog.topics) {
   if (Buffer.byteLength(text) > 1_500_000) throw new Error(`${topic.id} exceeds the content pack budget`)
   writeFileSync(resolve(distributionRoot, 'packs', file), text)
   if (!release) {
-    const moduleText = `module.exports = ${JSON.stringify(text)};\n`, bytes = Buffer.byteLength(moduleText)
+    const compressed = gzipSync(text, { level: 9 })
+    if (gunzipSync(compressed).toString('utf8') !== text) throw new Error(`${topic.id} compression changed its checked content`)
+    const stored = { encoding: 'gzip-base64-v1', byteLength: Buffer.byteLength(text), data: compressed.toString('base64') }
+    const moduleText = `module.exports = ${JSON.stringify(stored)};\n`, bytes = Buffer.byteLength(moduleText)
     if (bytes > nativeGroupBudget) throw new Error(`${topic.id} exceeds the native subpackage budget`)
     if (!nativeGroups.length || groupBytes + bytes > nativeGroupBudget) { nativeGroups.push(`content/group-${String(nativeGroups.length + 1).padStart(3, '0')}`); groupBytes = 0 }
     const group = nativeGroups[nativeGroups.length - 1], out = resolve(nativeRoot, group)
@@ -67,7 +76,13 @@ if (!release) for (const [file, text] of generated) writeFileSync(file, text)
 const releaseOverrides = { name: 'release-catalog', setup(builder) { builder.onLoad({ filter: /generated[\\/](catalog|runtime|packs)\.ts$/ }, args => ({ contents: generated.get(args.path), loader: 'ts', resolveDir: dirname(args.path) })) } }
 writeJson(resolve(distributionRoot, 'catalog.json'), metadata)
 writeJson(resolve(distributionRoot, 'manifest.json'), manifest)
-writeFileSync(resolve(nativeRoot, 'pack-loader.js'), `const loaders = {\n${(release ? [] : manifest).map((p) => `  ${JSON.stringify(p.topicId)}: () => require.async(${JSON.stringify(nativePaths.get(p.topicId))}),`).join('\n')}\n};\nmodule.exports = { loadCatalog: () => require.async('./content/catalog/index.js'), loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };\n`)
+for (const artwork of illustrationPackages) {
+  mkdirSync(resolve(nativeRoot, artwork.root), { recursive: true })
+  // Requiring a module uses WeChat's documented asynchronous subpackage loader.
+  writeFileSync(resolve(nativeRoot, artwork.root, 'index.js'), 'module.exports = true;\n')
+}
+writeFileSync(resolve(nativeRoot, 'pack-loader.js'), `const loaders = {\n${(release ? [] : manifest).map((p) => `  ${JSON.stringify(p.topicId)}: () => require.async(${JSON.stringify(nativePaths.get(p.topicId))}),`).join('\n')}\n};\nmodule.exports = { loadCatalog: async () => { ${illustrationPackages.map(p=>`await require.async(${JSON.stringify('./'+p.root+'/index.js')}).catch(() => { throw new Error('插图加载未完成，请重试。'); });`).join(' ')} return require.async('./content/catalog/index.js'); }, loadPack: (topicId) => { if (!loaders[topicId]) return Promise.reject(new Error('Unknown topic')); return loaders[topicId](); } };\n`)
+
 
 mkdirSync(resolve(nativeRoot, 'content/catalog'), { recursive: true })
 await build({ entryPoints: [resolve(root, 'src/generated/catalog.ts')], bundle: true, charset: 'utf8', format: 'cjs', platform: 'neutral', target: 'es2020', outfile: resolve(nativeRoot, 'content/catalog/index.js'), plugins: release ? [releaseOverrides] : [], minify: true })
@@ -85,13 +100,14 @@ if (!release && existsSync(resolve(root, 'web/main.ts'))) {
 const appFile = resolve(nativeRoot, 'app.json')
 if (existsSync(appFile)) {
   const app = JSON.parse(readFileSync(appFile, 'utf8'))
-  if (nativeGroups.length + 1 > 100) throw new Error('WeChat allows at most 100 subpackages')
-  app.subPackages = [{ root: 'content/catalog', name: 'course-catalog', pages: [] }, ...nativeGroups.map((group, i) => ({ root: group, name: `content-group-${i + 1}`, pages: [] }))]
+  if (nativeGroups.length + 1 + illustrationPackages.length > 100) throw new Error('WeChat allows at most 100 subpackages')
+  app.subPackages = [{ root: 'content/catalog', name: 'course-catalog', pages: [] }, ...nativeGroups.map((group, i) => ({ root: group, name: `content-group-${i + 1}`, pages: [] })), ...illustrationPackages]
   writeJson(appFile, app)
   if (release) { const projectFile = resolve(root, 'project.config.json'); const project = JSON.parse(readFileSync(projectFile, 'utf8')); project.appid = releaseConfig.appid; delete project.cloudfunctionRoot; writeJson(resolve(distributionRoot, 'project.config.json'), project) }
 }
 function files(dir) { return existsSync(dir) ? readdirSync(dir, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? files(resolve(dir, e.name)) : [resolve(dir, e.name)]) : [] }
-const mainFiles = files(nativeRoot).filter((f) => !relative(nativeRoot, f).startsWith('content/'))
+for (const p of illustrationPackages) if (files(resolve(nativeRoot,p.root)).reduce((n,f)=>n+statSync(f).size,0)>1_500_000) throw new Error('Lesson illustrations exceed their subpackage safety budget')
+const mainFiles = files(nativeRoot).filter((f) => !['content/',...illustrationPackages.map(p=>p.root+'/')].some(prefix=>relative(nativeRoot, f).startsWith(prefix)))
 const mainBytes = mainFiles.reduce((sum, f) => sum + statSync(f).size, 0)
 const totalBytes = files(nativeRoot).reduce((sum, f) => sum + statSync(f).size, 0)
 if (mainBytes > 1_900_000) throw new Error(`Main package is too large: ${mainBytes}`)

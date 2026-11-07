@@ -1,0 +1,9 @@
+# Future passive: keep the action,change the subject
+
+2026-10-18 (Sydney). Individually reviewed; content remains draft.
+
+Fifteen tasks begin with original missing/repaired handrail pictures and a planned future result. Students contrast workers repairing with a handrail being repaired,assemble will/be/participle separately,and repair irregular participles,plural-subject be,negatives,questions,agent pronouns and short replies. Later selections require the by-agent,the full passive predicate and a complete future-time phrase rather than always selecting the beginning.
+
+Inspected original and600-pixel delivery,all fifteen models,320-pixel figures,the wrong picture gate,all fourteen wrong word selections,partial/removal recovery,typed/assembled errors and every application/transfer step. Visual review caught an undersized picture in the tile layout;the final first task uses full-width pictures and typed repair,while later tasks retain assembly. The final larger picture and revised actor/predicate/time selections were reinspected. Fresh transfer preserves the meaning of students moving chairs while changing the subject. Grade9;reserved005–008 unexposed;zero independent attempts,mastery or lesson-pass records.
+
+Final compiler/typecheck,826 teaching/spelling,nine grammar,course/interaction/static-package checks,15-condition/45-width browser flow,nine offline checks and ZIP CRC/exact-source comparisons pass. Final development/cloud adapter simulations include all245 hashes and illustration readiness/failure/retry. Offline picture-error checks now include all four illustrated-entry lessons. Shared engine/UI is unchanged;checkpoint45's1,480-core-test coverage is retained. Fresh MCP status succeeds but reading shared WeChat project instructions returns an external-drive-access error;the existing blocked native card was updated. Adapter results are simulations. No GUI job,upload,publication or release.

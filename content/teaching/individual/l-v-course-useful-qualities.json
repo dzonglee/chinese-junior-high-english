@@ -1,0 +1,554 @@
+{
+  "lessonId": "l-v-course-useful-qualities",
+  "reviewState": "draft",
+  "intent": "Individually authored adjective tasks preserve usefulness despite damage, cause versus feeling and possible versus guaranteed improvement.",
+  "picturePurpose": "Original empty bag and wet shirt support identifying useful storage; exact fictional torn-map conditions and adjective roles remain coded.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "试用途、看破图、分角色",
+    "instruction": "选能装湿衣服的袋子，试破图是否仍可读，再分清interesting和interested。",
+    "items": [
+      {
+        "id": "important",
+        "label": "important：important强调什么？",
+        "prompt": "important强调什么？",
+        "answer": "important",
+        "meaning": "重要的",
+        "material": "It is important to check the route before leaving.",
+        "before": "It is ",
+        "after": " to check the route before leaving.",
+        "reason": "It is important to do表示做某事很重要，it是形式主语，真正要说的事是to check the route。before leaving说明检查在出发前，没有报告检查已完成。",
+        "hint": "It is important to do；before doing。",
+        "wordDecision": {
+          "prompt": "important强调什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "出发前检查路线很重要",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "priority",
+                "label": "强调出发前检查路线很重要",
+                "text": "It is important to check the route before leaving.",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "出发后才检查路线",
+                "text": "Check the route only after leaving.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "路线已经检查完毕",
+                "text": "The route has already been checked.",
+                "include": false
+              }
+            ],
+            "hint": "保留重要性和before，不补已完成。",
+            "wrong": "选重要性，不把检查改到出发后。"
+          }
+        },
+        "options": [
+          {
+            "id": "priority",
+            "text": "Checking the route before leaving matters.",
+            "correct": true,
+            "reason": "important强调出发前检查路线的重要性。"
+          },
+          {
+            "id": "after",
+            "text": "The route should only be checked after leaving.",
+            "correct": false,
+            "reason": "把before改成after。"
+          },
+          {
+            "id": "done",
+            "text": "The sentence says the route has already been checked.",
+            "correct": false,
+            "reason": "评价重要性不等于报告检查已完成。"
+          }
+        ]
+      },
+      {
+        "id": "useful",
+        "label": "useful：图中哪件物品可用来装湿衣服？",
+        "prompt": "图中哪件物品可用来装湿衣服？",
+        "answer": "useful",
+        "meaning": "有用的",
+        "material": "A spare bag is useful for wet clothes.",
+        "before": "A spare bag is ",
+        "after": " for wet clothes.",
+        "reason": "useful表示有用的，useful for说明用途。这里说备用袋可以用来装湿衣服，不是说湿衣服就是袋子。useful虽以字母u开头，第一个音是辅音音素/j/，所以说a useful bag。原创图只演示用途，不提供实际材质或尺寸。",
+        "hint": "a useful bag；be useful for。",
+        "wordDecision": {
+          "prompt": "图中哪件物品可用来装湿衣服？",
+          "art": {
+            "asset": "lesson-bag-wet-clothes",
+            "assetRoot": "illustrations-5",
+            "format": "jpg",
+            "alt": "原创虚构物品对照：左边是空的深蓝色袋子，右边是带水滴的湿浅蓝上衣。",
+            "targets": [
+              {
+                "id": "bag-zone",
+                "option": "bag",
+                "label": "备用袋",
+                "left": 3,
+                "top": 10,
+                "width": 46,
+                "height": 76
+              },
+              {
+                "id": "shirt-zone",
+                "option": "shirt",
+                "label": "湿衣服",
+                "left": 52,
+                "top": 28,
+                "width": 46,
+                "height": 63
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "bag",
+            "text": "The spare bag can hold the wet clothes.",
+            "correct": true,
+            "reason": "useful for说明袋子的用途，图中空袋可用来装湿衣服。"
+          },
+          {
+            "id": "shirt",
+            "text": "The wet shirt itself is the spare bag.",
+            "correct": false,
+            "reason": "湿衣服是要装的物品，不是备用袋。"
+          }
+        ]
+      },
+      {
+        "id": "useless",
+        "label": "useless：破了，就一定useless吗？",
+        "prompt": "破了，就一定useless吗？",
+        "answer": "useless",
+        "meaning": "无用的",
+        "material": "The torn map was not useless; we could still read it.",
+        "before": "The torn map was not ",
+        "after": "; we could still read it.",
+        "reason": "useless表示无用的。not useless表示并非毫无用处，后面的we could still read it解释原因。不要看到torn就直接判定地图不能用了。另给虚构图只演示破损和可读能同时成立，不代表原句地图的实际路线或破损位置。",
+        "hint": "not useless并非毫无用处；still仍然。",
+        "wordDecision": {
+          "prompt": "破了，就一定useless吗？",
+          "tornMap": {
+            "title": "破损与可读可以同时成立",
+            "hint": "切换三种示意图，找出“破了，但仍能看懂”的状态。图中路线仅用于练习。",
+            "wrong": "选择破角但路线仍可读；不能把破损直接当作毫无用处。"
+          }
+        },
+        "options": [
+          {
+            "id": "readable",
+            "text": "The map was torn, but it still had a use because we could read it.",
+            "correct": true,
+            "reason": "not useless否定毫无用处；still read给出理由。"
+          },
+          {
+            "id": "useless",
+            "text": "The map was completely useless and impossible to read.",
+            "correct": false,
+            "reason": "与not useless和still read相反。"
+          },
+          {
+            "id": "perfect",
+            "text": "The map was not torn at all.",
+            "correct": false,
+            "reason": "仍能看懂不等于没有破损。"
+          }
+        ]
+      },
+      {
+        "id": "interesting",
+        "label": "interesting：interesting说的是谁？",
+        "prompt": "interesting说的是谁？",
+        "answer": "interesting",
+        "meaning": "有趣的",
+        "material": "The most interesting clue was under the lid.",
+        "before": "The most ",
+        "after": " clue was under the lid.",
+        "reason": "interesting描述事物令人感兴趣。the most interesting clue是最有趣的线索；was under the lid说明它在盖子下面，不能移到上面，也不能把线索误当作感兴趣的人。",
+        "hint": "interesting修饰事物；the most interesting。",
+        "wordDecision": {
+          "prompt": "interesting说的是谁？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "最有趣的线索在盖子下面",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "clue",
+                "label": "最有趣的线索在盖子下面",
+                "text": "The most interesting clue was under the lid.",
+                "include": true
+              },
+              {
+                "id": "above",
+                "label": "最有趣的线索在盖子上面",
+                "text": "The most interesting clue was above the lid.",
+                "include": false
+              },
+              {
+                "id": "person",
+                "label": "这是在描述某人感兴趣",
+                "text": "A person was interested.",
+                "include": false
+              }
+            ],
+            "hint": "找clue和under，保留most。",
+            "wrong": "选线索和盖子下面，不换成上面或人的感受。"
+          }
+        },
+        "options": [
+          {
+            "id": "clue",
+            "text": "The clue under the lid caused the most interest.",
+            "correct": true,
+            "reason": "interesting描述线索令人感兴趣，most保留最高级。"
+          },
+          {
+            "id": "person",
+            "text": "The sentence describes a person as interested.",
+            "correct": false,
+            "reason": "原句描述clue，不是人的感受。"
+          },
+          {
+            "id": "above",
+            "text": "The most interesting clue was above the lid.",
+            "correct": false,
+            "reason": "把under改成above。"
+          }
+        ]
+      },
+      {
+        "id": "interested",
+        "label": "interested：把人感兴趣与事物有趣分开。",
+        "prompt": "把人感兴趣与事物有趣分开。",
+        "answer": "interested",
+        "meaning": "感兴趣的",
+        "material": "I am interested in how old clocks work.",
+        "before": "I am ",
+        "after": " in how old clocks work.",
+        "reason": "be interested in表示对某事感兴趣。主语I是感兴趣的人，how old clocks work是感兴趣的内容。interesting描述事物令人感兴趣，interested描述人的感受；不能因为词根相同就互换。",
+        "hint": "be interested in；interesting / interested。",
+        "wordDecision": {
+          "prompt": "把人感兴趣与事物有趣分开。",
+          "interestRoles": {
+            "title": "谁引起兴趣，谁感兴趣？",
+            "hint": "根据明确给出的句子配词；不凭人物表情猜感受。",
+            "wrong": "线索令人感兴趣用interesting；我感兴趣用interested。"
+          }
+        },
+        "options": [
+          {
+            "id": "person",
+            "text": "I want to learn about how old clocks work.",
+            "correct": true,
+            "reason": "interested说人的兴趣，in后是兴趣内容。"
+          },
+          {
+            "id": "thing",
+            "text": "I am a clock that makes other people interested.",
+            "correct": false,
+            "reason": "把人的兴趣误改成我是一只钟。"
+          },
+          {
+            "id": "none",
+            "text": "I have no interest in old clocks.",
+            "correct": false,
+            "reason": "与am interested in相反。"
+          }
+        ]
+      },
+      {
+        "id": "boring",
+        "label": "boring：can improve表示已经变好了吗？",
+        "prompt": "can improve表示已经变好了吗？",
+        "answer": "boring",
+        "meaning": "无聊的",
+        "material": "A boring task can improve with a clear goal.",
+        "before": "A ",
+        "after": " task can improve with a clear goal.",
+        "reason": "boring描述任务令人无聊，bored才描述人的无聊感。can improve表示有可能改善，with a clear goal指出条件；没有说所有任务必然变有趣，也没有说已经改善。",
+        "hint": "boring描述事物；can表示可能。",
+        "wordDecision": {
+          "prompt": "can improve表示已经变好了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "明确目标可以改善无聊的任务",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "possible",
+                "label": "有明确目标时，无聊任务可能改善",
+                "text": "A boring task can improve with a clear goal.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "每个任务已经变得令人兴奋",
+                "text": "Every boring task has already become exciting.",
+                "include": false
+              },
+              {
+                "id": "never",
+                "label": "明确目标完全没帮助",
+                "text": "A clear goal can never help a boring task.",
+                "include": false
+              }
+            ],
+            "hint": "保留can的可能，不补必然或已发生。",
+            "wrong": "选可能改善，不改成全部已变好。"
+          }
+        },
+        "options": [
+          {
+            "id": "possible",
+            "text": "A clear goal can help make a boring task better.",
+            "correct": true,
+            "reason": "can表示可能改善，不保证或报告已经改善。"
+          },
+          {
+            "id": "done",
+            "text": "Every boring task has already become exciting.",
+            "correct": false,
+            "reason": "把可能改成全部已经发生，还补了exciting。"
+          },
+          {
+            "id": "never",
+            "text": "A clear goal can never help a boring task.",
+            "correct": false,
+            "reason": "与can improve相反。"
+          }
+        ]
+      },
+      {
+        "id": "exciting",
+        "label": "exciting：最令人兴奋的是哪一段？",
+        "prompt": "最令人兴奋的是哪一段？",
+        "answer": "exciting",
+        "meaning": "令人兴奋的",
+        "material": "The final climb was the most exciting part.",
+        "before": "The final climb was the most ",
+        "after": " part.",
+        "reason": "exciting描述某件事令人兴奋，excited描述人的感受。the most exciting part是最令人兴奋的部分，主语the final climb指最后一段攀登；不能改成所有部分一样或第一段攀登。",
+        "hint": "exciting / excited；the most exciting。",
+        "wordDecision": {
+          "prompt": "最令人兴奋的是哪一段？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "最后一段攀登最令人兴奋",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "climb",
+                "label": "最后一段攀登是最令人兴奋的部分",
+                "text": "The final climb was the most exciting part.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "所有部分一样令人兴奋",
+                "text": "Every part was equally exciting.",
+                "include": false
+              },
+              {
+                "id": "start",
+                "label": "第一段攀登最令人兴奋",
+                "text": "The first climb was the most exciting part.",
+                "include": false
+              }
+            ],
+            "hint": "保留final和最高级，不扩大到所有部分。",
+            "wrong": "选最后一段攀登，不换成第一段或全部一样。"
+          }
+        },
+        "options": [
+          {
+            "id": "climb",
+            "text": "The final climb was more exciting than the other parts.",
+            "correct": true,
+            "reason": "the most exciting保留最高级，描述最后一段攀登。"
+          },
+          {
+            "id": "all",
+            "text": "Every part was equally exciting.",
+            "correct": false,
+            "reason": "原句只把最后攀登列为最令人兴奋。"
+          },
+          {
+            "id": "start",
+            "text": "The first climb was the most exciting part.",
+            "correct": false,
+            "reason": "把final换成first。"
+          }
+        ]
+      },
+      {
+        "id": "wonderful",
+        "label": "wonderful：wonderful评价什么？",
+        "prompt": "wonderful评价什么？",
+        "answer": "wonderful",
+        "meaning": "精彩的；极好的",
+        "material": "The harbour walk gave us a wonderful view.",
+        "before": "The harbour walk gave us a ",
+        "after": " view.",
+        "reason": "wonderful表示极好的或精彩的，在这里修饰view。原句评价沿港口散步看到的景色，没有给出实际港口名称、天气或温度。wonderful的比较级用more wonderful。",
+        "hint": "a wonderful view；more wonderful。",
+        "wordDecision": {
+          "prompt": "wonderful评价什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "沿港口散步，看到了美妙景色",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "view",
+                "label": "沿港口散步时景色很好",
+                "text": "The harbour walk gave us a wonderful view.",
+                "include": true
+              },
+              {
+                "id": "weather",
+                "label": "明确报告晴天和温度",
+                "text": "The sentence states clear weather and an exact temperature.",
+                "include": false
+              },
+              {
+                "id": "poor",
+                "label": "散步看到的景色很糟",
+                "text": "The view during the harbour walk was terrible.",
+                "include": false
+              }
+            ],
+            "hint": "评价景色，不补地点名称或天气数据。",
+            "wrong": "选景色很好，不反转评价或编天气。"
+          }
+        },
+        "options": [
+          {
+            "id": "view",
+            "text": "We enjoyed a very good view during the harbour walk.",
+            "correct": true,
+            "reason": "wonderful评价沿港口散步所见景色很好。"
+          },
+          {
+            "id": "weather",
+            "text": "The sentence states an exact temperature and clear weather.",
+            "correct": false,
+            "reason": "没有温度或天气信息。"
+          },
+          {
+            "id": "poor",
+            "text": "The view during the harbour walk was terrible.",
+            "correct": false,
+            "reason": "与wonderful相反。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-useful-qualities-transfer",
+      "topicId": "v-course-useful-qualities",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve the map’s usefulness, the speaker’s interest and the possibility of improving a task?",
+      "passage": "A class walk by the harbour\nBefore leaving for a harbour walk, Ms Li asked the class to check the route. Mei noticed a torn corner on their map. “It is not useless,” she said. “We can still read the route.” She also brought a spare bag for wet clothes.\nAt the visitor centre, the class tried a clue-finding activity. The most interesting clue was under a lid. Nearby, an old clock caught Mei’s attention. “I am interested in how old clocks work,” she said.\nSome pupils thought the waiting task was boring. “A clear goal can make the task better,” Ms Li suggested. She did not promise that every task would become exciting. On the way back, the final climb was the most exciting part. From the top, the class enjoyed a wonderful view of the harbour.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A torn map must be useless; the speaker is interesting in clocks; every task has already improved."
+        },
+        {
+          "id": "b",
+          "text": "The torn map was still readable; the speaker is interested in clocks; a clear goal can improve a boring task."
+        },
+        {
+          "id": "c",
+          "text": "The torn map was not torn; the speaker is interested in clocks; a clear goal can improve a boring task."
+        },
+        {
+          "id": "d",
+          "text": "The torn map was still readable; the speaker is interested in clocks; a clear goal guarantees every task will be exciting."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The torn map was still readable; the speaker is interested in clocks; a clear goal can improve a boring task."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先保留not和still，再看是谁感兴趣，最后判断can是否被改成保证。",
+        "steps": [
+          {
+            "text": "破地图仍能读，不是毫无用处；人感兴趣用interested。",
+            "reason": "not useless和still read给出保留的用途；be interested in说明人的兴趣。"
+          },
+          {
+            "text": "明确目标可能改善任务，不能改成已发生或保证。",
+            "reason": "can improve表示可能，不等于has already improved或guarantees。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "反转地图用途，混淆interesting/interested，又把可能改成已发生。"
+          },
+          {
+            "option": "c",
+            "reason": "not useless是否定无用，不是否定torn；地图确实破了。"
+          },
+          {
+            "option": "d",
+            "reason": "把can improve扩大成每项任务都保证变得令人兴奋。"
+          }
+        ],
+        "pitfall": "见到破损就判无用，把-ing和-ed混用，把可能当保证。",
+        "visual": {
+          "kind": "timeline",
+          "title": "用途、感受、可能",
+          "segments": [
+            {
+              "text": "torn but not useless",
+              "role": "object",
+              "note": "破了仍能读"
+            },
+            {
+              "text": "I am interested in...",
+              "role": "object",
+              "note": "人感兴趣"
+            },
+            {
+              "text": "can improve",
+              "role": "object",
+              "note": "可能改善"
+            }
+          ],
+          "caption": "保留句中的否定、角色和可能性。"
+        },
+        "transfer": "The map was not useless能不能改成The map was not torn？为什么？"
+      }
+    }
+  }
+}

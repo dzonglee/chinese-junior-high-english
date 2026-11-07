@@ -34,11 +34,12 @@ export function authorExtra(root, catalog) {
     topics.push({ id, title: '完形填空：读懂前后关系', skill: 'reading', grades, goal: '先把全文读通，再用前后线索核对词义与逻辑。', commonError: '只盯着空格前后的一个词，忽略全文的变化与因果。', prerequisites: [], order: 104 })
     for (const [t, text] of read(root, 'content/cloze.json').entries()) {
       const ids = []
-      for (const [i, [correct, wrong1, wrong2, reason, why1, why2]] of text.items.entries()) {
+      for (const [i, [correct, wrong1, wrong2, reason, why1, why2, clues]] of text.items.entries()) {
         const qid = `q-r-cloze-${t + 1}-${i + 1}`, raw = [correct, wrong1, wrong2]
         const options = raw.map((_, n) => ({ id: ['a', 'b', 'c'][n], text: raw[(n + i) % 3] })), right = options.find(o => o.text === correct).id
         const passage = text.text.replace(/\[\[(\d+)\]\]/g, (_, n) => Number(n) === i + 1 ? '_____' : text.items[Number(n) - 1][0]); ids.push(qid)
-        questions.push({ id: qid, topicId: id, skill: 'reading', kind: 'choice', grades, difficulty: 2, stem: `读短文，选择最符合上下文的表达。${text.title}`, passage, options, answer: { option: right, display: correct }, marks: 1, estimatedSeconds: 80, source, review: 'draft', explanation: { strategy: '先读通全文，再判断空格在语意和逻辑上承担什么作用。', steps: [{ text: reason, reason: '这个判断需要结合前后句，而不只是看单个词能否搭配。' }, { text: `填入 ${correct} 后再读本段。`, reason: '正确选项应与全文的时间、人物行动和前后逻辑同时一致。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: o.text === wrong1 ? why1 : why2 })), pitfall: '一个表达语法上能放进去，不代表它符合这篇短文的意思。', visual: { kind: 'evidence', title: '上下文决定选择', segments: [{ text: correct, role: 'evidence', note: '本空的表达' }, { text: reason, role: 'neutral', note: '前后文的支持' }], caption: '把选项与上下文的关系说清楚，再检查语法。' }, transfer: '遮住选项，用中文说出这里应承接什么含义，再看哪个英文表达吻合。' } })
+        if(clues && (!Array.isArray(clues) || clues.length < 1 || clues.length > 3 || clues.some(quote => typeof quote !== 'string' || !quote.trim() || !passage.includes(quote)))) throw new Error(`Cloze evidence must quote its actual passage: ${qid}`)
+        questions.push({ id: qid, topicId: id, skill: 'reading', kind: 'choice', grades, difficulty: 2, stem: `读短文，选择最符合上下文的表达。${text.title}`, passage, options, answer: { option: right, display: correct }, marks: 1, estimatedSeconds: 80, source, review: 'draft', explanation: { strategy: '先读通全文，再判断空格在语意和逻辑上承担什么作用。', steps: [{ text: clues ? `定位上下文：${clues.map(quote => `“${quote}”`).join('；')}` : reason, reason: clues ? reason : '这个判断需要结合前后句，而不只是看单个词能否搭配。' }, { text: `填入 ${correct} 后再读本段。`, reason: '正确选项应与全文的时间、人物行动和前后逻辑同时一致。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: o.text === wrong1 ? why1 : why2 })), pitfall: '一个表达语法上能放进去，不代表它符合这篇短文的意思。', visual: { kind: 'evidence', title: '上下文决定选择', segments: clues ? [...clues.map((text, i) => ({text, role: 'evidence', note: `上下文线索 ${i+1}`})), {text: correct, role: 'object', note: '放回原句的表达'}] : [{ text: correct, role: 'evidence', note: '本空的表达' }, { text: reason, role: 'neutral', note: '前后文的支持' }], caption: '把选项与上下文的关系说清楚，再检查语法。' }, transfer: '遮住选项，用中文说出这里应承接什么含义，再看哪个英文表达吻合。' } })
       }
       sets.push(ids)
     }
@@ -56,10 +57,11 @@ export function authorExtra(root, catalog) {
       if (!catalog.media.some(m => m.id === mediaId)) catalog.media.push(asset ?? { id: mediaId, path: '', transcript: task.transcript, voice: '', model: '', license: '', sha256: '', approvedByOwner: false })
       ids.push(id)
       const quotes = Array.isArray(task.evidence) ? task.evidence : [task.evidence]
-      questions.push({ id, topicId: r.id, skill: 'listening', kind: 'choice', feedbackGroup: mediaId, difficulty: t ? 2 : 1, grades, stem: task.stem, passage: task.transcript, mediaId, options, answer: { option: right, display: task.options[0] }, marks: 1, estimatedSeconds: 70, source, review: 'draft', explanation: { strategy: r.goal, steps: [{ text: `先定位关键话语：${quotes.map(quote => `“${quote}”`).join('；')}`, reason: task.evidenceReason ?? '把请求、决定或意图与说话人的回应对应起来。' }, { text: `结合回应，答案是 ${task.options[0]}。`, reason: '不能只按录音中第一个出现的数字、地点或建议作答。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: task.reasons[task.options.indexOf(o.text) - 1] })), pitfall: '先确认题目问的是最初提议、当前安排还是说话意图。', visual: { kind: 'evidence', title: '听力中的关键证据', segments: [...quotes.map((text, index) => ({ text, role: 'evidence', note: `线索 ${index + 1}` })), { text: task.options[0], role: 'object', note: '与问题对应的含义' }], caption: '听完后再看文字，标出修正或请求，不把阅读文字当作听力独立完成。' }, transfer: '再听一遍，尝试不看文字复述最后的决定或请求。' } })
+      questions.push({ id, topicId: r.id, skill: 'listening', kind: 'choice', feedbackGroup: mediaId, difficulty: t ? 2 : 1, grades, stem: task.stem, passage: task.transcript, mediaId, options, answer: { option: right, display: task.options[0] }, marks: 1, estimatedSeconds: 70, source, review: 'draft', explanation: { strategy: r.goal, steps: task.explanationSteps ?? [{ text: `先定位关键话语：${quotes.map(quote => `“${quote}”`).join('；')}`, reason: task.evidenceReason ?? '把请求、决定或意图与说话人的回应对应起来。' }, { text: `结合回应，答案是 ${task.options[0]}。`, reason: '不能只按录音中第一个出现的数字、地点或建议作答。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: task.reasons[task.options.indexOf(o.text) - 1] })), pitfall: task.pitfall ?? '先确认题目问的是最初提议、当前安排还是说话意图。', visual: { kind: 'evidence', title: '听力中的关键证据', segments: [...quotes.map((text, index) => ({ text, role: 'evidence', note: `线索 ${index + 1}` })), { text: task.options[0], role: 'object', note: '与问题对应的含义' }], caption: '听完后再看文字，标出修正或请求，不把阅读文字当作听力独立完成。' }, transfer: task.transfer ?? '再听一遍，尝试不看文字复述最后的决定或请求。' } })
     }
     lessons.push({ id: `l-${r.id}`, topicId: r.id, title: r.title, grades, objective: r.goal, questionIds: ids.slice(0, 4), delayedQuestionIds: ids.slice(4), summary: [r.goal, '先听再答，检查后才看文字。'], estimatedMinutes: 8, order: 1, review: 'draft' })
   }
+  const authoredMeaningDecoys = new Map(), contextualMeanings = new Map(), meaningInExample = word => contextualMeanings.get(`${word.topicId}:${word.word}`) ?? word.meaning
   const groups = { school: ['v-school', '校园里的常用词', 6], daily: ['v-daily', '日常表达与学习习惯', 6], community: ['v-community', '社区与出行', 7], nature: ['v-nature', '自然与可持续生活', 8] }
   for (const group of optional(root, 'content/course-vocabulary-groups.json')) groups[group.key] = [group.id, group.title, group.minGrade]
   const lines = [readFileSync(resolve(root, 'content/vocabulary.tsv'), 'utf8'), ...(existsSync(resolve(root, 'content/course-vocabulary.tsv')) ? [readFileSync(resolve(root, 'content/course-vocabulary.tsv'), 'utf8')] : [])].join('\n').split('\n').filter(line => line && !line.startsWith('#'))
@@ -67,22 +69,64 @@ export function authorExtra(root, catalog) {
     const grades = gradesFrom(minimum), ids = []
     topics.push({ id, title, skill: 'vocabulary', grades, goal: '结合原句理解词义，再独立拼写并检查搭配。', commonError: '看懂例句不等于能独立回忆，拼写也要自己试。', prerequisites: [], order: 60 + minimum })
     for (const line of lines.filter(line => line.startsWith(key + '|'))) {
-      const [, word, meaning, example, exampleMeaning, note, variants = ''] = line.split('|')
-      if (!note) throw new Error('Vocabulary entry is incomplete: ' + word)
+      const [, word, meaning, example, exampleMeaning, note, variants = '', contextualMeaning = meaning, meaningDecoyWords = ''] = line.split('|')
+      if (!note || !contextualMeaning.trim() || contextualMeaning !== contextualMeaning.trim()) throw new Error('Vocabulary entry is incomplete: ' + word)
       const acceptedSpellings = [...new Set([...(word === 'neighbour' ? ['neighbor'] : []), ...variants.split(',').map(v => v.trim()).filter(Boolean)])]
-      const wid = `word-${word}`, qid = `q-${id}-${word}`; ids.push(qid)
+      const wid = `word-${word}`, qid = `q-${id}-${word}`; ids.push(qid); contextualMeanings.set(`${id}:${word}`, contextualMeaning)
+      if (meaningDecoyWords) {
+        const pair = meaningDecoyWords.split(',')
+        if (pair.length !== 2 || new Set(pair).size !== 2 || pair.some(x => !x.trim() || x !== x.trim() || x === word)) throw new Error('Invalid authored vocabulary meaning distractors: ' + word)
+        authoredMeaningDecoys.set(`${id}:${word}`, pair)
+      }
       vocabulary.push({ id: wid, word, meaning, example, exampleMeaning, topicId: id, grade: minimum, spelling: ['neighbour', 'mum', 'yoghurt', 'memorise', 'theatre', 'colour', 'aeroplane', 'tyre', 'harbour', 'neighbourhood', 'centre', 'grey'].includes(word) ? 'british' : 'shared', acceptedSpellings, explanation: note })
       const masked = example.replace(new RegExp(`\\b${word}\\b`, 'i'), '_____')
-      questions.push({ id: qid, topicId: id, skill: 'vocabulary', kind: 'blank', feedbackGroup: wid, difficulty: minimum >= 8 ? 2 : 1, grades, stem: `填写本课词表中的目标词：${meaning}（首字母 ${word[0]}，${acceptedSpellings.length ? '英美拼写均可' : `${word.replaceAll('-', '').length} 个字母`}）\n${masked}`, answer: { accepted: [word, ...acceptedSpellings], display: word }, marks: 1, estimatedSeconds: 40, source, review: 'draft',
-        explanation: { strategy: '先用中文释义和句意确定词，再检查拼写与搭配。', steps: [{ text: `本句是“${exampleMeaning}”，目标词为 ${word}。`, reason: `这里需要表达“${meaning}”。` }, { text: `放回原句：${example}`, reason: note }], distractors: [], pitfall: note, visual: { kind: 'sentence', title: '词义与用法放在一起记', segments: [{ text: word, role: 'evidence', note: meaning }, { text: example, role: 'neutral', note: '在原句中检查用法' }], caption: note }, transfer: `换一个与自己有关的语境，用 ${word} 说一个短句。` } })
+      questions.push({ id: qid, topicId: id, skill: 'vocabulary', kind: 'blank', feedbackGroup: wid, difficulty: minimum >= 8 ? 2 : 1, grades, stem: `填写本课词表中的目标词：${meaning}（首字母 ${word[0]}，${acceptedSpellings.length ? (['stomachache', 'pencil-case'].includes(word) ? '两种常用写法均可' : '英美拼写均可') : `${word.replaceAll('-', '').length} 个字母`}）\n${masked}`, answer: { accepted: [word, ...acceptedSpellings], display: word }, marks: 1, estimatedSeconds: 40, source, review: 'draft',
+        explanation: { strategy: '先用中文释义和句意确定词，再检查拼写与搭配。', steps: [{ text: `本句是“${exampleMeaning}”，目标词为 ${word}。`, reason: `这里需要表达“${contextualMeaning}”。` }, { text: `放回原句：${example}`, reason: note }], distractors: [], pitfall: note, visual: { kind: 'sentence', title: '词义与用法放在一起记', segments: [{ text: word, role: 'evidence', note: contextualMeaning }, { text: example, role: 'neutral', note: '在原句中检查用法' }], caption: note }, transfer: `换一个与自己有关的语境，用 ${word} 说一个短句。` } })
     }
     const topicWords = vocabulary.filter(w => w.topicId === id)
     for (const [n, word] of topicWords.entries()) {
-      const decoys = topicWords.filter(w => w.meaning !== word.meaning && w.id !== word.id).filter((w, i, list) => list.findIndex(other => other.meaning === w.meaning) === i).slice(0, 2)
+      const sentenceMeaning = meaningInExample(word)
+      const exactClothingMeaning = id === 'v-course-clothing' && ["clothes", "shirt", "blouse", "t-shirt", "coat", "jacket", "sweater", "jumper", "trousers", "jeans", "shorts", "skirt", "dress", "suit", "sock", "shoe", "boot", "trainer", "sandal", "slipper", "hat", "cap", "scarf", "glove", "belt", "pocket", "button", "zip", "collar", "sleeve", "size", "wear", "fit", "match", "cloth", "cotton", "wool", "silk", "leather", "umbrella"].includes(word.word)
+      const decoys = [], seenMeanings = new Set()
+      const authoredPair = authoredMeaningDecoys.get(`${id}:${word.word}`)
+      if (authoredPair) {
+        for (const headword of authoredPair) {
+          const candidate = topicWords.find(w => w.word === headword)
+          if (!candidate || candidate.id === word.id || meaningInExample(candidate) === sentenceMeaning || seenMeanings.has(meaningInExample(candidate))) throw new Error('Invalid authored vocabulary meaning distractor: ' + word.word)
+          seenMeanings.add(meaningInExample(candidate)); decoys.push(candidate)
+        }
+      } else {
+        // Preserve the default first two distinct meanings exactly for all other rows.
+        for (const candidate of topicWords) {
+          if (meaningInExample(candidate) === sentenceMeaning || candidate.id === word.id || seenMeanings.has(meaningInExample(candidate))) continue
+          seenMeanings.add(meaningInExample(candidate))
+          decoys.push(candidate)
+          if (decoys.length === 2) break
+        }
+      }
       if (decoys.length !== 2) throw new Error(`Vocabulary topic needs three distinct meanings: ${id}`)
       const labels = [word, ...decoys], rotated = labels.map((_, k) => labels[(k + n) % 3])
-      const options = rotated.map((w, k) => ({ id: ['a', 'b', 'c'][k], text: w.meaning })), right = options.find(o => o.text === word.meaning).id
-      questions.push({ id: `q-${id}-${word.word}-meaning`, topicId: id, skill: 'vocabulary', kind: 'choice', feedbackGroup: word.id, difficulty: 1, grades, stem: `本句中的 ${word.word} 是什么意思？`, passage: word.example, options, answer: { option: right, display: word.meaning }, marks: 1, estimatedSeconds: 35, source, review: 'draft', explanation: { strategy: '读完整句，结合搭配确认这个词在本句中的意思。', steps: [{ text: word.exampleMeaning, reason: `本句表达的是“${word.meaning}”。` }, { text: word.explanation, reason: '词义必须与句中位置及实际用法同时吻合。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: `“${o.text}”在本课对应 ${decoys.find(w => w.meaning === o.text).word}，不是本句中 ${word.word} 的意思。${word.exampleMeaning}` })), pitfall: word.explanation, visual: { kind: 'sentence', title: '回到例句核对词义', segments: [{ text: word.word, role: 'evidence', note: word.meaning }, { text: word.example, role: 'neutral', note: word.exampleMeaning }], caption: word.explanation }, transfer: `不用原句，试着用 ${word.word} 再表达一件自己的事。` } })
+      const options = rotated.map((w, k) => ({ id: ['a', 'b', 'c'][k], text: meaningInExample(w) })), right = options.find(o => o.text === sentenceMeaning).id
+      const clothingPartReason = {
+        fit: "本句fit表示手套大小合适，是动词；“衣服”是物品名称，不能表达大小关系。",
+        match: "本句match表示纽扣与条纹相配，是动词；“衣服”不能表达相配关系。",
+        cloth: "本句cloth指擦镜头用的布，不能换成clothes“衣服”。",
+        cotton: "本句cotton表示衬衫的棉质材料；“衣服”是物品类别，不是这种材料。",
+        wool: "本句wool指织毯子用的羊毛；“衣服”不是这里的材料名称。",
+        silk: "本句silk表示围巾的丝质材料；“衣服”不是这里的材料名称。",
+        leather: "本句leather表示包的皮革材料；“衣服”不是这里的材料名称。",
+        umbrella: "本句umbrella指共撑的伞，不是“衣服”。",
+
+        belt: '本句belt指腰带；“衣服”没有表达这个具体对象。',
+        pocket: '本句pocket指口袋这个部位；“衣服”没有表达这个具体部位。',
+        button: '本句button指开门用的按钮，不是“衣服”。',
+        zip: '本句zip指拉链这个部件；“衣服”没有表达这个具体部件。',
+        collar: '本句collar指小狗的项圈，不是“衣服”。',
+        sleeve: '本句sleeve指袖子这个部位；“衣服”没有表达这个具体部位。',
+        size: '本句size表示头盔的尺寸；“衣服”是物品名称，不能表示所问的尺寸。',
+        wear: '本句wear表示“穿着”；“衣服”是名词，不能表达这里的穿着要求。'
+      }[word.word]
+      questions.push({ id: `q-${id}-${word.word}-meaning`, topicId: id, skill: 'vocabulary', kind: 'choice', feedbackGroup: word.id, difficulty: 1, grades, stem: exactClothingMeaning ? `本句中的 ${word.word} 最准确、具体的词义是哪项？` : `本句中的 ${word.word} 是什么意思？`, passage: word.example, options, answer: { option: right, display: sentenceMeaning }, marks: 1, estimatedSeconds: 35, source, review: 'draft', explanation: { strategy: '读完整句，结合搭配确认这个词在本句中的意思。', steps: [{ text: word.exampleMeaning, reason: `本句表达的是“${sentenceMeaning}”。` }, { text: word.explanation, reason: '词义必须与句中位置及实际用法同时吻合。' }], distractors: options.filter(o => o.id !== right).map(o => ({ option: o.id, reason: exactClothingMeaning && o.text === '衣服' && clothingPartReason ? clothingPartReason : exactClothingMeaning && o.text === '衣服' && ['boot','trainer','sandal','slipper'].includes(word.word) ? `本句需要具体的鞋类名称：${word.word}指“${sentenceMeaning}”；“衣服”没有表达这个具体词义。` : exactClothingMeaning && o.text === '衣服' && word.word !== 'clothes' ? `“衣服”只是总称，没有给出 ${word.word} 更具体的词义“${sentenceMeaning}”；不是说这种衣物不属于衣服。` : exactClothingMeaning && word.word === 'blouse' && o.text === '衬衫' ? '女式衬衫属于衬衫；本题要选更准确、具体的词义，blouse比shirt具体。' : `“${o.text}”在本课对应 ${decoys.find(w => meaningInExample(w) === o.text).word}，不是本句中 ${word.word} 的意思。${word.exampleMeaning}` })), pitfall: word.explanation, visual: { kind: 'sentence', title: '回到例句核对词义', segments: [{ text: word.word, role: 'evidence', note: sentenceMeaning }, { text: word.example, role: 'neutral', note: word.exampleMeaning }], caption: word.explanation }, transfer: `不用原句，试着用 ${word.word} 再表达一件自己的事。` } })
     }
     const count = Math.max(1, Math.ceil(ids.length / 8)), size = Math.floor(ids.length / count), extra = ids.length % count
     let start = 0

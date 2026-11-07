@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordClothesWindow{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordClothesWindow(v:unknown):v is WordClothesWindow{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordClothesWindow;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordClothesWindowKey=(id:string)=>'workshopClothesWindow-'+id
+function decode(raw:string){if(raw==='')return{"state": "?", "place": "?"};const m="^(\\?|wet|dry)\\|(\\?|near|far)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{state:v[1],place:v[2]}:null}
+export function changeClothesWindow(_w:WordClothesWindow,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["state-wet", "state-dry"].includes(action))return action.slice(6)+"|"+s.place;if(["place-near", "place-far"].includes(action))return s.state+"|"+action.slice(6);return undefined}
+export function clothesWindowMatch(_w:WordClothesWindow,raw:string){const s=decode(raw);return!!s&&s.state==="wet"&&s.place==="near"}
+export function wordClothesWindowView(w:WordClothesWindow,raw:string){const s=decode(raw)??{"state": "?", "place": "?"};return{title:w.title,hint:w.hint,garmentLeft:s.place==='?'?null:s.place==='near'?32:77,wet:s.state==='wet',groups:[{label:"衣服状态",choices:[{"id": "state-wet", "label": "湿衣服"}, {"id": "state-dry", "label": "干衣服"}].map(c=>({...c,selected:c.id==="state-"+s.state}))},{label:"相对窗户的位置",choices:[{"id": "place-near", "label": "窗边"}, {"id": "place-far", "label": "远离窗户"}].map(c=>({...c,selected:c.id==="place-"+s.place}))}],reading:clothesWindowMatch(w,raw)?"按要求把湿衣服挂在窗边；图不表示已挂好或已晾干。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordClothesWindowView=ReturnType<typeof wordClothesWindowView>

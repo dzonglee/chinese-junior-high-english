@@ -1,0 +1,528 @@
+{
+  "lessonId": "l-g-infinitives",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Use action contrast to distinguish stop to do / stop doing, then construct plans, requests, negative requests, purpose, too-to and prospective remember expressions.",
+  "picturePurpose": "Tap contrasting original later-action panels. The separate written record establishes the earlier action, so a still image is never treated as proof of time or intent. Existing original science-room art locates a stated wish.",
+  "workshop": {
+    "navigationLabel": "任务",
+    "kind": "transform",
+    "title": "事情怎么变，表达就怎么变",
+    "instruction": "先看动作经过或计划，再拼出意思准确的表达。",
+    "conditions": [
+      {
+        "label": "停下来，为了做另一件事",
+        "before": "After reading for ten minutes, Mia stopped ",
+        "target": "to drink",
+        "after": " some water.",
+        "choices": [
+          "drinking",
+          "to drink",
+          "drank"
+        ],
+        "reason": "原来在看书，停下来是为了喝水。stop to drink 表示停下当前活动去喝水。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录：Mia 刚才一直在看书。现在她合上书，开始喝水。先选对应的后续画面。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的动作经过"
+            },
+            {
+              "label": "@attempt",
+              "detail": "这次停下来的目的",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "刚才在看书，后来发生了什么？",
+            "missingPrompt": "先选出与事情经过相符的图或记录，再补全表达。",
+            "answer": "drink",
+            "options": [
+              {
+                "id": "drink",
+                "label": "停下看书，去喝水",
+                "text": "原来在看书 → 暂停 → 现在喝水",
+                "reason": "书合上后正在喝水，喝水是停下来的目的。",
+                "value": 50
+              },
+              {
+                "id": "read",
+                "label": "停止喝水，继续看书",
+                "text": "原来在喝水 → 停止喝水 → 现在看书",
+                "reason": "这幅图中喝水已结束，现在是在看书，和“停下来去喝水”不同。",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-reading-break",
+            "alt": "左图女孩放下书喝水；右图女孩放下已盖好的水瓶，继续看书。动作先后由题目中的记录说明。",
+            "artChoices": [
+              "drink",
+              "read"
+            ]
+          }
+        }
+      },
+      {
+        "label": "停止的就是这个动作",
+        "before": "Mia put the bottle down and stopped ",
+        "target": "drinking",
+        "after": " because she had enough water.",
+        "choices": [
+          "to drink",
+          "drinking",
+          "drink"
+        ],
+        "reason": "这次停止的是喝水本身，用 stop drinking。stop to drink 会变成停下来去喝水。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录：Mia 刚才在喝水，喝够后盖好瓶盖，把水瓶放下，继续看书。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的动作经过"
+            },
+            {
+              "label": "@attempt",
+              "detail": "被停止的动作",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "这次刚才在喝水。后来哪幅图符合？",
+            "missingPrompt": "先选出与事情经过相符的图或记录，再补全表达。",
+            "answer": "read",
+            "options": [
+              {
+                "id": "read",
+                "label": "停止喝水，继续看书",
+                "text": "原来在喝水 → 停止喝水 → 现在看书",
+                "reason": "水瓶已盖好放下，表示停止喝水。",
+                "value": 50
+              },
+              {
+                "id": "drink",
+                "label": "停下看书，去喝水",
+                "text": "原来在看书 → 暂停 → 现在喝水",
+                "reason": "这幅图中还在喝水，不是喝水已经结束。",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-reading-break",
+            "alt": "左图女孩放下书喝水；右图女孩放下已盖好的水瓶，继续看书。动作先后由题目中的记录说明。",
+            "artChoices": [
+              "drink",
+              "read"
+            ]
+          }
+        }
+      },
+      {
+        "label": "want 后把愿望说完整",
+        "before": "Leo wants ",
+        "target": "to make",
+        "after": " another model windmill.",
+        "choices": [
+          "making",
+          "to make",
+          "made"
+        ],
+        "reason": "want to do 表示想做某事。主句 wants 已按 Leo 变化；to 后仍用 make 原形。",
+        "world": {
+          "kind": "logic",
+          "caption": "Leo 的愿望卡：再做一个模型风车。不是说他已经做完。",
+          "cells": [
+            {
+              "label": "wants",
+              "detail": "想要"
+            },
+            {
+              "label": "@attempt",
+              "detail": "想做的事",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "愿望卡：Leo 想再做一个模型风车。",
+            "missingPrompt": "先选出与事情经过相符的图或记录，再补全表达。",
+            "answer": "plan",
+            "options": [
+              {
+                "id": "plan",
+                "label": "想去做",
+                "text": "事情还在愿望里",
+                "reason": "这是愿望，不是完成记录。",
+                "value": 50
+              },
+              {
+                "id": "done",
+                "label": "已经做完",
+                "text": "事情已经完成",
+                "reason": "wants 表达愿望，不能据此断定已经做完。",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-workshop",
+            "alt": "科学活动室里，老师指导测量模型；同学们制作风车、照顾植物。计划与目的由文字记录给出。"
+          }
+        }
+      },
+      {
+        "label": "自己写出决定做的事",
+        "before": "Our group decided ",
+        "target": "to reuse",
+        "after": " the old cardboard.",
+        "choices": [
+          "reusing",
+          "to reuse",
+          "reused"
+        ],
+        "reason": "decide 后接 to do。主句 decided 表示决定已经作出，后面的 reuse 不再改成过去式。",
+        "world": {
+          "kind": "logic",
+          "caption": "小组已作出决定：用旧纸板做新模型。使用 reuse 填空。",
+          "cells": [
+            {
+              "label": "decided",
+              "detail": "决定已作出"
+            },
+            {
+              "label": "@attempt",
+              "detail": "决定做什么",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "使用 reuse，自己补全 decided 后的完整表达。"
+      },
+      {
+        "label": "ask 后看清谁去做",
+        "before": "The teacher asked Leo ",
+        "target": "to measure",
+        "after": " the board.",
+        "choices": [
+          "measuring",
+          "to measure",
+          "measured"
+        ],
+        "reason": "ask somebody to do：老师提出要求，Leo 去测量。asked 的过去式不要求 measure 也用过去式。",
+        "world": {
+          "kind": "logic",
+          "caption": "老师要求 Leo 测量木板。先找真正去测量的人。",
+          "cells": [
+            {
+              "label": "the teacher",
+              "detail": "提出要求"
+            },
+            {
+              "label": "@record",
+              "detail": "谁去测量"
+            },
+            {
+              "label": "@attempt",
+              "detail": "要求做什么",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "谁来测量木板？",
+            "missingPrompt": "先选出与事情经过相符的图或记录，再补全表达。",
+            "answer": "leo",
+            "options": [
+              {
+                "id": "leo",
+                "label": "Leo",
+                "text": "老师要求的对象",
+                "reason": "Leo 是被要求去测量的人。",
+                "value": 50
+              },
+              {
+                "id": "teacher",
+                "label": "the teacher",
+                "text": "提出要求的人",
+                "reason": "老师提出要求，这句话要求 Leo 去测量。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "提醒不要做，否定放哪里",
+        "before": "The teacher told us ",
+        "target": "not to touch",
+        "after": " the wet paint.",
+        "choices": [
+          "not touching",
+          "not to touch",
+          "do not touch"
+        ],
+        "reason": "tell somebody not to do 表示告诉某人不要做某事。这里是 told us 后的非谓语部分，不是单独的祈使句。",
+        "world": {
+          "kind": "logic",
+          "caption": "安全提示：油漆还没干，老师告诉大家不要碰。",
+          "cells": [
+            {
+              "label": "told us",
+              "detail": "告诉我们"
+            },
+            {
+              "label": "@attempt",
+              "detail": "不要去做的事",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "使用 touch，写出“不要碰”的完整表达。"
+      },
+      {
+        "label": "去那里是为了什么",
+        "before": "We went to the school gate ",
+        "target": "to meet",
+        "after": " the visitors.",
+        "choices": [
+          "met",
+          "meeting",
+          "to meet"
+        ],
+        "reason": "迎接来访者是去校门口的目的，用 to meet。went 已是句子的谓语，不再直接接另一个过去式 met。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录：我们到校门口迎接来访者。先把行动和目的接对。",
+          "cells": [
+            {
+              "label": "went to the gate",
+              "detail": "采取的行动"
+            },
+            {
+              "label": "@attempt",
+              "detail": "行动的目的",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "为什么去校门口？",
+            "missingPrompt": "先选出与事情经过相符的图或记录，再补全表达。",
+            "answer": "meet",
+            "options": [
+              {
+                "id": "meet",
+                "label": "迎接来访者",
+                "text": "这次出发的目的",
+                "reason": "to meet 表达迎接来访者的目的。",
+                "value": 50
+              },
+              {
+                "id": "leave",
+                "label": "离开学校",
+                "text": "相同地点，另一种目的",
+                "reason": "记录明确是迎接来访者，不是离开学校。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "too…to 中自己写完整",
+        "before": "The box is too heavy for Leo ",
+        "target": "to carry",
+        "after": " alone.",
+        "choices": [
+          "carrying",
+          "to carry",
+          "carried"
+        ],
+        "reason": "too heavy to carry 表示太重而搬不动。for Leo 说明对谁来说；to 后用 carry 原形。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录：箱子太重，Leo 无法独自搬动。用 carry 补全表达。",
+          "cells": [
+            {
+              "label": "too heavy",
+              "detail": "重到超出能力"
+            },
+            {
+              "label": "@attempt",
+              "detail": "不能独自完成的动作",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "使用 carry，补全 too heavy 后的完整表达。"
+      },
+      {
+        "label": "记得去做，还是记得做过",
+        "before": "Remember ",
+        "target": "to bring",
+        "after": " a ruler tomorrow.",
+        "choices": [
+          "bringing",
+          "to bring",
+          "brought"
+        ],
+        "reason": "明天还没带尺子，提醒记得去做，用 remember to bring。remember bringing 表示记得曾经带过。",
+        "world": {
+          "kind": "logic",
+          "caption": "老师提醒：明天做模型时别忘了带尺子。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "事情是否已经发生"
+            },
+            {
+              "label": "@attempt",
+              "detail": "提醒去做的事",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "这里是在提醒哪种事情？",
+            "missingPrompt": "先选出与事情经过相符的图或记录，再补全表达。",
+            "answer": "future",
+            "options": [
+              {
+                "id": "future",
+                "label": "还没做，要记得做",
+                "text": "带尺子是明天的事",
+                "reason": "tomorrow 指向尚未发生的动作。",
+                "value": 50
+              },
+              {
+                "id": "memory",
+                "label": "做过，记得当时做过",
+                "text": "回忆已经发生的动作",
+                "reason": "题目不是在回忆带过尺子，而是在提醒明天去做。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "choices": [
+      "drinking",
+      "to drink",
+      "drank",
+      "drink",
+      "making",
+      "to make",
+      "made",
+      "reusing",
+      "to reuse",
+      "reused",
+      "measuring",
+      "to measure",
+      "measured",
+      "not touching",
+      "not to touch",
+      "do not touch",
+      "met",
+      "meeting",
+      "to meet",
+      "carrying",
+      "to carry",
+      "carried",
+      "bringing",
+      "to bring",
+      "brought"
+    ],
+    "items": [
+      {
+        "id": "infinitive-purpose",
+        "label": "行动与目的",
+        "prompt": "先认行动、目的与执行者。",
+        "answer": "",
+        "reason": "",
+        "hint": "to 后是动词原形，但 stop 后有无 to 会改变意思。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-infinitives-002",
+      "q-g-infinitives-003"
+    ],
+    "transfer": {
+      "id": "individual-g-infinitives-transfer",
+      "topicId": "g-infinitives",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "教练提醒大家不要在走廊跑。我们慢慢走，是为了确保每个人安全。两空依次填什么？\nThe coach reminded us ___ in the corridor. We walked slowly ___ everyone safe.",
+      "options": [
+        {
+          "id": "a",
+          "text": "not to run; to keep"
+        },
+        {
+          "id": "b",
+          "text": "not running; to keep"
+        },
+        {
+          "id": "c",
+          "text": "not to run; keeping"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "not to run; to keep"
+      },
+      "marks": 2,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找提醒的对象，再区分“不去做”的内容和行动的目的。",
+        "steps": [
+          {
+            "text": "教练提醒我们不要跑：remind somebody not to do。",
+            "reason": "us 是被提醒的人，后接 not to run。"
+          },
+          {
+            "text": "慢走的目的是让每个人安全。",
+            "reason": "用不定式 to keep 表达 walked slowly 的目的。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "remind us 后表达提醒我们不要做，用 not to run，不用 not running。"
+          },
+          {
+            "option": "c",
+            "reason": "这里表达慢走的目的，用 to keep，不是 keeping。"
+          }
+        ],
+        "pitfall": "否定的提醒与肯定的目的分别判断，不把所有动词都改成同一种形式。",
+        "visual": {
+          "kind": "sentence",
+          "title": "提醒内容 / 行动目的",
+          "segments": [
+            {
+              "text": "reminded us → not to run",
+              "role": "evidence",
+              "note": "提醒我们不要做"
+            },
+            {
+              "text": "walked slowly → to keep everyone safe",
+              "role": "verb",
+              "note": "为了达到的目的"
+            }
+          ],
+          "caption": "第一空接在 us 后说明提醒内容，第二空说明慢走的目的。"
+        },
+        "transfer": "如果提醒改成“记得带水”，reminded us 后怎样表达？"
+      }
+    }
+  }
+}

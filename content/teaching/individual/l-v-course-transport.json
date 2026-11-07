@@ -1,0 +1,2561 @@
+{
+  "lessonId": "l-v-course-transport",
+  "reviewState": "draft",
+  "intent": "Teach reduced parking demand, car outside village, bus stopping opposite library, bridge before station, bounded morning-rush crowding, subway below wide road without invented dialect disambiguation, rail tram picture and shared taxi destination.",
+  "picturePurpose": "Original tram-versus-bus picture supports observable vehicle identification. Three changing coded spatial/action diagrams, route ordering and three exact evidence tasks explain relations rather than decorative transport imagery.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "交通方式与路线关系",
+    "instruction": "点车辆、改位置、排路线；把减少、对面、下方和合乘读准确。",
+    "items": [
+      {
+        "id": "word-transport",
+        "label": "交通运输（public transport：公共交通）",
+        "prompt": "公共交通减少的是哪种需求？圈出三条信息，不补“完全不需要”。",
+        "answer": "transport",
+        "caseSensitive": false,
+        "meaning": "交通运输（public transport：公共交通）",
+        "before": "Public ",
+        "after": " reduces the need for extra parking.",
+        "reason": "Public transport reduces the need for extra parking说公共交通能减少额外停车位的需求；减少不等于需求归零。",
+        "hint": "transport作运输讲通常不可数；本句public transport不是运送某件物品的动作。",
+        "material": "Public transport reduces the need for extra parking.",
+        "options": [
+          {
+            "id": "reduce",
+            "text": "公共交通能减少额外停车位的需求。",
+            "correct": true,
+            "reason": "保留public transport、reduces与extra parking。"
+          },
+          {
+            "id": "zero",
+            "text": "有了公共交通，就完全不需要停车位。",
+            "correct": false,
+            "reason": "完全不需要把减少变成消除，而且漏掉extra。"
+          },
+          {
+            "id": "more",
+            "text": "公共交通会增加额外停车位的需求。",
+            "correct": false,
+            "reason": "增加与reduces减少相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "公共交通减少的是哪种需求？圈出三条信息，不补“完全不需要”。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "方式、作用与需求",
+            "prompt": "圈出原句支持的三条信息。",
+            "hint": "只读原句的减少，不填比例或零需求。",
+            "wrong": "应保留公共交通减少额外停车需求，不能改成增加或完全不需要。",
+            "rows": [
+              {
+                "id": "public",
+                "label": "交通方式",
+                "text": "公共交通。",
+                "include": true
+              },
+              {
+                "id": "reduce",
+                "label": "作用",
+                "text": "减少需求。",
+                "include": true
+              },
+              {
+                "id": "extra",
+                "label": "哪种需求",
+                "text": "额外停车位的需求。",
+                "include": true
+              },
+              {
+                "id": "zero",
+                "label": "额外结论",
+                "text": "完全不需要任何停车位。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-car",
+        "label": "汽车",
+        "prompt": "车留在哪里？切换村内村外，再比较“留下”和“开走”。",
+        "answer": "car",
+        "caseSensitive": false,
+        "meaning": "汽车",
+        "before": "We left the ",
+        "after": " outside the village.",
+        "reason": "We left the car outside the village说我们把车留在村外；不是把车开进村里，也没有说离村口几米。",
+        "hint": "by car表示乘汽车时通常不加冠词；本句the car指这辆车。",
+        "material": "We left the car outside the village.",
+        "options": [
+          {
+            "id": "outside-left",
+            "text": "我们把车留在村外。",
+            "correct": true,
+            "reason": "保留left the car与outside the village。"
+          },
+          {
+            "id": "inside",
+            "text": "我们把车留在村里。",
+            "correct": false,
+            "reason": "村里与outside the village村外相反。"
+          },
+          {
+            "id": "drive",
+            "text": "我们把车开走了。",
+            "correct": false,
+            "reason": "开走改变了left the car把车留在那里。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "车留在哪里？切换村内村外，再比较“留下”和“开走”。",
+          "sceneLab": {
+            "id": "car-outside",
+            "title": "村内村外，留下还是开走？",
+            "hint": "村界与车辆仅作位置示意，不给距离、停车费用或后续行程。",
+            "wrong": "应是把车留在村外，不能改村里或开走。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "车在哪里",
+                "choices": [
+                  {
+                    "id": "outside",
+                    "label": "村外"
+                  },
+                  {
+                    "id": "inside",
+                    "label": "村内"
+                  }
+                ]
+              },
+              {
+                "id": "action",
+                "label": "对车做了什么",
+                "choices": [
+                  {
+                    "id": "left",
+                    "label": "留在那里"
+                  },
+                  {
+                    "id": "drive",
+                    "label": "开走"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "village",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 26,
+                    "width": 47,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "village-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 29,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村庄"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|left",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "village",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 26,
+                    "width": 47,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "village-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 29,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村庄"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "把车留在这里"
+                  }
+                ]
+              },
+              {
+                "signature": "?|drive",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "village",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 26,
+                    "width": 47,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "village-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 29,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村庄"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "把车开走"
+                  }
+                ]
+              },
+              {
+                "signature": "outside|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村外"
+                  },
+                  {
+                    "id": "village",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 26,
+                    "width": 47,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "village-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 29,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村庄"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 49,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 43,
+                    "width": 10,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wheel1",
+                    "kind": "ellipse",
+                    "x": 12,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel2",
+                    "kind": "ellipse",
+                    "x": 22,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "outside|left",
+                "reading": "我们把车留在村外。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村外"
+                  },
+                  {
+                    "id": "village",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 26,
+                    "width": 47,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "village-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 29,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村庄"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 49,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 43,
+                    "width": 10,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wheel1",
+                    "kind": "ellipse",
+                    "x": 12,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel2",
+                    "kind": "ellipse",
+                    "x": 22,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "把车留在这里"
+                  }
+                ]
+              },
+              {
+                "signature": "outside|drive",
+                "reading": "应是把车留在村外，不能改村里或开走。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村外"
+                  },
+                  {
+                    "id": "village",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 26,
+                    "width": 47,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "village-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 29,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村庄"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 49,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 43,
+                    "width": 10,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wheel1",
+                    "kind": "ellipse",
+                    "x": 12,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel2",
+                    "kind": "ellipse",
+                    "x": 22,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "把车开走"
+                  },
+                  {
+                    "id": "motion",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 68,
+                    "width": 18,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "inside|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村内"
+                  },
+                  {
+                    "id": "village",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 26,
+                    "width": 47,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "village-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 29,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村庄"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 49,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 43,
+                    "width": 10,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wheel1",
+                    "kind": "ellipse",
+                    "x": 68,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel2",
+                    "kind": "ellipse",
+                    "x": 78,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "inside|left",
+                "reading": "应是把车留在村外，不能改村里或开走。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村内"
+                  },
+                  {
+                    "id": "village",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 26,
+                    "width": 47,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "village-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 29,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村庄"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 49,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 43,
+                    "width": 10,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wheel1",
+                    "kind": "ellipse",
+                    "x": 68,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel2",
+                    "kind": "ellipse",
+                    "x": 78,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "把车留在这里"
+                  }
+                ]
+              },
+              {
+                "signature": "inside|drive",
+                "reading": "应是把车留在村外，不能改村里或开走。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村内"
+                  },
+                  {
+                    "id": "village",
+                    "kind": "rect",
+                    "x": 47,
+                    "y": 26,
+                    "width": 47,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "village-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 29,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "村庄"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 49,
+                    "width": 18,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "roof",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 43,
+                    "width": 10,
+                    "height": 6,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wheel1",
+                    "kind": "ellipse",
+                    "x": 68,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel2",
+                    "kind": "ellipse",
+                    "x": 78,
+                    "y": 59,
+                    "width": 4,
+                    "height": 5,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "把车开走"
+                  },
+                  {
+                    "id": "motion",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 68,
+                    "width": 18,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bus",
+        "label": "公共汽车",
+        "prompt": "公交车在图书馆哪边，停靠还是驶过？分别改一改。",
+        "answer": "bus",
+        "caseSensitive": false,
+        "meaning": "公共汽车",
+        "before": "The ",
+        "after": " stops opposite the library.",
+        "reason": "The bus stops opposite the library说公交车在图书馆对面停靠；opposite不是beside旁边，stops不是不停驶过。",
+        "hint": "bus的复数是buses；这里The bus stops中stops是动词，不是多个公交站。",
+        "material": "The bus stops opposite the library.",
+        "options": [
+          {
+            "id": "opposite-stop",
+            "text": "公交车在图书馆对面停靠。",
+            "correct": true,
+            "reason": "保留bus、stops与opposite the library。"
+          },
+          {
+            "id": "beside",
+            "text": "公交车在图书馆旁边停靠。",
+            "correct": false,
+            "reason": "旁边是beside，不是opposite对面。"
+          },
+          {
+            "id": "pass",
+            "text": "公交车从图书馆对面驶过，没有停。",
+            "correct": false,
+            "reason": "没有停改变了stops停靠。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "公交车在图书馆哪边，停靠还是驶过？分别改一改。",
+          "sceneLab": {
+            "id": "bus-opposite",
+            "title": "相对位置与动作，都对吗？",
+            "hint": "道路两侧只作对面示意，不给真实站名、路线或时刻。",
+            "wrong": "应在图书馆对面停靠，不能改旁边或不停驶过。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "相对图书馆的位置",
+                "choices": [
+                  {
+                    "id": "opposite",
+                    "label": "对面"
+                  },
+                  {
+                    "id": "beside",
+                    "label": "旁边"
+                  }
+                ]
+              },
+              {
+                "id": "action",
+                "label": "公交车怎么经过",
+                "choices": [
+                  {
+                    "id": "stop",
+                    "label": "停靠"
+                  },
+                  {
+                    "id": "pass",
+                    "label": "不停驶过"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置与停靠"
+                  },
+                  {
+                    "id": "library",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 20,
+                    "width": 29,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 23,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 48,
+                    "width": 94,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 83,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|stop",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置与停靠"
+                  },
+                  {
+                    "id": "library",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 20,
+                    "width": 29,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 23,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 48,
+                    "width": 94,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 83,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "停靠"
+                  }
+                ]
+              },
+              {
+                "signature": "?|pass",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置与停靠"
+                  },
+                  {
+                    "id": "library",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 20,
+                    "width": 29,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 23,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 48,
+                    "width": 94,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 83,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不停驶过"
+                  }
+                ]
+              },
+              {
+                "signature": "opposite|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置与停靠"
+                  },
+                  {
+                    "id": "library",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 20,
+                    "width": 29,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 23,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 48,
+                    "width": 94,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 60,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bus-window1",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 62,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus-window2",
+                    "kind": "rect",
+                    "x": 79,
+                    "y": 62,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "对面"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 83,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "opposite|stop",
+                "reading": "公交车在图书馆对面停靠。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置与停靠"
+                  },
+                  {
+                    "id": "library",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 20,
+                    "width": 29,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 23,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 48,
+                    "width": 94,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 60,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bus-window1",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 62,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus-window2",
+                    "kind": "rect",
+                    "x": 79,
+                    "y": 62,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "对面"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 83,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "停靠"
+                  }
+                ]
+              },
+              {
+                "signature": "opposite|pass",
+                "reading": "应在图书馆对面停靠，不能改旁边或不停驶过。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置与停靠"
+                  },
+                  {
+                    "id": "library",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 20,
+                    "width": 29,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 23,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 48,
+                    "width": 94,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 60,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bus-window1",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 62,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus-window2",
+                    "kind": "rect",
+                    "x": 79,
+                    "y": 62,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "对面"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 83,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不停驶过"
+                  },
+                  {
+                    "id": "motion",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 74,
+                    "width": 25,
+                    "height": 8,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "beside|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置与停靠"
+                  },
+                  {
+                    "id": "library",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 20,
+                    "width": 29,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 23,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 48,
+                    "width": 94,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 20,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bus-window1",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 22,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus-window2",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 22,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "旁边"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 83,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "beside|stop",
+                "reading": "应在图书馆对面停靠，不能改旁边或不停驶过。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置与停靠"
+                  },
+                  {
+                    "id": "library",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 20,
+                    "width": 29,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 23,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 48,
+                    "width": 94,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 20,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bus-window1",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 22,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus-window2",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 22,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "旁边"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 83,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "停靠"
+                  }
+                ]
+              },
+              {
+                "signature": "beside|pass",
+                "reading": "应在图书馆对面停靠，不能改旁边或不停驶过。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置与停靠"
+                  },
+                  {
+                    "id": "library",
+                    "kind": "rect",
+                    "x": 63,
+                    "y": 20,
+                    "width": 29,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 23,
+                    "width": 27,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 48,
+                    "width": 94,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 20,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "bus-window1",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 22,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bus-window2",
+                    "kind": "rect",
+                    "x": 45,
+                    "y": 22,
+                    "width": 7,
+                    "height": 4,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "旁边"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 83,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不停驶过"
+                  },
+                  {
+                    "id": "motion",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 34,
+                    "width": 25,
+                    "height": 8,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-train",
+        "label": "火车（本句）",
+        "prompt": "路线先经过桥还是先到车站？点卡片排一排。",
+        "answer": "train",
+        "caseSensitive": false,
+        "meaning": "火车（本句）",
+        "before": "The ",
+        "after": " crosses a long bridge before the station.",
+        "reason": "The train crosses a long bridge before the station说火车进站前会经过一座长桥；先过桥，后到车站，不是已经完成这一程。",
+        "hint": "train作动词可表示训练，但本句The train是火车；long没有给桥长的具体数值。",
+        "material": "The train crosses a long bridge before the station.",
+        "options": [
+          {
+            "id": "bridge-first",
+            "text": "火车先经过长桥，再到车站。",
+            "correct": true,
+            "reason": "保留long bridge before the station的路线先后。"
+          },
+          {
+            "id": "station-first",
+            "text": "火车先到车站，再经过长桥。",
+            "correct": false,
+            "reason": "先后与before the station相反。"
+          },
+          {
+            "id": "no-bridge",
+            "text": "火车到车站前不经过桥。",
+            "correct": false,
+            "reason": "不经过桥否定了crosses a long bridge。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "路线先经过桥还是先到车站？点卡片排一排。",
+          "processOrder": {
+            "title": "路线先后",
+            "layout": "downward",
+            "hint": "这里只排路线，不报告火车已经到站。",
+            "wrong": "应先经过长桥，再到车站。",
+            "events": [
+              {
+                "id": "bridge",
+                "label": "经过长桥"
+              },
+              {
+                "id": "station",
+                "label": "到达车站"
+              }
+            ],
+            "sequence": [
+              "bridge",
+              "station"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-underground",
+        "label": "地铁（本句）",
+        "prompt": "什么时段、拥挤程度怎样？圈出两条，不推到全天。",
+        "answer": "underground",
+        "caseSensitive": false,
+        "meaning": "地铁（本句）",
+        "before": "The ",
+        "after": " is crowded during the morning rush.",
+        "reason": "The underground is crowded during the morning rush说早高峰时地铁很拥挤；没有说明其他时段是否拥挤。",
+        "hint": "英式the underground指地铁系统；during the morning rush限定早高峰，没有给具体几点。",
+        "material": "The underground is crowded during the morning rush.",
+        "options": [
+          {
+            "id": "morning-crowded",
+            "text": "早高峰时地铁很拥挤。",
+            "correct": true,
+            "reason": "保留underground、crowded与during the morning rush。"
+          },
+          {
+            "id": "all-day",
+            "text": "地铁一天任何时候都很拥挤。",
+            "correct": false,
+            "reason": "任何时候超出了早高峰的范围。"
+          },
+          {
+            "id": "empty",
+            "text": "早高峰时地铁空无一人。",
+            "correct": false,
+            "reason": "空无一人与crowded拥挤相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "什么时段、拥挤程度怎样？圈出两条，不推到全天。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "时段与情况",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "不补具体钟点，也不把早高峰扩大为全天。",
+            "wrong": "应保留早高峰时拥挤，不能改成全天或空无一人。",
+            "rows": [
+              {
+                "id": "morning",
+                "label": "时段",
+                "text": "早高峰。",
+                "include": true
+              },
+              {
+                "id": "crowded",
+                "label": "情况",
+                "text": "地铁很拥挤。",
+                "include": true
+              },
+              {
+                "id": "all-day",
+                "label": "额外范围",
+                "text": "一天任何时候都拥挤。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-subway",
+        "label": "地铁；地下通道",
+        "prompt": "先核对beneath的位置关系：在路下还是路上？路是宽还是窄？",
+        "answer": "subway",
+        "caseSensitive": false,
+        "meaning": "地铁；地下通道",
+        "before": "A ",
+        "after": " runs beneath the wide road.",
+        "reason": "A subway runs beneath the wide road说subway从宽阔道路下方通过。subway在美式英语常指地铁，英式也可指地下通道；不能只凭这句判定里面一定是列车或行人。",
+        "hint": "原例译作地下通道是一种读法；保留地铁与地下通道两种用法。beneath明确下方，wide明确宽阔。",
+        "material": "A subway runs beneath the wide road.",
+        "options": [
+          {
+            "id": "beneath-wide",
+            "text": "subway从宽阔道路下方通过。",
+            "correct": true,
+            "reason": "保留beneath与wide，不强行排除subway的另一种用法。"
+          },
+          {
+            "id": "above-wide",
+            "text": "subway从宽阔道路上方通过。",
+            "correct": false,
+            "reason": "上方与beneath下方相反。"
+          },
+          {
+            "id": "beneath-narrow",
+            "text": "subway从狭窄道路下方通过。",
+            "correct": false,
+            "reason": "狭窄与wide宽阔相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先核对beneath的位置关系：在路下还是路上？路是宽还是窄？",
+          "sceneLab": {
+            "id": "subway-beneath",
+            "title": "道路宽窄与上下关系",
+            "hint": "剖面只画上下关系，不靠图猜通道里是列车还是行人，也不给埋深。",
+            "wrong": "应在宽路下方，不能改上方或窄路；不能只凭本句确定通道的具体用途。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "相对道路的位置",
+                "choices": [
+                  {
+                    "id": "beneath",
+                    "label": "下方"
+                  },
+                  {
+                    "id": "above",
+                    "label": "上方"
+                  }
+                ]
+              },
+              {
+                "id": "width",
+                "label": "道路宽窄",
+                "choices": [
+                  {
+                    "id": "wide",
+                    "label": "宽阔"
+                  },
+                  {
+                    "id": "narrow",
+                    "label": "狭窄"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "剖面位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 47,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "上下待选"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "宽窄待选"
+                  },
+                  {
+                    "id": "road-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 42,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "道路（宽度待选）"
+                  }
+                ]
+              },
+              {
+                "signature": "?|wide",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "剖面位置示意"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 42,
+                    "width": 90,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 47,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "上下待选"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "宽路"
+                  }
+                ]
+              },
+              {
+                "signature": "?|narrow",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "剖面位置示意"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 42,
+                    "width": 40,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 47,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "上下待选"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "窄路"
+                  }
+                ]
+              },
+              {
+                "signature": "beneath|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "剖面位置示意"
+                  },
+                  {
+                    "id": "conduit",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 64,
+                    "width": 80,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 47,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "道路下方"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "宽窄待选"
+                  },
+                  {
+                    "id": "road-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 42,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "道路（宽度待选）"
+                  }
+                ]
+              },
+              {
+                "signature": "beneath|wide",
+                "reading": "subway从宽阔道路下方通过。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "剖面位置示意"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 42,
+                    "width": 90,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "conduit",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 64,
+                    "width": 80,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 47,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "道路下方"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "宽路"
+                  }
+                ]
+              },
+              {
+                "signature": "beneath|narrow",
+                "reading": "应在宽路下方，不能改上方或窄路；不能只凭本句确定通道的具体用途。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "剖面位置示意"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 42,
+                    "width": 40,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "conduit",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 64,
+                    "width": 80,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 47,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "道路下方"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "窄路"
+                  }
+                ]
+              },
+              {
+                "signature": "above|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "剖面位置示意"
+                  },
+                  {
+                    "id": "conduit",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 18,
+                    "width": 80,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 47,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "道路上方"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "宽窄待选"
+                  },
+                  {
+                    "id": "road-pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 42,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "道路（宽度待选）"
+                  }
+                ]
+              },
+              {
+                "signature": "above|wide",
+                "reading": "应在宽路下方，不能改上方或窄路；不能只凭本句确定通道的具体用途。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "剖面位置示意"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 42,
+                    "width": 90,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "conduit",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 18,
+                    "width": 80,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 47,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "道路上方"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "宽路"
+                  }
+                ]
+              },
+              {
+                "signature": "above|narrow",
+                "reading": "应在宽路下方，不能改上方或窄路；不能只凭本句确定通道的具体用途。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "剖面位置示意"
+                  },
+                  {
+                    "id": "road",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 42,
+                    "width": 40,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "conduit",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 18,
+                    "width": 80,
+                    "height": 12,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 47,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "道路上方"
+                  },
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 83,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "窄路"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-tram",
+        "label": "有轨电车",
+        "prompt": "哪辆是tram？看清轨道和车辆，再点一辆。",
+        "answer": "tram",
+        "caseSensitive": false,
+        "meaning": "有轨电车",
+        "before": "The ",
+        "after": " runs along the waterfront.",
+        "reason": "The tram runs along the waterfront说有轨电车沿着水滨行驶；tram在轨道上行驶，不是图中的普通公交车。",
+        "hint": "tram在轨道上行驶；waterfront可指海滨或河滨，本例原译海滨，不表示只能在海边。图只帮助识别车辆，不证明真实路线。",
+        "material": "The tram runs along the waterfront.",
+        "options": [
+          {
+            "id": "tram",
+            "text": "有轨电车沿着水滨行驶。",
+            "correct": true,
+            "reason": "保留tram、runs along与waterfront。"
+          },
+          {
+            "id": "bus",
+            "text": "普通公交车沿着水滨行驶。",
+            "correct": false,
+            "reason": "bus公共汽车不是tram有轨电车。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪辆是tram？看清轨道和车辆，再点一辆。",
+          "art": {
+            "asset": "lesson-tram-bus-waterfront",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创交通工具对比：左侧青绿色有轨电车的钢轮在轨道上，顶部连着架空供电线；右侧蓝紫色公交车的橡胶轮胎在普通道路上。背景为虚构水滨。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "tram-target",
+                "option": "tram",
+                "label": "电车",
+                "labelPosition": "bottom",
+                "left": 4,
+                "top": 33,
+                "width": 47,
+                "height": 40
+              },
+              {
+                "id": "bus-target",
+                "option": "bus",
+                "label": "公交车",
+                "labelPosition": "bottom",
+                "left": 56,
+                "top": 36,
+                "width": 42,
+                "height": 36
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-taxi",
+        "label": "出租车",
+        "prompt": "怎么乘车、去哪里？圈出三条，不猜人数或车费。",
+        "answer": "taxi",
+        "caseSensitive": false,
+        "meaning": "出租车",
+        "before": "We shared a ",
+        "after": " to the station.",
+        "reason": "We shared a taxi to the station说我们合乘出租车去车站；shared不是各自单独乘车，没有给具体人数和车费。",
+        "hint": "take a taxi表示乘出租车；本句shared a taxi强调合乘，to the station给出目的地。",
+        "material": "We shared a taxi to the station.",
+        "options": [
+          {
+            "id": "shared-station",
+            "text": "我们合乘出租车去了车站。",
+            "correct": true,
+            "reason": "保留shared、taxi与to the station。"
+          },
+          {
+            "id": "alone",
+            "text": "我们各自单独乘出租车去车站。",
+            "correct": false,
+            "reason": "各自单独与shared合乘相反。"
+          },
+          {
+            "id": "from-station",
+            "text": "我们合乘出租车离开了车站。",
+            "correct": false,
+            "reason": "离开车站改变了to the station去车站的方向。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "怎么乘车、去哪里？圈出三条，不猜人数或车费。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "方式、车辆与目的地",
+            "prompt": "圈出原句支持的三条信息。",
+            "hint": "保留合乘、出租车与目的地，不补具体人数或车费。",
+            "wrong": "应合乘出租车去车站，不能改单独、出发地或固定人数。",
+            "rows": [
+              {
+                "id": "shared",
+                "label": "乘车方式",
+                "text": "合乘。",
+                "include": true
+              },
+              {
+                "id": "taxi",
+                "label": "车辆",
+                "text": "出租车。",
+                "include": true
+              },
+              {
+                "id": "station",
+                "label": "目的地",
+                "text": "车站。",
+                "include": true
+              },
+              {
+                "id": "count",
+                "label": "额外人数",
+                "text": "恰好两个人。",
+                "include": false
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-transport-transfer",
+      "topicId": "v-course-transport",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成自行车、船和汽车，哪组三句完整保留了意思？",
+      "passage": "三条新信息\n我们把自行车留在公园外。船进港前从一座长桥下面经过。我们合乘汽车去了博物馆。\n词语提示：harbour 港口；museum 博物馆。",
+      "options": [
+        {
+          "id": "a",
+          "text": "We left the bikes inside the park. The boat passes under a long bridge before the harbour. We shared a car to the museum."
+        },
+        {
+          "id": "b",
+          "text": "We left the bikes outside the park. The boat passes under a long bridge after the harbour. We shared a car to the museum."
+        },
+        {
+          "id": "c",
+          "text": "We left the bikes outside the park. The boat passes under a long bridge before the harbour. We shared a car to the museum."
+        },
+        {
+          "id": "d",
+          "text": "We left the bikes outside the park. The boat passes under a long bridge before the harbour. We each took a separate car to the museum."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "We left the bikes outside the park. The boat passes under a long bridge before the harbour. We shared a car to the museum."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对内外位置、路线先后与合乘方式。",
+        "steps": [
+          {
+            "text": "自行车留在公园外：left the bikes outside the park。",
+            "reason": "inside公园内改变了outside公园外。"
+          },
+          {
+            "text": "船进港前从桥下经过：passes under a long bridge before the harbour。",
+            "reason": "after把路线先后反了；under保留桥下位置。"
+          },
+          {
+            "text": "合乘汽车去博物馆：shared a car to the museum。",
+            "reason": "each took a separate car改成每人各乘一辆，不是合乘。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "inside把公园外改成公园内。"
+          },
+          {
+            "option": "b",
+            "reason": "after把进港前改成进港后。"
+          },
+          {
+            "option": "d",
+            "reason": "each took a separate car把合乘改成各自乘车。"
+          }
+        ],
+        "pitfall": "outside不是inside；before不是after；shared不等于每人各乘一辆。",
+        "visual": {
+          "kind": "comparison",
+          "title": "位置、路线、乘车方式",
+          "segments": [
+            {
+              "text": "outside the park",
+              "role": "evidence",
+              "note": "公园外"
+            },
+            {
+              "text": "under ... before ...",
+              "role": "evidence",
+              "note": "先从桥下经过"
+            },
+            {
+              "text": "shared a car",
+              "role": "evidence",
+              "note": "合乘汽车"
+            }
+          ],
+          "caption": "逐条保留位置、先后和合乘，不补数字。"
+        },
+        "transfer": "把outside换成inside，再把shared换成each took a separate，分别改变了什么？"
+      }
+    }
+  }
+}

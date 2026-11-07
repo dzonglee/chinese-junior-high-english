@@ -1,0 +1,567 @@
+{
+  "lessonId": "l-v-course-environmental-choices",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks preserve environmental meanings, dissolved-water qualification, compound substance names, past uses and separate material groups.",
+  "picturePurpose": "Original identified teaching objects support material sorting; exact substance symbols remain in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "读完整名称，按材料分组",
+    "instruction": "先区分物质名称，再把四件示意物放入对应材料组；回到原句核对条件和时间。",
+    "items": [
+      {
+        "id": "nature",
+        "label": "nature：enjoy nature有没有附带条件？",
+        "prompt": "enjoy nature有没有附带条件？",
+        "answer": "nature",
+        "meaning": "自然；本性",
+        "material": "We can enjoy nature without disturbing wildlife.",
+        "before": "We can enjoy ",
+        "after": " without disturbing wildlife.",
+        "reason": "nature在这里指自然界，通常不加the。without disturbing wildlife说明不打扰野生动物；can表示可以，不是要求必须打扰。辨认词义时也要保留后面的条件。",
+        "hint": "enjoy nature；without + doing。",
+        "wordDecision": {
+          "prompt": "enjoy nature有没有附带条件？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "不打扰野生动物地欣赏自然",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "quiet",
+                "label": "可以欣赏自然，同时不打扰野生动物",
+                "text": "We can enjoy nature without disturbing wildlife.",
+                "include": true
+              },
+              {
+                "id": "disturb",
+                "label": "必须打扰野生动物才能欣赏自然",
+                "text": "We must disturb wildlife to enjoy nature.",
+                "include": false
+              },
+              {
+                "id": "home",
+                "label": "这句只讨论一个人的本性",
+                "text": "The sentence describes a person’s character.",
+                "include": false
+              }
+            ],
+            "hint": "保留自然界和without disturbing。",
+            "wrong": "选不打扰的欣赏方式，不反转条件或换词义。"
+          }
+        },
+        "options": [
+          {
+            "id": "quiet",
+            "text": "We can enjoy the natural world without disturbing wild animals.",
+            "correct": true,
+            "reason": "保留自然界和不打扰野生动物。"
+          },
+          {
+            "id": "disturb",
+            "text": "We must disturb wildlife to enjoy the natural world.",
+            "correct": false,
+            "reason": "反转without disturbing。"
+          },
+          {
+            "id": "home",
+            "text": "The sentence only describes a person’s character.",
+            "correct": false,
+            "reason": "这里的nature指自然界，不是人的本性。"
+          }
+        ]
+      },
+      {
+        "id": "natural",
+        "label": "Natural：natural在这里修饰什么？",
+        "prompt": "natural在这里修饰什么？",
+        "answer": "Natural",
+        "meaning": "自然的；天然的",
+        "material": "Natural light helps us see the colours accurately.",
+        "before": "",
+        "after": " light helps us see the colours accurately.",
+        "reason": "Natural修饰light，意思是自然光。nature是名词，natural是形容词；句首大写不改变词性。helps us see说明有助于辨色，不能改成任何光线都保证完全准确。",
+        "hint": "natural light；nature → natural；helps。",
+        "wordDecision": {
+          "prompt": "natural在这里修饰什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "自然光有助于准确辨色",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "light",
+                "label": "自然光有助于准确看清颜色",
+                "text": "Natural light helps us see the colours accurately.",
+                "include": true
+              },
+              {
+                "id": "guarantee",
+                "label": "任何光线都保证辨色完全准确",
+                "text": "Every kind of light guarantees perfect colour judgement.",
+                "include": false
+              },
+              {
+                "id": "noun",
+                "label": "这里应写Nature light",
+                "text": "Nature light is the correct phrase.",
+                "include": false
+              }
+            ],
+            "hint": "保留自然光和有助于，不把名词直接当形容词。",
+            "wrong": "选natural light，不写nature light或补绝对保证。"
+          }
+        },
+        "options": [
+          {
+            "id": "light",
+            "text": "Light from natural sources helps us judge colours accurately.",
+            "correct": true,
+            "reason": "natural修饰light，helps保留帮助而非绝对保证。"
+          },
+          {
+            "id": "guarantee",
+            "text": "Every kind of light always guarantees perfect colour judgement.",
+            "correct": false,
+            "reason": "扩大光源范围并把帮助改成永久保证。"
+          },
+          {
+            "id": "noun",
+            "text": "Nature light is the correct phrase in this sentence.",
+            "correct": false,
+            "reason": "修饰light需要形容词natural，不是名词nature。"
+          }
+        ]
+      },
+      {
+        "id": "air",
+        "label": "air：开窗的目的是什么？",
+        "prompt": "开窗的目的是什么？",
+        "answer": "air",
+        "meaning": "空气",
+        "material": "Open the window to let fresh air in.",
+        "before": "Open the window to let fresh ",
+        "after": " in.",
+        "reason": "air在这里指空气，通常不可数；fresh air是新鲜空气。Open提出开窗要求，to let fresh air in说明目的。不要把进来改成挡在外面，也不能把要求当作已经开好窗。",
+        "hint": "fresh air；let ... in；目的不等于已完成。",
+        "wordDecision": {
+          "prompt": "开窗的目的是什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "开窗让新鲜空气进来",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "in",
+                "label": "要求开窗，目的是让新鲜空气进入",
+                "text": "Open the window to let fresh air in.",
+                "include": true
+              },
+              {
+                "id": "out",
+                "label": "要求关窗阻止新鲜空气进入",
+                "text": "Keep the window closed to stop fresh air coming in.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "报告窗户已经打开了",
+                "text": "The window has already been opened.",
+                "include": false
+              }
+            ],
+            "hint": "保留开窗指令、目的和进入方向。",
+            "wrong": "选让新鲜空气进入的要求，不反转或补已完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "in",
+            "text": "Open the window so fresh air can come in.",
+            "correct": true,
+            "reason": "to let说明开窗目的，in保留进来。"
+          },
+          {
+            "id": "out",
+            "text": "Keep the window closed to stop fresh air coming in.",
+            "correct": false,
+            "reason": "反转开窗和进入。"
+          },
+          {
+            "id": "done",
+            "text": "The sentence reports that the window has already been opened.",
+            "correct": false,
+            "reason": "指令不是已完成的报告。"
+          }
+        ]
+      },
+      {
+        "id": "oxygen",
+        "label": "oxygen：fish需要的是哪里溶解的oxygen？",
+        "prompt": "fish需要的是哪里溶解的oxygen？",
+        "answer": "oxygen",
+        "meaning": "氧气",
+        "material": "Fish need oxygen dissolved in the water.",
+        "before": "Fish need ",
+        "after": " dissolved in the water.",
+        "reason": "oxygen是氧气，通常不可数。dissolved in the water说明溶解在水中，修饰oxygen；不能漏看这个限定，把原句换成鱼只需要水外的干燥空气，也不能改成不需要氧气。",
+        "hint": "oxygen dissolved in the water；need。",
+        "wordDecision": {
+          "prompt": "fish需要的是哪里溶解的oxygen？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "鱼需要溶解在水中的氧气",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "water",
+                "label": "鱼需要溶解在水中的氧气",
+                "text": "Fish need oxygen dissolved in the water.",
+                "include": true
+              },
+              {
+                "id": "dry",
+                "label": "鱼只需要水外的干燥空气",
+                "text": "Fish only need dry air outside water.",
+                "include": false
+              },
+              {
+                "id": "none",
+                "label": "鱼不需要氧气",
+                "text": "Fish do not need oxygen.",
+                "include": false
+              }
+            ],
+            "hint": "保留need与溶解在水中的限定。",
+            "wrong": "选水中溶解的氧气，不漏条件或反转。"
+          }
+        },
+        "options": [
+          {
+            "id": "water",
+            "text": "Fish need oxygen that is dissolved in water.",
+            "correct": true,
+            "reason": "dissolved in the water限定鱼需要的氧气所在状态。"
+          },
+          {
+            "id": "dry",
+            "text": "The sentence says fish only need dry air outside water.",
+            "correct": false,
+            "reason": "漏掉溶解在水中的限定。"
+          },
+          {
+            "id": "none",
+            "text": "Fish do not need oxygen.",
+            "correct": false,
+            "reason": "反转need oxygen。"
+          }
+        ]
+      },
+      {
+        "id": "carbon",
+        "label": "carbon：carbon dioxide等于碳单质吗？",
+        "prompt": "carbon dioxide等于碳单质吗？",
+        "answer": "carbon",
+        "meaning": "碳",
+        "material": "Burning fossil fuels releases carbon dioxide.",
+        "before": "Burning fossil fuels releases ",
+        "after": " dioxide.",
+        "reason": "carbon dioxide是二氧化碳，不能只看carbon就译成碳单质。Burning fossil fuels是动名词短语，作主语时谓语用releases。示意只帮助区分名称与组成，不表示真实粒子的大小或颜色。",
+        "hint": "carbon dioxide完整读；Burning ... releases。",
+        "wordDecision": {
+          "prompt": "carbon dioxide等于碳单质吗？",
+          "carbonDioxide": {
+            "title": "区分三个物质名称",
+            "hint": "切换物质名称，对照C、O₂和CO₂，注意元素符号与下标。",
+            "wrong": "carbon dioxide对应CO₂，不是碳单质C，也不是氧气O₂。"
+          }
+        },
+        "options": [
+          {
+            "id": "dioxide",
+            "text": "Burning fossil fuels releases carbon dioxide.",
+            "correct": true,
+            "reason": "carbon dioxide是二氧化碳的完整名称。"
+          },
+          {
+            "id": "element",
+            "text": "The sentence only says pure carbon is released.",
+            "correct": false,
+            "reason": "把carbon dioxide截成carbon，物质名称变了。"
+          },
+          {
+            "id": "oxygen",
+            "text": "The sentence says only oxygen is released.",
+            "correct": false,
+            "reason": "oxygen不是carbon dioxide。"
+          }
+        ]
+      },
+      {
+        "id": "coal",
+        "label": "coal：once stored说的是现在还是过去？",
+        "prompt": "once stored说的是现在还是过去？",
+        "answer": "coal",
+        "meaning": "煤",
+        "material": "The old station once stored coal for steam trains.",
+        "before": "The old station once stored ",
+        "after": " for steam trains.",
+        "reason": "coal是煤，作燃料讲通常不可数。once在这里表示曾经，stored说明过去储存；for steam trains保留用途。不能改成现在正在储存，也不能把once套成只储存一块。",
+        "hint": "once stored＝曾经储存；coal不可数。",
+        "wordDecision": {
+          "prompt": "once stored说的是现在还是过去？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "老车站曾为蒸汽火车储煤",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "past",
+                "label": "老车站过去曾为蒸汽火车储存煤",
+                "text": "The old station once stored coal for steam trains.",
+                "include": true
+              },
+              {
+                "id": "now",
+                "label": "车站现在正在为蒸汽火车储煤",
+                "text": "The station is storing coal now.",
+                "include": false
+              },
+              {
+                "id": "count",
+                "label": "车站总共只储存过一块煤",
+                "text": "The station stored exactly one piece of coal.",
+                "include": false
+              }
+            ],
+            "hint": "保留过去、曾经与蒸汽火车用途。",
+            "wrong": "选曾经储煤，不改成现在或一块。"
+          }
+        },
+        "options": [
+          {
+            "id": "past",
+            "text": "The old station stored coal for steam trains in the past.",
+            "correct": true,
+            "reason": "once这里表曾经，stored保留过去储存。"
+          },
+          {
+            "id": "now",
+            "text": "The station is storing coal for steam trains now.",
+            "correct": false,
+            "reason": "把过去情况改成正在进行。"
+          },
+          {
+            "id": "count",
+            "text": "The station stored exactly one piece of coal in total.",
+            "correct": false,
+            "reason": "once这里不是一块，coal作燃料通常不可数。"
+          }
+        ]
+      },
+      {
+        "id": "smoke",
+        "label": "Smoke：Smoke rose描述了什么？",
+        "prompt": "Smoke rose描述了什么？",
+        "answer": "Smoke",
+        "meaning": "烟；吸烟",
+        "material": "Smoke rose from the chimney in the cold air.",
+        "before": "",
+        "after": " rose from the chimney in the cold air.",
+        "reason": "Smoke在这里是名词烟，通常不可数，句首大写。rose是rise的过去式，表示升起；from the chimney说明来源位置。原句没有给出烟的燃料种类，不能仅凭烟囱就补成烧煤。",
+        "hint": "smoke作名词；rise → rose；from。",
+        "wordDecision": {
+          "prompt": "Smoke rose描述了什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "烟在冷空气中从烟囱升起",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "rose",
+                "label": "烟在冷空气中从烟囱向上升起",
+                "text": "Smoke rose from the chimney in the cold air.",
+                "include": true
+              },
+              {
+                "id": "fell",
+                "label": "烟向下落进烟囱",
+                "text": "Smoke fell down into the chimney.",
+                "include": false
+              },
+              {
+                "id": "fuel",
+                "label": "这句话确定了产生烟的燃料种类",
+                "text": "The sentence identifies the exact fuel.",
+                "include": false
+              }
+            ],
+            "hint": "保留升起、烟囱与冷空气，不补燃料。",
+            "wrong": "选过去升起的烟，不反转方向或补因果细节。"
+          }
+        },
+        "options": [
+          {
+            "id": "rose",
+            "text": "Smoke went upwards from the chimney into the cold air.",
+            "correct": true,
+            "reason": "rose是rise的过去式，保留从烟囱升起。"
+          },
+          {
+            "id": "fell",
+            "text": "Smoke fell down into the chimney.",
+            "correct": false,
+            "reason": "反转运动方向。"
+          },
+          {
+            "id": "fuel",
+            "text": "The sentence identifies the exact fuel that produced the smoke.",
+            "correct": false,
+            "reason": "这句没有说明燃料种类。"
+          }
+        ]
+      },
+      {
+        "id": "metal",
+        "label": "metal：metal要与paper怎样处理？",
+        "prompt": "metal要与paper怎样处理？",
+        "answer": "metal",
+        "meaning": "金属",
+        "material": "Sort the metal separately from the paper.",
+        "before": "Sort the ",
+        "after": " separately from the paper.",
+        "reason": "metal表示金属，medal表示奖牌，注意中间字母不同。Sort ... separately from ...要求分开分类；不能混在一起。图中材料名称已经给出，任务是把metal与paper对应到正确组，不代替当地回收规定。",
+        "hint": "metal，不是medal；separately from。",
+        "wordDecision": {
+          "prompt": "metal要与paper怎样处理？",
+          "art": {
+            "asset": "lesson-metal-paper-sort",
+            "assetRoot": "illustrations-5",
+            "format": "jpg",
+            "alt": "材料分类示意：左上金属勺，右上金属罐，左下纸张，右下纸板。"
+          },
+          "materialSort": {
+            "title": "把metal与paper分开",
+            "hint": "图中四件示意物的材料已给出。逐件放入metal或paper组，只练词义与分类。",
+            "wrong": "金属勺和金属罐放metal组，纸张和纸板放paper组；不要混组。"
+          }
+        },
+        "options": [
+          {
+            "id": "sort",
+            "text": "Put the metal in a separate group from the paper.",
+            "correct": true,
+            "reason": "separately from要求金属与纸分开。"
+          },
+          {
+            "id": "mix",
+            "text": "Mix the metal and paper into one group.",
+            "correct": false,
+            "reason": "反转separately。"
+          },
+          {
+            "id": "award",
+            "text": "The sentence asks us to award a medal.",
+            "correct": false,
+            "reason": "metal是金属，medal才是奖牌。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-environmental-choices-transfer",
+      "topicId": "v-course-environmental-choices",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes match the class display?",
+      "passage": "A nature-study display\nOur class was preparing a display for the school nature-study day. We planned how to enjoy nature without disturbing wildlife. At the art table, we used natural light to help us see the colours accurately. \"Open the window to let fresh air in,\" our teacher said.\nThe next section was about fish. Its heading read, \"Fish need oxygen dissolved in the water.\" Beside it, we placed a note explaining that burning fossil fuels releases carbon dioxide. We checked the two substance names before arranging the cards.\nFor the history section, we chose a description of an old station that once stored coal for steam trains. A separate photograph showed smoke rising from a chimney into cold air. At the end of the activity, our teacher asked us to sort the metal separately from the paper.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fish need oxygen dissolved in water; fossil-fuel burning releases carbon dioxide; metal should be grouped separately from paper."
+        },
+        {
+          "id": "b",
+          "text": "Fish do not need oxygen; fossil-fuel burning releases only oxygen; metal and paper belong in one mixed group."
+        },
+        {
+          "id": "c",
+          "text": "Fish need oxygen dissolved in water; the carbon-dioxide note refers only to pure carbon; metal should be grouped separately from paper."
+        },
+        {
+          "id": "d",
+          "text": "Fish need only dry air outside water; fossil-fuel burning releases carbon dioxide; metal and paper belong in one mixed group."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Fish need oxygen dissolved in water; fossil-fuel burning releases carbon dioxide; metal should be grouped separately from paper."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对完整物质名称，再看所在条件和分类要求。",
+        "steps": [
+          {
+            "text": "鱼需要的是溶解在水中的oxygen；carbon dioxide是完整的二氧化碳名称。",
+            "reason": "不能漏掉水中溶解，或把二氧化碳截成碳单质。"
+          },
+          {
+            "text": "separately from要求metal与paper分开。",
+            "reason": "不是混在一个组里。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "反转鱼需要氧气，混淆释放的物质，还反转分类要求。"
+          },
+          {
+            "option": "c",
+            "reason": "把carbon dioxide误读成只有碳单质。"
+          },
+          {
+            "option": "d",
+            "reason": "漏掉鱼需要水中溶解氧的条件，并把分开改成混组。"
+          }
+        ],
+        "pitfall": "只看到一个熟词就选，漏掉完整名称或后面的限定。",
+        "visual": {
+          "kind": "timeline",
+          "title": "名称、条件、分类",
+          "segments": [
+            {
+              "text": "oxygen dissolved in water",
+              "role": "object",
+              "note": "水中溶解的氧气"
+            },
+            {
+              "text": "carbon dioxide",
+              "role": "object",
+              "note": "二氧化碳"
+            },
+            {
+              "text": "metal ≠ paper",
+              "role": "object",
+              "note": "分组处理"
+            }
+          ],
+          "caption": "先读完整，再核对关系。"
+        },
+        "transfer": "为什么不能从烟囱有烟就确定所烧的燃料？"
+      }
+    }
+  }
+}

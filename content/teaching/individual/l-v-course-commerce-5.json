@@ -1,0 +1,586 @@
+{
+  "lessonId": "l-v-course-commerce-5",
+  "reviewState": "draft",
+  "intent": "Eight original tasks distinguish loss, debt, lend, owe, earn, donate, charity and fund with accurate participant directions and event order.",
+  "picturePurpose": "Original hypothetical coat and shirt comparison identifies warm coats without inventing actual charity inventory; direction and event labels remain coded.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "谁欠谁，谁借给谁？",
+    "instruction": "圈准欠款和借物的方向，再排好读书、捐书的顺序。",
+    "items": [
+      {
+        "id": "loss",
+        "label": "loss：洪水后报告小额loss，能改成盈利或猜金额吗？",
+        "prompt": "洪水后报告小额loss，能改成盈利或猜金额吗？",
+        "answer": "loss",
+        "meaning": "损失；亏损",
+        "material": "The shop reported a small loss after the flood.",
+        "before": "The shop reported a small ",
+        "after": " after the flood.",
+        "reason": "loss在这里是损失。原句只说洪水后报告了一小笔损失，没有给金额，也没有说明已获赔偿；不要把after自动改成已证实的全部损失原因。",
+        "hint": "loss是名词；lose是动词。",
+        "wordDecision": {
+          "prompt": "洪水后报告小额loss，能改成盈利或猜金额吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "洪水后报告一小笔损失",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "loss",
+                "label": "报告洪水后的小额损失",
+                "text": "The shop reported a small loss after the flood.",
+                "include": true
+              },
+              {
+                "id": "profit",
+                "label": "报告大额利润",
+                "text": "The shop reported a large profit.",
+                "include": false
+              },
+              {
+                "id": "amount",
+                "label": "给出了准确损失金额",
+                "text": "The sentence states the exact amount lost.",
+                "include": false
+              }
+            ],
+            "hint": "small loss不是大额利润；金额未给。",
+            "wrong": "选报告小额损失，不补金额或赔偿结果。"
+          }
+        },
+        "options": [
+          {
+            "id": "loss",
+            "text": "The shop reported a small loss after the flood.",
+            "correct": true,
+            "reason": "保留损失及发生背景，不补金额。"
+          },
+          {
+            "id": "profit",
+            "text": "The shop reported a large profit after the flood.",
+            "correct": false,
+            "reason": "loss不是profit，small也不能改成large。"
+          },
+          {
+            "id": "amount",
+            "text": "The sentence gives the exact amount lost.",
+            "correct": false,
+            "reason": "未给损失金额。"
+          }
+        ]
+      },
+      {
+        "id": "debt",
+        "label": "debt：有pay off the debt的计划，等于已经还清吗？",
+        "prompt": "有pay off the debt的计划，等于已经还清吗？",
+        "answer": "debt",
+        "meaning": "债务；欠款",
+        "material": "They made a plan to pay off the debt.",
+        "before": "They made a plan to pay off the ",
+        "after": ".",
+        "reason": "debt是债务。pay off the debt是还清债务，但句子只说制定计划，没有给金额、还款期限或已完成的结果。",
+        "hint": "debt的b不发音；pay off强调还清。",
+        "wordDecision": {
+          "prompt": "有pay off the debt的计划，等于已经还清吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "制定还清债务的计划",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "plan",
+                "label": "计划还清债务",
+                "text": "They made a plan to pay off the debt.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "债务已经全部还清",
+                "text": "The debt has been paid off.",
+                "include": false
+              },
+              {
+                "id": "borrow",
+                "label": "肯定又借了更多钱",
+                "text": "They certainly borrowed more money.",
+                "include": false
+              }
+            ],
+            "hint": "计划与完成分开。",
+            "wrong": "选制定还款计划；不补已还清或再借款。"
+          }
+        },
+        "options": [
+          {
+            "id": "plan",
+            "text": "They planned how to repay the debt in full.",
+            "correct": true,
+            "reason": "made a plan描述计划，不证明已还清。"
+          },
+          {
+            "id": "done",
+            "text": "The debt has already been fully repaid.",
+            "correct": false,
+            "reason": "把计划变成已完成。"
+          },
+          {
+            "id": "borrow",
+            "text": "They definitely borrowed more money.",
+            "correct": false,
+            "reason": "没有说明又借新债。"
+          }
+        ]
+      },
+      {
+        "id": "lend",
+        "label": "lend：Could you lend me...，铅笔从谁手里借给谁？",
+        "prompt": "Could you lend me...，铅笔从谁手里借给谁？",
+        "answer": "lend",
+        "meaning": "借出",
+        "material": "Could you lend me a pencil until lunch?",
+        "before": "Could you ",
+        "after": " me a pencil until lunch?",
+        "reason": "lend是借出。Could you lend me a pencil？由you借出、me借入，临时用到午饭；问句没有确认对方同意，也没有说明已经交到手中。换个说法是May I borrow a pencil from you？",
+        "hint": "lend somebody something；borrow something from somebody。",
+        "wordDecision": {
+          "prompt": "Could you lend me...，铅笔从谁手里借给谁？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "请对方把铅笔借给我",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "to-me",
+                "label": "对方借出，我借入，暂用到午饭",
+                "text": "Could you lend me a pencil until lunch?",
+                "include": true
+              },
+              {
+                "id": "from-me",
+                "label": "我把自己的铅笔借给对方",
+                "text": "I lend my pencil to you.",
+                "include": false
+              },
+              {
+                "id": "gift",
+                "label": "对方已经把铅笔永久送给我",
+                "text": "You have given me the pencil to keep forever.",
+                "include": false
+              }
+            ],
+            "hint": "抓you lend me，问请求不代表已同意。",
+            "wrong": "选对方借出给我；不倒方向或变赠送。"
+          }
+        },
+        "options": [
+          {
+            "id": "to-me",
+            "text": "The speaker asks the other person to let them use a pencil until lunch.",
+            "correct": true,
+            "reason": "you lend me：对方借出，说话人借入。"
+          },
+          {
+            "id": "from-me",
+            "text": "The speaker asks to give their own pencil to the other person.",
+            "correct": false,
+            "reason": "把借出方向倒置。"
+          },
+          {
+            "id": "gift",
+            "text": "The speaker asks for the pencil as a permanent gift.",
+            "correct": false,
+            "reason": "借用到午饭，不是永久赠送。"
+          }
+        ],
+        "usage": {
+          "left": "you（句中主语）",
+          "right": "me（说话人）",
+          "object": "铅笔",
+          "caption": "只演示主语you用所填动词时的借物方向；请求不等于已经同意或交到手中。",
+          "alternatives": {
+            "lend": "right",
+            "borrow": "left"
+          }
+        }
+      },
+      {
+        "id": "owe",
+        "label": "owe：I owe you two pounds，是谁还欠谁钱？",
+        "prompt": "I owe you two pounds，是谁还欠谁钱？",
+        "answer": "owe",
+        "meaning": "欠；应归功于",
+        "material": "I still owe you two pounds for the tickets.",
+        "before": "I still ",
+        "after": " you two pounds for the tickets.",
+        "reason": "owe在这里是欠。I still owe you two pounds说我还欠你两英镑票钱，不能反成你欠我，也不是已经结清；句子没有提供全部票价或票数。",
+        "hint": "owe somebody money；欠款方向看主语和宾语。",
+        "wordDecision": {
+          "prompt": "I owe you two pounds，是谁还欠谁钱？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "我还欠你两英镑票钱",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "i-you",
+                "label": "我还欠你两英镑",
+                "text": "I still owe you two pounds for the tickets.",
+                "include": true
+              },
+              {
+                "id": "you-me",
+                "label": "你还欠我两英镑",
+                "text": "You still owe me two pounds.",
+                "include": false
+              },
+              {
+                "id": "paid",
+                "label": "我已付清欠你的全部钱",
+                "text": "I have paid everything I owed you.",
+                "include": false
+              }
+            ],
+            "hint": "I欠you；still说明尚未结清。",
+            "wrong": "选我欠你，不倒方向，不补已结清。"
+          }
+        },
+        "options": [
+          {
+            "id": "i-you",
+            "text": "I have not yet paid you the two pounds I owe for the tickets.",
+            "correct": true,
+            "reason": "I是欠款人，you是收款人。"
+          },
+          {
+            "id": "you-me",
+            "text": "You owe me two pounds for the tickets.",
+            "correct": false,
+            "reason": "主客体倒置。"
+          },
+          {
+            "id": "paid",
+            "text": "I have already paid you everything I owed.",
+            "correct": false,
+            "reason": "still owe说明还欠，不是已全部付清。"
+          }
+        ]
+      },
+      {
+        "id": "earn",
+        "label": "earn：hopes to earn money，已经赚到钱了吗？",
+        "prompt": "hopes to earn money，已经赚到钱了吗？",
+        "answer": "earn",
+        "meaning": "赚得；赢得",
+        "material": "She hopes to earn money by repairing bikes.",
+        "before": "She hopes to ",
+        "after": " money by repairing bikes.",
+        "reason": "earn是赚得。她希望通过修自行车赚钱，句子没有确认已有收入，也没有给工资、利润或修车数量。",
+        "hint": "earn money by doing...；hope不等于已实现。",
+        "wordDecision": {
+          "prompt": "hopes to earn money，已经赚到钱了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "希望靠修车赚钱",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "hope",
+                "label": "希望通过修自行车赚钱",
+                "text": "She hopes to earn money by repairing bikes.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "已经赚到一笔明确金额",
+                "text": "She has earned a stated amount.",
+                "include": false
+              },
+              {
+                "id": "spend",
+                "label": "想花钱买新自行车",
+                "text": "She hopes to spend money on a new bike.",
+                "include": false
+              }
+            ],
+            "hint": "希望、方式和结果分开。",
+            "wrong": "选希望靠修车赚钱；不补收入或改成买车。"
+          }
+        },
+        "options": [
+          {
+            "id": "hope",
+            "text": "She wants to make money through repairing bikes.",
+            "correct": true,
+            "reason": "hopes to是希望，by给出方式。"
+          },
+          {
+            "id": "done",
+            "text": "She has already earned a stated amount from bike repairs.",
+            "correct": false,
+            "reason": "没有已赚到或金额。"
+          },
+          {
+            "id": "spend",
+            "text": "She hopes to spend money buying a new bike.",
+            "correct": false,
+            "reason": "earn和repairing都被改了。"
+          }
+        ]
+      },
+      {
+        "id": "donate",
+        "label": "donate：先让所有人读完，还是先donate？",
+        "prompt": "先让所有人读完，还是先donate？",
+        "answer": "donate",
+        "meaning": "捐赠",
+        "material": "We will donate the books after everyone has read them.",
+        "before": "We will ",
+        "after": " the books after everyone has read them.",
+        "reason": "donate是捐赠。will donate表示计划在所有人读完后捐书，既不说明已经捐出，也不提供机构、书的数量或捐赠日期。",
+        "hint": "donate something；donate something to somebody。",
+        "wordDecision": {
+          "prompt": "先让所有人读完，还是先donate？",
+          "processOrder": {
+            "title": "人人读完后，再捐书",
+            "events": [
+              {
+                "id": "read",
+                "label": "所有人读完"
+              },
+              {
+                "id": "donate",
+                "label": "捐出这些书"
+              }
+            ],
+            "sequence": [
+              "read",
+              "donate"
+            ],
+            "hint": "after给出先后；everyone不能漏成只有一人。",
+            "wrong": "先等所有人读完，再捐；不补日期或已捐出的结果。"
+          }
+        },
+        "options": [
+          {
+            "id": "after",
+            "text": "Everyone reads the books first; then we donate them.",
+            "correct": true,
+            "reason": "after everyone has read要求人人读完后再捐。"
+          },
+          {
+            "id": "before",
+            "text": "We donate the books before everyone has read them.",
+            "correct": false,
+            "reason": "把先后颠倒。"
+          },
+          {
+            "id": "some",
+            "text": "We donate as soon as just one person finishes.",
+            "correct": false,
+            "reason": "everyone不能缩成一人。"
+          }
+        ]
+      },
+      {
+        "id": "charity",
+        "label": "charity：这家charity冬天提供warm coats，另给图中哪件对应？",
+        "prompt": "这家charity冬天提供warm coats，另给图中哪件对应？",
+        "answer": "charity",
+        "meaning": "慈善；慈善机构",
+        "material": "The charity provides warm coats in winter.",
+        "before": "The ",
+        "after": " provides warm coats in winter.",
+        "reason": "charity在这里是慈善机构。句子说这家机构冬天提供保暖外套；另给图只帮助识别外套，不是它真实库存或发放结果的照片，也不说明每个人都已获赠。",
+        "hint": "the charity指这家机构；charity指慈善事业时通常不可数。",
+        "wordDecision": {
+          "prompt": "这家charity冬天提供warm coats，另给图中哪件对应？",
+          "art": {
+            "asset": "lesson-winter-coat",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "另给的衣物示意：左边是一件完整的青绿色厚棉外套，右边是一件蓝色薄短袖，两件分开摆放，无文字和标志。"
+          }
+        },
+        "options": [
+          {
+            "id": "coat",
+            "text": "The thick padded coat on the left matches warm coats for winter.",
+            "correct": true,
+            "reason": "另给示意图中，左边是厚棉外套。"
+          },
+          {
+            "id": "shirt",
+            "text": "The thin short-sleeved T-shirt on the right is the warm winter coat.",
+            "correct": false,
+            "reason": "右边是薄短袖，不是图中的厚外套。"
+          },
+          {
+            "id": "all",
+            "text": "The sentence promises a new coat to every person in the world.",
+            "correct": false,
+            "reason": "原句未给服务对象范围或承诺人人获赠。"
+          }
+        ]
+      },
+      {
+        "id": "fund",
+        "label": "fund：fund帮助补购受灾书籍，能改成所有书都已买好吗？",
+        "prompt": "fund帮助补购受灾书籍，能改成所有书都已买好吗？",
+        "answer": "fund",
+        "meaning": "基金；资金；资助",
+        "material": "The fund helps families replace flood-damaged books.",
+        "before": "The ",
+        "after": " helps families replace flood-damaged books.",
+        "reason": "fund在这里是基金、资金。它帮助家庭补购被洪水损坏的书，没有给基金总额、每户补助或已经全部补购完成的结果，也没有扩大到所有家居物品。",
+        "hint": "a fund for...；fund也可作动词，表示资助。",
+        "wordDecision": {
+          "prompt": "fund帮助补购受灾书籍，能改成所有书都已买好吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "基金帮助补购受灾书籍",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "help",
+                "label": "帮助家庭补购受洪水损坏的书",
+                "text": "The fund helps families replace flood-damaged books.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "所有受损书已经全部补购完",
+                "text": "Every damaged book has been replaced.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "承担替换所有家居物品",
+                "text": "The fund replaces all household items.",
+                "include": false
+              }
+            ],
+            "hint": "保留帮助、家庭和受损书籍的范围。",
+            "wrong": "选帮助补购受灾书；不补全部完成或扩大对象。"
+          }
+        },
+        "options": [
+          {
+            "id": "help",
+            "text": "The fund supports families in replacing books damaged by flooding.",
+            "correct": true,
+            "reason": "helps说明帮助补购受损书，不证明全部完成。"
+          },
+          {
+            "id": "done",
+            "text": "Every damaged book has already been replaced.",
+            "correct": false,
+            "reason": "把支持变成全部已完成。"
+          },
+          {
+            "id": "all",
+            "text": "The fund replaces every household item, not just books.",
+            "correct": false,
+            "reason": "擅自扩大对象。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-commerce-5-transfer",
+      "topicId": "v-course-commerce",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which account preserves the debt direction, lending direction and donation order?",
+      "passage": "Keeping directions and promises clear\nThe shop reported a small loss after a flood, without stating an exact amount. A family made a plan to pay off a debt. The plan did not prove repayment. I still owed you two pounds for tickets, so I was the person who needed to pay you, not the other way round.\nI asked, “Could you lend me a pencil until lunch?” You would lend it and I would borrow it. My question did not prove agreement or delivery. A friend hoped to earn money by repairing bikes, but no income had yet been confirmed.\nWe planned to donate books after everyone had read them. Everyone needed to finish before donation; a date and recipient were not supplied. A charity provided warm coats in winter. A separate fictional picture compared a thick coat with a thin T-shirt; it was not an inventory record. A fund helped families replace flood-damaged books, without proving that every replacement had already happened.",
+      "options": [
+        {
+          "id": "a",
+          "text": "I owe you two pounds; you lend a pencil to me; everyone reads the books before we donate them."
+        },
+        {
+          "id": "b",
+          "text": "You owe me two pounds; you lend a pencil to me; everyone reads before donation."
+        },
+        {
+          "id": "c",
+          "text": "I owe you two pounds; I lend my own pencil to you; everyone reads before donation."
+        },
+        {
+          "id": "d",
+          "text": "I owe you two pounds; you lend a pencil to me; we donate before everyone finishes reading."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "I owe you two pounds; you lend a pencil to me; everyone reads the books before we donate them."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别找谁欠谁、谁借给谁，再排读书与捐赠的先后。",
+        "steps": [
+          {
+            "text": "I owe you：我欠你；you lend me：你借出，我借入。",
+            "reason": "主语、宾语决定方向，不能对调。"
+          },
+          {
+            "text": "所有人读完后，再捐书。",
+            "reason": "after everyone has read保留人人读完的条件。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把我欠你倒成你欠我。"
+          },
+          {
+            "option": "c",
+            "reason": "把对方借给我倒成我借给对方。"
+          },
+          {
+            "option": "d",
+            "reason": "把所有人读完后捐倒成之前捐。"
+          }
+        ],
+        "pitfall": "只认单词，不核对方向、时间与未完成的计划。",
+        "visual": {
+          "kind": "timeline",
+          "title": "看方向，再看先后",
+          "segments": [
+            {
+              "text": "I → owe two pounds → you",
+              "role": "object",
+              "note": "我欠你"
+            },
+            {
+              "text": "you → lend pencil → me",
+              "role": "object",
+              "note": "你借出，我借入"
+            },
+            {
+              "text": "everyone reads → donate",
+              "role": "object",
+              "note": "读完再捐"
+            }
+          ],
+          "caption": "请求、计划和提供帮助都不能自动证明后续结果已完成。"
+        },
+        "transfer": "有还款计划，就能说债已还清吗？"
+      }
+    }
+  }
+}

@@ -1,0 +1,554 @@
+{
+  "lessonId": "l-v-course-planning-actions-3",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks preserve questions, possibility, class ownership, conditional routes and entry conditions.",
+  "picturePurpose": "Original gate comparison supports visibly smaller versus larger without invented dimensions; coded route controls preserve explicit fictional exercise scope.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "换天气、走虚线、选入口",
+    "instruction": "按另给规则选路线、沿虚线走，再选较小的入口；别替问句补答案。",
+    "items": [
+      {
+        "id": "include",
+        "label": "include：Does...include是在问，还是已确定包含？",
+        "prompt": "Does...include是在问，还是已确定包含？",
+        "answer": "include",
+        "meaning": "包括",
+        "material": "Does the price include the boat trip?",
+        "before": "Does the price ",
+        "after": " the boat trip?",
+        "reason": "include表示包括。Does the price include...?是在问价格是否包含，不是肯定包含或肯定另收费；does后用动词原形include。",
+        "hint": "include包括；does后接动词原形。",
+        "wordDecision": {
+          "prompt": "Does...include是在问，还是已确定包含？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问价格是否包含乘船游览",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "question",
+                "label": "询问价格是否包含乘船游览",
+                "text": "Does the price include the boat trip?",
+                "include": true
+              },
+              {
+                "id": "yes",
+                "label": "价格肯定已包含",
+                "text": "The boat trip is definitely included.",
+                "include": false
+              },
+              {
+                "id": "no",
+                "label": "乘船游览肯定另收费",
+                "text": "The boat trip definitely costs extra.",
+                "include": false
+              }
+            ],
+            "hint": "这是问题，不替原句回答价格政策。",
+            "wrong": "选问题本身，不能直接肯定或否定。"
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "The question asks whether the boat trip is included in the price.",
+            "correct": true,
+            "reason": "Does...?...询问价格是否包含这项活动。"
+          },
+          {
+            "id": "yes",
+            "text": "The price certainly includes the boat trip.",
+            "correct": false,
+            "reason": "问句没有给肯定答案。"
+          },
+          {
+            "id": "no",
+            "text": "The boat trip certainly costs extra.",
+            "correct": false,
+            "reason": "问句也没有给额外收费的结论。"
+          }
+        ]
+      },
+      {
+        "id": "contain",
+        "label": "contain：may contain等于里面肯定有吗？",
+        "prompt": "may contain等于里面肯定有吗？",
+        "answer": "contain",
+        "meaning": "包含；装有",
+        "material": "This box may contain sharp tools.",
+        "before": "This box may ",
+        "after": " sharp tools.",
+        "reason": "contain表示包含或装有。may contain只说可能装有锋利工具，没有确定内容，也没有证明为空。看到这样的提示，不应把猜测当作已核实的事实。",
+        "hint": "may后用contain；contain常指容器中装有某物。",
+        "wordDecision": {
+          "prompt": "may contain等于里面肯定有吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "盒中可能装有锋利工具",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "possible",
+                "label": "可能装有锋利工具",
+                "text": "This box may contain sharp tools.",
+                "include": true
+              },
+              {
+                "id": "certain",
+                "label": "已确定装有锋利工具",
+                "text": "The box definitely contains sharp tools.",
+                "include": false
+              },
+              {
+                "id": "empty",
+                "label": "已确定盒子是空的",
+                "text": "The box is definitely empty.",
+                "include": false
+              }
+            ],
+            "hint": "保留may表示的可能性。",
+            "wrong": "选可能，不能改成确定有或确定没有。"
+          }
+        },
+        "options": [
+          {
+            "id": "possible",
+            "text": "It is possible that sharp tools are inside the box.",
+            "correct": true,
+            "reason": "may contain表示可能装有，不是确定有。"
+          },
+          {
+            "id": "certain",
+            "text": "The box definitely contains sharp tools.",
+            "correct": false,
+            "reason": "把可能改成肯定。"
+          },
+          {
+            "id": "empty",
+            "text": "The box is definitely empty.",
+            "correct": false,
+            "reason": "may contain不能证明盒子为空。"
+          }
+        ]
+      },
+      {
+        "id": "depend",
+        "label": "depend：切换练习天气后，路线要不要重选？",
+        "prompt": "切换练习天气后，路线要不要重选？",
+        "answer": "depend",
+        "meaning": "依靠；取决于",
+        "material": "The best route will depend on the weather.",
+        "before": "The best route will ",
+        "after": " on the weather.",
+        "reason": "depend on表示取决于。原句说最佳路线取决于天气，没有给路线、距离或具体天气规则。另给虚构练习规定晴天选A、雨天选B，只用来体验条件变化后要重新判断，不是实际出行建议。",
+        "hint": "depend on是固定搭配；不能漏on。",
+        "wordDecision": {
+          "prompt": "切换练习天气后，路线要不要重选？",
+          "routeWeather": {
+            "title": "天气变了，重选路线",
+            "hint": "另给虚构规则：晴天选A，雨天选B；不是原句给出的路线或出行建议。",
+            "wrong": "按另给规则重选：晴天A、雨天B；切换天气后须重新选。"
+          }
+        },
+        "options": [
+          {
+            "id": "conditional",
+            "text": "The best route will be determined by the weather.",
+            "correct": true,
+            "reason": "depend on说明路线选择受天气影响。"
+          },
+          {
+            "id": "fixed",
+            "text": "The best route will always stay the same, whatever the weather.",
+            "correct": false,
+            "reason": "无论天气都不变，丢掉depend on的条件。"
+          },
+          {
+            "id": "named",
+            "text": "The original sentence names route A as always best.",
+            "correct": false,
+            "reason": "原句没有给路线名称；图中规则是另给练习。"
+          }
+        ]
+      },
+      {
+        "id": "belong",
+        "label": "belong：belong to the whole class是谁的？",
+        "prompt": "belong to the whole class是谁的？",
+        "answer": "belong",
+        "meaning": "属于",
+        "material": "These tools belong to the whole class.",
+        "before": "These tools ",
+        "after": " to the whole class.",
+        "reason": "belong to表示属于，to后接所有者。These tools是复数，用belong；the whole class是全班。原句说明归属，没有给具体保管人或存放位置。",
+        "hint": "belong to somebody；这些工具用belong，不用belongs。",
+        "wordDecision": {
+          "prompt": "belong to the whole class是谁的？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "工具属于全班",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "class",
+                "label": "工具属于整个班级",
+                "text": "These tools belong to the whole class.",
+                "include": true
+              },
+              {
+                "id": "one",
+                "label": "所有工具由一名学生独有",
+                "text": "One student alone owns every tool.",
+                "include": false
+              },
+              {
+                "id": "location",
+                "label": "只告诉工具存放地点",
+                "text": "The sentence only states the storage location.",
+                "include": false
+              }
+            ],
+            "hint": "看清to后的所有者，不把归属当地点。",
+            "wrong": "选全班共有，不补个人所有或存放位置。"
+          }
+        },
+        "options": [
+          {
+            "id": "class",
+            "text": "The tools belong to the class as a whole.",
+            "correct": true,
+            "reason": "the whole class是全班，不是某一人独有。"
+          },
+          {
+            "id": "one",
+            "text": "Only one named student owns every tool.",
+            "correct": false,
+            "reason": "把全班共有改成一个人独有。"
+          },
+          {
+            "id": "location",
+            "text": "The sentence only tells us where the tools are stored.",
+            "correct": false,
+            "reason": "belong to表达归属，不只是存放位置。"
+          }
+        ]
+      },
+      {
+        "id": "follow",
+        "label": "follow：沿练习虚线，从起点依次点到观景点。",
+        "prompt": "沿练习虚线，从起点依次点到观景点。",
+        "answer": "Follow",
+        "meaning": "跟随；遵循",
+        "material": "Follow the dotted line to the viewing point.",
+        "before": "",
+        "after": " the dotted line to the viewing point.",
+        "reason": "follow表示跟随或遵循；follow the dotted line是沿虚线走，to the viewing point给出目的地。另给练习用三个编码节点示意路线，不表示实际地图、节点数量或距离。",
+        "hint": "follow instructions遵照指示；dotted line虚线。",
+        "wordDecision": {
+          "prompt": "沿练习虚线，从起点依次点到观景点。",
+          "dottedRoute": {
+            "title": "沿虚线点到观景点",
+            "hint": "另给虚构路线：从起点沿虚线依次点到观景点；节点不是距离刻度。",
+            "wrong": "从起点开始，沿虚线经过节点，再到观景点；可撤回或重走。"
+          }
+        },
+        "options": [
+          {
+            "id": "follow",
+            "text": "Go along the dotted line to the viewing point.",
+            "correct": true,
+            "reason": "follow the dotted line说明沿着虚线走；to后给终点。"
+          },
+          {
+            "id": "reverse",
+            "text": "Start at the viewing point and walk back along any line.",
+            "correct": false,
+            "reason": "颠倒方向，还把虚线改成任意线。"
+          },
+          {
+            "id": "number",
+            "text": "The sentence says the walk is exactly ten metres long.",
+            "correct": false,
+            "reason": "原句没有路线长度，练习节点也不是距离刻度。"
+          }
+        ]
+      },
+      {
+        "id": "lead",
+        "label": "lead：这条路通向哪里？",
+        "prompt": "这条路通向哪里？",
+        "answer": "lead",
+        "meaning": "带领；通向",
+        "material": "This path will lead us back to the village.",
+        "before": "This path will ",
+        "after": " us back to the village.",
+        "reason": "lead表示带领或通向，过去式和过去分词led。will lead us back to the village说这条路将带我们回村庄，不是远离村庄，也没有给用时。",
+        "hint": "lead—led—led；lead somebody back to...。",
+        "wordDecision": {
+          "prompt": "这条路通向哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "路将带我们回村庄",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "village",
+                "label": "将回到村庄",
+                "text": "This path will lead us back to the village.",
+                "include": true
+              },
+              {
+                "id": "away",
+                "label": "将远离村庄",
+                "text": "The path leads us away from the village.",
+                "include": false
+              },
+              {
+                "id": "time",
+                "label": "保证五分钟到达",
+                "text": "The journey is guaranteed to take five minutes.",
+                "include": false
+              }
+            ],
+            "hint": "保留back to的方向，不补分钟数。",
+            "wrong": "选回村庄，不能改方向或编时长。"
+          }
+        },
+        "options": [
+          {
+            "id": "village",
+            "text": "The path will take us back to the village.",
+            "correct": true,
+            "reason": "lead us back to给出返回目的地。"
+          },
+          {
+            "id": "away",
+            "text": "The path will take us away from the village.",
+            "correct": false,
+            "reason": "与back to the village相反。"
+          },
+          {
+            "id": "time",
+            "text": "The sentence guarantees a five-minute journey.",
+            "correct": false,
+            "reason": "没有旅程时长或保证。"
+          }
+        ]
+      },
+      {
+        "id": "reach",
+        "label": "reach：Can you reach是在问，还是已碰到了？",
+        "prompt": "Can you reach是在问，还是已碰到了？",
+        "answer": "reach",
+        "meaning": "到达；够到",
+        "material": "Can you reach the switch without standing on a chair?",
+        "before": "Can you ",
+        "after": " the switch without standing on a chair?",
+        "reason": "reach在这里表示够到。Can you reach...?是在问能否做到，不是已经够到；without standing on a chair要求不站椅子，without后接doing。reach后直接接the switch。",
+        "hint": "reach直接接宾语；without doing。",
+        "wordDecision": {
+          "prompt": "Can you reach是在问，还是已碰到了？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问不站椅子能否够到开关",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "question",
+                "label": "询问不站椅子能否够到开关",
+                "text": "Can you reach the switch without standing on a chair?",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "已站上椅子碰到开关",
+                "text": "You have already reached the switch while standing on a chair.",
+                "include": false
+              },
+              {
+                "id": "height",
+                "label": "给出准确开关高度",
+                "text": "The sentence states the switch’s exact height.",
+                "include": false
+              }
+            ],
+            "hint": "保留问题和without，不补结果或高度。",
+            "wrong": "选问题本身，并保留不站椅子的条件。"
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "The question asks whether you can touch the switch without standing on a chair.",
+            "correct": true,
+            "reason": "Can you...?询问能力；without给出不站椅子的条件。"
+          },
+          {
+            "id": "done",
+            "text": "You have already touched the switch while standing on a chair.",
+            "correct": false,
+            "reason": "把问题改成已完成，并违反without的条件。"
+          },
+          {
+            "id": "height",
+            "text": "The sentence gives the exact height of the switch.",
+            "correct": false,
+            "reason": "没有开关高度数值。"
+          }
+        ]
+      },
+      {
+        "id": "enter",
+        "label": "enter：另给大小门对照：点出较小的入口。",
+        "prompt": "另给大小门对照：点出较小的入口。",
+        "answer": "enter",
+        "meaning": "进入；报名参加",
+        "material": "Please enter through the smaller gate.",
+        "before": "Please ",
+        "after": " through the smaller gate.",
+        "reason": "enter作进入讲，通常直接接地点；这里用through说明经过哪个入口，不能机械写enter into。smaller是较小的。另给对照图只帮助比较，不是原句地点的照片，也没有实际尺寸或已进入的事实。",
+        "hint": "enter the room；enter through a gate从某入口进入。",
+        "wordDecision": {
+          "prompt": "另给大小门对照：点出较小的入口。",
+          "art": {
+            "asset": "lesson-gate-sizes",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "另给入口大小对照：左边完整门框较矮且较窄，右边较高且较宽；两门分开、底部同一平面，无尺寸或已进入的人。",
+            "targets": [
+              {
+                "id": "small-zone",
+                "option": "small",
+                "label": "较小的门",
+                "left": 8,
+                "top": 20,
+                "width": 35,
+                "height": 65
+              },
+              {
+                "id": "large-zone",
+                "option": "large",
+                "label": "较大的门",
+                "left": 50,
+                "top": 5,
+                "width": 45,
+                "height": 80
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "small",
+            "text": "Please enter through the smaller gate.",
+            "correct": true,
+            "reason": "through指出经过哪个入口；对照图左门较矮且较窄。"
+          },
+          {
+            "id": "large",
+            "text": "Please enter through the larger gate.",
+            "correct": false,
+            "reason": "把smaller改成larger，选了较大的门。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-planning-actions-3-transfer",
+      "topicId": "v-course-planning-actions",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve the price question, the box warning and the condition for reaching the switch?",
+      "passage": "Questions and directions for a class visit\nWe ask, \"Does the price include the boat trip?\" The question does not tell us whether the trip is included or costs extra. A box notice says it may contain sharp tools. That means sharp tools are possible, not confirmed; it also does not prove that the box is empty. The tools belong to the whole class, rather than to one named student alone.\nThe best route will depend on the weather. The original instruction gives no route names or weather rules. A separate fictional exercise says to choose A in sunshine and B in rain. When the exercise weather changes, we must reconsider the choice. The exercise is not actual travel advice. We follow a dotted practice line from the start, through a marked node, to a viewing point; the coded nodes are not distance marks. Another sentence says a path will lead us back to the village without stating a travel time.\nWe ask, \"Can you reach the switch without standing on a chair?\" The question gives a condition but no answer or switch height. Finally, we are asked to enter through the smaller gate. In a separate comparison illustration, the left entrance is shorter and narrower than the right. The picture does not show the actual place, measured dimensions or anyone already entering.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The trip is certainly included; the box certainly contains tools; stand on a chair to reach the switch."
+        },
+        {
+          "id": "b",
+          "text": "Price coverage is still a question; sharp tools are possible; reach the switch without a chair."
+        },
+        {
+          "id": "c",
+          "text": "Price coverage is still a question; the box is certainly empty; reach the switch without a chair."
+        },
+        {
+          "id": "d",
+          "text": "Price coverage is still a question; sharp tools are possible; standing on a chair is required."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Price coverage is still a question; sharp tools are possible; reach the switch without a chair."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先分清问句和答案，再保留may与without的范围。",
+        "steps": [
+          {
+            "text": "价格是否包含还在提问；盒子里只是可能有锋利工具。",
+            "reason": "Does...?...没有答案；may contain不能改成一定有或一定没有。"
+          },
+          {
+            "text": "够开关时要保留不站椅子的条件。",
+            "reason": "without standing on a chair不是要求站椅子，也没有宣布已经够到。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把问题和可能性都说成确定，还违反不站椅子的条件。"
+          },
+          {
+            "option": "c",
+            "reason": "可能装有工具不能推出盒子肯定为空。"
+          },
+          {
+            "option": "d",
+            "reason": "without standing on a chair是不站椅子，不是必须站上去。"
+          }
+        ],
+        "pitfall": "看到包含或够到就补结果，忽略问句、可能性和否定条件。",
+        "visual": {
+          "kind": "timeline",
+          "title": "问题、可能、条件",
+          "segments": [
+            {
+              "text": "Does the price include...?",
+              "role": "object",
+              "note": "询问，不是确认包含"
+            },
+            {
+              "text": "may contain",
+              "role": "object",
+              "note": "可能有，不是一定有"
+            },
+            {
+              "text": "without standing on a chair",
+              "role": "object",
+              "note": "不站椅子"
+            }
+          ],
+          "caption": "练习路线和入口对照与原句实际情况分开。"
+        },
+        "transfer": "may contain为什么既不能换成definitely contains，也不能推出definitely empty？"
+      }
+    }
+  }
+}

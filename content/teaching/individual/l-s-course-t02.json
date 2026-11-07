@@ -1,0 +1,253 @@
+{
+  "lessonId": "l-s-course-t02",
+  "reviewState": "draft",
+  "intent": "Individual short club instructions combine Tuesday/four/green gate and require listening before tools, without inventing a time-of-day qualifier, a route or actual tool procedures.",
+  "picturePurpose": "Coded meeting fields and a two-event before-order make exact location and preparation sequence inspectable. A generated campus map would invent route information absent from the source.",
+  "workshop": {
+    "kind": "compose",
+    "title": "集合点说准确，工具先听说明",
+    "instruction": "把周二、四点和绿门组合成明确的集合信息，再把先听说明、后用工具的顺序排清楚。这里准备的是2—4句口头提醒，不是实际发音测评。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "周二四点，在绿门集合",
+        "prompt": "新同学需要知道哪一天、几点、在哪个门？",
+        "answer": "",
+        "reason": "日期、钟点和绿门已核对。把三个信息说进完整句子，不要只说到门口集合。",
+        "hint": "题目给出Tuesday、four和green gate。绿门不是学校正门；题目没有另给距离、路线或上午下午说明，不自行添加成必须的信息。",
+        "material": "说2—4句英文。园艺社团周二四点在绿门集合。告诉新同学集合信息，并提醒先听老师讲工具用法。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "集合卡 · 日期／钟点／地点",
+          "hint": "先读原题，再选择三个准确的信息。",
+          "wrong": "原题是周二四点、绿门；周三或周五、三点或五点都不符。学校正门和笼统的学校入口不能代替具体的绿门。",
+          "fields": [
+            {
+              "id": "day",
+              "label": "哪一天？",
+              "answer": "tuesday",
+              "choices": [
+                {
+                  "id": "wednesday",
+                  "label": "Wednesday · 周三"
+                },
+                {
+                  "id": "tuesday",
+                  "label": "Tuesday · 周二"
+                },
+                {
+                  "id": "friday",
+                  "label": "Friday · 周五"
+                }
+              ]
+            },
+            {
+              "id": "time",
+              "label": "题目给出的钟点",
+              "answer": "four",
+              "choices": [
+                {
+                  "id": "three",
+                  "label": "at three · 三点"
+                },
+                {
+                  "id": "four",
+                  "label": "at four · 四点"
+                },
+                {
+                  "id": "five",
+                  "label": "at five · 五点"
+                }
+              ]
+            },
+            {
+              "id": "gate",
+              "label": "具体集合点",
+              "answer": "green",
+              "choices": [
+                {
+                  "id": "main",
+                  "label": "the main school gate · 学校正门"
+                },
+                {
+                  "id": "green",
+                  "label": "the green gate · 绿门"
+                },
+                {
+                  "id": "any",
+                  "label": "the school entrance · 学校入口（未说明哪个门）"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "先听老师说明，再使用工具",
+        "prompt": "这两项行动怎样排序，才符合原题的before？",
+        "answer": "",
+        "reason": "先后顺序与提醒内容已核对。接着用礼貌、完整的句子提醒新同学，再实际开口回听。",
+        "hint": "本卡只核对原题的准备顺序，不教具体工具操作。听老师讲用法在前，使用工具在后；不能先试用再听。",
+        "material": "说2—4句英文。园艺社团周二四点在绿门集合。告诉新同学集合信息，并提醒先听老师讲工具用法。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeOrder": {
+          "title": "before · 哪项必须先做？",
+          "hint": "先点听老师说明，再点使用工具；这里核对顺序，不替代现场老师指导。",
+          "wrong": "先听老师讲工具用法，再按照说明使用工具；不能把before读成after。",
+          "events": [
+            {
+              "id": "use",
+              "label": "使用工具"
+            },
+            {
+              "id": "listen",
+              "label": "先听老师讲工具用法"
+            }
+          ],
+          "sequence": [
+            "listen",
+            "use"
+          ]
+        },
+        "composeBrief": {
+          "title": "把顺序说成清楚的提醒",
+          "hint": "before using tools前，先完成听老师说明这件事。",
+          "wrong": "要先听老师说明，再用工具。只照看同学、边听边试用或先用后听都没有保留before要求的顺序。",
+          "fields": [
+            {
+              "id": "instruction",
+              "label": "需要先听什么？",
+              "answer": "teacher",
+              "choices": [
+                {
+                  "id": "copy",
+                  "label": "Only copy another student without listening."
+                },
+                {
+                  "id": "teacher",
+                  "label": "Listen to the teacher’s instructions about the tools."
+                },
+                {
+                  "id": "ignore",
+                  "label": "Start with familiar tools while the teacher explains."
+                }
+              ]
+            },
+            {
+              "id": "before",
+              "label": "哪句保留了原题的先后？",
+              "answer": "listen-first",
+              "choices": [
+                {
+                  "id": "after",
+                  "label": "Use the tools first and listen afterwards."
+                },
+                {
+                  "id": "listen-first",
+                  "label": "Please listen to the teacher before using any tools."
+                },
+                {
+                  "id": "never",
+                  "label": "Use the tools while the teacher is still giving the instructions."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t02-transfer",
+      "topicId": "s-course-t02",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "Which outline gives the new student the correct meeting information and preparation order?",
+      "passage": "A different club\nThe sports club meets by the east gate at three on Friday. Tell a new student the meeting details in two to four English sentences. Politely remind the student to listen to the coach’s instructions before using equipment. The east gate is a different meeting point from the main school gate.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tell the student to come to the green gate at four on Tuesday, copying the garden-club arrangement."
+        },
+        {
+          "id": "b",
+          "text": "Tell the student only to come to a gate sometime and start using equipment immediately."
+        },
+        {
+          "id": "c",
+          "text": "Give Friday at three and the east gate, then politely remind the student to listen to the coach before using equipment."
+        },
+        {
+          "id": "d",
+          "text": "Give Friday at three but change the east gate to the main school gate and put listening after equipment use."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Give Friday at three and the east gate, then politely remind the student to listen to the coach before using equipment."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "重新核对集合信息，再保留先听说明、后用设备的顺序。",
+        "steps": [
+          {
+            "text": "新安排是周五三点，在东门，不是原来的周二四点绿门。",
+            "reason": "日期、钟点和地点都变化了；学校正门也不能随意代替东门。"
+          },
+          {
+            "text": "礼貌提醒先听教练说明，再用设备。",
+            "reason": "before表示先后条件，不是用了设备之后才听。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "照搬园艺社团的日期、钟点和集合点，没有回应新安排。"
+          },
+          {
+            "option": "b",
+            "reason": "时间地点模糊，还省掉了先听说明的要求。"
+          },
+          {
+            "option": "d",
+            "reason": "既改错集合点，又把必须先听的说明放到了后面。"
+          }
+        ],
+        "pitfall": "只记住大概几点和门口，却改掉了具体集合点或先后要求。",
+        "visual": {
+          "kind": "timeline",
+          "title": "新集合卡＋准备顺序",
+          "segments": [
+            {
+              "text": "Friday · at three · east gate",
+              "role": "evidence",
+              "note": "新集合信息"
+            },
+            {
+              "text": "listen to the coach",
+              "role": "evidence",
+              "note": "先做"
+            },
+            {
+              "text": "use equipment",
+              "role": "evidence",
+              "note": "之后按说明进行"
+            }
+          ],
+          "caption": "信息按本次题目；不能用猜测替代已给出的安排。"
+        },
+        "transfer": "如果新同学仍不知道东门在哪里，你怎样礼貌提醒他向老师确认，而不是猜路线？"
+      }
+    }
+  }
+}

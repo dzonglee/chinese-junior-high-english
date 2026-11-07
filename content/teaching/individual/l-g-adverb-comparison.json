@@ -1,0 +1,450 @@
+{
+  "lessonId": "l-g-adverb-comparison",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Select the fastest equal-distance runner from proportional duration bars,distinguish comparative/superlative/as-as and direction,repair analytic and irregular forms,construct much-modified comparatives.",
+  "picturePurpose": "Deterministic proportional race bars show exact12/14/15-second records at equal100-metre distances;shorter means less time,not slower speed. Before/after diagrams and shuffled tiles show actual forms. No generated image pretends to measure speed.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先读记录，再比较动作",
+    "instruction": "比较谁、比几次、朝哪个方向？圈出依据，再改副词的级别和形式。",
+    "conditions": [
+      {
+        "label": "用时条越长，就跑得越快吗？",
+        "before": "Leo ran ",
+        "target": "faster",
+        "after": " than Mia.",
+        "choices": [
+          "slower",
+          "faster"
+        ],
+        "reason": "相同距离，Leo用12秒，Mia用15秒，Leo跑得更快。fast的比较级是faster；than后给出比较对象。",
+        "world": {
+          "kind": "scale",
+          "caption": "同一次100米跑：Leo用12秒，Mia用15秒。条形长度表示用时，越短用时越少。先圈出用时更短的人。",
+          "selection": {
+            "prompt": "谁先跑完相同的100米？",
+            "ids": [
+              "leo"
+            ],
+            "reason": "相同距离，用时少的先完成。12秒比15秒少，应选Leo；别把较长的用时条当成跑得更快。"
+          },
+          "cells": [
+            {
+              "id": "leo",
+              "label": "Leo",
+              "detail": "12秒",
+              "value": 48
+            },
+            {
+              "id": "mia",
+              "label": "Mia",
+              "detail": "15秒",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "label": "quickly的比较级，亲手组出来",
+        "before": "Leo finished the puzzle ",
+        "target": "more quickly",
+        "after": " than Mia.",
+        "choices": [
+          "quicklier",
+          "more quickly"
+        ],
+        "reason": "按题意使用quickly的比较级，写成more quickly，不能直接给quickly加-er。",
+        "world": {
+          "kind": "syntax",
+          "caption": "计时记录：同一道拼图，Leo先完成。用quickly的比较级表达他完成得更快。",
+          "cells": [
+            {
+              "label": "quicklier",
+              "detail": "待修正的比较级"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先认比较的范围和方向，再按指定词改形式。",
+        "tiles": [
+          "more",
+          "quicklier",
+          "quickly"
+        ]
+      },
+      {
+        "label": "和之前相比，不用最高级",
+        "before": "Mia read the directions ",
+        "target": "more slowly",
+        "after": " than before.",
+        "choices": [
+          "most slowly",
+          "more slowly"
+        ],
+        "reason": "than before是这次和以前相比，用slowly的比较级more slowly；most slowly表示最高程度，不符合这里的比较范围。",
+        "world": {
+          "kind": "logic",
+          "caption": "朗读记录：Mia这次读得比之前慢。用slowly的比较级补全。",
+          "cells": [
+            {
+              "label": "this time ↔ before",
+              "detail": "两次表现作比较"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先认比较的范围和方向，再按指定词改形式。",
+        "initial": "most slowly"
+      },
+      {
+        "label": "carefully的比较级怎么变？",
+        "before": "Leo wrote ",
+        "target": "more carefully",
+        "after": " than he did yesterday.",
+        "choices": [
+          "carefullier",
+          "more carefully"
+        ],
+        "reason": "carefully的比较级用more carefully，不是carefullier。than he did yesterday明确把今天与昨天比较。",
+        "world": {
+          "kind": "logic",
+          "caption": "老师评价：Leo今天写得比昨天仔细。按carefully的比较级改好原稿。",
+          "cells": [
+            {
+              "label": "carefully → ___",
+              "detail": "两次表现作比较"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先认比较的范围和方向，再按指定词改形式。",
+        "initial": "carefullier"
+      },
+      {
+        "label": "三人中最快，比较范围变了",
+        "before": "Leo ran the ",
+        "target": "fastest",
+        "after": " of the three runners.",
+        "choices": [
+          "faster",
+          "fastest"
+        ],
+        "reason": "of the three runners把范围定为三人，Leo用时最少，fast用最高级fastest。faster只表达更快，没有完成本句要求的最高程度。",
+        "world": {
+          "kind": "scale",
+          "caption": "同一次100米跑的三人记录：Leo12秒，Ben14秒，Mia15秒。条形表示用时，越短完成得越早。",
+          "selection": {
+            "prompt": "圈出三人中最先跑完的人。",
+            "ids": [
+              "leo"
+            ],
+            "reason": "三人跑相同距离，12秒最少，所以Leo最先完成。不要把14秒或15秒当成最快。"
+          },
+          "cells": [
+            {
+              "id": "leo",
+              "label": "Leo",
+              "detail": "12秒",
+              "value": 48
+            },
+            {
+              "id": "ben",
+              "label": "Ben",
+              "detail": "14秒",
+              "value": 56
+            },
+            {
+              "id": "mia",
+              "label": "Mia",
+              "detail": "15秒",
+              "value": 60
+            }
+          ]
+        }
+      },
+      {
+        "label": "well的比较级不是gooder",
+        "before": "Mia plays the violin ",
+        "target": "better",
+        "after": " than she did last term.",
+        "choices": [
+          "gooder",
+          "better"
+        ],
+        "reason": "修饰plays用well；well的比较级是不规则变化better，不是gooder，也不是表示最高程度的best。",
+        "world": {
+          "kind": "logic",
+          "caption": "老师评价：Mia现在拉小提琴比上学期好。用well的比较级补全。",
+          "cells": [
+            {
+              "label": "well → ___",
+              "detail": "现在与上学期比较"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先认比较的范围和方向，再按指定词改形式。",
+        "initial": "gooder"
+      },
+      {
+        "label": "三人中表现最好，用well的哪一栏",
+        "before": "Mia played the ",
+        "target": "best",
+        "after": " of the three violinists.",
+        "choices": [
+          "better",
+          "best"
+        ],
+        "reason": "三位小提琴演奏者中选出最高程度，用well的最高级best；better是比较级。",
+        "world": {
+          "kind": "logic",
+          "caption": "评委结论：三位小提琴演奏者中，Mia表现最好。只按这个给定结论表达，不自行推测分数。",
+          "cells": [
+            {
+              "label": "well → ___",
+              "detail": "三人中的最高程度"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先认比较的范围和方向，再按指定词改形式。",
+        "initial": "better"
+      },
+      {
+        "label": "到达时间相同，还能写earlier吗？",
+        "before": "Ben arrived as ",
+        "target": "early",
+        "after": " as Mia.",
+        "choices": [
+          "earlier",
+          "early"
+        ],
+        "reason": "as…as中间用副词原级early。两人都是7:40到，表示一样早，不是更早。",
+        "world": {
+          "kind": "logic",
+          "caption": "签到记录：Ben和Mia均在早上7:40到达。把as…as结构中的词形改好。",
+          "cells": [
+            {
+              "label": "Ben 7:40 = Mia 7:40",
+              "detail": "相同时间，比较相等程度"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先认比较的范围和方向，再按指定词改形式。",
+        "initial": "earlier"
+      },
+      {
+        "label": "比较方向也要跟着事实走",
+        "before": "Mia wrote ",
+        "target": "less carefully",
+        "after": " than Leo.",
+        "choices": [
+          "more carefully",
+          "less carefully"
+        ],
+        "reason": "给定评价说Mia不如Leo仔细，用less carefully表示较不仔细。more carefully会把比较方向反过来。",
+        "world": {
+          "kind": "syntax",
+          "caption": "老师评价：这一次，Mia写得不如Leo仔细。用carefully与less或more表达这个意思。",
+          "cells": [
+            {
+              "label": "more carefully",
+              "detail": "检查比较方向"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先认比较的范围和方向，再按指定词改形式。",
+        "tiles": [
+          "carefully",
+          "less",
+          "more"
+        ]
+      },
+      {
+        "label": "明显更清楚，much放在哪里",
+        "before": "Now Mia explains the rules ",
+        "target": "much more clearly",
+        "after": " than before.",
+        "choices": [
+          "very more clearly",
+          "much more clearly"
+        ],
+        "reason": "much可以修饰比较级，写成much more clearly，表示清楚得多。very不能在这里直接修饰more clearly。",
+        "world": {
+          "kind": "syntax",
+          "caption": "排词任务：按“比以前清楚得多”的意思，排列much、more、clearly；不要用very代替much。",
+          "cells": [
+            {
+              "label": "very more clearly",
+              "detail": "修饰比较级的词也要检查"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "先认比较的范围和方向，再按指定词改形式。",
+        "tiles": [
+          "clearly",
+          "very",
+          "much",
+          "more"
+        ]
+      }
+    ],
+    "choices": [
+      "slower",
+      "faster",
+      "quicklier",
+      "more quickly",
+      "most slowly",
+      "more slowly",
+      "carefullier",
+      "more carefully",
+      "fastest",
+      "gooder",
+      "better",
+      "best",
+      "earlier",
+      "early",
+      "less carefully",
+      "very more clearly",
+      "much more clearly"
+    ],
+    "items": [
+      {
+        "id": "adverb-comparison-editor",
+        "label": "范围与方向",
+        "prompt": "用真实给定记录判断，再决定比较级、最高级或原级。",
+        "answer": "",
+        "reason": "",
+        "hint": "用时少才更快；范围变了，表达也要跟着变。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-adverb-comparison-002",
+      "q-g-adverb-comparison-003"
+    ],
+    "transfer": {
+      "id": "individual-g-adverb-comparison-transfer",
+      "topicId": "g-adverb-comparison",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "先比较两次表现，再比较三位向导。用well的比较级和clearly的最高级依次补全。\nBen explains things ___ than last month. Of the three guides, Amy speaks the ___.",
+      "options": [
+        {
+          "id": "a",
+          "text": "better; most clearly"
+        },
+        {
+          "id": "b",
+          "text": "best; most clearly"
+        },
+        {
+          "id": "c",
+          "text": "better; more clearly"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "better; most clearly"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "每句单独找比较范围，再决定副词的比较级或最高级。两句不一定用同一种形式。",
+        "steps": [
+          {
+            "text": "第一句有than last month，比较现在和上个月。",
+            "reason": "well的比较级是better，不是最高级best。"
+          },
+          {
+            "text": "第二句限定of the three guides，比较三位向导。",
+            "reason": "这里需要clearly的最高级most clearly，不是比较级more clearly。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一空比较两次表现且有than，用better，不是best。"
+          },
+          {
+            "option": "c",
+            "reason": "第二空是在三位向导中选出最高程度，用most clearly。"
+          }
+        ],
+        "pitfall": "先认范围，再查变化；不规则well和多音节clearly不能套同一种词形变化。",
+        "visual": {
+          "kind": "comparison",
+          "title": "两次表现和三人范围",
+          "segments": [
+            {
+              "text": "now ↔ last month",
+              "role": "evidence",
+              "note": "well → better"
+            },
+            {
+              "text": "of the three guides",
+              "role": "evidence",
+              "note": "clearly → most clearly"
+            }
+          ],
+          "caption": "比较范围决定级别，目标副词决定具体形式。"
+        },
+        "transfer": "如果第二句改成Amy speaks more clearly than Ben，比较范围和词形发生了什么变化？"
+      }
+    }
+  }
+}

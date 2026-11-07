@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured anatomy or temperature claims. */
+export interface WordApronWaist{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordApronWaist(v:unknown):v is WordApronWaist{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordApronWaist;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordApronWaistKey=(id:string)=>'workshopApronWaist-'+id
+function decode(raw:string){if(raw==='')return{"part": "?", "relation": "?"};const m="^(\\?|waist|neck)\\|(\\?|around|beside)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{part:v[1],relation:v[2]}:null}
+export function changeApronWaist(_w:WordApronWaist,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["part-waist", "part-neck"].includes(action))return action.slice(5)+"|"+s.relation;if(["relation-around", "relation-beside"].includes(action))return s.part+"|"+action.slice(9);return undefined}
+export function apronWaistMatch(_w:WordApronWaist,raw:string){const s=decode(raw);return!!s&&s.part==="waist"&&s.relation==="around"}
+export function wordApronWaistView(w:WordApronWaist,raw:string){const s=decode(raw)??{"part": "?", "relation": "?"};return{title:w.title,hint:w.hint,part:s.part,relation:s.relation,tieTop:s.part==='waist'?59:s.part==='neck'?18:null,groups:[{label:"系在哪个部位",choices:[{"id": "part-waist", "label": "腰部"}, {"id": "part-neck", "label": "脖子"}].map(c=>({...c,selected:c.id==="part-"+s.part}))},{label:"怎样放置",choices:[{"id": "relation-around", "label": "围绕系上"}, {"id": "relation-beside", "label": "只放旁边"}].map(c=>({...c,selected:c.id==="relation-"+s.relation}))}],reading:apronWaistMatch(w,raw)?"围裙系带围绕腰部系上；不是脖子或只放在旁边。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordApronWaistView=ReturnType<typeof wordApronWaistView>

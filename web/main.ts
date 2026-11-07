@@ -1,3 +1,5 @@
+import {artworkUrl} from './artwork'
+import {artworkFormats} from '../src/generated/artwork'
 import {renderExams} from './exams'
 import { renderProduct } from './product'
 import { renderLessonStudio } from './lesson-studio'
@@ -14,7 +16,7 @@ const embeddedPacks = document.getElementById('local-packs')
 const localPacks: Record<string, string> | undefined = embeddedPacks ? JSON.parse(embeddedPacks.textContent || '{}') : undefined
 const embeddedAssets = document.getElementById('local-assets')
 const localAssets: Record<string, string> = embeddedAssets ? JSON.parse(embeddedAssets.textContent || '{}') : {}
-const artwork = (name: string) => localAssets[name] || `/assets/${name}.${['desk-scene','lesson-courtyard','lesson-workshop'].includes(name) ? 'jpg' : ['types','exam_light','mistakes_light'].includes(name) ? 'webp' : 'png'}`
+const artwork = (name: string) => artworkUrl(name,localAssets,artworkFormats)
 const content = new ContentRepository(catalog, packs, async pack => {
   if (localPacks) {
     const text = localPacks[pack.file]
@@ -114,6 +116,182 @@ function question(s: Screen) {
 function render() {
   const s = app.render()
   const active = document.activeElement
+  const printPageFocus = active instanceof HTMLButtonElement && active.matches('.word-print-pages .print-page') ? active.dataset.value : undefined
+  const phoneModeFocus = active instanceof HTMLButtonElement && active.matches('.word-phone-mode .phone-mode-choice') ? active.dataset.value : undefined
+  const nameGroupFocus = active instanceof HTMLButtonElement && active.matches('.word-name-groups .name-group-choice') ? active.dataset.value : undefined
+  const offlinePageFocus = active instanceof HTMLButtonElement && active.matches('.word-offline-page .offline-page-control') ? active.dataset.value : undefined
+  const fileDeskFocus = active instanceof HTMLButtonElement && active.matches('.word-file-desk .file-desk-control') ? active.dataset.value : undefined
+  const shelfRoomFocus = active instanceof HTMLButtonElement && active.matches('.word-shelf-room .shelf-room-control') ? active.dataset.value : undefined
+  const shadePanelFocus = active instanceof HTMLButtonElement && active.matches('.word-shade-panel .shade-panel-control') ? active.dataset.value : undefined
+  const observeFocus = active instanceof HTMLButtonElement && active.matches('.word-observe button') ? active.dataset.value : undefined
+  const moleculeFocus = active instanceof HTMLButtonElement && active.matches('.word-molecule button') ? active.dataset.value : undefined
+  const cartFocus = active instanceof HTMLButtonElement && active.matches('.word-cart button') ? active.dataset.value : undefined
+  const patternFocus = active instanceof HTMLButtonElement && active.matches('.word-pattern button') ? active.dataset.value : undefined
+  const preferenceFocus = active instanceof HTMLButtonElement && active.matches('.word-preference button') ? active.dataset.value : undefined
+  const flashFocus = active instanceof HTMLButtonElement && active.matches('.word-flash button') ? active.dataset.value : undefined
+  const routeWeatherFocus = active instanceof HTMLButtonElement && active.matches(".word-route-weather button") ? active.dataset.value : undefined
+  const dottedRouteFocus = active instanceof HTMLButtonElement && active.matches(".word-dotted-route button") ? active.dataset.value : undefined
+  const contributionsFocus = active instanceof HTMLButtonElement && active.matches(".word-contributions button") ? active.dataset.value : undefined
+  const curtainExitFocus = active instanceof HTMLButtonElement && active.matches(".word-curtain-exit button") ? active.dataset.value : undefined
+  const interestRolesFocus = active instanceof HTMLButtonElement && active.matches(".word-interest-roles button") ? active.dataset.value : undefined
+  const uArticleFocus = active instanceof HTMLButtonElement && active.matches(".word-u-article button") ? active.dataset.value : undefined
+  const jarChangeFocus = active instanceof HTMLButtonElement && active.matches(".word-jar-change button") ? active.dataset.value : undefined
+  const leafSimilarFocus = active instanceof HTMLButtonElement && active.matches(".word-leaf-similar button") ? active.dataset.value : undefined
+  const gateConditionFocus = active instanceof HTMLButtonElement && active.matches(".word-gate-condition button") ? active.dataset.value : undefined
+  const regularRepeatFocus = active instanceof HTMLButtonElement && active.matches(".word-regular-repeat button") ? active.dataset.value : undefined
+  const drySeatsFocus = active instanceof HTMLButtonElement && active.matches(".word-dry-seats button") ? active.dataset.value : undefined
+  const actionCountFocus = active instanceof HTMLButtonElement && active.matches(".word-action-count button") ? active.dataset.value : undefined
+  const carbonDioxideFocus = active instanceof HTMLButtonElement && active.matches(".word-carbon-dioxide button") ? active.dataset.value : undefined
+  const materialSortFocus = active instanceof HTMLButtonElement && active.matches(".word-material-sort button") ? active.dataset.value : undefined
+  const supportLinksFocus = active instanceof HTMLButtonElement && active.matches(".word-support-links button") ? active.dataset.value : undefined
+  const inlandRouteFocus = active instanceof HTMLButtonElement && active.matches(".word-inland-route button") ? active.dataset.value : undefined
+  const overlapFocus = active instanceof HTMLButtonElement && active.matches(".word-overlap button") ? active.dataset.value : undefined
+  const widthFitFocus = active instanceof HTMLButtonElement && active.matches(".word-width-fit button") ? active.dataset.value : undefined
+  const almostLevelFocus = active instanceof HTMLButtonElement && active.matches(".word-almost-level button") ? active.dataset.value : undefined
+  const zeroGroupFocus = active instanceof HTMLButtonElement && active.matches(".word-zero-group button") ? active.dataset.value : undefined
+  const pathRoleFocus = active instanceof HTMLButtonElement && active.matches(".word-path-role button") ? active.dataset.value : undefined
+  const spatialFrameFocus = active instanceof HTMLButtonElement && active.matches(".word-spatial-frame button") ? active.dataset.value : undefined
+  const relationSceneFocus = active instanceof HTMLButtonElement && active.matches(".word-relation-scene button") ? active.dataset.value : undefined
+  const routeFrameFocus = active instanceof HTMLButtonElement && active.matches(".word-route-frame button") ? active.dataset.value : undefined
+  const timeScopeFocus = active instanceof HTMLButtonElement && active.matches(".word-time-scope button") ? active.dataset.value : undefined
+  const speedMeaningFocus = active instanceof HTMLButtonElement && active.matches(".word-speed-meaning button") ? active.dataset.value : undefined
+  const colourAllocationFocus = active instanceof HTMLButtonElement && active.matches(".word-colour-allocation button") ? active.dataset.value : undefined
+  const lidCoverageFocus = active instanceof HTMLButtonElement && active.matches(".word-lid-coverage button") ? active.dataset.value : undefined
+  const plantNeedsFocus = active instanceof HTMLButtonElement && active.matches(".word-plant-needs button") ? active.dataset.value : undefined
+  const reportFrameFocus = active instanceof HTMLButtonElement && active.matches(".word-report-frame button") ? active.dataset.value : undefined
+  const senseFrameFocus = active instanceof HTMLButtonElement && active.matches(".word-sense-frame button") ? active.dataset.value : undefined
+  const methodDirectionFocus = active instanceof HTMLButtonElement && active.matches(".word-method-direction button") ? active.dataset.value : undefined
+  const positionInstructionFocus = active instanceof HTMLButtonElement && active.matches(".word-position-instruction button") ? active.dataset.value : undefined
+  const forceDirectionFocus = active instanceof HTMLButtonElement && active.matches(".word-force-direction button") ? active.dataset.value : undefined
+  const everyoneArrivedFocus = active instanceof HTMLButtonElement && active.matches(".word-everyone-arrived button") ? active.dataset.value : undefined
+  const actionGoalFocus = active instanceof HTMLButtonElement && active.matches(".word-action-goal button") ? active.dataset.value : undefined
+  const entrySequenceFocus = active instanceof HTMLButtonElement && active.matches(".word-entry-sequence button") ? active.dataset.value : undefined
+  const lineIntersectionFocus = active instanceof HTMLButtonElement && active.matches(".word-line-intersection button") ? active.dataset.value : undefined
+  const armPoseFocus = active instanceof HTMLButtonElement && active.matches(".word-arm-pose button") ? active.dataset.value : undefined
+  const clothPiecesFocus = active instanceof HTMLButtonElement && active.matches(".word-cloth-pieces button") ? active.dataset.value : undefined
+  const cornerFoldFocus = active instanceof HTMLButtonElement && active.matches(".word-corner-fold button") ? active.dataset.value : undefined
+  const foodSeparationFocus = active instanceof HTMLButtonElement && active.matches(".word-food-separation button") ? active.dataset.value : undefined
+  const mealReadinessFocus = active instanceof HTMLButtonElement && active.matches(".word-meal-readiness button") ? active.dataset.value : undefined
+  const foodPortionsFocus = active instanceof HTMLButtonElement && active.matches(".word-food-portions button") ? active.dataset.value : undefined
+  const noodleFallFocus = active instanceof HTMLButtonElement && active.matches(".word-noodle-fall button") ? active.dataset.value : undefined
+  const foodRolesFocus = active instanceof HTMLButtonElement && active.matches(".word-food-roles button") ? active.dataset.value : undefined
+  const remainingTinFocus = active instanceof HTMLButtonElement && active.matches(".word-remaining-tin button") ? active.dataset.value : undefined
+  const nearBeforeFocus = active instanceof HTMLButtonElement && active.matches(".word-near-before button") ? active.dataset.value : undefined
+  const foodExtentFocus = active instanceof HTMLButtonElement && active.matches(".word-food-extent button") ? active.dataset.value : undefined
+  const foodNounFocus = active instanceof HTMLButtonElement && active.matches(".word-food-noun button") ? active.dataset.value : undefined
+  const foodReturnFocus = active instanceof HTMLButtonElement && active.matches(".word-food-return button") ? active.dataset.value : undefined
+  const foodPairingFocus = active instanceof HTMLButtonElement && active.matches(".word-food-pairing button") ? active.dataset.value : undefined
+  const foodPurposeFocus = active instanceof HTMLButtonElement && active.matches(".word-food-purpose button") ? active.dataset.value : undefined
+  const recipeLessFocus = active instanceof HTMLButtonElement && active.matches(".word-recipe-less button") ? active.dataset.value : undefined
+  const foodLayerFocus = active instanceof HTMLButtonElement && active.matches(".word-food-layer button") ? active.dataset.value : undefined
+  const foodChangeFocus = active instanceof HTMLButtonElement && active.matches(".word-food-change button") ? active.dataset.value : undefined
+  const fruitPrepFocus = active instanceof HTMLButtonElement && active.matches(".word-fruit-prep button") ? active.dataset.value : undefined
+  const containerFitFocus = active instanceof HTMLButtonElement && active.matches(".word-container-fit button") ? active.dataset.value : undefined
+  const fruitFallFocus = active instanceof HTMLButtonElement && active.matches(".word-fruit-fall button") ? active.dataset.value : undefined
+  const fruitSceneFocus = active instanceof HTMLButtonElement && active.matches(".word-fruit-scene button") ? active.dataset.value : undefined
+  const stoneSidesFocus = active instanceof HTMLButtonElement && active.matches(".word-stone-sides button") ? active.dataset.value : undefined
+  const softCentreFocus = active instanceof HTMLButtonElement && active.matches(".word-soft-centre button") ? active.dataset.value : undefined
+  const vegetablePrepFocus = active instanceof HTMLButtonElement && active.matches(".word-vegetable-prep button") ? active.dataset.value : undefined
+  const vegetableEffectFocus = active instanceof HTMLButtonElement && active.matches(".word-vegetable-effect button") ? active.dataset.value : undefined
+  const peaMotionFocus = active instanceof HTMLButtonElement && active.matches(".word-pea-motion button") ? active.dataset.value : undefined
+  const foodConditionFocus = active instanceof HTMLButtonElement && active.matches(".word-food-condition button") ? active.dataset.value : undefined
+  const flavourSenseFocus = active instanceof HTMLButtonElement && active.matches(".word-flavour-sense button") ? active.dataset.value : undefined
+  const heavyForOneFocus = active instanceof HTMLButtonElement && active.matches(".word-heavy-for-one button") ? active.dataset.value : undefined
+  const tasteScopeFocus = active instanceof HTMLButtonElement && active.matches(".word-taste-scope button") ? active.dataset.value : undefined
+  const ripeNowFocus = active instanceof HTMLButtonElement && active.matches(".word-ripe-now button") ? active.dataset.value : undefined
+  const rawBoardFocus = active instanceof HTMLButtonElement && active.matches(".word-raw-board button") ? active.dataset.value : undefined
+  const appleRemovalFocus = active instanceof HTMLButtonElement && active.matches(".word-apple-removal button") ? active.dataset.value : undefined
+  const cookingEndpointFocus = active instanceof HTMLButtonElement && active.matches(".word-cooking-endpoint button") ? active.dataset.value : undefined
+  const steamCoverFocus = active instanceof HTMLButtonElement && active.matches(".word-steam-cover button") ? active.dataset.value : undefined
+  const gentleHeatFocus = active instanceof HTMLButtonElement && active.matches(".word-gentle-heat button") ? active.dataset.value : undefined
+  const mixBowlFocus = active instanceof HTMLButtonElement && active.matches(".word-mix-bowl button") ? active.dataset.value : undefined
+  const textureResultFocus = active instanceof HTMLButtonElement && active.matches(".word-texture-result button") ? active.dataset.value : undefined
+  const bananaOverFocus = active instanceof HTMLButtonElement && active.matches(".word-banana-over button") ? active.dataset.value : undefined
+  const lemonSliceFocus = active instanceof HTMLButtonElement && active.matches(".word-lemon-slice button") ? active.dataset.value : undefined
+  const mainRoleFocus = active instanceof HTMLButtonElement && active.matches(".word-main-role button") ? active.dataset.value : undefined
+  const tableDustFocus = active instanceof HTMLButtonElement && active.matches(".word-table-dust button") ? active.dataset.value : undefined
+  const kitchenConditionFocus = active instanceof HTMLButtonElement && active.matches(".word-kitchen-condition button") ? active.dataset.value : undefined
+  const kitchenPlaceFocus = active instanceof HTMLButtonElement && active.matches(".word-kitchen-place button") ? active.dataset.value : undefined
+  const tapWhileFocus = active instanceof HTMLButtonElement && active.matches(".word-tap-while button") ? active.dataset.value : undefined
+  const neededFillFocus = active instanceof HTMLButtonElement && active.matches(".word-needed-fill button") ? active.dataset.value : undefined
+  const vesselDetailFocus = active instanceof HTMLButtonElement && active.matches(".word-vessel-detail button") ? active.dataset.value : undefined
+  const utensilFacingFocus = active instanceof HTMLButtonElement && active.matches(".word-utensil-facing button") ? active.dataset.value : undefined
+  const spoonLengthFocus = active instanceof HTMLButtonElement && active.matches(".word-spoon-length button") ? active.dataset.value : undefined
+  const stickThroughFocus = active instanceof HTMLButtonElement && active.matches(".word-stick-through button") ? active.dataset.value : undefined
+  const eachNapkinFocus = active instanceof HTMLButtonElement && active.matches(".word-each-napkin button") ? active.dataset.value : undefined
+  const jamJarFocus = active instanceof HTMLButtonElement && active.matches(".word-jam-jar button") ? active.dataset.value : undefined
+  const clothesWindowFocus = active instanceof HTMLButtonElement && active.matches(".word-clothes-window button") ? active.dataset.value : undefined
+  const buttonDetailFocus = active instanceof HTMLButtonElement && active.matches(".word-button-detail button") ? active.dataset.value : undefined
+  const plainFabricFocus = active instanceof HTMLButtonElement && active.matches(".word-plain-fabric button") ? active.dataset.value : undefined
+  const hoodScopeFocus = active instanceof HTMLButtonElement && active.matches(".word-hood-scope button") ? active.dataset.value : undefined
+  const woolWarmFocus = active instanceof HTMLButtonElement && active.matches(".word-wool-warm button") ? active.dataset.value : undefined
+  const chairBackFocus = active instanceof HTMLButtonElement && active.matches(".word-chair-back button") ? active.dataset.value : undefined
+  const cyclingLengthFocus = active instanceof HTMLButtonElement && active.matches(".word-cycling-length button") ? active.dataset.value : undefined
+  const hiddenPocketFocus = active instanceof HTMLButtonElement && active.matches(".word-hidden-pocket button") ? active.dataset.value : undefined
+  const curtainDressFocus = active instanceof HTMLButtonElement && active.matches(".word-curtain-dress button") ? active.dataset.value : undefined
+  const stageSuitFocus = active instanceof HTMLButtonElement && active.matches(".word-stage-suit button") ? active.dataset.value : undefined
+  const leftShoeStoneFocus = active instanceof HTMLButtonElement && active.matches(".word-left-shoe-stone button") ? active.dataset.value : undefined
+  const bootMudFocus = active instanceof HTMLButtonElement && active.matches(".word-boot-mud button") ? active.dataset.value : undefined
+  const slipperUnderFocus = active instanceof HTMLButtonElement && active.matches(".word-slipper-under button") ? active.dataset.value : undefined
+  const capIntoFocus = active instanceof HTMLButtonElement && active.matches(".word-cap-into button") ? active.dataset.value : undefined
+  const scarfWrapFocus = active instanceof HTMLButtonElement && active.matches(".word-scarf-wrap button") ? active.dataset.value : undefined
+  const gloveFoundFocus = active instanceof HTMLButtonElement && active.matches(".word-glove-found button") ? active.dataset.value : undefined
+  const beltSupportFocus = active instanceof HTMLButtonElement && active.matches(".word-belt-support button") ? active.dataset.value : undefined
+  const ticketPocketFocus = active instanceof HTMLButtonElement && active.matches(".word-ticket-pocket button") ? active.dataset.value : undefined
+  const zipStateFocus = active instanceof HTMLButtonElement && active.matches(".word-zip-state button") ? active.dataset.value : undefined
+  const helmetAskFocus = active instanceof HTMLButtonElement && active.matches(".word-helmet-ask button") ? active.dataset.value : undefined
+  const gloveFitFocus = active instanceof HTMLButtonElement && active.matches(".word-glove-fit button") ? active.dataset.value : undefined
+  const buttonMatchFocus = active instanceof HTMLButtonElement && active.matches(".word-button-match button") ? active.dataset.value : undefined
+  const cottonShirtFocus = active instanceof HTMLButtonElement && active.matches(".word-cotton-shirt button") ? active.dataset.value : undefined
+  const localWoolFocus = active instanceof HTMLButtonElement && active.matches(".word-local-wool button") ? active.dataset.value : undefined
+  const umbrellaUntilFocus = active instanceof HTMLButtonElement && active.matches(".word-umbrella-until button") ? active.dataset.value : undefined
+  const bodyAlmostFocus = active instanceof HTMLButtonElement && active.matches(".word-body-almost button") ? active.dataset.value : undefined
+  const headStillFocus = active instanceof HTMLButtonElement && active.matches(".word-head-still button") ? active.dataset.value : undefined
+  const faceSplashFocus = active instanceof HTMLButtonElement && active.matches(".word-face-splash button") ? active.dataset.value : undefined
+  const eyeCloseFocus = active instanceof HTMLButtonElement && active.matches(".word-eye-close button") ? active.dataset.value : undefined
+  const lipWhileFocus = active instanceof HTMLButtonElement && active.matches(".word-lip-while button") ? active.dataset.value : undefined
+  const scarfNeckFocus = active instanceof HTMLButtonElement && active.matches(".word-scarf-neck button") ? active.dataset.value : undefined
+  const helpArmFocus = active instanceof HTMLButtonElement && active.matches(".word-help-arm button") ? active.dataset.value : undefined
+  const frameContactFocus = active instanceof HTMLButtonElement && active.matches(".word-frame-contact button") ? active.dataset.value : undefined
+  const fingerAwayFocus = active instanceof HTMLButtonElement && active.matches(".word-finger-away button") ? active.dataset.value : undefined
+  const packHighFocus = active instanceof HTMLButtonElement && active.matches(".word-pack-high button") ? active.dataset.value : undefined
+  const chestRiseFocus = active instanceof HTMLButtonElement && active.matches(".word-chest-rise button") ? active.dataset.value : undefined
+  const apronWaistFocus = active instanceof HTMLButtonElement && active.matches(".word-apron-waist button") ? active.dataset.value : undefined
+  const kneeLandingFocus = active instanceof HTMLButtonElement && active.matches(".word-knee-landing button") ? active.dataset.value : undefined
+  const sceneLabFocus = active instanceof HTMLButtonElement && active.matches(".word-scene-lab button") ? active.dataset.value : undefined
+  const sustainableAndFocus = active instanceof HTMLButtonElement && active.matches(".word-sustainable-and button") ? active.dataset.value : undefined
+  const composeOrderFocus = active instanceof HTMLButtonElement && active.matches(".compose-order button") ? active.dataset.value : undefined
+  const composeFrameFocus = active instanceof HTMLButtonElement && active.matches(".compose-picture button") ? active.dataset.value : undefined
+  const composeTouchesFocus = active instanceof HTMLButtonElement && active.matches(".compose-touches button") ? active.dataset.value : undefined
+  const composeConditionsFocus = active instanceof HTMLButtonElement && active.matches(".compose-conditions button") ? active.dataset.value : undefined
+  const composeWatchFocus = active instanceof HTMLButtonElement && active.matches('.compose-watch button') ? {action:active.dataset.action,value:active.dataset.value} : undefined
+  const composeCoverageFocus = active instanceof HTMLButtonElement && active.matches('.compose-coverage button') ? {action:active.dataset.action,value:active.dataset.value} : undefined
+  const composeOcclusionFocus = active instanceof HTMLButtonElement && active.matches('.compose-occlusion button') ? {action:active.dataset.action,value:active.dataset.value} : undefined
+  const composeBriefFocus = active instanceof HTMLButtonElement && active.matches(".compose-brief button") ? active.dataset.value : undefined
+  const exactAlignmentFocus = active instanceof HTMLButtonElement && active.matches(".word-exact-alignment button") ? active.dataset.value : undefined
+  const nearlyFinishFocus = active instanceof HTMLButtonElement && active.matches(".word-nearly-finish button") ? active.dataset.value : undefined
+  const entranceFacingFocus = active instanceof HTMLButtonElement && active.matches(".word-entrance-facing button") ? active.dataset.value : undefined
+  const freeSundayFocus = active instanceof HTMLButtonElement && active.matches(".word-free-sunday button") ? active.dataset.value : undefined
+  const riverImagineFocus = active instanceof HTMLButtonElement && active.matches(".word-river-imagine button") ? active.dataset.value : undefined
+  const tornMapFocus = active instanceof HTMLButtonElement && active.matches(".word-torn-map button") ? active.dataset.value : undefined
+  const boxFitFocus = active instanceof HTMLButtonElement && active.matches(".word-box-fit button") ? active.dataset.value : undefined
+  const doughEqualFocus = active instanceof HTMLButtonElement && active.matches(".word-dough-equal button") ? active.dataset.value : undefined
+  const postRedactionFocus = active instanceof HTMLButtonElement && active.matches(".word-post-redaction button") ? active.dataset.value : undefined
+  const gateFirmFocus = active instanceof HTMLButtonElement && active.matches(".word-gate-firm button") ? active.dataset.value : undefined
+  const guessScaleFocus = active instanceof HTMLButtonElement && active.matches(".word-guess-scale button") ? active.dataset.value : undefined
+  const stampFocus = active instanceof HTMLButtonElement && active.matches('.word-stamp-placement button') ? active.dataset.value : undefined
+  const eachItemFocus = active instanceof HTMLButtonElement && active.matches('.word-each-item button') ? active.dataset.value : undefined
+  const routeTrafficFocus = active instanceof HTMLButtonElement && active.matches('.word-route-traffic button') ? active.dataset.value : undefined
+  const busBudgetFocus = active instanceof HTMLButtonElement && active.matches('.word-bus-budget button') ? active.dataset.value : undefined
+  const paperUseFocus = active instanceof HTMLButtonElement && active.matches('.word-paper-use button') ? active.dataset.value : undefined
+  const pathStepsFocus = active instanceof HTMLButtonElement && active.matches('.word-path-steps button') ? active.dataset.value : undefined
+  const shapeFocus = active instanceof HTMLButtonElement && active.matches('.word-rectangle-ratio .shape-choice,.word-spot-wings .shape-choice') ? {action:active.dataset.action,value:active.dataset.value} : undefined
+  const wireOrderFocus = active instanceof HTMLButtonElement && active.matches('.word-wire-order .wire-order-control') ? active.dataset.value : undefined
+  const robotWaveFocus = active instanceof HTMLButtonElement && active.matches('.word-robot-wave .robot-wave-control') ? active.dataset.value : undefined
+  const depthLineFocus = active instanceof HTMLButtonElement && active.matches('.word-depth-line .depth-line-control') ? active.dataset.value : undefined
+  const waterPairFocus = active instanceof HTMLButtonElement && active.matches('.word-water-pair .water-pair-control') ? active.dataset.value : undefined
+  const queueMoveFocus = active instanceof HTMLButtonElement && active.matches('.word-queue-move .queue-move-control') ? active.dataset.value : undefined
+  const titleArrowFocus = active instanceof HTMLButtonElement && active.closest('.word-title-arrow') ? active.dataset.value : undefined
   const editing = active instanceof HTMLInputElement || active instanceof HTMLTextAreaElement ? { name: active.name, start: active.selectionStart, end: active.selectionEnd } : null
   const root = document.getElementById('root')!
   const passageScroll=new Map([...root.querySelectorAll<HTMLElement>('[data-passage-key]')].map(e=>[e.dataset.passageKey,e.scrollTop]))
@@ -121,6 +299,182 @@ function render() {
   const body = s.overview ? renderProduct(s, artwork, field) : `<header class="top">${s.back ? '<button class="back" data-action="back" aria-label="返回">‹</button>' : ''}<div class="top-copy">${s.eyebrow ? `<span class="eyebrow">${esc(s.eyebrow)}</span>` : ''}<h1 class="page-title">${esc(s.title)}</h1><p class="muted">${esc(s.subtitle)}</p></div></header>${s.error ? `<p class="notice error" role="alert">${esc(s.error)}</p>` : ''}${s.notice ? `<p class="notice">${esc(s.notice)}</p>` : ''}${s.hero ? `<section class="hero ${esc(s.hero.tone)}"><span class="eyebrow">${esc(s.hero.eyebrow)}</span><h2 class="hero-title">${esc(s.hero.title)}</h2><p class="hero-text">${esc(s.hero.text)}</p><img class="hero-art" src="${esc(artwork(s.hero.art))}" alt=""/>${actions(s.hero.actions)}</section>` : ''}${s.metrics.length ? `<div class="metrics">${s.metrics.map(m => `<div class="metric"><span class="metric-value">${esc(m.value)}</span><span class="muted small">${esc(m.label)}</span></div>`).join('')}</div>` : ''}${s.week ? `<div class="week">${s.week.map(d => `<div class="day ${d.active ? 'active' : ''}"><span>${esc(d.label)}</span><span class="day-dot">${d.active ? '✓' : '·'}</span></div>`).join('')}</div>` : ''}${s.progress ? `<div class="progress-block"><div class="row"><span class="eyebrow">${esc(s.progress.label)}</span><span class="muted">先独立想一想</span></div><div class="track"><div class="fill" style="width:${s.progress.percent}%"></div></div></div>` : ''}${s.fields.length ? `<section class="panel form">${s.fields.map(field).join('')}</section>` : ''}${s.word ? `<section class="panel word-card"><span class="eyebrow">看释义，自己拼一遍</span><h2 class="word-meaning">${esc(s.word.meaning)}</h2><p class="passage">${esc(s.word.example)}</p><p class="muted">${esc(s.word.exampleMeaning)}</p><input class="input answer-input" name="wordAnswer" placeholder="写出英文单词" value="${esc(s.word.answer)}" ${s.word.revealed ? 'disabled' : ''}/>${s.word.revealed ? `<div class="feedback"><span class="word-answer">${esc(s.word.word)}</span>${s.word.audioAvailable ? button({ id: 'play', value: s.word.mediaId, label: '听发音与例句', tone: 'secondary' }) : ''}<p>${esc(s.word.feedback)}</p><p class="muted">${esc(s.word.explanation)}</p></div>` : ''}</section>` : ''}${renderExams(s)}${renderLessonStudio(s, artwork)}${exploration(s)}${question(s)}${s.chips ? `<div class="chips">${s.chips.map(c => `<button class="chip ${c.selected ? 'selected' : ''}" data-action="${esc(c.action)}" data-value="${esc(c.value)}">${esc(c.label)}</button>`).join('')}</div>` : ''}${actions(s.actions)}<div class="cards">${s.cards.map(c => `<section class="panel card ${esc(c.tone)}" data-card="${esc(c.id)}"><div class="card-top">${c.character ? `<span class="character">${esc(c.character)}</span>` : ''}<div class="card-copy">${c.label ? `<span class="eyebrow">${esc(c.label)}</span>` : ''}<h2 class="section-title">${esc(c.title)}</h2></div>${c.tag ? `<span class="tag">${esc(c.tag)}</span>` : ''}</div><p class="muted card-text">${esc(c.text)}</p>${c.progress !== undefined ? `<div class="track"><div class="fill" style="width:${c.progress}%"></div></div>` : ''}${actions(c.actions)}</section>`).join('')}</div>${s.sections?.map(section => `<section class="panel"><h2 class="section-title">${esc(section.title)}</h2><p class="muted">${esc(section.text)}</p></section>`).join('') ?? ''}`
   root.innerHTML = `<main class="app ${s.tabs.length ? 'with-tabs' : ''} ${s.overview ? 'product-app' : ''} ${s.paperSession?'is-paper-session':''} screen-${esc(s.id)}" data-screen="${esc(s.id)}">${setupHeader}${body}${s.tabs.length ? `<nav class="tabbar" aria-label="主导航">${s.tabs.map(t => `<button class="tab ${t.selected ? 'selected' : ''}" aria-current="${t.selected ? 'page' : 'false'}" data-action="navigate" data-value="${esc(t.id)}"><span class="tab-icon"><img src="${artwork('navigation/'+t.id+(t.selected?'-on':''))}" alt=""/></span><span>${esc(t.label)}</span></button>`).join('')}</nav>` : ''}</main>`
   root.querySelectorAll<HTMLElement>('[data-passage-key]').forEach(e=>{e.scrollTop=passageScroll.get(e.dataset.passageKey)??0})
+  if (shadePanelFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-shade-panel [data-value="${CSS.escape(shadePanelFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (observeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-observe [data-value="${CSS.escape(observeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (moleculeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-molecule [data-value="${CSS.escape(moleculeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (cartFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cart [data-value="${CSS.escape(cartFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (patternFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-pattern [data-value="${CSS.escape(patternFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (preferenceFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-preference [data-value="${CSS.escape(preferenceFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (flashFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-flash [data-value="${CSS.escape(flashFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (routeWeatherFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-weather [data-value="${CSS.escape(routeWeatherFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (dottedRouteFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-dotted-route [data-value="${CSS.escape(dottedRouteFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (contributionsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-contributions [data-value="${CSS.escape(contributionsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (curtainExitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-curtain-exit [data-value="${CSS.escape(curtainExitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (interestRolesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-interest-roles [data-value="${CSS.escape(interestRolesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (uArticleFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-u-article [data-value="${CSS.escape(uArticleFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (jarChangeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-jar-change [data-value="${CSS.escape(jarChangeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (leafSimilarFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-leaf-similar [data-value="${CSS.escape(leafSimilarFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (gateConditionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-gate-condition [data-value="${CSS.escape(gateConditionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (regularRepeatFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-regular-repeat [data-value="${CSS.escape(regularRepeatFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (drySeatsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-dry-seats [data-value="${CSS.escape(drySeatsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (actionCountFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-action-count [data-value="${CSS.escape(actionCountFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (carbonDioxideFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-carbon-dioxide [data-value="${CSS.escape(carbonDioxideFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (materialSortFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-material-sort [data-value="${CSS.escape(materialSortFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (supportLinksFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-support-links [data-value="${CSS.escape(supportLinksFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (inlandRouteFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-inland-route [data-value="${CSS.escape(inlandRouteFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (overlapFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-overlap [data-value="${CSS.escape(overlapFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (widthFitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-width-fit [data-value="${CSS.escape(widthFitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (almostLevelFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-almost-level [data-value="${CSS.escape(almostLevelFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (zeroGroupFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-zero-group [data-value="${CSS.escape(zeroGroupFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (pathRoleFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-path-role [data-value="${CSS.escape(pathRoleFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (spatialFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-spatial-frame [data-value="${CSS.escape(spatialFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (relationSceneFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-relation-scene [data-value="${CSS.escape(relationSceneFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (routeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-frame [data-value="${CSS.escape(routeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (timeScopeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-time-scope [data-value="${CSS.escape(timeScopeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (speedMeaningFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-speed-meaning [data-value="${CSS.escape(speedMeaningFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (colourAllocationFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-colour-allocation [data-value="${CSS.escape(colourAllocationFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (lidCoverageFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-lid-coverage [data-value="${CSS.escape(lidCoverageFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (plantNeedsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-plant-needs [data-value="${CSS.escape(plantNeedsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (reportFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-report-frame [data-value="${CSS.escape(reportFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (senseFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sense-frame [data-value="${CSS.escape(senseFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (methodDirectionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-method-direction [data-value="${CSS.escape(methodDirectionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (positionInstructionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-position-instruction [data-value="${CSS.escape(positionInstructionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (forceDirectionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-force-direction [data-value="${CSS.escape(forceDirectionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (everyoneArrivedFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-everyone-arrived [data-value="${CSS.escape(everyoneArrivedFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (actionGoalFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-action-goal [data-value="${CSS.escape(actionGoalFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (entrySequenceFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-entry-sequence [data-value="${CSS.escape(entrySequenceFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (lineIntersectionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-line-intersection [data-value="${CSS.escape(lineIntersectionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (armPoseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-arm-pose [data-value="${CSS.escape(armPoseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (clothPiecesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cloth-pieces [data-value="${CSS.escape(clothPiecesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (cornerFoldFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-corner-fold [data-value="${CSS.escape(cornerFoldFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodSeparationFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-separation [data-value="${CSS.escape(foodSeparationFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (mealReadinessFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-meal-readiness [data-value="${CSS.escape(mealReadinessFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodPortionsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-portions [data-value="${CSS.escape(foodPortionsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (noodleFallFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-noodle-fall [data-value="${CSS.escape(noodleFallFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodRolesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-roles [data-value="${CSS.escape(foodRolesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (remainingTinFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-remaining-tin [data-value="${CSS.escape(remainingTinFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (nearBeforeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-near-before [data-value="${CSS.escape(nearBeforeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodExtentFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-extent [data-value="${CSS.escape(foodExtentFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodNounFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-noun [data-value="${CSS.escape(foodNounFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodReturnFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-return [data-value="${CSS.escape(foodReturnFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodPairingFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-pairing [data-value="${CSS.escape(foodPairingFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodPurposeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-purpose [data-value="${CSS.escape(foodPurposeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (recipeLessFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-recipe-less [data-value="${CSS.escape(recipeLessFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodLayerFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-layer [data-value="${CSS.escape(foodLayerFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodChangeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-change [data-value="${CSS.escape(foodChangeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (fruitPrepFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-fruit-prep [data-value="${CSS.escape(fruitPrepFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (containerFitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-container-fit [data-value="${CSS.escape(containerFitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (fruitFallFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-fruit-fall [data-value="${CSS.escape(fruitFallFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (fruitSceneFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-fruit-scene [data-value="${CSS.escape(fruitSceneFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (stoneSidesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stone-sides [data-value="${CSS.escape(stoneSidesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (softCentreFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-soft-centre [data-value="${CSS.escape(softCentreFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (vegetablePrepFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-vegetable-prep [data-value="${CSS.escape(vegetablePrepFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (vegetableEffectFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-vegetable-effect [data-value="${CSS.escape(vegetableEffectFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (peaMotionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-pea-motion [data-value="${CSS.escape(peaMotionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (foodConditionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-food-condition [data-value="${CSS.escape(foodConditionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (flavourSenseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-flavour-sense [data-value="${CSS.escape(flavourSenseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (heavyForOneFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-heavy-for-one [data-value="${CSS.escape(heavyForOneFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (tasteScopeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-taste-scope [data-value="${CSS.escape(tasteScopeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (ripeNowFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-ripe-now [data-value="${CSS.escape(ripeNowFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (rawBoardFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-raw-board [data-value="${CSS.escape(rawBoardFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (appleRemovalFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-apple-removal [data-value="${CSS.escape(appleRemovalFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (cookingEndpointFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cooking-endpoint [data-value="${CSS.escape(cookingEndpointFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (steamCoverFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-steam-cover [data-value="${CSS.escape(steamCoverFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (gentleHeatFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-gentle-heat [data-value="${CSS.escape(gentleHeatFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (mixBowlFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-mix-bowl [data-value="${CSS.escape(mixBowlFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (textureResultFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-texture-result [data-value="${CSS.escape(textureResultFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (bananaOverFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-banana-over [data-value="${CSS.escape(bananaOverFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (lemonSliceFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-lemon-slice [data-value="${CSS.escape(lemonSliceFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (mainRoleFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-main-role [data-value="${CSS.escape(mainRoleFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (tableDustFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-table-dust [data-value="${CSS.escape(tableDustFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (kitchenConditionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-kitchen-condition [data-value="${CSS.escape(kitchenConditionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (kitchenPlaceFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-kitchen-place [data-value="${CSS.escape(kitchenPlaceFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (tapWhileFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-tap-while [data-value="${CSS.escape(tapWhileFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (neededFillFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-needed-fill [data-value="${CSS.escape(neededFillFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (vesselDetailFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-vessel-detail [data-value="${CSS.escape(vesselDetailFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (utensilFacingFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-utensil-facing [data-value="${CSS.escape(utensilFacingFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (spoonLengthFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-spoon-length [data-value="${CSS.escape(spoonLengthFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (stickThroughFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stick-through [data-value="${CSS.escape(stickThroughFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (eachNapkinFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-each-napkin [data-value="${CSS.escape(eachNapkinFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (jamJarFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-jam-jar [data-value="${CSS.escape(jamJarFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (clothesWindowFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-clothes-window [data-value="${CSS.escape(clothesWindowFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (buttonDetailFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-button-detail [data-value="${CSS.escape(buttonDetailFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (plainFabricFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-plain-fabric [data-value="${CSS.escape(plainFabricFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (hoodScopeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-hood-scope [data-value="${CSS.escape(hoodScopeFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (woolWarmFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-wool-warm [data-value="${CSS.escape(woolWarmFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (chairBackFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-chair-back [data-value="${CSS.escape(chairBackFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (cyclingLengthFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cycling-length [data-value="${CSS.escape(cyclingLengthFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (hiddenPocketFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-hidden-pocket [data-value="${CSS.escape(hiddenPocketFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (curtainDressFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-curtain-dress [data-value="${CSS.escape(curtainDressFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (stageSuitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stage-suit [data-value="${CSS.escape(stageSuitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (leftShoeStoneFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-left-shoe-stone [data-value="${CSS.escape(leftShoeStoneFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (bootMudFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-boot-mud [data-value="${CSS.escape(bootMudFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (slipperUnderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-slipper-under [data-value="${CSS.escape(slipperUnderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (capIntoFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cap-into [data-value="${CSS.escape(capIntoFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (scarfWrapFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-scarf-wrap [data-value="${CSS.escape(scarfWrapFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (gloveFoundFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-glove-found [data-value="${CSS.escape(gloveFoundFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (beltSupportFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-belt-support [data-value="${CSS.escape(beltSupportFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (ticketPocketFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-ticket-pocket [data-value="${CSS.escape(ticketPocketFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (zipStateFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-zip-state [data-value="${CSS.escape(zipStateFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (helmetAskFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-helmet-ask [data-value="${CSS.escape(helmetAskFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (gloveFitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-glove-fit [data-value="${CSS.escape(gloveFitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (buttonMatchFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-button-match [data-value="${CSS.escape(buttonMatchFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (cottonShirtFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-cotton-shirt [data-value="${CSS.escape(cottonShirtFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (localWoolFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-local-wool [data-value="${CSS.escape(localWoolFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (umbrellaUntilFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-umbrella-until [data-value="${CSS.escape(umbrellaUntilFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (bodyAlmostFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-body-almost [data-value="${CSS.escape(bodyAlmostFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (headStillFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-head-still [data-value="${CSS.escape(headStillFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (faceSplashFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-face-splash [data-value="${CSS.escape(faceSplashFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (eyeCloseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-eye-close [data-value="${CSS.escape(eyeCloseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (lipWhileFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-lip-while [data-value="${CSS.escape(lipWhileFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (scarfNeckFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-scarf-neck [data-value="${CSS.escape(scarfNeckFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (helpArmFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-help-arm [data-value="${CSS.escape(helpArmFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (frameContactFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-frame-contact [data-value="${CSS.escape(frameContactFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (fingerAwayFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-finger-away [data-value="${CSS.escape(fingerAwayFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (packHighFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-pack-high [data-value="${CSS.escape(packHighFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (chestRiseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-chest-rise [data-value="${CSS.escape(chestRiseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (apronWaistFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-apron-waist [data-value="${CSS.escape(apronWaistFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (kneeLandingFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-knee-landing [data-value="${CSS.escape(kneeLandingFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (sceneLabFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-scene-lab [data-value="${CSS.escape(sceneLabFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (sustainableAndFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-sustainable-and [data-value="${CSS.escape(sustainableAndFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-order [data-value="${CSS.escape(composeOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeFrameFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-picture [data-value="${CSS.escape(composeFrameFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeTouchesFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-touches [data-value="${CSS.escape(composeTouchesFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeConditionsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-conditions [data-value="${CSS.escape(composeConditionsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeWatchFocus?.action !== undefined && composeWatchFocus.value !== undefined) root.querySelector<HTMLButtonElement>(`.compose-watch [data-action="${CSS.escape(composeWatchFocus.action)}"][data-value="${CSS.escape(composeWatchFocus.value)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeCoverageFocus?.action !== undefined && composeCoverageFocus.value !== undefined) root.querySelector<HTMLButtonElement>(`.compose-coverage [data-action="${CSS.escape(composeCoverageFocus.action)}"][data-value="${CSS.escape(composeCoverageFocus.value)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeOcclusionFocus?.action !== undefined && composeOcclusionFocus.value !== undefined) root.querySelector<HTMLButtonElement>(`.compose-occlusion [data-action="${CSS.escape(composeOcclusionFocus.action)}"][data-value="${CSS.escape(composeOcclusionFocus.value)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (composeBriefFocus !== undefined) root.querySelector<HTMLButtonElement>(`.compose-brief [data-value="${CSS.escape(composeBriefFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (exactAlignmentFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-exact-alignment [data-value="${CSS.escape(exactAlignmentFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (nearlyFinishFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-nearly-finish [data-value="${CSS.escape(nearlyFinishFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (entranceFacingFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-entrance-facing [data-value="${CSS.escape(entranceFacingFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (freeSundayFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-free-sunday [data-value="${CSS.escape(freeSundayFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (riverImagineFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-river-imagine [data-value="${CSS.escape(riverImagineFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (tornMapFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-torn-map [data-value="${CSS.escape(tornMapFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (boxFitFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-box-fit [data-value="${CSS.escape(boxFitFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (doughEqualFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-dough-equal [data-value="${CSS.escape(doughEqualFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (postRedactionFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-post-redaction [data-value="${CSS.escape(postRedactionFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (gateFirmFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-gate-firm [data-value="${CSS.escape(gateFirmFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (guessScaleFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-guess-scale [data-value="${CSS.escape(guessScaleFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (stampFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-stamp-placement [data-value="${CSS.escape(stampFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (eachItemFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-each-item [data-value="${CSS.escape(eachItemFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (routeTrafficFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-route-traffic [data-value="${CSS.escape(routeTrafficFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (busBudgetFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-bus-budget [data-value="${CSS.escape(busBudgetFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (paperUseFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-paper-use [data-value="${CSS.escape(paperUseFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (pathStepsFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-path-steps [data-value="${CSS.escape(pathStepsFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (shapeFocus) root.querySelector<HTMLButtonElement>(`[data-action="${CSS.escape(shapeFocus.action??'')}"][data-value="${CSS.escape(shapeFocus.value??'')}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (wireOrderFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-wire-order [data-value="${CSS.escape(wireOrderFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (robotWaveFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-robot-wave [data-value="${CSS.escape(robotWaveFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (depthLineFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-depth-line [data-value="${CSS.escape(depthLineFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (waterPairFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-water-pair [data-value="${CSS.escape(waterPairFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (queueMoveFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-queue-move [data-value="${CSS.escape(queueMoveFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (shelfRoomFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-shelf-room [data-value="${CSS.escape(shelfRoomFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (fileDeskFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-file-desk [data-value="${CSS.escape(fileDeskFocus)}"]:not(:disabled)`)?.focus({preventScroll:true})
+  if (titleArrowFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-title-arrow [data-value="${CSS.escape(titleArrowFocus)}"]`)?.focus({preventScroll:true})
+  if (offlinePageFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-offline-page .offline-page-control[data-value="${CSS.escape(offlinePageFocus)}"]`)?.focus({preventScroll:true})
+  if (nameGroupFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-name-groups .name-group-choice[data-value="${CSS.escape(nameGroupFocus)}"]`)?.focus({preventScroll:true})
+  if (phoneModeFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-phone-mode .phone-mode-choice[data-value="${CSS.escape(phoneModeFocus)}"]`)?.focus({preventScroll:true})
+  if (printPageFocus !== undefined) root.querySelector<HTMLButtonElement>(`.word-print-pages .print-page[data-value="${CSS.escape(printPageFocus)}"]`)?.focus({preventScroll:true})
   if (editing) { const field = root.querySelector<HTMLInputElement | HTMLTextAreaElement>(`[name="${CSS.escape(editing.name)}"]`); if (field && !field.disabled) { field.focus({ preventScroll: true }); try { field.setSelectionRange(editing.start, editing.end) } catch {} } }
 }
 document.getElementById('root')!.addEventListener('click', e => { const target = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-action]'); if (target && !target.disabled) void app.action(target.dataset.action!, target.dataset.value) })

@@ -1,0 +1,2202 @@
+{
+  "lessonId": "l-v-course-outdoor-land",
+  "reviewState": "draft",
+  "intent": "Teach visible land after elapsed sea time, earth as potting material, soil-test order, excessive wetness for a picnic, a flat stone holding paper, waves against black rock, and wet sand versus thick mud with exact action/time clues.",
+  "picturePurpose": "Original sand/mud material comparison plus three reversible coded condition diagrams, two exact evidence selections and one event-order task; no invented measurements or causal claims.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "从海上到脚下：读懂地面与材料",
+    "instruction": "先排先后、换条件，再从图和原句里找出支持答案的细节。",
+    "items": [
+      {
+        "id": "word-land",
+        "label": "陆地（本句）",
+        "prompt": "在海上多久后能看见什么？看见陆地等于已经上岸吗？",
+        "answer": "land",
+        "caseSensitive": false,
+        "meaning": "陆地（本句）",
+        "before": "We could see ",
+        "after": " after three hours at sea.",
+        "reason": "after three hours是三小时后；could see land只是能看见陆地，不等于已经上岸。",
+        "hint": "先圈时间，再分清“能看见”和“已到达”。",
+        "material": "We could see land after three hours at sea.",
+        "options": [
+          {
+            "id": "visible",
+            "text": "在海上三小时后能看见陆地。",
+            "correct": true,
+            "reason": "保留could see land与after three hours at sea。"
+          },
+          {
+            "id": "arrived",
+            "text": "三小时后已经上岸。",
+            "correct": false,
+            "reason": "能看见陆地不等于已经上岸。"
+          },
+          {
+            "id": "before",
+            "text": "在海上不到三小时就已看见陆地。",
+            "correct": false,
+            "reason": "不到三小时改动了after three hours之后的时间条件。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "在海上多久后能看见什么？看见陆地等于已经上岸吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "时间与能见到的对象",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "能看见，不等于已经抵达。",
+            "wrong": "应保留海上三小时后和能看见陆地，不补上岸或钟点。",
+            "rows": [
+              {
+                "id": "time",
+                "label": "时间条件",
+                "text": "在海上三小时后。",
+                "include": true
+              },
+              {
+                "id": "visible",
+                "label": "能见对象",
+                "text": "能看见陆地。",
+                "include": true
+              },
+              {
+                "id": "arrived",
+                "label": "额外到达状态",
+                "text": "原句说已上岸。",
+                "include": false
+              },
+              {
+                "id": "clock",
+                "label": "额外钟点",
+                "text": "原句给了到岸钟点。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-earth",
+        "label": "泥土（本句）",
+        "prompt": "花盆缺什么？再加一点，还是大量？改条件看看。",
+        "answer": "earth",
+        "caseSensitive": false,
+        "meaning": "泥土（本句）",
+        "before": "The pot needs a little more ",
+        "after": ".",
+        "reason": "花盆里的earth指泥土。a little more是再加一点，不是大量。",
+        "hint": "先找花盆缺什么，再看需要增加多少。",
+        "material": "The pot needs a little more earth.",
+        "options": [
+          {
+            "id": "little-earth",
+            "text": "花盆还需要再加一点泥土。",
+            "correct": true,
+            "reason": "保留needs、a little more与earth的泥土义。"
+          },
+          {
+            "id": "lots",
+            "text": "花盆需要再加大量泥土。",
+            "correct": false,
+            "reason": "大量改变了a little一点。"
+          },
+          {
+            "id": "water",
+            "text": "花盆还需要再加一点水。",
+            "correct": false,
+            "reason": "water水改变了earth泥土。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "花盆缺什么？再加一点，还是大量？改条件看看。",
+          "sceneLab": {
+            "id": "pot-material-and-increment",
+            "title": "花盆需要补什么",
+            "hint": "先选所需材料，再选增加量；图只示意多少。",
+            "wrong": "应是再加一点泥土，不是大量或水。",
+            "axes": [
+              {
+                "id": "material",
+                "label": "补什么",
+                "choices": [
+                  {
+                    "id": "earth",
+                    "label": "泥土"
+                  },
+                  {
+                    "id": "water",
+                    "label": "水"
+                  }
+                ]
+              },
+              {
+                "id": "amount",
+                "label": "再加多少",
+                "choices": [
+                  {
+                    "id": "little",
+                    "label": "一点"
+                  },
+                  {
+                    "id": "lots",
+                    "label": "大量"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "花盆需要补充的材料"
+                  },
+                  {
+                    "id": "pot",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 25,
+                    "width": 52,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pot-name",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 30,
+                    "width": 44,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "花盆"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 49,
+                    "width": 44,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "amount",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "增加量待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|little",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "花盆需要补充的材料"
+                  },
+                  {
+                    "id": "pot",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 25,
+                    "width": 52,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pot-name",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 30,
+                    "width": 44,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "花盆"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 49,
+                    "width": 44,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "amount",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "还需一点（仅示意）"
+                  }
+                ]
+              },
+              {
+                "signature": "?|lots",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "花盆需要补充的材料"
+                  },
+                  {
+                    "id": "pot",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 25,
+                    "width": 52,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pot-name",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 30,
+                    "width": 44,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "花盆"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 49,
+                    "width": 44,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "amount",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "还需大量（仅示意）"
+                  }
+                ]
+              },
+              {
+                "signature": "earth|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "花盆需要补充的材料"
+                  },
+                  {
+                    "id": "pot",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 25,
+                    "width": 52,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pot-name",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 30,
+                    "width": 44,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "花盆"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 49,
+                    "width": 44,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "泥土"
+                  },
+                  {
+                    "id": "amount",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "增加量待选"
+                  }
+                ]
+              },
+              {
+                "signature": "earth|little",
+                "reading": "花盆还需要再加一点泥土。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "花盆需要补充的材料"
+                  },
+                  {
+                    "id": "pot",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 25,
+                    "width": 52,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pot-name",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 30,
+                    "width": 44,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "花盆"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 49,
+                    "width": 44,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "泥土"
+                  },
+                  {
+                    "id": "amount",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "还需一点（仅示意）"
+                  },
+                  {
+                    "id": "increment",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 65,
+                    "width": 12,
+                    "height": 5,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "earth|lots",
+                "reading": "应是再加一点泥土，不是大量或水。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "花盆需要补充的材料"
+                  },
+                  {
+                    "id": "pot",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 25,
+                    "width": 52,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pot-name",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 30,
+                    "width": 44,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "花盆"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 49,
+                    "width": 44,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "泥土"
+                  },
+                  {
+                    "id": "amount",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "还需大量（仅示意）"
+                  },
+                  {
+                    "id": "increment",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 65,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "water|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "花盆需要补充的材料"
+                  },
+                  {
+                    "id": "pot",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 25,
+                    "width": 52,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pot-name",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 30,
+                    "width": 44,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "花盆"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 49,
+                    "width": 44,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水"
+                  },
+                  {
+                    "id": "amount",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "增加量待选"
+                  }
+                ]
+              },
+              {
+                "signature": "water|little",
+                "reading": "应是再加一点泥土，不是大量或水。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "花盆需要补充的材料"
+                  },
+                  {
+                    "id": "pot",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 25,
+                    "width": 52,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pot-name",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 30,
+                    "width": 44,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "花盆"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 49,
+                    "width": 44,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水"
+                  },
+                  {
+                    "id": "amount",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "还需一点（仅示意）"
+                  },
+                  {
+                    "id": "increment",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 65,
+                    "width": 12,
+                    "height": 5,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "water|lots",
+                "reading": "应是再加一点泥土，不是大量或水。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "花盆需要补充的材料"
+                  },
+                  {
+                    "id": "pot",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 25,
+                    "width": 52,
+                    "height": 46,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "pot-name",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 30,
+                    "width": 44,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "花盆"
+                  },
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 49,
+                    "width": 44,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水"
+                  },
+                  {
+                    "id": "amount",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "还需大量（仅示意）"
+                  },
+                  {
+                    "id": "increment",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 65,
+                    "width": 40,
+                    "height": 5,
+                    "tone": "blue"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-soil",
+        "label": "土壤",
+        "prompt": "先选植物还是先检测土壤？把两步排好。",
+        "answer": "soil",
+        "caseSensitive": false,
+        "meaning": "土壤",
+        "before": "Test the ",
+        "after": " before choosing your plants.",
+        "reason": "before把检测放在选植物之前；这是要求，还没有报告检测结果。",
+        "hint": "先找before两边的动作，再排先后。",
+        "material": "Test the soil before choosing your plants.",
+        "options": [
+          {
+            "id": "test-first",
+            "text": "先检测土壤，再选择植物。",
+            "correct": true,
+            "reason": "保留test before choosing的顺序。"
+          },
+          {
+            "id": "choose-first",
+            "text": "先选择植物，再检测土壤。",
+            "correct": false,
+            "reason": "把before之前改成了之后。"
+          },
+          {
+            "id": "fertile",
+            "text": "原句说明土壤已经检测合格且肥沃。",
+            "correct": false,
+            "reason": "要求检测不等于给出肥力或检测结果。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先选植物还是先检测土壤？把两步排好。",
+          "processOrder": {
+            "title": "选植物前先做什么",
+            "layout": "downward",
+            "hint": "按要求排先后，不代表操作已经完成。",
+            "wrong": "先检测土壤，再选择植物。",
+            "events": [
+              {
+                "id": "test",
+                "label": "检测土壤"
+              },
+              {
+                "id": "choose",
+                "label": "选择植物"
+              }
+            ],
+            "sequence": [
+              "test",
+              "choose"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-ground",
+        "label": "地面（本句）",
+        "prompt": "地面怎么了？too wet for把湿度和什么活动连在一起？",
+        "answer": "ground",
+        "caseSensitive": false,
+        "meaning": "地面（本句）",
+        "before": "The ",
+        "after": " is too wet for a picnic.",
+        "reason": "too wet for a picnic：地面湿到不适合野餐。",
+        "hint": "too…for…把地面条件与能否野餐连起来。",
+        "material": "The ground is too wet for a picnic.",
+        "options": [
+          {
+            "id": "too-wet",
+            "text": "地面太湿，不适合野餐。",
+            "correct": true,
+            "reason": "保留too wet与for a picnic的关系。"
+          },
+          {
+            "id": "dry",
+            "text": "地面太干，不适合野餐。",
+            "correct": false,
+            "reason": "dry干改变了wet湿。"
+          },
+          {
+            "id": "suitable",
+            "text": "地面很湿，但原句说明仍适合野餐。",
+            "correct": false,
+            "reason": "too wet for表明湿到不适合，不是仍适合。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "地面怎么了？too wet for把湿度和什么活动连在一起？",
+          "sceneLab": {
+            "id": "ground-condition-and-picnic",
+            "title": "地面条件与野餐",
+            "hint": "换地面条件和野餐结果，看看哪种搭配符合too wet for。",
+            "wrong": "应是太湿、不适合野餐。",
+            "axes": [
+              {
+                "id": "condition",
+                "label": "地面怎么了",
+                "choices": [
+                  {
+                    "id": "wet",
+                    "label": "太湿"
+                  },
+                  {
+                    "id": "dry",
+                    "label": "太干"
+                  }
+                ]
+              },
+              {
+                "id": "suitability",
+                "label": "野餐怎样",
+                "choices": [
+                  {
+                    "id": "unsuitable",
+                    "label": "不适合"
+                  },
+                  {
+                    "id": "suitable",
+                    "label": "仍适合"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地面条件与野餐"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 48,
+                    "width": 88,
+                    "height": 22,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 52,
+                    "width": 76,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "地面待选"
+                  },
+                  {
+                    "id": "suitability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 24,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "野餐适合程度待选"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不测湿度，不推断其他活动"
+                  }
+                ]
+              },
+              {
+                "signature": "?|unsuitable",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地面条件与野餐"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 48,
+                    "width": 88,
+                    "height": 22,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 52,
+                    "width": 76,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "地面待选"
+                  },
+                  {
+                    "id": "suitability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 24,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "不适合野餐"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不测湿度，不推断其他活动"
+                  }
+                ]
+              },
+              {
+                "signature": "?|suitable",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地面条件与野餐"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 48,
+                    "width": 88,
+                    "height": 22,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 52,
+                    "width": 76,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "地面待选"
+                  },
+                  {
+                    "id": "suitability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 24,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "仍适合野餐"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不测湿度，不推断其他活动"
+                  }
+                ]
+              },
+              {
+                "signature": "wet|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地面条件与野餐"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 48,
+                    "width": 88,
+                    "height": 22,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 52,
+                    "width": 76,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "太湿"
+                  },
+                  {
+                    "id": "suitability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 24,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "野餐适合程度待选"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不测湿度，不推断其他活动"
+                  },
+                  {
+                    "id": "surface-condition",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 68,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "wet|unsuitable",
+                "reading": "地面太湿，不适合野餐。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地面条件与野餐"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 48,
+                    "width": 88,
+                    "height": 22,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 52,
+                    "width": 76,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "太湿"
+                  },
+                  {
+                    "id": "suitability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 24,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "不适合野餐"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不测湿度，不推断其他活动"
+                  },
+                  {
+                    "id": "surface-condition",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 68,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "wet|suitable",
+                "reading": "应是太湿、不适合野餐。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地面条件与野餐"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 48,
+                    "width": 88,
+                    "height": 22,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 52,
+                    "width": 76,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "太湿"
+                  },
+                  {
+                    "id": "suitability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 24,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "仍适合野餐"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不测湿度，不推断其他活动"
+                  },
+                  {
+                    "id": "surface-condition",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 68,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "dry|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地面条件与野餐"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 48,
+                    "width": 88,
+                    "height": 22,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 52,
+                    "width": 76,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "太干"
+                  },
+                  {
+                    "id": "suitability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 24,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "野餐适合程度待选"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不测湿度，不推断其他活动"
+                  },
+                  {
+                    "id": "surface-condition",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 68,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "dry|unsuitable",
+                "reading": "应是太湿、不适合野餐。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地面条件与野餐"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 48,
+                    "width": 88,
+                    "height": 22,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 52,
+                    "width": 76,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "太干"
+                  },
+                  {
+                    "id": "suitability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 24,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "不适合野餐"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不测湿度，不推断其他活动"
+                  },
+                  {
+                    "id": "surface-condition",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 68,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "dry|suitable",
+                "reading": "应是太湿、不适合野餐。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地面条件与野餐"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 48,
+                    "width": 88,
+                    "height": 22,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 52,
+                    "width": 76,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "太干"
+                  },
+                  {
+                    "id": "suitability",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 24,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "仍适合野餐"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不测湿度，不推断其他活动"
+                  },
+                  {
+                    "id": "surface-condition",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 68,
+                    "width": 80,
+                    "height": 2,
+                    "tone": "muted"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-stone",
+        "label": "一块石头（本句）",
+        "prompt": "石头是扁平还是球形？它压住了什么？",
+        "answer": "stone",
+        "caseSensitive": false,
+        "meaning": "一块石头（本句）",
+        "before": "A flat ",
+        "after": " held the paper in place.",
+        "reason": "flat说扁平；圆形轮廓也可能扁平。held the paper in place是把纸固定住。",
+        "hint": "看扁平还是球形，再核对压住的是纸还是树叶。",
+        "material": "A flat stone held the paper in place.",
+        "options": [
+          {
+            "id": "flat-paper",
+            "text": "一块扁石头压住了纸。",
+            "correct": true,
+            "reason": "保留flat stone与held the paper in place。"
+          },
+          {
+            "id": "round",
+            "text": "一块球形石头压住了纸。",
+            "correct": false,
+            "reason": "球形不符合flat扁平。"
+          },
+          {
+            "id": "leaf",
+            "text": "一块扁石头压住了树叶。",
+            "correct": false,
+            "reason": "leaf树叶改变了paper纸。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "石头是扁平还是球形？它压住了什么？",
+          "sceneLab": {
+            "id": "stone-shape-and-held-object",
+            "title": "形状与固定对象",
+            "hint": "切换扁平／球形和纸／树叶，核对flat stone与paper。",
+            "wrong": "应是一块扁石头压住纸，不能换成球形石头或树叶。",
+            "axes": [
+              {
+                "id": "shape",
+                "label": "石头形状",
+                "choices": [
+                  {
+                    "id": "flat",
+                    "label": "扁平"
+                  },
+                  {
+                    "id": "round",
+                    "label": "球形"
+                  }
+                ]
+              },
+              {
+                "id": "object",
+                "label": "压住什么",
+                "choices": [
+                  {
+                    "id": "paper",
+                    "label": "纸"
+                  },
+                  {
+                    "id": "leaf",
+                    "label": "树叶"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石头压住什么"
+                  },
+                  {
+                    "id": "object-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  },
+                  {
+                    "id": "shape-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "形状待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|paper",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石头压住什么"
+                  },
+                  {
+                    "id": "object-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "纸"
+                  },
+                  {
+                    "id": "shape-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "形状待选"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 61,
+                    "width": 76,
+                    "height": 10,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "?|leaf",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石头压住什么"
+                  },
+                  {
+                    "id": "object-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树叶"
+                  },
+                  {
+                    "id": "shape-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "形状待选"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "ellipse",
+                    "x": 12,
+                    "y": 61,
+                    "width": 76,
+                    "height": 10,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "flat|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石头压住什么"
+                  },
+                  {
+                    "id": "object-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  },
+                  {
+                    "id": "shape-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "扁石头"
+                  },
+                  {
+                    "id": "stone",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 48,
+                    "width": 30,
+                    "height": 13,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "flat|paper",
+                "reading": "一块扁石头压住了纸。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石头压住什么"
+                  },
+                  {
+                    "id": "object-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "纸"
+                  },
+                  {
+                    "id": "shape-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "扁石头"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 61,
+                    "width": 76,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "stone",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 48,
+                    "width": 30,
+                    "height": 13,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "flat|leaf",
+                "reading": "应是一块扁石头压住纸，不能换球形石头或树叶。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石头压住什么"
+                  },
+                  {
+                    "id": "object-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树叶"
+                  },
+                  {
+                    "id": "shape-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "扁石头"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "ellipse",
+                    "x": 12,
+                    "y": 61,
+                    "width": 76,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "stone",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 48,
+                    "width": 30,
+                    "height": 13,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "round|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石头压住什么"
+                  },
+                  {
+                    "id": "object-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  },
+                  {
+                    "id": "shape-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球形石头"
+                  },
+                  {
+                    "id": "stone",
+                    "kind": "ellipse",
+                    "x": 42,
+                    "y": 39,
+                    "width": 16,
+                    "height": 22,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "round|paper",
+                "reading": "应是一块扁石头压住纸，不能换球形石头或树叶。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石头压住什么"
+                  },
+                  {
+                    "id": "object-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "纸"
+                  },
+                  {
+                    "id": "shape-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球形石头"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 61,
+                    "width": 76,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "stone",
+                    "kind": "ellipse",
+                    "x": 42,
+                    "y": 39,
+                    "width": 16,
+                    "height": 22,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "round|leaf",
+                "reading": "应是一块扁石头压住纸，不能换球形石头或树叶。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石头压住什么"
+                  },
+                  {
+                    "id": "object-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树叶"
+                  },
+                  {
+                    "id": "shape-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "球形石头"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "ellipse",
+                    "x": 12,
+                    "y": 61,
+                    "width": 76,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "stone",
+                    "kind": "ellipse",
+                    "x": 42,
+                    "y": 39,
+                    "width": 16,
+                    "height": 22,
+                    "tone": "muted"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-rock",
+        "label": "岩石（本句）",
+        "prompt": "谁撞击谁？black描述什么？别把rock看成摇动。",
+        "answer": "rock",
+        "caseSensitive": false,
+        "meaning": "岩石（本句）",
+        "before": "The waves crashed against the black ",
+        "after": ".",
+        "reason": "black修饰rock岩石；crashed against说明海浪撞上它。这里rock不是“摇动”。",
+        "hint": "看谁撞谁，再看black修饰哪个词。",
+        "material": "The waves crashed against the black rock.",
+        "options": [
+          {
+            "id": "black-rock",
+            "text": "海浪撞击黑色岩石。",
+            "correct": true,
+            "reason": "保留waves、crashed against与black rock。"
+          },
+          {
+            "id": "white",
+            "text": "海浪撞击白色岩石。",
+            "correct": false,
+            "reason": "white白改变了black黑。"
+          },
+          {
+            "id": "rocking",
+            "text": "原句说黑色的海浪在摇摆。",
+            "correct": false,
+            "reason": "black描述rock岩石；rock在这里不是动词摇摆。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁撞击谁？black描述什么？别把rock看成摇动。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "动作对象与颜色",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "谁撞谁，颜色修饰谁，都从句子找。",
+            "wrong": "应圈出海浪撞岩石、岩石黑色；不补断裂或浪高。",
+            "rows": [
+              {
+                "id": "contact",
+                "label": "动作",
+                "text": "海浪撞击岩石。",
+                "include": true
+              },
+              {
+                "id": "colour",
+                "label": "岩石颜色",
+                "text": "岩石是黑色的。",
+                "include": true
+              },
+              {
+                "id": "broken",
+                "label": "额外结果",
+                "text": "原句说岩石被撞碎。",
+                "include": false
+              },
+              {
+                "id": "height",
+                "label": "额外数值",
+                "text": "原句给了浪高。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-sand",
+        "label": "沙",
+        "prompt": "先认湿沙，再读任务：要在上面画什么？",
+        "answer": "sand",
+        "caseSensitive": false,
+        "meaning": "沙",
+        "before": "Draw a circle in the wet ",
+        "after": ".",
+        "reason": "sand是沙，mud是泥；Draw a circle是画圆的要求，不代表已经画完。",
+        "hint": "先辨材料，再从circle核对画什么。",
+        "material": "Draw a circle in the wet sand.",
+        "options": [
+          {
+            "id": "sand",
+            "text": "在湿沙上画圆的要求。",
+            "correct": true,
+            "reason": "sand是沙；circle是圆，Draw是要求。"
+          },
+          {
+            "id": "mud",
+            "text": "在厚泥上画圆的要求。",
+            "correct": false,
+            "reason": "mud泥改变了sand沙。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先认湿沙，再读任务：要在上面画什么？",
+          "art": {
+            "asset": "lesson-sand-mud-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创双幅材料对照：左侧浅色细颗粒湿沙与少量海水，右侧草边小路覆盖深褐色黏稠厚泥；无文字、人物、画好的形状或时间标记。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "sand-target",
+                "option": "sand",
+                "label": "湿沙",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              },
+              {
+                "id": "mud-target",
+                "option": "mud",
+                "label": "厚泥",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-mud",
+        "label": "泥；泥浆",
+        "prompt": "先认厚泥，再核对覆盖哪里、发生在暴风雨前还是后。",
+        "answer": "mud",
+        "caseSensitive": false,
+        "meaning": "泥；泥浆",
+        "before": "Thick ",
+        "after": " covered the path after the storm.",
+        "reason": "thick mud是厚泥；after the storm是暴风雨后。",
+        "hint": "材料、覆盖的地方和时间，要各核对一次。",
+        "material": "Thick mud covered the path after the storm.",
+        "options": [
+          {
+            "id": "mud",
+            "text": "暴风雨后厚泥覆盖了小路。",
+            "correct": true,
+            "reason": "保留thick mud、covered the path和after the storm。"
+          },
+          {
+            "id": "sand",
+            "text": "暴风雨后湿沙覆盖了小路。",
+            "correct": false,
+            "reason": "sand沙改变了mud泥。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先认厚泥，再核对覆盖哪里、发生在暴风雨前还是后。",
+          "art": {
+            "asset": "lesson-sand-mud-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创双幅材料对照：左侧浅色细颗粒湿沙与少量海水，右侧草边小路覆盖深褐色黏稠厚泥；无文字、人物、画好的形状或时间标记。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "sand-target",
+                "option": "sand",
+                "label": "湿沙",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              },
+              {
+                "id": "mud-target",
+                "option": "mud",
+                "label": "厚泥",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-outdoor-land-transfer",
+      "topicId": "v-course-outdoor-land",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "先后、形状和时间都变了，哪组英文保留了三条新信息？",
+      "passage": "三条新信息\n先选择植物，再检测土壤。在湿沙上画一个正方形。暴风雨前，厚泥就覆盖了小路。\n词语提示：square 正方形；before 之前；testing 检测。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Test the soil before choosing your plants. Draw a square in the wet sand. Thick mud covered the path before the storm."
+        },
+        {
+          "id": "b",
+          "text": "Choose your plants before testing the soil. Draw a square in the wet sand. Thick mud covered the path before the storm."
+        },
+        {
+          "id": "c",
+          "text": "Choose your plants before testing the soil. Draw a circle in the wet sand. Thick mud covered the path before the storm."
+        },
+        {
+          "id": "d",
+          "text": "Choose your plants before testing the soil. Draw a square in the wet sand. Thick mud covered the path after the storm."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Choose your plants before testing the soil. Draw a square in the wet sand. Thick mud covered the path before the storm."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐项核对新要求，不照搬上一题的顺序、形状或时间。",
+        "steps": [
+          {
+            "text": "先选择植物，再检测土壤：Choose your plants before testing the soil。",
+            "reason": "新要求让选择在先，检测在后；不能沿用先检测。"
+          },
+          {
+            "text": "在湿沙上画正方形：Draw a square in the wet sand。",
+            "reason": "square是正方形；新要求不是circle圆。"
+          },
+          {
+            "text": "暴风雨前厚泥已覆盖小路：Thick mud covered the path before the storm。",
+            "reason": "before是之前；本题不是原句中的after之后。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "Test…before choosing把先选择再检测改回先检测。"
+          },
+          {
+            "option": "c",
+            "reason": "circle把正方形改成圆。"
+          },
+          {
+            "option": "d",
+            "reason": "after把暴风雨前改成暴风雨后。"
+          }
+        ],
+        "pitfall": "熟悉词语不代表条件不变；顺序、形状与时间要各核对一次。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三条新条件",
+          "segments": [
+            {
+              "text": "choose plants → test soil",
+              "role": "evidence",
+              "note": "先选择，后检测"
+            },
+            {
+              "text": "square → wet sand",
+              "role": "evidence",
+              "note": "正方形；湿沙"
+            },
+            {
+              "text": "mud covered path → storm",
+              "role": "evidence",
+              "note": "泥覆盖在先，暴风雨在后"
+            }
+          ],
+          "caption": "排序与画图是要求；只按本题条件作答，不补检测结果或泥层数值。"
+        },
+        "transfer": "如果把before改成after，哪一件事的先后发生变化？"
+      }
+    }
+  }
+}

@@ -1,0 +1,625 @@
+{
+  "lessonId": "l-v-course-core-actions-4",
+  "reviewState": "draft",
+  "intent": "Individually distinguish speech requests, discussion topics, asking locations, unanswered visibility, targeted visual attention, hearing claims, listening for targets and linking feel plus adjective.",
+  "picturePurpose": "Original leaf art supplies an exact edge-versus-midrib task; coded written frames distinguish asking, attentive listening and expected touch without fabricated sensory evidence.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "问什么？看哪里？听见了吗？",
+    "instruction": "圈线索、点叶片、修句架。先分清要求与结果，再拼写并写自己的句子。声音词义任务只读文字，不播放音频。",
+    "items": [
+      {
+        "id": "word-speak",
+        "label": "说话（本句）",
+        "prompt": "说慢一些，是改语速还是改音量？圈出本句的要求与时段。",
+        "answer": "speak",
+        "caseSensitive": false,
+        "meaning": "说话（本句）",
+        "before": "Please ",
+        "after": " slowly during the announcement.",
+        "reason": "speak slowly要求说慢些，during the announcement指播报通知时。",
+        "hint": "这是语速要求，没有给出实际播报结果。",
+        "material": "Please speak slowly during the announcement.",
+        "wordDecision": {
+          "prompt": "说慢一些，是改语速还是改音量？圈出本句的要求与时段。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "要求和时段都保留",
+            "prompt": "圈出文字明确给出的两点。",
+            "hint": "没有实际录音、词速或完成记录。",
+            "wrong": "语速要慢，时段是播报通知时；音量更大不是本句要求。",
+            "rows": [
+              {
+                "id": "rate",
+                "label": "语速",
+                "text": "说慢些。",
+                "include": true
+              },
+              {
+                "id": "time",
+                "label": "时段",
+                "text": "播报通知时。",
+                "include": true
+              },
+              {
+                "id": "volume",
+                "label": "额外要求",
+                "text": "必须提高音量。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "slow",
+            "text": "播报通知时说慢些。",
+            "correct": true,
+            "reason": "slowly说的是语速。"
+          },
+          {
+            "id": "loud",
+            "text": "必须比原来更大声。",
+            "correct": false,
+            "reason": "本句没有loudly或更大音量的要求。"
+          },
+          {
+            "id": "done",
+            "text": "已经按指定语速播报完。",
+            "correct": false,
+            "reason": "要求不等于实际完成。"
+          }
+        ],
+        "ownForms": [
+          "speak",
+          "speaks",
+          "spoke",
+          "spoken",
+          "speaking"
+        ]
+      },
+      {
+        "id": "word-talk",
+        "label": "谈论路线（本句）",
+        "prompt": "about后面接的是话题还是交谈对象？圈出原句明确说的两点。",
+        "answer": "talk",
+        "caseSensitive": false,
+        "meaning": "谈论路线（本句）",
+        "before": "We need to ",
+        "after": " about tomorrow's route.",
+        "reason": "talk about tomorrow's route说谈论的话题是明天的路线。",
+        "hint": "about后是话题；交谈对象和讨论结果没有给出。",
+        "material": "We need to talk about tomorrow's route.",
+        "wordDecision": {
+          "prompt": "about后面接的是话题还是交谈对象？圈出原句明确说的两点。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "需要谈什么？",
+            "prompt": "圈出需要与话题。",
+            "hint": "交谈对象和讨论结果没有提供。",
+            "wrong": "原句给出谈论需要和路线话题，没说已经谈妥。",
+            "rows": [
+              {
+                "id": "need",
+                "label": "需要",
+                "text": "需要交谈。",
+                "include": true
+              },
+              {
+                "id": "topic",
+                "label": "话题",
+                "text": "明天的路线。",
+                "include": true
+              },
+              {
+                "id": "result",
+                "label": "额外结果",
+                "text": "路线已经讨论确定。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "topic",
+            "text": "需要谈谈明天的路线。",
+            "correct": true,
+            "reason": "need to给出需要，about后给出话题。"
+          },
+          {
+            "id": "partner",
+            "text": "已经安排好明天再与大家交谈。",
+            "correct": false,
+            "reason": "tomorrow’s修饰route，指明天的路线，不是说交谈必须在明天。"
+          },
+          {
+            "id": "done",
+            "text": "所有人已经谈好并确定了路线。",
+            "correct": false,
+            "reason": "need to talk不等于已经谈完。"
+          }
+        ],
+        "ownForms": [
+          "talk",
+          "talks",
+          "talked",
+          "talking"
+        ]
+      },
+      {
+        "id": "word-ask",
+        "label": "询问地点（本句）",
+        "prompt": "是问管理员把书放哪里，还是请管理员去放书？点句架比较。",
+        "answer": "Ask",
+        "caseSensitive": true,
+        "meaning": "询问地点（本句）",
+        "before": "",
+        "after": " the librarian where to leave the books.",
+        "reason": "Ask the librarian where to leave the books是在询问放书地点。",
+        "hint": "where to leave问放书地点；句首Ask大写。",
+        "material": "Ask the librarian where to leave the books.",
+        "wordDecision": {
+          "prompt": "是问管理员把书放哪里，还是请管理员去放书？点句架比较。",
+          "senseFrame": {
+            "kind": "ask",
+            "title": "问地点，还是请人做事？",
+            "hint": "比较书面句架；实际放书地点没有提供。",
+            "wrong": "本句有where，是询问在哪里放书，不是请管理员放书，也没有宣布地点已知。"
+          }
+        },
+        "options": [
+          {
+            "id": "where",
+            "text": "向管理员询问放书地点。",
+            "correct": true,
+            "reason": "where to leave是询问的内容。"
+          },
+          {
+            "id": "request",
+            "text": "要求管理员现在把书放好。",
+            "correct": false,
+            "reason": "这是Ask the librarian to leave the books的另一种要求，漏掉本句where。"
+          },
+          {
+            "id": "known",
+            "text": "已经明确知道应该放在蓝色书架。",
+            "correct": false,
+            "reason": "原句没有地点答案，更没有蓝色书架。"
+          }
+        ],
+        "ownForms": [
+          "ask",
+          "asks",
+          "asked",
+          "asking"
+        ]
+      },
+      {
+        "id": "word-see",
+        "label": "看见（本句）",
+        "prompt": "Can you see…是一个问题：能直接断定已经看见灯塔吗？",
+        "answer": "see",
+        "caseSensitive": false,
+        "meaning": "看见（本句）",
+        "before": "Can you ",
+        "after": " the lighthouse from here?",
+        "reason": "本句问从这里能否看见灯塔，can后用原形see。",
+        "hint": "can后用原形see；是否看得见还没有回答。",
+        "material": "Can you see the lighthouse from here?",
+        "wordDecision": {
+          "prompt": "Can you see…是一个问题：能直接断定已经看见灯塔吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问了什么，回答了吗？",
+            "prompt": "圈出对象与仍待回答的信息。",
+            "hint": "没有距离、实际视野或肯定回答。",
+            "wrong": "对象是灯塔，是否看得见还在询问，不能自动回答看见了。",
+            "rows": [
+              {
+                "id": "object",
+                "label": "对象",
+                "text": "从这里看灯塔。",
+                "include": true
+              },
+              {
+                "id": "unknown",
+                "label": "未给出的答案",
+                "text": "是否看得见，尚未回答。",
+                "include": true
+              },
+              {
+                "id": "yes",
+                "label": "额外结论",
+                "text": "所有人都已经看见。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "询问从这里是否能看见灯塔。",
+            "correct": true,
+            "reason": "保留Can you…?的问句。"
+          },
+          {
+            "id": "yes",
+            "text": "已经肯定所有人都看见了。",
+            "correct": false,
+            "reason": "问句没有给出肯定回答。"
+          },
+          {
+            "id": "past",
+            "text": "can后必须用过去式saw。",
+            "correct": false,
+            "reason": "can后用原形see。"
+          }
+        ],
+        "ownForms": [
+          "see",
+          "sees",
+          "saw",
+          "seen",
+          "seeing"
+        ]
+      },
+      {
+        "id": "word-look",
+        "label": "仔细看（本句）",
+        "prompt": "点出edge：应该仔细看叶子的边缘，还是正中的主脉？",
+        "answer": "Look",
+        "caseSensitive": true,
+        "meaning": "仔细看（本句）",
+        "before": "",
+        "after": " carefully at the edge of the leaf.",
+        "reason": "Look carefully at the edge of the leaf要求仔细看叶子外缘。",
+        "hint": "look at接观看对象；句首Look大写。",
+        "material": "Look carefully at the edge of the leaf.",
+        "wordDecision": {
+          "prompt": "点出edge：应该仔细看叶子的边缘，还是正中的主脉？",
+          "art": {
+            "alt": "浅蓝背景上，一片完整绿叶斜向右上，锯齿状外缘与中央主脉清楚可辨。",
+            "targets": [
+              {
+                "id": "edge",
+                "label": "边缘",
+                "labelPosition": "top",
+                "left": 68,
+                "top": 3,
+                "width": 27,
+                "height": 94,
+                "option": "edge"
+              },
+              {
+                "id": "vein",
+                "label": "主脉",
+                "labelPosition": "top",
+                "left": 38,
+                "top": 3,
+                "width": 27,
+                "height": 94,
+                "option": "vein"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "edge",
+                "caption": "edge是叶片外缘；示意框跨过绿叶与背景的边界，不是中央主脉。",
+                "regions": [
+                  {
+                    "id": "margin",
+                    "label": "外缘",
+                    "left": 76,
+                    "top": 35,
+                    "width": 6,
+                    "height": 24
+                  }
+                ]
+              },
+              {
+                "option": "vein",
+                "caption": "主脉在叶片内部，不能代替本句要求观察的edge。",
+                "regions": [
+                  {
+                    "id": "midrib",
+                    "label": "主脉",
+                    "left": 44,
+                    "top": 43,
+                    "width": 15,
+                    "height": 15
+                  }
+                ]
+              }
+            ],
+            "asset": "lesson-leaf-margin",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "pictureOnly": true
+          }
+        },
+        "options": [
+          {
+            "id": "edge",
+            "text": "仔细看叶子边缘。",
+            "correct": true,
+            "reason": "edge是外缘，look at表示把注意力指向对象。"
+          },
+          {
+            "id": "vein",
+            "text": "只看正中的主脉。",
+            "correct": false,
+            "reason": "主脉在叶片内部，不是edge。"
+          }
+        ],
+        "ownForms": [
+          "look",
+          "looks",
+          "looked",
+          "looking"
+        ]
+      },
+      {
+        "id": "word-hear",
+        "label": "听见（本句）",
+        "prompt": "could hear说了什么？圈出听见的内容和声音传来的通路。",
+        "answer": "hear",
+        "caseSensitive": false,
+        "meaning": "听见（本句）",
+        "before": "We could ",
+        "after": " music through the open window.",
+        "reason": "could hear music表示能听见音乐，through the open window说声音经开着的窗传来。",
+        "hint": "could后用原形hear；没有给出曲名或演奏者。",
+        "material": "We could hear music through the open window.",
+        "wordDecision": {
+          "prompt": "could hear说了什么？圈出听见的内容和声音传来的通路。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "内容与通路分开看",
+            "prompt": "圈出文字明确说的两点。",
+            "hint": "不补演奏者、曲名或专心程度。",
+            "wrong": "本句给出听见的内容和声音通路，没有说一直在专心听。",
+            "rows": [
+              {
+                "id": "content",
+                "label": "内容",
+                "text": "能听见音乐。",
+                "include": true
+              },
+              {
+                "id": "path",
+                "label": "通路",
+                "text": "经由开着的窗。",
+                "include": true
+              },
+              {
+                "id": "player",
+                "label": "额外动作",
+                "text": "一直在专心听音乐。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "music",
+            "text": "能透过开着的窗听见音乐。",
+            "correct": true,
+            "reason": "music是听见的内容，open window是通路。"
+          },
+          {
+            "id": "player",
+            "text": "我们一直在专心听这首音乐。",
+            "correct": false,
+            "reason": "hear说明听见，不能仅凭本句断定一直在专心听。"
+          },
+          {
+            "id": "past",
+            "text": "could后用过去式heard。",
+            "correct": false,
+            "reason": "could后用原形hear，不用heard。"
+          }
+        ],
+        "ownForms": [
+          "hear",
+          "hears",
+          "heard",
+          "hearing"
+        ]
+      },
+      {
+        "id": "word-listen",
+        "label": "留意听（本句）",
+        "prompt": "listen for是留意目标声音，还是已经听见？点句架看差别。",
+        "answer": "Listen",
+        "caseSensitive": true,
+        "meaning": "留意听（本句）",
+        "before": "",
+        "after": " for the sound of running water.",
+        "reason": "Listen for the sound of running water要求留意听流水声。",
+        "hint": "listen to也是合乎语法的表达；本句for侧重留意目标。句首Listen大写。",
+        "material": "Listen for the sound of running water.",
+        "wordDecision": {
+          "prompt": "listen for是留意目标声音，还是已经听见？点句架看差别。",
+          "senseFrame": {
+            "kind": "listen",
+            "title": "留意目标，还是已经听见？",
+            "hint": "只比较书面意思；不播放声音，不记录听力成绩。",
+            "wrong": "本句listen for要求留意目标声音，不是已经听见；listen to本身也有合乎语法的其他用法。"
+          }
+        },
+        "options": [
+          {
+            "id": "target",
+            "text": "留意听，等待辨出流水声。",
+            "correct": true,
+            "reason": "保留for指向目标声音的侧重。"
+          },
+          {
+            "id": "heard",
+            "text": "已经确认听见了流水声。",
+            "correct": false,
+            "reason": "要求不等于已经听见。"
+          },
+          {
+            "id": "ban",
+            "text": "任何句子都绝不允许写listen to。",
+            "correct": false,
+            "reason": "listen to有合乎语法的用法，不能绝对排除。"
+          }
+        ],
+        "ownForms": [
+          "listen",
+          "listens",
+          "listened",
+          "listening"
+        ]
+      },
+      {
+        "id": "word-feel",
+        "label": "摸起来（本句）",
+        "prompt": "feel后接warm还是warmly？先看本句在描述什么。",
+        "answer": "feel",
+        "caseSensitive": false,
+        "meaning": "摸起来（本句）",
+        "before": "The stone should ",
+        "after": " warm in your hand.",
+        "reason": "should feel warm：情态动词后用feel原形，feel后用形容词warm。",
+        "hint": "should后用原形feel，feel后用形容词warm。",
+        "material": "The stone should feel warm in your hand.",
+        "wordDecision": {
+          "prompt": "feel后接warm还是warmly？先看本句在描述什么。",
+          "senseFrame": {
+            "kind": "feel",
+            "title": "描述摸起来怎样，用哪个词？",
+            "hint": "修复文字搭配；should表达预期，不是触摸或温度记录。",
+            "wrong": "本句should后用原形feel，再接形容词warm，不写warmly或should is warm。"
+          }
+        },
+        "options": [
+          {
+            "id": "warm",
+            "text": "摸起来应该是温暖的，用feel warm。",
+            "correct": true,
+            "reason": "warm是描述感受的形容词。"
+          },
+          {
+            "id": "warmly",
+            "text": "本句必须用副词warmly描述石头。",
+            "correct": false,
+            "reason": "这里feel是系动词，后面用形容词warm。"
+          },
+          {
+            "id": "measured",
+            "text": "已经摸过并确认石头是温热的。",
+            "correct": false,
+            "reason": "should feel表达预期，不是已经触摸确认的结果。"
+          }
+        ],
+        "ownForms": [
+          "feel",
+          "feels",
+          "felt",
+          "feeling"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-core-actions-4-transfer",
+      "topicId": "v-course-core-actions",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪组三句保留了要求与预期，也用对了搭配？",
+      "passage": "运动会准备\n请向教练询问锥筒放在哪里；地点未给出。留意听铃声，不代表已经听见。这块布摸起来应该是柔软的；没有提供实测或实际触摸记录。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ask the coach where to put the cones. Listen for the sound of a bell. The cloth should feel softly."
+        },
+        {
+          "id": "b",
+          "text": "Ask the coach where to put the cones. Listen for the sound of a bell. The cloth should feel soft."
+        },
+        {
+          "id": "c",
+          "text": "Ask the coach to put the cones away. Listen for the sound of a bell. The cloth should feel soft."
+        },
+        {
+          "id": "d",
+          "text": "Ask the coach where to put the cones. We have already heard the bell. The cloth should feel soft."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Ask the coach where to put the cones. Listen for the sound of a bell. The cloth should feel soft."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先看是在询问、要求留意，还是已发生的结果；再核对feel后的词。",
+        "steps": [
+          {
+            "text": "询问锥筒放哪里，用Ask the coach where to put the cones。",
+            "reason": "where to put是要问的信息，不是请教练收拾锥筒。"
+          },
+          {
+            "text": "留意铃声用Listen for；触感预期用should feel soft。",
+            "reason": "要求不等于已经听见，系动词feel后接形容词soft。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "softly是副词；本句feel后应写形容词soft。"
+          },
+          {
+            "option": "c",
+            "reason": "把询问地点改成请教练收好锥筒。"
+          },
+          {
+            "option": "d",
+            "reason": "把留意听铃声的要求改成了已经听见。"
+          }
+        ],
+        "pitfall": "把询问信息改成请人做事，把留意听改成已经听见，或在feel后错用副词。",
+        "visual": {
+          "kind": "comparison",
+          "title": "信息、目标声音与触感分开看",
+          "segments": [
+            {
+              "text": "Ask … where to put …",
+              "role": "evidence",
+              "note": "询问地点，答案未给出"
+            },
+            {
+              "text": "Listen for ≠ have heard",
+              "role": "evidence",
+              "note": "留意目标≠已经听见"
+            },
+            {
+              "text": "should feel soft",
+              "role": "evidence",
+              "note": "原形＋形容词，表达预期"
+            }
+          ],
+          "caption": "书面语境任务，不代替实际听力或触摸。"
+        },
+        "transfer": "把The cloth should feel soft换成The cloth feels soft时，表达的预期与现在的描述有什么区别？"
+      }
+    }
+  }
+}

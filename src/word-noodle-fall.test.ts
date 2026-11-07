@@ -1,0 +1,8 @@
+import{describe,it,expect}from'vitest'
+import{noodleFallMatch,changeNoodleFall,wordNoodleFallView,validWordNoodleFall}from'./core/word-noodle-fall'
+const x={title:'一根滑落',hint:'比较数量和动作。',wrong:'一根，且已滑落。'}
+describe('single noodle and completed motion',()=>{
+ it('requires both singular quantity and slipped-off state',()=>{for(const s of ['','held','fallen','many'])expect(noodleFallMatch(x,s)).toBe(s==='fallen');expect(wordNoodleFallView(x,'held')).toMatchObject({fallen:false,strands:[{id:'0'}]});expect(wordNoodleFallView(x,'fallen')).toMatchObject({fallen:true,strands:[{id:'0'}]});expect(wordNoodleFallView(x,'many').strands).toHaveLength(3)})
+ it('changes comparison state reversibly through closed actions and resets corrupted storage',()=>{let s='';for(const a of ['many','held','fallen'])s=changeNoodleFall(x,s,a)!;expect(s).toBe('fallen');expect(changeNoodleFall(x,s,'reset')).toBe('');for(const a of ['bowl','floor','drop','undo','__proto__'])expect(changeNoodleFall(x,'',a)).toBeUndefined();expect(changeNoodleFall(x,'corrupt','fallen')).toBeUndefined();expect(changeNoodleFall(x,'corrupt','reset')).toBe('')})
+ it('bounds metadata and does not invent an initial noodle position or landing surface',()=>{expect(validWordNoodleFall(x)).toBe(true);for(const bad of [null,[],{...x,landing:'floor'},{...x,title:' '},{...x,wrong:'a'.repeat(141)}])expect(validWordNoodleFall(bad)).toBe(false);const v=wordNoodleFallView(x,'corrupt');expect(v.strands).toEqual([]);expect(v.choices.every(c=>!c.selected)).toBe(true);v.choices[0].label='Changed';expect(wordNoodleFallView(x,'').choices[0].label).toBe('一根仍夹着')})
+})

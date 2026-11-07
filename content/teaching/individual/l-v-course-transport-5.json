@@ -1,0 +1,3017 @@
+{
+  "lessonId": "l-v-course-transport-5",
+  "reviewState": "draft",
+  "intent": "Teach platform number and departure, airport time advice, fishing-boat return at dusk, both port services, road narrowing near a bridge, street quiet after nine, pavement versus crossing and keep-off instruction.",
+  "picturePurpose": "Original top-down street picture supports two precise area-identification tasks; four changing models and two exact evidence selections teach number, direction, time, width and scope.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "站台、港口与街道线索",
+    "instruction": "换站台号、返港方向和先后；点图分清人行道与横道。",
+    "items": [
+      {
+        "id": "word-platform",
+        "label": "站台（本句）",
+        "prompt": "三号还是十三号？从站台出发，还是到达站台？分别切换。",
+        "answer": "platform",
+        "caseSensitive": false,
+        "meaning": "站台（本句）",
+        "before": "Our train leaves from ",
+        "after": " three.",
+        "reason": "Our train leaves from platform three说我们的火车从三号站台出发；three不是thirteen，leaves from不是arrives at。",
+        "hint": "编号的platform前常不加冠词；本句指站台，不是网络平台。没有提供发车钟点或第几节车厢。",
+        "material": "Our train leaves from platform three.",
+        "options": [
+          {
+            "id": "three-from",
+            "text": "我们的火车从三号站台出发。",
+            "correct": true,
+            "reason": "保留Our train、leaves from与platform three。"
+          },
+          {
+            "id": "thirteen",
+            "text": "我们的火车从十三号站台出发。",
+            "correct": false,
+            "reason": "thirteen十三不是three三。"
+          },
+          {
+            "id": "arrive",
+            "text": "我们的火车到达三号站台。",
+            "correct": false,
+            "reason": "到达不是leaves from出发。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "三号还是十三号？从站台出发，还是到达站台？分别切换。",
+          "sceneLab": {
+            "id": "platform-departure",
+            "title": "站台号与进出方向",
+            "hint": "数字只表示站台编号；箭头不表示实际车速或发车时间。",
+            "wrong": "应从三号站台出发，不能改十三号或到达。",
+            "axes": [
+              {
+                "id": "number",
+                "label": "站台编号",
+                "choices": [
+                  {
+                    "id": "three",
+                    "label": "三号"
+                  },
+                  {
+                    "id": "thirteen",
+                    "label": "十三号"
+                  }
+                ]
+              },
+              {
+                "id": "action",
+                "label": "列车进出方向",
+                "choices": [
+                  {
+                    "id": "leave",
+                    "label": "出发"
+                  },
+                  {
+                    "id": "arrive",
+                    "label": "到达"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "站台号待选"
+                  },
+                  {
+                    "id": "platform",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 34,
+                    "width": 28,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "number",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 43,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "?"
+                  },
+                  {
+                    "id": "train",
+                    "kind": "rect",
+                    "x": 73,
+                    "y": 42,
+                    "width": 22,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "train-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 20,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "火车"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "方向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|leave",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "站台号待选"
+                  },
+                  {
+                    "id": "platform",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 34,
+                    "width": 28,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "number",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 43,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "?"
+                  },
+                  {
+                    "id": "train",
+                    "kind": "rect",
+                    "x": 73,
+                    "y": 42,
+                    "width": 22,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "train-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 20,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "火车"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "从站台出发"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 40,
+                    "width": 26,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "?|arrive",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "站台号待选"
+                  },
+                  {
+                    "id": "platform",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 34,
+                    "width": 28,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "number",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 43,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "?"
+                  },
+                  {
+                    "id": "train",
+                    "kind": "rect",
+                    "x": 73,
+                    "y": 42,
+                    "width": 22,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "train-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 20,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "火车"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "到达站台"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 40,
+                    "width": 26,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "three|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "三号站台"
+                  },
+                  {
+                    "id": "platform",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 34,
+                    "width": 28,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "number",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 43,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "3"
+                  },
+                  {
+                    "id": "train",
+                    "kind": "rect",
+                    "x": 73,
+                    "y": 42,
+                    "width": 22,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "train-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 20,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "火车"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "方向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "three|leave",
+                "reading": "我们的火车从三号站台出发。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "三号站台"
+                  },
+                  {
+                    "id": "platform",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 34,
+                    "width": 28,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "number",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 43,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "3"
+                  },
+                  {
+                    "id": "train",
+                    "kind": "rect",
+                    "x": 73,
+                    "y": 42,
+                    "width": 22,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "train-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 20,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "火车"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "从站台出发"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 40,
+                    "width": 26,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "three|arrive",
+                "reading": "应从三号站台出发，不能改十三号或到达。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "三号站台"
+                  },
+                  {
+                    "id": "platform",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 34,
+                    "width": 28,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "number",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 43,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "3"
+                  },
+                  {
+                    "id": "train",
+                    "kind": "rect",
+                    "x": 73,
+                    "y": 42,
+                    "width": 22,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "train-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 20,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "火车"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "到达站台"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 40,
+                    "width": 26,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "thirteen|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "十三号站台"
+                  },
+                  {
+                    "id": "platform",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 34,
+                    "width": 28,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "number",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 43,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "13"
+                  },
+                  {
+                    "id": "train",
+                    "kind": "rect",
+                    "x": 73,
+                    "y": 42,
+                    "width": 22,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "train-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 20,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "火车"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "方向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "thirteen|leave",
+                "reading": "应从三号站台出发，不能改十三号或到达。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "十三号站台"
+                  },
+                  {
+                    "id": "platform",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 34,
+                    "width": 28,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "number",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 43,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "13"
+                  },
+                  {
+                    "id": "train",
+                    "kind": "rect",
+                    "x": 73,
+                    "y": 42,
+                    "width": 22,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "train-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 20,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "火车"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "从站台出发"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 40,
+                    "width": 26,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "thirteen|arrive",
+                "reading": "应从三号站台出发，不能改十三号或到达。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "十三号站台"
+                  },
+                  {
+                    "id": "platform",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 34,
+                    "width": 28,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "number",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 43,
+                    "width": 24,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "13"
+                  },
+                  {
+                    "id": "train",
+                    "kind": "rect",
+                    "x": 73,
+                    "y": 42,
+                    "width": 22,
+                    "height": 19,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "train-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 20,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "火车"
+                  },
+                  {
+                    "id": "action",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "到达站台"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 40,
+                    "width": 26,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-airport",
+        "label": "机场",
+        "prompt": "去哪儿，时间怎么留？圈出要求，不猜具体分钟。",
+        "answer": "airport",
+        "caseSensitive": false,
+        "meaning": "机场",
+        "before": "Allow extra time to reach the ",
+        "after": ".",
+        "reason": "Allow extra time to reach the airport建议为赶往机场多留些时间；没有说已到机场、固定留几小时或保证赶上航班。",
+        "hint": "airport是air和port的合成词；extra time是额外留出的时间，不是航班晚点的报告。",
+        "material": "Allow extra time to reach the airport.",
+        "options": [
+          {
+            "id": "allow",
+            "text": "为赶往机场多留些时间。",
+            "correct": true,
+            "reason": "保留Allow extra time与to reach the airport。"
+          },
+          {
+            "id": "arrived",
+            "text": "这句话报告已经到达机场。",
+            "correct": false,
+            "reason": "Allow给出建议，不报告已经到达。"
+          },
+          {
+            "id": "hours",
+            "text": "原句规定必须恰好多留两个小时。",
+            "correct": false,
+            "reason": "extra没有给出具体小时数。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "去哪儿，时间怎么留？圈出要求，不猜具体分钟。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "目的地与时间建议",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "不补时长、交通方式、晚点情况或必然赶上航班。",
+            "wrong": "应圈出机场与多留时间的建议，不补具体时长。",
+            "rows": [
+              {
+                "id": "airport",
+                "label": "目的地",
+                "text": "机场。",
+                "include": true
+              },
+              {
+                "id": "extra",
+                "label": "时间建议",
+                "text": "多留些时间。",
+                "include": true
+              },
+              {
+                "id": "hours",
+                "label": "额外时长",
+                "text": "规定恰好多留两个小时。",
+                "include": false
+              },
+              {
+                "id": "arrived",
+                "label": "额外结果",
+                "text": "已经到达机场。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-harbour",
+        "label": "港口",
+        "prompt": "返回还是离开港口？黄昏还是黎明？转箭头并换时段。",
+        "answer": "harbour",
+        "caseSensitive": false,
+        "meaning": "港口",
+        "before": "Fishing boats returned to the ",
+        "after": " at dusk.",
+        "reason": "Fishing boats returned to the harbour at dusk说渔船在黄昏返回港口；returned to不是离港，dusk不是dawn黎明。",
+        "hint": "英式harbour对应美式harbor，两种拼写都接受。图中的船只代表渔船，不给实际数量、捕获量或准确钟点。",
+        "material": "Fishing boats returned to the harbour at dusk.",
+        "options": [
+          {
+            "id": "return-dusk",
+            "text": "渔船在黄昏返回港口。",
+            "correct": true,
+            "reason": "保留Fishing boats、returned to与at dusk。"
+          },
+          {
+            "id": "leave",
+            "text": "渔船在黄昏离开港口。",
+            "correct": false,
+            "reason": "离开颠倒returned to返回的方向。"
+          },
+          {
+            "id": "dawn",
+            "text": "渔船在黎明返回港口。",
+            "correct": false,
+            "reason": "dawn黎明不是dusk黄昏。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "返回还是离开港口？黄昏还是黎明？转箭头并换时段。",
+          "sceneLab": {
+            "id": "harbour-return",
+            "title": "返港方向与时段",
+            "hint": "船形只代表渔船，不表示数量；黄昏与黎明不固定为某个钟点。",
+            "wrong": "应是黄昏返港，不能换成离港或黎明。",
+            "axes": [
+              {
+                "id": "direction",
+                "label": "相对港口的方向",
+                "choices": [
+                  {
+                    "id": "return",
+                    "label": "返回"
+                  },
+                  {
+                    "id": "leave",
+                    "label": "离开"
+                  }
+                ]
+              },
+              {
+                "id": "time",
+                "label": "哪个时段",
+                "choices": [
+                  {
+                    "id": "dusk",
+                    "label": "黄昏"
+                  },
+                  {
+                    "id": "dawn",
+                    "label": "黎明"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "时段待选"
+                  },
+                  {
+                    "id": "harbour",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 29,
+                    "height": 44,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "harbour-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 30,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "港口"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "方向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|dusk",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "黄昏"
+                  },
+                  {
+                    "id": "harbour",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 29,
+                    "height": 44,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "harbour-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 30,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "港口"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "方向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|dawn",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "黎明"
+                  },
+                  {
+                    "id": "harbour",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 29,
+                    "height": 44,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "harbour-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 30,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "港口"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "方向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "return|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "时段待选"
+                  },
+                  {
+                    "id": "harbour",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 29,
+                    "height": 44,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "harbour-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 30,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "港口"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "渔船返回港口"
+                  },
+                  {
+                    "id": "boat",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 52,
+                    "width": 15,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 44,
+                    "width": 25,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "return|dusk",
+                "reading": "渔船在黄昏返回港口。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "黄昏"
+                  },
+                  {
+                    "id": "harbour",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 29,
+                    "height": 44,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "harbour-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 30,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "港口"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "渔船返回港口"
+                  },
+                  {
+                    "id": "boat",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 52,
+                    "width": 15,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 44,
+                    "width": 25,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "return|dawn",
+                "reading": "应是黄昏返港，不能换成离港或黎明。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "黎明"
+                  },
+                  {
+                    "id": "harbour",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 29,
+                    "height": 44,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "harbour-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 30,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "港口"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "渔船返回港口"
+                  },
+                  {
+                    "id": "boat",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 52,
+                    "width": 15,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 44,
+                    "width": 25,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "leave|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "时段待选"
+                  },
+                  {
+                    "id": "harbour",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 29,
+                    "height": 44,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "harbour-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 30,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "港口"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "渔船离开港口"
+                  },
+                  {
+                    "id": "boat",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 52,
+                    "width": 15,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 44,
+                    "width": 25,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "leave|dusk",
+                "reading": "应是黄昏返港，不能换成离港或黎明。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "黄昏"
+                  },
+                  {
+                    "id": "harbour",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 29,
+                    "height": 44,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "harbour-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 30,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "港口"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "渔船离开港口"
+                  },
+                  {
+                    "id": "boat",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 52,
+                    "width": 15,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 44,
+                    "width": 25,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "leave|dawn",
+                "reading": "应是黄昏返港，不能换成离港或黎明。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "黎明"
+                  },
+                  {
+                    "id": "harbour",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 29,
+                    "height": 44,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "harbour-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 30,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "港口"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "渔船离开港口"
+                  },
+                  {
+                    "id": "boat",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 52,
+                    "width": 15,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 44,
+                    "width": 25,
+                    "height": 22,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "spellings": [
+          "harbour",
+          "harbor"
+        ],
+        "ownForms": [
+          "harbour",
+          "harbor"
+        ]
+      },
+      {
+        "id": "word-port",
+        "label": "港口（本句）",
+        "prompt": "只处理货物，还是两项都包括？圈出both连接的内容。",
+        "answer": "port",
+        "caseSensitive": false,
+        "meaning": "港口（本句）",
+        "before": "The ",
+        "after": " handles both goods and passengers.",
+        "reason": "The port handles both goods and passengers说这个港口既处理货运，也接待旅客；both ... and ...两项都包括，不是只运货或只接待旅客。",
+        "hint": "port也可指电脑连接接口；本句谈港口业务，不是电脑。没有提供货物种类、吞吐量、人数或固定班次。",
+        "material": "The port handles both goods and passengers.",
+        "options": [
+          {
+            "id": "both",
+            "text": "这个港口兼有货运和客运业务。",
+            "correct": true,
+            "reason": "保留port、both goods and passengers。"
+          },
+          {
+            "id": "goods",
+            "text": "这个港口只有货运，没有客运。",
+            "correct": false,
+            "reason": "只保留goods，漏掉and passengers。"
+          },
+          {
+            "id": "passengers",
+            "text": "这个港口只有客运，没有货运。",
+            "correct": false,
+            "reason": "只保留passengers，漏掉goods。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "只处理货物，还是两项都包括？圈出both连接的内容。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "港口的两类业务",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "both ... and ...两项都要保留；不补数量或班次。",
+            "wrong": "货运与客运都包括，不能只圈一项或补电脑接口。",
+            "rows": [
+              {
+                "id": "goods",
+                "label": "一类业务",
+                "text": "处理货运。",
+                "include": true
+              },
+              {
+                "id": "passengers",
+                "label": "另一类业务",
+                "text": "接待旅客。",
+                "include": true
+              },
+              {
+                "id": "computer",
+                "label": "额外词义",
+                "text": "本句谈电脑连接接口。",
+                "include": false
+              },
+              {
+                "id": "count",
+                "label": "额外数量",
+                "text": "已提供每天接待人数。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-road",
+        "label": "道路",
+        "prompt": "道路变窄还是变宽？变化在老桥附近还是远处？",
+        "answer": "road",
+        "caseSensitive": false,
+        "meaning": "道路",
+        "before": "The ",
+        "after": " narrows near the old bridge.",
+        "reason": "The road narrows near the old bridge说道路在老桥附近变窄；narrows不是widens，near不是远离老桥。",
+        "hint": "on the road可表示在途中；本句near定位变化的位置，没有给道路宽度、车道数或限速。",
+        "material": "The road narrows near the old bridge.",
+        "options": [
+          {
+            "id": "narrow-near",
+            "text": "道路在老桥附近变窄。",
+            "correct": true,
+            "reason": "保留road、narrows与near the old bridge。"
+          },
+          {
+            "id": "wide",
+            "text": "道路在老桥附近变宽。",
+            "correct": false,
+            "reason": "变宽与narrows变窄相反。"
+          },
+          {
+            "id": "far",
+            "text": "道路只在远离老桥处变窄。",
+            "correct": false,
+            "reason": "远离老桥改变了near附近。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "道路变窄还是变宽？变化在老桥附近还是远处？",
+          "sceneLab": {
+            "id": "bridge-road",
+            "title": "宽度变化与桥的位置",
+            "hint": "示意只比较变窄/变宽和近/远，不提供米数、车道或车速。",
+            "wrong": "应在老桥附近变窄，不能改变宽或远离。",
+            "axes": [
+              {
+                "id": "width",
+                "label": "宽度如何变化",
+                "choices": [
+                  {
+                    "id": "narrow",
+                    "label": "变窄"
+                  },
+                  {
+                    "id": "wide",
+                    "label": "变宽"
+                  }
+                ]
+              },
+              {
+                "id": "place",
+                "label": "变化在哪里",
+                "choices": [
+                  {
+                    "id": "near",
+                    "label": "老桥附近"
+                  },
+                  {
+                    "id": "far",
+                    "label": "远离老桥"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "宽度待选"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 23,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "变化位置待选"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 88,
+                    "y": 40,
+                    "width": 6,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "?|near",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "宽度待选"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 23,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥附近"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 88,
+                    "y": 40,
+                    "width": 6,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "?|far",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "宽度待选"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 23,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "远离老桥"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 88,
+                    "y": 40,
+                    "width": 6,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "narrow|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变窄"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 23,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "变化位置待选"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 88,
+                    "y": 40,
+                    "width": 6,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "narrow|near",
+                "reading": "道路在老桥附近变窄。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变窄"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 23,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥附近"
+                  },
+                  {
+                    "id": "road-before",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 48,
+                    "width": 60,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "road-change",
+                    "kind": "rect",
+                    "x": 65,
+                    "y": 51.0,
+                    "width": 20,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "road-after",
+                    "kind": "rect",
+                    "x": 85,
+                    "y": 48,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 88,
+                    "y": 40,
+                    "width": 6,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "narrow|far",
+                "reading": "应在老桥附近变窄，不能改变宽或远离。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变窄"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 23,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "远离老桥"
+                  },
+                  {
+                    "id": "road-before",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 48,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "road-change",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 51.0,
+                    "width": 20,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "road-after",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 48,
+                    "width": 60,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 88,
+                    "y": 40,
+                    "width": 6,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "wide|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变宽"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 23,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "变化位置待选"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 88,
+                    "y": 40,
+                    "width": 6,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "wide|near",
+                "reading": "应在老桥附近变窄，不能改变宽或远离。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变宽"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 23,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥附近"
+                  },
+                  {
+                    "id": "road-before",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 48,
+                    "width": 60,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "road-change",
+                    "kind": "rect",
+                    "x": 65,
+                    "y": 42.0,
+                    "width": 20,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "road-after",
+                    "kind": "rect",
+                    "x": 85,
+                    "y": 48,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 88,
+                    "y": 40,
+                    "width": 6,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "wide|far",
+                "reading": "应在老桥附近变窄，不能改变宽或远离。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "width",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变宽"
+                  },
+                  {
+                    "id": "bridge-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 23,
+                    "width": 28,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "老桥"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "远离老桥"
+                  },
+                  {
+                    "id": "road-before",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 48,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "road-change",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 42.0,
+                    "width": 20,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "road-after",
+                    "kind": "rect",
+                    "x": 35,
+                    "y": 48,
+                    "width": 60,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 88,
+                    "y": 40,
+                    "width": 6,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-street",
+        "label": "街道",
+        "prompt": "九点前还是九点后？安静还是嘈杂？换条件再读。",
+        "answer": "street",
+        "caseSensitive": false,
+        "meaning": "街道",
+        "before": "Our ",
+        "after": " becomes quiet after nine.",
+        "reason": "Our street becomes quiet after nine说九点后我们这条街变得安静；after不是before，quiet不是嘈杂。",
+        "hint": "street常指两侧有建筑的街道；原句没有说明上午或晚上，也不表示全天安静或完全无人。",
+        "material": "Our street becomes quiet after nine.",
+        "options": [
+          {
+            "id": "quiet-after",
+            "text": "九点后，我们这条街变得安静。",
+            "correct": true,
+            "reason": "保留Our street、becomes quiet与after nine。"
+          },
+          {
+            "id": "before",
+            "text": "九点前，我们这条街变得安静。",
+            "correct": false,
+            "reason": "before九点前颠倒after九点后。"
+          },
+          {
+            "id": "noisy",
+            "text": "九点后，我们这条街变得嘈杂。",
+            "correct": false,
+            "reason": "嘈杂不是quiet安静。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "九点前还是九点后？安静还是嘈杂？换条件再读。",
+          "sceneLab": {
+            "id": "street-after-nine",
+            "title": "九点前后与街道状态",
+            "hint": "只给相对九点的先后；不补上午/晚上、确切起始分钟或人数。",
+            "wrong": "应是九点后变安静，不能换成之前或嘈杂。",
+            "axes": [
+              {
+                "id": "time",
+                "label": "相对九点的先后",
+                "choices": [
+                  {
+                    "id": "after",
+                    "label": "九点后"
+                  },
+                  {
+                    "id": "before",
+                    "label": "九点前"
+                  }
+                ]
+              },
+              {
+                "id": "state",
+                "label": "街道变得怎样",
+                "choices": [
+                  {
+                    "id": "quiet",
+                    "label": "安静"
+                  },
+                  {
+                    "id": "noisy",
+                    "label": "嘈杂"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 52,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 43,
+                    "width": 1,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine-label",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 24,
+                    "width": 26,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "9点"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不补上午或晚上"
+                  }
+                ]
+              },
+              {
+                "signature": "?|quiet",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变得安静"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 52,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 43,
+                    "width": 1,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine-label",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 24,
+                    "width": 26,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "9点"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不补上午或晚上"
+                  }
+                ]
+              },
+              {
+                "signature": "?|noisy",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变得嘈杂"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 52,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 43,
+                    "width": 1,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine-label",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 24,
+                    "width": 26,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "9点"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不补上午或晚上"
+                  }
+                ]
+              },
+              {
+                "signature": "after|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 52,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 43,
+                    "width": 1,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine-label",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 24,
+                    "width": 26,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "9点"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不补上午或晚上"
+                  },
+                  {
+                    "id": "change",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 48,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "change-label",
+                    "kind": "label",
+                    "x": 60,
+                    "y": 67,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "变化"
+                  }
+                ]
+              },
+              {
+                "signature": "after|quiet",
+                "reading": "九点后，我们这条街变得安静。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变得安静"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 52,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 43,
+                    "width": 1,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine-label",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 24,
+                    "width": 26,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "9点"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不补上午或晚上"
+                  },
+                  {
+                    "id": "change",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 48,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "change-label",
+                    "kind": "label",
+                    "x": 60,
+                    "y": 67,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "变化"
+                  }
+                ]
+              },
+              {
+                "signature": "after|noisy",
+                "reading": "应是九点后变安静，不能换成之前或嘈杂。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变得嘈杂"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 52,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 43,
+                    "width": 1,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine-label",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 24,
+                    "width": 26,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "9点"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不补上午或晚上"
+                  },
+                  {
+                    "id": "change",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 48,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "change-label",
+                    "kind": "label",
+                    "x": 60,
+                    "y": 67,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "变化"
+                  }
+                ]
+              },
+              {
+                "signature": "before|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 52,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 43,
+                    "width": 1,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine-label",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 24,
+                    "width": 26,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "9点"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不补上午或晚上"
+                  },
+                  {
+                    "id": "change",
+                    "kind": "ellipse",
+                    "x": 23,
+                    "y": 48,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "change-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 67,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "变化"
+                  }
+                ]
+              },
+              {
+                "signature": "before|quiet",
+                "reading": "应是九点后变安静，不能换成之前或嘈杂。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变得安静"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 52,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 43,
+                    "width": 1,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine-label",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 24,
+                    "width": 26,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "9点"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不补上午或晚上"
+                  },
+                  {
+                    "id": "change",
+                    "kind": "ellipse",
+                    "x": 23,
+                    "y": 48,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "change-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 67,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "变化"
+                  }
+                ]
+              },
+              {
+                "signature": "before|noisy",
+                "reading": "应是九点后变安静，不能换成之前或嘈杂。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "变得嘈杂"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 52,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 43,
+                    "width": 1,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "nine-label",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 24,
+                    "width": 26,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "9点"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "不补上午或晚上"
+                  },
+                  {
+                    "id": "change",
+                    "kind": "ellipse",
+                    "x": 23,
+                    "y": 48,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "change-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 67,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "变化"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-pavement",
+        "label": "人行道",
+        "prompt": "pavement是哪一块？点沿路的人行道，读清off的要求。",
+        "answer": "pavement",
+        "caseSensitive": false,
+        "meaning": "人行道",
+        "before": "Keep your bicycle off the ",
+        "after": ".",
+        "reason": "Keep your bicycle off the pavement要求自行车不要上人行道；pavement是沿路的人行道，不是横穿道路的人行横道。",
+        "hint": "英式pavement常对应美式sidewalk。off要求自行车不在人行道上，不只限定骑行；图只识别部位，不报告已经做到。",
+        "material": "Keep your bicycle off the pavement.",
+        "options": [
+          {
+            "id": "pavement",
+            "text": "不要让自行车上人行道。",
+            "correct": true,
+            "reason": "保留bicycle与off the pavement的要求。"
+          },
+          {
+            "id": "crossing",
+            "text": "原句只要求自行车不要上人行横道。",
+            "correct": false,
+            "reason": "人行横道是crossing，不是本句pavement。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "pavement是哪一块？点沿路的人行道，读清off的要求。",
+          "art": {
+            "asset": "lesson-pavement-crossing",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创俯视街道示意：左侧青色铺砖人行道沿路延伸，路缘将其与右侧深灰车行道分开；右侧白色斑马线横穿车行道。没有行人、车辆、信号或真实校门。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "pavement-target",
+                "option": "pavement",
+                "label": "人行道",
+                "labelPosition": "bottom",
+                "left": 7,
+                "top": 8,
+                "width": 36,
+                "height": 84
+              },
+              {
+                "id": "crossing-target",
+                "option": "crossing",
+                "label": "人行横道",
+                "labelPosition": "bottom",
+                "left": 49,
+                "top": 32,
+                "width": 42,
+                "height": 38
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-crossing",
+        "label": "人行横道（本句）",
+        "prompt": "crossing是哪一块？点横穿道路的人行横道，别点沿路人行道。",
+        "answer": "crossing",
+        "caseSensitive": false,
+        "meaning": "人行横道（本句）",
+        "before": "Use the ",
+        "after": " near the school gate.",
+        "reason": "Use the crossing near the school gate要求走校门附近的人行横道；不是沿路的人行道。图仅辨部位，不表示真实校门位置或通行许可。",
+        "hint": "pedestrian crossing指人行横道；斑马线是示例，不表示所有crossing都必须是这种标线，也不能由图判断现在可以通行。",
+        "material": "Use the crossing near the school gate.",
+        "options": [
+          {
+            "id": "crossing",
+            "text": "走校门附近的人行横道。",
+            "correct": true,
+            "reason": "保留Use the crossing与near the school gate。"
+          },
+          {
+            "id": "pavement",
+            "text": "原句只说走校门附近沿路的人行道。",
+            "correct": false,
+            "reason": "沿路人行道是pavement，不是本句crossing。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "crossing是哪一块？点横穿道路的人行横道，别点沿路人行道。",
+          "art": {
+            "asset": "lesson-pavement-crossing",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创俯视街道示意：左侧青色铺砖人行道沿路延伸，路缘将其与右侧深灰车行道分开；右侧白色斑马线横穿车行道。没有行人、车辆、信号或真实校门。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "pavement-target",
+                "option": "pavement",
+                "label": "人行道",
+                "labelPosition": "bottom",
+                "left": 7,
+                "top": 8,
+                "width": 36,
+                "height": 84
+              },
+              {
+                "id": "crossing-target",
+                "option": "crossing",
+                "label": "人行横道",
+                "labelPosition": "bottom",
+                "left": 49,
+                "top": 32,
+                "width": 42,
+                "height": 38
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-transport-5-transfer",
+      "topicId": "v-course-transport",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成巴士乘车位、补给船和图书馆，哪组保留了三条信息？",
+      "passage": "三条新信息\n我们的巴士从四号乘车位出发。补给船在黎明返回岛上。图书馆十点后变得安静。\n词语提示：bay 乘车位；supply boat 补给船；island 岛；library 图书馆。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Our bus leaves from bay four. Supply boats returned to the island at dawn. The library becomes quiet after ten."
+        },
+        {
+          "id": "b",
+          "text": "Our bus arrives at bay four. Supply boats returned to the island at dawn. The library becomes quiet after ten."
+        },
+        {
+          "id": "c",
+          "text": "Our bus leaves from bay fourteen. Supply boats returned to the island at dusk. The library becomes quiet after ten."
+        },
+        {
+          "id": "d",
+          "text": "Our bus leaves from bay four. Supply boats returned to the island at dawn. The library becomes quiet before ten."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Our bus leaves from bay four. Supply boats returned to the island at dawn. The library becomes quiet after ten."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对编号、进出方向、黎明/黄昏与十点前后。",
+        "steps": [
+          {
+            "text": "巴士从四号乘车位出发：leaves from bay four。",
+            "reason": "arrives at是到达；fourteen是十四，均改变原意。"
+          },
+          {
+            "text": "补给船在黎明返回岛上：returned to the island at dawn。",
+            "reason": "dawn是黎明，dusk是黄昏；returned to表示返回。"
+          },
+          {
+            "text": "图书馆十点后变安静：becomes quiet after ten。",
+            "reason": "after是之后，before是之前；不补上午或晚上。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "arrives at把出发改成到达。"
+          },
+          {
+            "option": "c",
+            "reason": "fourteen和dusk分别把四号、黎明改成十四号、黄昏。"
+          },
+          {
+            "option": "d",
+            "reason": "before把十点后改成十点前。"
+          }
+        ],
+        "pitfall": "编号不是数量；出发不是到达；dawn不是dusk；after不是before。",
+        "visual": {
+          "kind": "comparison",
+          "title": "编号、方向与先后",
+          "segments": [
+            {
+              "text": "leaves from bay four",
+              "role": "evidence",
+              "note": "四号位出发"
+            },
+            {
+              "text": "returned ... at dawn",
+              "role": "evidence",
+              "note": "黎明返回"
+            },
+            {
+              "text": "quiet after ten",
+              "role": "evidence",
+              "note": "十点后安静"
+            }
+          ],
+          "caption": "不补具体日期、上午/晚上、人数或行程时长。"
+        },
+        "transfer": "把leaves换成arrives、after换成before，分别改了哪一条关系？"
+      }
+    }
+  }
+}

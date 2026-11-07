@@ -1,0 +1,4267 @@
+{
+  "lessonId": "l-v-course-health-3",
+  "reviewState": "draft",
+  "intent": "Distinguish burn risk from completed injury; conditional gentle pressing from stopped bleeding; dark bruise on arm; all medicine out of reach; a label reporting one tablet after food; clear pill instructions; unanswered duration question; nurse temperature check without a result.",
+  "picturePurpose": "Five coded diagrams will clarify possibility, conditional manner, arm/colour, quantifier/reach and unanswered duration. Exact labels remain code-owned; no graphic injury or invented dosage image is needed.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "可能、条件、结果，分清再判断",
+    "instruction": "切换条件、标位置、圈证据；回原句检查，别把提醒变成已经发生。",
+    "items": [
+      {
+        "id": "word-burn",
+        "label": "烫伤；烧伤（本句）",
+        "prompt": "may是可能，还是肯定已经发生？再核对句中提醒的部位。",
+        "answer": "burn",
+        "caseSensitive": false,
+        "meaning": "烫伤；烧伤（本句）",
+        "before": "Do not touch the pan or you may ",
+        "after": " your hand.",
+        "reason": "Do not touch the pan or you may burn your hand是在提醒别碰锅，否则可能烫伤手；并没有说手已经烫伤。",
+        "hint": "burn在这里是烫伤手的动词；may保留可能性，不代表必然发生。",
+        "material": "Do not touch the pan or you may burn your hand.",
+        "options": [
+          {
+            "id": "risk",
+            "text": "别碰锅，否则可能烫伤手。",
+            "correct": true,
+            "reason": "保留提醒、may和hand。"
+          },
+          {
+            "id": "done",
+            "text": "手已经被烫伤了。",
+            "correct": false,
+            "reason": "may表示可能，没有报告已经烫伤。"
+          },
+          {
+            "id": "foot",
+            "text": "别碰锅，否则可能烫伤脚。",
+            "correct": false,
+            "reason": "脚改掉了hand手。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "may是可能，还是肯定已经发生？再核对句中提醒的部位。",
+          "sceneLab": {
+            "id": "burn-risk",
+            "title": "提醒什么，可能伤到哪里？",
+            "hint": "图只标句中的部位和可能性，不显示伤情。",
+            "wrong": "应保留可能烫伤手，不能改成已经烫伤或换成脚。",
+            "axes": [
+              {
+                "id": "part",
+                "label": "句中提醒的部位",
+                "choices": [
+                  {
+                    "id": "hand",
+                    "label": "手"
+                  },
+                  {
+                    "id": "foot",
+                    "label": "脚"
+                  }
+                ]
+              },
+              {
+                "id": "mode",
+                "label": "可能性还是已发生",
+                "choices": [
+                  {
+                    "id": "may",
+                    "label": "可能烫伤"
+                  },
+                  {
+                    "id": "done",
+                    "label": "已经烫伤"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "pan",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 39,
+                    "width": 27,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "handle",
+                    "kind": "rect",
+                    "x": 28,
+                    "y": 43,
+                    "width": 17,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pan-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 65,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "锅"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 18,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 33,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 16,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hand",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 37,
+                    "width": 8,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 59,
+                    "width": 7,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "foot",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 83,
+                    "width": 13,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 59,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 2,
+                    "width": 34,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  },
+                  {
+                    "id": "warning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 46,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "别碰锅"
+                  }
+                ]
+              },
+              {
+                "signature": "?|may",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "pan",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 39,
+                    "width": 27,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "handle",
+                    "kind": "rect",
+                    "x": 28,
+                    "y": 43,
+                    "width": 17,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pan-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 65,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "锅"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 18,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 33,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 16,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hand",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 37,
+                    "width": 8,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 59,
+                    "width": 7,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "foot",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 83,
+                    "width": 13,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 59,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "可能"
+                  },
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 2,
+                    "width": 34,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  },
+                  {
+                    "id": "warning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 46,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "别碰锅"
+                  }
+                ]
+              },
+              {
+                "signature": "?|done",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "pan",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 39,
+                    "width": 27,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "handle",
+                    "kind": "rect",
+                    "x": 28,
+                    "y": 43,
+                    "width": 17,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pan-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 65,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "锅"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 18,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 33,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 16,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hand",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 37,
+                    "width": 8,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 59,
+                    "width": 7,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "foot",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 83,
+                    "width": 13,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 59,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "已经发生"
+                  },
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 2,
+                    "width": 34,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  },
+                  {
+                    "id": "warning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 46,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "别碰锅"
+                  }
+                ]
+              },
+              {
+                "signature": "hand|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "pan",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 39,
+                    "width": 27,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "handle",
+                    "kind": "rect",
+                    "x": 28,
+                    "y": 43,
+                    "width": 17,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pan-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 65,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "锅"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 18,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 33,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 16,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hand",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 37,
+                    "width": 8,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 59,
+                    "width": 7,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "foot",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 83,
+                    "width": 13,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 59,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 2,
+                    "width": 34,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "手"
+                  },
+                  {
+                    "id": "warning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 46,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "别碰锅"
+                  }
+                ]
+              },
+              {
+                "signature": "hand|may",
+                "reading": "别碰锅，否则可能烫伤手。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "pan",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 39,
+                    "width": 27,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "handle",
+                    "kind": "rect",
+                    "x": 28,
+                    "y": 43,
+                    "width": 17,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pan-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 65,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "锅"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 18,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 33,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 16,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hand",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 37,
+                    "width": 8,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 59,
+                    "width": 7,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "foot",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 83,
+                    "width": 13,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 59,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "可能"
+                  },
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 2,
+                    "width": 34,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "手"
+                  },
+                  {
+                    "id": "warning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 46,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "别碰锅"
+                  }
+                ]
+              },
+              {
+                "signature": "hand|done",
+                "reading": "应保留可能烫伤手，不能改成已经烫伤或换成脚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "pan",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 39,
+                    "width": 27,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "handle",
+                    "kind": "rect",
+                    "x": 28,
+                    "y": 43,
+                    "width": 17,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pan-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 65,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "锅"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 18,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 33,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 16,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hand",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 37,
+                    "width": 8,
+                    "height": 10,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 59,
+                    "width": 7,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "foot",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 83,
+                    "width": 13,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 59,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "已经发生"
+                  },
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 2,
+                    "width": 34,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "手"
+                  },
+                  {
+                    "id": "warning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 46,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "别碰锅"
+                  }
+                ]
+              },
+              {
+                "signature": "foot|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "pan",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 39,
+                    "width": 27,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "handle",
+                    "kind": "rect",
+                    "x": 28,
+                    "y": 43,
+                    "width": 17,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pan-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 65,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "锅"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 18,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 33,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 16,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hand",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 37,
+                    "width": 8,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 59,
+                    "width": 7,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "foot",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 83,
+                    "width": 13,
+                    "height": 7,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 59,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "语气待选"
+                  },
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 2,
+                    "width": 34,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "脚"
+                  },
+                  {
+                    "id": "warning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 46,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "别碰锅"
+                  }
+                ]
+              },
+              {
+                "signature": "foot|may",
+                "reading": "应保留可能烫伤手，不能改成已经烫伤或换成脚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "pan",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 39,
+                    "width": 27,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "handle",
+                    "kind": "rect",
+                    "x": 28,
+                    "y": 43,
+                    "width": 17,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pan-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 65,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "锅"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 18,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 33,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 16,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hand",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 37,
+                    "width": 8,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 59,
+                    "width": 7,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "foot",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 83,
+                    "width": 13,
+                    "height": 7,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 59,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "可能"
+                  },
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 2,
+                    "width": 34,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "脚"
+                  },
+                  {
+                    "id": "warning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 46,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "别碰锅"
+                  }
+                ]
+              },
+              {
+                "signature": "foot|done",
+                "reading": "应保留可能烫伤手，不能改成已经烫伤或换成脚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "pan",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 39,
+                    "width": 27,
+                    "height": 17,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "handle",
+                    "kind": "rect",
+                    "x": 28,
+                    "y": 43,
+                    "width": 17,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pan-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 65,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "锅"
+                  },
+                  {
+                    "id": "head",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 18,
+                    "width": 10,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 33,
+                    "width": 17,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "arm",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 39,
+                    "width": 16,
+                    "height": 6,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "hand",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 37,
+                    "width": 8,
+                    "height": 10,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 59,
+                    "width": 7,
+                    "height": 25,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "foot",
+                    "kind": "ellipse",
+                    "x": 64,
+                    "y": 83,
+                    "width": 13,
+                    "height": 7,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "mode",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 59,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "已经发生"
+                  },
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 2,
+                    "width": 34,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "脚"
+                  },
+                  {
+                    "id": "warning",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 46,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "别碰锅"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bleed",
+        "label": "流血",
+        "prompt": "if提出什么条件，gently要求怎样按？分别切换核对。",
+        "answer": "bleed",
+        "caseSensitive": false,
+        "meaning": "流血",
+        "before": "Press gently if the small cut starts to ",
+        "after": ".",
+        "reason": "Press gently if the small cut starts to bleed要求小伤口开始流血时轻轻按住；if提出条件，并没有报告已经止血。",
+        "hint": "gently说明动作轻柔；if提出条件，不等于现在正在流血。",
+        "material": "Press gently if the small cut starts to bleed.",
+        "options": [
+          {
+            "id": "if-gentle",
+            "text": "如果小伤口开始流血，就轻轻按住。",
+            "correct": true,
+            "reason": "保留if条件和gently方式。"
+          },
+          {
+            "id": "rough",
+            "text": "如果小伤口开始流血，就用力粗暴地按。",
+            "correct": false,
+            "reason": "粗暴与gently轻柔相反。"
+          },
+          {
+            "id": "stopped",
+            "text": "小伤口已经完全止血了。",
+            "correct": false,
+            "reason": "条件要求没有给出止血结果。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "if提出什么条件，gently要求怎样按？分别切换核对。",
+          "sceneLab": {
+            "id": "bleed-condition",
+            "title": "什么条件，怎样按？",
+            "hint": "用条件卡与动作符号读句子，不模拟伤口处置。",
+            "wrong": "应保留开始流血的条件和轻轻按住，不补已经止血或改成粗暴地按。",
+            "axes": [
+              {
+                "id": "condition",
+                "label": "原句的条件",
+                "choices": [
+                  {
+                    "id": "starts",
+                    "label": "小伤口开始流血"
+                  },
+                  {
+                    "id": "stopped",
+                    "label": "已经止血"
+                  }
+                ]
+              },
+              {
+                "id": "manner",
+                "label": "按的方式",
+                "choices": [
+                  {
+                    "id": "gentle",
+                    "label": "轻轻地"
+                  },
+                  {
+                    "id": "rough",
+                    "label": "粗暴地"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 22,
+                    "width": 47,
+                    "height": 53,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 28,
+                    "width": 45,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "条件待选"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 42,
+                    "width": 25,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "要求 →"
+                  },
+                  {
+                    "id": "action-box",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 22,
+                    "width": 21,
+                    "height": 53,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "manner",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 26,
+                    "width": 19,
+                    "height": 44,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "条件句，没有报告处理结果"
+                  }
+                ]
+              },
+              {
+                "signature": "?|gentle",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 22,
+                    "width": 47,
+                    "height": 53,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 28,
+                    "width": 45,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "条件待选"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 42,
+                    "width": 25,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "要求 →"
+                  },
+                  {
+                    "id": "action-box",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 22,
+                    "width": 21,
+                    "height": 53,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "manner",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 26,
+                    "width": 19,
+                    "height": 44,
+                    "tone": "ink",
+                    "text": "轻柔"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "条件句，没有报告处理结果"
+                  }
+                ]
+              },
+              {
+                "signature": "?|rough",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 22,
+                    "width": 47,
+                    "height": 53,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 28,
+                    "width": 45,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "条件待选"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 42,
+                    "width": 25,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "要求 →"
+                  },
+                  {
+                    "id": "action-box",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 22,
+                    "width": 21,
+                    "height": 53,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "manner",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 26,
+                    "width": 19,
+                    "height": 44,
+                    "tone": "ink",
+                    "text": "粗暴"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "条件句，没有报告处理结果"
+                  }
+                ]
+              },
+              {
+                "signature": "starts|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 22,
+                    "width": 47,
+                    "height": 53,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 28,
+                    "width": 45,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "开始流血时"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 42,
+                    "width": 25,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "要求 →"
+                  },
+                  {
+                    "id": "action-box",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 22,
+                    "width": 21,
+                    "height": 53,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "manner",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 26,
+                    "width": 19,
+                    "height": 44,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "条件句，没有报告处理结果"
+                  }
+                ]
+              },
+              {
+                "signature": "starts|gentle",
+                "reading": "如果小伤口开始流血，就轻轻按住。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "condition-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 22,
+                    "width": 47,
+                    "height": 53,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 28,
+                    "width": 45,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "开始流血时"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 42,
+                    "width": 25,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "要求 →"
+                  },
+                  {
+                    "id": "action-box",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 22,
+                    "width": 21,
+                    "height": 53,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "manner",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 26,
+                    "width": 19,
+                    "height": 44,
+                    "tone": "ink",
+                    "text": "轻柔"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "条件句，没有报告处理结果"
+                  }
+                ]
+              },
+              {
+                "signature": "starts|rough",
+                "reading": "应保留开始流血的条件和轻轻按住，不补已经止血或改成粗暴地按。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 22,
+                    "width": 47,
+                    "height": 53,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 28,
+                    "width": 45,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "开始流血时"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 42,
+                    "width": 25,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "要求 →"
+                  },
+                  {
+                    "id": "action-box",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 22,
+                    "width": 21,
+                    "height": 53,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "manner",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 26,
+                    "width": 19,
+                    "height": 44,
+                    "tone": "ink",
+                    "text": "粗暴"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "条件句，没有报告处理结果"
+                  }
+                ]
+              },
+              {
+                "signature": "stopped|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 22,
+                    "width": 47,
+                    "height": 53,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 28,
+                    "width": 45,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "已经止血"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 42,
+                    "width": 25,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "要求 →"
+                  },
+                  {
+                    "id": "action-box",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 22,
+                    "width": 21,
+                    "height": 53,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "manner",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 26,
+                    "width": 19,
+                    "height": 44,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "条件句，没有报告处理结果"
+                  }
+                ]
+              },
+              {
+                "signature": "stopped|gentle",
+                "reading": "应保留开始流血的条件和轻轻按住，不补已经止血或改成粗暴地按。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 22,
+                    "width": 47,
+                    "height": 53,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 28,
+                    "width": 45,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "已经止血"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 42,
+                    "width": 25,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "要求 →"
+                  },
+                  {
+                    "id": "action-box",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 22,
+                    "width": 21,
+                    "height": 53,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "manner",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 26,
+                    "width": 19,
+                    "height": 44,
+                    "tone": "ink",
+                    "text": "轻柔"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "条件句，没有报告处理结果"
+                  }
+                ]
+              },
+              {
+                "signature": "stopped|rough",
+                "reading": "应保留开始流血的条件和轻轻按住，不补已经止血或改成粗暴地按。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 22,
+                    "width": 47,
+                    "height": 53,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 28,
+                    "width": 45,
+                    "height": 32,
+                    "tone": "ink",
+                    "text": "已经止血"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 42,
+                    "width": 25,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "要求 →"
+                  },
+                  {
+                    "id": "action-box",
+                    "kind": "rect",
+                    "x": 76,
+                    "y": 22,
+                    "width": 21,
+                    "height": 53,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "manner",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 26,
+                    "width": 19,
+                    "height": 44,
+                    "tone": "ink",
+                    "text": "粗暴"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 80,
+                    "width": 94,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "条件句，没有报告处理结果"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bruise",
+        "label": "瘀伤（名词）",
+        "prompt": "原句说瘀伤在哪里、颜色怎样？换部位，再换颜色。",
+        "answer": "bruise",
+        "caseSensitive": false,
+        "meaning": "瘀伤（名词）",
+        "before": "A dark ",
+        "after": " appeared on my arm.",
+        "reason": "A dark bruise appeared on my arm说我的手臂上出现了一块深色瘀伤；bruise在这里是名词。",
+        "hint": "原句没有说明碰撞原因、发生时间或恢复情况；ui发/uː/。",
+        "material": "A dark bruise appeared on my arm.",
+        "options": [
+          {
+            "id": "dark-arm",
+            "text": "我的手臂上出现了一块深色瘀伤。",
+            "correct": true,
+            "reason": "保留dark、bruise和arm。"
+          },
+          {
+            "id": "leg",
+            "text": "我的腿上出现了一块深色瘀伤。",
+            "correct": false,
+            "reason": "腿改掉了arm手臂。"
+          },
+          {
+            "id": "pale",
+            "text": "我的手臂上出现了一块浅色瘀伤。",
+            "correct": false,
+            "reason": "浅色改变了dark深色。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "原句说瘀伤在哪里、颜色怎样？换部位，再换颜色。",
+          "sceneLab": {
+            "id": "bruise-location",
+            "title": "部位与颜色，分别核对",
+            "hint": "色块只表示词语线索，不判断伤情或原因。",
+            "wrong": "应保留手臂和深色，不能换成腿或浅色。",
+            "axes": [
+              {
+                "id": "part",
+                "label": "瘀伤部位",
+                "choices": [
+                  {
+                    "id": "arm",
+                    "label": "手臂"
+                  },
+                  {
+                    "id": "leg",
+                    "label": "腿"
+                  }
+                ]
+              },
+              {
+                "id": "colour",
+                "label": "颜色",
+                "choices": [
+                  {
+                    "id": "dark",
+                    "label": "深色"
+                  },
+                  {
+                    "id": "pale",
+                    "label": "浅色"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  },
+                  {
+                    "id": "colour",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 2,
+                    "width": 46,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "颜色待选"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 82,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "色块示意，不推断碰撞原因"
+                  }
+                ]
+              },
+              {
+                "signature": "?|dark",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  },
+                  {
+                    "id": "colour",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 2,
+                    "width": 46,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "深色"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 82,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "色块示意，不推断碰撞原因"
+                  }
+                ]
+              },
+              {
+                "signature": "?|pale",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "部位待选"
+                  },
+                  {
+                    "id": "colour",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 2,
+                    "width": 46,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "浅色"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 82,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "色块示意，不推断碰撞原因"
+                  }
+                ]
+              },
+              {
+                "signature": "arm|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "手臂"
+                  },
+                  {
+                    "id": "colour",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 2,
+                    "width": 46,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "颜色待选"
+                  },
+                  {
+                    "id": "body-part",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 38,
+                    "width": 70,
+                    "height": 19,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 82,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "色块示意，不推断碰撞原因"
+                  }
+                ]
+              },
+              {
+                "signature": "arm|dark",
+                "reading": "我的手臂上出现了一块深色瘀伤。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "手臂"
+                  },
+                  {
+                    "id": "colour",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 2,
+                    "width": 46,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "深色"
+                  },
+                  {
+                    "id": "body-part",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 38,
+                    "width": 70,
+                    "height": 19,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mark",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 43,
+                    "width": 15,
+                    "height": 10,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 82,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "色块示意，不推断碰撞原因"
+                  }
+                ]
+              },
+              {
+                "signature": "arm|pale",
+                "reading": "应保留手臂和深色，不能换成腿或浅色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "手臂"
+                  },
+                  {
+                    "id": "colour",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 2,
+                    "width": 46,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "浅色"
+                  },
+                  {
+                    "id": "body-part",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 38,
+                    "width": 70,
+                    "height": 19,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mark",
+                    "kind": "ellipse",
+                    "x": 44,
+                    "y": 43,
+                    "width": 15,
+                    "height": 10,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 82,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "色块示意，不推断碰撞原因"
+                  }
+                ]
+              },
+              {
+                "signature": "leg|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "腿"
+                  },
+                  {
+                    "id": "colour",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 2,
+                    "width": 46,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "颜色待选"
+                  },
+                  {
+                    "id": "body-part",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 38,
+                    "width": 25,
+                    "height": 47,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 82,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "色块示意，不推断碰撞原因"
+                  }
+                ]
+              },
+              {
+                "signature": "leg|dark",
+                "reading": "应保留手臂和深色，不能换成腿或浅色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "腿"
+                  },
+                  {
+                    "id": "colour",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 2,
+                    "width": 46,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "深色"
+                  },
+                  {
+                    "id": "body-part",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 38,
+                    "width": 25,
+                    "height": 47,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mark",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 57,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 82,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "色块示意，不推断碰撞原因"
+                  }
+                ]
+              },
+              {
+                "signature": "leg|pale",
+                "reading": "应保留手臂和深色，不能换成腿或浅色。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "part",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 43,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "腿"
+                  },
+                  {
+                    "id": "colour",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 2,
+                    "width": 46,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "浅色"
+                  },
+                  {
+                    "id": "body-part",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 38,
+                    "width": 25,
+                    "height": 47,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "mark",
+                    "kind": "ellipse",
+                    "x": 21,
+                    "y": 57,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 82,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "色块示意，不推断碰撞原因"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-medicine",
+        "label": "药；药品（本句）",
+        "prompt": "all包括多少药，out of reach要求什么位置？分别改一项。",
+        "answer": "medicine",
+        "caseSensitive": false,
+        "meaning": "药；药品（本句）",
+        "before": "Keep all ",
+        "after": " out of children's reach.",
+        "reason": "Keep all medicine out of children's reach要求把所有药品放在孩子够不到的地方；不是只收好一部分。",
+        "hint": "medicine在这里指药品，不是医学这门学科；够不到是关系，原句没有给具体高度。",
+        "material": "Keep all medicine out of children's reach.",
+        "options": [
+          {
+            "id": "all-out",
+            "text": "把所有药品放在孩子够不到的地方。",
+            "correct": true,
+            "reason": "保留all和out of reach。"
+          },
+          {
+            "id": "some",
+            "text": "只把部分药品放在孩子够不到的地方。",
+            "correct": false,
+            "reason": "部分丢掉了all所有。"
+          },
+          {
+            "id": "within",
+            "text": "把所有药品放在孩子伸手能拿到的地方。",
+            "correct": false,
+            "reason": "能拿到与out of reach够不到相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "all包括多少药，out of reach要求什么位置？分别改一项。",
+          "sceneLab": {
+            "id": "medicine-reach",
+            "title": "所有药品，能不能够到？",
+            "hint": "移动药品，比较够得到和够不到；图中没有实际距离或高度。",
+            "wrong": "应把所有药品放在孩子够不到的地方，不能只收好部分或改成能够到。",
+            "axes": [
+              {
+                "id": "scope",
+                "label": "药品范围",
+                "choices": [
+                  {
+                    "id": "all",
+                    "label": "所有药品"
+                  },
+                  {
+                    "id": "some",
+                    "label": "部分药品"
+                  }
+                ]
+              },
+              {
+                "id": "position",
+                "label": "与孩子的关系",
+                "choices": [
+                  {
+                    "id": "out",
+                    "label": "够不到"
+                  },
+                  {
+                    "id": "within",
+                    "label": "能够到"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "child-head",
+                    "kind": "ellipse",
+                    "x": 6,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-body",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 58,
+                    "width": 15,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 86,
+                    "width": 30,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "孩子"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 24,
+                    "width": 63,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "关系待选"
+                  },
+                  {
+                    "id": "child-arm",
+                    "kind": "line",
+                    "x": 16,
+                    "y": 62,
+                    "width": 13,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-hand",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 59,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "?|out",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "child-head",
+                    "kind": "ellipse",
+                    "x": 6,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-body",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 58,
+                    "width": 15,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 86,
+                    "width": 30,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "孩子"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 24,
+                    "width": 63,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "够不到"
+                  },
+                  {
+                    "id": "medicine",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 52,
+                    "width": 23,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "medicine-label",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 55,
+                    "width": 23,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "药品"
+                  },
+                  {
+                    "id": "child-arm",
+                    "kind": "line",
+                    "x": 16,
+                    "y": 62,
+                    "width": 13,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-hand",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 59,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "?|within",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "child-head",
+                    "kind": "ellipse",
+                    "x": 6,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-body",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 58,
+                    "width": 15,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 86,
+                    "width": 30,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "孩子"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 24,
+                    "width": 63,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "能够到"
+                  },
+                  {
+                    "id": "medicine",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 52,
+                    "width": 23,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "medicine-label",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 55,
+                    "width": 23,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "药品"
+                  },
+                  {
+                    "id": "child-arm",
+                    "kind": "line",
+                    "x": 16,
+                    "y": 62,
+                    "width": 13,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-hand",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 59,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "all|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "全部药品"
+                  },
+                  {
+                    "id": "child-head",
+                    "kind": "ellipse",
+                    "x": 6,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-body",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 58,
+                    "width": 15,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 86,
+                    "width": 30,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "孩子"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 24,
+                    "width": 63,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "关系待选"
+                  },
+                  {
+                    "id": "child-arm",
+                    "kind": "line",
+                    "x": 16,
+                    "y": 62,
+                    "width": 13,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-hand",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 59,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "all|out",
+                "reading": "把所有药品放在孩子够不到的地方。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "全部药品"
+                  },
+                  {
+                    "id": "child-head",
+                    "kind": "ellipse",
+                    "x": 6,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-body",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 58,
+                    "width": 15,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 86,
+                    "width": 30,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "孩子"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 24,
+                    "width": 63,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "够不到"
+                  },
+                  {
+                    "id": "medicine",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 52,
+                    "width": 23,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "medicine-label",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 55,
+                    "width": 23,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "药品"
+                  },
+                  {
+                    "id": "child-arm",
+                    "kind": "line",
+                    "x": 16,
+                    "y": 62,
+                    "width": 13,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-hand",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 59,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "all|within",
+                "reading": "应把所有药品放在孩子够不到的地方，不能只收好部分或改成能够到。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "全部药品"
+                  },
+                  {
+                    "id": "child-head",
+                    "kind": "ellipse",
+                    "x": 6,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-body",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 58,
+                    "width": 15,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 86,
+                    "width": 30,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "孩子"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 24,
+                    "width": 63,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "能够到"
+                  },
+                  {
+                    "id": "medicine",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 52,
+                    "width": 23,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "medicine-label",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 55,
+                    "width": 23,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "药品"
+                  },
+                  {
+                    "id": "child-arm",
+                    "kind": "line",
+                    "x": 16,
+                    "y": 62,
+                    "width": 13,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-hand",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 59,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "some|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "部分药品"
+                  },
+                  {
+                    "id": "child-head",
+                    "kind": "ellipse",
+                    "x": 6,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-body",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 58,
+                    "width": 15,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 86,
+                    "width": 30,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "孩子"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 24,
+                    "width": 63,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "关系待选"
+                  },
+                  {
+                    "id": "remaining",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 63,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "其余未说明"
+                  },
+                  {
+                    "id": "child-arm",
+                    "kind": "line",
+                    "x": 16,
+                    "y": 62,
+                    "width": 13,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-hand",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 59,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "some|out",
+                "reading": "应把所有药品放在孩子够不到的地方，不能只收好部分或改成能够到。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "部分药品"
+                  },
+                  {
+                    "id": "child-head",
+                    "kind": "ellipse",
+                    "x": 6,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-body",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 58,
+                    "width": 15,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 86,
+                    "width": 30,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "孩子"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 24,
+                    "width": 63,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "够不到"
+                  },
+                  {
+                    "id": "medicine",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 52,
+                    "width": 23,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "medicine-label",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 55,
+                    "width": 23,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "药品"
+                  },
+                  {
+                    "id": "remaining",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 63,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "其余未说明"
+                  },
+                  {
+                    "id": "child-arm",
+                    "kind": "line",
+                    "x": 16,
+                    "y": 62,
+                    "width": 13,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-hand",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 59,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "some|within",
+                "reading": "应把所有药品放在孩子够不到的地方，不能只收好部分或改成能够到。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 2,
+                    "width": 94,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "部分药品"
+                  },
+                  {
+                    "id": "child-head",
+                    "kind": "ellipse",
+                    "x": 6,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-body",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 58,
+                    "width": 15,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 86,
+                    "width": 30,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "孩子"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 24,
+                    "width": 63,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "能够到"
+                  },
+                  {
+                    "id": "medicine",
+                    "kind": "rect",
+                    "x": 33,
+                    "y": 52,
+                    "width": 23,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "medicine-label",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 55,
+                    "width": 23,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "药品"
+                  },
+                  {
+                    "id": "remaining",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 84,
+                    "width": 63,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "其余未说明"
+                  },
+                  {
+                    "id": "child-arm",
+                    "kind": "line",
+                    "x": 16,
+                    "y": 62,
+                    "width": 13,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "child-hand",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 59,
+                    "width": 4,
+                    "height": 7,
+                    "tone": "blue"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-tablet",
+        "label": "药片（本句）",
+        "prompt": "标签写的是几片、饭前还是饭后？圈出两条，不补已经服用。",
+        "answer": "tablet",
+        "caseSensitive": false,
+        "meaning": "药片（本句）",
+        "before": "The label says to take one ",
+        "after": " after food.",
+        "reason": "The label says to take one tablet after food说标签写着饭后服一片药；tablet在这里指药片，不是平板电脑。",
+        "hint": "这是阅读例句里的标签内容，没有报告已服药，也没有给一天几次。",
+        "material": "The label says to take one tablet after food.",
+        "options": [
+          {
+            "id": "one-after",
+            "text": "标签写着饭后服一片药。",
+            "correct": true,
+            "reason": "保留one tablet与after food。"
+          },
+          {
+            "id": "two",
+            "text": "标签写着饭后服两片药。",
+            "correct": false,
+            "reason": "两片改掉了one一片。"
+          },
+          {
+            "id": "before",
+            "text": "标签写着饭前服一片药。",
+            "correct": false,
+            "reason": "饭前与after food饭后相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "标签写的是几片、饭前还是饭后？圈出两条，不补已经服用。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "读标签，保留数量与先后",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "只记录句中信息，不补已经服药或康复的结果。",
+            "wrong": "应保留标签中的一片与饭后，不补已经服用。",
+            "rows": [
+              {
+                "id": "one",
+                "label": "数量",
+                "text": "一片药。",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "时间关系",
+                "text": "饭后。",
+                "include": true
+              },
+              {
+                "id": "taken",
+                "label": "额外结果",
+                "text": "已经服下了。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-pill",
+        "label": "药丸",
+        "prompt": "came with说明配有什么？clear说明怎样？圈出两条信息。",
+        "answer": "pill",
+        "caseSensitive": false,
+        "meaning": "药丸",
+        "before": "The ",
+        "after": " came with clear instructions.",
+        "reason": "The pill came with clear instructions说这种药丸配有清楚的说明；没有说说明上的具体用量或已经服药。",
+        "hint": "came with指配有，clear说明内容清楚；这不表示已经服药。",
+        "material": "The pill came with clear instructions.",
+        "options": [
+          {
+            "id": "clear",
+            "text": "这种药丸配有清楚的说明。",
+            "correct": true,
+            "reason": "保留came with和clear instructions。"
+          },
+          {
+            "id": "none",
+            "text": "这种药丸没有配说明。",
+            "correct": false,
+            "reason": "没有说明改变了came with instructions。"
+          },
+          {
+            "id": "taken",
+            "text": "已经按说明服下了药丸。",
+            "correct": false,
+            "reason": "配有说明没有报告已经服下。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "came with说明配有什么？clear说明怎样？圈出两条信息。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "配有什么，说明怎样",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "只记录句中信息，不补已经服药或康复的结果。",
+            "wrong": "应圈出“配有说明”和“内容清楚”，不补已经服药。",
+            "rows": [
+              {
+                "id": "instructions",
+                "label": "配套材料",
+                "text": "配有说明。",
+                "include": true
+              },
+              {
+                "id": "clear",
+                "label": "说明特点",
+                "text": "内容清楚。",
+                "include": true
+              },
+              {
+                "id": "taken",
+                "label": "额外结果",
+                "text": "药丸已经服下。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-doctor",
+        "label": "医生",
+        "prompt": "how long问持续时间，还是开始日期？原句回答了吗？",
+        "answer": "doctor",
+        "caseSensitive": false,
+        "meaning": "医生",
+        "before": "The ",
+        "after": " asked how long the cough had lasted.",
+        "reason": "The doctor asked how long the cough had lasted说医生问咳嗽持续了多久；原句没有给出回答或具体天数。",
+        "hint": "how long问持续多久；原句没有给出回答或诊断结果。",
+        "material": "The doctor asked how long the cough had lasted.",
+        "options": [
+          {
+            "id": "duration",
+            "text": "医生问咳嗽持续了多久，尚未给出答案。",
+            "correct": true,
+            "reason": "保留医生、持续时间与未给回答。"
+          },
+          {
+            "id": "date",
+            "text": "医生问咳嗽在哪一天开始。",
+            "correct": false,
+            "reason": "开始日期不是how long询问的持续时间。"
+          },
+          {
+            "id": "three",
+            "text": "医生已经确认咳嗽持续了三天。",
+            "correct": false,
+            "reason": "原句没有回答，更没有给三天。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "how long问持续时间，还是开始日期？原句回答了吗？",
+          "sceneLab": {
+            "id": "doctor-duration",
+            "title": "问的是哪种时间？",
+            "hint": "时间线只示意到提问时的一段时间，不给天数，也不表示咳嗽已停止。",
+            "wrong": "应是医生询问持续时间，不能改成问开始日期或补已经确认三天。",
+            "axes": [
+              {
+                "id": "what",
+                "label": "医生询问什么",
+                "choices": [
+                  {
+                    "id": "duration",
+                    "label": "持续时间"
+                  },
+                  {
+                    "id": "date",
+                    "label": "开始日期"
+                  }
+                ]
+              },
+              {
+                "id": "mode",
+                "label": "原句是否给出答案",
+                "choices": [
+                  {
+                    "id": "unanswered",
+                    "label": "没有给答案"
+                  },
+                  {
+                    "id": "three",
+                    "label": "已确认三天"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 44,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "医生问"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 57,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "line",
+                    "x": 88,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "问题待选"
+                  },
+                  {
+                    "id": "question-time",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 71,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到提问时"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 85,
+                    "width": 94,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "回答待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|unanswered",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 44,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "医生问"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 57,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "line",
+                    "x": 88,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "问题待选"
+                  },
+                  {
+                    "id": "question-time",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 71,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到提问时"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 85,
+                    "width": 94,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "原句没有给答案"
+                  }
+                ]
+              },
+              {
+                "signature": "?|three",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 44,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "医生问"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 57,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "line",
+                    "x": 88,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "问题待选"
+                  },
+                  {
+                    "id": "question-time",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 71,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到提问时"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 85,
+                    "width": 94,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "已确认：三天"
+                  }
+                ]
+              },
+              {
+                "signature": "duration|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 44,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "医生问"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 57,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "line",
+                    "x": 88,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "← 持续多久？ →"
+                  },
+                  {
+                    "id": "question-time",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 71,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到提问时"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 85,
+                    "width": 94,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "回答待选"
+                  }
+                ]
+              },
+              {
+                "signature": "duration|unanswered",
+                "reading": "医生问咳嗽持续了多久，尚未给出答案。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 44,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "医生问"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 57,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "line",
+                    "x": 88,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "← 持续多久？ →"
+                  },
+                  {
+                    "id": "question-time",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 71,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到提问时"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 85,
+                    "width": 94,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "原句没有给答案"
+                  }
+                ]
+              },
+              {
+                "signature": "duration|three",
+                "reading": "应是医生询问持续时间，不能改成问开始日期或补已经确认三天。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 44,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "医生问"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 57,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "line",
+                    "x": 88,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "← 持续多久？ →"
+                  },
+                  {
+                    "id": "question-time",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 71,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到提问时"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 85,
+                    "width": 94,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "已确认：三天"
+                  }
+                ]
+              },
+              {
+                "signature": "date|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 44,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "医生问"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 57,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "line",
+                    "x": 88,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "哪一天开始？"
+                  },
+                  {
+                    "id": "question-time",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 71,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到提问时"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 85,
+                    "width": 94,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "回答待选"
+                  },
+                  {
+                    "id": "start-mark",
+                    "kind": "ellipse",
+                    "x": 7,
+                    "y": 50,
+                    "width": 7,
+                    "height": 13,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "date|unanswered",
+                "reading": "应是医生询问持续时间，不能改成问开始日期或补已经确认三天。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 44,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "医生问"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 57,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "line",
+                    "x": 88,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "哪一天开始？"
+                  },
+                  {
+                    "id": "question-time",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 71,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到提问时"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 85,
+                    "width": 94,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "原句没有给答案"
+                  },
+                  {
+                    "id": "start-mark",
+                    "kind": "ellipse",
+                    "x": 7,
+                    "y": 50,
+                    "width": 7,
+                    "height": 13,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "date|three",
+                "reading": "应是医生询问持续时间，不能改成问开始日期或补已经确认三天。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "speaker",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 44,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "医生问"
+                  },
+                  {
+                    "id": "timeline",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 57,
+                    "width": 83,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "start",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "end",
+                    "kind": "line",
+                    "x": 88,
+                    "y": 47,
+                    "width": 1,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 94,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "哪一天开始？"
+                  },
+                  {
+                    "id": "question-time",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 71,
+                    "width": 40,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到提问时"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 85,
+                    "width": 94,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "已确认：三天"
+                  },
+                  {
+                    "id": "start-mark",
+                    "kind": "ellipse",
+                    "x": 7,
+                    "y": 50,
+                    "width": 7,
+                    "height": 13,
+                    "tone": "teal"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-nurse",
+        "label": "护士（名词）",
+        "prompt": "谁检查了什么？圈出两条，别替原句填体温数值。",
+        "answer": "nurse",
+        "caseSensitive": false,
+        "meaning": "护士（名词）",
+        "before": "A ",
+        "after": " checked my temperature.",
+        "reason": "A nurse checked my temperature说一位护士量了我的体温；没有给温度、是否发烧或恢复结果。",
+        "hint": "A nurse指一位护士；checked只说明量了体温，没有给出结果。",
+        "material": "A nurse checked my temperature.",
+        "options": [
+          {
+            "id": "nurse-temperature",
+            "text": "一位护士量了我的体温。",
+            "correct": true,
+            "reason": "保留nurse与checked my temperature。"
+          },
+          {
+            "id": "doctor",
+            "text": "一位医生量了我的体温。",
+            "correct": false,
+            "reason": "医生改掉了nurse护士。"
+          },
+          {
+            "id": "normal",
+            "text": "原句已经确认我的体温正常。",
+            "correct": false,
+            "reason": "checked没有给出正常这一结果。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁检查了什么？圈出两条，别替原句填体温数值。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "检查者与检查内容",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "只记录检查行为，不补体温数值或正常结论。",
+            "wrong": "应是一位护士量了我的体温，不能换成医生或补结果正常。",
+            "rows": [
+              {
+                "id": "nurse",
+                "label": "检查者",
+                "text": "一位护士。",
+                "include": true
+              },
+              {
+                "id": "temperature",
+                "label": "检查内容",
+                "text": "量了我的体温。",
+                "include": true
+              },
+              {
+                "id": "normal",
+                "label": "额外结果",
+                "text": "体温正常。",
+                "include": false
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-health-3-transfer",
+      "topicId": "v-course-health",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成杯子、工具和噪声，哪组三句保留了全部信息？",
+      "passage": "三条新信息\n别摔杯子，否则它可能摔坏。把所有工具放在孩子够不到的地方。工人问噪声持续了多久，原文没有给出回答。\n词语提示：drop 摔落；tool 工具；noise 噪声。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Do not drop the cup or it will definitely break. Keep all tools out of children's reach. The worker asked how long the noise had lasted."
+        },
+        {
+          "id": "b",
+          "text": "Do not drop the cup or it may break. Keep some tools out of children's reach. The worker asked how long the noise had lasted."
+        },
+        {
+          "id": "c",
+          "text": "Do not drop the cup or it may break. Keep all tools out of children's reach. The worker asked how long the noise had lasted."
+        },
+        {
+          "id": "d",
+          "text": "Do not drop the cup or it may break. Keep all tools out of children's reach. The worker confirmed that the noise had lasted three days."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Do not drop the cup or it may break. Keep all tools out of children's reach. The worker asked how long the noise had lasted."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐条核对可能性、全部范围与提问有没有答案。",
+        "steps": [
+          {
+            "text": "可能摔坏：it may break。",
+            "reason": "will definitely break把可能加强成了必然。"
+          },
+          {
+            "text": "所有工具都要放在够不到的地方：all tools…out of children's reach。",
+            "reason": "some丢掉了所有工具的范围。"
+          },
+          {
+            "text": "工人询问持续时间：asked how long the noise had lasted。",
+            "reason": "confirmed和three days补出了原文没有的确认结果与三天。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "will definitely break把可能摔坏改成了必然摔坏。"
+          },
+          {
+            "option": "b",
+            "reason": "some把所有工具缩成了部分工具。"
+          },
+          {
+            "option": "d",
+            "reason": "confirmed及three days把未回答的提问改成了确认三天。"
+          }
+        ],
+        "pitfall": "可能不等于必然，全部不等于部分，提问也不等于已经得到答案。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三条线索，逐条保留",
+          "segments": [
+            {
+              "text": "may break",
+              "role": "evidence",
+              "note": "可能，未说必然"
+            },
+            {
+              "text": "all…out of reach",
+              "role": "evidence",
+              "note": "全部，且够不到"
+            },
+            {
+              "text": "asked how long…",
+              "role": "evidence",
+              "note": "询问持续时间，未给答案"
+            }
+          ],
+          "caption": "换了语境，语气、范围与已知信息仍要一致。"
+        },
+        "transfer": "把asked how long改成confirmed that…had lasted three days，多补出了什么？"
+      }
+    }
+  }
+}

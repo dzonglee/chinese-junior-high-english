@@ -1,0 +1,10 @@
+/** Off gives departure, not an unmentioned final destination. Count remains independent of location. */
+export interface WordPeaMotion{title:string;hint:string;wrong:string}
+export interface WordPeaMotionView{title:string;hint:string;count:number;place:string;reading:string;countChoices:{id:string;label:string;selected:boolean}[];placeChoices:{id:string;label:string;selected:boolean}[];peas:{id:string;left:number;top:number}[]}
+const bound=(s:unknown,n:number)=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=n
+export function validWordPeaMotion(v:unknown):v is WordPeaMotion{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordPeaMotion;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bound(w.title,60)&&bound(w.hint,110)&&bound(w.wrong,140)}
+export const wordPeaMotionKey=(id:string)=>`workshopPeaMotion-${id}`
+function decode(raw:string){if(raw==='')return{count:0,place:'?'};const m=/^([012])\|([?]|on|off)$/.exec(raw);return m?{count:Number(m[1]),place:m[2]}:null}
+export const peaMotionMatch=(_w:WordPeaMotion,raw:string)=>raw==='1|off'
+export function changePeaMotion(_w:WordPeaMotion,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(action==='one'||action==='two')return(action==='one'?'1':'2')+'|'+s.place;if(action==='on'||action==='off')return s.count+'|'+action;return undefined}
+export function wordPeaMotionView(w:WordPeaMotion,raw:string):WordPeaMotionView{const s=decode(raw)??{count:0,place:'?'},count=s.count,place=s.place,peas=count&&place!=='?'?Array.from({length:count},(_,j)=>({id:String(j),left:place==='on'?30+j*18:78+j*11,top:place==='on'?64:114})):[];return{title:w.title,hint:w.hint,count,place,peas,countChoices:['one','two'].map((id,j)=>({id,label:['一颗','两颗'][j],selected:count===j+1})),placeChoices:['on','off'].map((id,j)=>({id,label:['仍在盘子里','已经滚离盘子'][j],selected:place===id})),reading:!count||place==='?'?'数量和与盘子的位置关系都要选；问号不是零颗。':count!==1?'a tiny pea只说一颗；不能改成两颗或整盘。':place==='on'?'rolled off表示已经滚离，不能仍留在盘子里。':'一颗小豌豆已经滚离盘子；最终落点仍然未知。'}}

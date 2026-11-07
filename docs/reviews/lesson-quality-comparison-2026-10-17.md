@@ -1,5 +1,7 @@
 # English lesson quality compared with Chinese maths · 2026-10-17
 
+Current status, 2026-11-07: all 413 lessons have since received a separate interactive redesign and individual review. See the [final local review and actual app screenshots](individual-lessons/final-local-review-2026-11-07.md). The comparison below documents the rejected October17 baseline; it remains historical evidence rather than a description of the current app. Native and learning-outcome parity remain unproven.
+
 **English has not reached the teaching standard demonstrated by the maths lessons checked.**
 The previous report overstated a broad interface pass as a complete lesson revamp. A script
 materialized five reusable mission formats across the course, with 55 authored sentence switches.

@@ -1,0 +1,499 @@
+{
+  "lessonId": "l-v-course-kitchen-tools-4",
+  "reviewState": "draft",
+  "intent": "Individually teach sink noun/location, tap off during brushing, exact needed kettle water, clean plate on a rack, deep bowl suitability without exclusive use, a small crack near a cup handle, a glass requested for cold juice, and a painted fox on the speaker-favourite mug.",
+  "picturePurpose": "Original painted-fox mug image supports a code-targeted motif/location task; crack location, water relations and all instructional labels stay coded.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "摆位置、调水量，看清杯上的线索",
+    "instruction": "一次改一个条件：在哪儿、什么时候、要多少，再把句意说完整。",
+    "items": [
+      {
+        "id": "word-sink",
+        "label": "水槽",
+        "prompt": "in the sink说在哪里洗？切换位置，别把这里的sink当成下沉。",
+        "answer": "sink",
+        "caseSensitive": false,
+        "meaning": "水槽",
+        "before": "Wash the vegetables in the ",
+        "after": ".",
+        "reason": "在水槽里洗蔬菜。",
+        "hint": "in the sink指在水槽里；这是洗蔬菜的要求，不是已经洗好。",
+        "material": "Wash the vegetables in the sink.",
+        "options": [
+          {
+            "id": "inside",
+            "text": "在水槽里洗蔬菜。",
+            "correct": true,
+            "reason": "保留in the sink所说的位置。"
+          },
+          {
+            "id": "beside",
+            "text": "在水槽旁边洗蔬菜。",
+            "correct": false,
+            "reason": "beside不能替代in。"
+          },
+          {
+            "id": "sinking",
+            "text": "原句让蔬菜下沉。",
+            "correct": false,
+            "reason": "the sink在这里是地点名词，不是下沉的动作。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "in the sink说在哪里洗？切换位置，别把这里的sink当成下沉。",
+          "kitchenPlace": {
+            "title": "在水槽里洗蔬菜",
+            "hint": "图形只示意句意关系，不表示实际尺寸、水量或动作已完成。",
+            "wrong": "应在水槽里洗蔬菜；不是水槽旁，也不是让蔬菜下沉。",
+            "kind": "sink"
+          }
+        }
+      },
+      {
+        "id": "word-tap",
+        "label": "水龙头",
+        "prompt": "刷牙时开还是关？把水流和时机分开调，别漏掉while。",
+        "answer": "tap",
+        "caseSensitive": false,
+        "meaning": "水龙头",
+        "before": "Turn the ",
+        "after": " off while you brush your teeth.",
+        "reason": "刷牙时关上水龙头。",
+        "hint": "turn…off要求关上；while表示刷牙时，不是刷完以后。这里tap是水龙头。",
+        "material": "Turn the tap off while you brush your teeth.",
+        "options": [
+          {
+            "id": "off",
+            "text": "刷牙时关上水龙头。",
+            "correct": true,
+            "reason": "同时保留off和while。"
+          },
+          {
+            "id": "on",
+            "text": "刷牙时让水龙头开着。",
+            "correct": false,
+            "reason": "off不是on。"
+          },
+          {
+            "id": "after",
+            "text": "刷完牙以后才关水龙头。",
+            "correct": false,
+            "reason": "after不是while所说的同时。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "刷牙时开还是关？把水流和时机分开调，别漏掉while。",
+          "tapWhile": {
+            "title": "关水和时机，两项都保留",
+            "hint": "图形只示意句意关系，不表示实际尺寸、水量或动作已完成。",
+            "wrong": "应在刷牙时关上水龙头；开着或刷完才关都改变了原句。"
+          }
+        }
+      },
+      {
+        "id": "word-kettle",
+        "label": "水壶",
+        "prompt": "only as much as you need限定哪条水量关系？改变水位，看是否只装所需的量。",
+        "answer": "kettle",
+        "caseSensitive": false,
+        "meaning": "水壶",
+        "before": "Fill the ",
+        "after": " only as much as you need.",
+        "reason": "水壶里只装需要的水量。",
+        "hint": "只装需要的水量；原句没有给升数，也不能一概改成装满。",
+        "material": "Fill the kettle only as much as you need.",
+        "options": [
+          {
+            "id": "needed",
+            "text": "水壶里只装需要的水量。",
+            "correct": true,
+            "reason": "only和as much as you need共同限定水量。"
+          },
+          {
+            "id": "more",
+            "text": "水壶里装得比需要的更多。",
+            "correct": false,
+            "reason": "more than you need超出了需求。"
+          },
+          {
+            "id": "less",
+            "text": "水壶里装得比需要的更少。",
+            "correct": false,
+            "reason": "less than you need不等于所需的量。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "only as much as you need限定哪条水量关系？改变水位，看是否只装所需的量。",
+          "neededFill": {
+            "title": "对照需求线，不猜升数",
+            "hint": "图形只示意句意关系，不表示实际尺寸、水量或动作已完成。",
+            "wrong": "应只装所需的水量；多装或少于所需都不能完整保留这条要求。"
+          }
+        }
+      },
+      {
+        "id": "word-plate",
+        "label": "盘子",
+        "prompt": "要放什么样的盘子、放在哪里？同时调好clean和on the drying rack。",
+        "answer": "plate",
+        "caseSensitive": false,
+        "meaning": "盘子",
+        "before": "Put the clean ",
+        "after": " on the drying rack.",
+        "reason": "把干净盘子放在沥水架上。",
+        "hint": "clean限制盘子状态，on限定放到沥水架上；没说已经干透或放好。",
+        "material": "Put the clean plate on the drying rack.",
+        "options": [
+          {
+            "id": "rack",
+            "text": "把干净盘子放在沥水架上。",
+            "correct": true,
+            "reason": "保留clean和on the drying rack。"
+          },
+          {
+            "id": "dirty",
+            "text": "把脏盘子放在沥水架上。",
+            "correct": false,
+            "reason": "dirty改变了clean。"
+          },
+          {
+            "id": "beside",
+            "text": "把干净盘子放在沥水架旁边。",
+            "correct": false,
+            "reason": "beside不能保留on。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "要放什么样的盘子、放在哪里？同时调好clean和on the drying rack。",
+          "kitchenPlace": {
+            "title": "盘子状态与位置，都要核对",
+            "hint": "图形只示意句意关系，不表示实际尺寸、水量或动作已完成。",
+            "wrong": "应把干净盘子放在沥水架上；脏盘子或架旁都不符合。",
+            "kind": "plate"
+          }
+        }
+      },
+      {
+        "id": "word-bowl",
+        "label": "碗",
+        "prompt": "deep和better for mixing dough各说什么？改深浅，再比较“更合适”和“只能”。",
+        "answer": "bowl",
+        "caseSensitive": false,
+        "meaning": "碗",
+        "before": "A deep ",
+        "after": " is better for mixing dough.",
+        "reason": "和面时深碗更合适。",
+        "hint": "deep说深碗，better for说和面时更合适；不是只有这一种用途，也没给实际深度。",
+        "material": "A deep bowl is better for mixing dough.",
+        "options": [
+          {
+            "id": "deep",
+            "text": "和面时深碗更合适。",
+            "correct": true,
+            "reason": "保留deep和better for mixing dough。"
+          },
+          {
+            "id": "shallow",
+            "text": "和面时浅碗更合适。",
+            "correct": false,
+            "reason": "shallow不能替代deep。"
+          },
+          {
+            "id": "only",
+            "text": "深碗只能用来和面。",
+            "correct": false,
+            "reason": "better for不是only for。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "deep和better for mixing dough各说什么？改深浅，再比较“更合适”和“只能”。",
+          "vesselDetail": {
+            "title": "更合适，不是只能用来",
+            "hint": "图形只示意句意关系，不表示实际尺寸、水量或动作已完成。",
+            "wrong": "应保留深碗和更适合和面；不能改成浅碗或只能和面。",
+            "kind": "bowl"
+          }
+        }
+      },
+      {
+        "id": "word-cup",
+        "label": "杯子",
+        "prompt": "小裂纹在哪儿？移动裂纹，核对near its handle，别补裂纹成因。",
+        "answer": "cup",
+        "caseSensitive": false,
+        "meaning": "杯子",
+        "before": "The ",
+        "after": " has a small crack near its handle.",
+        "reason": "杯子把手附近有道小裂纹。",
+        "hint": "has报告有小裂纹，near its handle限定把手附近；没有说怎么裂的或已经修好。",
+        "material": "The cup has a small crack near its handle.",
+        "options": [
+          {
+            "id": "near",
+            "text": "杯子把手附近有道小裂纹。",
+            "correct": true,
+            "reason": "保留has、small crack和near its handle。"
+          },
+          {
+            "id": "far",
+            "text": "杯子有道远离把手的小裂纹。",
+            "correct": false,
+            "reason": "far from与near相反。"
+          },
+          {
+            "id": "absent",
+            "text": "原句说杯子没有裂纹。",
+            "correct": false,
+            "reason": "has a small crack不能改成没有裂纹。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "小裂纹在哪儿？移动裂纹，核对near its handle，别补裂纹成因。",
+          "vesselDetail": {
+            "title": "裂纹位置决定哪句有依据",
+            "hint": "裂纹位置仅作句意示意，不表示实测距离、大小或成因。",
+            "wrong": "应有小裂纹且在把手附近；远离把手或没有裂纹都改变事实。",
+            "kind": "cup"
+          }
+        }
+      },
+      {
+        "id": "word-glass",
+        "label": "玻璃杯",
+        "prompt": "a glass在这里是材料，还是装冷果汁的杯子？圈出原句支持的信息。",
+        "answer": "glass",
+        "caseSensitive": false,
+        "meaning": "玻璃杯",
+        "before": "Please use a ",
+        "after": " for the cold juice.",
+        "reason": "这里请求用玻璃杯装冷果汁，没有说已经倒好了。",
+        "hint": "a glass是一个玻璃杯；不可数的glass可指材料，但这里有a，还给了用途。",
+        "material": "Please use a glass for the cold juice.",
+        "options": [
+          {
+            "id": "container",
+            "text": "请求用一个玻璃杯装冷果汁。",
+            "correct": true,
+            "reason": "保留a glass的容器义和for the cold juice。"
+          },
+          {
+            "id": "material",
+            "text": "请求拿一块玻璃材料装果汁。",
+            "correct": false,
+            "reason": "这里glass指杯子，不是玻璃材料。"
+          },
+          {
+            "id": "done",
+            "text": "果汁已经倒进玻璃杯里了。",
+            "correct": false,
+            "reason": "Please use是请求，不是倒好果汁的记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "a glass在这里是材料，还是装冷果汁的杯子？圈出原句支持的信息。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "一个杯子，用来装什么？",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "请求不等于已经做完。",
+            "wrong": "保留玻璃杯和冷果汁用途，不把请求改成已经倒好。",
+            "rows": [
+              {
+                "id": "glass",
+                "label": "容器",
+                "text": "使用一个玻璃杯。",
+                "include": true
+              },
+              {
+                "id": "juice",
+                "label": "用途",
+                "text": "用来装冷果汁。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "果汁已经倒好了。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-mug",
+        "label": "大杯；马克杯",
+        "prompt": "painted fox在哪儿？点杯子上的狐狸图案，别把图案当成活狐狸。",
+        "answer": "mug",
+        "caseSensitive": false,
+        "meaning": "大杯；马克杯",
+        "before": "My favourite ",
+        "after": " has a painted fox on it.",
+        "reason": "说话者最喜欢的马克杯上有狐狸图案。",
+        "hint": "My favourite只说说话者最喜欢；painted fox是杯子上的图案。图片不证明实际容量或别人的喜好。",
+        "material": "My favourite mug has a painted fox on it.",
+        "options": [
+          {
+            "id": "fox",
+            "text": "painted fox是杯子上的狐狸图案。",
+            "correct": true,
+            "reason": "painted说明画出来的图案；on it指在杯子上。"
+          },
+          {
+            "id": "handle",
+            "text": "painted fox指杯子的把手。",
+            "correct": false,
+            "reason": "painted fox指狐狸图案，不是杯把。"
+          },
+          {
+            "id": "table",
+            "text": "painted fox指杯子下面的桌面。",
+            "correct": false,
+            "reason": "狐狸图案不等于桌面；on it指杯子。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "painted fox在哪儿？点杯子上的狐狸图案，别把图案当成活狐狸。",
+          "art": {
+            "asset": "lesson-mug-painted-fox",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创教学示意：白色马克杯放在浅蓝桌面上，杯身有平面的橙色狐狸图案，杯把在右侧。狐狸是画在杯上的图案，不是活狐狸。示意不能确定容量或任何人的喜好。",
+            "targets": [
+              {
+                "id": "painted-fox",
+                "option": "fox",
+                "label": "狐狸图案",
+                "labelPosition": "bottom",
+                "left": 30,
+                "top": 27,
+                "width": 33,
+                "height": 51
+              },
+              {
+                "id": "mug-handle",
+                "option": "handle",
+                "label": "杯把",
+                "labelPosition": "bottom",
+                "left": 65,
+                "top": 24,
+                "width": 24,
+                "height": 52
+              },
+              {
+                "id": "mug-tabletop",
+                "option": "table",
+                "label": "桌面",
+                "labelPosition": "bottom",
+                "left": 2,
+                "top": 60,
+                "width": 23,
+                "height": 38
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-kitchen-tools-4-transfer",
+      "topicId": "v-course-kitchen-tools",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成洗脸、水罐和旅行箱，哪组三句保留了全部信息？",
+      "passage": "新提示与记录\n洗脸时关上水龙头。往水罐（jug）里只装需要的水量。旅行箱（suitcase）的把手附近有道小裂纹。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Turn the tap off after you wash your face. Put only as much water as you need into the jug. The suitcase has a small crack near its handle."
+        },
+        {
+          "id": "b",
+          "text": "Turn the tap off while you wash your face. Put only as much water as you need into the jug. The suitcase has a small crack near its handle."
+        },
+        {
+          "id": "c",
+          "text": "Turn the tap off while you wash your face. Put more water than you need into the jug. The suitcase has a small crack near its handle."
+        },
+        {
+          "id": "d",
+          "text": "Turn the tap off while you wash your face. Put only as much water as you need into the jug. The suitcase has a small crack far from its handle."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Turn the tap off while you wash your face. Put only as much water as you need into the jug. The suitcase has a small crack near its handle."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对同时关系、需求水量与裂纹位置。",
+        "steps": [
+          {
+            "text": "洗脸时关：off while you wash your face。",
+            "reason": "while给同时关系，after会改成洗完以后。"
+          },
+          {
+            "text": "只装所需水量：only as much water as you need。",
+            "reason": "more than you need增加了需求以外的水；原句没有升数。"
+          },
+          {
+            "text": "把手附近有小裂纹：a small crack near its handle。",
+            "reason": "near不能改成far from，也不推断裂纹成因。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "after把同时改成事后。"
+          },
+          {
+            "option": "c",
+            "reason": "more than you need把所需水量改成超出需求。"
+          },
+          {
+            "option": "d",
+            "reason": "far from把把手附近改成远离把手。"
+          }
+        ],
+        "pitfall": "认识物品名后，还要保留while、only as much as和near。",
+        "visual": {
+          "kind": "comparison",
+          "title": "时机、水量、位置",
+          "segments": [
+            {
+              "text": "off while washing",
+              "role": "evidence",
+              "note": "同时关系"
+            },
+            {
+              "text": "only what is needed",
+              "role": "evidence",
+              "note": "所需水量"
+            },
+            {
+              "text": "small crack → near handle",
+              "role": "evidence",
+              "note": "位置有依据"
+            }
+          ],
+          "caption": "这是新提示与记录，不把请求改成已经完成，也不补水量或成因。"
+        },
+        "transfer": "如果改成洗完脸才关水，while应换成哪个词？"
+      }
+    }
+  }
+}

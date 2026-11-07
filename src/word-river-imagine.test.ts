@@ -1,0 +1,5 @@
+import{it,expect}from'vitest'
+import{riverImagineMatch,changeRiverImagine,wordRiverImagineView,validWordRiverImagine}from'./core/word-river-imagine'
+const w={title:'想象没有河流',hint:'另给虚构场景；不是实际事件。',wrong:'选没有河流的想象图。',withoutAsset:'lesson-village-imagined'}
+it('selects an imagined absence while distinguishing it from an actual change',()=>{expect(validWordRiverImagine(w)).toBe(true);for(const raw of['','with','without'])expect(riverImagineMatch(raw)).toBe(raw==='without');expect(changeRiverImagine('with','without')).toBe('without');expect(wordRiverImagineView(w,'without').imagined).toBe(true);expect(wordRiverImagineView(w,'without').reading).toContain('不是说真实');expect(changeRiverImagine('without','reset')).toBe('')})
+it('rejects malformed states, unknown actions and untrusted asset identifiers',()=>{for(const raw of['without ','none','WITHOUT'])expect(changeRiverImagine(raw,'with')).toBeUndefined();for(const a of['constructor','toString','__proto__',''])expect(changeRiverImagine('',a)).toBeUndefined();expect(validWordRiverImagine({...w,withoutAsset:'../other'})).toBe(false);expect(validWordRiverImagine({...w,title:''})).toBe(false)})

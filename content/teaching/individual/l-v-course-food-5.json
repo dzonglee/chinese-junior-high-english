@@ -1,0 +1,509 @@
+{
+  "lessonId": "l-v-course-food-5",
+  "reviewState": "draft",
+  "intent": "Individually interpret relative sugar amount, pinch quantity, unanswered black-pepper preference, heating oil amount/location, past honey sweetening, jam-layer manner, reported chocolate melting and general cream texture effect.",
+  "picturePurpose": "Controlled relative bars, a fixed-bread changing jam layer and source-specific result/relationship diagrams explain language without invented measurements or current physical states.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "厨房用词：比较、方式与变化",
+    "instruction": "调相对量、变果酱层、比较食物变化，再圈出句中条件。",
+    "items": [
+      {
+        "id": "word-sugar",
+        "label": "糖（本句）",
+        "prompt": "这个食谱用糖更少、一样多还是更多？对照原来的用糖量，调整这个食谱的相对量。",
+        "answer": "sugar",
+        "caseSensitive": false,
+        "meaning": "糖（本句）",
+        "before": "This recipe uses less ",
+        "after": " than the old one.",
+        "reason": "less sugar than the old one说明这个食谱比原来的用糖少。",
+        "hint": "less比较不可数名词sugar的量；than后接比较对象。",
+        "material": "This recipe uses less sugar than the old one.",
+        "wordDecision": {
+          "prompt": "这个食谱用糖更少、一样多还是更多？对照原来的用糖量，调整这个食谱的相对量。",
+          "recipeLess": {
+            "title": "哪边用糖少？",
+            "hint": "调的是相对量示意，不是食谱的实测克数。",
+            "wrong": "这个食谱的用糖量应比原来的少；一样多或更多都不符合less。"
+          }
+        },
+        "options": [
+          {
+            "id": "less",
+            "text": "这个食谱比原来的用糖少。",
+            "correct": true,
+            "reason": "保留less…than的比较方向。"
+          },
+          {
+            "id": "more",
+            "text": "这个食谱比原来的用糖多。",
+            "correct": false,
+            "reason": "把less读成了more。"
+          },
+          {
+            "id": "zero",
+            "text": "这个食谱完全不用糖。",
+            "correct": false,
+            "reason": "less表示更少，没有说明是否完全不用糖。"
+          }
+        ]
+      },
+      {
+        "id": "word-salt",
+        "label": "盐（本句）",
+        "prompt": "a pinch是一小撮还是一整碗？加到哪里？",
+        "answer": "salt",
+        "caseSensitive": false,
+        "meaning": "盐（本句）",
+        "before": "Add a pinch of ",
+        "after": " to the mixture.",
+        "reason": "a pinch of salt是一小撮盐，to the mixture说明加到混合物中。",
+        "hint": "Add是要求，不代表已经加好了；pinch没有固定克数。",
+        "material": "Add a pinch of salt to the mixture.",
+        "wordDecision": {
+          "prompt": "a pinch是一小撮还是一整碗？加到哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "小撮盐，加到哪里？",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "保留原句条件，别补未给出的结果。",
+            "wrong": "保留一小撮与混合物，不补已完成。",
+            "rows": [
+              {
+                "id": "pinch",
+                "label": "量",
+                "text": "一小撮盐。",
+                "include": true
+              },
+              {
+                "id": "mixture",
+                "label": "去向",
+                "text": "加到混合物中。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经加完盐。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "small",
+            "text": "往混合物里加一小撮盐。",
+            "correct": true,
+            "reason": "保留小撮盐与混合物。"
+          },
+          {
+            "id": "bowl",
+            "text": "往混合物里加满满一碗盐。",
+            "correct": false,
+            "reason": "一整碗不是a pinch。"
+          },
+          {
+            "id": "done",
+            "text": "原句报告盐已经加完。",
+            "correct": false,
+            "reason": "Add是指令，没有报告已经加完。"
+          }
+        ]
+      },
+      {
+        "id": "word-pepper",
+        "label": "黑胡椒（本句）",
+        "prompt": "black pepper是调味料还是甜椒？原句给回答了吗？",
+        "answer": "pepper",
+        "caseSensitive": false,
+        "meaning": "黑胡椒（本句）",
+        "before": "Would you like black ",
+        "after": " on your soup?",
+        "reason": "本句black pepper是黑胡椒；Would you like…?在询问对方的偏好。",
+        "hint": "问句没有给对方的回答，也没有说已经撒上。",
+        "material": "Would you like black pepper on your soup?",
+        "wordDecision": {
+          "prompt": "black pepper是调味料还是甜椒？原句给回答了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问的是哪种pepper？",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "保留原句条件，别补未给出的结果。",
+            "wrong": "这是加黑胡椒的偏好问题，回答尚未给出。",
+            "rows": [
+              {
+                "id": "pepper",
+                "label": "所问条件",
+                "text": "是否要加黑胡椒。",
+                "include": true
+              },
+              {
+                "id": "soup",
+                "label": "所指食物",
+                "text": "加在对方的汤上。",
+                "include": true
+              },
+              {
+                "id": "answer",
+                "label": "额外回答",
+                "text": "对方已经答应。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "ask",
+            "text": "询问对方是否想在汤上加黑胡椒。",
+            "correct": true,
+            "reason": "保留礼貌询问、黑胡椒和汤。"
+          },
+          {
+            "id": "vegetable",
+            "text": "询问是否想在汤里加一个甜椒。",
+            "correct": false,
+            "reason": "black pepper在本句指黑胡椒调味料，不是一个甜椒。"
+          },
+          {
+            "id": "yes",
+            "text": "对方已确认要加黑胡椒。",
+            "correct": false,
+            "reason": "原句只有问题，没有回答。"
+          }
+        ]
+      },
+      {
+        "id": "word-oil",
+        "label": "油（本句）",
+        "prompt": "a little限定什么量？in the frying pan限定哪里？",
+        "answer": "oil",
+        "caseSensitive": false,
+        "meaning": "油（本句）",
+        "before": "Heat a little ",
+        "after": " in the frying pan.",
+        "reason": "Heat a little oil in the frying pan要求在平底锅中加热少量油。",
+        "hint": "没有给实测温度或已经加热完成的记录。",
+        "material": "Heat a little oil in the frying pan.",
+        "wordDecision": {
+          "prompt": "a little限定什么量？in the frying pan限定哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "少量油，在锅中加热",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "保留原句条件，别补未给出的结果。",
+            "wrong": "保留一点油与平底锅；不要补温度。",
+            "rows": [
+              {
+                "id": "little",
+                "label": "量",
+                "text": "加热一点油。",
+                "include": true
+              },
+              {
+                "id": "pan",
+                "label": "位置",
+                "text": "在平底锅中。",
+                "include": true
+              },
+              {
+                "id": "temperature",
+                "label": "额外测量",
+                "text": "原句指定了准确温度。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "small",
+            "text": "在平底锅中加热一点油。",
+            "correct": true,
+            "reason": "保留a little与in the frying pan。"
+          },
+          {
+            "id": "large",
+            "text": "在平底锅中加热大量油。",
+            "correct": false,
+            "reason": "大量油不能保留a little所说的少量。"
+          },
+          {
+            "id": "done",
+            "text": "原句说明油已达到指定温度。",
+            "correct": false,
+            "reason": "指令没有给温度或完成记录。"
+          }
+        ]
+      },
+      {
+        "id": "word-honey",
+        "label": "蜂蜜（本句）",
+        "prompt": "sweetened说味道怎么变了？是在报告过去的变化，还是只提要求？",
+        "answer": "honey",
+        "caseSensitive": false,
+        "meaning": "蜂蜜（本句）",
+        "before": "A spoonful of ",
+        "after": " sweetened the porridge.",
+        "reason": "A spoonful of honey sweetened the porridge报告一勺蜂蜜让粥变甜了。",
+        "hint": "sweetened是过去式；没有给勺子的准确容量。",
+        "material": "A spoonful of honey sweetened the porridge.",
+        "wordDecision": {
+          "prompt": "sweetened说味道怎么变了？是在报告过去的变化，还是只提要求？",
+          "foodChange": {
+            "title": "蜂蜜带来的变化",
+            "hint": "分清变甜的结果与一项尚未完成的要求。",
+            "wrong": "应保留变甜与过去已发生的结果，不能改成苦或只有要求。",
+            "kind": "honey"
+          }
+        },
+        "options": [
+          {
+            "id": "past",
+            "text": "一勺蜂蜜让粥变甜了。",
+            "correct": true,
+            "reason": "sweetened报告过去发生的甜味变化。"
+          },
+          {
+            "id": "bitter",
+            "text": "一勺蜂蜜让粥变苦了。",
+            "correct": false,
+            "reason": "sweeten是使变甜，不是使变苦。"
+          },
+          {
+            "id": "request",
+            "text": "要求以后加蜂蜜，但没有报告结果。",
+            "correct": false,
+            "reason": "原句用过去式sweetened报告了结果。"
+          }
+        ]
+      },
+      {
+        "id": "word-jam",
+        "label": "果酱（本句）",
+        "prompt": "thinly说果酱怎么涂？只改变果酱层，面包保持不变。",
+        "answer": "jam",
+        "caseSensitive": false,
+        "meaning": "果酱（本句）",
+        "before": "Spread the ",
+        "after": " thinly over the bread.",
+        "reason": "Spread the jam thinly over the bread要求在面包上薄薄涂一层果酱。",
+        "hint": "thinly修饰涂抹方式，不是要求把面包切薄。",
+        "material": "Spread the jam thinly over the bread.",
+        "wordDecision": {
+          "prompt": "thinly说果酱怎么涂？只改变果酱层，面包保持不变。",
+          "foodLayer": {
+            "title": "变的是果酱层",
+            "hint": "面包厚度保持不变；图中没有毫米数。",
+            "wrong": "果酱应薄薄地涂在面包上，不能只把面包变薄。"
+          }
+        },
+        "options": [
+          {
+            "id": "thin",
+            "text": "在面包上薄薄涂一层果酱。",
+            "correct": true,
+            "reason": "jam是果酱，thinly说明涂得薄。"
+          },
+          {
+            "id": "bread",
+            "text": "把面包切薄，果酱怎么涂都可以。",
+            "correct": false,
+            "reason": "thinly修饰Spread，不是面包的切片厚度。"
+          },
+          {
+            "id": "traffic",
+            "text": "本句jam说的是道路上的交通堵塞。",
+            "correct": false,
+            "reason": "本句jam是果酱，不是traffic jam。"
+          }
+        ]
+      },
+      {
+        "id": "word-chocolate",
+        "label": "巧克力（本句）",
+        "prompt": "melted报告了什么变化？比较融化与凝固，再看是否已经发生。",
+        "answer": "chocolate",
+        "caseSensitive": false,
+        "meaning": "巧克力（本句）",
+        "before": "The ",
+        "after": " melted in the warm car.",
+        "reason": "The chocolate melted in the warm car报告巧克力在温暖的车里融化了。",
+        "hint": "说的是过去发生过融化，不保证现在仍是融化状态。",
+        "material": "The chocolate melted in the warm car.",
+        "wordDecision": {
+          "prompt": "melted报告了什么变化？比较融化与凝固，再看是否已经发生。",
+          "foodChange": {
+            "title": "巧克力发生过什么？",
+            "hint": "看过去的变化方向，不猜现在的状态或温度。",
+            "wrong": "应保留过去已发生的融化，不能改成凝固或尚未执行的要求。",
+            "kind": "chocolate"
+          }
+        },
+        "options": [
+          {
+            "id": "melt",
+            "text": "巧克力在温暖的车里融化了。",
+            "correct": true,
+            "reason": "melted是过去发生的融化。"
+          },
+          {
+            "id": "freeze",
+            "text": "巧克力在温暖的车里凝固了。",
+            "correct": false,
+            "reason": "凝固与melted的变化方向相反。"
+          },
+          {
+            "id": "request",
+            "text": "原句只要求将来把巧克力融化。",
+            "correct": false,
+            "reason": "melted报告过去事件，不是指令。"
+          }
+        ]
+      },
+      {
+        "id": "word-cream",
+        "label": "奶油（本句）",
+        "prompt": "smoother变的是口感还是甜味？这句是在报告某次已经拌好了吗？",
+        "answer": "cream",
+        "caseSensitive": false,
+        "meaning": "奶油（本句）",
+        "before": "A little ",
+        "after": " makes the sauce smoother.",
+        "reason": "A little cream makes the sauce smoother说明少量奶油使酱汁更顺滑。",
+        "hint": "smoother是比较级；makes说明一般关系，不是某次已完成的记录。",
+        "material": "A little cream makes the sauce smoother.",
+        "wordDecision": {
+          "prompt": "smoother变的是口感还是甜味？这句是在报告某次已经拌好了吗？",
+          "foodChange": {
+            "title": "奶油改变哪种口感？",
+            "hint": "比较更顺滑与更甜，再分清一般关系和某次完成。",
+            "wrong": "应保留更顺滑的一般关系，不补某次已经拌好的结果。",
+            "kind": "cream"
+          }
+        },
+        "options": [
+          {
+            "id": "smooth",
+            "text": "少量奶油使酱汁更顺滑。",
+            "correct": true,
+            "reason": "保留a little、cream与smoother。"
+          },
+          {
+            "id": "sweet",
+            "text": "少量奶油使酱汁更甜。",
+            "correct": false,
+            "reason": "smoother是更顺滑，不是sweeter。"
+          },
+          {
+            "id": "done",
+            "text": "原句报告这次酱汁已经拌好了。",
+            "correct": false,
+            "reason": "一般现在时makes不等于某一次已完成的记录。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-food-5-transfer",
+      "topicId": "v-course-food",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成蛋糕、饼干和茶，哪组三句准确保留比较、方式和已发生的变化？",
+      "passage": "新的点心记录\n新的蛋糕食谱比以前的用糖少。把果酱薄薄涂在饼干上。一勺蜂蜜让这杯茶变甜了。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The new cake recipe uses more sugar than the previous one. Spread the jam thinly over the biscuits. A spoonful of honey sweetened the tea."
+        },
+        {
+          "id": "b",
+          "text": "The new cake recipe uses less sugar than the previous one. Spread the jam thickly over the biscuits. A spoonful of honey sweetened the tea."
+        },
+        {
+          "id": "c",
+          "text": "The new cake recipe uses less sugar than the previous one. Spread the jam thinly over the biscuits. A spoonful of honey sweetened the tea."
+        },
+        {
+          "id": "d",
+          "text": "The new cake recipe uses less sugar than the previous one. Spread the jam thinly over the biscuits. A spoonful of honey will sweeten the tea."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The new cake recipe uses less sugar than the previous one. Spread the jam thinly over the biscuits. A spoonful of honey sweetened the tea."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐项核对less的比较方向、thinly修饰的动作和sweetened的过去结果。",
+        "steps": [
+          {
+            "text": "less sugar than the previous one保留比以前用糖更少。",
+            "reason": "新情境换成蛋糕食谱，比较方向仍不能变。"
+          },
+          {
+            "text": "Spread the jam thinly over the biscuits保留薄薄涂在饼干上。",
+            "reason": "thinly与thickly的涂抹厚度相反。"
+          },
+          {
+            "text": "A spoonful of honey sweetened the tea报告蜂蜜使茶变甜了。",
+            "reason": "这是过去结果，不能改成will sweeten的将来。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "more把更少改成更多。"
+          },
+          {
+            "option": "b",
+            "reason": "thickly把薄薄涂改成厚厚涂。"
+          },
+          {
+            "option": "d",
+            "reason": "will sweeten把已发生的变化改成将来。"
+          }
+        ],
+        "pitfall": "糖、果酱和蜂蜜都认对，也要保留比较方向、动作方式与时态。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三项分别核对",
+          "segments": [
+            {
+              "text": "less sugar",
+              "role": "evidence",
+              "note": "比以前少"
+            },
+            {
+              "text": "spread thinly",
+              "role": "evidence",
+              "note": "涂得薄，饼干不变"
+            },
+            {
+              "text": "honey sweetened the tea",
+              "role": "evidence",
+              "note": "过去已变甜"
+            }
+          ],
+          "caption": "只比较给出的关系，不补克数、毫米数或精确容量。"
+        },
+        "transfer": "如果将sweetened换成will sweeten，哪项已经发生的信息不再被保留？"
+      }
+    }
+  }
+}

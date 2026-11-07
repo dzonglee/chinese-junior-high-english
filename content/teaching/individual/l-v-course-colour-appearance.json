@@ -1,0 +1,644 @@
+{
+  "lessonId": "l-v-course-colour-appearance",
+  "reviewState": "draft",
+  "intent": "Eight individually authored colour tasks preserve the object, line dimension, sunlight context, destination, ink instruction, reflected light, changed state and occluded view.",
+  "picturePurpose": "Original woodland fork identifies red versus blue ribbons only; correct-route status comes from text. A coded river section separately changes line colour and represented dimension, without measured depth.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "认颜色，也看它说明什么",
+    "instruction": "找红丝带；让蓝线表示河深，再核对颜色修饰谁。",
+    "items": [
+      {
+        "id": "red",
+        "label": "red：点出红丝带标记的路线。",
+        "prompt": "点出红丝带标记的路线。",
+        "answer": "red",
+        "meaning": "红色；红色的",
+        "material": "A red ribbon marks the correct path.",
+        "before": "A ",
+        "after": " ribbon marks the correct path.",
+        "reason": "red ribbon是红丝带；marks说明“标出”。正确路线由原句说明，图片只供辨认丝带颜色。",
+        "hint": "red看丝带颜色；correct来自原句。",
+        "wordDecision": {
+          "prompt": "点出红丝带标记的路线。",
+          "art": {
+            "asset": "lesson-ribbon-path",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "林间路线分岔：左侧木桩系完整红丝带，右侧木桩系完整蓝丝带；两条路都能看到，没有文字路牌。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "red",
+                "label": "A 路线",
+                "left": 3,
+                "top": 14,
+                "width": 44,
+                "height": 72,
+                "labelPosition": "top"
+              },
+              {
+                "id": "b",
+                "option": "blue",
+                "label": "B 路线",
+                "left": 53,
+                "top": 14,
+                "width": 44,
+                "height": 72,
+                "labelPosition": "top"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "red",
+                "caption": "左侧是红丝带；原句说它标出正确路线。",
+                "regions": [
+                  {
+                    "id": "red-ribbon",
+                    "left": 9,
+                    "top": 35,
+                    "width": 12,
+                    "height": 20,
+                    "label": "红丝带"
+                  }
+                ]
+              },
+              {
+                "option": "blue",
+                "caption": "右侧是蓝丝带，不符合red。",
+                "regions": [
+                  {
+                    "id": "blue-ribbon",
+                    "left": 81,
+                    "top": 35,
+                    "width": 11,
+                    "height": 20,
+                    "label": "蓝丝带"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "blue",
+            "text": "The route marked with the blue ribbon.",
+            "correct": false,
+            "reason": "B丝带是蓝色，不符合red。"
+          },
+          {
+            "id": "red",
+            "text": "The route marked with the red ribbon.",
+            "correct": true,
+            "reason": "A路线标记的丝带是红色；正确路线的身份来自原句。"
+          }
+        ],
+        "ownForms": [
+          "red",
+          "redder",
+          "reddest"
+        ]
+      },
+      {
+        "id": "blue",
+        "label": "blue：让本句的蓝线表示河深。",
+        "prompt": "让本句的蓝线表示河深。",
+        "answer": "blue",
+        "meaning": "蓝色；蓝色的",
+        "material": "The blue line shows the depth of the river.",
+        "before": "The ",
+        "after": " line shows the depth of the river.",
+        "reason": "blue说线的颜色；depth是深度，不是width（宽度）。这只是示意图，不给出实际水深。",
+        "hint": "blue看颜色，depth看深度。",
+        "wordDecision": {
+          "prompt": "让本句的蓝线表示河深。",
+          "depthLine": {
+            "title": "让本句的蓝线表示河深",
+            "hint": "颜色与方向分别设置；示意图不表示真实水深。",
+            "wrong": "本句是蓝线表示河深：选蓝色和深度，不能换成河宽。"
+          }
+        },
+        "options": [
+          {
+            "id": "width",
+            "text": "The blue line shows how wide the river is.",
+            "correct": false,
+            "reason": "深度换成了宽度。"
+          },
+          {
+            "id": "feeling",
+            "text": "The river feels sad because its line is blue.",
+            "correct": false,
+            "reason": "blue在这里是线的蓝色，不是心情忧郁。"
+          },
+          {
+            "id": "depth",
+            "text": "The blue line represents how deep the river is.",
+            "correct": true,
+            "reason": "blue说线的颜色，depth说河的深度。"
+          }
+        ],
+        "ownForms": [
+          "blue",
+          "bluer",
+          "bluest"
+        ]
+      },
+      {
+        "id": "yellow",
+        "label": "yellow：黄花在什么条件下开放？",
+        "prompt": "黄花在什么条件下开放？",
+        "answer": "yellow",
+        "meaning": "黄色；黄色的",
+        "material": "The yellow flowers open in bright sunlight.",
+        "before": "The ",
+        "after": " flowers open in bright sunlight.",
+        "reason": "yellow修饰flowers；open是“开放”。bright sunlight保留阳光情境，不能换成黑暗或补准确钟点。",
+        "hint": "yellow看花色；open在这里是开放。",
+        "wordDecision": {
+          "prompt": "黄花在什么条件下开放？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "黄花在明亮阳光中开放",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "sun",
+                "label": "黄花在明亮阳光下开放",
+                "text": "The yellow flowers open in bright sunlight.",
+                "include": true
+              },
+              {
+                "id": "dark",
+                "label": "黄花只在完全黑暗中开放",
+                "text": "The yellow flowers open only in complete darkness.",
+                "include": false
+              },
+              {
+                "id": "blue",
+                "label": "蓝花在阳光下从不开",
+                "text": "The blue flowers never open in sunlight.",
+                "include": false
+              }
+            ],
+            "hint": "保留颜色与开放情境。",
+            "wrong": "只选黄花在明亮阳光中开放；不能换颜色、反转开放或补only。"
+          }
+        },
+        "options": [
+          {
+            "id": "sun",
+            "text": "The flowers are yellow and open in bright sunlight.",
+            "correct": true,
+            "reason": "保留黄花和明亮阳光中的开放。"
+          },
+          {
+            "id": "dark",
+            "text": "The yellow flowers open only in complete darkness.",
+            "correct": false,
+            "reason": "明亮阳光被换成完全黑暗，又补only。"
+          },
+          {
+            "id": "blue",
+            "text": "The blue flowers never open in sunlight.",
+            "correct": false,
+            "reason": "黄色换成蓝色，开放也换成从不开。"
+          }
+        ],
+        "ownForms": [
+          "yellow",
+          "yellower",
+          "yellowest"
+        ]
+      },
+      {
+        "id": "green",
+        "label": "green：绿门通向哪里？",
+        "prompt": "绿门通向哪里？",
+        "answer": "green",
+        "meaning": "绿色；绿色的",
+        "material": "The green door leads to the garden.",
+        "before": "The ",
+        "after": " door leads to the garden.",
+        "reason": "green说门的颜色，leads to the garden是“通向花园”。本句不讨论环保。",
+        "hint": "颜色看green，去向看leads to。",
+        "wordDecision": {
+          "prompt": "绿门通向哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "绿门通向花园",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "garden",
+                "label": "绿色的门通向花园",
+                "text": "The green door leads to the garden.",
+                "include": true
+              },
+              {
+                "id": "room",
+                "label": "绿门通向厨房，不通花园",
+                "text": "The green door leads to the kitchen instead of the garden.",
+                "include": false
+              },
+              {
+                "id": "eco",
+                "label": "所有环保门都必须通向花园",
+                "text": "Every environmentally friendly door must lead to a garden.",
+                "include": false
+              }
+            ],
+            "hint": "这里是具体门的颜色和去向。",
+            "wrong": "只选绿门通向花园；不能换地点或把颜色读成环保规则。"
+          }
+        },
+        "options": [
+          {
+            "id": "room",
+            "text": "The green door leads to the kitchen instead of the garden.",
+            "correct": false,
+            "reason": "花园换成厨房。"
+          },
+          {
+            "id": "garden",
+            "text": "The door is green, and it leads to the garden.",
+            "correct": true,
+            "reason": "green是门的颜色，leads to说明通向花园。"
+          },
+          {
+            "id": "eco",
+            "text": "Every environmentally friendly door must lead to a garden.",
+            "correct": false,
+            "reason": "门的绿色被换成环保，又扩大到每扇环保门。"
+          }
+        ],
+        "ownForms": [
+          "green",
+          "greener",
+          "greenest"
+        ]
+      },
+      {
+        "id": "black",
+        "label": "black：标题要用什么墨水写？",
+        "prompt": "标题要用什么墨水写？",
+        "answer": "black",
+        "meaning": "黑色；黑色的",
+        "material": "Write the heading in black ink.",
+        "before": "Write the heading in ",
+        "after": " ink.",
+        "reason": "in black ink是“用黑色墨水”；Write要求写标题，不是说整页已经写完。",
+        "hint": "in black ink看墨水，不看纸。",
+        "wordDecision": {
+          "prompt": "标题要用什么墨水写？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "标题用黑色墨水写",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "ink",
+                "label": "用黑色墨水写标题",
+                "text": "Write the heading in black ink.",
+                "include": true
+              },
+              {
+                "id": "paper",
+                "label": "只要纸是黑色，墨水什么色都行",
+                "text": "Use black paper, whatever colour the ink is.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "整页已经用白色墨水写完",
+                "text": "The entire page has already been written in white ink.",
+                "include": false
+              }
+            ],
+            "hint": "颜色对象与指令范围都要对。",
+            "wrong": "只选黑墨水写标题；不能换成黑纸、白墨水或补整页已完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "paper",
+            "text": "Use black paper, whatever colour the ink is.",
+            "correct": false,
+            "reason": "墨水颜色换成纸张颜色，并去掉墨水要求。"
+          },
+          {
+            "id": "done",
+            "text": "The entire page has already been written in white ink.",
+            "correct": false,
+            "reason": "要求写标题变成整页已写完，黑墨水也换成白墨水。"
+          },
+          {
+            "id": "ink",
+            "text": "Use black ink for the heading.",
+            "correct": true,
+            "reason": "black修饰ink；heading是标题。"
+          }
+        ],
+        "ownForms": [
+          "black",
+          "blacker",
+          "blackest"
+        ]
+      },
+      {
+        "id": "white",
+        "label": "white：白墙怎样作用于午后的光？",
+        "prompt": "白墙怎样作用于午后的光？",
+        "answer": "white",
+        "meaning": "白色；白色的",
+        "material": "The white wall reflects the afternoon light.",
+        "before": "The ",
+        "after": " wall reflects the afternoon light.",
+        "reason": "white wall是白墙；reflects是“反射”，不是自己制造阳光。afternoon说明光线来自午后。",
+        "hint": "white看墙色；reflect不是制造光。",
+        "wordDecision": {
+          "prompt": "白墙怎样作用于午后的光？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "白墙反射午后的光",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "reflects",
+                "label": "白墙反射午后的光线",
+                "text": "The white wall reflects the afternoon light.",
+                "include": true
+              },
+              {
+                "id": "emits",
+                "label": "墙自己制造全天所有阳光",
+                "text": "The wall creates all sunlight by itself throughout the day.",
+                "include": false
+              },
+              {
+                "id": "black",
+                "label": "黑墙阻止所有午后光线到达任何地方",
+                "text": "The black wall stops all afternoon light from reaching anything.",
+                "include": false
+              }
+            ],
+            "hint": "颜色、动作和时间都保留。",
+            "wrong": "只选白墙反射午后光；不能补墙制造阳光或反转颜色与动作。"
+          }
+        },
+        "options": [
+          {
+            "id": "reflects",
+            "text": "The wall is white and reflects light in the afternoon.",
+            "correct": true,
+            "reason": "white说墙色，reflects说明反射午后光线。"
+          },
+          {
+            "id": "emits",
+            "text": "The wall creates all sunlight by itself throughout the day.",
+            "correct": false,
+            "reason": "反射被换成自己制造全天所有阳光。"
+          },
+          {
+            "id": "black",
+            "text": "The black wall stops all afternoon light from reaching anything.",
+            "correct": false,
+            "reason": "白换成黑，反射也换成阻断所有光。"
+          }
+        ],
+        "ownForms": [
+          "white",
+          "whiter",
+          "whitest"
+        ]
+      },
+      {
+        "id": "brown",
+        "label": "brown：干叶子的颜色怎样变了？",
+        "prompt": "干叶子的颜色怎样变了？",
+        "answer": "brown",
+        "meaning": "棕色；棕色的",
+        "material": "The dry leaves turned brown.",
+        "before": "The dry leaves turned ",
+        "after": ".",
+        "reason": "turned brown是“变成棕色”，turned在这里表示状态变化，不是转弯。",
+        "hint": "turned后看颜色，别读成转弯。",
+        "wordDecision": {
+          "prompt": "干叶子的颜色怎样变了？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "干叶子变棕色",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "brown",
+                "label": "干叶子变成了棕色",
+                "text": "The dry leaves turned brown.",
+                "include": true
+              },
+              {
+                "id": "turn",
+                "label": "干叶子沿路向左转",
+                "text": "The dry leaves turned left along a road.",
+                "include": false
+              },
+              {
+                "id": "green",
+                "label": "所有干叶子永远保持绿色",
+                "text": "All the dry leaves stayed green forever.",
+                "include": false
+              }
+            ],
+            "hint": "turned在这里带出颜色变化。",
+            "wrong": "只选干叶子变棕色；不能读成转弯或反转为永远绿色。"
+          }
+        },
+        "options": [
+          {
+            "id": "turn",
+            "text": "The dry leaves turned left along a road.",
+            "correct": false,
+            "reason": "变颜色被换成向左转。"
+          },
+          {
+            "id": "brown",
+            "text": "The dry leaves became brown.",
+            "correct": true,
+            "reason": "turned后接颜色，表示变棕色。"
+          },
+          {
+            "id": "green",
+            "text": "All the dry leaves stayed green forever.",
+            "correct": false,
+            "reason": "变棕色反转成永远保持绿色。"
+          }
+        ],
+        "ownForms": [
+          "brown",
+          "browner",
+          "brownest"
+        ]
+      },
+      {
+        "id": "grey",
+        "label": "grey：灰云把山的哪里遮住了？",
+        "prompt": "灰云把山的哪里遮住了？",
+        "answer": "grey",
+        "meaning": "灰色；灰色的",
+        "material": "A grey cloud hid the mountain top.",
+        "before": "A ",
+        "after": " cloud hid the mountain top.",
+        "reason": "grey说云的颜色；hid是hide的过去式。云遮住山顶的视线，不是整座山消失。",
+        "hint": "hid是遮住；mountain top只说山顶。",
+        "wordDecision": {
+          "prompt": "灰云把山的哪里遮住了？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "灰云遮住山顶",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "top",
+                "label": "灰云挡住了山顶的视线",
+                "text": "A grey cloud hid the mountain top.",
+                "include": true
+              },
+              {
+                "id": "gone",
+                "label": "整座山永久消失了",
+                "text": "The whole mountain disappeared permanently.",
+                "include": false
+              },
+              {
+                "id": "clear",
+                "label": "灰云让人能看清山顶",
+                "text": "The grey cloud made the mountain top completely clear to see.",
+                "include": false
+              }
+            ],
+            "hint": "遮挡视线不等于物体消失。",
+            "wrong": "只选灰云遮住山顶；不能扩大成整山消失或反转为看清。"
+          }
+        },
+        "options": [
+          {
+            "id": "gone",
+            "text": "The whole mountain disappeared permanently.",
+            "correct": false,
+            "reason": "遮住山顶被扩大成整座山永久消失。"
+          },
+          {
+            "id": "clear",
+            "text": "The grey cloud made the mountain top completely clear to see.",
+            "correct": false,
+            "reason": "遮住被反转成完全看清。"
+          },
+          {
+            "id": "top",
+            "text": "A grey cloud blocked the view of the mountain top.",
+            "correct": true,
+            "reason": "grey说云色，hid说明遮住视线，范围是山顶。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-colour-appearance-transfer",
+      "topicId": "v-course-colour-appearance",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which report matches the walking guide?",
+      "passage": "Our illustrated walking guide\nOur class made a walking guide for a visitor. At the woodland fork, a red ribbon marked the correct path. We drew both branches and checked the ribbon colour before choosing a route. On the next page, a blue line ran from the river surface down to the bed. It showed the depth, not the distance across the river.\nThe guide then led visitors through a green door into the garden. Yellow flowers opened in bright sunlight beside a white wall. In the afternoon, the wall reflected the light onto the garden table. We wrote the heading in black ink so it was easy to read.\nFor the final picture, we drew dry leaves that had turned brown. Above them, a grey cloud hid the mountain top. The mountain was still there, although its top could not be seen through the cloud.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The red ribbon marked the correct route; the blue line showed river depth; the grey cloud blocked the view of the mountain top."
+        },
+        {
+          "id": "b",
+          "text": "The blue ribbon marked the correct route; the blue line showed river depth; the grey cloud blocked the view of the mountain top."
+        },
+        {
+          "id": "c",
+          "text": "The red ribbon marked the correct route; the blue line showed river width; the grey cloud blocked the view of the mountain top."
+        },
+        {
+          "id": "d",
+          "text": "The red ribbon marked the correct route; the blue line showed river depth; the whole mountain had disappeared permanently."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The red ribbon marked the correct route; the blue line showed river depth; the grey cloud blocked the view of the mountain top."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对标记颜色、蓝线表示什么和山顶为何看不见。",
+        "steps": [
+          {
+            "text": "红丝带标正确路线；蓝线从水面到河床，表示深度。",
+            "reason": "red修饰ribbon；从水面到河床是depth，不是横跨河面的width。"
+          },
+          {
+            "text": "灰云遮住山顶的视线，山仍然存在。",
+            "reason": "hid只说明遮挡；后文明确The mountain was still there。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把标记正确路线的红丝带换成蓝丝带。"
+          },
+          {
+            "option": "c",
+            "reason": "把河深换成河宽。"
+          },
+          {
+            "option": "d",
+            "reason": "把山顶看不见扩大成整座山永久消失。"
+          }
+        ],
+        "pitfall": "只看见颜色词，却忽略它修饰的对象和句中的作用。",
+        "visual": {
+          "kind": "timeline",
+          "title": "颜色、作用和遮挡范围",
+          "segments": [
+            {
+              "text": "red ribbon → correct path",
+              "role": "object",
+              "note": "标记颜色"
+            },
+            {
+              "text": "surface ↓ bed → depth",
+              "role": "object",
+              "note": "深度，不是宽度"
+            },
+            {
+              "text": "grey cloud → hides top",
+              "role": "object",
+              "note": "遮住视线，山仍在"
+            }
+          ],
+          "caption": "颜色跟着具体对象读，作用回到句子核对。"
+        },
+        "transfer": "白墙反射午后的光，是否说明墙会自己制造全天所有阳光？用原文说明。"
+      }
+    }
+  }
+}

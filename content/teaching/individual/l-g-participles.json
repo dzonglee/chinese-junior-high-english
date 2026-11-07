@@ -1,0 +1,1092 @@
+{
+  "lessonId": "l-g-participles",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Connect falling/fallen pictures to ongoing/completed states,identify modified nouns and doer/receiver relations,repair irregular participles and distinguish modifiers from finite predicates without treating every past participle as passive.",
+  "picturePurpose": "Original airborne/grounded leaf comparison gates opposite timing choices;all motion claims and labels are explicit code. Word selections require actual noun/predicate boundaries rather than guessing the first tile.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "点叶子状态，圈名词，再分清修饰语与谓语",
+    "instruction": "比较正在做、承受动作和已经完成；找出-ing或过去分词说明谁，别漏掉主句谓语。",
+    "conditions": [
+      {
+        "label": "还在下落，用falling修饰leaf",
+        "before": "Look at the ",
+        "target": "falling",
+        "after": " leaf.",
+        "choices": [
+          "fallen",
+          "falling"
+        ],
+        "reason": "给定叶子正在下落，用falling说明正在发生的动作；fallen表示已经落下，时间关系不同。",
+        "world": {
+          "kind": "logic",
+          "caption": "给定时刻：这片叶子正在往下落，还没碰到地面。先选相符状态，再用fall的-ing形式修饰leaf。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的叶子状态"
+            },
+            {
+              "label": "@attempt",
+              "detail": "修饰leaf的词",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "按给定时刻选择叶子状态",
+            "emptyLabel": "先选状态",
+            "missingPrompt": "先按给定时刻选择叶子，再核对fall的形式。",
+            "asset": "lesson-leaf-states",
+            "assetRoot": "illustrations",
+            "alt": "左图橙色叶子悬在树枝和地面之间；右图橙色叶子已落在地上。",
+            "artChoices": [
+              "falling",
+              "fallen"
+            ],
+            "answer": "falling",
+            "options": [
+              {
+                "id": "falling",
+                "label": "正在下落",
+                "text": "叶子还在半空",
+                "reason": "符合给定时刻。",
+                "value": 25
+              },
+              {
+                "id": "fallen",
+                "label": "已经落下",
+                "text": "叶子已在地面",
+                "reason": "这不是题目给定的时刻。给定叶子正在下落，用falling说明正在发生的动作；fallen表示已经落下，时间关系不同。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "fallen",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "已经落地，用fallen说明完成",
+        "before": "The ",
+        "target": "fallen",
+        "after": " leaf is on the ground.",
+        "choices": [
+          "falling",
+          "fallen"
+        ],
+        "reason": "给定叶子已经落地，用fallen说明已完成的状态。fall是不及物动词，这里的过去分词表示已经落下，不是叶子被谁落下。",
+        "world": {
+          "kind": "logic",
+          "caption": "换个时刻：这片叶子已落在地面，不再下落。先改选状态，再用fall的过去分词修饰leaf。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的叶子状态"
+            },
+            {
+              "label": "@attempt",
+              "detail": "修饰leaf的词",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "按给定时刻选择叶子状态",
+            "emptyLabel": "先选状态",
+            "missingPrompt": "先按给定时刻选择叶子，再核对fall的形式。",
+            "asset": "lesson-leaf-states",
+            "assetRoot": "illustrations",
+            "alt": "左图橙色叶子悬在树枝和地面之间；右图橙色叶子已落在地上。",
+            "artChoices": [
+              "falling",
+              "fallen"
+            ],
+            "answer": "fallen",
+            "options": [
+              {
+                "id": "falling",
+                "label": "正在下落",
+                "text": "叶子还在半空",
+                "reason": "这不是题目给定的时刻。给定叶子已经落地，用fallen说明已完成的状态。fall是不及物动词，这里的过去分词表示已经落下，不是叶子被谁落下。",
+                "value": 25
+              },
+              {
+                "id": "fallen",
+                "label": "已经落下",
+                "text": "叶子已在地面",
+                "reason": "符合给定时刻。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "falling",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "人提篮子，用carrying修饰人",
+        "before": "The girl ",
+        "target": "carrying",
+        "after": " a basket is my sister.",
+        "choices": [
+          "carried",
+          "carrying"
+        ],
+        "reason": "女孩执行carry动作，carrying a basket修饰girl。不能把修饰语写成过去时carried a basket后又直接接主句的is。",
+        "world": {
+          "kind": "roles",
+          "caption": "妹妹正提着篮子。用carry的-ing形式修饰girl，主句的is已给出。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "girl",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "carrying",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "a",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "basket",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "is",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "my",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "sister",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出carrying修饰的完整名词短语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "女孩执行carry动作，carrying a basket修饰girl。不能把修饰语写成过去时carried a basket后又直接接主句的is。"
+          }
+        },
+        "input": true,
+        "initial": "carried",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "换成被提的篮子，用carried",
+        "before": "The basket ",
+        "target": "carried",
+        "after": " by Mia is heavy.",
+        "choices": [
+          "carrying",
+          "carried"
+        ],
+        "reason": "篮子承受carry，carried by Mia修饰basket；不是篮子自己在提东西。",
+        "world": {
+          "kind": "roles",
+          "caption": "Mia提着这个篮子。改以篮子为主角，用carry的过去分词作修饰语。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "basket",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "carried",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "by",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "Mia",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "is",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "heavy",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出carried修饰的完整名词短语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "篮子承受carry，carried by Mia修饰basket；不是篮子自己在提东西。"
+          }
+        },
+        "input": true,
+        "initial": "carrying",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "running是修饰语，不能多写一个runs",
+        "before": "The boy ",
+        "target": "running",
+        "after": " in the park is my cousin.",
+        "choices": [
+          "runs",
+          "running"
+        ],
+        "reason": "running in the park修饰boy，主句谓语是is。没有连词，不能把修饰部分写成runs再接is。",
+        "world": {
+          "kind": "roles",
+          "caption": "表弟正在公园跑步。用run的-ing形式修饰boy，不另写一个限定谓语。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "boy",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "running",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "in",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "park",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "is",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "my",
+              "detail": "句子片段"
+            },
+            {
+              "id": "8",
+              "label": "cousin",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出running修饰的完整名词短语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "running in the park修饰boy，主句谓语是is。没有连词，不能把修饰部分写成runs再接is。"
+          }
+        },
+        "input": true,
+        "initial": "runs",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "主句单复数看girls，不看修饰语",
+        "before": "The girls wearing red coats ",
+        "target": "are",
+        "after": " my classmates.",
+        "choices": [
+          "is",
+          "are"
+        ],
+        "reason": "主句说The girls are my classmates，girls复数用are；wearing red coats只是修饰girls。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出被修饰的名词，再检查谁做动作、谁承受动作，以及动作是否已完成。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "girls",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "wearing",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "red",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "coats",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "are",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "my",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "classmates",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出主句的完整主语中心部分（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "主句说The girls are my classmates，girls复数用are；wearing red coats只是修饰girls。"
+          }
+        },
+        "input": true,
+        "initial": "is",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "已损坏的窗户，用broken",
+        "before": "The ",
+        "target": "broken",
+        "after": " window needs repair.",
+        "choices": [
+          "breaking",
+          "broken"
+        ],
+        "reason": "记录说窗户已经损坏，按要求用break的过去分词broken表示这个状态；breaking侧重正在破裂的过程，不是本题要求的已损坏状态。",
+        "world": {
+          "kind": "roles",
+          "caption": "记录明确窗户已经破了，需要维修。用break的过去分词修饰window。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "broken",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "window",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "needs",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "repair",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出broken修饰的名词（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "记录说窗户已经损坏，按要求用break的过去分词broken表示这个状态；breaking侧重正在破裂的过程，不是本题要求的已损坏状态。"
+          }
+        },
+        "input": true,
+        "initial": "breaking",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "水正在沸腾，用boiling",
+        "before": "Some ",
+        "target": "boiling",
+        "after": " water is spilling from the pan.",
+        "choices": [
+          "boiled",
+          "boiling"
+        ],
+        "reason": "给定水正持续冒泡沸腾，本题用boil的-ing形式boiling强调正在沸腾；boiled侧重已经煮过。",
+        "world": {
+          "kind": "roles",
+          "caption": "给定状态：锅里的水正持续冒泡沸腾。按要求用boil的-ing形式，不是只说明水曾煮开过。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Some",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "boiling",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "water",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "is",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "spilling",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "from",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "pan",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出boiling修饰的名词（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "给定水正持续冒泡沸腾，本题用boil的-ing形式boiling强调正在沸腾；boiled侧重已经煮过。"
+          }
+        },
+        "input": true,
+        "initial": "boiled",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "水已经煮过，用boiled",
+        "before": "The ",
+        "target": "boiled",
+        "after": " water has cooled down.",
+        "choices": [
+          "boiling",
+          "boiled"
+        ],
+        "reason": "记录说水已经煮开，后来又冷却，用boiled说明已煮过；此刻不是仍在沸腾的boiling。",
+        "world": {
+          "kind": "roles",
+          "caption": "给定过程：水先煮开，后来已经冷却。用boil的过去分词说明这是煮过的水。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "boiled",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "water",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "has",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "cooled",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "down",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出boiled修饰的名词（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "记录说水已经煮开，后来又冷却，用boiled说明已煮过；此刻不是仍在沸腾的boiling。"
+          }
+        },
+        "input": true,
+        "initial": "boiling",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "人感到兴奋，用excited",
+        "before": "The ",
+        "target": "excited",
+        "after": " children were cheering.",
+        "choices": [
+          "exciting",
+          "excited"
+        ],
+        "reason": "题目要说孩子们感到兴奋，用excited；exciting强调让别人兴奋，含义不同。",
+        "world": {
+          "kind": "roles",
+          "caption": "孩子们因比赛结果而感到兴奋，正在欢呼。用excited或exciting中表示感受的那个词。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "excited",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "children",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "were",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "cheering",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出excited修饰的名词（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "题目要说孩子们感到兴奋，用excited；exciting强调让别人兴奋，含义不同。"
+          }
+        },
+        "input": true,
+        "initial": "exciting",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "比赛让人兴奋，用exciting",
+        "before": "It was an ",
+        "target": "exciting",
+        "after": " match.",
+        "choices": [
+          "excited",
+          "exciting"
+        ],
+        "reason": "题目要说比赛令人兴奋，用exciting；不是说比赛自己产生了兴奋的感受。",
+        "world": {
+          "kind": "roles",
+          "caption": "这是一场令人兴奋的比赛。用excited或exciting中表示引起感受的那个词。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "It",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "was",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "an",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "exciting",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "match",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出exciting修饰的名词（可多选）",
+            "ids": [
+              "4"
+            ],
+            "reason": "题目要说比赛令人兴奋，用exciting；不是说比赛自己产生了兴奋的感受。"
+          }
+        },
+        "input": true,
+        "initial": "excited",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "纸条被写出，用written不是wrote",
+        "before": "The note ",
+        "target": "written",
+        "after": " by Amy is on my desk.",
+        "choices": [
+          "wrote",
+          "written"
+        ],
+        "reason": "note承受写的动作，修饰语用过去分词written by Amy，不用限定过去式wrote。主句谓语是is。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出被修饰的名词，再检查谁做动作、谁承受动作，以及动作是否已完成。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "note",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "written",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "by",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "Amy",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "is",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "on",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "my",
+              "detail": "句子片段"
+            },
+            {
+              "id": "8",
+              "label": "desk",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出written修饰的完整名词短语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "note承受写的动作，修饰语用过去分词written by Amy，不用限定过去式wrote。主句谓语是is。"
+          }
+        },
+        "input": true,
+        "initial": "wrote",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "飞机被制作，made修饰plane",
+        "before": "The paper plane ",
+        "target": "made",
+        "after": " by Leo flies well.",
+        "choices": [
+          "making",
+          "made"
+        ],
+        "reason": "paper plane是Leo做出来的物品，用过去分词made；主句谓语是flies。",
+        "world": {
+          "kind": "roles",
+          "caption": "纸飞机由Leo制作，现在飞得很好。用make的过去分词修饰paper plane。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "paper",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "plane",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "made",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "by",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "flies",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "well",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出made修饰的完整名词短语（可多选）",
+            "ids": [
+              "0",
+              "1",
+              "2"
+            ],
+            "reason": "paper plane是Leo做出来的物品，用过去分词made；主句谓语是flies。"
+          }
+        },
+        "input": true,
+        "initial": "making",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      },
+      {
+        "label": "先找真正谓语，不能漏are",
+        "before": "The students sitting at the back ",
+        "target": "are listening",
+        "after": ".",
+        "choices": [
+          "listening",
+          "are listening"
+        ],
+        "reason": "sitting at the back修饰students，主句真正的谓语是are listening。句子不能只留两个-ing形式却没有限定谓语。",
+        "world": {
+          "kind": "roles",
+          "caption": "学生们坐在后排，正在听。先圈出例句真正的谓语，再修好漏掉be的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "students",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "sitting",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "at",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "back",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "are",
+              "detail": "句子片段"
+            },
+            {
+              "id": "7",
+              "label": "listening",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出主句真正的完整谓语（含助动词）（可多选）",
+            "ids": [
+              "6",
+              "7"
+            ],
+            "reason": "sitting at the back修饰students，主句真正的谓语是are listening。句子不能只留两个-ing形式却没有限定谓语。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "are",
+          "listening"
+        ]
+      },
+      {
+        "label": "买来的蛋糕，用bought修饰",
+        "before": "The cake ",
+        "target": "bought",
+        "after": " by Dad was delicious.",
+        "choices": [
+          "buying",
+          "bought"
+        ],
+        "reason": "cake是被爸爸买来的物品，buy的过去分词是bought，不是蛋糕自己在买东西。was是主句谓语。",
+        "world": {
+          "kind": "roles",
+          "caption": "先圈出被修饰的名词，再检查谁做动作、谁承受动作，以及动作是否已完成。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "The",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "cake",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "bought",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "by",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "Dad",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "was",
+              "detail": "句子片段"
+            },
+            {
+              "id": "6",
+              "label": "delicious",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出bought修饰的完整名词短语（可多选）",
+            "ids": [
+              "0",
+              "1"
+            ],
+            "reason": "cake是被爸爸买来的物品，buy的过去分词是bought，不是蛋糕自己在买东西。was是主句谓语。"
+          }
+        },
+        "input": true,
+        "initial": "buying",
+        "inputHint": "按题目指定的动词或词形修好原稿；先找被修饰的名词，别把修饰语当作主句谓语。"
+      }
+    ],
+    "choices": [
+      "fallen",
+      "falling",
+      "carried",
+      "carrying",
+      "runs",
+      "running",
+      "is",
+      "are",
+      "breaking",
+      "broken",
+      "boiled",
+      "boiling",
+      "exciting",
+      "excited",
+      "wrote",
+      "written",
+      "making",
+      "made",
+      "listening",
+      "are listening",
+      "buying",
+      "bought"
+    ],
+    "items": [
+      {
+        "id": "participle-editor",
+        "label": "名词、修饰语与谓语",
+        "prompt": "先看名词和动作的关系，再核对词形与主句。",
+        "answer": "",
+        "reason": "",
+        "hint": "-ing可说明主动或正在发生；过去分词可说明被动或完成，不一定都表示被动。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-participles-002",
+      "q-g-participles-003"
+    ],
+    "transfer": {
+      "id": "individual-g-participles-transfer",
+      "topicId": "g-participles",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "比较两句：The girl playing the piano is my friend. The piano bought last month is new.\n哪项正确解释playing和bought？",
+      "options": [
+        {
+          "id": "a",
+          "text": "女孩在弹琴；钢琴是被买来的。两处都是修饰语，主句谓语都是is。"
+        },
+        {
+          "id": "b",
+          "text": "playing和bought都是主句谓语，后面的is可以删去。"
+        },
+        {
+          "id": "c",
+          "text": "女孩被弹奏；钢琴主动买了东西。"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "playing修饰做动作的girl；bought修饰承受动作的piano；主句谓语为is。"
+      },
+      "marks": 2,
+      "estimatedSeconds": 95,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找被修饰的名词，再看主动或被动关系，最后确认主句谓语。",
+        "steps": [
+          {
+            "text": "第一句girl主动弹琴，playing the piano修饰girl；主句是The girl is my friend。",
+            "reason": "playing不是本句的限定谓语，不能直接替代is。"
+          },
+          {
+            "text": "第二句piano承受买的动作，bought last month修饰piano；主句是The piano is new。",
+            "reason": "buy的过去分词bought表示被买来，不能说钢琴主动买了东西。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "删去is后，两句都没有主句所需的限定谓语。"
+          },
+          {
+            "option": "c",
+            "reason": "把主动与被动关系说反了：人弹琴，钢琴被买。"
+          }
+        ],
+        "pitfall": "不能看到-ing就认定是进行时谓语，也不能把每个过去分词都当过去时谓语。",
+        "visual": {
+          "kind": "sentence",
+          "title": "修饰语与主句分开看",
+          "segments": [
+            {
+              "text": "The girl [playing the piano]",
+              "role": "subject",
+              "note": "女孩做动作，-ing短语修饰她"
+            },
+            {
+              "text": "The piano [bought last month]",
+              "role": "subject",
+              "note": "钢琴承受买的动作，过去分词修饰它"
+            },
+            {
+              "text": "is my friend / is new",
+              "role": "verb",
+              "note": "两句主句谓语都有is"
+            }
+          ],
+          "caption": "方括号标出修饰部分，主句仍需要限定谓语。"
+        },
+        "transfer": "在The students waiting outside are quiet中，哪个部分修饰students，哪个词是主句谓语？"
+      }
+    }
+  }
+}

@@ -1,6 +1,16 @@
 # Project memory
 
-## Current local delivery · 2026-10-17
+## Current local milestone · 2026-11-07 (UTC)
+
+All 413 lessons are individually redesigned and visually reviewed. The final complete local/platform checks, whole-app navigation and eight original mock-paper journeys pass. All 2,820 core tests/212 files and 245 canonical content packs pass. [Final review](reviews/individual-lessons/final-local-review-2026-11-07.md) and [audit](reviews/individual-lessons/final-course-audit.json) give the exact scope and per-lesson evidence.
+
+APP-VISUAL-LESSONS is complete and squash-integrated on main from author/individual-lessons. Local artifacts are `dist/local/index.html`, `dist/local-english-app.zip` and `dist/english-wechat-development.zip`. Final source hashes match the final application checkpoint; the historical lesson413 checkpoint is retained unchanged. Nothing is released or published.
+
+APP-NATIVE remains blocked: automatic approval review rejected development-source ZIP egress for lack of source-code transfer permission. Actual SDK coverage remains through 147, with 805 inspected figures; 148–413 are pending. No alternative transfer or GUI job was attempted. Approved audio for 99 scripts, physical devices, editorial/cohort mapping and production remain open. Videos are deferred. Research is not declared complete.
+
+Continue using the existing Studio MCP project note and two Kanban cards; preserve the shared GUI coordination protocol. Owner requested solo work.
+
+## Previous local delivery · 2026-10-17
 
 APP-VISUAL-LESSONS now implements one connected teaching path across all 413 lessons. The rejected
 extra mission introduction is hidden from the default journey. Changing grammar conditions update
@@ -194,7 +204,7 @@ pending; no audio model was selected. Native DevTools/device validation, actual 
 approved audio and editorial/launch decisions remain for future work. The 96 words do not establish
 complete national vocabulary coverage. Research and its existing claims remain unchanged.
 
-The cloud install_script/start_skill were saved successfully for the tested local build workflow.
+The cloud install_script/start_skill were saved successfully for the tested local build workflow. The startup instructions were refreshed on 2026-10-19 (Sydney) for the existing solo checkout, serial checks, private MCP helper and shared GUI coordination. Draft save succeeded; environment publication and fresh-task restoration are not claimed.
 Saving environment configuration is not publishing a snapshot or validating a fresh task restore.
 Existing external Kanban/Obsidian reconciliation remains pending because their native/deferred
 tools and generic discovery/reload are absent from this worker. This does not block local coding;
@@ -405,3 +415,13 @@ The existing Obsidian project and mock Kanban card 463089cd-2a1c-4b3b-a26b-3c063
 are updated through the working private MCP helper. No native plugin injection, release,
 upload or publication is implied. Approved audio, actual phones, official local mapping and
 editorial review remain separate completion requirements.
+
+
+### Current native access limitation — lesson138, 2026-10-19 UTC
+
+Focused WeChat checkpoint138 is pending: wechat_status succeeds,but read_file(wechat/AGENTS.md) twice reports MacStudioExternal file access unavailable. No GUI job submitted,no restart or credential change. Local138controls passed after correcting initial-target test ordering;visual review ongoing. Latest actual native pass remains137/all78captures.
+
+
+## Final application check · 2026-11-07 (UTC)
+
+All 413 individual lesson upgrades remain accepted. The whole-app review found that immediate wrong-answer feedback could describe another distractor. It now uses the student's actual selected option, with regression checks for both wrong options in practice and submitted mock-paper review. All 2,820 core tests/212 files pass. A fresh complete offline, both245-pack adapter and whole-product/mock/visual run is in progress; final application acceptance and squash merge remain pending. All245 canonical content packs and individual lesson definitions are unchanged. Generated catalog metadata changes only the application source fingerprint. APP-VISUAL-LESSONS stays claimed until this final review passes. Actual SDK147/805 and the source-transfer permission block remain unchanged.

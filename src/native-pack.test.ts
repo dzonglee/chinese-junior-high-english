@@ -1,0 +1,136 @@
+import { describe, expect, it } from 'vitest'
+import { gzipSync } from 'node:zlib'
+import { decodeNativePack } from './native/pack-codec'
+import { sha256 } from '@noble/hashes/sha256'
+import { bytesToHex, utf8ToBytes } from '@noble/hashes/utils'
+import { ContentRepository } from './services/content'
+import { catalog, q } from './test-fixtures'
+import { utf8Bytes, utf8ByteLength } from './core/utf8'
+
+const stored = (text: string) => ({ encoding: 'gzip-hex-v1', byteLength: Buffer.byteLength(text), data: gzipSync(text, { level: 9 }).toString('hex') })
+const storedBase64 = (text: string) => ({ ...stored(text), encoding: 'gzip-base64-v1', data: gzipSync(text, { level: 9 }).toString('base64') })
+
+describe('lossless native content storage', () => {
+  it('restores compact base64 and legacy hex to identical text for every padding length', () => {
+    const padding = new Set<number>()
+    for (let n = 1; n <= 80; n++) {
+      const text = JSON.stringify({ text: '中文😀\\\"\n'.repeat(n), n }) + '\n'
+      const compact = storedBase64(text), legacy = stored(text)
+      padding.add(compact.data.endsWith('==') ? 2 : compact.data.endsWith('=') ? 1 : 0)
+      expect(compact.data.length).toBeLessThan(legacy.data.length)
+      expect(decodeNativePack(compact)).toBe(text)
+      expect(decodeNativePack(legacy)).toBe(text)
+    }
+    expect([...padding].sort()).toEqual([0, 1, 2])
+  })
+
+  it('rejects malformed and noncanonical base64, bounds allocation and retains gzip length guards', () => {
+    const compact = storedBase64('abcde')
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+    const malformed = ['', 'A'.repeat(23), 'A'.repeat(2_000_004), compact.data + 'A', compact.data + '\n',
+      compact.data.replace(/./, '-'), compact.data.slice(0, 4) + '=' + compact.data.slice(5), compact.data.slice(0, -3) + '===']
+    for (let n = 1; n < 30; n++) {
+      const pack = storedBase64('x'.repeat(n)), pad = pack.data.endsWith('==') ? 2 : pack.data.endsWith('=') ? 1 : 0
+      if (pad) {
+        const index = pack.data.length - pad - 1
+        const data = pack.data.slice(0, index) + alphabet[alphabet.indexOf(pack.data[index]) | 1] + pack.data.slice(index + 1)
+        expect(() => decodeNativePack({ ...pack, data })).toThrow('内容包格式不正确')
+      }
+    }
+    for (const data of malformed) expect(() => decodeNativePack({ ...compact, data })).toThrow('内容包格式不正确')
+    for (const byteLength of [0, -1, 1.5, 2_000_001, 4, 6]) expect(() => decodeNativePack({ ...compact, byteLength })).toThrow('内容包格式不正确')
+    const damaged = Buffer.from(compact.data, 'base64'); damaged[3] = 8
+    expect(() => decodeNativePack({ ...compact, data: damaged.toString('base64') })).toThrow('内容包格式不正确')
+    const overrun = Buffer.from(compact.data, 'base64'); overrun.writeUInt32LE(4, overrun.length - 4)
+    expect(() => decodeNativePack({ ...compact, byteLength: 4, data: overrun.toString('base64') })).toThrow('内容包格式不正确')
+  })
+
+  it('preserves standard UTF-8 bytes, malformed-surrogate replacement and fresh buffers without TextEncoder', () => {
+    const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'TextEncoder')!
+    Object.defineProperty(globalThis, 'TextEncoder', { configurable: true, writable: true, value: undefined })
+    try {
+      const strings = ['', '\u0000\u007f\u0080\u07ff\u0800\ud7ff\ue000\uffff', '中文：标签与误会。', 'A😀𝄞\u{10ffff}Z', '\ud800', '\udbff', '\udc00', '\udfff', '\ud800x\udc00', '\ud800\ud800\udc00', '\udc00\udfff\udbff', 'a\r\n\u2028\u2029z', '中文😀\ud800 ASCII\u0000'.repeat(4000)]
+      for (const text of strings) {
+        const expected = Buffer.from(text, 'utf8'), actual = utf8Bytes(text)
+        expect(Buffer.from(actual).toString('hex')).toBe(expected.toString('hex'))
+        expect(utf8ByteLength(text)).toBe(expected.length)
+        if (actual.length) actual[0] ^= 0xff
+        expect(Buffer.from(utf8Bytes(text)).toString('hex')).toBe(expected.toString('hex'))
+      }
+    } finally { Object.defineProperty(globalThis, 'TextEncoder', descriptor) }
+  })
+  it('publishes fully converted concurrent packs and refreshes a pack arriving during an earlier flush', async () => {
+    for (const late of [false, true]) {
+      const questions = ['a', 'b'].map(id => ({ ...structuredClone(q), id: `q-batch-${id}`, topicId: `g-batch-${id}`, stem: 'The colour ___ bright.' }))
+      const texts = questions.map(question => JSON.stringify({ version: 1, topicId: question.topicId, questions: [question] }))
+      const descriptors = questions.map((question, i) => ({ topicId: question.topicId, sha256: bytesToHex(sha256(utf8ToBytes(texts[i]))), file: `batch-${i}.json`, questionIds: [question.id] }))
+      const data = catalog(); data.questions = []
+      const ready = new Map<string, (text: string) => void>()
+      const repo = new ContentRepository(data, descriptors, descriptor => new Promise(resolve => ready.set(descriptor.topicId, resolve)))
+      repo.setSpelling('american')
+      const convert = repo.setSpelling.bind(repo)
+      let conversions = 0
+      repo.setSpelling = spelling => {
+        conversions++
+        convert(spelling)
+        if (late && conversions === 1) ready.get(questions[1].topicId)!(texts[1])
+      }
+      const loading = repo.ensureTopics(descriptors.map(d => d.topicId))
+      ready.get(questions[0].topicId)!(texts[0])
+      if (!late) ready.get(questions[1].topicId)!(texts[1])
+      await loading
+      expect(conversions).toBe(late ? 2 : 1)
+      expect(data.questions.map(question => [question.id, question.stem])).toEqual(questions.map(question => [question.id, 'The color ___ bright.']))
+      await repo.ensureTopics(descriptors.map(d => d.topicId))
+      expect(conversions).toBe(late ? 2 : 1)
+      repo.setSpelling('british')
+      expect(data.questions.map(question => question.stem)).toEqual(questions.map(() => 'The colour ___ bright.'))
+    }
+  })
+  it('preserves exact Chinese, emoji, escapes, punctuation, ordering and whitespace for the existing hash check', () => {
+    const text = '{"topicId":"test","quoted":"妈妈说：\\\"Hello!\\\" 🌳","line":"a\\nb","number":1}\n'
+    expect(decodeNativePack(stored(text))).toBe(text)
+  })
+
+  it('rejects unknown formats, invalid sizes and malformed hex before decompression', () => {
+    const pack = stored('{"value":"test"}')
+    for (const value of [null, '', pack.data, {}, { ...pack, encoding: 'other' },
+      ...[0, -1, 1.5, 2_000_001, NaN, '10'].map(byteLength => ({ ...pack, byteLength })),
+      ...['', 'a', pack.data + 'a', 'zz'.repeat(20), pack.data.toUpperCase()].map(data => ({ ...pack, data }))]) {
+      expect(() => decodeNativePack(value)).toThrow('内容包格式不正确')
+    }
+  })
+
+  it('rejects optional/invalid headers, truncated bodies and inconsistent declared output lengths', () => {
+    const pack = stored('{"value":"test"}')
+    const bytes = Buffer.from(pack.data, 'hex')
+    for (const data of ['00000000' + pack.data.slice(8), pack.data.slice(0, 6) + '08' + pack.data.slice(8), pack.data.slice(0, -10)]) {
+      expect(() => decodeNativePack({ ...pack, data })).toThrow('内容包格式不正确')
+    }
+    bytes.fill(255, 10, bytes.length - 8)
+    expect(() => decodeNativePack({ ...pack, data: bytes.toString('hex') })).toThrow('内容包格式不正确')
+    expect(() => decodeNativePack({ ...pack, byteLength: pack.byteLength + 1 })).toThrow('内容包格式不正确')
+  })
+
+  it('rejects both short output and a stream that expands beyond its claimed bounded size', () => {
+    const pack = stored('abcde'), tooLong = Buffer.from(pack.data, 'hex')
+    tooLong.writeUInt32LE(4, tooLong.length - 4)
+    expect(() => decodeNativePack({ ...pack, byteLength: 4, data: tooLong.toString('hex') })).toThrow('内容包格式不正确')
+    const tooShort = Buffer.from(pack.data, 'hex')
+    tooShort.writeUInt32LE(6, tooShort.length - 4)
+    expect(() => decodeNativePack({ ...pack, byteLength: 6, data: tooShort.toString('hex') })).toThrow('内容包格式不正确')
+  })
+
+  it('keeps the original SHA-256 gate: valid compressed but changed questions cannot enter the catalog', async () => {
+    const text = JSON.stringify({ version: 1, topicId: q.topicId, questions: [q] })
+    const descriptor = { topicId: q.topicId, sha256: bytesToHex(sha256(utf8ToBytes(text))), file: 'test.json', questionIds: [q.id] }
+    const data = catalog(); data.questions = []
+    const changed = text.replace('Mia ___ ready for school.', 'Mia ___ late for school.')
+    const bad = new ContentRepository(data, [descriptor], async () => decodeNativePack(storedBase64(changed)))
+    await expect(bad.ensureTopics([q.topicId])).rejects.toThrow('内容校验没有通过')
+    expect(data.questions).toEqual([])
+    const good = new ContentRepository(data, [descriptor], async () => decodeNativePack(storedBase64(text)))
+    await good.ensureTopics([q.topicId])
+    expect(data.questions.map(question => question.id)).toEqual([q.id])
+  })
+})

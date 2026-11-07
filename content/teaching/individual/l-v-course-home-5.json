@@ -1,0 +1,745 @@
+{
+  "lessonId": "l-v-course-home-5",
+  "reviewState": "draft",
+  "intent": "Individual textile/cleaning word lesson:blanket,two contextual sheet senses,towel,uncountable soap/bar,brush noun/verb and es,bucket count/capacity,broom,uncountable rubbish with explicit regional comparison. Three original neutral picture tasks,six own-form lists and two base-only mass nouns,new sentences,changed blanket/sheet rewrites and fresh paper/twelve-litre transfer remain draft.",
+  "picturePurpose": "Original blanket/towel/broom panels support identification,not literal source-example locations or capacity. Exact text and quantities are authored in code. No image-based counting or audio claim.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "认物品、分用法，再完成新清洁计划",
+    "instruction": "先点图或读句子判断，再填词、写自己的例子。最后读新计划，算清桶数与水量。",
+    "items": [
+      {
+        "id": "blanket",
+        "label": "blanket：冷时盖的毯子",
+        "prompt": "找blanket：床尾厚的毯子在哪个场景？点图或选描述。",
+        "wordDecision": {
+          "prompt": "找blanket：床尾厚的毯子在哪个场景？点图或选描述。",
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-textiles-cleaning",
+            "alt": "三个蓝线分开的场景：左边蓝床上有紫色厚毯子；中间台面上有青色布毛巾和肥皂；右边是一把长柄扫帚。床和毯子右缘贴近分隔边缘，台面底柜延伸到画面外；不据此数物品或推算水量。",
+            "targets": [
+              {
+                "id": "blanket-scene",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.8,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "blanket-scene"
+              },
+              {
+                "id": "towel-scene",
+                "label": "中图",
+                "labelPosition": "top",
+                "left": 34,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "towel-scene"
+              },
+              {
+                "id": "broom-scene",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 67.5,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "broom-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "towel-scene",
+                "caption": "中图已选中。对照毯子、毛巾与扫帚，再核对。",
+                "regions": [
+                  {
+                    "id": "towel-scene",
+                    "label": "中图",
+                    "labelPosition": "top",
+                    "left": 34,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "broom-scene",
+                "caption": "右图已选中。对照毯子、毛巾与扫帚，再核对。",
+                "regions": [
+                  {
+                    "id": "broom-scene",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 67.5,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "blanket-scene",
+                "caption": "左图已选中。对照毯子、毛巾与扫帚，再核对。",
+                "regions": [
+                  {
+                    "id": "blanket-scene",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.8,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "blanket",
+        "meaning": "毯子",
+        "material": "Take an extra blanket for the cold night.",
+        "before": "Take an extra ",
+        "after": " for the cold night.",
+        "reason": "blanket是毯子，常用来保暖。左图床尾是紫色软毯子；中图是擦拭用毛巾，右图是扫帚。",
+        "hint": "an extra blanket：再带一条毯子。",
+        "ownForms": [
+          "blanket",
+          "blankets"
+        ],
+        "options": [
+          {
+            "id": "towel-scene",
+            "text": "The middle scene: a towel beside a bar of soap.",
+            "correct": false,
+            "reason": "中图台面上有毛巾，旁边有一块肥皂。这不是本题要找的物品。"
+          },
+          {
+            "id": "broom-scene",
+            "text": "The right-hand scene: a long-handled broom.",
+            "correct": false,
+            "reason": "右图有长柄扫帚。这不是本题要找的物品。"
+          },
+          {
+            "id": "blanket-scene",
+            "text": "The left-hand scene: a soft purple blanket on a bed.",
+            "correct": true,
+            "reason": "左图床尾有一条紫色软毯子。"
+          }
+        ]
+      },
+      {
+        "id": "sheet",
+        "label": "sheet：床单还是纸，先看后面的词",
+        "prompt": "记录：Bring two sheets of paper. 需要带什么？",
+        "wordDecision": {
+          "prompt": "记录：Bring two sheets of paper. 需要带什么？",
+          "recordPaths": [
+            {
+              "id": "paper",
+              "label": "纸张数量",
+              "steps": [
+                "two sheets",
+                "of paper",
+                "两张纸"
+              ]
+            },
+            {
+              "id": "bedding",
+              "label": "床上用品",
+              "steps": [
+                "a sheet",
+                "on the bed",
+                "床单"
+              ]
+            }
+          ]
+        },
+        "answer": "sheet",
+        "meaning": "床单；薄片",
+        "material": "The wind blew a sheet off the washing line.",
+        "before": "The wind blew a ",
+        "after": " off the washing line.",
+        "reason": "sheet可以指床单，也能指一张纸等薄片。a sheet of paper是一张纸；两张用two sheets of paper。晾衣绳上的sheet在原例句中指床单，要根据语境判断。",
+        "hint": "two sheets of paper：sheets变复数，paper不加s。",
+        "ownForms": [
+          "sheet",
+          "sheets"
+        ],
+        "options": [
+          {
+            "id": "paper",
+            "text": "Two separate pieces of paper.",
+            "correct": true,
+            "reason": "sheets of paper指两张纸；paper给出了具体材料。"
+          },
+          {
+            "id": "beds",
+            "text": "Two sheets from the beds.",
+            "correct": false,
+            "reason": "sheet也可以指床单，但这里有of paper，不能忽略这个限制。"
+          },
+          {
+            "id": "pages",
+            "text": "Two complete notebooks.",
+            "correct": false,
+            "reason": "两张纸不等于两本完整的笔记本。"
+          }
+        ]
+      },
+      {
+        "id": "towel",
+        "label": "towel：用来擦干的毛巾",
+        "prompt": "找towel：能用来擦干双手的布制毛巾在哪个场景？点图或选描述。",
+        "wordDecision": {
+          "prompt": "找towel：能用来擦干双手的布制毛巾在哪个场景？点图或选描述。",
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-textiles-cleaning",
+            "alt": "三个蓝线分开的场景：左边蓝床上有紫色厚毯子；中间台面上有青色布毛巾和肥皂；右边是一把长柄扫帚。床和毯子右缘贴近分隔边缘，台面底柜延伸到画面外；不据此数物品或推算水量。",
+            "targets": [
+              {
+                "id": "blanket-scene",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.8,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "blanket-scene"
+              },
+              {
+                "id": "towel-scene",
+                "label": "中图",
+                "labelPosition": "top",
+                "left": 34,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "towel-scene"
+              },
+              {
+                "id": "broom-scene",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 67.5,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "broom-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "blanket-scene",
+                "caption": "左图已选中。对照毯子、毛巾与扫帚，再核对。",
+                "regions": [
+                  {
+                    "id": "blanket-scene",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.8,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "towel-scene",
+                "caption": "中图已选中。对照毯子、毛巾与扫帚，再核对。",
+                "regions": [
+                  {
+                    "id": "towel-scene",
+                    "label": "中图",
+                    "labelPosition": "top",
+                    "left": 34,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "broom-scene",
+                "caption": "右图已选中。对照毯子、毛巾与扫帚，再核对。",
+                "regions": [
+                  {
+                    "id": "broom-scene",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 67.5,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "towel",
+        "meaning": "毛巾",
+        "material": "Dry your hands with this clean towel.",
+        "before": "Dry your hands with this clean ",
+        "after": ".",
+        "reason": "towel是毛巾。中图有折好的布制毛巾，旁边是肥皂。纸巾是tissue或paper towel，要看具体物品；这张图画的是布毛巾。",
+        "hint": "dry your hands with a towel：用毛巾擦干手。",
+        "ownForms": [
+          "towel",
+          "towels"
+        ],
+        "options": [
+          {
+            "id": "blanket-scene",
+            "text": "The left-hand scene: a soft purple blanket on a bed.",
+            "correct": false,
+            "reason": "左图床尾有一条紫色软毯子。这不是本题要找的物品。"
+          },
+          {
+            "id": "towel-scene",
+            "text": "The middle scene: a towel beside a bar of soap.",
+            "correct": true,
+            "reason": "中图台面上有毛巾，旁边有一块肥皂。"
+          },
+          {
+            "id": "broom-scene",
+            "text": "The right-hand scene: a long-handled broom.",
+            "correct": false,
+            "reason": "右图有长柄扫帚。这不是本题要找的物品。"
+          }
+        ]
+      },
+      {
+        "id": "soap",
+        "label": "soap：按块数，数bar",
+        "prompt": "按本题量词bar，表达“两块肥皂”。哪句的量词和词形都正确？",
+        "wordDecision": {
+          "prompt": "按本题量词bar，表达“两块肥皂”。哪句的量词和词形都正确？",
+          "recordPaths": [
+            {
+              "id": "amount",
+              "label": "按块数",
+              "steps": [
+                "two",
+                "bars",
+                "of soap"
+              ]
+            }
+          ]
+        },
+        "answer": "soap",
+        "meaning": "肥皂",
+        "material": "Wash the muddy mark off with soap.",
+        "before": "Wash the muddy mark off with ",
+        "after": ".",
+        "reason": "soap在日常洗手、清洗的语境中通常不可数；一块a bar of soap，两块two bars of soap。这里数的是bar，不能把复数s加错位置。",
+        "hint": "two bars of soap：bars加s。",
+        "options": [
+          {
+            "id": "soaps",
+            "text": "We need two soaps.",
+            "correct": false,
+            "reason": "本题按两块计数，用two bars of soap；不把soap直接按普通可数名词来数。"
+          },
+          {
+            "id": "bar",
+            "text": "We need two bar of soap.",
+            "correct": false,
+            "reason": "two后计量词bar需要复数bars。"
+          },
+          {
+            "id": "bars",
+            "text": "We need two bars of soap.",
+            "correct": true,
+            "reason": "日常说肥皂通常把soap作不可数名词，数两块用two bars of soap。"
+          }
+        ]
+      },
+      {
+        "id": "brush",
+        "label": "brush：刷子和刷这个动作；brushes",
+        "prompt": "记录：桌上有两把刷子。哪句数量与词形都对？",
+        "wordDecision": {
+          "prompt": "记录：桌上有两把刷子。哪句数量与词形都对？",
+          "recordPaths": [
+            {
+              "id": "object",
+              "label": "物品",
+              "steps": [
+                "two",
+                "brushes",
+                "两把刷子"
+              ]
+            },
+            {
+              "id": "action",
+              "label": "动作",
+              "steps": [
+                "Please",
+                "brush your shoes",
+                "刷鞋"
+              ]
+            }
+          ]
+        },
+        "answer": "brush",
+        "meaning": "刷子；刷",
+        "material": "Use a soft brush to clean the shoes.",
+        "before": "Use a soft ",
+        "after": " to clean the shoes.",
+        "reason": "a brush中brush是刷子；brush your shoes中brush是刷的动作。名词复数和第三人称单数都可能写brushes，要结合位置判断。",
+        "hint": "two brushes；brush your shoes。",
+        "ownForms": [
+          "brush",
+          "brushes",
+          "brushed",
+          "brushing"
+        ],
+        "options": [
+          {
+            "id": "brushs",
+            "text": "There are two brushs on the table.",
+            "correct": false,
+            "reason": "sh结尾需要加es，不是只加s。"
+          },
+          {
+            "id": "action",
+            "text": "Please brush your shoes.",
+            "correct": false,
+            "reason": "这句是要求刷鞋，brush是动词；它没有说桌上有两把刷子。"
+          },
+          {
+            "id": "plural",
+            "text": "There are two brushes on the table.",
+            "correct": true,
+            "reason": "brush以sh结尾，复数加es，two后写brushes。"
+          }
+        ]
+      },
+      {
+        "id": "bucket",
+        "label": "bucket：容器数量与水量分开",
+        "prompt": "记录：We need two buckets of water. 哪项保留了数量和内容？",
+        "wordDecision": {
+          "prompt": "记录：We need two buckets of water. 哪项保留了数量和内容？",
+          "recordPaths": [
+            {
+              "id": "capacity",
+              "label": "容量信息",
+              "steps": [
+                "two buckets",
+                "每桶容量未给",
+                "不能推算升数"
+              ]
+            }
+          ]
+        },
+        "answer": "bucket",
+        "meaning": "水桶",
+        "material": "A bucket caught the water from the leak.",
+        "before": "A ",
+        "after": " caught the water from the leak.",
+        "reason": "bucket是水桶；two buckets of water是两桶水。桶的个数不是升数，只有知道每桶装多少，才能换算总水量。",
+        "hint": "two buckets ≠ two litres，先看容量是否给出。",
+        "ownForms": [
+          "bucket",
+          "buckets"
+        ],
+        "options": [
+          {
+            "id": "water",
+            "text": "Two buckets, each filled with water.",
+            "correct": true,
+            "reason": "two修饰buckets，of water说明装的内容；本题需要两桶水。"
+          },
+          {
+            "id": "empty",
+            "text": "Two empty buckets.",
+            "correct": false,
+            "reason": "只拿空桶没有满足of water。"
+          },
+          {
+            "id": "litres",
+            "text": "Exactly two litres of water.",
+            "correct": false,
+            "reason": "两桶并没有给每桶容量，不能改说恰好两升。"
+          }
+        ]
+      },
+      {
+        "id": "broom",
+        "label": "broom：长柄扫帚",
+        "prompt": "找broom：长柄、底部有宽刷毛的扫帚在哪个场景？点图或选描述。",
+        "wordDecision": {
+          "prompt": "找broom：长柄、底部有宽刷毛的扫帚在哪个场景？点图或选描述。",
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-textiles-cleaning",
+            "alt": "三个蓝线分开的场景：左边蓝床上有紫色厚毯子；中间台面上有青色布毛巾和肥皂；右边是一把长柄扫帚。床和毯子右缘贴近分隔边缘，台面底柜延伸到画面外；不据此数物品或推算水量。",
+            "targets": [
+              {
+                "id": "blanket-scene",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.8,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "blanket-scene"
+              },
+              {
+                "id": "towel-scene",
+                "label": "中图",
+                "labelPosition": "top",
+                "left": 34,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "towel-scene"
+              },
+              {
+                "id": "broom-scene",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 67.5,
+                "top": 1,
+                "width": 31.5,
+                "height": 98,
+                "option": "broom-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "blanket-scene",
+                "caption": "左图已选中。对照毯子、毛巾与扫帚，再核对。",
+                "regions": [
+                  {
+                    "id": "blanket-scene",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.8,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "towel-scene",
+                "caption": "中图已选中。对照毯子、毛巾与扫帚，再核对。",
+                "regions": [
+                  {
+                    "id": "towel-scene",
+                    "label": "中图",
+                    "labelPosition": "top",
+                    "left": 34,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "broom-scene",
+                "caption": "右图已选中。对照毯子、毛巾与扫帚，再核对。",
+                "regions": [
+                  {
+                    "id": "broom-scene",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 67.5,
+                    "top": 1,
+                    "width": 31.5,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "broom",
+        "meaning": "扫帚",
+        "material": "There is a broom behind the kitchen door.",
+        "before": "There is a ",
+        "after": " behind the kitchen door.",
+        "reason": "broom是扫地用的扫帚。右图能看到长柄和宽的刷毛头；brush范围更广，原例句中的soft brush是清洁鞋子的软刷。",
+        "hint": "a broom：扫帚；sweep the floor：扫地。",
+        "ownForms": [
+          "broom",
+          "brooms"
+        ],
+        "options": [
+          {
+            "id": "blanket-scene",
+            "text": "The left-hand scene: a soft purple blanket on a bed.",
+            "correct": false,
+            "reason": "左图床尾有一条紫色软毯子。这不是本题要找的物品。"
+          },
+          {
+            "id": "towel-scene",
+            "text": "The middle scene: a towel beside a bar of soap.",
+            "correct": false,
+            "reason": "中图台面上有毛巾，旁边有一块肥皂。这不是本题要找的物品。"
+          },
+          {
+            "id": "broom-scene",
+            "text": "The right-hand scene: a long-handled broom.",
+            "correct": true,
+            "reason": "右图有长柄扫帚。"
+          }
+        ]
+      },
+      {
+        "id": "rubbish",
+        "label": "rubbish：垃圾通常不可数，注意英美表达",
+        "prompt": "记录：Please put the rubbish in the bin. 哪句保留了日常表达？",
+        "wordDecision": {
+          "prompt": "记录：Please put the rubbish in the bin. 哪句保留了日常表达？",
+          "recordPaths": [
+            {
+              "id": "mass",
+              "label": "不可数",
+              "steps": [
+                "some rubbish",
+                "there is",
+                "不直接数rubbishes"
+              ]
+            }
+          ]
+        },
+        "answer": "rubbish",
+        "meaning": "垃圾",
+        "material": "Put the rubbish in the outside bin.",
+        "before": "Put the ",
+        "after": " in the outside bin.",
+        "reason": "rubbish是英式常用的垃圾表达，通常不可数；美式日常常用trash或garbage。本题用英式rubbish；表达比较不等于把所有句子机械换词。",
+        "hint": "some rubbish；three pieces of rubbish。",
+        "options": [
+          {
+            "id": "plural",
+            "text": "There are three rubbishes beside the bin.",
+            "correct": false,
+            "reason": "日常说这些垃圾不用three rubbishes；需要计数时可说three pieces of rubbish。"
+          },
+          {
+            "id": "mass",
+            "text": "There is some rubbish beside the bin.",
+            "correct": true,
+            "reason": "rubbish在这里是不可数名词，可用some，作主语用单数is。"
+          },
+          {
+            "id": "agreement",
+            "text": "There are some rubbish beside the bin.",
+            "correct": false,
+            "reason": "这里rubbish不可数，不能配are。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-home-5-transfer",
+      "topicId": "v-course-home",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which action follows the new clean-up plan?",
+      "passage": "CLEAN-UP PLAN\nBring two sheets of paper for the room labels; leave the bed sheets where they are. Put one clean towel and two bars of soap beside the sink. We need three buckets of water. Each bucket will hold four litres, so fill all three. Use the soft brush for the shoes and the broom for the floor. Put the rubbish in the outside bin. Leave the blanket on the bed; it is not a cleaning cloth.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bring two pieces of paper and prepare twelve litres of water."
+        },
+        {
+          "id": "b",
+          "text": "Bring two bed sheets and prepare twelve litres of water."
+        },
+        {
+          "id": "c",
+          "text": "Bring two pieces of paper and prepare three litres of water."
+        },
+        {
+          "id": "d",
+          "text": "Use the blanket to clean the floor and leave the rubbish inside."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Bring two pieces of paper and prepare twelve litres of water."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先按搭配确定物品，再用本次给出的数量和容量计算；不能沿用旧例句。",
+        "steps": [
+          {
+            "text": "两张纸用于房间标签；床单留在原处。",
+            "reason": "two sheets of paper限定了材料，后一句又明确排除搬走床单。"
+          },
+          {
+            "text": "三桶水，每桶四升，总共需要十二升。",
+            "reason": "这次给出每桶容量：3×4=12。不能把三桶当成三升，也不能套用前题未给容量时的结论。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "水量算对了，但把paper忽略后错拿了床单。"
+          },
+          {
+            "option": "c",
+            "reason": "三桶不等于三升；每桶四升，总量是十二升。"
+          },
+          {
+            "option": "d",
+            "reason": "毯子留在床上，垃圾放室外桶内；这项两处都与记录相反。"
+          }
+        ],
+        "pitfall": "sheets后面的of paper决定物品；桶数与升数不同，本次给出每桶容量后再计算。",
+        "visual": {
+          "kind": "evidence",
+          "title": "先定物品，再算总量",
+          "segments": [
+            {
+              "text": "two sheets → of paper → room labels",
+              "role": "evidence",
+              "note": "两张纸，不是床单"
+            },
+            {
+              "text": "3 buckets × 4 litres each = 12 litres",
+              "role": "evidence",
+              "note": "本次记录给了每桶容量"
+            },
+            {
+              "text": "soft brush → shoes; broom → floor",
+              "role": "object",
+              "note": "工具对应不同任务"
+            },
+            {
+              "text": "blanket → bed; rubbish → outside bin",
+              "role": "evidence",
+              "note": "按本次记录放置"
+            }
+          ],
+          "caption": "图中物品帮助识别，水量只根据本次文字条件计算。"
+        },
+        "transfer": "如果仍有三桶，但每桶只装两升，总水量变成多少？哪条文字条件改变了？"
+      }
+    }
+  }
+}

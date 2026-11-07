@@ -1,0 +1,566 @@
+{
+  "lessonId": "l-v-course-position",
+  "reviewState": "draft",
+  "intent": "Eight individual preposition tasks distinguish inside/surface/location, destination/source, instrumental with, bounded without and beneficiary for.",
+  "picturePurpose": "An original seed-tin comparison supports in; code-defined two-endpoint direction tasks distinguish destination from source without claiming actual movement or measurement.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "介词不只背中文：点位置、连方向、分角色",
+    "instruction": "点出盒内种子，圈出原句支持的信息，连接目的地与来源。然后独立拼写，并写自己的完整例句；精确关系依靠原句与代码示意，不靠猜图或编结果。",
+    "items": [
+      {
+        "id": "word-in",
+        "label": "在……里面",
+        "prompt": "点出in a tin所指的那组种子。",
+        "answer": "in",
+        "caseSensitive": false,
+        "meaning": "在……里面",
+        "before": "Keep the seeds ",
+        "after": " a dry tin.",
+        "reason": "in强调盒子内部，不是仅仅靠近盒子或放在盒外表面。",
+        "hint": "原创图中，一组种子在开口铁盒里面，另一组在盒外桌上。只比较位置，不数种子，也不从图片推断真实容积。Keep…是存放要求，不证明实际已执行。",
+        "material": "Keep the seeds in a dry tin.",
+        "wordDecision": {
+          "prompt": "点出in a tin所指的那组种子。",
+          "art": {
+            "pictureOnly": true,
+            "asset": "lesson-seed-tin",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "alt": "原创位置示意：完整开口蓝色铁盒及分离的盒盖，盒内有一组种子，盒外右侧桌上另有一组；不规定种子数量或真实尺寸。",
+            "targets": [
+              {
+                "id": "inside",
+                "option": "inside",
+                "label": "盒内",
+                "width": 31,
+                "height": 55,
+                "left": 24,
+                "top": 28,
+                "labelPosition": "top"
+              },
+              {
+                "id": "outside",
+                "option": "outside",
+                "label": "盒外",
+                "width": 27,
+                "height": 55,
+                "left": 70,
+                "top": 27,
+                "labelPosition": "top"
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "inside",
+            "text": "盒内那组种子",
+            "correct": true,
+            "reason": "种子位于铁盒内部、盒沿之下。"
+          },
+          {
+            "id": "outside",
+            "text": "盒外桌上的那组种子",
+            "correct": false,
+            "reason": "虽然靠近盒子，但不在盒内。"
+          }
+        ]
+      },
+      {
+        "id": "word-on",
+        "label": "在……上面（接触表面）",
+        "prompt": "湿脚印on the floor：哪些判断有依据？",
+        "answer": "on",
+        "caseSensitive": false,
+        "meaning": "在……上面",
+        "before": "There is a wet footprint ",
+        "after": " the floor.",
+        "reason": "本句on说明脚印所在的表面，不能从一个脚印补出人物和时间。",
+        "hint": "湿脚印留在地板表面。这里on不是悬在地板上方的above，也不是埋在地板内部的in。原句没有说脚印是谁留下的、何时留下的。",
+        "material": "There is a wet footprint on the floor.",
+        "wordDecision": {
+          "prompt": "湿脚印on the floor：哪些判断有依据？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "位置明确，人物与时间未给出",
+            "rows": [
+              {
+                "id": "contact",
+                "label": "表面接触",
+                "include": true,
+                "text": "脚印在地板表面"
+              },
+              {
+                "id": "unknown",
+                "label": "未给信息",
+                "include": true,
+                "text": "原句未说明是谁、何时留下"
+              },
+              {
+                "id": "floating",
+                "label": "悬空",
+                "include": false,
+                "text": "脚印悬在空中"
+              }
+            ],
+            "wrong": "on the floor指地板表面；人物和形成时间未给出，不能把未知补成确定事实。",
+            "prompt": "圈出原句有依据的意思；未提及的信息不要自行补齐。",
+            "hint": "湿脚印留在地板表面。这里on不是悬在地板上方的above，也不是埋在地板内部的in。原句没有说脚印是谁留下的、何时留下的。"
+          }
+        },
+        "options": [
+          {
+            "id": "surface",
+            "text": "湿脚印在地板表面。",
+            "correct": true,
+            "reason": "与on the floor及脚印的性质相符。"
+          },
+          {
+            "id": "above",
+            "text": "湿脚印悬在地板上方，与地板不接触。",
+            "correct": false,
+            "reason": "把on换成了离开表面的上方关系。"
+          },
+          {
+            "id": "inside",
+            "text": "湿脚印埋在地板内部。",
+            "correct": false,
+            "reason": "本句不是in the floor。"
+          }
+        ]
+      },
+      {
+        "id": "word-at",
+        "label": "在（会合地点）（本句）",
+        "prompt": "at the side entrance：是会合地点，还是约定时间？",
+        "answer": "at",
+        "caseSensitive": false,
+        "meaning": "在（会合地点）（本句）",
+        "before": "Meet us ",
+        "after": " the side entrance.",
+        "reason": "词的常见多种意思，要靠本句补语定位。",
+        "hint": "at也可接时刻，但这句话后面是the side entrance，指出会合地点；没有给钟点，也不要求走到建筑内部。",
+        "material": "Meet us at the side entrance.",
+        "wordDecision": {
+          "prompt": "at the side entrance：是会合地点，还是约定时间？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "圈出地点信息及信息边界",
+            "rows": [
+              {
+                "id": "place",
+                "label": "约见地点",
+                "include": true,
+                "text": "会合地点是侧门"
+              },
+              {
+                "id": "time",
+                "label": "具体时间",
+                "include": true,
+                "text": "会合钟点未提供"
+              },
+              {
+                "id": "inside",
+                "label": "内外位置",
+                "include": false,
+                "text": "已要求进到建筑里面"
+              }
+            ],
+            "wrong": "at the side entrance指出地点，没有给钟点，也没有要求进入建筑内部。",
+            "prompt": "圈出原句有依据的意思；未提及的信息不要自行补齐。",
+            "hint": "at也可接时刻，但这句话后面是the side entrance，指出会合地点；没有给钟点，也不要求走到建筑内部。"
+          }
+        },
+        "options": [
+          {
+            "id": "place",
+            "text": "在侧门这个地点和我们会合。",
+            "correct": true,
+            "reason": "side entrance是地点，不是时间。"
+          },
+          {
+            "id": "time",
+            "text": "at在这里已经说明几点会合。",
+            "correct": false,
+            "reason": "本句未给出钟点，不能从at本身推算。"
+          },
+          {
+            "id": "inside",
+            "text": "必须先进入建筑内部才算会合。",
+            "correct": false,
+            "reason": "at the side entrance没有要求走进建筑内部。"
+          }
+        ]
+      },
+      {
+        "id": "word-to",
+        "label": "到；向",
+        "prompt": "把表格指令的方向连对：to the front desk。",
+        "answer": "to",
+        "caseSensitive": false,
+        "meaning": "到；向",
+        "before": "Take this form ",
+        "after": " the front desk.",
+        "reason": "to在这里引出表格要送往的目的地，不能把前台当成取表来源。",
+        "hint": "依次点两个端点，画出指令要求的去向。to the front desk突出前台这个目的地；这只是句意示意，不证明已送达，也不给路线距离或耗时。",
+        "material": "Take this form to the front desk.",
+        "wordDecision": {
+          "prompt": "把表格指令的方向连对：to the front desk。",
+          "pathRole": {
+            "title": "连接指令中的去向",
+            "hint": "先点这张表，再点前台；可反向试一试并撤回。箭头只说明词义，不代表实际送达。",
+            "wrong": "Take this form to the front desk要求把表送往前台；反向箭头把目的地变成来源，单一端点仍不完整。",
+            "kind": "destination"
+          }
+        },
+        "options": [
+          {
+            "id": "goal",
+            "text": "把这张表送到前台。",
+            "correct": true,
+            "reason": "前台是指令中的目的地。"
+          },
+          {
+            "id": "source",
+            "text": "从前台取走这张表。",
+            "correct": false,
+            "reason": "那把前台改成了来源，与原句to的方向相反。"
+          },
+          {
+            "id": "done",
+            "text": "表格已经送到了前台。",
+            "correct": false,
+            "reason": "祈使句提出要求，没有报告已完成。"
+          }
+        ]
+      },
+      {
+        "id": "word-from",
+        "label": "从；来自",
+        "prompt": "暖风comes from哪里？连出来源关系。",
+        "answer": "from",
+        "caseSensitive": false,
+        "meaning": "从；来自",
+        "before": "The warm air comes ",
+        "after": " a small heater.",
+        "reason": "from a small heater把小暖风机标为来源。",
+        "hint": "依次点两个端点，画出暖风机到暖风的来源关系。from突出来源，不把箭头反过来，也不从示意推算温度、风速、距离或真实通风效果。",
+        "material": "The warm air comes from a small heater.",
+        "wordDecision": {
+          "prompt": "暖风comes from哪里？连出来源关系。",
+          "pathRole": {
+            "title": "连接暖风的来源",
+            "hint": "先点暖风机，再点暖风；比较反向箭头。来源固定为原句的小暖风机，不是温度测量。",
+            "wrong": "Warm air comes from a small heater：来源是暖风机，关系指向暖风；反向或只有一个端点都不对应。",
+            "kind": "source"
+          }
+        },
+        "options": [
+          {
+            "id": "source",
+            "text": "暖风来自一台小暖风机。",
+            "correct": true,
+            "reason": "暖风机是来源，暖风是来自它的空气。"
+          },
+          {
+            "id": "goal",
+            "text": "暖风正被送进小暖风机。",
+            "correct": false,
+            "reason": "把来源倒成目的地，改变了comes from的意思。"
+          },
+          {
+            "id": "measure",
+            "text": "from已经说明了风温和吹到多远。",
+            "correct": false,
+            "reason": "来源介词不提供这些测量值。"
+          }
+        ]
+      },
+      {
+        "id": "word-with",
+        "label": "用（引出工具）（本句）",
+        "prompt": "with these small scissors：剪刀是什么角色？",
+        "answer": "with",
+        "caseSensitive": false,
+        "meaning": "用（引出工具）（本句）",
+        "before": "Cut the string ",
+        "after": " these small scissors.",
+        "reason": "with在本句引出工具，不能把字典中的多个意思一股脑放回本句。",
+        "hint": "with常有“和、带着、用”等意思；本句Cut…with…引出剪绳子所用的工具。不是与剪刀这个“同伴”一起行动，也没有报告剪完了。",
+        "material": "Cut the string with these small scissors.",
+        "wordDecision": {
+          "prompt": "with these small scissors：剪刀是什么角色？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "工具、对象与完成状态",
+            "rows": [
+              {
+                "id": "tool",
+                "label": "使用工具",
+                "include": true,
+                "text": "剪刀是工具"
+              },
+              {
+                "id": "object",
+                "label": "操作对象",
+                "include": true,
+                "text": "绳子是要剪的对象"
+              },
+              {
+                "id": "done",
+                "label": "实际完成",
+                "include": false,
+                "text": "动作已经完成"
+              }
+            ],
+            "wrong": "with these scissors引出工具，string是对象；原句是指令，不是已完成的报告。",
+            "prompt": "圈出原句有依据的意思；未提及的信息不要自行补齐。",
+            "hint": "with常有“和、带着、用”等意思；本句Cut…with…引出剪绳子所用的工具。不是与剪刀这个“同伴”一起行动，也没有报告剪完了。"
+          }
+        },
+        "options": [
+          {
+            "id": "tool",
+            "text": "用这把小剪刀剪绳子。",
+            "correct": true,
+            "reason": "剪刀是完成剪切动作的工具。"
+          },
+          {
+            "id": "companion",
+            "text": "剪刀是和你一起行动的同伴。",
+            "correct": false,
+            "reason": "本句不把工具当作同行者。"
+          },
+          {
+            "id": "done",
+            "text": "这句证明绳子已经剪断。",
+            "correct": false,
+            "reason": "指令没有报告已经执行完毕。"
+          }
+        ]
+      },
+      {
+        "id": "word-without",
+        "label": "不戴（眼镜）（本句）",
+        "prompt": "without my glasses：没有借助什么？",
+        "answer": "without",
+        "caseSensitive": false,
+        "meaning": "不戴（眼镜）（本句）",
+        "before": "I can read the sign ",
+        "after": " my glasses.",
+        "reason": "without否定所说的辅助条件，不否定读标志的能力。",
+        "hint": "说话者能在不戴自己眼镜的情况下读这个标志。这里只说这次能力和这个对象，不保证永远不用眼镜、视力完美，或所有人都能如此。",
+        "material": "I can read the sign without my glasses.",
+        "wordDecision": {
+          "prompt": "without my glasses：没有借助什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "圈出能力与范围",
+            "rows": [
+              {
+                "id": "can",
+                "label": "阅读能力",
+                "include": true,
+                "text": "说话者能读这个标志"
+              },
+              {
+                "id": "no-aid",
+                "label": "眼镜条件",
+                "include": true,
+                "text": "没有借助自己的眼镜"
+              },
+              {
+                "id": "forever",
+                "label": "永久情况",
+                "include": false,
+                "text": "说话者永远不需要眼镜"
+              }
+            ],
+            "wrong": "能读这个标志且不借助自己的眼镜，是本句范围；不是所有对象、所有时间或所有人的结论。",
+            "prompt": "圈出原句有依据的意思；未提及的信息不要自行补齐。",
+            "hint": "说话者能在不戴自己眼镜的情况下读这个标志。这里只说这次能力和这个对象，不保证永远不用眼镜、视力完美，或所有人都能如此。"
+          }
+        },
+        "options": [
+          {
+            "id": "without",
+            "text": "不戴自己的眼镜也能读这个标志。",
+            "correct": true,
+            "reason": "can read保留能力，without my glasses排除借助该眼镜。"
+          },
+          {
+            "id": "need",
+            "text": "只有戴眼镜才能读这个标志。",
+            "correct": false,
+            "reason": "把without的条件反过来了。"
+          },
+          {
+            "id": "forever",
+            "text": "这证明说话者永远不需要任何眼镜。",
+            "correct": false,
+            "reason": "把当前对象和说话者的局部信息扩成永久保证。"
+          }
+        ]
+      },
+      {
+        "id": "word-for",
+        "label": "给（引出受益者）（本句）",
+        "prompt": "for your sister：蛋糕留给谁？",
+        "answer": "for",
+        "caseSensitive": false,
+        "meaning": "给（引出受益者）（本句）",
+        "before": "Save one piece of cake ",
+        "after": " your sister.",
+        "reason": "for在这里引出受益者，不是时间长度。",
+        "hint": "for也能表示时长，但your sister是人。本句要求给妹妹留一块蛋糕，不说明持续几小时，也不证明妹妹已收到或吃掉。",
+        "material": "Save one piece of cake for your sister.",
+        "wordDecision": {
+          "prompt": "for your sister：蛋糕留给谁？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "受益者和已知数量",
+            "rows": [
+              {
+                "id": "person",
+                "label": "受益对象",
+                "include": true,
+                "text": "要留给妹妹"
+              },
+              {
+                "id": "one",
+                "label": "蛋糕数量",
+                "include": true,
+                "text": "要求留一块蛋糕"
+              },
+              {
+                "id": "done",
+                "label": "实际送达",
+                "include": false,
+                "text": "妹妹已收到并吃完"
+              }
+            ],
+            "wrong": "for your sister引出受益者，one piece给出一块；指令不能证明已经留好、收到或吃完。",
+            "prompt": "圈出原句有依据的意思；未提及的信息不要自行补齐。",
+            "hint": "for也能表示时长，但your sister是人。本句要求给妹妹留一块蛋糕，不说明持续几小时，也不证明妹妹已收到或吃掉。"
+          }
+        },
+        "options": [
+          {
+            "id": "person",
+            "text": "给妹妹留一块蛋糕。",
+            "correct": true,
+            "reason": "your sister是要留给的人。"
+          },
+          {
+            "id": "duration",
+            "text": "for在这里说明蛋糕要留存多长时间。",
+            "correct": false,
+            "reason": "your sister是要留给的人，不是时间长度。"
+          },
+          {
+            "id": "received",
+            "text": "妹妹已经收到并吃掉蛋糕。",
+            "correct": false,
+            "reason": "Save是要求，不是接收或吃完的报告。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-position-transfer",
+      "topicId": "v-course-position",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪组三句话既保留了新事实，又用对了目的地、工具和受益者的表达？",
+      "passage": "新情境｜到侧门和我们会合，票装在你的包里。把这张表送到前台，用蓝笔填写。这张额外的票是给你妹妹的；没有提供参观时长，也没有说表格已经送达。请选择准确的三句话提醒。front desk指前台；fill it in表示填写表格。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Meet us at the side entrance, with the tickets in your bag. Take the form from the front desk and fill it in with a blue pen. This extra ticket is for your sister."
+        },
+        {
+          "id": "b",
+          "text": "Meet us at the side entrance, with the tickets in your bag. Take the form to the front desk and fill it in with a blue pen. This extra ticket is for a two-hour visit, not for your sister."
+        },
+        {
+          "id": "c",
+          "text": "Keep the seeds in a dry tin. The warm air comes from a small heater. Cut the string with these small scissors."
+        },
+        {
+          "id": "d",
+          "text": "Meet us at the side entrance, with the tickets in your bag. Take the form to the front desk and fill it in with a blue pen. This extra ticket is for your sister."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "Meet us at the side entrance, with the tickets in your bag. Take the form to the front desk and fill it in with a blue pen. This extra ticket is for your sister."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对会合地点和票的位置，再区分to的目的地、with的工具与for的受益者。",
+        "steps": [
+          {
+            "text": "at the side entrance是地点，in your bag是内部位置；to the front desk是把表送往前台。",
+            "reason": "不能把送往改成from所引出的来源；指令也不证明已经送达。"
+          },
+          {
+            "text": "with a blue pen说明填写所用工具；for your sister说明额外票给谁。",
+            "reason": "不把受益者改成时长，也不用旧例句替代新任务。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把要送往前台的表格改成从前台取走，颠倒了to与from的关系。"
+          },
+          {
+            "option": "b",
+            "reason": "把额外票给妹妹这个受益者关系改成两小时参观，还明确排除妹妹；新题没有这些信息。"
+          },
+          {
+            "option": "c",
+            "reason": "照搬旧种子、暖风机和剪刀，没有回应新会合、表格、笔与票的任务。"
+          }
+        ],
+        "pitfall": "只背一个中文词义，忽略介词后的人、地点或工具，就可能把目的地、来源和受益者混在一起。",
+        "visual": {
+          "kind": "comparison",
+          "title": "地点 · 内部 · 目的地 · 工具 · 受益者",
+          "segments": [
+            {
+              "text": "at the side entrance / in your bag",
+              "role": "evidence",
+              "note": "会合地点与票的位置"
+            },
+            {
+              "text": "to the front desk / with a blue pen",
+              "role": "evidence",
+              "note": "表的目的地与填写工具"
+            },
+            {
+              "text": "for your sister",
+              "role": "evidence",
+              "note": "额外票给谁"
+            }
+          ],
+          "caption": "同一个介词可能有多个意思，回到本句的对象与关系。"
+        },
+        "transfer": "若把with a blue pen换成with your sister，with引出的还会是工具吗？请结合动作与后面的对象判断。"
+      }
+    }
+  }
+}

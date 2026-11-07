@@ -11,9 +11,19 @@ const titleAbbreviations = new Set(['mr', 'mrs', 'ms', 'dr', 'prof', 'sr', 'jr',
 const sentenceStarters = /^(?:I|We|You|He|She|It|They|The|This|That|These|Those|Then|Next|After|Before|Finally|Please|Bring|Do|Can|Could|Would|Why|How|What|When|Where)\b/
 const closingPunctuation = /["'”’»）)\]】〕}]/
 const wordEdge = /[\p{L}\p{N}_'’\-]/u
+// Feedback revisits the same passage. Reuse its bounded literal sentence strings
+// and their normalized forms; evaluate quotations, matches and feedback afresh.
+let cachedPassage: string | undefined
+let cachedSentences: readonly string[] = []
+let cachedNormalizedSentences: Map<string, string> | undefined
+const maxCachedPassageLength = 16_384
+const sentencePunctuation = /[.!?。！？]/
+const englishPunctuation = /[.!?]/
 
 // Normalization does not repair punctuation, fill blanks or paraphrase an authored quote.
 function normalized(text: string): string {
+  const cached = cachedNormalizedSentences?.get(text)
+  if (cached !== undefined) return cached
   return text.normalize('NFC').replace(/\s+/g, ' ').trim().toLocaleLowerCase('en')
 }
 
@@ -38,8 +48,13 @@ function containsQuote(text: string, quote: string): boolean {
 }
 
 function abbreviation(passage: string, index: number, next: number): boolean {
-  const prefix = passage.slice(0, index)
-  const word = prefix.match(/[A-Za-z]+$/)?.[0] ?? ''
+  let start = index
+  while (start > 0) {
+    const code = passage.charCodeAt(start - 1)
+    if (!(code >= 65 && code <= 90 || code >= 97 && code <= 122)) break
+    start--
+  }
+  const word = passage.slice(start, index)
   if (titleAbbreviations.has(word.toLowerCase())) return true
   // The first stop in e.g., p.m. or U.S. is internal, rather than a sentence ending.
   if (/[A-Za-z]/.test(passage[index + 1] ?? '') && passage[index + 2] === '.') return true
@@ -62,18 +77,19 @@ function quotedContinuation(text: string): boolean {
 }
 
 export function passageSentences(passage: string): string[] {
+  if (cachedPassage !== undefined && passage === cachedPassage) return [...cachedSentences]
   const sentences: string[] = []
   let start = 0
   for (let i = 0; i < passage.length; i++) {
-    if (!/[.!?。！？]/.test(passage[i])) continue
+    if (!sentencePunctuation.test(passage[i])) continue
     if (passage[i] === '.' && /\d/.test(passage[i - 1] ?? '') && /\d/.test(passage[i + 1] ?? '')) continue
     // A numbered instruction is one unit with its following words, not a sentence "1.".
     if (passage[i] === '.' && /^\s*\d+\.$/.test(passage.slice(passage.lastIndexOf('\n', i - 1) + 1, i + 1))) continue
     let end = i + 1
-    while (end < passage.length && /[.!?。！？]/.test(passage[end])) end++
+    while (end < passage.length && sentencePunctuation.test(passage[end])) end++
     const punctuationEnd = end
     while (end < passage.length && closingPunctuation.test(passage[end])) end++
-    if (end < passage.length && !/\s/.test(passage[end]) && /[.!?]/.test(passage[i])) continue
+    if (end < passage.length && !/\s/.test(passage[end]) && englishPunctuation.test(passage[i])) continue
     let next = end
     while (next < passage.length && /\s/.test(passage[next])) next++
     if (passage[i] === '.' && punctuationEnd === i + 1 && abbreviation(passage, i, next)) continue
@@ -85,6 +101,12 @@ export function passageSentences(passage: string): string[] {
   }
   const tail = passage.slice(start).trim()
   if (tail) sentences.push(tail)
+  if (passage.length <= maxCachedPassageLength) {
+    cachedPassage = passage
+    cachedSentences = sentences
+    cachedNormalizedSentences = undefined
+    return [...sentences]
+  }
   return sentences
 }
 
@@ -93,7 +115,13 @@ function locatedEvidence(q: Question): { sentences: EvidenceSentence[]; quotes: 
   const quotes = q.explanation.visual.segments.filter(segment => segment.role === 'evidence' && meaningful(segment.text))
     .map(segment => normalized(segment.text)).filter(Boolean)
   if (!quotes.length) return { sentences: [], quotes: [] }
-  const sentences = passageSentences(q.passage).map((text, i) => ({
+  const sourceSentences = passageSentences(q.passage)
+  if (q.passage === cachedPassage && !cachedNormalizedSentences) {
+    const normalizedSentences = new Map<string, string>()
+    for (const text of cachedSentences) normalizedSentences.set(text, normalized(text))
+    cachedNormalizedSentences = normalizedSentences
+  }
+  const sentences = sourceSentences.map((text, i) => ({
     id: `evidence-sentence-${i + 1}`, text, matched: quotes.some(quote => containsQuote(normalized(text), quote)),
   }))
   return sentences.some(sentence => sentence.matched) ? { sentences, quotes } : { sentences: [], quotes: [] }

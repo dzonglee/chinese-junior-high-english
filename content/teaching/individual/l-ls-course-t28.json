@@ -1,0 +1,491 @@
+{
+  "lessonId": "l-ls-course-t28",
+  "intent": "Distinguish postponement and classroom waiting from individual confirmed collection; interpret marked exits, staff instructions and clear-route requirements in this fictional site briefing.",
+  "picturePurpose": "Original clear-versus-bags-obstructed walkway alternatives show visible obstruction only. No generated exit labels, alarms, floor plans, real routes or emergency guarantees; exact fictional conditions and instruction sources remain in code.",
+  "reviewState": "draft",
+  "workshop": {
+    "applicationStyle": "cards",
+    "navigationLabel": "任务",
+    "kind": "proof",
+    "title": "辨确认，改安排，保持通道畅通",
+    "instruction": "先改好等候与离开的条件，再看图辨认通道，核对场地通知中的指令来源和顺序。",
+    "items": [
+      {
+        "id": "safety-1",
+        "label": "先辨认户外参观的当前状态",
+        "sourceStyle": "cards",
+        "sourceTitle": "WAIT FOR CONFIRMATION",
+        "prompt": "What has happened to today's outdoor visit?",
+        "answer": "It has been postponed.",
+        "reason": "postponed表示延期，不是提前出发，也不是永远取消。天气预警给变化原因，后面的教室等待与确认安排不能读成照常立刻出发。",
+        "hint": "通知里的安排和确认条件要一起保留；同学说车到了，不等于学校已确认你的安排。",
+        "material": "Teacher: The weather warning means today's outdoor visit is postponed. Please stay in the classroom while we confirm collection arrangements with families. Do not leave just because a friend says the buses have arrived. We will tell you when your arrangement is confirmed.\n\nWait until your collection arrangement is ____.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "delay"
+          ]
+        ],
+        "options": [
+          {
+            "id": "stay",
+            "text": "Please stay in the classroom while we confirm collection arrangements with families.",
+            "correct": false,
+            "reason": "这句给等候位置与正在确认的事项，不直接说参观状态。"
+          },
+          {
+            "id": "confirm",
+            "text": "We will tell you when your arrangement is confirmed.",
+            "correct": false,
+            "reason": "这句给离开前的确认条件，不说参观提前开始。"
+          },
+          {
+            "id": "delay",
+            "text": "The weather warning means today's outdoor visit is postponed.",
+            "correct": true,
+            "reason": "outdoor visit is postponed直接说明今天参观延期。"
+          }
+        ]
+      },
+      {
+        "id": "safety-2",
+        "label": "把等候地点与确认依据一起选对",
+        "sourceStyle": "cards",
+        "sourceTitle": "WAIT FOR CONFIRMATION",
+        "prompt": "Set where to wait and what confirmation is needed before leaving.",
+        "answer": "Stay in the classroom; wait for the school to confirm your collection arrangement.",
+        "reason": "while表示学校正在与家庭确认时应在教室等候；Do not leave just because限制同学传话的效力。We will tell you说明由学校告知自己的安排已确认，不是所有同学同一时间离开。",
+        "hint": "通知里的安排和确认条件要一起保留；同学说车到了，不等于学校已确认你的安排。",
+        "material": "Teacher: The weather warning means today's outdoor visit is postponed. Please stay in the classroom while we confirm collection arrangements with families. Do not leave just because a friend says the buses have arrived. We will tell you when your arrangement is confirmed.\n\nWait until your collection arrangement is ____.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "stay"
+          ],
+          [
+            "friend"
+          ],
+          [
+            "confirm"
+          ]
+        ],
+        "options": [
+          {
+            "id": "confirm",
+            "text": "We will tell you when your arrangement is confirmed.",
+            "correct": true,
+            "reason": "when your arrangement is confirmed把确认落到自己的安排。"
+          },
+          {
+            "id": "delay",
+            "text": "The weather warning means today's outdoor visit is postponed.",
+            "correct": false,
+            "reason": "参观延期不等于接走安排已经确认。"
+          },
+          {
+            "id": "stay",
+            "text": "Please stay in the classroom while we confirm collection arrangements with families.",
+            "correct": true,
+            "reason": "stay in classroom与while确认同时成立。"
+          },
+          {
+            "id": "friend",
+            "text": "Do not leave just because a friend says the buses have arrived.",
+            "correct": true,
+            "reason": "just because a friend says不构成离开依据。"
+          }
+        ],
+        "evidenceLabels": [
+          "现在在哪里等、正在核对什么",
+          "哪种传话不能单独作为离开依据",
+          "谁会告知自己的安排已确认"
+        ],
+        "sourceSettings": {
+          "title": "我的当前等候安排",
+          "note": "先选现在在哪里等，再看什么信息足以支持离开；两项都按老师的通知核对。",
+          "rows": [
+            {
+              "id": "waiting-place",
+              "label": "现在应在哪里等候",
+              "answer": "on",
+              "reason": "老师要求在教室等候，与家庭确认接走安排。",
+              "wrong": "同学说车已到不能取消stay in the classroom的当前要求。",
+              "route": {
+                "from": "While arrangements are checked",
+                "targets": [
+                  "Stay in classroom",
+                  "Leave for a reported bus"
+                ]
+              }
+            },
+            {
+              "id": "departure-source",
+              "label": "离开前需要哪种确认",
+              "answer": "off",
+              "reason": "由老师告知自己的安排已确认，不能只靠同学说车到了。",
+              "wrong": "Do not leave just because a friend says明确排除仅凭同学传话离开。",
+              "route": {
+                "from": "Departure basis",
+                "targets": [
+                  "Friend's bus report",
+                  "School confirms arrangement"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "safety-3",
+        "label": "把离开前的条件填回去",
+        "sourceStyle": "cards",
+        "sourceTitle": "WAIT FOR CONFIRMATION",
+        "prompt": "Complete the condition for your collection arrangement.",
+        "answer": "Wait until your collection arrangement is confirmed.",
+        "reason": "confirmed要求安排已经得到确认；reported只表示被人说过，delayed只表示推迟，不能替代学校确认。参观延期不等于接走安排都已确定。",
+        "hint": "通知里的安排和确认条件要一起保留；同学说车到了，不等于学校已确认你的安排。",
+        "material": "Teacher: The weather warning means today's outdoor visit is postponed. Please stay in the classroom while we confirm collection arrangements with families. Do not leave just because a friend says the buses have arrived. We will tell you when your arrangement is confirmed.\n\nWait until your collection arrangement is ____.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "confirm"
+          ],
+          [
+            "friend"
+          ]
+        ],
+        "options": [
+          {
+            "id": "friend",
+            "text": "Do not leave just because a friend says the buses have arrived.",
+            "correct": true,
+            "reason": "不能仅凭同学说车到了，区别传话与确认。"
+          },
+          {
+            "id": "delay",
+            "text": "The weather warning means today's outdoor visit is postponed.",
+            "correct": false,
+            "reason": "postponed说参观延期，不等于接走安排已确认。"
+          },
+          {
+            "id": "confirm",
+            "text": "We will tell you when your arrangement is confirmed.",
+            "correct": true,
+            "reason": "when…confirmed给老师告知离开的条件。"
+          }
+        ],
+        "evidenceLabels": [
+          "老师会在什么条件满足时告知",
+          "为什么同学说车到还不够"
+        ],
+        "sourceGap": {
+          "before": "Wait until your collection arrangement is ",
+          "after": ".",
+          "answer": "confirmed",
+          "options": [
+            {
+              "id": "reported",
+              "text": "reported",
+              "reason": "reported只表示有人转述；原文明确不能只凭同学传话离开。"
+            },
+            {
+              "id": "confirmed",
+              "text": "confirmed",
+              "reason": "confirmed保留老师要求的安排确认条件。"
+            },
+            {
+              "id": "delayed",
+              "text": "delayed",
+              "reason": "delayed只表示推迟，不是接走安排得到确认；不要串到参观延期。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "safety-4",
+        "label": "先找活动开始前要定位什么",
+        "sourceStyle": "cards",
+        "sourceTitle": "READ THIS SITE BRIEFING",
+        "prompt": "What should students locate before the visit?",
+        "answer": "The marked exits on the site map.",
+        "reason": "Before we begin限定活动开始前，find the marked exits明确要求在这份场地图上找标识出口。不能把找出口替换成先回去拿包，也不能由这句话推定某扇虚构门是实际出口。",
+        "hint": "通知里的安排和确认条件要一起保留；同学说车到了，不等于学校已确认你的安排。",
+        "material": "Guide: Before we begin, find the marked exits on this site map. Our group will follow the staff's directions if an alarm sounds.\nStudent: Should we return for our bags first?\nGuide: Follow the emergency instructions, not a plan to collect belongings. Keep the route clear.\n\nPicture A: backpacks under the side bench, with the middle walkway clear.\nPicture B: backpacks across the middle walkway.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "exits"
+          ]
+        ],
+        "options": [
+          {
+            "id": "bags",
+            "text": "Should we return for our bags first?",
+            "correct": false,
+            "reason": "这是学生问是否先拿包，不是导游要求开始前定位的内容。"
+          },
+          {
+            "id": "clear",
+            "text": "Keep the route clear.",
+            "correct": false,
+            "reason": "这句要求保持通道畅通，不是图上要定位的对象。"
+          },
+          {
+            "id": "exits",
+            "text": "Before we begin, find the marked exits on this site map.",
+            "correct": true,
+            "reason": "Before…find直接把开始前与标识出口对应起来。"
+          }
+        ]
+      },
+      {
+        "id": "safety-5",
+        "label": "用图辨认通道，再核对简报要求",
+        "sourceStyle": "cards",
+        "sourceTitle": "READ THIS SITE BRIEFING",
+        "prompt": "Which pictured walkway is clear, and which instruction supports keeping it that way?",
+        "answer": "Picture A has a clear middle walkway; keep the route clear and follow the site instructions.",
+        "reason": "A的包都在侧边长凳下，中间通道没有被包挡住；B把包放在中间，造成障碍。Keep the route clear直接支持通道畅通。图只显示通道是否被包挡住，不能确定真实出口、疏散方向或代替现场指令。",
+        "hint": "通知里的安排和确认条件要一起保留；同学说车到了，不等于学校已确认你的安排。",
+        "material": "Guide: Before we begin, find the marked exits on this site map. Our group will follow the staff's directions if an alarm sounds.\nStudent: Should we return for our bags first?\nGuide: Follow the emergency instructions, not a plan to collect belongings. Keep the route clear.\n\nPicture A: backpacks under the side bench, with the middle walkway clear.\nPicture B: backpacks across the middle walkway.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "left"
+          ],
+          [
+            "clear"
+          ],
+          [
+            "instructions"
+          ]
+        ],
+        "options": [
+          {
+            "id": "instructions",
+            "text": "Follow the emergency instructions, not a plan to collect belongings.",
+            "correct": true,
+            "reason": "按应急指令行动，不能把自行取行李的计划放在前面。"
+          },
+          {
+            "id": "right",
+            "text": "Picture B: backpacks across the middle walkway.",
+            "correct": false,
+            "reason": "B中间通道被包挡住，与Keep the route clear相反。"
+          },
+          {
+            "id": "left",
+            "text": "Picture A: backpacks under the side bench, with the middle walkway clear.",
+            "correct": true,
+            "reason": "A的中间通道无背包阻挡，和B不同。"
+          },
+          {
+            "id": "clear",
+            "text": "Keep the route clear.",
+            "correct": true,
+            "reason": "Keep the route clear是直接要求通道保持畅通。"
+          }
+        ],
+        "evidenceLabels": [
+          "哪张图的中间通道未被包阻挡",
+          "哪句明确要求保持通道畅通",
+          "为什么不能先执行自己的取包计划"
+        ],
+        "sourceArt": {
+          "assetRoot": "illustrations-2",
+          "asset": "lesson-clear-walkway",
+          "alt": "原创虚构走廊对照：左边背包放在侧边长凳下，中间通道畅通；右边背包横放在中间通道上，造成阻挡。同一普通门和侧边长凳，无人员、火警、箭头、出口标识或文字；不代表真实场地出口或应急路线。",
+          "choices": [
+            {
+              "id": "left",
+              "label": "A 中间通道畅通"
+            },
+            {
+              "id": "right",
+              "label": "B 背包挡住通道"
+            }
+          ]
+        }
+      },
+      {
+        "id": "safety-6",
+        "label": "把警报条件、指令来源和行动顺序接起来",
+        "sourceStyle": "cards",
+        "sourceTitle": "READ THIS SITE BRIEFING",
+        "prompt": "Set whose instructions to follow and what takes priority in this briefing.",
+        "answer": "Follow the site staff’s emergency directions and keep the route clear; do not put collecting bags first.",
+        "reason": "if an alarm sounds给触发条件，staff’s directions给指令来源。导游要求按应急指令，而不是自定先取物品的计划，并保持通道畅通。这是本段场地简报的理解练习，不能自行编造真实出口位置或转弯路线。",
+        "hint": "通知里的安排和确认条件要一起保留；同学说车到了，不等于学校已确认你的安排。",
+        "material": "Guide: Before we begin, find the marked exits on this site map. Our group will follow the staff's directions if an alarm sounds.\nStudent: Should we return for our bags first?\nGuide: Follow the emergency instructions, not a plan to collect belongings. Keep the route clear.\n\nPicture A: backpacks under the side bench, with the middle walkway clear.\nPicture B: backpacks across the middle walkway.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "staff"
+          ],
+          [
+            "instructions"
+          ],
+          [
+            "clear"
+          ]
+        ],
+        "options": [
+          {
+            "id": "bags",
+            "text": "Should we return for our bags first?",
+            "correct": false,
+            "reason": "学生提出取包疑问；导游下一句否定把取包计划放在前面。"
+          },
+          {
+            "id": "clear",
+            "text": "Keep the route clear.",
+            "correct": true,
+            "reason": "通道畅通是并列要求，不能为取物品堵住路线。"
+          },
+          {
+            "id": "staff",
+            "text": "Our group will follow the staff's directions if an alarm sounds.",
+            "correct": true,
+            "reason": "Our group will follow staff’s directions给本组听从谁。"
+          },
+          {
+            "id": "instructions",
+            "text": "Follow the emergency instructions, not a plan to collect belongings.",
+            "correct": true,
+            "reason": "not a plan to collect belongings排除自定先取包的安排。"
+          }
+        ],
+        "evidenceLabels": [
+          "警报响起时本组听谁指挥",
+          "哪句排除先取行李的计划",
+          "还要保持通道怎样"
+        ],
+        "sourceSettings": {
+          "title": "我的现场通知应对方案",
+          "note": "核对简报中的条件与指令来源；图中连接的是判断，不是实际疏散方向。",
+          "rows": [
+            {
+              "id": "alarm-source",
+              "label": "警报响起时听从谁的指令",
+              "answer": "on",
+              "reason": "if an alarm sounds时，跟随现场工作人员的指令。",
+              "wrong": "学生先取包的提问不是现场工作人员的应急指令。",
+              "route": {
+                "from": "If an alarm sounds",
+                "targets": [
+                  "Site staff's directions",
+                  "Our bag-collection plan"
+                ]
+              }
+            },
+            {
+              "id": "priority-action",
+              "label": "怎样处理取包计划与通道要求",
+              "answer": "off",
+              "reason": "按应急指令并保持通道畅通，不能先执行自己的取包计划。",
+              "wrong": "导游明确说not a plan to collect belongings，不能把先取包作为首要步骤。",
+              "route": {
+                "from": "Priority in this briefing",
+                "targets": [
+                  "Collect bags first",
+                  "Follow directions; clear way"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "applicationIds": [
+      "q-ls-course-t28-course-t28-1-2",
+      "q-ls-course-t28-course-t28-2-2"
+    ],
+    "transfer": {
+      "id": "individual-ls-course-t28-transfer",
+      "topicId": "ls-course-t28",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        8,
+        9
+      ],
+      "stem": "Which plan preserves both notices?",
+      "passage": "NEW TRANSCRIPT PRACTICE — AUDIO PENDING\nTeacher: This afternoon’s outdoor activity is postponed. Stay in the study room while we confirm pickup arrangements with families. A classmate’s message that a car is outside is not confirmation. We will tell each student when their arrangement is confirmed.\nGuide: Before we begin the indoor visit, locate the marked exits on this site map. If an alarm sounds, follow the site staff’s emergency directions and keep the route clear. Do not put your own plan to collect bags first.\nTranscript preparation. Approved audio pending.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wait in study room for confirmed pickup; follow site staff and keep route clear."
+        },
+        {
+          "id": "b",
+          "text": "Leave study room on a classmate’s message; follow site staff and keep route clear."
+        },
+        {
+          "id": "c",
+          "text": "Wait in study room for confirmed pickup; collect bags before following site staff."
+        },
+        {
+          "id": "d",
+          "text": "Start postponed outdoor activity now; follow site staff and keep route clear."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Wait in study room for confirmed pickup; follow site staff and keep route clear."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把当前等候地点、个人接走确认和场地警报指令分别核对。",
+        "steps": [
+          {
+            "text": "户外活动延期，先留在自习室，等老师确认自己的接走安排。",
+            "reason": "postponed不表示立刻开始；classmate’s message明确不是confirmation。"
+          },
+          {
+            "text": "现场警报响起时跟随工作人员的应急指令，保持通道畅通。",
+            "reason": "自己的取包计划不能放在工作人员指令之前；这里没有给具体出口或路线。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "现场指令部分保留了，但把同学说车在外面当作离开自习室的确认。"
+          },
+          {
+            "option": "c",
+            "reason": "等候与接走确认正确，却把先取包放在执行现场指令之前。"
+          },
+          {
+            "option": "d",
+            "reason": "保留现场指令，却把已经延期的户外活动改成立刻开始。"
+          }
+        ],
+        "pitfall": "传话不等于学校确认；延期不等于提前开始；学生提出先取包，不等于现场指令认可。",
+        "visual": {
+          "kind": "evidence",
+          "title": "两份通知，各自核对",
+          "segments": [
+            {
+              "text": "Postponed → wait in study room",
+              "role": "evidence",
+              "note": "当前地点按新通知，不照搬教室"
+            },
+            {
+              "text": "Pickup confirmed by teacher ≠ classmate’s message",
+              "role": "evidence",
+              "note": "逐个学生确认自己的安排"
+            },
+            {
+              "text": "Alarm → staff instructions + clear route",
+              "role": "evidence",
+              "note": "先取包不是批准的优先计划"
+            }
+          ],
+          "caption": "箭头连接通知与行动条件，不是现实场地图或应急路线；没有提供真实出口方向、接走时刻或普遍处置程序。"
+        },
+        "transfer": "若同学发来“车到了”，但老师还没确认你的安排，哪一条通知仍然要求你等候？"
+      }
+    }
+  }
+}

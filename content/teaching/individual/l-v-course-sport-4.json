@@ -1,0 +1,1655 @@
+{
+  "lessonId": "l-v-course-sport-4",
+  "reviewState": "draft",
+  "intent": "Individually teach under a parked car, a check-before-arrival instruction, contextual bat with both hands, light enough for beginners, still-wet tennis court without inferred rain, players crossing together, own-lane instruction and lights on before sunset. Four changing diagrams, two order tasks, one evidence task and an original equipment picture; source translations need narrow repairs at future claim.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "看清器材、位置与先后",
+    "instruction": "移动球的位置、检查场地状态，再核对双手、分道和先后；不补原句没说的结果。",
+    "items": [
+      {
+        "id": "word-ball",
+        "label": "球",
+        "prompt": "球滚到车的哪里？切换位置，核对under。",
+        "answer": "ball",
+        "caseSensitive": false,
+        "meaning": "球",
+        "before": "The ",
+        "after": " rolled under the parked car.",
+        "reason": "球滚进了停着的汽车下面。under不是车顶或车旁，parked表示车停着。",
+        "hint": "原句没有说谁让球滚动，也没有说球已经被取回。",
+        "material": "The ball rolled under the parked car.",
+        "options": [
+          {
+            "id": "under",
+            "text": "球滚进了停着的汽车下面。",
+            "correct": true,
+            "reason": "同时保留rolled、under和parked。"
+          },
+          {
+            "id": "roof",
+            "text": "球滚到了汽车顶上。",
+            "correct": false,
+            "reason": "车顶改变了under。"
+          },
+          {
+            "id": "beside",
+            "text": "球停在汽车旁边，没有滚到下面。",
+            "correct": false,
+            "reason": "旁边改变了under，也漏掉滚动。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "球滚到车的哪里？切换位置，核对under。",
+          "sceneLab": {
+            "id": "ball-under",
+            "title": "球在车下面，还是上面？",
+            "hint": "位置示意，不表示实际车尺寸、球速或取球方法。",
+            "wrong": "原句是球滚到停着的汽车下面，不能改成车顶或车旁。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "球滚到哪里",
+                "choices": [
+                  {
+                    "id": "under",
+                    "label": "车下面"
+                  },
+                  {
+                    "id": "roof",
+                    "label": "车顶上"
+                  },
+                  {
+                    "id": "beside",
+                    "label": "车旁边"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "停着的汽车"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 32,
+                    "width": 54,
+                    "height": 26,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 55,
+                    "width": 11,
+                    "height": 11,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 61,
+                    "y": 55,
+                    "width": 11,
+                    "height": 11,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "under",
+                "reading": "球滚进了停着的汽车下面。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "停着的汽车"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 32,
+                    "width": 54,
+                    "height": 26,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 55,
+                    "width": 11,
+                    "height": 11,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 61,
+                    "y": 55,
+                    "width": 11,
+                    "height": 11,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "下面"
+                  },
+                  {
+                    "id": "ball",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 70,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "roof",
+                "reading": "原句是球滚到停着的汽车下面，不能改成车顶或车旁。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "停着的汽车"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 32,
+                    "width": 54,
+                    "height": 26,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 55,
+                    "width": 11,
+                    "height": 11,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 61,
+                    "y": 55,
+                    "width": 11,
+                    "height": 11,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "上面"
+                  },
+                  {
+                    "id": "ball",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 18,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "beside",
+                "reading": "原句是球滚到停着的汽车下面，不能改成车顶或车旁。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "停着的汽车"
+                  },
+                  {
+                    "id": "car",
+                    "kind": "rect",
+                    "x": 23,
+                    "y": 32,
+                    "width": 54,
+                    "height": 26,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 55,
+                    "width": 11,
+                    "height": 11,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 61,
+                    "y": 55,
+                    "width": 11,
+                    "height": 11,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "旁边"
+                  },
+                  {
+                    "id": "ball",
+                    "kind": "ellipse",
+                    "x": 7,
+                    "y": 45,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "rose"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-net",
+        "label": "球网（本句）",
+        "prompt": "检查球网应在队员到场前还是后？按指令排列。",
+        "answer": "net",
+        "caseSensitive": false,
+        "meaning": "球网（本句）",
+        "before": "Check the ",
+        "after": " before the players arrive.",
+        "reason": "原句要求在队员到场前检查球网；指令不证明检查已经完成。",
+        "hint": "net在这个运动语境中指球网；before标出先后。",
+        "material": "Check the net before the players arrive.",
+        "options": [
+          {
+            "id": "before",
+            "text": "队员到场前检查球网。",
+            "correct": true,
+            "reason": "保留Check与before the players arrive。"
+          },
+          {
+            "id": "after",
+            "text": "队员到场之后才检查球网。",
+            "correct": false,
+            "reason": "之后改变了before。"
+          },
+          {
+            "id": "done",
+            "text": "原句已经记录检查全部完成。",
+            "correct": false,
+            "reason": "指令Check不等于已经完成的记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "检查球网应在队员到场前还是后？按指令排列。",
+          "processOrder": {
+            "title": "先检查，还是先到场？",
+            "hint": "只排原句给出的先后，不补具体时刻或完成结果。",
+            "wrong": "指令要求先检查，不能倒序或说已经全部完成。",
+            "events": [
+              {
+                "id": "check",
+                "label": "检查球网"
+              },
+              {
+                "id": "arrive",
+                "label": "队员到场"
+              }
+            ],
+            "sequence": [
+              "check",
+              "arrive"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-bat",
+        "label": "球棒（本句）",
+        "prompt": "哪件器材是bat？点球棒，再核对both hands。",
+        "answer": "bat",
+        "caseSensitive": false,
+        "meaning": "球棒（本句）",
+        "before": "Hold the ",
+        "after": " firmly with both hands.",
+        "reason": "原句要求用双手握紧球棒；这里bat不是蝙蝠。",
+        "hint": "both hands是双手；firmly是牢牢地，不是轻轻地搭着。图只辨认器材，不演示握法。",
+        "material": "Hold the bat firmly with both hands.",
+        "options": [
+          {
+            "id": "both",
+            "text": "用双手握紧球棒。",
+            "correct": true,
+            "reason": "保留Hold、firmly和both hands。"
+          },
+          {
+            "id": "racket",
+            "text": "用双手握紧球拍。",
+            "correct": false,
+            "reason": "球拍是racket，不是原句的bat球棒。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪件器材是bat？点球棒，再核对both hands。",
+          "art": {
+            "asset": "lesson-bat-racket",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "新例子：左边实心木质球棒，右边有网线的网球拍。",
+            "caption": "图只辨认器材，不演示双手握法或证明击球结果。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "equipment-bat",
+                "option": "both",
+                "label": "球棒",
+                "labelPosition": "bottom",
+                "left": 6,
+                "top": 7,
+                "width": 37,
+                "height": 84
+              },
+              {
+                "id": "equipment-racket",
+                "option": "racket",
+                "label": "球拍",
+                "labelPosition": "bottom",
+                "left": 60,
+                "top": 8,
+                "width": 36,
+                "height": 83
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-racket",
+        "label": "球拍",
+        "prompt": "light enough说明重量适合谁？圈出原句的依据，别补价格或胜负。",
+        "answer": "racket",
+        "caseSensitive": false,
+        "meaning": "球拍",
+        "before": "This ",
+        "after": " is light enough for beginners.",
+        "reason": "这把球拍够轻，适合初学者。enough修饰light，说明轻到符合初学者需要的程度。",
+        "hint": "形容词放在enough前：light enough。原句没有给克数、价格或比赛结果。",
+        "material": "This racket is light enough for beginners.",
+        "options": [
+          {
+            "id": "enough",
+            "text": "这把球拍够轻，适合初学者。",
+            "correct": true,
+            "reason": "保留light enough for beginners。"
+          },
+          {
+            "id": "heavy",
+            "text": "这把球拍太重，不适合初学者。",
+            "correct": false,
+            "reason": "太重改变了light enough。"
+          },
+          {
+            "id": "cheap",
+            "text": "原句证明它是最便宜的球拍。",
+            "correct": false,
+            "reason": "light说重量，不提供价格排名。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "light enough说明重量适合谁？圈出原句的依据，别补价格或胜负。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "重量与适用对象",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "只圈原句支持的信息。",
+            "wrong": "保留够轻与适合初学者，不补价格或比赛结果。",
+            "rows": [
+              {
+                "id": "weight",
+                "label": "重量",
+                "text": "球拍够轻。",
+                "include": true
+              },
+              {
+                "id": "users",
+                "label": "对象",
+                "text": "适合初学者。",
+                "include": true
+              },
+              {
+                "id": "price",
+                "label": "价格",
+                "text": "它是最便宜的。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-court",
+        "label": "网球场（本句）",
+        "prompt": "still wet表示现在还湿着，还是已经干了？改变状态比较。",
+        "answer": "court",
+        "caseSensitive": false,
+        "meaning": "网球场（本句）",
+        "before": "The tennis ",
+        "after": " is still wet.",
+        "reason": "网球场现在还湿着。still强调湿的状态仍在持续，不给下雨原因或开放决定。",
+        "hint": "court在tennis court中指球场，不是法院。",
+        "material": "The tennis court is still wet.",
+        "options": [
+          {
+            "id": "wet",
+            "text": "网球场还湿着。",
+            "correct": true,
+            "reason": "保留still wet。"
+          },
+          {
+            "id": "dry",
+            "text": "网球场已经干了。",
+            "correct": false,
+            "reason": "已经干了与still wet相反。"
+          },
+          {
+            "id": "rain",
+            "text": "原句明确说现在正在下雨。",
+            "correct": false,
+            "reason": "地面湿不能证明此刻正在下雨。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "still wet表示现在还湿着，还是已经干了？改变状态比较。",
+          "sceneLab": {
+            "id": "court-wet",
+            "title": "还湿着，还是已经干了？",
+            "hint": "只比较原句场地状态，不表示雨量、危险等级或开放决定。",
+            "wrong": "原句只说网球场还湿着，不能改成已干或断定正在下雨。",
+            "axes": [
+              {
+                "id": "state",
+                "label": "原句给出的状态",
+                "choices": [
+                  {
+                    "id": "wet",
+                    "label": "还湿着"
+                  },
+                  {
+                    "id": "dry",
+                    "label": "已经干了"
+                  },
+                  {
+                    "id": "rain",
+                    "label": "断定正在下雨"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "网球场状态示意"
+                  },
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 31,
+                    "width": 84,
+                    "height": 38,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "net",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 31,
+                    "width": 2,
+                    "height": 38,
+                    "tone": "ink",
+                    "outline": true
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "wet",
+                "reading": "网球场还湿着。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "网球场状态示意"
+                  },
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 31,
+                    "width": 84,
+                    "height": 38,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "net",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 31,
+                    "width": 2,
+                    "height": 38,
+                    "tone": "ink",
+                    "outline": true
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "还湿着"
+                  },
+                  {
+                    "id": "wet-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 58,
+                    "width": 8,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wet-1",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 58,
+                    "width": 8,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wet-2",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 58,
+                    "width": 8,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wet-3",
+                    "kind": "rect",
+                    "x": 77,
+                    "y": 58,
+                    "width": 8,
+                    "height": 3,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "dry",
+                "reading": "原句只说网球场还湿着，不能改成已干或断定正在下雨。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "网球场状态示意"
+                  },
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 31,
+                    "width": 84,
+                    "height": 38,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "net",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 31,
+                    "width": 2,
+                    "height": 38,
+                    "tone": "ink",
+                    "outline": true
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "已经干了"
+                  }
+                ]
+              },
+              {
+                "signature": "rain",
+                "reading": "原句只说网球场还湿着，不能改成已干或断定正在下雨。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "网球场状态示意"
+                  },
+                  {
+                    "id": "court",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 31,
+                    "width": 84,
+                    "height": 38,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "net",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 31,
+                    "width": 2,
+                    "height": 38,
+                    "tone": "ink",
+                    "outline": true
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "补出正在下雨"
+                  },
+                  {
+                    "id": "wet-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 58,
+                    "width": 8,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wet-1",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 58,
+                    "width": 8,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wet-2",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 58,
+                    "width": 8,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wet-3",
+                    "kind": "rect",
+                    "x": 77,
+                    "y": 58,
+                    "width": 8,
+                    "height": 3,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "rain-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 17,
+                    "width": 2,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "rain-1",
+                    "kind": "rect",
+                    "x": 41,
+                    "y": 17,
+                    "width": 2,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "rain-2",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 17,
+                    "width": 2,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "rain-3",
+                    "kind": "rect",
+                    "x": 82,
+                    "y": 17,
+                    "width": 2,
+                    "height": 9,
+                    "tone": "blue"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-field",
+        "label": "运动场（本句）",
+        "prompt": "谁一起穿过哪里？切换人物关系，别把crossed读成沿边走。",
+        "answer": "field",
+        "caseSensitive": false,
+        "meaning": "运动场（本句）",
+        "before": "The players crossed the ",
+        "after": " together.",
+        "reason": "队员们一起穿过了运动场。together说明一起，crossed是穿过，不是沿边走。",
+        "hint": "原句没有给队员人数、穿行用时或比赛结果。",
+        "material": "The players crossed the field together.",
+        "options": [
+          {
+            "id": "cross",
+            "text": "队员们一起穿过了运动场。",
+            "correct": true,
+            "reason": "保留players、crossed和together。"
+          },
+          {
+            "id": "edge",
+            "text": "队员们一起沿着运动场边缘走。",
+            "correct": false,
+            "reason": "沿边走改变了crossed。"
+          },
+          {
+            "id": "alone",
+            "text": "只有一名队员独自穿过运动场。",
+            "correct": false,
+            "reason": "一名独自改变了players与together。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁一起穿过哪里？切换人物关系，别把crossed读成沿边走。",
+          "sceneLab": {
+            "id": "field-cross",
+            "title": "一起穿过，还是沿边走？",
+            "hint": "新示意用两个人影比较一起与独自，不表示真实人数或行走路线。",
+            "wrong": "原句是队员们一起穿过运动场，不能改成沿边走或独自穿过。",
+            "axes": [
+              {
+                "id": "mode",
+                "label": "怎样经过场地",
+                "choices": [
+                  {
+                    "id": "together",
+                    "label": "队员一起穿过"
+                  },
+                  {
+                    "id": "edge",
+                    "label": "一起沿边走"
+                  },
+                  {
+                    "id": "alone",
+                    "label": "一人独自穿过"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "穿过运动场的示意"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 29,
+                    "width": 80,
+                    "height": 42,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "走法待选"
+                  }
+                ]
+              },
+              {
+                "signature": "together",
+                "reading": "队员们一起穿过了运动场。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "穿过运动场的示意"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 29,
+                    "width": 80,
+                    "height": 42,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一起穿过"
+                  },
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 17,
+                    "y": 49,
+                    "width": 66,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "person-head-0",
+                    "kind": "ellipse",
+                    "x": 39,
+                    "y": 32,
+                    "width": 5,
+                    "height": 5,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "person-body-0",
+                    "kind": "rect",
+                    "x": 39,
+                    "y": 39,
+                    "width": 5,
+                    "height": 8,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "person-head-1",
+                    "kind": "ellipse",
+                    "x": 55,
+                    "y": 32,
+                    "width": 5,
+                    "height": 5,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "person-body-1",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 39,
+                    "width": 5,
+                    "height": 8,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 41,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "edge",
+                "reading": "原句是队员们一起穿过运动场，不能改成沿边走或独自穿过。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "穿过运动场的示意"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 29,
+                    "width": 80,
+                    "height": 42,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一起沿边走"
+                  },
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 17,
+                    "y": 69,
+                    "width": 66,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "person-head-0",
+                    "kind": "ellipse",
+                    "x": 39,
+                    "y": 52,
+                    "width": 5,
+                    "height": 5,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "person-body-0",
+                    "kind": "rect",
+                    "x": 39,
+                    "y": 59,
+                    "width": 5,
+                    "height": 8,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "person-head-1",
+                    "kind": "ellipse",
+                    "x": 55,
+                    "y": 52,
+                    "width": 5,
+                    "height": 5,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "person-body-1",
+                    "kind": "rect",
+                    "x": 55,
+                    "y": 59,
+                    "width": 5,
+                    "height": 8,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 61,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "alone",
+                "reading": "原句是队员们一起穿过运动场，不能改成沿边走或独自穿过。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "穿过运动场的示意"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 29,
+                    "width": 80,
+                    "height": 42,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一人独自穿过"
+                  },
+                  {
+                    "id": "path",
+                    "kind": "rect",
+                    "x": 17,
+                    "y": 49,
+                    "width": 66,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "person-head-0",
+                    "kind": "ellipse",
+                    "x": 42,
+                    "y": 32,
+                    "width": 5,
+                    "height": 5,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "person-body-0",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 39,
+                    "width": 5,
+                    "height": 8,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 77,
+                    "y": 41,
+                    "width": 12,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-track",
+        "label": "跑道（本句）",
+        "prompt": "指令要求留在哪条分道？移动人影，比较your lane。",
+        "answer": "track",
+        "caseSensitive": false,
+        "meaning": "跑道（本句）",
+        "before": "Stay in your lane on the running ",
+        "after": ".",
+        "reason": "在跑道上留在自己的分道内。Stay是要求，不证明已经遵守。",
+        "hint": "lane是分道，track是整条跑道；新例子的分道号不是原句信息。",
+        "material": "Stay in your lane on the running track.",
+        "options": [
+          {
+            "id": "own",
+            "text": "留在自己的分道内。",
+            "correct": true,
+            "reason": "保留Stay in your lane。"
+          },
+          {
+            "id": "other",
+            "text": "换到别人的分道里。",
+            "correct": false,
+            "reason": "别人的改变了your。"
+          },
+          {
+            "id": "done",
+            "text": "原句证明所有队员都已经遵守。",
+            "correct": false,
+            "reason": "一条指令不能证明大家已经完成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "指令要求留在哪条分道？移动人影，比较your lane。",
+          "sceneLab": {
+            "id": "track-lane",
+            "title": "自己的分道，还是别人的？",
+            "hint": "新两分道示意，不给真实分道号、竞赛规则或遵守结果。",
+            "wrong": "指令要求留在自己的分道，不能换到别人的或断定已经遵守。",
+            "axes": [
+              {
+                "id": "lane",
+                "label": "指令要求的位置",
+                "choices": [
+                  {
+                    "id": "own",
+                    "label": "自己的分道"
+                  },
+                  {
+                    "id": "other",
+                    "label": "别人的分道"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新分道示意：按指令选择"
+                  },
+                  {
+                    "id": "own",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 90,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "other",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 56,
+                    "width": 90,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "own-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 33,
+                    "width": 60,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自己的分道"
+                  },
+                  {
+                    "id": "other-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 60,
+                    "width": 60,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "别人的分道"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "own",
+                "reading": "留在自己的分道内。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新分道示意：按指令选择"
+                  },
+                  {
+                    "id": "own",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 90,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "other",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 56,
+                    "width": 90,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "own-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 33,
+                    "width": 60,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自己的分道"
+                  },
+                  {
+                    "id": "other-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 60,
+                    "width": 60,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "别人的分道"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "按要求留在自己分道"
+                  },
+                  {
+                    "id": "runner",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 34,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "other",
+                "reading": "指令要求留在自己的分道，不能换到别人的或断定已经遵守。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "新分道示意：按指令选择"
+                  },
+                  {
+                    "id": "own",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 29,
+                    "width": 90,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "other",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 56,
+                    "width": 90,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "own-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 33,
+                    "width": 60,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自己的分道"
+                  },
+                  {
+                    "id": "other-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 60,
+                    "width": 60,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "别人的分道"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "换到了别人分道"
+                  },
+                  {
+                    "id": "runner",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 61,
+                    "width": 10,
+                    "height": 12,
+                    "tone": "rose"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-stadium",
+        "label": "体育场",
+        "prompt": "体育场的灯亮与日落，哪个先发生？按原句排列。",
+        "answer": "stadium",
+        "caseSensitive": false,
+        "meaning": "体育场",
+        "before": "The ",
+        "after": " lights came on before sunset.",
+        "reason": "体育场的灯在日落前亮了。came on说灯亮起，before说在日落之前。",
+        "hint": "原句没有具体时刻，也没有说比赛何时开始或灯何时关闭。",
+        "material": "The stadium lights came on before sunset.",
+        "options": [
+          {
+            "id": "before",
+            "text": "体育场的灯在日落前亮了。",
+            "correct": true,
+            "reason": "保留lights came on before sunset。"
+          },
+          {
+            "id": "after",
+            "text": "日落以后体育场的灯才亮。",
+            "correct": false,
+            "reason": "以后改变了before。"
+          },
+          {
+            "id": "off",
+            "text": "体育场的灯在日落前关闭了。",
+            "correct": false,
+            "reason": "关闭改变了came on。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "体育场的灯亮与日落，哪个先发生？按原句排列。",
+          "processOrder": {
+            "title": "先亮灯，还是先日落？",
+            "hint": "只排原句给出的先后，不补具体时刻或完成结果。",
+            "wrong": "原句是日落前灯亮，不能颠倒先后或改成关灯。",
+            "events": [
+              {
+                "id": "on",
+                "label": "亮灯"
+              },
+              {
+                "id": "sunset",
+                "label": "日落"
+              }
+            ],
+            "sequence": [
+              "on",
+              "sunset"
+            ],
+            "layout": "downward"
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-sport-4-transfer",
+      "topicId": "v-course-sport",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成包、箱子和花园灯，哪组三句保留全部信息？",
+      "passage": "三条新信息\n包滑进了停着的公共汽车下面。这个箱子够轻，适合孩子使用。花园的灯在日落前亮了。\n词语提示：slid滑动；case箱子；garden花园。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The bag slid beside the parked bus. This case is light enough for children. The garden lights came on before sunset."
+        },
+        {
+          "id": "b",
+          "text": "The bag slid under the parked bus. This case is light enough for children. The garden lights came on before sunset."
+        },
+        {
+          "id": "c",
+          "text": "The bag slid under the parked bus. This case is too heavy for children. The garden lights came on before sunset."
+        },
+        {
+          "id": "d",
+          "text": "The bag slid under the parked bus. This case is light enough for children. The garden lights came on after sunset."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The bag slid under the parked bus. This case is light enough for children. The garden lights came on before sunset."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对under的位置，再看light enough的程度与对象，最后保留亮灯与日落的先后。",
+        "steps": [
+          {
+            "text": "The bag slid under the parked bus.",
+            "reason": "under是下面，不是旁边；parked表示车停着。"
+          },
+          {
+            "text": "This case is light enough for children.",
+            "reason": "light enough是够轻，for children给出对象，不是太重。"
+          },
+          {
+            "text": "The garden lights came on before sunset.",
+            "reason": "came on是亮起，before是日落之前。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "beside把下面改成旁边。"
+          },
+          {
+            "option": "c",
+            "reason": "too heavy把够轻改成太重。"
+          },
+          {
+            "option": "d",
+            "reason": "after把日落前改成日落后。"
+          }
+        ],
+        "pitfall": "位置、程度和先后都要核对；不要自己补价格、原因或具体时刻。",
+        "visual": {
+          "kind": "comparison",
+          "title": "位置、程度、先后",
+          "segments": [
+            {
+              "text": "under the parked bus",
+              "role": "evidence",
+              "note": "停着的车下面"
+            },
+            {
+              "text": "light enough for children",
+              "role": "evidence",
+              "note": "够轻，适合孩子"
+            },
+            {
+              "text": "came on before sunset",
+              "role": "evidence",
+              "note": "日落前亮起"
+            }
+          ],
+          "caption": "每次只换一个条件，再对照原信息。"
+        },
+        "transfer": "如果把before换成after，亮灯与日落的先后会怎样改变？"
+      }
+    }
+  },
+  "picturePurpose": "An original bat/racket picture makes equipment identification a two-target task; grip details remain in code. Four changing diagrams teach relative ball position, wet versus dry without inferred weather, crossing together and own-lane requirements. Two timelines and exact evidence selections preserve order and weight/learner scope."
+}

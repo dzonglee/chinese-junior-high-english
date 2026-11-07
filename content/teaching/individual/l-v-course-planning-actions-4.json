@@ -1,0 +1,567 @@
+{
+  "lessonId": "l-v-course-planning-actions-4",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks distinguish spatial layering, successful escape, possibility, necessary conditions, questions, assistance and priorities.",
+  "picturePurpose": "Original curtain art supports coded behind/front layering and observation; exact exit marker and labels stay in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "移窗帘、看条件、排先后",
+    "instruction": "先摆前后关系，再检查大家都出力的必要条件；分清可能和已完成。",
+    "items": [
+      {
+        "id": "exit",
+        "label": "exit：把出口放到窗帘后面，再移开窗帘观察。",
+        "prompt": "把出口放到窗帘后面，再移开窗帘观察。",
+        "answer": "exit",
+        "meaning": "出口；退出",
+        "material": "The nearest exit is behind the curtain.",
+        "before": "The nearest ",
+        "after": " is behind the curtain.",
+        "reason": "exit在这里是名词出口，与entrance入口相对。behind the curtain表示在窗帘后面，不是前面。另给示意图只练前后关系，不是真实建筑地图或疏散指引，也没有原句地点的距离。",
+        "hint": "exit出口；behind在……后面。",
+        "wordDecision": {
+          "prompt": "把出口放到窗帘后面，再移开窗帘观察。",
+          "curtainExit": {
+            "title": "出口和窗帘，谁在后面？",
+            "hint": "另给虚构示意：先选前后关系，再移开窗帘；不是真实建筑地图或疏散指引。",
+            "wrong": "先把出口放到窗帘后面，再移开窗帘观察；看见出口不等于关系选对。"
+          },
+          "art": {
+            "asset": "lesson-exit-curtain",
+            "assetRoot": "illustrations-4",
+            "format": "png",
+            "alt": "完整青绿窗帘和深蓝横杆，两片帘布闭合；出口位置、标签和移动由代码绘制。"
+          }
+        },
+        "options": [
+          {
+            "id": "behind",
+            "text": "The nearest exit is behind the curtain.",
+            "correct": true,
+            "reason": "behind表示在后面；先选关系，再移开窗帘核对。"
+          },
+          {
+            "id": "front",
+            "text": "The nearest exit is in front of the curtain.",
+            "correct": false,
+            "reason": "in front of与behind的关系相反。"
+          },
+          {
+            "id": "distance",
+            "text": "The nearest exit is exactly five metres away.",
+            "correct": false,
+            "reason": "没有出口距离数值。"
+          }
+        ]
+      },
+      {
+        "id": "escape",
+        "label": "escape：managed to escape说明逃走了吗？",
+        "prompt": "managed to escape说明逃走了吗？",
+        "answer": "escape",
+        "meaning": "逃离；逃脱",
+        "material": "The bird managed to escape through the window.",
+        "before": "The bird managed to ",
+        "after": " through the window.",
+        "reason": "escape表示逃离。managed to escape说明设法逃了出去，不只是尝试；through the window给出经过窗口的路径。没有鸟的种类、飞行距离或时间。",
+        "hint": "manage to do设法做成；escape from逃离某处。",
+        "wordDecision": {
+          "prompt": "managed to escape说明逃走了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "鸟成功从窗口逃走",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "success",
+                "label": "成功从窗口逃走",
+                "text": "The bird managed to escape through the window.",
+                "include": true
+              },
+              {
+                "id": "try",
+                "label": "尝试后仍没逃走",
+                "text": "The bird tried but could not escape.",
+                "include": false
+              },
+              {
+                "id": "door",
+                "label": "从门口逃走",
+                "text": "The bird escaped through the door.",
+                "include": false
+              }
+            ],
+            "hint": "保留managed to的结果和window的路径。",
+            "wrong": "选成功从窗口逃走，不改成失败或换出口。"
+          }
+        },
+        "options": [
+          {
+            "id": "success",
+            "text": "The bird succeeded in getting out through the window.",
+            "correct": true,
+            "reason": "managed to do说明设法做成，逃离动作已发生。"
+          },
+          {
+            "id": "try",
+            "text": "The bird tried but did not get out.",
+            "correct": false,
+            "reason": "把managed to成功做成改成未做成。"
+          },
+          {
+            "id": "door",
+            "text": "The bird escaped through the door.",
+            "correct": false,
+            "reason": "把window改成door。"
+          }
+        ]
+      },
+      {
+        "id": "fail",
+        "label": "fail：can fail是在说可能，还是这次已经失败？",
+        "prompt": "can fail是在说可能，还是这次已经失败？",
+        "answer": "fail",
+        "meaning": "失败；未能",
+        "material": "Even a careful plan can fail.",
+        "before": "Even a careful plan can ",
+        "after": ".",
+        "reason": "fail表示失败或未能；can fail给出可能性。even a careful plan强调周密也不能排除失败，没有宣布某个计划已失败。fail to do表示未能做某事。",
+        "hint": "fail to do未能做；can在这里表示可能。",
+        "wordDecision": {
+          "prompt": "can fail是在说可能，还是这次已经失败？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "周密计划也可能失败",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "possible",
+                "label": "周密计划仍可能失败",
+                "text": "Even a careful plan can fail.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "这个计划已经失败",
+                "text": "This plan has already failed.",
+                "include": false
+              },
+              {
+                "id": "always",
+                "label": "所有周密计划都必然失败",
+                "text": "Every careful plan always fails.",
+                "include": false
+              }
+            ],
+            "hint": "分清可能、已经和必然。",
+            "wrong": "选可能失败，不改成已失败或必败。"
+          }
+        },
+        "options": [
+          {
+            "id": "possible",
+            "text": "A careful plan can still be unsuccessful.",
+            "correct": true,
+            "reason": "can fail说明即使周密也可能失败。"
+          },
+          {
+            "id": "done",
+            "text": "This particular plan has already failed.",
+            "correct": false,
+            "reason": "可能性不是已发生结果。"
+          },
+          {
+            "id": "always",
+            "text": "Every careful plan always fails.",
+            "correct": false,
+            "reason": "can不等于always，也不是所有计划必败。"
+          }
+        ]
+      },
+      {
+        "id": "succeed",
+        "label": "succeed：另给三人练习：怎样才满足everyone contributes？",
+        "prompt": "另给三人练习：怎样才满足everyone contributes？",
+        "answer": "succeed",
+        "meaning": "成功",
+        "material": "We will succeed only if everyone contributes.",
+        "before": "We will ",
+        "after": " only if everyone contributes.",
+        "reason": "succeed表示成功，常用succeed in doing。A only if B表示有A必须有B；大家出力是成功的必要条件，但仅凭这句不能推出大家出力就一定成功。另给三人练习不代表原句实际人数。",
+        "hint": "succeed in doing；only if引出必要条件。",
+        "wordDecision": {
+          "prompt": "另给三人练习：怎样才满足everyone contributes？",
+          "contributions": {
+            "title": "先满足大家都出力",
+            "hint": "另给三人练习，不代表原句人数；点选每个人出力，只检查必要条件，不保证成功。",
+            "wrong": "everyone要求每个人都出力；即使满足，也不能把必要条件当成功保证。"
+          }
+        },
+        "options": [
+          {
+            "id": "necessary",
+            "text": "Everyone contributing is required for our success.",
+            "correct": true,
+            "reason": "only if给出成功的必要条件，不是单独保证。"
+          },
+          {
+            "id": "guarantee",
+            "text": "If everyone contributes, success is automatically guaranteed.",
+            "correct": false,
+            "reason": "把必要条件误当成充分保证。"
+          },
+          {
+            "id": "one",
+            "text": "One person contributing is enough to meet everyone contributes.",
+            "correct": false,
+            "reason": "everyone不能换成one person。"
+          }
+        ]
+      },
+      {
+        "id": "manage",
+        "label": "manage：Can you manage是在问，还是已经做到了？",
+        "prompt": "Can you manage是在问，还是已经做到了？",
+        "answer": "manage",
+        "meaning": "设法完成；管理",
+        "material": "Can you manage the stairs with that bag?",
+        "before": "Can you ",
+        "after": " the stairs with that bag?",
+        "reason": "manage在这里表示能否应付或完成。Can you manage...?是在问拿那个包能否走楼梯，不是说已经走完；原句没有说明向上还是向下，也没有要求实际尝试。",
+        "hint": "manage to do设法做成；本句manage the stairs应付楼梯。",
+        "wordDecision": {
+          "prompt": "Can you manage是在问，还是已经做到了？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问拿包能否走楼梯",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "question",
+                "label": "询问带那个包能否走楼梯",
+                "text": "Can you manage the stairs with that bag?",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "已经拿包上楼",
+                "text": "You have already carried the bag upstairs.",
+                "include": false
+              },
+              {
+                "id": "without",
+                "label": "问不带包时能否走",
+                "text": "Can you use the stairs without the bag?",
+                "include": false
+              }
+            ],
+            "hint": "保留问句和with，不补结果或方向。",
+            "wrong": "选问题本身，保留拿那个包这个条件。"
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "The question asks whether you can use the stairs while carrying that bag.",
+            "correct": true,
+            "reason": "Can you manage...?询问能否应付，没有报告结果。"
+          },
+          {
+            "id": "done",
+            "text": "You have already carried the bag up the stairs.",
+            "correct": false,
+            "reason": "把问题改成已完成，还补了向上。"
+          },
+          {
+            "id": "without",
+            "text": "The question asks about the stairs without the bag.",
+            "correct": false,
+            "reason": "with that bag不能丢掉。"
+          }
+        ]
+      },
+      {
+        "id": "solve",
+        "label": "solve：图是帮助解决问题，还是没起作用？",
+        "prompt": "图是帮助解决问题，还是没起作用？",
+        "answer": "solve",
+        "meaning": "解决",
+        "material": "A simple diagram helped us solve the problem.",
+        "before": "A simple diagram helped us ",
+        "after": " the problem.",
+        "reason": "solve表示解决，solve the problem是解决问题。helped是过去式，helped us solve说明简单图示提供了帮助，没有给图的内容、计算数字或解题步数。",
+        "hint": "solve a problem；help somebody (to) do。",
+        "wordDecision": {
+          "prompt": "图是帮助解决问题，还是没起作用？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "图帮助我们解决问题",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "helped",
+                "label": "简单图示帮助解决问题",
+                "text": "A simple diagram helped us solve the problem.",
+                "include": true
+              },
+              {
+                "id": "none",
+                "label": "图示完全没有帮助",
+                "text": "The diagram did not help at all.",
+                "include": false
+              },
+              {
+                "id": "number",
+                "label": "给出准确解题步数",
+                "text": "The sentence states the exact number of solution steps.",
+                "include": false
+              }
+            ],
+            "hint": "保留helped us solve，不补原句没有的步骤数。",
+            "wrong": "选图示提供帮助，不反向或编步数。"
+          }
+        },
+        "options": [
+          {
+            "id": "helped",
+            "text": "A simple diagram helped us find a solution to the problem.",
+            "correct": true,
+            "reason": "helped us solve说明图帮我们解决问题。"
+          },
+          {
+            "id": "none",
+            "text": "The diagram gave us no help at all.",
+            "correct": false,
+            "reason": "与helped相反。"
+          },
+          {
+            "id": "number",
+            "text": "The sentence gives the exact number of steps in the solution.",
+            "correct": false,
+            "reason": "没有解题步数。"
+          }
+        ]
+      },
+      {
+        "id": "deal",
+        "label": "deal：deal with the leak first先处理什么？",
+        "prompt": "deal with the leak first先处理什么？",
+        "answer": "deal",
+        "meaning": "处理；交易",
+        "material": "We need to deal with the leak first.",
+        "before": "We need to ",
+        "after": " with the leak first.",
+        "reason": "deal with表示处理，不能漏with。need to deal with the leak first表达先处理漏水的需要，没有说已经解决，也没有给维修方法。deal的过去式和过去分词是dealt。",
+        "hint": "deal with处理；deal—dealt—dealt。",
+        "wordDecision": {
+          "prompt": "deal with the leak first先处理什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "先处理漏水问题",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "priority",
+                "label": "需要优先处理漏水",
+                "text": "We need to deal with the leak first.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "漏水已经修好",
+                "text": "The leak has already been repaired.",
+                "include": false
+              },
+              {
+                "id": "last",
+                "label": "其他事全做完再处理漏水",
+                "text": "Deal with every other job before the leak.",
+                "include": false
+              }
+            ],
+            "hint": "first是优先次序；need to不是完成时。",
+            "wrong": "选需要先处理，不把需要变完成或颠倒次序。"
+          }
+        },
+        "options": [
+          {
+            "id": "priority",
+            "text": "We need to address the leak before the other tasks.",
+            "correct": true,
+            "reason": "deal with处理；first说明优先次序。"
+          },
+          {
+            "id": "done",
+            "text": "The leak has already been fixed.",
+            "correct": false,
+            "reason": "need to不是已经修好。"
+          },
+          {
+            "id": "last",
+            "text": "We should leave the leak until every other job is finished.",
+            "correct": false,
+            "reason": "把first改成最后。"
+          }
+        ]
+      },
+      {
+        "id": "handle",
+        "label": "handle：谁来操作发热设备？",
+        "prompt": "谁来操作发热设备？",
+        "answer": "handle",
+        "meaning": "处理；把手",
+        "material": "Let an adult handle the hot equipment.",
+        "before": "Let an adult ",
+        "after": " the hot equipment.",
+        "reason": "handle可作动词处理或操作，也可作名词把手。let an adult handle中，let后用动词原形，an adult是操作的人；这是语言判断，不要求学生触碰发热设备。",
+        "hint": "let somebody do；handle在本句作动词。",
+        "wordDecision": {
+          "prompt": "谁来操作发热设备？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "由成年人操作发热设备",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "adult",
+                "label": "让成年人操作发热设备",
+                "text": "Let an adult handle the hot equipment.",
+                "include": true
+              },
+              {
+                "id": "student",
+                "label": "让学生独自操作",
+                "text": "Let a student handle the hot equipment alone.",
+                "include": false
+              },
+              {
+                "id": "noun",
+                "label": "handle在本句只是名词把手",
+                "text": "Handle only names an equipment part here.",
+                "include": false
+              }
+            ],
+            "hint": "先找let后的人，再看handle在句中做什么。",
+            "wrong": "选成年人操作；handle在这里作动词。"
+          }
+        },
+        "options": [
+          {
+            "id": "adult",
+            "text": "An adult should handle the hot equipment.",
+            "correct": true,
+            "reason": "an adult是操作的人；handle在这里是动词。"
+          },
+          {
+            "id": "student",
+            "text": "A student should handle the hot equipment alone.",
+            "correct": false,
+            "reason": "把成年人改成学生独自操作。"
+          },
+          {
+            "id": "noun",
+            "text": "Handle is a noun naming a part of the equipment here.",
+            "correct": false,
+            "reason": "let somebody do中的handle是动词，不是名词把手。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-planning-actions-4-transfer",
+      "topicId": "v-course-planning-actions",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve the plan’s possibility, the condition for success and the leak’s priority?",
+      "passage": "Conditions, results and priorities\nThe nearest exit is behind the curtain. A separate fictional diagram lets us place an exit marker and move a curtain to examine behind versus in front of. It is not a real building map or evacuation instruction. Another sentence says a bird managed to escape through a window, so the escape succeeded; it was not merely an unsuccessful attempt.\nEven a careful plan can fail. This is a possibility, not a report that this plan has already failed, and not a claim that all careful plans always fail. We will succeed only if everyone contributes. Everyone contributing is necessary for success, but the sentence does not say that this alone guarantees success. A separate three-person practice group illustrates everyone without supplying the original group’s size.\nWe ask whether someone can manage the stairs with a bag; no completed journey or direction is stated. A simple diagram helped us solve a problem without giving exact solution steps. We need to deal with a leak first, which sets a priority rather than reporting a completed repair. Finally, an adult is asked to handle hot equipment. Handle is a verb here, and students are not asked to touch the equipment.",
+      "options": [
+        {
+          "id": "a",
+          "text": "A careful plan always fails; one contributor is enough; the leak is already fixed."
+        },
+        {
+          "id": "b",
+          "text": "A careful plan may fail; everyone must contribute for success; the leak needs attention first."
+        },
+        {
+          "id": "c",
+          "text": "A careful plan may fail; everyone contributing guarantees success; the leak needs attention first."
+        },
+        {
+          "id": "d",
+          "text": "This careful plan has already failed; everyone must contribute for success; the leak is already fixed."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "A careful plan may fail; everyone must contribute for success; the leak needs attention first."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分清可能性、成功的必要条件和先做哪件事。",
+        "steps": [
+          {
+            "text": "can fail表示可能失败；only if要求每个人都出力。",
+            "reason": "可能不是已发生；必要条件不是单独的成功保证。"
+          },
+          {
+            "text": "need to deal with the leak first要求先处理漏水。",
+            "reason": "need to表达需要，first排优先次序，都没有宣布已经修好。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把可能改成必然，把每个人改成一人，还补已修好。"
+          },
+          {
+            "option": "c",
+            "reason": "把必要条件误读成一定成功的保证。"
+          },
+          {
+            "option": "d",
+            "reason": "把可能和需要都改成已经发生的结果。"
+          }
+        ],
+        "pitfall": "看见成功、失败或处理就补结果，忽略can、only if和need to。",
+        "visual": {
+          "kind": "timeline",
+          "title": "可能、条件、优先次序",
+          "segments": [
+            {
+              "text": "can fail",
+              "role": "object",
+              "note": "可能失败"
+            },
+            {
+              "text": "succeed only if everyone contributes",
+              "role": "object",
+              "note": "成功必须大家都出力"
+            },
+            {
+              "text": "need to deal with the leak first",
+              "role": "object",
+              "note": "需要先处理漏水"
+            }
+          ],
+          "caption": "满足必要条件，不等于已经保证结果。"
+        },
+        "transfer": "大家都出力为什么不能直接改写成一定成功？"
+      }
+    }
+  }
+}

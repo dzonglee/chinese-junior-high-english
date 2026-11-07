@@ -1,0 +1,517 @@
+{
+  "lessonId": "l-v-course-movement-5",
+  "reviewState": "draft",
+  "intent": "Seven individual movement tasks distinguish prohibition, required order, arm position/manner, possible damage, compound shape/count/equality requirements, corner direction without necessary exact arrival, and both-handle scope.",
+  "picturePurpose": "Three planned coded manipulations teach arm height, cloth-piece properties and inward corner folding without unnecessary raster assets. Actual modules and phone rendering still required.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "动手前先读准：身体、形状与方向",
+    "instruction": "摆先后、调姿势、变布片、折角；把句中的要求试清楚，再拼写和写自己的句子。",
+    "items": [
+      {
+        "id": "word-touch",
+        "label": "触摸（本句）",
+        "prompt": "热盘子能不能碰？圈出要求和它指向的物品。",
+        "answer": "touch",
+        "caseSensitive": false,
+        "meaning": "触摸（本句）",
+        "before": "Do not ",
+        "after": " the hot plate.",
+        "reason": "Do not touch表示不要触摸；hot plate是这条要求中的物品。",
+        "hint": "先找not，别把“不要碰”读成“已经碰过”。",
+        "material": "Do not touch the hot plate.",
+        "wordDecision": {
+          "prompt": "热盘子能不能碰？圈出要求和它指向的物品。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "不要碰什么？",
+            "prompt": "圈出这句话支持的信息。",
+            "hint": "not是否定，hot说明盘子很热。",
+            "wrong": "应保留不要触摸和热盘子；原句没有说谁已经摸过。",
+            "rows": [
+              {
+                "id": "not",
+                "label": "要求",
+                "text": "不要触摸。",
+                "include": true
+              },
+              {
+                "id": "plate",
+                "label": "物品",
+                "text": "这条要求指向热盘子。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外推断",
+                "text": "有人已经碰过盘子。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "prohibit",
+            "text": "不要触摸热盘子。",
+            "correct": true,
+            "reason": "Do not touch是禁止触摸；不能漏掉not。"
+          },
+          {
+            "id": "allow",
+            "text": "马上用手碰一下热盘子。",
+            "correct": false,
+            "reason": "与Do not touch的否定要求相反。"
+          },
+          {
+            "id": "done",
+            "text": "已经触摸过热盘子了。",
+            "correct": false,
+            "reason": "要求不等于已经发生的动作。"
+          }
+        ],
+        "ownForms": [
+          "touch",
+          "touches",
+          "touched",
+          "touching"
+        ]
+      },
+      {
+        "id": "word-bend",
+        "label": "屈膝（bend your knees）",
+        "prompt": "先屈膝，还是先提箱子？点事件把before的先后摆出来。",
+        "answer": "Bend",
+        "caseSensitive": true,
+        "meaning": "屈膝（bend your knees）",
+        "before": "",
+        "after": " your knees before lifting the box.",
+        "reason": "Bend your knees要求屈膝，before把它放在提箱子之前。",
+        "hint": "句首Bend大写；knees是膝盖，before是“在……之前”。",
+        "material": "Bend your knees before lifting the box.",
+        "wordDecision": {
+          "prompt": "先屈膝，还是先提箱子？点事件把before的先后摆出来。",
+          "processOrder": {
+            "title": "屈膝在前，提箱在后",
+            "hint": "按句意排事件；不提供重量或真实动作记录。",
+            "wrong": "before要求屈膝在提箱之前，不能把顺序倒过来。",
+            "events": [
+              {
+                "id": "knees",
+                "label": "屈膝 · 要求"
+              },
+              {
+                "id": "lift",
+                "label": "提起箱子"
+              }
+            ],
+            "sequence": [
+              "knees",
+              "lift"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "先屈膝，再提起箱子。",
+            "correct": true,
+            "reason": "Bend your knees在lifting the box之前。"
+          },
+          {
+            "id": "after",
+            "text": "先提起箱子，再屈膝。",
+            "correct": false,
+            "reason": "把before的先后倒置了。"
+          },
+          {
+            "id": "arms",
+            "text": "只弯胳膊，不涉及膝盖。",
+            "correct": false,
+            "reason": "knees是膝盖，不是arms。"
+          }
+        ],
+        "ownForms": [
+          "bend",
+          "bends",
+          "bent",
+          "bending"
+        ]
+      },
+      {
+        "id": "word-stretch",
+        "label": "伸展双臂（本句）",
+        "prompt": "把示意人物的双臂移到头部上方，再选出slowly的要求。",
+        "answer": "Stretch",
+        "caseSensitive": true,
+        "meaning": "伸展双臂（本句）",
+        "before": "",
+        "after": " your arms slowly above your head.",
+        "reason": "Stretch your arms slowly above your head要求慢慢伸展双臂，位置在头部上方。",
+        "hint": "句首Stretch大写；slowly说明动作要慢，above以头部为参照。",
+        "material": "Stretch your arms slowly above your head.",
+        "wordDecision": {
+          "prompt": "把示意人物的双臂移到头部上方，再选出slowly的要求。",
+          "armPose": {
+            "title": "双臂在哪里？",
+            "hint": "以头部为参照；只比较图中的位置。",
+            "wrong": "above your head是头部上方，不是肩膀高度或身体下方。"
+          }
+        },
+        "options": [
+          {
+            "id": "above",
+            "text": "慢慢伸展双臂，位置在头部上方。",
+            "correct": true,
+            "reason": "同时保留arms、slowly和above your head。"
+          },
+          {
+            "id": "below",
+            "text": "快速把双臂放到腰部以下。",
+            "correct": false,
+            "reason": "位置和slowly的方式都变了。"
+          },
+          {
+            "id": "height",
+            "text": "原句给出了双臂抬高的厘米数。",
+            "correct": false,
+            "reason": "above只给相对位置，没有提供测量值。"
+          }
+        ],
+        "ownForms": [
+          "stretch",
+          "stretches",
+          "stretched",
+          "stretching"
+        ]
+      },
+      {
+        "id": "word-break",
+        "label": "损坏相机（本句）",
+        "prompt": "could break说的是可能损坏，还是已经损坏？圈出有依据的信息。",
+        "answer": "break",
+        "caseSensitive": false,
+        "meaning": "损坏相机（本句）",
+        "before": "A hard fall could ",
+        "after": " the camera.",
+        "reason": "A hard fall could break the camera表示猛烈跌落可能损坏相机。",
+        "hint": "could说明可能；break the camera不是“休息一下”。",
+        "material": "A hard fall could break the camera.",
+        "wordDecision": {
+          "prompt": "could break说的是可能损坏，还是已经损坏？圈出有依据的信息。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "可能损坏 ≠ 已经损坏",
+            "prompt": "圈出这句话支持的信息。",
+            "hint": "保留可能性和损坏对象。",
+            "wrong": "应圈可能损坏及相机；不能把could写成已经发生。",
+            "rows": [
+              {
+                "id": "possible",
+                "label": "可能性",
+                "text": "猛烈跌落可能造成损坏。",
+                "include": true
+              },
+              {
+                "id": "camera",
+                "label": "对象",
+                "text": "可能被损坏的是相机。",
+                "include": true
+              },
+              {
+                "id": "broken",
+                "label": "额外推断",
+                "text": "相机已经确认损坏。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "possible",
+            "text": "猛烈跌落可能损坏相机。",
+            "correct": true,
+            "reason": "could表达可能，break的对象是camera。"
+          },
+          {
+            "id": "rest",
+            "text": "这句话是在安排课间休息。",
+            "correct": false,
+            "reason": "本句break是损坏物品的动词，不是休息这个名词。"
+          },
+          {
+            "id": "confirmed",
+            "text": "相机已经损坏，且不能再用。",
+            "correct": false,
+            "reason": "原句只说可能损坏，没有给实际结果或维修结论。"
+          }
+        ],
+        "ownForms": [
+          "break",
+          "breaks",
+          "broke",
+          "broken",
+          "breaking"
+        ]
+      },
+      {
+        "id": "word-cut",
+        "label": "裁剪布料（本句）",
+        "prompt": "调数量、形状和大小，让示意布片同时满足four、equal、squares。",
+        "answer": "Cut",
+        "caseSensitive": true,
+        "meaning": "裁剪布料（本句）",
+        "before": "",
+        "after": " the cloth into four equal squares.",
+        "reason": "Cut the cloth into four equal squares要求裁成四块同样大的正方形。",
+        "hint": "数量、大小和形状三项一起核对；图示不提供原布尺寸。",
+        "material": "Cut the cloth into four equal squares.",
+        "wordDecision": {
+          "prompt": "调数量、形状和大小，让示意布片同时满足four、equal、squares。",
+          "clothPieces": {
+            "title": "四块、同样大、正方形",
+            "hint": "逐项调成品条件；示意排布不代表唯一裁法。",
+            "wrong": "必须同时是四块、大小相等、正方形；只满足其中一两项还不够。"
+          }
+        },
+        "options": [
+          {
+            "id": "all",
+            "text": "裁成四块同样大的正方形。",
+            "correct": true,
+            "reason": "four是数量，equal是同样大，squares是正方形。"
+          },
+          {
+            "id": "rectangles",
+            "text": "裁成四块同样大的长方形即可。",
+            "correct": false,
+            "reason": "普通长方形不一定是正方形，漏掉squares的要求。"
+          },
+          {
+            "id": "unequal",
+            "text": "裁成四块大小不同的正方形。",
+            "correct": false,
+            "reason": "漏掉equal，四块应同样大。"
+          }
+        ],
+        "ownForms": [
+          "cut",
+          "cuts",
+          "cutting"
+        ]
+      },
+      {
+        "id": "word-fold",
+        "label": "折叠（本句）",
+        "prompt": "把标出的角朝中间折。试试折一点与折到中心，哪种方向都符合towards？",
+        "answer": "Fold",
+        "caseSensitive": true,
+        "meaning": "折叠（本句）",
+        "before": "",
+        "after": " the corner towards the middle.",
+        "reason": "Fold the corner towards the middle要求把这个角朝中间折；towards说明方向。",
+        "hint": "towards只要求朝中间，不限定一定到中点。",
+        "material": "Fold the corner towards the middle.",
+        "wordDecision": {
+          "prompt": "把标出的角朝中间折。试试折一点与折到中心，哪种方向都符合towards？",
+          "cornerFold": {
+            "title": "朝中间，不等于必须到中点",
+            "hint": "标出的角和中点是本图的固定参照。",
+            "wrong": "应朝中间折；向外背离中间不符合towards the middle。"
+          }
+        },
+        "options": [
+          {
+            "id": "towards",
+            "text": "把这个角朝中间折。",
+            "correct": true,
+            "reason": "保留corner和towards表示的方向，不额外规定终点。"
+          },
+          {
+            "id": "must",
+            "text": "必须把这个角准确折到中心点。",
+            "correct": false,
+            "reason": "towards没有要求一定到达准确中点。"
+          },
+          {
+            "id": "half",
+            "text": "必须把整张布对折成完全相等的两半。",
+            "correct": false,
+            "reason": "原句指这个角和朝中间的方向，没有规定整张布对折。"
+          }
+        ],
+        "ownForms": [
+          "fold",
+          "folds",
+          "folded",
+          "folding"
+        ]
+      },
+      {
+        "id": "word-tie",
+        "label": "系绳子（本句）",
+        "prompt": "绳子要绕哪几个把手？圈出around和both共同限定的要求。",
+        "answer": "Tie",
+        "caseSensitive": true,
+        "meaning": "系绳子（本句）",
+        "before": "",
+        "after": " the string around both handles.",
+        "reason": "Tie the string around both handles要求把绳子绕着两个把手系好。",
+        "hint": "both是两个都包括；around是绕着。",
+        "material": "Tie the string around both handles.",
+        "wordDecision": {
+          "prompt": "绳子要绕哪几个把手？圈出around和both共同限定的要求。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "绳子绕两个把手",
+            "prompt": "圈出这句话支持的信息。",
+            "hint": "around是绕着，both包括两个把手。",
+            "wrong": "应保留绕着和两个把手；只绕一个不符合both。",
+            "rows": [
+              {
+                "id": "around",
+                "label": "路径",
+                "text": "绳子要绕着把手。",
+                "include": true
+              },
+              {
+                "id": "both",
+                "label": "范围",
+                "text": "两个把手都包括。",
+                "include": true
+              },
+              {
+                "id": "one",
+                "label": "缩小范围",
+                "text": "只绕其中一个把手。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "both",
+            "text": "把绳子绕着两个把手系好。",
+            "correct": true,
+            "reason": "around和both都被保留。"
+          },
+          {
+            "id": "one",
+            "text": "只把绳子绕一个把手。",
+            "correct": false,
+            "reason": "both包括两个，不能缩成一个。"
+          },
+          {
+            "id": "noun",
+            "text": "Tie在本句是领带这个名词。",
+            "correct": false,
+            "reason": "句首Tie发出系绳子的指令，是动词。"
+          }
+        ],
+        "ownForms": [
+          "tie",
+          "ties",
+          "tied",
+          "tying"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-movement-5-transfer",
+      "topicId": "v-course-movement",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "把新的手工要求写成英文：哪份三句提示准确？",
+      "passage": "新手工任务\n把蓝色的纸裁成六块同样大的正方形。把卡片的一个角朝卡片中间折。把丝带绕着礼袋的两个把手系好。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cut the blue paper into four equal squares. Fold a corner of the card towards the middle. Tie the ribbon around both handles of the gift bag."
+        },
+        {
+          "id": "b",
+          "text": "Cut the blue paper into six equal squares. Fold a corner of the card towards the middle. Tie the ribbon around both handles of the gift bag."
+        },
+        {
+          "id": "c",
+          "text": "Cut the blue paper into six equal triangles. Fold a corner of the card towards the middle. Tie the ribbon around both handles of the gift bag."
+        },
+        {
+          "id": "d",
+          "text": "Cut the blue paper into six equal squares. The corner must reach the exact centre of the card. Tie the ribbon around only one handle of the gift bag."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Cut the blue paper into six equal squares. Fold a corner of the card towards the middle. Tie the ribbon around both handles of the gift bag."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐项核对数量、形状、大小、折叠方向与两个把手的范围。",
+        "steps": [
+          {
+            "text": "six equal squares同时保留六块、同样大和正方形。",
+            "reason": "新任务换成蓝色纸和六块，不能照搬练习中的four。"
+          },
+          {
+            "text": "towards保留朝中间的方向，around both handles保留路径和两个把手。",
+            "reason": "不增加必须到精确中点，也不把两个把手缩成一个。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "four把新任务的六块改成了四块。"
+          },
+          {
+            "option": "c",
+            "reason": "triangles是三角形，改掉了正方形的要求。"
+          },
+          {
+            "option": "d",
+            "reason": "增加必须到精确中点，并把两个把手缩成一个。"
+          }
+        ],
+        "pitfall": "看懂单词后还要逐项保留数量、形状、范围与方向，别补出原文没有的必须条件。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三个句子，逐项对照",
+          "segments": [
+            {
+              "text": "six + equal + squares",
+              "role": "evidence",
+              "note": "数量、大小、形状"
+            },
+            {
+              "text": "towards the middle",
+              "role": "evidence",
+              "note": "朝中间，不强求到点"
+            },
+            {
+              "text": "ribbon around both bag handles",
+              "role": "evidence",
+              "note": "绕着两个把手"
+            }
+          ],
+          "caption": "成品图与折角图是语义示意，不能代替核对原文的所有要求。"
+        },
+        "transfer": "如果去掉equal或both，哪些要求变了？分别指出少掉的信息。"
+      }
+    }
+  }
+}

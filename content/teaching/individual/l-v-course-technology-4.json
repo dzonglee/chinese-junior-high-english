@@ -1,0 +1,585 @@
+{
+  "lessonId": "l-v-course-technology-4",
+  "reviewState": "draft",
+  "intent": "Eight individual internet tasks teach storage scope, connectivity, website versus webpage, offline prerequisites, privacy and transfer direction with preserved action order.",
+  "picturePurpose": "Original fictional park map is the actual sample-page content in a coded save/disconnect/reopen demonstration. Its persistence makes the saved copy visible; it does not assert universal offline functionality or change real connectivity.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "先保存，断开后再打开",
+    "instruction": "试着离线读地图；核对文件去向和操作顺序。",
+    "items": [
+      {
+        "id": "app",
+        "label": "app：笔记存在哪里？",
+        "prompt": "笔记存在哪里？",
+        "answer": "app",
+        "meaning": "应用程序",
+        "material": "The app saves my notes on this device.",
+        "before": "The ",
+        "after": " saves my notes on this device.",
+        "reason": "app是应用程序；saves表示保存。on this device是这台设备；未说明云端副本或自动同步。",
+        "hint": "on this device是这台设备；别补全部同步。",
+        "wordDecision": {
+          "prompt": "笔记存在哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "笔记保存在这台设备",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "local",
+                "label": "保存在这台设备",
+                "text": "The app saves my notes on this device.",
+                "include": true
+              },
+              {
+                "id": "cloud",
+                "label": "仅保存在远端服务器",
+                "text": "The app saves my notes only on a remote server.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "自动同步到所有设备",
+                "text": "The app automatically copies my notes to every device.",
+                "include": false
+              }
+            ],
+            "hint": "本机保存不等于已同步。",
+            "wrong": "只选保存在这台设备；不能换成仅远端或补所有设备同步。"
+          }
+        },
+        "options": [
+          {
+            "id": "cloud",
+            "text": "The app stores my notes only on a remote server.",
+            "correct": false,
+            "reason": "这台设备被换成仅远端服务器。"
+          },
+          {
+            "id": "local",
+            "text": "The app stores my notes on this device.",
+            "correct": true,
+            "reason": "on this device限定这台设备。"
+          },
+          {
+            "id": "all",
+            "text": "Every app shares every note with every device.",
+            "correct": false,
+            "reason": "一个app和这台设备被扩大成所有应用、所有笔记与设备。"
+          }
+        ],
+        "ownForms": [
+          "app",
+          "apps"
+        ]
+      },
+      {
+        "id": "internet",
+        "label": "internet：这项活动需要联网吗？",
+        "prompt": "这项活动需要联网吗？",
+        "answer": "internet",
+        "meaning": "互联网",
+        "material": "We do not need the internet for this activity.",
+        "before": "We do not need the ",
+        "after": " for this activity.",
+        "reason": "通常说the internet。do not need是不需要，不是不能用；this activity只限定这项活动。",
+        "hint": "不需要，不是不能用；范围只是本活动。",
+        "wordDecision": {
+          "prompt": "这项活动需要联网吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这项活动不必联网",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "none",
+                "label": "本活动无需互联网",
+                "text": "We do not need the internet for this activity.",
+                "include": true
+              },
+              {
+                "id": "must",
+                "label": "本活动必须联网",
+                "text": "We need the internet for this activity.",
+                "include": false
+              },
+              {
+                "id": "never",
+                "label": "一切学习永远不联网",
+                "text": "We will never need the internet for any schoolwork.",
+                "include": false
+              }
+            ],
+            "hint": "this activity限定范围。",
+            "wrong": "只选本活动无需互联网；不能反转需要或扩大到一切学习。"
+          }
+        },
+        "options": [
+          {
+            "id": "must",
+            "text": "We cannot do this activity without the internet.",
+            "correct": false,
+            "reason": "不需要被反转成必须。"
+          },
+          {
+            "id": "never",
+            "text": "We will never need the internet for any schoolwork.",
+            "correct": false,
+            "reason": "这项活动被扩大成今后一切学习。"
+          },
+          {
+            "id": "none",
+            "text": "This activity does not require the internet.",
+            "correct": true,
+            "reason": "do not need表示不需要，范围是this activity。"
+          }
+        ]
+      },
+      {
+        "id": "website",
+        "label": "website：学校网站列出了什么？",
+        "prompt": "学校网站列出了什么？",
+        "answer": "website",
+        "meaning": "网站",
+        "material": "The school website lists the latest opening times.",
+        "before": "The school ",
+        "after": " lists the latest opening times.",
+        "reason": "website是网站。latest opening times是最新开放时间；列出时间不等于订票成功或全天开放。",
+        "hint": "latest修饰开放时间；不报告已订票。",
+        "wordDecision": {
+          "prompt": "学校网站列出了什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "列出最新开放时间",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "times",
+                "label": "有最新开放时间",
+                "text": "The school website lists the latest opening times.",
+                "include": true
+              },
+              {
+                "id": "book",
+                "label": "我们的票已经订好",
+                "text": "Our tickets have already been booked.",
+                "include": false
+              },
+              {
+                "id": "always",
+                "label": "学校每天全天开放",
+                "text": "The school is open all day and all night every day.",
+                "include": false
+              }
+            ],
+            "hint": "时间信息不是订票记录。",
+            "wrong": "只选列出最新开放时间；不能补订票或全天开放。"
+          }
+        },
+        "options": [
+          {
+            "id": "times",
+            "text": "The school website gives the most recent opening times.",
+            "correct": true,
+            "reason": "latest修饰opening times，表示最新开放时间。"
+          },
+          {
+            "id": "book",
+            "text": "The website proves that our tickets have been booked.",
+            "correct": false,
+            "reason": "列出时间不报告订票完成。"
+          },
+          {
+            "id": "always",
+            "text": "The school is open at every hour of every day.",
+            "correct": false,
+            "reason": "opening times不等于全天候开放。"
+          }
+        ],
+        "ownForms": [
+          "website",
+          "websites"
+        ]
+      },
+      {
+        "id": "webpage",
+        "label": "webpage：保存后，试着离线打开网页。",
+        "prompt": "保存后，试着离线打开网页。",
+        "answer": "webpage",
+        "meaning": "网页",
+        "material": "Save the webpage so you can read it offline.",
+        "before": "Save the ",
+        "after": " so you can read it offline.",
+        "reason": "webpage是网页。先保存示例地图，再断开示意连接并打开。so you can说明目的，不是已经保存完成；不代表所有网页都能离线使用。",
+        "hint": "先保存，再试离线打开；别省掉保存条件。",
+        "wordDecision": {
+          "prompt": "保存后，试着离线打开网页。",
+          "offlinePage": {
+            "title": "保存网页，再离线打开",
+            "hint": "只模拟这张地图网页；不会改变设备连接，也不代表所有网页都能离线使用。",
+            "wrong": "先保存网页，再断开示意连接并点“打开网页”。"
+          },
+          "art": {
+            "asset": "lesson-park-map",
+            "assetRoot": "illustrations-3",
+            "format": "jpg",
+            "alt": "虚构公园地图：左侧湖泊，右上凉亭，右下游乐区，路径连接各处。"
+          }
+        },
+        "options": [
+          {
+            "id": "upload",
+            "text": "Send the webpage from your device to someone else’s account.",
+            "correct": false,
+            "reason": "保存离线阅读被换成上传给别人。"
+          },
+          {
+            "id": "purpose",
+            "text": "Save the webpage in order to read it without an internet connection.",
+            "correct": true,
+            "reason": "so you can说明保存的目的，offline表示离线。"
+          },
+          {
+            "id": "all",
+            "text": "Every webpage can always be read offline without being saved.",
+            "correct": false,
+            "reason": "原句要求保存，不能删掉条件或扩大到所有网页。"
+          }
+        ],
+        "ownForms": [
+          "webpage",
+          "webpages"
+        ]
+      },
+      {
+        "id": "online",
+        "label": "online：哪些信息不应在网上分享？",
+        "prompt": "哪些信息不应在网上分享？",
+        "answer": "online",
+        "meaning": "在线的；在网上",
+        "material": "Do not share personal details online.",
+        "before": "Do not share personal details ",
+        "after": ".",
+        "reason": "online是在网上，personal details是个人信息。提醒不要分享，不报告已删除；不是禁止分享一切学习资料。",
+        "hint": "personal details是个人信息；提醒不是执行记录。",
+        "wordDecision": {
+          "prompt": "哪些信息不应在网上分享？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "不要在网上分享个人信息",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "private",
+                "label": "个人信息不应上网分享",
+                "text": "Do not share personal details online.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "所有信息都不得分享",
+                "text": "Do not share any information anywhere.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "所有人已经清除信息",
+                "text": "Everyone has already removed all personal details from the internet.",
+                "include": false
+              }
+            ],
+            "hint": "别把个人信息扩大成所有信息。",
+            "wrong": "只选不要在网上分享个人信息；不能扩大范围或补已经清除。"
+          }
+        },
+        "options": [
+          {
+            "id": "all",
+            "text": "Never share any information of any kind anywhere.",
+            "correct": false,
+            "reason": "个人信息被扩大成一切信息，网上被扩大成任何地点。"
+          },
+          {
+            "id": "done",
+            "text": "Everyone has already removed all personal information from the internet.",
+            "correct": false,
+            "reason": "禁止分享不报告人人已删除。"
+          },
+          {
+            "id": "private",
+            "text": "Avoid sharing personal information on the internet.",
+            "correct": true,
+            "reason": "personal details是个人信息，online是在网上。"
+          }
+        ]
+      },
+      {
+        "id": "offline",
+        "label": "offline：没有网络时，地图怎样？",
+        "prompt": "没有网络时，地图怎样？",
+        "answer": "offline",
+        "meaning": "离线的；不联网的",
+        "material": "The map still works offline.",
+        "before": "The map still works ",
+        "after": ".",
+        "reason": "offline是不联网；still works是仍可使用，不等于实时更新，也不保证所有功能可用。",
+        "hint": "离线仍能用，不等于实时更新。",
+        "wordDecision": {
+          "prompt": "没有网络时，地图怎样？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "地图离线仍可使用",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "works",
+                "label": "不联网仍可使用地图",
+                "text": "The map still works offline.",
+                "include": true
+              },
+              {
+                "id": "must",
+                "label": "地图只能联网使用",
+                "text": "The map works only online.",
+                "include": false
+              },
+              {
+                "id": "latest",
+                "label": "道路变化都实时更新",
+                "text": "Every road change is updated instantly offline.",
+                "include": false
+              }
+            ],
+            "hint": "仍可用，不等于实时更新。",
+            "wrong": "只选地图离线仍可使用；不能反转条件或补实时更新。"
+          }
+        },
+        "options": [
+          {
+            "id": "works",
+            "text": "The map continues to work without an internet connection.",
+            "correct": true,
+            "reason": "still表示仍然，offline表示不联网。"
+          },
+          {
+            "id": "must",
+            "text": "The map works only while connected to the internet.",
+            "correct": false,
+            "reason": "离线可用被反转成只能联网。"
+          },
+          {
+            "id": "latest",
+            "text": "Every road change is updated instantly without any connection.",
+            "correct": false,
+            "reason": "离线能用不证明实时更新每次道路变化。"
+          }
+        ]
+      },
+      {
+        "id": "download",
+        "label": "download：下载地图，文件往哪边走？",
+        "prompt": "下载地图，文件往哪边走？",
+        "answer": "Download",
+        "meaning": "下载",
+        "material": "Download the map before leaving home.",
+        "before": "",
+        "after": " the map before leaving home.",
+        "reason": "download：网络→本机；upload方向相反。before leaving home要求离家前下载；指令不报告已完成。",
+        "hint": "download：网络→本机；before离家之前。",
+        "wordDecision": {
+          "prompt": "下载地图，文件往哪边走？"
+        },
+        "options": [
+          {
+            "id": "out",
+            "text": "Send your map from your device to a remote server after leaving home.",
+            "correct": false,
+            "reason": "方向变成上传，时间也变成离家之后。"
+          },
+          {
+            "id": "in",
+            "text": "Move a copy of the map from the internet to your device before leaving home.",
+            "correct": true,
+            "reason": "download的方向是网络到本机；before保留先后。"
+          },
+          {
+            "id": "done",
+            "text": "The map has already been downloaded and every route checked.",
+            "correct": false,
+            "reason": "指令不报告已下载，更没有报告全部路线已核验。"
+          }
+        ],
+        "ownForms": [
+          "download",
+          "downloads",
+          "downloaded",
+          "downloading"
+        ]
+      },
+      {
+        "id": "upload",
+        "label": "upload：上传别人的照片前先做什么？",
+        "prompt": "上传别人的照片前先做什么？",
+        "answer": "upload",
+        "meaning": "上传",
+        "material": "Ask permission before you upload someone else's photo.",
+        "before": "Ask permission before you ",
+        "after": " someone else's photo.",
+        "reason": "upload：本机→远端。before要求先征求同意，再上传别人的照片；不能补成已经获准。",
+        "hint": "先征求同意；别补已经获准。",
+        "wordDecision": {
+          "prompt": "上传别人的照片前先做什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "先征求同意，再上传",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "ask",
+                "label": "先征求上传照片的同意",
+                "text": "Ask permission before uploading someone else’s photo.",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "先上传，之后再问",
+                "text": "Upload someone else’s photo before asking permission.",
+                "include": false
+              },
+              {
+                "id": "given",
+                "label": "所有照片都已获准上传",
+                "text": "Permission has already been given to upload every photo.",
+                "include": false
+              }
+            ],
+            "hint": "before先后不能反。",
+            "wrong": "只选先征求同意，再上传；不能倒序或补所有照片已获准。"
+          }
+        },
+        "options": [
+          {
+            "id": "after",
+            "text": "Upload another person’s photo first and ask permission afterwards.",
+            "correct": false,
+            "reason": "before的先后顺序反了。"
+          },
+          {
+            "id": "given",
+            "text": "Permission has already been given for every photo.",
+            "correct": false,
+            "reason": "要求征求同意不说明已获所有照片的许可。"
+          },
+          {
+            "id": "ask",
+            "text": "Ask for permission before uploading another person’s photo.",
+            "correct": true,
+            "reason": "先征求同意，再上传别人的照片。"
+          }
+        ],
+        "ownForms": [
+          "upload",
+          "uploads",
+          "uploaded",
+          "uploading"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-technology-4-transfer",
+      "topicId": "v-course-technology",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan keeps the conditions and order in the passage?",
+      "passage": "Getting ready for our park visit\nOur class was getting ready for a visit to the park. The school website listed the park’s latest opening times, and another webpage showed a map. “Save that page so you can read it offline,” our teacher said. “Download the map before leaving home.”\nI opened my notes app and wrote down the meeting place. The app saves my notes on this device; I had not checked whether they were copied anywhere else. On the bus, the signal disappeared. The saved map still worked offline, so we could find the pavilion. We did not need the internet for that activity.\nAt the park, we took a group photo. Mei wanted to upload it, but she first asked everyone in it for permission. Our teacher reminded us not to share personal details online, such as our home addresses. We kept those out of our post.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Save the page before reading it offline; download before leaving; ask permission before uploading the group photo."
+        },
+        {
+          "id": "b",
+          "text": "Read every webpage offline without saving; download before leaving; ask permission before uploading the group photo."
+        },
+        {
+          "id": "c",
+          "text": "Save the page before reading it offline; download after leaving; ask permission before uploading the group photo."
+        },
+        {
+          "id": "d",
+          "text": "Save the page before reading it offline; download before leaving; upload the group photo before asking permission."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Save the page before reading it offline; download before leaving; ask permission before uploading the group photo."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把保存条件、下载时间和征求同意的顺序分别对回原文。",
+        "steps": [
+          {
+            "text": "先保存网页，离家前下载地图；不是所有网页都能不保存就离线读取。",
+            "reason": "Save that page和Download ... before leaving home给出条件与时间。"
+          },
+          {
+            "text": "上传合照之前，先征求照片中各人的同意。",
+            "reason": "first asked ... for permission保留先问再上传；个人住址不应写进帖子。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "删掉保存条件，又扩大成every webpage。"
+          },
+          {
+            "option": "c",
+            "reason": "把离家前下载改成离家后。"
+          },
+          {
+            "option": "d",
+            "reason": "把先征求同意、后上传的顺序反过来。"
+          }
+        ],
+        "pitfall": "把保存条件省掉，或把before的先后顺序反过来。",
+        "visual": {
+          "kind": "timeline",
+          "title": "准备好，再行动",
+          "segments": [
+            {
+              "text": "save → read offline",
+              "role": "object",
+              "note": "先保存，再离线读"
+            },
+            {
+              "text": "download → leave home",
+              "role": "object",
+              "note": "离家之前下载"
+            },
+            {
+              "text": "ask → upload",
+              "role": "object",
+              "note": "先征求同意，再上传"
+            }
+          ],
+          "caption": "条件和先后，不能读反。"
+        },
+        "transfer": "地图离线可用，是否说明道路变化都能实时更新？用原句支持你的判断。"
+      }
+    }
+  }
+}

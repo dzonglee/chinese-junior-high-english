@@ -1,0 +1,11 @@
+# Cardinal numbers: exact groups and correct words
+
+2026-10-18 (Sydney). Individually reviewed; content remains draft.
+
+Twelve tasks connect quantities to written number words. Four require selecting the groups that make a specified total: four tens, two hundreds, three thousands and eight tens. The coded figure changes to the selected group count, including wrong selections; a correct English word cannot bypass an incorrect quantity record. Further tasks contrast fourteen/forty and eighteen/eighty, repair ninety and twenty-six, distinguish exact hundred/thousand from approximate hundreds/thousands of, and turn measurements into ten-minute and twelve-year-old modifiers.
+
+Inspected all twelve models and narrow-phone figures, all eight wrong group records and their physical icon counts, misspellings, hyphen/number errors, capitalization feedback, both applications and every application/transfer explanation step. Each group icon displays its authored unit, 10/100/1000. Twelve measurements verify all four correct group figures at three widths, including untruncated unit labels and the totals 40/200/3000/80. Chinese uses 组 consistently, including groups representing people. Two cramped measurement diagrams now use full-width source/output cards.
+
+The explicitly requested initial capital in the Thousands application is enforced per response and tested alongside ordinary case-insensitive words. Correct models pass 320/390/768 layouts; actual wrong-path and repair controls are exercised at phone width. All twelve tasks, applications, diagnosis, fresh transfer and reload pass; eligible grades 6–9 covered and reserved 005–008 unexposed. Guided work creates zero independent attempts, mastery or lesson-pass records.
+
+Core 1,476 tests/14 files passed after the capital-requirement fix and before the last group-selector, diagram and copy edits. Final compiler/typecheck, 826 teaching/spelling, nine grammar checks, static-package checks, full browser flow, eight offline checks and archive CRC/exact-source comparison cover those edits. The final adapter scope is recorded separately at checkpoint36. These simulations do not establish WeChat GUI validation; project-drive access remains blocked. No release or publication.

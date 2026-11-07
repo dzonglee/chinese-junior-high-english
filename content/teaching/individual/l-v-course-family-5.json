@@ -1,0 +1,600 @@
+{
+  "lessonId": "l-v-course-family-5",
+  "reviewState": "draft",
+  "intent": "Individually teach friendship/person/adjective distinctions,recorded classmates versus assigned partners,guest-room modifier versus possession,host noun versus verb,visitor versus visit with each-singular,stranger versus strange with a polite private-address refusal,and explicit full-name components. Original three-student art supports neutral referent selections; class and partner facts remain authored records. Original writing,changed rewrites and a fresh open-day record remain draft and credit free.",
+  "picturePurpose": "Three separate original fictional students with blue/green/violet clothes and teal/coral/blue blank notebooks distinguish referents. Written class records and current partner assignments determine relationships; neither appearance nor standing nearby proves a class or partnership.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "先认清人物关系，再看这次怎么分工",
+    "instruction": "读记录、选判断，再填句子。班级、搭档和活动角色分别核对；每完成一项，换成自己的例子试一试。",
+    "items": [
+      {
+        "id": "friendship",
+        "label": "friendship：写关系，不是写某一个人",
+        "prompt": "Yun和Bo在郊游时成为朋友。要说“他们的友谊始于那次郊游”，哪句用对了表示关系的名词？",
+        "wordDecision": {
+          "prompt": "Yun和Bo在郊游时成为朋友。要说“他们的友谊始于那次郊游”，哪句用对了表示关系的名词？"
+        },
+        "answer": "friendship",
+        "meaning": "友谊",
+        "material": "Their friendship began on a rainy school trip.",
+        "before": "Their ",
+        "after": " began on a rainy school trip.",
+        "reason": "friend是朋友，friendship是友谊。这里写一段关系的开始，用Their friendship began，而不是friend或friendly。",
+        "hint": "friend + ship → friendship；这里指关系，不是人。",
+        "options": [
+          {
+            "id": "relationship",
+            "text": "Their friendship began on that school trip.",
+            "correct": true,
+            "reason": "friendship指友谊这段关系，friend指朋友这个人。"
+          },
+          {
+            "id": "person",
+            "text": "Their friend began on that school trip.",
+            "correct": false,
+            "reason": "friend是朋友，不是题目要表达的友谊；这里需要friendship。"
+          },
+          {
+            "id": "adjective",
+            "text": "Their friendly began on that school trip.",
+            "correct": false,
+            "reason": "friendly通常作形容词，不能在这里充当“友谊”这个名词。"
+          }
+        ]
+      },
+      {
+        "id": "classmate",
+        "label": "classmate：同年级不一定同班",
+        "prompt": "记录：左一Yun在8A班；中间Bo在8A班；右一Lea在8B班。谁是Yun的classmate？",
+        "wordDecision": {
+          "prompt": "记录：左一Yun在8A班；中间Bo在8A班；右一Lea在8B班。谁是Yun的classmate？",
+          "recordPaths": [
+            {
+              "id": "class-a",
+              "label": "8A班",
+              "steps": [
+                "Yun",
+                "Bo"
+              ]
+            },
+            {
+              "id": "class-b",
+              "label": "8B班",
+              "steps": [
+                "Lea",
+                "different class from Yun"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-classmate-partner",
+            "alt": "三位分开站立的虚构学生。左一Yun穿蓝衣拿青色书，中间Bo穿绿衣拿红色书，右一Lea穿紫衣拿蓝色书。头部、双手和书完整可见。姓名、班级和本次搭档由题目记录给出。",
+            "evidence": [
+              {
+                "option": "lea-same-grade",
+                "caption": "你指向右一Lea。核对班级记录：Lea在8B。",
+                "regions": [
+                  {
+                    "id": "lea-right",
+                    "label": "右一Lea",
+                    "left": 68,
+                    "top": 8,
+                    "width": 30,
+                    "height": 91
+                  }
+                ]
+              },
+              {
+                "option": "both-grade-eight",
+                "caption": "你指向Bo与Lea。两人的班级记录分别是8A与8B。",
+                "regions": [
+                  {
+                    "id": "bo-middle",
+                    "label": "中间Bo",
+                    "left": 36,
+                    "top": 6,
+                    "width": 30,
+                    "height": 93
+                  },
+                  {
+                    "id": "lea-right",
+                    "label": "右一Lea",
+                    "left": 68,
+                    "top": 8,
+                    "width": 30,
+                    "height": 91
+                  }
+                ]
+              },
+              {
+                "option": "bo-same-class",
+                "caption": "你指向中间Bo。核对班级记录：Bo在8A。",
+                "regions": [
+                  {
+                    "id": "bo-middle",
+                    "label": "中间Bo",
+                    "left": 36,
+                    "top": 6,
+                    "width": 30,
+                    "height": 93
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "classmate",
+        "meaning": "同班同学",
+        "material": "My classmate saved a seat for me.",
+        "before": "My ",
+        "after": " saved a seat for me.",
+        "reason": "classmate由class和mate组成，表示同班同学。查班级记录：Yun和Bo同在8A；Lea在8B，不能只凭同年级判断。",
+        "hint": "classmate看同班；same grade不等于same class。",
+        "options": [
+          {
+            "id": "lea-same-grade",
+            "text": "Lea, because everyone in Grade 8 is in the same class.",
+            "correct": false,
+            "reason": "8A和8B同属八年级，但不是同一个班。"
+          },
+          {
+            "id": "both-grade-eight",
+            "text": "Both Bo and Lea, because class and grade mean the same thing.",
+            "correct": false,
+            "reason": "class是班，grade是年级；不能把同年级都当成同班。"
+          },
+          {
+            "id": "bo-same-class",
+            "text": "Bo, because Bo and Yun are both in Class 8A.",
+            "correct": true,
+            "reason": "classmate是同班同学；Bo和Yun都在8A。"
+          }
+        ],
+        "ownForms": [
+          "classmate",
+          "classmates"
+        ]
+      },
+      {
+        "id": "partner",
+        "label": "partner：查这一次的搭档安排",
+        "prompt": "本次任务安排：Yun与Lea结对，Bo独立完成。即使Yun和Bo同班，谁才是Yun这次的partner？",
+        "wordDecision": {
+          "prompt": "本次任务安排：Yun与Lea结对，Bo独立完成。即使Yun和Bo同班，谁才是Yun这次的partner？",
+          "recordPaths": [
+            {
+              "id": "pair",
+              "label": "本次结对",
+              "steps": [
+                "Yun",
+                "Lea"
+              ]
+            },
+            {
+              "id": "solo",
+              "label": "本次独立完成",
+              "steps": [
+                "Bo",
+                "works alone"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-classmate-partner",
+            "alt": "三位分开站立的虚构学生。左一Yun穿蓝衣拿青色书，中间Bo穿绿衣拿红色书，右一Lea穿紫衣拿蓝色书。头部、双手和书完整可见。姓名、班级和本次搭档由题目记录给出。",
+            "evidence": [
+              {
+                "option": "bo-classmate",
+                "caption": "你指向中间Bo。核对本次安排，别只看同班关系。",
+                "regions": [
+                  {
+                    "id": "bo-middle",
+                    "label": "中间Bo",
+                    "left": 36,
+                    "top": 6,
+                    "width": 30,
+                    "height": 93
+                  }
+                ]
+              },
+              {
+                "option": "lea-assigned",
+                "caption": "你指向右一Lea。核对本次分组记录中的姓名。",
+                "regions": [
+                  {
+                    "id": "lea-right",
+                    "label": "右一Lea",
+                    "left": 68,
+                    "top": 8,
+                    "width": 30,
+                    "height": 91
+                  }
+                ]
+              },
+              {
+                "option": "all-three",
+                "caption": "你指向三个人。画面中的站位不代替任务分组记录。",
+                "regions": [
+                  {
+                    "id": "yun-left",
+                    "label": "左一Yun",
+                    "left": 1,
+                    "top": 2,
+                    "width": 32,
+                    "height": 97
+                  },
+                  {
+                    "id": "bo-middle",
+                    "label": "中间Bo",
+                    "left": 36,
+                    "top": 6,
+                    "width": 30,
+                    "height": 93
+                  },
+                  {
+                    "id": "lea-right",
+                    "label": "右一Lea",
+                    "left": 68,
+                    "top": 8,
+                    "width": 30,
+                    "height": 91
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "partner",
+        "meaning": "搭档；同伴",
+        "material": "Check the last sentence with your partner.",
+        "before": "Check the last sentence with your ",
+        "after": ".",
+        "reason": "partner看这一次合作的安排，用work with a partner。Yun和Lea本次结对；同班或站得近都不能替代任务记录。",
+        "hint": "work with a partner；搭档安排要查本次记录。",
+        "options": [
+          {
+            "id": "bo-classmate",
+            "text": "Bo must be Yun’s partner because they are classmates.",
+            "correct": false,
+            "reason": "同班不能代替本次分组记录；Bo这次独立完成。"
+          },
+          {
+            "id": "lea-assigned",
+            "text": "Lea is Yun’s partner for this task.",
+            "correct": true,
+            "reason": "本次明确安排Yun与Lea结对；搭档不一定来自同一个班。"
+          },
+          {
+            "id": "all-three",
+            "text": "All three are partners because they are standing near one another.",
+            "correct": false,
+            "reason": "站得近不能证明分组；记录只把Yun和Lea安排成一组。"
+          }
+        ],
+        "ownForms": [
+          "partner",
+          "partners"
+        ]
+      },
+      {
+        "id": "guest",
+        "label": "guest：guest room说房间的用途",
+        "prompt": "要写“客房”这个房间类型，不表示归某一位客人所有。哪项保留了这个意思？",
+        "wordDecision": {
+          "prompt": "要写“客房”这个房间类型，不表示归某一位客人所有。哪项保留了这个意思？"
+        },
+        "answer": "guest",
+        "meaning": "客人",
+        "material": "We put fresh towels in the guest room.",
+        "before": "We put fresh towels in the ",
+        "after": " room.",
+        "reason": "guest是客人，复数guests；guest room是客房。说房间用途用guest room，说某一位客人的房间才可能用a guest’s room。",
+        "hint": "guest room是客房；客人复数是guests。",
+        "options": [
+          {
+            "id": "possession",
+            "text": "a guest’s room",
+            "correct": false,
+            "reason": "带撇号表示某一位客人的房间；题目要的是房间类型guest room。"
+          },
+          {
+            "id": "plural-modifier",
+            "text": "a guests room",
+            "correct": false,
+            "reason": "这里作房间类型的名词修饰语用guest，写guest room。"
+          },
+          {
+            "id": "room-type",
+            "text": "a guest room",
+            "correct": true,
+            "reason": "guest在这里修饰room，guest room指客房这一房间类型。"
+          }
+        ],
+        "ownForms": [
+          "guest",
+          "guests"
+        ]
+      },
+      {
+        "id": "host",
+        "label": "host：同一个词，可以是人也可以是动作",
+        "prompt": "①The host introduced the speakers. ②Our school will host the show. 两处host分别表示什么？",
+        "wordDecision": {
+          "prompt": "①The host introduced the speakers. ②Our school will host the show. 两处host分别表示什么？"
+        },
+        "answer": "host",
+        "meaning": "主人；主持人",
+        "material": "The host introduced each speaker clearly.",
+        "before": "The ",
+        "after": " introduced each speaker clearly.",
+        "reason": "The host指主持人，是名词；will host指将主办，是动词。动词也可变成hosts、hosted或hosting，要按句子选。",
+        "hint": "the host指人；will host表示将主办。",
+        "options": [
+          {
+            "id": "reverse",
+            "text": "① organise the show; ② the presenter",
+            "correct": false,
+            "reason": "把两处词性颠倒了：①是人，②是主办这个动作。"
+          },
+          {
+            "id": "both-guests",
+            "text": "① an invited guest; ② visit the show",
+            "correct": false,
+            "reason": "guest是受邀客人；host这里分别是主持人和主办，不能都读成来访。"
+          },
+          {
+            "id": "noun-verb",
+            "text": "① the presenter; ② organise the show",
+            "correct": true,
+            "reason": "①the host指主持人；②will后接动词host，表示主办。"
+          }
+        ],
+        "ownForms": [
+          "host",
+          "hosts",
+          "hosted",
+          "hosting"
+        ]
+      },
+      {
+        "id": "visitor",
+        "label": "visitor：给人发地图，不是给一次参观发地图",
+        "prompt": "要说“每位参观者都领到一张地图”。Each后哪项把人、单复数与句子都写对了？",
+        "wordDecision": {
+          "prompt": "要说“每位参观者都领到一张地图”。Each后哪项把人、单复数与句子都写对了？"
+        },
+        "answer": "visitor",
+        "meaning": "访客；参观者",
+        "material": "Each visitor received a simple map.",
+        "before": "Each ",
+        "after": " received a simple map.",
+        "reason": "visit是参观或拜访，visitor是来访的人。Each visitor逐个说每位参观者；两位则写two visitors。",
+        "hint": "visit + or → visitor；each visitor用单数。",
+        "options": [
+          {
+            "id": "activity",
+            "text": "Each visit received a map.",
+            "correct": false,
+            "reason": "visit在这里指一次参观活动，不是领取地图的参观者。"
+          },
+          {
+            "id": "each-person",
+            "text": "Each visitor received a map.",
+            "correct": true,
+            "reason": "visitor是参观者；each逐个说每一位，后用单数visitor。"
+          },
+          {
+            "id": "each-plural",
+            "text": "Each visitors received a map.",
+            "correct": false,
+            "reason": "each后用单数名词visitor，不能直接接复数visitors。"
+          }
+        ],
+        "ownForms": [
+          "visitor",
+          "visitors"
+        ]
+      },
+      {
+        "id": "stranger",
+        "label": "stranger：不认识的人，不等于“奇怪的”",
+        "prompt": "陌生网友要你的家庭住址。哪句既用对stranger，也适合回复这次请求？",
+        "wordDecision": {
+          "prompt": "陌生网友要你的家庭住址。哪句既用对stranger，也适合回复这次请求？"
+        },
+        "answer": "stranger",
+        "meaning": "陌生人",
+        "material": "Never share your home address with a stranger.",
+        "before": "Never share your home address with a ",
+        "after": ".",
+        "reason": "stranger是陌生人，strange通常是形容词“奇怪的”。不认识不等于人坏；对陌生网友的住址请求，可以直接礼貌拒绝。",
+        "hint": "a stranger指一个人；strange通常是形容词。",
+        "options": [
+          {
+            "id": "decline",
+            "text": "I don’t share my home address with a stranger.",
+            "correct": true,
+            "reason": "stranger是不认识的人；可以礼貌拒绝透露家庭住址。"
+          },
+          {
+            "id": "adjective",
+            "text": "I don’t share my home address with a strange.",
+            "correct": false,
+            "reason": "strange通常是形容词“奇怪的”，这里说一个人要用名词stranger。"
+          },
+          {
+            "id": "share-anyway",
+            "text": "I will send my home address to the stranger now.",
+            "correct": false,
+            "reason": "stranger虽用作名词，但这句答应透露住址，不符合这次回复的要求。"
+          }
+        ],
+        "ownForms": [
+          "stranger",
+          "strangers"
+        ]
+      },
+      {
+        "id": "name",
+        "label": "name：full name要包含给出的姓和名",
+        "prompt": "表格已写明：Given name=Lily；Family name=Brown。填写Full name时，哪项完整？",
+        "wordDecision": {
+          "prompt": "表格已写明：Given name=Lily；Family name=Brown。填写Full name时，哪项完整？",
+          "recordPaths": [
+            {
+              "id": "given",
+              "label": "名",
+              "steps": [
+                "Given name",
+                "Lily"
+              ]
+            },
+            {
+              "id": "family",
+              "label": "姓",
+              "steps": [
+                "Family name",
+                "Brown"
+              ]
+            }
+          ]
+        },
+        "answer": "name",
+        "meaning": "名字",
+        "material": "Write your full name above the line.",
+        "before": "Write your full ",
+        "after": " above the line.",
+        "reason": "按这份表格，given name是Lily，family name是Brown，full name是Lily Brown。这里的name指姓名；多个人的姓名可写names。",
+        "hint": "这份表：Lily是名，Brown是姓；full name两部分都要。",
+        "options": [
+          {
+            "id": "given-only",
+            "text": "Lily",
+            "correct": false,
+            "reason": "Lily只是这份表里的given name，没有包含family name Brown。"
+          },
+          {
+            "id": "full",
+            "text": "Lily Brown",
+            "correct": true,
+            "reason": "这份表格给出名Lily和姓Brown，全名需要两部分。"
+          },
+          {
+            "id": "family-only",
+            "text": "Brown",
+            "correct": false,
+            "reason": "Brown只是这份表里的family name，没有包含given name Lily。"
+          }
+        ],
+        "ownForms": [
+          "name",
+          "names"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-family-5-transfer",
+      "topicId": "v-course-family",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which note agrees with today’s new record?",
+      "passage": "OPEN DAY: NEW RECORD\nLin and Hui are in Class 8B. Dong is in Class 8A. For today’s task, Hui works with Dong; Lin works alone. Our school will host a reading show. Hui is the student host and introduces Ms Qiao, our invited guest speaker. Each visitor receives a map. A visitor’s form says: Given name: Lily. Family name: Brown. Please write her full name on the map.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lin and Hui are classmates; Hui’s partner is Dong."
+        },
+        {
+          "id": "b",
+          "text": "Hui and Dong are classmates because they are both in Grade 8."
+        },
+        {
+          "id": "c",
+          "text": "Ms Qiao must be the host because she is an invited guest."
+        },
+        {
+          "id": "d",
+          "text": "The visitor’s full name is Lily; Brown is not needed."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Lin and Hui are classmates; Hui’s partner is Dong."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把同班、搭档、主持人与客人分开查，再按表格核对全名。",
+        "steps": [
+          {
+            "text": "Lin和Hui都在8B班；本次Hui的搭档却是8A班的Dong。",
+            "reason": "Class 8B给出同班关系；Hui works with Dong给出这次合作安排。"
+          },
+          {
+            "text": "学校主办，Hui主持，Ms Qiao受邀发言；Lily Brown才是表中的全名。",
+            "reason": "will host是主办动作；student host与invited guest speaker是不同角色；名和姓都要保留。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "同属八年级不能证明同班：Hui在8B，Dong在8A。"
+          },
+          {
+            "option": "c",
+            "reason": "受邀客人不自动成为主持人；记录明确Hui主持，Ms Qiao是受邀发言者。"
+          },
+          {
+            "option": "d",
+            "reason": "表格给出名Lily和姓Brown；只写Lily没有填完整全名。"
+          }
+        ],
+        "pitfall": "同年级不等于同班，搭档也不一定同班；客人和主持人要按本次角色记录区分。",
+        "visual": {
+          "kind": "evidence",
+          "title": "四条记录，分别核对",
+          "segments": [
+            {
+              "text": "Class 8B: Lin + Hui",
+              "role": "evidence",
+              "note": "classmates：同班"
+            },
+            {
+              "text": "Today’s task: Hui + Dong",
+              "role": "object",
+              "note": "partners：本次搭档"
+            },
+            {
+              "text": "school hosts → Hui introduces → Ms Qiao speaks",
+              "role": "evidence",
+              "note": "主办方、主持人、受邀发言者分开"
+            },
+            {
+              "text": "Lily + Brown → Lily Brown",
+              "role": "evidence",
+              "note": "按表格组合全名"
+            }
+          ],
+          "caption": "只用这次的班级、分组和角色记录；上一题的搭档不能直接搬过来。"
+        },
+        "transfer": "如果下一次Lin与Dong结对，他们是否因此变成同班同学？你会查哪两条记录？"
+      }
+    }
+  }
+}

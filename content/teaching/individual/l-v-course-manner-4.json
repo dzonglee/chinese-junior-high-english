@@ -1,0 +1,561 @@
+{
+  "lessonId": "l-v-course-manner-4",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks preserve urgency conditions, recurrence, nonabsolute frequency, locations and dry-place existence.",
+  "picturePurpose": "Exact coded recurrence and reversible dry/wet seat models teach repetition and constrained existence without inventing actual schedules or seat counts.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "看重复、辨频率、找干处",
+    "instruction": "先比较规律重复与只一次，再切换坐处干湿，判断还有没有干的地方。",
+    "items": [
+      {
+        "id": "immediately",
+        "label": "immediately：immediately有什么触发条件？",
+        "prompt": "immediately有什么触发条件？",
+        "answer": "immediately",
+        "meaning": "立即",
+        "material": "Tell an adult immediately if you smell gas.",
+        "before": "Tell an adult ",
+        "after": " if you smell gas.",
+        "reason": "immediately表示立即、马上。if you smell gas是触发条件，tell an adult是要求的动作；不能改成拖延，也不能把条件读成已经发生或到处都有燃气味。这里只核对原句的语言信息。immediate加ly构成immediately，保留e。",
+        "hint": "immediately；if条件；immediate + ly。",
+        "wordDecision": {
+          "prompt": "immediately有什么触发条件？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "闻到燃气味就立即告诉成年人",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "tell",
+                "label": "如果闻到燃气味，立即告诉成年人",
+                "text": "Tell an adult immediately if you smell gas.",
+                "include": true
+              },
+              {
+                "id": "wait",
+                "label": "闻到后等很久再告诉别人",
+                "text": "Wait a long time before telling anyone.",
+                "include": false
+              },
+              {
+                "id": "always",
+                "label": "到处一直都有燃气味",
+                "text": "Gas can always be smelled everywhere.",
+                "include": false
+              }
+            ],
+            "hint": "保留条件和立即告诉成年人，不改成拖延或已发生。",
+            "wrong": "选有条件的立即告知，不反转或补普遍事实。"
+          }
+        },
+        "options": [
+          {
+            "id": "tell",
+            "text": "If you smell gas, tell an adult without delay.",
+            "correct": true,
+            "reason": "保留if条件、立即和告诉成年人。"
+          },
+          {
+            "id": "wait",
+            "text": "If you smell gas, wait a long time before telling anyone.",
+            "correct": false,
+            "reason": "反转immediately。"
+          },
+          {
+            "id": "always",
+            "text": "The sentence says gas can always be smelled everywhere.",
+            "correct": false,
+            "reason": "条件提醒不是报告到处都已有燃气味。"
+          }
+        ]
+      },
+      {
+        "id": "regularly",
+        "label": "regularly：regularly是不是只查一次？",
+        "prompt": "regularly是不是只查一次？",
+        "answer": "regularly",
+        "meaning": "定期地；经常",
+        "material": "Check the brakes regularly, not just before long trips.",
+        "before": "Check the brakes ",
+        "after": ", not just before long trips.",
+        "reason": "regularly表示按规律反复进行，not just before long trips明确不能只在长途出发前检查。原句没有规定具体间隔或次数。另给检查标记只比较定期重复、仅一次和从不，不是实际刹车维护计划。",
+        "hint": "regularly；not just；没有指定间隔。",
+        "wordDecision": {
+          "prompt": "regularly是不是只查一次？",
+          "regularRepeat": {
+            "title": "一次、定期，还是从不？",
+            "hint": "另给虚构检查标记，只比较是否规律重复，不代表原句的具体检查日期或间隔。",
+            "wrong": "选在多个间隔位置规律重复的标记；只一次或从不都不能表示regularly。"
+          }
+        },
+        "options": [
+          {
+            "id": "repeat",
+            "text": "Check the brakes repeatedly at regular intervals, not only before long trips.",
+            "correct": true,
+            "reason": "保留定期重复和not just的范围。"
+          },
+          {
+            "id": "once",
+            "text": "Check the brakes only once before one long trip.",
+            "correct": false,
+            "reason": "把定期重复缩成仅一次。"
+          },
+          {
+            "id": "never",
+            "text": "Never check the brakes.",
+            "correct": false,
+            "reason": "反转check regularly。"
+          }
+        ]
+      },
+      {
+        "id": "rarely",
+        "label": "rarely：rarely是很少，还是从来没有？",
+        "prompt": "rarely是很少，还是从来没有？",
+        "answer": "rarely",
+        "meaning": "很少；难得",
+        "material": "This quiet lane rarely has heavy traffic.",
+        "before": "This quiet lane ",
+        "after": " has heavy traffic.",
+        "reason": "rarely表示很少，本身有否定含义，不能再加not形成普通肯定意思。它不等于never，也不能把this quiet lane扩大到所有道路。rarely通常放在实义动词前，这里在has前。",
+        "hint": "rarely，不是never；rarely has。",
+        "wordDecision": {
+          "prompt": "rarely是很少，还是从来没有？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这条安静小巷很少车流密集",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "rare",
+                "label": "这条小巷车流密集的情况很少",
+                "text": "This quiet lane rarely has heavy traffic.",
+                "include": true
+              },
+              {
+                "id": "never",
+                "label": "这条小巷从未出现过密集车流",
+                "text": "This lane has never had heavy traffic.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "所有道路始终车流密集",
+                "text": "Every road always has heavy traffic.",
+                "include": false
+              }
+            ],
+            "hint": "保留很少与这条小巷，不变成从不或所有路。",
+            "wrong": "选这条小巷很少，不改成从未或始终。"
+          }
+        },
+        "options": [
+          {
+            "id": "rare",
+            "text": "Heavy traffic is uncommon in this quiet lane.",
+            "correct": true,
+            "reason": "rarely保留少见，不是绝不发生。"
+          },
+          {
+            "id": "never",
+            "text": "This lane has never had heavy traffic.",
+            "correct": false,
+            "reason": "rarely不能一律改成never。"
+          },
+          {
+            "id": "all",
+            "text": "Every road always has heavy traffic.",
+            "correct": false,
+            "reason": "反转频率并扩大成所有道路。"
+          }
+        ]
+      },
+      {
+        "id": "seldom",
+        "label": "seldom：seldom的范围在哪里？",
+        "prompt": "seldom的范围在哪里？",
+        "answer": "seldom",
+        "meaning": "很少；不常",
+        "material": "We seldom need a car inside the town.",
+        "before": "We ",
+        "after": " need a car inside the town.",
+        "reason": "seldom表示不常、很少，本身带否定含义；这里放在实义动词need前。inside the town限定镇内，不能扩大成任何地方的所有出行，也不能把很少改成从不或一直需要。",
+        "hint": "seldom need；inside the town；不等于never。",
+        "wordDecision": {
+          "prompt": "seldom的范围在哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "在镇内我们很少需要汽车",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "town",
+                "label": "镇内不常需要汽车",
+                "text": "We seldom need a car inside the town.",
+                "include": true
+              },
+              {
+                "id": "never",
+                "label": "任何地方任何出行都从不需要汽车",
+                "text": "We never need a car anywhere.",
+                "include": false
+              },
+              {
+                "id": "always",
+                "label": "镇内一直都需要汽车",
+                "text": "We always need a car inside the town.",
+                "include": false
+              }
+            ],
+            "hint": "保留不常和镇内，不扩大或反转频率。",
+            "wrong": "选镇内很少需要，不改成到处从不或一直。"
+          }
+        },
+        "options": [
+          {
+            "id": "town",
+            "text": "We do not often need a car within the town.",
+            "correct": true,
+            "reason": "seldom保留不常，inside the town保留范围。"
+          },
+          {
+            "id": "never",
+            "text": "We never need a car for any journey anywhere.",
+            "correct": false,
+            "reason": "很少不等于从不，镇内不等于所有地方。"
+          },
+          {
+            "id": "always",
+            "text": "We always need a car within the town.",
+            "correct": false,
+            "reason": "反转seldom。"
+          }
+        ]
+      },
+      {
+        "id": "somewhere",
+        "label": "somewhere：somewhere还要满足什么条件？",
+        "prompt": "somewhere还要满足什么条件？",
+        "answer": "somewhere",
+        "meaning": "在某处；到某处",
+        "material": "Let's stop somewhere sheltered from the wind.",
+        "before": "Let's stop ",
+        "after": " sheltered from the wind.",
+        "reason": "somewhere表示某处，sheltered from the wind说明要避风。Let’s提出一起停下的建议，不能读成已停在某个确定地点，也不能改成最迎风。somewhere本身是地点副词，不需要再写at somewhere。",
+        "hint": "somewhere sheltered；Let’s是提议。",
+        "wordDecision": {
+          "prompt": "somewhere还要满足什么条件？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "找个避风的地方停下",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "sheltered",
+                "label": "提议在某个避风处停下",
+                "text": "Let's stop somewhere sheltered from the wind.",
+                "include": true
+              },
+              {
+                "id": "wind",
+                "label": "提议在最迎风处停下",
+                "text": "Let us stop at the most exposed place.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "报告已在一个有名称的地点停下",
+                "text": "We have already stopped at a named place.",
+                "include": false
+              }
+            ],
+            "hint": "保留提议、某处和避风条件。",
+            "wrong": "选在避风处停下的提议，不反转或补已完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "sheltered",
+            "text": "Let us stop at a place protected from the wind.",
+            "correct": true,
+            "reason": "保留提议停下和避风的地点条件。"
+          },
+          {
+            "id": "wind",
+            "text": "Let us stop at the place most exposed to the wind.",
+            "correct": false,
+            "reason": "反转sheltered from the wind。"
+          },
+          {
+            "id": "done",
+            "text": "We have already stopped at a named place.",
+            "correct": false,
+            "reason": "提议不是已停下，也没有给出地名。"
+          }
+        ]
+      },
+      {
+        "id": "anywhere",
+        "label": "anywhere：anywhere在哪种地方受到限制？",
+        "prompt": "anywhere在哪种地方受到限制？",
+        "answer": "anywhere",
+        "meaning": "在任何地方；到任何地方",
+        "material": "Do not leave the sharp tools anywhere children can reach.",
+        "before": "Do not leave the sharp tools ",
+        "after": " children can reach.",
+        "reason": "Do not...anywhere children can reach表示任何孩子够得到的地方都不要放锋利工具。children can reach限定位置，不能漏掉否定读成随便放，也不能扩大成所有物品任何地方都不能放。",
+        "hint": "not...anywhere；children can reach限定地点。",
+        "wordDecision": {
+          "prompt": "anywhere在哪种地方受到限制？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "孩子够得到的地方都不要放锋利工具",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "reach",
+                "label": "任何孩子够得到的地方都不要放锋利工具",
+                "text": "Do not leave the sharp tools anywhere children can reach.",
+                "include": true
+              },
+              {
+                "id": "any",
+                "label": "包括孩子够得到的地方都可随便放",
+                "text": "Leave sharp tools anywhere, including reachable places.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "所有物品在所有地方都不能放",
+                "text": "Never leave any object in any place.",
+                "include": false
+              }
+            ],
+            "hint": "保留否定、锋利工具和可触及地点的范围。",
+            "wrong": "选孩子够得到处都不能放，不漏否定或扩大物品范围。"
+          }
+        },
+        "options": [
+          {
+            "id": "reach",
+            "text": "Keep sharp tools out of all places that children can reach.",
+            "correct": true,
+            "reason": "否定句保留任何孩子能够到的地方都不能放。"
+          },
+          {
+            "id": "any",
+            "text": "Leave the tools in any place, including places children can reach.",
+            "correct": false,
+            "reason": "漏掉Do not与可触及条件，反转要求。"
+          },
+          {
+            "id": "all",
+            "text": "The sentence bans leaving any object in every place.",
+            "correct": false,
+            "reason": "限制锋利工具和孩子够得到的地方，不是所有物品所有地方。"
+          }
+        ]
+      },
+      {
+        "id": "everywhere",
+        "label": "everywhere：everywhere的场景和时间是什么？",
+        "prompt": "everywhere的场景和时间是什么？",
+        "answer": "everywhere",
+        "meaning": "到处；处处",
+        "material": "Small leaves were scattered everywhere after the storm.",
+        "before": "Small leaves were scattered ",
+        "after": " after the storm.",
+        "reason": "everywhere表示到处，were scattered说明散落着，after the storm保留暴风雨后的时间。它指所描述场景中的到处，不是地球每个角落永久被叶子覆盖。everywhere是副词，不要写in everywhere。",
+        "hint": "were scattered everywhere；after the storm；不用in everywhere。",
+        "wordDecision": {
+          "prompt": "everywhere的场景和时间是什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "暴风雨后到处散落着小叶子",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "leaves",
+                "label": "所述场景暴风雨后到处有小叶子",
+                "text": "Small leaves were scattered everywhere after the storm.",
+                "include": true
+              },
+              {
+                "id": "none",
+                "label": "暴风雨后哪里都没有叶子",
+                "text": "There were no leaves anywhere after the storm.",
+                "include": false
+              },
+              {
+                "id": "world",
+                "label": "地球每处永久被叶子覆盖",
+                "text": "Every place on Earth was permanently covered with leaves.",
+                "include": false
+              }
+            ],
+            "hint": "保留场景、过去状态和暴风雨后。",
+            "wrong": "选暴风雨后到处散落，不改成没有或全球永久如此。"
+          }
+        },
+        "options": [
+          {
+            "id": "leaves",
+            "text": "Small leaves lay all around the described area after the storm.",
+            "correct": true,
+            "reason": "保留小叶子、散落和暴风雨后。"
+          },
+          {
+            "id": "none",
+            "text": "There were no leaves anywhere after the storm.",
+            "correct": false,
+            "reason": "反转everywhere散落着叶子。"
+          },
+          {
+            "id": "world",
+            "text": "Every place on Earth was permanently covered with leaves.",
+            "correct": false,
+            "reason": "语境中的到处不能扩大成地球所有地点永远如此。"
+          }
+        ]
+      },
+      {
+        "id": "nowhere",
+        "label": "nowhere：nowhere dry是没有座位，还是没有干处？",
+        "prompt": "nowhere dry是没有座位，还是没有干处？",
+        "answer": "nowhere",
+        "meaning": "无处；哪里都不",
+        "material": "There was nowhere dry to sit.",
+        "before": "There was ",
+        "after": " dry to sit.",
+        "reason": "nowhere表示无处，本身含否定；dry限定干燥的地方。原句说没有干燥的地方坐，不等于不存在任何可坐的地方，也不能改成至少有一处干的。另给四个坐处只演示有没有干处，不是原句的实际数量。",
+        "hint": "nowhere dry；不是no places of any kind。",
+        "wordDecision": {
+          "prompt": "nowhere dry是没有座位，还是没有干处？",
+          "drySeats": {
+            "title": "还有没有干燥的坐处？",
+            "hint": "另给虚构四个坐处，可切换干湿。比较没有干处与没有任何坐处，不代表原场景的数量。",
+            "wrong": "让四个示意坐处都为湿，才表示没有干处；只要还有一个干处，就不能说nowhere dry。"
+          }
+        },
+        "options": [
+          {
+            "id": "dry",
+            "text": "There was no dry place to sit.",
+            "correct": true,
+            "reason": "nowhere与dry共同限制没有干燥的坐处。"
+          },
+          {
+            "id": "seat",
+            "text": "There were no places of any kind to sit.",
+            "correct": false,
+            "reason": "没有干处不等于连湿的坐处也不存在。"
+          },
+          {
+            "id": "some",
+            "text": "There was at least one dry place to sit.",
+            "correct": false,
+            "reason": "反转nowhere dry。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-manner-4-transfer",
+      "topicId": "v-course-manner",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes correctly describe the lane, travel in town and the places to sit?",
+      "passage": "After the storm\nOur class was preparing notes about travel around a small town. This quiet lane rarely has heavy traffic, and we seldom need a car inside the town. For longer trips, we discussed a reminder: \"Check the brakes regularly, not just before long trips.\"\nAfter the storm, small leaves were scattered everywhere around the square. We wanted to rest, but there was nowhere dry to sit. \"Let us stop somewhere sheltered from the wind,\" Mei suggested.\nBack in class, we sorted the workshop notices. One said, \"Do not leave the sharp tools anywhere children can reach.\" Another said, \"Tell an adult immediately if you smell gas.\" We checked which conditions each notice included before adding the notes to our display.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Heavy traffic is rare in this lane; they seldom need a car within the town; there is no dry place to sit."
+        },
+        {
+          "id": "b",
+          "text": "Heavy traffic has never occurred anywhere; cars are always needed everywhere; one dry seat is available."
+        },
+        {
+          "id": "c",
+          "text": "Heavy traffic has never occurred in this lane; they seldom need a car within the town; there is no dry place to sit."
+        },
+        {
+          "id": "d",
+          "text": "Heavy traffic is rare in this lane; they seldom need a car within the town; no sitting places of any kind exist."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Heavy traffic is rare in this lane; they seldom need a car within the town; there is no dry place to sit."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先看频率，再核对地点范围，最后保留dry这个限定。",
+        "steps": [
+          {
+            "text": "rarely与seldom都表示很少；inside the town限定镇内。",
+            "reason": "很少不等于从不，也不能扩大成所有地方。"
+          },
+          {
+            "text": "nowhere dry to sit表示没有干燥的坐处。",
+            "reason": "不能删掉dry推成没有任何坐处。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "反转或扩大频率和地点，还把没有干处改成有干座位。"
+          },
+          {
+            "option": "c",
+            "reason": "把rarely误读成从未发生。"
+          },
+          {
+            "option": "d",
+            "reason": "删掉dry，把没有干处扩大成任何坐处都不存在。"
+          }
+        ],
+        "pitfall": "把很少一律改成从不，或漏看dry与镇内范围。",
+        "visual": {
+          "kind": "timeline",
+          "title": "频率、范围、条件",
+          "segments": [
+            {
+              "text": "rarely / seldom",
+              "role": "object",
+              "note": "很少，不等于从不"
+            },
+            {
+              "text": "inside the town",
+              "role": "object",
+              "note": "镇内"
+            },
+            {
+              "text": "nowhere dry",
+              "role": "object",
+              "note": "没有干处"
+            }
+          ],
+          "caption": "不扩大频率，不漏掉限定。"
+        },
+        "transfer": "为什么regularly不能改成只在一次长途出发前检查？"
+      }
+    }
+  }
+}

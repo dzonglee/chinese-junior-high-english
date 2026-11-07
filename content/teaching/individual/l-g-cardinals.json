@@ -1,0 +1,608 @@
+{
+  "lessonId": "l-g-cardinals",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Read exact coded unit groups,distinguish teens/tens and spelling,contrast exact hundred/thousand with approximate plural-of constructions,and keep measurement nouns singular inside compound modifiers.",
+  "picturePurpose": "Count exact three-book icons and authored groups labelled10/100/1000. All values and totals are coded;no image-generation model is asked to count or spell English.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先算清数量，再把数词写准确",
+    "instruction": "数图形、读分组、改拼写。确数和概数分开处理；每一组代表多少，要先看标签。",
+    "conditions": [
+      {
+        "label": "三本书是数量，不是第三本",
+        "before": "There are ",
+        "target": "three",
+        "after": " books in this box.",
+        "choices": [
+          "third",
+          "three"
+        ],
+        "reason": "图中共有3本书，问数量，用基数词three。third表示第三，不能替代这句里的数量。",
+        "world": {
+          "kind": "count",
+          "caption": "盘点：盒内恰好3本书。数清图形，再说数量。",
+          "cells": [
+            {
+              "label": "3 books",
+              "detail": "每个图形表示1本书",
+              "value": 3,
+              "art": "book"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ]
+        }
+      },
+      {
+        "label": "四组十张，不是十四张",
+        "before": "We need ",
+        "target": "forty",
+        "after": " tickets for the show.",
+        "choices": [
+          "fourteen",
+          "forty"
+        ],
+        "reason": "4组，每组10张，共40张，写forty。fourteen是14；forty没有u。",
+        "world": {
+          "kind": "count",
+          "caption": "需要40张票，每组代表10张票。先选对应的组数，观察图中总量，再改数词。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "每组表示10张票",
+              "value": 0,
+              "art": "ten-bundle"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "选出总量为40张票的组数",
+            "missingPrompt": "先用总量40除以每组10，选择组数，再核对数词。",
+            "answer": "groups-4",
+            "options": [
+              {
+                "id": "groups-2",
+                "label": "2组 × 每组10",
+                "text": "共20张票",
+                "reason": "2×10=20，题目需要40张票，应选4组。",
+                "value": 2
+              },
+              {
+                "id": "groups-4",
+                "label": "4组 × 每组10",
+                "text": "共40张票",
+                "reason": "4×10=40，符合给定总量。",
+                "value": 4
+              },
+              {
+                "id": "groups-7",
+                "label": "7组 × 每组10",
+                "text": "共70张票",
+                "reason": "7×10=70，题目需要40张票，应选4组。",
+                "value": 7
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "fourteen",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。"
+      },
+      {
+        "label": "十加四，变成十四",
+        "before": "The box contains ",
+        "target": "fourteen",
+        "after": " tickets.",
+        "choices": [
+          "forty",
+          "fourteen"
+        ],
+        "reason": "10加4为14，用fourteen。forty表示40，不能只按开头相似猜词。",
+        "world": {
+          "kind": "logic",
+          "caption": "另一盒有一组10张票，另有4张零散的票。提问的是总数。",
+          "cells": [
+            {
+              "label": "10 + 4 = 14",
+              "detail": "十位1，个位4"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "forty",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。"
+      },
+      {
+        "label": "确切两百，hundred不加s",
+        "before": "The club has two ",
+        "target": "hundred",
+        "after": " members.",
+        "choices": [
+          "hundreds",
+          "hundred"
+        ],
+        "reason": "two已经给出确切数目，后接hundred，不加s，也不接of。图中每组100，两组共200。",
+        "world": {
+          "kind": "count",
+          "caption": "需要200人，每组代表100人。先选对应的组数，观察图中总量，再改数词。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "每组表示100人",
+              "value": 0,
+              "art": "bundle"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "选出总量为200人的组数",
+            "missingPrompt": "先用总量200除以每组100，选择组数，再核对数词。",
+            "answer": "groups-2",
+            "options": [
+              {
+                "id": "groups-3",
+                "label": "3组 × 每组100",
+                "text": "共300人",
+                "reason": "3×100=300，题目需要200人，应选2组。",
+                "value": 3
+              },
+              {
+                "id": "groups-2",
+                "label": "2组 × 每组100",
+                "text": "共200人",
+                "reason": "2×100=200，符合给定总量。",
+                "value": 2
+              },
+              {
+                "id": "groups-5",
+                "label": "5组 × 每组100",
+                "text": "共500人",
+                "reason": "5×100=500，题目需要200人，应选2组。",
+                "value": 5
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "hundreds",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。"
+      },
+      {
+        "label": "人数不详，改用概数结构",
+        "before": "",
+        "target": "Hundreds",
+        "after": " of visitors came to the fair.",
+        "choices": [
+          "Hundred",
+          "Hundreds"
+        ],
+        "reason": "未给确切人数，用Hundreds of表示数百。概数结构要有s和of；句首Hundreds大写。",
+        "world": {
+          "kind": "logic",
+          "caption": "活动记录：只知道来了数百名游客，没有确切人数。用hundred的概数形式。",
+          "cells": [
+            {
+              "label": "数百 · 未给确数",
+              "detail": "hundreds of"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "Hundred",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。",
+        "caseSensitive": true
+      },
+      {
+        "label": "确切三千，thousand也不加s",
+        "before": "We packed three ",
+        "target": "thousand",
+        "after": " cards.",
+        "choices": [
+          "thousands",
+          "thousand"
+        ],
+        "reason": "three明确表示三千，thousand不加s，也不接of。每组1000，三组共3000。",
+        "world": {
+          "kind": "count",
+          "caption": "需要3000张卡片，每组代表1000张卡片。先选对应的组数，观察图中总量，再改数词。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "每组表示1000张卡片",
+              "value": 0,
+              "art": "thousand-bundle"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "选出总量为3000张卡片的组数",
+            "missingPrompt": "先用总量3000除以每组1000，选择组数，再核对数词。",
+            "answer": "groups-3",
+            "options": [
+              {
+                "id": "groups-2",
+                "label": "2组 × 每组1000",
+                "text": "共2000张卡片",
+                "reason": "2×1000=2000，题目需要3000张卡片，应选3组。",
+                "value": 2
+              },
+              {
+                "id": "groups-3",
+                "label": "3组 × 每组1000",
+                "text": "共3000张卡片",
+                "reason": "3×1000=3000，符合给定总量。",
+                "value": 3
+              },
+              {
+                "id": "groups-4",
+                "label": "4组 × 每组1000",
+                "text": "共4000张卡片",
+                "reason": "4×1000=4000，题目需要3000张卡片，应选3组。",
+                "value": 4
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "thousands",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。"
+      },
+      {
+        "label": "数以千计：s和of配套",
+        "before": "",
+        "target": "Thousands",
+        "after": " of stars were visible.",
+        "choices": [
+          "Thousand",
+          "Thousands"
+        ],
+        "reason": "没有给确切数目，Thousands of表示数以千计。不能写Thousand of；句首大写。",
+        "world": {
+          "kind": "logic",
+          "caption": "观星记录：天空中可见数以千计的星星，没有数出确切总数。",
+          "cells": [
+            {
+              "label": "数以千计 · 未给确数",
+              "detail": "thousands of"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "Thousand",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。",
+        "caseSensitive": true
+      },
+      {
+        "label": "二十六写成一个带连字符的复合数词",
+        "before": "The label says ",
+        "target": "twenty-six",
+        "after": " books.",
+        "choices": [
+          "twenty six",
+          "twenty-six"
+        ],
+        "reason": "21至99中非整十的复合基数词通常用连字符，26写twenty-six，不写分开的twenty six。",
+        "world": {
+          "kind": "logic",
+          "caption": "装箱标签明确写26本书。把26写成规范的英文数词。",
+          "cells": [
+            {
+              "label": "20 + 6 = 26",
+              "detail": "twenty + six → twenty-six"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "twenty six",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。"
+      },
+      {
+        "label": "八个十是八十，不是十八",
+        "before": "We printed ",
+        "target": "eighty",
+        "after": " cards.",
+        "choices": [
+          "eighteen",
+          "eighty"
+        ],
+        "reason": "8组，每组10张，共80张，写eighty。eighteen是18；eighty在eight后加y。",
+        "world": {
+          "kind": "count",
+          "caption": "需要80张卡片，每组代表10张卡片。先选对应的组数，观察图中总量，再改数词。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "每组表示10张卡片",
+              "value": 0,
+              "art": "ten-bundle"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result",
+              "value": 0
+            }
+          ],
+          "records": {
+            "title": "选出总量为80张卡片的组数",
+            "missingPrompt": "先用总量80除以每组10，选择组数，再核对数词。",
+            "answer": "groups-8",
+            "options": [
+              {
+                "id": "groups-5",
+                "label": "5组 × 每组10",
+                "text": "共50张卡片",
+                "reason": "5×10=50，题目需要80张卡片，应选8组。",
+                "value": 5
+              },
+              {
+                "id": "groups-8",
+                "label": "8组 × 每组10",
+                "text": "共80张卡片",
+                "reason": "8×10=80，符合给定总量。",
+                "value": 8
+              },
+              {
+                "id": "groups-6",
+                "label": "6组 × 每组10",
+                "text": "共60张卡片",
+                "reason": "6×10=60，题目需要80张卡片，应选8组。",
+                "value": 6
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "eighteen",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。"
+      },
+      {
+        "label": "九十不是ninty",
+        "before": "The repair costs ",
+        "target": "ninety",
+        "after": " yuan.",
+        "choices": [
+          "ninty",
+          "ninety"
+        ],
+        "reason": "90的拼写是ninety，保留nine中的e。ninty不是规范拼写；不要照着其他整十数机械删字母。",
+        "world": {
+          "kind": "logic",
+          "caption": "维修单：费用90元。请把90写成正确英文。",
+          "cells": [
+            {
+              "label": "9 × 10 = 90",
+              "detail": "nine → ninety"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "ninty",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。"
+      },
+      {
+        "label": "十分钟作前置定语，minute不用复数",
+        "before": "We took a ",
+        "target": "ten-minute",
+        "after": " break.",
+        "choices": [
+          "ten-minutes",
+          "ten-minute"
+        ],
+        "reason": "ten-minute整体放在break前作定语，minute用单数。若改为The break lasted ten minutes，minutes才用复数。",
+        "world": {
+          "kind": "syntax",
+          "caption": "休息持续10分钟。现在把时长放在名词break之前修饰它。",
+          "cells": [
+            {
+              "label": "10 minutes",
+              "detail": "改成break前的定语"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "ten-minutes",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。"
+      },
+      {
+        "label": "十二岁作前置定语，year也用单数",
+        "before": "Leo is a ",
+        "target": "twelve-year-old",
+        "after": " student.",
+        "choices": [
+          "twelve-years-old",
+          "twelve-year-old"
+        ],
+        "reason": "twelve-year-old整体修饰student，year用单数，并用连字符连接。Leo is twelve years old中years则用复数。",
+        "world": {
+          "kind": "syntax",
+          "caption": "Leo今年12岁。保留后面的student，把年龄写成前置定语。",
+          "cells": [
+            {
+              "label": "12 years old",
+              "detail": "改成student前的定语"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "twelve-years-old",
+        "inputHint": "先核对确数还是约数，再看拼写、单复数和连字符。"
+      }
+    ],
+    "choices": [
+      "third",
+      "three",
+      "fourteen",
+      "forty",
+      "hundreds",
+      "hundred",
+      "Hundred",
+      "Hundreds",
+      "thousands",
+      "thousand",
+      "Thousand",
+      "Thousands",
+      "twenty six",
+      "twenty-six",
+      "eighteen",
+      "eighty",
+      "ninty",
+      "ninety",
+      "ten-minutes",
+      "ten-minute",
+      "twelve-years-old",
+      "twelve-year-old"
+    ],
+    "items": [
+      {
+        "id": "number-editor",
+        "label": "数量与表达",
+        "prompt": "把给定的数量和单位写准确。",
+        "answer": "",
+        "reason": "",
+        "hint": "每组的标签是10、100或1000；图形数量不是总人数或总张数。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-cardinals-002",
+      "q-g-cardinals-003"
+    ],
+    "transfer": {
+      "id": "individual-g-cardinals-transfer",
+      "topicId": "g-cardinals",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "我们恰好订了400张贴纸；另一个城市阅读活动只知道有成千上万孩子参加，人数不详。两空依次填什么？\nWe ordered four ___ stickers. ___ of children joined the city reading event.",
+      "options": [
+        {
+          "id": "a",
+          "text": "hundred; Thousands"
+        },
+        {
+          "id": "b",
+          "text": "hundreds; Thousands"
+        },
+        {
+          "id": "c",
+          "text": "hundred; Thousand"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "hundred; Thousands"
+      },
+      "marks": 2,
+      "estimatedSeconds": 80,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先判断是不是确数，再决定hundred/thousand是否加s和of。",
+        "steps": [
+          {
+            "text": "four后用hundred，表示确切的400。",
+            "reason": "具体数词后hundred不加s，也不接of。"
+          },
+          {
+            "text": "第二句用Thousands of，表示人数不详的成千上万。",
+            "reason": "概数结构thousands of需要s，句首T大写。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "four已经给出确切数量，后面不写hundreds。"
+          },
+          {
+            "option": "c",
+            "reason": "表示概数且后接of，应写Thousands of，不能用Thousand of。"
+          }
+        ],
+        "pitfall": "不能把确数four hundred和概数hundreds of混成four hundreds of。",
+        "visual": {
+          "kind": "comparison",
+          "title": "确数与概数分开核对",
+          "segments": [
+            {
+              "text": "four × 100 = 400 → four hundred",
+              "role": "evidence",
+              "note": "具体数词后用单数形式"
+            },
+            {
+              "text": "人数不详 → thousands of",
+              "role": "evidence",
+              "note": "概数用复数形式并接of"
+            }
+          ],
+          "caption": "先看给定的是确切数量还是大致范围。"
+        },
+        "transfer": "如果贴纸数量不详，只说数百张，应怎样改写four hundred stickers？"
+      }
+    }
+  }
+}

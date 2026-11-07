@@ -1,0 +1,546 @@
+{
+  "lessonId": "l-v-course-useful-qualities-3",
+  "reviewState": "draft",
+  "intent": "Individually authored adjective tasks distinguish ordinary change, equal portions, similar shape, necessary conditions and object/time restrictions.",
+  "picturePurpose": "Original before/after jar pair supports a completed change; exact uniform-strip portions and scaled leaf silhouettes remain in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "看变化、分等份、比轮廓",
+    "instruction": "切换罐子变化前后，比较四等份与叶片轮廓，再核对否定和先后。",
+    "items": [
+      {
+        "id": "common",
+        "label": "common：common说明错误常见，还是人人都犯？",
+        "prompt": "common说明错误常见，还是人人都犯？",
+        "answer": "common",
+        "meaning": "常见的；共同的",
+        "material": "This is a common mistake when measuring angles.",
+        "before": "This is a ",
+        "after": " mistake when measuring angles.",
+        "reason": "common在这里表示常见的，when measuring angles限定测量角度这个情境。原句没有说明错误的具体步骤，也没有说人人每次都犯。have something in common是另一个搭配，表示有共同点，不能代替这里的a common mistake。",
+        "hint": "a common mistake；have something in common。",
+        "wordDecision": {
+          "prompt": "common说明错误常见，还是人人都犯？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "测量角度时常见的错误",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "frequent",
+                "label": "这种错误在测量角度时常见",
+                "text": "This is a common mistake when measuring angles.",
+                "include": true
+              },
+              {
+                "id": "everyone",
+                "label": "所有人每次都会犯",
+                "text": "Every person makes this mistake every time.",
+                "include": false
+              },
+              {
+                "id": "detail",
+                "label": "给出具体出错步骤",
+                "text": "The sentence identifies the exact step that went wrong.",
+                "include": false
+              }
+            ],
+            "hint": "保留常见和测量角度，不补人人或具体步骤。",
+            "wrong": "选测量角度时常见，不扩大频率或编错误细节。"
+          }
+        },
+        "options": [
+          {
+            "id": "frequent",
+            "text": "This mistake happens often when people measure angles.",
+            "correct": true,
+            "reason": "common说明这种错误常见。"
+          },
+          {
+            "id": "everyone",
+            "text": "Every person makes this mistake every time.",
+            "correct": false,
+            "reason": "常见不等于人人每次都会犯。"
+          },
+          {
+            "id": "detail",
+            "text": "The sentence identifies exactly which measuring step went wrong.",
+            "correct": false,
+            "reason": "原句没有指出具体哪一步错误。"
+          }
+        ]
+      },
+      {
+        "id": "ordinary",
+        "label": "ordinary：普通罐子后来变成了什么？",
+        "prompt": "普通罐子后来变成了什么？",
+        "answer": "ordinary",
+        "meaning": "普通的",
+        "material": "An ordinary jar became a colourful lantern.",
+        "before": "An ",
+        "after": " jar became a colourful lantern.",
+        "reason": "ordinary表示普通的、不特别的。An ordinary jar是变化前的普通罐子，became是become的过去式，说明它后来变成了彩色灯笼。原创前后对照只帮助辨认变化方向；不推断实际制作步骤或灯的材料。",
+        "hint": "ordinary；become → became；变化前后。",
+        "wordDecision": {
+          "prompt": "普通罐子后来变成了什么？",
+          "jarChange": {
+            "afterAsset": "lesson-colourful-jar",
+            "title": "先前普通，后来变了",
+            "hint": "切换原创前后对照，再选出表示过去已发生变化的句意。图不是实际制作步骤。",
+            "wrong": "先前是普通罐子，后来变成彩色灯笼；保留became的过去与变化方向。"
+          },
+          "art": {
+            "asset": "lesson-plain-jar",
+            "assetRoot": "illustrations-5",
+            "format": "jpg",
+            "alt": "原创变化前：完整普通透明罐子；变化后由同一原创图编辑成彩色灯笼。"
+          }
+        },
+        "options": [
+          {
+            "id": "change",
+            "text": "A plain jar changed into a colourful lantern.",
+            "correct": true,
+            "reason": "ordinary说明原先普通，became说明后来变成了灯笼。"
+          },
+          {
+            "id": "future",
+            "text": "A colourful lantern will become an ordinary jar tomorrow.",
+            "correct": false,
+            "reason": "反转变化方向，还把过去改成将来。"
+          },
+          {
+            "id": "always",
+            "text": "The jar was always a colourful lantern and never changed.",
+            "correct": false,
+            "reason": "忽略became表示发生变化。"
+          }
+        ]
+      },
+      {
+        "id": "strange",
+        "label": "strange：strange指什么？",
+        "prompt": "strange指什么？",
+        "answer": "strange",
+        "meaning": "奇怪的；陌生的",
+        "material": "A strange clicking noise came from the wheel.",
+        "before": "A ",
+        "after": " clicking noise came from the wheel.",
+        "reason": "strange可表示奇怪的或不熟悉的。这里说轮子传来不寻常的咔嗒声，不是在断定故障原因或危险程度。判断声音来源用came from the wheel，不能换成其他地方或凭空补维修结论。",
+        "hint": "a strange noise；come from。",
+        "wordDecision": {
+          "prompt": "strange指什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "轮子传来奇怪的咔嗒声",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "noise",
+                "label": "奇怪的咔嗒声来自轮子",
+                "text": "A strange clicking noise came from the wheel.",
+                "include": true
+              },
+              {
+                "id": "danger",
+                "label": "已证实轮子很危险",
+                "text": "The sentence proves that the wheel is dangerous.",
+                "include": false
+              },
+              {
+                "id": "repair",
+                "label": "给出准确故障和维修方法",
+                "text": "The sentence identifies the fault and its repair.",
+                "include": false
+              }
+            ],
+            "hint": "保留声音和来源，不把奇怪当作危险诊断。",
+            "wrong": "选轮子传来的奇怪声音，不补危险或维修结论。"
+          }
+        },
+        "options": [
+          {
+            "id": "noise",
+            "text": "An unfamiliar clicking sound came from the wheel.",
+            "correct": true,
+            "reason": "strange修饰咔嗒声，came from指出轮子是声源。"
+          },
+          {
+            "id": "danger",
+            "text": "The sentence proves that the wheel is dangerous.",
+            "correct": false,
+            "reason": "奇怪的声音不能单独证明危险。"
+          },
+          {
+            "id": "other",
+            "text": "A familiar voice came from the classroom.",
+            "correct": false,
+            "reason": "改了声音性质和来源。"
+          }
+        ]
+      },
+      {
+        "id": "essential",
+        "label": "essential：essential for说明什么关系？",
+        "prompt": "essential for说明什么关系？",
+        "answer": "essential",
+        "meaning": "必不可少的",
+        "material": "Clean water is essential for good health.",
+        "before": "Clean water is ",
+        "after": " for good health.",
+        "reason": "essential表示必不可少的，be essential for说明对某个目标必要。清洁水对健康必不可少，不等于只要有水就保证健康，也没有给出个人每天的准确饮水量。",
+        "hint": "be essential for；必要不等于单独保证。",
+        "wordDecision": {
+          "prompt": "essential for说明什么关系？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "清洁水对健康必不可少",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "necessary",
+                "label": "清洁水是健康的必要条件",
+                "text": "Clean water is essential for good health.",
+                "include": true
+              },
+              {
+                "id": "only",
+                "label": "只靠清洁水就保证完全健康",
+                "text": "Clean water alone guarantees perfect health.",
+                "include": false
+              },
+              {
+                "id": "amount",
+                "label": "给出每人每天准确饮水量",
+                "text": "The sentence gives an exact daily amount for each person.",
+                "include": false
+              }
+            ],
+            "hint": "保留必要关系，不补充分保证或准确用量。",
+            "wrong": "选必不可少，不把必要改成单独保证。"
+          }
+        },
+        "options": [
+          {
+            "id": "necessary",
+            "text": "Clean water is necessary for good health.",
+            "correct": true,
+            "reason": "essential for表示对健康必不可少。"
+          },
+          {
+            "id": "only",
+            "text": "Clean water alone guarantees perfect health.",
+            "correct": false,
+            "reason": "必要条件不等于单独保证健康。"
+          },
+          {
+            "id": "optional",
+            "text": "Clean water is entirely unnecessary for health.",
+            "correct": false,
+            "reason": "与essential相反。"
+          }
+        ]
+      },
+      {
+        "id": "equal",
+        "label": "equal：另给示意条：四份就是四等份吗？",
+        "prompt": "另给示意条：四份就是四等份吗？",
+        "answer": "equal",
+        "meaning": "相等的；平等的",
+        "material": "Divide the dough into four equal pieces.",
+        "before": "Divide the dough into four ",
+        "after": " pieces.",
+        "reason": "equal表示相等的。four equal pieces要求四份且等份，不能只数到四就算完成。另给练习用明确假设厚薄均匀的虚构面团条比较等宽与不等宽，不是原句面团的实际尺寸、重量或制作步骤。",
+        "hint": "four equal pieces；数量和相等都要核对。",
+        "wordDecision": {
+          "prompt": "另给示意条：四份就是四等份吗？",
+          "doughEqual": {
+            "title": "数四份，再看等不等",
+            "hint": "另给虚构示意：假设面团条厚薄均匀，比较四段等宽与四段不等宽。不代表实际重量。",
+            "wrong": "四份还不够；选四段都等宽的示意，保留four和equal。"
+          }
+        },
+        "options": [
+          {
+            "id": "equal",
+            "text": "Make four pieces with equal amounts.",
+            "correct": true,
+            "reason": "four与equal都要保留。"
+          },
+          {
+            "id": "count",
+            "text": "Make any four pieces, even if their amounts differ.",
+            "correct": false,
+            "reason": "只保留四份，遗漏相等。"
+          },
+          {
+            "id": "three",
+            "text": "Make three equal pieces.",
+            "correct": false,
+            "reason": "把four改成three。"
+          }
+        ]
+      },
+      {
+        "id": "similar",
+        "label": "similar：similar shape一定要求一样大吗？",
+        "prompt": "similar shape一定要求一样大吗？",
+        "answer": "similar",
+        "meaning": "相似的",
+        "material": "The two leaves have a similar shape.",
+        "before": "The two leaves have a ",
+        "after": " shape.",
+        "reason": "similar表示相似的。a similar shape说的是形状相似，不能推出大小完全相同、物种相同或两片叶子完全一样。另给轮廓示意用缩放保持外形，再改变轮廓作比较，不代表实际叶片尺寸。be similar to表示与……相似。",
+        "hint": "a similar shape；be similar to；相似不等于完全一样。",
+        "wordDecision": {
+          "prompt": "similar shape一定要求一样大吗？",
+          "leafSimilar": {
+            "title": "变大小，还是变外形？",
+            "hint": "另给轮廓示意：切换缩放和换轮廓，比较相似形状；不代表实际叶片尺寸或物种。",
+            "wrong": "只缩放仍保留轮廓；换掉外形不能支持这里的similar shape。"
+          }
+        },
+        "options": [
+          {
+            "id": "form",
+            "text": "The two leaves are alike in shape.",
+            "correct": true,
+            "reason": "similar shape比较形状，不要求大小完全相同。"
+          },
+          {
+            "id": "identical",
+            "text": "The sentence says that both leaves have exactly the same size and species.",
+            "correct": false,
+            "reason": "原句没有给出大小或物种。"
+          },
+          {
+            "id": "different",
+            "text": "The two leaves have completely different shapes.",
+            "correct": false,
+            "reason": "与similar shape相反。"
+          }
+        ]
+      },
+      {
+        "id": "suitable",
+        "label": "suitable：not suitable for的对象是谁？",
+        "prompt": "not suitable for的对象是谁？",
+        "answer": "suitable",
+        "meaning": "合适的",
+        "material": "This path is not suitable for bicycles.",
+        "before": "This path is not ",
+        "after": " for bicycles.",
+        "reason": "suitable表示合适的，be suitable for后接适用对象。not suitable for bicycles说这条小路不适合自行车，不能漏掉not，也不能扩成所有交通方式都不适用。原句没有给出路宽、坡度或不适合的准确原因。",
+        "hint": "not suitable for；否定和对象都要保留。",
+        "wordDecision": {
+          "prompt": "not suitable for的对象是谁？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这条小路不适合自行车",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "bikes",
+                "label": "这条小路不适合自行车",
+                "text": "This path is not suitable for bicycles.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "所有交通方式都不适用",
+                "text": "This path is unsuitable for every form of transport.",
+                "include": false
+              },
+              {
+                "id": "good",
+                "label": "这条小路特别适合自行车",
+                "text": "This path is ideal for bicycles.",
+                "include": false
+              }
+            ],
+            "hint": "保留not和bicycles，不扩大到所有对象。",
+            "wrong": "选不适合自行车，不漏否定或扩大对象。"
+          }
+        },
+        "options": [
+          {
+            "id": "bikes",
+            "text": "This path is unsuitable for bicycles.",
+            "correct": true,
+            "reason": "not suitable for限定自行车。"
+          },
+          {
+            "id": "all",
+            "text": "This path is unsuitable for every possible form of transport.",
+            "correct": false,
+            "reason": "自行车不能扩大成所有交通方式。"
+          },
+          {
+            "id": "good",
+            "text": "This path is ideal for bicycles.",
+            "correct": false,
+            "reason": "忽略not，反转意思。"
+          }
+        ]
+      },
+      {
+        "id": "ready",
+        "label": "ready：车票要在什么时候准备好？",
+        "prompt": "车票要在什么时候准备好？",
+        "answer": "ready",
+        "meaning": "准备好的",
+        "material": "Keep your ticket ready before joining the queue.",
+        "before": "Keep your ticket ",
+        "after": " before joining the queue.",
+        "reason": "ready表示准备好的，keep your ticket ready是让车票处于备好的状态，before joining the queue要求排队之前。be ready to do是准备好做某事的另一搭配；这里没有说明票价、购票地点或具体排队时间。",
+        "hint": "keep something ready；before doing；be ready to do。",
+        "wordDecision": {
+          "prompt": "车票要在什么时候准备好？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "排队之前备好车票",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "before",
+                "label": "加入队伍前备好车票",
+                "text": "Keep your ticket ready before joining the queue.",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "排队后才开始找车票",
+                "text": "Start looking for your ticket only after joining the queue.",
+                "include": false
+              },
+              {
+                "id": "bought",
+                "label": "给出准确购票地点",
+                "text": "The sentence identifies the exact place of purchase.",
+                "include": false
+              }
+            ],
+            "hint": "保留车票、ready与before，不换先后或编购票地点。",
+            "wrong": "选排队前准备好，不换成排队后才找。"
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "Have your ticket prepared before you join the queue.",
+            "correct": true,
+            "reason": "ready和before保留车票状态及先后。"
+          },
+          {
+            "id": "after",
+            "text": "Start looking for your ticket only after joining the queue.",
+            "correct": false,
+            "reason": "把before反转成after。"
+          },
+          {
+            "id": "bought",
+            "text": "The sentence states exactly where the ticket was bought.",
+            "correct": false,
+            "reason": "没有给出购票地点。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-useful-qualities-3-transfer",
+      "topicId": "v-course-useful-qualities",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes keep the completed change, the necessary condition and the ticket timing correct?",
+      "passage": "Preparing for the school exhibition\nOur class prepared a small exhibition. An ordinary jar became a colourful lantern for our display. We also compared two leaves with similar shapes. They did not have to be exactly the same size to have a similar shape.\nAt the food display, a drawing showed a strip of dough divided into four equal pieces. Our teacher reminded us that four pieces of different amounts would not meet that instruction. A health poster said that clean water was essential for good health. It did not claim that water alone could guarantee good health.\nLater, we planned our journey to the exhibition hall. A note said that a nearby path was not suitable for bicycles; it said nothing about every other type of transport. Before we joined the queue, we kept our tickets ready. We did not wait until we were in the queue to start looking for them.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The jar changed into a colourful lantern; clean water is necessary for health; the ticket should be ready before joining the queue."
+        },
+        {
+          "id": "b",
+          "text": "The lantern will become a plain jar; clean water alone guarantees perfect health; the ticket should be found after joining the queue."
+        },
+        {
+          "id": "c",
+          "text": "The jar changed into a colourful lantern; clean water alone guarantees perfect health; the ticket should be ready before joining the queue."
+        },
+        {
+          "id": "d",
+          "text": "The jar changed into a colourful lantern; clean water is necessary for health; the ticket should be found after joining the queue."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The jar changed into a colourful lantern; clean water is necessary for health; the ticket should be ready before joining the queue."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对变化方向、必要关系和before的先后，不把句子说得更绝对。",
+        "steps": [
+          {
+            "text": "became是过去发生的变化：普通罐子变成彩色灯笼。",
+            "reason": "不能反转成灯笼将要变回罐子。"
+          },
+          {
+            "text": "essential保留必要；before保留排队之前。",
+            "reason": "水必不可少不等于单独保证健康；车票不能等排队后才找。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "反转变化方向与时态，把必要改成单独保证，还颠倒先后。"
+          },
+          {
+            "option": "c",
+            "reason": "把必要的清洁水夸大成单独保证完全健康。"
+          },
+          {
+            "option": "d",
+            "reason": "把排队前备好改成排队后才找票。"
+          }
+        ],
+        "pitfall": "只看关键词，漏掉变化方向、必要关系或before。",
+        "visual": {
+          "kind": "timeline",
+          "title": "变化、必要、先后",
+          "segments": [
+            {
+              "text": "ordinary jar → colourful lantern",
+              "role": "object",
+              "note": "过去已发生变化"
+            },
+            {
+              "text": "essential for health",
+              "role": "object",
+              "note": "必要条件"
+            },
+            {
+              "text": "ticket ready → join queue",
+              "role": "object",
+              "note": "先备票再排队"
+            }
+          ],
+          "caption": "保留方向和条件，不补单独保证。"
+        },
+        "transfer": "四块不等大的面团为什么还不能算four equal pieces？"
+      }
+    }
+  }
+}

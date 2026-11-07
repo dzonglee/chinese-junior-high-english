@@ -1,0 +1,2468 @@
+{
+  "lessonId": "l-v-course-work-roles-5",
+  "reviewState": "draft",
+  "intent": "Teach captain encouragement after a mistake without a win claim; figurative room for other ideas; simple explanation without signing; both sides carefully without a verdict or two-person assumption; contextual family enterprise and wooden toys; company loan direction without gift or ownership inference; career choice helped without guaranteed success; profession requiring patience without salary guarantees.",
+  "picturePurpose": "Original wooden toy versus separate cardboard box, generated and original/derivative separately actually viewed. Code owns labels/targets; phone rendering pending.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "听清双方，读准动作与结果",
+    "instruction": "排先后、换范围、看借出方向；别把鼓励、解释或帮助说成保证成功。",
+    "items": [
+      {
+        "id": "word-captain",
+        "label": "队长（本句）",
+        "prompt": "after把鼓励放在哪一步？排好先后，不补比赛结果。",
+        "answer": "captain",
+        "caseSensitive": false,
+        "meaning": "队长（本句）",
+        "before": "The ",
+        "after": " encouraged the team after the mistake.",
+        "reason": "队长在失误后鼓励了队员。没有说失误是谁造成的，也没有给最终输赢。",
+        "hint": "这里结合team理解队长；原句没有指定运动项目。",
+        "material": "The captain encouraged the team after the mistake.",
+        "options": [
+          {
+            "id": "after",
+            "text": "队长在失误后鼓励了队员。",
+            "correct": true,
+            "reason": "保留encouraged the team与after the mistake。"
+          },
+          {
+            "id": "before",
+            "text": "队长在失误前鼓励了队员。",
+            "correct": false,
+            "reason": "失误前改变了after。"
+          },
+          {
+            "id": "win",
+            "text": "队员受鼓励后一定赢得了比赛。",
+            "correct": false,
+            "reason": "鼓励动作没有给出获胜结果。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "after把鼓励放在哪一步？排好先后，不补比赛结果。",
+          "processOrder": {
+            "title": "先失误，还是先鼓励？",
+            "hint": "只排原句给出的先后，不补原因或输赢。",
+            "wrong": "原句是失误后鼓励，不能颠倒先后，也不能补出获胜。",
+            "events": [
+              {
+                "id": "mistake",
+                "label": "出现失误"
+              },
+              {
+                "id": "encourage",
+                "label": "鼓励队员"
+              }
+            ],
+            "sequence": [
+              "mistake",
+              "encourage"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-leader",
+        "label": "领导者；领队",
+        "prompt": "makes room for other ideas是在盖房间，还是愿意听其他想法？切换后比较。",
+        "answer": "leader",
+        "caseSensitive": false,
+        "meaning": "领导者；领队",
+        "before": "A good ",
+        "after": " makes room for other ideas.",
+        "reason": "好的领导者会听取不同想法。make room for在这里表示为其他想法留出空间，不是在建房。",
+        "hint": "愿意听取不等于必须采纳每个建议；原句没有给一次会议的投票结果。",
+        "material": "A good leader makes room for other ideas.",
+        "options": [
+          {
+            "id": "ideas",
+            "text": "好的领导者愿意听取其他想法。",
+            "correct": true,
+            "reason": "保留other ideas，并按语境理解makes room for。"
+          },
+          {
+            "id": "room",
+            "text": "好的领导者会新建一间实体房间。",
+            "correct": false,
+            "reason": "把比喻中的room当成了建筑房间。"
+          },
+          {
+            "id": "only",
+            "text": "好的领导者只允许自己的想法出现。",
+            "correct": false,
+            "reason": "只允许自己排除了other ideas。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "makes room for other ideas是在盖房间，还是愿意听其他想法？切换后比较。",
+          "sceneLab": {
+            "id": "leader-room",
+            "title": "给想法留空间，不是盖房间",
+            "hint": "图只对比听取其他想法与排除其他想法，不代表全部建议都被采纳。",
+            "wrong": "原句说愿意听取其他想法，不能换成建房间或只听自己。",
+            "axes": [
+              {
+                "id": "kind",
+                "label": "makes room for other ideas",
+                "choices": [
+                  {
+                    "id": "ideas",
+                    "label": "愿意听其他想法"
+                  },
+                  {
+                    "id": "room",
+                    "label": "新建实体房间"
+                  },
+                  {
+                    "id": "only",
+                    "label": "只听自己的想法"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "解释待选"
+                  },
+                  {
+                    "id": "own",
+                    "kind": "ellipse",
+                    "x": 9,
+                    "y": 38,
+                    "width": 25,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "other",
+                    "kind": "ellipse",
+                    "x": 66,
+                    "y": 38,
+                    "width": 25,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "own-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 67,
+                    "width": 39,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自己的"
+                  },
+                  {
+                    "id": "other-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 67,
+                    "width": 41,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "其他想法"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 29,
+                    "y": 20,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "待选"
+                  }
+                ]
+              },
+              {
+                "signature": "ideas",
+                "reading": "好的领导者愿意听取其他想法。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "听取想法"
+                  },
+                  {
+                    "id": "own",
+                    "kind": "ellipse",
+                    "x": 9,
+                    "y": 38,
+                    "width": 25,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "other",
+                    "kind": "ellipse",
+                    "x": 66,
+                    "y": 38,
+                    "width": 25,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "own-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 67,
+                    "width": 39,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自己的"
+                  },
+                  {
+                    "id": "other-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 67,
+                    "width": 41,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "其他想法"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 39,
+                    "y": 37,
+                    "width": 22,
+                    "height": 24,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              },
+              {
+                "signature": "room",
+                "reading": "原句说愿意听取其他想法，不能换成建房间或只听自己。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "实体房间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 21,
+                    "y": 29,
+                    "width": 58,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 47,
+                    "width": 13,
+                    "height": 22,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "literal",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "把比喻改成建筑"
+                  }
+                ]
+              },
+              {
+                "signature": "only",
+                "reading": "原句说愿意听取其他想法，不能换成建房间或只听自己。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "听取想法"
+                  },
+                  {
+                    "id": "own",
+                    "kind": "ellipse",
+                    "x": 9,
+                    "y": 38,
+                    "width": 25,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "other",
+                    "kind": "ellipse",
+                    "x": 66,
+                    "y": 38,
+                    "width": 25,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "own-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 67,
+                    "width": 39,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自己的"
+                  },
+                  {
+                    "id": "other-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 67,
+                    "width": 41,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "其他想法"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 29,
+                    "y": 20,
+                    "width": 42,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只听自己"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-lawyer",
+        "label": "律师",
+        "prompt": "explained和in simple words分别说明什么？圈出两条，不补已经签字。",
+        "answer": "lawyer",
+        "caseSensitive": false,
+        "meaning": "律师",
+        "before": "The ",
+        "after": " explained the agreement in simple words.",
+        "reason": "律师用简单的话解释了协议。解释内容与表达方式明确，没有报告所有人同意或签署。",
+        "hint": "agreement在这里指协议；explained不是签署动作。",
+        "material": "The lawyer explained the agreement in simple words.",
+        "options": [
+          {
+            "id": "explained",
+            "text": "律师用简单的话解释了协议。",
+            "correct": true,
+            "reason": "保留explained the agreement与in simple words。"
+          },
+          {
+            "id": "complex",
+            "text": "律师故意只用难懂的术语解释协议。",
+            "correct": false,
+            "reason": "难懂的术语改变了simple words。"
+          },
+          {
+            "id": "signed",
+            "text": "每个人都已经同意并签署了协议。",
+            "correct": false,
+            "reason": "原句没有给出同意或签署结果。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "explained和in simple words分别说明什么？圈出两条，不补已经签字。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "解释了什么，怎样解释",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "动作、方式与要求要有原句依据。",
+            "wrong": "原句只有解释协议和用简单的话，没有说所有人同意或签署。",
+            "rows": [
+              {
+                "id": "agreement",
+                "label": "内容",
+                "text": "律师解释了协议。",
+                "include": true
+              },
+              {
+                "id": "simple",
+                "label": "方式",
+                "text": "用简单的话。",
+                "include": true
+              },
+              {
+                "id": "signed",
+                "label": "额外结果",
+                "text": "所有人同意并签署。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-judge",
+        "label": "法官（本句）",
+        "prompt": "both sides和carefully缺一不可。换听取范围，再改认真程度。",
+        "answer": "judge",
+        "caseSensitive": false,
+        "meaning": "法官（本句）",
+        "before": "The ",
+        "after": " listened to both sides carefully.",
+        "reason": "法官仔细听取了双方陈述。both sides是双方，不是只有一方；没有给出裁判结果。",
+        "hint": "双方指两方，不等于总共只有两个人。图中的两块发言区只表示双方。",
+        "material": "The judge listened to both sides carefully.",
+        "options": [
+          {
+            "id": "both-careful",
+            "text": "法官仔细听取了双方陈述。",
+            "correct": true,
+            "reason": "保留both sides与carefully。"
+          },
+          {
+            "id": "one",
+            "text": "法官只听取了其中一方的陈述。",
+            "correct": false,
+            "reason": "只一方改变了both sides。"
+          },
+          {
+            "id": "careless",
+            "text": "法官漫不经心地听取双方陈述。",
+            "correct": false,
+            "reason": "漫不经心改变了carefully。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "both sides和carefully缺一不可。换听取范围，再改认真程度。",
+          "sceneLab": {
+            "id": "judge-both",
+            "title": "两方都听，且仔细听",
+            "hint": "两块发言区表示双方，不表示实际人数或判决。",
+            "wrong": "原句是仔细听取双方，不能改成只一方或漫不经心。",
+            "axes": [
+              {
+                "id": "scope",
+                "label": "听取范围",
+                "choices": [
+                  {
+                    "id": "both",
+                    "label": "双方"
+                  },
+                  {
+                    "id": "one",
+                    "label": "只一方"
+                  }
+                ]
+              },
+              {
+                "id": "way",
+                "label": "听取方式",
+                "choices": [
+                  {
+                    "id": "careful",
+                    "label": "仔细"
+                  },
+                  {
+                    "id": "careless",
+                    "label": "漫不经心"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "way",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "方式待选"
+                  },
+                  {
+                    "id": "side-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "side-label-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一方"
+                  },
+                  {
+                    "id": "side-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "side-label-1",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "另一方"
+                  }
+                ]
+              },
+              {
+                "signature": "?|careful",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "way",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "仔细听取"
+                  },
+                  {
+                    "id": "side-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "side-label-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一方"
+                  },
+                  {
+                    "id": "side-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "side-label-1",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "另一方"
+                  }
+                ]
+              },
+              {
+                "signature": "?|careless",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "way",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "漫不经心"
+                  },
+                  {
+                    "id": "side-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "side-label-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一方"
+                  },
+                  {
+                    "id": "side-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "side-label-1",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "另一方"
+                  }
+                ]
+              },
+              {
+                "signature": "both|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "双方都听"
+                  },
+                  {
+                    "id": "way",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "方式待选"
+                  },
+                  {
+                    "id": "side-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "side-label-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一方"
+                  },
+                  {
+                    "id": "side-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "side-label-1",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "另一方"
+                  }
+                ]
+              },
+              {
+                "signature": "both|careful",
+                "reading": "法官仔细听取了双方陈述。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "双方都听"
+                  },
+                  {
+                    "id": "way",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "仔细听取"
+                  },
+                  {
+                    "id": "side-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "side-label-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一方"
+                  },
+                  {
+                    "id": "side-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "side-label-1",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "另一方"
+                  }
+                ]
+              },
+              {
+                "signature": "both|careless",
+                "reading": "原句是仔细听取双方，不能改成只一方或漫不经心。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "双方都听"
+                  },
+                  {
+                    "id": "way",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "漫不经心"
+                  },
+                  {
+                    "id": "side-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "side-label-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一方"
+                  },
+                  {
+                    "id": "side-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "side-label-1",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "另一方"
+                  }
+                ]
+              },
+              {
+                "signature": "one|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只听一方"
+                  },
+                  {
+                    "id": "way",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "方式待选"
+                  },
+                  {
+                    "id": "side-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "side-label-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一方"
+                  },
+                  {
+                    "id": "side-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "side-label-1",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "另一方"
+                  }
+                ]
+              },
+              {
+                "signature": "one|careful",
+                "reading": "原句是仔细听取双方，不能改成只一方或漫不经心。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只听一方"
+                  },
+                  {
+                    "id": "way",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "仔细听取"
+                  },
+                  {
+                    "id": "side-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "side-label-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一方"
+                  },
+                  {
+                    "id": "side-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "side-label-1",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "另一方"
+                  }
+                ]
+              },
+              {
+                "signature": "one|careless",
+                "reading": "原句是仔细听取双方，不能改成只一方或漫不经心。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "只听一方"
+                  },
+                  {
+                    "id": "way",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "漫不经心"
+                  },
+                  {
+                    "id": "side-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "side-label-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "一方"
+                  },
+                  {
+                    "id": "side-1",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 29,
+                    "width": 34,
+                    "height": 32,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "side-label-1",
+                    "kind": "label",
+                    "x": 58,
+                    "y": 37,
+                    "width": 34,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "另一方"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-business",
+        "label": "企业（本句）",
+        "prompt": "新例子中，哪件能帮助理解wooden toy？点木制玩具，不选纸箱。",
+        "answer": "business",
+        "caseSensitive": false,
+        "meaning": "企业（本句）",
+        "before": "The family ",
+        "after": " makes wooden toys.",
+        "reason": "这家家族企业制作木制玩具。family business在这里指家族企业，不是一次家庭事务。",
+        "hint": "图片中的玩具火车是新例子；原句没有指定玩具种类、产量或售价。",
+        "material": "The family business makes wooden toys.",
+        "options": [
+          {
+            "id": "toy",
+            "text": "左边的木制玩具。",
+            "correct": true,
+            "reason": "新例子的木制玩具对应wooden toy；原句toys是复数。"
+          },
+          {
+            "id": "box",
+            "text": "右边的纸箱。",
+            "correct": false,
+            "reason": "纸箱不是wooden toy木制玩具。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "新例子中，哪件能帮助理解wooden toy？点木制玩具，不选纸箱。",
+          "art": {
+            "asset": "lesson-wooden-toy-box",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "新例子：左边是木制玩具，右边是分开放置的纸箱；原句没有指定玩具种类。",
+            "caption": "新例子，不代表原句的具体产品或数量。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "wooden-toy",
+                "option": "toy",
+                "label": "木制玩具",
+                "labelPosition": "bottom",
+                "left": 1,
+                "top": 27,
+                "width": 43,
+                "height": 52
+              },
+              {
+                "id": "toy-box",
+                "option": "box",
+                "label": "纸箱",
+                "labelPosition": "bottom",
+                "left": 56,
+                "top": 27,
+                "width": 42,
+                "height": 52
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-company",
+        "label": "公司（本句）",
+        "prompt": "谁把自行车借给谁？换箭头，再比较借出与赠送。",
+        "answer": "company",
+        "caseSensitive": false,
+        "meaning": "公司（本句）",
+        "before": "The ",
+        "after": " lends bicycles to its workers.",
+        "reason": "这家公司把自行车借给员工。lends表示借出，不是永久赠送；方向是公司到员工。",
+        "hint": "lends … to …是借给，不是永久送出；原句没有说后来是否归还。",
+        "material": "The company lends bicycles to its workers.",
+        "options": [
+          {
+            "id": "to-loan",
+            "text": "公司把自行车借给员工。",
+            "correct": true,
+            "reason": "保留lends bicycles to its workers。"
+          },
+          {
+            "id": "reverse",
+            "text": "员工把自行车借给公司。",
+            "correct": false,
+            "reason": "把借出者与借入者对调了。"
+          },
+          {
+            "id": "gift",
+            "text": "公司把自行车永久赠送给员工。",
+            "correct": false,
+            "reason": "永久赠送改变了lends借出。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁把自行车借给谁？换箭头，再比较借出与赠送。",
+          "sceneLab": {
+            "id": "company-loan",
+            "title": "借出方向与借用关系",
+            "hint": "图只标谁借给谁；不标费用、期限或实际归还结果。",
+            "wrong": "原句是公司把自行车借给员工，不能倒转方向或改成永久赠送。",
+            "axes": [
+              {
+                "id": "direction",
+                "label": "自行车的方向",
+                "choices": [
+                  {
+                    "id": "to",
+                    "label": "公司到员工"
+                  },
+                  {
+                    "id": "reverse",
+                    "label": "员工到公司"
+                  }
+                ]
+              },
+              {
+                "id": "relation",
+                "label": "交给对方的关系",
+                "choices": [
+                  {
+                    "id": "loan",
+                    "label": "借给"
+                  },
+                  {
+                    "id": "gift",
+                    "label": "永久赠送"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "company",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公司"
+                  },
+                  {
+                    "id": "workers",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "员工"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "to",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 35,
+                    "width": 30,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "?"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "关系待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|loan",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "company",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公司"
+                  },
+                  {
+                    "id": "workers",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "员工"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "to",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 35,
+                    "width": 30,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "?"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "借给"
+                  }
+                ]
+              },
+              {
+                "signature": "?|gift",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "company",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公司"
+                  },
+                  {
+                    "id": "workers",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "员工"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "to",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 35,
+                    "width": 30,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "?"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "永久赠送"
+                  }
+                ]
+              },
+              {
+                "signature": "to|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "company",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公司"
+                  },
+                  {
+                    "id": "workers",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "员工"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "to",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 35,
+                    "width": 30,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "关系待选"
+                  }
+                ]
+              },
+              {
+                "signature": "to|loan",
+                "reading": "公司把自行车借给员工。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "company",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公司"
+                  },
+                  {
+                    "id": "workers",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "员工"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "to",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 35,
+                    "width": 30,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "借给"
+                  }
+                ]
+              },
+              {
+                "signature": "to|gift",
+                "reading": "原句是公司把自行车借给员工，不能倒转方向或改成永久赠送。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "company",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公司"
+                  },
+                  {
+                    "id": "workers",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "员工"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "to",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 35,
+                    "width": 30,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "永久赠送"
+                  }
+                ]
+              },
+              {
+                "signature": "reverse|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "company",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公司"
+                  },
+                  {
+                    "id": "workers",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "员工"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "to",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 35,
+                    "width": 30,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "←"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "关系待选"
+                  }
+                ]
+              },
+              {
+                "signature": "reverse|loan",
+                "reading": "原句是公司把自行车借给员工，不能倒转方向或改成永久赠送。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "company",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公司"
+                  },
+                  {
+                    "id": "workers",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "员工"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "to",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 35,
+                    "width": 30,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "←"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "借给"
+                  }
+                ]
+              },
+              {
+                "signature": "reverse|gift",
+                "reading": "原句是公司把自行车借给员工，不能倒转方向或改成永久赠送。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "company",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公司"
+                  },
+                  {
+                    "id": "workers",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 15,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "员工"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "to",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 39,
+                    "width": 25,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 35,
+                    "width": 30,
+                    "height": 28,
+                    "tone": "ink",
+                    "text": "←"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "永久赠送"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-career",
+        "label": "职业方向（本句）",
+        "prompt": "暑期工作起了什么作用？切换解释，不把帮助选择写成保证成功。",
+        "answer": "career",
+        "caseSensitive": false,
+        "meaning": "职业方向（本句）",
+        "before": "A summer job helped her choose a ",
+        "after": ".",
+        "reason": "一份暑期工作帮助她选择了职业方向。career着眼于长期职业发展，没有指定具体行业或收入。",
+        "hint": "helped her choose说明对选择有帮助，不是替她决定所有事，更没有保证职业成功。",
+        "material": "A summer job helped her choose a career.",
+        "options": [
+          {
+            "id": "help",
+            "text": "暑期工作帮助她选择了职业方向。",
+            "correct": true,
+            "reason": "保留helped her choose a career。"
+          },
+          {
+            "id": "all",
+            "text": "这份工作替她决定了整个人生的所有事情。",
+            "correct": false,
+            "reason": "决定所有事情扩大了helped her choose a career。"
+          },
+          {
+            "id": "success",
+            "text": "这份工作保证了她未来一定高薪成功。",
+            "correct": false,
+            "reason": "原句没有给出薪资或成功保证。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "暑期工作起了什么作用？切换解释，不把帮助选择写成保证成功。",
+          "sceneLab": {
+            "id": "career-help",
+            "title": "短期经历，帮助长期选择",
+            "hint": "箭头表示帮助选择，不代表实际年限、具体行业或成功保证。",
+            "wrong": "原句只是帮助她选择职业方向，不能扩大成决定全部人生或保证高薪成功。",
+            "axes": [
+              {
+                "id": "effect",
+                "label": "暑期工作的作用",
+                "choices": [
+                  {
+                    "id": "help",
+                    "label": "帮助选择职业方向"
+                  },
+                  {
+                    "id": "all",
+                    "label": "决定人生所有事情"
+                  },
+                  {
+                    "id": "success",
+                    "label": "保证高薪成功"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "作用待选"
+                  },
+                  {
+                    "id": "job",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 34,
+                    "width": 32,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "career",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 34,
+                    "width": 32,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 39,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "暑期工作"
+                  },
+                  {
+                    "id": "career-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 39,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "职业方向"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 35,
+                    "width": 20,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "claim",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "先核对原句作用"
+                  }
+                ]
+              },
+              {
+                "signature": "help",
+                "reading": "暑期工作帮助她选择了职业方向。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "帮助选择"
+                  },
+                  {
+                    "id": "job",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 34,
+                    "width": 32,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "career",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 34,
+                    "width": 32,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 39,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "暑期工作"
+                  },
+                  {
+                    "id": "career-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 39,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "职业方向"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 35,
+                    "width": 20,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "claim",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "不补行业或薪资"
+                  }
+                ]
+              },
+              {
+                "signature": "all",
+                "reading": "原句只是帮助她选择职业方向，不能扩大成决定全部人生或保证高薪成功。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "决定所有事"
+                  },
+                  {
+                    "id": "job",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 34,
+                    "width": 32,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "career",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 34,
+                    "width": 32,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 39,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "暑期工作"
+                  },
+                  {
+                    "id": "career-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 39,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "职业方向"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 35,
+                    "width": 20,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "claim",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "先核对原句作用"
+                  }
+                ]
+              },
+              {
+                "signature": "success",
+                "reading": "原句只是帮助她选择职业方向，不能扩大成决定全部人生或保证高薪成功。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "保证高薪成功"
+                  },
+                  {
+                    "id": "job",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 34,
+                    "width": 32,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "career",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 34,
+                    "width": 32,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "job-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 39,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "暑期工作"
+                  },
+                  {
+                    "id": "career-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 39,
+                    "width": 32,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "职业方向"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 35,
+                    "width": 20,
+                    "height": 23,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "claim",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "先核对原句作用"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-profession",
+        "label": "职业；专业工作",
+        "prompt": "that requires patience修饰什么？圈出职业类别与耐心要求，不补薪资。",
+        "answer": "profession",
+        "caseSensitive": false,
+        "meaning": "职业；专业工作",
+        "before": "Teaching is a ",
+        "after": " that requires patience.",
+        "reason": "教学是一种需要耐心的专业工作。that引出的从句说明这类工作需要什么。",
+        "hint": "job也可泛指工作，两者有时能描述同一种工作。",
+        "material": "Teaching is a profession that requires patience.",
+        "options": [
+          {
+            "id": "patience",
+            "text": "教学是需要耐心的一种专业工作。",
+            "correct": true,
+            "reason": "保留profession与requires patience。"
+          },
+          {
+            "id": "none",
+            "text": "教学完全不需要耐心。",
+            "correct": false,
+            "reason": "不需要改变了requires。"
+          },
+          {
+            "id": "salary",
+            "text": "原句保证每位教师都有很高的收入。",
+            "correct": false,
+            "reason": "原句没有提供任何薪资信息。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "that requires patience修饰什么？圈出职业类别与耐心要求，不补薪资。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "类别与要求",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "动作、方式与要求要有原句依据。",
+            "wrong": "原句说教学是需要耐心的专业工作，没有给出薪资保证。",
+            "rows": [
+              {
+                "id": "profession",
+                "label": "职业类别",
+                "text": "教学是一种专业工作。",
+                "include": true
+              },
+              {
+                "id": "patience",
+                "label": "要求",
+                "text": "这类工作需要耐心。",
+                "include": true
+              },
+              {
+                "id": "salary",
+                "label": "额外信息",
+                "text": "每位教师都保证高收入。",
+                "include": false
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-work-roles-5-transfer",
+      "topicId": "v-course-work-roles",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成班长、老师和俱乐部，哪组三句完整保留信息？",
+      "passage": "三条新信息\n班长在失误后鼓励了小组成员。老师仔细听取了两名学生的话。俱乐部把头盔借给成员。\n词语提示：monitor 班长；error 失误；pupil 学生；helmet 头盔。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The monitor encouraged the group after the error. The teacher listened to both pupils carefully. The club lends helmets to its members."
+        },
+        {
+          "id": "b",
+          "text": "The monitor encouraged the group before the error. The teacher listened to both pupils carefully. The club lends helmets to its members."
+        },
+        {
+          "id": "c",
+          "text": "The monitor encouraged the group after the error. The teacher listened to only one pupil carefully. The club lends helmets to its members."
+        },
+        {
+          "id": "d",
+          "text": "The monitor encouraged the group after the error. The teacher listened to both pupils carefully. The club gives helmets away to its members."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The monitor encouraged the group after the error. The teacher listened to both pupils carefully. The club lends helmets to its members."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对鼓励的先后、听取两名学生的话及认真程度，再核对借出的方向和关系。",
+        "steps": [
+          {
+            "text": "The monitor encouraged the group after the error.",
+            "reason": "after把鼓励放在失误后，不能换成before。"
+          },
+          {
+            "text": "The teacher listened to both pupils carefully.",
+            "reason": "这里的新信息明确两名学生；both与carefully都要保留。"
+          },
+          {
+            "text": "The club lends helmets to its members.",
+            "reason": "俱乐部借给成员；赠送改变了lends。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "before把失误后改成失误前。"
+          },
+          {
+            "option": "c",
+            "reason": "only one把两名学生缩成只一名。"
+          },
+          {
+            "option": "d",
+            "reason": "gives away把借出改成赠送。"
+          }
+        ],
+        "pitfall": "名词认对之后，还要保留先后、both、carefully和lends。",
+        "visual": {
+          "kind": "comparison",
+          "title": "先后、范围与借用关系",
+          "segments": [
+            {
+              "text": "after the error",
+              "role": "evidence",
+              "note": "失误后"
+            },
+            {
+              "text": "both pupils carefully",
+              "role": "evidence",
+              "note": "仔细听两名学生的话"
+            },
+            {
+              "text": "lends … to …",
+              "role": "evidence",
+              "note": "借给，不是赠送"
+            }
+          ],
+          "caption": "保留after、both、carefully与lends。"
+        },
+        "transfer": "把lends换成gives away，物品交给对方的关系发生什么变化？"
+      }
+    }
+  }
+}

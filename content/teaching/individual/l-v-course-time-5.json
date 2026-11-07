@@ -1,0 +1,686 @@
+{
+  "lessonId": "l-v-course-time-5",
+  "reviewState": "draft",
+  "intent": "Individually authored relative-time and bounded-frequency tasks. Three evidence-selection models require students to select matching diary entries or explicitly confirm none. No independent or hearing credit.",
+  "picturePurpose": "Original locker/open-window bag comparison supports a real rule-following scene choice. It does not prove frequency; four exact diary records remain in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "比时间、查记录，不靠一句话乱推",
+    "instruction": "先找参照时刻；再逐条圈出证据，只概括写明的范围。",
+    "items": [
+      {
+        "id": "later",
+        "label": "later：先找从哪一天往后推",
+        "prompt": "便条：We finished the model on Monday. Three days later, we showed it to our class. When was the show?",
+        "wordDecision": {
+          "prompt": "便条：We finished the model on Monday. Three days later, we showed it to our class. When was the show?",
+          "recordPaths": [
+            {
+              "id": "days",
+              "label": "往后三天",
+              "steps": [
+                "Monday",
+                "Tuesday：1",
+                "Wednesday：2",
+                "Thursday：3"
+              ]
+            }
+          ]
+        },
+        "answer": "later",
+        "meaning": "后来；以后",
+        "material": "I will send the photo a little later.",
+        "before": "I will send the photo a little ",
+        "after": ".",
+        "reason": "later表示在某个参照时间以后；three days later从便条中的周一往后推三天。I will send it later.也可谈将来，不要把later认成只能配过去时。",
+        "hint": "Monday → Tuesday第1天 → Wednesday第2天 → Thursday第3天。",
+        "options": [
+          {
+            "id": "wednesday",
+            "text": "On Wednesday.",
+            "correct": false,
+            "reason": "周一往后两天才是周三，少推了一天。"
+          },
+          {
+            "id": "next-monday",
+            "text": "The following Monday.",
+            "correct": false,
+            "reason": "下周一相隔一周，不是三天以后。"
+          },
+          {
+            "id": "thursday",
+            "text": "On Thursday.",
+            "correct": true,
+            "reason": "以周一为起点，往后三天是周四。"
+          }
+        ]
+      },
+      {
+        "id": "soon",
+        "label": "soon：不久，不等于固定几分钟",
+        "prompt": "便条：The bread will be ready soon. Can we tell the exact number of minutes from soon alone?",
+        "wordDecision": {
+          "prompt": "便条：The bread will be ready soon. Can we tell the exact number of minutes from soon alone?",
+          "recordPaths": [
+            {
+              "id": "soon",
+              "label": "相对时间",
+              "steps": [
+                "soon",
+                "不久，未给几分钟"
+              ]
+            },
+            {
+              "id": "exact",
+              "label": "明确时刻",
+              "steps": [
+                "at 10:30",
+                "可核对钟点"
+              ]
+            }
+          ]
+        },
+        "answer": "soon",
+        "meaning": "不久；很快",
+        "material": "The bread will be ready soon.",
+        "before": "The bread will be ready ",
+        "after": ".",
+        "reason": "soon表示不久、很快，具体多久要看语境；不能自行补一个固定时长。as soon as表示一……就……，例如“I will call you as soon as I arrive.”，主句谈将来，时间从句用一般现在时。",
+        "hint": "soon不久；确切时长要看minutes等明确记录。",
+        "options": [
+          {
+            "id": "unknown",
+            "text": "No exact number of minutes is given.",
+            "correct": true,
+            "reason": "soon表示不久，但这句没有给出具体分钟数。"
+          },
+          {
+            "id": "five",
+            "text": "Exactly five minutes.",
+            "correct": false,
+            "reason": "原文没有five，不能把soon固定换成五分钟。"
+          },
+          {
+            "id": "already",
+            "text": "The bread is already ready now.",
+            "correct": false,
+            "reason": "will be ready soon说不久将好，不等于现在已经好了。"
+          }
+        ]
+      },
+      {
+        "id": "early",
+        "label": "early：与写明的开始时间比",
+        "prompt": "活动08:00开始。Lin arrives at 07:50; Ming arrives at 08:05. Who arrives early?",
+        "wordDecision": {
+          "prompt": "活动08:00开始。Lin arrives at 07:50; Ming arrives at 08:05. Who arrives early?",
+          "recordPaths": [
+            {
+              "id": "lin",
+              "label": "Lin到达",
+              "steps": [
+                "07:50",
+                "08:00开始",
+                "早10分钟"
+              ]
+            },
+            {
+              "id": "ming",
+              "label": "Ming到达",
+              "steps": [
+                "08:00开始",
+                "08:05",
+                "晚5分钟"
+              ]
+            }
+          ]
+        },
+        "answer": "early",
+        "meaning": "早的；提早",
+        "material": "We arrived early and found good seats.",
+        "before": "We arrived ",
+        "after": " and found good seats.",
+        "reason": "early可作副词修饰arrived，也可作形容词，如an early train。earlier和earliest用于比较。判断早到要与约定开始时间比，不能只看是不是早上。",
+        "hint": "开始08:00；07:50早10分钟；08:05晚5分钟。",
+        "options": [
+          {
+            "id": "ming",
+            "text": "Ming, five minutes after the start.",
+            "correct": false,
+            "reason": "08:05已比08:00晚五分钟。"
+          },
+          {
+            "id": "lin",
+            "text": "Lin, ten minutes before the start.",
+            "correct": true,
+            "reason": "07:50比08:00早十分钟。"
+          },
+          {
+            "id": "both",
+            "text": "Both Lin and Ming.",
+            "correct": false,
+            "reason": "Lin早到，Ming迟到，不能把两人都判成早到。"
+          }
+        ],
+        "ownForms": [
+          "early",
+          "earlier",
+          "earliest"
+        ]
+      },
+      {
+        "id": "late",
+        "label": "late：late for，迟到多久再比较",
+        "prompt": "电影09:30开始。Jia arrives at 09:35. Which sentence matches the record?",
+        "wordDecision": {
+          "prompt": "电影09:30开始。Jia arrives at 09:35. Which sentence matches the record?",
+          "recordPaths": [
+            {
+              "id": "minutes",
+              "label": "与开始时间比",
+              "steps": [
+                "09:30开始",
+                "09:35到达",
+                "迟到5分钟"
+              ]
+            }
+          ]
+        },
+        "answer": "late",
+        "meaning": "迟的；晚",
+        "material": "Sorry I am late; my chain broke.",
+        "before": "Sorry I am ",
+        "after": "; my chain broke.",
+        "reason": "be late for表示某项活动迟到，five minutes late说明迟到多久。late也可修饰动词，如arrive late；later和latest按比较意义使用。",
+        "hint": "09:35−09:30=5分钟；be late for the film。",
+        "options": [
+          {
+            "id": "early",
+            "text": "Jia is five minutes early for the film.",
+            "correct": false,
+            "reason": "early把迟到五分钟说反了。"
+          },
+          {
+            "id": "at",
+            "text": "Jia is late at the film for five minutes.",
+            "correct": false,
+            "reason": "说某项活动迟到用late for；这句搭配和表达都不自然。"
+          },
+          {
+            "id": "late",
+            "text": "Jia is five minutes late for the film.",
+            "correct": true,
+            "reason": "09:35比开始时间09:30晚五分钟，搭配是late for。"
+          }
+        ],
+        "ownForms": [
+          "late",
+          "later",
+          "latest"
+        ]
+      },
+      {
+        "id": "always",
+        "label": "always：四条记录要逐条核对",
+        "prompt": "Read the four training records. Which statement describes these four practices?",
+        "wordDecision": {
+          "prompt": "Read the four training records. Which statement describes these four practices?",
+          "recordPaths": [
+            {
+              "id": "all",
+              "label": "本题范围",
+              "steps": [
+                "four recorded practices",
+                "每次都先检查球网"
+              ]
+            },
+            {
+              "id": "position",
+              "label": "副词位置",
+              "steps": [
+                "always + checks",
+                "is + always + ready"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "圈出有先检查球网的记录",
+            "prompt": "逐条找checks the net first；圈选后再核对。",
+            "rows": [
+              {
+                "id": "mon",
+                "label": "Monday",
+                "text": "Bo checks the net first.",
+                "include": true
+              },
+              {
+                "id": "tue",
+                "label": "Tuesday",
+                "text": "Bo checks the net first.",
+                "include": true
+              },
+              {
+                "id": "thu",
+                "label": "Thursday",
+                "text": "Bo checks the net first.",
+                "include": true
+              },
+              {
+                "id": "fri",
+                "label": "Friday",
+                "text": "Bo checks the net first.",
+                "include": true
+              }
+            ],
+            "hint": "先看四条原句，再概括这四次训练。",
+            "wrong": "这四条都写了checks the net first，需要全部圈出；不能漏圈，也不能选没有这件事。"
+          }
+        },
+        "answer": "always",
+        "meaning": "总是",
+        "material": "Our goalkeeper always checks the net first.",
+        "before": "Our goalkeeper ",
+        "after": " checks the net first.",
+        "reason": "always通常放在实义动词前、be动词后：例如He always checks和He is always ready。本题all four只概括给出的四次训练，不能据此补出没记录的日期。",
+        "hint": "逐条看checks the net first；只概括题目给出的四次。",
+        "options": [
+          {
+            "id": "once",
+            "text": "Bo checks the net before only one recorded practice.",
+            "correct": false,
+            "reason": "只说一次，漏掉另外三条同样的记录。"
+          },
+          {
+            "id": "all",
+            "text": "Bo checks the net before all four recorded practices.",
+            "correct": true,
+            "reason": "四条训练记录都写了先检查球网。"
+          },
+          {
+            "id": "none",
+            "text": "Bo checks the net before none of these practices.",
+            "correct": false,
+            "reason": "四条都有检查，不能说一次也没有。"
+          }
+        ]
+      },
+      {
+        "id": "often",
+        "label": "often：how often问频率，不问时长",
+        "prompt": "Look at Mia’s four-day diary. How often did she do violin practice in these four days?",
+        "wordDecision": {
+          "prompt": "Look at Mia’s four-day diary. How often did she do violin practice in these four days?",
+          "recordPaths": [
+            {
+              "id": "frequency",
+              "label": "问频率",
+              "steps": [
+                "How often?",
+                "Three times in four days"
+              ]
+            },
+            {
+              "id": "duration",
+              "label": "另一个问题",
+              "steps": [
+                "How long?",
+                "持续多久"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "圈出有小提琴练习的日子",
+            "prompt": "只圈有violin practice的记录；注意no。",
+            "rows": [
+              {
+                "id": "mon",
+                "label": "Monday",
+                "text": "Violin practice.",
+                "include": true
+              },
+              {
+                "id": "tue",
+                "label": "Tuesday",
+                "text": "No violin practice.",
+                "include": false
+              },
+              {
+                "id": "thu",
+                "label": "Thursday",
+                "text": "Violin practice.",
+                "include": true
+              },
+              {
+                "id": "fri",
+                "label": "Friday",
+                "text": "Violin practice.",
+                "include": true
+              }
+            ],
+            "hint": "一天一条记录；先找出有练习的条目，再数次数。",
+            "wrong": "周二写着No violin practice，不应圈出；其余三天都有练习，三条都要保留。"
+          }
+        },
+        "answer": "often",
+        "meaning": "经常",
+        "material": "How often do you practise the violin?",
+        "before": "How ",
+        "after": " do you practise the violin?",
+        "reason": "how often问频率；how long可问持续多久；how far问距离。这里three times只对应给出的四天，不能替每个人给often规定一个固定百分比。",
+        "hint": "how often → 次数／频率；本题先数有练习的日子。",
+        "options": [
+          {
+            "id": "three",
+            "text": "Three times in these four days.",
+            "correct": true,
+            "reason": "周一、周四、周五有练习，共三次；周二没有。"
+          },
+          {
+            "id": "minutes",
+            "text": "Three minutes.",
+            "correct": false,
+            "reason": "minutes回答时长，日记没有给出每次练了多久。"
+          },
+          {
+            "id": "distance",
+            "text": "Three kilometers.",
+            "correct": false,
+            "reason": "kilometers回答距离，不是练习频率。"
+          }
+        ]
+      },
+      {
+        "id": "sometimes",
+        "label": "sometimes：有时，和some time分开",
+        "prompt": "日记想说“有时换条路回家”，哪句意思相符？",
+        "wordDecision": {
+          "prompt": "日记想说“有时换条路回家”，哪句意思相符？",
+          "recordPaths": [
+            {
+              "id": "frequency",
+              "label": "频率",
+              "steps": [
+                "sometimes",
+                "有时"
+              ]
+            },
+            {
+              "id": "duration",
+              "label": "时长",
+              "steps": [
+                "some time",
+                "一段时间"
+              ]
+            }
+          ]
+        },
+        "answer": "sometimes",
+        "meaning": "有时",
+        "material": "Sometimes we take a different route home.",
+        "before": "We ",
+        "after": " take a different route home.",
+        "reason": "sometimes是一个词，表示有时；some time分开写，表示一段时间。两种写法都能组成自然句子，但意思和句中的作用不同。",
+        "hint": "sometimes有时；some time一段时间。",
+        "options": [
+          {
+            "id": "some-time",
+            "text": "We spent some time walking home.",
+            "correct": false,
+            "reason": "some time是一段时间，这句没表达有时换路。"
+          },
+          {
+            "id": "every",
+            "text": "We took the same route home every day.",
+            "correct": false,
+            "reason": "每天同一条路，与有时换条路不同。"
+          },
+          {
+            "id": "sometimes",
+            "text": "Sometimes we take a different route home.",
+            "correct": true,
+            "reason": "sometimes表示有时，与想表达的频率相符。"
+          }
+        ]
+      },
+      {
+        "id": "never",
+        "label": "never：不再叠加don’t，也不乱推没记录的日子",
+        "prompt": "Class rule: Bags stay in lockers. We never leave them beside an open window. Which picture follows the rule?",
+        "wordDecision": {
+          "prompt": "Class rule: Bags stay in lockers. We never leave them beside an open window. Which picture follows the rule?",
+          "recordPaths": [
+            {
+              "id": "rule",
+              "label": "给定规则",
+              "steps": [
+                "Bags stay in lockers",
+                "不放在开窗旁"
+              ]
+            },
+            {
+              "id": "scope",
+              "label": "记录范围",
+              "steps": [
+                "四天都没有",
+                "其他日期未记录"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "找出放在开窗旁的记录",
+            "prompt": "若四条都没有，也要明确确认。",
+            "rows": [
+              {
+                "id": "mon",
+                "label": "Monday",
+                "text": "Bag kept inside a locker.",
+                "include": false
+              },
+              {
+                "id": "tue",
+                "label": "Tuesday",
+                "text": "Bag kept inside a locker.",
+                "include": false
+              },
+              {
+                "id": "thu",
+                "label": "Thursday",
+                "text": "Bag kept inside a locker.",
+                "include": false
+              },
+              {
+                "id": "fri",
+                "label": "Friday",
+                "text": "Bag kept inside a locker.",
+                "include": false
+              }
+            ],
+            "hint": "把每条的inside a locker与题目所问的beside an open window对照。",
+            "wrong": "四条都写着inside a locker，没有放在开窗旁的记录；应清空圈选并确认记录中没有这件事。"
+          },
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-bag-locations",
+            "alt": "两处放包的位置：左边的蓝色书包在敞开的储物柜内，右边的蓝色书包在桌上、靠着一扇打开的窗。",
+            "targets": [
+              {
+                "id": "locker",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "locker"
+              },
+              {
+                "id": "window",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 50.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "window"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "locker",
+                "caption": "左图已选。对照班规中的inside a locker和beside an open window。",
+                "regions": [
+                  {
+                    "id": "locker",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "window",
+                "caption": "右图已选。对照班规中的inside a locker和beside an open window。",
+                "regions": [
+                  {
+                    "id": "window",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 50.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "never",
+        "meaning": "从不",
+        "material": "I never leave my bag beside an open window.",
+        "before": "I ",
+        "after": " leave my bag beside an open window.",
+        "reason": "never本身含否定：可说“I never leave my bag there”，不能写成“I don’t never leave”。四天记录只说明这四天；别的日期没有记录，就不能补成已知事实。",
+        "hint": "先按班规选场景；再找记录中放在开窗旁的条目。",
+        "options": [
+          {
+            "id": "locker",
+            "text": "The bag inside the locker.",
+            "correct": true,
+            "reason": "左图把包放在储物柜里，符合给出的班级规则。"
+          },
+          {
+            "id": "window",
+            "text": "The bag beside the open window.",
+            "correct": false,
+            "reason": "右图正是规则说不放包的位置。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-time-5-transfer",
+      "topicId": "v-course-time",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which statement stays within the written evidence?",
+      "passage": "CLUB LOG — FOUR RECORDED DAYS\nWe finished the model on Monday, 2 November 2026, and showed it to our class three days later. On Friday, practice begins at 08:00. Lin arrives at 07:50, while Ming arrives at 08:05. Bo checked the net first in each of the four entries: Monday, Tuesday, Thursday and Friday. On each of these four days, bags were kept in lockers. There is no entry for Wednesday. Our coach said the new net would arrive soon but gave no exact time.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The model was shown on Wednesday, 4 November."
+        },
+        {
+          "id": "b",
+          "text": "Lin arrives five minutes late for Friday’s practice."
+        },
+        {
+          "id": "c",
+          "text": "Bo checked the net first every day of the whole week, including Wednesday."
+        },
+        {
+          "id": "d",
+          "text": "Lin arrives early on Friday, and Bo checked the net first in all four recorded practices."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "Lin arrives early on Friday, and Bo checked the net first in all four recorded practices."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先确定参照时间，再核对记录范围；没记录的日期不能补成已知。",
+        "steps": [
+          {
+            "text": "周一2日往后三天是周四5日；周五08:00开始，Lin在07:50到，比开始早十分钟。",
+            "reason": "later要从周一往后数；early要与活动开始时间比较。"
+          },
+          {
+            "text": "Bo在给出的四次训练中都先检查球网；周三没有记录，不能扩大成全周每天。",
+            "reason": "all four recorded practices限定范围；缺少一条记录不等于那天一定做了或没做。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "周三4日只比周一2日晚两天；三天以后是周四5日。"
+          },
+          {
+            "option": "b",
+            "reason": "07:50比08:00早十分钟，不是迟到五分钟；08:05到的Ming才迟到五分钟。"
+          },
+          {
+            "option": "c",
+            "reason": "原文明确说周三没有记录，不能推成包括周三在内的全周每天。"
+          }
+        ],
+        "pitfall": "先说清和哪个时间比，再说清只知道哪些记录。soon没有给出确切到货时间。",
+        "visual": {
+          "kind": "timeline",
+          "title": "时间与证据范围分开核对",
+          "segments": [
+            {
+              "text": "Monday 2 + 3 days → Thursday 5 November",
+              "role": "time",
+              "note": "从完成模型那天往后推"
+            },
+            {
+              "text": "Lin 07:50 → start 08:00 → Ming 08:05",
+              "role": "time",
+              "note": "Lin早10分钟，Ming迟5分钟"
+            },
+            {
+              "text": "Monday / Tuesday / Thursday / Friday: net checked first",
+              "role": "object",
+              "note": "四条记录都支持"
+            },
+            {
+              "text": "Wednesday: no entry",
+              "role": "object",
+              "note": "这一天的情况未知"
+            }
+          ],
+          "caption": "时刻来自便条；四条记录不能代表没写出的日期。"
+        },
+        "transfer": "如果周五改为07:45开始，而两人的到达时刻不变，Lin和Ming各迟到多久？这次改时会让周三的情况变成已知吗？"
+      }
+    }
+  }
+}

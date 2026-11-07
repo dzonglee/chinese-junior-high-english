@@ -1,14 +1,20 @@
 import {passageSentences} from './reading-evidence'
 import type {ContentCatalog,Question} from './types'
-import {wordCount,normalizedAnswer} from './answers'
+import {wordCount,normalizedAnswer,latinLetterRange} from './answers'
 /** Task form checks support self-review. They never judge meaning or assign proficiency. */
 export function productionMinimum(q:Question):number{
  const range=q.stem.match(/(?:约\s*)?(\d{2,3})\s*[—–~～-]\s*\d{2,3}\s*词/)
  return range?Number(range[1]):q.id.startsWith('teach-v-')?15:/[2２]\s*[—–~～-]\s*[4４]句/.test(q.stem)?4:12
 }
+const authoredWordForm = new RegExp(`^[${latinLetterRange}]+(?:[-'][${latinLetterRange}]+)*(?: [${latinLetterRange}]+(?:[-'][${latinLetterRange}]+)*){0,2}$`)
+/** Bounded authored forms, with the existing lowercase/canonical requirement for own-use variants. */
+export function validAuthoredWordForm(value: unknown, lowercase = false): value is string {
+ return typeof value === 'string' && value.length <= 60 && authoredWordForm.test(value) &&
+  (!lowercase || value === normalizedAnswer(value))
+}
 export function containsTerm(text:string,term:string):boolean{
  const escape=(s:string)=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')
- return new RegExp(`(?:^|[^a-z])${escape(normalizedAnswer(term))}(?=$|[^a-z])`,'i').test(normalizedAnswer(text))
+ return new RegExp(`(?:^|[^${latinLetterRange}])${escape(normalizedAnswer(term))}(?=$|[^${latinLetterRange}])`,'i').test(normalizedAnswer(text))
 }
 export function productionMaximum(q:Question):number|undefined{const range=q.stem.match(/(?:约\s*)?(\d{2,3})\s*[—–~～-]\s*(\d{2,3})\s*词/);return range?Number(range[2]):undefined}
 export function productionReady(q:Question,text:string):boolean{const maximum=productionMaximum(q),sentences=passageSentences(text).length;return wordCount(text)>=productionMinimum(q)&&(maximum===undefined||wordCount(text)<=maximum)&&(!/[2２]\s*[—–~～-]\s*[4４]句/.test(q.stem)||(sentences>=2&&sentences<=4))&&(!q.id.startsWith('teach-v-')||q.explanation.visual.segments.every(s=>containsTerm(text,s.text)))}

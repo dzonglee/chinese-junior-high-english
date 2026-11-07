@@ -1,0 +1,5 @@
+# Native checkpoint 141 — inspected
+
+2026-10-19 (UTC). Actual isolated guest WeChat DevTools SDK flow for l-v-course-home-5 passes eight tasks, two applications, clinic, fresh transfer and summary. Job 4cc70b1f49a445288efa114550564bfc has nested native exit 0 and result errors empty. All 77 simulator screenshots inspected across 20 sheets plus three raw rechecks. Blanket, towel and broom picture selections, sheet/paper contrasts, two bars of soap, plural brushes, bucket counts versus litres and uncountable rubbish render correctly. All eight learner sentences and changed rewrites inspected. Logical simulator dimensions 367×794; no physical-device result.
+
+The job retains navigateTo timeout diagnostics with arrived:true; actual route and bound content verified. Prior learner storage restored, isolated project closed and GUI lock released. No GUI restart, authentication/network change or WeChat publication/upload. Guided work grants no independent credit. Content remains draft. This later supplement uses the current 146 development build; earlier browser/core evidence retains its original scope.

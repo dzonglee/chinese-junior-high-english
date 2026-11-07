@@ -1,0 +1,609 @@
+{
+  "lessonId": "l-v-course-questions-quantity",
+  "reviewState": "draft",
+  "intent": "Eight individual questions distinguish doer, recipient, possession, thing, bounded comparison, location, cause and method without inventing unknown answers.",
+  "picturePurpose": "Original refill scene supplies a fictional location contrast. Exact path steps and swap-dependent selection are coded; no real water-safety or opening claim.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "先看问什么，再动手找信息",
+    "instruction": "交换路线比台阶，点加水位置；分清谁、谁的、原因和做法。",
+    "items": [
+      {
+        "id": "who",
+        "label": "who：要找留下靴子的人，还是靴子的位置？",
+        "prompt": "要找留下靴子的人，还是靴子的位置？",
+        "answer": "Who",
+        "meaning": "谁",
+        "material": "Who left these boots by the door?",
+        "before": "",
+        "after": " left these boots by the door?",
+        "reason": "Who在这里作主语，问谁把靴子留在那里；by the door已是位置。问题本身没有给出是谁，也没有证明谁拥有靴子。",
+        "hint": "Who后直接接left，不再加did。",
+        "wordDecision": {
+          "prompt": "要找留下靴子的人，还是靴子的位置？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "找出动作的发出者",
+            "prompt": "只保留原句要问的信息，不补答案。",
+            "rows": [
+              {
+                "id": "person",
+                "label": "问谁把靴子留在那里",
+                "text": "Who left these boots by the door?",
+                "include": true
+              },
+              {
+                "id": "place",
+                "label": "问靴子现在在哪里",
+                "text": "Where are the boots?",
+                "include": false
+              },
+              {
+                "id": "owner",
+                "label": "已证明谁是靴子的所有者",
+                "text": "The question proves who owns the boots.",
+                "include": false
+              }
+            ],
+            "hint": "问人，不补名字或所有者。",
+            "wrong": "只保留找出留下靴子的人；不能换成地点或擅自判断归属。"
+          }
+        },
+        "options": [
+          {
+            "id": "place",
+            "text": "The question asks where the boots are.",
+            "correct": false,
+            "reason": "by the door已给位置；Who不是问哪里。"
+          },
+          {
+            "id": "person",
+            "text": "The question asks which person left the boots there.",
+            "correct": true,
+            "reason": "Who询问做出left这个动作的人。"
+          },
+          {
+            "id": "owner",
+            "text": "The question proves who owns the boots.",
+            "correct": false,
+            "reason": "留下靴子的人不一定是所有者，不能从问题推出归属。"
+          }
+        ]
+      },
+      {
+        "id": "whom",
+        "label": "whom：填好的表应该寄给谁？",
+        "prompt": "填好的表应该寄给谁？",
+        "answer": "whom",
+        "meaning": "谁（宾格）",
+        "material": "To whom should I send the completed form?",
+        "before": "To ",
+        "after": " should I send the completed form?",
+        "reason": "whom在这里作介词to的宾语，问填好的表应该寄给谁；I是发件人，不能把两人的角色调换。",
+        "hint": "To whom是较正式的问法，保留to和收件人角色。",
+        "wordDecision": {
+          "prompt": "填好的表应该寄给谁？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问收件人，保留正式问法",
+            "prompt": "只保留原句要问的信息，不补答案。",
+            "rows": [
+              {
+                "id": "recipient",
+                "label": "问填好的表应该寄给谁",
+                "text": "To whom should I send the completed form?",
+                "include": true
+              },
+              {
+                "id": "sender",
+                "label": "问谁应该寄出这份表",
+                "text": "Who should send the form?",
+                "include": false
+              },
+              {
+                "id": "reason",
+                "label": "问为什么要寄这份表",
+                "text": "Why should I send the form?",
+                "include": false
+              }
+            ],
+            "hint": "I是寄件人，to后的人是收件人。",
+            "wrong": "只选收件人；不能调成发件人或换成原因。"
+          }
+        },
+        "options": [
+          {
+            "id": "sender",
+            "text": "The question asks who should send the form.",
+            "correct": false,
+            "reason": "I是寄件人；To whom不是问发件人。"
+          },
+          {
+            "id": "reason",
+            "text": "The question asks why the form needs to be sent.",
+            "correct": false,
+            "reason": "收件人被换成原因。"
+          },
+          {
+            "id": "recipient",
+            "text": "The question asks who should receive the completed form.",
+            "correct": true,
+            "reason": "To whom指向收件人。"
+          }
+        ]
+      },
+      {
+        "id": "whose",
+        "label": "whose：要查漏了谁的名字，还是谁没到？",
+        "prompt": "要查漏了谁的名字，还是谁没到？",
+        "answer": "Whose",
+        "meaning": "谁的",
+        "material": "Whose name is missing from the list?",
+        "before": "",
+        "after": " name is missing from the list?",
+        "reason": "Whose name问名单漏了谁的名字；名字漏列不等于本人缺席。whose表示谁的，不能换成who’s。",
+        "hint": "whose后接name，先看所属关系。",
+        "wordDecision": {
+          "prompt": "要查漏了谁的名字，还是谁没到？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问名单缺少谁的名字",
+            "prompt": "只保留原句要问的信息，不补答案。",
+            "rows": [
+              {
+                "id": "name",
+                "label": "问谁的名字没有列在名单上",
+                "text": "Whose name is missing from the list?",
+                "include": true
+              },
+              {
+                "id": "absent",
+                "label": "已证明这个人没有到场",
+                "text": "The missing name proves the person did not attend.",
+                "include": false
+              },
+              {
+                "id": "expansion",
+                "label": "这里的whose可以展开为who is",
+                "text": "Whose means who is here.",
+                "include": false
+              }
+            ],
+            "hint": "名单信息不等于出席证明。",
+            "wrong": "只保留谁的名字漏列；不能推断缺席或把whose当who’s。"
+          }
+        },
+        "options": [
+          {
+            "id": "name",
+            "text": "The question asks whose name does not appear on the list.",
+            "correct": true,
+            "reason": "Whose name问名单缺了谁的名字。"
+          },
+          {
+            "id": "absent",
+            "text": "The question proves that the person did not attend.",
+            "correct": false,
+            "reason": "名字未列出不能证明本人没到场。"
+          },
+          {
+            "id": "expansion",
+            "text": "Whose means who is in this sentence.",
+            "correct": false,
+            "reason": "Whose是所属关系；who is缩写是who’s。"
+          }
+        ]
+      },
+      {
+        "id": "what",
+        "label": "what：要查固定两块材料的东西，还是位置？",
+        "prompt": "要查固定两块材料的东西，还是位置？",
+        "answer": "What",
+        "meaning": "什么",
+        "material": "What keeps the two pieces together?",
+        "before": "",
+        "after": " keeps the two pieces together?",
+        "reason": "What作主语，询问是什么把两块固定在一起；问题没有说是胶水、夹子还是别的东西。",
+        "hint": "先分清问什么和已经知道什么。",
+        "wordDecision": {
+          "prompt": "要查固定两块材料的东西，还是位置？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问起固定作用的东西",
+            "prompt": "只保留原句要问的信息，不补答案。",
+            "rows": [
+              {
+                "id": "thing",
+                "label": "问是什么把两块固定在一起",
+                "text": "What keeps the two pieces together?",
+                "include": true
+              },
+              {
+                "id": "place",
+                "label": "问这两块放在哪里",
+                "text": "Where are the two pieces?",
+                "include": false
+              },
+              {
+                "id": "assume",
+                "label": "已知一定是胶水固定",
+                "text": "Glue certainly holds the two pieces together.",
+                "include": false
+              }
+            ],
+            "hint": "问事物，不补未给出的工具。",
+            "wrong": "只保留问固定物；不能改成地点或擅自确定胶水。"
+          }
+        },
+        "options": [
+          {
+            "id": "place",
+            "text": "The question asks where the two pieces are.",
+            "correct": false,
+            "reason": "事物被换成地点。"
+          },
+          {
+            "id": "assume",
+            "text": "The question already tells us that glue holds them together.",
+            "correct": false,
+            "reason": "问题没给出答案，不能擅自填成胶水。"
+          },
+          {
+            "id": "thing",
+            "text": "The question asks what holds the two pieces together.",
+            "correct": true,
+            "reason": "What问起固定作用的事物。"
+          }
+        ]
+      },
+      {
+        "id": "which",
+        "label": "which：点出台阶更少的那条路。",
+        "prompt": "点出台阶更少的那条路。",
+        "answer": "Which",
+        "meaning": "哪一个；哪些",
+        "material": "Which path has fewer steps?",
+        "before": "",
+        "after": " path has fewer steps?",
+        "reason": "Which在给定路线中作选择；fewer steps比较台阶数量，不是在比较距离。下面的数量只属于这次示意练习。",
+        "hint": "fewer接可数名词复数；只比台阶数。",
+        "wordDecision": {
+          "prompt": "点出台阶更少的那条路。",
+          "pathSteps": {
+            "title": "换个位置，仍选台阶更少的路",
+            "hint": "先数台阶再点路线；交换位置后重新判断。",
+            "wrong": "比较台阶数量，不固定选左边；交换后要重新选。"
+          }
+        },
+        "options": [
+          {
+            "id": "more",
+            "text": "The question asks which path has more steps.",
+            "correct": false,
+            "reason": "fewer被反转为more。"
+          },
+          {
+            "id": "fewer",
+            "text": "The question asks which of the paths has a smaller number of steps.",
+            "correct": true,
+            "reason": "Which限定在备选路中；fewer比较台阶数。"
+          },
+          {
+            "id": "shortest",
+            "text": "The question proves that the path with fewer steps is the shortest route.",
+            "correct": false,
+            "reason": "台阶更少不等于路程最短，题目没给距离。"
+          }
+        ]
+      },
+      {
+        "id": "where",
+        "label": "where：在这张示意图中，哪里正在给水瓶加水？",
+        "prompt": "在这张示意图中，哪里正在给水瓶加水？",
+        "answer": "Where",
+        "meaning": "在哪里；到哪里",
+        "material": "Where can we refill our water bottles?",
+        "before": "",
+        "after": " can we refill our water bottles?",
+        "reason": "Where问加水地点，回答地点而不是时间或原因。图中只展示虚构场景中的接水位置；实际使用要查看饮水标识，不能凭图片判断水质或开放情况。",
+        "hint": "where问在哪里，先看接水口和瓶子。",
+        "wordDecision": {
+          "prompt": "在这张示意图中，哪里正在给水瓶加水？",
+          "art": {
+            "asset": "lesson-refill-stop",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "公园示意图：左侧完整蓝色加水装置的出水口有水流进入瓶子；右侧野餐桌上放着橙色背包，桌边被画面裁切。没有文字标识。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "refill",
+                "label": "A 加水处",
+                "left": 8,
+                "top": 6,
+                "width": 39,
+                "height": 87,
+                "labelPosition": "bottom"
+              },
+              {
+                "id": "b",
+                "option": "bench",
+                "label": "B 野餐桌",
+                "left": 54,
+                "top": 26,
+                "width": 44,
+                "height": 66,
+                "labelPosition": "bottom"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "refill",
+                "caption": "出水口下的瓶子正在接水；这是地点回答。",
+                "regions": [
+                  {
+                    "id": "water-bottle",
+                    "left": 25,
+                    "top": 14,
+                    "width": 8,
+                    "height": 38,
+                    "label": "瓶子和水流"
+                  }
+                ]
+              },
+              {
+                "option": "bench",
+                "caption": "背包在野餐桌上，不是图中正在接水的位置。",
+                "regions": [
+                  {
+                    "id": "backpack",
+                    "left": 76,
+                    "top": 23,
+                    "width": 20,
+                    "height": 29,
+                    "label": "桌上的背包"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "refill",
+            "text": "At the blue refill fixture on the left.",
+            "correct": true,
+            "reason": "图中左侧出水口下的瓶子正在接水，是地点回答。"
+          },
+          {
+            "id": "bench",
+            "text": "At the picnic table with the backpack on the right.",
+            "correct": false,
+            "reason": "右侧是野餐桌和背包，不是图中接水的位置。"
+          }
+        ]
+      },
+      {
+        "id": "why",
+        "label": "why：要查变色原因，还是只问变成什么颜色？",
+        "prompt": "要查变色原因，还是只问变成什么颜色？",
+        "answer": "Why",
+        "meaning": "为什么",
+        "material": "Why did the water change colour?",
+        "before": "",
+        "after": " did the water change colour?",
+        "reason": "Why问水变色的原因，不是只问最终颜色；原句没有给出原因，不能擅自认定加了颜料。",
+        "hint": "why常用because引出的原因回答。",
+        "wordDecision": {
+          "prompt": "要查变色原因，还是只问变成什么颜色？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问变色的原因",
+            "prompt": "只保留原句要问的信息，不补答案。",
+            "rows": [
+              {
+                "id": "reason",
+                "label": "问水为什么变色",
+                "text": "Why did the water change colour?",
+                "include": true
+              },
+              {
+                "id": "colour",
+                "label": "只问水最终变成什么颜色",
+                "text": "What colour did the water become?",
+                "include": false
+              },
+              {
+                "id": "assume",
+                "label": "已证明是加颜料造成变色",
+                "text": "Adding paint certainly caused the change.",
+                "include": false
+              }
+            ],
+            "hint": "原因和颜色结果分开。",
+            "wrong": "只选追问原因；不能只问颜色或补出未说明的原因。"
+          }
+        },
+        "options": [
+          {
+            "id": "colour",
+            "text": "The question asks only what colour the water became.",
+            "correct": false,
+            "reason": "why原因被换成what colour结果颜色。"
+          },
+          {
+            "id": "assume",
+            "text": "The question proves that adding paint caused the change.",
+            "correct": false,
+            "reason": "问题没说加颜料，不能把可能原因当事实。"
+          },
+          {
+            "id": "reason",
+            "text": "The question asks for the cause of the water changing colour.",
+            "correct": true,
+            "reason": "Why询问原因，没给出具体原因。"
+          }
+        ]
+      },
+      {
+        "id": "how",
+        "label": "how：要问做整齐的方法，还是完成时间？",
+        "prompt": "要问做整齐的方法，还是完成时间？",
+        "answer": "How",
+        "meaning": "怎样；多么",
+        "material": "How did you make the corners so neat?",
+        "before": "",
+        "after": " did you make the corners so neat?",
+        "reason": "How在这里询问把边角做整齐的方法；不是问何时完成，也没有直接说明用了尺子。",
+        "hint": "How did you make…问做法，不是时间。",
+        "wordDecision": {
+          "prompt": "要问做整齐的方法，还是完成时间？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问怎样做整齐",
+            "prompt": "只保留原句要问的信息，不补答案。",
+            "rows": [
+              {
+                "id": "method",
+                "label": "问把边角做整齐的方法",
+                "text": "How did you make the corners so neat?",
+                "include": true
+              },
+              {
+                "id": "time",
+                "label": "问何时完成边角",
+                "text": "When did you finish the corners?",
+                "include": false
+              },
+              {
+                "id": "assume",
+                "label": "已证明使用了尺子",
+                "text": "The question proves that a ruler was used.",
+                "include": false
+              }
+            ],
+            "hint": "问方法，不补工具或时间。",
+            "wrong": "只保留问做法；不能换成时间或擅自指定尺子。"
+          }
+        },
+        "options": [
+          {
+            "id": "time",
+            "text": "The question asks when you finished the corners.",
+            "correct": false,
+            "reason": "方法被换成时间。"
+          },
+          {
+            "id": "method",
+            "text": "The question asks what method you used to make the corners neat.",
+            "correct": true,
+            "reason": "How询问怎样做。"
+          },
+          {
+            "id": "assume",
+            "text": "The question proves that a ruler was used.",
+            "correct": false,
+            "reason": "问题没有给出方法，不能直接认定用了尺子。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-questions-quantity-transfer",
+      "topicId": "v-course-questions-quantity",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which note correctly identifies the information requested?",
+      "passage": "Questions before the club walk\nOur club checked the questions for a walking-trip worksheet. “Who left these boots by the door?” asked for the person who left them, not necessarily their owner. “To whom should I send the completed form?” asked for the recipient; the speaker was the sender. “Whose name is missing from the list?” asked about a name, and a missing name did not prove that a person was absent.\nA model-building question asked what kept two pieces together. It did not give the answer, so we could not simply assume it was glue. The route question asked which path had fewer steps. A path with fewer steps was not necessarily shorter in distance.\nA fictional park picture showed a bottle receiving water from a blue refill fixture on the left. The picnic table and backpack were on the right. The picture illustrated a place answer, not proof of water safety or real opening hours.\nFinally, “Why did the water change colour?” asked for a cause, whereas “How did you make the corners so neat?” asked for a method. Neither question supplied its own answer. We decided to identify the information being requested before trying to answer it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "To whom asks for the recipient; fewer steps compares step counts; why asks for a cause and how asks for a method."
+        },
+        {
+          "id": "b",
+          "text": "To whom asks for the sender; fewer steps compares step counts; why asks for a cause and how asks for a method."
+        },
+        {
+          "id": "c",
+          "text": "To whom asks for the recipient; fewer steps proves a shorter distance; why asks for a cause and how asks for a method."
+        },
+        {
+          "id": "d",
+          "text": "To whom asks for the recipient; fewer steps compares step counts; why asks for a method and how asks for a cause."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "To whom asks for the recipient; fewer steps compares step counts; why asks for a cause and how asks for a method."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先看问句角色，再分清比较对象、原因和方法。",
+        "steps": [
+          {
+            "text": "To whom指向收件人；fewer steps比较台阶数量。",
+            "reason": "I是寄件人；台阶数量没有提供路线距离。"
+          },
+          {
+            "text": "Why问原因，How在这里问做法。",
+            "reason": "疑问词限定要找的信息；问题本身没有给出原因或工具。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把收件人调换成寄件人。"
+          },
+          {
+            "option": "c",
+            "reason": "把台阶更少错误推出距离更短。"
+          },
+          {
+            "option": "d",
+            "reason": "把why的原因和how的方法调换。"
+          }
+        ],
+        "pitfall": "看到熟悉词就补答案，没有先看清问的是什么。",
+        "visual": {
+          "kind": "timeline",
+          "title": "先认信息，再找答案",
+          "segments": [
+            {
+              "text": "To whom → recipient",
+              "role": "object",
+              "note": "收件人，不是I这个寄件人"
+            },
+            {
+              "text": "fewer steps → count",
+              "role": "object",
+              "note": "不推断路程"
+            },
+            {
+              "text": "why → cause; how → method",
+              "role": "object",
+              "note": "原因和做法分开"
+            }
+          ],
+          "caption": "疑问词确定找哪类信息；问句不是答案证据。"
+        },
+        "transfer": "为什么名单漏名不能直接证明本人缺席？指出原文区分的两件事。"
+      }
+    }
+  }
+}

@@ -1,0 +1,576 @@
+{
+  "lessonId": "l-v-course-environmental-choices-2",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks connect materials to stated uses, distinguish iron meanings and preserve temporal states, negative instructions and pollution possibility.",
+  "picturePurpose": "Original gate/clothes-iron contrast supports context-dependent meaning; exact support/purpose links remain in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "连材料与用途，辨一词多义",
+    "instruction": "先把使用什么和用途连起来，再用图片辨认iron在原句中的意思，核对材料、时间和条件。",
+    "items": [
+      {
+        "id": "steel",
+        "label": "steel：steel cables是什么，用来做什么？",
+        "prompt": "steel cables是什么，用来做什么？",
+        "answer": "steel",
+        "meaning": "钢",
+        "material": "The bridge uses steel cables for support.",
+        "before": "The bridge uses ",
+        "after": " cables for support.",
+        "reason": "steel是钢，作材料名词通常不可数；steel cables是钢缆。The bridge是主语，uses steel cables说明使用什么，for support说明用途。不要把钢换成铜，或把支撑改成装饰，也不能推广到所有桥梁。",
+        "hint": "steel cables；uses ... for support。",
+        "wordDecision": {
+          "prompt": "steel cables是什么，用来做什么？",
+          "supportLinks": {
+            "title": "连起“使用什么”和“用途”",
+            "hint": "把steel cables与for support放回对应位置，读清这座桥使用什么、用来做什么。",
+            "wrong": "使用的是steel cables，用途是support；不要把桥梁本身或两个关系放错位置。"
+          }
+        },
+        "options": [
+          {
+            "id": "support",
+            "text": "The bridge uses cables made of steel to provide support.",
+            "correct": true,
+            "reason": "steel说明缆索材料，for support说明用途。"
+          },
+          {
+            "id": "copper",
+            "text": "The bridge uses copper cables only for decoration.",
+            "correct": false,
+            "reason": "把材料和用途都改了。"
+          },
+          {
+            "id": "all",
+            "text": "Every bridge must use the same steel cables.",
+            "correct": false,
+            "reason": "这座桥的信息不能扩大成所有桥。"
+          }
+        ]
+      },
+      {
+        "id": "iron",
+        "label": "iron：iron在made of后表示材料还是熨斗？",
+        "prompt": "iron在made of后表示材料还是熨斗？",
+        "answer": "iron",
+        "meaning": "铁；熨斗",
+        "material": "The gate is made of iron.",
+        "before": "The gate is made of ",
+        "after": ".",
+        "reason": "iron在be made of iron中指铁这种材料，通常不可数。an iron也可以表示一个熨斗，但本句不是说门就是熨斗。先看made of后的材料关系，再定iron的词义。图中左侧示意门的材料明确标为铁，右侧是熨斗。",
+        "hint": "made of iron；材料义不用an。",
+        "wordDecision": {
+          "prompt": "iron在made of后表示材料还是熨斗？",
+          "art": {
+            "asset": "lesson-iron-meanings",
+            "assetRoot": "illustrations-5",
+            "format": "jpg",
+            "alt": "虚构词义对比：左侧明确设定为铁制门，右侧是熨斗；区分iron的材料义与可数物品义。",
+            "targets": [
+              {
+                "id": "gate-zone",
+                "option": "material",
+                "label": "铁：门的材料",
+                "left": 5,
+                "top": 12,
+                "width": 43,
+                "height": 66
+              },
+              {
+                "id": "iron-zone",
+                "option": "appliance",
+                "label": "熨斗：一件物品",
+                "left": 53,
+                "top": 28,
+                "width": 43,
+                "height": 50
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "material",
+            "text": "The gate is made from the metal iron.",
+            "correct": true,
+            "reason": "be made of iron说明门的材料是铁。"
+          },
+          {
+            "id": "appliance",
+            "text": "The gate is a clothes iron.",
+            "correct": false,
+            "reason": "iron作熨斗讲可数，但不符合这句made of后的材料义。"
+          }
+        ]
+      },
+      {
+        "id": "copper",
+        "label": "Copper：often used inside保留了哪些限定？",
+        "prompt": "often used inside保留了哪些限定？",
+        "answer": "Copper",
+        "meaning": "铜",
+        "material": "Copper is often used inside electrical cables.",
+        "before": "",
+        "after": " is often used inside electrical cables.",
+        "reason": "Copper是铜，句首大写，作材料名词通常不可数。is often used是被动表达，inside electrical cables说明在电缆内部。often表示经常，不等于所有电缆的每个部分都必须是铜。",
+        "hint": "copper；is often used；inside。",
+        "wordDecision": {
+          "prompt": "often used inside保留了哪些限定？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "铜经常用于电缆内部",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "inside",
+                "label": "铜经常用在电缆内部",
+                "text": "Copper is often used inside electrical cables.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "所有电缆的每个部分都必须为纯铜",
+                "text": "Every part of every cable must be pure copper.",
+                "include": false
+              },
+              {
+                "id": "never",
+                "label": "电缆中从来不用铜",
+                "text": "Copper is never used in electrical cables.",
+                "include": false
+              }
+            ],
+            "hint": "保留经常、被动用途和内部位置。",
+            "wrong": "选经常用于内部，不扩大或反转。"
+          }
+        },
+        "options": [
+          {
+            "id": "inside",
+            "text": "Copper is frequently used inside electrical cables.",
+            "correct": true,
+            "reason": "often保留常见而非所有，inside保留内部。"
+          },
+          {
+            "id": "all",
+            "text": "Every part of every electrical cable must be pure copper.",
+            "correct": false,
+            "reason": "扩大成所有电缆的全部部分。"
+          },
+          {
+            "id": "never",
+            "text": "Copper is never used in electrical cables.",
+            "correct": false,
+            "reason": "反转often used。"
+          }
+        ]
+      },
+      {
+        "id": "aluminium",
+        "label": "aluminium：轻型框架是用什么做的？",
+        "prompt": "轻型框架是用什么做的？",
+        "answer": "aluminium",
+        "meaning": "铝",
+        "material": "The lightweight frame is made of aluminium.",
+        "before": "The lightweight frame is made of ",
+        "after": ".",
+        "reason": "aluminium是铝的英式拼写，美式拼作aluminum，跟随所选教材。be made of说明材料；lightweight修饰frame。原句只说明这副轻型框架，不是说所有轻型物品都用铝。",
+        "hint": "made of aluminium；美式aluminum。",
+        "wordDecision": {
+          "prompt": "轻型框架是用什么做的？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "轻型框架由铝制成",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "frame",
+                "label": "这副轻型框架由铝制成",
+                "text": "The lightweight frame is made of aluminium.",
+                "include": true
+              },
+              {
+                "id": "steel",
+                "label": "这副框架由钢制成",
+                "text": "The frame is made of steel.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "所有轻型物体都由铝制成",
+                "text": "Every lightweight object is made of aluminium.",
+                "include": false
+              }
+            ],
+            "hint": "保留这副框架、轻型和铝材料。",
+            "wrong": "选铝制轻型框架，不换材料或扩大。"
+          }
+        },
+        "options": [
+          {
+            "id": "frame",
+            "text": "The lightweight frame is made from aluminium.",
+            "correct": true,
+            "reason": "保留轻型框架与铝材料。"
+          },
+          {
+            "id": "steel",
+            "text": "The frame is made from steel.",
+            "correct": false,
+            "reason": "把铝换成钢。"
+          },
+          {
+            "id": "all",
+            "text": "Every lightweight object is made from aluminium.",
+            "correct": false,
+            "reason": "这副框架不能推广成所有轻型物体。"
+          }
+        ]
+      },
+      {
+        "id": "concrete",
+        "label": "concrete：concrete path在什么时间还暖着？",
+        "prompt": "concrete path在什么时间还暖着？",
+        "answer": "concrete",
+        "meaning": "混凝土；具体的",
+        "material": "The concrete path stayed warm after sunset.",
+        "before": "The ",
+        "after": " path stayed warm after sunset.",
+        "reason": "concrete在concrete path中说明混凝土材料；它也可表示具体的，但这里不是抽象与具体的对比。stayed warm表示仍然温暖，after sunset是日落之后。原句没有给出温度数值，也没有说永久温暖。",
+        "hint": "concrete path；stayed warm；after sunset。",
+        "wordDecision": {
+          "prompt": "concrete path在什么时间还暖着？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "混凝土小路日落后仍温暖",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "warm",
+                "label": "混凝土小路在日落后仍温暖",
+                "text": "The concrete path stayed warm after sunset.",
+                "include": true
+              },
+              {
+                "id": "cold",
+                "label": "小路在日落前已变冷",
+                "text": "The path became cold before sunset.",
+                "include": false
+              },
+              {
+                "id": "exact",
+                "label": "这句给出了小路的准确温度",
+                "text": "The sentence gives an exact temperature.",
+                "include": false
+              }
+            ],
+            "hint": "保留材料、日落后和仍然温暖。",
+            "wrong": "选日落后仍暖，不反转状态或补温度。"
+          }
+        },
+        "options": [
+          {
+            "id": "warm",
+            "text": "The path made of concrete remained warm after the sun went down.",
+            "correct": true,
+            "reason": "concrete指材料，stayed warm与after保留持续状态和时间。"
+          },
+          {
+            "id": "cold",
+            "text": "The path became cold before sunset.",
+            "correct": false,
+            "reason": "改变温度状态和时间。"
+          },
+          {
+            "id": "exact",
+            "text": "The sentence gives the exact temperature of the path.",
+            "correct": false,
+            "reason": "warm没有给出具体温度。"
+          }
+        ]
+      },
+      {
+        "id": "chemical",
+        "label": "chemical：Never mix限制了哪个动作？",
+        "prompt": "Never mix限制了哪个动作？",
+        "answer": "chemical",
+        "meaning": "化学品；化学的",
+        "material": "Never mix a cleaning chemical with another product.",
+        "before": "Never mix a cleaning ",
+        "after": " with another product.",
+        "reason": "a cleaning chemical中的chemical是可数名词，表示一种清洁化学品。Never mix是否定祈使句，with another product说明不能混合的另一方。这里只核对原句的禁令，不把它改成已经混合或要求总要混合。",
+        "hint": "a chemical；Never mix ... with ...。",
+        "wordDecision": {
+          "prompt": "Never mix限制了哪个动作？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "不要把清洁化学品与另一种产品混合",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "no-mix",
+                "label": "要求不要与另一种产品混合",
+                "text": "Never mix a cleaning chemical with another product.",
+                "include": true
+              },
+              {
+                "id": "mix",
+                "label": "要求总与其他产品混合",
+                "text": "Always mix cleaning chemicals with other products.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "报告已经制成了混合物",
+                "text": "A mixture has already been made.",
+                "include": false
+              }
+            ],
+            "hint": "保留否定指令、对象和with关系。",
+            "wrong": "选不要混合，不反转或补完成事件。"
+          }
+        },
+        "options": [
+          {
+            "id": "no-mix",
+            "text": "Do not mix a cleaning chemical with another product.",
+            "correct": true,
+            "reason": "Never mix是否定指令，保留清洁化学品和另一种产品。"
+          },
+          {
+            "id": "mix",
+            "text": "Always mix cleaning chemicals with other products.",
+            "correct": false,
+            "reason": "反转Never mix。"
+          },
+          {
+            "id": "done",
+            "text": "The sentence reports that a mixture has already been made.",
+            "correct": false,
+            "reason": "指令不是已完成事件的报告。"
+          }
+        ]
+      },
+      {
+        "id": "poison",
+        "label": "poison：哪些东西需要清晰标签？",
+        "prompt": "哪些东西需要清晰标签？",
+        "answer": "poison",
+        "meaning": "毒物；使中毒",
+        "material": "Keep anything containing poison clearly labelled.",
+        "before": "Keep anything containing ",
+        "after": " clearly labelled.",
+        "reason": "poison在这里作名词，表示毒物。anything containing poison是含有毒物的任何东西，containing作后置修饰。Keep ... clearly labelled要求保持清晰标签，不能读成去掉标签，也没有说标签改变物质本身。",
+        "hint": "anything containing poison；keep ... labelled。",
+        "wordDecision": {
+          "prompt": "哪些东西需要清晰标签？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "含有毒物的东西要清晰标记",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "label",
+                "label": "要求含有毒物的任何东西保持清晰标签",
+                "text": "Keep anything containing poison clearly labelled.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "要求去掉所有物品的一切标签",
+                "text": "Remove every label from every object.",
+                "include": false
+              },
+              {
+                "id": "harmless",
+                "label": "标签使毒物本身变得无害",
+                "text": "A label makes poison harmless.",
+                "include": false
+              }
+            ],
+            "hint": "保留含有毒物这个对象条件与清晰标签。",
+            "wrong": "选保持标签，不反转或补物质变化。"
+          }
+        },
+        "options": [
+          {
+            "id": "label",
+            "text": "Keep clear labels on anything that contains poison.",
+            "correct": true,
+            "reason": "anything containing poison限定要标记的对象。"
+          },
+          {
+            "id": "all",
+            "text": "Remove every label from every object.",
+            "correct": false,
+            "reason": "反转clearly labelled并扩大对象。"
+          },
+          {
+            "id": "harmless",
+            "text": "A label turns poison into a harmless substance.",
+            "correct": false,
+            "reason": "标签状态不等于物质变得无害。"
+          }
+        ]
+      },
+      {
+        "id": "pollute",
+        "label": "pollute：can pollute说的是可能还是已经？",
+        "prompt": "can pollute说的是可能还是已经？",
+        "answer": "pollute",
+        "meaning": "污染",
+        "material": "Waste oil can pollute a large amount of water.",
+        "before": "Waste oil can ",
+        "after": " a large amount of water.",
+        "reason": "can后用动词原形pollute，意思是污染；pollution是名词，不能直接放在这里。a large amount of water表示大量水，water不可数。原句陈述可能造成污染，没有给出准确升数或报告某次污染已经发生。",
+        "hint": "can pollute；不是can pollution；water不可数。",
+        "wordDecision": {
+          "prompt": "can pollute说的是可能还是已经？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "废油可能污染大量水",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "can",
+                "label": "废油可能污染大量水",
+                "text": "Waste oil can pollute a large amount of water.",
+                "include": true
+              },
+              {
+                "id": "clean",
+                "label": "废油总让水更干净",
+                "text": "Waste oil always makes water cleaner.",
+                "include": false
+              },
+              {
+                "id": "exact",
+                "label": "已污染的水有原句给出的准确升数",
+                "text": "The sentence gives the exact litres already polluted.",
+                "include": false
+              }
+            ],
+            "hint": "保留可能、污染和大量水，不补准确数值。",
+            "wrong": "选可能污染大量水，不反转或补已发生数量。"
+          }
+        },
+        "options": [
+          {
+            "id": "can",
+            "text": "Waste oil can contaminate a large amount of water.",
+            "correct": true,
+            "reason": "can保留可能，a large amount保留大量水。"
+          },
+          {
+            "id": "clean",
+            "text": "Waste oil always makes water cleaner.",
+            "correct": false,
+            "reason": "反转pollute。"
+          },
+          {
+            "id": "exact",
+            "text": "The sentence states an exact number of litres already polluted.",
+            "correct": false,
+            "reason": "can不是已发生报告，也没有给出准确升数。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-environmental-choices-2-transfer",
+      "topicId": "v-course-environmental-choices",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes match the exhibition visit?",
+      "passage": "A materials exhibition\nOur class visited a materials exhibition at school. The first poster showed a bridge using steel cables for support. Beside it stood a gate made of iron. The guide used the gate to explain how a material name could differ from the name of a household object.\nAt the next table, we read that copper is often used inside electrical cables. A lightweight frame was labelled as being made of aluminium. We wrote down the material words beside our sketches.\nNear the exit, two reminder cards said, \"Never mix a cleaning chemical with another product\" and \"Keep anything containing poison clearly labelled.\" A water-environment note explained that waste oil can pollute a large amount of water. After sunset, we walked back along the concrete path, which was still warm.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Steel cables support the bridge; the concrete path remained warm after sunset; waste oil can pollute a large amount of water."
+        },
+        {
+          "id": "b",
+          "text": "Copper cables only decorate the bridge; the path became cold before sunset; waste oil always cleans water."
+        },
+        {
+          "id": "c",
+          "text": "Steel cables support the bridge; the concrete path remained warm after sunset; the note gives an exact volume already polluted."
+        },
+        {
+          "id": "d",
+          "text": "Steel cables support the bridge; the concrete path became cold before sunset; waste oil can pollute a large amount of water."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Steel cables support the bridge; the concrete path remained warm after sunset; waste oil can pollute a large amount of water."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对用途、时间状态和can表示的可能。",
+        "steps": [
+          {
+            "text": "钢缆用于支撑桥梁；混凝土小路在日落后仍然温暖。",
+            "reason": "不能换成铜缆装饰，或日落前变冷。"
+          },
+          {
+            "text": "废油can pollute大量水，说明可能污染。",
+            "reason": "没有给出准确体积，也没有报告某次污染已发生。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "改变材料和用途，反转小路状态及废油的影响。"
+          },
+          {
+            "option": "c",
+            "reason": "把可能污染改成已发生的准确体积。"
+          },
+          {
+            "option": "d",
+            "reason": "把日落后仍暖改成日落前变冷。"
+          }
+        ],
+        "pitfall": "材料词认对了，却漏看for、after、stayed或can。",
+        "visual": {
+          "kind": "timeline",
+          "title": "材料、用途与时间",
+          "segments": [
+            {
+              "text": "steel cables → support",
+              "role": "object",
+              "note": "钢缆用于支撑"
+            },
+            {
+              "text": "after sunset → stayed warm",
+              "role": "object",
+              "note": "日落后仍暖"
+            },
+            {
+              "text": "can pollute",
+              "role": "object",
+              "note": "可能污染"
+            }
+          ],
+          "caption": "名称与动作关系一起核对。"
+        },
+        "transfer": "为什么made of iron里的iron不能理解为一个熨斗？"
+      }
+    }
+  }
+}

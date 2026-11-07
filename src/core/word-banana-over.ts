@@ -1,0 +1,9 @@
+/** Preview above/beside versus an incorrect whole-banana placement, without claiming real peeling. */
+export interface WordBananaOver {title:string;hint:string;wrong:string}
+export interface WordBananaOverView {title:string;hint:string;selected:string;reading:string;visible:boolean;peeling:boolean;left:number;top:number;caption:string;choices:{id:string;label:string;selected:boolean}[]}
+const options=[['over','在桶上方剥皮'],['beside','在桶旁边剥皮'],['inside','把整根香蕉放入桶内']]as const,known=(s:string)=>s===''||options.some(c=>c[0]===s),bounded=(s:unknown,n:number)=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=n
+export function validWordBananaOver(v:unknown):v is WordBananaOver {if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordBananaOver;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordBananaOverKey=(id:string)=>`workshopBananaOver-${id}`
+export const bananaOverMatch=(_w:WordBananaOver,raw:string)=>raw==='over'
+export function changeBananaOver(_w:WordBananaOver,raw:string,action:string):string|undefined {if(action==='reset')return'';if(!known(raw))return undefined;return options.some(c=>c[0]===action)?action:undefined}
+export function wordBananaOverView(w:WordBananaOver,raw:string):WordBananaOverView {const selected=known(raw)?raw:'';return{title:w.title,hint:w.hint,selected,visible:!!selected,peeling:!!selected&&selected!=='inside',left:selected==='beside'?82:40,top:selected==='over'?12:selected==='inside'?98:80,caption:!selected?'还没选择位置':selected==='inside'?'所选解释：整根香蕉放入桶内（不符合原句）':'剥皮位置示意 · 未报告真实完成',reading:!selected?'先比较上方、旁边与放入桶内。':selected==='over'?'对了，over把剥皮动作定位在堆肥桶上方；没有说已经完成。':selected==='beside'?'旁边是beside，不能代替over的上方。':'原句是在桶上方剥皮，不是把整根香蕉放进桶内。',choices:options.map(([id,label])=>({id,label,selected:id===selected}))}}

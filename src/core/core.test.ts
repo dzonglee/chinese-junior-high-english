@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { checkAnswer, selfReviewScore, wordCount } from './answers'
+import { caseOnlyMismatch, checkAnswer, selfReviewScore, wordCount } from './answers'
 import { chinaDate, currentSchoolYear, daysToConfirmedExam, examYear, localGradeLabel } from './cohort'
 import { addMistake, DAY, dueLessonReviews, masteryLabel, redoMistake, reviewWord, updateMastery } from './learning'
 import { checkCurrent, moveQuestion, retryCurrent, saveAnswer, selectQuestions, startExam, startLesson, startSession, submitSession, useHint } from './sessions'
@@ -17,6 +17,8 @@ describe('answer evaluation', () => {
   it('can enforce capitalization where that is the target', () => {
     const item = { ...q, kind: 'correction' as const, answer: { accepted: ['I am ready.'], display: 'I am ready.', caseSensitive: true } }
     expect(checkAnswer(item, 'i am ready.')).toBe(false)
+    expect(caseOnlyMismatch(item, 'i am ready.')).toBe(true); expect(caseOnlyMismatch(item, 'I am ready.')).toBe(false)
+    expect(caseOnlyMismatch(item, 'I is ready.')).toBe(false); expect(caseOnlyMismatch({...item,answer:{...item.answer,caseSensitive:false}}, 'i am ready.')).toBe(false)
   })
   it('requires ordered token identities and rejects malformed input', () => {
     const item = { ...q, kind: 'order' as const, tokens: [{ id: 'i', text: 'I' }, { id: 'a', text: 'am' }], answer: { order: ['i', 'a'], display: 'I am' } }

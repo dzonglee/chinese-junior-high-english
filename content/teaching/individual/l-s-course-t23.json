@@ -1,0 +1,298 @@
+{
+  "lessonId": "l-s-course-t23",
+  "reviewState": "draft",
+  "intent": "Explain original source/date and current local context checks before forwarding an undated image, distinguishing authenticity from current caption accuracy without asserting fake/current status or sender intent.",
+  "picturePurpose": "Coded source/date fields, time/place causal paths and a check-before-decide sequence make evidence gaps exact. An AI flood image would not establish authenticity, date or location.",
+  "workshop": {
+    "kind": "compose",
+    "title": "图片是真的，也要核对“今天”和“本地”",
+    "instruction": "群聊配字说“今天本地洪水”，但照片无日期。先核对原图来源与日期，再比较时间和地点怎样影响判断，最后排清“查证后再决定”的关系。两类查证本身不规定先后，不把未知当作已证实的假消息。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "第一类：原图从哪里来，何时发布",
+        "prompt": "原图来源与日期分别该怎样查？转发次数能代替吗？",
+        "answer": "",
+        "reason": "原图来源与日期两项已明确。转发多不等于有来源，配字写今天也不是原图日期。",
+        "hint": "主情境没有给出照片实际日期、地点或真伪。需要找原图来源、原始或较早发布信息；这里没有实际链接，不假装已经完成查证。",
+        "material": "说2—4句英文。群聊有一张配“今天本地洪水”的无日期照片。说明转发前你要查哪两类信息。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "原图信息 · 来源／日期",
+          "hint": "要找到可核对的信息，不把群聊配字当证据。",
+          "wrong": "原图来源要追溯原始或较早发布信息，日期要查看该来源的时间与相关记录。转发次数、配字今天或看起来新，都不能代替。",
+          "fields": [
+            {
+              "id": "source",
+              "label": "原图来源要查什么？",
+              "answer": "original",
+              "choices": [
+                {
+                  "id": "original",
+                  "label": "The original source or an earlier post that can be checked."
+                },
+                {
+                  "id": "shares",
+                  "label": "Only how many people forwarded the picture."
+                },
+                {
+                  "id": "caption",
+                  "label": "Only the caption added in the group chat."
+                }
+              ]
+            },
+            {
+              "id": "date",
+              "label": "原图日期要怎样核对？",
+              "answer": "record",
+              "choices": [
+                {
+                  "id": "record",
+                  "label": "Check the date given by the original source or relevant records."
+                },
+                {
+                  "id": "today",
+                  "label": "Treat the word today in the new caption as the original date."
+                },
+                {
+                  "id": "looks",
+                  "label": "Guess the date only from how new the image looks."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "第二类：当前、本地是否有相符信息",
+        "prompt": "比较时间与地点两个角度；哪句同时保留当前本地查证？",
+        "answer": "",
+        "reason": "所选角度与理由已配好，当前本地查证没有省掉。真实画面与这次配字是否准确是两件事。",
+        "hint": "可侧重“旧图不代表今天”，也可侧重“别处不代表这里”，但两种都还要查当前本地信息。没有来源日期时，不能断言照片一定旧、一定假或一定就在本地。",
+        "material": "说2—4句英文。群聊有一张配“今天本地洪水”的无日期照片。说明转发前你要查哪两类信息。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "当前本地信息 · 时间／地点",
+          "hint": "换一个理解角度，不是删掉另一项查证。",
+          "wrong": "时间角度提醒旧图不一定代表今天，地点角度提醒别处图不一定代表这里；两者都要查当前本地信息。原图真实不能自动证明新配字的时空。",
+          "fields": [
+            {
+              "id": "focus",
+              "label": "比较哪个理解角度？",
+              "answer": "time",
+              "choices": [
+                {
+                  "id": "time",
+                  "label": "时间：旧图不一定代表今天"
+                },
+                {
+                  "id": "place",
+                  "label": "地点：别处不一定代表这里"
+                }
+              ]
+            },
+            {
+              "id": "reason",
+              "label": "哪句与所选角度一致？",
+              "answer": "time-ok",
+              "choices": [
+                {
+                  "id": "time-ok",
+                  "label": "I would check current local information because a genuine old image may not show what is happening here today."
+                },
+                {
+                  "id": "place-ok",
+                  "label": "I would check current local information because a genuine image from another place may not show what is happening here."
+                },
+                {
+                  "id": "genuine",
+                  "label": "If the image is genuine, its new caption must give the correct time and place."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "focus",
+            "answers": {
+              "time": {
+                "reason": "time-ok"
+              },
+              "place": {
+                "reason": "place-ok"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "先查证，再决定是否转发",
+        "prompt": "把两类核对合在“查证”一步，再排到决定是否转发之前。最后检查目前能确认什么。",
+        "answer": "",
+        "reason": "查证与决定的关系、未知状态和口头形式已核对。接下来实际说2—4句，包含两类信息和理由。",
+        "hint": "原图与当前本地两类核对可以交叉进行，不规定它们之间的先后。这里只排清查证在前、决定在后；查证未清楚时，不当成此时此地消息转发，也不推断发图者故意说谎。",
+        "material": "说2—4句英文。群聊有一张配“今天本地洪水”的无日期照片。说明转发前你要查哪两类信息。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "仍待核实，不添已经查实的结论",
+          "hint": "核对的是转发前要求，不是真实新闻判定。",
+          "wrong": "原题只说明无日期、配字声称今天本地，不能据此认定一定旧、一定假或发图者故意误导。原题要2—4句口头表达，猜结论或只写不说不能代替。",
+          "fields": [
+            {
+              "id": "status",
+              "label": "原题目前能确认什么？",
+              "answer": "unknown",
+              "choices": [
+                {
+                  "id": "unknown",
+                  "label": "The source, date and current local context still need checking."
+                },
+                {
+                  "id": "fake",
+                  "label": "The photograph is definitely fake and the sender deliberately lied."
+                },
+                {
+                  "id": "current",
+                  "label": "The caption proves that the picture shows a flood here today."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题怎样完成？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four sentences naming both kinds of checks and explaining why."
+                },
+                {
+                  "id": "guess",
+                  "label": "Only guess whether the picture is real or fake."
+                },
+                {
+                  "id": "written",
+                  "label": "Write the answer without saying it aloud."
+                }
+              ]
+            }
+          ]
+        },
+        "composeOrder": {
+          "title": "查证 → 再决定是否转发",
+          "hint": "先点核对两类信息，再点决定是否转发；两类核对之间不规定顺序，也不自动执行转发。",
+          "wrong": "要先核对原图来源日期与当前本地信息，再决定是否转发；不能先转发再补查。",
+          "events": [
+            {
+              "id": "decide",
+              "label": "再决定是否转发"
+            },
+            {
+              "id": "check",
+              "label": "核对原图来源日期＋当前本地信息"
+            }
+          ],
+          "sequence": [
+            "check",
+            "decide"
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t23-transfer",
+      "topicId": "s-course-t23",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪份口头回应核对了新配文，又没有凭空断定停课、照片真伪或发图者动机？",
+      "passage": "新的待核实消息｜比较四份实际的三句话回应\n群聊出现一张无日期的雪景（snow）照片，配文称“我们学校（school）今天停课”。没有给出原图来源或日期。请用2—4句英文说明转发前要查的两类信息：原图信息，以及这所学校当前的相关信息。目前并未证实停课，也未证实有人故意误导。",
+      "options": [
+        {
+          "id": "a",
+          "text": "I would check the original source and date of the snow photograph. I would also check current information about this school, because a genuine old image may not show what is happening here today. I would check before deciding whether to share it."
+        },
+        {
+          "id": "b",
+          "text": "The snow photograph is genuine, so our school must be closed today. The new caption proves that it was taken here this morning. I would forward it without checking the original date."
+        },
+        {
+          "id": "c",
+          "text": "Many people have shared the photograph, so I would forward it first. I would look for the original source and date later. I would not check current school information before sharing it."
+        },
+        {
+          "id": "d",
+          "text": "The source and date are missing, so the photograph is definitely fake. The sender deliberately lied about our school. There is no need to check any current information."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "I would check the original source and date of the snow photograph. I would also check current information about this school, because a genuine old image may not show what is happening here today. I would check before deciding whether to share it."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "根据新雪景配文，逐项比较四份实际回应中的查证内容、先后关系和证据范围。",
+        "steps": [
+          {
+            "text": "新配字声称这所学校今天停课；需要原图来源日期和学校当前信息。",
+            "reason": "旧图或别处的真实雪景不能证明这所学校今天停课；转发多也不能代替查证。"
+          },
+          {
+            "text": "查清前不先转发，也不直接说图是假的或发图者故意说谎。",
+            "reason": "未知来源与配字没有核实，不足以建立图像真伪、停课事实或动机结论。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把图像真实直接当成本校今天停课和拍摄时间的证明；这些都没有得到证实。"
+          },
+          {
+            "option": "c",
+            "reason": "把转发放在查证之前，用转发人数代替来源，并省掉学校当前信息。"
+          },
+          {
+            "option": "d",
+            "reason": "从缺少来源日期跳到“图一定假、发图者故意说谎”，超出了现有证据。"
+          }
+        ],
+        "pitfall": "只问照片真不真，却没核对配字说的时间、地点和具体事件。",
+        "visual": {
+          "kind": "comparison",
+          "title": "雪景图 ≠ 本校今天停课",
+          "segments": [
+            {
+              "text": "original source and date",
+              "role": "evidence",
+              "note": "原图信息"
+            },
+            {
+              "text": "current school information",
+              "role": "evidence",
+              "note": "新配字对应的本地事实"
+            },
+            {
+              "text": "check before forwarding",
+              "role": "evidence",
+              "note": "先后关系"
+            },
+            {
+              "text": "unknown ≠ deliberately false",
+              "role": "neutral",
+              "note": "不添真伪与动机结论"
+            }
+          ],
+          "caption": "真实图像和准确配字需要分别核对。"
+        },
+        "transfer": "如果原图确实来自去年，但学校今天是否停课仍未知，你能仅凭原图年份就断言学校今天一定不停课吗？还缺哪类信息？"
+      }
+    }
+  }
+}

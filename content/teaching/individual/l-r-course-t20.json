@@ -1,0 +1,577 @@
+{
+  "lessonId": "l-r-course-t20",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Eight changing record-and-conclusion tasks distinguish fiction, evidence-seeking, unresolved conflicting memories, a later dated record resolving one question, discussion loans versus gifts, separate public-display permission, traceable uncertainty and accurate contribution. Fresh fictional 2010/2012 case separates year confirmation from ungranted display permission.",
+  "picturePurpose": "Exact stacked code figures show the selected record and conclusion changing together. Primary-profile dates remain unknown; only the explicitly fictional transfer supplies 2010/2012. No AI portrait or fabricated historical document stands in for evidence.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "applicationStyle": "cards",
+    "title": "当一回档案志愿者：选记录，再下结论",
+    "instruction": "先读当前问题，选一条能直接回答它的记录，再把结论补完整。换了证据或用途，就重新检查范围。",
+    "conditions": [
+      {
+        "label": "先分清虚构人物与真人资料",
+        "before": "The person in this profile ",
+        "target": "is fictional",
+        "after": ".",
+        "choices": [
+          "is fictional",
+          "is real"
+        ],
+        "reason": "开头直接说fictional，明确这是虚构人物介绍。写了多年工作经历，也不能把课堂虚构人物变成已经核实的真人。",
+        "world": {
+          "kind": "logic",
+          "layout": "stacked",
+          "caption": "哪条原文明确说明Ms Rao是不是现实中的真人？",
+          "records": {
+            "title": "选一条能直接回答本题的原文记录",
+            "missingPrompt": "先点一条原文记录，再核对结论；不能只猜结论。",
+            "answer": "fiction",
+            "options": [
+              {
+                "id": "work",
+                "label": "多年工作",
+                "text": "For many years, Ms Rao helped a neighbourhood group record the stories behind old photographs.",
+                "reason": "多年工作经历也可以出现在虚构故事里，不能单靠过去时或工作年限证明真人身份。",
+                "value": 50
+              },
+              {
+                "id": "fiction",
+                "label": "开头声明",
+                "text": "The person in this profile is fictional.",
+                "reason": "开头直接说fictional，明确这是虚构人物介绍。写了多年工作经历，也不能把课堂虚构人物变成已经核实的真人。",
+                "value": 50
+              },
+              {
+                "id": "patient",
+                "label": "具体贡献",
+                "text": "It was the patient work of checking, asking permission and leaving clear records for the next volunteer.",
+                "reason": "工作内容说明贡献，并没有把虚构人物变成现实人物。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "当前所选的原文依据"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "再核对结论的范围"
+            }
+          ]
+        }
+      },
+      {
+        "label": "不知道时，怎样记录",
+        "before": "When a detail is uncertain, Ms Rao ",
+        "target": "seeks evidence",
+        "after": ".",
+        "choices": [
+          "invents certainty",
+          "seeks evidence"
+        ],
+        "reason": "When she was unsure对应不确定的情境；wrote a question和asked others for evidence说明她把疑问记下来并寻找证据，没有把猜测写成确定事实。",
+        "world": {
+          "kind": "logic",
+          "layout": "stacked",
+          "caption": "哪条记录写出她不确定时实际采取的具体行动？",
+          "records": {
+            "title": "选一条能直接回答本题的原文记录",
+            "missingPrompt": "先点一条原文记录，再核对结论；不能只猜结论。",
+            "answer": "question",
+            "options": [
+              {
+                "id": "dramatic",
+                "label": "不是大发现",
+                "text": "Her contribution was not one dramatic discovery.",
+                "reason": "这句只排除一次戏剧性大发现，没有说明她不确定时具体怎么做。",
+                "value": 50
+              },
+              {
+                "id": "question",
+                "label": "疑问与证据",
+                "text": "When she was unsure, she wrote a question beside the picture and asked other residents whether they had evidence.",
+                "reason": "When she was unsure对应不确定的情境；wrote a question和asked others for evidence说明她把疑问记下来并寻找证据，没有把猜测写成确定事实。",
+                "value": 50
+              },
+              {
+                "id": "work",
+                "label": "多年服务",
+                "text": "For many years, Ms Rao helped a neighbourhood group record the stories behind old photographs.",
+                "reason": "这句介绍长期工作，单独没有回答遇到不确定细节时的处理步骤。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "当前所选的原文依据"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "再核对结论的范围"
+            }
+          ]
+        }
+      },
+      {
+        "label": "两种年份说法并存，先别抢结论",
+        "before": "Before the dated record appears, the year question ",
+        "target": "is still open",
+        "after": ".",
+        "choices": [
+          "is settled",
+          "is still open"
+        ],
+        "reason": "这里限定在带日期资料出现之前。两人记忆不同，Ms Rao保留两种说法；不能按哪个故事更精彩就确定年份。",
+        "world": {
+          "kind": "logic",
+          "layout": "stacked",
+          "caption": "两种回忆出现分歧，后来的带日期资料还没找到。应保留哪种处理记录？",
+          "records": {
+            "title": "选一条能直接回答本题的原文记录",
+            "missingPrompt": "先点一条原文记录，再核对结论；不能只猜结论。",
+            "answer": "both",
+            "options": [
+              {
+                "id": "leaflet",
+                "label": "后来的新资料",
+                "text": "Later, a dated event leaflet helped the group resolve that question.",
+                "reason": "这份资料是后来才出现的，不能提前放进题目限定的阶段。",
+                "value": 50
+              },
+              {
+                "id": "both",
+                "label": "保留两种说法",
+                "text": "Ms Rao kept both accounts instead of choosing the more exciting one.",
+                "reason": "这里限定在带日期资料出现之前。两人记忆不同，Ms Rao保留两种说法；不能按哪个故事更精彩就确定年份。",
+                "value": 50
+              },
+              {
+                "id": "permission",
+                "label": "询问照片许可",
+                "text": "She also asked people whether their photographs could be displayed publicly.",
+                "reason": "照片许可与年份分歧是不同的问题，不能用它确定年份。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "当前所选的原文依据"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "再核对结论的范围"
+            }
+          ]
+        }
+      },
+      {
+        "label": "新资料解决的是哪一个问题",
+        "before": "With the dated record, this year question ",
+        "target": "can be resolved",
+        "after": ".",
+        "choices": [
+          "can be resolved",
+          "stays unresolved"
+        ],
+        "reason": "Later给出新资料，that question回指前面的街庆年份分歧。它解决这一问题，不等于所有照片的人名、日期都已核实。",
+        "world": {
+          "kind": "logic",
+          "layout": "stacked",
+          "caption": "哪份后来的资料帮助解决这次街庆的年份分歧？",
+          "records": {
+            "title": "选一条能直接回答本题的原文记录",
+            "missingPrompt": "先点一条原文记录，再核对结论；不能只猜结论。",
+            "answer": "leaflet",
+            "options": [
+              {
+                "id": "conflict",
+                "label": "两种不同回忆",
+                "text": "In one case, two people remembered different years for the same street celebration.",
+                "reason": "这句说明分歧仍存在，不是后来解决分歧的新资料。",
+                "value": 50
+              },
+              {
+                "id": "permission",
+                "label": "公开展示询问",
+                "text": "She also asked people whether their photographs could be displayed publicly.",
+                "reason": "展示许可不能提供这次街庆的年份证据。",
+                "value": 50
+              },
+              {
+                "id": "leaflet",
+                "label": "有日期的资料",
+                "text": "Later, a dated event leaflet helped the group resolve that question.",
+                "reason": "Later给出新资料，that question回指前面的街庆年份分歧。它解决这一问题，不等于所有照片的人名、日期都已核实。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "当前所选的原文依据"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "再核对结论的范围"
+            }
+          ]
+        }
+      },
+      {
+        "label": "借来讨论，自动变成赠品了吗",
+        "before": "A photo lent for discussion ",
+        "target": "does not become",
+        "after": " a gift automatically.",
+        "choices": [
+          "does not become",
+          "becomes"
+        ],
+        "reason": "lent for a discussion限定借用目的；not automatically a gift否定自动赠送。不能把借来讨论直接改写成把照片送给展览。",
+        "world": {
+          "kind": "logic",
+          "layout": "stacked",
+          "caption": "哪条记录直接说明借用照片与赠送照片的区别？",
+          "records": {
+            "title": "选一条能直接回答本题的原文记录",
+            "missingPrompt": "先点一条原文记录，再核对结论；不能只猜结论。",
+            "answer": "loan",
+            "options": [
+              {
+                "id": "loan",
+                "label": "借用非赠送",
+                "text": "A picture lent for a discussion was not automatically a gift to the exhibition.",
+                "reason": "lent for a discussion限定借用目的；not automatically a gift否定自动赠送。不能把借来讨论直接改写成把照片送给展览。",
+                "value": 50
+              },
+              {
+                "id": "permission",
+                "label": "询问展示",
+                "text": "She also asked people whether their photographs could be displayed publicly.",
+                "reason": "询问能否公开展示与是否赠送是两件事，不能单独用这句确定所有权转移。",
+                "value": 50
+              },
+              {
+                "id": "dramatic",
+                "label": "非单次大发现",
+                "text": "Her contribution was not one dramatic discovery.",
+                "reason": "这句评价贡献，没有说明照片的借用或赠送关系。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "当前所选的原文依据"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "再核对结论的范围"
+            }
+          ]
+        }
+      },
+      {
+        "label": "想公开展示，还要问什么",
+        "before": "Before a public display, the group ",
+        "target": "must ask",
+        "after": " about permission for that use.",
+        "choices": [
+          "need not ask",
+          "must ask"
+        ],
+        "reason": "publicly限定要询问的用途。借来讨论不自动给出公开展示的许可；asked whether只是询问，原文没有把它写成已得到同意。",
+        "world": {
+          "kind": "logic",
+          "layout": "stacked",
+          "caption": "哪条记录显示她询问了公开展示这一具体用途？",
+          "records": {
+            "title": "选一条能直接回答本题的原文记录",
+            "missingPrompt": "先点一条原文记录，再核对结论；不能只猜结论。",
+            "answer": "permission",
+            "options": [
+              {
+                "id": "permission",
+                "label": "询问公开展示",
+                "text": "She also asked people whether their photographs could be displayed publicly.",
+                "reason": "publicly限定要询问的用途。借来讨论不自动给出公开展示的许可；asked whether只是询问，原文没有把它写成已得到同意。",
+                "value": 50
+              },
+              {
+                "id": "conflict",
+                "label": "年份记忆不同",
+                "text": "In one case, two people remembered different years for the same street celebration.",
+                "reason": "这是事实核查的问题，不是照片公开展示的许可。",
+                "value": 50
+              },
+              {
+                "id": "loan",
+                "label": "借来讨论",
+                "text": "A picture lent for a discussion was not automatically a gift to the exhibition.",
+                "reason": "借用范围不能代替对公开展示用途的明确询问。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "当前所选的原文依据"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "再核对结论的范围"
+            }
+          ]
+        }
+      },
+      {
+        "label": "下一位志愿者怎样接着做",
+        "before": "Clear records, including uncertain claims, help the next volunteer ",
+        "target": "trace the claims",
+        "after": ".",
+        "choices": [
+          "invent the facts",
+          "trace the claims"
+        ],
+        "reason": "how each claim had been reached说明能追溯判断过程；including保留了尚不确定的内容。接着工作不是假装所有问题都已解决。",
+        "world": {
+          "kind": "logic",
+          "layout": "stacked",
+          "caption": "哪条记录直接解释为什么后来的人能接着这项工作做下去？",
+          "records": {
+            "title": "选一条能直接回答本题的原文记录",
+            "missingPrompt": "先点一条原文记录，再核对结论；不能只猜结论。",
+            "answer": "trace",
+            "options": [
+              {
+                "id": "recall",
+                "label": "未声称全记得",
+                "text": "She did not claim to remember every name or date.",
+                "reason": "承认记忆有限是坦诚，但这句单独没有说明后来的人如何追溯判断过程。",
+                "value": 50
+              },
+              {
+                "id": "leaflet",
+                "label": "这次年份已定",
+                "text": "Later, a dated event leaflet helped the group resolve that question.",
+                "reason": "只解决一次分歧，不等于说明所有记录为什么可以追溯。",
+                "value": 50
+              },
+              {
+                "id": "trace",
+                "label": "保留判断过程",
+                "text": "The group could build on her work because it could see how each claim had been reached, including the ones that remained uncertain.",
+                "reason": "how each claim had been reached说明能追溯判断过程；including保留了尚不确定的内容。接着工作不是假装所有问题都已解决。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "当前所选的原文依据"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "再核对结论的范围"
+            }
+          ]
+        }
+      },
+      {
+        "label": "写贡献，写具体工作",
+        "before": "An account of her contribution should ",
+        "target": "describe the work",
+        "after": ".",
+        "choices": [
+          "describe the work",
+          "exaggerate it"
+        ],
+        "reason": "checking、asking permission和leaving clear records列出真实的具体工作。评价贡献要把这些工作写准确，不能为了显得了不起就编造显赫成就。",
+        "world": {
+          "kind": "logic",
+          "layout": "stacked",
+          "caption": "哪条原文列出介绍她贡献时应该具体写的工作？",
+          "records": {
+            "title": "选一条能直接回答本题的原文记录",
+            "missingPrompt": "先点一条原文记录，再核对结论；不能只猜结论。",
+            "answer": "patient",
+            "options": [
+              {
+                "id": "fiction",
+                "label": "人物是虚构的",
+                "text": "The person in this profile is fictional.",
+                "reason": "虚构声明提醒作品性质，但没有列出人物所做的具体工作。",
+                "value": 50
+              },
+              {
+                "id": "patient",
+                "label": "核查等工作",
+                "text": "It was the patient work of checking, asking permission and leaving clear records for the next volunteer.",
+                "reason": "checking、asking permission和leaving clear records列出真实的具体工作。评价贡献要把这些工作写准确，不能为了显得了不起就编造显赫成就。",
+                "value": 50
+              },
+              {
+                "id": "dramatic",
+                "label": "非单次大发现",
+                "text": "Her contribution was not one dramatic discovery.",
+                "reason": "这句排除一种夸张概括，却没有列出她实际做的三类工作。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "当前所选的原文依据"
+            },
+            {
+              "label": "@attempt",
+              "role": "attempt-result",
+              "detail": "再核对结论的范围"
+            }
+          ]
+        }
+      }
+    ],
+    "choices": [
+      "is fictional",
+      "is real",
+      "invents certainty",
+      "seeks evidence",
+      "is settled",
+      "is still open",
+      "can be resolved",
+      "stays unresolved",
+      "does not become",
+      "becomes",
+      "need not ask",
+      "must ask",
+      "invent the facts",
+      "trace the claims",
+      "describe the work",
+      "exaggerate it"
+    ],
+    "items": [
+      {
+        "id": "traceable-records",
+        "label": "让结论跟着证据走",
+        "prompt": "Choose a record, then a conclusion.",
+        "answer": "",
+        "reason": "结论必须符合所选记录与当前问题。",
+        "hint": "区分事实核查、使用许可与贡献评价。"
+      }
+    ],
+    "applicationIds": [
+      "q-r-course-t20-1-2",
+      "q-r-course-t20-1-3"
+    ],
+    "transfer": {
+      "id": "individual-r-course-t20-transfer",
+      "topicId": "r-course-t20",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 3,
+      "grades": [
+        9
+      ],
+      "stem": "Which combination keeps the year evidence and the photograph permission separate?",
+      "passage": "A FICTIONAL HISTORY-CLUB CASE\nTwo residents give different years for the same street celebration: 2010 and 2012. Xu records both memories. The group later finds an event leaflet that explicitly gives 2012 as the year of that same celebration. This settles that year question; it does not settle every unknown date. A photograph has been lent only for a group discussion. Its owner has not given permission for a public display. Xu records the use limit beside the photograph.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The celebration was in 2010 because the older memory should always win; public-display permission is still needed."
+        },
+        {
+          "id": "b",
+          "text": "The celebration year is supported as 2012, but the group still needs permission before publicly displaying the borrowed photograph."
+        },
+        {
+          "id": "c",
+          "text": "The celebration year is supported as 2012, so the borrowed photograph may automatically be displayed publicly."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The celebration year is supported as 2012, but the group still needs permission before publicly displaying the borrowed photograph."
+      },
+      "marks": 2,
+      "estimatedSeconds": 115,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先用对应同一事件的新资料解决年份，再单独检查照片的用途许可。",
+        "steps": [
+          {
+            "text": "两种回忆是2010与2012；后来的资料明确把同一次街庆定在2012。",
+            "reason": "答案来自对应事件的日期资料，不是因为某个年份更早、讲述者更受欢迎，或故事更精彩。"
+          },
+          {
+            "text": "照片只借作小组讨论，所有者还没有同意公开展示。",
+            "reason": "核实年份不会自动改变照片用途许可；组合选项两部分都要符合原文。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "保留需要许可这一点，却无依据地让较早年份优先，忽略明确指向同一事件的2012资料。"
+          },
+          {
+            "option": "c",
+            "reason": "年份判断正确，却把事实核实扩大成照片可自动公开展示，混淆证据与许可。"
+          }
+        ],
+        "pitfall": "解决一个事实问题，不等于解决全部未知信息，也不等于获得另一种使用许可。",
+        "visual": {
+          "kind": "evidence",
+          "title": "年份已核实，展示许可另查",
+          "segments": [
+            {
+              "text": "Memories: 2010 / 2012",
+              "role": "neutral",
+              "note": "先保留分歧"
+            },
+            {
+              "text": "Same event → 2012",
+              "role": "evidence",
+              "note": "新资料明确支持"
+            },
+            {
+              "text": "Discussion loan only",
+              "role": "evidence",
+              "note": "照片借用范围"
+            },
+            {
+              "text": "Public display: not permitted yet",
+              "role": "object",
+              "note": "仍需另问许可"
+            }
+          ],
+          "caption": "这是原创虚构案例；2012只对应这一事件，不能顺带补出展示许可。"
+        },
+        "transfer": "如果后来核实了另一张照片的人名，这能自动证明街庆的全部日期或改变照片的展示许可吗？分别还缺什么依据？"
+      }
+    }
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "lessonId": "l-s-course-t19",
+  "reviewState": "draft",
+  "intent": "Explain one own or fictional family custom object and its meaning without treating a family experience as universal.",
+  "picturePurpose": "Original optional paper keepsake makes the object observable; its meaning and family scope remain in exact text, never inferred from visual symbols.",
+  "workshop": {
+    "kind": "compose",
+    "title": "讲一个物品的家庭故事，不替所有人下结论",
+    "instruction": "先说清你介绍的物品，再把它与这个家庭的经历联系起来，最后限定范围。纸装饰只是原创示例；可以选自己的或虚构家庭的其他物品，不必透露真实身份。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "物品看得见，家庭意义要讲出来",
+        "prompt": "观察原创纸星示例。哪项是画面可核对的物品？哪些信息需要家庭故事来说明？",
+        "answer": "",
+        "reason": "物品与意义来源已分清。原题允许其他物品，不要求你的家也有纸星。",
+        "hint": "纸星只是一个可选的纸装饰示例，不是任何地区的统一习俗。图片看不出家庭身份、庆祝日期或保存它的原因；这些要在自己的故事里说明。",
+        "material": "说2—4句英文。介绍一次家庭习俗分享：你只讲自己家怎样庆祝，不代表整个地方。说明一个物品及其意义。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "物品 → 故事信息",
+          "hint": "先区分能看见的东西与需要讲述的意义。",
+          "wrong": "本图是纸装饰，不是玻璃花瓶或布围巾。画面本身不能证明谁制作、何时庆祝或全镇习惯；意义来自清楚限定的家庭故事。",
+          "fields": [
+            {
+              "id": "object",
+              "label": "本图的示例物品是什么？",
+              "answer": "paper",
+              "choices": [
+                {
+                  "id": "paper",
+                  "label": "A small paper decoration."
+                },
+                {
+                  "id": "vase",
+                  "label": "A glass vase."
+                },
+                {
+                  "id": "scarf",
+                  "label": "A cloth scarf."
+                }
+              ]
+            },
+            {
+              "id": "evidence",
+              "label": "家庭意义应从哪里说明？",
+              "answer": "story",
+              "choices": [
+                {
+                  "id": "story",
+                  "label": "From the particular family story being shared."
+                },
+                {
+                  "id": "colour",
+                  "label": "From the colour alone, without any story."
+                },
+                {
+                  "id": "town",
+                  "label": "By assuming every family in the town does the same."
+                }
+              ]
+            }
+          ]
+        },
+        "composeArt": {
+          "asset": "lesson-family-keepsake",
+          "assetRoot": "illustrations-6",
+          "format": "jpg",
+          "alt": "原创可选示例：一枚完整的蓝紫色手工纸星与短挂环放在小架上；没有人物或国家标志。",
+          "caption": "纸装饰是可选示例，不代表所有家庭。图片只能说明物品外观，不能证明家庭记忆或习俗范围。"
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "物品与意义要对得上",
+        "prompt": "比较两个明确标为虚构的家庭例子，为所选物品配上相符的共同记忆。",
+        "answer": "",
+        "reason": "所选虚构物品与共同记忆已配好。不能把另一家的经历拼进这一家，也不只说它很漂亮。",
+        "hint": "例A保存一起做的纸装饰，例B保存一起编的手环。它们只是比较例，不是你必须选的物品或经历；换其他物品时，要讲清它对那个家庭的具体意义。",
+        "material": "说2—4句英文。介绍一次家庭习俗分享：你只讲自己家怎样庆祝，不代表整个地方。说明一个物品及其意义。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "两个虚构例子 · 物品与共同记忆",
+          "hint": "先选例子，再配对应的意义；自己的例子可以不同。",
+          "wrong": "纸装饰例对应一起制作的时间，手环例对应一起编织的时间。外观好看不能替代题目要求的家庭意义；也不能说全国都必须保留同一物品。",
+          "fields": [
+            {
+              "id": "example",
+              "label": "比较哪个虚构家庭例子？",
+              "answer": "paper",
+              "choices": [
+                {
+                  "id": "paper",
+                  "label": "例A：一起做的纸装饰"
+                },
+                {
+                  "id": "bracelet",
+                  "label": "例B：一起编的手环"
+                }
+              ]
+            },
+            {
+              "id": "meaning",
+              "label": "哪句说明所选例子的家庭意义？",
+              "answer": "paper-ok",
+              "choices": [
+                {
+                  "id": "paper-ok",
+                  "label": "The paper decoration reminds this family of making it together."
+                },
+                {
+                  "id": "bracelet-ok",
+                  "label": "The bracelet reminds this family of weaving it together."
+                },
+                {
+                  "id": "national",
+                  "label": "Every family in the country must keep this object."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "example",
+            "answers": {
+              "paper": {
+                "meaning": "paper-ok"
+              },
+              "bracelet": {
+                "meaning": "bracelet-ok"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "限定一家经历，不否定它的价值",
+        "prompt": "选出既保留家庭故事、又不替所有人下结论的表述，再核对口头任务形式。",
+        "answer": "",
+        "reason": "范围与口头形式已核对。接下来实际说2—4句，包含物品、意义与范围。",
+        "hint": "可以说In my family或In this invented family。Other families may differ不是说这家经历不值得讲；原题只要求说明自己的庆祝经验，不代表整个地方。",
+        "material": "说2—4句英文。介绍一次家庭习俗分享：你只讲自己家怎样庆祝，不代表整个地方。说明一个物品及其意义。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "本家庭经验 ≠ 全地区规定",
+          "hint": "保留具体故事，同时承认别家可能不同。",
+          "wrong": "一家经历不能自动变成全镇或全国规定，但也不必因不能推广就删掉故事。原题要2—4句口头表达，物品名称清单或只写不说不能代替。",
+          "fields": [
+            {
+              "id": "scope",
+              "label": "哪句范围合适？",
+              "answer": "family",
+              "choices": [
+                {
+                  "id": "family",
+                  "label": "This is one family example; other families may have different customs."
+                },
+                {
+                  "id": "all",
+                  "label": "Every family in the town celebrates in exactly this way."
+                },
+                {
+                  "id": "none",
+                  "label": "This family story is worthless because it is not universal."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题怎样完成？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four sentences naming an object, its family meaning and the scope."
+                },
+                {
+                  "id": "list",
+                  "label": "Only list the names of several objects."
+                },
+                {
+                  "id": "written",
+                  "label": "Write the answer without saying it aloud."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t19-transfer",
+      "topicId": "s-course-t19",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪份口头表达说清物品和家庭意义，而且没有把一家经历推广为全镇习惯？",
+      "passage": "新家庭故事｜根据要点说2—4句英文\n一家虚构家庭在生日庆祝后保留一枚手工徽章（badge），因为它让大家想起一起制作的时光。请说清物品、家庭意义和适用范围。这只是这一家的经历（one family），并不代表全镇每一家。",
+      "options": [
+        {
+          "id": "a",
+          "text": "In this invented family, we keep a handmade badge after a birthday celebration. It reminds us of making it together. Other families may celebrate differently."
+        },
+        {
+          "id": "b",
+          "text": "In this invented family, we keep a handmade badge after a birthday celebration. It reminds us of making it together. Every family in the town must do exactly the same."
+        },
+        {
+          "id": "c",
+          "text": "This family keeps a handmade badge after a birthday celebration. The badge is an object. Other families may celebrate differently."
+        },
+        {
+          "id": "d",
+          "text": "This family keeps a handmade badge after a birthday celebration. It reminds them of making it together. They should not share this story because it does not represent every family."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "In this invented family, we keep a handmade badge after a birthday celebration. It reminds us of making it together. Other families may celebrate differently."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "换成新物品，把意义与具体家庭经历相连，再限定范围。",
+        "steps": [
+          {
+            "text": "正确表达先说明生日后保留手工徽章，再用reminds us of making it together解释家庭意义。",
+            "reason": "不能只讲颜色，也不要照搬纸装饰或手环。"
+          },
+          {
+            "text": "这是一家虚构家庭的经历，别家可能有不同庆祝方式。",
+            "reason": "不能推广为全镇规定，也不必因不能代表所有人就否定故事。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把一家经历推广为全镇必须遵守的规定。"
+          },
+          {
+            "option": "c",
+            "reason": "说了物品和范围，却没有解释徽章让这家人想起共同制作的时光，遗漏家庭意义。"
+          },
+          {
+            "option": "d",
+            "reason": "不能推广不等于不能分享这个家庭的经历。"
+          }
+        ],
+        "pitfall": "把个人家庭故事说成地区统一习惯，或只说物品好看却不讲意义。",
+        "visual": {
+          "kind": "comparison",
+          "title": "徽章 → 共同制作的回忆 → 一家经验",
+          "segments": [
+            {
+              "text": "handmade birthday badge",
+              "role": "evidence",
+              "note": "新物品"
+            },
+            {
+              "text": "time spent making it together",
+              "role": "evidence",
+              "note": "家庭意义"
+            },
+            {
+              "text": "this invented family",
+              "role": "evidence",
+              "note": "范围"
+            },
+            {
+              "text": "other families may differ",
+              "role": "neutral",
+              "note": "不推广成统一习惯"
+            }
+          ],
+          "caption": "具体经历可以分享，结论范围要跟证据一致。"
+        },
+        "transfer": "如果换成一张家庭照片，你要补充什么具体回忆，才能不只说“这张照片很好看”？"
+      }
+    }
+  }
+}

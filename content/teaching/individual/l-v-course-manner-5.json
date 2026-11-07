@@ -1,0 +1,552 @@
+{
+  "lessonId": "l-v-course-manner-5",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks distinguish speaker-relative locations, future plans, ordered actions, current states, action counts and sustained/separated positions.",
+  "picturePurpose": "Original workshop picture locates baskets beside the speaker; exact coded sequencing and action-count controls teach relations without invented measurements.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "找位置、排先后、数次数",
+    "instruction": "先找到说话者身旁的位置，再排动作顺序，把一次、两次和之前的条件一起做对。",
+    "items": [
+      {
+        "id": "here",
+        "label": "here：here以谁的位置为参照？",
+        "prompt": "here以谁的位置为参照？",
+        "answer": "here",
+        "meaning": "这里；在这里",
+        "material": "Put the empty baskets here beside me.",
+        "before": "Put the empty baskets ",
+        "after": " beside me.",
+        "reason": "here指这里，beside me进一步说明在说话者身旁。Put提出放置要求，不能读成已经完成。here是地点副词，这里不加to。先在图中找到标为说话者的人，再判断哪边是其身旁。",
+        "hint": "here beside me；不用to here。",
+        "wordDecision": {
+          "prompt": "蓝衣人物是说话者。点选here beside me所指的位置。",
+          "art": {
+            "asset": "lesson-baskets-beside-speaker",
+            "assetRoot": "illustrations-5",
+            "format": "jpg",
+            "alt": "虚构工作室：左侧蓝衣说话者旁有空篮，另一个空篮在右侧较远处。只比较位置，不表示指令已完成。",
+            "targets": [
+              {
+                "id": "near-zone",
+                "option": "near",
+                "label": "身旁",
+                "left": 12,
+                "top": 56,
+                "width": 26,
+                "height": 34
+              },
+              {
+                "id": "far-zone",
+                "option": "far",
+                "label": "远处",
+                "left": 70,
+                "top": 56,
+                "width": 24,
+                "height": 34
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "near",
+            "text": "Put the empty baskets at the speaker’s side.",
+            "correct": true,
+            "reason": "here beside me指说话者身旁。"
+          },
+          {
+            "id": "far",
+            "text": "Put the baskets far away from the speaker.",
+            "correct": false,
+            "reason": "反转here beside me。"
+          }
+        ]
+      },
+      {
+        "id": "there",
+        "label": "there：there说的是何时在哪儿见面？",
+        "prompt": "there说的是何时在哪儿见面？",
+        "answer": "there",
+        "meaning": "那里；在那儿",
+        "material": "We will meet there after the tour.",
+        "before": "We will meet ",
+        "after": " after the tour.",
+        "reason": "there在这里表示那里，作meet的地点状语；will meet说明将来计划，after the tour说明参观之后。不要写成表示他们的的their，也不要补出原句没给出的地点名称。",
+        "hint": "meet there；will；after the tour。",
+        "wordDecision": {
+          "prompt": "there说的是何时在哪儿见面？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "参观之后在那里见面",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "later",
+                "label": "计划参观之后在那里见面",
+                "text": "We will meet there after the tour.",
+                "include": true
+              },
+              {
+                "id": "before",
+                "label": "参观之前已经在那里见过面",
+                "text": "We met there before the tour.",
+                "include": false
+              },
+              {
+                "id": "named",
+                "label": "原句说出了确切地点名称",
+                "text": "The sentence names the exact place.",
+                "include": false
+              }
+            ],
+            "hint": "保留将来、那里和参观之后。",
+            "wrong": "选参观后的见面计划，不改时间或补地名。"
+          }
+        },
+        "options": [
+          {
+            "id": "later",
+            "text": "We plan to meet at that place after the tour.",
+            "correct": true,
+            "reason": "will与after保留将来和参观之后。"
+          },
+          {
+            "id": "before",
+            "text": "We met at that place before the tour.",
+            "correct": false,
+            "reason": "改变了将来时和after。"
+          },
+          {
+            "id": "named",
+            "text": "The sentence names the exact meeting place.",
+            "correct": false,
+            "reason": "there指那里，但这句话没有给出地点名称。"
+          }
+        ]
+      },
+      {
+        "id": "then",
+        "label": "then：then怎样连接两个动作？",
+        "prompt": "then怎样连接两个动作？",
+        "answer": "then",
+        "meaning": "然后；那时",
+        "material": "Fold the paper, then press the edge firmly.",
+        "before": "Fold the paper, ",
+        "after": " press the edge firmly.",
+        "reason": "then在这里表示然后。两个祈使句按先折纸、再用力压边的顺序连接；不能颠倒，也不能把要求读成已完成。firmly修饰press。",
+        "hint": "先fold，再press；指令不是已完成。",
+        "wordDecision": {
+          "prompt": "then怎样连接两个动作？",
+          "processOrder": {
+            "title": "按原句排好先后",
+            "hint": "按原句点选两个动作；不需要真的折纸。",
+            "wrong": "then要求先折纸，再用力压边；不能倒过来。",
+            "events": [
+              {
+                "id": "press",
+                "label": "用力压边"
+              },
+              {
+                "id": "fold",
+                "label": "折纸"
+              }
+            ],
+            "sequence": [
+              "fold",
+              "press"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "order",
+            "text": "Fold the paper first and press the edge firmly next.",
+            "correct": true,
+            "reason": "then保留先折再压的顺序。"
+          },
+          {
+            "id": "reverse",
+            "text": "Press the edge first and fold the paper next.",
+            "correct": false,
+            "reason": "反转then连接的顺序。"
+          },
+          {
+            "id": "done",
+            "text": "The paper has already been folded and pressed.",
+            "correct": false,
+            "reason": "指令不是报告完成。"
+          }
+        ]
+      },
+      {
+        "id": "now",
+        "label": "now：now评价的是哪个时间？",
+        "prompt": "now评价的是哪个时间？",
+        "answer": "now",
+        "meaning": "现在",
+        "material": "The path is safe to use now.",
+        "before": "The path is safe to use ",
+        "after": ".",
+        "reason": "now表示现在，限定这条路此刻可用的状态。它没有保证将来在任何情况下都安全，也没有说明过去一直如何。不要把当前状态扩大成永久结论。",
+        "hint": "safe to use now；不补永久保证。",
+        "wordDecision": {
+          "prompt": "now评价的是哪个时间？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这条路现在可以安全使用",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "now",
+                "label": "这条路此刻可以安全使用",
+                "text": "The path is safe to use now.",
+                "include": true
+              },
+              {
+                "id": "forever",
+                "label": "这条路将来任何情况下都永久安全",
+                "text": "The path will always be safe.",
+                "include": false
+              },
+              {
+                "id": "never",
+                "label": "这条路从来不能安全使用",
+                "text": "The path has never been safe to use.",
+                "include": false
+              }
+            ],
+            "hint": "保留这条路和现在，不扩展到所有时间。",
+            "wrong": "选当前状态，不补永远安全或反转意思。"
+          }
+        },
+        "options": [
+          {
+            "id": "now",
+            "text": "The path is safe to use at the present time.",
+            "correct": true,
+            "reason": "now限定当前状态。"
+          },
+          {
+            "id": "forever",
+            "text": "The path will always be safe in every future situation.",
+            "correct": false,
+            "reason": "把现在扩大成永久保证。"
+          },
+          {
+            "id": "never",
+            "text": "The path has never been safe to use.",
+            "correct": false,
+            "reason": "反转当前安全的陈述。"
+          }
+        ]
+      },
+      {
+        "id": "once",
+        "label": "once：once在这里表示次数还是曾经？",
+        "prompt": "once在这里表示次数还是曾经？",
+        "answer": "once",
+        "meaning": "一次；曾经",
+        "material": "Read the instructions once before starting.",
+        "before": "Read the instructions ",
+        "after": " before starting.",
+        "reason": "once在这里表示一次，修饰Read；before starting要求先读再开始。once也能表示曾经，但这句是祈使句，不能套成过去经历；原句也没有说每天一次。",
+        "hint": "one time；before starting；不是once a day。",
+        "wordDecision": {
+          "prompt": "once在这里表示次数还是曾经？",
+          "actionCount": {
+            "title": "把次数和先后都做对",
+            "hint": "在示意中点出动作次数，再核对动作发生在开始之前还是之后。",
+            "wrong": "次数要符合once，而且必须在开始之前。",
+            "target": 1,
+            "actionLabel": "读说明",
+            "boundaryLabel": "开始"
+          }
+        },
+        "options": [
+          {
+            "id": "one",
+            "text": "Read the instructions one time before you start.",
+            "correct": true,
+            "reason": "once在这里表示一次，保留开始之前。"
+          },
+          {
+            "id": "past",
+            "text": "The sentence only reports that you read them long ago.",
+            "correct": false,
+            "reason": "这里是指令，不是once表曾经的过去叙述。"
+          },
+          {
+            "id": "after",
+            "text": "Read the instructions twice after starting.",
+            "correct": false,
+            "reason": "同时改了次数和先后。"
+          }
+        ]
+      },
+      {
+        "id": "twice",
+        "label": "twice：twice核对几次，何时发送？",
+        "prompt": "twice核对几次，何时发送？",
+        "answer": "twice",
+        "meaning": "两次；两倍",
+        "material": "Check the total twice before sending the order.",
+        "before": "Check the total ",
+        "after": " before sending the order.",
+        "reason": "twice在这里表示两次，修饰Check；before sending the order要求发送前核对。它不是twice as much，不要求把总额变为两倍，也不是发送后再查。",
+        "hint": "two times；before sending；不是金额翻倍。",
+        "wordDecision": {
+          "prompt": "twice核对几次，何时发送？",
+          "actionCount": {
+            "title": "把次数和先后都做对",
+            "hint": "在示意中点出动作次数，再核对动作发生在发送订单之前还是之后。",
+            "wrong": "次数要符合twice，而且必须在发送订单之前。",
+            "target": 2,
+            "actionLabel": "核对总额",
+            "boundaryLabel": "发送订单"
+          }
+        },
+        "options": [
+          {
+            "id": "two",
+            "text": "Check the total two times before sending the order.",
+            "correct": true,
+            "reason": "twice在这里表示两次，before保留先核对后发送。"
+          },
+          {
+            "id": "double",
+            "text": "Make the total twice as large and then send the order.",
+            "correct": false,
+            "reason": "两次核对不是把金额翻倍。"
+          },
+          {
+            "id": "after",
+            "text": "Check the total only once after sending the order.",
+            "correct": false,
+            "reason": "反转时间并把两次改成一次。"
+          }
+        ]
+      },
+      {
+        "id": "together",
+        "label": "together：together要保持到什么时候？",
+        "prompt": "together要保持到什么时候？",
+        "answer": "together",
+        "meaning": "一起；共同",
+        "material": "Hold the two pieces together until the glue sets.",
+        "before": "Hold the two pieces ",
+        "after": " until the glue sets.",
+        "reason": "together表示在一起，Hold要求保持这种状态；until the glue sets说明一直保持到胶凝固。不能把两片分开，也不能提前放手。原句没说胶已经凝固，也没有给出等待分钟数。",
+        "hint": "hold together；until；不补分钟数。",
+        "wordDecision": {
+          "prompt": "together要保持到什么时候？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "两片保持在一起直到胶凝固",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "until",
+                "label": "要求保持两片在一起直到胶凝固",
+                "text": "Hold the two pieces together until the glue sets.",
+                "include": true
+              },
+              {
+                "id": "apart",
+                "label": "要求两片分开直到胶凝固",
+                "text": "Hold the pieces apart until the glue sets.",
+                "include": false
+              },
+              {
+                "id": "early",
+                "label": "要求胶未凝固就提前放开",
+                "text": "Let go before the glue sets.",
+                "include": false
+              }
+            ],
+            "hint": "保留在一起与until条件。",
+            "wrong": "选保持在一起直到凝固，不分开或提前结束。"
+          }
+        },
+        "options": [
+          {
+            "id": "until",
+            "text": "Keep the two pieces together until the glue sets.",
+            "correct": true,
+            "reason": "together保留贴在一起，until保留持续条件。"
+          },
+          {
+            "id": "apart",
+            "text": "Keep the two pieces apart until the glue sets.",
+            "correct": false,
+            "reason": "反转together。"
+          },
+          {
+            "id": "early",
+            "text": "Let go before the glue sets.",
+            "correct": false,
+            "reason": "漏掉until的持续要求。"
+          }
+        ]
+      },
+      {
+        "id": "apart",
+        "label": "apart：apart有没有说贴在一起？",
+        "prompt": "apart有没有说贴在一起？",
+        "answer": "apart",
+        "meaning": "分开；相距",
+        "material": "Keep the two magnets a few centimetres apart.",
+        "before": "Keep the two magnets a few centimetres ",
+        "after": ".",
+        "reason": "apart表示相隔、分开，a few centimetres说明相距几厘米。这里没有指定准确的厘米数，不能擅自改成三厘米；也不能把相隔变成紧贴。不要把屏幕上的距离当成实际厘米尺。",
+        "hint": "a few centimetres apart；没有精确数字。",
+        "wordDecision": {
+          "prompt": "apart有没有说贴在一起？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "两块磁铁相隔几厘米",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "gap",
+                "label": "要求两块磁铁分开几厘米",
+                "text": "Keep the two magnets a few centimetres apart.",
+                "include": true
+              },
+              {
+                "id": "touch",
+                "label": "要求两块磁铁互相紧贴",
+                "text": "Keep the two magnets touching.",
+                "include": false
+              },
+              {
+                "id": "exact",
+                "label": "规定两块磁铁必须恰好相隔三厘米",
+                "text": "Keep the magnets exactly three centimetres apart.",
+                "include": false
+              }
+            ],
+            "hint": "保留相隔和几厘米，不补精确数字。",
+            "wrong": "选相隔几厘米，不改成紧贴或准确三厘米。"
+          }
+        },
+        "options": [
+          {
+            "id": "gap",
+            "text": "Keep a small gap of a few centimetres between the magnets.",
+            "correct": true,
+            "reason": "apart保留分开，a few centimetres保留大致量级。"
+          },
+          {
+            "id": "touch",
+            "text": "Keep the two magnets touching each other.",
+            "correct": false,
+            "reason": "反转apart。"
+          },
+          {
+            "id": "exact",
+            "text": "The sentence specifies an exact distance of three centimetres.",
+            "correct": false,
+            "reason": "a few没有给出精确数字三。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-manner-5-transfer",
+      "topicId": "v-course-manner",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes follow the workshop instructions?",
+      "passage": "Getting ready for the craft fair\nAt the school workshop, our guide stood by the counter. \"Put the empty baskets here beside me,\" the guide said. We discussed where to meet after our tour, and the guide added, \"We will meet there after the tour.\"\nOur group prepared folded labels. The first instruction was \"Read the instructions once before starting.\" The next line said, \"Fold the paper, then press the edge firmly.\" While two classmates made labels, I prepared an order for more materials. My checklist said, \"Check the total twice before sending the order.\"\nAt the next table, we read two model-making instructions: \"Hold the two pieces together until the glue sets\" and \"Keep the two magnets a few centimetres apart.\" On our way out, the guide checked the path and said it was safe to use now.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fold first, then press; check the total twice before sending; keep the pieces together until the glue sets."
+        },
+        {
+          "id": "b",
+          "text": "Press first, then fold; check the total twice before sending; keep the pieces together until the glue sets."
+        },
+        {
+          "id": "c",
+          "text": "Fold first, then press; double the total before sending; keep the pieces together until the glue sets."
+        },
+        {
+          "id": "d",
+          "text": "Fold first, then press; check the total twice after sending; let go before the glue sets."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Fold first, then press; check the total twice before sending; keep the pieces together until the glue sets."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对动作顺序、次数与持续到何时。",
+        "steps": [
+          {
+            "text": "then连接先折纸、再用力压边。",
+            "reason": "不能颠倒两个动作。"
+          },
+          {
+            "text": "twice是核对两次，before是发送之前；until要求保持到胶凝固。",
+            "reason": "不是金额翻倍，也不能发送后才查或提前放手。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把先折纸再压边颠倒了。"
+          },
+          {
+            "option": "c",
+            "reason": "把核对两次误读成把总额翻倍。"
+          },
+          {
+            "option": "d",
+            "reason": "把发送之前改成之后，并删掉保持到胶凝固的要求。"
+          }
+        ],
+        "pitfall": "只认出单词，却漏看先后、次数或until。",
+        "visual": {
+          "kind": "timeline",
+          "title": "顺序、次数、终点",
+          "segments": [
+            {
+              "text": "fold → press",
+              "role": "object",
+              "note": "先折再压"
+            },
+            {
+              "text": "check × 2 → send",
+              "role": "object",
+              "note": "核对两次再发送"
+            },
+            {
+              "text": "hold until sets",
+              "role": "object",
+              "note": "保持到胶凝固"
+            }
+          ],
+          "caption": "按原句保留动作之间的关系。"
+        },
+        "transfer": "为什么apart不能理解为两块磁铁紧贴？"
+      }
+    }
+  }
+}

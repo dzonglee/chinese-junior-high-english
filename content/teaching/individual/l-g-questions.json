@@ -1,0 +1,560 @@
+{
+  "lessonId": "l-g-questions",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Distinguish frequency/duration/distance, construct tags from polarity/auxiliary/reference including never and standard special forms, and answer a negative tag according to the actual fact.",
+  "picturePurpose": "The coded five-day calendar supplies actual repeated-day evidence and requires selecting all walking days. The inspected original class photo requires plural-reference selection. Duration, distance and preferences are explicit written facts, never inferred from a still picture.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先看回答，再核对怎样问",
+    "instruction": "分清频率、时长和距离；附加问句再检查肯否、助动词与代词。",
+    "conditions": [
+      {
+        "label": "看重复次数，不看一趟多久",
+        "before": "",
+        "target": "How often",
+        "after": " do the friends walk to school? — Three days a week.",
+        "choices": [
+          "How long",
+          "How often",
+          "How far"
+        ],
+        "reason": "Three days a week 回答一周重复几次，用 How often；How long 问时长，How far 问距离。",
+        "world": {
+          "kind": "calendar",
+          "caption": "这几位同学每周周一到周五上学，每趟步行15分钟。这次先圈出步行日，再判断问法。",
+          "selection": {
+            "prompt": "圈出所有步行上学的日子。",
+            "ids": [
+              "mon",
+              "wed",
+              "fri"
+            ],
+            "reason": "周一、周三、周五步行；周二、周四乘车。先选全步行日，再核对问法。"
+          },
+          "cells": [
+            {
+              "id": "mon",
+              "label": "周一",
+              "detail": "步行",
+              "value": 0
+            },
+            {
+              "id": "tue",
+              "label": "周二",
+              "detail": "乘车",
+              "value": 0
+            },
+            {
+              "id": "wed",
+              "label": "周三",
+              "detail": "步行",
+              "value": 0
+            },
+            {
+              "id": "thu",
+              "label": "周四",
+              "detail": "乘车",
+              "value": 0
+            },
+            {
+              "id": "fri",
+              "label": "周五",
+              "detail": "步行",
+              "value": 0
+            }
+          ]
+        }
+      },
+      {
+        "label": "同一趟路，这次问用时",
+        "before": "",
+        "target": "How long",
+        "after": " does the journey take? — Fifteen minutes.",
+        "choices": [
+          "How often",
+          "How long",
+          "How far"
+        ],
+        "reason": "Fifteen minutes 是从出发到到达的用时，用 How long；它不是每周重复次数，也不是路程。",
+        "world": {
+          "kind": "logic",
+          "caption": "仍是同一份登记，这次回答15分钟，别把频率和时长混在一起。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的量"
+            },
+            {
+              "label": "@attempt",
+              "detail": "对应的问法",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "Fifteen minutes 是哪一种信息？",
+            "missingPrompt": "先选出和当前回答或陈述相符的依据，再核对问法。",
+            "answer": "duration",
+            "options": [
+              {
+                "id": "duration",
+                "label": "时长",
+                "text": "这趟路用15分钟",
+                "reason": "分钟在这里量的是这趟路持续多久。",
+                "value": 50
+              },
+              {
+                "id": "frequency",
+                "label": "频率",
+                "text": "一周走几次",
+                "reason": "15分钟不是一周走几次。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "单位换成千米，就要问距离",
+        "before": "",
+        "target": "How far",
+        "after": " is their home from school? — About one kilometre.",
+        "choices": [
+          "How long",
+          "How far",
+          "How often"
+        ],
+        "reason": "one kilometre 是距离，用 How far。How long 不能在这里把千米当成时长。",
+        "world": {
+          "kind": "logic",
+          "caption": "家到学校大约1千米；这次问路程，不问一周几次或每次几分钟。",
+          "cells": [
+            {
+              "label": "1 kilometre",
+              "detail": "距离"
+            },
+            {
+              "label": "@attempt",
+              "detail": "对应的问法",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "一般动词肯定句，借助 does",
+        "before": "Leo plays chess, ",
+        "target": "doesn't he",
+        "after": "?",
+        "choices": [
+          "isn't he",
+          "doesn't he",
+          "don't he"
+        ],
+        "reason": "plays 是一般现在时的实义动词，Leo 按第三人称单数，用 does；前半句肯定，附加问句用否定 doesn't，再用 he 指 Leo。",
+        "world": {
+          "kind": "logic",
+          "caption": "活动记录：Leo 有下棋的习惯。先识别 plays 的结构，不能直接借用 is。",
+          "cells": [
+            {
+              "label": "Leo plays chess",
+              "detail": "现在时·肯定"
+            },
+            {
+              "label": "@attempt",
+              "detail": "对应的附加问句",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "be 已经出现，不换成 do",
+        "before": "The girls are here, ",
+        "target": "aren't they",
+        "after": "?",
+        "choices": [
+          "don't they",
+          "aren't they",
+          "isn't she"
+        ],
+        "reason": "前半句已有 are，肯定陈述后用 aren't；girls 指两位女生，代词用 they，不换成 she 或 do。",
+        "world": {
+          "kind": "people-scene",
+          "caption": "照片中的两位女生都在场。先找 the girls 指谁，再给 are 配好附加问句。",
+          "cells": [
+            {
+              "label": "the girls are here",
+              "detail": "be·复数·肯定"
+            },
+            {
+              "label": "@attempt",
+              "detail": "否定 be + 代词",
+              "role": "attempt-result"
+            }
+          ],
+          "scene": {
+            "asset": "class-photo",
+            "alt": "班级合影：左边是穿珊瑚色上衣的 Mia，中间是穿蓝色上衣的 Leo，右边是穿紫色外套的 Amy。",
+            "people": [
+              {
+                "id": "mia",
+                "name": "Mia",
+                "description": "左边穿珊瑚色上衣的女生",
+                "left": 4,
+                "width": 27
+              },
+              {
+                "id": "leo",
+                "name": "Leo",
+                "description": "中间穿蓝色上衣的男生",
+                "left": 36,
+                "width": 27
+              },
+              {
+                "id": "amy",
+                "name": "Amy",
+                "description": "右边穿紫色外套的女生",
+                "left": 69,
+                "width": 27
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "mia",
+              "amy"
+            ],
+            "subjectReason": "the girls 指 Mia 和 Amy 两位女生，对应 they。Leo 不在 the girls 这个范围。",
+            "selectionPrompt": "先点出 the girls 指的两位女生。",
+            "formLabel": "附加问句"
+          }
+        }
+      },
+      {
+        "label": "完成时保留 have 这个助动词",
+        "before": "The students have cleaned the tables, ",
+        "target": "haven't they",
+        "after": "?",
+        "choices": [
+          "don't they",
+          "haven't they",
+          "hasn't they"
+        ],
+        "reason": "have cleaned 是现在完成时，附加问句保留 have 并变否定，用 haven't they。不能改用 don't，也不把复数 students 改成 has。",
+        "world": {
+          "kind": "logic",
+          "caption": "现在桌子已经擦干净。这里要识别的是句中的 have cleaned，不只看 cleaned 这个词。",
+          "cells": [
+            {
+              "label": "have cleaned",
+              "detail": "现在完成时·肯定"
+            },
+            {
+              "label": "@attempt",
+              "detail": "否定 have + they",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "never 已经让前半句带否定意义",
+        "before": "Amy never leaves her book at home, ",
+        "target": "does she",
+        "after": "?",
+        "choices": [
+          "doesn't she",
+          "does she",
+          "is she"
+        ],
+        "reason": "never 表示从不，使前半句带否定意义，所以附加问句用肯定 does she。实义动词 leaves 对应 does，不用 is。",
+        "world": {
+          "kind": "logic",
+          "caption": "句子明确说 Amy 从不把书忘在家。先把 never 的否定意义找出来。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "前半句的肯否"
+            },
+            {
+              "label": "@attempt",
+              "detail": "相反肯否的附加问句",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "never 在这里说明什么？",
+            "missingPrompt": "先选出和当前回答或陈述相符的依据，再核对问法。",
+            "answer": "negative",
+            "options": [
+              {
+                "id": "negative",
+                "label": "否定意义",
+                "text": "从来没有把书忘在家",
+                "reason": "never 已带否定，附加问句用肯定 does she。",
+                "value": 50
+              },
+              {
+                "id": "positive",
+                "label": "肯定意义",
+                "text": "经常把书忘在家",
+                "reason": "never 不是经常，而是从不。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "过去的实义动词，借助 did",
+        "before": "They made a poster yesterday, ",
+        "target": "didn't they",
+        "after": "?",
+        "choices": [
+          "don't they",
+          "didn't they",
+          "weren't they"
+        ],
+        "reason": "made 是实义动词 make 的过去式，yesterday 明确是过去，附加问句借助 did 并变否定，用 didn't they；不是 be 结构，不用 weren't。",
+        "world": {
+          "kind": "logic",
+          "caption": "记录：他们昨天做了海报。把过去的时间、实义动词和 they 接对。",
+          "cells": [
+            {
+              "label": "made yesterday",
+              "detail": "过去·肯定"
+            },
+            {
+              "label": "@attempt",
+              "detail": "否定 did + they",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "Let's 包含大家一起行动",
+        "before": "Let's check the answers, ",
+        "target": "shall we",
+        "after": "?",
+        "choices": [
+          "will you",
+          "shall we",
+          "do we"
+        ],
+        "reason": "Let's 提出包括说话者在内的共同建议，常用 shall we?。不是只请对方做事，所以这里不用 will you。",
+        "world": {
+          "kind": "logic",
+          "caption": "说话者建议大家一起核对答案，自己也参加。",
+          "cells": [
+            {
+              "label": "Let's",
+              "detail": "大家一起的建议"
+            },
+            {
+              "label": "@attempt",
+              "detail": "对应的附加问句",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "I am 肯定句的常见特殊形式",
+        "before": "I'm ready, ",
+        "target": "aren't I",
+        "after": "?",
+        "choices": [
+          "isn't I",
+          "aren't I",
+          "don't I"
+        ],
+        "reason": "I am 的肯定陈述在常见缩写式反意疑问句里用 aren't I?，不能照搬出 isn't I 或 don't I。",
+        "world": {
+          "kind": "logic",
+          "caption": "这次说话者肯定自己准备好了，练习常见的缩写式问法。",
+          "cells": [
+            {
+              "label": "I am ready",
+              "detail": "肯定的 I am"
+            },
+            {
+              "label": "@attempt",
+              "detail": "常见否定缩写式",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "按事实回答，不被问句的否定带走",
+        "before": "Mia doesn't like rainy days, does she? — ",
+        "target": "Yes, she does",
+        "after": ".",
+        "choices": [
+          "No, she doesn't",
+          "Yes, she does",
+          "Yes, she doesn't"
+        ],
+        "reason": "Mia 明确说喜欢雨天，肯定事实就回答 Yes, she does。No, she doesn't 表示她不喜欢，会与原话相反；Yes 不能直接接 she doesn't。",
+        "world": {
+          "kind": "logic",
+          "caption": "Mia 的原话：I like rainy days. 朋友用否定陈述加附加问句确认，你要按事实回答。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "Mia 的真实态度"
+            },
+            {
+              "label": "@attempt",
+              "detail": "按事实作答",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "根据 Mia 的原话判断。",
+            "missingPrompt": "先选出和当前回答或陈述相符的依据，再核对问法。",
+            "answer": "likes",
+            "options": [
+              {
+                "id": "likes",
+                "label": "确实喜欢雨天",
+                "text": "I like rainy days.",
+                "reason": "她确实喜欢，所以回答 Yes, she does。",
+                "value": 50
+              },
+              {
+                "id": "dislikes",
+                "label": "不喜欢雨天",
+                "text": "她说自己不喜欢雨天",
+                "reason": "这不是 Mia 的原话，不能顺着问句中的 doesn't 改掉事实。",
+                "value": 50
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "choices": [
+      "How long",
+      "How often",
+      "How far",
+      "isn't he",
+      "doesn't he",
+      "don't he",
+      "don't they",
+      "aren't they",
+      "isn't she",
+      "haven't they",
+      "hasn't they",
+      "doesn't she",
+      "does she",
+      "is she",
+      "didn't they",
+      "weren't they",
+      "will you",
+      "shall we",
+      "do we",
+      "isn't I",
+      "aren't I",
+      "don't I",
+      "No, she doesn't",
+      "Yes, she does",
+      "Yes, she doesn't"
+    ],
+    "items": [
+      {
+        "id": "question-evidence",
+        "label": "问法与事实",
+        "prompt": "根据回答和陈述找问法。",
+        "answer": "",
+        "reason": "",
+        "hint": "不是见到否定就回答 No，要看事实本身。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-questions-002",
+      "q-g-questions-003"
+    ],
+    "transfer": {
+      "id": "individual-g-questions-transfer",
+      "topicId": "g-questions",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "活动表：14:00开始，14:20结束。根据活动表提问并确认安排，两空依次填什么？\n___ does the activity last? — Twenty minutes.\nThe activity starts at two, ___ it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "How long; doesn't"
+        },
+        {
+          "id": "b",
+          "text": "How often; doesn't"
+        },
+        {
+          "id": "c",
+          "text": "How long; isn't"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "How long; doesn't"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "第一空先识别量的种类，第二空再识别肯否、谓语结构和主语。",
+        "steps": [
+          {
+            "text": "14:00到14:20是20分钟，回答的是活动持续的时长。",
+            "reason": "问时长用 How long，不用问频率的 How often。"
+          },
+          {
+            "text": "starts 是一般现在时肯定句，activity 按单数并用 it 指代。",
+            "reason": "附加问句借助 does 并变成否定 doesn't it，不改用 isn't。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "20分钟说明多久，不说明多久重复一次。"
+          },
+          {
+            "option": "c",
+            "reason": "前半句的谓语是 starts，不是 is，附加问句用 doesn't。"
+          }
+        ],
+        "pitfall": "先分清时长和频率；再找句子的真实谓语，不能见到 it 就随意配 isn't。",
+        "visual": {
+          "kind": "sentence",
+          "title": "活动时长 / 谓语结构",
+          "segments": [
+            {
+              "text": "14:00 → 14:20 = 20 minutes",
+              "role": "time",
+              "note": "How long 问持续多久"
+            },
+            {
+              "text": "starts → doesn't it?",
+              "role": "verb",
+              "note": "实义动词·现在时·肯定转否定"
+            }
+          ],
+          "caption": "同一项活动，提问的量与附加问句的结构分别判断。"
+        },
+        "transfer": "如果第一句的回答换成 Every Friday，疑问词应怎样变？"
+      }
+    }
+  }
+}

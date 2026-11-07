@@ -1,0 +1,13 @@
+# Compound words: meaning, word boundaries and noun heads
+
+2026-10-18 (Sydney). Individually reviewed; content remains draft.
+
+Twelve bespoke tasks begin with an original green residential house/transparent horticultural greenhouse contrast. Students select the building that matches the stated use, then distinguish green house from greenhouse. Further tasks cover open and closed compounds, singular/plural noun heads and everyday versus every day. Four use real snap-together word parts: school+bag, tooth+brush, tooth+brushes and snow+men.
+
+Inspected the original image and 600-pixel quality70 delivery, all twelve models and narrow-phone figures, both wrong picture selections, all four wrong word assemblies, removal/reload of an incomplete word, both everyday errors, applications and every explanation/transfer step. The illustration has no answer lettering; labels and words are coded. A narrow picture-to-word card split greenhouse; both picture diagrams now use full-width cards, and the browser guards single English model words against splitting across lines.
+
+The word-part engine joins pieces without spaces, consumes each actual tile once and rejects direct whole-answer input or unknown/reused IDs. Removing a piece invalidates completion and preserves the incomplete word after reload. Phrase tiles keep their spaces. Shared segmentation supports overlapping candidate parts without greedily rejecting a valid construction. Two new core tests cover actual controls, incomplete restoration, source validation and preserved phrase boundaries. Native WXML was checked to keep word-part models visible without a phrase-source toggle.
+
+Actual browser controls pass twelve correct models at 320/390/768, wrong paths and repairs at phone width, applications, diagnosis, fresh transfer and reload. The complete indefinite-word lesson was replayed after the shared tile changes; its inspected phrase models and controls accompany this review without new review credit. Grades7–9 are covered, reserved005–008 unexposed, and guided work creates zero independent attempts, mastery or lesson-pass records.
+
+1,478 core tests/14 files passed before the last two picture-diagram layout edits. Final compiler/typecheck,826 teaching/spelling,nine grammar/static-package checks,complete compound and indefinite browser runs,development/cloud adapter simulations with all245 pack hashes,eight offline checks and archive CRC/exact-source comparisons cover those edits. Main package is1,893,637 bytes under the unchanged1,900,000-byte limit. Native adapter checks remain simulations; project-drive access still blocks a fresh WeChat GUI pass. No upload,publication or release.

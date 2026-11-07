@@ -1,0 +1,306 @@
+{
+  "lessonId": "l-s-course-t11",
+  "reviewState": "draft",
+  "intent": "Confirm the Monday vegetable-washing/table-setting plan with distinct roles and advance notice if unable, without claiming work already completed.",
+  "picturePurpose": "Two fictional household actions support exact verb/role mapping; day, relationship and planned status remain anchored in task text.",
+  "workshop": {
+    "kind": "compose",
+    "title": "把家庭分工说给家人听",
+    "instruction": "看清两个动作，再对照题目确认周一谁做什么。说的是计划，不是已完成记录；若不能做，要提前告知。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "两个人，两项不同任务",
+        "prompt": "把图中动作与原题分工配好。哪项由自己做，哪项由弟弟做？",
+        "answer": "",
+        "reason": "两项任务已分别对应。不能把弟弟的任务也说成自己已完成。",
+        "hint": "图示只是虚构示例。洗菜、摆餐具能从动作看出；周一、自己与弟弟的分工来自题目文字，人物外貌不能证明家庭关系。",
+        "material": "说2—4句英文。家庭计划中，你周一洗菜，弟弟摆餐具。向家人确认分工，并说明若不能做会提前告知。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "动作 ↔ 分工",
+          "hint": "先看动作，再看题目规定的承担者。",
+          "wrong": "原题是自己洗菜、弟弟摆餐具；洗碗不是洗菜，不能换分工。两项都是计划，不能说自己或弟弟已全部做完。",
+          "fields": [
+            {
+              "id": "mine",
+              "label": "原题中，自己周一负责什么？",
+              "answer": "wash",
+              "choices": [
+                {
+                  "id": "wash",
+                  "label": "I will wash the vegetables."
+                },
+                {
+                  "id": "dishes",
+                  "label": "I will wash the dishes."
+                },
+                {
+                  "id": "all",
+                  "label": "I have already done both jobs."
+                }
+              ]
+            },
+            {
+              "id": "brother",
+              "label": "弟弟负责什么？",
+              "answer": "table",
+              "choices": [
+                {
+                  "id": "table",
+                  "label": "My brother will set the table."
+                },
+                {
+                  "id": "vegetables",
+                  "label": "My brother will wash the vegetables instead of me."
+                },
+                {
+                  "id": "done",
+                  "label": "My brother has already finished every job."
+                }
+              ]
+            }
+          ]
+        },
+        "composeArt": {
+          "asset": "lesson-household-roles",
+          "assetRoot": "illustrations-6",
+          "format": "jpg",
+          "alt": "虚构动作示例：左图一名穿蓝色上衣的学生在水池边洗菜；右图一名穿绿色上衣的学生摆放碗和勺子。",
+          "caption": "图示帮助辨认动作。周一与两人的任务分工由题目文字给出；画面不证明这些计划已经完成，也不证明人物关系。",
+          "frames": 2,
+          "frameShape": "wide"
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "周一计划，不写成已完成",
+        "prompt": "哪句保留原题日期，又准确表达计划状态？",
+        "answer": "",
+        "reason": "周一、两项不同分工和未来计划已核对。接下来安排不能完成时怎样提前告知。",
+        "hint": "on Monday写在周一；will后用动词原形。画面演示动作，不是周一已经完成的证据。",
+        "material": "说2—4句英文。家庭计划中，你周一洗菜，弟弟摆餐具。向家人确认分工，并说明若不能做会提前告知。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "日期与状态核对卡",
+          "hint": "把日期和计划状态分别检查，别让画面替代题目信息。",
+          "wrong": "原题是周一的家庭计划，不能改成周六或扩大成每天无例外；两人各有任务，不能改成弟弟独自承担，也不能把安排写成自己已经完成。",
+          "fields": [
+            {
+              "id": "day",
+              "label": "原题哪一天？",
+              "answer": "monday",
+              "choices": [
+                {
+                  "id": "monday",
+                  "label": "on Monday"
+                },
+                {
+                  "id": "saturday",
+                  "label": "on Saturday"
+                },
+                {
+                  "id": "everyday",
+                  "label": "every day without exception"
+                }
+              ]
+            },
+            {
+              "id": "status",
+              "label": "哪句准确表达分工状态？",
+              "answer": "plan",
+              "choices": [
+                {
+                  "id": "plan",
+                  "label": "We have a plan for two different jobs."
+                },
+                {
+                  "id": "finished",
+                  "label": "I have already finished both jobs."
+                },
+                {
+                  "id": "only",
+                  "label": "My brother must do both jobs alone."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "不能做，提前说明",
+        "prompt": "选一种告知安排，再让说法与所选安排一致。",
+        "answer": "",
+        "reason": "提前告知的安排已配好。实际说2—4句，确认两人的分工，再说明不能做时会怎么告知。",
+        "hint": "可以在工作开始前告知，也可以一知道自己不能做就尽早告知。题目不规定固定钟点；不要等家人以为有人做而耽误安排。",
+        "material": "说2—4句英文。家庭计划中，你周一洗菜，弟弟摆餐具。向家人确认分工，并说明若不能做会提前告知。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "If I cannot ... , I will ...",
+          "hint": "两种示例都把沟通放在耽误工作之前；可以用自己的自然说法。",
+          "wrong": "两个提前告知示例都可行，但要与所选示例一致。要在耽误工作前告知，不能隐瞒到安排受影响。本题要实际说2—4句英文，确认两人的分工和告知办法；只存两个词或声称工作已完成都不符合任务。",
+          "fields": [
+            {
+              "id": "notice",
+              "label": "比较哪种提前告知示例？",
+              "answer": "before",
+              "choices": [
+                {
+                  "id": "before",
+                  "label": "工作开始前告知"
+                },
+                {
+                  "id": "early",
+                  "label": "一知道不能做，就尽早告知"
+                }
+              ]
+            },
+            {
+              "id": "sentence",
+              "label": "哪句与所选示例一致？",
+              "answer": "before-ok",
+              "choices": [
+                {
+                  "id": "before-ok",
+                  "label": "If I cannot do my part, I will tell the family before the work begins."
+                },
+                {
+                  "id": "early-ok",
+                  "label": "I will tell the family as soon as I know that I cannot do my part."
+                },
+                {
+                  "id": "late",
+                  "label": "If I cannot do my part, I will wait until the work has been delayed before telling the family."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "实际要完成什么？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four English sentences confirming both jobs and explaining advance notice."
+                },
+                {
+                  "id": "list",
+                  "label": "Only save the words Monday and vegetables."
+                },
+                {
+                  "id": "report",
+                  "label": "Claim both jobs are already finished without confirming the plan."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "notice",
+            "answers": {
+              "before": {
+                "sentence": "before-ok",
+                "form": "spoken"
+              },
+              "early": {
+                "sentence": "early-ok",
+                "form": "spoken"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t11-transfer",
+      "topicId": "s-course-t11",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "周四你负责清理架子，一位表亲负责叠毛巾。工作尚未完成，不能做时要提前告知家人。哪段回答保留了这份计划？",
+      "passage": "A different household plan\nOn Thursday, you will clean the shelves and your cousin will fold the towels. In two to four spoken English sentences, confirm the two different jobs and explain that you will tell the family in advance if you cannot do your part. The jobs are planned; the task does not say they are already finished.",
+      "options": [
+        {
+          "id": "a",
+          "text": "I have already cleaned all the shelves for Thursday. I have also folded all the towels myself. Both jobs are finished now."
+        },
+        {
+          "id": "b",
+          "text": "On Thursday, I will clean the shelves. My cousin will fold the towels. If I cannot do my part, I will tell the family in advance."
+        },
+        {
+          "id": "c",
+          "text": "On Monday, I will wash the vegetables. My brother will set the table. If I cannot do my part, I will tell the family in advance."
+        },
+        {
+          "id": "d",
+          "text": "On Thursday, I will clean the shelves. My cousin will fold the towels. If I cannot do my part, I will keep it secret until the work has been delayed."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "On Thursday, I will clean the shelves. My cousin will fold the towels. If I cannot do my part, I will tell the family in advance."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先更新日期、人物与两项任务，再确认计划状态和提前告知。",
+        "steps": [
+          {
+            "text": "新安排是周四：自己清理架子，一位表亲叠毛巾，不是周一的洗菜与摆餐具。",
+            "reason": "两人的不同任务必须各自保留，不能照搬旧答案。"
+          },
+          {
+            "text": "说明若不能完成自己的部分，会提前告知家人。",
+            "reason": "这是计划与沟通承诺，不是两项已经完成的记录；实际用2—4句说出并回听。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把未来分工改成自己已经完成全部工作。"
+          },
+          {
+            "option": "c",
+            "reason": "日期、人物和任务照搬旧题。"
+          },
+          {
+            "option": "d",
+            "reason": "隐瞒到耽误工作才告知，不符合提前沟通。"
+          }
+        ],
+        "pitfall": "写清了两项任务，却把分工计划当成已完成事实，或漏掉提前告知。",
+        "visual": {
+          "kind": "comparison",
+          "title": "新分工 → 计划状态 → 提前告知",
+          "segments": [
+            {
+              "text": "Thursday · I clean shelves",
+              "role": "evidence",
+              "note": "自己承担的任务"
+            },
+            {
+              "text": "my cousin folds towels",
+              "role": "evidence",
+              "note": "另一人的不同任务"
+            },
+            {
+              "text": "tell the family in advance if unable",
+              "role": "evidence",
+              "note": "不能完成时的沟通"
+            }
+          ],
+          "caption": "日期、人物、任务与沟通条件分别核对。"
+        },
+        "transfer": "若周六家人的空闲时间变了，为什么应先问谁有空，再决定是否沿用原来的分工？"
+      }
+    }
+  }
+}

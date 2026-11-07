@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured anatomy or temperature claims. */
+export interface WordChestRise{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordChestRise(v:unknown):v is WordChestRise{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordChestRise;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordChestRiseKey=(id:string)=>'workshopChestRise-'+id
+function decode(raw:string){if(raw==='')return{"part": "?", "direction": "?"};const m="^(\\?|body|box)\\|(\\?|up|down)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{part:v[1],direction:v[2]}:null}
+export function changeChestRise(_w:WordChestRise,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["part-body", "part-box"].includes(action))return action.slice(5)+"|"+s.direction;if(["direction-up", "direction-down"].includes(action))return s.part+"|"+action.slice(10);return undefined}
+export function chestRiseMatch(_w:WordChestRise,raw:string){const s=decode(raw);return!!s&&s.part==="body"&&s.direction==="up"}
+export function wordChestRiseView(w:WordChestRise,raw:string){const s=decode(raw)??{"part": "?", "direction": "?"};return{title:w.title,hint:w.hint,part:s.part,direction:s.direction,arrow:s.direction==='up'?'↑':s.direction==='down'?'↓':'?',groups:[{label:"chest的意思",choices:[{"id": "part-body", "label": "胸部"}, {"id": "part-box", "label": "箱子"}].map(c=>({...c,selected:c.id==="part-"+s.part}))},{label:"rise的方向",choices:[{"id": "direction-up", "label": "抬起"}, {"id": "direction-down", "label": "下沉"}].map(c=>({...c,selected:c.id==="direction-"+s.direction}))}],reading:chestRiseMatch(w,raw)?"胸部抬起；部位与向上方向都保留，不补幅度或次数。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordChestRiseView=ReturnType<typeof wordChestRiseView>

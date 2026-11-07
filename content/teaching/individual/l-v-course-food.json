@@ -1,0 +1,534 @@
+{
+  "lessonId": "l-v-course-food",
+  "reviewState": "draft",
+  "intent": "Separate food placement, meal sequence, preference versus menu, relative readiness, contextual light supper, mass-noun portions and a single noodle.",
+  "picturePurpose": "Planned coded tray, time-marker, portion and single-strand models carry exact meaning; no raster asset or actual measurements assumed.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "分一分、摆一摆，把一餐说清楚",
+    "instruction": "比较位置、先后和份数，再用英语表达。",
+    "items": [
+      {
+        "id": "word-food",
+        "label": "食物",
+        "prompt": "把熟食和生肉移到不同托盘，看看separate怎样改变位置。",
+        "answer": "food",
+        "caseSensitive": false,
+        "meaning": "食物",
+        "before": "Keep cooked ",
+        "after": " separate from raw meat.",
+        "reason": "keep…separate要求分开放；food在这里泛指食物。",
+        "hint": "原句要求生熟分开，没有给实际数量。",
+        "material": "Keep cooked food separate from raw meat.",
+        "wordDecision": {
+          "prompt": "把熟食和生肉移到不同托盘，看看separate怎样改变位置。",
+          "foodSeparation": {
+            "title": "把生熟分开放",
+            "hint": "示意两类食物的位置。",
+            "wrong": "本示意用不同托盘表示分开；两类不要选到同一托盘。"
+          }
+        },
+        "options": [
+          {
+            "id": "separate",
+            "text": "熟食与生肉分开放。",
+            "correct": true,
+            "reason": "separate from要求两类分开。"
+          },
+          {
+            "id": "mix",
+            "text": "把熟食和生肉混放。",
+            "correct": false,
+            "reason": "混放与separate相反。"
+          },
+          {
+            "id": "done",
+            "text": "这句话说明已经按要求放好了。",
+            "correct": false,
+            "reason": "这是要求，不是完成记录。"
+          }
+        ],
+        "ownForms": [
+          "food",
+          "foods"
+        ]
+      },
+      {
+        "id": "word-meal",
+        "label": "一餐",
+        "prompt": "徒步和吃饭，哪件事在前？把after的关系摆出来。",
+        "answer": "meal",
+        "caseSensitive": false,
+        "meaning": "一餐",
+        "before": "We shared a warm ",
+        "after": " after the hike.",
+        "reason": "meal指一餐；after the hike把用餐放在徒步之后。",
+        "hint": "一餐可以包含多种食物；原句没列菜单。",
+        "material": "We shared a warm meal after the hike.",
+        "wordDecision": {
+          "prompt": "徒步和吃饭，哪件事在前？把after的关系摆出来。",
+          "processOrder": {
+            "title": "徒步之后，一起用餐",
+            "hint": "按after的关系摆顺序。",
+            "wrong": "after要求前一事件结束后，才发生用餐。",
+            "events": [
+              {
+                "id": "hike",
+                "label": "徒步"
+              },
+              {
+                "id": "meal",
+                "label": "用餐"
+              }
+            ],
+            "sequence": [
+              "hike",
+              "meal"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "after",
+            "text": "徒步后一起吃了一餐。",
+            "correct": true,
+            "reason": "shared a warm meal after the hike保留了先后和共同用餐。"
+          },
+          {
+            "id": "before",
+            "text": "吃完这餐才开始徒步。",
+            "correct": false,
+            "reason": "把after的关系倒过来了。"
+          },
+          {
+            "id": "ingredient",
+            "text": "meal只指一种食材。",
+            "correct": false,
+            "reason": "meal指一餐，不是某一种食材。"
+          }
+        ],
+        "ownForms": [
+          "meal",
+          "meals"
+        ]
+      },
+      {
+        "id": "word-lunch",
+        "label": "午餐",
+        "prompt": "是在问午饭想吃什么，还是已经确定菜单？圈出有依据的信息。",
+        "answer": "lunch",
+        "caseSensitive": false,
+        "meaning": "午餐",
+        "before": "What would you like for ",
+        "after": "?",
+        "reason": "What would you like…?是在问想要什么；for lunch指作为午餐。",
+        "hint": "提问不等于已经点好或吃完。",
+        "material": "What would you like for lunch?",
+        "wordDecision": {
+          "prompt": "是在问午饭想吃什么，还是已经确定菜单？圈出有依据的信息。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "午餐：问偏好，还是报结果？",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "看清动作、对象和语气。",
+            "wrong": "保留原句的信息，不补尚未给出的结果。",
+            "rows": [
+              {
+                "id": "meal",
+                "label": "哪一餐",
+                "text": "在问午餐。",
+                "include": true
+              },
+              {
+                "id": "preference",
+                "label": "问什么",
+                "text": "想知道对方想吃什么。",
+                "include": true
+              },
+              {
+                "id": "menu",
+                "label": "额外推断",
+                "text": "已经确定午餐吃面条。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "ask",
+            "text": "询问对方午餐想吃什么。",
+            "correct": true,
+            "reason": "would like询问意愿，for lunch限定午餐。"
+          },
+          {
+            "id": "menu",
+            "text": "已经确定午餐吃面条。",
+            "correct": false,
+            "reason": "问句没有给出回答或菜单。"
+          },
+          {
+            "id": "past",
+            "text": "报告对方昨天吃过的午餐。",
+            "correct": false,
+            "reason": "这不是过去用餐记录。"
+          }
+        ],
+        "ownForms": [
+          "lunch",
+          "lunches"
+        ]
+      },
+      {
+        "id": "word-dinner",
+        "label": "正餐",
+        "prompt": "把“准备好”放到正确位置：in ten minutes是多久以后？",
+        "answer": "Dinner",
+        "caseSensitive": true,
+        "meaning": "正餐",
+        "before": "",
+        "after": " will be ready in ten minutes.",
+        "reason": "will be ready in ten minutes表示再过十分钟准备好，不是吃十分钟。",
+        "hint": "句首Dinner大写；dinner也可指一天的主要正餐。",
+        "material": "Dinner will be ready in ten minutes.",
+        "wordDecision": {
+          "prompt": "把“准备好”放到正确位置：in ten minutes是多久以后？",
+          "mealReadiness": {
+            "title": "准备好：在什么时候？",
+            "hint": "以说话时为起点，比较相对时间。",
+            "wrong": "in ten minutes把准备好放在十分钟后；不是已经准备好，也不是用餐持续十分钟。"
+          }
+        },
+        "options": [
+          {
+            "id": "later",
+            "text": "预计从现在起再过十分钟准备好。",
+            "correct": true,
+            "reason": "will be ready表示未来就绪，in ten minutes给相对时间。"
+          },
+          {
+            "id": "duration",
+            "text": "吃这餐要持续十分钟。",
+            "correct": false,
+            "reason": "这里十分钟限定准备好的时间，不是用餐时长。"
+          },
+          {
+            "id": "already",
+            "text": "现在已经准备好了。",
+            "correct": false,
+            "reason": "will be ready没有说现在已经就绪。"
+          }
+        ],
+        "ownForms": [
+          "dinner",
+          "dinners"
+        ]
+      },
+      {
+        "id": "word-supper",
+        "label": "晚餐",
+        "prompt": "light supper是简单的晚餐。圈出原句明确说到的内容。",
+        "answer": "supper",
+        "caseSensitive": false,
+        "meaning": "晚餐",
+        "before": "We had a light ",
+        "after": " after the show.",
+        "reason": "had说明已发生；light修饰这餐，after the show说明在演出后。",
+        "hint": "这里light不是发光，也不提供精确热量。",
+        "material": "We had a light supper after the show.",
+        "wordDecision": {
+          "prompt": "light supper是简单的晚餐。圈出原句明确说到的内容。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "演出后的这餐",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "看清动作、对象和语气。",
+            "wrong": "保留原句的信息，不补尚未给出的结果。",
+            "rows": [
+              {
+                "id": "light",
+                "label": "这餐怎样",
+                "text": "吃了一顿简单的晚餐。",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "先后关系",
+                "text": "这餐在演出之后。",
+                "include": true
+              },
+              {
+                "id": "menu",
+                "label": "额外菜单",
+                "text": "这餐只有面包，没有别的。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "light",
+            "text": "演出后吃了一顿简单的晚餐。",
+            "correct": true,
+            "reason": "保留light和after the show。"
+          },
+          {
+            "id": "glow",
+            "text": "演出后吃了一顿很丰盛的晚餐。",
+            "correct": false,
+            "reason": "light supper说的是简单、不丰盛的一餐，不能改成很丰盛。"
+          },
+          {
+            "id": "before",
+            "text": "演出之前吃了一顿丰盛的晚餐。",
+            "correct": false,
+            "reason": "先后和light的意思都改变了。"
+          }
+        ],
+        "ownForms": [
+          "supper",
+          "suppers"
+        ]
+      },
+      {
+        "id": "word-bread",
+        "label": "面包",
+        "prompt": "先比较一片和多片：摆出两片或三片，选出对应表达。",
+        "answer": "bread",
+        "caseSensitive": false,
+        "meaning": "面包",
+        "before": "This ",
+        "after": " is still warm from the oven.",
+        "reason": "bread在这里不可数；要数片数，就改变slice的单复数。",
+        "hint": "示例片数用于练习，不是原句的实际数量。",
+        "material": "This bread is still warm from the oven.",
+        "wordDecision": {
+          "prompt": "先比较一片和多片：摆出两片或三片，选出对应表达。",
+          "foodPortions": {
+            "title": "数的是片，还是bread？",
+            "hint": "示例：改变片数，再选英语表达。",
+            "wrong": "本练习要换成两片或三片，再选对应表达；一片的表达可以正确，但还没完成多份练习。",
+            "food": "bread",
+            "unit": "slice"
+          }
+        },
+        "options": [
+          {
+            "id": "warm",
+            "text": "面包出炉后还温热着。",
+            "correct": true,
+            "reason": "still warm from the oven保留仍温热和来自烤箱的信息。"
+          },
+          {
+            "id": "cold",
+            "text": "面包已经完全冷却。",
+            "correct": false,
+            "reason": "与still warm相反。"
+          },
+          {
+            "id": "two",
+            "text": "原句明确说有两片面包。",
+            "correct": false,
+            "reason": "This bread没有给片数。"
+          }
+        ],
+        "ownForms": [
+          "bread",
+          "breads"
+        ]
+      },
+      {
+        "id": "word-rice",
+        "label": "米饭",
+        "prompt": "先比较一碗和多碗：摆出两碗或三碗，选出对应表达。",
+        "answer": "rice",
+        "caseSensitive": false,
+        "meaning": "米饭",
+        "before": "There is enough ",
+        "after": " for all of us.",
+        "reason": "rice在本句不可数；a bowl of rice、two bowls of rice数的是碗。",
+        "hint": "enough for all of us表示够我们所有人吃；人数未知。",
+        "material": "There is enough rice for all of us.",
+        "wordDecision": {
+          "prompt": "先比较一碗和多碗：摆出两碗或三碗，选出对应表达。",
+          "foodPortions": {
+            "title": "碗变多，rice不变",
+            "hint": "示例碗数不代表原句的人数或饭量。",
+            "wrong": "本练习要换成两碗或三碗，再选对应表达；一碗的表达可以正确，但还没完成多份练习。",
+            "food": "rice",
+            "unit": "bowl"
+          }
+        },
+        "options": [
+          {
+            "id": "enough",
+            "text": "米饭够我们所有人吃。",
+            "correct": true,
+            "reason": "enough for all of us包括“我们所有人”。"
+          },
+          {
+            "id": "some",
+            "text": "只能供其中一部分人吃。",
+            "correct": false,
+            "reason": "漏掉了all of us。"
+          },
+          {
+            "id": "three",
+            "text": "这句话明确说有三碗饭、三个人。",
+            "correct": false,
+            "reason": "没有提供碗数或人数。"
+          }
+        ],
+        "ownForms": [
+          "rice",
+          "rices"
+        ]
+      },
+      {
+        "id": "word-noodle",
+        "label": "一根面条",
+        "prompt": "把一根面条从筷子上移开。a long noodle里的a说明什么？",
+        "answer": "noodle",
+        "caseSensitive": false,
+        "meaning": "一根面条",
+        "before": "A long ",
+        "after": " slipped off my chopsticks.",
+        "reason": "a long noodle指一根；slipped off表示已经从筷子上滑落。",
+        "hint": "说一份面条通常用noodles；本句只说一根。",
+        "material": "A long noodle slipped off my chopsticks.",
+        "wordDecision": {
+          "prompt": "把一根面条从筷子上移开。a long noodle里的a说明什么？",
+          "noodleFall": {
+            "title": "一根，还是多根？",
+            "hint": "只移动原句里的一根示意面条。",
+            "wrong": "原句是一根长面条已从筷子上滑落；不是一整碗，也不是仍夹在筷子上。"
+          }
+        },
+        "options": [
+          {
+            "id": "one",
+            "text": "一根长面条从筷子上滑了下来。",
+            "correct": true,
+            "reason": "a限定一根；slipped off说明已滑落。"
+          },
+          {
+            "id": "bowl",
+            "text": "一整份面条都掉了下来。",
+            "correct": false,
+            "reason": "a long noodle说的是一根，不能扩大成整份面条。"
+          },
+          {
+            "id": "plural",
+            "text": "a long后面必须填noodles。",
+            "correct": false,
+            "reason": "a加单数可数名词，这里填noodle。"
+          }
+        ],
+        "ownForms": [
+          "noodle",
+          "noodles"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-food-transfer",
+      "topicId": "v-course-food",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "厨房提示换了时间和份数，哪份英文保留了三个要求？",
+      "passage": "厨房提示\n熟食与生肉分开放。正餐再过二十分钟就准备好。请切四片面包。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Keep cooked food together with raw meat. Dinner will be ready in twenty minutes. Please cut four slices of bread."
+        },
+        {
+          "id": "b",
+          "text": "Keep cooked food separate from raw meat. Dinner will be ready in twenty minutes. Please cut four slices of bread."
+        },
+        {
+          "id": "c",
+          "text": "Keep cooked food separate from raw meat. Dinner will last twenty minutes. Please cut four slices of bread."
+        },
+        {
+          "id": "d",
+          "text": "Keep cooked food separate from raw meat. Dinner will be ready in twenty minutes. Please cut four breads."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Keep cooked food separate from raw meat. Dinner will be ready in twenty minutes. Please cut four slices of bread."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分开核对位置、准备好的时间和份数表达。",
+        "steps": [
+          {
+            "text": "separate from要求生熟分开放。",
+            "reason": "together with改变了位置关系。"
+          },
+          {
+            "text": "ready in twenty minutes表示二十分钟后准备好。",
+            "reason": "这里说的是准备好的时间，不是用餐持续多久。"
+          },
+          {
+            "text": "四片应说four slices of bread，复数放在slices上。",
+            "reason": "数的是面包片；bread本身不表示片数。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把分开放改成放在一起。"
+          },
+          {
+            "option": "c",
+            "reason": "把二十分钟后准备好改成用餐持续二十分钟。"
+          },
+          {
+            "option": "d",
+            "reason": "没有保留“四片”；本题应写four slices of bread。breads可在别的语境表示不同种类，不能代替这里的片数。"
+          }
+        ],
+        "pitfall": "看见熟词就选，忽略separate、in以及计量词的复数。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三个要求，逐一核对",
+          "segments": [
+            {
+              "text": "cooked food | raw meat",
+              "role": "evidence",
+              "note": "分开放"
+            },
+            {
+              "text": "now → +20 min → ready",
+              "role": "evidence",
+              "note": "以后就绪"
+            },
+            {
+              "text": "four slices + of bread",
+              "role": "evidence",
+              "note": "数片，不数bread"
+            }
+          ],
+          "caption": "新情境的时间、份数与练习不同。"
+        },
+        "transfer": "如果改成五片，哪个词要变？bread要不要跟着变？"
+      }
+    }
+  }
+}

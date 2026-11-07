@@ -1,0 +1,530 @@
+{
+  "lessonId": "l-v-course-fruit-vegetables",
+  "reviewState": "draft",
+  "intent": "Individually distinguish general fruit, slicing without peeling, ripe enough versus cooked/eaten, capacity versus actual packing, peel position, squeezed lemon juice, a single grape entering a bag and smell versus taste.",
+  "picturePurpose": "Manipulate skin and preparation, illustrative container fit and single-object fall destination. Exact geometry and labels remain coded; no actual dimensions or completion inferred.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "水果句子：保留皮、放得下、掉进哪里",
+    "instruction": "调果皮和形态，比较饭盒大小，再看单粒葡萄的终点。",
+    "items": [
+      {
+        "id": "word-fruit",
+        "label": "水果（本句）",
+        "prompt": "fruit只指苹果吗？圈出种类范围和零食用途。",
+        "answer": "fruit",
+        "caseSensitive": false,
+        "meaning": "水果（本句）",
+        "before": "Fresh ",
+        "after": " makes a simple snack.",
+        "reason": "Fresh fruit makes a simple snack说新鲜水果是一种简便的零食。",
+        "hint": "本句fruit泛指水果，不限定某一种，也没有报告谁已经吃了。",
+        "material": "Fresh fruit makes a simple snack.",
+        "wordDecision": {
+          "prompt": "fruit只指苹果吗？圈出种类范围和零食用途。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "水果，还是某一种？",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "只保留原句给出的条件。",
+            "wrong": "保留新鲜水果与零食用途，不补已吃完。",
+            "rows": [
+              {
+                "id": "fresh",
+                "label": "条件",
+                "text": "新鲜水果。",
+                "include": true
+              },
+              {
+                "id": "snack",
+                "label": "用途",
+                "text": "可以作为简便的零食。",
+                "include": true
+              },
+              {
+                "id": "ate",
+                "label": "额外事件",
+                "text": "说话人已经吃完。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "general",
+            "text": "新鲜水果是一种简便的零食。",
+            "correct": true,
+            "reason": "保留泛指水果和零食用途。"
+          },
+          {
+            "id": "apple",
+            "text": "只说明苹果能作零食。",
+            "correct": false,
+            "reason": "fruit没有限定为apple。"
+          },
+          {
+            "id": "ate",
+            "text": "说话人已经吃完水果。",
+            "correct": false,
+            "reason": "原句是一般描述，没有报告已经吃完。"
+          }
+        ]
+      },
+      {
+        "id": "word-apple",
+        "label": "苹果（本句）",
+        "prompt": "切成片时皮留不留？分别调形态和果皮，保留without。",
+        "answer": "apple",
+        "caseSensitive": false,
+        "meaning": "苹果（本句）",
+        "before": "Slice the ",
+        "after": " without removing the skin.",
+        "reason": "Slice the apple without removing the skin要求把苹果切成片，同时保留果皮。",
+        "hint": "本句the apple指特定的苹果；without removing the skin表示不去皮。",
+        "material": "Slice the apple without removing the skin.",
+        "wordDecision": {
+          "prompt": "切成片时皮留不留？分别调形态和果皮，保留without。",
+          "fruitPrep": {
+            "title": "切片，也要保留皮",
+            "hint": "操作的是要求示意，不是已经切好的记录。",
+            "wrong": "苹果应切成片并保留皮；去皮或不切都不符合原句。",
+            "kind": "apple"
+          }
+        },
+        "options": [
+          {
+            "id": "retain",
+            "text": "保留果皮，把苹果切成片。",
+            "correct": true,
+            "reason": "切片与不去皮必须同时满足。"
+          },
+          {
+            "id": "peel",
+            "text": "去皮后把苹果切成片。",
+            "correct": false,
+            "reason": "去皮违背without removing the skin。"
+          },
+          {
+            "id": "whole",
+            "text": "保留果皮，苹果保持完整不切。",
+            "correct": false,
+            "reason": "没有执行Slice表示的切片要求。"
+          }
+        ]
+      },
+      {
+        "id": "word-pear",
+        "label": "梨（本句）",
+        "prompt": "ripe enough to eat说成熟程度，还是已经吃掉？",
+        "answer": "pear",
+        "caseSensitive": false,
+        "meaning": "梨（本句）",
+        "before": "This ",
+        "after": " is ripe enough to eat.",
+        "reason": "ripe enough to eat表示成熟到可以吃的程度。",
+        "hint": "enough放在形容词ripe后；ripe不是cooked，也没有报告已经吃过。",
+        "material": "This pear is ripe enough to eat.",
+        "wordDecision": {
+          "prompt": "ripe enough to eat说成熟程度，还是已经吃掉？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "成熟，不等于吃过",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "只保留原句给出的条件。",
+            "wrong": "保留这个梨的成熟程度，不补已吃掉。",
+            "rows": [
+              {
+                "id": "ripe",
+                "label": "程度",
+                "text": "梨成熟到可以吃。",
+                "include": true
+              },
+              {
+                "id": "pear",
+                "label": "对象",
+                "text": "说的是这个梨。",
+                "include": true
+              },
+              {
+                "id": "eaten",
+                "label": "额外事件",
+                "text": "这个梨已经被吃掉。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "ready",
+            "text": "这个梨已经成熟到可以吃的程度。",
+            "correct": true,
+            "reason": "保留ripe enough to eat的成熟程度。"
+          },
+          {
+            "id": "cooked",
+            "text": "这个梨已经煮熟了。",
+            "correct": false,
+            "reason": "ripe指果实成熟，不是加热做熟。"
+          },
+          {
+            "id": "eaten",
+            "text": "这个梨已经被吃掉了。",
+            "correct": false,
+            "reason": "可以吃不等于已经吃掉。"
+          }
+        ]
+      },
+      {
+        "id": "word-banana",
+        "label": "香蕉（本句）",
+        "prompt": "fits in表示放得下还是塞不下？调整示意中的相对位置和大小。",
+        "answer": "banana",
+        "caseSensitive": false,
+        "meaning": "香蕉（本句）",
+        "before": "A ",
+        "after": " fits neatly in my lunch box.",
+        "reason": "A banana fits neatly in my lunch box表示一根香蕉正好能放在我的饭盒里。",
+        "hint": "fit说明大小合适；没有给饭盒或香蕉的实测尺寸，也没有说已经装好。",
+        "material": "A banana fits neatly in my lunch box.",
+        "wordDecision": {
+          "prompt": "fits in表示放得下还是塞不下？调整示意中的相对位置和大小。",
+          "containerFit": {
+            "title": "能完整放在里面吗？",
+            "hint": "相对大小示意，不是原物尺寸或已装好记录。",
+            "wrong": "应能完整放在饭盒里；超出边界或只在旁边都不符合。"
+          }
+        },
+        "options": [
+          {
+            "id": "fits",
+            "text": "一根香蕉正好能放在我的饭盒里。",
+            "correct": true,
+            "reason": "保留fits neatly in的容纳关系。"
+          },
+          {
+            "id": "large",
+            "text": "香蕉太大，无法放进饭盒。",
+            "correct": false,
+            "reason": "与fits neatly相反。"
+          },
+          {
+            "id": "beside",
+            "text": "香蕉只放在饭盒旁边。",
+            "correct": false,
+            "reason": "旁边没有保留in的内部关系。"
+          }
+        ]
+      },
+      {
+        "id": "word-orange",
+        "label": "橙子（本句）",
+        "prompt": "Peel要求剥皮；over a plate要求在哪里操作？两项分别调。",
+        "answer": "orange",
+        "caseSensitive": false,
+        "meaning": "橙子（本句）",
+        "before": "Peel the ",
+        "after": " over a plate.",
+        "reason": "Peel the orange over a plate要求在盘子上方剥橙子。",
+        "hint": "orange在这里是可剥皮的水果，不是颜色；要求并不证明已剥完。",
+        "material": "Peel the orange over a plate.",
+        "wordDecision": {
+          "prompt": "Peel要求剥皮；over a plate要求在哪里操作？两项分别调。",
+          "fruitPrep": {
+            "title": "剥皮，在盘子上方",
+            "hint": "示意剥皮动作和位置，不报告已经完成。",
+            "wrong": "应剥橙子皮，并在盘子上方操作；两项缺一不可。",
+            "kind": "orange"
+          }
+        },
+        "options": [
+          {
+            "id": "above",
+            "text": "在盘子上方剥橙子。",
+            "correct": true,
+            "reason": "保留Peel与over a plate。"
+          },
+          {
+            "id": "beside",
+            "text": "在盘子旁边剥橙子。",
+            "correct": false,
+            "reason": "旁边没有保留over的上方位置。"
+          },
+          {
+            "id": "keep",
+            "text": "在盘子上方操作，但不剥橙子皮。",
+            "correct": false,
+            "reason": "没有保留Peel表示的剥皮动作。"
+          }
+        ]
+      },
+      {
+        "id": "word-lemon",
+        "label": "柠檬（本句）",
+        "prompt": "挤出的是柠檬汁，还是把整个柠檬放下？挤到哪种食物上？",
+        "answer": "lemon",
+        "caseSensitive": false,
+        "meaning": "柠檬（本句）",
+        "before": "Squeeze some ",
+        "after": " over the grilled fish.",
+        "reason": "Squeeze some lemon over the grilled fish要求在烤鱼上挤一点柠檬汁。",
+        "hint": "some lemon在这道指令里指挤出的柠檬汁，没有给准确容量。",
+        "material": "Squeeze some lemon over the grilled fish.",
+        "wordDecision": {
+          "prompt": "挤出的是柠檬汁，还是把整个柠檬放下？挤到哪种食物上？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "挤什么，挤到哪里？",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "只保留原句给出的条件。",
+            "wrong": "保留挤汁与烤鱼，不补已完成或准确容量。",
+            "rows": [
+              {
+                "id": "juice",
+                "label": "动作与量",
+                "text": "挤一点柠檬汁。",
+                "include": true
+              },
+              {
+                "id": "fish",
+                "label": "去向",
+                "text": "挤在烤鱼上。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经挤完。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "squeeze",
+            "text": "在烤鱼上挤一点柠檬汁。",
+            "correct": true,
+            "reason": "保留挤汁动作、少量和烤鱼。"
+          },
+          {
+            "id": "whole",
+            "text": "把整个柠檬放在烤鱼上。",
+            "correct": false,
+            "reason": "放整个果实没有保留Squeeze表示的挤汁动作。"
+          },
+          {
+            "id": "done",
+            "text": "烤鱼上已经挤好了柠檬汁。",
+            "correct": false,
+            "reason": "原句是要求，不是完成记录。"
+          }
+        ]
+      },
+      {
+        "id": "word-grape",
+        "label": "葡萄（本句）",
+        "prompt": "掉下的是一粒还是一串？掉进包里，还是包旁边？分别比较。",
+        "answer": "grape",
+        "caseSensitive": false,
+        "meaning": "葡萄（本句）",
+        "before": "A ",
+        "after": " fell from the bunch into my bag.",
+        "reason": "A grape fell from the bunch into my bag报告一粒葡萄从葡萄串上掉进包里。",
+        "hint": "a grape是一粒；from给起点，into给进入的终点；fell是过去式。",
+        "material": "A grape fell from the bunch into my bag.",
+        "wordDecision": {
+          "prompt": "掉下的是一粒还是一串？掉进包里，还是包旁边？分别比较。",
+          "fruitFall": {
+            "title": "一粒，从串上掉进包里",
+            "hint": "示意起点、对象和终点；不推算整串原有数量。",
+            "wrong": "应是一粒葡萄从串上掉进包里；整串或包旁边都改变原意。"
+          }
+        },
+        "options": [
+          {
+            "id": "single",
+            "text": "一粒葡萄从葡萄串上掉进我的包里。",
+            "correct": true,
+            "reason": "保留单粒、起点和进入包里的结果。"
+          },
+          {
+            "id": "bunch",
+            "text": "整串葡萄掉进我的包里。",
+            "correct": false,
+            "reason": "a grape是一粒，不是the whole bunch。"
+          },
+          {
+            "id": "beside",
+            "text": "一粒葡萄掉在我的包旁边。",
+            "correct": false,
+            "reason": "beside不等于into。"
+          }
+        ]
+      },
+      {
+        "id": "word-peach",
+        "label": "桃子（本句）",
+        "prompt": "soft与smelled sweet分别给了哪种感觉？能推断尝过吗？",
+        "answer": "peach",
+        "caseSensitive": false,
+        "meaning": "桃子（本句）",
+        "before": "The ",
+        "after": " was soft and smelled sweet.",
+        "reason": "The peach was soft and smelled sweet报告桃子软软的，闻着很香。",
+        "hint": "smelled是闻起来，不是tasted；原句没有给品尝结果。",
+        "material": "The peach was soft and smelled sweet.",
+        "wordDecision": {
+          "prompt": "soft与smelled sweet分别给了哪种感觉？能推断尝过吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "闻到，不等于尝到",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "只保留原句给出的条件。",
+            "wrong": "保留柔软和气味，不能把闻到改成尝到。",
+            "rows": [
+              {
+                "id": "soft",
+                "label": "状态",
+                "text": "桃子软软的。",
+                "include": true
+              },
+              {
+                "id": "smell",
+                "label": "气味",
+                "text": "闻着很香。",
+                "include": true
+              },
+              {
+                "id": "taste",
+                "label": "额外品尝",
+                "text": "已经尝到桃子很甜。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "smell",
+            "text": "桃子软软的，闻着很香。",
+            "correct": true,
+            "reason": "保留柔软和闻到的甜香。"
+          },
+          {
+            "id": "taste",
+            "text": "桃子吃起来很甜。",
+            "correct": false,
+            "reason": "smelled sweet没有报告尝起来的味道。"
+          },
+          {
+            "id": "hard",
+            "text": "桃子很硬，闻着很香。",
+            "correct": false,
+            "reason": "很硬与soft相反；气味描述保持不变。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-fruit-vegetables-transfer",
+      "topicId": "v-course-fruit-vegetables",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成黄瓜、小梨和樱桃，哪组三句完整保留条件？",
+      "passage": "新的野餐准备\n黄瓜不去皮，切成片。一个小梨正好能放在野餐盒里。一颗樱桃从枝上掉进了我的篮子。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Slice the cucumber after removing the skin. A small pear fits neatly in the picnic box. One cherry fell from the branch into my basket."
+        },
+        {
+          "id": "b",
+          "text": "Slice the cucumber without removing the skin. A small pear fits neatly in the picnic box. One cherry fell from the branch into my basket."
+        },
+        {
+          "id": "c",
+          "text": "Slice the cucumber without removing the skin. A small pear is too large to fit in the picnic box. One cherry fell from the branch into my basket."
+        },
+        {
+          "id": "d",
+          "text": "Slice the cucumber without removing the skin. A small pear fits neatly in the picnic box. One cherry fell from the branch and landed beside my basket."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Slice the cucumber without removing the skin. A small pear fits neatly in the picnic box. One cherry fell from the branch into my basket."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐项核对without的否定条件、fits的容纳关系和into的终点。",
+        "steps": [
+          {
+            "text": "Slice…without removing the skin保留切片但不去皮。",
+            "reason": "换成黄瓜以后，without的否定条件仍不能变。"
+          },
+          {
+            "text": "fits neatly in保留小梨正好能放在盒子里。",
+            "reason": "fits表示放得下，不能改成too large。"
+          },
+          {
+            "text": "One cherry…into my basket保留一颗樱桃进入篮子。",
+            "reason": "into是进入，beside是旁边；两者落点不同。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "after removing the skin把不去皮改成去皮后。"
+          },
+          {
+            "option": "c",
+            "reason": "too large to fit把能放得下改成放不下。"
+          },
+          {
+            "option": "d",
+            "reason": "beside把掉进篮子改成落在篮子旁。"
+          }
+        ],
+        "pitfall": "认出食物名称还不够，否定、容纳关系和终点都要保留。",
+        "visual": {
+          "kind": "comparison",
+          "title": "条件逐项保留",
+          "segments": [
+            {
+              "text": "without removing the skin",
+              "role": "evidence",
+              "note": "不去皮"
+            },
+            {
+              "text": "fits neatly in",
+              "role": "evidence",
+              "note": "正好能放下"
+            },
+            {
+              "text": "one cherry…into",
+              "role": "evidence",
+              "note": "一颗，掉进"
+            }
+          ],
+          "caption": "示意不提供果实或容器的实际尺寸。"
+        },
+        "transfer": "如果into换成beside，哪项终点信息被改变？"
+      }
+    }
+  }
+}

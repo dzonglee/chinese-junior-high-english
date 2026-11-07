@@ -1,0 +1,501 @@
+{
+  "lessonId": "l-v-course-kitchen-tools",
+  "reviewState": "draft",
+  "intent": "Teach cooking verbs through exact requested order, endpoints, methods, lid state, ability and future arrangements; never infer actual completion or food safety.",
+  "picturePurpose": "Use changing coded surface, cover and condition diagrams; a static photo cannot establish softness, doneness, temperature or completed cooking.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "做什么、到哪一步、还有什么限制？",
+    "instruction": "排操作、换终点、调条件，再用自己的句子核对意思。",
+    "items": [
+      {
+        "id": "word-cook",
+        "label": "做饭（动词）",
+        "prompt": "can说能力还是已经做完？for four说四道菜还是四个人的饭？",
+        "answer": "cook",
+        "caseSensitive": false,
+        "meaning": "做饭（动词）",
+        "before": "I can ",
+        "after": " a simple meal for four.",
+        "reason": "I can cook a simple meal for four说我能做一顿四人份的简单饭菜。",
+        "hint": "can后用动词原形；这里cook不是名词厨师，for four也不是四道菜。",
+        "material": "I can cook a simple meal for four.",
+        "options": [
+          {
+            "id": "ability",
+            "text": "我能做一顿四人份的简单饭菜。",
+            "correct": true,
+            "reason": "保留can的能力与for four的人数。"
+          },
+          {
+            "id": "done",
+            "text": "我已经做完四人份的饭菜。",
+            "correct": false,
+            "reason": "can没有报告已经完成。"
+          },
+          {
+            "id": "dishes",
+            "text": "我能做四道菜。",
+            "correct": false,
+            "reason": "for four说供四个人吃，不是四道菜。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "can说能力还是已经做完？for four说四道菜还是四个人的饭？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "能力与饭菜分量",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "按原句判断，不补已经完成的结果。",
+            "wrong": "保留能做饭和四人份，不能把can当成完成记录。",
+            "rows": [
+              {
+                "id": "ability",
+                "label": "能力",
+                "text": "我能做简单饭菜。",
+                "include": true
+              },
+              {
+                "id": "people",
+                "label": "供几个人吃",
+                "text": "四人份。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外完成记录",
+                "text": "已经做完饭菜。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bake",
+        "label": "烘烤（本句）",
+        "prompt": "until给出的终点是面包顶部变棕，还是内部变棕？换终点比较。",
+        "answer": "Bake",
+        "caseSensitive": true,
+        "meaning": "烘烤（本句）",
+        "before": "",
+        "after": " the rolls until the tops are brown.",
+        "reason": "Bake the rolls until the tops are brown要求把小面包烤到顶部变成棕色。",
+        "hint": "tops只说顶部；没有给分钟数、内部颜色或实际完成记录。",
+        "material": "Bake the rolls until the tops are brown.",
+        "options": [
+          {
+            "id": "tops",
+            "text": "把小面包烤到顶部变成棕色。",
+            "correct": true,
+            "reason": "保留until the tops are brown。"
+          },
+          {
+            "id": "inside",
+            "text": "把小面包烤到内部变成棕色。",
+            "correct": false,
+            "reason": "tops是顶部，不能换成内部。"
+          },
+          {
+            "id": "burnt",
+            "text": "把小面包顶部烤焦。",
+            "correct": false,
+            "reason": "brown是棕色，不等于烤焦。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "until给出的终点是面包顶部变棕，还是内部变棕？换终点比较。",
+          "cookingEndpoint": {
+            "title": "烘烤到哪个条件？",
+            "hint": "图是语言条件示意，不测时间，也不判断食物实际熟透或安全。",
+            "wrong": "终点是顶部变棕；不能改成内部变棕或顶部烤焦。",
+            "kind": "bake"
+          }
+        }
+      },
+      {
+        "id": "word-boil",
+        "label": "煮沸（本句）",
+        "prompt": "before adding要求先做哪件事？把烧开水与放面排一排。",
+        "answer": "Boil",
+        "caseSensitive": true,
+        "meaning": "煮沸（本句）",
+        "before": "",
+        "after": " the water before adding the pasta.",
+        "reason": "Boil the water before adding the pasta要求先把水烧开，再放意大利面。",
+        "hint": "before给出先后；没有报告已经完成，也没有给水量或分钟数。",
+        "material": "Boil the water before adding the pasta.",
+        "options": [
+          {
+            "id": "before",
+            "text": "先把水烧开，再放意大利面。",
+            "correct": true,
+            "reason": "保留before的先后关系。"
+          },
+          {
+            "id": "after",
+            "text": "先放意大利面，再把水烧开。",
+            "correct": false,
+            "reason": "顺序与before相反。"
+          },
+          {
+            "id": "done",
+            "text": "水已经烧开，意大利面也已经放好了。",
+            "correct": false,
+            "reason": "这是操作要求，不是完成记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before adding要求先做哪件事？把烧开水与放面排一排。",
+          "processOrder": {
+            "title": "先烧开水，还是先放面",
+            "hint": "按要求排先后，不把要求当成完成记录。",
+            "wrong": "应先烧开水，再放意大利面；before不能反过来。",
+            "events": [
+              {
+                "id": "boil",
+                "label": "把水烧开"
+              },
+              {
+                "id": "add",
+                "label": "放意大利面"
+              }
+            ],
+            "sequence": [
+              "boil",
+              "add"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-fry",
+        "label": "油煎（本句）",
+        "prompt": "slowly说方式，until说终点。分别调整，看看能否都保留。",
+        "answer": "Fry",
+        "caseSensitive": true,
+        "meaning": "油煎（本句）",
+        "before": "",
+        "after": " the onions slowly until they soften.",
+        "reason": "Fry the onions slowly until they soften要求慢慢煎洋葱，直到变软。",
+        "hint": "soften是变软，不是仍硬；slowly没有给具体火力、温度或分钟数。",
+        "material": "Fry the onions slowly until they soften.",
+        "options": [
+          {
+            "id": "soft",
+            "text": "慢慢煎洋葱，直到变软。",
+            "correct": true,
+            "reason": "保留slowly与until they soften。"
+          },
+          {
+            "id": "fast",
+            "text": "快速煎洋葱，直到变软。",
+            "correct": false,
+            "reason": "快速丢掉slowly。"
+          },
+          {
+            "id": "hard",
+            "text": "慢慢煎洋葱，直到变硬。",
+            "correct": false,
+            "reason": "变硬与soften相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "slowly说方式，until说终点。分别调整，看看能否都保留。",
+          "cookingEndpoint": {
+            "title": "方式与终点，分开调",
+            "hint": "只比较slowly和soften的句意，不假装看图就能测出软硬。",
+            "wrong": "应慢慢煎到变软；方式和终点缺一不可。",
+            "kind": "fry"
+          }
+        }
+      },
+      {
+        "id": "word-roast",
+        "label": "烘烤（蔬菜）",
+        "prompt": "will说明什么时间？a little oil说明多少油？圈出两条信息。",
+        "answer": "roast",
+        "caseSensitive": false,
+        "meaning": "烘烤（蔬菜）",
+        "before": "We will ",
+        "after": " the vegetables with a little oil.",
+        "reason": "We will roast the vegetables with a little oil说我们将加一点油来烤蔬菜。",
+        "hint": "will是将来的安排，不是已经烤好；a little不是完全不用油或大量油。",
+        "material": "We will roast the vegetables with a little oil.",
+        "options": [
+          {
+            "id": "future",
+            "text": "我们将加一点油来烤蔬菜。",
+            "correct": true,
+            "reason": "保留will与a little oil。"
+          },
+          {
+            "id": "past",
+            "text": "我们已经加一点油烤好了蔬菜。",
+            "correct": false,
+            "reason": "will不能换成过去已完成。"
+          },
+          {
+            "id": "none",
+            "text": "我们将完全不用油来烤蔬菜。",
+            "correct": false,
+            "reason": "a little oil不能改成没有油。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "will说明什么时间？a little oil说明多少油？圈出两条信息。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "将来的安排与少量油",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "按原句判断，不补已经完成的结果。",
+            "wrong": "保留将来的烤蔬菜安排和一点油，不补烤好结果。",
+            "rows": [
+              {
+                "id": "future",
+                "label": "时间",
+                "text": "将要烤蔬菜。",
+                "include": true
+              },
+              {
+                "id": "oil",
+                "label": "用油",
+                "text": "用一点油。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经烤好。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-grill",
+        "label": "炙烤（动词）",
+        "prompt": "until的终点只落在表皮，还是说整只甜椒都变黑？换部位比较。",
+        "answer": "Grill",
+        "caseSensitive": true,
+        "meaning": "炙烤（动词）",
+        "before": "",
+        "after": " the peppers until their skins darken.",
+        "reason": "Grill the peppers until their skins darken要求把甜椒炙烤到表皮颜色变深。",
+        "hint": "skins是表皮；darken是颜色变深，不等于整只烧焦，也没给内部变化。",
+        "material": "Grill the peppers until their skins darken.",
+        "options": [
+          {
+            "id": "skin",
+            "text": "把甜椒炙烤到表皮颜色变深。",
+            "correct": true,
+            "reason": "保留skins与darken。"
+          },
+          {
+            "id": "inside",
+            "text": "把甜椒炙烤到内部颜色变深。",
+            "correct": false,
+            "reason": "内部不是skins。"
+          },
+          {
+            "id": "whole",
+            "text": "把整只甜椒都烤焦。",
+            "correct": false,
+            "reason": "表皮变深不能改成整只烤焦。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "until的终点只落在表皮，还是说整只甜椒都变黑？换部位比较。",
+          "cookingEndpoint": {
+            "title": "哪个部位变深才是原句条件？",
+            "hint": "只示意表皮与内部的范围，不据颜色判断食物是否熟透。",
+            "wrong": "原句只要求表皮颜色变深；不能换成内部或整只烤焦。",
+            "kind": "grill"
+          }
+        }
+      },
+      {
+        "id": "word-steam",
+        "label": "蒸（动词）",
+        "prompt": "with the lid on要求盖子在什么状态？切换盖好与揭开比较。",
+        "answer": "Steam",
+        "caseSensitive": true,
+        "meaning": "蒸（动词）",
+        "before": "",
+        "after": " the dumplings with the lid on.",
+        "reason": "Steam the dumplings with the lid on要求盖着盖子蒸饺子。",
+        "hint": "steam在这里是动词蒸，不是名词蒸汽；没有给分钟数或已经蒸好的结果。",
+        "material": "Steam the dumplings with the lid on.",
+        "options": [
+          {
+            "id": "covered",
+            "text": "盖着盖子蒸饺子。",
+            "correct": true,
+            "reason": "保留Steam与with the lid on。"
+          },
+          {
+            "id": "open",
+            "text": "揭开盖子蒸饺子。",
+            "correct": false,
+            "reason": "揭开与the lid on相反。"
+          },
+          {
+            "id": "done",
+            "text": "原句记录饺子已经蒸好了。",
+            "correct": false,
+            "reason": "Steam是要求，不是已经完成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "with the lid on要求盖子在什么状态？切换盖好与揭开比较。",
+          "steamCover": {
+            "title": "蒸的时候，盖子在哪？",
+            "hint": "锅形只示意要求；不模拟真实加热，不设时长或安全温度。",
+            "wrong": "应保留蒸饺子时盖好盖子的要求，不是揭开或断定已蒸好。"
+          }
+        }
+      },
+      {
+        "id": "word-heat",
+        "label": "加热（动词）",
+        "prompt": "gently与do not boil各限制什么？调整加热方式与沸腾条件。",
+        "answer": "Heat",
+        "caseSensitive": true,
+        "meaning": "加热（动词）",
+        "before": "",
+        "after": " the milk gently, but do not boil it.",
+        "reason": "Heat the milk gently, but do not boil it要求温和加热牛奶，但不要煮沸。",
+        "hint": "heat是加热，不等于boil；gently不能改成猛烈加热，也没有给温度读数。",
+        "material": "Heat the milk gently, but do not boil it.",
+        "options": [
+          {
+            "id": "gentle",
+            "text": "温和加热牛奶，但不要煮沸。",
+            "correct": true,
+            "reason": "保留gently与do not boil。"
+          },
+          {
+            "id": "rough",
+            "text": "猛烈加热牛奶，但不要煮沸。",
+            "correct": false,
+            "reason": "猛烈不能保留gently。"
+          },
+          {
+            "id": "boil",
+            "text": "温和加热牛奶，并把它煮沸。",
+            "correct": false,
+            "reason": "煮沸违反do not boil。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "gently与do not boil各限制什么？调整加热方式与沸腾条件。",
+          "gentleHeat": {
+            "title": "加热方式与禁止条件，分别核对",
+            "hint": "图只示意语言要求，没有温度计、分钟数或真实加热结果。",
+            "wrong": "应温和加热并且不煮沸；两条限制都要保留。"
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-kitchen-tools-transfer",
+      "topicId": "v-course-kitchen-tools",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成米、馒头和燕麦奶，哪组三句保留了全部要求？",
+      "passage": "三条新要求\n先把水烧开，再放米。盖着盖子蒸馒头。温和加热燕麦奶，但不要煮沸。\n词语提示：buns 馒头；oat milk 燕麦奶。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Add the rice before boiling the water. Steam the buns with the lid on. Heat the oat milk gently, but do not boil it."
+        },
+        {
+          "id": "b",
+          "text": "Boil the water before adding the rice. Steam the buns with the lid on. Heat the oat milk gently, but do not boil it."
+        },
+        {
+          "id": "c",
+          "text": "Boil the water before adding the rice. Steam the buns with the lid off. Heat the oat milk gently, but do not boil it."
+        },
+        {
+          "id": "d",
+          "text": "Boil the water before adding the rice. Steam the buns with the lid on. Heat the oat milk gently until it boils."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Boil the water before adding the rice. Steam the buns with the lid on. Heat the oat milk gently, but do not boil it."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐一保留先后、盖子状态与禁止煮沸的要求。",
+        "steps": [
+          {
+            "text": "先烧开水，再放米：Boil…before adding…。",
+            "reason": "先放米再烧开水，把before顺序反了。"
+          },
+          {
+            "text": "蒸馒头时盖好盖子：with the lid on。",
+            "reason": "off表示揭开，不能替代on。"
+          },
+          {
+            "text": "温和加热且不煮沸：gently, but do not boil it。",
+            "reason": "until it boils要求煮到沸腾，违反禁止条件。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "先放米再烧开水，把要求的先后反了。"
+          },
+          {
+            "option": "c",
+            "reason": "with the lid off把盖好改成揭开。"
+          },
+          {
+            "option": "d",
+            "reason": "until it boils把不要煮沸改成煮到沸腾。"
+          }
+        ],
+        "pitfall": "before、on和do not各自决定一条要求，不能漏掉。",
+        "visual": {
+          "kind": "comparison",
+          "title": "要求按三处核对",
+          "segments": [
+            {
+              "text": "boil water → add rice",
+              "role": "evidence",
+              "note": "先后不能反"
+            },
+            {
+              "text": "steam buns + lid on",
+              "role": "evidence",
+              "note": "蒸的时候盖好"
+            },
+            {
+              "text": "heat gently + do not boil",
+              "role": "evidence",
+              "note": "方式与禁止条件都保留"
+            }
+          ],
+          "caption": "对象换了，先后、状态和禁止条件不变。"
+        },
+        "transfer": "只把最后一句换成until it boils，为什么整组已经不符合要求？"
+      }
+    }
+  }
+}

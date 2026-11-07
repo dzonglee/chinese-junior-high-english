@@ -1,0 +1,462 @@
+{
+  "lessonId": "l-v-course-linking-4",
+  "reviewState": "draft",
+  "intent": "Distinguish recent completion, continuation, repetition, near-target levels and degree of certainty in eight individually authored word activities.",
+  "picturePurpose": "Exact reversible time/order and jar-headspace models explain the target distinctions; generated water levels would be less reliable. No actual clock times, litres or probabilities are invented.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "刚刚、仍然、又一次：看时间与把握",
+    "instruction": "排出时间与重复请求，改变罐中水位，再比较“可能”和“肯定”。每词先自己拼写，再写一个自己的句子；示意图不记录真实阅读或测量结果。",
+    "items": [
+      {
+        "id": "word-just",
+        "label": "刚刚（本句）",
+        "prompt": "have just finished：最后一章是刚读完，还是只读了一部分？",
+        "answer": "just",
+        "caseSensitive": false,
+        "meaning": "刚刚（本句）",
+        "before": "I have ",
+        "after": " finished the last chapter.",
+        "reason": "just与完成时一起说明刚发生的完成。",
+        "hint": "本句just表示刚刚，finished表明读完最后一章。不是词典中just的所有意思都适合这里；没有说具体几分钟前。",
+        "material": "I have just finished the last chapter.",
+        "wordDecision": {
+          "prompt": "have just finished：最后一章是刚读完，还是只读了一部分？",
+          "processOrder": {
+            "title": "刚读完 → 此刻说明",
+            "hint": "两格只标先后和近期完成，没有实际钟点；自己造句不必使用原句。",
+            "wrong": "按原句的信息顺序排列，不补写实际分钟数、年数或尚未完成的动作。",
+            "events": [
+              {
+                "id": "finished",
+                "label": "刚读完最后一章"
+              },
+              {
+                "id": "now",
+                "label": "此刻说明刚完成"
+              }
+            ],
+            "sequence": [
+              "finished",
+              "now"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "recent",
+            "text": "刚读完最后一章；没有给出确切分钟数。",
+            "correct": true,
+            "reason": "just表示近期完成，finished不是仍在读。"
+          },
+          {
+            "id": "unfinished",
+            "text": "只读了一部分，最后一章还没读完。",
+            "correct": false,
+            "reason": "与finished冲突；这里just不是“只是读了一点”。"
+          },
+          {
+            "id": "minutes",
+            "text": "正好五分钟前读完。",
+            "correct": false,
+            "reason": "刚刚不提供精确分钟数。"
+          }
+        ]
+      },
+      {
+        "id": "word-still",
+        "label": "仍然；还",
+        "prompt": "still works：旧钟的状态是延续，还是已经停了？",
+        "answer": "still",
+        "caseSensitive": false,
+        "meaning": "仍然；还",
+        "before": "The old clock ",
+        "after": " works perfectly.",
+        "reason": "still保留此前到现在的状态延续。",
+        "hint": "still说明旧钟到现在仍走得很好；old不提供具体年龄，也不能保证将来永远正常。",
+        "material": "The old clock still works perfectly.",
+        "wordDecision": {
+          "prompt": "still works：旧钟的状态是延续，还是已经停了？",
+          "processOrder": {
+            "title": "此前能走 → 现在仍能走",
+            "hint": "这里只比较此前与现在，没有钟龄、日期或以后永不坏的保证。",
+            "wrong": "按原句的信息顺序排列，不补写实际分钟数、年数或尚未完成的动作。",
+            "events": [
+              {
+                "id": "earlier",
+                "label": "此前能正常走动"
+              },
+              {
+                "id": "now",
+                "label": "现在仍走得很好"
+              }
+            ],
+            "sequence": [
+              "earlier",
+              "now"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "continues",
+            "text": "旧钟到现在仍然走得很好。",
+            "correct": true,
+            "reason": "原句用still说明状态继续。"
+          },
+          {
+            "id": "stopped",
+            "text": "旧钟已经停止走动。",
+            "correct": false,
+            "reason": "与still works perfectly相反。"
+          },
+          {
+            "id": "forever",
+            "text": "旧钟以后永远不会出故障。",
+            "correct": false,
+            "reason": "原句说明当前延续状态，不是永久保证。"
+          }
+        ]
+      },
+      {
+        "id": "word-again",
+        "label": "再一次；又",
+        "prompt": "Please read … again：是在请求重复，还是说明已经重读完？",
+        "answer": "again",
+        "caseSensitive": false,
+        "meaning": "再一次；又",
+        "before": "Please read the final sentence ",
+        "after": ".",
+        "reason": "again表示重复动作，请求与已完成要分开。",
+        "hint": "again要求再读一次；Please read是请求，不等于对方已经执行。示意顺序是已读过→请求再读，不替你记录真实阅读或听说。",
+        "material": "Please read the final sentence again.",
+        "wordDecision": {
+          "prompt": "Please read … again：是在请求重复，还是说明已经重读完？",
+          "processOrder": {
+            "title": "已读过 → 请求再读",
+            "hint": "这是请求的背景与当前要求，不是让你点击后就算实际重读完成。",
+            "wrong": "按原句的信息顺序排列，不补写实际分钟数、年数或尚未完成的动作。",
+            "events": [
+              {
+                "id": "earlier",
+                "label": "此前读过最后一句"
+              },
+              {
+                "id": "request",
+                "label": "现在请求再读一遍"
+              }
+            ],
+            "sequence": [
+              "earlier",
+              "request"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "repeat",
+            "text": "请把最后一句再读一遍，尚未说明请求已完成。",
+            "correct": true,
+            "reason": "祈使句提出重复阅读的请求。"
+          },
+          {
+            "id": "done",
+            "text": "对方已经把最后一句重读完了。",
+            "correct": false,
+            "reason": "请求本身不证明动作已完成。"
+          },
+          {
+            "id": "first",
+            "text": "这一定是第一次读这句话。",
+            "correct": false,
+            "reason": "again要求重复，不是第一次。"
+          }
+        ]
+      },
+      {
+        "id": "word-almost",
+        "label": "几乎；差不多",
+        "prompt": "almost at the top：水到顶了吗？",
+        "answer": "almost",
+        "caseSensitive": false,
+        "meaning": "几乎；差不多",
+        "before": "The water is ",
+        "after": " at the top of the jar.",
+        "reason": "almost保留接近目标但尚未达到的差别。",
+        "hint": "这里almost表示水面接近罐顶、还留一点空隙；图形不提供容量、升数或百分比。改变水位只是在比较词义，不改变原句事实。",
+        "material": "The water is almost at the top of the jar.",
+        "wordDecision": {
+          "prompt": "almost at the top：水到顶了吗？",
+          "almostLevel": {
+            "title": "改水位，看“快到顶”和“到顶”的差别",
+            "hint": "三个水位只作相对示意。原句对应快到顶且仍留空隙，不给升数或百分比。",
+            "wrong": "原句是almost at the top：水面快到顶但尚未到顶；低水位和已经到顶都不是这个条件。"
+          }
+        },
+        "options": [
+          {
+            "id": "near",
+            "text": "接近罐顶，还没有到顶。",
+            "correct": true,
+            "reason": "almost at the top保留未达到顶端的一点距离。"
+          },
+          {
+            "id": "top",
+            "text": "水已经到了罐顶。",
+            "correct": false,
+            "reason": "漏掉了almost所保留的未达到部分。"
+          },
+          {
+            "id": "low",
+            "text": "水面离罐顶很远。",
+            "correct": false,
+            "reason": "不符合almost所说的接近。"
+          }
+        ]
+      },
+      {
+        "id": "word-perhaps",
+        "label": "也许；可能",
+        "prompt": "Perhaps we should ask …：提出建议，还是宣布司机已回答？",
+        "answer": "Perhaps",
+        "caseSensitive": true,
+        "meaning": "也许；可能",
+        "before": "",
+        "after": " we should ask the driver first.",
+        "reason": "Perhaps弱化建议的确定性，不补写已经获得答复。",
+        "hint": "Perhaps在句首大写。本句是试探性地建议先问司机；没有给出司机的答复，也没有保证询问一定解决问题。",
+        "material": "Perhaps we should ask the driver first.",
+        "wordDecision": {
+          "prompt": "Perhaps we should ask …：提出建议，还是宣布司机已回答？"
+        },
+        "options": [
+          {
+            "id": "suggestion",
+            "text": "也许我们应该先问司机；这是建议。",
+            "correct": true,
+            "reason": "should ask与Perhaps组成试探性建议。"
+          },
+          {
+            "id": "answered",
+            "text": "司机已经回答，事情也确定了。",
+            "correct": false,
+            "reason": "原句没有答复或结果。"
+          },
+          {
+            "id": "never",
+            "text": "我们绝对不能问司机。",
+            "correct": false,
+            "reason": "把建议询问改成禁止。"
+          }
+        ]
+      },
+      {
+        "id": "word-maybe",
+        "label": "也许",
+        "prompt": "Maybe与may be：这个给定句首需要一个词还是两个词？",
+        "answer": "Maybe",
+        "caseSensitive": true,
+        "meaning": "也许",
+        "before": "",
+        "after": " the shop opens later on Sundays.",
+        "reason": "Maybe引出可能情况，不能读成已确认营业时间。",
+        "hint": "Maybe是一个副词，可放在完整句子the shop opens…前。may be是情态动词加be，不能在本句结构中原样替换；周日开门晚仍未确定。",
+        "material": "Maybe the shop opens later on Sundays.",
+        "wordDecision": {
+          "prompt": "Maybe与may be：这个给定句首需要一个词还是两个词？"
+        },
+        "options": [
+          {
+            "id": "adverb",
+            "text": "Maybe the shop opens later on Sundays.（开门较晚还不确定）",
+            "correct": true,
+            "reason": "Maybe作为副词修饰后面的完整句子。"
+          },
+          {
+            "id": "split",
+            "text": "May be the shop opens later on Sundays.",
+            "correct": false,
+            "reason": "在这个完整陈述句前不能把Maybe直接拆成may be。"
+          },
+          {
+            "id": "certain",
+            "text": "The shop certainly opens later every Sunday.（已确定）",
+            "correct": false,
+            "reason": "把可能性变成确定事实，原句没有确认。"
+          }
+        ]
+      },
+      {
+        "id": "word-probably",
+        "label": "很可能；大概",
+        "prompt": "will probably be muddy：很可能泥泞，等于百分之百吗？",
+        "answer": "probably",
+        "caseSensitive": false,
+        "meaning": "很可能；大概",
+        "before": "The path will ",
+        "after": " be muddy after the rain.",
+        "reason": "probably保留预测的不确定性。",
+        "hint": "probably表示说话者认为较有可能，原句没有测得的概率、现场检查结果或百分之百保证。",
+        "material": "The path will probably be muddy after the rain.",
+        "wordDecision": {
+          "prompt": "will probably be muddy：很可能泥泞，等于百分之百吗？"
+        },
+        "options": [
+          {
+            "id": "likely",
+            "text": "雨后小路很可能泥泞，但不是确定保证。",
+            "correct": true,
+            "reason": "probably表达较大的可能性。"
+          },
+          {
+            "id": "guaranteed",
+            "text": "已经证明小路百分之百会泥泞。",
+            "correct": false,
+            "reason": "把预测夸大成证明和绝对确定。"
+          },
+          {
+            "id": "impossible",
+            "text": "雨后小路绝对不会泥泞。",
+            "correct": false,
+            "reason": "与很可能泥泞的意思相反。"
+          }
+        ]
+      },
+      {
+        "id": "word-certainly",
+        "label": "的确；确实（本句）",
+        "prompt": "certainly make … clearer：说话者肯定什么，是否保证没人迷路？",
+        "answer": "certainly",
+        "caseSensitive": false,
+        "meaning": "的确；确实（本句）",
+        "before": "The new signs ",
+        "after": " make the route clearer.",
+        "reason": "certainly加强这一个判断，不扩大到所有导航结果。",
+        "hint": "certainly在这里加强说话者对“新路标使路线更清楚”的肯定。不是说所有人绝不会迷路，也不能仅凭用词就当作独立测量证据。",
+        "material": "The new signs certainly make the route clearer.",
+        "wordDecision": {
+          "prompt": "certainly make … clearer：说话者肯定什么，是否保证没人迷路？"
+        },
+        "options": [
+          {
+            "id": "confident",
+            "text": "说话者肯定新路标让路线更清楚。",
+            "correct": true,
+            "reason": "certainly修饰make，强调这一个判断。"
+          },
+          {
+            "id": "maybe",
+            "text": "说话者只说新路标也许让路线更清楚。",
+            "correct": false,
+            "reason": "把certainly的肯定语气降成maybe。"
+          },
+          {
+            "id": "all",
+            "text": "路标保证任何人永远不会迷路。",
+            "correct": false,
+            "reason": "更清楚不等于所有人永不迷路。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-linking-4-transfer",
+      "topicId": "v-course-linking",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪份说明保留了新情境中的“差一点完成”“再读”和可能性？",
+      "passage": "新情境｜展板只差最后一点还没完成，需要把最后一句再读一遍。助手可能晚到，但没有确认。室外地面雨后很可能湿，不是已经确定或实测的结果。请选择意思准确的英文说明。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The poster is almost finished; please read the final sentence again. Maybe our helper will arrive later. The outdoor floor will probably be wet after the rain."
+        },
+        {
+          "id": "b",
+          "text": "The poster is almost finished; please read the final sentence again. Our helper has certainly arrived. The outdoor floor will definitely be wet after the rain."
+        },
+        {
+          "id": "c",
+          "text": "The poster is completely finished; please read the final sentence again. Maybe our helper will arrive later. The outdoor floor will probably be wet after the rain."
+        },
+        {
+          "id": "d",
+          "text": "I have just finished the last chapter. The old clock still works perfectly. Perhaps we should ask the driver first."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The poster is almost finished; please read the final sentence again. Maybe our helper will arrive later. The outdoor floor will probably be wet after the rain."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对完成状态与重复请求，再检查预测有没有被写成确定事实。",
+        "steps": [
+          {
+            "text": "almost finished保留尚未完成的一点；read again是再读的请求。",
+            "reason": "completely finished会改变完成状态，提出请求也不表示已经执行。"
+          },
+          {
+            "text": "Maybe保留助手晚到的可能，probably保留雨后地面很可能湿的预测。",
+            "reason": "不能补成助手已经到达，也不能把可能性改成百分之百保证。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把助手可能晚到变成已经到达，还把雨后很可能湿变成绝对确定。"
+          },
+          {
+            "option": "c",
+            "reason": "把还差一点完成改成全部完成，漏掉almost的未达到。"
+          },
+          {
+            "option": "d",
+            "reason": "沿用旧的书、钟和司机情境，没有回应新展板、助手和雨后地面。"
+          }
+        ],
+        "pitfall": "只认出副词，却改掉完成状态、时间或说话把握。",
+        "visual": {
+          "kind": "comparison",
+          "title": "未完全完成＋重复请求＋保留可能",
+          "segments": [
+            {
+              "text": "almost finished",
+              "role": "evidence",
+              "note": "仍差一点"
+            },
+            {
+              "text": "read … again",
+              "role": "evidence",
+              "note": "再读请求"
+            },
+            {
+              "text": "Maybe … later",
+              "role": "evidence",
+              "note": "可能晚到"
+            },
+            {
+              "text": "will probably be wet",
+              "role": "neutral",
+              "note": "很可能，未确定"
+            }
+          ],
+          "caption": "这些词会改变句子的状态与把握，不能随意换强。"
+        },
+        "transfer": "如果Maybe改成certainly，语气和已知信息还能对应吗？你需要什么额外依据？"
+      }
+    }
+  }
+}

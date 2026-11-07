@@ -1,0 +1,594 @@
+{
+  "lessonId": "l-g-ordinals",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Count from an explicit direction and reference set,contrast cardinal quantity with ordinal position,repair irregular spellings,dates and possessive-determiner constructions.",
+  "picturePurpose": "Reuse the original three-person portrait for left/right ordinal selection. Coded month cards expose whole-year versus displayed-subset order. Exact dates,positions and spelling stay in authored code;floor numbering is explicitly specified.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "先找数数的起点，再写第几个",
+    "instruction": "在人物图和月份卡上先点对位置。再核对次数、日期、拼写，以及the是否已经被my或his替代。",
+    "conditions": [
+      {
+        "label": "从左数第二个，是谁",
+        "before": "Leo is the ",
+        "target": "second",
+        "after": " person from the left.",
+        "choices": [
+          "two",
+          "second"
+        ],
+        "reason": "从左往右数，Leo是第二个，用second。这是顺序，不是数量；first、second、third需要单独记。",
+        "world": {
+          "kind": "logic",
+          "caption": "图中从左到右依次是Mia、Leo、Amy。这次从画面左侧开始数；先圈人，再说位置。",
+          "cells": [
+            {
+              "label": "Leo · 从左数",
+              "detail": "先确定起点，再数位置"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "scene": {
+            "asset": "class-photo",
+            "alt": "班级合影：左边是穿珊瑚色上衣的 Mia，中间是穿蓝色上衣的 Leo，右边是穿紫色外套的 Amy。",
+            "people": [
+              {
+                "id": "mia",
+                "name": "Mia",
+                "description": "左边穿珊瑚色上衣的女生",
+                "left": 4,
+                "width": 27
+              },
+              {
+                "id": "leo",
+                "name": "Leo",
+                "description": "中间穿蓝色上衣的男生",
+                "left": 36,
+                "width": 27
+              },
+              {
+                "id": "amy",
+                "name": "Amy",
+                "description": "右边穿紫色外套的女生",
+                "left": 69,
+                "width": 27
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "leo"
+            ],
+            "subjectReason": "从左侧开始按位置数，这次应圈出Leo。序数词说的是位置，不是队伍总人数。",
+            "selectionPrompt": "从画面左侧开始数，圈出第二个人。",
+            "formLabel": "序数词"
+          }
+        }
+      },
+      {
+        "label": "方向反过来，从右数第三个",
+        "before": "Mia is the ",
+        "target": "third",
+        "after": " person from the right.",
+        "choices": [
+          "three",
+          "third"
+        ],
+        "reason": "从右往左数，Mia是第三个，用third。这是顺序，不是数量；first、second、third需要单独记。",
+        "world": {
+          "kind": "logic",
+          "caption": "图中从左到右依次是Mia、Leo、Amy。这次从画面右侧开始数；先圈人，再说位置。",
+          "cells": [
+            {
+              "label": "Mia · 从右数",
+              "detail": "先确定起点，再数位置"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "scene": {
+            "asset": "class-photo",
+            "alt": "班级合影：左边是穿珊瑚色上衣的 Mia，中间是穿蓝色上衣的 Leo，右边是穿紫色外套的 Amy。",
+            "people": [
+              {
+                "id": "mia",
+                "name": "Mia",
+                "description": "左边穿珊瑚色上衣的女生",
+                "left": 4,
+                "width": 27
+              },
+              {
+                "id": "leo",
+                "name": "Leo",
+                "description": "中间穿蓝色上衣的男生",
+                "left": 36,
+                "width": 27
+              },
+              {
+                "id": "amy",
+                "name": "Amy",
+                "description": "右边穿紫色外套的女生",
+                "left": 69,
+                "width": 27
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "mia"
+            ],
+            "subjectReason": "从右侧开始按位置数，这次应圈出Mia。序数词说的是位置，不是队伍总人数。",
+            "selectionPrompt": "从画面右侧开始数，圈出第三个人。",
+            "formLabel": "序数词"
+          }
+        }
+      },
+      {
+        "label": "从左数第一个，不能写oneth",
+        "before": "Mia is the ",
+        "target": "first",
+        "after": " person from the left.",
+        "choices": [
+          "oneth",
+          "first"
+        ],
+        "reason": "从左往右数，Mia是第一个，用first。这是顺序，不是数量；first、second、third需要单独记。",
+        "world": {
+          "kind": "logic",
+          "caption": "图中从左到右依次是Mia、Leo、Amy。这次从画面左侧开始数；先圈人，再说位置。",
+          "cells": [
+            {
+              "label": "Mia · 从左数",
+              "detail": "先确定起点，再数位置"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "scene": {
+            "asset": "class-photo",
+            "alt": "班级合影：左边是穿珊瑚色上衣的 Mia，中间是穿蓝色上衣的 Leo，右边是穿紫色外套的 Amy。",
+            "people": [
+              {
+                "id": "mia",
+                "name": "Mia",
+                "description": "左边穿珊瑚色上衣的女生",
+                "left": 4,
+                "width": 27
+              },
+              {
+                "id": "leo",
+                "name": "Leo",
+                "description": "中间穿蓝色上衣的男生",
+                "left": 36,
+                "width": 27
+              },
+              {
+                "id": "amy",
+                "name": "Amy",
+                "description": "右边穿紫色外套的女生",
+                "left": 69,
+                "width": 27
+              }
+            ],
+            "listeners": [],
+            "subjects": [
+              "mia"
+            ],
+            "subjectReason": "从左侧开始按位置数，这次应圈出Mia。序数词说的是位置，不是队伍总人数。",
+            "selectionPrompt": "从画面左侧开始数，圈出第一个人。",
+            "formLabel": "序数词"
+          }
+        }
+      },
+      {
+        "label": "my后面不要再添the",
+        "before": "This is my ",
+        "target": "fourth",
+        "after": " attempt.",
+        "choices": [
+          "the fourth",
+          "fourth"
+        ],
+        "reason": "已经有my限定attempt，不再加the。之前试过3次，现在是第4次，用fourth。",
+        "world": {
+          "kind": "logic",
+          "caption": "尝试记录：之前试过3次，这次再试1次。保留句子中的my。",
+          "cells": [
+            {
+              "label": "3 + 1 = 第4次",
+              "detail": "my fourth，不是my the fourth"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "the fourth",
+        "inputHint": "先确认这是第几个，再核对序数词拼写和限定词。"
+      },
+      {
+        "label": "five变fifth，不能机械加th",
+        "before": "We listened to the ",
+        "target": "fifth",
+        "after": " song.",
+        "choices": [
+          "fiveth",
+          "fifth"
+        ],
+        "reason": "前面已经听过4首，现在这首是第5首，five的序数词是fifth，不是fiveth。",
+        "world": {
+          "kind": "logic",
+          "caption": "演出记录：按顺序播放歌曲，当前这首之前有4首。",
+          "cells": [
+            {
+              "label": "第5首 · fifth",
+              "detail": "five → fifth"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "fiveth",
+        "inputHint": "先确认这是第几个，再核对序数词拼写和限定词。"
+      },
+      {
+        "label": "eight变eighth，不多写一个t",
+        "before": "August is the ",
+        "target": "eighth",
+        "after": " month of the year.",
+        "choices": [
+          "eightth",
+          "eighth"
+        ],
+        "reason": "August是8月，即第8个月，eight的序数词写eighth，不写eightth。",
+        "world": {
+          "kind": "logic",
+          "caption": "月份记录：August对应8月。这里问它在一年中的顺序。",
+          "cells": [
+            {
+              "label": "8月 · 第8个月",
+              "detail": "eight → eighth"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "eightth",
+        "inputHint": "先确认这是第几个，再核对序数词拼写和限定词。"
+      },
+      {
+        "label": "按整年顺序，不是按这五张卡的顺序",
+        "before": "October is the ",
+        "target": "tenth",
+        "after": " month of the year.",
+        "choices": [
+          "third",
+          "tenth"
+        ],
+        "reason": "October是10月，在全年排第10，用tenth。它在当前五张卡里排第3，不代表它是一年中的第3个月。",
+        "world": {
+          "kind": "calendar",
+          "caption": "这里只展示8月至12月。句子问October在全年排第几，不是问它在这五张卡里排第几。",
+          "cells": [
+            {
+              "id": "aug",
+              "label": "Aug",
+              "detail": "8月"
+            },
+            {
+              "id": "sep",
+              "label": "Sep",
+              "detail": "9月"
+            },
+            {
+              "id": "oct",
+              "label": "Oct",
+              "detail": "10月"
+            },
+            {
+              "id": "nov",
+              "label": "Nov",
+              "detail": "11月"
+            },
+            {
+              "id": "dec",
+              "label": "Dec",
+              "detail": "12月"
+            }
+          ],
+          "selection": {
+            "prompt": "圈出一年中的第十个月。",
+            "ids": [
+              "oct"
+            ],
+            "reason": "先圈出10月October。句子问全年顺序，不是这五张卡的排列序号。"
+          }
+        },
+        "input": true,
+        "initial": "third",
+        "inputHint": "先确认这是第几个，再核对序数词拼写和限定词。"
+      },
+      {
+        "label": "二十一日，要写twenty-first",
+        "before": "Our match is on the ",
+        "target": "twenty-first",
+        "after": " of June.",
+        "choices": [
+          "twenty-oneth",
+          "twenty-first"
+        ],
+        "reason": "日期表示第21天，写twenty-first，保留连字符并把one变first。on the twenty-first of June表示6月21日。",
+        "world": {
+          "kind": "logic",
+          "caption": "比赛日期：6月21日。句子已给on the和of June，把日期序数词填准。",
+          "cells": [
+            {
+              "label": "June 21 · 6月21日",
+              "detail": "twenty + first"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "twenty-oneth",
+        "inputHint": "先确认这是第几个，再核对序数词拼写和限定词。"
+      },
+      {
+        "label": "按题目标注说楼层",
+        "before": "The art room is on the ",
+        "target": "third",
+        "after": " floor.",
+        "choices": [
+          "three",
+          "third"
+        ],
+        "reason": "按本题楼层标注，美术教室在3F，即third floor。楼层序号用序数词third，不是数量three。",
+        "world": {
+          "kind": "logic",
+          "caption": "楼层标注：1F=first floor，2F=second floor，3F=third floor。美术教室在3F；按这套标注作答。",
+          "cells": [
+            {
+              "label": "3F · art room",
+              "detail": "依题目明示的楼层编号"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "nine变ninth，去掉e",
+        "before": "This is the ",
+        "target": "ninth",
+        "after": " question on the form.",
+        "choices": [
+          "nineth",
+          "ninth"
+        ],
+        "reason": "这道题之前有8道，所以它是第9道。nine去掉e再加th，写ninth。",
+        "world": {
+          "kind": "logic",
+          "caption": "表格顺序：当前这道题前面有8道题。",
+          "cells": [
+            {
+              "label": "8 + 1 = 第9道",
+              "detail": "nine → ninth"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "nineth",
+        "inputHint": "先确认这是第几个，再核对序数词拼写和限定词。"
+      },
+      {
+        "label": "twelve变twelfth，结尾要变",
+        "before": "This is the ",
+        "target": "twelfth",
+        "after": " stop.",
+        "choices": [
+          "twelveth",
+          "twelfth"
+        ],
+        "reason": "在本题从第1站起算，之前经过11站，这一站是第12站。twelve的序数词写twelfth，不是twelveth。",
+        "world": {
+          "kind": "logic",
+          "caption": "站点顺序：从第1站起数，当前这一站前面共有11站。",
+          "cells": [
+            {
+              "label": "11 + 1 = 第12站",
+              "detail": "twelve → twelfth"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "twelveth",
+        "inputHint": "先确认这是第几个，再核对序数词拼写和限定词。"
+      },
+      {
+        "label": "整十序数词：twenty变twentieth",
+        "before": "The museum opened on the ",
+        "target": "twentieth",
+        "after": " of April.",
+        "choices": [
+          "twentyth",
+          "twentieth"
+        ],
+        "reason": "20日用twentieth。twenty变序数词时，y变ie再加th；不能直接写twentyth。",
+        "world": {
+          "kind": "logic",
+          "caption": "开馆日期：4月20日。按当前句式写第20天。",
+          "cells": [
+            {
+              "label": "April 20 · 4月20日",
+              "detail": "twenty → twentieth"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "initial": "twentyth",
+        "inputHint": "先确认这是第几个，再核对序数词拼写和限定词。"
+      }
+    ],
+    "choices": [
+      "two",
+      "second",
+      "three",
+      "third",
+      "oneth",
+      "first",
+      "the fourth",
+      "fourth",
+      "fiveth",
+      "fifth",
+      "eightth",
+      "eighth",
+      "tenth",
+      "twenty-oneth",
+      "twenty-first",
+      "nineth",
+      "ninth",
+      "twelveth",
+      "twelfth",
+      "twentyth",
+      "twentieth"
+    ],
+    "items": [
+      {
+        "id": "ordinal-editor",
+        "label": "顺序与起点",
+        "prompt": "按给定方向和范围说清位置。",
+        "answer": "",
+        "reason": "",
+        "hint": "从哪一侧数、数全年还是片段、现在这一次算不算，都要先看清。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-ordinals-002",
+      "q-g-ordinals-003"
+    ],
+    "transfer": {
+      "id": "individual-g-ordinals-transfer",
+      "topicId": "g-ordinals",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "队伍从左到右：Mia → Leo → Amy → Noor → Ken。Leo以前来过两次。两空依次填什么？\nLeo is the ___ person from the right. This is his ___ visit.",
+      "options": [
+        {
+          "id": "a",
+          "text": "fourth; third"
+        },
+        {
+          "id": "b",
+          "text": "second; third"
+        },
+        {
+          "id": "c",
+          "text": "fourth; the third"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "fourth; third"
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先按题目指定的方向数位置，再结合已有次数和限定词写本次序号。",
+        "steps": [
+          {
+            "text": "从右数：Ken第1、Noor第2、Amy第3、Leo第4，第一空用fourth。",
+            "reason": "Leo从左数第2，但题目明确要求from the right。"
+          },
+          {
+            "text": "以前来过2次，这次是第3次；his后直接用third。",
+            "reason": "已经有his限定visit，不再加the。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "second是Leo从左侧起数的位置，起点与题目from the right相反。"
+          },
+          {
+            "option": "c",
+            "reason": "his已经限定visit，不能再放the；应写his third visit。"
+          }
+        ],
+        "pitfall": "方向、起点或此前次数一变，序号也会变；物主限定词后不要再加the。",
+        "visual": {
+          "kind": "comparison",
+          "title": "把起点和本次序号分别数清",
+          "segments": [
+            {
+              "text": "右 → Ken 1 · Noor 2 · Amy 3 · Leo 4",
+              "role": "evidence",
+              "note": "从右侧起算，Leo第四"
+            },
+            {
+              "text": "2次以前 + 本次1次 → his third visit",
+              "role": "evidence",
+              "note": "third前已有his"
+            }
+          ],
+          "caption": "位置以指定方向为准；本次次数要包含现在这一次。"
+        },
+        "transfer": "如果改为from the left，第一个空应怎样改？第二个空需要跟着改吗？"
+      }
+    }
+  }
+}

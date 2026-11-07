@@ -1,0 +1,622 @@
+{
+  "lessonId": "l-v-course-core-actions-5",
+  "reviewState": "draft",
+  "intent": "Individually distinguish linking smell, active taste and order, seem impression, possible become, unknown symbol meaning, verb use and smaller size, try a relative alternative direction and future start order.",
+  "picturePurpose": "Original proportional spoon artwork supports a relative-size choice; coded event order and reversible stipulated-view rotation show the exact relationships without measured capacities, source angles or sensory evidence.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "尝一尝、比一比、换个方向试试",
+    "instruction": "摆先后、比大小、换转向，再拼词、写自己的句子。",
+    "items": [
+      {
+        "id": "word-smell",
+        "label": "闻起来（本句）",
+        "prompt": "句中是在描写花的气味，还是说有人去闻花？看smell后面的fresh。",
+        "answer": "smell",
+        "caseSensitive": false,
+        "meaning": "闻起来（本句）",
+        "before": "These flowers ",
+        "after": " fresh after the rain.",
+        "reason": "These flowers smell fresh：smell作系动词，fresh描述闻起来的感受。",
+        "hint": "smell后用形容词fresh；本句描述气味，不是主动闻。",
+        "material": "These flowers smell fresh after the rain.",
+        "wordDecision": {
+          "prompt": "句中是在描写花的气味，还是说有人去闻花？看smell后面的fresh。"
+        },
+        "options": [
+          {
+            "id": "quality",
+            "text": "雨后这些花闻起来清新。",
+            "correct": true,
+            "reason": "fresh是smell后的形容词，描述花的气味。"
+          },
+          {
+            "id": "action",
+            "text": "有人正在闻雨后的这些花。",
+            "correct": false,
+            "reason": "原句以these flowers为主语，描述花的气味，没有说谁去闻花。"
+          },
+          {
+            "id": "adverb",
+            "text": "这里必须把fresh改成副词freshly。",
+            "correct": false,
+            "reason": "本句smell后用形容词描述感受，不用freshly代替fresh。"
+          }
+        ],
+        "ownForms": [
+          "smell",
+          "smells",
+          "smelled",
+          "smelt",
+          "smelling"
+        ]
+      },
+      {
+        "id": "word-taste",
+        "label": "尝一尝（本句）",
+        "prompt": "Taste the soup：是“尝汤”这个动作，还是“汤尝起来……”？再摆出放盐前后的顺序。",
+        "answer": "Taste",
+        "caseSensitive": true,
+        "meaning": "尝一尝（本句）",
+        "before": "",
+        "after": " the soup before you add salt.",
+        "reason": "Taste在这里直接接the soup，是尝汤的动作；before要求先尝，再加盐。",
+        "hint": "Taste直接接the soup，表示尝汤；before是先尝后加盐。句首大写。",
+        "material": "Taste the soup before you add salt.",
+        "wordDecision": {
+          "prompt": "Taste the soup：是“尝汤”这个动作，还是“汤尝起来……”？再摆出放盐前后的顺序。",
+          "processOrder": {
+            "title": "先尝汤，再加盐",
+            "hint": "摆出原句要求的顺序；不是实际品尝记录，也没有盐量或温度数值。",
+            "wrong": "before要求先尝汤，再加盐；不要把要求当成已经做过。",
+            "events": [
+              {
+                "id": "taste",
+                "label": "尝汤"
+              },
+              {
+                "id": "salt",
+                "label": "加盐"
+              }
+            ],
+            "sequence": [
+              "taste",
+              "salt"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "action",
+            "text": "先尝一尝汤，再加盐。",
+            "correct": true,
+            "reason": "保留动作对象the soup和before的先后要求。"
+          },
+          {
+            "id": "after",
+            "text": "加完盐以后再第一次尝汤。",
+            "correct": false,
+            "reason": "把before倒成了之后。"
+          },
+          {
+            "id": "linking",
+            "text": "本句说的是汤尝起来很好。",
+            "correct": false,
+            "reason": "本句要求尝汤，没有说明汤的味道如何。"
+          }
+        ],
+        "ownForms": [
+          "taste",
+          "tastes",
+          "tasted",
+          "tasting"
+        ]
+      },
+      {
+        "id": "word-seem",
+        "label": "似乎（本句）",
+        "prompt": "seem clearer是“似乎更清楚”，能直接保证所有同学都看懂吗？",
+        "answer": "seem",
+        "caseSensitive": false,
+        "meaning": "似乎（本句）",
+        "before": "The instructions ",
+        "after": " clearer with pictures.",
+        "reason": "seem后直接接比较级clearer，表示配上图后说明似乎更清楚。",
+        "hint": "seem后直接接clearer，表示印象，不能保证人人看懂。",
+        "material": "The instructions seem clearer with pictures.",
+        "wordDecision": {
+          "prompt": "seem clearer是“似乎更清楚”，能直接保证所有同学都看懂吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "印象与条件",
+            "prompt": "圈出原句明确表达的两点。",
+            "hint": "不把seem改成保证，不补实际学习成绩。",
+            "wrong": "本句是有图片时似乎更清楚，没有保证所有人理解。",
+            "rows": [
+              {
+                "id": "impression",
+                "label": "表达强度",
+                "text": "似乎更清楚。",
+                "include": true
+              },
+              {
+                "id": "pictures",
+                "label": "条件",
+                "text": "配上图片时。",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "额外保证",
+                "text": "所有人已经完全理解。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "impression",
+            "text": "配上图后，说明似乎更清楚。",
+            "correct": true,
+            "reason": "保留seem的印象与clearer的比较。"
+          },
+          {
+            "id": "guarantee",
+            "text": "保证所有人都已经完全看懂。",
+            "correct": false,
+            "reason": "把似乎夸大成了对所有人的保证。"
+          },
+          {
+            "id": "to-clearer",
+            "text": "本句必须写seem to clearer。",
+            "correct": false,
+            "reason": "clearer是形容词比较级，这里直接跟在seem后面。"
+          }
+        ],
+        "ownForms": [
+          "seem",
+          "seems",
+          "seemed",
+          "seeming"
+        ]
+      },
+      {
+        "id": "word-become",
+        "label": "变得（本句）",
+        "prompt": "can become slippery：是可能变滑，还是肯定已经变滑？",
+        "answer": "become",
+        "caseSensitive": false,
+        "meaning": "变得（本句）",
+        "before": "The trail can ",
+        "after": " slippery after sunset.",
+        "reason": "can become表示可能变得怎样，after sunset给出日落后这个范围。",
+        "hint": "can后用原形become；可能变滑不等于已经变滑。",
+        "material": "The trail can become slippery after sunset.",
+        "wordDecision": {
+          "prompt": "can become slippery：是可能变滑，还是肯定已经变滑？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "变化与时间范围",
+            "prompt": "圈出原句明确说的两点。",
+            "hint": "没有实测路况，不补具体钟点。",
+            "wrong": "日落后可能变滑，不等于肯定已经变滑。",
+            "rows": [
+              {
+                "id": "change",
+                "label": "可能变化",
+                "text": "可能变滑。",
+                "include": true
+              },
+              {
+                "id": "time",
+                "label": "范围",
+                "text": "日落之后。",
+                "include": true
+              },
+              {
+                "id": "certain",
+                "label": "额外结论",
+                "text": "现在肯定已经变滑。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "possible",
+            "text": "日落后小径可能变滑。",
+            "correct": true,
+            "reason": "保留can的可能性和become的状态变化。"
+          },
+          {
+            "id": "certain",
+            "text": "小径肯定已经变滑。",
+            "correct": false,
+            "reason": "把可能的变化改成了已经发生的肯定事实。"
+          },
+          {
+            "id": "became",
+            "text": "本句can后必须写became。",
+            "correct": false,
+            "reason": "can后用原形become。"
+          }
+        ],
+        "ownForms": [
+          "become",
+          "becomes",
+          "became",
+          "becoming"
+        ]
+      },
+      {
+        "id": "word-mean",
+        "label": "意思是（本句）",
+        "prompt": "What does … mean?：是在问含义，还是已经告诉了我们符号表示什么？",
+        "answer": "mean",
+        "caseSensitive": false,
+        "meaning": "意思是（本句）",
+        "before": "What does this blue symbol ",
+        "after": "?",
+        "reason": "does后用原形mean，问的是蓝色符号的意思。",
+        "hint": "does后用原形mean；符号的实际含义没有给出。",
+        "material": "What does this blue symbol mean?",
+        "wordDecision": {
+          "prompt": "What does … mean?：是在问含义，还是已经告诉了我们符号表示什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问了什么，答了吗？",
+            "prompt": "圈出对象与答案边界。",
+            "hint": "颜色不是符号含义的答案。",
+            "wrong": "在问蓝色符号的含义，没有说明具体表示什么。",
+            "rows": [
+              {
+                "id": "object",
+                "label": "对象",
+                "text": "蓝色符号的含义。",
+                "include": true
+              },
+              {
+                "id": "unknown",
+                "label": "未给出的答案",
+                "text": "实际含义尚未提供。",
+                "include": true
+              },
+              {
+                "id": "parking",
+                "label": "额外解释",
+                "text": "确定表示免费停车。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "question",
+            "text": "询问蓝色符号的含义，答案还没给出。",
+            "correct": true,
+            "reason": "What does…mean?提出问题，没有提供符号解释。"
+          },
+          {
+            "id": "policy",
+            "text": "已经确认这个符号就是免费停车。",
+            "correct": false,
+            "reason": "原句没给符号含义，不能编停车规定。"
+          },
+          {
+            "id": "means",
+            "text": "does后必须写第三人称单数means。",
+            "correct": false,
+            "reason": "does后用原形mean，不用means。"
+          }
+        ],
+        "ownForms": [
+          "mean",
+          "means",
+          "meant",
+          "meaning"
+        ]
+      },
+      {
+        "id": "word-use",
+        "label": "使用（本句）",
+        "prompt": "smaller是哪一把？先比较两把勺子，再点选本句要求使用的那把。",
+        "answer": "Use",
+        "caseSensitive": true,
+        "meaning": "使用（本句）",
+        "before": "",
+        "after": " the smaller spoon for the honey.",
+        "reason": "Use是使用这个动作，smaller指比较中较小的勺子。",
+        "hint": "比较两把勺子，选择较小的；句首Use大写。",
+        "material": "Use the smaller spoon for the honey.",
+        "wordDecision": {
+          "prompt": "smaller是哪一把？先比较两把勺子，再点选本句要求使用的那把。",
+          "art": {
+            "asset": "lesson-two-spoons",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创俯视比较：同款银色勺子完整竖放，左边较大，右边较小，两个勺头与柄端均在浅蓝画布内。",
+            "targets": [
+              {
+                "id": "large",
+                "option": "large",
+                "label": "较大",
+                "labelPosition": "top",
+                "left": 22,
+                "top": 3,
+                "width": 29,
+                "height": 93
+              },
+              {
+                "id": "small",
+                "option": "small",
+                "label": "较小",
+                "labelPosition": "top",
+                "left": 52,
+                "top": 15,
+                "width": 28,
+                "height": 80
+              }
+            ],
+            "evidence": [
+              {
+                "option": "small",
+                "caption": "右侧同款勺子的勺头与柄都较小，符合smaller；不推算容量。",
+                "regions": [
+                  {
+                    "id": "small-spoon",
+                    "label": "较小",
+                    "left": 59,
+                    "top": 22,
+                    "width": 12,
+                    "height": 69
+                  }
+                ]
+              },
+              {
+                "option": "large",
+                "caption": "左侧较大，不符合本句smaller的要求。",
+                "regions": [
+                  {
+                    "id": "large-spoon",
+                    "label": "较大",
+                    "left": 29,
+                    "top": 6,
+                    "width": 16,
+                    "height": 86
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "small",
+            "text": "使用较小的勺子。",
+            "correct": true,
+            "reason": "smaller是比较中较小的一把。"
+          },
+          {
+            "id": "large",
+            "text": "使用较大的勺子。",
+            "correct": false,
+            "reason": "把smaller改成了larger。"
+          }
+        ],
+        "ownForms": [
+          "use",
+          "uses",
+          "used",
+          "using"
+        ]
+      },
+      {
+        "id": "word-try",
+        "label": "试一试（本句）",
+        "prompt": "the other way相对哪一边？改一下示例参照，再选相反转法。",
+        "answer": "Try",
+        "caseSensitive": true,
+        "meaning": "试一试（本句）",
+        "before": "",
+        "after": " turning the handle the other way.",
+        "reason": "Try turning要求试一种办法；the other way与已有参照方向相反。",
+        "hint": "try doing是试一种办法，不保证成功；try to do另有用法。句首Try大写。",
+        "material": "Try turning the handle the other way.",
+        "wordDecision": {
+          "prompt": "the other way相对哪一边？改一下示例参照，再选相反转法。",
+          "methodDirection": {
+            "title": "换个参照，再判断另一边",
+            "hint": "本例正对旋钮自定参照；原句没给视角、实际转向、角度或成功结果。",
+            "wrong": "the other way要相对示例参照换成反向；Try只是试一种办法，不能保证成功。"
+          }
+        },
+        "options": [
+          {
+            "id": "method",
+            "text": "试试换一个相反转向，不保证成功。",
+            "correct": true,
+            "reason": "保留尝试办法和the other way的相对方向。"
+          },
+          {
+            "id": "guarantee",
+            "text": "已经按另一方向转动，并解决了问题。",
+            "correct": false,
+            "reason": "把尝试建议改成了已经成功的记录。"
+          },
+          {
+            "id": "same",
+            "text": "明确要求保持原来的同一转向。",
+            "correct": false,
+            "reason": "与the other way的相对反向意思不符。"
+          }
+        ],
+        "ownForms": [
+          "try",
+          "tries",
+          "tried",
+          "trying"
+        ]
+      },
+      {
+        "id": "word-start",
+        "label": "开始（本句）",
+        "prompt": "will start…after break：先休息还是先开始实验？这是安排还是已经完成？",
+        "answer": "start",
+        "caseSensitive": false,
+        "meaning": "开始（本句）",
+        "before": "We will ",
+        "after": " the experiment after break.",
+        "reason": "will start是未来安排，after break要求实验在休息之后开始。",
+        "hint": "will后用原形start；休息后才开始，这是未来安排。",
+        "material": "We will start the experiment after break.",
+        "wordDecision": {
+          "prompt": "will start…after break：先休息还是先开始实验？这是安排还是已经完成？",
+          "processOrder": {
+            "title": "休息之后，再开始实验",
+            "hint": "只摆未来安排的先后；没有实际开始记录、具体钟点或实验时长。",
+            "wrong": "after break要求休息在前，实验开始在后；will不表示已经完成。",
+            "events": [
+              {
+                "id": "break",
+                "label": "休息"
+              },
+              {
+                "id": "start",
+                "label": "开始实验"
+              }
+            ],
+            "sequence": [
+              "break",
+              "start"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "plan",
+            "text": "休息之后将开始实验。",
+            "correct": true,
+            "reason": "保留will的未来安排和after的先后。"
+          },
+          {
+            "id": "before",
+            "text": "休息之前就开始实验。",
+            "correct": false,
+            "reason": "把after倒成了before。"
+          },
+          {
+            "id": "done",
+            "text": "实验已经完成。",
+            "correct": false,
+            "reason": "未来开始安排不等于已经完成。"
+          }
+        ],
+        "ownForms": [
+          "start",
+          "starts",
+          "started",
+          "starting"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-core-actions-5-transfer",
+      "topicId": "v-course-core-actions",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪组三句保留了先后、比较和尝试的意思？",
+      "passage": "小组活动准备\n加糖前先尝一尝牛奶。果汁用小一点的杯子。试试把旋钮向另一边转，不保证解决问题；实际转向和角度未给出。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Taste the milk after you add sugar. Use the smaller cup for the juice. Try turning the knob the other way."
+        },
+        {
+          "id": "b",
+          "text": "Taste the milk before you add sugar. Use the larger cup for the juice. Try turning the knob the other way."
+        },
+        {
+          "id": "c",
+          "text": "Taste the milk before you add sugar. Use the smaller cup for the juice. Try turning the knob the other way."
+        },
+        {
+          "id": "d",
+          "text": "Taste the milk before you add sugar. Use the smaller cup for the juice. Turning the knob will certainly fix everything."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Taste the milk before you add sugar. Use the smaller cup for the juice. Try turning the knob the other way."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把三条新要求逐项核对，尤其注意before、smaller和try。",
+        "steps": [
+          {
+            "text": "品尝在加糖前，用Taste…before…；果汁用较小的杯子。",
+            "reason": "before不能倒成after，smaller不能改成larger。"
+          },
+          {
+            "text": "Try turning保留试一种办法的意思。",
+            "reason": "试一试不等于一定解决一切，实际转向和角度仍未给出。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把加糖前品尝倒成了加糖后。"
+          },
+          {
+            "option": "b",
+            "reason": "把较小的杯子改成了较大的杯子。"
+          },
+          {
+            "option": "d",
+            "reason": "把尝试办法夸大成一定解决一切。"
+          }
+        ],
+        "pitfall": "只看到动作词，却改掉先后、大小比较或结果的确定程度。",
+        "visual": {
+          "kind": "comparison",
+          "title": "要求与结论分开核对",
+          "segments": [
+            {
+              "text": "Taste → add sugar",
+              "role": "evidence",
+              "note": "品尝在先"
+            },
+            {
+              "text": "smaller cup",
+              "role": "evidence",
+              "note": "保留大小比较"
+            },
+            {
+              "text": "Try ≠ certainly fix",
+              "role": "evidence",
+              "note": "尝试不保证结果"
+            }
+          ],
+          "caption": "新任务改变了食物、容器与装置；不编实际结果或角度。"
+        },
+        "transfer": "如果把Try turning换成We have already turned，为什么不能再当作原来的尝试建议？"
+      }
+    }
+  }
+}

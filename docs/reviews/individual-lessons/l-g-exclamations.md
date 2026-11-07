@@ -1,0 +1,13 @@
+# Exclamations: select the phrase before choosing What or How
+
+2026-10-18 (Sydney). Individually reviewed; content remains draft.
+
+Thirteen tasks contrast complete fronted noun phrases with adjective/adverb focus. Students select the actual words,distinguish singular/plural/uncountable nouns,choose a/an by sound,and assemble two complete exclamations. Paired beautiful and clever examples change the phrase boundary. Fast demonstrates that an adverb need not end in-ly. Two article tasks explicitly show the words remaining after the What+a/an blank.
+
+Inspected all thirteen models and narrow-phone figures,all thirteen wrong-boundary selections,incomplete and removed phrases,typed and full-sentence repairs,capital feedback,piece removal/reload,applications and every explanation/transfer step. The selected-phrase preview retains the student's actual words in sentence order,even when selected out of order. It never silently replaces an incorrect selection with a correct phrase. Missing words,extra subject/predicate words,and a wrong What/How expression each block completion. Word controls remain visible alongside full-sentence assembly.
+
+A new optional words selection mode renders touchable words in reading order,without irrelevant quantity bars or prelabelled answers. Schema validation rejects unknown modes and multiword cells. A focused core test checks wrong roles,partial boundaries,selection order,serialization,repair and invalidation after removal. Source capitals How/What are enforced per response;reserved006 is exercised only at source.
+
+Actual controls pass thirteen conditions at320/390/768,all wrong-boundary and removal/reload paths,applications and fresh transfer. Grades8–9;reserved005–008 remain unexposed;zero independent attempts,mastery or lesson-pass records. The complete twelve-condition ordinal flow also passes after the shared UI change. Its month/date figures were reinspected;this replay adds no review credit.
+
+1,480 core tests/14 files pass. Development/cloud adapter simulations,all245 hashes and artwork failure/retry pass before the final four-condition caption/prompt clarifications. Runtime/UI code is unchanged after those checks. Final compiler/typecheck,826 teaching/spelling,nine grammar,interaction/static-package checks,full exclamation browser,nine offline checks and ZIP CRC/exact-source comparisons cover that wording. The ordinal regression keeps its preclarification scope. Fresh MCP status succeeds,but project-instruction reads still report MacStudioExternal unavailable;the existing native card was updated as blocked. No shared GUI job,upload,publication or release.

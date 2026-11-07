@@ -1,0 +1,611 @@
+{
+  "lessonId": "l-v-course-time-4",
+  "reviewState": "draft",
+  "intent": "Individually authored watch/alarm/schedule/period/moment/past/present/ago tasks, original updated-visit reading. No hearing or mastery credit.",
+  "picturePurpose": "Original wristwatch versus twin-bell alarm art supports object identification; exact clock times and functionality are not inferred from generated hands.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "读懂日程，给提醒留足时间",
+    "instruction": "点图辨物、按句意选词；再分别核对提醒、改期和记录次数。",
+    "items": [
+      {
+        "id": "watch",
+        "label": "watch：名词看表带，动词看句子",
+        "prompt": "物品便条：My watch has a dark blue strap. 点符合便条的物品。",
+        "wordDecision": {
+          "prompt": "物品便条：My watch has a dark blue strap. 点符合便条的物品。",
+          "recordPaths": [
+            {
+              "id": "noun",
+              "label": "这里是名词",
+              "steps": [
+                "My watch",
+                "我的手表"
+              ]
+            },
+            {
+              "id": "verb",
+              "label": "另一种用法",
+              "steps": [
+                "watch a game",
+                "观看比赛"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-watch-alarm",
+            "alt": "两件计时物品。左边是有深蓝色表带的完整手表，右边是有两个铃铛的紫色桌面闹钟。画面没有文字或数字。",
+            "targets": [
+              {
+                "id": "wristwatch",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "wristwatch"
+              },
+              {
+                "id": "alarm-clock",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 50.6,
+                "top": 1,
+                "width": 48.8,
+                "height": 98,
+                "option": "alarm-clock"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "wristwatch",
+                "caption": "左图已选。回看便条中的dark blue strap，再核对所选物品。",
+                "regions": [
+                  {
+                    "id": "wristwatch",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "alarm-clock",
+                "caption": "右图已选。回看便条中的dark blue strap，再核对所选物品。",
+                "regions": [
+                  {
+                    "id": "alarm-clock",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 50.6,
+                    "top": 1,
+                    "width": 48.8,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "watch",
+        "meaning": "手表；观看",
+        "material": "My watch stopped during the storm.",
+        "before": "My ",
+        "after": " stopped during the storm.",
+        "reason": "a watch是可数名词“手表”；watch a game里的watch是动词“观看”。名词watch的复数是watches，动词三单也写watches，要看句中的作用。图中的表带帮你辨认手表。",
+        "hint": "a watch一只手表；watch a game观看比赛；watches的用法看句子。",
+        "options": [
+          {
+            "id": "wristwatch",
+            "text": "The wristwatch with the dark blue strap.",
+            "correct": true,
+            "reason": "左图有连接表壳的深蓝色表带，与便条一致。"
+          },
+          {
+            "id": "alarm-clock",
+            "text": "The purple clock with two bells.",
+            "correct": false,
+            "reason": "右图是桌面闹钟，没有便条里的深蓝色表带。"
+          }
+        ],
+        "ownForms": [
+          "watch",
+          "watches",
+          "watched",
+          "watching"
+        ]
+      },
+      {
+        "id": "alarm",
+        "label": "alarm：算清出门前的提醒时间",
+        "prompt": "安排：Now 06:50. Bus: 07:20. Walk: 15 minutes. Get ready: 5 minutes. Move to the latest alarm time.",
+        "wordDecision": {
+          "prompt": "安排：Now 06:50. Bus: 07:20. Walk: 15 minutes. Get ready: 5 minutes. Move to the latest alarm time.",
+          "recordPaths": [
+            {
+              "id": "back",
+              "label": "倒推提醒",
+              "steps": [
+                "07:20发车",
+                "07:05出门",
+                "07:00开始准备"
+              ]
+            }
+          ],
+          "clock": {
+            "title": "从06:50拨到最晚提醒时间",
+            "start": "06:50",
+            "days": [
+              "Tuesday",
+              "Wednesday"
+            ],
+            "intervals": [
+              0,
+              5,
+              10,
+              15,
+              20
+            ],
+            "answer": 10,
+            "hint": "先从发车时间倒推走路和准备，再从06:50拨到这个时刻。",
+            "wrong": "先算07:20−15−5=07:00，再从06:50往后拨十分钟；不能只扣走路时间。"
+          }
+        },
+        "answer": "alarm",
+        "meaning": "闹钟；警报",
+        "material": "Set an alarm so you will not miss the bus.",
+        "before": "Set an ",
+        "after": " so you will not miss the bus.",
+        "reason": "set an alarm表示设闹钟。07:20−15分钟−5分钟=07:00；走路和出门前准备都要留出时间。",
+        "hint": "发车07:20 → 到站前走15分钟 → 出门前准备5分钟。",
+        "options": [
+          {
+            "id": "walk-only",
+            "text": "07:05.",
+            "correct": false,
+            "reason": "只扣走路的十五分钟，漏了准备的五分钟。"
+          },
+          {
+            "id": "departure",
+            "text": "07:20.",
+            "correct": false,
+            "reason": "这是公交车发车时间，等到这时才提醒会来不及。"
+          },
+          {
+            "id": "seven",
+            "text": "07:00.",
+            "correct": true,
+            "reason": "先扣十五分钟走路，再扣五分钟准备，最晚07:00提醒。"
+          }
+        ],
+        "ownForms": [
+          "alarm",
+          "alarms"
+        ]
+      },
+      {
+        "id": "schedule",
+        "label": "schedule：只改明确通知的活动",
+        "prompt": "通知：The science talk is on schedule at 10:00. Only the outdoor games move from 11:00 to 14:00. Which is still at 10:00?",
+        "wordDecision": {
+          "prompt": "通知：The science talk is on schedule at 10:00. Only the outdoor games move from 11:00 to 14:00. Which is still at 10:00?",
+          "recordPaths": [
+            {
+              "id": "fixed",
+              "label": "保留安排",
+              "steps": [
+                "science talk",
+                "10:00不变"
+              ]
+            },
+            {
+              "id": "change",
+              "label": "单项改动",
+              "steps": [
+                "games 11:00",
+                "games 14:00"
+              ]
+            }
+          ]
+        },
+        "answer": "schedule",
+        "meaning": "日程；安排",
+        "material": "The rain may change our schedule.",
+        "before": "The rain may change our ",
+        "after": ".",
+        "reason": "schedule可作名词“日程”，on schedule表示按原定时间进行。作动词时是“安排”，scheduled和scheduling按句意使用。修改通知要分别核对活动，only限定只改游戏。",
+        "hint": "on schedule按原定时间进行；only games move只改游戏。",
+        "options": [
+          {
+            "id": "games",
+            "text": "The outdoor games.",
+            "correct": false,
+            "reason": "游戏原为11:00，现改到14:00；两个时间都不是10:00。"
+          },
+          {
+            "id": "talk",
+            "text": "The science talk.",
+            "correct": true,
+            "reason": "通知明确说讲座仍按计划在10:00，只有户外游戏改期。"
+          },
+          {
+            "id": "all",
+            "text": "All the activities.",
+            "correct": false,
+            "reason": "只改游戏不等于全部活动同在10:00。"
+          }
+        ],
+        "ownForms": [
+          "schedule",
+          "schedules",
+          "scheduled",
+          "scheduling"
+        ]
+      },
+      {
+        "id": "period",
+        "label": "period：先看持续几周，再看每周几次",
+        "prompt": "观察计划：We make two notes about our bean plants each week for a six-week period. How many notes are planned?",
+        "wordDecision": {
+          "prompt": "观察计划：We make two notes about our bean plants each week for a six-week period. How many notes are planned?",
+          "recordPaths": [
+            {
+              "id": "total",
+              "label": "记录总数",
+              "steps": [
+                "6 weeks",
+                "2 notes each week",
+                "12 notes"
+              ]
+            }
+          ]
+        },
+        "answer": "period",
+        "meaning": "一段时间；课时",
+        "material": "We grew beans over a six-week period.",
+        "before": "We grew beans over a six-week ",
+        "after": ".",
+        "reason": "period是一段时间，也可说课时；a six-week period中six-week作定语，week不用复数。six weeks单独表示六周时weeks用复数。",
+        "hint": "a six-week period六周的一段时间；6 weeks × 2 notes each week。",
+        "options": [
+          {
+            "id": "twelve",
+            "text": "Twelve notes.",
+            "correct": true,
+            "reason": "六周，每周两次，6×2=12次记录。"
+          },
+          {
+            "id": "six",
+            "text": "Six notes.",
+            "correct": false,
+            "reason": "只数了周数，没有乘每周两次。"
+          },
+          {
+            "id": "two",
+            "text": "Two notes.",
+            "correct": false,
+            "reason": "这是每周次数，不是六周合计。"
+          }
+        ],
+        "ownForms": [
+          "period",
+          "periods"
+        ]
+      },
+      {
+        "id": "moment",
+        "label": "moment：此刻和等一会儿分开",
+        "prompt": "对话：Please do not call now. I am helping a visitor at the moment. What does at the moment mean here?",
+        "wordDecision": {
+          "prompt": "对话：Please do not call now. I am helping a visitor at the moment. What does at the moment mean here?",
+          "recordPaths": [
+            {
+              "id": "now",
+              "label": "时间点",
+              "steps": [
+                "at the moment",
+                "现在"
+              ]
+            },
+            {
+              "id": "short",
+              "label": "短时长",
+              "steps": [
+                "for a moment",
+                "一小会儿"
+              ]
+            }
+          ]
+        },
+        "answer": "moment",
+        "meaning": "片刻；时刻",
+        "material": "Wait a moment while I find the right key.",
+        "before": "Wait a ",
+        "after": " while I find the right key.",
+        "reason": "at the moment表示此刻；wait a moment是等一下；for a moment表示一小会儿。moment没有固定为某个秒数，不能机械换成exactly one minute。",
+        "hint": "at the moment此刻；wait a moment等一下；for a moment一小会儿。",
+        "options": [
+          {
+            "id": "year",
+            "text": "A year ago.",
+            "correct": false,
+            "reason": "这是过去的时间，不能替换此刻。"
+          },
+          {
+            "id": "duration",
+            "text": "For a long time.",
+            "correct": false,
+            "reason": "这说持续很久；at the moment没有给出这样的时长。"
+          },
+          {
+            "id": "now",
+            "text": "Now.",
+            "correct": true,
+            "reason": "at the moment表示此刻，说明现在正在做的事。"
+          }
+        ],
+        "ownForms": [
+          "moment",
+          "moments"
+        ]
+      },
+      {
+        "id": "past",
+        "label": "past：介词past，动词过去式passed",
+        "prompt": "句子：The bus went ___ the old cinema. 哪个词与went组成“经过”的表达？",
+        "wordDecision": {
+          "prompt": "句子：The bus went ___ the old cinema. 哪个词与went组成“经过”的表达？",
+          "recordPaths": [
+            {
+              "id": "prep",
+              "label": "介词结构",
+              "steps": [
+                "went",
+                "past the cinema"
+              ]
+            },
+            {
+              "id": "verb",
+              "label": "另一句的动词",
+              "steps": [
+                "passed",
+                "the cinema"
+              ]
+            }
+          ]
+        },
+        "answer": "past",
+        "meaning": "过去；经过",
+        "material": "The bus went past the old cinema.",
+        "before": "The bus went ",
+        "after": " the old cinema.",
+        "reason": "The bus went past the cinema.与The bus passed the cinema.都可表达经过。前句动词是went，后句动词是passed；past和passed读音相同，拼写和句中作用却不同。past也可作名词“过去”，要按位置和意思判断。",
+        "hint": "went past the cinema；passed the cinema。",
+        "options": [
+          {
+            "id": "passed",
+            "text": "passed",
+            "correct": false,
+            "reason": "passed已是pass的过去式，不能接在went后当介词。"
+          },
+          {
+            "id": "past",
+            "text": "past",
+            "correct": true,
+            "reason": "went是动词，past在这里作介词，表示经过影院。"
+          },
+          {
+            "id": "ago",
+            "text": "ago",
+            "correct": false,
+            "reason": "ago跟在时间段后，不能表示经过影院。"
+          }
+        ]
+      },
+      {
+        "id": "present",
+        "label": "present：现在还是礼物，看周围词",
+        "prompt": "读两句：At present, Lin is busy. This present is for Lin’s birthday. 第二句的present是什么意思？",
+        "wordDecision": {
+          "prompt": "读两句：At present, Lin is busy. This present is for Lin’s birthday. 第二句的present是什么意思？",
+          "recordPaths": [
+            {
+              "id": "time",
+              "label": "第一句",
+              "steps": [
+                "at present",
+                "目前"
+              ]
+            },
+            {
+              "id": "gift",
+              "label": "第二句",
+              "steps": [
+                "a present for a birthday",
+                "生日礼物"
+              ]
+            }
+          ]
+        },
+        "answer": "present",
+        "meaning": "现在；礼物",
+        "material": "We cannot change the past, only the present.",
+        "before": "We cannot change the past, only the ",
+        "after": ".",
+        "reason": "at present表示目前；a present是可数名词“礼物”。本课例句the present表示现在。一个单词可以有不同词义，先看冠词、搭配和生日等语境，不只背一个中文释义。",
+        "hint": "at present目前；a birthday present一份生日礼物。",
+        "options": [
+          {
+            "id": "gift",
+            "text": "A gift.",
+            "correct": true,
+            "reason": "for Lin’s birthday说明这件present是生日礼物。"
+          },
+          {
+            "id": "now",
+            "text": "The current time.",
+            "correct": false,
+            "reason": "at present在第一句表示目前，不能直接搬到第二句。"
+          },
+          {
+            "id": "yesterday",
+            "text": "Yesterday.",
+            "correct": false,
+            "reason": "present在这两句里都不是昨天。"
+          }
+        ],
+        "ownForms": [
+          "present",
+          "presents"
+        ]
+      },
+      {
+        "id": "ago",
+        "label": "ago：从说话的年份往前推",
+        "prompt": "记录：It is 2026 now. We planted this tree three years ago. In which year was it planted?",
+        "wordDecision": {
+          "prompt": "记录：It is 2026 now. We planted this tree three years ago. In which year was it planted?",
+          "recordPaths": [
+            {
+              "id": "year",
+              "label": "往前推",
+              "steps": [
+                "2026 now",
+                "−3 years",
+                "2023"
+              ]
+            }
+          ]
+        },
+        "answer": "ago",
+        "meaning": "以前",
+        "material": "We planted this tree three years ago.",
+        "before": "We planted this tree three years ",
+        "after": ".",
+        "reason": "ago放在时间段后，表示从现在往前推，通常与过去时连用。现在是2026年，three years ago对应2023年；原文没有月日，不要编具体日期。",
+        "hint": "three years ago三年前；2026−3=2023，只能推出年份。",
+        "options": [
+          {
+            "id": "year2029",
+            "text": "2029.",
+            "correct": false,
+            "reason": "把ago向前推成了向后，误成三年以后。"
+          },
+          {
+            "id": "year2026",
+            "text": "2026.",
+            "correct": false,
+            "reason": "这是说话当年，还没减去三年。"
+          },
+          {
+            "id": "year2023",
+            "text": "2023.",
+            "correct": true,
+            "reason": "从2026往前推三年，2026−3=2023。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-time-4-transfer",
+      "topicId": "v-course-time",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan follows all the information in the note?",
+      "passage": "SCIENCE VISIT — UPDATED NOTE\nMonday, 2 November 2026\nOur science talk remains on schedule at 10:00. Only the outdoor games move from 11:00 to 14:00. Tomorrow, the bus leaves at 07:20. Allow fifteen minutes to walk to the stop and five minutes to get ready before leaving home. Set the alarm for the latest time that allows you to get ready and walk to the stop. After the visit, our group will make two notes about our bean plants each week for six weeks. The tree beside the old cinema was planted three years ago; it is 2026 now.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Set the alarm for 07:05; the games are at 14:00, and there will be twelve notes."
+        },
+        {
+          "id": "b",
+          "text": "Set the alarm for 07:00; the games are at 11:00, and there will be twelve notes."
+        },
+        {
+          "id": "c",
+          "text": "Set the alarm for 07:00; the games are at 14:00, and there will be twelve notes."
+        },
+        {
+          "id": "d",
+          "text": "Set the alarm for 07:00; the games are at 14:00, and there will be six notes."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Set the alarm for 07:00; the games are at 14:00, and there will be twelve notes."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先倒推提醒时间，再找改动范围，最后计算总记录数。",
+        "steps": [
+          {
+            "text": "07:20发车，扣十五分钟走路，再扣五分钟准备，最晚07:00提醒。",
+            "reason": "两段时间都在发车前，不能漏掉其中一段。"
+          },
+          {
+            "text": "游戏改到14:00，讲座仍为10:00；六周每周两次，共十二次记录。",
+            "reason": "only限定只改游戏；总次数是6×2，不是只读一个数字。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "07:05只留出走路时间，漏了五分钟准备。"
+          },
+          {
+            "option": "b",
+            "reason": "仍用游戏旧时间11:00，忽略了改到14:00。"
+          },
+          {
+            "option": "d",
+            "reason": "六周每周两次，应有十二次，不是六次。"
+          }
+        ],
+        "pitfall": "倒推时把每段都扣掉；只改通知点名的活动；次数与周数分别核对。",
+        "visual": {
+          "kind": "timeline",
+          "title": "三条信息分别核对",
+          "segments": [
+            {
+              "text": "07:00 get ready → 07:05 walk → 07:20 bus",
+              "role": "time",
+              "note": "两段都保留"
+            },
+            {
+              "text": "Games: 11:00 → 14:00; talk: 10:00 unchanged",
+              "role": "time",
+              "note": "只改游戏"
+            },
+            {
+              "text": "6 weeks × 2 notes = 12 notes",
+              "role": "object",
+              "note": "总数来自文字计划"
+            }
+          ],
+          "caption": "分别核对提醒时间、改动范围和总次数。"
+        },
+        "transfer": "如果走路改需二十分钟，准备仍需五分钟，发车仍为07:20，最晚应几点设提醒？游戏和观察次数会跟着改变吗？"
+      }
+    }
+  }
+}

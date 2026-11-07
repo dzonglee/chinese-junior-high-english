@@ -1,0 +1,493 @@
+{
+  "lessonId": "l-v-course-kitchen-tools-3",
+  "reviewState": "draft",
+  "intent": "Individually teach no oven requirement, main ingredient scope, flour versus flower and little quantity, too hot to touch, low heat, required preheat duration, checking after use and labelling before refrigeration.",
+  "picturePurpose": "Code owns every ingredient/amount/degree/heat/time label and ordered event. No invented proportions, temperatures, elapsed time, completion or food-safety guarantee.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "主要、少量、火力和先后，逐一动手核对",
+    "instruction": "改标签、比条件、排顺序，再用自己的句子表达。",
+    "items": [
+      {
+        "id": "word-recipe",
+        "label": "食谱",
+        "prompt": "does not need是“不需要”，还是“绝对不能用”？圈出这份食谱的条件。",
+        "answer": "recipe",
+        "caseSensitive": false,
+        "meaning": "食谱",
+        "before": "This ",
+        "after": " does not need an oven.",
+        "reason": "This recipe does not need an oven说明这份食谱不需要烤箱。",
+        "hint": "this只说这份食谱；不需要烤箱，不等于所有食谱都不能用烤箱。",
+        "material": "This recipe does not need an oven.",
+        "options": [
+          {
+            "id": "none",
+            "text": "这份食谱不需要烤箱。",
+            "correct": true,
+            "reason": "保留this与does not need。"
+          },
+          {
+            "id": "need",
+            "text": "这份食谱必须用烤箱。",
+            "correct": false,
+            "reason": "必须用与does not need相反。"
+          },
+          {
+            "id": "forbid",
+            "text": "这份食谱绝对不能使用烤箱。",
+            "correct": false,
+            "reason": "不需要不等于绝对不能；does not need没有表达禁止。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "does not need是“不需要”，还是“绝对不能用”？圈出这份食谱的条件。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "只说这份食谱",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "只按这份食谱判断，不补其他烹调方法。",
+            "wrong": "只保留这份食谱与不需要烤箱，不扩大到所有食谱。",
+            "rows": [
+              {
+                "id": "this",
+                "label": "范围",
+                "text": "说的是这份食谱。",
+                "include": true
+              },
+              {
+                "id": "none",
+                "label": "需要与否",
+                "text": "不需要烤箱。",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "扩大范围",
+                "text": "所有食谱都不需要烤箱。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-ingredient",
+        "label": "原料（本句）",
+        "prompt": "main是“主要”，还是“唯一”？切换原料的地位，别补百分比。",
+        "answer": "ingredient",
+        "caseSensitive": false,
+        "meaning": "原料（本句）",
+        "before": "Flour is the main ",
+        "after": " in these noodles.",
+        "reason": "Flour is the main ingredient in these noodles说明面粉是这种面条的主要原料。",
+        "hint": "main不是only；原句没有说还有哪些原料，也没给比例。",
+        "material": "Flour is the main ingredient in these noodles.",
+        "options": [
+          {
+            "id": "main",
+            "text": "面粉是这种面条的主要原料。",
+            "correct": true,
+            "reason": "保留main ingredient与these noodles。"
+          },
+          {
+            "id": "only",
+            "text": "面粉是这种面条的唯一原料。",
+            "correct": false,
+            "reason": "唯一对应only，不是main。"
+          },
+          {
+            "id": "none",
+            "text": "面粉不是这种面条的原料。",
+            "correct": false,
+            "reason": "这与is the main ingredient相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "main是“主要”，还是“唯一”？切换原料的地位，别补百分比。",
+          "mainRole": {
+            "title": "主要，不等于唯一",
+            "hint": "标签示意原料的地位，不表示重量或百分比。",
+            "wrong": "应是面粉作为主要原料；不能改成唯一或不是原料。"
+          }
+        }
+      },
+      {
+        "id": "word-flour",
+        "label": "面粉",
+        "prompt": "撒的是面粉还是鲜花？a little限制多少？两项分别比较。",
+        "answer": "flour",
+        "caseSensitive": false,
+        "meaning": "面粉",
+        "before": "Dust the table with a little ",
+        "after": ".",
+        "reason": "Dust the table with a little flour要求在桌面上撒一点面粉。",
+        "hint": "flour与flower同音，但词义不同；a little没有给克数。",
+        "material": "Dust the table with a little flour.",
+        "options": [
+          {
+            "id": "little",
+            "text": "在桌面上撒一点面粉。",
+            "correct": true,
+            "reason": "保留flour与a little。"
+          },
+          {
+            "id": "flowers",
+            "text": "在桌面上撒一点鲜花。",
+            "correct": false,
+            "reason": "flower是花，不是flour面粉。"
+          },
+          {
+            "id": "much",
+            "text": "在桌面上撒很多面粉。",
+            "correct": false,
+            "reason": "很多改变了a little。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "撒的是面粉还是鲜花？a little限制多少？两项分别比较。",
+          "tableDust": {
+            "title": "对象与少量，都要保留",
+            "hint": "只比较词义和相对数量，不把示意粉末当成实物鉴定。",
+            "wrong": "要求一点面粉；不是鲜花，也不是很多。"
+          }
+        }
+      },
+      {
+        "id": "word-pan",
+        "label": "平底锅（本句）",
+        "prompt": "too…to在这里是能碰，还是烫得不能碰？换解释，核对关系。",
+        "answer": "pan",
+        "caseSensitive": false,
+        "meaning": "平底锅（本句）",
+        "before": "The ",
+        "after": " is too hot to touch.",
+        "reason": "The pan is too hot to touch说明这口锅烫得不能碰。",
+        "hint": "too hot to touch不是热得刚好能碰；原句没有温度数字或实际触碰事件。",
+        "material": "The pan is too hot to touch.",
+        "options": [
+          {
+            "id": "too",
+            "text": "这口锅太烫，不能碰。",
+            "correct": true,
+            "reason": "too…to表示程度过高而不能做后面的动作。"
+          },
+          {
+            "id": "enough",
+            "text": "这口锅温度正好，可以碰。",
+            "correct": false,
+            "reason": "可以碰把too hot to touch的结果反了。"
+          },
+          {
+            "id": "cold",
+            "text": "这口锅太凉，不能碰。",
+            "correct": false,
+            "reason": "cold改变了hot。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "too…to在这里是能碰，还是烫得不能碰？换解释，核对关系。",
+          "kitchenCondition": {
+            "title": "太烫 → 不能碰",
+            "hint": "只比较too…to的句意，不模拟实际触碰或温度。",
+            "wrong": "原句是烫得不能碰；不是刚好能碰或太凉。",
+            "kind": "pan"
+          }
+        }
+      },
+      {
+        "id": "word-pot",
+        "label": "锅（本句）",
+        "prompt": "low heat要求什么火力？切换标记，不猜温度或熟没熟。",
+        "answer": "pot",
+        "caseSensitive": false,
+        "meaning": "锅（本句）",
+        "before": "Keep the ",
+        "after": " on a low heat.",
+        "reason": "Keep the pot on a low heat要求让锅保持小火加热。",
+        "hint": "low heat是小火，不是大火或关火；原句没给摄氏温度。",
+        "material": "Keep the pot on a low heat.",
+        "options": [
+          {
+            "id": "low",
+            "text": "让锅保持小火加热。",
+            "correct": true,
+            "reason": "保留Keep与low heat。"
+          },
+          {
+            "id": "high",
+            "text": "让锅保持大火加热。",
+            "correct": false,
+            "reason": "大火改变了low。"
+          },
+          {
+            "id": "off",
+            "text": "把火关掉，不再加热。",
+            "correct": false,
+            "reason": "关火不是保持小火。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "low heat要求什么火力？切换标记，不猜温度或熟没熟。",
+          "kitchenCondition": {
+            "title": "保持小火，不是关火",
+            "hint": "火力标签示意，不表示温度、加热时长或已经煮熟。",
+            "wrong": "应保持小火；大火与关火都不符合low heat。",
+            "kind": "pot"
+          }
+        }
+      },
+      {
+        "id": "word-oven",
+        "label": "烤箱",
+        "prompt": "ten minutes是在预热、烹调，还是说已经过了多久？换标签再判断。",
+        "answer": "oven",
+        "caseSensitive": false,
+        "meaning": "烤箱",
+        "before": "The ",
+        "after": " needs ten minutes to warm up.",
+        "reason": "The oven needs ten minutes to warm up说明这个烤箱预热需要十分钟。",
+        "hint": "needs说需要的时长；不是已经过了十分钟，也不是食物烤十分钟。",
+        "material": "The oven needs ten minutes to warm up.",
+        "options": [
+          {
+            "id": "warm",
+            "text": "这个烤箱预热需要十分钟。",
+            "correct": true,
+            "reason": "保留needs ten minutes与to warm up。"
+          },
+          {
+            "id": "cook",
+            "text": "食物在这个烤箱里要烤十分钟。",
+            "correct": false,
+            "reason": "十分钟修饰预热，不是食物烹调。"
+          },
+          {
+            "id": "elapsed",
+            "text": "这个烤箱已经预热了十分钟。",
+            "correct": false,
+            "reason": "需要的时长不等于已经经过的时长。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "ten minutes是在预热、烹调，还是说已经过了多久？换标签再判断。",
+          "kitchenCondition": {
+            "title": "十分钟修饰哪件事？",
+            "hint": "标记所需时长，不运行计时器，也不报告已经预热。",
+            "wrong": "十分钟是预热所需时长；不是烹调或已过时长。",
+            "kind": "oven"
+          }
+        }
+      },
+      {
+        "id": "word-cooker",
+        "label": "炉灶（本句）",
+        "prompt": "after use把检查放在使用前还是使用后？按原句排。",
+        "answer": "cooker",
+        "caseSensitive": false,
+        "meaning": "炉灶（本句）",
+        "before": "Check that the ",
+        "after": " is off after use.",
+        "reason": "Check that the cooker is off after use要求用完后检查炉灶是否关闭。",
+        "hint": "cooker是器具；cook可以是厨师。检查要求不等于已经检查或已经关闭。",
+        "material": "Check that the cooker is off after use.",
+        "options": [
+          {
+            "id": "after",
+            "text": "用完后检查炉灶是否关闭。",
+            "correct": true,
+            "reason": "保留器具与after use的时机。"
+          },
+          {
+            "id": "before",
+            "text": "使用前检查炉灶是否关闭。",
+            "correct": false,
+            "reason": "使用前改变了after use。"
+          },
+          {
+            "id": "done",
+            "text": "原句记录炉灶已经关好并检查完毕。",
+            "correct": false,
+            "reason": "检查要求不等于已经关闭或已经检查。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "after use把检查放在使用前还是使用后？按原句排。",
+          "processOrder": {
+            "title": "用完，再检查",
+            "hint": "只排原句要求的顺序，不报告已经完成。",
+            "wrong": "先用完，再检查炉灶是否关闭；不把检查要求当成完成记录。",
+            "events": [
+              {
+                "id": "use",
+                "label": "使用完毕"
+              },
+              {
+                "id": "check",
+                "label": "检查炉灶是否关闭"
+              }
+            ],
+            "sequence": [
+              "use",
+              "check"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-fridge",
+        "label": "冰箱",
+        "prompt": "before把贴标签放在哪一步？先排顺序，再读fridge。",
+        "answer": "fridge",
+        "caseSensitive": false,
+        "meaning": "冰箱",
+        "before": "Label the leftovers before putting them in the ",
+        "after": ".",
+        "reason": "Label the leftovers before putting them in the fridge要求先给剩菜贴标签，再放进冰箱。",
+        "hint": "before给出先后；原句没有说标签已经贴好或剩菜已经放好。",
+        "material": "Label the leftovers before putting them in the fridge.",
+        "options": [
+          {
+            "id": "before",
+            "text": "先给剩菜贴标签，再放进冰箱。",
+            "correct": true,
+            "reason": "贴标签在放入冰箱之前。"
+          },
+          {
+            "id": "after",
+            "text": "先把剩菜放进冰箱，再贴标签。",
+            "correct": false,
+            "reason": "把before的顺序反了。"
+          },
+          {
+            "id": "done",
+            "text": "剩菜已经贴好标签并放进冰箱。",
+            "correct": false,
+            "reason": "这是操作要求，不是已完成的记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before把贴标签放在哪一步？先排顺序，再读fridge。",
+          "processOrder": {
+            "title": "贴标签在前，放冰箱在后",
+            "hint": "只排原句要求的顺序，不报告已经完成。",
+            "wrong": "先贴标签再放入冰箱，不能倒过来或补已完成。",
+            "events": [
+              {
+                "id": "label",
+                "label": "给剩菜贴标签"
+              },
+              {
+                "id": "put",
+                "label": "把剩菜放进冰箱"
+              }
+            ],
+            "sequence": [
+              "label",
+              "put"
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-kitchen-tools-3-transfer",
+      "topicId": "v-course-kitchen-tools",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成米饭和汤，哪组三句保留了全部信息？",
+      "passage": "三条新信息\n米饭是这道菜的主要原料。这个小烤箱预热需要十分钟。给汤贴好标签，再放进冰箱。\n词语提示：dish 菜肴。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rice is the main ingredient in this dish. The small oven needs ten minutes to warm up. Label the soup before putting it in the fridge."
+        },
+        {
+          "id": "b",
+          "text": "Rice is the only ingredient in this dish. The small oven needs ten minutes to warm up. Label the soup before putting it in the fridge."
+        },
+        {
+          "id": "c",
+          "text": "Rice is the main ingredient in this dish. The small oven has been warming up for ten minutes. Label the soup before putting it in the fridge."
+        },
+        {
+          "id": "d",
+          "text": "Rice is the main ingredient in this dish. The small oven needs ten minutes to warm up. Label the soup after putting it in the fridge."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Rice is the main ingredient in this dish. The small oven needs ten minutes to warm up. Label the soup before putting it in the fridge."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对主要与唯一、所需与已经过、贴标签与放冰箱的顺序。",
+        "steps": [
+          {
+            "text": "主要原料：the main ingredient。",
+            "reason": "main不等于only，不能补唯一。"
+          },
+          {
+            "text": "预热所需时长：needs ten minutes to warm up。",
+            "reason": "需要十分钟，不等于已经预热十分钟。"
+          },
+          {
+            "text": "先贴标签再放冰箱：label…before putting…。",
+            "reason": "after把顺序反过来了。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "only把主要原料改成了唯一原料。"
+          },
+          {
+            "option": "c",
+            "reason": "has been warming up for把所需时长改成已经过的时长。"
+          },
+          {
+            "option": "d",
+            "reason": "after把先贴标签再放冰箱的顺序反了。"
+          }
+        ],
+        "pitfall": "对象换了，main、needs与before仍要分别保留。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三处条件，各查一遍",
+          "segments": [
+            {
+              "text": "rice → main ingredient",
+              "role": "evidence",
+              "note": "主要，不是唯一"
+            },
+            {
+              "text": "warm up → needs ten minutes",
+              "role": "evidence",
+              "note": "需要，不是已经过"
+            },
+            {
+              "text": "label → put in fridge",
+              "role": "evidence",
+              "note": "先贴标签，再放入"
+            }
+          ],
+          "caption": "只比较句意，不报告真实烹调或储存完成。"
+        },
+        "transfer": "把before换成after，会改变哪两个动作的顺序？"
+      }
+    }
+  }
+}

@@ -1,0 +1,424 @@
+{
+  "lessonId": "l-g-verb-forms",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Distinguish base, past and participles by actual auxiliary structure; edit e-removal and doubling; connect a selected ongoing-action picture to present participle without inferring past dates from artwork.",
+  "picturePurpose": "Original travel diptych lets the learner select the current writing action. Deterministic morphology and auxiliary diagrams supply exact forms; written records supply time and completed quantities.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "给旅行记录切换正确的动词形式",
+    "instruction": "先找助动词和时间，再改词形；不是一看到过去就选过去式。",
+    "conditions": [
+      {
+        "label": "did 已表示过去，后面用原形",
+        "before": "Did Leo ",
+        "target": "write",
+        "after": " the travel diary?",
+        "choices": [
+          "wrote",
+          "write"
+        ],
+        "reason": "Did 已经承担过去时，后面的实义动词用原形 write。不能把 Did 和 wrote 再叠在一起。",
+        "world": {
+          "kind": "logic",
+          "caption": "问一件过去的事：先找句子里已经出现的 Did。",
+          "cells": [
+            {
+              "label": "did + ___",
+              "detail": "助动词带过去，实义动词用原形"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "没有 did，过去式由动词承担",
+        "before": "Yesterday evening, Leo ",
+        "target": "wrote",
+        "after": " a postcard.",
+        "choices": [
+          "written",
+          "wrote"
+        ],
+        "reason": "yesterday evening 给出已结束的过去时间，这个肯定句没有 did；write 用过去式 wrote。written 是过去分词，不能单独在这里作一般过去时谓语。",
+        "world": {
+          "kind": "logic",
+          "caption": "日记记录：昨晚，Leo 写好了一张明信片。这句直接叙述已完成的过去动作，不是提问。",
+          "cells": [
+            {
+              "label": "write",
+              "detail": "一般过去时肯定句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "结合句子里的助动词和时间，再亲手改词形。"
+      },
+      {
+        "label": "has 后要过去分词",
+        "before": "Leo has already ",
+        "target": "written",
+        "after": " two postcards.",
+        "choices": [
+          "wrote",
+          "written"
+        ],
+        "reason": "has written 构成现在完成时。write 的过去式是 wrote，过去分词是 written；has 后不能直接放 wrote。",
+        "world": {
+          "kind": "logic",
+          "caption": "完成记录：到现在，Leo 已经写好两张明信片。请注意 has already。",
+          "cells": [
+            {
+              "label": "has + ___",
+              "detail": "完成时：has/have + 过去分词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "结合句子里的助动词和时间，再亲手改词形。"
+      },
+      {
+        "label": "画面切到此刻正在写",
+        "before": "Look! Mia is ",
+        "target": "writing",
+        "after": " a postcard.",
+        "choices": [
+          "written",
+          "writing"
+        ],
+        "reason": "is writing 表示正在写。write 去掉不发音的 e，再加 ing，得到 writing；written 不能表示这里正在做的动作。",
+        "world": {
+          "kind": "logic",
+          "caption": "动作卡：此刻三人在书写。选对动作场景，再把 write 变成进行时需要的形式。",
+          "cells": [
+            {
+              "label": "write",
+              "detail": "去 e，再加 ing"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "title": "哪幅图符合“此刻在写”？",
+            "missingPrompt": "先选与此刻动作相符的图，再核对动词。",
+            "asset": "lesson-travel-notes",
+            "alt": "左图三位同学参观长墙；右图同样三位同学在窗边书写空白明信片。",
+            "artChoices": [
+              "visit",
+              "write"
+            ],
+            "answer": "write",
+            "options": [
+              {
+                "id": "visit",
+                "label": "参观时",
+                "text": "三位同学在长墙前",
+                "reason": "左图是参观的场景；这句话描述此刻正在写明信片，应选右图。",
+                "value": 35
+              },
+              {
+                "id": "write",
+                "label": "书写时",
+                "text": "此刻三人正在写明信片",
+                "reason": "右图与正在书写的动作相符；is 后接 writing 表示此刻正在进行。",
+                "value": 65
+              }
+            ]
+          }
+        }
+      },
+      {
+        "label": "换成物品作主语，检查被动",
+        "before": "This postcard was ",
+        "target": "written",
+        "after": " by Mia yesterday.",
+        "choices": [
+          "wrote",
+          "written"
+        ],
+        "reason": "明信片是被写的，用 was written。was 是过去时，但它后面仍要过去分词 written，不能以为有过去时间就一律填 wrote。",
+        "world": {
+          "kind": "logic",
+          "caption": "署名记录：这一张明信片是 Mia 昨天写的。这次从明信片说起，Mia 是动作的执行者。",
+          "cells": [
+            {
+              "label": "was + ___",
+              "detail": "过去时被动：be + 过去分词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "take 的过去式不是 taken",
+        "before": "Yesterday Leo ",
+        "target": "took",
+        "after": " the early bus.",
+        "choices": [
+          "taken",
+          "took"
+        ],
+        "reason": "这句是一般过去时肯定句，take 用过去式 took。taken 是过去分词，不能单独放在这里作谓语。",
+        "world": {
+          "kind": "logic",
+          "caption": "出行记录：昨天，Leo 乘了早班车。句中没有 has/have，也没有 did。",
+          "cells": [
+            {
+              "label": "take",
+              "detail": "这里需要过去式"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "结合句子里的助动词和时间，再亲手改词形。"
+      },
+      {
+        "label": "has 后还用过去式吗？",
+        "before": "Leo has ",
+        "target": "taken",
+        "after": " the early bus twice this week.",
+        "choices": [
+          "took",
+          "taken"
+        ],
+        "reason": "has 后用过去分词 taken，不能用过去式 took。twice this week 说明截至目前本周已经有两次经历。",
+        "world": {
+          "kind": "logic",
+          "caption": "本周记录尚未结束：截至现在已乘过两次早班车。",
+          "cells": [
+            {
+              "label": "has + ___",
+              "detail": "has 后需要过去分词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "结合句子里的助动词和时间，再亲手改词形。"
+      },
+      {
+        "label": "亲手修好 makeing",
+        "before": "Mia is ",
+        "target": "making",
+        "after": " a paper badge now.",
+        "choices": [
+          "makeing",
+          "making"
+        ],
+        "reason": "make 以不发音的 e 结尾，去 e 再加 ing，得到 making；不能直接写 makeing。is 与 making 一起构成进行时。",
+        "world": {
+          "kind": "logic",
+          "caption": "制作记录：Mia 此刻正在做纸徽章。原稿的词形有错，请直接修好。",
+          "cells": [
+            {
+              "label": "make",
+              "detail": "去 e，再加 ing"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "结合句子里的助动词和时间，再亲手改词形。",
+        "initial": "makeing"
+      },
+      {
+        "label": "亲手修好 stoped",
+        "before": "The rain ",
+        "target": "stopped",
+        "after": " at noon yesterday.",
+        "choices": [
+          "stoped",
+          "stopped"
+        ],
+        "reason": "yesterday 指已结束的过去时间；stop 的过去式双写 p 再加 ed，得到 stopped。不要把 stoped 当成正确的规则变化。",
+        "world": {
+          "kind": "logic",
+          "caption": "天气记录：雨在昨天中午停了。只核对这个已结束的过去动作。",
+          "cells": [
+            {
+              "label": "stop",
+              "detail": "双写 p，再加 ed"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "结合句子里的助动词和时间，再亲手改词形。",
+        "initial": "stoped"
+      },
+      {
+        "label": "过去分词也可能与原形相同",
+        "before": "Mia has ",
+        "target": "put",
+        "after": " all three cards in the blue folder.",
+        "choices": [
+          "putted",
+          "put"
+        ],
+        "reason": "put 的原形、过去式和过去分词都是 put。has 后需要过去分词，但不意味着所有动词都要加 ed 或 en。",
+        "world": {
+          "kind": "logic",
+          "caption": "收纳记录：三张卡片都已放进蓝色文件夹。先识别完成时，再用 put 的真实变化。",
+          "cells": [
+            {
+              "label": "put",
+              "detail": "原形 / 过去式 / 过去分词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你放进句子的形式",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      }
+    ],
+    "choices": [
+      "wrote",
+      "write",
+      "written",
+      "writing",
+      "taken",
+      "took",
+      "makeing",
+      "making",
+      "stoped",
+      "stopped",
+      "putted",
+      "put"
+    ],
+    "items": [
+      {
+        "id": "verb-form-selector",
+        "label": "结构决定词形",
+        "prompt": "先认结构，再选原形、过去式或分词。",
+        "answer": "",
+        "reason": "",
+        "hint": "did / has / is / was 在这句话里分别做什么？"
+      }
+    ],
+    "applicationIds": [
+      "q-g-verb-forms-002",
+      "q-g-verb-forms-003"
+    ],
+    "transfer": {
+      "id": "individual-g-verb-forms-transfer",
+      "topicId": "g-verb-forms",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "谁打破了旧杯子？根据问句和被动回答，两空依次填什么？\nDid Ben ___ the old cup? — No. It was ___ by the cat.",
+      "options": [
+        {
+          "id": "a",
+          "text": "break; broken"
+        },
+        {
+          "id": "b",
+          "text": "broke; broken"
+        },
+        {
+          "id": "c",
+          "text": "break; broke"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "break; broken"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "不要因为两句都在说过去，就把两空都写成过去式。分别检查 did 和 was 所组成的结构。",
+        "steps": [
+          {
+            "text": "第一句已经有 Did，break 保持原形。",
+            "reason": "过去时由 did 承担，后面不用 broke。"
+          },
+          {
+            "text": "第二句由杯子作主语，说它被猫打破。",
+            "reason": "was 后用过去分词 broken 构成被动，不能用过去式 broke。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "Did 后需要原形 break，不是过去式 broke。"
+          },
+          {
+            "option": "c",
+            "reason": "被动结构 was 后需要过去分词 broken，不是过去式 broke。"
+          }
+        ],
+        "pitfall": "过去时间不等于两个空都选过去式；结构先决定需要哪一栏，再查不规则变化。",
+        "visual": {
+          "kind": "sentence",
+          "title": "同说过去，两种结构",
+          "segments": [
+            {
+              "text": "Did + break",
+              "role": "verb",
+              "note": "did 后用原形"
+            },
+            {
+              "text": "was + broken",
+              "role": "evidence",
+              "note": "被动结构用过去分词"
+            }
+          ],
+          "caption": "break → broke → broken；每个空按结构取相应形式。"
+        },
+        "transfer": "如果第一句直接改为 Ben ___ the cup yesterday，没有 Did，break 应写成哪一形式？"
+      }
+    }
+  }
+}

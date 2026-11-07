@@ -1,0 +1,9 @@
+# Practice notice: before, during and after
+
+Ten original practice-notice tasks distinguish a planned exercise from a live warning, recover three preparation details, place literal instructions in named Before/During/After slots, reject bag/video interruptions, retain staff supervision, review clarity, preserve unknown actual signals/meeting points and use current local guidance for actual emergencies. Fresh new-student transfer changes the context with partly correct distractors. All four primary application reasons and complete quotes are tailored. Exact code diagrams serve the sequence without inventing a route map or emergency signal.
+
+Inspected all ten models, every wrong source and partial evidence/reason state, all three empty stage slots, decoy/swapped/partial/removed order and repair, all 320-pixel models, source/passage endings, application/transfer distractors and explanation steps, prediction, clinic and summary. Reinspected final full-width stage text, single-line stage headings, wrong/correct/removal states at 390 and 320 pixels and final task labels. All actual control widths checked at 320/390/768. Existing litter ordering visually inspected without new individual credit. Grades 8–9; reserved heavy-rain text stays unexposed; zero independent records. Fourteen unchanged compiled modules moved between compiler groups and are byte-identical. Content remains draft.
+
+Full serial core: 1508 tests in 14 files after named-stage ordering and its real wrong/partial/reload/removal/reason regressions. Final compiler/typecheck, 826 teaching/spelling variants, grammar/course/interactions/package, complete practice-notice browser flow, both native adapters, nineteen offline checks and exact-source archives pass. Prior litter three-stage order compatibility also passes; its layout is unchanged by the opt-in named slots.
+
+Native adapters are simulations; Mac project-drive access remains blocked. No public release or native GUI claim.

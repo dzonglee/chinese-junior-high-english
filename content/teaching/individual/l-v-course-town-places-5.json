@@ -1,0 +1,2581 @@
+{
+  "lessonId": "l-v-course-town-places-5",
+  "reviewState": "draft",
+  "intent": "Teach refill purpose, bakery-before-bus order, cafe size/view and both accent spellings, nearby-grown food, relative Saturday bank closure, signed-form office instructions, rainwater yard-cleaning purpose and warehouse reuse.",
+  "picturePurpose": "Three reversible condition diagrams, four exact evidence tasks and one event-order task make the actual source facts usable without inventing clocks, quantities, plumbing or completed actions.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "读懂商店与工作场所",
+    "instruction": "排营业先后、换图上条件，再用证据区分地点、用途和新旧变化。",
+    "items": [
+      {
+        "id": "word-supermarket",
+        "label": "超市",
+        "prompt": "哪里有补充点？补充什么？不把补充读成免费赠送。",
+        "answer": "supermarket",
+        "caseSensitive": false,
+        "meaning": "超市",
+        "before": "The ",
+        "after": " has a refill station for soap.",
+        "reason": "refill station for soap是皂液补充点；refill不等于免费赠送，也不是给水瓶加水。",
+        "hint": "先找补充什么；价格要有原文依据。",
+        "material": "The supermarket has a refill station for soap.",
+        "options": [
+          {
+            "id": "soap-refill",
+            "text": "这家超市设有皂液补充点。",
+            "correct": true,
+            "reason": "保留supermarket、refill station与for soap。"
+          },
+          {
+            "id": "free",
+            "text": "超市免费赠送皂液。",
+            "correct": false,
+            "reason": "原句没有free免费，也没有说赠送。"
+          },
+          {
+            "id": "water",
+            "text": "超市设有给水瓶加水的补充点。",
+            "correct": false,
+            "reason": "for soap是补充皂液，不是饮用水。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪里有补充点？补充什么？不把补充读成免费赠送。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "补充什么，不补价格",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "皂液补充点不等于免费，也不等于饮水点。",
+            "wrong": "应圈出超市有补充点以及补充皂液，不能补免费或饮水。",
+            "rows": [
+              {
+                "id": "station",
+                "label": "设施",
+                "text": "超市设有补充点。",
+                "include": true
+              },
+              {
+                "id": "soap",
+                "label": "补充物",
+                "text": "补充皂液。",
+                "include": true
+              },
+              {
+                "id": "free",
+                "label": "额外价格",
+                "text": "原句说免费提供。",
+                "include": false
+              },
+              {
+                "id": "water",
+                "label": "额外用途",
+                "text": "原句说给水瓶加水。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bakery",
+        "label": "面包店",
+        "prompt": "先开门，还是先有首班车？按先后点选两件事。",
+        "answer": "bakery",
+        "caseSensitive": false,
+        "meaning": "面包店",
+        "before": "The ",
+        "after": " opens before the first bus.",
+        "reason": "opens before the first bus：面包店先开门，首班车在后。原句没有相隔分钟数。",
+        "hint": "先后由before决定，按顺序点选事件。",
+        "material": "The bakery opens before the first bus.",
+        "options": [
+          {
+            "id": "before",
+            "text": "面包店在首班车之前开门。",
+            "correct": true,
+            "reason": "保留opens before the first bus的先后。"
+          },
+          {
+            "id": "after",
+            "text": "面包店在首班车之后开门。",
+            "correct": false,
+            "reason": "after之后与before之前相反。"
+          },
+          {
+            "id": "minutes",
+            "text": "原句说明面包店早开门30分钟。",
+            "correct": false,
+            "reason": "原句没有给两件事相隔多少分钟。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先开门，还是先有首班车？按先后点选两件事。",
+          "processOrder": {
+            "title": "开门与首班车的先后",
+            "layout": "downward",
+            "hint": "只排前后，不补钟点或分钟数。",
+            "wrong": "面包店开门在先，首班车在后。",
+            "events": [
+              {
+                "id": "opens",
+                "label": "面包店开门"
+              },
+              {
+                "id": "first-bus",
+                "label": "首班车"
+              }
+            ],
+            "sequence": [
+              "opens",
+              "first-bus"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-cafe",
+        "label": "咖啡馆；小餐馆",
+        "prompt": "小还是大？俯瞰河流还是马路？换两个条件试一试。",
+        "answer": "cafe",
+        "caseSensitive": false,
+        "meaning": "咖啡馆；小餐馆",
+        "before": "A small ",
+        "after": " overlooks the river.",
+        "reason": "small是小；overlooks the river是俯瞰河流。cafe与café两种拼写都可。",
+        "hint": "同时核对大小与俯瞰对象。",
+        "material": "A small cafe overlooks the river.",
+        "options": [
+          {
+            "id": "small-river",
+            "text": "一家小咖啡馆俯瞰河流。",
+            "correct": true,
+            "reason": "保留small与overlooks the river。"
+          },
+          {
+            "id": "large",
+            "text": "一家大咖啡馆俯瞰河流。",
+            "correct": false,
+            "reason": "large大改变了small小。"
+          },
+          {
+            "id": "road",
+            "text": "一家小咖啡馆俯瞰马路。",
+            "correct": false,
+            "reason": "road马路改变了river河流。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "小还是大？俯瞰河流还是马路？换两个条件试一试。",
+          "sceneLab": {
+            "id": "cafe-size-and-view",
+            "title": "咖啡馆大小与俯瞰对象",
+            "hint": "换大小与俯瞰对象，看看哪种组合符合small cafe overlooks the river。",
+            "wrong": "应是小咖啡馆俯瞰河流，不能换成大咖啡馆或马路。",
+            "axes": [
+              {
+                "id": "size",
+                "label": "咖啡馆大小",
+                "choices": [
+                  {
+                    "id": "small",
+                    "label": "小"
+                  },
+                  {
+                    "id": "large",
+                    "label": "大"
+                  }
+                ]
+              },
+              {
+                "id": "view",
+                "label": "俯瞰什么",
+                "choices": [
+                  {
+                    "id": "river",
+                    "label": "河流"
+                  },
+                  {
+                    "id": "road",
+                    "label": "马路"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "size",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "大小待选"
+                  },
+                  {
+                    "id": "cafe",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 23,
+                    "width": 76,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 29,
+                    "width": 66,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "cafe / café"
+                  },
+                  {
+                    "id": "view-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "俯瞰对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|river",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "size",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "大小待选"
+                  },
+                  {
+                    "id": "cafe",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 23,
+                    "width": 76,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 29,
+                    "width": 66,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "cafe / café"
+                  },
+                  {
+                    "id": "view-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "俯瞰：河流"
+                  },
+                  {
+                    "id": "view",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 61,
+                    "width": 86,
+                    "height": 12,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "?|road",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "size",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "大小待选"
+                  },
+                  {
+                    "id": "cafe",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 23,
+                    "width": 76,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 29,
+                    "width": 66,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "cafe / café"
+                  },
+                  {
+                    "id": "view-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "俯瞰：马路"
+                  },
+                  {
+                    "id": "view",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 61,
+                    "width": 86,
+                    "height": 12,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "small|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "size",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "小咖啡馆"
+                  },
+                  {
+                    "id": "cafe",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 23,
+                    "width": 76,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 29,
+                    "width": 66,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "cafe / café"
+                  },
+                  {
+                    "id": "view-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "俯瞰对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "small|river",
+                "reading": "一家小咖啡馆俯瞰河流。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "size",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "小咖啡馆"
+                  },
+                  {
+                    "id": "cafe",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 23,
+                    "width": 76,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 29,
+                    "width": 66,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "cafe / café"
+                  },
+                  {
+                    "id": "view-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "俯瞰：河流"
+                  },
+                  {
+                    "id": "view",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 61,
+                    "width": 86,
+                    "height": 12,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "small|road",
+                "reading": "应是小咖啡馆俯瞰河流，不能换成大咖啡馆或马路。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "size",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "小咖啡馆"
+                  },
+                  {
+                    "id": "cafe",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 23,
+                    "width": 76,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 29,
+                    "width": 66,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "cafe / café"
+                  },
+                  {
+                    "id": "view-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "俯瞰：马路"
+                  },
+                  {
+                    "id": "view",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 61,
+                    "width": 86,
+                    "height": 12,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "large|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "size",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "大咖啡馆"
+                  },
+                  {
+                    "id": "cafe",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 23,
+                    "width": 76,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 29,
+                    "width": 66,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "cafe / café"
+                  },
+                  {
+                    "id": "view-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "俯瞰对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "large|river",
+                "reading": "应是小咖啡馆俯瞰河流，不能换成大咖啡馆或马路。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "size",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "大咖啡馆"
+                  },
+                  {
+                    "id": "cafe",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 23,
+                    "width": 76,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 29,
+                    "width": 66,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "cafe / café"
+                  },
+                  {
+                    "id": "view-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "俯瞰：河流"
+                  },
+                  {
+                    "id": "view",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 61,
+                    "width": 86,
+                    "height": 12,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "large|road",
+                "reading": "应是小咖啡馆俯瞰河流，不能换成大咖啡馆或马路。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "size",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "大咖啡馆"
+                  },
+                  {
+                    "id": "cafe",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 23,
+                    "width": 76,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 17,
+                    "y": 29,
+                    "width": 66,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "cafe / café"
+                  },
+                  {
+                    "id": "view-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "俯瞰：马路"
+                  },
+                  {
+                    "id": "view",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 61,
+                    "width": 86,
+                    "height": 12,
+                    "tone": "muted"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "spellings": [
+          "cafe",
+          "café"
+        ],
+        "ownForms": [
+          "cafe",
+          "café"
+        ]
+      },
+      {
+        "id": "word-restaurant",
+        "label": "餐馆",
+        "prompt": "食材在哪里种植？别把“附近”扩大成有机、免费或全部菜单。",
+        "answer": "restaurant",
+        "caseSensitive": false,
+        "meaning": "餐馆",
+        "before": "The ",
+        "after": " serves food grown nearby.",
+        "reason": "grown nearby是食材在附近种植；附近不等于有机，也没有说免费。",
+        "hint": "种植地点与种植方式，别混在一起。",
+        "material": "The restaurant serves food grown nearby.",
+        "options": [
+          {
+            "id": "nearby",
+            "text": "餐馆供应用附近种植的食材做的食物。",
+            "correct": true,
+            "reason": "保留serves food与grown nearby。"
+          },
+          {
+            "id": "far",
+            "text": "餐馆供应用远处种植的食材做的食物。",
+            "correct": false,
+            "reason": "远处改变了nearby附近。"
+          },
+          {
+            "id": "organic",
+            "text": "原句保证这些食材都是有机种植的。",
+            "correct": false,
+            "reason": "种植地点在附近不能推出有机种植。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "食材在哪里种植？别把“附近”扩大成有机、免费或全部菜单。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "供应什么，在哪里种植",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "nearby只说明地点，不保证有机、免费或所有菜品都符合。",
+            "wrong": "应保留供应食物与附近种植，不补有机或免费。",
+            "rows": [
+              {
+                "id": "serves",
+                "label": "供应",
+                "text": "餐馆供应食物。",
+                "include": true
+              },
+              {
+                "id": "nearby",
+                "label": "种植地点",
+                "text": "所说的食材在附近种植。",
+                "include": true
+              },
+              {
+                "id": "organic",
+                "label": "额外种植方式",
+                "text": "原句保证有机种植。",
+                "include": false
+              },
+              {
+                "id": "free",
+                "label": "额外价格",
+                "text": "原句说明免费用餐。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bank",
+        "label": "银行（本句）",
+        "prompt": "哪天关门更早？只核对比较方向，不编营业时间。",
+        "answer": "bank",
+        "caseSensitive": false,
+        "meaning": "银行（本句）",
+        "before": "The ",
+        "after": " closes earlier on Saturdays.",
+        "reason": "earlier on Saturdays是星期六关门较早。这里bank指银行，不是河岸。",
+        "hint": "核对星期与早晚；原句没有具体钟点。",
+        "material": "The bank closes earlier on Saturdays.",
+        "options": [
+          {
+            "id": "saturday-earlier",
+            "text": "银行星期六关门较早。",
+            "correct": true,
+            "reason": "保留on Saturdays与earlier。"
+          },
+          {
+            "id": "later",
+            "text": "银行星期六关门较晚。",
+            "correct": false,
+            "reason": "later较晚与earlier较早相反。"
+          },
+          {
+            "id": "sunday",
+            "text": "银行星期日关门较早。",
+            "correct": false,
+            "reason": "Sundays星期日改变了Saturdays星期六。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪天关门更早？只核对比较方向，不编营业时间。",
+          "sceneLab": {
+            "id": "bank-day-relative-closure",
+            "title": "哪天，关门更早还是更晚",
+            "hint": "切换星期与早晚，核对earlier on Saturdays；图不表示具体钟点。",
+            "wrong": "应是星期六关门较早，不是星期日或较晚。",
+            "axes": [
+              {
+                "id": "day",
+                "label": "哪天",
+                "choices": [
+                  {
+                    "id": "saturday",
+                    "label": "星期六"
+                  },
+                  {
+                    "id": "sunday",
+                    "label": "星期日"
+                  }
+                ]
+              },
+              {
+                "id": "comparison",
+                "label": "关门怎样",
+                "choices": [
+                  {
+                    "id": "earlier",
+                    "label": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "label": "较晚"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "银行：关门时间比较"
+                  },
+                  {
+                    "id": "day",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "星期待选"
+                  },
+                  {
+                    "id": "earlier",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较晚"
+                  },
+                  {
+                    "id": "direction-guide",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 65,
+                    "width": 82,
+                    "height": 2,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "比较基准日、具体钟点未给出"
+                  }
+                ]
+              },
+              {
+                "signature": "?|earlier",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "银行：关门时间比较"
+                  },
+                  {
+                    "id": "day",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "星期待选"
+                  },
+                  {
+                    "id": "earlier",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较晚"
+                  },
+                  {
+                    "id": "direction-guide",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 65,
+                    "width": 82,
+                    "height": 2,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "比较基准日、具体钟点未给出"
+                  },
+                  {
+                    "id": "closing",
+                    "kind": "ellipse",
+                    "x": 19,
+                    "y": 61,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "?|later",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "银行：关门时间比较"
+                  },
+                  {
+                    "id": "day",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "星期待选"
+                  },
+                  {
+                    "id": "earlier",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较晚"
+                  },
+                  {
+                    "id": "direction-guide",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 65,
+                    "width": 82,
+                    "height": 2,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "比较基准日、具体钟点未给出"
+                  },
+                  {
+                    "id": "closing",
+                    "kind": "ellipse",
+                    "x": 75,
+                    "y": 61,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "saturday|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "银行：关门时间比较"
+                  },
+                  {
+                    "id": "day",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "星期六"
+                  },
+                  {
+                    "id": "earlier",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较晚"
+                  },
+                  {
+                    "id": "direction-guide",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 65,
+                    "width": 82,
+                    "height": 2,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "比较基准日、具体钟点未给出"
+                  }
+                ]
+              },
+              {
+                "signature": "saturday|earlier",
+                "reading": "银行星期六关门较早。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "银行：关门时间比较"
+                  },
+                  {
+                    "id": "day",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "星期六"
+                  },
+                  {
+                    "id": "earlier",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较晚"
+                  },
+                  {
+                    "id": "direction-guide",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 65,
+                    "width": 82,
+                    "height": 2,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "比较基准日、具体钟点未给出"
+                  },
+                  {
+                    "id": "closing",
+                    "kind": "ellipse",
+                    "x": 19,
+                    "y": 61,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "saturday|later",
+                "reading": "应是星期六关门较早，不是星期日或较晚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "银行：关门时间比较"
+                  },
+                  {
+                    "id": "day",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "星期六"
+                  },
+                  {
+                    "id": "earlier",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较晚"
+                  },
+                  {
+                    "id": "direction-guide",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 65,
+                    "width": 82,
+                    "height": 2,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "比较基准日、具体钟点未给出"
+                  },
+                  {
+                    "id": "closing",
+                    "kind": "ellipse",
+                    "x": 75,
+                    "y": 61,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "sunday|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "银行：关门时间比较"
+                  },
+                  {
+                    "id": "day",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "星期日"
+                  },
+                  {
+                    "id": "earlier",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较晚"
+                  },
+                  {
+                    "id": "direction-guide",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 65,
+                    "width": 82,
+                    "height": 2,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "比较基准日、具体钟点未给出"
+                  }
+                ]
+              },
+              {
+                "signature": "sunday|earlier",
+                "reading": "应是星期六关门较早，不是星期日或较晚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "银行：关门时间比较"
+                  },
+                  {
+                    "id": "day",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "星期日"
+                  },
+                  {
+                    "id": "earlier",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较晚"
+                  },
+                  {
+                    "id": "direction-guide",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 65,
+                    "width": 82,
+                    "height": 2,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "比较基准日、具体钟点未给出"
+                  },
+                  {
+                    "id": "closing",
+                    "kind": "ellipse",
+                    "x": 19,
+                    "y": 61,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "sunday|later",
+                "reading": "应是星期六关门较早，不是星期日或较晚。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "银行：关门时间比较"
+                  },
+                  {
+                    "id": "day",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "星期日"
+                  },
+                  {
+                    "id": "earlier",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较早"
+                  },
+                  {
+                    "id": "later",
+                    "kind": "label",
+                    "x": 69,
+                    "y": 44,
+                    "width": 29,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "较晚"
+                  },
+                  {
+                    "id": "direction-guide",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 65,
+                    "width": 82,
+                    "height": 2,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "比较基准日、具体钟点未给出"
+                  },
+                  {
+                    "id": "closing",
+                    "kind": "ellipse",
+                    "x": 75,
+                    "y": 61,
+                    "width": 6,
+                    "height": 10,
+                    "tone": "teal"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-office",
+        "label": "办公室",
+        "prompt": "哪一种表格？留在哪里？这句话是要求，不是完成记录。",
+        "answer": "office",
+        "caseSensitive": false,
+        "meaning": "办公室",
+        "before": "Leave the signed form at the ",
+        "after": ".",
+        "reason": "signed form是已签字的表格；Leave是要求把它留在办公室，不代表已完成。",
+        "hint": "表格状态与是否已经存放，是两件事。",
+        "material": "Leave the signed form at the office.",
+        "options": [
+          {
+            "id": "signed-office",
+            "text": "把签好的表格留在办公室。",
+            "correct": true,
+            "reason": "保留Leave、signed form与at the office。"
+          },
+          {
+            "id": "blank",
+            "text": "把未签字的表格留在办公室。",
+            "correct": false,
+            "reason": "未签字改变了signed已签字。"
+          },
+          {
+            "id": "finished",
+            "text": "原句报告表格已经交到办公室。",
+            "correct": false,
+            "reason": "Leave是要求去做，不是已经完成的记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪一种表格？留在哪里？这句话是要求，不是完成记录。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "表格条件与存放要求",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "圈出已签字的表格与办公室；不把祈使句当成已完成。",
+            "wrong": "应圈出签好的表格和留在办公室的要求，不补已完成或指定收件人。",
+            "rows": [
+              {
+                "id": "signed",
+                "label": "表格条件",
+                "text": "表格已经签字。",
+                "include": true
+              },
+              {
+                "id": "office",
+                "label": "要求",
+                "text": "把表格留在办公室。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外完成状态",
+                "text": "原句报告已经完成存放。",
+                "include": false
+              },
+              {
+                "id": "recipient",
+                "label": "额外收件人",
+                "text": "原句指定交给某一位老师。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-factory",
+        "label": "工厂",
+        "prompt": "用什么水？清洗哪里？不从示意图猜水量或能否饮用。",
+        "answer": "factory",
+        "caseSensitive": false,
+        "meaning": "工厂",
+        "before": "The ",
+        "after": " uses rainwater to clean its yard.",
+        "reason": "rainwater是雨水；to clean its yard是用来清洗厂院。别换水源或清洗对象。",
+        "hint": "先选用什么水，再选清洗哪里。",
+        "material": "The factory uses rainwater to clean its yard.",
+        "options": [
+          {
+            "id": "rain-yard",
+            "text": "工厂用雨水清洗厂院。",
+            "correct": true,
+            "reason": "保留uses rainwater与to clean its yard。"
+          },
+          {
+            "id": "tap",
+            "text": "工厂用自来水清洗厂院。",
+            "correct": false,
+            "reason": "tap water自来水改变了rainwater雨水。"
+          },
+          {
+            "id": "windows",
+            "text": "工厂用雨水擦窗户。",
+            "correct": false,
+            "reason": "windows窗户改变了its yard厂院。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "用什么水？清洗哪里？不从示意图猜水量或能否饮用。",
+          "sceneLab": {
+            "id": "factory-water-and-purpose",
+            "title": "水源与清洗对象",
+            "hint": "分别切换水源与清洗对象，再回原句核对。",
+            "wrong": "应是雨水清洗厂院，不能换成自来水或窗户。",
+            "axes": [
+              {
+                "id": "source",
+                "label": "水源",
+                "choices": [
+                  {
+                    "id": "rain",
+                    "label": "雨水"
+                  },
+                  {
+                    "id": "tap",
+                    "label": "自来水"
+                  }
+                ]
+              },
+              {
+                "id": "purpose",
+                "label": "清洗哪里",
+                "choices": [
+                  {
+                    "id": "yard",
+                    "label": "厂院"
+                  },
+                  {
+                    "id": "windows",
+                    "label": "窗户"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "工厂：水源与用途"
+                  },
+                  {
+                    "id": "source-head",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "用什么水"
+                  },
+                  {
+                    "id": "purpose-head",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "清洗什么"
+                  },
+                  {
+                    "id": "source-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "purpose-box",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "source",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "purpose",
+                    "kind": "label",
+                    "x": 59,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水源与清洗对象，分开核对。"
+                  }
+                ]
+              },
+              {
+                "signature": "?|yard",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "工厂：水源与用途"
+                  },
+                  {
+                    "id": "source-head",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "用什么水"
+                  },
+                  {
+                    "id": "purpose-head",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "清洗什么"
+                  },
+                  {
+                    "id": "source-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "purpose-box",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "source",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "purpose",
+                    "kind": "label",
+                    "x": 59,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厂院"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水源与清洗对象，分开核对。"
+                  }
+                ]
+              },
+              {
+                "signature": "?|windows",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "工厂：水源与用途"
+                  },
+                  {
+                    "id": "source-head",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "用什么水"
+                  },
+                  {
+                    "id": "purpose-head",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "清洗什么"
+                  },
+                  {
+                    "id": "source-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "purpose-box",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "source",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "purpose",
+                    "kind": "label",
+                    "x": 59,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "窗户"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水源与清洗对象，分开核对。"
+                  }
+                ]
+              },
+              {
+                "signature": "rain|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "工厂：水源与用途"
+                  },
+                  {
+                    "id": "source-head",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "用什么水"
+                  },
+                  {
+                    "id": "purpose-head",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "清洗什么"
+                  },
+                  {
+                    "id": "source-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "purpose-box",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "source",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "雨水"
+                  },
+                  {
+                    "id": "purpose",
+                    "kind": "label",
+                    "x": 59,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水源与清洗对象，分开核对。"
+                  }
+                ]
+              },
+              {
+                "signature": "rain|yard",
+                "reading": "工厂用雨水清洗厂院。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "工厂：水源与用途"
+                  },
+                  {
+                    "id": "source-head",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "用什么水"
+                  },
+                  {
+                    "id": "purpose-head",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "清洗什么"
+                  },
+                  {
+                    "id": "source-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "purpose-box",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "source",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "雨水"
+                  },
+                  {
+                    "id": "purpose",
+                    "kind": "label",
+                    "x": 59,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厂院"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水源与清洗对象，分开核对。"
+                  }
+                ]
+              },
+              {
+                "signature": "rain|windows",
+                "reading": "应是雨水清洗厂院，不能换成自来水或窗户。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "工厂：水源与用途"
+                  },
+                  {
+                    "id": "source-head",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "用什么水"
+                  },
+                  {
+                    "id": "purpose-head",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "清洗什么"
+                  },
+                  {
+                    "id": "source-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "purpose-box",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "source",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "雨水"
+                  },
+                  {
+                    "id": "purpose",
+                    "kind": "label",
+                    "x": 59,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "窗户"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水源与清洗对象，分开核对。"
+                  }
+                ]
+              },
+              {
+                "signature": "tap|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "工厂：水源与用途"
+                  },
+                  {
+                    "id": "source-head",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "用什么水"
+                  },
+                  {
+                    "id": "purpose-head",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "清洗什么"
+                  },
+                  {
+                    "id": "source-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "purpose-box",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "source",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "自来水"
+                  },
+                  {
+                    "id": "purpose",
+                    "kind": "label",
+                    "x": 59,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "待选"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水源与清洗对象，分开核对。"
+                  }
+                ]
+              },
+              {
+                "signature": "tap|yard",
+                "reading": "应是雨水清洗厂院，不能换成自来水或窗户。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "工厂：水源与用途"
+                  },
+                  {
+                    "id": "source-head",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "用什么水"
+                  },
+                  {
+                    "id": "purpose-head",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "清洗什么"
+                  },
+                  {
+                    "id": "source-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "purpose-box",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "source",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "自来水"
+                  },
+                  {
+                    "id": "purpose",
+                    "kind": "label",
+                    "x": 59,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厂院"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水源与清洗对象，分开核对。"
+                  }
+                ]
+              },
+              {
+                "signature": "tap|windows",
+                "reading": "应是雨水清洗厂院，不能换成自来水或窗户。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "工厂：水源与用途"
+                  },
+                  {
+                    "id": "source-head",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "用什么水"
+                  },
+                  {
+                    "id": "purpose-head",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 25,
+                    "width": 41,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "清洗什么"
+                  },
+                  {
+                    "id": "source-box",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "purpose-box",
+                    "kind": "rect",
+                    "x": 56,
+                    "y": 44,
+                    "width": 41,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "source",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "自来水"
+                  },
+                  {
+                    "id": "purpose",
+                    "kind": "label",
+                    "x": 59,
+                    "y": 51,
+                    "width": 35,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "窗户"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "水源与清洗对象，分开核对。"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-warehouse",
+        "label": "仓库",
+        "prompt": "原来是什么地方，现在是什么空间？now给出了哪一种变化？",
+        "answer": "warehouse",
+        "caseSensitive": false,
+        "meaning": "仓库",
+        "before": "The old ",
+        "after": " is now a community art space.",
+        "reason": "is now说明旧仓库现在是社区艺术空间，不是仅仅计划将来改成。",
+        "hint": "把现在用途与未来计划分清楚。",
+        "material": "The old warehouse is now a community art space.",
+        "options": [
+          {
+            "id": "now-art",
+            "text": "这座旧仓库现在是社区艺术空间。",
+            "correct": true,
+            "reason": "保留old warehouse、now与community art space。"
+          },
+          {
+            "id": "future",
+            "text": "旧仓库只是计划将来改成社区艺术空间。",
+            "correct": false,
+            "reason": "计划将来改变了is now现在已经是。"
+          },
+          {
+            "id": "free",
+            "text": "原句说明旧仓库现在免费供所有人参观。",
+            "correct": false,
+            "reason": "原句没有给免费或向所有人开放的条件。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "原来是什么地方，现在是什么空间？now给出了哪一种变化？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "建筑原貌与现在用途",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "now说明现在的用途，不说明改造日期、免费或所有储物功能是否停止。",
+            "wrong": "应圈出旧仓库和现在是社区艺术空间，不补免费或改造年份。",
+            "rows": [
+              {
+                "id": "old",
+                "label": "建筑",
+                "text": "这座旧仓库。",
+                "include": true
+              },
+              {
+                "id": "now",
+                "label": "现在用途",
+                "text": "现在是社区艺术空间。",
+                "include": true
+              },
+              {
+                "id": "free",
+                "label": "额外访问条件",
+                "text": "原句说明免费向所有人开放。",
+                "include": false
+              },
+              {
+                "id": "year",
+                "label": "额外日期",
+                "text": "原句给出了改造年份。",
+                "include": false
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-town-places-5-transfer",
+      "topicId": "v-course-town-places",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "改了先后、星期与清洗对象，哪组英文保留了三条新信息？",
+      "passage": "三条新信息\n面包店在首班车之后开门。银行星期日关门较晚。工厂用雨水擦窗户。\n词语提示：after 之后；Sundays 星期日；later 较晚；windows 窗户。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The bakery opens after the first bus. The bank closes later on Sundays. The factory uses rainwater to clean its windows."
+        },
+        {
+          "id": "b",
+          "text": "The bakery opens before the first bus. The bank closes later on Sundays. The factory uses rainwater to clean its windows."
+        },
+        {
+          "id": "c",
+          "text": "The bakery opens after the first bus. The bank closes earlier on Sundays. The factory uses rainwater to clean its windows."
+        },
+        {
+          "id": "d",
+          "text": "The bakery opens after the first bus. The bank closes later on Sundays. The factory uses tap water to clean its windows."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The bakery opens after the first bus. The bank closes later on Sundays. The factory uses rainwater to clean its windows."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐项重读新的先后、星期与水的用途，不照搬上一题的条件。",
+        "steps": [
+          {
+            "text": "面包店在首班车之后开门：opens after the first bus。",
+            "reason": "after是之后，不能沿用旧句的before之前。"
+          },
+          {
+            "text": "银行星期日关门较晚：closes later on Sundays。",
+            "reason": "星期和比较方向都要保留；later不是earlier。"
+          },
+          {
+            "text": "工厂用雨水擦窗户：uses rainwater to clean its windows。",
+            "reason": "保留rainwater；本题用途换成擦窗户，不是清洗厂院。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "before把首班车之后改成之前。"
+          },
+          {
+            "option": "c",
+            "reason": "earlier把较晚改成较早。"
+          },
+          {
+            "option": "d",
+            "reason": "tap water把雨水改成自来水。"
+          }
+        ],
+        "pitfall": "每句都有新条件；先后、星期、比较方向、水源和清洗对象要逐一核对。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三条新信息逐项核对",
+          "segments": [
+            {
+              "text": "first bus → bakery opens",
+              "role": "evidence",
+              "note": "首班车在先，面包店开门在后"
+            },
+            {
+              "text": "Sundays → closes later",
+              "role": "evidence",
+              "note": "星期日；关门较晚"
+            },
+            {
+              "text": "rainwater → clean windows",
+              "role": "evidence",
+              "note": "雨水；擦窗户"
+            }
+          ],
+          "caption": "不给钟表时刻、分钟数、水量或已经完成的状态。"
+        },
+        "transfer": "把after换成before，或把rainwater换成tap water，分别改变了哪条信息？"
+      }
+    }
+  }
+}

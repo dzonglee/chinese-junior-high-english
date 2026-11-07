@@ -1,0 +1,2861 @@
+{
+  "lessonId": "l-v-course-town-places",
+  "reviewState": "draft",
+  "intent": "Read exact place conditions and purpose, town facility counts, city construction in progress, village bridge material and connection, capital and country contextual senses, province river location and area path evidence.",
+  "picturePurpose": "Four precise changing diagrams teach counts, construction status, bridge connection and within/outside province position; four evidence tasks teach scope, purpose and contextual senses without invented real geography.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "读懂城镇里的具体信息",
+    "instruction": "点数设施、切换修建状态、连接村庄，再找河流经过的位置。",
+    "items": [
+      {
+        "id": "word-place",
+        "label": "地方（本句）",
+        "prompt": "选什么样的地方？用来存什么？只圈原句提出的要求。",
+        "answer": "place",
+        "caseSensitive": false,
+        "meaning": "地方（本句）",
+        "before": "Choose a dry ",
+        "after": " to store the tools.",
+        "reason": "Choose a dry place to store the tools要求选干燥的地方存放工具；place在这里是名词，不是放置这个动作。",
+        "hint": "take place表示发生；本句a dry place中的place是地方。to store说明用途，不表示工具已经存好。",
+        "material": "Choose a dry place to store the tools.",
+        "options": [
+          {
+            "id": "dry-tools",
+            "text": "选干燥的地方存放工具。",
+            "correct": true,
+            "reason": "同时保留dry与to store the tools。"
+          },
+          {
+            "id": "wet",
+            "text": "选潮湿的地方存放工具。",
+            "correct": false,
+            "reason": "潮湿与dry干燥相反。"
+          },
+          {
+            "id": "stored",
+            "text": "工具已经存放好了。",
+            "correct": false,
+            "reason": "Choose提出要求，不报告存放已经完成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "选什么样的地方？用来存什么？只圈原句提出的要求。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "选址条件与用途",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "不补具体房间、面积或已经完成存放。",
+            "wrong": "应圈出干燥与存工具的用途，不补存放结果。",
+            "rows": [
+              {
+                "id": "dry",
+                "label": "条件",
+                "text": "地方要干燥。",
+                "include": true
+              },
+              {
+                "id": "tools",
+                "label": "用途",
+                "text": "用来存放工具。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "工具已经存好了。",
+                "include": false
+              },
+              {
+                "id": "verb",
+                "label": "额外词义",
+                "text": "place在本句是动词放置。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-town",
+        "label": "城镇",
+        "prompt": "电影院几家？图书馆几座？分别切换，再核对原句。",
+        "answer": "town",
+        "caseSensitive": false,
+        "meaning": "城镇",
+        "before": "The ",
+        "after": " has one cinema and two libraries.",
+        "reason": "The town has one cinema and two libraries说这个镇有一家电影院和两座图书馆，不能交换两类设施的数量。",
+        "hint": "town通常比city小，但不能只按电影院或图书馆的数量判定行政类别。libraries的单数是library。",
+        "material": "The town has one cinema and two libraries.",
+        "options": [
+          {
+            "id": "one-two",
+            "text": "镇上有一家电影院和两座图书馆。",
+            "correct": true,
+            "reason": "one对应cinema，two对应libraries。"
+          },
+          {
+            "id": "two-one",
+            "text": "镇上有两家电影院和一座图书馆。",
+            "correct": false,
+            "reason": "把one与two对应的设施换反了。"
+          },
+          {
+            "id": "one-one",
+            "text": "镇上有一家电影院和一座图书馆。",
+            "correct": false,
+            "reason": "two libraries是两座，不是一座。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "电影院几家？图书馆几座？分别切换，再核对原句。",
+          "sceneLab": {
+            "id": "town-facilities",
+            "title": "设施与数量",
+            "hint": "每个图形代表一处设施；只比较本句给出的两类数量。",
+            "wrong": "应是一家电影院、两座图书馆，不能换数量。",
+            "axes": [
+              {
+                "id": "cinema",
+                "label": "电影院数量",
+                "choices": [
+                  {
+                    "id": "one",
+                    "label": "一家"
+                  },
+                  {
+                    "id": "two",
+                    "label": "两家"
+                  }
+                ]
+              },
+              {
+                "id": "library",
+                "label": "图书馆数量",
+                "choices": [
+                  {
+                    "id": "two",
+                    "label": "两座"
+                  },
+                  {
+                    "id": "one",
+                    "label": "一座"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "cinema-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "电影院"
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "cinema-count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "数量待选"
+                  },
+                  {
+                    "id": "library-count",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "数量待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|two",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "cinema-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "电影院"
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "cinema-count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "数量待选"
+                  },
+                  {
+                    "id": "library-count",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两座"
+                  },
+                  {
+                    "id": "library0",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library1",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "?|one",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "cinema-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "电影院"
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "cinema-count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "数量待选"
+                  },
+                  {
+                    "id": "library-count",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一座"
+                  },
+                  {
+                    "id": "library0",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "one|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "cinema-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "电影院"
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "cinema-count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一家"
+                  },
+                  {
+                    "id": "library-count",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "数量待选"
+                  },
+                  {
+                    "id": "cinema0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "one|two",
+                "reading": "镇上有一家电影院和两座图书馆。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "cinema-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "电影院"
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "cinema-count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一家"
+                  },
+                  {
+                    "id": "library-count",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两座"
+                  },
+                  {
+                    "id": "cinema0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "library0",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library1",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "one|one",
+                "reading": "应是一家电影院、两座图书馆，不能换数量。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "cinema-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "电影院"
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "cinema-count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一家"
+                  },
+                  {
+                    "id": "library-count",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一座"
+                  },
+                  {
+                    "id": "cinema0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "library0",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "two|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "cinema-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "电影院"
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "cinema-count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两家"
+                  },
+                  {
+                    "id": "library-count",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "数量待选"
+                  },
+                  {
+                    "id": "cinema0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "cinema1",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "two|two",
+                "reading": "应是一家电影院、两座图书馆，不能换数量。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "cinema-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "电影院"
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "cinema-count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两家"
+                  },
+                  {
+                    "id": "library-count",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两座"
+                  },
+                  {
+                    "id": "cinema0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "cinema1",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "library0",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "library1",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "two|one",
+                "reading": "应是一家电影院、两座图书馆，不能换数量。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "cinema-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "电影院"
+                  },
+                  {
+                    "id": "library-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 3,
+                    "width": 45,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "cinema-count",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两家"
+                  },
+                  {
+                    "id": "library-count",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 79,
+                    "width": 45,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一座"
+                  },
+                  {
+                    "id": "cinema0",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "cinema1",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 49,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "library0",
+                    "kind": "rect",
+                    "x": 61,
+                    "y": 25,
+                    "width": 29,
+                    "height": 18,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-city",
+        "label": "城市",
+        "prompt": "在修还是已建成？增加的是哪类车道？换条件看区别。",
+        "answer": "city",
+        "caseSensitive": false,
+        "meaning": "城市",
+        "before": "The ",
+        "after": " is building more cycle lanes.",
+        "reason": "The city is building more cycle lanes说这座城市正在修建更多自行车道；is building不是已经建完，cycle lanes不是机动车道。",
+        "hint": "city的复数是cities；本句用单数city。more表示增加，没有给出具体数量或开放日期。",
+        "material": "The city is building more cycle lanes.",
+        "options": [
+          {
+            "id": "building-cycle",
+            "text": "这座城市正在修建更多自行车道。",
+            "correct": true,
+            "reason": "保留is building、more与cycle lanes。"
+          },
+          {
+            "id": "finished",
+            "text": "这座城市已经建好了更多自行车道。",
+            "correct": false,
+            "reason": "已经建好把正在进行改成了已经完成。"
+          },
+          {
+            "id": "motor",
+            "text": "这座城市正在修建更多机动车道。",
+            "correct": false,
+            "reason": "机动车道不是cycle lanes自行车道。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "在修还是已建成？增加的是哪类车道？换条件看区别。",
+          "sceneLab": {
+            "id": "city-building",
+            "title": "修建状态与车道用途",
+            "hint": "条带仅标修建状态，不表示完成比例；不提供车道数量或日期。",
+            "wrong": "应是正在修建自行车道，不能改成已建成或机动车道。",
+            "axes": [
+              {
+                "id": "phase",
+                "label": "修建状态",
+                "choices": [
+                  {
+                    "id": "building",
+                    "label": "正在修建"
+                  },
+                  {
+                    "id": "finished",
+                    "label": "已经建成"
+                  }
+                ]
+              },
+              {
+                "id": "kind",
+                "label": "车道用途",
+                "choices": [
+                  {
+                    "id": "cycle",
+                    "label": "自行车道"
+                  },
+                  {
+                    "id": "motor",
+                    "label": "机动车道"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  },
+                  {
+                    "id": "kind",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "用途待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|cycle",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  },
+                  {
+                    "id": "kind",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车道"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 38,
+                    "width": 76,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lane-use",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 43,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "自行车道"
+                  }
+                ]
+              },
+              {
+                "signature": "?|motor",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  },
+                  {
+                    "id": "kind",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "机动车道"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 38,
+                    "width": 76,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lane-use",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 43,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "机动车道"
+                  }
+                ]
+              },
+              {
+                "signature": "building|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "正在修建"
+                  },
+                  {
+                    "id": "kind",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "用途待选"
+                  },
+                  {
+                    "id": "status-progress",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 68,
+                    "width": 76,
+                    "height": 4,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "building|cycle",
+                "reading": "这座城市正在修建更多自行车道。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "正在修建"
+                  },
+                  {
+                    "id": "kind",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车道"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 38,
+                    "width": 76,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lane-use",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 43,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "自行车道"
+                  },
+                  {
+                    "id": "status-progress",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 68,
+                    "width": 76,
+                    "height": 4,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "building|motor",
+                "reading": "应是正在修建自行车道，不能改成已建成或机动车道。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "正在修建"
+                  },
+                  {
+                    "id": "kind",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "机动车道"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 38,
+                    "width": 76,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lane-use",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 43,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "机动车道"
+                  },
+                  {
+                    "id": "status-progress",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 68,
+                    "width": 76,
+                    "height": 4,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "finished|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "已经建成"
+                  },
+                  {
+                    "id": "kind",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "用途待选"
+                  },
+                  {
+                    "id": "status-progress",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 68,
+                    "width": 76,
+                    "height": 4,
+                    "tone": "teal",
+                    "outline": false
+                  }
+                ]
+              },
+              {
+                "signature": "finished|cycle",
+                "reading": "应是正在修建自行车道，不能改成已建成或机动车道。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "已经建成"
+                  },
+                  {
+                    "id": "kind",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "自行车道"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 38,
+                    "width": 76,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lane-use",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 43,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "自行车道"
+                  },
+                  {
+                    "id": "status-progress",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 68,
+                    "width": 76,
+                    "height": 4,
+                    "tone": "teal",
+                    "outline": false
+                  }
+                ]
+              },
+              {
+                "signature": "finished|motor",
+                "reading": "应是正在修建自行车道，不能改成已建成或机动车道。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "已经建成"
+                  },
+                  {
+                    "id": "kind",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "机动车道"
+                  },
+                  {
+                    "id": "lane",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 38,
+                    "width": 76,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lane-use",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 43,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "机动车道"
+                  },
+                  {
+                    "id": "status-progress",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 68,
+                    "width": 76,
+                    "height": 4,
+                    "tone": "teal",
+                    "outline": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-village",
+        "label": "村庄",
+        "prompt": "石桥还是木桥？两部分连起来了吗？切换后核对原句。",
+        "answer": "village",
+        "caseSensitive": false,
+        "meaning": "村庄",
+        "before": "A stone bridge connects the two halves of the ",
+        "after": ".",
+        "reason": "A stone bridge connects the two halves of the village说一座石桥连接村庄的两部分；stone不是wooden，connects不是使其隔开。",
+        "hint": "village通常小于town。two halves在这里指村庄的两部分；图只表示连接关系，不提供真实地形或居民数量。",
+        "material": "A stone bridge connects the two halves of the village.",
+        "options": [
+          {
+            "id": "stone-join",
+            "text": "石桥连接村庄的两部分。",
+            "correct": true,
+            "reason": "保留stone bridge、connects和two halves。"
+          },
+          {
+            "id": "wood",
+            "text": "木桥连接村庄的两部分。",
+            "correct": false,
+            "reason": "wooden木制不是stone石制。"
+          },
+          {
+            "id": "apart",
+            "text": "石桥使村庄的两部分隔开。",
+            "correct": false,
+            "reason": "隔开颠倒connects连接的关系。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "石桥还是木桥？两部分连起来了吗？切换后核对原句。",
+          "sceneLab": {
+            "id": "village-bridge",
+            "title": "桥的材料与连接",
+            "hint": "两块表示村庄的两部分；不画真实村界，不补河流或桥长。",
+            "wrong": "应是石桥连接两部分，不能改成木桥或隔开。",
+            "axes": [
+              {
+                "id": "material",
+                "label": "桥的材料",
+                "choices": [
+                  {
+                    "id": "stone",
+                    "label": "石桥"
+                  },
+                  {
+                    "id": "wood",
+                    "label": "木桥"
+                  }
+                ]
+              },
+              {
+                "id": "relation",
+                "label": "两部分的关系",
+                "choices": [
+                  {
+                    "id": "join",
+                    "label": "连接"
+                  },
+                  {
+                    "id": "apart",
+                    "label": "隔开"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一部分"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "另一部分"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "连接待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|join",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一部分"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "另一部分"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "连接两部分"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 54,
+                    "width": 46,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "?|apart",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "材料待选"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一部分"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "另一部分"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两部分隔开"
+                  },
+                  {
+                    "id": "bridge-left",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 54,
+                    "width": 14,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "bridge-right",
+                    "kind": "rect",
+                    "x": 59,
+                    "y": 54,
+                    "width": 14,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "stone|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石桥"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一部分"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "另一部分"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "连接待选"
+                  }
+                ]
+              },
+              {
+                "signature": "stone|join",
+                "reading": "石桥连接村庄的两部分。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石桥"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一部分"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "另一部分"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "连接两部分"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 54,
+                    "width": 46,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "stone|apart",
+                "reading": "应是石桥连接两部分，不能改成木桥或隔开。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "石桥"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一部分"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "另一部分"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两部分隔开"
+                  },
+                  {
+                    "id": "bridge-left",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 54,
+                    "width": 14,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "bridge-right",
+                    "kind": "rect",
+                    "x": 59,
+                    "y": 54,
+                    "width": 14,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "wood|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "木桥"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一部分"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "另一部分"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "连接待选"
+                  }
+                ]
+              },
+              {
+                "signature": "wood|join",
+                "reading": "应是石桥连接两部分，不能改成木桥或隔开。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "木桥"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一部分"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "另一部分"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "连接两部分"
+                  },
+                  {
+                    "id": "bridge",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 54,
+                    "width": 46,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "wood|apart",
+                "reading": "应是石桥连接两部分，不能改成木桥或隔开。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "material",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 3,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "木桥"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 66,
+                    "y": 30,
+                    "width": 30,
+                    "height": 42,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "left-label",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一部分"
+                  },
+                  {
+                    "id": "right-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 34,
+                    "width": 30,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "另一部分"
+                  },
+                  {
+                    "id": "relation",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两部分隔开"
+                  },
+                  {
+                    "id": "bridge-left",
+                    "kind": "rect",
+                    "x": 27,
+                    "y": 54,
+                    "width": 14,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "bridge-right",
+                    "kind": "rect",
+                    "x": 59,
+                    "y": 54,
+                    "width": 14,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-capital",
+        "label": "首都（本句）",
+        "prompt": "这里是首都还是大写字母？圈出博物馆的信息，不猜城市规模。",
+        "answer": "capital",
+        "caseSensitive": false,
+        "meaning": "首都（本句）",
+        "before": "The ",
+        "after": " has a large national museum.",
+        "reason": "The capital has a large national museum说首都有一座大型国家博物馆；capital在这里是首都，不是大写字母。",
+        "hint": "capital letter指大写字母；本句has a large national museum帮助确定首都的词义，但不能据此认定它是最大城市或只有一座博物馆。",
+        "material": "The capital has a large national museum.",
+        "options": [
+          {
+            "id": "museum",
+            "text": "首都有一座大型国家博物馆。",
+            "correct": true,
+            "reason": "保留capital、large和national museum。"
+          },
+          {
+            "id": "letter",
+            "text": "一个大写字母拥有国家博物馆。",
+            "correct": false,
+            "reason": "博物馆语境中的capital指首都，不是字母。"
+          },
+          {
+            "id": "largest",
+            "text": "原句说明首都是全国最大的城市。",
+            "correct": false,
+            "reason": "large修饰museum，不比较城市大小。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "这里是首都还是大写字母？圈出博物馆的信息，不猜城市规模。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "首都与博物馆",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "a不说明全国只有一座；large修饰博物馆，不修饰城市。",
+            "wrong": "应圈出首都与大型国家博物馆，不补最大城市或大写字母。",
+            "rows": [
+              {
+                "id": "city",
+                "label": "本句词义",
+                "text": "capital指首都。",
+                "include": true
+              },
+              {
+                "id": "museum",
+                "label": "拥有的设施",
+                "text": "有一座大型国家博物馆。",
+                "include": true
+              },
+              {
+                "id": "letter",
+                "label": "额外词义",
+                "text": "capital指大写字母。",
+                "include": false
+              },
+              {
+                "id": "largest",
+                "label": "额外比较",
+                "text": "首都是全国最大的城市。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-country",
+        "label": "国家（本句）",
+        "prompt": "每个国家还是某个国家？customs在这里是习俗。圈出范围与关系。",
+        "answer": "country",
+        "caseSensitive": false,
+        "meaning": "国家（本句）",
+        "before": "Every ",
+        "after": " has its own customs.",
+        "reason": "Every country has its own customs说每个国家都有自己的习俗；Every不是some，country在这里不是乡村。",
+        "hint": "the country也可指乡村；本句Every country指每个国家。customs在本句是习俗，不是海关；不表示所有习俗都不同或彼此没有共同点。",
+        "material": "Every country has its own customs.",
+        "options": [
+          {
+            "id": "every-own",
+            "text": "每个国家都有自己的习俗。",
+            "correct": true,
+            "reason": "Every与its own都要保留。"
+          },
+          {
+            "id": "some",
+            "text": "只有某些国家有自己的习俗。",
+            "correct": false,
+            "reason": "some缩小了Every每个的范围。"
+          },
+          {
+            "id": "countryside",
+            "text": "原句只谈一个乡村的习俗。",
+            "correct": false,
+            "reason": "Every country在本句是每个国家，不是一个乡村。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "每个国家还是某个国家？customs在这里是习俗。圈出范围与关系。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "范围与自己的习俗",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "不把every改为some；不推断各国所有习俗都不同。",
+            "wrong": "应是每个国家都有自己的习俗，不缩小范围或换成乡村。",
+            "rows": [
+              {
+                "id": "every",
+                "label": "范围",
+                "text": "每个国家。",
+                "include": true
+              },
+              {
+                "id": "own",
+                "label": "拥有的事物",
+                "text": "各有自己的习俗。",
+                "include": true
+              },
+              {
+                "id": "some",
+                "label": "额外限制",
+                "text": "只有某些国家有习俗。",
+                "include": false
+              },
+              {
+                "id": "rural",
+                "label": "额外词义",
+                "text": "country在本句指乡村。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-province",
+        "label": "省",
+        "prompt": "河流经过南部还是北部？是流经还是绕到省外？在示意图里切换。",
+        "answer": "province",
+        "caseSensitive": false,
+        "meaning": "省",
+        "before": "The river flows through the south of the ",
+        "after": ".",
+        "reason": "The river flows through the south of the province说这条河流经该省南部；the south of是省内南部，不是省的南面之外。",
+        "hint": "province是行政区域名称；through说明流经，south说明在省内南部。图是虚构示意，不给真实省界、流向、河长或省名。",
+        "material": "The river flows through the south of the province.",
+        "options": [
+          {
+            "id": "through-south",
+            "text": "河流流经该省南部。",
+            "correct": true,
+            "reason": "保留through与the south of the province。"
+          },
+          {
+            "id": "north",
+            "text": "河流流经该省北部。",
+            "correct": false,
+            "reason": "north北部不是south南部。"
+          },
+          {
+            "id": "outside",
+            "text": "河流只在该省南面的省外流过。",
+            "correct": false,
+            "reason": "the south of是省内南部，不是省外南面。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "河流经过南部还是北部？是流经还是绕到省外？在示意图里切换。",
+          "sceneLab": {
+            "id": "province-river",
+            "title": "河流与省内位置",
+            "hint": "上北下南，仅为虚构位置示意；不表示真实省界或河流方向。",
+            "wrong": "应流经省内南部，不能改成北部或省外。",
+            "axes": [
+              {
+                "id": "location",
+                "label": "南部还是北部",
+                "choices": [
+                  {
+                    "id": "south",
+                    "label": "南部"
+                  },
+                  {
+                    "id": "north",
+                    "label": "北部"
+                  }
+                ]
+              },
+              {
+                "id": "relation",
+                "label": "省内还是省外",
+                "choices": [
+                  {
+                    "id": "through",
+                    "label": "流经省内"
+                  },
+                  {
+                    "id": "outside",
+                    "label": "从省外过"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "north",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "北"
+                  },
+                  {
+                    "id": "province",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 21,
+                    "width": 60,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 38,
+                    "width": 32,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "省域"
+                  },
+                  {
+                    "id": "south",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "南"
+                  }
+                ]
+              },
+              {
+                "signature": "?|through",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "north",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "北"
+                  },
+                  {
+                    "id": "province",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 21,
+                    "width": 60,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 38,
+                    "width": 32,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "省域"
+                  },
+                  {
+                    "id": "south",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "南"
+                  }
+                ]
+              },
+              {
+                "signature": "?|outside",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "north",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "北"
+                  },
+                  {
+                    "id": "province",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 21,
+                    "width": 60,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 38,
+                    "width": 32,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "省域"
+                  },
+                  {
+                    "id": "south",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "南"
+                  }
+                ]
+              },
+              {
+                "signature": "south|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "north",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "北"
+                  },
+                  {
+                    "id": "province",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 21,
+                    "width": 60,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 38,
+                    "width": 32,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "省域"
+                  },
+                  {
+                    "id": "south",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "南"
+                  }
+                ]
+              },
+              {
+                "signature": "south|through",
+                "reading": "河流流经该省南部。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "north",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "北"
+                  },
+                  {
+                    "id": "province",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 21,
+                    "width": 60,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 38,
+                    "width": 32,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "省域"
+                  },
+                  {
+                    "id": "south",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "南"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 62,
+                    "width": 84,
+                    "height": 3,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "south|outside",
+                "reading": "应流经省内南部，不能改成北部或省外。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "north",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "北"
+                  },
+                  {
+                    "id": "province",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 21,
+                    "width": 60,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 38,
+                    "width": 32,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "省域"
+                  },
+                  {
+                    "id": "south",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "南"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 76,
+                    "width": 84,
+                    "height": 3,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "north|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "north",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "北"
+                  },
+                  {
+                    "id": "province",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 21,
+                    "width": 60,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 38,
+                    "width": 32,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "省域"
+                  },
+                  {
+                    "id": "south",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "南"
+                  }
+                ]
+              },
+              {
+                "signature": "north|through",
+                "reading": "应流经省内南部，不能改成北部或省外。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "north",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "北"
+                  },
+                  {
+                    "id": "province",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 21,
+                    "width": 60,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 38,
+                    "width": 32,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "省域"
+                  },
+                  {
+                    "id": "south",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "南"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 31,
+                    "width": 84,
+                    "height": 3,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "north|outside",
+                "reading": "应流经省内南部，不能改成北部或省外。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "north",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "北"
+                  },
+                  {
+                    "id": "province",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 21,
+                    "width": 60,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "name",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 38,
+                    "width": 32,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "省域"
+                  },
+                  {
+                    "id": "south",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 84,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "南"
+                  },
+                  {
+                    "id": "river",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 16,
+                    "width": 84,
+                    "height": 3,
+                    "tone": "teal"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-area",
+        "label": "地区（本句）",
+        "prompt": "area指一片地区还是面积数值？圈出小路及其用途，不补条数。",
+        "answer": "area",
+        "caseSensitive": false,
+        "meaning": "地区（本句）",
+        "before": "This ",
+        "after": " has many paths for walkers.",
+        "reason": "This area has many paths for walkers说这个地区有许多供步行者走的小路；many没有给出确切条数，for walkers说明用途。",
+        "hint": "area也可表示面积；本句This area has ...中的area指地区，没有平方千米数。walkers是步行者，不限定为游客。",
+        "material": "This area has many paths for walkers.",
+        "options": [
+          {
+            "id": "many-walkers",
+            "text": "这个地区有许多供步行者走的小路。",
+            "correct": true,
+            "reason": "保留area、many paths和for walkers。"
+          },
+          {
+            "id": "square",
+            "text": "原句给出了这个地区的面积数值。",
+            "correct": false,
+            "reason": "area在本句不是面积数值，也没有面积单位。"
+          },
+          {
+            "id": "two",
+            "text": "这个地区恰好有两条步行小路。",
+            "correct": false,
+            "reason": "many是许多，没有说恰好两条。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "area指一片地区还是面积数值？圈出小路及其用途，不补条数。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "地区里的小路",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "不补面积、精确条数或只供游客使用。",
+            "wrong": "应圈出许多小路与步行用途，不补面积或两条。",
+            "rows": [
+              {
+                "id": "many",
+                "label": "小路情况",
+                "text": "有许多小路。",
+                "include": true
+              },
+              {
+                "id": "walkers",
+                "label": "用途",
+                "text": "供步行者行走。",
+                "include": true
+              },
+              {
+                "id": "size",
+                "label": "额外测量",
+                "text": "给出了面积数值。",
+                "include": false
+              },
+              {
+                "id": "two",
+                "label": "额外数量",
+                "text": "小路恰好有两条。",
+                "include": false
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-town-places-transfer",
+      "topicId": "v-course-town-places",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成水果存放和新城镇，哪组英文保留了三条信息？",
+      "passage": "三条新信息\n选个凉爽的地方存放水果。这个镇有两家电影院和一座图书馆。河流流经该省北部。\n词语提示：cool 凉爽的；keep 存放；fruit 水果。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Choose a cool place to keep the fruit. The town has two cinemas and one library. The river flows through the north of the province."
+        },
+        {
+          "id": "b",
+          "text": "Choose a warm place to keep the fruit. The town has two cinemas and one library. The river flows through the north of the province."
+        },
+        {
+          "id": "c",
+          "text": "Choose a cool place to keep the fruit. The town has one cinema and two libraries. The river flows through the north of the province."
+        },
+        {
+          "id": "d",
+          "text": "Choose a cool place to keep the fruit. The town has two cinemas and one library. The river flows through the south of the province."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Choose a cool place to keep the fruit. The town has two cinemas and one library. The river flows through the north of the province."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐条核对条件、用途、两类数量和省内方位。",
+        "steps": [
+          {
+            "text": "选凉爽的地方存水果：a cool place to keep the fruit。",
+            "reason": "warm是温暖的，不是cool凉爽的；to keep说明用途。"
+          },
+          {
+            "text": "两家电影院、一座图书馆：two cinemas and one library。",
+            "reason": "不可照抄上一句的一家电影院、两座图书馆。"
+          },
+          {
+            "text": "流经省内北部：through the north of the province。",
+            "reason": "north是北部，不是south南部；the north of仍在省内。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "warm把凉爽的改成了温暖的。"
+          },
+          {
+            "option": "c",
+            "reason": "one cinema and two libraries把两类设施的数量换反。"
+          },
+          {
+            "option": "d",
+            "reason": "south把省内北部改成了南部。"
+          }
+        ],
+        "pitfall": "换情境后重新读条件，不沿用上一题的数量和方位。",
+        "visual": {
+          "kind": "comparison",
+          "title": "条件、数量与方位",
+          "segments": [
+            {
+              "text": "cool place → keep fruit",
+              "role": "evidence",
+              "note": "凉爽；存水果"
+            },
+            {
+              "text": "two cinemas + one library",
+              "role": "evidence",
+              "note": "两家影院；一座图书馆"
+            },
+            {
+              "text": "through the north",
+              "role": "evidence",
+              "note": "流经省内北部"
+            }
+          ],
+          "caption": "用途不表示已经存好；示意方位不代表真实地图。"
+        },
+        "transfer": "把north换成south、two cinemas换成one cinema，分别改了什么？"
+      }
+    }
+  }
+}

@@ -1,0 +1,572 @@
+{
+  "lessonId": "l-v-course-weather-sky-3",
+  "reviewState": "draft",
+  "intent": "Eight individual decisions use a real picture target, a controllable day sequence and exact purpose/season records. Guided work grants no independent credit.",
+  "picturePurpose": "An original wet-field image separates a sky rainbow, grey cloud and ground shadow; coded sun/horizon phases give explicit morning/evening changes without clock guesses.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "排好早晚，再读懂季节计划",
+    "instruction": "移动事件、点选图片，再保留句子里的先后、目的和动作。",
+    "items": [
+      {
+        "id": "rainbow",
+        "label": "rainbow：找天空中的彩虹",
+        "prompt": "Tap the rainbow above the wet field.",
+        "answer": "rainbow",
+        "meaning": "彩虹",
+        "material": "A rainbow appeared over the wet field.",
+        "before": "A ",
+        "after": " appeared over the wet field.",
+        "reason": "rainbow是彩虹，是rain和bow组成的合成词；a rainbow表示一道彩虹。over the wet field说明在湿田野上方，不是落在地上的树影。",
+        "hint": "找彩色弧线，不按标签位置猜。",
+        "wordDecision": {
+          "prompt": "Tap the rainbow above the wet field.",
+          "art": {
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-rainbow-field",
+            "alt": "湿润绿田野上方有一道彩虹，右上是独立的灰云，右下树木在草地上投下暗影。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "rainbow",
+                "label": "A 天空弧线",
+                "left": 1,
+                "top": 16,
+                "width": 70,
+                "height": 38
+              },
+              {
+                "id": "b",
+                "option": "cloud",
+                "label": "B 灰云",
+                "left": 74,
+                "top": 2,
+                "width": 25,
+                "height": 43
+              },
+              {
+                "id": "c",
+                "option": "shadow",
+                "label": "C 树影",
+                "left": 60,
+                "top": 68,
+                "width": 38,
+                "height": 30
+              }
+            ],
+            "evidence": [
+              {
+                "option": "rainbow",
+                "caption": "A是天空中的彩色弧线，对应a rainbow。",
+                "regions": [
+                  {
+                    "id": "arc",
+                    "label": "coloured arc in the sky",
+                    "left": 18,
+                    "top": 18,
+                    "width": 36,
+                    "height": 12
+                  }
+                ]
+              },
+              {
+                "option": "cloud",
+                "caption": "B是灰云，不是彩虹。",
+                "regions": [
+                  {
+                    "id": "grey-cloud",
+                    "label": "grey cloud",
+                    "left": 77,
+                    "top": 9,
+                    "width": 20,
+                    "height": 29
+                  }
+                ]
+              },
+              {
+                "option": "shadow",
+                "caption": "C在草地上，是树投下的暗影。",
+                "regions": [
+                  {
+                    "id": "tree-shadow",
+                    "label": "dark tree shadow",
+                    "left": 63,
+                    "top": 70,
+                    "width": 28,
+                    "height": 12
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "cloud",
+            "text": "B: the grey cloud in the sky.",
+            "correct": false,
+            "reason": "灰云是cloud，不是rainbow。"
+          },
+          {
+            "id": "rainbow",
+            "text": "A: the coloured arc in the sky.",
+            "correct": true,
+            "reason": "彩虹是天空中的彩色弧，不是灰云或地面的影子。"
+          },
+          {
+            "id": "shadow",
+            "text": "C: the tree’s dark shadow on the field.",
+            "correct": false,
+            "reason": "地面的树影不是天空中的彩虹。"
+          }
+        ]
+      },
+      {
+        "id": "sunshine",
+        "label": "sunshine：阳光下做什么",
+        "prompt": "Choose the plan that keeps both the place and the purpose.",
+        "answer": "sunshine",
+        "meaning": "阳光",
+        "material": "We sat in the sunshine to dry our socks.",
+        "before": "We sat in the ",
+        "after": " to dry our socks.",
+        "reason": "sunshine是阳光，通常不可数。in the sunshine表示在阳光下；to dry our socks说明目的，不是说一坐下袜子就干了。dry在这里是动词。",
+        "hint": "地点和目的都核对；不要猜晒干需要多久。",
+        "wordDecision": {
+          "prompt": "Choose the plan that keeps both the place and the purpose.",
+          "recordSelection": {
+            "title": "把地点和目的配成一条计划",
+            "prompt": "只保留原句说的这件事。",
+            "rows": [
+              {
+                "id": "dry",
+                "label": "Sunshine · dry socks",
+                "text": "Sit in sunshine; dry the socks.",
+                "include": true
+              },
+              {
+                "id": "shade",
+                "label": "Shade · dry socks",
+                "text": "Sit in shade; dry the socks.",
+                "include": false
+              },
+              {
+                "id": "read",
+                "label": "Sunshine · read",
+                "text": "Sit in sunshine; read a story.",
+                "include": false
+              }
+            ],
+            "hint": "原句同时给出阳光和晒袜子。",
+            "wrong": "只选Sunshine · dry socks；另外两条各改了地点或目的。"
+          }
+        },
+        "options": [
+          {
+            "id": "shade",
+            "text": "Sit in shade to dry the socks.",
+            "correct": false,
+            "reason": "shade是阴凉处，地点与in the sunshine不符。"
+          },
+          {
+            "id": "read",
+            "text": "Sit in sunshine to read a story.",
+            "correct": false,
+            "reason": "地点相同，但目的变成了读故事，不是晒袜子。"
+          },
+          {
+            "id": "dry",
+            "text": "Sit in sunshine to dry the socks.",
+            "correct": true,
+            "reason": "in the sunshine给地点，to dry our socks给目的，两项都要保留。"
+          }
+        ]
+      },
+      {
+        "id": "sunrise",
+        "label": "sunrise：先到达，再日出",
+        "prompt": "Place our arrival just before sunrise.",
+        "answer": "sunrise",
+        "meaning": "日出",
+        "material": "We reached the lookout just before sunrise.",
+        "before": "We reached the lookout just before ",
+        "after": ".",
+        "reason": "sunrise是日出。just before sunrise意为日出前不久，不是at sunrise（日出时）或after sunrise（日出后）。没有具体钟点，就按太阳尚未升起来排事件。",
+        "hint": "先到达，再看到日出；不用猜几点。",
+        "wordDecision": {
+          "prompt": "Place our arrival just before sunrise.",
+          "daylight": {
+            "answer": "dawn",
+            "title": "把到达放在日出前",
+            "event": "到达观景点",
+            "hint": "天色已渐亮，太阳还没升起；这是日出前的阶段。",
+            "wrong": "选早晨太阳尚未升起的阶段；日出时或日出后都不符合just before。"
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "Arrive shortly before the sun rises.",
+            "correct": true,
+            "reason": "just before sunrise：日出前不久到达。"
+          },
+          {
+            "id": "at",
+            "text": "Arrive exactly as the sun rises.",
+            "correct": false,
+            "reason": "at sunrise才是日出时；原句是just before。"
+          },
+          {
+            "id": "after",
+            "text": "Arrive after the sun has risen.",
+            "correct": false,
+            "reason": "after把before的先后关系读反了。"
+          }
+        ]
+      },
+      {
+        "id": "sunset",
+        "label": "sunset：日落的傍晚",
+        "prompt": "Place the orange-sky record at sunset.",
+        "answer": "sunset",
+        "meaning": "日落",
+        "material": "The sky glowed orange at sunset.",
+        "before": "The sky glowed orange at ",
+        "after": ".",
+        "reason": "sunset是日落，与sunrise相对。at sunset说明日落时；glowed是glow的过去式。橙色天空本身不足以区分早晚，要一起核对原句里的sunset。",
+        "hint": "先看早晚和太阳的变化，再看颜色。",
+        "wordDecision": {
+          "prompt": "Place the orange-sky record at sunset.",
+          "daylight": {
+            "answer": "sunset",
+            "title": "把橙光记录放在日落时",
+            "event": "天空泛橙光",
+            "hint": "看傍晚太阳正落下，不只凭橙色判断。",
+            "wrong": "选日落阶段；日出是早晨，白天也不是at sunset。"
+          }
+        },
+        "options": [
+          {
+            "id": "rising",
+            "text": "Morning: the sun is rising.",
+            "correct": false,
+            "reason": "这是sunrise，不是sunset。"
+          },
+          {
+            "id": "setting",
+            "text": "Evening: the sun is setting and the sky glows orange.",
+            "correct": true,
+            "reason": "sunset是日落；at sunset把这条记录放在日落时。"
+          },
+          {
+            "id": "noon",
+            "text": "Daytime: the sun is already high above the horizon.",
+            "correct": false,
+            "reason": "这是白天的另一阶段，不是日落。"
+          }
+        ]
+      },
+      {
+        "id": "dawn",
+        "label": "dawn：黎明离港",
+        "prompt": "Place the fishermen’s departure at dawn.",
+        "answer": "dawn",
+        "meaning": "黎明",
+        "material": "The fishermen left the harbour at dawn.",
+        "before": "The fishermen left the harbour at ",
+        "after": ".",
+        "reason": "dawn是黎明，指早晨天色开始变亮的时段；sunrise是太阳升起，不要当成同一个瞬间。left是leave的过去式，at dawn是黎明时。",
+        "hint": "看早晨渐亮，不把黎明和日出混成同一时刻。",
+        "wordDecision": {
+          "prompt": "Place the fishermen’s departure at dawn.",
+          "daylight": {
+            "answer": "dawn",
+            "title": "把离港放在黎明",
+            "event": "渔民离港",
+            "hint": "早晨天色开始变亮；黎明不是日出的同一瞬间。",
+            "wrong": "选黎明；傍晚渐暗是dusk，夜晚也不是dawn。"
+          }
+        },
+        "options": [
+          {
+            "id": "evening",
+            "text": "Leave in the evening as the sky grows dim.",
+            "correct": false,
+            "reason": "这是dusk的傍晚情境，早晚不同。"
+          },
+          {
+            "id": "night",
+            "text": "Leave after the sky has become fully dark.",
+            "correct": false,
+            "reason": "天已全黑不符合at dawn。"
+          },
+          {
+            "id": "morning",
+            "text": "Leave in the early morning as the sky begins to get light.",
+            "correct": true,
+            "reason": "dawn是黎明，天色渐亮的早晨时段。"
+          }
+        ]
+      },
+      {
+        "id": "dusk",
+        "label": "dusk：黄昏飞过池塘",
+        "prompt": "Place the bats’ first flight at dusk.",
+        "answer": "dusk",
+        "meaning": "黄昏",
+        "material": "Bats began to fly over the pond at dusk.",
+        "before": "Bats began to fly over the pond at ",
+        "after": ".",
+        "reason": "dusk是黄昏，天色渐暗的傍晚时段；dawn是早晨天色渐亮。began是begin的过去式，began to fly表示开始飞。这里不是说蝙蝠永远只在黄昏飞。",
+        "hint": "核对傍晚渐暗，不凭一种颜色猜早晚。",
+        "wordDecision": {
+          "prompt": "Place the bats’ first flight at dusk.",
+          "daylight": {
+            "answer": "dusk",
+            "title": "把飞行记录放在黄昏",
+            "event": "蝙蝠开始飞",
+            "hint": "这条记录在傍晚太阳落下后，天色逐渐暗下来。",
+            "wrong": "选黄昏；早晨黎明或太阳仍在上方的白天都不符合这条记录。"
+          }
+        },
+        "options": [
+          {
+            "id": "evening",
+            "text": "Evening: the sun has gone down and the sky is growing dim.",
+            "correct": true,
+            "reason": "这条傍晚记录对应dusk，不是早晨的dawn。"
+          },
+          {
+            "id": "morning",
+            "text": "Morning: the sky is getting brighter before sunrise.",
+            "correct": false,
+            "reason": "这是黎明的早晨情境，不是dusk。"
+          },
+          {
+            "id": "day",
+            "text": "Daytime: the sun is above the horizon.",
+            "correct": false,
+            "reason": "白天不符合这条黄昏记录。"
+          }
+        ]
+      },
+      {
+        "id": "spring",
+        "label": "spring：花园恢复生机",
+        "prompt": "Choose spring as a season and read “comes alive” in context.",
+        "answer": "spring",
+        "meaning": "春天；泉水",
+        "material": "The garden comes alive in spring.",
+        "before": "The garden comes alive in ",
+        "after": ".",
+        "reason": "in spring表示在春天；spring也可指泉，但要按语境选义。comes alive形容花园恢复生机，不是花园像动物一样醒来，也不保证每种植物都在春天开花。",
+        "hint": "抓住in spring和花园的活动变化。",
+        "wordDecision": {
+          "prompt": "Choose spring as a season and read “comes alive” in context.",
+          "recordSelection": {
+            "title": "选这句话的季节含义",
+            "prompt": "这次记录说的是花园的季节变化。",
+            "rows": [
+              {
+                "id": "season",
+                "label": "Spring season",
+                "text": "Garden activity returns in spring.",
+                "include": true
+              },
+              {
+                "id": "water",
+                "label": "Water spring",
+                "text": "Water flows out of the ground.",
+                "include": false
+              },
+              {
+                "id": "literal",
+                "label": "Literal awakening",
+                "text": "The garden wakes like an animal.",
+                "include": false
+              }
+            ],
+            "hint": "同一个词可有不同义；按本句场景选。",
+            "wrong": "只选Spring season；这里不是泉水，也不是花园真的像动物醒来。"
+          }
+        },
+        "options": [
+          {
+            "id": "water",
+            "text": "The garden is the water flowing from a natural spring.",
+            "correct": false,
+            "reason": "spring可以指泉，但in spring和花园恢复生机在这里说的是季节。"
+          },
+          {
+            "id": "season",
+            "text": "New garden activity returns in the spring season.",
+            "correct": true,
+            "reason": "这里spring指春天；comes alive形容花园恢复生机。"
+          },
+          {
+            "id": "literal",
+            "text": "A dead garden literally wakes like an animal.",
+            "correct": false,
+            "reason": "comes alive在这里是形象说法，不是动物醒来或死而复生。"
+          }
+        ]
+      },
+      {
+        "id": "summer",
+        "label": "summer：按这份园艺计划遮阴",
+        "prompt": "Keep this gardener’s summer plan for these plants.",
+        "answer": "summer",
+        "meaning": "夏天",
+        "material": "We move the plants into shade during summer.",
+        "before": "We move the plants into shade during ",
+        "after": ".",
+        "reason": "during summer表示在夏天，in summer在这里也能说。move ... into shade是把植物移到阴凉处，不是移到更强日晒下。这是这份园艺计划，不是所有植物都适用的规则。",
+        "hint": "把季节和移向阴凉处一起保留。",
+        "wordDecision": {
+          "prompt": "Keep this gardener’s summer plan for these plants.",
+          "recordSelection": {
+            "title": "把夏季计划落实到动作",
+            "prompt": "按记录安排这些植物。",
+            "rows": [
+              {
+                "id": "shade",
+                "label": "Summer → shade",
+                "text": "Move these plants into shade.",
+                "include": true
+              },
+              {
+                "id": "sun",
+                "label": "Summer → stronger sun",
+                "text": "Move these plants into stronger sunshine.",
+                "include": false
+              },
+              {
+                "id": "winter",
+                "label": "Winter → shade",
+                "text": "Change summer to winter.",
+                "include": false
+              }
+            ],
+            "hint": "这是这些植物的具体计划；不推成所有植物的规则。",
+            "wrong": "只选Summer → shade；另外两条改了动作或季节。"
+          }
+        },
+        "options": [
+          {
+            "id": "sun",
+            "text": "During summer, move these plants into stronger sunshine.",
+            "correct": false,
+            "reason": "把shade换成更强日晒，动作方向反了。"
+          },
+          {
+            "id": "winter",
+            "text": "During winter, move these plants into shade.",
+            "correct": false,
+            "reason": "把summer换成了winter，季节不符。"
+          },
+          {
+            "id": "shade",
+            "text": "During summer, move these plants into shade.",
+            "correct": true,
+            "reason": "保留季节summer和动作move into shade。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-weather-sky-3-transfer",
+      "topicId": "v-course-weather-sky",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes keep all three journal details accurate?",
+      "passage": "LOOKOUT AND GARDEN JOURNAL\nWe reached the lookout while the eastern sky was getting lighter; the sun had not yet risen. A little later, sunrise lit the ridge.\nAfter rain, a rainbow appeared above the wet field. We sat in sunshine to dry our damp towels.\nIn summer, we move these potted plants into shade at midday.\nThat evening, the sun set. As the sky grew dim, bats began to fly above the pond.",
+      "options": [
+        {
+          "id": "a",
+          "text": "We arrived before sunrise; we moved these plants into shade in summer; the bats began flying at dusk."
+        },
+        {
+          "id": "b",
+          "text": "We arrived after sunrise; we moved these plants into shade in summer; the bats began flying at dusk."
+        },
+        {
+          "id": "c",
+          "text": "We arrived before sunrise; we moved these plants into shade in summer; the bats began flying at dawn."
+        },
+        {
+          "id": "d",
+          "text": "We arrived before sunrise; we moved these plants into stronger sunshine in summer; the bats began flying at dusk."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "We arrived before sunrise; we moved these plants into shade in summer; the bats began flying at dusk."
+      },
+      "marks": 2,
+      "estimatedSeconds": 105,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "按记录排早晚，再核对季节和动作；不要只看天色的颜色。",
+        "steps": [
+          {
+            "text": "到观景点时太阳还没升起，后来才日出，所以到达在日出前。",
+            "reason": "had not yet risen与A little later明确给先后。"
+          },
+          {
+            "text": "植物夏季移到阴凉处；傍晚太阳落下后天色渐暗，蝙蝠开始飞，属于dusk。",
+            "reason": "保留into shade；That evening排除早晨的dawn。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "after sunrise颠倒了记录的先后：到达时太阳尚未升起。"
+          },
+          {
+            "option": "c",
+            "reason": "dawn是早晨，记录中的蝙蝠在傍晚天色渐暗时开始飞。"
+          },
+          {
+            "option": "d",
+            "reason": "原计划是移到shade，不是更强的sunshine。"
+          }
+        ],
+        "pitfall": "只凭天色猜早晚，或漏掉before、into shade等决定意思的条件。",
+        "visual": {
+          "kind": "timeline",
+          "title": "从早到晚核对三条记录",
+          "segments": [
+            {
+              "text": "arrive → sunrise",
+              "role": "object",
+              "note": "到达时太阳还未升起"
+            },
+            {
+              "text": "summer → plants into shade",
+              "role": "object",
+              "note": "保留这份具体园艺计划"
+            },
+            {
+              "text": "sunset → dim evening → bats",
+              "role": "object",
+              "note": "黄昏dusk，不是黎明dawn"
+            }
+          ],
+          "caption": "阶段与动作都来自这份日记，不虚构钟点。"
+        },
+        "transfer": "如果到达时太阳已经升起，还能写before sunrise吗？如果把蝙蝠记录改成天色渐亮的早晨，dusk还成立吗？"
+      }
+    }
+  }
+}

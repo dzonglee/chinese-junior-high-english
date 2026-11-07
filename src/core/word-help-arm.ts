@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured anatomy or temperature claims. */
+export interface WordHelpArm{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordHelpArm(v:unknown):v is WordHelpArm{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordHelpArm;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordHelpArmKey=(id:string)=>'workshopHelpArm-'+id
+function decode(raw:string){if(raw==='')return{"condition": "?", "count": "?"};const m="^(\\?|help|always)\\|(\\?|one|two)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{condition:v[1],count:v[2]}:null}
+export function changeHelpArm(_w:WordHelpArm,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["condition-help", "condition-always"].includes(action))return action.slice(10)+"|"+s.count;if(["count-one", "count-two"].includes(action))return s.condition+"|"+action.slice(6);return undefined}
+export function helpArmMatch(_w:WordHelpArm,raw:string){const s=decode(raw);return!!s&&s.condition==="help"&&s.count==="one"}
+export function wordHelpArmView(w:WordHelpArm,raw:string){const s=decode(raw)??{"condition": "?", "count": "?"};return{title:w.title,hint:w.hint,condition:s.condition,count:s.count,groups:[{label:"动作要求的条件",choices:[{"id": "condition-help", "label": "需要帮助时"}, {"id": "condition-always", "label": "不管需不需要都必须"}].map(c=>({...c,selected:c.id==="condition-"+s.condition}))},{label:"要求举几只手臂",choices:[{"id": "count-one", "label": "一只"}, {"id": "count-two", "label": "两只"}].map(c=>({...c,selected:c.id==="count-"+s.count}))}],reading:helpArmMatch(w,raw)?"需要帮助时要求举一只；没有报告现在需要帮助或已经举起。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordHelpArmView=ReturnType<typeof wordHelpArmView>

@@ -1,0 +1,615 @@
+{
+  "lessonId": "l-v-course-weather-sky-4",
+  "reviewState": "draft",
+  "intent": "Eight individual decisions separate season, frequency, persistence, too-to meaning, relative coolness, pair count, wet object and air humidity; no independent credit.",
+  "picturePurpose": "An original umbrella image makes object and adjective matching concrete. Independent coded temperature and humidity controls expose why humid need not mean hot.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "别把有时读成总是，也别把湿读成热",
+    "instruction": "调温湿度、点出湿伞，再核对数量、频率和句意。",
+    "items": [
+      {
+        "id": "autumn",
+        "label": "autumn：落叶的季节",
+        "prompt": "Keep autumn as a season, not an action.",
+        "answer": "autumn",
+        "meaning": "秋天",
+        "material": "The lane fills with leaves in autumn.",
+        "before": "The lane fills with leaves in ",
+        "after": ".",
+        "reason": "autumn是秋天；美式英语也常用fall表示这个季节，autumn在美式英语中同样能用。fall还可作动词“落下”，但in autumn中的autumn是季节名。",
+        "hint": "in后面的季节名不加冠词。",
+        "wordDecision": {
+          "prompt": "Keep autumn as a season, not an action.",
+          "recordSelection": {
+            "title": "保留秋季这条记录",
+            "prompt": "只保留原句支持的意思。",
+            "rows": [
+              {
+                "id": "season",
+                "label": "Autumn season",
+                "text": "Leaves fill the lane in autumn.",
+                "include": true
+              },
+              {
+                "id": "verb",
+                "label": "Falling action",
+                "text": "Autumn means to drop down.",
+                "include": false
+              },
+              {
+                "id": "spring",
+                "label": "Spring season",
+                "text": "Change autumn to spring.",
+                "include": false
+              }
+            ],
+            "hint": "autumn是季节；不要把它当成掉落的动作。",
+            "wrong": "只选Autumn season；另外两条改了词义或季节。"
+          },
+          "meaningFromRecords": true
+        },
+        "options": [
+          {
+            "id": "verb",
+            "text": "The word autumn means to drop down.",
+            "correct": false,
+            "reason": "autumn是季节名，不是表示掉落的动词。"
+          },
+          {
+            "id": "spring",
+            "text": "Leaves fill this lane in spring.",
+            "correct": false,
+            "reason": "把记录的autumn改成spring，季节不符。"
+          },
+          {
+            "id": "season",
+            "text": "Leaves fill the lane in autumn.",
+            "correct": true,
+            "reason": "in autumn是季节；fills with leaves说小巷里落满树叶。"
+          }
+        ]
+      },
+      {
+        "id": "winter",
+        "label": "winter：有时结冰，不是总会",
+        "prompt": "Keep sometimes in the winter record.",
+        "answer": "winter",
+        "meaning": "冬天",
+        "material": "The pond sometimes freezes in winter.",
+        "before": "The pond sometimes freezes in ",
+        "after": ".",
+        "reason": "in winter表示在冬天。sometimes是有时，不能改成always或never。freezes说结冰这一变化，不证明任何一天的冰面可以踩。",
+        "hint": "圈住sometimes，不补成总是或从不。",
+        "wordDecision": {
+          "prompt": "Keep sometimes in the winter record.",
+          "recordSelection": {
+            "title": "保留结冰的频率",
+            "prompt": "只保留原句支持的意思。",
+            "rows": [
+              {
+                "id": "some",
+                "label": "Sometimes",
+                "text": "The pond freezes on some winter days.",
+                "include": true
+              },
+              {
+                "id": "always",
+                "label": "Every day",
+                "text": "The pond is frozen every winter day.",
+                "include": false
+              },
+              {
+                "id": "never",
+                "label": "Never",
+                "text": "The pond never freezes in winter.",
+                "include": false
+              }
+            ],
+            "hint": "sometimes不提供具体次数，也不等于每天。",
+            "wrong": "只选Sometimes；Every day和Never都改变了频率。"
+          },
+          "meaningFromRecords": true
+        },
+        "options": [
+          {
+            "id": "always",
+            "text": "The pond is frozen every day in winter.",
+            "correct": false,
+            "reason": "every day把sometimes夸大成了每天。"
+          },
+          {
+            "id": "some",
+            "text": "The pond freezes on some winter days.",
+            "correct": true,
+            "reason": "sometimes只说冬天有时结冰，不是每天都结冰。"
+          },
+          {
+            "id": "never",
+            "text": "The pond never freezes in winter.",
+            "correct": false,
+            "reason": "never把有时发生改成了从不发生。"
+          }
+        ]
+      },
+      {
+        "id": "warm",
+        "label": "warm：日落后仍然温暖",
+        "prompt": "Keep the stones warm after sunset.",
+        "answer": "warm",
+        "meaning": "温暖的；使暖和",
+        "material": "The stones stayed warm after sunset.",
+        "before": "The stones stayed ",
+        "after": " after sunset.",
+        "reason": "stayed warm中的stayed是stay的过去式，warm说明保持的状态；after sunset是日落后。原句没有具体温度，也没有说石头一直热到第二天。",
+        "hint": "先后看after，状态看stayed warm。",
+        "wordDecision": {
+          "prompt": "Keep the stones warm after sunset.",
+          "recordSelection": {
+            "title": "把时间和温度状态配对",
+            "prompt": "只保留原句支持的意思。",
+            "rows": [
+              {
+                "id": "still",
+                "label": "After sunset → warm",
+                "text": "The stones were still warm.",
+                "include": true
+              },
+              {
+                "id": "cold",
+                "label": "After sunset → cold",
+                "text": "The stones became cold immediately.",
+                "include": false
+              },
+              {
+                "id": "before",
+                "label": "Only before sunset",
+                "text": "The stones were warm only before sunset.",
+                "include": false
+              }
+            ],
+            "hint": "日落后仍暖；不虚构温度或持续多久。",
+            "wrong": "只选After sunset → warm；另外两条改变了状态或时间。"
+          },
+          "meaningFromRecords": true
+        },
+        "options": [
+          {
+            "id": "still",
+            "text": "The stones were still warm after the sun went down.",
+            "correct": true,
+            "reason": "stayed warm表示仍保持温暖；after sunset给出日落后的时间。"
+          },
+          {
+            "id": "cold",
+            "text": "The stones became cold as soon as the sun went down.",
+            "correct": false,
+            "reason": "原句说仍暖，没有说日落立刻变冷。"
+          },
+          {
+            "id": "before",
+            "text": "The stones were warm only before sunset.",
+            "correct": false,
+            "reason": "only before排除了原句明确说的after sunset。"
+          }
+        ]
+      },
+      {
+        "id": "hot",
+        "label": "hot：too ... to说做不了",
+        "prompt": "Choose what too hot to hold means.",
+        "answer": "hot",
+        "meaning": "热的；辣的",
+        "material": "The metal handle is too hot to hold.",
+        "before": "The metal handle is too ",
+        "after": " to hold.",
+        "reason": "too hot to hold表示太烫而握不住；too ... to ...常表达“太……而不能……”。hot的比较级是hotter，双写t。这里只判断句意，不需要真的去摸把手。",
+        "hint": "把too ... to ...改写成so ... that ... cannot。",
+        "wordDecision": {
+          "prompt": "Choose what too hot to hold means.",
+          "recordSelection": {
+            "title": "把too ... to改成完整意思",
+            "prompt": "只保留原句支持的意思。",
+            "rows": [
+              {
+                "id": "cannot",
+                "label": "So hot → cannot hold",
+                "text": "We cannot hold the handle because it is so hot.",
+                "include": true
+              },
+              {
+                "id": "can",
+                "label": "Hot enough → can hold",
+                "text": "We can hold the handle comfortably.",
+                "include": false
+              },
+              {
+                "id": "cold",
+                "label": "Too cold",
+                "text": "We cannot hold it because it is too cold.",
+                "include": false
+              }
+            ],
+            "hint": "too hot to hold含有做不了的意思。",
+            "wrong": "只选So hot → cannot hold；不是能握，也不是太冷。"
+          },
+          "meaningFromRecords": true
+        },
+        "options": [
+          {
+            "id": "can",
+            "text": "The handle is hot enough for us to hold comfortably.",
+            "correct": false,
+            "reason": "hot enough to hold把“太烫而握不住”变成了能舒服地握。"
+          },
+          {
+            "id": "cold",
+            "text": "The handle is too cold to hold.",
+            "correct": false,
+            "reason": "把hot改成cold，温度方向反了。"
+          },
+          {
+            "id": "cannot",
+            "text": "The handle is so hot that we cannot hold it.",
+            "correct": true,
+            "reason": "too hot to hold表示烫得握不住，不能漏掉否定意味。"
+          }
+        ]
+      },
+      {
+        "id": "cool",
+        "label": "cool：凉爽不等于结冰",
+        "prompt": "Set cool air; changing humidity must not change its temperature.",
+        "answer": "cool",
+        "meaning": "凉爽的；使凉快",
+        "material": "The cave felt cool after the hot climb.",
+        "before": "The cave felt ",
+        "after": " after the hot climb.",
+        "reason": "felt是feel的过去式，后接形容词cool说明感觉凉爽。cool不是freezing，不能推出零下温度；此处和炎热的攀登作对照。湿度是另一项，不决定这里的cool。",
+        "hint": "先选凉爽，再试着改变湿度；两项可以分开。",
+        "wordDecision": {
+          "prompt": "Set cool air; changing humidity must not change its temperature.",
+          "climate": {
+            "criterion": "temperature",
+            "answer": "cool",
+            "title": "把空气调成凉爽",
+            "hint": "调湿度时，温度保持你选的状态；这里没有具体温度数值。",
+            "wrong": "温度选凉爽；冷到结冰不是cool的必然意思，湿度也不能代替温度。"
+          }
+        },
+        "options": [
+          {
+            "id": "frozen",
+            "text": "The cave must have been below freezing.",
+            "correct": false,
+            "reason": "cool不等于结冰，原句没有给出零下温度。"
+          },
+          {
+            "id": "cool",
+            "text": "The cave felt pleasantly cooler after the hot climb.",
+            "correct": true,
+            "reason": "cool在这里是凉爽；和刚经历的hot climb形成对照。"
+          },
+          {
+            "id": "hot",
+            "text": "The cave felt as hot as the climb.",
+            "correct": false,
+            "reason": "这丢掉了cool与hot的对照。"
+          }
+        ]
+      },
+      {
+        "id": "dry",
+        "label": "dry：一双干袜子",
+        "prompt": "Choose one dry pair: two socks, both dry.",
+        "answer": "dry",
+        "meaning": "干的；使干燥",
+        "material": "Keep one dry pair of socks in your bag.",
+        "before": "Keep one ",
+        "after": " pair of socks in your bag.",
+        "reason": "one dry pair of socks是一双干袜子，也就是两只干袜子；pair是中心词，one数的是双，不是只。dry的比较级是drier；这里dry是形容词，不是动词“使干燥”。",
+        "hint": "数量和状态都保留：一双，两只，都干。",
+        "wordDecision": {
+          "prompt": "Choose one dry pair: two socks, both dry.",
+          "recordSelection": {
+            "title": "检查装进包里的袜子",
+            "prompt": "只保留原句支持的意思。",
+            "rows": [
+              {
+                "id": "pair",
+                "label": "One dry pair",
+                "text": "Two dry socks together.",
+                "include": true
+              },
+              {
+                "id": "single",
+                "label": "One dry sock",
+                "text": "Only one dry sock.",
+                "include": false
+              },
+              {
+                "id": "wet",
+                "label": "One wet pair",
+                "text": "Two wet socks together.",
+                "include": false
+              }
+            ],
+            "hint": "one pair数一双，不数一只。",
+            "wrong": "只选One dry pair；一只不成双，湿袜子也不符合dry。"
+          },
+          "meaningFromRecords": true
+        },
+        "options": [
+          {
+            "id": "pair",
+            "text": "Keep two dry socks together as one pair.",
+            "correct": true,
+            "reason": "one pair是一双，也就是两只；dry说明这一双是干的。"
+          },
+          {
+            "id": "single",
+            "text": "Keep only one dry sock.",
+            "correct": false,
+            "reason": "one pair不是一只袜子。"
+          },
+          {
+            "id": "wet",
+            "text": "Keep a pair of wet socks.",
+            "correct": false,
+            "reason": "数量成双没错，但wet和dry相反。"
+          }
+        ]
+      },
+      {
+        "id": "wet",
+        "label": "wet：点出门边那把湿伞",
+        "prompt": "Tap the wet umbrella by the door.",
+        "answer": "wet",
+        "meaning": "湿的",
+        "material": "Leave the wet umbrella by the door.",
+        "before": "Leave the ",
+        "after": " umbrella by the door.",
+        "reason": "wet umbrella是湿伞；leave在这里是“留下、放在”，不是“离开湿伞”。by the door是门边。wet的比较级是wetter，双写t。",
+        "hint": "既要湿，也要是伞；door只说明位置。",
+        "wordDecision": {
+          "prompt": "Tap the wet umbrella by the door.",
+          "art": {
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-wet-umbrella",
+            "alt": "灰色门右边有一把折起的蓝伞，伞面有水滴，伞尖下有一小滩水；左下角是分开的绿色靴子。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "umbrella",
+                "label": "A 伞",
+                "left": 71,
+                "top": 4,
+                "width": 23,
+                "height": 83
+              },
+              {
+                "id": "b",
+                "option": "boots",
+                "label": "B 靴子",
+                "left": 5,
+                "top": 52,
+                "width": 27,
+                "height": 43
+              },
+              {
+                "id": "c",
+                "option": "door",
+                "label": "C 门",
+                "left": 34,
+                "top": 2,
+                "width": 32,
+                "height": 79
+              }
+            ],
+            "evidence": [
+              {
+                "option": "umbrella",
+                "caption": "A是门边有水滴的蓝伞；它才是wet umbrella。",
+                "regions": [
+                  {
+                    "id": "umbrella",
+                    "label": "wet umbrella",
+                    "left": 75,
+                    "top": 24,
+                    "width": 13,
+                    "height": 48
+                  }
+                ]
+              },
+              {
+                "option": "boots",
+                "caption": "B是靴子；即使也是湿的，名词也不符合umbrella。",
+                "regions": [
+                  {
+                    "id": "boots",
+                    "label": "boots",
+                    "left": 8,
+                    "top": 55,
+                    "width": 22,
+                    "height": 33
+                  }
+                ]
+              },
+              {
+                "option": "door",
+                "caption": "C是门；by the door给位置，不把door变成要留下的物品。",
+                "regions": [
+                  {
+                    "id": "door",
+                    "label": "door",
+                    "left": 37,
+                    "top": 7,
+                    "width": 24,
+                    "height": 67
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "boots",
+            "text": "B: the wet boots beside the door.",
+            "correct": false,
+            "reason": "靴子也可湿，但boots不是umbrella。"
+          },
+          {
+            "id": "door",
+            "text": "C: the closed door.",
+            "correct": false,
+            "reason": "door是位置参照物，不是要留下的umbrella。"
+          },
+          {
+            "id": "umbrella",
+            "text": "A: the wet umbrella beside the door.",
+            "correct": true,
+            "reason": "A是门边滴水的伞，对应wet umbrella。"
+          }
+        ]
+      },
+      {
+        "id": "humid",
+        "label": "humid：空气湿，不一定热",
+        "prompt": "Make the air humid, then try all three temperatures.",
+        "answer": "humid",
+        "meaning": "（空气）潮湿的",
+        "material": "The air felt humid before the storm.",
+        "before": "The air felt ",
+        "after": " before the storm.",
+        "reason": "humid形容空气相对湿度高；常见于闷热情境，但词本身不等于hot。湿伞是wet umbrella，不能仅凭物品有水就断定空气humid。before the storm是暴风雨前。",
+        "hint": "保留空气湿度高，再切换温度看看。",
+        "wordDecision": {
+          "prompt": "Make the air humid, then try all three temperatures.",
+          "climate": {
+            "criterion": "humidity",
+            "answer": "high",
+            "title": "把空气调成湿润",
+            "hint": "humid看空气相对湿度；凉爽、温暖或热，都可能有较高湿度。",
+            "wrong": "空气相对湿度选较高；只调成热，或只让物品湿，都不能代替humid。"
+          }
+        },
+        "options": [
+          {
+            "id": "heat",
+            "text": "The air must have been hot, even if its humidity was low.",
+            "correct": false,
+            "reason": "hot只说温度高，不能代替humid。"
+          },
+          {
+            "id": "moist",
+            "text": "The air had high relative humidity before the storm.",
+            "correct": true,
+            "reason": "humid说空气相对湿度高；它本身不要求高温。"
+          },
+          {
+            "id": "object",
+            "text": "Only an umbrella was wet; this proves the air was humid.",
+            "correct": false,
+            "reason": "物品湿不等于空气湿度高，不能这样推出。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-weather-sky-4-transfer",
+      "topicId": "v-course-weather-sky",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which set of notes keeps all three details accurate?",
+      "passage": "HILL-WALK NOTES\nIn autumn, leaves cover the lane to our meeting point. In winter, the small pond sometimes freezes. We do not say that it freezes every day.\nFor the walk, I keep one dry pair of socks in my bag. After the hot climb, the cave feels cool. The metal gate handle is too hot to hold, so we leave it alone.\nBack at the hut, I leave the wet umbrella by the door. The air feels humid, although it is cool. After sunset, the path stones are still warm.",
+      "options": [
+        {
+          "id": "a",
+          "text": "There are two dry socks in the bag; the pond does not freeze every winter day; humid air can be cool."
+        },
+        {
+          "id": "b",
+          "text": "There is one dry sock in the bag; the pond does not freeze every winter day; humid air can be cool."
+        },
+        {
+          "id": "c",
+          "text": "There are two dry socks in the bag; the pond freezes every winter day; humid air can be cool."
+        },
+        {
+          "id": "d",
+          "text": "There are two dry socks in the bag; the pond does not freeze every winter day; humid air must be hot."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "There are two dry socks in the bag; the pond does not freeze every winter day; humid air can be cool."
+      },
+      "marks": 2,
+      "estimatedSeconds": 105,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把数量、频率和温湿度分开核对，别用常识替换记录。",
+        "steps": [
+          {
+            "text": "one pair是两只袜子；sometimes不能改成every day。",
+            "reason": "包里是一双干袜子；日记明确否定每天都结冰。"
+          },
+          {
+            "text": "这次空气既humid又cool；湿度高并不必然温度高。",
+            "reason": "although it is cool保留凉爽这一条件。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "one pair是两只袜子，不是一只。"
+          },
+          {
+            "option": "c",
+            "reason": "every day与sometimes及后面的否定句不符。"
+          },
+          {
+            "option": "d",
+            "reason": "must be hot把高湿度误当成必然高温；日记说空气凉爽。"
+          }
+        ],
+        "pitfall": "把one pair数成一只、把有时夸成每天，或把humid直接当成hot。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三项分开核对",
+          "segments": [
+            {
+              "text": "one dry pair → two dry socks",
+              "role": "object",
+              "note": "pair数双，不数只"
+            },
+            {
+              "text": "sometimes ≠ every day",
+              "role": "object",
+              "note": "不把频率放大"
+            },
+            {
+              "text": "humid + cool",
+              "role": "object",
+              "note": "湿度和温度可分开描述"
+            }
+          ],
+          "caption": "每个结论都保留原记录的限制。"
+        },
+        "transfer": "如果包里只有一只干袜子，还能写one dry pair吗？如果只知道空气热，能断定它humid吗？"
+      }
+    }
+  }
+}

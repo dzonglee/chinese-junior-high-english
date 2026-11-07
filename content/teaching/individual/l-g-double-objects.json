@@ -1,0 +1,997 @@
+{
+  "lessonId": "l-g-double-objects",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Track giver/recipient and first-person referents,repair object pronouns,construct both double-object and prepositional forms,contrast to recipients with for beneficiaries,and avoid extending double-object syntax to explain.",
+  "picturePurpose": "An original reversed giving diptych supports actual direction selection for two first-person accounts. Exact names,arrows and event facts stay coded;word selectors identify noninitial recipients/beneficiaries.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "看清给谁什么，再换词序和介词",
+    "instruction": "先看谁给谁，再圈出“给谁”或“为谁”的部分。换词序时别漏to/for，代词要用宾格。",
+    "conditions": [
+      {
+        "label": "Mia说我给了他，用him",
+        "before": "I gave ",
+        "target": "him",
+        "after": " a notebook.",
+        "choices": [
+          "he",
+          "him"
+        ],
+        "reason": "说话人是Mia，接收者是男生Leo。give后人放在物前，用宾格him，不用主格he。",
+        "world": {
+          "kind": "logic",
+          "caption": "Mia（左边红衣女生）说：我把本子给了Leo（右边蓝衣男生）。先选相符的图片，再修好她的话。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的是谁给谁"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "asset": "lesson-giving-directions",
+            "assetRoot": "illustrations",
+            "alt": "两图Mia都在左边穿红衣，Leo都在右边穿蓝衣。左图Mia递出绿本子，右图Leo递出绿本子。",
+            "artChoices": [
+              "mia-gives",
+              "leo-gives"
+            ],
+            "title": "按记录选谁把本子给谁",
+            "emptyLabel": "先选谁给谁",
+            "missingPrompt": "先按记录选出谁把本子给谁，再修好代词。",
+            "answer": "mia-gives",
+            "options": [
+              {
+                "id": "mia-gives",
+                "label": "Mia → Leo",
+                "text": "Mia给Leo",
+                "reason": "与这条记录相符。",
+                "value": 25
+              },
+              {
+                "id": "leo-gives",
+                "label": "Leo → Mia",
+                "text": "Leo给Mia",
+                "reason": "这张图与记录中的“谁给谁”相反。说话人是Mia，接收者是男生Leo。give后人放在物前，用宾格him，不用主格he。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "he",
+        "inputHint": "先认清给谁什么，再核对宾格、词序和to/for。"
+      },
+      {
+        "label": "方向反过来，Mia说给了我",
+        "before": "Leo gave ",
+        "target": "me",
+        "after": " a notebook.",
+        "choices": [
+          "my",
+          "me"
+        ],
+        "reason": "还是Mia说话，这次Leo把本子给了Mia，所以用宾格me。my表示所属，不能在这里代替接收者。",
+        "world": {
+          "kind": "logic",
+          "caption": "这次是Leo把本子给了Mia。仍由Mia讲述：Leo给了我一本笔记本。先选相符的图片，再修好代词。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的是谁给谁"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你的表达",
+              "role": "attempt-result"
+            }
+          ],
+          "records": {
+            "asset": "lesson-giving-directions",
+            "assetRoot": "illustrations",
+            "alt": "两图Mia都在左边穿红衣，Leo都在右边穿蓝衣。左图Mia递出绿本子，右图Leo递出绿本子。",
+            "artChoices": [
+              "mia-gives",
+              "leo-gives"
+            ],
+            "title": "按记录选谁把本子给谁",
+            "emptyLabel": "先选谁给谁",
+            "missingPrompt": "先按记录选出谁把本子给谁，再修好代词。",
+            "answer": "leo-gives",
+            "options": [
+              {
+                "id": "mia-gives",
+                "label": "Mia → Leo",
+                "text": "Mia给Leo",
+                "reason": "这张图与记录中的“谁给谁”相反。还是Mia说话，这次Leo把本子给了Mia，所以用宾格me。my表示所属，不能在这里代替接收者。",
+                "value": 25
+              },
+              {
+                "id": "leo-gives",
+                "label": "Leo → Mia",
+                "text": "Leo给Mia",
+                "reason": "与这条记录相符。",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "input": true,
+        "initial": "my",
+        "inputHint": "先认清给谁什么，再核对宾格、词序和to/for。"
+      },
+      {
+        "label": "物在前，用to接实际接收者",
+        "before": "Leo gave a ruler ",
+        "target": "to",
+        "after": " Amy.",
+        "choices": [
+          "for",
+          "to"
+        ],
+        "reason": "give采用物在前的结构，实际接收者Amy前用to。这里明确表示把尺子给Amy，不是在替她办另一件事。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "gave",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "a",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "ruler",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "to",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "Amy",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出表示接收者的整个介词短语（可多选）",
+            "ids": [
+              "4",
+              "5"
+            ],
+            "reason": "give采用物在前的结构，实际接收者Amy前用to。这里明确表示把尺子给Amy，不是在替她办另一件事。"
+          }
+        },
+        "input": true,
+        "initial": "for",
+        "inputHint": "先认清给谁什么，再核对宾格、词序和to/for。"
+      },
+      {
+        "label": "人放在物前，不夹一个to",
+        "before": "",
+        "target": "Mia gave Leo a notebook",
+        "after": ".",
+        "choices": [
+          "Mia gave to Leo a notebook",
+          "Mia gave Leo a notebook"
+        ],
+        "reason": "give采用先人后物结构，gave后直接接Leo，再接a notebook；这个结构不在Leo前加to。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Mia",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "gave",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "a",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "notebook",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出先人后物结构中的接收者（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "give采用先人后物结构，gave后直接接Leo，再接a notebook；这个结构不在Leo前加to。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "notebook",
+          "gave",
+          "a",
+          "Mia",
+          "to",
+          "Leo"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "把物移到前面，to不能漏",
+        "before": "",
+        "target": "Mia gave a notebook to Leo",
+        "after": ".",
+        "choices": [
+          "Mia gave a notebook Leo",
+          "Mia gave a notebook to Leo"
+        ],
+        "reason": "改用物在前的结构时，a notebook后要用to连接Leo；不能只移动名词而漏掉介词。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Mia",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "gave",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "a",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "notebook",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "to",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "Leo",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出接收者前带to的整个短语（可多选）",
+            "ids": [
+              "4",
+              "5"
+            ],
+            "reason": "改用物在前的结构时，a notebook后要用to连接Leo；不能只移动名词而漏掉介词。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "a",
+          "gave",
+          "to",
+          "notebook",
+          "Leo",
+          "Mia"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "buy也可先人后物，但不插to",
+        "before": "",
+        "target": "Dad bought me a ticket",
+        "after": ".",
+        "choices": [
+          "Dad bought to me a ticket",
+          "Dad bought me a ticket"
+        ],
+        "reason": "buy采用先人后物结构，可说bought me a ticket，me用宾格；不要在这个位置插入to。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Dad",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "bought",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "me",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "a",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "ticket",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出这张票是为谁买的（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "buy采用先人后物结构，可说bought me a ticket，me用宾格；不要在这个位置插入to。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "ticket",
+          "bought",
+          "me",
+          "a",
+          "to",
+          "Dad"
+        ],
+        "caseSensitive": true
+      },
+      {
+        "label": "buy把物放前，受益者前用for",
+        "before": "Dad bought a ticket ",
+        "target": "for",
+        "after": " me.",
+        "choices": [
+          "to",
+          "for"
+        ],
+        "reason": "buy采用物在前的结构，表示为我买票，用for me，不用to me。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Dad",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "bought",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "a",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "ticket",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "for",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "me",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出表示为谁购买的整个短语（可多选）",
+            "ids": [
+              "4",
+              "5"
+            ],
+            "reason": "buy采用物在前的结构，表示为我买票，用for me，不用to me。"
+          }
+        },
+        "input": true,
+        "initial": "to",
+        "inputHint": "先认清给谁什么，再核对宾格、词序和to/for。"
+      },
+      {
+        "label": "make先人后物，用宾格us",
+        "before": "Leo made ",
+        "target": "us",
+        "after": " some soup.",
+        "choices": [
+          "we",
+          "us"
+        ],
+        "reason": "make采用先人后物结构，表示为我们做汤，用宾格us，不用主格we。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "made",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "us",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "some",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "soup",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出这份汤是为谁做的（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "make采用先人后物结构，表示为我们做汤，用宾格us，不用主格we。"
+          }
+        }
+      },
+      {
+        "label": "make把物放前，也用for",
+        "before": "Leo made some soup ",
+        "target": "for",
+        "after": " us.",
+        "choices": [
+          "to",
+          "for"
+        ],
+        "reason": "make表示为某人制作，物some soup在前时用for us；不要因为give用to就照搬to。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "made",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "some",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "soup",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "for",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "us",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出表示为谁做汤的整个短语（可多选）",
+            "ids": [
+              "4",
+              "5"
+            ],
+            "reason": "make表示为某人制作，物some soup在前时用for us；不要因为give用to就照搬to。"
+          }
+        },
+        "input": true,
+        "initial": "to",
+        "inputHint": "先认清给谁什么，再核对宾格、词序和to/for。"
+      },
+      {
+        "label": "show给谁看，用宾格them",
+        "before": "Please show ",
+        "target": "them",
+        "after": " your plan.",
+        "choices": [
+          "they",
+          "them"
+        ],
+        "reason": "show后先人后物时，用宾格them表示看计划的人，不用主格they。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Please",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "show",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "them",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "your",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "plan",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出计划要给谁看（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "show后先人后物时，用宾格them表示看计划的人，不用主格they。"
+          }
+        }
+      },
+      {
+        "label": "send先人后物，女生接收者用her",
+        "before": "Amy sent ",
+        "target": "her",
+        "after": " an email.",
+        "choices": [
+          "she",
+          "her"
+        ],
+        "reason": "例句中的her指女生Mia，是邮件接收者，作send的宾语，用her而不是she。",
+        "world": {
+          "kind": "roles",
+          "caption": "记录：Amy把邮件发给女生Mia。先在例句中圈出接收者，再改好原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Amy",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "sent",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "her",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "an",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "email",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出邮件的接收者（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "例句中的her指女生Mia，是邮件接收者，作send的宾语，用her而不是she。"
+          }
+        },
+        "input": true,
+        "initial": "she",
+        "inputHint": "先认清给谁什么，再核对宾格、词序和to/for。"
+      },
+      {
+        "label": "send把物放前，接收者前用to",
+        "before": "Amy sent an email ",
+        "target": "to",
+        "after": " Mia.",
+        "choices": [
+          "for",
+          "to"
+        ],
+        "reason": "表示邮件实际发给Mia，send采用物在前的结构，用to Mia，不用for Mia。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Amy",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "sent",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "an",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "email",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "to",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "Mia",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出邮件实际发给谁的整个短语（可多选）",
+            "ids": [
+              "4",
+              "5"
+            ],
+            "reason": "表示邮件实际发给Mia，send采用物在前的结构，用to Mia，不用for Mia。"
+          }
+        },
+        "input": true,
+        "initial": "for",
+        "inputHint": "先认清给谁什么，再核对宾格、词序和to/for。"
+      },
+      {
+        "label": "pass先人后物，不把me改成mine",
+        "before": "Leo passed ",
+        "target": "me",
+        "after": " the ruler.",
+        "choices": [
+          "mine",
+          "me"
+        ],
+        "reason": "Mia在回忆：Leo把尺子递给了我。pass后先人后物，用宾格me；mine表示我的东西，不指接收动作的我。",
+        "world": {
+          "kind": "roles",
+          "caption": "Mia在回忆：Leo把尺子递给了我。先分析例句，再修好Mia的话。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "passed",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "me",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "ruler",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出尺子的接收者（可多选）",
+            "ids": [
+              "2"
+            ],
+            "reason": "Mia在回忆：Leo把尺子递给了我。pass后先人后物，用宾格me；mine表示我的东西，不指接收动作的我。"
+          }
+        }
+      },
+      {
+        "label": "为别人买东西，不套give的to",
+        "before": "Leo bought a card ",
+        "target": "for",
+        "after": " Mia.",
+        "choices": [
+          "to",
+          "for"
+        ],
+        "reason": "这句说明Leo为Mia买卡片，用bought a card for Mia。买的受益者用for，不照搬gave a card to Mia。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Leo",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "bought",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "a",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "card",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "for",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "Mia",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出表示为谁买卡片的整个短语（可多选）",
+            "ids": [
+              "4",
+              "5"
+            ],
+            "reason": "这句说明Leo为Mia买卡片，用bought a card for Mia。买的受益者用for，不照搬gave a card to Mia。"
+          }
+        },
+        "input": true,
+        "initial": "to",
+        "inputHint": "先认清给谁什么，再核对宾格、词序和to/for。"
+      },
+      {
+        "label": "不是所有动词都能套先人后物",
+        "before": "",
+        "target": "Please explain the rule to me",
+        "after": ".",
+        "choices": [
+          "Please explain me the rule",
+          "Please explain the rule to me"
+        ],
+        "reason": "规范书面表达用explain the rule to me，先接解释的内容，再用to接人；不要把give me a book机械套成explain me the rule。",
+        "world": {
+          "kind": "roles",
+          "caption": "先分析给定的完整例句，再修好下面的原稿。",
+          "cells": [
+            {
+              "id": "0",
+              "label": "Please",
+              "detail": "句子片段"
+            },
+            {
+              "id": "1",
+              "label": "explain",
+              "detail": "句子片段"
+            },
+            {
+              "id": "2",
+              "label": "the",
+              "detail": "句子片段"
+            },
+            {
+              "id": "3",
+              "label": "rule",
+              "detail": "句子片段"
+            },
+            {
+              "id": "4",
+              "label": "to",
+              "detail": "句子片段"
+            },
+            {
+              "id": "5",
+              "label": "me",
+              "detail": "句子片段"
+            }
+          ],
+          "selection": {
+            "mode": "words",
+            "prompt": "圈出解释要说给谁听的整个短语（可多选）",
+            "ids": [
+              "4",
+              "5"
+            ],
+            "reason": "规范书面表达用explain the rule to me，先接解释的内容，再用to接人；不要把give me a book机械套成explain me the rule。"
+          }
+        },
+        "input": true,
+        "tiles": [
+          "the",
+          "Please",
+          "me",
+          "rule",
+          "explain",
+          "to"
+        ],
+        "caseSensitive": true
+      }
+    ],
+    "choices": [
+      "he",
+      "him",
+      "my",
+      "me",
+      "for",
+      "to",
+      "Mia gave to Leo a notebook",
+      "Mia gave Leo a notebook",
+      "Mia gave a notebook Leo",
+      "Mia gave a notebook to Leo",
+      "Dad bought to me a ticket",
+      "Dad bought me a ticket",
+      "we",
+      "us",
+      "they",
+      "them",
+      "she",
+      "her",
+      "mine",
+      "Please explain me the rule",
+      "Please explain the rule to me"
+    ],
+    "items": [
+      {
+        "id": "giving-editor",
+        "label": "人物、物品与方向",
+        "prompt": "保留谁给谁什么的事实，再修复词形和结构。",
+        "answer": "",
+        "reason": "",
+        "hint": "接收者是人称代词时用宾格；物在前时，give/send常用to，buy/make常用for。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-double-objects-002",
+      "q-g-double-objects-003"
+    ],
+    "transfer": {
+      "id": "individual-g-double-objects-transfer",
+      "topicId": "g-double-objects",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "请把照片发给我们，再为Leo做一个三明治。两空依次填什么？\nPlease send the photo ___ us and make a sandwich ___ Leo.",
+      "options": [
+        {
+          "id": "a",
+          "text": "to; for"
+        },
+        {
+          "id": "b",
+          "text": "for; to"
+        },
+        {
+          "id": "c",
+          "text": "to; to"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "to; for"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "两处物品都放在前面，分别根据动词和人的角色选择to或for。",
+        "steps": [
+          {
+            "text": "send the photo后接实际接收者us，用to us。",
+            "reason": "这里明确是把照片发给我们，属于send something to someone。"
+          },
+          {
+            "text": "make a sandwich说明为Leo制作，用for Leo。",
+            "reason": "make something for someone表示为某人做某物，不照搬send的to。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把send的接收者to与make的受益者for用反了。"
+          },
+          {
+            "option": "c",
+            "reason": "第二空应为for Leo，表示为他做三明治。"
+          }
+        ],
+        "pitfall": "物在前并不意味着后面一律用to；要看动词搭配和人的角色。",
+        "visual": {
+          "kind": "comparison",
+          "title": "接收者与受益者分别连接",
+          "segments": [
+            {
+              "text": "send the photo → to us",
+              "role": "evidence",
+              "note": "实际发给谁"
+            },
+            {
+              "text": "make a sandwich → for Leo",
+              "role": "evidence",
+              "note": "为谁制作"
+            }
+          ],
+          "caption": "既核对给予方向，也核对动词搭配。"
+        },
+        "transfer": "把第一分句改成先人后物的结构，us和the photo应该怎样排列？"
+      }
+    }
+  }
+}

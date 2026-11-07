@@ -1,0 +1,578 @@
+{
+  "lessonId": "l-v-course-environmental-choices-4",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks preserve disaster reports, almost versus completely empty, practice versus occurrence, boat effects, inland instructions and limited rescue outcomes.",
+  "picturePurpose": "Original contrasting ponds support almost versus completely empty; coded land/coast/sea directions teach inland without invented routes.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "看图辨几乎空，点方向读警报",
+    "instruction": "比较池塘剩水，再点出inland方向；核对灾害报道中的地点、结果和没有明说的后续。",
+    "items": [
+      {
+        "id": "flood",
+        "label": "flood：reached the steps说明水到了哪里？",
+        "prompt": "reached the steps说明水到了哪里？",
+        "answer": "flood",
+        "meaning": "洪水；淹没",
+        "material": "The flood reached the steps of the library.",
+        "before": "The ",
+        "after": " reached the steps of the library.",
+        "reason": "flood在The flood中作名词。reached the steps表示洪水到达图书馆台阶，reached后直接接地点，不加to。原句没有说图书馆每间屋子都进水。",
+        "hint": "reach the steps；reach后不加to。",
+        "wordDecision": {
+          "prompt": "reached the steps说明水到了哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "洪水到达图书馆台阶",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "steps",
+                "label": "洪水漫到图书馆台阶",
+                "text": "The flood reached the steps of the library.",
+                "include": true
+              },
+              {
+                "id": "inside",
+                "label": "图书馆的每间屋子都被淹",
+                "text": "Every room inside the library was flooded.",
+                "include": false
+              },
+              {
+                "id": "away",
+                "label": "洪水始终远离图书馆台阶",
+                "text": "The flood stayed far from the library steps.",
+                "include": false
+              }
+            ],
+            "hint": "保留到达的位置，不补室内情况。",
+            "wrong": "选到达台阶，不扩大范围或反转。"
+          }
+        },
+        "options": [
+          {
+            "id": "steps",
+            "text": "The floodwater got as far as the library steps.",
+            "correct": true,
+            "reason": "reached说明到达台阶。"
+          },
+          {
+            "id": "inside",
+            "text": "The sentence says that every room inside the library was flooded.",
+            "correct": false,
+            "reason": "到达台阶不等于每间室内都被淹。"
+          },
+          {
+            "id": "away",
+            "text": "The flood stayed far away from the library steps.",
+            "correct": false,
+            "reason": "反转reached。"
+          }
+        ]
+      },
+      {
+        "id": "drought",
+        "label": "drought：almost empty与completely empty差在哪里？",
+        "prompt": "almost empty与completely empty差在哪里？",
+        "answer": "drought",
+        "meaning": "干旱",
+        "material": "The drought left the village pond almost empty.",
+        "before": "The ",
+        "after": " left the village pond almost empty.",
+        "reason": "drought是干旱，gh不发音。left ... almost empty表示使……几乎空了。almost empty还差一点才全空，所以仍有很少的水；不能读成完全没水。两张示意图只比较有少量水和完全无水，不表示原句给了准确水量。",
+        "hint": "left ... almost empty；almost不等于completely。",
+        "wordDecision": {
+          "prompt": "almost empty与completely empty差在哪里？",
+          "art": {
+            "asset": "lesson-pond-almost-empty",
+            "assetRoot": "illustrations-5",
+            "format": "jpg",
+            "alt": "两座完整池塘的词义示意：左边大部分池底露出但仍有少量水，右边完全没有水；不表示准确水量。",
+            "targets": [
+              {
+                "id": "little-water",
+                "option": "almost",
+                "label": "几乎空了",
+                "left": 3,
+                "top": 25,
+                "width": 46,
+                "height": 54,
+                "labelPosition": "top"
+              },
+              {
+                "id": "no-water",
+                "option": "empty",
+                "label": "完全空了",
+                "left": 51,
+                "top": 25,
+                "width": 46,
+                "height": 54,
+                "labelPosition": "top"
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "almost",
+            "text": "The drought left very little water in the village pond.",
+            "correct": true,
+            "reason": "almost empty是几乎干了，仍剩很少的水。"
+          },
+          {
+            "id": "empty",
+            "text": "The pond had no water left at all.",
+            "correct": false,
+            "reason": "completely empty比almost empty更绝对。"
+          }
+        ]
+      },
+      {
+        "id": "earthquake",
+        "label": "earthquake：during an earthquake说的是何时的应对？",
+        "prompt": "during an earthquake说的是何时的应对？",
+        "answer": "earthquake",
+        "meaning": "地震",
+        "material": "The school practises what to do during an earthquake.",
+        "before": "The school practises what to do during an ",
+        "after": ".",
+        "reason": "earthquake以元音音素开头，用an earthquake。during an earthquake说明演练的内容是地震期间如何应对；学校在演练，不等于学校此刻发生了真正的地震。",
+        "hint": "an earthquake；practise/practice跟随教材；during。",
+        "wordDecision": {
+          "prompt": "during an earthquake说的是何时的应对？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "学校演练地震期间的应对",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "during",
+                "label": "演练地震期间该怎么做",
+                "text": "The school practises what to do during an earthquake.",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "只演练地震结束后的做法",
+                "text": "The school practises only what to do after an earthquake.",
+                "include": false
+              },
+              {
+                "id": "real",
+                "label": "学校此刻正在发生真实地震",
+                "text": "A real earthquake is happening at school now.",
+                "include": false
+              }
+            ],
+            "hint": "保留演练与during，不把练习当成事件报告。",
+            "wrong": "选地震期间的应对演练，不改时间或补真实地震。"
+          }
+        },
+        "options": [
+          {
+            "id": "during",
+            "text": "The school rehearses how to act while an earthquake is happening.",
+            "correct": true,
+            "reason": "during限定演练内容针对地震期间，practises说明演练。"
+          },
+          {
+            "id": "after",
+            "text": "The school practises only what to do after an earthquake has ended.",
+            "correct": false,
+            "reason": "把during改成only after。"
+          },
+          {
+            "id": "real",
+            "text": "The sentence reports that a real earthquake is happening at the school now.",
+            "correct": false,
+            "reason": "演练不等于现在正在发生地震。"
+          }
+        ]
+      },
+      {
+        "id": "typhoon",
+        "label": "typhoon：damaged trees along the coast保留哪些信息？",
+        "prompt": "damaged trees along the coast保留哪些信息？",
+        "answer": "typhoon",
+        "meaning": "台风",
+        "material": "The typhoon damaged trees along the coast.",
+        "before": "The ",
+        "after": " damaged trees along the coast.",
+        "reason": "typhoon是台风。damaged trees说明树木受损，along the coast限定沿海位置；没有说全国所有树木都完全毁坏。它与hurricane都是相关天气名称，阅读时仍要保留本句给出的名称和影响。",
+        "hint": "typhoon；damage；along the coast。",
+        "wordDecision": {
+          "prompt": "damaged trees along the coast保留哪些信息？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "台风损坏沿海树木",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "coast",
+                "label": "台风使沿海的树木受损",
+                "text": "The typhoon damaged trees along the coast.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "全国每棵树都完全毁坏",
+                "text": "Every tree in the country was completely destroyed.",
+                "include": false
+              },
+              {
+                "id": "inland",
+                "label": "台风只损坏了远离海岸的内陆树木",
+                "text": "The typhoon damaged trees only far inland.",
+                "include": false
+              }
+            ],
+            "hint": "保留天气名称、沿海与受损。",
+            "wrong": "选沿海树木受损，不扩大成全国全毁或改成仅内陆。"
+          }
+        },
+        "options": [
+          {
+            "id": "coast",
+            "text": "The typhoon harmed trees along the coast.",
+            "correct": true,
+            "reason": "保留台风、受损的树木和沿海位置。"
+          },
+          {
+            "id": "all",
+            "text": "Every tree in the country was completely destroyed.",
+            "correct": false,
+            "reason": "扩大范围和程度。"
+          },
+          {
+            "id": "inland",
+            "text": "The typhoon damaged trees only far inland.",
+            "correct": false,
+            "reason": "把沿海改成仅在远离海岸的内陆。"
+          }
+        ]
+      },
+      {
+        "id": "hurricane",
+        "label": "hurricane：forced the boats to stay in port是什么结果？",
+        "prompt": "forced the boats to stay in port是什么结果？",
+        "answer": "hurricane",
+        "meaning": "飓风",
+        "material": "The hurricane forced the boats to stay in port.",
+        "before": "The ",
+        "after": " forced the boats to stay in port.",
+        "reason": "hurricane是飓风。force somebody or something to do是迫使……做某事；the boats是受影响的对象，stay in port说明船只不得不留在港内。不是要求船出海。",
+        "hint": "force ... to do；stay in port。",
+        "wordDecision": {
+          "prompt": "forced the boats to stay in port是什么结果？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "飓风迫使船只留港",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "port",
+                "label": "船只受飓风影响被迫留港",
+                "text": "The hurricane forced the boats to stay in port.",
+                "include": true
+              },
+              {
+                "id": "sea",
+                "label": "船只被迫驶向海面",
+                "text": "The hurricane forced the boats to sail out to sea.",
+                "include": false
+              },
+              {
+                "id": "free",
+                "label": "船只毫无影响地自由离港",
+                "text": "The boats left freely, unaffected by the hurricane.",
+                "include": false
+              }
+            ],
+            "hint": "保留迫使与留港，不反转移动方向。",
+            "wrong": "选被迫留港，不改成出海或没有影响。"
+          }
+        },
+        "options": [
+          {
+            "id": "port",
+            "text": "The hurricane made the boats remain in the port.",
+            "correct": true,
+            "reason": "force ... to表示迫使，stay in port是留港。"
+          },
+          {
+            "id": "sea",
+            "text": "The hurricane forced the boats to sail out to sea.",
+            "correct": false,
+            "reason": "把留港反转成出海。"
+          },
+          {
+            "id": "free",
+            "text": "The boats left freely, unaffected by the hurricane.",
+            "correct": false,
+            "reason": "删掉forced的因果关系。"
+          }
+        ]
+      },
+      {
+        "id": "tsunami",
+        "label": "tsunami：move inland朝哪里走？",
+        "prompt": "move inland朝哪里走？",
+        "answer": "tsunami",
+        "meaning": "海啸",
+        "material": "A tsunami warning told people to move inland.",
+        "before": "A ",
+        "after": " warning told people to move inland.",
+        "reason": "tsunami是海啸，a tsunami warning是海啸警报。tell people to do表示要求人们做；move inland是向内陆移动，不是沿海岸走，也不是朝海面走。原句说明警报内容，没有确认人人已完成转移。图上只辨方向，不提供真实路线。",
+        "hint": "a tsunami warning；tell ... to；inland。",
+        "wordDecision": {
+          "prompt": "move inland朝哪里走？",
+          "inlandRoute": {
+            "title": "把inland放到方向图上",
+            "hint": "示意图左为陆地内部，右为海面。比较向内陆、沿海岸和朝海面，不表示真实路线或距离。",
+            "wrong": "inland表示向陆地内部移动，不是沿海岸或朝海面。"
+          }
+        },
+        "options": [
+          {
+            "id": "inland",
+            "text": "A tsunami warning instructed people to move away from the coast towards the interior.",
+            "correct": true,
+            "reason": "inland是向内陆，told ... to说明警报中的要求。"
+          },
+          {
+            "id": "shore",
+            "text": "The warning told people to move towards the sea.",
+            "correct": false,
+            "reason": "反转inland方向。"
+          },
+          {
+            "id": "done",
+            "text": "The sentence confirms that everyone had already reached inland areas.",
+            "correct": false,
+            "reason": "发出要求不代表人人已到达。"
+          }
+        ]
+      },
+      {
+        "id": "emergency",
+        "label": "emergency：at all times只要求某一刻吗？",
+        "prompt": "at all times只要求某一刻吗？",
+        "answer": "emergency",
+        "meaning": "紧急情况",
+        "material": "Keep the emergency exit clear at all times.",
+        "before": "Keep the ",
+        "after": " exit clear at all times.",
+        "reason": "emergency是紧急情况，emergency exit是紧急出口。clear在这里不是“清楚的文字”，而是畅通、没有障碍。keep ... clear at all times要求一直保持畅通，不是只清理一次。",
+        "hint": "emergency exit；keep ... clear；at all times。",
+        "wordDecision": {
+          "prompt": "at all times只要求某一刻吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "紧急出口要随时畅通",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "always",
+                "label": "要求紧急出口随时保持畅通",
+                "text": "Keep the emergency exit clear at all times.",
+                "include": true
+              },
+              {
+                "id": "once",
+                "label": "只清理一次，之后可以堵住",
+                "text": "Clear the exit just once, then leave it blocked.",
+                "include": false
+              },
+              {
+                "id": "only-emergency",
+                "label": "只在紧急情况时才需要保持出口畅通",
+                "text": "The exit only needs to be clear during an emergency.",
+                "include": false
+              }
+            ],
+            "hint": "保留持续要求与畅通，不把clear读成堵住。",
+            "wrong": "选随时畅通，不改成只清理一次或只在紧急时。"
+          }
+        },
+        "options": [
+          {
+            "id": "always",
+            "text": "Keep the emergency exit unobstructed all the time.",
+            "correct": true,
+            "reason": "clear在这里是畅通、没有障碍，at all times是不论何时。"
+          },
+          {
+            "id": "once",
+            "text": "Clear the exit just once and then leave it blocked.",
+            "correct": false,
+            "reason": "一次清理后又堵住不符合保持畅通。"
+          },
+          {
+            "id": "only-emergency",
+            "text": "The exit only needs to be clear during an emergency.",
+            "correct": false,
+            "reason": "把at all times缩成只在紧急情况时。"
+          }
+        ]
+      },
+      {
+        "id": "rescue",
+        "label": "rescue：used a boat to reach说明什么，没说明什么？",
+        "prompt": "used a boat to reach说明什么，没说明什么？",
+        "answer": "rescue",
+        "meaning": "营救；救援",
+        "material": "The rescue team used a boat to reach the family.",
+        "before": "The ",
+        "after": " team used a boat to reach the family.",
+        "reason": "rescue在rescue team中修饰team，表示救援队。used a boat to reach说明借助船赶到那家人身边；reach后直接接the family。不要把交通方式改成步行，也不能补写全家已经平安到家。",
+        "hint": "rescue team；use ... to do；reach不加to。",
+        "wordDecision": {
+          "prompt": "used a boat to reach说明什么，没说明什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "救援队乘船赶到那家人身边",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "boat",
+                "label": "救援队借助船赶到那家人身边",
+                "text": "The rescue team used a boat to reach the family.",
+                "include": true
+              },
+              {
+                "id": "walk",
+                "label": "救援队全程步行赶到那家人身边",
+                "text": "The rescue team reached the family entirely on foot.",
+                "include": false
+              },
+              {
+                "id": "returned",
+                "label": "全家已经平安回家",
+                "text": "The whole family had already returned home safely.",
+                "include": false
+              }
+            ],
+            "hint": "保留船与到达对象，不补后续结果。",
+            "wrong": "选乘船到达，不换交通方式或补完成救援结局。"
+          }
+        },
+        "options": [
+          {
+            "id": "boat",
+            "text": "The rescue team reached the family by boat.",
+            "correct": true,
+            "reason": "保留救援队、乘船和赶到那家人身边。"
+          },
+          {
+            "id": "walk",
+            "text": "The rescue team reached the family entirely on foot.",
+            "correct": false,
+            "reason": "把船换成全程步行。"
+          },
+          {
+            "id": "returned",
+            "text": "The sentence confirms that the whole family had already returned home safely.",
+            "correct": false,
+            "reason": "赶到身边不等于已经全部安全回家。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-environmental-choices-4-transfer",
+      "topicId": "v-course-environmental-choices",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes match the pond photograph, the boat report and the warning?",
+      "passage": "Reading the weather reports\nFor our class newspaper, we compared reports from different places. One photograph showed floodwater reaching the steps of a library. Another showed a village pond left almost empty by drought. We read each caption before writing our own.\nTwo storm reports described different effects: a typhoon damaged trees along the coast, while a hurricane forced boats to stay in port. A separate report quoted a tsunami warning that told people to move inland.\nAt school, we also practised what to do during an earthquake. Before the exercise, our teacher reminded us to keep the emergency exit clear at all times. Afterwards, we read about a rescue team that had used a boat to reach a family.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The pond had very little water left; the boats had to stay in port; the warning told people to move inland."
+        },
+        {
+          "id": "b",
+          "text": "The pond had no water left at all; the boats had to stay in port; the warning told people to move inland."
+        },
+        {
+          "id": "c",
+          "text": "The pond had very little water left; the boats had to sail out to sea; the warning told people to move inland."
+        },
+        {
+          "id": "d",
+          "text": "The pond had very little water left; the boats had to stay in port; the warning told people to move towards the sea."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The pond had very little water left; the boats had to stay in port; the warning told people to move inland."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对almost的程度、被迫留港的结果与inland的方向。",
+        "steps": [
+          {
+            "text": "almost empty说明池塘几乎没水，仍剩少量；boats stayed in port说明船只留港。",
+            "reason": "不能把几乎空了改成完全无水，也不能把留港反转成出海。"
+          },
+          {
+            "text": "警报要求move inland，方向是内陆。",
+            "reason": "inland与朝海面相反；警报中的要求也不等于人人已经完成转移。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把almost empty扩大成完全没有水。"
+          },
+          {
+            "option": "c",
+            "reason": "把被迫留港反转成被迫出海。"
+          },
+          {
+            "option": "d",
+            "reason": "把向内陆反转成朝海面。"
+          }
+        ],
+        "pitfall": "认识灾害名称，却漏掉程度、结果或移动方向。",
+        "visual": {
+          "kind": "timeline",
+          "title": "程度、结果、方向",
+          "segments": [
+            {
+              "text": "almost empty",
+              "role": "object",
+              "note": "仍剩少量水"
+            },
+            {
+              "text": "stay in port",
+              "role": "object",
+              "note": "留在港内"
+            },
+            {
+              "text": "move inland",
+              "role": "object",
+              "note": "向陆地内部"
+            }
+          ],
+          "caption": "把地点名称与限定词一起核对。"
+        },
+        "transfer": "为什么警报要求转移，不代表所有人已经到达？"
+      }
+    }
+  }
+}

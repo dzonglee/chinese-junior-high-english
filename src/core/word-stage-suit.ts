@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordStageSuit{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordStageSuit(v:unknown):v is WordStageSuit{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordStageSuit;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordStageSuitKey=(id:string)=>'workshopStageSuit-'+id
+function decode(raw:string){if(raw==='')return{"colour": "?", "place": "?"};const m="^(\\?|grey|blue)\\|(\\?|stage|backstage)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{colour:v[1],place:v[2]}:null}
+export function changeStageSuit(_w:WordStageSuit,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["colour-grey", "colour-blue"].includes(action))return action.slice(7)+"|"+s.place;if(["place-stage", "place-backstage"].includes(action))return s.colour+"|"+action.slice(6);return undefined}
+export function stageSuitMatch(_w:WordStageSuit,raw:string){const s=decode(raw);return!!s&&s.colour==="grey"&&s.place==="stage"}
+export function wordStageSuitView(w:WordStageSuit,raw:string){const s=decode(raw)??{"colour": "?", "place": "?"};return{title:w.title,hint:w.hint,suitColour:s.colour==='?'?'#dce6f1':s.colour==='grey'?'#68768a':'#327ac4',place:s.place,groups:[{label:"套装颜色",choices:[{"id": "colour-grey", "label": "灰色"}, {"id": "colour-blue", "label": "蓝色"}].map(c=>({...c,selected:c.id==="colour-"+s.colour}))},{label:"穿着地点",choices:[{"id": "place-stage", "label": "台上"}, {"id": "place-backstage", "label": "后台"}].map(c=>({...c,selected:c.id==="place-"+s.place}))}],reading:stageSuitMatch(w,raw)?"演员在台上穿了一套灰色套装；没有给剧目或衣料。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordStageSuitView=ReturnType<typeof wordStageSuitView>

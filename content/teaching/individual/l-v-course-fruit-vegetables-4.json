@@ -1,0 +1,481 @@
+{
+  "lessonId": "l-v-course-fruit-vegetables-4",
+  "reviewState": "draft",
+  "intent": "Individually teach conditional scope without a converse, too heavy for one person, crush-before-add, flavour rather than temperature, nut in a conditional food context, peanut-butter compound scope, adjectival sweet and excessive sourness.",
+  "picturePurpose": "Exact conditional, capability and flavour comparisons are coded. Do not teach mushroom edibility from an image.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "条件、顺序和味道，哪个词改变了句意？",
+    "instruction": "改条件、排顺序、比程度，再用自己的句子说清楚。",
+    "items": [
+      {
+        "id": "word-mushroom",
+        "label": "蘑菇",
+        "prompt": "you cannot identify限定哪一类蘑菇？调整条件，看看Never eat的范围。",
+        "answer": "mushroom",
+        "caseSensitive": false,
+        "meaning": "蘑菇",
+        "before": "Never eat a wild ",
+        "after": " you cannot identify.",
+        "reason": "Never eat a wild mushroom you cannot identify禁止食用无法辨认的野生蘑菇。",
+        "hint": "这里只理解句子条件；认得名称也不能据此判断可以吃。",
+        "material": "Never eat a wild mushroom you cannot identify.",
+        "options": [
+          {
+            "id": "unknown",
+            "text": "不要吃无法辨认的野生蘑菇。",
+            "correct": true,
+            "reason": "保留Never eat和cannot identify的限制。"
+          },
+          {
+            "id": "permission",
+            "text": "只要认得名称，就可以吃野生蘑菇。",
+            "correct": false,
+            "reason": "原句没有给这个许可，也不能凭辨认名称判断食用安全。"
+          },
+          {
+            "id": "reverse",
+            "text": "无法辨认时，应先尝一口。",
+            "correct": false,
+            "reason": "Never eat表示不要吃，不能改成先尝。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "you cannot identify限定哪一类蘑菇？调整条件，看看Never eat的范围。",
+          "foodCondition": {
+            "title": "先找禁止的对象",
+            "hint": "条件图只解释英语句意，不提供野生蘑菇食用判断。",
+            "wrong": "原句禁止吃无法辨认的野生蘑菇；不能反推认得就能吃。",
+            "kind": "mushroom"
+          }
+        }
+      },
+      {
+        "id": "word-pumpkin",
+        "label": "南瓜",
+        "prompt": "too heavy for one person是谁搬不动？换一种说法，看是否保留程度和人数。",
+        "answer": "pumpkin",
+        "caseSensitive": false,
+        "meaning": "南瓜",
+        "before": "The ",
+        "after": " was too heavy for one person.",
+        "reason": "The pumpkin was too heavy for one person说明这南瓜重得一个人搬不动。",
+        "hint": "原句没有给重量，也没说两个人一定搬得动。",
+        "material": "The pumpkin was too heavy for one person.",
+        "options": [
+          {
+            "id": "too",
+            "text": "这南瓜重得一个人搬不动。",
+            "correct": true,
+            "reason": "保留too heavy和for one person。"
+          },
+          {
+            "id": "easy",
+            "text": "这南瓜很轻，一个人就能轻松搬动。",
+            "correct": false,
+            "reason": "轻松搬动与too heavy for one person相反。"
+          },
+          {
+            "id": "two",
+            "text": "原句保证两个人一定能搬动。",
+            "correct": false,
+            "reason": "没有给两个人的搬运结果。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "too heavy for one person是谁搬不动？换一种说法，看是否保留程度和人数。",
+          "heavyForOne": {
+            "title": "too…for谁？",
+            "hint": "只比较句意；不设置公斤数，也不推断两个人的能力。",
+            "wrong": "应保留一个人搬不动，不能改成轻松搬动或两人一定成功。"
+          }
+        }
+      },
+      {
+        "id": "word-garlic",
+        "label": "大蒜",
+        "prompt": "before给出了什么顺序？把两步排好，再核对Crush这个动作。",
+        "answer": "garlic",
+        "caseSensitive": false,
+        "meaning": "大蒜",
+        "before": "Crush the ",
+        "after": " before adding it to the pan.",
+        "reason": "Crush the garlic before adding it to the pan要求先拍碎大蒜，再放入锅中。",
+        "hint": "这是操作要求，没有说已经做完，也没有给蒜瓣数量。",
+        "material": "Crush the garlic before adding it to the pan.",
+        "options": [
+          {
+            "id": "before",
+            "text": "先把大蒜拍碎，再放进锅里。",
+            "correct": true,
+            "reason": "保留Crush与before adding。"
+          },
+          {
+            "id": "after",
+            "text": "先把大蒜放进锅里，再拍碎。",
+            "correct": false,
+            "reason": "这把before的先后次序颠倒了。"
+          },
+          {
+            "id": "whole",
+            "text": "把整瓣未拍碎的大蒜直接放进锅里。",
+            "correct": false,
+            "reason": "丢掉了Crush要求。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before给出了什么顺序？把两步排好，再核对Crush这个动作。",
+          "processOrder": {
+            "hint": "先拍碎，再入锅；不是完成记录。",
+            "events": [
+              {
+                "id": "crush",
+                "label": "拍碎大蒜"
+              },
+              {
+                "id": "add",
+                "label": "把拍碎的大蒜放入锅中"
+              }
+            ],
+            "sequence": [
+              "crush",
+              "add"
+            ],
+            "title": "先拍碎，再入锅",
+            "wrong": "before要求先拍碎大蒜，再放入锅中；没有报告已经做完。"
+          }
+        }
+      },
+      {
+        "id": "word-ginger",
+        "label": "姜",
+        "prompt": "a slice给出什么数量？warm修饰flavour，是味道还是温度计读数？切换句意比较。",
+        "answer": "ginger",
+        "caseSensitive": false,
+        "meaning": "姜",
+        "before": "A slice of ",
+        "after": " gives the soup a warm flavour.",
+        "reason": "A slice of ginger gives the soup a warm flavour说明一片姜给汤增添暖暖的辛香。",
+        "hint": "warm在这里修饰味道；原句没报告汤的温度，也没有说放了一整块姜。",
+        "material": "A slice of ginger gives the soup a warm flavour.",
+        "options": [
+          {
+            "id": "flavour",
+            "text": "一片姜让汤带上暖暖的辛香。",
+            "correct": true,
+            "reason": "保留a slice和warm flavour。"
+          },
+          {
+            "id": "temperature",
+            "text": "原句测出了汤的温度。",
+            "correct": false,
+            "reason": "flavour指风味，没有温度读数。"
+          },
+          {
+            "id": "whole",
+            "text": "原句明确放入了一整块未切的姜。",
+            "correct": false,
+            "reason": "a slice是一片，不是一整块。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "a slice给出什么数量？warm修饰flavour，是味道还是温度计读数？切换句意比较。",
+          "flavourSense": {
+            "title": "warm修饰的是flavour",
+            "hint": "比较词语搭配，不模拟温度测量。",
+            "wrong": "应保留一片姜与辛香风味；不补温度或整块姜。",
+            "kind": "ginger"
+          }
+        }
+      },
+      {
+        "id": "word-nut",
+        "label": "坚果（本句）",
+        "prompt": "if提出什么条件？勾出需要核对的句意，别把条件当成已经确诊。",
+        "answer": "nut",
+        "caseSensitive": false,
+        "meaning": "坚果（本句）",
+        "before": "Check the label if you have a ",
+        "after": " allergy.",
+        "reason": "Check the label if you have a nut allergy是在有坚果过敏这一条件下，要求查看标签。",
+        "hint": "句子没有断定读者本人过敏；nut在本句是坚果，在工具语境也可指螺母。",
+        "material": "Check the label if you have a nut allergy.",
+        "options": [
+          {
+            "id": "if",
+            "text": "如果对坚果过敏，要查看标签。",
+            "correct": true,
+            "reason": "保留if条件和Check the label要求。"
+          },
+          {
+            "id": "diagnosis",
+            "text": "这句话已经确定读者对坚果过敏。",
+            "correct": false,
+            "reason": "if提出条件，不是诊断。"
+          },
+          {
+            "id": "metal",
+            "text": "这里说的是螺母过敏。",
+            "correct": false,
+            "reason": "食品标签与过敏语境中的nut指坚果。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "if提出什么条件？勾出需要核对的句意，别把条件当成已经确诊。",
+          "foodCondition": {
+            "title": "if是条件，不是诊断",
+            "hint": "只核对英语句意；不根据选择推断个人过敏状况。",
+            "wrong": "应保留有坚果过敏时查看标签；不推断读者已过敏。",
+            "kind": "nut"
+          }
+        }
+      },
+      {
+        "id": "word-peanut",
+        "label": "花生",
+        "prompt": "peanut butter要合起来理解。contains说明含有，能推出不含其他配料吗？",
+        "answer": "peanut",
+        "caseSensitive": false,
+        "meaning": "花生",
+        "before": "This sauce contains ",
+        "after": " butter.",
+        "reason": "This sauce contains peanut butter说明这种酱里含花生酱。",
+        "hint": "peanut butter是花生酱；contains没有说只含这一种成分。",
+        "material": "This sauce contains peanut butter.",
+        "options": [
+          {
+            "id": "contains",
+            "text": "这种酱里含花生酱。",
+            "correct": true,
+            "reason": "保留contains peanut butter。"
+          },
+          {
+            "id": "only",
+            "text": "这种酱只含花生酱，没有其他配料。",
+            "correct": false,
+            "reason": "contains不能推出only。"
+          },
+          {
+            "id": "separate",
+            "text": "原句把花生和黄油列作两种独立配料。",
+            "correct": false,
+            "reason": "peanut butter是一个食物名称，不能拆成两种独立配料。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "peanut butter要合起来理解。contains说明含有，能推出不含其他配料吗？",
+          "recordSelection": {
+            "title": "合起来理解，再核对范围",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "不补only，也不拆开食物名。",
+            "wrong": "应保留酱中含有花生酱，不补只含这一种。",
+            "rows": [
+              {
+                "id": "sauce",
+                "label": "对象",
+                "text": "说的是这种酱。",
+                "include": true
+              },
+              {
+                "id": "ingredient",
+                "label": "含有",
+                "text": "含有花生酱。",
+                "include": true
+              },
+              {
+                "id": "only",
+                "label": "额外限制",
+                "text": "没有任何其他配料。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-sweet",
+        "label": "甜的（本句）",
+        "prompt": "sweet接在are后面说味道，还是把小番茄变成了糖果？比较两种用法。",
+        "answer": "sweet",
+        "caseSensitive": false,
+        "meaning": "甜的（本句）",
+        "before": "These tiny tomatoes are surprisingly ",
+        "after": ".",
+        "reason": "These tiny tomatoes are surprisingly sweet说明这些小番茄甜得出乎意料。",
+        "hint": "这里sweet是形容词；surprisingly说出乎意料，不是“不甜”。",
+        "material": "These tiny tomatoes are surprisingly sweet.",
+        "options": [
+          {
+            "id": "adjective",
+            "text": "这些小番茄甜得出乎意料。",
+            "correct": true,
+            "reason": "保留tiny、sweet和surprisingly。"
+          },
+          {
+            "id": "noun",
+            "text": "这些小番茄就是糖果。",
+            "correct": false,
+            "reason": "这里sweet描述味道，不是名词糖果。"
+          },
+          {
+            "id": "negative",
+            "text": "这些小番茄一点都不甜。",
+            "correct": false,
+            "reason": "surprisingly不是否定，不能丢掉sweet。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "sweet接在are后面说味道，还是把小番茄变成了糖果？比较两种用法。",
+          "flavourSense": {
+            "title": "sweet在句中做什么？",
+            "hint": "比较句意，不用颜色代替真实味觉证据。",
+            "wrong": "应保留小番茄很甜且出乎意料；不是糖果，也不是不甜。",
+            "kind": "sweet"
+          }
+        }
+      },
+      {
+        "id": "word-sour",
+        "label": "酸的",
+        "prompt": "too sour只是酸，还是酸得过头？切换评价，看看too带来了什么。",
+        "answer": "sour",
+        "caseSensitive": false,
+        "meaning": "酸的",
+        "before": "The green plum tasted too ",
+        "after": ".",
+        "reason": "The green plum tasted too sour记录这颗青李子尝起来太酸。",
+        "hint": "too在这里表示超过合适程度；没有说明腐坏、原因或实际酸度数值。",
+        "material": "The green plum tasted too sour.",
+        "options": [
+          {
+            "id": "too",
+            "text": "这颗青李子尝起来太酸。",
+            "correct": true,
+            "reason": "保留tasted的过去和too sour的程度。"
+          },
+          {
+            "id": "just",
+            "text": "这颗青李子的酸味恰到好处。",
+            "correct": false,
+            "reason": "恰到好处不能保留too的过度。"
+          },
+          {
+            "id": "sweet",
+            "text": "这颗青李子尝起来很甜。",
+            "correct": false,
+            "reason": "sweet不是sour。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "too sour只是酸，还是酸得过头？切换评价，看看too带来了什么。",
+          "flavourSense": {
+            "title": "too加上了什么评价？",
+            "hint": "只比较语言中的程度，没有酸度数值或食物状态诊断。",
+            "wrong": "应记录过去尝起来太酸，不是恰好或甜。",
+            "kind": "sour"
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-fruit-vegetables-4-transfer",
+      "topicId": "v-course-fruit-vegetables",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成木箱、香草和青苹果，哪组三句保留了全部信息？",
+      "passage": "新记录与要求\n这只木箱（crate）重得一个人搬不动。先把香草（herbs）碾碎，再放进锅里。这颗青苹果尝起来太酸。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The crate was too heavy for one person. Crush the herbs before adding them to the pot. The green apple tasted too sour."
+        },
+        {
+          "id": "b",
+          "text": "The crate was light enough for one person. Crush the herbs before adding them to the pot. The green apple tasted too sour."
+        },
+        {
+          "id": "c",
+          "text": "The crate was too heavy for one person. Crush the herbs after adding them to the pot. The green apple tasted too sour."
+        },
+        {
+          "id": "d",
+          "text": "The crate was too heavy for one person. Crush the herbs before adding them to the pot. The green apple tasted pleasantly sour."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The crate was too heavy for one person. Crush the herbs before adding them to the pot. The green apple tasted too sour."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分开核对能力限制、先后顺序和过度评价。",
+        "steps": [
+          {
+            "text": "重得一个人搬不动：too heavy for one person。",
+            "reason": "light enough反过来说一个人搬得动。"
+          },
+          {
+            "text": "先碾碎，再放入：Crush…before adding…。",
+            "reason": "after把两个动作的先后次序颠倒了。"
+          },
+          {
+            "text": "尝起来太酸：tasted too sour。",
+            "reason": "pleasantly sour是令人愉快的酸味，丢掉too的过度评价。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "light enough把搬不动改成搬得动。"
+          },
+          {
+            "option": "c",
+            "reason": "after颠倒先碾碎后入锅的顺序。"
+          },
+          {
+            "option": "d",
+            "reason": "pleasantly sour丢掉太酸的评价。"
+          }
+        ],
+        "pitfall": "too和before很短，却能改变整句的判断。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三个限制，逐一保留",
+          "segments": [
+            {
+              "text": "too heavy → one person",
+              "role": "evidence",
+              "note": "一个人搬不动"
+            },
+            {
+              "text": "crush → before → add",
+              "role": "evidence",
+              "note": "先碾碎，后放入"
+            },
+            {
+              "text": "tasted → too sour",
+              "role": "evidence",
+              "note": "过去尝起来太酸"
+            }
+          ],
+          "caption": "不补重量，不倒顺序，不改程度。"
+        },
+        "transfer": "如果青苹果只是有点酸，应该保留too吗？为什么？"
+      }
+    }
+  }
+}

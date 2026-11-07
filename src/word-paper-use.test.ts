@@ -1,0 +1,10 @@
+import {describe,it,expect} from 'vitest'
+import {validWordPaperUse,paperUseMatch,changePaperUse,wordPaperUseView} from './core/word-paper-use'
+const w={title:'各做一个成品',hint:'每张纸一样大',wrong:'新设计须用纸更少'}
+describe('equal-sheet paper use',()=>{
+ it('requires two explicit positive selections and a strictly smaller new amount',()=>{for(let old=0;old<=3;old++)for(let next=0;next<=3;next++)expect(paperUseMatch(`${old}:${next}`)).toBe(old>0&&next>0&&next<old);expect(paperUseMatch('')).toBe(false)})
+ it('independently edits either design, reversing a previously valid comparison',()=>{let s=changePaperUse('','old:3')!;s=changePaperUse(s,'new:2')!;expect(paperUseMatch(s)).toBe(true);s=changePaperUse(s,'old:1')!;expect(paperUseMatch(s)).toBe(false);s=changePaperUse(s,'new:1')!;expect(paperUseMatch(s)).toBe(false);s=changePaperUse(s,'old:2')!;expect(paperUseMatch(s)).toBe(true);expect(changePaperUse(s,'reset')).toBe('')})
+ it('rejects malformed, out-of-range and unknown actions',()=>{for(const s of ['3:2:1',' 3:2','03:2','3.0:2','4:2','3:-1','new:1','1:NaN']){expect(paperUseMatch(s)).toBe(false);expect(changePaperUse(s,'old:2')).toBeUndefined()}for(const action of ['old:0','new:4','a:1','new:1.5','new:01','add',''])expect(changePaperUse('3:2',action)).toBeUndefined()})
+ it('renders exact independent counts, clear unset state and isolated choices',()=>{const v=wordPaperUseView(w,'3:1');expect(v.sides.map(s=>s.sheets.length)).toEqual([3,1]);expect(v.sides.map(s=>s.choices.filter(x=>x.selected).map(x=>x.label))).toEqual([['3 张'],['1 张']]);expect(v.reading).toContain('每张同样大，各做一个成品');const empty=wordPaperUseView(w,'');expect(empty.sides.every(s=>!s.chosen&&s.sheets.length===0&&s.choices.every(x=>!x.selected))).toBe(true);v.sides[0].choices[0].label='changed';expect(wordPaperUseView(w,'3:1').sides[0].choices[0].label).toBe('1 张');expect(w.title).toBe('各做一个成品')})
+ it('bounds instructional copy and rejects missing fields',()=>{expect(validWordPaperUse(w)).toBe(true);expect(validWordPaperUse(null)).toBe(false);for(const bad of [{...w,title:''},{...w,hint:' x'},{...w,wrong:'x'.repeat(141)},{title:'x',hint:'x'}])expect(validWordPaperUse(bad)).toBe(false)})
+})

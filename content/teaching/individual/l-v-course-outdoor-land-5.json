@@ -1,0 +1,2002 @@
+{
+  "lessonId": "l-v-course-outdoor-land-5",
+  "reviewState": "draft",
+  "intent": "Teach landscape-change order, wide harbour views, snow remaining on the highest peak, across-versus-down slope instructions, spring as a stream source, thin surface ice and water-depth warnings.",
+  "picturePurpose": "Four reversible range/position/route/layer diagrams, two exact evidence tasks and one event-order task; no invented geography, measurements, causal timing or completed instructions.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "山景、路线与表面",
+    "instruction": "排出变化先后，改变所见范围和路线，再核对原句证据。",
+    "items": [
+      {
+        "id": "word-landscape",
+        "label": "自然景观（本句）",
+        "prompt": "先下雨，还是先变绿？按先后点选事件。",
+        "answer": "landscape",
+        "caseSensitive": false,
+        "meaning": "自然景观（本句）",
+        "before": "The dry ",
+        "after": " turned green after the rain.",
+        "reason": "after the rain说明先下雨，后变绿；不是变绿后才下雨，也没有给等待天数。",
+        "hint": "landscape在本句指自然景观，不是画作。",
+        "material": "The dry landscape turned green after the rain.",
+        "options": [
+          {
+            "id": "rain-first",
+            "text": "先下雨，干燥的景观随后变绿。",
+            "correct": true,
+            "reason": "保留turned green after the rain。"
+          },
+          {
+            "id": "green-first",
+            "text": "景观先变绿，随后才下雨。",
+            "correct": false,
+            "reason": "颠倒了after给出的先后。"
+          },
+          {
+            "id": "painting",
+            "text": "画家给风景画涂上了绿色。",
+            "correct": false,
+            "reason": "原句没有画家或画作；这里是自然景观。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先下雨，还是先变绿？按先后点选事件。",
+          "processOrder": {
+            "title": "雨与变绿的先后",
+            "layout": "downward",
+            "hint": "只排先后，不推断相隔几天。",
+            "wrong": "先下雨，景观后变绿。",
+            "events": [
+              {
+                "id": "rain",
+                "label": "下雨"
+              },
+              {
+                "id": "green",
+                "label": "景观变绿"
+              }
+            ],
+            "sequence": [
+              "rain",
+              "green"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-view",
+        "label": "景色（本句）",
+        "prompt": "从塔上看到什么？视野是宽还是窄？",
+        "answer": "view",
+        "caseSensitive": false,
+        "meaning": "景色（本句）",
+        "before": "The tower gives a wide ",
+        "after": " of the harbour.",
+        "reason": "wide view of the harbour是广阔的港口景色；view在这里不是看法。",
+        "hint": "先核对wide，再核对of后的景物。",
+        "material": "The tower gives a wide view of the harbour.",
+        "options": [
+          {
+            "id": "wide-harbour",
+            "text": "从塔上能看到广阔的港口景色。",
+            "correct": true,
+            "reason": "保留wide与of the harbour。"
+          },
+          {
+            "id": "narrow",
+            "text": "从塔上只能看到狭窄的港口景色。",
+            "correct": false,
+            "reason": "狭窄改变了wide广阔。"
+          },
+          {
+            "id": "opinion",
+            "text": "塔表达了自己对港口的看法。",
+            "correct": false,
+            "reason": "这里的view是所见景色，不是观点。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "从塔上看到什么？视野是宽还是窄？",
+          "sceneLab": {
+            "id": "tower-view-range",
+            "title": "视野范围与所见景物",
+            "hint": "换宽窄和所见景物，核对wide view of the harbour。",
+            "wrong": "应是广阔的港口景色，不能换成狭窄视野或山谷。",
+            "axes": [
+              {
+                "id": "extent",
+                "label": "视野范围",
+                "choices": [
+                  {
+                    "id": "wide",
+                    "label": "广阔"
+                  },
+                  {
+                    "id": "narrow",
+                    "label": "狭窄"
+                  }
+                ]
+              },
+              {
+                "id": "object",
+                "label": "所见景物",
+                "choices": [
+                  {
+                    "id": "harbour",
+                    "label": "港口"
+                  },
+                  {
+                    "id": "valley",
+                    "label": "山谷"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "从塔上看：视野示意"
+                  },
+                  {
+                    "id": "extent",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "observer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔上观察点"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 48,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "景物待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|harbour",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "从塔上看：视野示意"
+                  },
+                  {
+                    "id": "extent",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "observer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔上观察点"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 48,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "港口"
+                  }
+                ]
+              },
+              {
+                "signature": "?|valley",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "从塔上看：视野示意"
+                  },
+                  {
+                    "id": "extent",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  },
+                  {
+                    "id": "observer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔上观察点"
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 48,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "山谷"
+                  }
+                ]
+              },
+              {
+                "signature": "wide|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "从塔上看：视野示意"
+                  },
+                  {
+                    "id": "extent",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "广阔视野"
+                  },
+                  {
+                    "id": "observer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔上观察点"
+                  },
+                  {
+                    "id": "view-frame",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 40,
+                    "width": 86,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 48,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "景物待选"
+                  }
+                ]
+              },
+              {
+                "signature": "wide|harbour",
+                "reading": "从塔上能看到广阔的港口景色。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "从塔上看：视野示意"
+                  },
+                  {
+                    "id": "extent",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "广阔视野"
+                  },
+                  {
+                    "id": "observer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔上观察点"
+                  },
+                  {
+                    "id": "view-frame",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 40,
+                    "width": 86,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 48,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "港口"
+                  }
+                ]
+              },
+              {
+                "signature": "wide|valley",
+                "reading": "应是广阔的港口景色，不能换成狭窄视野或山谷。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "从塔上看：视野示意"
+                  },
+                  {
+                    "id": "extent",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "广阔视野"
+                  },
+                  {
+                    "id": "observer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔上观察点"
+                  },
+                  {
+                    "id": "view-frame",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 40,
+                    "width": 86,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 48,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "山谷"
+                  }
+                ]
+              },
+              {
+                "signature": "narrow|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "从塔上看：视野示意"
+                  },
+                  {
+                    "id": "extent",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "狭窄视野"
+                  },
+                  {
+                    "id": "observer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔上观察点"
+                  },
+                  {
+                    "id": "view-frame",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 40,
+                    "width": 40,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 48,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "景物待选"
+                  }
+                ]
+              },
+              {
+                "signature": "narrow|harbour",
+                "reading": "应是广阔的港口景色，不能换成狭窄视野或山谷。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "从塔上看：视野示意"
+                  },
+                  {
+                    "id": "extent",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "狭窄视野"
+                  },
+                  {
+                    "id": "observer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔上观察点"
+                  },
+                  {
+                    "id": "view-frame",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 40,
+                    "width": 40,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 48,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "港口"
+                  }
+                ]
+              },
+              {
+                "signature": "narrow|valley",
+                "reading": "应是广阔的港口景色，不能换成狭窄视野或山谷。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "从塔上看：视野示意"
+                  },
+                  {
+                    "id": "extent",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "狭窄视野"
+                  },
+                  {
+                    "id": "observer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔上观察点"
+                  },
+                  {
+                    "id": "view-frame",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 40,
+                    "width": 40,
+                    "height": 30,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 32,
+                    "y": 48,
+                    "width": 36,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "山谷"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-peak",
+        "label": "山峰（本句）",
+        "prompt": "把积雪标记放在哪里？highest是哪一座？",
+        "answer": "peak",
+        "caseSensitive": false,
+        "meaning": "山峰（本句）",
+        "before": "Snow remained on the highest ",
+        "after": ".",
+        "reason": "Snow remained on the highest peak说明最高峰仍有雪；没有说所有山峰有雪或都已融化。",
+        "hint": "先比较峰顶，再把积雪标记放到原句指定处。",
+        "material": "Snow remained on the highest peak.",
+        "options": [
+          {
+            "id": "highest",
+            "text": "最高的山峰上仍有积雪。",
+            "correct": true,
+            "reason": "保留remained与highest peak。"
+          },
+          {
+            "id": "lower",
+            "text": "积雪只留在较低的山峰。",
+            "correct": false,
+            "reason": "较低改变了highest最高；only也未给出。"
+          },
+          {
+            "id": "melted",
+            "text": "最高峰的积雪已全部融化。",
+            "correct": false,
+            "reason": "全部融化与remained仍留着相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "把积雪标记放在哪里？highest是哪一座？",
+          "sceneLab": {
+            "id": "highest-peak-snow",
+            "title": "原句提到的积雪位置",
+            "hint": "只标原句说到的位置，不推断其他山峰是否有雪。",
+            "wrong": "应在最高峰标出仍有积雪，不能换成较低峰。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "原句指定的积雪位置",
+                "choices": [
+                  {
+                    "id": "highest",
+                    "label": "最高峰"
+                  },
+                  {
+                    "id": "lower",
+                    "label": "较低峰"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "只标原句提到的积雪位置"
+                  },
+                  {
+                    "id": "high",
+                    "kind": "ellipse",
+                    "x": 15,
+                    "y": 30,
+                    "width": 34,
+                    "height": 44,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "low",
+                    "kind": "ellipse",
+                    "x": 61,
+                    "y": 49,
+                    "width": 29,
+                    "height": 25,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "base",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 74,
+                    "width": 84,
+                    "height": 1,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "high-label",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 78,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "最高峰"
+                  },
+                  {
+                    "id": "low-label",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 78,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "较低峰"
+                  }
+                ]
+              },
+              {
+                "signature": "highest",
+                "reading": "最高的山峰上仍有积雪。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "只标原句提到的积雪位置"
+                  },
+                  {
+                    "id": "high",
+                    "kind": "ellipse",
+                    "x": 15,
+                    "y": 30,
+                    "width": 34,
+                    "height": 44,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "low",
+                    "kind": "ellipse",
+                    "x": 61,
+                    "y": 49,
+                    "width": 29,
+                    "height": 25,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "base",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 74,
+                    "width": 84,
+                    "height": 1,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "high-label",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 78,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "最高峰"
+                  },
+                  {
+                    "id": "low-label",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 78,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "较低峰"
+                  },
+                  {
+                    "id": "snow",
+                    "kind": "ellipse",
+                    "x": 25,
+                    "y": 28,
+                    "width": 14,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "snow-label",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 16,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "积雪"
+                  }
+                ]
+              },
+              {
+                "signature": "lower",
+                "reading": "应在最高峰标出仍有积雪，不能换成较低峰。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "只标原句提到的积雪位置"
+                  },
+                  {
+                    "id": "high",
+                    "kind": "ellipse",
+                    "x": 15,
+                    "y": 30,
+                    "width": 34,
+                    "height": 44,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "low",
+                    "kind": "ellipse",
+                    "x": 61,
+                    "y": 49,
+                    "width": 29,
+                    "height": 25,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "base",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 74,
+                    "width": 84,
+                    "height": 1,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "high-label",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 78,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "最高峰"
+                  },
+                  {
+                    "id": "low-label",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 78,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "较低峰"
+                  },
+                  {
+                    "id": "snow",
+                    "kind": "ellipse",
+                    "x": 69,
+                    "y": 47,
+                    "width": 14,
+                    "height": 7,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "snow-label",
+                    "kind": "label",
+                    "x": 61,
+                    "y": 33,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "积雪"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-slope",
+        "label": "斜坡",
+        "prompt": "横向走，还是直着下去？切换箭头核对rather than。",
+        "answer": "slope",
+        "caseSensitive": false,
+        "meaning": "斜坡",
+        "before": "Walk across the ",
+        "after": " rather than straight down.",
+        "reason": "across the slope是横向穿过斜坡；rather than排除straight down直着往下。",
+        "hint": "这是路线要求，不是已经走完的报告。",
+        "material": "Walk across the slope rather than straight down.",
+        "options": [
+          {
+            "id": "across",
+            "text": "沿斜坡横向走，不要直着下去。",
+            "correct": true,
+            "reason": "保留across与rather than straight down。"
+          },
+          {
+            "id": "down",
+            "text": "沿斜坡直着往下走。",
+            "correct": false,
+            "reason": "把被rather than排除的路线选成了要求。"
+          },
+          {
+            "id": "done",
+            "text": "原句报告我们已走到坡底。",
+            "correct": false,
+            "reason": "Walk是要求，没有报告已经到达。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "横向走，还是直着下去？切换箭头核对rather than。",
+          "sceneLab": {
+            "id": "slope-route-direction",
+            "title": "斜坡上的路线方向",
+            "hint": "较高处在上、较低处在下；换横向与直下箭头。",
+            "wrong": "应横向走，不是直着下坡。",
+            "axes": [
+              {
+                "id": "route",
+                "label": "路线方向",
+                "choices": [
+                  {
+                    "id": "across",
+                    "label": "横向穿过"
+                  },
+                  {
+                    "id": "down",
+                    "label": "直着下坡"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "坡面方向示意"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "较高处"
+                  },
+                  {
+                    "id": "slope",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 34,
+                    "width": 72,
+                    "height": 38,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "较低处"
+                  }
+                ]
+              },
+              {
+                "signature": "across",
+                "reading": "沿斜坡横向走，不要直着下去。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "坡面方向示意"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "较高处"
+                  },
+                  {
+                    "id": "slope",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 34,
+                    "width": 72,
+                    "height": 38,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "较低处"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "label",
+                    "x": 24,
+                    "y": 43,
+                    "width": 52,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "down",
+                "reading": "应横向走，不是直着下坡。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "坡面方向示意"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 19,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "较高处"
+                  },
+                  {
+                    "id": "slope",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 34,
+                    "width": 72,
+                    "height": 38,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "较低处"
+                  },
+                  {
+                    "id": "route",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 43,
+                    "width": 20,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "↓"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-source",
+        "label": "源头（本句）",
+        "prompt": "spring在这里是春天还是泉？它和小溪是什么关系？",
+        "answer": "source",
+        "caseSensitive": false,
+        "meaning": "源头（本句）",
+        "before": "The spring is the ",
+        "after": " of this stream.",
+        "reason": "这里spring是泉水，source是源头：泉水是这条小溪的来源，不是入海口。",
+        "hint": "把spring、source和stream连成一句完整关系。",
+        "material": "The spring is the source of this stream.",
+        "options": [
+          {
+            "id": "spring-source",
+            "text": "这眼泉水是这条小溪的源头。",
+            "correct": true,
+            "reason": "保留The spring is the source of this stream。"
+          },
+          {
+            "id": "season",
+            "text": "春天是这条小溪的入海口。",
+            "correct": false,
+            "reason": "spring误读成季节，source也改成入海口。"
+          },
+          {
+            "id": "every",
+            "text": "所有小溪都来自这一眼泉水。",
+            "correct": false,
+            "reason": "this stream只指这条小溪，没有扩大到所有小溪。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "spring在这里是春天还是泉？它和小溪是什么关系？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "泉水与这条小溪的关系",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "this限定这条，不扩大成所有小溪。",
+            "wrong": "应圈出泉水与这条小溪的源头关系。",
+            "rows": [
+              {
+                "id": "spring",
+                "label": "对象",
+                "text": "spring在这里是泉水。",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "扩大范围",
+                "text": "所有小溪都来自同一眼泉水。",
+                "include": false
+              },
+              {
+                "id": "source",
+                "label": "关系",
+                "text": "它是这条小溪的源头。",
+                "include": true
+              },
+              {
+                "id": "mouth",
+                "label": "改动关系",
+                "text": "它是这条小溪的入海口。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-surface",
+        "label": "表面",
+        "prompt": "薄冰在哪里？分别换厚薄和位置。",
+        "answer": "surface",
+        "caseSensitive": false,
+        "meaning": "表面",
+        "before": "A thin layer of ice covered the ",
+        "after": ".",
+        "reason": "thin layer是薄薄一层，covered the surface是覆盖表面；不能推成内部全冻住或能承重。",
+        "hint": "图只核对表面与厚薄，不判断承重。",
+        "material": "A thin layer of ice covered the surface.",
+        "options": [
+          {
+            "id": "thin-surface",
+            "text": "薄薄一层冰覆盖了表面。",
+            "correct": true,
+            "reason": "保留thin layer、covered和surface。"
+          },
+          {
+            "id": "thick",
+            "text": "厚厚一层冰覆盖了表面。",
+            "correct": false,
+            "reason": "厚厚改变了thin薄。"
+          },
+          {
+            "id": "solid",
+            "text": "整个内部已经完全冻实。",
+            "correct": false,
+            "reason": "表面有冰不能推出整个内部冻实。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "薄冰在哪里？分别换厚薄和位置。",
+          "sceneLab": {
+            "id": "surface-ice-layer",
+            "title": "冰层厚薄与覆盖位置",
+            "hint": "分别换薄／厚和表面／内部，回原句核对。",
+            "wrong": "应是薄冰覆盖表面，不是厚冰或内部结冰。",
+            "axes": [
+              {
+                "id": "thickness",
+                "label": "冰层厚薄",
+                "choices": [
+                  {
+                    "id": "thin",
+                    "label": "薄"
+                  },
+                  {
+                    "id": "thick",
+                    "label": "厚"
+                  }
+                ]
+              },
+              {
+                "id": "position",
+                "label": "冰的位置",
+                "choices": [
+                  {
+                    "id": "surface",
+                    "label": "表面"
+                  },
+                  {
+                    "id": "inside",
+                    "label": "内部"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "表面与内部：剖面示意"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "表面"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 39,
+                    "width": 80,
+                    "height": 37,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "内部"
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厚薄待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|surface",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "表面与内部：剖面示意"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "表面"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 39,
+                    "width": 80,
+                    "height": 37,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "内部"
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厚薄待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|inside",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "表面与内部：剖面示意"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "表面"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 39,
+                    "width": 80,
+                    "height": 37,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "内部"
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厚薄待选"
+                  }
+                ]
+              },
+              {
+                "signature": "thin|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "表面与内部：剖面示意"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "表面"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 39,
+                    "width": 80,
+                    "height": 37,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "内部"
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "薄薄一层"
+                  }
+                ]
+              },
+              {
+                "signature": "thin|surface",
+                "reading": "薄薄一层冰覆盖了表面。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "表面与内部：剖面示意"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "表面"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 39,
+                    "width": 80,
+                    "height": 37,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "内部"
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "薄薄一层"
+                  },
+                  {
+                    "id": "ice",
+                    "kind": "rect",
+                    "x": 11,
+                    "y": 39,
+                    "width": 78,
+                    "height": 3,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "thin|inside",
+                "reading": "应是薄冰覆盖表面，不是厚冰或内部结冰。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "表面与内部：剖面示意"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "表面"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 39,
+                    "width": 80,
+                    "height": 37,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "内部"
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "薄薄一层"
+                  },
+                  {
+                    "id": "ice",
+                    "kind": "rect",
+                    "x": 11,
+                    "y": 52,
+                    "width": 78,
+                    "height": 3,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "thick|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "表面与内部：剖面示意"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "表面"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 39,
+                    "width": 80,
+                    "height": 37,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "内部"
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厚厚一层"
+                  }
+                ]
+              },
+              {
+                "signature": "thick|surface",
+                "reading": "应是薄冰覆盖表面，不是厚冰或内部结冰。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "表面与内部：剖面示意"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "表面"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 39,
+                    "width": 80,
+                    "height": 37,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "内部"
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厚厚一层"
+                  },
+                  {
+                    "id": "ice",
+                    "kind": "rect",
+                    "x": 11,
+                    "y": 39,
+                    "width": 78,
+                    "height": 10,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "thick|inside",
+                "reading": "应是薄冰覆盖表面，不是厚冰或内部结冰。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "表面与内部：剖面示意"
+                  },
+                  {
+                    "id": "surface-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "表面"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 39,
+                    "width": 80,
+                    "height": 37,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 10,
+                    "tone": "ink",
+                    "text": "内部"
+                  },
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厚厚一层"
+                  },
+                  {
+                    "id": "ice",
+                    "kind": "rect",
+                    "x": 11,
+                    "y": 52,
+                    "width": 78,
+                    "height": 10,
+                    "tone": "blue"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-depth",
+        "label": "深度",
+        "prompt": "谁提醒谁，注意什么？有没有给几米深？",
+        "answer": "depth",
+        "caseSensitive": false,
+        "meaning": "深度",
+        "before": "The sign warns visitors about the ",
+        "after": " of the water.",
+        "reason": "标牌提醒游客注意水深；depth是名词，原句没有给确切米数或允许下水。",
+        "hint": "分别核对提醒对象和提醒内容。",
+        "material": "The sign warns visitors about the depth of the water.",
+        "options": [
+          {
+            "id": "warning",
+            "text": "标牌提醒游客注意水深。",
+            "correct": true,
+            "reason": "保留sign、warns visitors与depth of the water。"
+          },
+          {
+            "id": "number",
+            "text": "原句写出了确切的水深米数。",
+            "correct": false,
+            "reason": "原句只有depth，没有数值。"
+          },
+          {
+            "id": "permission",
+            "text": "标牌允许游客下水游泳。",
+            "correct": false,
+            "reason": "warns提醒注意，不是允许游泳。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁提醒谁，注意什么？有没有给几米深？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "警示对象与内容",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "有水深提醒，没有确切米数或下水许可。",
+            "wrong": "应圈出标牌提醒游客以及提醒内容是水深。",
+            "rows": [
+              {
+                "id": "number",
+                "label": "额外数值",
+                "text": "原句给了确切水深米数。",
+                "include": false
+              },
+              {
+                "id": "audience",
+                "label": "提醒对象",
+                "text": "标牌提醒游客。",
+                "include": true
+              },
+              {
+                "id": "permission",
+                "label": "额外许可",
+                "text": "标牌允许游客游泳。",
+                "include": false
+              },
+              {
+                "id": "depth",
+                "label": "提醒内容",
+                "text": "注意水的深度。",
+                "include": true
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-outdoor-land-5-transfer",
+      "topicId": "v-course-outdoor-land",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "先后、视野和冰层厚薄都改了，哪组英文全保留？",
+      "passage": "三条新信息\n下雨前，景观已经变绿。从塔上看到的港口景色范围很窄。厚厚一层冰覆盖了表面。\n词语提示：narrow 狭窄的；thick 厚的。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The landscape turned green before the rain. The tower gives a narrow view of the harbour. A thick layer of ice covered the surface."
+        },
+        {
+          "id": "b",
+          "text": "The landscape turned green after the rain. The tower gives a narrow view of the harbour. A thick layer of ice covered the surface."
+        },
+        {
+          "id": "c",
+          "text": "The landscape turned green before the rain. The tower gives a wide view of the harbour. A thick layer of ice covered the surface."
+        },
+        {
+          "id": "d",
+          "text": "The landscape turned green before the rain. The tower gives a narrow view of the harbour. A thin layer of ice covered the surface."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The landscape turned green before the rain. The tower gives a narrow view of the harbour. A thick layer of ice covered the surface."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对变绿先后、视野宽窄和冰层厚薄。",
+        "steps": [
+          {
+            "text": "下雨前变绿：turned green before the rain。",
+            "reason": "before是之前，不能沿用旧句after之后。"
+          },
+          {
+            "text": "视野窄：a narrow view of the harbour。",
+            "reason": "narrow改变范围，所见景物仍是港口。"
+          },
+          {
+            "text": "厚冰覆盖表面：A thick layer of ice covered the surface。",
+            "reason": "thick是厚；没有说内部全冻住，也不推断承重。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "after把下雨前改成下雨后。"
+          },
+          {
+            "option": "c",
+            "reason": "wide把狭窄视野改成广阔。"
+          },
+          {
+            "option": "d",
+            "reason": "thin把厚冰改成薄冰。"
+          }
+        ],
+        "pitfall": "不要沿用原句里的after、wide和thin；每个新条件都要重新核对。",
+        "visual": {
+          "kind": "comparison",
+          "title": "逐项换新条件",
+          "segments": [
+            {
+              "text": "turned green → rain",
+              "role": "evidence",
+              "note": "变绿在先，下雨在后"
+            },
+            {
+              "text": "narrow view",
+              "role": "evidence",
+              "note": "所见范围窄"
+            },
+            {
+              "text": "thick ice layer",
+              "role": "evidence",
+              "note": "冰层厚"
+            }
+          ],
+          "caption": "原句没有给天数、视角、冰层厚度或承重；新题也不补这些数值。"
+        },
+        "transfer": "把before、narrow、thick各换成相反条件，哪条信息随之改变？"
+      }
+    }
+  }
+}

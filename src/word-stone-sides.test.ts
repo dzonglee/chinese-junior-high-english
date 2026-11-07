@@ -1,0 +1,9 @@
+import{describe,it,expect}from'vitest'
+import{validWordStoneSides,stoneSidesMatch,changeStoneSides,wordStoneSidesView}from'./core/word-stone-sides'
+const x={title:'果核两侧',hint:'只调示意切线。',wrong:'两侧都要保留。'}
+describe('both sides of the fruit stone',()=>{
+ it('requires both side lines and rejects any line through the stone',()=>{for(let n=0;n<8;n++){const raw=n?String(n):'';expect(stoneSidesMatch(x,raw)).toBe(n===3);const v=wordStoneSidesView(x,raw);expect(v.lines.length).toBe([1,2,4].filter(b=>n&b).length);expect(v.choices.filter(c=>c.selected)).toHaveLength(v.lines.length);if(n&4)expect(v.reading).toContain('穿过果核')}})
+ it('toggles each line independently in either order',()=>{for(const order of[['left','right'],['right','left']]){let s='';for(const a of order)s=changeStoneSides(x,s,a)!;expect(s).toBe('3');expect(stoneSidesMatch(x,s)).toBe(true);s=changeStoneSides(x,s,'through')!;expect(s).toBe('7');expect(stoneSidesMatch(x,s)).toBe(false);expect(changeStoneSides(x,s,'through')).toBe('3');expect(changeStoneSides(x,'1','left')).toBe('')}})
+ it('keeps either-side lines outside the schematic stone and rejects malformed states',()=>{const v=wordStoneSidesView(x,'3');expect(v.lines.map(l=>l.left)).toEqual([32,68]);expect(v.lines[0].left).toBeLessThan(41);expect(v.lines[1].left).toBeGreaterThan(59);for(const s of['0','8','-1','3:4','03','__proto__']){expect(changeStoneSides(x,s,'left')).toBeUndefined();expect(wordStoneSidesView(x,s).lines).toEqual([]);expect(changeStoneSides(x,s,'reset')).toBe('')}expect(changeStoneSides(x,'','middle')).toBeUndefined()})
+ it('bounds metadata and never supplies an initial line',()=>{expect(validWordStoneSides(x)).toBe(true);for(const v of[null,[],{...x,knife:true},{...x,title:' '},{...x,wrong:'a'.repeat(141)}])expect(validWordStoneSides(v)).toBe(false);const v=wordStoneSidesView(x,'');expect(v.lines).toEqual([]);v.choices[0].selected=true;expect(wordStoneSidesView(x,'').choices.some(c=>c.selected)).toBe(false)})
+})

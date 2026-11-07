@@ -1,0 +1,342 @@
+{
+  "lessonId": "l-s-opinion",
+  "reviewState": "draft",
+  "intent": "Individual spoken opinion preparation connects a clear personal stance with two distinct reasons, a practical inclusive participation plan and respectful response. Reference opposition is optional.",
+  "picturePurpose": "Coded branching reason and participation cards expose coherent relationships without inventing social outcomes or assigning correctness to a personal stance. Actual speech remains separate.",
+  "workshop": {
+    "kind": "compose",
+    "title": "观点有理由，参与有办法",
+    "instruction": "先看任务需要什么，再把不同示例的理由和办法接起来。可以有自己的观点；不要只背参考中的反对结论。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "观点、两个理由、参与办法",
+        "prompt": "原题要求哪些内容？怎样表达不同意见？",
+        "answer": "",
+        "reason": "任务和语气已核对。再检查自己的表达是否有明确观点，而不是只贴标签。",
+        "hint": "可以支持、反对或提出有条件的观点；必须解释两个理由，并提出让更多人参与的办法。参考中的反对观点不是唯一答案。",
+        "material": "有人认为小组活动中应当总由英语最好的同学发言。说 45—60 秒，表明观点，给出两个理由，并提出一种让更多人参与的办法。",
+        "composeBrief": {
+          "title": "先搭任务骨架",
+          "hint": "观点后要有两个理由和参与办法。",
+          "wrong": "只说赞成或反对不够；不能用贬低同学替代理由。",
+          "fields": [
+            {
+              "id": "parts",
+              "label": "哪种组织回应原题？",
+              "answer": "complete",
+              "choices": [
+                {
+                  "id": "repeat",
+                  "label": "Repeat the same opinion without explaining it."
+                },
+                {
+                  "id": "complete",
+                  "label": "State a view, explain two reasons and suggest a way for more people to participate."
+                },
+                {
+                  "id": "change",
+                  "label": "State an opinion and one reason, but leave out a participation plan."
+                }
+              ]
+            },
+            {
+              "id": "tone",
+              "label": "怎样评价有不同想法的同学？",
+              "answer": "respect",
+              "choices": [
+                {
+                  "id": "insult",
+                  "label": "Your English needs work, so let me make every decision."
+                },
+                {
+                  "id": "respect",
+                  "label": "I see your point, but I think we should consider another approach."
+                },
+                {
+                  "id": "silence",
+                  "label": "We have chosen a speaker; there is no need to hear other views."
+                }
+              ]
+            },
+            {
+              "id": "duration",
+              "label": "本题的实际开口目标",
+              "answer": "seconds",
+              "choices": [
+                {
+                  "id": "words",
+                  "label": "只打45—60个词就完成了说话"
+                },
+                {
+                  "id": "seconds",
+                  "label": "说45—60秒，实际开口后回听"
+                },
+                {
+                  "id": "minutes",
+                  "label": "只保存提纲，不实际开口"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "两种观点，理由各自接得上",
+        "prompt": "哪两个理由能支持所选的示例观点？",
+        "answer": "",
+        "reason": "示例观点与两个不同理由已对齐。自己的观点也要说明为什么，避免重复同一个理由。",
+        "hint": "这里比较两种可讨论的示例，不给你的个人立场判对错。也可以提出其他合理观点和理由。",
+        "material": "有人认为小组活动中应当总由英语最好的同学发言。说 45—60 秒，表明观点，给出两个理由，并提出一种让更多人参与的办法。",
+        "composeBrief": {
+          "title": "观点 → 理由一 → 理由二",
+          "hint": "选一个示例，把两个不同的支持理由接上。",
+          "wrong": "理由要支持所选观点；一个观点换句话说两次，仍然不是两个理由。",
+          "fields": [
+            {
+              "id": "view",
+              "label": "比较哪种示例？",
+              "answer": "rotate",
+              "choices": [
+                {
+                  "id": "rotate",
+                  "label": "示例一：不应总由同一位英语较好的同学发言，应轮流练习"
+                },
+                {
+                  "id": "lead",
+                  "label": "示例二：英语较好的同学可主讲，同时让其他成员参与准备与练习"
+                }
+              ]
+            },
+            {
+              "id": "reason-one",
+              "label": "第一个对应理由",
+              "answer": "practice",
+              "choices": [
+                {
+                  "id": "practice",
+                  "label": "Rotating speakers gives more members a chance to practise."
+                },
+                {
+                  "id": "clarity",
+                  "label": "An experienced speaker can help the group present its answer clearly."
+                },
+                {
+                  "id": "nothing",
+                  "label": "That is the view I prefer."
+                }
+              ]
+            },
+            {
+              "id": "reason-two",
+              "label": "第二个不同的对应理由",
+              "answer": "ideas",
+              "choices": [
+                {
+                  "id": "ideas",
+                  "label": "Different speakers may bring different ideas to the discussion."
+                },
+                {
+                  "id": "learning",
+                  "label": "Other members can learn from helping prepare and rehearsing together."
+                },
+                {
+                  "id": "repeat",
+                  "label": "I prefer rotating the speaker."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "view",
+            "answers": {
+              "rotate": {
+                "reason-one": "practice",
+                "reason-two": "ideas"
+              },
+              "lead": {
+                "reason-one": "clarity",
+                "reason-two": "learning"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "办法让更多人真正参与",
+        "prompt": "怎样把所选示例变成能做的参与办法？",
+        "answer": "",
+        "reason": "参与办法与示例安排已对齐。再说清自己的小组由谁做什么，而不是只说大家都要参与。",
+        "hint": "轮流发言、分担部分、共同准备后练习等都是可讨论的办法。不能把主讲者以外的人排除在准备和练习之外。",
+        "material": "有人认为小组活动中应当总由英语最好的同学发言。说 45—60 秒，表明观点，给出两个理由，并提出一种让更多人参与的办法。",
+        "composeBrief": {
+          "title": "谁做什么，怎样一起准备",
+          "hint": "选择一种示例安排，再把具体参与动作接上。",
+          "wrong": "办法要让更多人参与；只夸主讲者或让其他人旁观，没有完成任务。",
+          "fields": [
+            {
+              "id": "plan",
+              "label": "比较哪种示例安排？",
+              "answer": "rotate",
+              "choices": [
+                {
+                  "id": "rotate",
+                  "label": "轮流当发言者，其余成员协助准备"
+                },
+                {
+                  "id": "lead",
+                  "label": "英语较好的同学主讲，其余成员共同准备并练习自己的部分"
+                }
+              ]
+            },
+            {
+              "id": "action",
+              "label": "怎样落实这项安排？",
+              "answer": "turns",
+              "choices": [
+                {
+                  "id": "turns",
+                  "label": "Take turns speaking, with the group helping each speaker prepare."
+                },
+                {
+                  "id": "prepare",
+                  "label": "Let everyone prepare ideas and rehearse a short part before the main speaker presents."
+                },
+                {
+                  "id": "watch",
+                  "label": "Let the main speaker prepare everything while the others only listen."
+                }
+              ]
+            },
+            {
+              "id": "discussion",
+              "label": "别人担心表达不够流利时，怎样继续讨论？",
+              "answer": "trial",
+              "choices": [
+                {
+                  "id": "trial",
+                  "label": "Could we prepare together and try the arrangement for one activity?"
+                },
+                {
+                  "id": "attack",
+                  "label": "That concern is not worth discussing."
+                },
+                {
+                  "id": "refuse",
+                  "label": "We should keep the plan without discussing any concerns."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "plan",
+            "answers": {
+              "rotate": {
+                "action": "turns",
+                "discussion": "trial"
+              },
+              "lead": {
+                "action": "prepare",
+                "discussion": "trial"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-opinion-transfer",
+      "topicId": "s-opinion",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "Which outline responds fully and respectfully to this new task?",
+      "passage": "A new group decision\nSome classmates think the best artist should always design the class poster alone. Prepare a 45–60-second talk. State your view, give two reasons and suggest one practical way for more classmates to contribute. Your view may differ from the reference example if you explain it clearly.",
+      "options": [
+        {
+          "id": "a",
+          "text": "State a view about poster design and give one reason, but omit ways for others to contribute."
+        },
+        {
+          "id": "b",
+          "text": "State a view about poster design, give two relevant reasons and explain a practical way for more classmates to contribute."
+        },
+        {
+          "id": "c",
+          "text": "Discuss only how to travel to school by bus."
+        },
+        {
+          "id": "d",
+          "text": "Give two reasons for a design choice, but leave the whole poster to one student and give no role to classmates."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "State a view about poster design, give two relevant reasons and explain a practical way for more classmates to contribute."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "换了讨论对象，也要保留观点、两个理由和具体参与办法。",
+        "steps": [
+          {
+            "text": "讨论这次的海报设计，而不是照搬英语发言或出行内容。",
+            "reason": "表达必须回应新的讨论对象。"
+          },
+          {
+            "text": "给出明确观点和两个理由，再说明更多同学怎样参与。",
+            "reason": "可以有不同观点，但不能漏掉任务要求或贬低同学。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "只有一个理由，也没有提出让其他同学参与的办法。"
+          },
+          {
+            "option": "c",
+            "reason": "出行话题没有回应海报设计。"
+          },
+          {
+            "option": "d",
+            "reason": "虽然有两个理由，但没有让更多同学参与的具体办法。"
+          }
+        ],
+        "pitfall": "背下一个反对结论，却没有回应新对象、解释理由或落实参与办法。",
+        "visual": {
+          "kind": "comparison",
+          "title": "观点可以不同，任务要完整",
+          "segments": [
+            {
+              "text": "poster design → my view",
+              "role": "evidence",
+              "note": "新的讨论对象"
+            },
+            {
+              "text": "reason 1 + reason 2",
+              "role": "evidence",
+              "note": "两个不同理由"
+            },
+            {
+              "text": "more classmates → specific roles",
+              "role": "evidence",
+              "note": "可执行的参与办法"
+            }
+          ],
+          "caption": "评价办法，不贬低同学。"
+        },
+        "transfer": "如果有人担心分工会变慢，你能怎样回应并提出一次可执行的尝试？"
+      }
+    }
+  }
+}

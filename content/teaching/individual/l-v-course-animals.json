@@ -1,0 +1,3154 @@
+{
+  "lessonId": "l-v-course-animals",
+  "reviewState": "draft",
+  "intent": "Teach each-animal needs, daily pet care, patient back-door waiting, sunlight sleeping, puppy and mouse identification, kitten size sufficiency and rabbit disappearance into a hedge.",
+  "picturePurpose": "Original young-animal/biological-mouse/computer-mouse comparison plus five reversible condition diagrams and one exact evidence selection; no illustrated action substitutes for reading the source.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "看动物，读准它的动作",
+    "instruction": "安排每天的照料，改变位置与大小，再用句中线索辨认动物。",
+    "items": [
+      {
+        "id": "word-animal",
+        "label": "动物",
+        "prompt": "each说每一个。它们需要同一种住处，还是适合各自的住处？",
+        "answer": "animal",
+        "caseSensitive": false,
+        "meaning": "动物",
+        "before": "Each ",
+        "after": " needs a suitable place to live.",
+        "reason": "Each animal逐个说每只动物；suitable是适宜，不等于所有动物住处相同。",
+        "hint": "each后接单数animal，直接说Each animal，不加an。",
+        "material": "Each animal needs a suitable place to live.",
+        "options": [
+          {
+            "id": "each",
+            "text": "每只动物都需要适宜的住处。",
+            "correct": true,
+            "reason": "保留Each animal与suitable place to live。"
+          },
+          {
+            "id": "same",
+            "text": "所有动物必须住在同一种环境里。",
+            "correct": false,
+            "reason": "同一种扩大了suitable适宜的意思。"
+          },
+          {
+            "id": "few",
+            "text": "只有少数动物需要住处。",
+            "correct": false,
+            "reason": "少数改变了Each每一个。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "each说每一个。它们需要同一种住处，还是适合各自的住处？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "每一个与适宜的住处",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "每只都需要适宜的住处；不要求住处相同。",
+            "wrong": "应保留每只动物和适宜生活地点，不补相同或少数。",
+            "rows": [
+              {
+                "id": "each",
+                "label": "范围",
+                "text": "每只动物。",
+                "include": true
+              },
+              {
+                "id": "same",
+                "label": "额外统一要求",
+                "text": "所有动物的住处必须相同。",
+                "include": false
+              },
+              {
+                "id": "place",
+                "label": "需要",
+                "text": "适宜的生活地点。",
+                "include": true
+              },
+              {
+                "id": "few",
+                "label": "改动范围",
+                "text": "只有少数动物需要住处。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-pet",
+        "label": "宠物",
+        "prompt": "只照料周末够不够？切换一周的照料安排。",
+        "answer": "pet",
+        "caseSensitive": false,
+        "meaning": "宠物",
+        "before": "A ",
+        "after": " needs care every day, not just at weekends.",
+        "reason": "every day是每天，not just at weekends排除只在周末照料；需要不等于已经完成。",
+        "hint": "看一周每天是否都包含在需要照料的范围。",
+        "material": "A pet needs care every day, not just at weekends.",
+        "options": [
+          {
+            "id": "daily",
+            "text": "宠物每天都需要照料。",
+            "correct": true,
+            "reason": "保留every day和not just at weekends。"
+          },
+          {
+            "id": "weekend",
+            "text": "宠物只在周末需要照料。",
+            "correct": false,
+            "reason": "只在周末正是not just排除的理解。"
+          },
+          {
+            "id": "done",
+            "text": "原句报告这一周照料都已完成。",
+            "correct": false,
+            "reason": "needs说需要，没有报告已完成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "只照料周末够不够？切换一周的照料安排。",
+          "sceneLab": {
+            "id": "pet-care-days",
+            "title": "每天还是只在周末",
+            "hint": "切换照料需要覆盖的日子，核对every day。",
+            "wrong": "应每天都需要照料，不是只在周末。",
+            "axes": [
+              {
+                "id": "frequency",
+                "label": "需要照料的范围",
+                "choices": [
+                  {
+                    "id": "daily",
+                    "label": "每天"
+                  },
+                  {
+                    "id": "weekend",
+                    "label": "只在周末"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "一周中需要照料的日子"
+                  },
+                  {
+                    "id": "legend",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "一至日：周一至周日"
+                  },
+                  {
+                    "id": "day-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-0",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "day-1",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-1",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "day-2",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-2",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "day-3",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-3",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "day-4",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-4",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "day-5",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-5",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "day-6",
+                    "kind": "rect",
+                    "x": 83,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-6",
+                    "kind": "label",
+                    "x": 83,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "日"
+                  }
+                ]
+              },
+              {
+                "signature": "daily",
+                "reading": "宠物每天都需要照料。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "一周中需要照料的日子"
+                  },
+                  {
+                    "id": "legend",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "一至日：周一至周日"
+                  },
+                  {
+                    "id": "day-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": false
+                  },
+                  {
+                    "id": "label-0",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "day-1",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": false
+                  },
+                  {
+                    "id": "label-1",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "day-2",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": false
+                  },
+                  {
+                    "id": "label-2",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "day-3",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": false
+                  },
+                  {
+                    "id": "label-3",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "day-4",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": false
+                  },
+                  {
+                    "id": "label-4",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "day-5",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": false
+                  },
+                  {
+                    "id": "label-5",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "day-6",
+                    "kind": "rect",
+                    "x": 83,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": false
+                  },
+                  {
+                    "id": "label-6",
+                    "kind": "label",
+                    "x": 83,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "日"
+                  }
+                ]
+              },
+              {
+                "signature": "weekend",
+                "reading": "应每天都需要照料，不是只在周末。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "一周中需要照料的日子"
+                  },
+                  {
+                    "id": "legend",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "一至日：周一至周日"
+                  },
+                  {
+                    "id": "day-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-0",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "一"
+                  },
+                  {
+                    "id": "day-1",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-1",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "二"
+                  },
+                  {
+                    "id": "day-2",
+                    "kind": "rect",
+                    "x": 31,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-2",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "三"
+                  },
+                  {
+                    "id": "day-3",
+                    "kind": "rect",
+                    "x": 44,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-3",
+                    "kind": "label",
+                    "x": 44,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "四"
+                  },
+                  {
+                    "id": "day-4",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "label-4",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "五"
+                  },
+                  {
+                    "id": "day-5",
+                    "kind": "rect",
+                    "x": 70,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": false
+                  },
+                  {
+                    "id": "label-5",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "六"
+                  },
+                  {
+                    "id": "day-6",
+                    "kind": "rect",
+                    "x": 83,
+                    "y": 38,
+                    "width": 11,
+                    "height": 24,
+                    "tone": "teal",
+                    "outline": false
+                  },
+                  {
+                    "id": "label-6",
+                    "kind": "label",
+                    "x": 83,
+                    "y": 42,
+                    "width": 11,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "日"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-dog",
+        "label": "狗",
+        "prompt": "后门还是前门？在门旁还是门里？移动标记试试。",
+        "answer": "dog",
+        "caseSensitive": false,
+        "meaning": "狗",
+        "before": "The ",
+        "after": " waited patiently by the back door.",
+        "reason": "by the back door是在后门旁；patiently是耐心地，waited是等候，不是跑走。",
+        "hint": "门的位置、狗的位置与等候方式分别核对。",
+        "material": "The dog waited patiently by the back door.",
+        "options": [
+          {
+            "id": "back-beside",
+            "text": "狗耐心地在后门旁等候。",
+            "correct": true,
+            "reason": "保留patiently、by与back door。"
+          },
+          {
+            "id": "front",
+            "text": "狗耐心地在前门旁等候。",
+            "correct": false,
+            "reason": "front前改变了back后。"
+          },
+          {
+            "id": "ran",
+            "text": "狗不耐烦地从后门跑开。",
+            "correct": false,
+            "reason": "跑开和不耐烦都改变了waited patiently。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "后门还是前门？在门旁还是门里？移动标记试试。",
+          "sceneLab": {
+            "id": "dog-door-position",
+            "title": "门与狗的位置",
+            "hint": "换前门／后门、门旁／门里，核对by the back door。",
+            "wrong": "应在后门旁，不能换成前门或门里。",
+            "axes": [
+              {
+                "id": "door",
+                "label": "哪扇门",
+                "choices": [
+                  {
+                    "id": "back",
+                    "label": "后门"
+                  },
+                  {
+                    "id": "front",
+                    "label": "前门"
+                  }
+                ]
+              },
+              {
+                "id": "position",
+                "label": "狗的位置",
+                "choices": [
+                  {
+                    "id": "beside",
+                    "label": "门旁"
+                  },
+                  {
+                    "id": "inside",
+                    "label": "门里"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "门与狗：位置示意"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 30,
+                    "width": 31,
+                    "height": 42,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "door-label",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 77,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "门待选"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|beside",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "门与狗：位置示意"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 30,
+                    "width": 31,
+                    "height": 42,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "door-label",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 77,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "门待选"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "门旁"
+                  },
+                  {
+                    "id": "dog",
+                    "kind": "ellipse",
+                    "x": 20,
+                    "y": 48,
+                    "width": 15,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "dog-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 49,
+                    "width": 26,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "狗"
+                  }
+                ]
+              },
+              {
+                "signature": "?|inside",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "门与狗：位置示意"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 30,
+                    "width": 31,
+                    "height": 42,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "door-label",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 77,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "门待选"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "门里"
+                  },
+                  {
+                    "id": "dog",
+                    "kind": "ellipse",
+                    "x": 62,
+                    "y": 48,
+                    "width": 15,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "dog-label",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 49,
+                    "width": 26,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "狗"
+                  }
+                ]
+              },
+              {
+                "signature": "back|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "门与狗：位置示意"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 30,
+                    "width": 31,
+                    "height": 42,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "door-label",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 77,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "后门"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "back|beside",
+                "reading": "狗耐心地在后门旁等候。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "门与狗：位置示意"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 30,
+                    "width": 31,
+                    "height": 42,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "door-label",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 77,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "后门"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "门旁"
+                  },
+                  {
+                    "id": "dog",
+                    "kind": "ellipse",
+                    "x": 20,
+                    "y": 48,
+                    "width": 15,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "dog-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 49,
+                    "width": 26,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "狗"
+                  }
+                ]
+              },
+              {
+                "signature": "back|inside",
+                "reading": "应在后门旁，不能换成前门或门里。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "门与狗：位置示意"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 30,
+                    "width": 31,
+                    "height": 42,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "door-label",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 77,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "后门"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "门里"
+                  },
+                  {
+                    "id": "dog",
+                    "kind": "ellipse",
+                    "x": 62,
+                    "y": 48,
+                    "width": 15,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "dog-label",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 49,
+                    "width": 26,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "狗"
+                  }
+                ]
+              },
+              {
+                "signature": "front|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "门与狗：位置示意"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 30,
+                    "width": 31,
+                    "height": 42,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "door-label",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 77,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "前门"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "front|beside",
+                "reading": "应在后门旁，不能换成前门或门里。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "门与狗：位置示意"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 30,
+                    "width": 31,
+                    "height": 42,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "door-label",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 77,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "前门"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "门旁"
+                  },
+                  {
+                    "id": "dog",
+                    "kind": "ellipse",
+                    "x": 20,
+                    "y": 48,
+                    "width": 15,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "dog-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 49,
+                    "width": 26,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "狗"
+                  }
+                ]
+              },
+              {
+                "signature": "front|inside",
+                "reading": "应在后门旁，不能换成前门或门里。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "门与狗：位置示意"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 30,
+                    "width": 31,
+                    "height": 42,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "door-label",
+                    "kind": "label",
+                    "x": 47,
+                    "y": 77,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "前门"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "门里"
+                  },
+                  {
+                    "id": "dog",
+                    "kind": "ellipse",
+                    "x": 62,
+                    "y": 48,
+                    "width": 15,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "dog-label",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 49,
+                    "width": 26,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "狗"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-cat",
+        "label": "猫",
+        "prompt": "在阳光里睡觉，还是在阴影里醒着？切换两项。",
+        "answer": "cat",
+        "caseSensitive": false,
+        "meaning": "猫",
+        "before": "Our ",
+        "after": " sleeps in a patch of sunlight.",
+        "reason": "sleeps是睡觉，in a patch of sunlight是在一小片阳光里；没有说一整天都如此。",
+        "hint": "动作和光照位置要同时对上。",
+        "material": "Our cat sleeps in a patch of sunlight.",
+        "options": [
+          {
+            "id": "sleep-sun",
+            "text": "我们的猫在一小片阳光里睡觉。",
+            "correct": true,
+            "reason": "保留sleeps与in a patch of sunlight。"
+          },
+          {
+            "id": "shade",
+            "text": "我们的猫在阴影里睡觉。",
+            "correct": false,
+            "reason": "阴影改变了sunlight阳光。"
+          },
+          {
+            "id": "awake",
+            "text": "我们的猫在阳光里醒着。",
+            "correct": false,
+            "reason": "醒着改变了sleeps睡觉。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "在阳光里睡觉，还是在阴影里醒着？切换两项。",
+          "sceneLab": {
+            "id": "cat-light-and-state",
+            "title": "光照位置与动作",
+            "hint": "分别换阳光／阴影、睡觉／醒着。",
+            "wrong": "应在阳光里睡觉，不能换成阴影或醒着。",
+            "axes": [
+              {
+                "id": "light",
+                "label": "光照位置",
+                "choices": [
+                  {
+                    "id": "sun",
+                    "label": "阳光里"
+                  },
+                  {
+                    "id": "shade",
+                    "label": "阴影里"
+                  }
+                ]
+              },
+              {
+                "id": "state",
+                "label": "动作状态",
+                "choices": [
+                  {
+                    "id": "sleep",
+                    "label": "睡觉"
+                  },
+                  {
+                    "id": "awake",
+                    "label": "醒着"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光照位置与猫的动作"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "光照待选"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  },
+                  {
+                    "id": "cat",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 44,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "cat-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "猫"
+                  }
+                ]
+              },
+              {
+                "signature": "?|sleep",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光照位置与猫的动作"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "光照待选"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "睡觉"
+                  },
+                  {
+                    "id": "cat",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 44,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "cat-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "猫"
+                  },
+                  {
+                    "id": "eye-left",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 52,
+                    "width": 3,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "eye-right",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 52,
+                    "width": 3,
+                    "height": 1,
+                    "tone": "ink"
+                  }
+                ]
+              },
+              {
+                "signature": "?|awake",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光照位置与猫的动作"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "光照待选"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "醒着"
+                  },
+                  {
+                    "id": "cat",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 44,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "cat-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "猫"
+                  },
+                  {
+                    "id": "eye-left",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 52,
+                    "width": 3,
+                    "height": 3,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "eye-right",
+                    "kind": "ellipse",
+                    "x": 53,
+                    "y": 52,
+                    "width": 3,
+                    "height": 3,
+                    "tone": "ink"
+                  }
+                ]
+              },
+              {
+                "signature": "sun|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光照位置与猫的动作"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "一小片阳光"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  },
+                  {
+                    "id": "patch",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 40,
+                    "width": 62,
+                    "height": 31,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "cat",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 44,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "cat-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "猫"
+                  }
+                ]
+              },
+              {
+                "signature": "sun|sleep",
+                "reading": "我们的猫在一小片阳光里睡觉。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光照位置与猫的动作"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "一小片阳光"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "睡觉"
+                  },
+                  {
+                    "id": "patch",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 40,
+                    "width": 62,
+                    "height": 31,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "cat",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 44,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "cat-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "猫"
+                  },
+                  {
+                    "id": "eye-left",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 52,
+                    "width": 3,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "eye-right",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 52,
+                    "width": 3,
+                    "height": 1,
+                    "tone": "ink"
+                  }
+                ]
+              },
+              {
+                "signature": "sun|awake",
+                "reading": "应在阳光里睡觉，不能换成阴影或醒着。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光照位置与猫的动作"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "一小片阳光"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "醒着"
+                  },
+                  {
+                    "id": "patch",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 40,
+                    "width": 62,
+                    "height": 31,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "cat",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 44,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "cat-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "猫"
+                  },
+                  {
+                    "id": "eye-left",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 52,
+                    "width": 3,
+                    "height": 3,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "eye-right",
+                    "kind": "ellipse",
+                    "x": 53,
+                    "y": 52,
+                    "width": 3,
+                    "height": 3,
+                    "tone": "ink"
+                  }
+                ]
+              },
+              {
+                "signature": "shade|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光照位置与猫的动作"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阴影"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  },
+                  {
+                    "id": "patch",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 40,
+                    "width": 62,
+                    "height": 31,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "cat",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 44,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "cat-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "猫"
+                  }
+                ]
+              },
+              {
+                "signature": "shade|sleep",
+                "reading": "应在阳光里睡觉，不能换成阴影或醒着。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光照位置与猫的动作"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阴影"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "睡觉"
+                  },
+                  {
+                    "id": "patch",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 40,
+                    "width": 62,
+                    "height": 31,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "cat",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 44,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "cat-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "猫"
+                  },
+                  {
+                    "id": "eye-left",
+                    "kind": "rect",
+                    "x": 43,
+                    "y": 52,
+                    "width": 3,
+                    "height": 1,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "eye-right",
+                    "kind": "rect",
+                    "x": 53,
+                    "y": 52,
+                    "width": 3,
+                    "height": 1,
+                    "tone": "ink"
+                  }
+                ]
+              },
+              {
+                "signature": "shade|awake",
+                "reading": "应在阳光里睡觉，不能换成阴影或醒着。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "光照位置与猫的动作"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阴影"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "醒着"
+                  },
+                  {
+                    "id": "patch",
+                    "kind": "rect",
+                    "x": 19,
+                    "y": 40,
+                    "width": 62,
+                    "height": 31,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "cat",
+                    "kind": "ellipse",
+                    "x": 36,
+                    "y": 44,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "cat-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 65,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "猫"
+                  },
+                  {
+                    "id": "eye-left",
+                    "kind": "ellipse",
+                    "x": 43,
+                    "y": 52,
+                    "width": 3,
+                    "height": 3,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "eye-right",
+                    "kind": "ellipse",
+                    "x": 53,
+                    "y": 52,
+                    "width": 3,
+                    "height": 3,
+                    "tone": "ink"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-puppy",
+        "label": "小狗",
+        "prompt": "点出puppy。再读句子：它咬的是垫子的什么部位？",
+        "answer": "puppy",
+        "caseSensitive": false,
+        "meaning": "小狗",
+        "before": "The ",
+        "after": " chewed the corner of the mat.",
+        "reason": "puppy是小狗；chewed the corner只说咬了垫子的一角，不是吃掉整张垫子。",
+        "hint": "先辨小狗，再核对chewed和corner。",
+        "material": "The puppy chewed the corner of the mat.",
+        "options": [
+          {
+            "id": "puppy",
+            "text": "小狗。",
+            "correct": true,
+            "reason": "puppy指幼犬；句中咬的是垫子的一角。"
+          },
+          {
+            "id": "kitten",
+            "text": "小猫。",
+            "correct": false,
+            "reason": "小猫是kitten，不是puppy。"
+          },
+          {
+            "id": "mouse",
+            "text": "老鼠。",
+            "correct": false,
+            "reason": "老鼠是mouse，不是puppy。"
+          },
+          {
+            "id": "device",
+            "text": "电脑鼠标。",
+            "correct": false,
+            "reason": "电脑鼠标也叫mouse，不是puppy。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出puppy。再读句子：它咬的是垫子的什么部位？",
+          "art": {
+            "asset": "lesson-young-pets-mouse-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创四幅辨物图：左上幼犬，右上幼猫，左下长尾圆耳的小老鼠，右下有按键、滚轮和电线的电脑鼠标。无动作、篮子、面粉或脚印。",
+            "targets": [
+              {
+                "id": "puppy-target",
+                "option": "puppy",
+                "label": "小狗",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 3,
+                "width": 44,
+                "height": 43
+              },
+              {
+                "id": "kitten-target",
+                "option": "kitten",
+                "label": "小猫",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 3,
+                "width": 44,
+                "height": 43
+              },
+              {
+                "id": "mouse-target",
+                "option": "mouse",
+                "label": "老鼠",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 53,
+                "width": 44,
+                "height": 43
+              },
+              {
+                "id": "device-target",
+                "option": "device",
+                "label": "鼠标",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 53,
+                "width": 44,
+                "height": 43
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-kitten",
+        "label": "小猫",
+        "prompt": "小得能装进篮子，等于已经装进去了吗？换大小比较。",
+        "answer": "kitten",
+        "caseSensitive": false,
+        "meaning": "小猫",
+        "before": "The ",
+        "after": " was small enough to fit in a basket.",
+        "reason": "small enough to fit说明大小足够装进篮子；没有报告小猫已经在篮子里。",
+        "hint": "比较大小条件，不把“能装进”当成“已装进”。",
+        "material": "The kitten was small enough to fit in a basket.",
+        "options": [
+          {
+            "id": "fits",
+            "text": "小猫很小，能装进篮子。",
+            "correct": true,
+            "reason": "保留small enough to fit in a basket。"
+          },
+          {
+            "id": "too-big",
+            "text": "小猫太大，装不进篮子。",
+            "correct": false,
+            "reason": "装不进与small enough to fit相反。"
+          },
+          {
+            "id": "inside",
+            "text": "原句报告小猫已经放在篮子里。",
+            "correct": false,
+            "reason": "能放进不等于已经放进。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "小得能装进篮子，等于已经装进去了吗？换大小比较。",
+          "sceneLab": {
+            "id": "kitten-basket-size",
+            "title": "大小够不够装进篮子",
+            "hint": "并排比较示意大小；没有搬入篮子的动作。",
+            "wrong": "应是小得能装进，不是太大装不进。",
+            "axes": [
+              {
+                "id": "size",
+                "label": "小猫相对篮子的大小",
+                "choices": [
+                  {
+                    "id": "small",
+                    "label": "小得能装进"
+                  },
+                  {
+                    "id": "large",
+                    "label": "太大装不进"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "并排比较大小，没有放入动作"
+                  },
+                  {
+                    "id": "basket-opening",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 39,
+                    "width": 31,
+                    "height": 29,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitten-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 73,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "小猫"
+                  },
+                  {
+                    "id": "basket-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 73,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "篮子内部"
+                  },
+                  {
+                    "id": "size-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "大小待选"
+                  }
+                ]
+              },
+              {
+                "signature": "small",
+                "reading": "小猫很小，能装进篮子。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "并排比较大小，没有放入动作"
+                  },
+                  {
+                    "id": "basket-opening",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 39,
+                    "width": 31,
+                    "height": 29,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitten-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 73,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "小猫"
+                  },
+                  {
+                    "id": "basket-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 73,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "篮子内部"
+                  },
+                  {
+                    "id": "size-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "小得能装进"
+                  },
+                  {
+                    "id": "kitten",
+                    "kind": "ellipse",
+                    "x": 14,
+                    "y": 54,
+                    "width": 21,
+                    "height": 14,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "large",
+                "reading": "应是小得能装进，不是太大装不进。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "并排比较大小，没有放入动作"
+                  },
+                  {
+                    "id": "basket-opening",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 39,
+                    "width": 31,
+                    "height": 29,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitten-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 73,
+                    "width": 49,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "小猫"
+                  },
+                  {
+                    "id": "basket-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 73,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "篮子内部"
+                  },
+                  {
+                    "id": "size-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "太大，装不进"
+                  },
+                  {
+                    "id": "kitten",
+                    "kind": "ellipse",
+                    "x": 4,
+                    "y": 36,
+                    "width": 43,
+                    "height": 32,
+                    "tone": "blue"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-rabbit",
+        "label": "兔子",
+        "prompt": "进入树篱后还能看见吗？分别换位置与可见状态。",
+        "answer": "rabbit",
+        "caseSensitive": false,
+        "meaning": "兔子",
+        "before": "A ",
+        "after": " disappeared into the hedge.",
+        "reason": "into是进入；disappeared说不见了，不是在树篱外一直可见。",
+        "hint": "进入的方向和消失的结果要同时保留。",
+        "material": "A rabbit disappeared into the hedge.",
+        "options": [
+          {
+            "id": "inside-hidden",
+            "text": "兔子钻进树篱，不见了。",
+            "correct": true,
+            "reason": "保留disappeared into the hedge。"
+          },
+          {
+            "id": "outside",
+            "text": "兔子从树篱里出来了。",
+            "correct": false,
+            "reason": "出来改变了into进入。"
+          },
+          {
+            "id": "visible",
+            "text": "兔子一直在树篱外清楚可见。",
+            "correct": false,
+            "reason": "可见和外面都改变了原句。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "进入树篱后还能看见吗？分别换位置与可见状态。",
+          "sceneLab": {
+            "id": "rabbit-hedge-visibility",
+            "title": "位置与可见状态",
+            "hint": "换树篱内／外和可见／不见，核对disappeared into。",
+            "wrong": "应进入树篱后不见，不能换成外面或清楚可见。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "兔子到了哪里",
+                "choices": [
+                  {
+                    "id": "inside",
+                    "label": "树篱内"
+                  },
+                  {
+                    "id": "outside",
+                    "label": "树篱外"
+                  }
+                ]
+              },
+              {
+                "id": "visibility",
+                "label": "是否还能看见",
+                "choices": [
+                  {
+                    "id": "hidden",
+                    "label": "已经不见"
+                  },
+                  {
+                    "id": "visible",
+                    "label": "清楚可见"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树篱与兔子：位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "hedge",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 37,
+                    "width": 43,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "hedge-label",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 74,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱"
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "可见状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|hidden",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树篱与兔子：位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "hedge",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 37,
+                    "width": 43,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "hedge-label",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 74,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱"
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "已经不见"
+                  }
+                ]
+              },
+              {
+                "signature": "?|visible",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树篱与兔子：位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "hedge",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 37,
+                    "width": 43,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "hedge-label",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 74,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱"
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "清楚可见"
+                  }
+                ]
+              },
+              {
+                "signature": "inside|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树篱与兔子：位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱内"
+                  },
+                  {
+                    "id": "hedge",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 37,
+                    "width": 43,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "hedge-label",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 74,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱"
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "可见状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "inside|hidden",
+                "reading": "兔子钻进树篱，不见了。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树篱与兔子：位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱内"
+                  },
+                  {
+                    "id": "hedge",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 37,
+                    "width": 43,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "hedge-label",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 74,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱"
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "已经不见"
+                  }
+                ]
+              },
+              {
+                "signature": "inside|visible",
+                "reading": "应进入树篱后不见，不能换成外面或清楚可见。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树篱与兔子：位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱内"
+                  },
+                  {
+                    "id": "hedge",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 37,
+                    "width": 43,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "hedge-label",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 74,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱"
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "清楚可见"
+                  },
+                  {
+                    "id": "rabbit",
+                    "kind": "ellipse",
+                    "x": 63,
+                    "y": 49,
+                    "width": 17,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "rabbit-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 49,
+                    "width": 29,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "兔"
+                  }
+                ]
+              },
+              {
+                "signature": "outside|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树篱与兔子：位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱外"
+                  },
+                  {
+                    "id": "hedge",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 37,
+                    "width": 43,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "hedge-label",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 74,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱"
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "可见状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "outside|hidden",
+                "reading": "应进入树篱后不见，不能换成外面或清楚可见。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树篱与兔子：位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱外"
+                  },
+                  {
+                    "id": "hedge",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 37,
+                    "width": 43,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "hedge-label",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 74,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱"
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "已经不见"
+                  }
+                ]
+              },
+              {
+                "signature": "outside|visible",
+                "reading": "应进入树篱后不见，不能换成外面或清楚可见。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树篱与兔子：位置示意"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱外"
+                  },
+                  {
+                    "id": "hedge",
+                    "kind": "rect",
+                    "x": 50,
+                    "y": 37,
+                    "width": 43,
+                    "height": 34,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "hedge-label",
+                    "kind": "label",
+                    "x": 50,
+                    "y": 74,
+                    "width": 43,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "树篱"
+                  },
+                  {
+                    "id": "visibility",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "清楚可见"
+                  },
+                  {
+                    "id": "rabbit",
+                    "kind": "ellipse",
+                    "x": 16,
+                    "y": 49,
+                    "width": 17,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "rabbit-label",
+                    "kind": "label",
+                    "x": 10,
+                    "y": 49,
+                    "width": 29,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "兔"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-mouse",
+        "label": "老鼠（本句）",
+        "prompt": "谁会在面粉上留下脚印？点出本句里的mouse。",
+        "answer": "mouse",
+        "caseSensitive": false,
+        "meaning": "老鼠（本句）",
+        "before": "A ",
+        "after": " left tiny footprints in the flour.",
+        "reason": "footprints脚印说明mouse在这里是动物；flour是面粉，不是flower花。",
+        "hint": "用脚印和面粉判断词义，不选电脑鼠标。",
+        "material": "A mouse left tiny footprints in the flour.",
+        "options": [
+          {
+            "id": "puppy",
+            "text": "小狗。",
+            "correct": false,
+            "reason": "小狗是puppy，mouse在本句是老鼠。"
+          },
+          {
+            "id": "kitten",
+            "text": "小猫。",
+            "correct": false,
+            "reason": "小猫是kitten，mouse在本句是老鼠。"
+          },
+          {
+            "id": "mouse",
+            "text": "老鼠。",
+            "correct": true,
+            "reason": "长尾圆耳的动物对应mouse；句中在面粉上留下小脚印。"
+          },
+          {
+            "id": "device",
+            "text": "电脑鼠标。",
+            "correct": false,
+            "reason": "电脑鼠标不能像动物一样留下脚印；本句不取这个词义。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "谁会在面粉上留下脚印？点出本句里的mouse。",
+          "art": {
+            "asset": "lesson-young-pets-mouse-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创四幅辨物图：左上幼犬，右上幼猫，左下长尾圆耳的小老鼠，右下有按键、滚轮和电线的电脑鼠标。无动作、篮子、面粉或脚印。",
+            "targets": [
+              {
+                "id": "puppy-target",
+                "option": "puppy",
+                "label": "小狗",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 3,
+                "width": 44,
+                "height": 43
+              },
+              {
+                "id": "kitten-target",
+                "option": "kitten",
+                "label": "小猫",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 3,
+                "width": 44,
+                "height": 43
+              },
+              {
+                "id": "mouse-target",
+                "option": "mouse",
+                "label": "老鼠",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 53,
+                "width": 44,
+                "height": 43
+              },
+              {
+                "id": "device-target",
+                "option": "device",
+                "label": "鼠标",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 53,
+                "width": 44,
+                "height": 43
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-animals-transfer",
+      "topicId": "v-course-animals",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "门、光照和进出方向都改了，哪组英文全保留？",
+      "passage": "三条新信息\n狗耐心地在前门旁等候。我们的猫在一小片阴影里睡觉。一只兔子从树篱里出来了。\n词语提示：shade 阴影；come out of 从……里出来。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The dog waited patiently by the back door. Our cat sleeps in a patch of shade. A rabbit came out of the hedge."
+        },
+        {
+          "id": "b",
+          "text": "The dog waited patiently by the front door. Our cat sleeps in a patch of sunlight. A rabbit came out of the hedge."
+        },
+        {
+          "id": "c",
+          "text": "The dog waited patiently by the front door. Our cat sleeps in a patch of shade. A rabbit disappeared into the hedge."
+        },
+        {
+          "id": "d",
+          "text": "The dog waited patiently by the front door. Our cat sleeps in a patch of shade. A rabbit came out of the hedge."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "The dog waited patiently by the front door. Our cat sleeps in a patch of shade. A rabbit came out of the hedge."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对门的位置、光照条件与兔子的进出方向。",
+        "steps": [
+          {
+            "text": "前门旁：by the front door。",
+            "reason": "front是前，by仍是旁边，patiently耐心地保留。"
+          },
+          {
+            "text": "阴影里睡觉：sleeps in a patch of shade。",
+            "reason": "shade是阴影，不能沿用sunlight阳光。"
+          },
+          {
+            "text": "从树篱里出来：came out of the hedge。",
+            "reason": "out of是从里面出来，与into进入方向相反。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "back把前门改成后门。"
+          },
+          {
+            "option": "b",
+            "reason": "sunlight把阴影改成阳光。"
+          },
+          {
+            "option": "c",
+            "reason": "disappeared into把出来改成钻进去不见。"
+          }
+        ],
+        "pitfall": "熟悉动物名也要读新条件；不要把原句的back、sunlight和into带进来。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三条新条件",
+          "segments": [
+            {
+              "text": "front door",
+              "role": "evidence",
+              "note": "前门旁"
+            },
+            {
+              "text": "a patch of shade",
+              "role": "evidence",
+              "note": "一小片阴影"
+            },
+            {
+              "text": "came out of",
+              "role": "evidence",
+              "note": "从里面出来"
+            }
+          ],
+          "caption": "位置、光照和方向分别核对，不补动物年龄、数量或等待时间。"
+        },
+        "transfer": "把front换成back、out of换成into，分别改了哪条信息？"
+      }
+    }
+  }
+}

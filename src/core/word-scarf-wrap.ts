@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured clothing or weather claims. */
+export interface WordScarfWrap{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordScarfWrap(v:unknown):v is WordScarfWrap{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordScarfWrap;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordScarfWrapKey=(id:string)=>'workshopScarfWrap-'+id
+function decode(raw:string){if(raw==='')return{"manner": "?", "place": "?"};const m="^(\\?|loose|tight)\\|(\\?|neck|wrist)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{manner:v[1],place:v[2]}:null}
+export function changeScarfWrap(_w:WordScarfWrap,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["manner-loose", "manner-tight"].includes(action))return action.slice(7)+"|"+s.place;if(["place-neck", "place-wrist"].includes(action))return s.manner+"|"+action.slice(6);return undefined}
+export function scarfWrapMatch(_w:WordScarfWrap,raw:string){const s=decode(raw);return!!s&&s.manner==="loose"&&s.place==="neck"}
+export function wordScarfWrapView(w:WordScarfWrap,raw:string){const s=decode(raw)??{"manner": "?", "place": "?"};return{title:w.title,hint:w.hint,showLoop:s.manner!=='?'&&s.place!=='?',loopLeft:s.place==='neck'?28:72,loopSize:s.manner==='loose'?70:46,place:s.place,groups:[{label:"围的松紧",choices:[{"id": "manner-loose", "label": "松松地"}, {"id": "manner-tight", "label": "紧紧地"}].map(c=>({...c,selected:c.id==="manner-"+s.manner}))},{label:"围的位置",choices:[{"id": "place-neck", "label": "脖子上"}, {"id": "place-wrist", "label": "手腕上"}].map(c=>({...c,selected:c.id==="place-"+s.place}))}],reading:scarfWrapMatch(w,raw)?"按要求松松地围在脖子上；不是已围好的记录。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordScarfWrapView=ReturnType<typeof wordScarfWrapView>

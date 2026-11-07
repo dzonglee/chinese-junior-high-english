@@ -1,0 +1,8 @@
+/** A pattern counts shape instances; repeated kinds are allowed. */
+export interface WordPattern {title:string;hint:string;wrong:string}
+export interface WordPatternView {title:string;hint:string;count:number;reading:string;shapes:{id:string;kind:string;label:string}[];controls:{id:string;label:string;disabled:boolean}[]}
+export const wordPatternKey=(id:string)=>`workshopPattern-${id}`
+export function validWordPattern(value:unknown):value is WordPattern {if(!value||typeof value!=='object')return false;const w=value as WordPattern;return [[w.title,60],[w.hint,110],[w.wrong,140]].every(([s,max])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=(max as number))}
+export function patternMatch(raw:string):boolean{return /^[cts]{3}$/.test(raw)}
+export function changePattern(raw:string,action:string):string|undefined {if(action==='reset')return'';if(!/^[cts]{0,4}$/.test(raw))return undefined;if(action==='undo')return raw.length?raw.slice(0,-1):undefined;const symbol=action==='add-circle'?'c':action==='add-triangle'?'t':action==='add-square'?'s':undefined;return symbol&&raw.length<4?raw+symbol:undefined}
+export function wordPatternView(w:WordPattern,raw:string):WordPatternView {const safe=/^[cts]{0,4}$/.test(raw)?raw:'';return{title:w.title,hint:w.hint,count:safe.length,reading:`当前：${safe.length}个图形；目标：只用3个，可重复。`,shapes:[...safe].map((symbol,i)=>({id:String(i),kind:{c:'circle',t:'triangle',s:'square'}[symbol]!,label:{c:'圆形',t:'三角形',s:'正方形'}[symbol]!})),controls:[{id:'add-circle',label:'加一个圆形',disabled:safe.length===4},{id:'add-triangle',label:'加一个三角形',disabled:safe.length===4},{id:'add-square',label:'加一个正方形',disabled:safe.length===4},{id:'undo',label:'撤回上一个',disabled:!safe.length},{id:'reset',label:'重新拼',disabled:false}]}}

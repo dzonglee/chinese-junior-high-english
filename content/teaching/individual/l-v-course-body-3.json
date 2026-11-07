@@ -1,0 +1,503 @@
+{
+  "lessonId": "l-v-course-body-3",
+  "reviewState": "draft",
+  "intent": "Distinguish finger away from sharp edge without injury claim, thumb pressing page, pack high on back, chest rising versus box or downward, stomach pain after a ride without causal proof, apron around waist, injured leg on cushion without healed claim, gently landing on one knee.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "找准部位，摆对位置和动作",
+    "instruction": "移位置、换数量、改动作，再看原句还保留了哪些信息。",
+    "items": [
+      {
+        "id": "word-finger",
+        "label": "手指",
+        "prompt": "away from是远离还是贴着？移动示意手指，再核对。",
+        "answer": "finger",
+        "caseSensitive": false,
+        "meaning": "手指",
+        "before": "Keep your ",
+        "after": " away from the sharp edge.",
+        "reason": "Keep your finger away from the sharp edge要求手指远离锋利边缘，并没有说已经受伤。",
+        "hint": "只在图中改位置；原句没给距离数值。",
+        "material": "Keep your finger away from the sharp edge.",
+        "options": [
+          {
+            "id": "away",
+            "text": "让手指远离锋利边缘。",
+            "correct": true,
+            "reason": "保留away from的远离关系。"
+          },
+          {
+            "id": "touch",
+            "text": "让手指贴着锋利边缘。",
+            "correct": false,
+            "reason": "贴着改变了away from。"
+          },
+          {
+            "id": "hurt",
+            "text": "原句已经报告手指割伤了。",
+            "correct": false,
+            "reason": "要求远离不等于已经割伤。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "away from是远离还是贴着？移动示意手指，再核对。",
+          "fingerAway": {
+            "title": "远离，还是贴着？",
+            "hint": "示意位置，没有实际距离数值。",
+            "wrong": "原句要求手指远离边缘，没有说已经受伤。"
+          }
+        }
+      },
+      {
+        "id": "word-thumb",
+        "label": "拇指",
+        "prompt": "点出按住书页的拇指，别选旁边弯曲的其他手指。",
+        "answer": "thumb",
+        "caseSensitive": false,
+        "meaning": "拇指",
+        "before": "He held the page down with his ",
+        "after": ".",
+        "reason": "He held the page down with his thumb说他用拇指按住书页；thumb不是其他手指的统称。",
+        "hint": "thumb的b不发音；原句没有说明左右手。",
+        "material": "He held the page down with his thumb.",
+        "options": [
+          {
+            "id": "thumb",
+            "text": "按住书页的拇指。",
+            "correct": true,
+            "reason": "thumb对应拇指。"
+          },
+          {
+            "id": "other",
+            "text": "旁边弯曲的其他手指。",
+            "correct": false,
+            "reason": "thumb专指拇指，不是图中其余弯曲的手指。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出按住书页的拇指，别选旁边弯曲的其他手指。",
+          "art": {
+            "asset": "lesson-thumb-page",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创手部示意图：伸出的拇指按住空白书页，右上方是弯曲的其他手指。",
+            "caption": "只辨认部位；原句没有说明哪只手。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "page-thumb",
+                "option": "thumb",
+                "label": "拇指",
+                "left": 25,
+                "top": 47,
+                "width": 31,
+                "height": 32,
+                "labelPosition": "bottom"
+              },
+              {
+                "id": "page-other-fingers",
+                "option": "other",
+                "label": "其他手指",
+                "left": 53,
+                "top": 10,
+                "width": 30,
+                "height": 36,
+                "labelPosition": "top"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-back",
+        "label": "背部（本句）",
+        "prompt": "back在这里是哪里？上下移动背包，保留high。",
+        "answer": "back",
+        "caseSensitive": false,
+        "meaning": "背部（本句）",
+        "before": "Carry the pack high on your ",
+        "after": ".",
+        "reason": "Carry the pack high on your back要求把背包背在背部较高的位置；back在这里是背部。",
+        "hint": "high给相对位置，没有厘米数，也没有说已经背好。",
+        "material": "Carry the pack high on your back.",
+        "options": [
+          {
+            "id": "high",
+            "text": "把背包背在背部较高的位置。",
+            "correct": true,
+            "reason": "保留high和on your back。"
+          },
+          {
+            "id": "low",
+            "text": "让背包垂在背部很低的位置。",
+            "correct": false,
+            "reason": "low改变了high。"
+          },
+          {
+            "id": "return",
+            "text": "这里的back表示回去。",
+            "correct": false,
+            "reason": "on your back中的back是身体部位，不是方向副词。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "back在这里是哪里？上下移动背包，保留high。",
+          "packHigh": {
+            "title": "背包放高，还是放低？",
+            "hint": "只比较背部的相对高低，不表示真实尺寸。",
+            "wrong": "原句要求背包放在背部较高的位置，不能改成放低或回去。"
+          }
+        }
+      },
+      {
+        "id": "word-chest",
+        "label": "胸部（本句）",
+        "prompt": "chest是什么，rise朝哪个方向？分别换一项。",
+        "answer": "chest",
+        "caseSensitive": false,
+        "meaning": "胸部（本句）",
+        "before": "Take a deep breath and feel your ",
+        "after": " rise.",
+        "reason": "Take a deep breath and feel your chest rise要求深吸一口气，感受胸部抬起；chest不是箱子。",
+        "hint": "这句要求关注动作，没有给抬起幅度或次数。",
+        "material": "Take a deep breath and feel your chest rise.",
+        "options": [
+          {
+            "id": "chest-up",
+            "text": "深吸一口气，感受胸部抬起。",
+            "correct": true,
+            "reason": "保留chest的身体义和rise的向上。"
+          },
+          {
+            "id": "box",
+            "text": "深吸一口气，感受箱子抬起。",
+            "correct": false,
+            "reason": "身体语境中的your chest是胸部，不是箱子。"
+          },
+          {
+            "id": "down",
+            "text": "深吸一口气，感受胸部下沉。",
+            "correct": false,
+            "reason": "下沉改变了rise抬起。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "chest是什么，rise朝哪个方向？分别换一项。",
+          "chestRise": {
+            "title": "胸部与抬起，分别核对",
+            "hint": "图只标部位与动作方向，没有实际幅度。",
+            "wrong": "原句要求胸部抬起，不能改成箱子或下沉。"
+          }
+        }
+      },
+      {
+        "id": "word-stomach",
+        "label": "胃；腹部",
+        "prompt": "after只说明先后，能证明是什么引起疼痛吗？圈出已知信息。",
+        "answer": "stomach",
+        "caseSensitive": false,
+        "meaning": "胃；腹部",
+        "before": "My ",
+        "after": " hurt after the long bus ride.",
+        "reason": "My stomach hurt after the long bus ride说长时间乘公交后我肚子疼；after说明先后，没有单独证明病因。",
+        "hint": "不补诊断、疼痛程度或恢复结果。",
+        "material": "My stomach hurt after the long bus ride.",
+        "options": [
+          {
+            "id": "after",
+            "text": "长时间乘公交后，我肚子疼。",
+            "correct": true,
+            "reason": "保留stomach hurt和after。"
+          },
+          {
+            "id": "before",
+            "text": "乘公交前，我肚子就疼。",
+            "correct": false,
+            "reason": "before改变了after。"
+          },
+          {
+            "id": "cause",
+            "text": "原句已经证明公交车就是疼痛的唯一原因。",
+            "correct": false,
+            "reason": "after给先后，不足以证明唯一病因。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "after只说明先后，能证明是什么引起疼痛吗？圈出已知信息。",
+          "recordSelection": {
+            "title": "什么时候，哪里不舒服？",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "把原句说的和自己猜的分开。",
+            "wrong": "保留乘车之后与肚子疼，不把先后直接当唯一原因。",
+            "rows": [
+              {
+                "id": "when",
+                "label": "先后",
+                "text": "长时间乘公交之后。",
+                "include": true
+              },
+              {
+                "id": "pain",
+                "label": "部位与状态",
+                "text": "我的肚子疼。",
+                "include": true
+              },
+              {
+                "id": "cause",
+                "label": "额外推断",
+                "text": "公交车已被证实是唯一病因。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-waist",
+        "label": "腰；腰部",
+        "prompt": "around绕在哪里？换部位，再比较环绕与旁边。",
+        "answer": "waist",
+        "caseSensitive": false,
+        "meaning": "腰；腰部",
+        "before": "Tie the apron around your ",
+        "after": ".",
+        "reason": "Tie the apron around your waist要求把围裙系在腰间；around给环绕的位置关系。",
+        "hint": "waist不是同音词waste；原句没有给腰围数值。",
+        "material": "Tie the apron around your waist.",
+        "options": [
+          {
+            "id": "waist-around",
+            "text": "把围裙系在腰间。",
+            "correct": true,
+            "reason": "保留around your waist。"
+          },
+          {
+            "id": "neck",
+            "text": "把围裙的系带系在脖子上。",
+            "correct": false,
+            "reason": "脖子改变了waist腰部。"
+          },
+          {
+            "id": "beside",
+            "text": "把围裙放在腰旁边，不系上。",
+            "correct": false,
+            "reason": "旁边与不系上丢掉Tie和around。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "around绕在哪里？换部位，再比较环绕与旁边。",
+          "apronWaist": {
+            "title": "系在哪里，怎样围绕？",
+            "hint": "只标部位与系带关系，没有腰围读数。",
+            "wrong": "原句要求围绕腰部系上，不能换成脖子或只放旁边。"
+          }
+        }
+      },
+      {
+        "id": "word-leg",
+        "label": "腿",
+        "prompt": "injured与on分别告诉你什么？圈出两条要求。",
+        "answer": "leg",
+        "caseSensitive": false,
+        "meaning": "腿",
+        "before": "Rest your injured ",
+        "after": " on a cushion.",
+        "reason": "Rest your injured leg on a cushion要求把受伤的腿放在靠垫上休息；leg在这里不是家具腿。",
+        "hint": "原句没有说明受伤原因或已经痊愈。",
+        "material": "Rest your injured leg on a cushion.",
+        "options": [
+          {
+            "id": "injured-on",
+            "text": "把受伤的腿放在靠垫上休息。",
+            "correct": true,
+            "reason": "保留injured leg与on a cushion。"
+          },
+          {
+            "id": "beside",
+            "text": "让受伤的腿放在靠垫旁边。",
+            "correct": false,
+            "reason": "旁边改变了on上面。"
+          },
+          {
+            "id": "healed",
+            "text": "原句已经说明腿伤完全好了。",
+            "correct": false,
+            "reason": "要求休息不等于报告痊愈。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "injured与on分别告诉你什么？圈出两条要求。",
+          "recordSelection": {
+            "title": "部位状态与休息位置",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "把原句说的和自己猜的分开。",
+            "wrong": "保留受伤的腿与靠垫上休息，不补痊愈结果。",
+            "rows": [
+              {
+                "id": "leg",
+                "label": "什么部位",
+                "text": "受伤的腿。",
+                "include": true
+              },
+              {
+                "id": "where",
+                "label": "要求",
+                "text": "放在靠垫上休息。",
+                "include": true
+              },
+              {
+                "id": "healed",
+                "label": "额外结果",
+                "text": "腿伤已经完全好了。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-knee",
+        "label": "膝盖",
+        "prompt": "one与gently各限制什么？换数量、改轻重，再对照。",
+        "answer": "knee",
+        "caseSensitive": false,
+        "meaning": "膝盖",
+        "before": "He landed gently on one ",
+        "after": ".",
+        "reason": "He landed gently on one knee说他轻轻地单膝着地；one是一侧膝盖，gently是轻轻地。",
+        "hint": "没有说明左膝还是右膝，也没有给冲击力数值。",
+        "material": "He landed gently on one knee.",
+        "options": [
+          {
+            "id": "one-gentle",
+            "text": "他轻轻地单膝着地。",
+            "correct": true,
+            "reason": "保留one knee与gently。"
+          },
+          {
+            "id": "two",
+            "text": "他轻轻地双膝着地。",
+            "correct": false,
+            "reason": "双膝改变了one。"
+          },
+          {
+            "id": "hard",
+            "text": "他重重地单膝着地。",
+            "correct": false,
+            "reason": "重重地改变了gently。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "one与gently各限制什么？换数量、改轻重，再对照。",
+          "kneeLanding": {
+            "title": "几侧膝盖，怎样着地？",
+            "hint": "比较单膝、双膝与轻重；不补左右或力的读数。",
+            "wrong": "原句说轻轻地单膝着地，不能改成双膝或重重地。"
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-body-3-transfer",
+      "topicId": "v-course-body",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "换成电线、徽章和脚，哪组三句保留了全部要求和事实？",
+      "passage": "三条新信息\n让电线远离发热的表面。把徽章戴在胸前较高的位置。她轻轻地单脚着地。\n词语提示：cable 电线；surface 表面；badge 徽章；foot 脚。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Keep the cable touching the hot surface. Wear the badge high on your chest. She landed gently on one foot."
+        },
+        {
+          "id": "b",
+          "text": "Keep the cable away from the hot surface. Wear the badge high on your chest. She landed gently on one foot."
+        },
+        {
+          "id": "c",
+          "text": "Keep the cable away from the hot surface. Wear the badge low on your chest. She landed gently on one foot."
+        },
+        {
+          "id": "d",
+          "text": "Keep the cable away from the hot surface. Wear the badge high on your chest. She landed heavily on both feet."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Keep the cable away from the hot surface. Wear the badge high on your chest. She landed gently on one foot."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对远离关系、高低位置，以及数量和动作方式。",
+        "steps": [
+          {
+            "text": "远离发热表面：away from the hot surface。",
+            "reason": "touching改成接触，与远离相反。"
+          },
+          {
+            "text": "胸前较高位置：high on your chest。",
+            "reason": "low改成低处，不能保留high。"
+          },
+          {
+            "text": "轻轻地单脚着地：landed gently on one foot。",
+            "reason": "heavily与both同时改掉轻轻和单脚。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "touching把远离改成接触。"
+          },
+          {
+            "option": "c",
+            "reason": "low把较高位置改成低处。"
+          },
+          {
+            "option": "d",
+            "reason": "heavily on both feet把轻轻单脚着地改成重重双脚着地。"
+          }
+        ],
+        "pitfall": "名词认对还不够；位置、数量和方式都要保留。",
+        "visual": {
+          "kind": "comparison",
+          "title": "关系、位置、方式与数量",
+          "segments": [
+            {
+              "text": "away from",
+              "role": "evidence",
+              "note": "远离，不接触"
+            },
+            {
+              "text": "high on your chest",
+              "role": "evidence",
+              "note": "胸前较高位置"
+            },
+            {
+              "text": "gently + one foot",
+              "role": "evidence",
+              "note": "轻轻地，单脚"
+            }
+          ],
+          "caption": "逐一核对，不漏掉小词限定的信息。"
+        },
+        "transfer": "把one foot换成both feet，会改变哪条已知信息？"
+      }
+    }
+  },
+  "picturePurpose": "Original thumb/page picture identifies the extended thumb versus the other curled fingers. Code supplies targets; no handedness or completed source event is inferred, and no precise index-finger assignment is made."
+}

@@ -1,0 +1,11 @@
+# Imperatives: choose the goal and repair the instruction
+
+2026-10-18 (Sydney). Individually reviewed; content remains draft.
+
+Fourteen tasks connect instructions to explicit goals. Students select open/closed door states,repair affirmative/negative commands and be,assemble polite requests and let suggestions,and distinguish fixed No+ing signs from Do not plus the base form. A final full-sentence task contrasts a statement with a command;another requests sitting down. Accepted contractions use actual word tiles.
+
+Inspected original and600-pixel door artwork,all fourteen models and narrow-phone figures,opposite wrong target states,typed base-form errors,capital feedback,wrong phrase/full-sentence assemblies,piece removal/reload,applications and every explanation/transfer step. The same door is clearly open at left and closed at right;exact goals and labels are coded. A correct command cannot bypass a wrong target-state selection. Visual review corrected the No running hint so it no longer tells students to use a base form,and clarified the statement-to-command instruction without claiming its incorrect source describes the actual state.
+
+Explicit source capitals Do not and Wash are enforced per response;the reserved Wash response appears only in source checks. English-internal apostrophes use ASCII for clear rendering. Grades6–9;reserved005–008 remain unexposed;zero independent attempts,mastery or lesson-pass records in the individual flow.
+
+All fourteen conditions pass actual controls at320/390/768,wrong paths and repairs,accepted alternatives,applications,fresh transfer and reload.1,479 core tests/14 files passed before the final hint/caption corrections. Final compiler/typecheck,826 teaching/spelling,nine grammar,interaction/static-package checks,complete browser flow,both adapter modes with all245 hashes and artwork failure/retry,and ZIP CRC/exact-source comparisons cover those edits. Nine offline checks additionally open both new illustrated lessons without networking,select a wrong picture,repair it through the actual panel controls,and confirm no extra independent evidence. Managed file navigation remains blocked;the standalone document loads once via HTTP before networking is disabled. Native adapter evidence is simulated;fresh GUI review remains blocked by project-drive access. No upload,publication or release.

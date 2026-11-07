@@ -1,0 +1,583 @@
+{
+  "lessonId": "l-v-course-manner-2",
+  "reviewState": "draft",
+  "intent": "Individually authored manner tasks preserve precision, speed, scope, time and explicit conditions.",
+  "picturePurpose": "Exact coded alignment compares a movable point with a fixed target without inventing actual drilling measurements.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "对准位置、辨速度、留条件",
+    "instruction": "先移动标记准确对齐，再从原句圈出速度、范围、时间和动作条件。",
+    "items": [
+      {
+        "id": "exactly",
+        "label": "exactly：exactly要求位置怎样？",
+        "prompt": "exactly要求位置怎样？",
+        "answer": "exactly",
+        "meaning": "准确地；恰好",
+        "material": "Measure exactly where the holes should go.",
+        "before": "Measure ",
+        "after": " where the holes should go.",
+        "reason": "exactly要求准确，不是大概猜测。where the holes should go是测量的内容；原句要求测量预定位置，没有给出孔径、距离，也没有说已经打好孔。另给标记只比较对齐与偏移，不是实际打孔尺寸。",
+        "hint": "measure exactly；指令不等于已完成。",
+        "wordDecision": {
+          "prompt": "exactly要求位置怎样？",
+          "exactAlignment": {
+            "title": "让标记准确对齐",
+            "hint": "另给虚构位置示意：固定的空心圈表示目标位置，移动实心点比较对齐与偏移；不是实际打孔尺寸。",
+            "wrong": "让实心点与目标圈重合；左偏或右偏都不是准确对齐。"
+          }
+        },
+        "options": [
+          {
+            "id": "exact",
+            "text": "Measure the intended hole positions precisely.",
+            "correct": true,
+            "reason": "exactly修饰measure，要求准确量出位置。"
+          },
+          {
+            "id": "rough",
+            "text": "Guess roughly where the holes should go.",
+            "correct": false,
+            "reason": "roughly与exactly相反，不能把测量改成猜。"
+          },
+          {
+            "id": "done",
+            "text": "The holes have already been drilled.",
+            "correct": false,
+            "reason": "指令没有说已经打好孔。"
+          }
+        ]
+      },
+      {
+        "id": "easily",
+        "label": "easily：easily fit说的是哪条船？",
+        "prompt": "easily fit说的是哪条船？",
+        "answer": "easily",
+        "meaning": "容易地",
+        "material": "The small boat can easily fit beneath the bridge.",
+        "before": "The small boat can ",
+        "after": " fit beneath the bridge.",
+        "reason": "easily表示容易地、轻松地，修饰fit。can说明能够，beneath表示在下方。原句只说这条小船能轻松从这座桥下通过，不能扩成所有船或补出实际净空高度。easy变副词要去y加ily：easily。",
+        "hint": "easy → easily；can，不是已经通过。",
+        "wordDecision": {
+          "prompt": "easily fit说的是哪条船？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "小船能轻松从桥下通过",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "small",
+                "label": "这条小船能轻松从这座桥下通过",
+                "text": "The small boat can easily fit beneath the bridge.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "所有船都能从所有桥下通过",
+                "text": "Every boat can pass beneath every bridge.",
+                "include": false
+              },
+              {
+                "id": "height",
+                "label": "给出了准确净空高度",
+                "text": "The sentence gives the exact clearance.",
+                "include": false
+              }
+            ],
+            "hint": "保留这条小船和能力，不补尺寸或扩大范围。",
+            "wrong": "选这条小船能轻松通过，不推成所有船。"
+          }
+        },
+        "options": [
+          {
+            "id": "small",
+            "text": "The small boat fits beneath this bridge without difficulty.",
+            "correct": true,
+            "reason": "保留这条小船、桥下与轻松通过。"
+          },
+          {
+            "id": "all",
+            "text": "Every boat can fit beneath every bridge.",
+            "correct": false,
+            "reason": "一条小船不能扩大成所有船和桥。"
+          },
+          {
+            "id": "height",
+            "text": "The sentence gives the exact clearance beneath the bridge.",
+            "correct": false,
+            "reason": "没有给出准确净空高度。"
+          }
+        ]
+      },
+      {
+        "id": "quickly",
+        "label": "quickly：quickly说明速度还是准确用时？",
+        "prompt": "quickly说明速度还是准确用时？",
+        "answer": "quickly",
+        "meaning": "迅速地",
+        "material": "We moved the books indoors quickly.",
+        "before": "We moved the books indoors ",
+        "after": ".",
+        "reason": "quickly修饰moved，说明搬动得快。indoors表示到室内，不能写成outdoors；moved是已经发生的动作，但quickly不提供准确用时。quick加ly构成quickly。",
+        "hint": "moved；indoors；quick + ly。",
+        "wordDecision": {
+          "prompt": "quickly说明速度还是准确用时？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "我们迅速把书搬进室内",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "inside",
+                "label": "书已迅速搬进室内",
+                "text": "We moved the books indoors quickly.",
+                "include": true
+              },
+              {
+                "id": "outside",
+                "label": "书被慢慢搬到室外",
+                "text": "We moved the books outdoors slowly.",
+                "include": false
+              },
+              {
+                "id": "time",
+                "label": "说明了准确用时秒数",
+                "text": "The move took an exact stated number of seconds.",
+                "include": false
+              }
+            ],
+            "hint": "保留过去动作、室内与快，不补秒数。",
+            "wrong": "选迅速搬进室内，不反转方向或速度。"
+          }
+        },
+        "options": [
+          {
+            "id": "inside",
+            "text": "The books were moved indoors at a quick pace.",
+            "correct": true,
+            "reason": "保留moved过去动作、books和indoors方向。"
+          },
+          {
+            "id": "outside",
+            "text": "We moved the books outdoors slowly.",
+            "correct": false,
+            "reason": "反转indoors和quickly。"
+          },
+          {
+            "id": "time",
+            "text": "The sentence states exactly how many seconds the move took.",
+            "correct": false,
+            "reason": "quickly没有提供准确秒数。"
+          }
+        ]
+      },
+      {
+        "id": "slowly",
+        "label": "slowly：slowly修饰哪个动作？",
+        "prompt": "slowly修饰哪个动作？",
+        "answer": "slowly",
+        "meaning": "缓慢地",
+        "material": "Lower the model slowly into the water.",
+        "before": "Lower the model ",
+        "after": " into the water.",
+        "reason": "本句lower是动词，表示放低、放下；slowly是副词，说明放下的动作要慢。into the water保留方向，不能改成从水里拿出。祈使句给出要求，不报告已经完成。",
+        "hint": "lower作动词；slowly修饰动作；into。",
+        "wordDecision": {
+          "prompt": "slowly修饰哪个动作？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "把模型慢慢放入水中",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "lower",
+                "label": "要求慢慢把模型放入水中",
+                "text": "Lower the model slowly into the water.",
+                "include": true
+              },
+              {
+                "id": "raise",
+                "label": "要求快速从水中取出模型",
+                "text": "Lift the model quickly out of the water.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "报告模型已经放入水中",
+                "text": "The model has already been lowered into the water.",
+                "include": false
+              }
+            ],
+            "hint": "保留指令、慢速和入水方向。",
+            "wrong": "选慢慢放入的要求，不读成快速取出或已完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "lower",
+            "text": "Put the model down into the water at a slow pace.",
+            "correct": true,
+            "reason": "slowly修饰lower，保留向水中放下的指令。"
+          },
+          {
+            "id": "raise",
+            "text": "Lift the model quickly out of the water.",
+            "correct": false,
+            "reason": "反转方向和速度。"
+          },
+          {
+            "id": "done",
+            "text": "The model has already been lowered into the water.",
+            "correct": false,
+            "reason": "指令不能读成已经完成。"
+          }
+        ]
+      },
+      {
+        "id": "fast",
+        "label": "fast：fast要不要再加ly？",
+        "prompt": "fast要不要再加ly？",
+        "answer": "fast",
+        "meaning": "快的；快速地",
+        "material": "Do not cycle too fast near the entrance.",
+        "before": "Do not cycle too ",
+        "after": " near the entrance.",
+        "reason": "fast本身既可作形容词，也可作副词；这里修饰cycle，不能加ly写成fastly。Do not cycle too fast限制过快的速度，near the entrance限定入口附近，不等于所有地方一律禁止骑车，也没有给出速度数值。",
+        "hint": "fast，不是fastly；not too fast。",
+        "wordDecision": {
+          "prompt": "fast要不要再加ly？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "入口附近不要骑得太快",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "limit",
+                "label": "限制入口附近骑行速度过快",
+                "text": "Do not cycle too fast near the entrance.",
+                "include": true
+              },
+              {
+                "id": "fastly",
+                "label": "必须写cycle fastly",
+                "text": "Use cycle fastly.",
+                "include": false
+              },
+              {
+                "id": "ban",
+                "label": "所有地方都一律禁止骑车",
+                "text": "All cycling is banned everywhere.",
+                "include": false
+              }
+            ],
+            "hint": "保留入口附近与不要过快，不写fastly。",
+            "wrong": "选限制过快，不扩大成所有地方禁骑。"
+          }
+        },
+        "options": [
+          {
+            "id": "limit",
+            "text": "Avoid cycling at excessive speed near the entrance.",
+            "correct": true,
+            "reason": "保留not、too和near the entrance的范围。"
+          },
+          {
+            "id": "fastly",
+            "text": "Use fastly after cycle to make an adverb.",
+            "correct": false,
+            "reason": "fast本身能作副词，不写fastly。"
+          },
+          {
+            "id": "ban",
+            "text": "The sentence bans all cycling everywhere.",
+            "correct": false,
+            "reason": "不要在入口附近骑太快不等于所有地方都禁骑。"
+          }
+        ]
+      },
+      {
+        "id": "well",
+        "label": "well：works well评价哪个时间？",
+        "prompt": "works well评价哪个时间？",
+        "answer": "well",
+        "meaning": "好地；健康的",
+        "material": "The repaired clock works well now.",
+        "before": "The repaired clock works ",
+        "after": " now.",
+        "reason": "well在这里是副词，修饰works，表示运转正常。good通常作形容词，不能直接换进works well。repaired说明修过，now限定现在；句子没有保证以后永不出故障。well还可作形容词表示健康，要根据语境判断。",
+        "hint": "works well；now；good / well。",
+        "wordDecision": {
+          "prompt": "works well评价哪个时间？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "修好的钟现在运转正常",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "now",
+                "label": "修好的钟现在运转正常",
+                "text": "The repaired clock works well now.",
+                "include": true
+              },
+              {
+                "id": "good",
+                "label": "这里可以写works good",
+                "text": "The clock works good now.",
+                "include": false
+              },
+              {
+                "id": "forever",
+                "label": "保证以后永远不会出故障",
+                "text": "The clock will never fail again.",
+                "include": false
+              }
+            ],
+            "hint": "保留well修饰works和现在的时间。",
+            "wrong": "选现在运转正常，不写works good或补永久保证。"
+          }
+        },
+        "options": [
+          {
+            "id": "now",
+            "text": "The repaired clock is working properly now.",
+            "correct": true,
+            "reason": "well修饰works，now限定现在。"
+          },
+          {
+            "id": "good",
+            "text": "Use works good because good always modifies a verb.",
+            "correct": false,
+            "reason": "此处应为副词well修饰works，不能写works good。"
+          },
+          {
+            "id": "forever",
+            "text": "The clock is guaranteed never to fail again.",
+            "correct": false,
+            "reason": "now不能扩大成永远不会再出故障。"
+          }
+        ]
+      },
+      {
+        "id": "badly",
+        "label": "badly：badly damaged说明了修理费用吗？",
+        "prompt": "badly damaged说明了修理费用吗？",
+        "answer": "badly",
+        "meaning": "糟糕地；严重地",
+        "material": "The roof was badly damaged in the storm.",
+        "before": "The roof was ",
+        "after": " damaged in the storm.",
+        "reason": "badly修饰damaged，表示严重受损，was damaged是被动语态。in the storm保留暴风雨情境；原句没有修理费用、受损百分比或修复时间。badly的比较级是worse，不能写badlier。",
+        "hint": "was badly damaged；badly → worse。",
+        "wordDecision": {
+          "prompt": "badly damaged说明了修理费用吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "屋顶在暴风雨中严重受损",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "damage",
+                "label": "屋顶在暴风雨中严重受损",
+                "text": "The roof was badly damaged in the storm.",
+                "include": true
+              },
+              {
+                "id": "fine",
+                "label": "屋顶完全没有受损",
+                "text": "The roof escaped all damage.",
+                "include": false
+              },
+              {
+                "id": "cost",
+                "label": "给出了准确修理费",
+                "text": "The sentence gives an exact repair cost.",
+                "include": false
+              }
+            ],
+            "hint": "保留严重受损与暴风雨，不补费用或比例。",
+            "wrong": "选严重受损，不反转或补修理费。"
+          }
+        },
+        "options": [
+          {
+            "id": "damage",
+            "text": "The storm caused serious damage to the roof.",
+            "correct": true,
+            "reason": "badly强调受损严重，保留屋顶与暴风雨。"
+          },
+          {
+            "id": "fine",
+            "text": "The roof escaped all damage in the storm.",
+            "correct": false,
+            "reason": "反转was badly damaged。"
+          },
+          {
+            "id": "cost",
+            "text": "The sentence gives the exact repair cost.",
+            "correct": false,
+            "reason": "没有给出修理费用。"
+          }
+        ]
+      },
+      {
+        "id": "carefully",
+        "label": "carefully：carefully保留哪项动作条件？",
+        "prompt": "carefully保留哪项动作条件？",
+        "answer": "carefully",
+        "meaning": "仔细地；小心地",
+        "material": "Carry the hot bowl carefully with both hands.",
+        "before": "Carry the hot bowl ",
+        "after": " with both hands.",
+        "reason": "carefully是副词，修饰carry，表示小心地端。with both hands要求双手，不能改成一只手；祈使句不是已经成功端好的报告。careful加ly保留词尾l，与ly的l连成两个l：carefully。句子没有给出碗的准确温度。",
+        "hint": "careful + ly → carefully；with both hands。",
+        "wordDecision": {
+          "prompt": "carefully保留哪项动作条件？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "要求双手小心端热碗",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "both",
+                "label": "要求用双手小心端热碗",
+                "text": "Carry the hot bowl carefully with both hands.",
+                "include": true
+              },
+              {
+                "id": "one",
+                "label": "要求单手随意端碗",
+                "text": "Carry the bowl carelessly with one hand.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "报告已经成功端完",
+                "text": "The bowl has already been carried successfully.",
+                "include": false
+              }
+            ],
+            "hint": "保留小心与双手，不读成已完成。",
+            "wrong": "选双手小心端的要求，不删条件或编结果。"
+          }
+        },
+        "options": [
+          {
+            "id": "both",
+            "text": "Carry the hot bowl with care, using both hands.",
+            "correct": true,
+            "reason": "carefully修饰carry，with both hands保留双手条件。"
+          },
+          {
+            "id": "one",
+            "text": "Carry the bowl carelessly with one hand.",
+            "correct": false,
+            "reason": "反转小心，并删掉双手条件。"
+          },
+          {
+            "id": "done",
+            "text": "The bowl has already been carried successfully.",
+            "correct": false,
+            "reason": "指令不是成功完成的报告。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-manner-2-transfer",
+      "topicId": "v-course-manner",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes correctly describe the boat, the clock and the instruction?",
+      "passage": "A riverside workshop display\nOur class was preparing a display about an old riverside workshop. On our plan, a small boat waited beside a bridge. The guide explained, \"The small boat can easily fit beneath the bridge.\" We added the boat and bridge to our model scene.\nWhen the wind picked up, we moved the books indoors quickly. An instruction card for the water display said, \"Lower the model slowly into the water.\" Near the entrance, another notice said, \"Do not cycle too fast near the entrance.\"\nThe repaired clock works well now. Mrs Lin put it above the display table. Beside it was a photograph of the old workshop after a storm. Its caption read, \"The roof was badly damaged in the storm.\"\nBefore marking the display board, we were asked to measure exactly where the holes should go. At the pottery section, our teacher was preparing a set of instruction cards. One read, \"Carry the hot bowl carefully with both hands.\" We chose a place for that card beside the bowls.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The small boat can fit easily; the clock works well now; the instruction asks for both hands."
+        },
+        {
+          "id": "b",
+          "text": "Every boat fits; the clock can never fail again; one hand is enough."
+        },
+        {
+          "id": "c",
+          "text": "The small boat can fit easily; the clock can never fail again; the instruction asks for both hands."
+        },
+        {
+          "id": "d",
+          "text": "The small boat can fit easily; the clock works well now; the bowl has already been carried successfully."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The small boat can fit easily; the clock works well now; the instruction asks for both hands."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别圈出范围、时间和动作条件，不把能力或指令改成已经完成。",
+        "steps": [
+          {
+            "text": "the small boat只指这条小船；now只说明钟现在运转正常。",
+            "reason": "不能扩大成所有船或永不再坏。"
+          },
+          {
+            "text": "with both hands保留双手；祈使句提出要求。",
+            "reason": "原文没有报告已经成功端完。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "扩大成所有船，补永久保证，还把双手改成单手。"
+          },
+          {
+            "option": "c",
+            "reason": "把now扩大成以后永不出故障。"
+          },
+          {
+            "option": "d",
+            "reason": "把双手小心端的指令改成已成功完成。"
+          }
+        ],
+        "pitfall": "漏看small、now和with both hands，凭常识补结果。",
+        "visual": {
+          "kind": "timeline",
+          "title": "范围、时间、条件",
+          "segments": [
+            {
+              "text": "the small boat",
+              "role": "object",
+              "note": "只指这条小船"
+            },
+            {
+              "text": "works well now",
+              "role": "object",
+              "note": "现在正常"
+            },
+            {
+              "text": "with both hands",
+              "role": "object",
+              "note": "要求双手"
+            }
+          ],
+          "caption": "保留原文限定，不补永久结果。"
+        },
+        "transfer": "quickly能不能告诉你准确用了多少秒？为什么？"
+      }
+    }
+  }
+}

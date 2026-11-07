@@ -1,0 +1,819 @@
+{
+  "lessonId": "l-v-course-school-tools-5",
+  "reviewState": "draft",
+  "intent": "Individually authored context, meaning, timetable and picture tasks. All schedules are original practice records. No independent mastery or audio credit.",
+  "picturePurpose": "Original playground, uniform and chess-activity scenes support three actual recognition exercises. All dates, times, membership and instructions come from separate written records, not generated pixels.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "读新安排，选对场地，再算活动时长",
+    "instruction": "先看词在这句话里做什么，再补词并写自己的例子。最后读更新通知，分清社团和考试的日期、地点与时间。",
+    "items": [
+      {
+        "id": "test",
+        "label": "test：测试模型，不一定是考试",
+        "prompt": "记录：We will test the model outdoors tomorrow. 这里test要求做什么？",
+        "wordDecision": {
+          "prompt": "记录：We will test the model outdoors tomorrow. 这里test要求做什么？",
+          "recordPaths": [
+            {
+              "id": "verb",
+              "label": "检验动作",
+              "steps": [
+                "test the model",
+                "看看模型效果"
+              ]
+            },
+            {
+              "id": "noun",
+              "label": "参加测试",
+              "steps": [
+                "take a test",
+                "一次测试"
+              ]
+            }
+          ]
+        },
+        "answer": "test",
+        "meaning": "测试；检验",
+        "material": "We will test the model outdoors tomorrow.",
+        "before": "We will ",
+        "after": " the model outdoors tomorrow.",
+        "reason": "test可作名词“测试”，也可作动词“检验”。will后接原形test；昨天的动作可用tested，进行形式是testing。不能把每次test都理解成坐在教室考试。",
+        "hint": "test a model：检验模型；take a test：参加测试。",
+        "ownForms": [
+          "test",
+          "tests",
+          "tested",
+          "testing"
+        ],
+        "options": [
+          {
+            "id": "try-model",
+            "text": "Try the model to see how well it works.",
+            "correct": true,
+            "reason": "test the model表示检验模型的性能。"
+          },
+          {
+            "id": "sit-exam",
+            "text": "Sit a written school exam about the model.",
+            "correct": false,
+            "reason": "这句的宾语是model，没有要求参加笔试。"
+          },
+          {
+            "id": "report-past",
+            "text": "Report that the model was tested yesterday.",
+            "correct": false,
+            "reason": "will和tomorrow说的是明天的计划，不是昨天已经完成的检验。"
+          }
+        ]
+      },
+      {
+        "id": "exam",
+        "label": "exam：先核对考场，不把两场活动混在一起",
+        "prompt": "原创通知：The exam is in Room 302. The club meeting is in Room 204. Where should you go for the exam?",
+        "wordDecision": {
+          "prompt": "原创通知：The exam is in Room 302. The club meeting is in Room 204. Where should you go for the exam?",
+          "recordPaths": [
+            {
+              "id": "exam",
+              "label": "考试",
+              "steps": [
+                "exam",
+                "Room 302"
+              ]
+            },
+            {
+              "id": "meeting",
+              "label": "社团活动",
+              "steps": [
+                "club meeting",
+                "Room 204"
+              ]
+            }
+          ]
+        },
+        "answer": "exam",
+        "meaning": "考试",
+        "material": "Check the room number before the exam.",
+        "before": "Check the room number before the ",
+        "after": ".",
+        "reason": "exam是examination的常用简写，exams是复数。考试形式可能不同，本题只要求根据这条原创通知找考场，不能凭另一次活动的教室猜。",
+        "hint": "the exam → Room 302；the club meeting → Room 204。",
+        "ownForms": [
+          "exam",
+          "exams"
+        ],
+        "options": [
+          {
+            "id": "club-room",
+            "text": "Room 204.",
+            "correct": false,
+            "reason": "204是社团活动室，不是本条通知的考场。"
+          },
+          {
+            "id": "exam-room",
+            "text": "Room 302.",
+            "correct": true,
+            "reason": "通知把exam和Room 302配在一起。"
+          },
+          {
+            "id": "unknown",
+            "text": "Either room; the numbers mean the same thing.",
+            "correct": false,
+            "reason": "两间教室的号码不同，对应的活动也不同。"
+          }
+        ]
+      },
+      {
+        "id": "grade",
+        "label": "grade：年级和成绩等级，搭配告诉你",
+        "prompt": "记录：The report gives this project a grade of A. 这里grade表示什么？",
+        "wordDecision": {
+          "prompt": "记录：The report gives this project a grade of A. 这里grade表示什么？",
+          "recordPaths": [
+            {
+              "id": "year",
+              "label": "学校年级",
+              "steps": [
+                "the grade below mine",
+                "比我低一个年级"
+              ]
+            },
+            {
+              "id": "result",
+              "label": "评价结果",
+              "steps": [
+                "a grade of A",
+                "成绩等级A"
+              ]
+            }
+          ]
+        },
+        "answer": "grade",
+        "meaning": "年级；等级",
+        "material": "My brother is in the grade below mine.",
+        "before": "My brother is in the ",
+        "after": " below mine.",
+        "reason": "in the grade below mine中grade是年级；a grade of A中grade是成绩等级。grade还可作动词“评定等级、评分”：graded、grading。看各自搭配，不把同一个词固定成一种意思。",
+        "hint": "school grade：年级；a grade of A：成绩等级。",
+        "ownForms": [
+          "grade",
+          "grades",
+          "graded",
+          "grading"
+        ],
+        "options": [
+          {
+            "id": "result",
+            "text": "A level awarded for the quality of the project.",
+            "correct": true,
+            "reason": "a grade of A是项目得到的成绩等级。"
+          },
+          {
+            "id": "school-year",
+            "text": "A year group in a school.",
+            "correct": false,
+            "reason": "项目不是在某个年级上学的人；这里说的是评价结果。"
+          },
+          {
+            "id": "duration",
+            "text": "The number of minutes spent on the project.",
+            "correct": false,
+            "reason": "grade of A没有给出用时。"
+          }
+        ]
+      },
+      {
+        "id": "term",
+        "label": "term：学期之外，还可能是术语",
+        "prompt": "记录：In this report, evaporation is a scientific term. 这里term表示什么？",
+        "wordDecision": {
+          "prompt": "记录：In this report, evaporation is a scientific term. 这里term表示什么？",
+          "recordPaths": [
+            {
+              "id": "school",
+              "label": "学校时间",
+              "steps": [
+                "this term",
+                "这学期"
+              ]
+            },
+            {
+              "id": "science",
+              "label": "科学用词",
+              "steps": [
+                "a scientific term",
+                "一个科学术语"
+              ]
+            }
+          ]
+        },
+        "answer": "term",
+        "meaning": "学期；术语",
+        "material": "We are building a weather station this term.",
+        "before": "We are building a weather station this ",
+        "after": ".",
+        "reason": "this term通常表示这学期；a scientific term表示一个科学术语。terms可表示多个学期或多个术语，要由上下文判断；不能把term一律换成“学期”。",
+        "hint": "this term：这学期；scientific term：科学术语。",
+        "ownForms": [
+          "term",
+          "terms"
+        ],
+        "options": [
+          {
+            "id": "semester",
+            "text": "A part of the school year with lessons.",
+            "correct": false,
+            "reason": "this term可指这学期，但这条新记录在解释科学用词。"
+          },
+          {
+            "id": "expression",
+            "text": "A word or expression used in science.",
+            "correct": true,
+            "reason": "scientific term指科学领域的术语。"
+          },
+          {
+            "id": "weather",
+            "text": "The temperature measured by the weather station.",
+            "correct": false,
+            "reason": "term不是温度读数，记录也没有给出温度值。"
+          }
+        ]
+      },
+      {
+        "id": "timetable",
+        "label": "timetable：开始时间和结束时间别看反",
+        "prompt": "新时间表：Chess 16:00–16:35; Science 16:45–17:15. When does the chess activity finish?",
+        "wordDecision": {
+          "prompt": "新时间表：Chess 16:00–16:35; Science 16:45–17:15. When does the chess activity finish?",
+          "recordPaths": [
+            {
+              "id": "chess",
+              "label": "Chess",
+              "steps": [
+                "16:00开始",
+                "16:35结束"
+              ]
+            },
+            {
+              "id": "science",
+              "label": "Science",
+              "steps": [
+                "16:45开始",
+                "17:15结束"
+              ]
+            }
+          ]
+        },
+        "answer": "timetable",
+        "meaning": "时间表；课程表",
+        "material": "The new timetable leaves time for reading.",
+        "before": "The new ",
+        "after": " leaves time for reading.",
+        "reason": "timetable可指课程表、活动时间表或交通时刻表，timetables是复数。读起止时间先对准活动名称，再分清开始和结束；不能拿下一项的时间回答。",
+        "hint": "Chess：16:00 → 16:35；Science：16:45 → 17:15。",
+        "ownForms": [
+          "timetable",
+          "timetables"
+        ],
+        "options": [
+          {
+            "id": "start",
+            "text": "At 16:00.",
+            "correct": false,
+            "reason": "16:00是Chess的开始时间，不是结束时间。"
+          },
+          {
+            "id": "next",
+            "text": "At 16:45.",
+            "correct": false,
+            "reason": "16:45是下一项Science的开始时间。"
+          },
+          {
+            "id": "finish",
+            "text": "At 16:35.",
+            "correct": true,
+            "reason": "Chess一行的后一个时间16:35是结束时间。"
+          }
+        ]
+      },
+      {
+        "id": "playground",
+        "label": "playground：先看室外场地",
+        "prompt": "记录说活动在school playground举行。点室外操场或选对应描述。",
+        "wordDecision": {
+          "prompt": "记录说活动在school playground举行。点室外操场或选对应描述。",
+          "recordPaths": [
+            {
+              "id": "compound",
+              "label": "合成词",
+              "steps": [
+                "play",
+                "ground",
+                "playground"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-playground-uniform-chess",
+            "alt": "三个原创校园场景以蓝绿色线隔开：左图是有球架的室外操场，中图是藏蓝色校服夹克和灰色长裤，右图是有棋盘棋子及空椅子的桌边活动区。操场边缘有裁切，不判断面积、线长或完整场地布局；不据棋子推断合法棋局或数量。社团身份、时间和穿着要求均以文字记录为准。",
+            "targets": [
+              {
+                "id": "playground-scene",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "playground-scene"
+              },
+              {
+                "id": "uniform-scene",
+                "label": "中图",
+                "labelPosition": "top",
+                "left": 33.8,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "uniform-scene"
+              },
+              {
+                "id": "chess-scene",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 67.4,
+                "top": 1,
+                "width": 32,
+                "height": 98,
+                "option": "chess-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "playground-scene",
+                "caption": "左图已选中。区分场地、衣物和棋类活动，再对照记录。",
+                "regions": [
+                  {
+                    "id": "playground-scene",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "uniform-scene",
+                "caption": "中图已选中。区分场地、衣物和棋类活动，再对照记录。",
+                "regions": [
+                  {
+                    "id": "uniform-scene",
+                    "label": "中图",
+                    "labelPosition": "top",
+                    "left": 33.8,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "chess-scene",
+                "caption": "右图已选中。区分场地、衣物和棋类活动，再对照记录。",
+                "regions": [
+                  {
+                    "id": "chess-scene",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 67.4,
+                    "top": 1,
+                    "width": 32,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "playground",
+        "meaning": "操场；游乐场",
+        "material": "A painted line divides the playground in two.",
+        "before": "A painted line divides the ",
+        "after": " in two.",
+        "reason": "playground可指学校操场或供玩耍的场地，是合成名词；playgrounds是复数。本题用school playground限定学校场景，图不用于判断场地的实际面积或线的长度。",
+        "hint": "school playground：学校操场；play + ground → playground。",
+        "ownForms": [
+          "playground",
+          "playgrounds"
+        ],
+        "options": [
+          {
+            "id": "playground-scene",
+            "text": "The outdoor school playground.",
+            "correct": true,
+            "reason": "左图有室外球场和围栏，对应这里的school playground。"
+          },
+          {
+            "id": "uniform-scene",
+            "text": "The school jacket and trousers.",
+            "correct": false,
+            "reason": "这是衣物，不是举行活动的场地。"
+          },
+          {
+            "id": "chess-scene",
+            "text": "The table with a chessboard.",
+            "correct": false,
+            "reason": "这是桌面棋类活动区，不能仅凭它当作室外操场。"
+          }
+        ]
+      },
+      {
+        "id": "uniform",
+        "label": "uniform：先认衣物，再留意a的发音依据",
+        "prompt": "原创记录：Our school uniform includes a navy jacket and grey trousers. 点对应衣物或选描述。",
+        "wordDecision": {
+          "prompt": "原创记录：Our school uniform includes a navy jacket and grey trousers. 点对应衣物或选描述。",
+          "recordPaths": [
+            {
+              "id": "uniform",
+              "label": "看发音选冠词",
+              "steps": [
+                "/j/是辅音音素",
+                "a uniform"
+              ]
+            },
+            {
+              "id": "umbrella",
+              "label": "对照词",
+              "steps": [
+                "开头是元音音素",
+                "an umbrella"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-playground-uniform-chess",
+            "alt": "三个原创校园场景以蓝绿色线隔开：左图是有球架的室外操场，中图是藏蓝色校服夹克和灰色长裤，右图是有棋盘棋子及空椅子的桌边活动区。操场边缘有裁切，不判断面积、线长或完整场地布局；不据棋子推断合法棋局或数量。社团身份、时间和穿着要求均以文字记录为准。",
+            "targets": [
+              {
+                "id": "playground-scene",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "playground-scene"
+              },
+              {
+                "id": "uniform-scene",
+                "label": "中图",
+                "labelPosition": "top",
+                "left": 33.8,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "uniform-scene"
+              },
+              {
+                "id": "chess-scene",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 67.4,
+                "top": 1,
+                "width": 32,
+                "height": 98,
+                "option": "chess-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "chess-scene",
+                "caption": "右图已选中。区分场地、衣物和棋类活动，再对照记录。",
+                "regions": [
+                  {
+                    "id": "chess-scene",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 67.4,
+                    "top": 1,
+                    "width": 32,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "playground-scene",
+                "caption": "左图已选中。区分场地、衣物和棋类活动，再对照记录。",
+                "regions": [
+                  {
+                    "id": "playground-scene",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "uniform-scene",
+                "caption": "中图已选中。区分场地、衣物和棋类活动，再对照记录。",
+                "regions": [
+                  {
+                    "id": "uniform-scene",
+                    "label": "中图",
+                    "labelPosition": "top",
+                    "left": 33.8,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "uniform",
+        "meaning": "制服；校服",
+        "material": "Our uniform includes a dark blue jacket.",
+        "before": "Our ",
+        "after": " includes a dark blue jacket.",
+        "reason": "uniform在这里是校服，uniforms是复数。a uniform中的a取决于开头的辅音音素/j/，不是看到字母u就用an；与an umbrella的开头不同。本题没有播放音频，不计听辨证据。",
+        "hint": "a uniform：开头是/j/；an umbrella：开头是元音音素。",
+        "ownForms": [
+          "uniform",
+          "uniforms"
+        ],
+        "options": [
+          {
+            "id": "chess-scene",
+            "text": "The table with a chessboard.",
+            "correct": false,
+            "reason": "这是棋类活动用品，不是校服。"
+          },
+          {
+            "id": "playground-scene",
+            "text": "The outdoor school playground.",
+            "correct": false,
+            "reason": "这是活动场地，不是穿着的校服。"
+          },
+          {
+            "id": "uniform-scene",
+            "text": "The school jacket and trousers.",
+            "correct": true,
+            "reason": "中图对应记录指定的夹克和长裤。"
+          }
+        ]
+      },
+      {
+        "id": "club",
+        "label": "club：社团名称和活动要对得上",
+        "prompt": "原创记录：The chess club meets around this table after class. 点能支持chess这个活动的场景。",
+        "wordDecision": {
+          "prompt": "原创记录：The chess club meets around this table after class. 点能支持chess这个活动的场景。",
+          "recordPaths": [
+            {
+              "id": "member",
+              "label": "加入",
+              "steps": [
+                "join a club",
+                "成为成员"
+              ]
+            },
+            {
+              "id": "event",
+              "label": "参加一次活动",
+              "steps": [
+                "attend a club meeting",
+                "到场参加"
+              ]
+            }
+          ],
+          "art": {
+            "assetRoot": "illustrations-2",
+            "asset": "lesson-playground-uniform-chess",
+            "alt": "三个原创校园场景以蓝绿色线隔开：左图是有球架的室外操场，中图是藏蓝色校服夹克和灰色长裤，右图是有棋盘棋子及空椅子的桌边活动区。操场边缘有裁切，不判断面积、线长或完整场地布局；不据棋子推断合法棋局或数量。社团身份、时间和穿着要求均以文字记录为准。",
+            "targets": [
+              {
+                "id": "playground-scene",
+                "label": "左图",
+                "labelPosition": "top",
+                "left": 0.6,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "playground-scene"
+              },
+              {
+                "id": "uniform-scene",
+                "label": "中图",
+                "labelPosition": "top",
+                "left": 33.8,
+                "top": 1,
+                "width": 31.6,
+                "height": 98,
+                "option": "uniform-scene"
+              },
+              {
+                "id": "chess-scene",
+                "label": "右图",
+                "labelPosition": "top",
+                "left": 67.4,
+                "top": 1,
+                "width": 32,
+                "height": 98,
+                "option": "chess-scene"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "playground-scene",
+                "caption": "左图已选中。区分场地、衣物和棋类活动，再对照记录。",
+                "regions": [
+                  {
+                    "id": "playground-scene",
+                    "label": "左图",
+                    "labelPosition": "top",
+                    "left": 0.6,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "uniform-scene",
+                "caption": "中图已选中。区分场地、衣物和棋类活动，再对照记录。",
+                "regions": [
+                  {
+                    "id": "uniform-scene",
+                    "label": "中图",
+                    "labelPosition": "top",
+                    "left": 33.8,
+                    "top": 1,
+                    "width": 31.6,
+                    "height": 98
+                  }
+                ]
+              },
+              {
+                "option": "chess-scene",
+                "caption": "右图已选中。区分场地、衣物和棋类活动，再对照记录。",
+                "regions": [
+                  {
+                    "id": "chess-scene",
+                    "label": "右图",
+                    "labelPosition": "top",
+                    "left": 67.4,
+                    "top": 1,
+                    "width": 32,
+                    "height": 98
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "answer": "club",
+        "meaning": "社团；俱乐部",
+        "material": "The chess club meets every Thursday afternoon.",
+        "before": "The chess ",
+        "after": " meets every Thursday afternoon.",
+        "reason": "club可指社团或俱乐部，clubs是复数。join a club表示加入社团；attend a club meeting表示参加一次社团活动。图片只能支持棋类活动，不能凭空证明成员身份或见面时间。",
+        "hint": "join a club：加入社团；attend a meeting：参加一次活动。",
+        "ownForms": [
+          "club",
+          "clubs"
+        ],
+        "options": [
+          {
+            "id": "playground-scene",
+            "text": "The outdoor school playground.",
+            "correct": false,
+            "reason": "操场可以举行别的活动，但不能作为这条记录里chess活动的直接线索。"
+          },
+          {
+            "id": "uniform-scene",
+            "text": "The school jacket and trousers.",
+            "correct": false,
+            "reason": "校服说明穿着，不能据此判断社团在下棋。"
+          },
+          {
+            "id": "chess-scene",
+            "text": "The table with a chessboard.",
+            "correct": true,
+            "reason": "右图的棋盘和棋子支持chess活动；社团身份和课后时间来自记录。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-school-tools-5-transfer",
+      "topicId": "v-course-school-tools",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan follows this updated activity notice?",
+      "passage": "FRIDAY UPDATE\nThis term, our Grade Eight chess club is helping with the school activity day. The old timetable put our club meeting on Thursday at 15:40. The meeting is now on Friday, from 16:00 to 16:35, in Room 204. Do not go to the playground: it is wet after the rain. Wear the school uniform for the club photograph. The separate written exam is on Monday at 09:00 in Room 302. Bring a pen for that exam. These are original practice arrangements, not a real school notice.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Meet on Thursday at 15:40 because that was in the old timetable."
+        },
+        {
+          "id": "b",
+          "text": "Meet on the playground on Friday at 16:00."
+        },
+        {
+          "id": "c",
+          "text": "Meet in Room 204 on Friday at 16:00; the meeting lasts thirty-five minutes."
+        },
+        {
+          "id": "d",
+          "text": "Go to Room 204 for the written exam on Monday."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "Meet in Room 204 on Friday at 16:00; the meeting lasts thirty-five minutes."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先追到更新后的日期和地点，再用同一项活动的起止时间算时长。",
+        "steps": [
+          {
+            "text": "按新通知，周五16:00到204教室参加社团活动。",
+            "reason": "now把Thursday at 15:40更新为Friday at 16:00；in Room 204给出新地点，wet playground明确排除了操场。"
+          },
+          {
+            "text": "活动从16:00到16:35，共35分钟。",
+            "reason": "16:35减去16:00等于35分钟。Monday的09:00和302教室属于另一场笔试，不能混用。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "照搬old timetable，忽略了now引出的更新。"
+          },
+          {
+            "option": "b",
+            "reason": "日期和时间对了，但通知明确说操场雨后湿滑，不去操场。"
+          },
+          {
+            "option": "d",
+            "reason": "把社团活动的204教室用于另一场考试；考试在302教室。"
+          }
+        ],
+        "pitfall": "旧安排、新安排和另一场考试分开读；时长必须取同一项活动的起止时间。",
+        "visual": {
+          "kind": "evidence",
+          "title": "更新哪一项，就替换哪一项",
+          "segments": [
+            {
+              "text": "old: Thursday 15:40",
+              "role": "neutral",
+              "note": "旧安排已更新"
+            },
+            {
+              "text": "now: Friday 16:00, Room 204",
+              "role": "evidence",
+              "note": "按新日期、时间和地点到场"
+            },
+            {
+              "text": "16:35 − 16:00 = 35 minutes",
+              "role": "evidence",
+              "note": "同一项活动的时长"
+            },
+            {
+              "text": "exam: Monday 09:00, Room 302",
+              "role": "object",
+              "note": "另一场考试，不能混用"
+            }
+          ],
+          "caption": "日期、教室和时间全部由原创通知明确给出；生成图不提供这些数据。"
+        },
+        "transfer": "如果新通知把结束时间改为16:45，开始时间和地点不变，哪条记录要更新？活动变为多少分钟？"
+      }
+    }
+  }
+}

@@ -1,0 +1,568 @@
+{
+  "lessonId": "l-v-course-science-4",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks distinguish material states, representation and observation conditions.",
+  "picturePurpose": "Original ice versus liquid-water comparison supports state identification. A coded composition builder distinguishes one molecule from an atom; conditional event ordering preserves until.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "辨状态、拼模型、看条件",
+    "instruction": "点图辨冰和水，拼分子，再判断什么时候停。",
+    "items": [
+      {
+        "id": "matter",
+        "label": "matter：matter在这里是物质，还是“没关系”？",
+        "prompt": "matter在这里是物质，还是“没关系”？",
+        "answer": "matter",
+        "meaning": "物质；事情；要紧",
+        "material": "The model shows how matter can change state.",
+        "before": "The model shows how ",
+        "after": " can change state.",
+        "reason": "matter在这里指物质，通常不可数。模型展示物质如何改变状态；原句没给具体温度、时间或某一种变化，不能凭模型补实验结果。",
+        "hint": "matter作物质讲不可数；看change state判断词义。",
+        "wordDecision": {
+          "prompt": "matter在这里是物质，还是“没关系”？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "模型展示物质的状态变化",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "material",
+                "label": "物质如何改变状态",
+                "text": "The model shows how matter can change state.",
+                "include": true
+              },
+              {
+                "id": "problem",
+                "label": "解决所有个人问题",
+                "text": "The model solves every personal problem.",
+                "include": false
+              },
+              {
+                "id": "nothing",
+                "label": "什么都无所谓",
+                "text": "Nothing matters.",
+                "include": false
+              }
+            ],
+            "hint": "这里的state是状态，不是国家。",
+            "wrong": "选物质状态；不能套用It does not matter。"
+          }
+        },
+        "options": [
+          {
+            "id": "material",
+            "text": "The model shows how matter can change from one state to another.",
+            "correct": true,
+            "reason": "change state说明讨论物质状态。"
+          },
+          {
+            "id": "problem",
+            "text": "The model shows how to solve every personal problem.",
+            "correct": false,
+            "reason": "matter在这里不是事情或问题。"
+          },
+          {
+            "id": "nothing",
+            "text": "The sentence says that nothing matters.",
+            "correct": false,
+            "reason": "不是It does not matter的意思。"
+          }
+        ]
+      },
+      {
+        "id": "solid",
+        "label": "solid：点图找solid：冰块和液态水，哪边有固定形状？",
+        "prompt": "点图找solid：冰块和液态水，哪边有固定形状？",
+        "answer": "solid",
+        "meaning": "固体；坚固的",
+        "material": "Ice is a solid form of water.",
+        "before": "Ice is a ",
+        "after": " form of water.",
+        "reason": "solid在这里作形容词，表示固体的。冰是水的一种固体形式；另给图左边是冰块，右边是液态水。图不提供温度、融化时间或真实尺寸，不能据此测量。",
+        "hint": "a solid form of water；solid也可作名词。",
+        "wordDecision": {
+          "prompt": "点图找solid：冰块和液态水，哪边有固定形状？",
+          "art": {
+            "asset": "lesson-water-forms",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "另给状态对比图：左边浅盘里是一块有清楚棱面的冰，右边浅盘里是液态水；无温度、时间或比例尺。",
+            "targets": [
+              {
+                "id": "ice-zone",
+                "option": "ice",
+                "label": "冰块",
+                "left": 3,
+                "top": 8,
+                "width": 44,
+                "height": 84
+              },
+              {
+                "id": "liquid-zone",
+                "option": "liquid",
+                "label": "液态水",
+                "left": 53,
+                "top": 8,
+                "width": 44,
+                "height": 84
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "ice",
+            "text": "The ice cube on the left is water in solid form.",
+            "correct": true,
+            "reason": "左盘冰块有清楚的棱面。"
+          },
+          {
+            "id": "liquid",
+            "text": "The liquid water in the right dish is the solid form.",
+            "correct": false,
+            "reason": "右盘是液态水。"
+          }
+        ]
+      },
+      {
+        "id": "liquid",
+        "label": "liquid：倒入哪个容器？别漏掉labelled。",
+        "prompt": "倒入哪个容器？别漏掉labelled。",
+        "answer": "liquid",
+        "meaning": "液体；液态的",
+        "material": "Pour the liquid into a labelled container.",
+        "before": "Pour the ",
+        "after": " into a labelled container.",
+        "reason": "liquid在这里作名词，指液体。Pour...into...表示倒入，a labelled container是贴有标签的容器。这是操作要求，不能说已经倒完，也不能补液体名称或体积。",
+        "hint": "pour...into...；labelled修饰container。",
+        "wordDecision": {
+          "prompt": "倒入哪个容器？别漏掉labelled。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "液体要倒入有标签的容器",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "label",
+                "label": "倒入贴有标签的容器",
+                "text": "Pour the liquid into a labelled container.",
+                "include": true
+              },
+              {
+                "id": "any",
+                "label": "容器有没有标签都可以",
+                "text": "Use any container, with or without a label.",
+                "include": false
+              },
+              {
+                "id": "solid",
+                "label": "放入没有标签容器的固体",
+                "text": "Put the solid into an unlabelled container.",
+                "include": false
+              }
+            ],
+            "hint": "指令没给液体名称或体积。",
+            "wrong": "保留liquid和labelled，不能换材料或漏条件。"
+          }
+        },
+        "options": [
+          {
+            "id": "label",
+            "text": "Pour the liquid into a container that has a label.",
+            "correct": true,
+            "reason": "labelled修饰container。"
+          },
+          {
+            "id": "any",
+            "text": "Pour it into any container, with or without a label.",
+            "correct": false,
+            "reason": "漏掉标签要求。"
+          },
+          {
+            "id": "solid",
+            "text": "Place a solid block in an unlabelled container.",
+            "correct": false,
+            "reason": "把液体换成固体，也删了标签。"
+          }
+        ]
+      },
+      {
+        "id": "gas",
+        "label": "gas：can spread说的是哪种性质？",
+        "prompt": "can spread说的是哪种性质？",
+        "answer": "gas",
+        "meaning": "气体；煤气",
+        "material": "A gas can spread to fill its container.",
+        "before": "A ",
+        "after": " can spread to fill its container.",
+        "reason": "gas是气体。can spread to fill its container描述气体能扩散并充满所在容器，不是说所有容器现在都装满气体；也没给气体名称、压力或体积。",
+        "hint": "gas的复数是gases；can描述能力或性质。",
+        "wordDecision": {
+          "prompt": "can spread说的是哪种性质？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "气体能扩散并充满所在容器",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "spread",
+                "label": "能扩散并充满容器",
+                "text": "A gas can spread to fill its container.",
+                "include": true
+              },
+              {
+                "id": "fixed",
+                "label": "始终保持冰块形状",
+                "text": "A gas always keeps the shape of an ice cube.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "所有容器现在都装满气体",
+                "text": "Every container is full of gas now.",
+                "include": false
+              }
+            ],
+            "hint": "一般性质不是所有容器此刻的事实。",
+            "wrong": "选can spread；不能补当前状态或固定形状。"
+          }
+        },
+        "options": [
+          {
+            "id": "spread",
+            "text": "A gas can spread throughout the space in its container.",
+            "correct": true,
+            "reason": "can说性质，fill its container说扩散范围。"
+          },
+          {
+            "id": "fixed",
+            "text": "A gas always keeps the fixed shape of an ice cube.",
+            "correct": false,
+            "reason": "把气体说成固定形状。"
+          },
+          {
+            "id": "all",
+            "text": "This sentence proves that every container is full of gas now.",
+            "correct": false,
+            "reason": "一般性质不等于所有容器此刻的事实。"
+          }
+        ]
+      },
+      {
+        "id": "atom",
+        "label": "atom：模型帮助想象，等于原子的真实照片吗？",
+        "prompt": "模型帮助想象，等于原子的真实照片吗？",
+        "answer": "atom",
+        "meaning": "原子",
+        "material": "A model can help us picture an atom.",
+        "before": "A model can help us picture an ",
+        "after": ".",
+        "reason": "atom是原子。picture在这里作动词，表示在脑中想象；模型帮助理解，不保证形状、颜色或比例与实物相同。an atom中的冠词取决于发音。",
+        "hint": "an atom；picture可作动词，表示想象。",
+        "wordDecision": {
+          "prompt": "模型帮助想象，等于原子的真实照片吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "模型帮助想象一个原子",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "model",
+                "label": "模型帮助我们想象",
+                "text": "A model can help us picture an atom.",
+                "include": true
+              },
+              {
+                "id": "photo",
+                "label": "模型就是真实照片",
+                "text": "Every model is an exact photograph of an atom.",
+                "include": false
+              },
+              {
+                "id": "article",
+                "label": "应写a atom",
+                "text": "We should write a atom.",
+                "include": false
+              }
+            ],
+            "hint": "不把示意模型当照片或实测。",
+            "wrong": "保留model can help；atom前用an。"
+          }
+        },
+        "options": [
+          {
+            "id": "model",
+            "text": "A model can help us imagine an atom.",
+            "correct": true,
+            "reason": "picture在这里作动词，表示想象。"
+          },
+          {
+            "id": "photo",
+            "text": "Every model is an exact photograph of an atom.",
+            "correct": false,
+            "reason": "模型不是原子的真实照片。"
+          },
+          {
+            "id": "article",
+            "text": "The sentence needs a atom rather than an atom.",
+            "correct": false,
+            "reason": "atom以元音音素开头，用an。"
+          }
+        ]
+      },
+      {
+        "id": "molecule",
+        "label": "molecule：按另给规则拼一个水分子：2个H＋1个O。",
+        "prompt": "按另给规则拼一个水分子：2个H＋1个O。",
+        "answer": "molecule",
+        "meaning": "分子",
+        "material": "The diagram represents one water molecule.",
+        "before": "The diagram represents one water ",
+        "after": ".",
+        "reason": "molecule是分子；原句说图表示一个水分子，不是一个原子。另给组成规则：一个水分子含两个氢原子和一个氧原子。按符号拼出2个H和1个O；示意图不表示真实颜色、大小、距离或键角。",
+        "hint": "one water molecule；分子和原子不是同一个概念。",
+        "wordDecision": {
+          "prompt": "按另给规则拼一个水分子：2个H＋1个O。",
+          "molecule": {
+            "title": "拼一个水分子",
+            "hint": "另给规则：2个H＋1个O；只示意组成，不表示真实大小、距离或键角。",
+            "wrong": "一个水分子需要2个H和1个O；检查两种符号的数量。"
+          }
+        },
+        "options": [
+          {
+            "id": "one",
+            "text": "The diagram represents one water molecule.",
+            "correct": true,
+            "reason": "one限定一个分子，不是一个原子。"
+          },
+          {
+            "id": "atom",
+            "text": "The diagram represents one water atom.",
+            "correct": false,
+            "reason": "水分子不等于一个原子。"
+          },
+          {
+            "id": "many",
+            "text": "The sentence says the diagram represents many water molecules.",
+            "correct": false,
+            "reason": "把one改成many。"
+          }
+        ]
+      },
+      {
+        "id": "cell",
+        "label": "cell：plant cell指植物细胞，还是小房间？",
+        "prompt": "plant cell指植物细胞，还是小房间？",
+        "answer": "cell",
+        "meaning": "细胞；小房间",
+        "material": "We looked at a plant cell through the microscope.",
+        "before": "We looked at a plant ",
+        "after": " through the microscope.",
+        "reason": "cell在这里指细胞。a plant cell是一个植物细胞，through the microscope说明借助显微镜观察。原句没有给细胞结构、放大倍数或观察结论，不能凭空添加。",
+        "hint": "plant cell植物细胞；cell也可指小房间，要看语境。",
+        "wordDecision": {
+          "prompt": "plant cell指植物细胞，还是小房间？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "借助显微镜观察植物细胞",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "plant",
+                "label": "用显微镜看植物细胞",
+                "text": "We looked at a plant cell through the microscope.",
+                "include": true
+              },
+              {
+                "id": "room",
+                "label": "透过小房间的窗户看",
+                "text": "We looked through the window of a small room.",
+                "include": false
+              },
+              {
+                "id": "animal",
+                "label": "肉眼观察动物细胞",
+                "text": "We observed an animal cell with the naked eye.",
+                "include": false
+              }
+            ],
+            "hint": "保留plant和microscope；不补结构或倍数。",
+            "wrong": "选植物细胞和显微镜；不能换对象或工具。"
+          }
+        },
+        "options": [
+          {
+            "id": "plant",
+            "text": "They observed a plant cell using a microscope.",
+            "correct": true,
+            "reason": "plant和microscope共同限定细胞词义。"
+          },
+          {
+            "id": "room",
+            "text": "They looked through the window of a small room.",
+            "correct": false,
+            "reason": "不是小房间，也没有窗户。"
+          },
+          {
+            "id": "animal",
+            "text": "They observed an animal cell with the naked eye.",
+            "correct": false,
+            "reason": "把plant换成animal，还漏掉microscope。"
+          }
+        ]
+      },
+      {
+        "id": "microscope",
+        "label": "microscope：调节到什么时候？找until的终点。",
+        "prompt": "调节到什么时候？找until的终点。",
+        "answer": "microscope",
+        "meaning": "显微镜",
+        "material": "Adjust the microscope until the image is clear.",
+        "before": "Adjust the ",
+        "after": " until the image is clear.",
+        "reason": "microscope是显微镜。Adjust...until...要求调节到图像清楚；clear是终点条件，不是规定调一分钟。原句没给调节方向、放大倍数或已经成功的结果。",
+        "hint": "adjust...until...；until后接结束条件。",
+        "wordDecision": {
+          "prompt": "调节到什么时候？找until的终点。",
+          "processOrder": {
+            "title": "按条件决定何时停",
+            "hint": "这里按操作条件排序，不补时间、方向或放大倍数。",
+            "wrong": "先调节，图像清楚后再停止；模糊时不能算完成。",
+            "events": [
+              {
+                "id": "adjust",
+                "label": "调节显微镜"
+              },
+              {
+                "id": "clear",
+                "label": "图像清楚再停"
+              }
+            ],
+            "sequence": [
+              "adjust",
+              "clear"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "clear",
+            "text": "Keep adjusting as needed until the image becomes clear.",
+            "correct": true,
+            "reason": "until the image is clear给出终点条件。"
+          },
+          {
+            "id": "blur",
+            "text": "Stop while the image is still blurred.",
+            "correct": false,
+            "reason": "还没达到clear条件。"
+          },
+          {
+            "id": "time",
+            "text": "Stop after exactly one minute, whatever the image looks like.",
+            "correct": false,
+            "reason": "没有一分钟的时长，不能补数值。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-science-4-transfer",
+      "topicId": "v-course-science",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which set of notes keeps the container requirement, the role of a model and the stopping condition?",
+      "passage": "Models and observation\nOur lesson used models to discuss matter and its changes of state. Ice was a solid form of water. A separate picture compared an ice cube with liquid water; it did not give temperatures or melting times. An instruction told us to pour a liquid into a labelled container. It did not identify the liquid or give its volume. We also learned that a gas can spread to fill its container. This did not say that every container was full of gas at that moment.\nA model could help us picture an atom. It was a representation, not an exact photograph. Another diagram represented one water molecule. A separate composition exercise supplied this rule: one water molecule contains two hydrogen atoms and one oxygen atom. The symbols in that exercise did not show actual sizes, distances or angles.\nWe looked at a plant cell through a microscope. The record gave no magnification or cell-structure findings. Another instruction told us to adjust the microscope until the image was clear. The condition was a clear image, not an invented one-minute limit.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use an unlabelled container; a model is an exact photograph; stop while the image is blurred."
+        },
+        {
+          "id": "b",
+          "text": "Use a labelled container; a model helps us picture an atom; stop when the image is clear."
+        },
+        {
+          "id": "c",
+          "text": "Use a labelled container; one water molecule is one atom; stop when the image is clear."
+        },
+        {
+          "id": "d",
+          "text": "Use a labelled container; a model helps us picture an atom; always stop after one minute."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Use a labelled container; a model helps us picture an atom; stop when the image is clear."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐项核对标签、模型和until条件。",
+        "steps": [
+          {
+            "text": "容器必须有标签；模型帮助想象原子。",
+            "reason": "labelled不能漏；model不等于真实照片。"
+          },
+          {
+            "text": "图像清楚后才满足停止条件。",
+            "reason": "until给终点条件，没有一分钟的规定。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "漏掉标签，把模型当照片，还在模糊时停止。"
+          },
+          {
+            "option": "c",
+            "reason": "把一个水分子误当成一个原子。"
+          },
+          {
+            "option": "d",
+            "reason": "把图像清楚的条件换成凭空补出的一分钟。"
+          }
+        ],
+        "pitfall": "漏修饰语、混淆原子与分子，或给操作要求补时间与结果。",
+        "visual": {
+          "kind": "timeline",
+          "title": "条件要保留",
+          "segments": [
+            {
+              "text": "labelled container",
+              "role": "object",
+              "note": "有标签"
+            },
+            {
+              "text": "model → picture an atom",
+              "role": "object",
+              "note": "帮助想象"
+            },
+            {
+              "text": "adjust → clear image",
+              "role": "object",
+              "note": "满足条件才停"
+            }
+          ],
+          "caption": "组成示意与显微镜观察都不能用来臆测真实尺寸或放大倍数。"
+        },
+        "transfer": "until the image is clear能改成after one minute吗？为什么？"
+      }
+    }
+  }
+}

@@ -1,0 +1,554 @@
+{
+  "lessonId": "l-v-course-useful-qualities-4",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks preserve availability, absence, likelihood, uncertainty and conditions without unsupported conclusions.",
+  "picturePurpose": "Original chair/lectern comparison identifies available objects; fictional Sunday calendar and gate-latch conditions remain in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "标周日、找椅子、试门闩",
+    "instruction": "标出有免费依据的日子，找备用椅子，再比较关门和闩牢。",
+    "items": [
+      {
+        "id": "busy",
+        "label": "busy：busy描述哪里、什么时候？",
+        "prompt": "busy描述哪里、什么时候？",
+        "answer": "busy",
+        "meaning": "忙碌的；繁忙的",
+        "material": "The harbour is busy before sunrise.",
+        "before": "The harbour is ",
+        "after": " before sunrise.",
+        "reason": "busy在这里表示繁忙的，主语是the harbour，before sunrise限定日出前。不能把时间换成日落后，也不能推断准确船只数量。另一个搭配be busy doing表示忙于做某事，与这里直接描述港口状态不同。",
+        "hint": "busy描述繁忙；be busy doing。",
+        "wordDecision": {
+          "prompt": "busy描述哪里、什么时候？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "日出之前港口繁忙",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "harbour",
+                "label": "港口在日出前很繁忙",
+                "text": "The harbour is busy before sunrise.",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "日落后港口很安静",
+                "text": "The harbour is quiet after sunset.",
+                "include": false
+              },
+              {
+                "id": "count",
+                "label": "给出准确船只数量",
+                "text": "The sentence gives an exact number of ships.",
+                "include": false
+              }
+            ],
+            "hint": "保留港口、繁忙和日出前，不补船数。",
+            "wrong": "选日出前繁忙，不换时间或编数量。"
+          }
+        },
+        "options": [
+          {
+            "id": "harbour",
+            "text": "There is much activity at the harbour before sunrise.",
+            "correct": true,
+            "reason": "busy描述日出前港口的繁忙状态。"
+          },
+          {
+            "id": "after",
+            "text": "The harbour is quiet only after sunset.",
+            "correct": false,
+            "reason": "改了状态和时间。"
+          },
+          {
+            "id": "count",
+            "text": "The sentence gives the exact number of ships.",
+            "correct": false,
+            "reason": "原句没有准确船只数量。"
+          }
+        ]
+      },
+      {
+        "id": "free",
+        "label": "free：哪一天的免费入场有原句依据？",
+        "prompt": "哪一天的免费入场有原句依据？",
+        "answer": "free",
+        "meaning": "免费的；自由的；空闲的",
+        "material": "The museum offers free entry on Sundays.",
+        "before": "The museum offers ",
+        "after": " entry on Sundays.",
+        "reason": "free在这里表示免费的，free entry是免费入场，on Sundays限定周日。原句没有说每天免费，也没有说明其他服务是否免费或所有工作日一定收费。另给周历只用来选原句明确支持的日子，不代表真实博物馆政策。",
+        "hint": "free entry；free of charge；on Sundays。",
+        "wordDecision": {
+          "prompt": "哪一天的免费入场有原句依据？",
+          "freeSunday": {
+            "title": "只标有依据的免费日",
+            "hint": "另给周历练习：原句只说明周日免费入场，其他日子的票价未知。",
+            "wrong": "选周日；不能把周日扩成每天，也不能推断其他日子都收费。"
+          }
+        },
+        "options": [
+          {
+            "id": "sunday",
+            "text": "People can enter the museum without an entry charge on Sundays.",
+            "correct": true,
+            "reason": "free entry与on Sundays保留免费和周日条件。"
+          },
+          {
+            "id": "all",
+            "text": "All museum services are free every day.",
+            "correct": false,
+            "reason": "免费入场不能扩大成每天所有服务免费。"
+          },
+          {
+            "id": "weekdays",
+            "text": "The sentence proves that every weekday has a paid entry charge.",
+            "correct": false,
+            "reason": "只说明周日免费，不能推出所有工作日收费。"
+          }
+        ]
+      },
+      {
+        "id": "available",
+        "label": "available：可以取用的备用物品是哪一类？",
+        "prompt": "可以取用的备用物品是哪一类？",
+        "answer": "available",
+        "meaning": "可获得的；有空的",
+        "material": "Extra chairs are available at the back of the hall.",
+        "before": "Extra chairs are ",
+        "after": " at the back of the hall.",
+        "reason": "available表示可获得的或可用的。原句说礼堂后面有可取用的备用椅子，不是前面有讲台。原创物品对照帮助辨认chairs，礼堂后部这个位置由句子给出，不能从这张物品图推断实际位置或准确椅子数量。",
+        "hint": "be available；at the back of。",
+        "wordDecision": {
+          "prompt": "可以取用的备用物品是哪一类？",
+          "art": {
+            "asset": "lesson-spare-chairs",
+            "assetRoot": "illustrations-5",
+            "format": "jpg",
+            "alt": "原创物品对照：左边备用椅子，右边讲台；不是实际礼堂位置图，也不提供原句椅子数量。",
+            "targets": [
+              {
+                "id": "chairs-zone",
+                "option": "chairs",
+                "label": "备用椅子",
+                "left": 4,
+                "top": 11,
+                "width": 43,
+                "height": 76
+              },
+              {
+                "id": "lectern-zone",
+                "option": "lectern",
+                "label": "讲台",
+                "left": 53,
+                "top": 8,
+                "width": 43,
+                "height": 79
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "chairs",
+            "text": "Spare chairs can be obtained at the back of the hall.",
+            "correct": true,
+            "reason": "available说明可取用，地点在礼堂后部。"
+          },
+          {
+            "id": "lectern",
+            "text": "The sentence offers an extra lectern at the front of the hall.",
+            "correct": false,
+            "reason": "把chairs换成lectern，还反转了位置。"
+          }
+        ]
+      },
+      {
+        "id": "absent",
+        "label": "absent：absent from说明什么？",
+        "prompt": "absent from说明什么？",
+        "answer": "absent",
+        "meaning": "缺席的；不在的",
+        "material": "Two pupils were absent from rehearsal.",
+        "before": "Two pupils were ",
+        "after": " from rehearsal.",
+        "reason": "be absent from表示缺席。原句明确是两名学生没来排练，were表示过去情况；不能补成两人一定生病、全班缺席或所有人都到场。two pupils为复数，不能用was。",
+        "hint": "be absent from；two pupils were。",
+        "wordDecision": {
+          "prompt": "absent from说明什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "两名学生没有参加排练",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "two",
+                "label": "两名学生缺席排练",
+                "text": "Two pupils were absent from rehearsal.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "每名学生都参加排练",
+                "text": "Every pupil attended the rehearsal.",
+                "include": false
+              },
+              {
+                "id": "ill",
+                "label": "已证明两人都生病",
+                "text": "The sentence proves that both pupils were ill.",
+                "include": false
+              }
+            ],
+            "hint": "保留两人和缺席排练，不编缺席原因。",
+            "wrong": "选两人缺席，不扩成全班或补生病原因。"
+          }
+        },
+        "options": [
+          {
+            "id": "two",
+            "text": "Two pupils did not attend the rehearsal.",
+            "correct": true,
+            "reason": "two和absent from保留两人缺席排练。"
+          },
+          {
+            "id": "all",
+            "text": "Every pupil attended the rehearsal.",
+            "correct": false,
+            "reason": "与两人缺席相反。"
+          },
+          {
+            "id": "ill",
+            "text": "The sentence proves that both pupils were ill.",
+            "correct": false,
+            "reason": "缺席不说明具体原因。"
+          }
+        ]
+      },
+      {
+        "id": "likely",
+        "label": "likely：likely to delay等于已经延期吗？",
+        "prompt": "likely to delay等于已经延期吗？",
+        "answer": "likely",
+        "meaning": "可能的",
+        "material": "Rain is likely to delay the outdoor concert.",
+        "before": "Rain is ",
+        "after": " to delay the outdoor concert.",
+        "reason": "be likely to do表示很可能做某事。这里说下雨很可能使户外音乐会延期，不是在报告已经延期，更不是已经取消。delay与cancel不同；likely也不等于certain。原句没有给出准确概率或延期分钟数。",
+        "hint": "be likely to do；delay不等于cancel。",
+        "wordDecision": {
+          "prompt": "likely to delay等于已经延期吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "下雨很可能使户外音乐会延期",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "possible",
+                "label": "下雨很可能使音乐会推迟",
+                "text": "Rain is likely to delay the outdoor concert.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "已确定音乐会取消",
+                "text": "The concert has certainly already been cancelled.",
+                "include": false
+              },
+              {
+                "id": "minutes",
+                "label": "给出准确延误分钟数",
+                "text": "The sentence gives an exact number of minutes of delay.",
+                "include": false
+              }
+            ],
+            "hint": "保留很可能和延误，不改成已取消或补时长。",
+            "wrong": "选可能推迟，不改成已确定取消。"
+          }
+        },
+        "options": [
+          {
+            "id": "possible",
+            "text": "Rain will probably cause the outdoor concert to start later.",
+            "correct": true,
+            "reason": "likely to delay表示很可能造成延误。"
+          },
+          {
+            "id": "done",
+            "text": "The concert has certainly already been cancelled.",
+            "correct": false,
+            "reason": "把可能延误改成确定已取消。"
+          },
+          {
+            "id": "never",
+            "text": "Rain cannot affect the concert time.",
+            "correct": false,
+            "reason": "与likely to delay相反。"
+          }
+        ]
+      },
+      {
+        "id": "certain",
+        "label": "certain：not certain which switch表示什么？",
+        "prompt": "not certain which switch表示什么？",
+        "answer": "certain",
+        "meaning": "确定的；某个",
+        "material": "I am not certain which switch controls the light.",
+        "before": "I am not ",
+        "after": " which switch controls the light.",
+        "reason": "certain表示确定的。I am not certain which...说明我不能确定哪个开关控制灯，不是在说所有开关都坏了或没有开关能用。be certain about是另一搭配；此处后面接which引导的从句。不要漏掉not。",
+        "hint": "not certain which...；be certain about。",
+        "wordDecision": {
+          "prompt": "not certain which switch表示什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "不能确定哪个开关控制灯",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "uncertain",
+                "label": "我不能确定控制灯的是哪个开关",
+                "text": "I am not certain which switch controls the light.",
+                "include": true
+              },
+              {
+                "id": "none",
+                "label": "我确定没有开关能控制灯",
+                "text": "I know that no switch can control the light.",
+                "include": false
+              },
+              {
+                "id": "broken",
+                "label": "已确定所有开关都坏了",
+                "text": "Every switch is certainly broken.",
+                "include": false
+              }
+            ],
+            "hint": "保留不确定哪个，不变成确定没有或都坏了。",
+            "wrong": "选不能确定，不补开关故障结论。"
+          }
+        },
+        "options": [
+          {
+            "id": "uncertain",
+            "text": "I do not know for sure which switch controls the light.",
+            "correct": true,
+            "reason": "not certain which保留对哪个开关的不确定。"
+          },
+          {
+            "id": "none",
+            "text": "I know that no switch can control the light.",
+            "correct": false,
+            "reason": "不确定哪个不等于确定没有。"
+          },
+          {
+            "id": "broken",
+            "text": "Every switch is certainly broken.",
+            "correct": false,
+            "reason": "原句没有诊断开关都坏了。"
+          }
+        ]
+      },
+      {
+        "id": "sure",
+        "label": "sure：make sure要求检查到什么状态？",
+        "prompt": "make sure要求检查到什么状态？",
+        "answer": "sure",
+        "meaning": "确信的；肯定的",
+        "material": "Make sure the gate is firmly closed.",
+        "before": "Make ",
+        "after": " the gate is firmly closed.",
+        "reason": "make sure表示确保，这里要求检查大门是否关牢；它是指令，不是在报告检查已经完成。另给虚构门闩示意区分敞开、合上未闩与合上闩好，只帮助理解firmly closed，不是实际设备操作或安保保证。",
+        "hint": "make sure后可接从句；指令不等于已完成。",
+        "wordDecision": {
+          "prompt": "make sure要求检查到什么状态？",
+          "gateFirm": {
+            "title": "合上之后，还要关牢",
+            "hint": "另给虚构门闩示意：比较敞开、合上未闩和合上闩好。不是实际设备操作。",
+            "wrong": "选合上并闩好的示意；仅合上未闩不能表示这里的firmly closed。"
+          }
+        },
+        "options": [
+          {
+            "id": "firm",
+            "text": "Check that the gate is securely shut.",
+            "correct": true,
+            "reason": "make sure是确保，firmly保留关牢。"
+          },
+          {
+            "id": "done",
+            "text": "The sentence reports that the gate has already been checked and secured.",
+            "correct": false,
+            "reason": "指令不等于报告检查已经完成。"
+          },
+          {
+            "id": "open",
+            "text": "Leave the gate open without checking it.",
+            "correct": false,
+            "reason": "与确保关牢相反。"
+          }
+        ]
+      },
+      {
+        "id": "true",
+        "label": "true：based on a true event保证所有细节真实吗？",
+        "prompt": "based on a true event保证所有细节真实吗？",
+        "answer": "true",
+        "meaning": "真实的；正确的",
+        "material": "The story is based on a true event.",
+        "before": "The story is based on a ",
+        "after": " event.",
+        "reason": "true在这里修饰event，说明故事以真实发生的事件为基础。be based on不等于保证所有对话、细节和人物描写都逐字符合事实。true是形容词，truth是名词；这里用a true event。",
+        "hint": "a true event；be based on；truth是名词。",
+        "wordDecision": {
+          "prompt": "based on a true event保证所有细节真实吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "故事以真实事件为基础",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "basis",
+                "label": "故事以真实事件为基础",
+                "text": "The story is based on a true event.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "故事所有细节都保证完全真实",
+                "text": "Every detail in the story is guaranteed to be factual.",
+                "include": false
+              },
+              {
+                "id": "invented",
+                "label": "该事件从未发生",
+                "text": "The sentence says the event never happened.",
+                "include": false
+              }
+            ],
+            "hint": "保留真实事件作基础，不扩大成所有细节保证真实。",
+            "wrong": "选事件基础真实，不保证所有细节或反转事件。"
+          }
+        },
+        "options": [
+          {
+            "id": "basis",
+            "text": "A real event provided the basis for the story.",
+            "correct": true,
+            "reason": "true event说明故事依据的事件真实。"
+          },
+          {
+            "id": "all",
+            "text": "Every detail and every word in the story must be exactly factual.",
+            "correct": false,
+            "reason": "根据真实事件不保证所有细节逐字真实。"
+          },
+          {
+            "id": "invented",
+            "text": "The sentence says the event never happened.",
+            "correct": false,
+            "reason": "与true event相反。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-useful-qualities-4-transfer",
+      "topicId": "v-course-useful-qualities",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve the free-entry condition, the likely delay and the speaker’s uncertainty?",
+      "passage": "Before the rehearsal\nOur class visited a museum on Sunday morning. A notice said that the museum offered free entry on Sundays. It did not describe the prices of other services or the entry prices on other days. A story in one display was based on a true event, but the guide did not say that every detail in the story was factual.\nLater, we went to a hall for a rehearsal. Extra chairs were available at the back. Two pupils were absent, and we did not know why. I was not certain which switch controlled the light, so I asked the teacher instead of claiming that all the switches were broken.\nWe were also planning an outdoor concert. Rain was likely to delay it, but no one had reported that it was already cancelled. Before we left the hall, the teacher asked us to make sure the gate was firmly closed.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Museum entry is free on Sundays; rain will probably delay the concert; the speaker is unsure which switch controls the light."
+        },
+        {
+          "id": "b",
+          "text": "All museum services are free every day; the concert has already been cancelled; every switch is broken."
+        },
+        {
+          "id": "c",
+          "text": "Museum entry is free on Sundays; the concert has already been cancelled; the speaker is unsure which switch controls the light."
+        },
+        {
+          "id": "d",
+          "text": "Museum entry is free on Sundays; rain will probably delay the concert; the speaker knows that no switch controls the light."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Museum entry is free on Sundays; rain will probably delay the concert; the speaker is unsure which switch controls the light."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对免费条件、可能性和否定，别把不知道改成确定结论。",
+        "steps": [
+          {
+            "text": "free entry on Sundays只说明周日免费入场。",
+            "reason": "没有说每天所有服务都免费，也没有给出其他日子的票价。"
+          },
+          {
+            "text": "likely to delay是很可能延期；not certain which是不确定哪个。",
+            "reason": "不能改成已取消，也不能补成确定所有开关都坏了。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "扩大免费范围，把可能延期改成已取消，还编造开关故障。"
+          },
+          {
+            "option": "c",
+            "reason": "把很可能延期改成已经取消。"
+          },
+          {
+            "option": "d",
+            "reason": "把不能确定哪个开关改成确定没有开关能控制灯。"
+          }
+        ],
+        "pitfall": "忽略条件与否定，把likely、uncertain读成确定事实。",
+        "visual": {
+          "kind": "timeline",
+          "title": "条件、可能、不确定",
+          "segments": [
+            {
+              "text": "free entry · Sundays",
+              "role": "object",
+              "note": "只说明周日入场"
+            },
+            {
+              "text": "likely to delay",
+              "role": "object",
+              "note": "很可能延期"
+            },
+            {
+              "text": "not certain which",
+              "role": "object",
+              "note": "不能确定哪个"
+            }
+          ],
+          "caption": "保留原句承诺的范围。"
+        },
+        "transfer": "两名学生缺席，为什么还不能写成两名学生都生病了？"
+      }
+    }
+  }
+}

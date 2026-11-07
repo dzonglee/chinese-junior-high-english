@@ -1,0 +1,562 @@
+{
+  "lessonId": "l-g-articles",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Separate first-sound selection, adjective intervention, known-object reference and plural generality; require the learner to identify the relevant evidence.",
+  "picturePurpose": "Tap the named book or umbrella rather than treat original generated objects as decoration; words and phonemic clues are deterministic code.",
+  "workshop": {
+    "navigationLabel": "任务",
+    "kind": "transform",
+    "title": "先看发音，再找同一对象",
+    "instruction": "点选对象或依据，再把冠词放进句子。",
+    "conditions": [
+      {
+        "label": "首次说一把伞",
+        "before": "On the desk there is ",
+        "target": "an",
+        "after": " umbrella.",
+        "choices": [
+          "a",
+          "an",
+          "the"
+        ],
+        "reason": "首次泛指一把伞，用不定冠词。umbrella 以元音音素开头，所以选 an。",
+        "world": {
+          "kind": "syntax",
+          "caption": "第一次介绍桌上的一把伞，不特指双方已知道的那一把。",
+          "records": {
+            "title": "先点出句子里的 umbrella。",
+            "missingPrompt": "先选出句子要描述的对象或判断依据，再核对冠词。",
+            "answer": "umbrella",
+            "options": [
+              {
+                "id": "book",
+                "label": "book",
+                "text": "book 以辅音音素 /b/ 开头",
+                "reason": "你点的是书，umbrella 指伞。请改选右边的伞。",
+                "value": 50
+              },
+              {
+                "id": "umbrella",
+                "label": "umbrella",
+                "text": "umbrella 以元音音素开头",
+                "reason": "umbrella 指伞，不能用它来支持另一件物品的名称。",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-book-umbrella",
+            "alt": "左边是一本蓝色封面的书，右边是一把橙色折叠伞；英文名称和音素提示由代码标注。",
+            "artChoices": [
+              "book",
+              "umbrella"
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的冠词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "umbrella",
+              "detail": "元音音素开头"
+            }
+          ]
+        }
+      },
+      {
+        "label": "换成一本书",
+        "before": "Mia has ",
+        "target": "a",
+        "after": " book for the trip.",
+        "choices": [
+          "a",
+          "an",
+          "the"
+        ],
+        "reason": "首次泛指一本书；book 以辅音音素 /b/ 开头，用 a。",
+        "world": {
+          "kind": "syntax",
+          "caption": "这次介绍 Mia 旅行要用的一本书。注意 book 的开头音。",
+          "records": {
+            "title": "再点出 book，别只记上一题的 an。",
+            "missingPrompt": "先选出句子要描述的对象或判断依据，再核对冠词。",
+            "answer": "book",
+            "options": [
+              {
+                "id": "book",
+                "label": "book",
+                "text": "book 以辅音音素 /b/ 开头",
+                "reason": "book 指书，不能用它来支持另一件物品的名称。",
+                "value": 50
+              },
+              {
+                "id": "umbrella",
+                "label": "umbrella",
+                "text": "umbrella 以元音音素开头",
+                "reason": "你点的是伞，book 指书。请改选左边的书。",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-book-umbrella",
+            "alt": "左边是一本蓝色封面的书，右边是一把橙色折叠伞；英文名称和音素提示由代码标注。",
+            "artChoices": [
+              "book",
+              "umbrella"
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的冠词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "book",
+              "detail": "辅音音素 /b/ 开头"
+            }
+          ]
+        }
+      },
+      {
+        "label": "形容词插进来",
+        "before": "Mia has ",
+        "target": "an",
+        "after": " old book.",
+        "choices": [
+          "a",
+          "an",
+          "the"
+        ],
+        "reason": "冠词后先读 old；old 以元音音素开头，所以用 an old book，不能只按 book 选 a。",
+        "world": {
+          "kind": "syntax",
+          "caption": "首次泛指一本旧书。加了 old，决定 a/an 的第一个音也变了。",
+          "records": {
+            "title": "冠词后第一个读出的词是哪一个？",
+            "missingPrompt": "先选出句子要描述的对象或判断依据，再核对冠词。",
+            "answer": "old",
+            "options": [
+              {
+                "id": "old",
+                "label": "old",
+                "text": "old 以元音音素开头",
+                "reason": "old 紧跟冠词，决定这里的 a/an。",
+                "value": 50
+              },
+              {
+                "id": "book",
+                "label": "book",
+                "text": "book 以 /b/ 开头",
+                "reason": "冠词后先读 old，不能跳过形容词只看 book。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的冠词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "old book",
+              "detail": "先读 old"
+            }
+          ]
+        }
+      },
+      {
+        "label": "u 开头也可能用 a",
+        "before": "This is ",
+        "target": "a",
+        "after": " useful book.",
+        "choices": [
+          "a",
+          "an",
+          "the"
+        ],
+        "reason": "首次泛指一本有用的书。useful 以辅音音素 /j/ 开头，因此用 a useful book。",
+        "world": {
+          "kind": "syntax",
+          "caption": "仍然首次泛指；把 old 换成 useful，冠词要不要跟着变？",
+          "records": {
+            "title": "选发音依据，不凭第一个字母判断。",
+            "missingPrompt": "先选出句子要描述的对象或判断依据，再核对冠词。",
+            "answer": "sound",
+            "options": [
+              {
+                "id": "sound",
+                "label": "useful 的开头音",
+                "text": "辅音音素 /j/",
+                "reason": "useful 以辅音音素 /j/ 开头。",
+                "value": 50
+              },
+              {
+                "id": "letter",
+                "label": "useful 的首字母",
+                "text": "字母 u 是元音字母",
+                "reason": "元音字母不等于元音音素；useful 的开头音是 /j/。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的冠词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "useful book",
+              "detail": "先读 useful 的 /j/"
+            }
+          ]
+        }
+      },
+      {
+        "label": "不发音的 h",
+        "before": "Mia is ",
+        "target": "an",
+        "after": " honest student.",
+        "choices": [
+          "a",
+          "an",
+          "the"
+        ],
+        "reason": "这里首次泛指一个诚实的学生；honest 的 h 不发音，开头是元音音素，用 an。",
+        "world": {
+          "kind": "syntax",
+          "caption": "介绍一位诚实的学生。先确认 honest 的 h 是否发音。",
+          "records": {
+            "title": "哪条依据真正决定 a/an？",
+            "missingPrompt": "先选出句子要描述的对象或判断依据，再核对冠词。",
+            "answer": "sound",
+            "options": [
+              {
+                "id": "sound",
+                "label": "honest 的发音",
+                "text": "h 不发音，开头是元音音素",
+                "reason": "honest 的 h 不发音，按元音音素判断。",
+                "value": 50
+              },
+              {
+                "id": "letter",
+                "label": "honest 的拼写",
+                "text": "第一个字母是 h",
+                "reason": "不能只看辅音字母 h；honest 中的 h 不发音。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的冠词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "honest student",
+              "detail": "h 不发音"
+            }
+          ]
+        }
+      },
+      {
+        "label": "university 不是看字母选 an",
+        "before": "Leo wants to study at ",
+        "target": "a",
+        "after": " university near his home.",
+        "choices": [
+          "a",
+          "an",
+          "the"
+        ],
+        "reason": "首次泛指一所大学；university 以辅音音素 /j/ 开头，所以用 a。",
+        "world": {
+          "kind": "syntax",
+          "caption": "同样是 u 开头，仍要确认实际的开头音。",
+          "records": {
+            "title": "university 的 u 在这里怎样发音？",
+            "missingPrompt": "先选出句子要描述的对象或判断依据，再核对冠词。",
+            "answer": "sound",
+            "options": [
+              {
+                "id": "sound",
+                "label": "按开头音",
+                "text": "辅音音素 /j/",
+                "reason": "university 的开头是 /j/。",
+                "value": 50
+              },
+              {
+                "id": "letter",
+                "label": "只看字母",
+                "text": "首字母是 u",
+                "reason": "u 是元音字母，但 university 以辅音音素 /j/ 开头。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的冠词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "university",
+              "detail": "辅音音素 /j/ 开头"
+            }
+          ]
+        }
+      },
+      {
+        "label": "一小时怎样说",
+        "before": "We waited for ",
+        "target": "an",
+        "after": " hour.",
+        "choices": [
+          "a",
+          "an",
+          "the"
+        ],
+        "reason": "hour 的 h 不发音，开头是元音音素；表示一小时用 an hour。",
+        "world": {
+          "kind": "syntax",
+          "caption": "这里说一小时，a/an 由 hour 的发音决定。",
+          "records": {
+            "title": "hour 的 h 发不发音？",
+            "missingPrompt": "先选出句子要描述的对象或判断依据，再核对冠词。",
+            "answer": "sound",
+            "options": [
+              {
+                "id": "sound",
+                "label": "按实际发音",
+                "text": "h 不发音，开头是元音音素",
+                "reason": "hour 以元音音素开头。",
+                "value": 50
+              },
+              {
+                "id": "letter",
+                "label": "只看首字母",
+                "text": "第一个字母是 h",
+                "reason": "hour 的 h 不发音，不能仅凭字母 h 选 a。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的冠词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "hour",
+              "detail": "h 不发音"
+            }
+          ]
+        }
+      },
+      {
+        "label": "再说同一本书",
+        "before": "Mia bought a book. ",
+        "target": "The",
+        "after": " book is blue.",
+        "choices": [
+          "A",
+          "An",
+          "The"
+        ],
+        "reason": "后一句继续介绍前面已提到的同一本书，用 the；句首要大写 The。",
+        "world": {
+          "kind": "syntax",
+          "caption": "第一次泛指用 a；再次明确指同一本时，改用 the。",
+          "records": {
+            "title": "后一句指的是哪一本？",
+            "missingPrompt": "先选出句子要描述的对象或判断依据，再核对冠词。",
+            "answer": "same",
+            "options": [
+              {
+                "id": "same",
+                "label": "前句已提过的同一本",
+                "text": "Mia bought a book. → 继续说这一本",
+                "reason": "前后是同一本，后句要特指。",
+                "value": 50
+              },
+              {
+                "id": "new",
+                "label": "另一本未提过的书",
+                "text": "改说一个新对象",
+                "reason": "语境明确继续介绍前句同一本，没有换成另一本。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的冠词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "book",
+              "detail": "前句已明确是同一本"
+            }
+          ]
+        }
+      },
+      {
+        "label": "泛指复数，可以不填",
+        "before": "I enjoy reading ",
+        "target": "∅",
+        "after": " books.",
+        "choices": [
+          "a",
+          "the",
+          "∅"
+        ],
+        "reason": "这里泛指各种书，books 是复数，不加冠词；不能用 a 修饰复数，也不需要特指的 the。",
+        "world": {
+          "kind": "syntax",
+          "caption": "表达一般的阅读爱好，不指定哪几本。∅ 表示不填冠词。",
+          "records": {
+            "title": "这里泛指书这一类，还是特指几本？",
+            "missingPrompt": "先选出句子要描述的对象或判断依据，再核对冠词。",
+            "answer": "general",
+            "options": [
+              {
+                "id": "general",
+                "label": "泛指各种书",
+                "text": "没有指定哪几本书",
+                "reason": "books 为复数，这里泛指书这一类。",
+                "value": 50
+              },
+              {
+                "id": "known",
+                "label": "特指双方知道的几本",
+                "text": "需要有明确的一组书",
+                "reason": "句子没有指定某一组书；这里表达一般的阅读爱好。",
+                "value": 50
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你选的冠词",
+              "role": "attempt-result"
+            },
+            {
+              "label": "books",
+              "detail": "泛指复数名词"
+            }
+          ]
+        }
+      }
+    ],
+    "choices": [
+      "a",
+      "an",
+      "the",
+      "A",
+      "An",
+      "The",
+      "∅"
+    ],
+    "items": [
+      {
+        "id": "articles-sound-reference",
+        "label": "冠词实验",
+        "prompt": "发音、指代还是复数泛指？",
+        "answer": "",
+        "reason": "",
+        "hint": "不能把元音字母等同于元音音素。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-articles-003",
+      "q-g-articles-005"
+    ],
+    "transfer": {
+      "id": "individual-g-articles-transfer",
+      "topicId": "g-articles",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "第一次介绍，再继续说同一个对象。两空依次填什么？\nLeo found ___ unusual map in a box. ___ map showed a hidden path.",
+      "options": [
+        {
+          "id": "a",
+          "text": "an; The"
+        },
+        {
+          "id": "b",
+          "text": "a; The"
+        },
+        {
+          "id": "c",
+          "text": "an; A"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "an; The"
+      },
+      "marks": 2,
+      "estimatedSeconds": 60,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先看冠词后整个名词短语的开头音，再核对前后是不是同一对象。",
+        "steps": [
+          {
+            "text": "第一空后先读 unusual，开头是元音音素。",
+            "reason": "首次泛指一张不寻常的地图，用 an unusual map，不能见 u 就照搬 a university。"
+          },
+          {
+            "text": "第二句继续说前句找到的同一张地图。",
+            "reason": "已知的同一对象用 the，句首写 The。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "unusual 的开头是元音音素，第一空应为 an。"
+          },
+          {
+            "option": "c",
+            "reason": "第二句不是再引入另一张地图，应特指前句同一张，用 The。"
+          }
+        ],
+        "pitfall": "a/an 看实际开头音，the 看语境指代；两个空不是同一种判断。",
+        "visual": {
+          "kind": "sentence",
+          "title": "发音与指代，分两步",
+          "segments": [
+            {
+              "text": "an unusual map",
+              "role": "evidence",
+              "note": "unusual：元音音素开头"
+            },
+            {
+              "text": "The map",
+              "role": "evidence",
+              "note": "前句同一张地图"
+            }
+          ],
+          "caption": "不要把 useful 的读音机械套给 unusual。"
+        },
+        "transfer": "把 unusual 换成 useful，第一空如何变化？第二空为什么不变？"
+      }
+    }
+  }
+}

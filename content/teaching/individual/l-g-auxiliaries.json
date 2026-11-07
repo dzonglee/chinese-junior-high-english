@@ -1,0 +1,501 @@
+{
+  "lessonId": "l-g-auxiliaries",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Actually assemble questions and negatives with do-support versus existing be/modal/perfect auxiliaries; restore lexical base forms, retain participles, distinguish plural subjects and constrained subject-Who replacement.",
+  "picturePurpose": "Coded before/after sentence diagrams and manipulable word tiles show actual movement and inflection. No decorative picture replaces the grammar operation.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "把句子拆开，再拼出问句和否定句",
+    "instruction": "已有be、情态动词或完成时have，先保留它们；需要do时，别让实义动词重复变化。",
+    "conditions": [
+      {
+        "label": "加了Does，动词还加-s吗？",
+        "before": "",
+        "target": "Does Mia paint badges every Friday",
+        "after": "?",
+        "input": true,
+        "caseSensitive": true,
+        "tiles": [
+          "Is",
+          "paints",
+          "Mia",
+          "paint",
+          "Does",
+          "Friday",
+          "badges",
+          "every"
+        ],
+        "choices": [
+          "Does Mia paints badges every Friday",
+          "Does Mia paint badges every Friday"
+        ],
+        "reason": "Does放到Mia前面，承担一般现在时的第三人称单数变化；paints要还原成paint。句首Does大写，Mia的名字也保留大写。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把肯定句改为一般疑问句。原句说的是每周五的习惯。",
+          "cells": [
+            {
+              "label": "Mia paints badges every Friday.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的句子",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "亲手拼出否定句",
+        "before": "",
+        "target": "Mia does not paint badges on Fridays",
+        "after": ".",
+        "input": true,
+        "caseSensitive": true,
+        "tiles": [
+          "does",
+          "on",
+          "Fridays",
+          "paints",
+          "paint",
+          "doesn't",
+          "not",
+          "badges",
+          "Mia"
+        ],
+        "choices": [
+          "Mia does not paints badges on Fridays",
+          "Mia does not paint badges on Fridays"
+        ],
+        "reason": "把这件事改为否定时，在Mia后加does not，paints还原为paint。doesn't是does not的缩写，这里也可以使用。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把原句改成否定句，表达“Mia周五不画徽章”。这一步改变肯否，不能把两句当成同一个事实。",
+          "cells": [
+            {
+              "label": "Mia paints badges on Fridays.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的句子",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "accepted": [
+          "Mia doesn't paint badges on Fridays"
+        ]
+      },
+      {
+        "label": "过去时的问句，变化放在哪里？",
+        "before": "",
+        "target": "Did Leo clean the brushes yesterday",
+        "after": "?",
+        "input": true,
+        "caseSensitive": true,
+        "tiles": [
+          "Leo",
+          "brushes",
+          "Does",
+          "clean",
+          "cleaned",
+          "the",
+          "yesterday",
+          "Did"
+        ],
+        "choices": [
+          "Did Leo cleaned the brushes yesterday",
+          "Did Leo clean the brushes yesterday"
+        ],
+        "reason": "原句的cleaned表示过去。改问句时用Did，后面的动词还原为clean；不能把Did和cleaned叠在一起。句首Did大写。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把昨天的清洗记录改为一般疑问句。",
+          "cells": [
+            {
+              "label": "Leo cleaned the brushes yesterday.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的句子",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "修好否定句中的词形",
+        "before": "Leo did not ",
+        "target": "clean",
+        "after": " the brushes yesterday.",
+        "choices": [
+          "cleaned",
+          "clean"
+        ],
+        "input": true,
+        "initial": "cleaned",
+        "inputHint": "直接修改原稿。先看did not，再决定动词形式。",
+        "reason": "did已经表示过去，not后面的实义动词用原形clean，不再加-ed。",
+        "world": {
+          "kind": "logic",
+          "caption": "否定记录：Leo昨天没有清洗这些画笔。原稿把过去时变化写了两遍。",
+          "cells": [
+            {
+              "label": "did not + ___",
+              "detail": "did承担过去时变化"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你修好的动词",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "已有is，还需要Does吗？",
+        "before": "",
+        "target": "Is Amy sorting the cards now",
+        "after": "?",
+        "input": true,
+        "caseSensitive": true,
+        "tiles": [
+          "the",
+          "cards",
+          "Amy",
+          "Does",
+          "now",
+          "sorting",
+          "Is"
+        ],
+        "choices": [
+          "Does Amy sorting the cards now",
+          "Is Amy sorting the cards now"
+        ],
+        "reason": "is sorting是正在进行的动作。提问时把Is移到Amy前，sorting保留；不能把Is换成Does。句首Is大写。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把此刻正在整理卡片的记录改为一般疑问句。",
+          "cells": [
+            {
+              "label": "Amy is sorting the cards now.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的句子",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "已有can，把谁移到前面？",
+        "before": "",
+        "target": "Can Amy design a poster",
+        "after": "?",
+        "input": true,
+        "caseSensitive": true,
+        "tiles": [
+          "Does",
+          "Amy",
+          "Can",
+          "can",
+          "a",
+          "design",
+          "poster"
+        ],
+        "choices": [
+          "Does Amy can design a poster",
+          "Can Amy design a poster"
+        ],
+        "reason": "原句已有情态动词can，提问时把Can移到Amy前，design保持原形。不要再加Does；句首Can大写。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把能力描述改成一般疑问句。",
+          "cells": [
+            {
+              "label": "Amy can design a poster.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的句子",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "完成时的have要保留",
+        "before": "",
+        "target": "Have Mia and Leo packed the cards yet",
+        "after": "?",
+        "input": true,
+        "caseSensitive": true,
+        "tiles": [
+          "Leo",
+          "Do",
+          "cards",
+          "packed",
+          "Have",
+          "the",
+          "and",
+          "Mia",
+          "yet"
+        ],
+        "choices": [
+          "Do Mia and Leo packed the cards yet",
+          "Have Mia and Leo packed the cards yet"
+        ],
+        "reason": "have packed构成现在完成时。提问时把Have移到Mia and Leo前，packed保留为过去分词；本题同时把already换成问句中的yet。",
+        "world": {
+          "kind": "syntax",
+          "caption": "两人已经装好了卡片。改为一般疑问句，并用yet替换already。",
+          "cells": [
+            {
+              "label": "Mia and Leo have packed the cards already.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的句子",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "没有动作词，也不能随便加Do",
+        "before": "",
+        "target": "Are the badges ready",
+        "after": "?",
+        "input": true,
+        "caseSensitive": true,
+        "tiles": [
+          "ready",
+          "are",
+          "the",
+          "badges",
+          "Are",
+          "Do"
+        ],
+        "choices": [
+          "Do the badges are ready",
+          "Are the badges ready"
+        ],
+        "reason": "原句用are说明徽章的状态。提问时把Are移到the badges前，不再加Do；句首Are大写，后面的the不用大写。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把“徽章准备好了”改为一般疑问句。",
+          "cells": [
+            {
+              "label": "The badges are ready.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的句子",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "这次问的是谁做的",
+        "before": "",
+        "target": "Who cleaned the brushes",
+        "after": "?",
+        "input": true,
+        "caseSensitive": true,
+        "tiles": [
+          "Who",
+          "cleaned",
+          "did",
+          "brushes",
+          "the"
+        ],
+        "choices": [
+          "Who did cleaned the brushes",
+          "Who cleaned the brushes"
+        ],
+        "reason": "这里只把主语Someone换成Who，其余部分保留，cleaned仍用过去式。Who就在主语位置，按本题改写不加did。",
+        "world": {
+          "kind": "syntax",
+          "caption": "只把Someone换成Who，询问“谁清洗了画笔”，其余词保持原样。",
+          "cells": [
+            {
+              "label": "Someone cleaned the brushes.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的句子",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      },
+      {
+        "label": "主语换成两人，Does还对吗？",
+        "before": "",
+        "target": "Do Mia and Leo paint badges on Fridays",
+        "after": "?",
+        "input": true,
+        "caseSensitive": true,
+        "tiles": [
+          "badges",
+          "Fridays",
+          "Mia",
+          "Does",
+          "on",
+          "Leo",
+          "Do",
+          "and",
+          "paint"
+        ],
+        "choices": [
+          "Does Mia and Leo paint badges on Fridays",
+          "Do Mia and Leo paint badges on Fridays"
+        ],
+        "reason": "Mia and Leo是复数主语，一般现在时问句用Do，不是Does。paint本来就是原形，保留即可；句首Do大写。",
+        "world": {
+          "kind": "syntax",
+          "caption": "把两人周五的习惯改成一般疑问句，与第一项的一人作比较。",
+          "cells": [
+            {
+              "label": "Mia and Leo paint badges on Fridays.",
+              "detail": "原句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你拼出的句子",
+              "role": "attempt-result"
+            }
+          ]
+        }
+      }
+    ],
+    "choices": [
+      "Does Mia paints badges every Friday",
+      "Does Mia paint badges every Friday",
+      "Mia does not paints badges on Fridays",
+      "Mia does not paint badges on Fridays",
+      "Did Leo cleaned the brushes yesterday",
+      "Did Leo clean the brushes yesterday",
+      "cleaned",
+      "clean",
+      "Does Amy sorting the cards now",
+      "Is Amy sorting the cards now",
+      "Does Amy can design a poster",
+      "Can Amy design a poster",
+      "Do Mia and Leo packed the cards yet",
+      "Have Mia and Leo packed the cards yet",
+      "Do the badges are ready",
+      "Are the badges ready",
+      "Who did cleaned the brushes",
+      "Who cleaned the brushes",
+      "Does Mia and Leo paint badges on Fridays",
+      "Do Mia and Leo paint badges on Fridays"
+    ],
+    "items": [
+      {
+        "id": "auxiliary-editor",
+        "label": "移动与还原",
+        "prompt": "用词块改句子，亲手决定谁前移、谁还原。",
+        "answer": "",
+        "reason": "",
+        "hint": "先认结构，再处理主语、助动词和实义动词。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-auxiliaries-002",
+      "q-g-auxiliaries-003"
+    ],
+    "transfer": {
+      "id": "individual-g-auxiliaries-transfer",
+      "topicId": "g-auxiliaries",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "询问座位状态，再说明Ben平时的习惯。两空依次填什么？\n___ these seats free? Ben does not ___ this seat.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Are; use"
+        },
+        {
+          "id": "b",
+          "text": "Do; use"
+        },
+        {
+          "id": "c",
+          "text": "Are; uses"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Are; use"
+      },
+      "marks": 2,
+      "estimatedSeconds": 85,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先分清句子原有的是be，还是需要do帮助的实义动词。每个空独立检查。",
+        "steps": [
+          {
+            "text": "第一句在问这些座位是否空着，free说明状态。",
+            "reason": "these seats是复数，用Are放到主语前提问；不能用Do代替be。"
+          },
+          {
+            "text": "第二句已有does not，后面用use。",
+            "reason": "第三人称单数变化由does承担，use保持原形，不能再写uses。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一句说明座位状态，缺少be，用Are，不是Do。"
+          },
+          {
+            "option": "c",
+            "reason": "does not后面用原形use；uses重复了第三人称单数变化。"
+          }
+        ],
+        "pitfall": "不能把所有问句都套成Do/Does，也不能在does后继续给实义动词加-s。",
+        "visual": {
+          "kind": "comparison",
+          "title": "两种结构，分别处理",
+          "segments": [
+            {
+              "text": "Are + these seats + free?",
+              "role": "evidence",
+              "note": "be前移，询问状态"
+            },
+            {
+              "text": "Ben + does not + use",
+              "role": "evidence",
+              "note": "does承担变化，use用原形"
+            }
+          ],
+          "caption": "先认句子结构，再决定用谁、放哪里、后面是什么词形。"
+        },
+        "transfer": "如果第二句主语换成Ben and Amy，does not应改成什么？"
+      }
+    }
+  }
+}

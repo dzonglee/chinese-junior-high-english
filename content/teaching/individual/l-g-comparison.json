@@ -1,0 +1,437 @@
+{
+  "lessonId": "l-g-comparison",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Select the comparison set itself, distinguish pair/group/equality, and produce regular, long-adjective and irregular comparison forms.",
+  "picturePurpose": "Exact measured bars and selectable scope are authored in code; illustration perspective is deliberately not used as a measurement.",
+  "workshop": {
+    "navigationLabel": "任务",
+    "kind": "transform",
+    "title": "比较谁？先把范围点亮",
+    "instruction": "圈出比较范围，再选择或自己写出正确形式。",
+    "conditions": [
+      {
+        "label": "先圈出两人",
+        "before": "Amy is ",
+        "target": "taller",
+        "after": " than Mia.",
+        "choices": [
+          "tallest",
+          "taller",
+          "more taller"
+        ],
+        "reason": "Amy 160 cm，Mia 150 cm，只比较两人，用 taller。不能叠加 more taller。",
+        "world": {
+          "kind": "scale",
+          "caption": "体测身高记录。先确定这句话比较谁，再选形式。",
+          "cells": [
+            {
+              "id": "mia",
+              "label": "Mia",
+              "detail": "150 cm",
+              "value": 75
+            },
+            {
+              "id": "leo",
+              "label": "Leo",
+              "detail": "170 cm",
+              "value": 85
+            },
+            {
+              "id": "amy",
+              "label": "Amy",
+              "detail": "160 cm",
+              "value": 80
+            }
+          ],
+          "selection": {
+            "prompt": "点亮比较范围里的所有对象（不只是句子的主语）。",
+            "ids": [
+              "amy",
+              "mia"
+            ],
+            "reason": "句子只比较 Amy 和 Mia，没有把 Leo 放进这一次比较。"
+          }
+        }
+      },
+      {
+        "label": "换成三人中的最高者",
+        "before": "Leo is the ",
+        "target": "tallest",
+        "after": " in this group of three.",
+        "choices": [
+          "taller",
+          "tallest",
+          "most tallest"
+        ],
+        "reason": "比较范围是三人全组，Leo 170 cm 最高，用 the tallest，不能写 most tallest。",
+        "world": {
+          "kind": "scale",
+          "caption": "身高没有改变，这次比较范围变了。",
+          "cells": [
+            {
+              "id": "mia",
+              "label": "Mia",
+              "detail": "150 cm",
+              "value": 75
+            },
+            {
+              "id": "leo",
+              "label": "Leo",
+              "detail": "170 cm",
+              "value": 85
+            },
+            {
+              "id": "amy",
+              "label": "Amy",
+              "detail": "160 cm",
+              "value": 80
+            }
+          ],
+          "selection": {
+            "prompt": "点亮比较范围里的所有对象（不只是句子的主语）。",
+            "ids": [
+              "mia",
+              "leo",
+              "amy"
+            ],
+            "reason": "in this group of three 包括 Mia、Leo、Amy 三个人，不能只圈 Leo。"
+          }
+        }
+      },
+      {
+        "label": "从较矮的一方说",
+        "before": "Mia is ",
+        "target": "shorter",
+        "after": " than Leo.",
+        "choices": [
+          "shortest",
+          "shorter",
+          "more shorter"
+        ],
+        "reason": "Mia 150 cm，Leo 170 cm。两人比较，Mia 较矮，用 shorter。",
+        "world": {
+          "kind": "scale",
+          "caption": "换一个说话角度，用 short 的正确形式比较。",
+          "cells": [
+            {
+              "id": "mia",
+              "label": "Mia",
+              "detail": "150 cm",
+              "value": 75
+            },
+            {
+              "id": "leo",
+              "label": "Leo",
+              "detail": "170 cm",
+              "value": 85
+            },
+            {
+              "id": "amy",
+              "label": "Amy",
+              "detail": "160 cm",
+              "value": 80
+            }
+          ],
+          "selection": {
+            "prompt": "点亮比较范围里的所有对象（不只是句子的主语）。",
+            "ids": [
+              "mia",
+              "leo"
+            ],
+            "reason": "句子比较 Mia 和 Leo；Amy 这次不在比较范围里。"
+          }
+        }
+      },
+      {
+        "label": "重量也要先看范围",
+        "before": "The blue bag is ",
+        "target": "heavier",
+        "after": " than the red bag.",
+        "choices": [
+          "heaviest",
+          "heavier",
+          "more heavier"
+        ],
+        "reason": "蓝包 3 kg，红包 2 kg，两者比较用 heavier。heavy 变 y 为 i 再加 er，不能写 more heavier。",
+        "world": {
+          "kind": "scale",
+          "caption": "秤上的质量记录。这里只比较两个书包。",
+          "cells": [
+            {
+              "id": "blue",
+              "label": "blue bag",
+              "detail": "3 kg",
+              "value": 75
+            },
+            {
+              "id": "red",
+              "label": "red bag",
+              "detail": "2 kg",
+              "value": 50
+            }
+          ],
+          "selection": {
+            "prompt": "点亮比较范围里的所有对象（不只是句子的主语）。",
+            "ids": [
+              "blue",
+              "red"
+            ],
+            "reason": "这句话比较蓝、红两个书包，两者都要圈入。"
+          }
+        }
+      },
+      {
+        "label": "质量相等，换一种结构",
+        "before": "The blue bag is as ",
+        "target": "heavy",
+        "after": " as the red bag.",
+        "choices": [
+          "heavier",
+          "heavy",
+          "heaviest"
+        ],
+        "reason": "两个书包都是 2 kg。as ... as 表示同等程度，中间用 heavy 原级。",
+        "world": {
+          "kind": "scale",
+          "caption": "蓝包的质量变了。看两个刻度，再读完整的 as ... as。",
+          "cells": [
+            {
+              "id": "blue",
+              "label": "blue bag",
+              "detail": "2 kg",
+              "value": 50
+            },
+            {
+              "id": "red",
+              "label": "red bag",
+              "detail": "2 kg",
+              "value": 50
+            }
+          ],
+          "selection": {
+            "prompt": "点亮比较范围里的所有对象（不只是句子的主语）。",
+            "ids": [
+              "blue",
+              "red"
+            ],
+            "reason": "两只书包都在同等比较的范围里。"
+          }
+        }
+      },
+      {
+        "label": "多音节形容词",
+        "before": "Mia thinks this route is ",
+        "target": "more interesting",
+        "after": " than that one.",
+        "choices": [
+          "most interesting",
+          "more interesting",
+          "more interestinger"
+        ],
+        "reason": "这里按 Mia 的感受作两者比较，用 more interesting；不能叠加 more 和 -er。",
+        "world": {
+          "kind": "syntax",
+          "caption": "按 Mia 的感受补全两条路线的比较。使用 interesting 的比较级。",
+          "cells": [
+            {
+              "label": "@attempt",
+              "detail": "你写的比较形式",
+              "role": "attempt-result"
+            },
+            {
+              "label": "than",
+              "detail": "两条路线比较"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "写出 interesting 的比较级，共两个单词。"
+      },
+      {
+        "label": "good 的不规则变化",
+        "before": "This plan is ",
+        "target": "better",
+        "after": " than that one.",
+        "choices": [
+          "gooder",
+          "better",
+          "more better"
+        ],
+        "reason": "good 的比较级是不规则的 better，不是 gooder，也不能写 more better。",
+        "world": {
+          "kind": "morphology",
+          "caption": "本题使用 good 的比较级，不改换词义。",
+          "cells": [
+            {
+              "label": "good",
+              "detail": "形容词原级"
+            },
+            {
+              "label": "不规则变化",
+              "detail": "不能直接加 er",
+              "role": "rewrite"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你写的比较级",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "写出 good 的比较级，只写一个单词。"
+      },
+      {
+        "label": "easy 的 y 怎样处理",
+        "before": "This task is ",
+        "target": "easier",
+        "after": " than that one.",
+        "choices": [
+          "more easier",
+          "easier",
+          "easyer"
+        ],
+        "reason": "easy 先变 y 为 i 再加 er，写成 easier；不是 easyer，也不再加 more。",
+        "world": {
+          "kind": "morphology",
+          "caption": "本题使用 easy 的比较级；把最后一步的词形自己写出来。",
+          "cells": [
+            {
+              "label": "easy",
+              "detail": "形容词原级"
+            },
+            {
+              "label": "y → i，加 er",
+              "detail": "改写步骤",
+              "role": "rewrite"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你写的比较级",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "写出 easy 的比较级，只写一个单词。"
+      }
+    ],
+    "choices": [
+      "tallest",
+      "taller",
+      "more taller",
+      "most tallest",
+      "shortest",
+      "shorter",
+      "more shorter",
+      "heaviest",
+      "heavier",
+      "more heavier",
+      "heavy",
+      "most interesting",
+      "more interesting",
+      "more interestinger",
+      "gooder",
+      "better",
+      "more better",
+      "more easier",
+      "easier",
+      "easyer"
+    ],
+    "items": [
+      {
+        "id": "comparison-scope",
+        "label": "比较范围",
+        "prompt": "这句话比较哪几个对象？",
+        "answer": "",
+        "reason": "",
+        "hint": "图中有三个对象，不代表每句话都比较三者。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-comparison-003",
+      "q-g-comparison-005"
+    ],
+    "transfer": {
+      "id": "individual-g-comparison-transfer",
+      "topicId": "g-comparison",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "三个箱子的质量：红箱3 kg，蓝箱2 kg，绿箱5 kg。两空依次填什么？\nThe red box is ___ than the blue one. The green box is ___ of the three.",
+      "options": [
+        {
+          "id": "a",
+          "text": "heavier; the heaviest"
+        },
+        {
+          "id": "b",
+          "text": "more heavier; the heaviest"
+        },
+        {
+          "id": "c",
+          "text": "heavier; the heavier"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "heavier; the heaviest"
+      },
+      "marks": 2,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先圈出每句的比较范围，再检查 heavy 的形式和限定词。",
+        "steps": [
+          {
+            "text": "红箱3 kg，蓝箱2 kg，第一句只比较两个箱子。",
+            "reason": "用比较级 heavier，不叠加 more。"
+          },
+          {
+            "text": "第二句在三个箱子中选质量最大的绿箱。",
+            "reason": "用最高级 the heaviest；of the three 明确三者范围。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "more heavier 重复标记比较级，应为 heavier。"
+          },
+          {
+            "option": "c",
+            "reason": "第二句比较三者中的最大值，不能用 the heavier，应为 the heaviest。"
+          }
+        ],
+        "pitfall": "不能看见一张三者图就让每句话都用最高级；每句的实际比较范围可能不同。",
+        "visual": {
+          "kind": "sentence",
+          "title": "两句，两个比较范围",
+          "segments": [
+            {
+              "text": "red 3 kg ↔ blue 2 kg",
+              "role": "evidence",
+              "note": "两者：heavier"
+            },
+            {
+              "text": "green 5 kg / red 3 kg / blue 2 kg",
+              "role": "evidence",
+              "note": "三者中最大：the heaviest"
+            }
+          ],
+          "caption": "同一份记录可以支持不同范围的比较。"
+        },
+        "transfer": "若蓝箱改为4 kg，绿箱仍为5 kg，哪句事实需要改写？"
+      }
+    }
+  }
+}

@@ -1,0 +1,1634 @@
+{
+  "lessonId": "l-v-course-animals-2",
+  "reviewState": "draft",
+  "intent": "Teach can-versus-completed rat movement, drinking from a stone trough, barn shade, conditional fence instructions, sheep/goat identification, mud-rolling purpose and towards-versus-arrived pond direction.",
+  "picturePurpose": "Original sheep/goat noun comparison, three reversible location/direction diagrams and three exact evidence selections. Actions and quantities come from text, not animal portraits.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "农场里的地点、方向与目的",
+    "instruction": "辨认绵羊与山羊，移动位置标记，再圈出句子真正提供的信息。",
+    "items": [
+      {
+        "id": "word-rat",
+        "label": "大鼠",
+        "prompt": "can是能做到，还是已经做到？缝隙有没有给尺寸？",
+        "answer": "rat",
+        "caseSensitive": false,
+        "meaning": "大鼠",
+        "before": "A ",
+        "after": " can squeeze through a surprisingly small gap.",
+        "reason": "can squeeze through说能挤过；surprisingly small很小，却没有给厘米数或报告已通过。",
+        "hint": "保留能力与小缝隙，不补完成状态或数值。",
+        "material": "A rat can squeeze through a surprisingly small gap.",
+        "options": [
+          {
+            "id": "can",
+            "text": "大鼠能挤过小得出奇的缝隙。",
+            "correct": true,
+            "reason": "保留can、squeeze through与surprisingly small。"
+          },
+          {
+            "id": "done",
+            "text": "大鼠已经挤过这条缝隙。",
+            "correct": false,
+            "reason": "已经改变了can表示能力的范围。"
+          },
+          {
+            "id": "number",
+            "text": "原句给出了缝隙的确切厘米数。",
+            "correct": false,
+            "reason": "small没有提供测量值。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "can是能做到，还是已经做到？缝隙有没有给尺寸？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "能力与缝隙描述",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "can不是已经，small不是厘米数。",
+            "wrong": "应保留能挤过与很小的缝隙，不补已经或尺寸。",
+            "rows": [
+              {
+                "id": "can",
+                "label": "能力",
+                "text": "大鼠能挤过去。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外完成状态",
+                "text": "原句报告已经通过。",
+                "include": false
+              },
+              {
+                "id": "gap",
+                "label": "缝隙",
+                "text": "缝隙小得出奇。",
+                "include": true
+              },
+              {
+                "id": "number",
+                "label": "额外数值",
+                "text": "原句给出了厘米数。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-horse",
+        "label": "马",
+        "prompt": "马做了什么，从哪里取水？别把喝水读成骑马。",
+        "answer": "horse",
+        "caseSensitive": false,
+        "meaning": "马",
+        "before": "The ",
+        "after": " drank from the stone trough.",
+        "reason": "drank是喝水，from the stone trough给出取水处：石槽。没有说有人骑马。",
+        "hint": "动作与from后的来源要一起核对。",
+        "material": "The horse drank from the stone trough.",
+        "options": [
+          {
+            "id": "stone",
+            "text": "马从石槽里喝水。",
+            "correct": true,
+            "reason": "保留drank与from the stone trough。"
+          },
+          {
+            "id": "wood",
+            "text": "马从木槽里喝水。",
+            "correct": false,
+            "reason": "木槽改变了stone trough石槽。"
+          },
+          {
+            "id": "ride",
+            "text": "有人骑着马跳过石槽。",
+            "correct": false,
+            "reason": "骑马跳跃都不是原句的drank喝水。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "马做了什么，从哪里取水？别把喝水读成骑马。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "喝水动作与来源",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "from给出来源，不是跳过的路线。",
+            "wrong": "应圈出喝水和石槽，不补骑乘或跳跃。",
+            "rows": [
+              {
+                "id": "rider",
+                "label": "额外人物动作",
+                "text": "原句说有人骑马。",
+                "include": false
+              },
+              {
+                "id": "drink",
+                "label": "动作",
+                "text": "马喝水。",
+                "include": true
+              },
+              {
+                "id": "stone",
+                "label": "来源",
+                "text": "水来自石槽。",
+                "include": true
+              },
+              {
+                "id": "jump",
+                "label": "额外动作",
+                "text": "原句说马跳过石槽。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-cow",
+        "label": "母牛（本句）",
+        "prompt": "哪个物体投下阴影？母牛在阴影里还是阳光下？",
+        "answer": "cow",
+        "caseSensitive": false,
+        "meaning": "母牛（本句）",
+        "before": "The ",
+        "after": " stood in the shade of the barn.",
+        "reason": "in the shade of the barn是在谷仓投下的阴影里；没有说正在产奶或躺下。",
+        "hint": "阴影的来源和光照条件分别核对。",
+        "material": "The cow stood in the shade of the barn.",
+        "options": [
+          {
+            "id": "barn-shade",
+            "text": "母牛站在谷仓投下的阴影里。",
+            "correct": true,
+            "reason": "保留stood与in the shade of the barn。"
+          },
+          {
+            "id": "sun",
+            "text": "母牛站在谷仓旁的阳光下。",
+            "correct": false,
+            "reason": "阳光下改变了in the shade阴影里。"
+          },
+          {
+            "id": "tree",
+            "text": "母牛站在树荫里。",
+            "correct": false,
+            "reason": "树改变了barn谷仓。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "哪个物体投下阴影？母牛在阴影里还是阳光下？",
+          "sceneLab": {
+            "id": "cow-shade-source",
+            "title": "阴影来源与所处光照",
+            "hint": "换谷仓／树和阴影／阳光，核对shade of the barn。",
+            "wrong": "应在谷仓投下的阴影里，不能换成树荫或阳光下。",
+            "axes": [
+              {
+                "id": "source",
+                "label": "阴影来源",
+                "choices": [
+                  {
+                    "id": "barn",
+                    "label": "谷仓"
+                  },
+                  {
+                    "id": "tree",
+                    "label": "树"
+                  }
+                ]
+              },
+              {
+                "id": "light",
+                "label": "母牛所处光照",
+                "choices": [
+                  {
+                    "id": "shade",
+                    "label": "阴影里"
+                  },
+                  {
+                    "id": "sun",
+                    "label": "阳光下"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阴影来源与母牛位置示意"
+                  },
+                  {
+                    "id": "source-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 31,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "来源待选"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "光照待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|shade",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阴影来源与母牛位置示意"
+                  },
+                  {
+                    "id": "source-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 31,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "来源待选"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "母牛在阴影里"
+                  }
+                ]
+              },
+              {
+                "signature": "?|sun",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阴影来源与母牛位置示意"
+                  },
+                  {
+                    "id": "source-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 31,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "来源待选"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "母牛在阳光下"
+                  }
+                ]
+              },
+              {
+                "signature": "barn|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "source",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 28,
+                    "width": 36,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "shade",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 57,
+                    "width": 49,
+                    "height": 25,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阴影来源与母牛位置示意"
+                  },
+                  {
+                    "id": "source-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 31,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "谷仓"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "光照待选"
+                  },
+                  {
+                    "id": "shade-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 57,
+                    "width": 39,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阴影"
+                  }
+                ]
+              },
+              {
+                "signature": "barn|shade",
+                "reading": "母牛站在谷仓投下的阴影里。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "source",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 28,
+                    "width": 36,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "shade",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 57,
+                    "width": 49,
+                    "height": 25,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "cow",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 70,
+                    "width": 13,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阴影来源与母牛位置示意"
+                  },
+                  {
+                    "id": "source-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 31,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "谷仓"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "母牛在阴影里"
+                  },
+                  {
+                    "id": "shade-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 57,
+                    "width": 39,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阴影"
+                  },
+                  {
+                    "id": "cow-label",
+                    "kind": "label",
+                    "x": 19,
+                    "y": 70,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "母牛"
+                  }
+                ]
+              },
+              {
+                "signature": "barn|sun",
+                "reading": "应在谷仓投下的阴影里，不能换成树荫或阳光下。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "source",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 28,
+                    "width": 36,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "shade",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 57,
+                    "width": 49,
+                    "height": 25,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "cow",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 70,
+                    "width": 13,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阴影来源与母牛位置示意"
+                  },
+                  {
+                    "id": "source-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 31,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "谷仓"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "母牛在阳光下"
+                  },
+                  {
+                    "id": "shade-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 57,
+                    "width": 39,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阴影"
+                  },
+                  {
+                    "id": "cow-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 70,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "母牛"
+                  }
+                ]
+              },
+              {
+                "signature": "tree|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "source",
+                    "kind": "ellipse",
+                    "x": 15,
+                    "y": 28,
+                    "width": 36,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "shade",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 57,
+                    "width": 49,
+                    "height": 25,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阴影来源与母牛位置示意"
+                  },
+                  {
+                    "id": "source-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 31,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "树"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "光照待选"
+                  },
+                  {
+                    "id": "shade-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 57,
+                    "width": 39,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阴影"
+                  }
+                ]
+              },
+              {
+                "signature": "tree|shade",
+                "reading": "应在谷仓投下的阴影里，不能换成树荫或阳光下。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "source",
+                    "kind": "ellipse",
+                    "x": 15,
+                    "y": 28,
+                    "width": 36,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "shade",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 57,
+                    "width": 49,
+                    "height": 25,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "cow",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 70,
+                    "width": 13,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阴影来源与母牛位置示意"
+                  },
+                  {
+                    "id": "source-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 31,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "树"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "母牛在阴影里"
+                  },
+                  {
+                    "id": "shade-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 57,
+                    "width": 39,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阴影"
+                  },
+                  {
+                    "id": "cow-label",
+                    "kind": "label",
+                    "x": 19,
+                    "y": 70,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "母牛"
+                  }
+                ]
+              },
+              {
+                "signature": "tree|sun",
+                "reading": "应在谷仓投下的阴影里，不能换成树荫或阳光下。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "source",
+                    "kind": "ellipse",
+                    "x": 15,
+                    "y": 28,
+                    "width": 36,
+                    "height": 23,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "shade",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 57,
+                    "width": 49,
+                    "height": 25,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "cow",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 70,
+                    "width": 13,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "阴影来源与母牛位置示意"
+                  },
+                  {
+                    "id": "source-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 31,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "树"
+                  },
+                  {
+                    "id": "light-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "母牛在阳光下"
+                  },
+                  {
+                    "id": "shade-label",
+                    "kind": "label",
+                    "x": 14,
+                    "y": 57,
+                    "width": 39,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "阴影"
+                  },
+                  {
+                    "id": "cow-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 70,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "母牛"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bull",
+        "label": "公牛",
+        "prompt": "公牛在附近时，人该站在哪一侧？移动人物标记。",
+        "answer": "bull",
+        "caseSensitive": false,
+        "meaning": "公牛",
+        "before": "Stay behind the fence when the ",
+        "after": " is nearby.",
+        "reason": "when the bull is nearby给出条件，Stay behind the fence是待在围栏后面的要求，不是靠近公牛。",
+        "hint": "让围栏隔在人与公牛之间；不推断真实距离。",
+        "material": "Stay behind the fence when the bull is nearby.",
+        "options": [
+          {
+            "id": "behind",
+            "text": "公牛在附近时，待在围栏后面。",
+            "correct": true,
+            "reason": "保留when条件与Stay behind the fence。"
+          },
+          {
+            "id": "same-side",
+            "text": "公牛在附近时，走到它同一侧靠近它。",
+            "correct": false,
+            "reason": "靠近公牛没有保留待在围栏后面的要求。"
+          },
+          {
+            "id": "done",
+            "text": "原句报告游客已经走远了。",
+            "correct": false,
+            "reason": "Stay是要求，没有报告游客已离开。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "公牛在附近时，人该站在哪一侧？移动人物标记。",
+          "sceneLab": {
+            "id": "bull-fence-side",
+            "title": "围栏两侧的位置关系",
+            "hint": "公牛在一侧；切换人物到围栏另一侧或同一侧。",
+            "wrong": "应待在围栏后面，让围栏隔开人与公牛。",
+            "axes": [
+              {
+                "id": "side",
+                "label": "人物站在哪一侧",
+                "choices": [
+                  {
+                    "id": "behind",
+                    "label": "围栏隔开人与公牛"
+                  },
+                  {
+                    "id": "same",
+                    "label": "与公牛同一侧"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "围栏隔开人与公牛"
+                  },
+                  {
+                    "id": "fence",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 28,
+                    "width": 3,
+                    "height": 43,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "fence-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 75,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "围栏"
+                  },
+                  {
+                    "id": "bull",
+                    "kind": "ellipse",
+                    "x": 74,
+                    "y": 43,
+                    "width": 16,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bull-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 29,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "公牛"
+                  },
+                  {
+                    "id": "side",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "人物位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "behind",
+                "reading": "公牛在附近时，待在围栏后面。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "围栏隔开人与公牛"
+                  },
+                  {
+                    "id": "fence",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 28,
+                    "width": 3,
+                    "height": 43,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "fence-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 75,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "围栏"
+                  },
+                  {
+                    "id": "bull",
+                    "kind": "ellipse",
+                    "x": 74,
+                    "y": 43,
+                    "width": 16,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bull-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 29,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "公牛"
+                  },
+                  {
+                    "id": "side",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "待在围栏后面"
+                  },
+                  {
+                    "id": "person",
+                    "kind": "ellipse",
+                    "x": 20,
+                    "y": 57,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "person-label",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 42,
+                    "width": 27,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "人"
+                  }
+                ]
+              },
+              {
+                "signature": "same",
+                "reading": "应待在围栏后面，让围栏隔开人与公牛。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "围栏隔开人与公牛"
+                  },
+                  {
+                    "id": "fence",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 28,
+                    "width": 3,
+                    "height": 43,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "fence-label",
+                    "kind": "label",
+                    "x": 34,
+                    "y": 75,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "围栏"
+                  },
+                  {
+                    "id": "bull",
+                    "kind": "ellipse",
+                    "x": 74,
+                    "y": 43,
+                    "width": 16,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "bull-label",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 29,
+                    "width": 32,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "公牛"
+                  },
+                  {
+                    "id": "side",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "到了公牛同一侧"
+                  },
+                  {
+                    "id": "person",
+                    "kind": "ellipse",
+                    "x": 62,
+                    "y": 57,
+                    "width": 9,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "person-label",
+                    "kind": "label",
+                    "x": 53,
+                    "y": 42,
+                    "width": 27,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "人"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-sheep",
+        "label": "绵羊",
+        "prompt": "点出sheep。再读one和apart：有几只单独站着？",
+        "answer": "sheep",
+        "caseSensitive": false,
+        "meaning": "绵羊",
+        "before": "One ",
+        "after": " stood apart from the flock.",
+        "reason": "One sheep是一只绵羊；apart from the flock是与羊群分开，不是所有羊挤在一起。",
+        "hint": "图片只辨动物；one和apart的事实来自文字。",
+        "material": "One sheep stood apart from the flock.",
+        "options": [
+          {
+            "id": "sheep",
+            "text": "绵羊。",
+            "correct": true,
+            "reason": "sheep是绵羊；单复数同形，One在这里限定一只。"
+          },
+          {
+            "id": "goat",
+            "text": "山羊。",
+            "correct": false,
+            "reason": "山羊是goat，不是sheep。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出sheep。再读one和apart：有几只单独站着？",
+          "art": {
+            "asset": "lesson-sheep-goat-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创并排辨物图：左侧绵羊有浓密卷曲白毛和黑脸，右侧山羊短毛、有胡须和后弯的角。两者站在纯色地面上；没有羊群、石墙或动作线索。",
+            "targets": [
+              {
+                "id": "sheep-target",
+                "option": "sheep",
+                "label": "绵羊",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              },
+              {
+                "id": "goat-target",
+                "option": "goat",
+                "label": "山羊",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-goat",
+        "label": "山羊",
+        "prompt": "点出goat。句子说爬上矮墙，还是站在墙边？",
+        "answer": "goat",
+        "caseSensitive": false,
+        "meaning": "山羊",
+        "before": "The ",
+        "after": " climbed onto a low stone wall.",
+        "reason": "goat是山羊；climbed onto a low stone wall说爬上矮石墙，不是爬下或站在旁边。",
+        "hint": "先辨山羊，再核对onto、low和stone。",
+        "material": "The goat climbed onto a low stone wall.",
+        "options": [
+          {
+            "id": "sheep",
+            "text": "绵羊。",
+            "correct": false,
+            "reason": "绵羊是sheep；本句goat是山羊。"
+          },
+          {
+            "id": "goat",
+            "text": "山羊。",
+            "correct": true,
+            "reason": "goat指山羊；动作与墙的特点由原句提供。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出goat。句子说爬上矮墙，还是站在墙边？",
+          "art": {
+            "asset": "lesson-sheep-goat-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创并排辨物图：左侧绵羊有浓密卷曲白毛和黑脸，右侧山羊短毛、有胡须和后弯的角。两者站在纯色地面上；没有羊群、石墙或动作线索。",
+            "targets": [
+              {
+                "id": "sheep-target",
+                "option": "sheep",
+                "label": "绵羊",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              },
+              {
+                "id": "goat-target",
+                "option": "goat",
+                "label": "山羊",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-pig",
+        "label": "猪",
+        "prompt": "在哪里打滚？to keep cool说目的还是温度数值？",
+        "answer": "pig",
+        "caseSensitive": false,
+        "meaning": "猪",
+        "before": "The ",
+        "after": " rolled in mud to keep cool.",
+        "reason": "rolled in mud是在泥里打滚，to keep cool说明为了凉快；没有提供体温或保证降到某个温度。",
+        "hint": "动作、所在材料和目的分别保留。",
+        "material": "The pig rolled in mud to keep cool.",
+        "options": [
+          {
+            "id": "mud-cool",
+            "text": "猪在泥里打滚，为了凉快。",
+            "correct": true,
+            "reason": "保留rolled、in mud与to keep cool。"
+          },
+          {
+            "id": "warm",
+            "text": "猪在泥里打滚，为了保暖。",
+            "correct": false,
+            "reason": "保暖改变了keep cool保持凉快。"
+          },
+          {
+            "id": "water",
+            "text": "猪在清水里游泳。",
+            "correct": false,
+            "reason": "材料与动作都改变了。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "在哪里打滚？to keep cool说目的还是温度数值？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "动作、材料与目的",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "to keep cool是目的，不是温度读数。",
+            "wrong": "应保留在泥里打滚和凉快目的，不补保暖或具体体温。",
+            "rows": [
+              {
+                "id": "warm",
+                "label": "改动目的",
+                "text": "目的是保暖。",
+                "include": false
+              },
+              {
+                "id": "mud",
+                "label": "动作材料",
+                "text": "在泥里打滚。",
+                "include": true
+              },
+              {
+                "id": "temperature",
+                "label": "额外数值",
+                "text": "原句给了具体体温。",
+                "include": false
+              },
+              {
+                "id": "cool",
+                "label": "目的",
+                "text": "为了凉快。",
+                "include": true
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-duck",
+        "label": "鸭（本句）",
+        "prompt": "带着幼鸭朝池塘去，等于已经到了吗？切换方向。",
+        "answer": "duck",
+        "caseSensitive": false,
+        "meaning": "鸭（本句）",
+        "before": "A ",
+        "after": " led her young towards the pond.",
+        "reason": "led her young是带着幼鸭，towards the pond给方向，不表示已经到达或进水。",
+        "hint": "看箭头朝向；不补幼鸭数量或行进方式。",
+        "material": "A duck led her young towards the pond.",
+        "options": [
+          {
+            "id": "towards",
+            "text": "母鸭带着幼鸭朝池塘方向去。",
+            "correct": true,
+            "reason": "保留led her young与towards the pond。"
+          },
+          {
+            "id": "away",
+            "text": "母鸭带着幼鸭离开池塘。",
+            "correct": false,
+            "reason": "离开改变了towards朝向。"
+          },
+          {
+            "id": "arrived",
+            "text": "所有幼鸭都已进入池塘游泳。",
+            "correct": false,
+            "reason": "已经到达、所有和游泳都未给出。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "带着幼鸭朝池塘去，等于已经到了吗？切换方向。",
+          "sceneLab": {
+            "id": "duck-pond-direction",
+            "title": "朝向还是远离池塘",
+            "hint": "切换方向；箭头表达towards或away，不表示到达。",
+            "wrong": "应朝池塘方向去，不是远离池塘。",
+            "axes": [
+              {
+                "id": "direction",
+                "label": "行进方向",
+                "choices": [
+                  {
+                    "id": "towards",
+                    "label": "朝池塘去"
+                  },
+                  {
+                    "id": "away",
+                    "label": "远离池塘"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "方向示意：不表示已经到达"
+                  },
+                  {
+                    "id": "ducks",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 59,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "母鸭与幼鸭"
+                  },
+                  {
+                    "id": "pond",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 44,
+                    "width": 27,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pond-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 48,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "池塘"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "方向待选"
+                  }
+                ]
+              },
+              {
+                "signature": "towards",
+                "reading": "母鸭带着幼鸭朝池塘方向去。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "方向示意：不表示已经到达"
+                  },
+                  {
+                    "id": "ducks",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 59,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "母鸭与幼鸭"
+                  },
+                  {
+                    "id": "pond",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 44,
+                    "width": 27,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pond-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 48,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "池塘"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "朝池塘去"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 54,
+                    "width": 35,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  }
+                ]
+              },
+              {
+                "signature": "away",
+                "reading": "应朝池塘方向去，不是远离池塘。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "方向示意：不表示已经到达"
+                  },
+                  {
+                    "id": "ducks",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 32,
+                    "width": 59,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "母鸭与幼鸭"
+                  },
+                  {
+                    "id": "pond",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 44,
+                    "width": 27,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "pond-label",
+                    "kind": "label",
+                    "x": 70,
+                    "y": 48,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "池塘"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "远离池塘"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 28,
+                    "y": 54,
+                    "width": 35,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "←"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-animals-2-transfer",
+      "topicId": "v-course-animals",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "槽的材料、阴影来源和方向都改了，哪组英文全保留？",
+      "passage": "三条新信息\n马从木槽里喝水。母牛站在树荫里。一只母鸭带着幼鸭远离池塘。\n词语提示：wooden 木制的；away from 远离。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The horse drank from the stone trough. The cow stood in the shade of the tree. A duck led her young away from the pond."
+        },
+        {
+          "id": "b",
+          "text": "The horse drank from the wooden trough. The cow stood in the shade of the barn. A duck led her young away from the pond."
+        },
+        {
+          "id": "c",
+          "text": "The horse drank from the wooden trough. The cow stood in the shade of the tree. A duck led her young away from the pond."
+        },
+        {
+          "id": "d",
+          "text": "The horse drank from the wooden trough. The cow stood in the shade of the tree. A duck led her young towards the pond."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The horse drank from the wooden trough. The cow stood in the shade of the tree. A duck led her young away from the pond."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对槽的材料、阴影来自哪里和母鸭行进的方向。",
+        "steps": [
+          {
+            "text": "木槽：from the wooden trough。",
+            "reason": "wooden是木制，不能沿用stone石制。"
+          },
+          {
+            "text": "树荫：in the shade of the tree。",
+            "reason": "tree替换了barn，阴影条件保留。"
+          },
+          {
+            "text": "远离池塘：away from the pond。",
+            "reason": "away from与towards方向相反，不补是否已到别处。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "stone把木槽改成石槽。"
+          },
+          {
+            "option": "b",
+            "reason": "barn把树荫改成谷仓投下的阴影。"
+          },
+          {
+            "option": "d",
+            "reason": "towards把远离改成朝池塘去。"
+          }
+        ],
+        "pitfall": "不要凭旧句顺手作答；材料、阴影来源和方向各核对一次。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三条新条件",
+          "segments": [
+            {
+              "text": "wooden trough",
+              "role": "evidence",
+              "note": "木槽"
+            },
+            {
+              "text": "shade of the tree",
+              "role": "evidence",
+              "note": "树投下的阴影"
+            },
+            {
+              "text": "away from the pond",
+              "role": "evidence",
+              "note": "远离池塘"
+            }
+          ],
+          "caption": "没有给水量、牛是否产奶、幼鸭数量或到达结果。"
+        },
+        "transfer": "把wooden换成stone、away from换成towards，各改变了什么？"
+      }
+    }
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "lessonId": "l-s-course-t08",
+  "reviewState": "draft",
+  "intent": "Distinguish per-notebook price from pack total, preserve the twelve-yuan budget and one-notebook need, and justify today’s six-yuan purchase accurately.",
+  "picturePurpose": "A precise coded money model changes the wallet from the original twelve yuan to an explicitly hypothetical eighteen yuan. Three rows share an exact one-yuan scale: budget, six-yuan single and fifteen-yuan pack. The difference changes from three yuan short to three left, while the original one-notebook need stays visible.",
+  "workshop": {
+    "kind": "compose",
+    "title": "每本便宜，不等于今天该买整包",
+    "instruction": "先算清三本装的单价和总价，再核对十二元预算与只需一本的条件。把今天的选择说成2—4句英文。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "单价与整包总价，不能混",
+        "prompt": "三本装十五元，每本多少钱？买整包实际付多少？",
+        "answer": "",
+        "reason": "单价和总价已区分。用自己的英语说明三本装每本便宜、整包却要十五元。",
+        "hint": "15÷3=5，每本五元；整包仍要付十五元。单本六元，三本装每本便宜一元，不代表整包总价更低。",
+        "material": "说2—4句英文。你有十二元，只需要一本六元笔记本。说明为何今天不买十五元三本装。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "单价 ↔ 总价",
+          "hint": "先看一个价格对应几本，再看实际买整包要付多少。",
+          "wrong": "十五元是三本的总价，五元是每本平均单价；不能把每本五元说成整包五元。",
+          "fields": [
+            {
+              "id": "unit",
+              "label": "三本装平均每本多少？",
+              "answer": "five",
+              "choices": [
+                {
+                  "id": "five",
+                  "label": "15 ÷ 3 = 5 yuan per notebook."
+                },
+                {
+                  "id": "fifteen",
+                  "label": "15 yuan per notebook."
+                },
+                {
+                  "id": "three",
+                  "label": "3 yuan per notebook."
+                }
+              ]
+            },
+            {
+              "id": "total",
+              "label": "买三本装实际付多少？",
+              "answer": "fifteen",
+              "choices": [
+                {
+                  "id": "five",
+                  "label": "5 yuan in total."
+                },
+                {
+                  "id": "fifteen",
+                  "label": "15 yuan in total."
+                },
+                {
+                  "id": "eighteen",
+                  "label": "18 yuan in total."
+                }
+              ]
+            },
+            {
+              "id": "compare",
+              "label": "与单本六元比，哪句准确？",
+              "answer": "unit-cheaper",
+              "choices": [
+                {
+                  "id": "unit-cheaper",
+                  "label": "The three-pack costs less per notebook."
+                },
+                {
+                  "id": "total-cheaper",
+                  "label": "The whole three-pack costs less than one six-yuan notebook."
+                },
+                {
+                  "id": "same",
+                  "label": "Both choices cost the same in total."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "能否付得起，看总价对预算",
+        "prompt": "原题十二元够不够买十五元整包？换个假设预算又怎样？",
+        "answer": "",
+        "reason": "预算示例已核对。原题十二元比整包十五元少三元；自己的原题回答仍须保留十二元。",
+        "hint": "原题一直是十二元。十八元只是用来比较的假设，不得把它写成自己的原题预算。先看付不付得起，再考虑是否需要三本。",
+        "material": "说2—4句英文。你有十二元，只需要一本六元笔记本。说明为何今天不买十五元三本装。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "预算对照卡",
+          "hint": "比较同一包十五元，不要把平均单价当付款金额。",
+          "wrong": "原题十二元买整包差三元；假设十八元买整包剩三元。假设不改变原题事实。",
+          "fields": [
+            {
+              "id": "budget",
+              "label": "比较哪种预算？",
+              "answer": "twelve",
+              "choices": [
+                {
+                  "id": "twelve",
+                  "label": "原题：12元"
+                },
+                {
+                  "id": "eighteen",
+                  "label": "假设：18元（不是原题）"
+                }
+              ]
+            },
+            {
+              "id": "can-pay",
+              "label": "能付十五元整包吗？",
+              "answer": "no",
+              "choices": [
+                {
+                  "id": "no",
+                  "label": "No: the budget is below 15 yuan."
+                },
+                {
+                  "id": "yes",
+                  "label": "Yes: the budget covers 15 yuan."
+                },
+                {
+                  "id": "unit",
+                  "label": "Yes, because each notebook averages 5 yuan."
+                }
+              ]
+            },
+            {
+              "id": "difference",
+              "label": "与整包总价相比怎样？",
+              "answer": "short-three",
+              "choices": [
+                {
+                  "id": "short-three",
+                  "label": "3 yuan short of the pack price."
+                },
+                {
+                  "id": "left-three",
+                  "label": "3 yuan left after buying the pack."
+                },
+                {
+                  "id": "left-six",
+                  "label": "6 yuan left after buying the pack."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "budget",
+            "answers": {
+              "twelve": {
+                "can-pay": "no",
+                "difference": "short-three"
+              },
+              "eighteen": {
+                "can-pay": "yes",
+                "difference": "left-three"
+              }
+            }
+          },
+          "money": {
+            "title": "换预算，看整包差多少",
+            "note": "原题仍是12元、只需一本。18元只是比较用的假设；付得起也不代表需要买三本。",
+            "selector": "budget",
+            "amounts": {
+              "twelve": 12,
+              "eighteen": 18
+            },
+            "original": "twelve",
+            "cost": 15,
+            "single": 6,
+            "quantity": 3
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "回到今天：十二元，只需一本",
+        "prompt": "怎样把选择、预算和当前需要连起来？",
+        "answer": "",
+        "reason": "今天的选择与理由已核对。实际用2—4句说清，再回听数字和理由。",
+        "hint": "买六元的一本后12−6=6元；不买三本装的理由不只是单价，还包括整包十五元超预算和今天只需一本。",
+        "material": "说2—4句英文。你有十二元，只需要一本六元笔记本。说明为何今天不买十五元三本装。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "今天的决定卡",
+          "hint": "回到原题十二元，不照搬上一张卡的假设十八元。",
+          "wrong": "三本装每本便宜，但总价十五元超过十二元，而且今天只需一本。六元的一本买完还剩六元。本题要说2—4句英文：只报价格，或改交长篇作文，都没有完成口头说明。",
+          "fields": [
+            {
+              "id": "choice",
+              "label": "哪项符合原题今天的安排？",
+              "answer": "single",
+              "choices": [
+                {
+                  "id": "single",
+                  "label": "Buy one notebook for 6 yuan; it meets today’s need and fits the 12-yuan budget."
+                },
+                {
+                  "id": "pack",
+                  "label": "Buy the 15-yuan pack because the average price is only 5 yuan."
+                },
+                {
+                  "id": "three",
+                  "label": "Buy three separate 6-yuan notebooks within the 12-yuan budget."
+                }
+              ]
+            },
+            {
+              "id": "left",
+              "label": "买六元一本后剩多少？",
+              "answer": "six",
+              "choices": [
+                {
+                  "id": "six",
+                  "label": "12 − 6 = 6 yuan left."
+                },
+                {
+                  "id": "seven",
+                  "label": "12 − 5 = 7 yuan left."
+                },
+                {
+                  "id": "three",
+                  "label": "12 − 9 = 3 yuan left."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题要求怎样表达？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Two to four spoken English sentences."
+                },
+                {
+                  "id": "list",
+                  "label": "Only a list of prices, without explaining the choice."
+                },
+                {
+                  "id": "essay",
+                  "label": "A long written essay instead of speaking."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t08-transfer",
+      "topicId": "s-course-t08",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "你有10元，今天只需一支铅笔：单支4元，两支装共7元。哪段回答算对了价格，并说明了今天买单支的理由？",
+      "passage": "A different purchase\nYou have 10 yuan and need only one pencil today. One pencil costs 4 yuan; a two-pack costs 7 yuan in total. In two to four spoken English sentences, explain why you would buy the single pencil today even though the pack costs less per pencil. Both purchases are within the budget.",
+      "options": [
+        {
+          "id": "a",
+          "text": "I have ten yuan and need one pencil today. The two-pack costs seven yuan, so it is over my budget. I will buy one pencil for four yuan."
+        },
+        {
+          "id": "b",
+          "text": "The two-pack costs 3.5 yuan per pencil, but seven yuan in total. I only need one today, so I will buy the four-yuan pencil. I will have six yuan left."
+        },
+        {
+          "id": "c",
+          "text": "The two-pack costs 3.5 yuan per pencil. I will pay 3.5 yuan for the whole pack. I will have 6.5 yuan left."
+        },
+        {
+          "id": "d",
+          "text": "The three-pack costs fifteen yuan in total. I have twelve yuan and only need one notebook today. I will buy the six-yuan notebook."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The two-pack costs 3.5 yuan per pencil, but seven yuan in total. I only need one today, so I will buy the four-yuan pencil. I will have six yuan left."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "重算新价格，区分付得起与是否符合今天需要。",
+        "steps": [
+          {
+            "text": "两支装每支7÷2=3.5元，总价七元，十元预算付得起。",
+            "reason": "这次不能照搬旧任务的超预算理由。"
+          },
+          {
+            "text": "今天只需一支，买四元的一支后剩10−4=6元。",
+            "reason": "虽然每支单价较高，但满足当前需要且总支出更少；把理由说清。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "七元小于十元，这次两支装没有超预算。"
+          },
+          {
+            "option": "c",
+            "reason": "把每支平均三点五元当成整包付款额。"
+          },
+          {
+            "option": "d",
+            "reason": "照搬了旧任务的笔记本、十二元预算和六元单本，没有使用这次铅笔的价格。"
+          }
+        ],
+        "pitfall": "只看平均单价，或把上个任务的超预算结论直接套到新价格。",
+        "visual": {
+          "kind": "comparison",
+          "title": "新价格重新算，再结合需要",
+          "segments": [
+            {
+              "text": "7 ÷ 2 = 3.5 per pencil · 7 total",
+              "role": "evidence",
+              "note": "两支装"
+            },
+            {
+              "text": "10 − 4 = 6 left",
+              "role": "evidence",
+              "note": "买一支之后"
+            },
+            {
+              "text": "need one today",
+              "role": "evidence",
+              "note": "今天的需要"
+            }
+          ],
+          "caption": "单价、总价、预算与需要要一起看。"
+        },
+        "transfer": "如果今天确实需要两支，比较两支装七元与单买两支八元，理由会怎样改变？"
+      }
+    }
+  }
+}

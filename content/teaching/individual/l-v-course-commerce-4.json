@@ -1,0 +1,576 @@
+{
+  "lessonId": "l-v-course-commerce-4",
+  "reviewState": "draft",
+  "intent": "Eight individual shopping tasks preserve worth, bill/receipt timing, bus change, both required budget items, affordability scope, repairable-item conditions and profit after costs.",
+  "picturePurpose": "Original hypothetical hilltop view supports the worth/effort context without pretending to prove price or duration. Exact sequence and budget inclusion remain coded.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "先查账单，别漏预算项目",
+    "instruction": "排好付款顺序，再把预算里必需的两项选齐。",
+    "items": [
+      {
+        "id": "worth",
+        "label": "worth：worth在这里说值得付出努力，还是给景色标价？",
+        "prompt": "worth在这里说值得付出努力，还是给景色标价？",
+        "answer": "worth",
+        "meaning": "值得；价值为",
+        "material": "The view is worth the long climb.",
+        "before": "The view is ",
+        "after": " the long climb.",
+        "reason": "worth在这里是值得。说话者认为为看这景色付出长时间攀登的努力值得，不是在给景色标价，也不保证每个人都有同样感受。图只提供虚构登高看景的情境，不证明攀登时长或给出金额。",
+        "hint": "be worth something；be worth doing值得做，不用worth to do。",
+        "wordDecision": {
+          "prompt": "worth在这里说值得付出努力，还是给景色标价？",
+          "art": {
+            "asset": "lesson-hilltop-view",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "一条带护栏的宽阔步道通向山顶观景平台，远处是海湾、绿山和岛屿；没有文字、价格或时刻。"
+          }
+        },
+        "options": [
+          {
+            "id": "effort",
+            "text": "The view makes the effort of the long climb worthwhile.",
+            "correct": true,
+            "reason": "worth说明看景色值得付出攀登的努力。"
+          },
+          {
+            "id": "price",
+            "text": "The sentence states the exact price of the view.",
+            "correct": false,
+            "reason": "这里没有金额，不是在给景色标价。"
+          },
+          {
+            "id": "easy",
+            "text": "The sentence says the climb was short and easy.",
+            "correct": false,
+            "reason": "long climb没有变成短而轻松。"
+          }
+        ]
+      },
+      {
+        "id": "bill",
+        "label": "bill：付款前还是付款后核对bill？",
+        "prompt": "付款前还是付款后核对bill？",
+        "answer": "bill",
+        "meaning": "账单；票据",
+        "material": "Check the bill before you pay.",
+        "before": "Check the ",
+        "after": " before you pay.",
+        "reason": "bill在这里是账单。before you pay要求付款前核对；先查项目和金额，再付款。原句没有给出账单数额，也没有说明已付款。",
+        "hint": "check the bill核对账单；pay the bill结账。",
+        "wordDecision": {
+          "prompt": "付款前还是付款后核对bill？",
+          "processOrder": {
+            "title": "先核对，再付款",
+            "events": [
+              {
+                "id": "check",
+                "label": "核对账单"
+              },
+              {
+                "id": "pay",
+                "label": "付款"
+              }
+            ],
+            "sequence": [
+              "check",
+              "pay"
+            ],
+            "hint": "按before给出的先后排；不补账单金额。",
+            "wrong": "先核对账单，再付款；before不能倒过来。"
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "Check the bill first, then pay.",
+            "correct": true,
+            "reason": "before明确先查账单，再付款。"
+          },
+          {
+            "id": "reverse",
+            "text": "Pay first, then check the bill.",
+            "correct": false,
+            "reason": "把先后颠倒了。"
+          },
+          {
+            "id": "paid",
+            "text": "The sentence says the bill has already been paid.",
+            "correct": false,
+            "reason": "要求付款前核对，不说明已经付过。"
+          }
+        ]
+      },
+      {
+        "id": "receipt",
+        "label": "receipt：试灯前能扔收据吗？先看until。",
+        "prompt": "试灯前能扔收据吗？先看until。",
+        "answer": "receipt",
+        "meaning": "收据",
+        "material": "Keep the receipt until you test the lamp.",
+        "before": "Keep the ",
+        "after": " until you test the lamp.",
+        "reason": "receipt是收据。keep...until要求把收据保留到试过台灯，不是试用前就丢掉；句子也没有要求试过后立刻丢弃，实际是否继续保留要看售后需要。它没有保证灯无故障或退款成功。",
+        "hint": "receipt的p不发音；until标出保留到的时间点，不是提前丢弃。",
+        "wordDecision": {
+          "prompt": "试灯前能扔收据吗？先看until。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保留收据，直到试过台灯",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "until",
+                "label": "收据保留到试过台灯",
+                "text": "Keep the receipt until you test the lamp.",
+                "include": true
+              },
+              {
+                "id": "discard",
+                "label": "试灯之前把收据扔掉",
+                "text": "Throw away the receipt before testing the lamp.",
+                "include": false
+              },
+              {
+                "id": "guarantee",
+                "label": "收据保证灯没有任何故障",
+                "text": "The receipt guarantees that the lamp has no faults.",
+                "include": false
+              }
+            ],
+            "hint": "留到试灯，不等于提前丢弃，也不保证产品状态。",
+            "wrong": "选保留到试灯；不能反成提前扔或无故障保证。"
+          }
+        },
+        "options": [
+          {
+            "id": "until",
+            "text": "Keep the receipt until the lamp has been tested.",
+            "correct": true,
+            "reason": "保留至少到试过台灯这一步。"
+          },
+          {
+            "id": "discard",
+            "text": "Throw the receipt away before testing the lamp.",
+            "correct": false,
+            "reason": "与keep...until相反。"
+          },
+          {
+            "id": "guarantee",
+            "text": "The receipt guarantees that the lamp has no faults.",
+            "correct": false,
+            "reason": "留收据不证明台灯没有问题。"
+          }
+        ]
+      },
+      {
+        "id": "change",
+        "label": "change：问够不够change坐公交，问的是零钱还是改变？",
+        "prompt": "问够不够change坐公交，问的是零钱还是改变？",
+        "answer": "change",
+        "meaning": "零钱；改变",
+        "material": "Have you got enough change for the bus?",
+        "before": "Have you got enough ",
+        "after": " for the bus?",
+        "reason": "change在这里是零钱，通常不可数。句子在问是否有足够零钱坐公交，没有给金额，也没有确认够用；不要误读成改变路线。",
+        "hint": "enough change足够的零钱；不要写many change。",
+        "wordDecision": {
+          "prompt": "问够不够change坐公交，问的是零钱还是改变？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "是否有足够零钱坐公交",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "coins",
+                "label": "问零钱是否足够坐公交",
+                "text": "Have you got enough change for the bus?",
+                "include": true
+              },
+              {
+                "id": "alter",
+                "label": "问公交路线是否改过",
+                "text": "Has the bus route changed?",
+                "include": false
+              },
+              {
+                "id": "given",
+                "label": "明确给出手里零钱的金额",
+                "text": "The sentence gives the exact amount of change.",
+                "include": false
+              }
+            ],
+            "hint": "问够不够，不代表已经够用；change在这里是零钱。",
+            "wrong": "选问公交零钱是否足够；不换成路线或补金额。"
+          }
+        },
+        "options": [
+          {
+            "id": "coins",
+            "text": "The question asks whether you have enough small money for the bus.",
+            "correct": true,
+            "reason": "for the bus说明这里问够不够零钱。"
+          },
+          {
+            "id": "alter",
+            "text": "The question asks whether the bus route has changed.",
+            "correct": false,
+            "reason": "这里change是名词零钱，不是路线改变。"
+          },
+          {
+            "id": "given",
+            "text": "The question states the exact amount of change you have.",
+            "correct": false,
+            "reason": "问句没有给金额，也没确认足够。"
+          }
+        ]
+      },
+      {
+        "id": "budget",
+        "label": "budget：给预算勾项目：paint和brushes能漏哪一个？",
+        "prompt": "给预算勾项目：paint和brushes能漏哪一个？",
+        "answer": "budget",
+        "meaning": "预算",
+        "material": "Our budget must cover paint and brushes.",
+        "before": "Our ",
+        "after": " must cover paint and brushes.",
+        "reason": "budget是预算。must cover paint and brushes要求油漆与刷子两项都纳入，不能漏一项。原句没有给总预算或各项价格，也没有说钱已经花完。",
+        "hint": "budget预算；cover这里指足以支付、包含所需费用。",
+        "wordDecision": {
+          "prompt": "给预算勾项目：paint和brushes能漏哪一个？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "预算里两项都要留",
+            "prompt": "把原句明确要求的两项都勾上。",
+            "rows": [
+              {
+                "id": "paint",
+                "label": "油漆费用",
+                "text": "The budget must cover paint.",
+                "include": true
+              },
+              {
+                "id": "brushes",
+                "label": "刷子费用",
+                "text": "The budget must cover brushes.",
+                "include": true
+              },
+              {
+                "id": "lamp",
+                "label": "新台灯费用",
+                "text": "The sentence requires money for a new lamp.",
+                "include": false
+              }
+            ],
+            "hint": "and连接paint和brushes；原句没要求新台灯。",
+            "wrong": "油漆和刷子都要选，别漏项；不补原句没有的新台灯。"
+          }
+        },
+        "options": [
+          {
+            "id": "both",
+            "text": "The budget must include both paint and brushes.",
+            "correct": true,
+            "reason": "and连接两项，都要纳入。"
+          },
+          {
+            "id": "paint",
+            "text": "Only paint needs to be included in the budget.",
+            "correct": false,
+            "reason": "漏了brushes。"
+          },
+          {
+            "id": "brushes",
+            "text": "Only brushes need to be included in the budget.",
+            "correct": false,
+            "reason": "漏了paint。"
+          }
+        ]
+      },
+      {
+        "id": "afford",
+        "label": "afford：这学期买不起打印机，能说永远买不起吗？",
+        "prompt": "这学期买不起打印机，能说永远买不起吗？",
+        "answer": "afford",
+        "meaning": "负担得起",
+        "material": "We cannot afford a new printer this term.",
+        "before": "We cannot ",
+        "after": " a new printer this term.",
+        "reason": "afford是负担得起。cannot afford a new printer this term说这学期负担不起新打印机，不是永远买不起，也没有说明将买二手、借用或已付款。",
+        "hint": "afford something；afford to do；否定与时间范围都要保留。",
+        "wordDecision": {
+          "prompt": "这学期买不起打印机，能说永远买不起吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这学期负担不起新打印机",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "now",
+                "label": "这学期买不起新打印机",
+                "text": "We cannot afford a new printer this term.",
+                "include": true
+              },
+              {
+                "id": "ever",
+                "label": "今后永远买不起任何打印机",
+                "text": "We can never afford any printer.",
+                "include": false
+              },
+              {
+                "id": "bought",
+                "label": "这学期已经买了新打印机",
+                "text": "We have bought a new printer this term.",
+                "include": false
+              }
+            ],
+            "hint": "只保留this term和new printer的范围。",
+            "wrong": "选这学期负担不起；不扩大成永远或补已购买。"
+          }
+        },
+        "options": [
+          {
+            "id": "now",
+            "text": "A new printer is beyond what we can pay this term.",
+            "correct": true,
+            "reason": "保留cannot afford和this term的范围。"
+          },
+          {
+            "id": "ever",
+            "text": "We will never be able to buy any printer.",
+            "correct": false,
+            "reason": "这学期不能扩大成永远、任何打印机。"
+          },
+          {
+            "id": "bought",
+            "text": "We have already bought a new printer this term.",
+            "correct": false,
+            "reason": "cannot afford不说明已经买了。"
+          }
+        ]
+      },
+      {
+        "id": "waste",
+        "label": "waste：能修的东西，该把钱浪费在换新上吗？",
+        "prompt": "能修的东西，该把钱浪费在换新上吗？",
+        "answer": "waste",
+        "meaning": "浪费；废物",
+        "material": "Do not waste money replacing things you can repair.",
+        "before": "Do not ",
+        "after": " money replacing things you can repair.",
+        "reason": "waste在这里是动词浪费。原句说能修的东西不要浪费钱换新，不是任何东西都永远不能换，也没有判断每次维修都更便宜。",
+        "hint": "waste money doing...；不要漏掉can repair这个条件。",
+        "wordDecision": {
+          "prompt": "能修的东西，该把钱浪费在换新上吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "能修的东西别浪费钱换新",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "repair",
+                "label": "能修的东西不必浪费钱换新",
+                "text": "Do not waste money replacing things you can repair.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "任何情况下都永远不能换新",
+                "text": "Never replace anything in any situation.",
+                "include": false
+              },
+              {
+                "id": "replace",
+                "label": "能修的东西也必须全部换新",
+                "text": "Replace everything that can be repaired.",
+                "include": false
+              }
+            ],
+            "hint": "保留can repair的条件，不改成永不换新。",
+            "wrong": "选有条件地避免浪费；不扩大范围或反转要求。"
+          }
+        },
+        "options": [
+          {
+            "id": "repair",
+            "text": "Avoid wasting money on replacements when things can be repaired.",
+            "correct": true,
+            "reason": "保留能修时别浪费钱换新。"
+          },
+          {
+            "id": "all",
+            "text": "Never replace anything, even when repair is impossible.",
+            "correct": false,
+            "reason": "原句限于can repair，不能扩大成永不换新。"
+          },
+          {
+            "id": "replace",
+            "text": "Replace every item that could be repaired.",
+            "correct": false,
+            "reason": "把不要浪费反成全部换掉。"
+          }
+        ]
+      },
+      {
+        "id": "profit",
+        "label": "profit：每本笔记本有一点profit，是利润还是全部销售收入？",
+        "prompt": "每本笔记本有一点profit，是利润还是全部销售收入？",
+        "answer": "profit",
+        "meaning": "利润；获益",
+        "material": "The stall made a small profit on each notebook.",
+        "before": "The stall made a small ",
+        "after": " on each notebook.",
+        "reason": "profit是利润。每本笔记本带来一点利润，通常指收入扣除相应成本后的收益；句子没有给收入、成本、每本利润或售出本数的具体数值，也不能据此算总利润。",
+        "hint": "make a profit盈利；不要把profit当成全部销售收入。",
+        "wordDecision": {
+          "prompt": "每本笔记本有一点profit，是利润还是全部销售收入？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "每本笔记本有一点利润",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "gain",
+                "label": "每本笔记本有一点利润",
+                "text": "The stall made a small profit on each notebook.",
+                "include": true
+              },
+              {
+                "id": "revenue",
+                "label": "利润就是未扣成本的全部收入",
+                "text": "Profit means all income before costs.",
+                "include": false
+              },
+              {
+                "id": "loss",
+                "label": "每本笔记本都亏损",
+                "text": "The stall lost money on each notebook.",
+                "include": false
+              }
+            ],
+            "hint": "利润与收入分开；each不提供售出本数。",
+            "wrong": "选每本有小额利润；不改成收入或亏损。"
+          }
+        },
+        "options": [
+          {
+            "id": "gain",
+            "text": "The stall earned a small amount after costs on each notebook.",
+            "correct": true,
+            "reason": "profit是扣除成本后的利润，each notebook说明每本。"
+          },
+          {
+            "id": "revenue",
+            "text": "Profit here means all the money received before costs.",
+            "correct": false,
+            "reason": "销售收入与利润不同。"
+          },
+          {
+            "id": "loss",
+            "text": "The stall lost money on every notebook.",
+            "correct": false,
+            "reason": "盈利不能反成亏损。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-commerce-4-transfer",
+      "topicId": "v-course-commerce",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan preserves the payment order, receipt timing and budget items?",
+      "passage": "Planning what to keep and pay\nA visitor said the hilltop view was worth the long climb. This valued the effort; it did not put a price on the view. Before buying supplies, we checked the bill before paying. We kept the receipt until we had tested a new lamp. That instruction did not mean throwing the receipt away before the test or requiring immediate disposal afterwards.\nOur budget had to cover paint and brushes, so both items needed to be included. No amounts were supplied. We asked whether we had enough change for the bus without assuming we already did. We could not afford a new printer this term, which did not mean we could never buy one.\nWe avoided wasting money replacing repairable things, without making a rule against every replacement. A stall made a small profit on each notebook: profit was distinct from the full amount received before costs, and the number sold was not given.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Check the bill after paying; keep the receipt until testing; budget for both paint and brushes."
+        },
+        {
+          "id": "b",
+          "text": "Check the bill before paying; discard the receipt before testing; budget for both paint and brushes."
+        },
+        {
+          "id": "c",
+          "text": "Check the bill before paying; keep the receipt until testing; budget for paint but omit brushes."
+        },
+        {
+          "id": "d",
+          "text": "Check the bill before paying; keep the receipt until testing; budget for both paint and brushes."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "Check the bill before paying; keep the receipt until testing; budget for both paint and brushes."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先排付款顺序，再核对保留时间和必备项目。",
+        "steps": [
+          {
+            "text": "先核对账单，再付款；收据至少留到试过灯。",
+            "reason": "before不能倒置；until不能改成提前丢弃。"
+          },
+          {
+            "text": "油漆和刷子都进预算。",
+            "reason": "and连接两项，不能只选一项；原句没给金额。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把核对账单改到付款后。"
+          },
+          {
+            "option": "b",
+            "reason": "把留到试灯改成提前丢弃。"
+          },
+          {
+            "option": "c",
+            "reason": "预算漏掉brushes。"
+          }
+        ],
+        "pitfall": "混淆before和until，或漏掉and连接的一项。",
+        "visual": {
+          "kind": "timeline",
+          "title": "两个先后，一个清单",
+          "segments": [
+            {
+              "text": "check bill → pay",
+              "role": "object",
+              "note": "先核对后付款"
+            },
+            {
+              "text": "keep receipt → test lamp",
+              "role": "object",
+              "note": "至少保留到试过灯"
+            },
+            {
+              "text": "paint + brushes",
+              "role": "object",
+              "note": "两项都纳入"
+            }
+          ],
+          "caption": "顺序与项目由文字给出；没有假设账单、车费或预算金额。"
+        },
+        "transfer": "这学期负担不起打印机，能扩大成永远买不起吗？"
+      }
+    }
+  }
+}

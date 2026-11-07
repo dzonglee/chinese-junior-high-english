@@ -1,0 +1,655 @@
+{
+  "lessonId": "l-v-course-technology-3",
+  "reviewState": "draft",
+  "intent": "Eight individual technology tasks preserve compatibility checks, physical connection, instruction order, safe separation, line following, offline operation, possible incompatibility and stipulated grouping.",
+  "picturePurpose": "Original connected/unplugged camera-to-computer comparison supports direct physical-connection observation. No transfer success or connector compatibility is inferred. Coded name grouping uses an explicitly stipulated first-letter rule rather than inventing the source program algorithm.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "看连接、分名字，再核对条件",
+    "instruction": "点出连好的设备，按规则分组；保留顺序、条件和可能性。",
+    "items": [
+      {
+        "id": "charger",
+        "label": "charger：充电前要检查什么？",
+        "prompt": "充电前要检查什么？",
+        "answer": "charger",
+        "meaning": "充电器",
+        "material": "Check that the charger fits your device.",
+        "before": "Check that the ",
+        "after": " fits your device.",
+        "reason": "charger是充电器，charge加-er构成设备名。fits your device指适配你的设备；Check要求核对，不能直接补成已通过检查，也不能说所有充电器都通用。接头看似能插入，不足以证明全部参数适配。",
+        "hint": "Check是要求；别补已经适配。",
+        "wordDecision": {
+          "prompt": "充电前要检查什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "检查是否适配你的设备",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "check",
+                "label": "应检查是否适配",
+                "text": "Check whether the charger fits your device.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "所有充电器都通用",
+                "text": "Every charger fits every device.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "已经检查并通过",
+                "text": "The charger has already passed the check.",
+                "include": false
+              }
+            ],
+            "hint": "检查要求不是合格证明。",
+            "wrong": "只选应检查是否适配；不能扩大到全部或补已通过。"
+          }
+        },
+        "options": [
+          {
+            "id": "all",
+            "text": "Every charger is suitable for every device.",
+            "correct": false,
+            "reason": "your device被扩大成所有设备，还省掉检查。"
+          },
+          {
+            "id": "done",
+            "text": "The charger has already passed the compatibility check.",
+            "correct": false,
+            "reason": "要求检查不等于已检查通过。"
+          },
+          {
+            "id": "check",
+            "text": "Check whether the charger is suitable for your device.",
+            "correct": true,
+            "reason": "Check给出检查要求，fits your device是要核对的内容。"
+          }
+        ],
+        "ownForms": [
+          "charger",
+          "chargers"
+        ]
+      },
+      {
+        "id": "cable",
+        "label": "cable：点出相机和电脑已经用线连着的图。",
+        "prompt": "点出相机和电脑已经用线连着的图。",
+        "answer": "cable",
+        "meaning": "电缆；连接线",
+        "material": "This cable connects the camera to the computer.",
+        "before": "This ",
+        "after": " connects the camera to the computer.",
+        "reason": "cable在这里是连接线，connect A to B表示把A连接到B。原句描述连接关系，不说明文件已传完、正在充电或联网。图只用来观察是否物理连接，不是某种真实接口兼容性的证明。",
+        "hint": "看两端是否连着；连接不等于传输完成。",
+        "wordDecision": {
+          "prompt": "点出相机和电脑已经用线连着的图。",
+          "art": {
+            "pictureOnly": true,
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-camera-cable",
+            "alt": "两组相机和笔记本电脑：A的同一根线两端插在设备上，B的线两端与设备之间都有空隙；屏幕为空。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "linked",
+                "label": "A 图",
+                "left": 2,
+                "top": 4,
+                "width": 46,
+                "height": 92
+              },
+              {
+                "id": "b",
+                "option": "loose",
+                "label": "B 图",
+                "left": 52,
+                "top": 4,
+                "width": 46,
+                "height": 92
+              }
+            ],
+            "evidence": [
+              {
+                "option": "linked",
+                "caption": "A的线两端都已接上，连接了相机和电脑；不说明文件已传完。",
+                "regions": [
+                  {
+                    "id": "joined",
+                    "left": 13,
+                    "top": 47,
+                    "width": 16,
+                    "height": 14,
+                    "label": "两端已连接"
+                  }
+                ]
+              },
+              {
+                "option": "loose",
+                "caption": "B的两个插头与设备分开，没有连好。",
+                "regions": [
+                  {
+                    "id": "free",
+                    "left": 64,
+                    "top": 47,
+                    "width": 15,
+                    "height": 15,
+                    "label": "两端有空隙"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "linked",
+            "text": "The cable physically links the camera and the computer.",
+            "correct": true,
+            "reason": "A的线两端都插在设备上，符合connects；不说明文件已传完。"
+          },
+          {
+            "id": "loose",
+            "text": "Both cable ends are disconnected from the devices.",
+            "correct": false,
+            "reason": "B的两端都与设备分开，不符合connects。"
+          }
+        ],
+        "ownForms": [
+          "cable",
+          "cables",
+          "cabled",
+          "cabling"
+        ]
+      },
+      {
+        "id": "device",
+        "label": "device：清洁设备前先做什么？",
+        "prompt": "清洁设备前先做什么？",
+        "answer": "device",
+        "meaning": "设备；装置",
+        "material": "Turn off the device before cleaning it.",
+        "before": "Turn off the ",
+        "after": " before cleaning it.",
+        "reason": "device是设备或装置。Turn off是关掉，before cleaning it规定先关机、后清洁；it指这台设备。原句是指令，不证明已经做完。不要把before换成after。",
+        "hint": "before先后顺序别反；指令不等于已完成。",
+        "wordDecision": {
+          "prompt": "清洁设备前先做什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "先关机，再清洁",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "first",
+                "label": "清洁之前先关机",
+                "text": "Switch the device off before cleaning it.",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "先清洁，之后关机",
+                "text": "Clean the device before switching it off.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "已经关机并清洁",
+                "text": "The device has already been switched off and cleaned.",
+                "include": false
+              }
+            ],
+            "hint": "before规定操作顺序。",
+            "wrong": "只选清洁之前先关机；不能倒序或补已经完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "after",
+            "text": "Clean the device first and switch it off later.",
+            "correct": false,
+            "reason": "先后顺序被反转。"
+          },
+          {
+            "id": "first",
+            "text": "Switch the device off before cleaning it.",
+            "correct": true,
+            "reason": "before规定关机在清洁之前。"
+          },
+          {
+            "id": "done",
+            "text": "The device has already been switched off and cleaned.",
+            "correct": false,
+            "reason": "指令不报告已经完成。"
+          }
+        ],
+        "ownForms": [
+          "device",
+          "devices"
+        ]
+      },
+      {
+        "id": "machine",
+        "label": "machine：什么东西应远离机器？",
+        "prompt": "什么东西应远离机器？",
+        "answer": "machine",
+        "meaning": "机器",
+        "material": "Keep loose clothing away from the machine.",
+        "before": "Keep loose clothing away from the ",
+        "after": ".",
+        "reason": "machine表示机器，loose clothing是宽松衣物。keep A away from B要求让A远离B，不是靠近；Keep开头是指令，没有报告执行结果。machine中的ch发/ʃ/，不像chair中的/tʃ/。",
+        "hint": "away from是远离；不是已执行记录。",
+        "wordDecision": {
+          "prompt": "什么东西应远离机器？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "衣物须远离机器",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "away",
+                "label": "衣物须远离机器",
+                "text": "Loose clothing should be kept away from the machine.",
+                "include": true
+              },
+              {
+                "id": "near",
+                "label": "衣物须靠近机器",
+                "text": "Loose clothing should be kept close to the machine.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "所有人已经照做",
+                "text": "Everyone has already moved loose clothing away.",
+                "include": false
+              }
+            ],
+            "hint": "不要把away from读成close to。",
+            "wrong": "只选衣物须远离机器；不能反转位置或补人人照做。"
+          }
+        },
+        "options": [
+          {
+            "id": "near",
+            "text": "Loose clothing should be kept close to the machine.",
+            "correct": false,
+            "reason": "away from被反转成close to。"
+          },
+          {
+            "id": "done",
+            "text": "Everyone has already moved all loose clothing away.",
+            "correct": false,
+            "reason": "Keep是指令，不报告所有人已照做。"
+          },
+          {
+            "id": "away",
+            "text": "Loose clothing should be kept away from the machine.",
+            "correct": true,
+            "reason": "loose clothing与away from都要保留。"
+          }
+        ],
+        "ownForms": [
+          "machine",
+          "machines",
+          "machined",
+          "machining"
+        ]
+      },
+      {
+        "id": "robot",
+        "label": "robot：机器人沿着哪里移动？",
+        "prompt": "机器人沿着哪里移动？",
+        "answer": "robot",
+        "meaning": "机器人",
+        "material": "The robot follows a black line on the floor.",
+        "before": "The ",
+        "after": " follows a black line on the floor.",
+        "reason": "robot是机器人，follows a black line表示沿着黑线移动，不是说机器人变黑了。on the floor说明线在地面；没有报告沿线之外的导航能力，也没说机器人像人一样思考。",
+        "hint": "黑线在地面；别补全场景导航能力。",
+        "wordDecision": {
+          "prompt": "机器人沿着哪里移动？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "沿地面黑线移动",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "line",
+                "label": "沿地面黑线移动",
+                "text": "The robot follows a black line on the floor.",
+                "include": true
+              },
+              {
+                "id": "wall",
+                "label": "沿墙面白线移动",
+                "text": "The robot follows a white line on the wall.",
+                "include": false
+              },
+              {
+                "id": "any",
+                "label": "处处都能自主导航",
+                "text": "The robot can navigate everywhere without any line.",
+                "include": false
+              }
+            ],
+            "hint": "保留black line和on the floor。",
+            "wrong": "只选沿地面黑线移动；不能换颜色、位置或扩大能力。"
+          }
+        },
+        "options": [
+          {
+            "id": "line",
+            "text": "The robot moves along a black line on the floor.",
+            "correct": true,
+            "reason": "follows在这里表示沿着，位置是floor上的黑线。"
+          },
+          {
+            "id": "wall",
+            "text": "The robot moves along a white line on the wall.",
+            "correct": false,
+            "reason": "颜色与位置都被改变。"
+          },
+          {
+            "id": "any",
+            "text": "The robot can safely navigate every place without any line.",
+            "correct": false,
+            "reason": "沿线移动不证明能在所有地方自由导航。"
+          }
+        ],
+        "ownForms": [
+          "robot",
+          "robots"
+        ]
+      },
+      {
+        "id": "software",
+        "label": "software：这个软件运行一定要联网吗？",
+        "prompt": "这个软件运行一定要联网吗？",
+        "answer": "software",
+        "meaning": "软件",
+        "material": "The software works without an internet connection.",
+        "before": "The ",
+        "after": " works without an internet connection.",
+        "reason": "software是软件，通常不可数，不加-s。works without an internet connection表示不联网也能运行，不等于所有功能都离线可用，也不保证适配每台设备或永久不需更新。",
+        "hint": "不联网也能运行；别扩大到所有功能。",
+        "wordDecision": {
+          "prompt": "这个软件运行一定要联网吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "不联网也能运行",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "offline",
+                "label": "软件能离线运行",
+                "text": "The software works without an internet connection.",
+                "include": true
+              },
+              {
+                "id": "must",
+                "label": "软件必须联网运行",
+                "text": "The software works only with an internet connection.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "全部功能永久通用",
+                "text": "Every feature works on every device forever.",
+                "include": false
+              }
+            ],
+            "hint": "能离线运行不等于功能全部通用。",
+            "wrong": "只选不联网也能运行；不能反转条件或补所有功能永久通用。"
+          }
+        },
+        "options": [
+          {
+            "id": "must",
+            "text": "The software cannot work unless it is online.",
+            "correct": false,
+            "reason": "without被反转成必须联网。"
+          },
+          {
+            "id": "offline",
+            "text": "The software can work without being connected to the internet.",
+            "correct": true,
+            "reason": "without说明不依赖联网运行。"
+          },
+          {
+            "id": "all",
+            "text": "Every feature is available on every device forever.",
+            "correct": false,
+            "reason": "能离线运行不说明每项功能、所有设备或永久状态。"
+          }
+        ]
+      },
+      {
+        "id": "hardware",
+        "label": "hardware：新软件一定适配旧硬件吗？",
+        "prompt": "新软件一定适配旧硬件吗？",
+        "answer": "hardware",
+        "meaning": "硬件",
+        "material": "New software may not work with old hardware.",
+        "before": "New software may not work with old ",
+        "after": ".",
+        "reason": "hardware指硬件，通常不可数，与software相对。may not work with表示可能不适配，不是所有新软件与所有旧硬件都一定不兼容，也不等于所有旧设备已经更换。",
+        "hint": "may not保留可能性；别改成绝对结论。",
+        "wordDecision": {
+          "prompt": "新软件一定适配旧硬件吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "可能不适配旧硬件",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "possible",
+                "label": "可能不适配旧硬件",
+                "text": "New software may not work with old hardware.",
+                "include": true
+              },
+              {
+                "id": "always",
+                "label": "旧硬件一律不兼容",
+                "text": "New software never works with any old hardware.",
+                "include": false
+              },
+              {
+                "id": "replace",
+                "label": "旧硬件已全更换",
+                "text": "All old hardware has already been replaced.",
+                "include": false
+              }
+            ],
+            "hint": "may not不是never。",
+            "wrong": "只选可能不适配旧硬件；不能变绝对或补已经更换。"
+          }
+        },
+        "options": [
+          {
+            "id": "always",
+            "text": "New software never works with any old hardware.",
+            "correct": false,
+            "reason": "may not被扩大成never和any。"
+          },
+          {
+            "id": "replace",
+            "text": "All old hardware must already have been replaced.",
+            "correct": false,
+            "reason": "可能不适配不报告已经全部更换。"
+          },
+          {
+            "id": "possible",
+            "text": "New software might not be compatible with old hardware.",
+            "correct": true,
+            "reason": "may not保留可能不适配，而不是必然。"
+          }
+        ]
+      },
+      {
+        "id": "program",
+        "label": "program：按本题规则，把名字分成两组。",
+        "prompt": "按本题规则，把名字分成两组。",
+        "answer": "program",
+        "meaning": "程序；编程序",
+        "material": "The program sorts the names into groups.",
+        "before": "The ",
+        "after": " sorts the names into groups.",
+        "reason": "program在这里是电脑程序，sort A into groups表示把A分组。原句没有说明分组规则；本题的示意任务另行规定按首字母A–M和N–Z分组，不代表原程序一定用这条规则。分组也不等于删除、排名或评价学生能力。电脑程序在英式英语中也常写program。",
+        "hint": "分组规则由本题给出；不是能力排名。",
+        "wordDecision": {
+          "prompt": "按本题规则，把名字分成两组。",
+          "nameGroups": {
+            "title": "首字母分组：A–M / N–Z",
+            "names": [
+              {
+                "id": "amy",
+                "name": "Amy"
+              },
+              {
+                "id": "ben",
+                "name": "Ben"
+              },
+              {
+                "id": "nora",
+                "name": "Nora"
+              },
+              {
+                "id": "wei",
+                "name": "Wei"
+              }
+            ],
+            "hint": "这是本题给出的规则。看首字母，把每个名字放进一组。",
+            "wrong": "再看首字母：A、B在A–M，N、W在N–Z。每个名字都要分组。"
+          }
+        },
+        "options": [
+          {
+            "id": "groups",
+            "text": "The program puts the names into groups.",
+            "correct": true,
+            "reason": "sorts ... into groups说明分组；本题另行规定按首字母范围。"
+          },
+          {
+            "id": "delete",
+            "text": "The program deletes all the names.",
+            "correct": false,
+            "reason": "分组被换成删除。"
+          },
+          {
+            "id": "best",
+            "text": "The program proves which student is the best.",
+            "correct": false,
+            "reason": "分组不等于给学生能力排名。"
+          }
+        ],
+        "ownForms": [
+          "program",
+          "programs",
+          "programmed",
+          "programming",
+          "programed",
+          "programing"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-technology-3-transfer",
+      "topicId": "v-course-technology",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve the order, possibility and demonstration rule?",
+      "passage": "At our technology club\nBefore we started, our teacher pointed to the charger. “Check that it fits your device,” she said. We used a cable to connect the camera to the computer. A progress bar was still moving while the photos were being copied.\nA notice beside the equipment said, “Turn off the device before cleaning it. Keep loose clothing away from the machine.” Our small robot followed a black line on the floor, stopping where the marked route ended.\nThe photo software works without an internet connection, so we could continue editing when the network went down. We checked the requirements before choosing an update: new software may not work with old hardware.\nThe program sorts names into groups. To explore grouping, we made a separate demonstration with four name cards. The rule was to use first letters: Amy and Ben went into A–M, while Nora and Wei went into N–Z. It was a grouping task, not a competition.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Switch off before cleaning; incompatibility is possible; the demonstration groups names by first letter."
+        },
+        {
+          "id": "b",
+          "text": "Clean before switching off; incompatibility is possible; the demonstration groups names by first letter."
+        },
+        {
+          "id": "c",
+          "text": "Switch off before cleaning; every new program always fails on old hardware; the demonstration groups names by first letter."
+        },
+        {
+          "id": "d",
+          "text": "Switch off before cleaning; incompatibility is possible; the demonstration ranks students by ability."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Switch off before cleaning; incompatibility is possible; the demonstration groups names by first letter."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对先后顺序、可能性和本题明示的分组规则。",
+        "steps": [
+          {
+            "text": "先关机后清洁；新软件与旧硬件可能不适配，不是必然全部失败。",
+            "reason": "before规定先后；may not保留可能性。"
+          },
+          {
+            "text": "示意任务按首字母范围分组，不按学生能力排名，也不能把示意规则补成原程序的规则。",
+            "reason": "separate demonstration说明是另设示意任务；first letters明示规则，not a competition排除竞赛排名。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把先关机后清洁的顺序反过来。"
+          },
+          {
+            "option": "c",
+            "reason": "把may not的可能性扩大成every和always的绝对失败。"
+          },
+          {
+            "option": "d",
+            "reason": "把首字母分组换成学生能力排名。"
+          }
+        ],
+        "pitfall": "把before反过来，把may not变绝对，把明示分组规则偷换成能力评价。",
+        "visual": {
+          "kind": "timeline",
+          "title": "顺序、可能性、规则",
+          "segments": [
+            {
+              "text": "off → clean",
+              "role": "object",
+              "note": "先关机，后清洁"
+            },
+            {
+              "text": "may not work",
+              "role": "object",
+              "note": "可能不适配，不是必然"
+            },
+            {
+              "text": "first letter: A–M / N–Z",
+              "role": "object",
+              "note": "本题规则，不是能力排名"
+            }
+          ],
+          "caption": "顺序不反转，可能性不扩大，规则不偷换。"
+        },
+        "transfer": "The software works without an internet connection，能推出每项功能都离线可用吗？指出原句没有承诺的范围。"
+      }
+    }
+  }
+}

@@ -1,0 +1,518 @@
+{
+  "lessonId": "l-v-course-position-2",
+  "reviewState": "draft",
+  "intent": "Individually distinguish part/whole of, topic about, deadline by, bounded near, flexible-side beside, anchored behind, between two walls and among a group.",
+  "picturePurpose": "Original red/white flowers support a position-target comparison; precise coded spatial frames make side, back and between reversible without inventing measurements.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "先定参照，再摆位置：介词实验室",
+    "instruction": "圈出有依据的信息，摆座位、梯子和小路，点出花群中的红花。再独立拼写并写自己的完整例句；没有给出的钟点和距离不要猜。",
+    "items": [
+      {
+        "id": "word-of",
+        "label": "……的（部分与整体）",
+        "prompt": "The handle of the cup：裂的是哪个部分？",
+        "answer": "of",
+        "caseSensitive": false,
+        "meaning": "……的；属于",
+        "before": "The handle ",
+        "after": " the cup is cracked.",
+        "reason": "先找handle，再用of the cup确定它是哪件东西的部分。",
+        "hint": "of把把手和杯子连成部分与整体的关系。句子说把手裂了，没有说整只杯子碎了，也没有说明主人是谁。",
+        "material": "The handle of the cup is cracked.",
+        "wordDecision": {
+          "prompt": "The handle of the cup：裂的是哪个部分？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "部分明确，其他情况未给出",
+            "rows": [
+              {
+                "id": "part",
+                "label": "部件关系",
+                "include": true,
+                "text": "裂的是杯子的把手"
+              },
+              {
+                "id": "owner",
+                "label": "所属对象",
+                "include": true,
+                "text": "杯子的主人没有说明"
+              },
+              {
+                "id": "all",
+                "label": "损坏范围",
+                "include": false,
+                "text": "整只杯子已碎成片"
+              }
+            ],
+            "wrong": "of the cup说明是哪只物体的把手；cracked修饰把手，不能扩成整只杯子已碎或补出主人。",
+            "prompt": "圈出原句支持的信息，不把没说的细节补成事实。",
+            "hint": "of把把手和杯子连成部分与整体的关系。句子说把手裂了，没有说整只杯子碎了，也没有说明主人是谁。"
+          }
+        },
+        "options": [
+          {
+            "id": "part",
+            "text": "这个杯子的把手裂了。",
+            "correct": true,
+            "reason": "handle是出现裂纹的部分。"
+          },
+          {
+            "id": "all",
+            "text": "整只杯子已经碎成许多片。",
+            "correct": false,
+            "reason": "把手裂了不等于整只杯子已经破碎。"
+          },
+          {
+            "id": "owner",
+            "text": "of已经告诉我们杯子属于哪位同学。",
+            "correct": false,
+            "reason": "这里连接部分与整体，没有提供拥有者姓名。"
+          }
+        ]
+      },
+      {
+        "id": "word-about",
+        "label": "关于（引出谈论主题）（本句）",
+        "prompt": "talked about the birds：about指出什么？",
+        "answer": "about",
+        "caseSensitive": false,
+        "meaning": "关于（引出谈论主题）（本句）",
+        "before": "We talked ",
+        "after": " the birds we had seen.",
+        "reason": "about在本句引出谈论内容，不是近似数。",
+        "hint": "about也能表示大约，但这里后面是the birds we had seen，说明谈论的主题。没有给鸟的数量或谈话时长。",
+        "material": "We talked about the birds we had seen.",
+        "wordDecision": {
+          "prompt": "talked about the birds：about指出什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "找主题，保留未知",
+            "rows": [
+              {
+                "id": "topic",
+                "label": "主题",
+                "include": true,
+                "text": "谈话主题是见过的鸟"
+              },
+              {
+                "id": "number",
+                "label": "近似数量",
+                "include": true,
+                "text": "鸟的数量未给出"
+              },
+              {
+                "id": "minutes",
+                "label": "时间长度",
+                "include": false,
+                "text": "谈话持续了十分钟"
+              }
+            ],
+            "wrong": "about the birds引出主题；数量和谈话时长都不能凭空补出。",
+            "prompt": "圈出原句支持的信息，不把没说的细节补成事实。",
+            "hint": "about也能表示大约，但这里后面是the birds we had seen，说明谈论的主题。没有给鸟的数量或谈话时长。"
+          }
+        },
+        "options": [
+          {
+            "id": "topic",
+            "text": "谈的是我们见过的鸟。",
+            "correct": true,
+            "reason": "about引出谈论主题。"
+          },
+          {
+            "id": "number",
+            "text": "about说明见过大约几只鸟。",
+            "correct": false,
+            "reason": "这里没有数量；不是about ten birds这样的近似数用法。"
+          },
+          {
+            "id": "time",
+            "text": "about给出了谈话持续的分钟数。",
+            "correct": false,
+            "reason": "原句没有提供时长。"
+          }
+        ]
+      },
+      {
+        "id": "word-by",
+        "label": "不迟于（完成期限）（本句）",
+        "prompt": "by Friday：完成模型的要求是什么？",
+        "answer": "by",
+        "caseSensitive": false,
+        "meaning": "不迟于（完成期限）（本句）",
+        "before": "Please finish the model ",
+        "after": " Friday.",
+        "reason": "finish强调完成，by Friday设最迟期限；它不报告实际何时完成。",
+        "hint": "这是最迟期限，不是从周五开始，也不是必须一直制作到周五。原句没有说具体几点，应进一步确认，不能把整天任何时刻都当成已获许可。",
+        "material": "Please finish the model by Friday.",
+        "wordDecision": {
+          "prompt": "by Friday：完成模型的要求是什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "完成期限和精确时间分开",
+            "rows": [
+              {
+                "id": "finish",
+                "label": "完成期限",
+                "include": true,
+                "text": "要求到周五应已完成"
+              },
+              {
+                "id": "clock",
+                "label": "具体钟点",
+                "include": true,
+                "text": "具体钟点没有提供"
+              },
+              {
+                "id": "done",
+                "label": "已完成",
+                "include": false,
+                "text": "模型现在已经完成"
+              }
+            ],
+            "wrong": "by Friday给出完成期限，不证明已完成，也不说明周五几点；不能当成until的持续要求。",
+            "prompt": "圈出原句支持的信息，不把没说的细节补成事实。",
+            "hint": "这是最迟期限，不是从周五开始，也不是必须一直制作到周五。原句没有说具体几点，应进一步确认，不能把整天任何时刻都当成已获许可。"
+          }
+        },
+        "options": [
+          {
+            "id": "deadline",
+            "text": "以周五为最迟期限完成；具体几点尚未说明。",
+            "correct": true,
+            "reason": "保留by的期限意思，也保留具体钟点未知。"
+          },
+          {
+            "id": "start",
+            "text": "必须等到周五才开始制作。",
+            "correct": false,
+            "reason": "把完成期限改成开始时间。"
+          },
+          {
+            "id": "until",
+            "text": "必须一直制作到周五，不能提前完成。",
+            "correct": false,
+            "reason": "by不要求动作持续到期限，也不禁止提前完成。"
+          }
+        ]
+      },
+      {
+        "id": "word-near",
+        "label": "在……附近（本句）",
+        "prompt": "near the station：能推出紧挨或站内吗？",
+        "answer": "near",
+        "caseSensitive": false,
+        "meaning": "在……附近（本句）",
+        "before": "A new bakery opened ",
+        "after": " the station.",
+        "reason": "opened说明新店开业；near只说明它在车站附近，不能据此判断它在站内。",
+        "hint": "near说明附近，但没有给几米、步行几分钟、是否紧挨或在车站里面。单凭near不能把地图上精确位置补齐。",
+        "material": "A new bakery opened near the station.",
+        "wordDecision": {
+          "prompt": "near the station：能推出紧挨或站内吗？"
+        },
+        "options": [
+          {
+            "id": "near",
+            "text": "新面包店开在车站附近，具体位置未给出。",
+            "correct": true,
+            "reason": "保留near的范围而不补精确距离。"
+          },
+          {
+            "id": "inside",
+            "text": "店一定在车站内部。",
+            "correct": false,
+            "reason": "near不等于inside。"
+          },
+          {
+            "id": "touch",
+            "text": "店必定紧挨车站，之间没有其他建筑。",
+            "correct": false,
+            "reason": "near没有保证紧挨或相邻。"
+          }
+        ]
+      },
+      {
+        "id": "word-beside",
+        "label": "在……旁边",
+        "prompt": "把自己的座位摆到beside me的位置。",
+        "answer": "beside",
+        "caseSensitive": false,
+        "meaning": "在……旁边",
+        "before": "Sit ",
+        "after": " me so we can share the map.",
+        "reason": "beside说明旁边的位置；besides多一个s，本句不能机械替换。",
+        "hint": "左右两侧都可以体现旁边；本模型把说话者画在中央，下方标出正面。这里只摆座位关系，不测真实距离，也不证明两人已看完地图。",
+        "material": "Sit beside me so we can share the map.",
+        "wordDecision": {
+          "prompt": "把自己的座位摆到beside me的位置。",
+          "spatialFrame": {
+            "kind": "beside",
+            "title": "你来摆旁边的座位",
+            "hint": "试试左侧和右侧，再与正前方比较；两侧都是本题的旁边。",
+            "wrong": "beside me要求旁边；模型左右两侧都可，不把正前方当旁边。"
+          }
+        },
+        "options": [
+          {
+            "id": "side",
+            "text": "坐在说话者旁边，以便共看地图。",
+            "correct": true,
+            "reason": "左右任一侧都可对应beside。"
+          },
+          {
+            "id": "front",
+            "text": "必须坐在说话者正前方。",
+            "correct": false,
+            "reason": "正前方不是本模型所示的旁边。"
+          },
+          {
+            "id": "also",
+            "text": "beside在这里等于此外。",
+            "correct": false,
+            "reason": "把beside和besides混淆了。"
+          }
+        ]
+      },
+      {
+        "id": "word-behind",
+        "label": "在……后面",
+        "prompt": "以棚屋的门为正面，把梯子放到behind的位置。",
+        "answer": "behind",
+        "caseSensitive": false,
+        "meaning": "在……后面",
+        "before": "The spare ladder is ",
+        "after": " the shed.",
+        "reason": "behind the shed把棚屋作为参照物，先确定正面再判断后面。",
+        "hint": "俯视示意把棚屋的正门固定在下方。后面是背离正门的一侧，不是屋内，也不随屏幕旋转改变参照。",
+        "material": "The spare ladder is behind the shed.",
+        "wordDecision": {
+          "prompt": "以棚屋的门为正面，把梯子放到behind的位置。",
+          "spatialFrame": {
+            "kind": "behind",
+            "title": "先看正门，再放梯子",
+            "hint": "门画在棚屋下方并标出正面；把梯子放到相对的后面，不是屋内。",
+            "wrong": "behind是棚屋后面；先依据下方正门确定前后，屋内和门前都不对应。"
+          }
+        },
+        "options": [
+          {
+            "id": "back",
+            "text": "备用梯子在棚屋后面。",
+            "correct": true,
+            "reason": "与behind the shed对应。"
+          },
+          {
+            "id": "inside",
+            "text": "备用梯子放在棚屋里面。",
+            "correct": false,
+            "reason": "inside不是behind。"
+          },
+          {
+            "id": "front",
+            "text": "备用梯子放在棚屋正门前。",
+            "correct": false,
+            "reason": "把后面倒成了前面。"
+          }
+        ]
+      },
+      {
+        "id": "word-between",
+        "label": "在两者之间（本句）",
+        "prompt": "把小路摆进两堵石墙之间。",
+        "answer": "between",
+        "caseSensitive": false,
+        "meaning": "在……之间",
+        "before": "The path runs ",
+        "after": " two stone walls.",
+        "reason": "小路应位于两堵墙之间，不能摆到两墙同一侧的外面。",
+        "hint": "本句明确给出两堵石墙，between说明相对这两堵墙的位置。不要把这个例子背成between永远只能用于两个对象；其他结构要看具体关系。",
+        "material": "The path runs between two stone walls.",
+        "wordDecision": {
+          "prompt": "把小路摆进两堵石墙之间。",
+          "spatialFrame": {
+            "kind": "between",
+            "title": "两堵墙与一条小路",
+            "hint": "左右两堵墙固定；只移动小路，比较中间和两侧外面。示意不按真实比例。",
+            "wrong": "between two stone walls要求小路在两墙之间，放到两墙同一侧外面不对应。"
+          }
+        },
+        "options": [
+          {
+            "id": "middle",
+            "text": "小路从两堵石墙之间穿过。",
+            "correct": true,
+            "reason": "保留两个参照物及其间位置。"
+          },
+          {
+            "id": "outside",
+            "text": "小路在两堵墙的同一侧外面。",
+            "correct": false,
+            "reason": "那不在这两堵墙之间。"
+          },
+          {
+            "id": "rule",
+            "text": "这证明between在任何句子都只能接两个对象。",
+            "correct": false,
+            "reason": "把本句的two推广成没有例外的语法规则。"
+          }
+        ]
+      },
+      {
+        "id": "word-among",
+        "label": "在一组事物之中",
+        "prompt": "哪朵红花的位置体现among the white ones？",
+        "answer": "among",
+        "caseSensitive": false,
+        "meaning": "在……之中",
+        "before": "A red flower grew ",
+        "after": " the white ones.",
+        "reason": "among强调在一组白花之中；红色相同，不代表位置关系相同。",
+        "hint": "原创图用两朵红花作位置对照：左边那朵处在白花群中，右边那朵与花群分开。图是辨别关系的教学例子，不是原句花朵数量的记录。",
+        "material": "A red flower grew among the white ones.",
+        "wordDecision": {
+          "prompt": "哪朵红花的位置体现among the white ones？",
+          "art": {
+            "pictureOnly": true,
+            "asset": "lesson-flowers-among",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "alt": "原创空间对照：左侧白花群中有一朵红花，右侧另一朵红花与花群之间留有明显空地；两个红花头完整可见，不表示原句的确切花朵总数。",
+            "targets": [
+              {
+                "id": "among",
+                "option": "among",
+                "label": "群内",
+                "left": 20,
+                "top": 5,
+                "width": 32,
+                "height": 52,
+                "labelPosition": "top"
+              },
+              {
+                "id": "apart",
+                "option": "apart",
+                "label": "群外",
+                "left": 68,
+                "top": 8,
+                "width": 31,
+                "height": 51,
+                "labelPosition": "top"
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "among",
+            "text": "白花群中的红花",
+            "correct": true,
+            "reason": "它周围有白花，体现among the white ones。"
+          },
+          {
+            "id": "apart",
+            "text": "与白花群分开的红花",
+            "correct": false,
+            "reason": "它在花群之外，不体现这里的among。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-position-2-transfer",
+      "topicId": "v-course-position",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪组三句话保留了新期限和位置关系，也没有编造具体钟点？",
+      "passage": "新情境｜老师要求以周四为最迟期限完成海报（poster），具体几点还需确认。黄旗在两扇门之间。请坐在同伴旁边，以便共看地图。请选择准确的三句话提醒；没有要求周四才开工，也没有提供两门的真实距离。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Please finish the poster by Thursday; ask the teacher to confirm the exact time. The yellow flag is between the two gates. Sit beside your partner so you can share the map."
+        },
+        {
+          "id": "b",
+          "text": "Please start the poster on Thursday and keep working until the end of the day. The yellow flag is between the two gates. Sit beside your partner so you can share the map."
+        },
+        {
+          "id": "c",
+          "text": "Please finish the model by Friday. The spare ladder is behind the shed. A red flower grew among the white ones."
+        },
+        {
+          "id": "d",
+          "text": "Please finish the poster by Thursday; ask the teacher to confirm the exact time. The yellow flag is outside both gates on their left. Sit in front of your partner, as the instruction requires."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Please finish the poster by Thursday; ask the teacher to confirm the exact time. The yellow flag is between the two gates. Sit beside your partner so you can share the map."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对by的完成期限，再用两个参照物检查between，最后看beside的旁边关系。",
+        "steps": [
+          {
+            "text": "by Thursday要求到周四应已完成海报；精确钟点未知，需向老师确认。",
+            "reason": "不把完成期限改成开始时间或持续到某时，也不自行规定周四几点。"
+          },
+          {
+            "text": "between the two gates保留两门之间；beside your partner保留同伴旁边。",
+            "reason": "换了题目对象，仍要保留给定空间关系，不能照搬旧模型、梯子与红花。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把周四完成的期限改成周四才开始且持续到一天结束；这些要求没有提供。"
+          },
+          {
+            "option": "c",
+            "reason": "照搬模型、棚屋和红花，没有回应新海报、旗帜和同伴任务。"
+          },
+          {
+            "option": "d",
+            "reason": "把两门之间改成两门同侧外面，还把旁边座位改成正前方。"
+          }
+        ],
+        "pitfall": "背了中文词义，却把by当成until，或只看物体名称而忽略它与参照物的位置。",
+        "visual": {
+          "kind": "comparison",
+          "title": "期限 · 两者之间 · 旁边",
+          "segments": [
+            {
+              "text": "finish the poster by Thursday",
+              "role": "evidence",
+              "note": "完成期限，精确钟点待确认"
+            },
+            {
+              "text": "between the two gates",
+              "role": "evidence",
+              "note": "两个参照物之间"
+            },
+            {
+              "text": "beside your partner",
+              "role": "evidence",
+              "note": "同伴旁边"
+            }
+          ],
+          "caption": "期限不等于持续时间；位置关系要连同参照物一起保留。"
+        },
+        "transfer": "把by Thursday改成until Thursday，为什么不能不看finish这个动作就机械替换？"
+      }
+    }
+  }
+}

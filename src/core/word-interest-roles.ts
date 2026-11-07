@@ -1,0 +1,9 @@
+/** Roles are stated in language, never inferred from a face or appearance. */
+export interface WordInterestRoles {title:string;hint:string;wrong:string}
+export interface WordInterestRolesView {title:string;hint:string;clue:string;person:string;reading:string;rows:{id:string;before:string;after:string;choice:string;choices:{id:string;label:string;selected:boolean}[]}[]}
+export const wordInterestRolesKey=(id:string)=>`workshopInterestRoles-${id}`
+function state(raw:string):{clue:string;person:string}|undefined {if(raw==='')return{clue:'',person:''};const m=/^(ing|ed|-):(ing|ed|-)$/.exec(raw);return m?{clue:m[1]==='-'?'':m[1],person:m[2]==='-'?'':m[2]}:undefined}
+export function validWordInterestRoles(v:unknown):v is WordInterestRoles {if(!v||typeof v!=='object')return false;const w=v as WordInterestRoles;return[[w.title,60],[w.hint,110],[w.wrong,140]].every(([s,n])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=(n as number))}
+export function interestRolesMatch(raw:string):boolean{return raw==='ing:ed'}
+export function changeInterestRoles(raw:string,action:string):string|undefined {if(action==='reset')return'';const s=state(raw),m=/^(clue|person)-(ing|ed)$/.exec(action);if(!s||!m)return undefined;const n={...s,[m[1]]:m[2]};return(n.clue||'-')+':'+(n.person||'-')}
+export function wordInterestRolesView(w:WordInterestRoles,raw:string):WordInterestRolesView {const s=state(raw)??{clue:'',person:''};return{title:w.title,hint:w.hint,...s,reading:raw==='ing:ed'?'线索令人感兴趣用 interesting；我感兴趣用 interested。两句的角色不同。':'给两句各选一个词，区分事物引起兴趣与人的感受。',rows:[{id:'clue',before:'The most ',after:' clue was under the lid.',choice:s.clue},{id:'person',before:'I am ',after:' in how old clocks work.',choice:s.person}].map(row=>({...row,choices:[{id:row.id+'-ing',label:'interesting',selected:row.choice==='ing'},{id:row.id+'-ed',label:'interested',selected:row.choice==='ed'}]}))}}

@@ -1,0 +1,533 @@
+{
+  "lessonId": "l-v-course-position-5",
+  "reviewState": "draft",
+  "intent": "Teach duration limits, full interval coverage, exclusion and inclusion, upward instructions, slow down as speed reduction, pronoun placement with off and separation without invented safety distances.",
+  "picturePurpose": "Purposeful reversible time and speed schematics, two instruction-order tasks and three scoped record-selection activities; no actual dates, speeds, team sizes, colours, price amounts or physical completion inferred.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "时限、范围和动作，逐个试清楚",
+    "instruction": "移动时间示意条、圈出范围、摆出先后，再自己拼写、造句。操作解释词义，不代替现实中的行动或测量。",
+    "items": [
+      {
+        "id": "word-within",
+        "label": "不超过三天（本句）",
+        "prompt": "切换假设的回复时长，判断是否仍在三天以内。",
+        "answer": "within",
+        "caseSensitive": false,
+        "meaning": "不超过三天（本句）",
+        "before": "Please reply ",
+        "after": " three days.",
+        "reason": "within three days要求不超过三天；提前回复或刚到三天边界都符合这条时限，超过则不符合。它不要求一定等到第三天。",
+        "hint": "原句给出三天时限，没有实际日期或钟点。下面的经过时长只是比较用的假设，不是已经收到回复的记录。",
+        "material": "Please reply within three days.",
+        "options": [
+          {
+            "id": "limit",
+            "text": "在不超过三天的时限内回复。",
+            "correct": true,
+            "reason": "保留within的时间限制，不要求拖到最后。"
+          },
+          {
+            "id": "wait",
+            "text": "必须等满三天才可以回复。",
+            "correct": false,
+            "reason": "within不要求等到第三天，提前回复也符合时限。"
+          },
+          {
+            "id": "late",
+            "text": "超过三天才回复也一定符合原句。",
+            "correct": false,
+            "reason": "超过给定时限，不符合within three days。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "切换假设的回复时长，判断是否仍在三天以内。",
+          "timeScope": {
+            "kind": "within",
+            "title": "within：时限以内，不是等到最后",
+            "hint": "原句给出三天时限，没有实际日期或钟点。下面的经过时长只是比较用的假设，不是已经收到回复的记录。",
+            "wrong": "within three days要求不超过三天；提前回复或刚到三天边界都符合这条时限，超过则不符合。它不要求一定等到第三天。"
+          }
+        }
+      },
+      {
+        "id": "word-during",
+        "label": "在演出期间（本句）",
+        "prompt": "移动静音示意条，覆盖原句要求的时间段。",
+        "answer": "during",
+        "caseSensitive": false,
+        "meaning": "在演出期间（本句）",
+        "before": "Keep your phone silent ",
+        "after": " the performance.",
+        "reason": "要求在演出期间保持静音；只在演出前静音，或只覆盖演出的一部分，都没有满足这整段时间的要求。不要自行推断演出外必须开声音。",
+        "hint": "比较静音要求覆盖哪段时间。图不提供演出起止钟点；演出以外是否静音，原句没有规定。",
+        "material": "Keep your phone silent during the performance.",
+        "options": [
+          {
+            "id": "span",
+            "text": "演出期间保持手机静音。",
+            "correct": true,
+            "reason": "during the performance限定要求适用的时段。"
+          },
+          {
+            "id": "before",
+            "text": "只在演出开始前静音，演出中不静音。",
+            "correct": false,
+            "reason": "把during变成了before，漏掉演出期间。"
+          },
+          {
+            "id": "clause",
+            "text": "直接写during the show starts，接完整主谓。",
+            "correct": false,
+            "reason": "本句during后接the performance这个名词短语；the show starts是主谓结构，需要合适的连接方式。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "移动静音示意条，覆盖原句要求的时间段。",
+          "timeScope": {
+            "kind": "during",
+            "title": "during：演出这段时间都保持静音",
+            "hint": "比较静音要求覆盖哪段时间。图不提供演出起止钟点；演出以外是否静音，原句没有规定。",
+            "wrong": "要求在演出期间保持静音；只在演出前静音，或只覆盖演出的一部分，都没有满足这整段时间的要求。不要自行推断演出外必须开声音。"
+          }
+        }
+      },
+      {
+        "id": "word-except",
+        "label": "except：先划清排除谁",
+        "prompt": "只按本句确认红色球衣的范围。",
+        "answer": "except",
+        "caseSensitive": false,
+        "meaning": "除……之外",
+        "before": "Everyone ",
+        "after": " the goalkeeper wore a red shirt.",
+        "reason": "除守门员外，其他人都穿红色球衣；守门员没穿红色，但原句没说他的具体衣服颜色，也没给出人数。",
+        "hint": "except排除守门员：其他人穿红色，他没穿红色；不能进一步猜成蓝色，也不能猜球队人数。",
+        "material": "Everyone except the goalkeeper wore a red shirt.",
+        "options": [
+          {
+            "id": "exclude",
+            "text": "除守门员外，大家都穿红色球衣。",
+            "correct": true,
+            "reason": "保留except排除的对象，不补造另一种颜色。"
+          },
+          {
+            "id": "all",
+            "text": "包括守门员在内，所有人都穿红色球衣。",
+            "correct": false,
+            "reason": "把except错误改成了包括。"
+          },
+          {
+            "id": "colour",
+            "text": "守门员穿蓝色球衣。",
+            "correct": false,
+            "reason": "原句没有告诉我们守门员的具体衣服颜色。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "只按本句确认红色球衣的范围。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "except：先划清排除谁",
+            "rows": [
+              {
+                "id": "others",
+                "label": "其他人",
+                "include": true,
+                "text": "其他人穿了红色球衣"
+              },
+              {
+                "id": "excluded",
+                "label": "守门员",
+                "include": true,
+                "text": "守门员没穿红色球衣"
+              },
+              {
+                "id": "blue",
+                "label": "实际颜色",
+                "include": false,
+                "text": "守门员一定穿蓝色球衣"
+              }
+            ],
+            "wrong": "除守门员外，其他人都穿红色球衣；守门员没穿红色，但原句没说他的具体衣服颜色，也没给出人数。",
+            "prompt": "只圈出原句支持的两项，再自己造句。",
+            "hint": "except排除守门员：其他人穿红色，他没穿红色；不能进一步猜成蓝色，也不能猜球队人数。"
+          }
+        }
+      },
+      {
+        "id": "word-including",
+        "label": "including：午餐有没有包含？",
+        "prompt": "把价格说明中明确包含的内容圈出来。",
+        "answer": "including",
+        "caseSensitive": false,
+        "meaning": "包括",
+        "before": "The price covers everything, ",
+        "after": " lunch.",
+        "reason": "午餐包含在价格内；不能从including推出午餐排除在外，也不能补出金额、菜单或付款结果。",
+        "hint": "including lunch明确午餐在包含范围内；没有金额、菜单或已经付款的信息。",
+        "material": "The price covers everything, including lunch.",
+        "options": [
+          {
+            "id": "covered",
+            "text": "价格包含午餐。",
+            "correct": true,
+            "reason": "including把lunch明确列入包含范围。"
+          },
+          {
+            "id": "excluded",
+            "text": "午餐被排除在价格之外。",
+            "correct": false,
+            "reason": "与including lunch相反。"
+          },
+          {
+            "id": "paid",
+            "text": "说话人已经付完午餐费。",
+            "correct": false,
+            "reason": "说明包含范围，不报告实际付款。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "把价格说明中明确包含的内容圈出来。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "including：午餐有没有包含？",
+            "rows": [
+              {
+                "id": "in",
+                "label": "包含范围",
+                "include": true,
+                "text": "午餐包含在价格内"
+              },
+              {
+                "id": "unsaid",
+                "label": "金额信息",
+                "include": true,
+                "text": "没有提供实际金额"
+              },
+              {
+                "id": "out",
+                "label": "另付费用",
+                "include": false,
+                "text": "午餐不包含，要另加钱"
+              }
+            ],
+            "wrong": "午餐包含在价格内；不能从including推出午餐排除在外，也不能补出金额、菜单或付款结果。",
+            "prompt": "只圈出原句支持的两项，再自己造句。",
+            "hint": "including lunch明确午餐在包含范围内；没有金额、菜单或已经付款的信息。"
+          }
+        }
+      },
+      {
+        "id": "word-up",
+        "label": "向上搬（本句）",
+        "prompt": "先摆出从低处到高处的方向。",
+        "answer": "up",
+        "caseSensitive": false,
+        "meaning": "向上搬（本句）",
+        "before": "Carry the light boxes ",
+        "after": " first.",
+        "reason": "up在本句表示向上搬，first要求先搬轻箱子。不能改成向下或只说箱子在楼上；指令不报告完成。",
+        "hint": "把方向示意排出来，再看first要求先搬哪类。图解释搬运方向，不证明现实中已搬完，也不提供楼层或重量。",
+        "material": "Carry the light boxes up first.",
+        "options": [
+          {
+            "id": "rise",
+            "text": "先把轻箱子向高处搬。",
+            "correct": true,
+            "reason": "同时保留up的向上方向和first的先后要求。"
+          },
+          {
+            "id": "fall",
+            "text": "先把轻箱子向低处搬。",
+            "correct": false,
+            "reason": "把up的方向改成了向下。"
+          },
+          {
+            "id": "done",
+            "text": "轻箱子已经全部搬上去了。",
+            "correct": false,
+            "reason": "Carry是指令，不是已经完成的报告。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先摆出从低处到高处的方向。",
+          "processOrder": {
+            "title": "方向示意：低处 → 高处",
+            "hint": "把方向示意排出来，再看first要求先搬哪类。图解释搬运方向，不证明现实中已搬完，也不提供楼层或重量。",
+            "wrong": "up在本句表示向上搬，first要求先搬轻箱子。不能改成向下或只说箱子在楼上；指令不报告完成。",
+            "events": [
+              {
+                "id": "lower",
+                "label": "低处 · 起点示意"
+              },
+              {
+                "id": "higher",
+                "label": "高处 · 方向所指"
+              }
+            ],
+            "sequence": [
+              "lower",
+              "higher"
+            ],
+            "layout": "upward"
+          }
+        }
+      },
+      {
+        "id": "word-down",
+        "label": "减速（slow down，本句）",
+        "prompt": "选择能表达slow down的相对变化。",
+        "answer": "down",
+        "caseSensitive": false,
+        "meaning": "减速（slow down，本句）",
+        "before": "Please slow ",
+        "after": " near the school gate.",
+        "reason": "slow down在本句是减速，要求在校门附近慢下来；不是加速，也不是沿竖直方向下降。示意不提供实际速度。",
+        "hint": "比较“变慢”“变快”和“向下”的示意。长短条只区分相对速度，没有真实速度数值、时间或距离。",
+        "material": "Please slow down near the school gate.",
+        "options": [
+          {
+            "id": "reduce",
+            "text": "在校门附近减速。",
+            "correct": true,
+            "reason": "slow down表示速度减小，near给出要求适用的位置。"
+          },
+          {
+            "id": "height",
+            "text": "在校门附近向更低处移动。",
+            "correct": false,
+            "reason": "把短语误当成down的向下空间义。"
+          },
+          {
+            "id": "faster",
+            "text": "在校门附近加快速度。",
+            "correct": false,
+            "reason": "与slow down的减速相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "选择能表达slow down的相对变化。",
+          "speedMeaning": {
+            "title": "slow down：改变速度，不是往下走",
+            "hint": "比较“变慢”“变快”和“向下”的示意。长短条只区分相对速度，没有真实速度数值、时间或距离。",
+            "wrong": "slow down在本句是减速，要求在校门附近慢下来；不是加速，也不是沿竖直方向下降。示意不提供实际速度。"
+          }
+        }
+      },
+      {
+        "id": "word-off",
+        "label": "关闭（本句）",
+        "prompt": "摆出关风扇与离开的顺序，再选正确的代词写法。",
+        "answer": "off",
+        "caseSensitive": false,
+        "meaning": "关闭（本句）",
+        "before": "Turn the fan ",
+        "after": " before you leave.",
+        "reason": "先关风扇，再离开；原句没有报告实际电源状态。代词it放在turn和off之间，不能写turn off it。",
+        "hint": "先按指令摆顺序，再检查代词位置。turn the fan off与turn off the fan都可以；换成it时写turn it off。",
+        "material": "Turn the fan off before you leave.",
+        "options": [
+          {
+            "id": "middle",
+            "text": "Turn it off before you leave.",
+            "correct": true,
+            "reason": "it代指the fan，代词宾语放中间，保留先关再离开的要求。"
+          },
+          {
+            "id": "end",
+            "text": "Turn off it before you leave.",
+            "correct": false,
+            "reason": "代词it不能放在这个短语动词的off后面。"
+          },
+          {
+            "id": "after",
+            "text": "Leave first, and then turn the fan off.",
+            "correct": false,
+            "reason": "把before要求的先后颠倒了。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "摆出关风扇与离开的顺序，再选正确的代词写法。",
+          "processOrder": {
+            "title": "指令顺序：关闭风扇 → 离开",
+            "hint": "这是要求的先后顺序，不表示真实风扇已经关闭。",
+            "wrong": "先关风扇，再离开；原句没有报告实际电源状态。代词it放在turn和off之间，不能写turn off it。",
+            "events": [
+              {
+                "id": "off",
+                "label": "关掉风扇"
+              },
+              {
+                "id": "leave",
+                "label": "离开"
+              }
+            ],
+            "sequence": [
+              "off",
+              "leave"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-away",
+        "label": "远离（与from搭配，本句）",
+        "prompt": "这句要求怎样安排锋利工具与幼儿的关系？",
+        "answer": "away",
+        "caseSensitive": false,
+        "meaning": "远离（与from搭配，本句）",
+        "before": "Keep sharp tools ",
+        "after": " from young children.",
+        "reason": "保留工具远离幼儿的要求；不是让幼儿拿工具。不要补出具体距离或已经完成的存放。",
+        "hint": "原句要求让工具远离幼儿；没有给出具体安全距离，也没有报告现实中已经收好。",
+        "material": "Keep sharp tools away from young children.",
+        "options": [
+          {
+            "id": "away",
+            "text": "锋利的工具要远离幼儿。",
+            "correct": true,
+            "reason": "保留keep…away from…的要求，不从示意补出距离。"
+          },
+          {
+            "id": "near",
+            "text": "锋利的工具要紧靠幼儿摆放。",
+            "correct": false,
+            "reason": "与away from的远离相反。"
+          },
+          {
+            "id": "done",
+            "text": "所有锋利工具都已经收好了。",
+            "correct": false,
+            "reason": "指令不报告实际存放已经完成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "这句要求怎样安排锋利工具与幼儿的关系？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "away from：别漏掉远离的要求",
+            "rows": [
+              {
+                "id": "separate",
+                "label": "要求关系",
+                "include": true,
+                "text": "要求让锋利工具远离幼儿"
+              },
+              {
+                "id": "instruction",
+                "label": "实际状态",
+                "include": true,
+                "text": "这是要求，不是已收好的记录"
+              },
+              {
+                "id": "distance",
+                "label": "具体距离",
+                "include": false,
+                "text": "原句给出了一米安全距离"
+              }
+            ],
+            "wrong": "保留工具远离幼儿的要求；不是让幼儿拿工具。不要补出具体距离或已经完成的存放。",
+            "prompt": "只圈出原句支持的两项，再自己造句。",
+            "hint": "原句要求让工具远离幼儿；没有给出具体安全距离，也没有报告现实中已经收好。"
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-position-5-transfer",
+      "topicId": "v-course-position",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成演出通知，哪份英文保留了时限、静音时段和票价范围？",
+      "passage": "新通知，重新核对范围\n请在两天内回复，不必等到最后一天；演出期间手机保持静音。票价包含饮用水。通知没有给出具体日期、钟点或票价金额。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Please reply after two days. Keep your phone silent during the show. The ticket includes drinking water."
+        },
+        {
+          "id": "b",
+          "text": "Please reply within two days. Keep your phone silent only after the show. The ticket includes drinking water."
+        },
+        {
+          "id": "c",
+          "text": "Please reply within two days. Keep your phone silent during the show. Drinking water is not included in the ticket."
+        },
+        {
+          "id": "d",
+          "text": "Please reply within two days. Keep your phone silent during the show. The ticket includes drinking water."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "Please reply within two days. Keep your phone silent during the show. The ticket includes drinking water."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分开核对截止范围、要求适用时段和包含范围。",
+        "steps": [
+          {
+            "text": "两天内用within two days；during the show指演出期间。",
+            "reason": "after会把回复或静音推到给定范围之后。"
+          },
+          {
+            "text": "票价含饮水，includes drinking water保留包含关系。",
+            "reason": "not included把包含改成排除；题目没给实际金额。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "after two days要求两天之后，超出了通知给出的两天内时限。"
+          },
+          {
+            "option": "b",
+            "reason": "only after the show只保留演出之后，漏掉了要求静音的演出期间。"
+          },
+          {
+            "option": "c",
+            "reason": "not included把票价包含饮水改成了不包含。"
+          }
+        ],
+        "pitfall": "只记中文词义，没有核对本次时限和包含范围；或把原题三天照搬成新通知的时限。",
+        "visual": {
+          "kind": "comparison",
+          "title": "时限 · 时段 · 包含",
+          "segments": [
+            {
+              "text": "within two days",
+              "role": "evidence",
+              "note": "本次是两天内"
+            },
+            {
+              "text": "during the show",
+              "role": "evidence",
+              "note": "演出期间"
+            },
+            {
+              "text": "includes drinking water",
+              "role": "object",
+              "note": "含饮水，不补金额"
+            }
+          ],
+          "caption": "同一词换到新通知，也必须更新具体时限和适用范围。"
+        },
+        "transfer": "若改成三天内回复，哪处必须更新？这会自动改变票价包含的内容吗？"
+      }
+    }
+  }
+}

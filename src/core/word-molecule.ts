@@ -1,0 +1,9 @@
+/** Symbol counts teach composition; positions, colours and distances are schematic. */
+export interface WordMolecule {title:string;hint:string;wrong:string}
+export interface WordMoleculeView {title:string;hint:string;hydrogen:number;oxygen:number;reading:string;symbols:{id:string;label:string;element:string}[];controls:{id:string;label:string;disabled:boolean}[]}
+export const wordMoleculeKey=(id:string)=>`workshopMolecule-${id}`
+export function validWordMolecule(value:unknown):value is WordMolecule {if(!value||typeof value!=='object')return false;const w=value as WordMolecule;return [[w.title,60],[w.hint,110],[w.wrong,140]].every(([s,max])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=(max as number))}
+export function moleculeCounts(raw:string):{h:number;o:number}|undefined {const match=/^([0-3]),([0-3])$/.exec(raw);return match?{h:Number(match[1]),o:Number(match[2])}:undefined}
+export function moleculeMatch(raw:string):boolean{return raw==='2,1'}
+export function changeMolecule(raw:string,action:string):string|undefined {if(action==='reset')return'0,0';const n=moleculeCounts(raw)??{h:0,o:0};if(action==='add-h'&&n.h<3)n.h++;else if(action==='remove-h'&&n.h>0)n.h--;else if(action==='add-o'&&n.o<3)n.o++;else if(action==='remove-o'&&n.o>0)n.o--;else return undefined;return`${n.h},${n.o}`}
+export function wordMoleculeView(w:WordMolecule,raw:string):WordMoleculeView {const {h,o}=moleculeCounts(raw)??{h:0,o:0};return{title:w.title,hint:w.hint,hydrogen:h,oxygen:o,reading:`当前：${h}个H，${o}个O；目标：2个H，1个O。`,symbols:[...Array.from({length:h},(_,i)=>({id:'h'+i,label:'H',element:'hydrogen'})),...Array.from({length:o},(_,i)=>({id:'o'+i,label:'O',element:'oxygen'}))],controls:[{id:'add-h',label:'加一个H',disabled:h===3},{id:'remove-h',label:'撤一个H',disabled:h===0},{id:'add-o',label:'加一个O',disabled:o===3},{id:'remove-o',label:'撤一个O',disabled:o===0},{id:'reset',label:'重新拼',disabled:false}]}}

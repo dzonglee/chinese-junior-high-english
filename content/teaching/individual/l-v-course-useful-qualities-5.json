@@ -1,0 +1,561 @@
+{
+  "lessonId": "l-v-course-useful-qualities-5",
+  "reviewState": "draft",
+  "intent": "Individually authored tasks distinguish real evidence, direction, specificity and privacy without unsupported inferences.",
+  "picturePurpose": "Exact coded entrance orientation and fictional public-post redaction explain relations; no image is used to infer actual material or private ownership.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "转正门、找依据、遮个人字段",
+    "instruction": "比较正门朝向，再从虚构帖子中遮住个人字段，保留有依据的信息。",
+    "items": [
+      {
+        "id": "false",
+        "label": "false：false alarm说明什么？",
+        "prompt": "false alarm说明什么？",
+        "answer": "false",
+        "meaning": "错误的；假的",
+        "material": "A false alarm interrupted the rehearsal.",
+        "before": "A ",
+        "after": " alarm interrupted the rehearsal.",
+        "reason": "false表示错误的或假的，false alarm是误报或虚惊。原句仍说明这次误报打断了排练，不能改成完全没影响，也不能凭此断定发生了真实紧急事件。没有给出误报原因或准确持续时间。",
+        "hint": "a false alarm；interrupted表示打断。",
+        "wordDecision": {
+          "prompt": "false alarm说明什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "误报打断了排练",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "false",
+                "label": "一次误报打断排练",
+                "text": "A false alarm interrupted the rehearsal.",
+                "include": true
+              },
+              {
+                "id": "real",
+                "label": "证实发生真实紧急事件",
+                "text": "The sentence confirms that a real emergency occurred.",
+                "include": false
+              },
+              {
+                "id": "none",
+                "label": "排练没有被打断",
+                "text": "Nothing interrupted the rehearsal.",
+                "include": false
+              }
+            ],
+            "hint": "误报和造成打断可以同时成立，不补原因。",
+            "wrong": "选误报造成打断，不改成真实事故或完全没影响。"
+          }
+        },
+        "options": [
+          {
+            "id": "false",
+            "text": "An alarm that did not indicate a real emergency interrupted the rehearsal.",
+            "correct": true,
+            "reason": "false alarm是误报，仍然打断了排练。"
+          },
+          {
+            "id": "real",
+            "text": "The sentence confirms that a real emergency occurred.",
+            "correct": false,
+            "reason": "误报不能改成证实真实紧急事件。"
+          },
+          {
+            "id": "none",
+            "text": "Nothing interrupted the rehearsal.",
+            "correct": false,
+            "reason": "忽略interrupted，反转影响。"
+          }
+        ]
+      },
+      {
+        "id": "real",
+        "label": "real：real修饰什么，来自哪里？",
+        "prompt": "real修饰什么，来自哪里？",
+        "answer": "real",
+        "meaning": "真实的；真正的",
+        "material": "The model uses real stones from the river.",
+        "before": "The model uses ",
+        "after": " stones from the river.",
+        "reason": "real是形容词，这里修饰stones，说明模型用的是真石头；from the river说明来自河里。材质与来源是句子明确给出的，不能仅凭插画外观判断。really是副词，不能替换成really stones。",
+        "hint": "real stones；really是副词；来源要有文字依据。",
+        "wordDecision": {
+          "prompt": "real修饰什么，来自哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "模型使用来自河里的真石头",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "stones",
+                "label": "模型用的是河里的真石头",
+                "text": "The model uses real stones from the river.",
+                "include": true
+              },
+              {
+                "id": "plastic",
+                "label": "模型只用了塑料仿品",
+                "text": "The model uses only plastic copies of stones.",
+                "include": false
+              },
+              {
+                "id": "looks",
+                "label": "外观像石头就证明来自河里",
+                "text": "Looking like a stone proves that an object came from the river.",
+                "include": false
+              }
+            ],
+            "hint": "真实材料与来源来自原句，不能凭外观推出。",
+            "wrong": "选原句给出的真石头与河流来源，不改材质或凭外观推断。"
+          }
+        },
+        "options": [
+          {
+            "id": "stones",
+            "text": "The model contains genuine stones taken from the river.",
+            "correct": true,
+            "reason": "real修饰stones，from the river给出来源。"
+          },
+          {
+            "id": "plastic",
+            "text": "The model uses plastic copies instead of genuine stones.",
+            "correct": false,
+            "reason": "把real stones反转成塑料仿品。"
+          },
+          {
+            "id": "looks",
+            "text": "Anything that looks like a stone must be a real river stone.",
+            "correct": false,
+            "reason": "不能只凭外观断定材质或来源。"
+          }
+        ]
+      },
+      {
+        "id": "main",
+        "label": "main：正门朝向哪里？",
+        "prompt": "正门朝向哪里？",
+        "answer": "main",
+        "meaning": "主要的",
+        "material": "The main entrance faces the square.",
+        "before": "The ",
+        "after": " entrance faces the square.",
+        "reason": "main表示主要的，the main entrance是正门，faces the square说明朝向广场。不能把main当成所有，也不能把朝向反转。另给虚构示意仅演示入口与广场的方向关系，没有给出实际地理方位或建筑布局。",
+        "hint": "the main entrance；face表示朝向。",
+        "wordDecision": {
+          "prompt": "正门朝向哪里？",
+          "entranceFacing": {
+            "title": "让正门朝向广场",
+            "hint": "另给虚构示意：广场位置固定，切换正门朝向；不代表真实建筑或地理方位。",
+            "wrong": "选正门朝向广场的示意，不反转方向，也不扩成所有入口。"
+          }
+        },
+        "options": [
+          {
+            "id": "square",
+            "text": "The principal entrance faces the square.",
+            "correct": true,
+            "reason": "main entrance是正门，faces给出朝向广场。"
+          },
+          {
+            "id": "away",
+            "text": "The principal entrance faces away from the square.",
+            "correct": false,
+            "reason": "把faces the square反转成背向。"
+          },
+          {
+            "id": "all",
+            "text": "Every entrance must face the square.",
+            "correct": false,
+            "reason": "main entrance不能扩大成所有入口。"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "label": "general：general advice的特点是什么？",
+        "prompt": "general advice的特点是什么？",
+        "answer": "general",
+        "meaning": "一般的；总体的",
+        "material": "The leaflet gives general advice about safe cycling.",
+        "before": "The leaflet gives ",
+        "after": " advice about safe cycling.",
+        "reason": "general表示一般的或总体的，这里说传单提供安全骑行的一般建议，没有给出某个骑行者的个人诊断，也没有列出具体路线。in general表示一般而言；advice不可数，不能写成an advice。",
+        "hint": "general advice；in general；advice不可数。",
+        "wordDecision": {
+          "prompt": "general advice的特点是什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "传单给出安全骑行的一般建议",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "general",
+                "label": "传单提供安全骑行的一般建议",
+                "text": "The leaflet gives general advice about safe cycling.",
+                "include": true
+              },
+              {
+                "id": "personal",
+                "label": "对某个人给出私密诊断",
+                "text": "The leaflet gives a private diagnosis of one named rider.",
+                "include": false
+              },
+              {
+                "id": "route",
+                "label": "列出路线的每一个转弯",
+                "text": "The sentence lists every turn on an exact route.",
+                "include": false
+              }
+            ],
+            "hint": "保留一般建议与安全骑行，不编个人诊断或路线。",
+            "wrong": "选一般骑行建议，不换成个人信息或具体路线。"
+          }
+        },
+        "options": [
+          {
+            "id": "general",
+            "text": "The leaflet gives broad advice about cycling safely.",
+            "correct": true,
+            "reason": "general是一般或总体建议，主题是安全骑行。"
+          },
+          {
+            "id": "personal",
+            "text": "The leaflet gives a private diagnosis of one named rider.",
+            "correct": false,
+            "reason": "改成特定个人的私密诊断，原句无此信息。"
+          },
+          {
+            "id": "route",
+            "text": "The sentence lists every turn on an exact route.",
+            "correct": false,
+            "reason": "原句没有列出完整路线。"
+          }
+        ]
+      },
+      {
+        "id": "specific",
+        "label": "specific：specific example要从哪里找？",
+        "prompt": "specific example要从哪里找？",
+        "answer": "specific",
+        "meaning": "具体的；特定的",
+        "material": "Please give a specific example from the text.",
+        "before": "Please give a ",
+        "after": " example from the text.",
+        "reason": "specific表示具体的或特定的。这里要求从文章中举一个明确例子，不能只给笼统看法，也不能编一个无关例子冒充文章内容。Please give是请求，还没有报告别人已经给了例子。",
+        "hint": "a specific example；from the text；请求不等于已完成。",
+        "wordDecision": {
+          "prompt": "specific example要从哪里找？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "请从文章中举一个具体例子",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "text",
+                "label": "请求举出文中的具体例子",
+                "text": "Please give a specific example from the text.",
+                "include": true
+              },
+              {
+                "id": "vague",
+                "label": "只需无例子的笼统意见",
+                "text": "Give only a vague opinion with no example from the text.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "对方已经完成举例",
+                "text": "The other person has already supplied the requested example.",
+                "include": false
+              }
+            ],
+            "hint": "保留具体、文中和请求，不改成笼统或已完成。",
+            "wrong": "选请求文中具体例子，不编完成情况。"
+          }
+        },
+        "options": [
+          {
+            "id": "text",
+            "text": "Give a clear, particular example supported by the text.",
+            "correct": true,
+            "reason": "specific要求具体，from the text要求来自文章。"
+          },
+          {
+            "id": "vague",
+            "text": "Give only a vague opinion with no example from the text.",
+            "correct": false,
+            "reason": "漏掉具体例子与文章依据。"
+          },
+          {
+            "id": "invent",
+            "text": "Invent an unrelated example and say it came from the text.",
+            "correct": false,
+            "reason": "与from the text冲突。"
+          }
+        ]
+      },
+      {
+        "id": "personal",
+        "label": "personal：公开帖子里哪些内容要去掉？",
+        "prompt": "公开帖子里哪些内容要去掉？",
+        "answer": "personal",
+        "meaning": "个人的；私人的",
+        "material": "Do not include personal details in a public post.",
+        "before": "Do not include ",
+        "after": " details in a public post.",
+        "reason": "personal表示个人的，personal details是个人信息。Do not include...in a public post要求公开帖子不要包含个人信息，不是禁止一切公开活动信息。另给帖子只含明确标记的虚构练习字段；遮住个人电话、住址字段，保留非个人的活动信息，操作不会发布任何内容。",
+        "hint": "personal details；Do not include...in...。",
+        "wordDecision": {
+          "prompt": "公开帖子里哪些内容要去掉？",
+          "postRedaction": {
+            "title": "留活动信息，遮个人字段",
+            "hint": "虚构帖子练习：电话和住址都是练习字段，不含真实信息。遮住个人字段，保留活动句；不会发布。",
+            "wrong": "遮住两个个人字段，并保留非个人的活动信息；这里不需要清空所有内容。"
+          }
+        },
+        "options": [
+          {
+            "id": "remove",
+            "text": "Keep personal information out of a public post.",
+            "correct": true,
+            "reason": "Do not include是禁止，personal details是个人信息。"
+          },
+          {
+            "id": "all",
+            "text": "Publish every private contact detail for everyone to see.",
+            "correct": false,
+            "reason": "反转禁止要求。"
+          },
+          {
+            "id": "none",
+            "text": "Never include any information about a public event.",
+            "correct": false,
+            "reason": "个人信息不能扩大成任何活动信息。"
+          }
+        ]
+      },
+      {
+        "id": "private",
+        "label": "private：private land说明什么？",
+        "prompt": "private land说明什么？",
+        "answer": "private",
+        "meaning": "私人的；非公开的",
+        "material": "This path crosses private land.",
+        "before": "This path crosses ",
+        "after": " land.",
+        "reason": "private与public相对，private land是私人土地。原句说明这条路穿过私人土地，没有给出实际土地所有者身份，也没有宣布整个区域所有路都关闭。不要用privately直接修饰land；这里需要形容词private。",
+        "hint": "private land；private / public；cross表示穿过。",
+        "wordDecision": {
+          "prompt": "private land说明什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这条小路穿过私人土地",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "private",
+                "label": "小路穿过私人土地",
+                "text": "This path crosses private land.",
+                "include": true
+              },
+              {
+                "id": "public",
+                "label": "土地属于公众",
+                "text": "The sentence says that the land is publicly owned.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "区域内所有路对所有人关闭",
+                "text": "Every path in the area is closed to everyone.",
+                "include": false
+              }
+            ],
+            "hint": "保留这条路和私人土地，不扩大成区域封闭。",
+            "wrong": "选穿过私人土地，不反转归属或扩大范围。"
+          }
+        },
+        "options": [
+          {
+            "id": "private",
+            "text": "This path passes across land that is privately owned.",
+            "correct": true,
+            "reason": "private land是私人土地，crosses表示穿过。"
+          },
+          {
+            "id": "public",
+            "text": "The sentence says that the land is publicly owned.",
+            "correct": false,
+            "reason": "反转private与public。"
+          },
+          {
+            "id": "all",
+            "text": "Every path in the area is closed to everyone.",
+            "correct": false,
+            "reason": "没有说明整个区域所有路径都关闭。"
+          }
+        ]
+      },
+      {
+        "id": "secret",
+        "label": "secret：kept...a secret说明什么时间与做法？",
+        "prompt": "kept...a secret说明什么时间与做法？",
+        "answer": "secret",
+        "meaning": "秘密；秘密的",
+        "material": "We kept the surprise party a secret.",
+        "before": "We kept the surprise party a ",
+        "after": ".",
+        "reason": "secret可作名词或形容词。这里a secret中是名词，keep something a secret表示对某事保密，kept是过去式。不能把过去保密改成告诉所有人，也不能推出以后永远没人知道。surprise party通常希望让嘉宾感到惊喜，但原句没有说派对已经成功举行。",
+        "hint": "keep something a secret；keep → kept。",
+        "wordDecision": {
+          "prompt": "kept...a secret说明什么时间与做法？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "我们没有透露惊喜派对",
+            "prompt": "圈出原句支持的信息。",
+            "rows": [
+              {
+                "id": "kept",
+                "label": "我们对惊喜派对保了密",
+                "text": "We kept the surprise party a secret.",
+                "include": true
+              },
+              {
+                "id": "told",
+                "label": "我们把派对告诉了所有人",
+                "text": "We told everyone about the surprise party.",
+                "include": false
+              },
+              {
+                "id": "forever",
+                "label": "未来永远不会有人知道",
+                "text": "No one can ever learn about the party in the future.",
+                "include": false
+              }
+            ],
+            "hint": "保留过去保密，不改成全员告知或永远无人知晓。",
+            "wrong": "选过去保密，不补未来保证。"
+          }
+        },
+        "options": [
+          {
+            "id": "kept",
+            "text": "We did not reveal the surprise party.",
+            "correct": true,
+            "reason": "kept...a secret说明过去对派对保密。"
+          },
+          {
+            "id": "told",
+            "text": "We told everyone about the surprise party.",
+            "correct": false,
+            "reason": "与kept a secret相反。"
+          },
+          {
+            "id": "forever",
+            "text": "No one can ever learn about the party in the future.",
+            "correct": false,
+            "reason": "过去保密不等于未来永远无人知晓。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-useful-qualities-5-transfer",
+      "topicId": "v-course-useful-qualities",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve the entrance direction, the text evidence and the public-post rule?",
+      "passage": "A school information display\nOur class prepared an information display in a hall. The main entrance faced the square. One model used real stones from the river; that information came from the maker’s note, not simply from the way the stones looked.\nA leaflet gave general advice about safe cycling. Our teacher asked for a specific example from the text. We had to point to something the text actually said instead of inventing an unrelated example. For a fictional public-post exercise, we kept the event information but covered the fields marked as personal contact details. Nothing was published.\nA note about a nearby path said that it crossed private land. It did not say that every path in the area was closed. Later, a false alarm interrupted our rehearsal; the alarm did not confirm a real emergency. We also kept a surprise party a secret, but that did not mean that nobody could ever find out about it.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The entrance faces the square; a specific example must come from the text; personal details should stay out of the public post."
+        },
+        {
+          "id": "b",
+          "text": "Every entrance faces away from the square; an invented example is enough; all private contact details should be published."
+        },
+        {
+          "id": "c",
+          "text": "The entrance faces the square; an invented example is enough; personal details should stay out of the public post."
+        },
+        {
+          "id": "d",
+          "text": "The entrance faces the square; a specific example must come from the text; all private contact details should be published."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The entrance faces the square; a specific example must come from the text; personal details should stay out of the public post."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对朝向、例子来源和否定要求，不能凭外观或想象补依据。",
+        "steps": [
+          {
+            "text": "main entrance faces the square保留正门朝向广场。",
+            "reason": "不是所有入口，也不是背向广场。"
+          },
+          {
+            "text": "specific example来自文章；personal details不放进公开帖子。",
+            "reason": "不能编无关例子，也不能反转Do not include。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "扩大并反转入口方向，允许编造例子，还反转隐私要求。"
+          },
+          {
+            "option": "c",
+            "reason": "把文中具体例子换成编造的无关例子。"
+          },
+          {
+            "option": "d",
+            "reason": "把不要包含个人信息反转成公开全部私人联系方式。"
+          }
+        ],
+        "pitfall": "只认词义，不核对from、faces与Do not的关系。",
+        "visual": {
+          "kind": "timeline",
+          "title": "朝向、来源、隐私",
+          "segments": [
+            {
+              "text": "entrance → square",
+              "role": "object",
+              "note": "正门朝向广场"
+            },
+            {
+              "text": "specific example ← text",
+              "role": "object",
+              "note": "有文章依据"
+            },
+            {
+              "text": "public post · no personal details",
+              "role": "object",
+              "note": "保留否定要求"
+            }
+          ],
+          "caption": "每个判断都要有句子里的依据。"
+        },
+        "transfer": "为什么仅凭模型里的东西看起来像石头，还不能证明它们来自河里？"
+      }
+    }
+  }
+}

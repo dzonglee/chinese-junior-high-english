@@ -1,0 +1,9 @@
+/** Select logically permitted cases; this is not a simulation of physical locking hardware. */
+export interface WordGateCondition {title:string;hint:string;wrong:string}
+export interface WordGateConditionView {title:string;hint:string;state:string;reading:string;cases:{id:string;closed:boolean;locked:boolean;selected:boolean;label:string}[]}
+export const wordGateConditionKey=(id:string)=>`workshopGateCondition-${id}`
+const valid=(s:string)=>/^(?:[0-9]|1[0-5])$/.test(s)&&String(Number(s))===s
+export function validWordGateCondition(v:unknown):v is WordGateCondition {if(!v||typeof v!=='object')return false;const w=v as WordGateCondition;return[[w.title,60],[w.hint,110],[w.wrong,140]].every(([s,n])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=(n as number))}
+export function gateConditionMatch(raw:string):boolean{return raw==='7'}
+export function changeGateCondition(raw:string,action:string):string|undefined {if(action==='reset')return'';if(raw!==''&&!valid(raw))return undefined;const i=['closed-locked','closed-unlocked','improper-unlocked','improper-locked'].indexOf(action);return i>=0?String((raw===''?0:Number(raw))^(1<<i)):undefined}
+export function wordGateConditionView(w:WordGateCondition,raw:string):WordGateConditionView {const state=valid(raw)?raw:'',bits=state?Number(state):0;const specs=[['closed-locked',true,true,'已关好，锁上'],['closed-unlocked',true,false,'已关好，未锁上'],['improper-unlocked',false,false,'没关好，未锁上'],['improper-locked',false,true,'没关好，却锁上']]as const;return{title:w.title,hint:w.hint,state,reading:state==='7'?'前三张都不与原句矛盾。关好是必要条件，仍可能因其他未说明的原因锁不上；没关好却锁上才与原句矛盾。':state===''?'圈出所有不与原句矛盾的条件卡。每张都可单独圈选或撤销。':'已圈选'+specs.filter((_,i)=>bits&(1<<i)).length+'张，再核对没关好时能否锁上，以及关好是否保证锁上。',cases:specs.map(([id,closed,locked,label],i)=>({id,closed,locked,label,selected:!!(bits&(1<<i))}))}}

@@ -1,0 +1,615 @@
+{
+  "lessonId": "l-v-course-character-3",
+  "reviewState": "draft",
+  "intent": "Eight individually authored character judgements preserve strict requirements, equal opportunities rather than guaranteed scores, limited evaluations, requests and observed change.",
+  "picturePurpose": "Original paired level/uneven shelves support real direct object choices. Cause comes from the source sentence, never from a visual diagnosis. The coded turn allocator illustrates one explicitly specified fair rule without claiming all fairness means equal outcomes.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "分机会、看板面，再核对原句",
+    "instruction": "按规则分机会，点出不平的板面；区分请求、要求和实际结果。",
+    "items": [
+      {
+        "id": "strict",
+        "label": "strict：教练严格要求的是什么？",
+        "prompt": "教练严格要求的是什么？",
+        "answer": "strict",
+        "meaning": "严格的",
+        "material": "Our coach is strict about wearing helmets.",
+        "before": "Our coach is ",
+        "after": " about wearing helmets.",
+        "reason": "be strict about something表示对某事要求严格；对人严格常用be strict with somebody。这里的事项是wearing helmets，不是禁止戴头盔，也没有报告所有人一直遵守。",
+        "hint": "先找about后面的事项。",
+        "wordDecision": {
+          "prompt": "教练严格要求的是什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "严格要求佩戴头盔",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "helmets",
+                "label": "严格要求佩戴",
+                "text": "The coach is strict about wearing helmets.",
+                "include": true
+              },
+              {
+                "id": "ban",
+                "label": "禁止佩戴",
+                "text": "The coach forbids wearing helmets.",
+                "include": false
+              },
+              {
+                "id": "everyone",
+                "label": "人人始终遵守",
+                "text": "Everyone is proved to obey every time.",
+                "include": false
+              }
+            ],
+            "hint": "wearing不是不戴；要求不等于执行记录。",
+            "wrong": "只选严格要求佩戴；不能反转要求或补人人始终遵守。"
+          }
+        },
+        "options": [
+          {
+            "id": "ban",
+            "text": "The coach strictly forbids wearing helmets.",
+            "correct": false,
+            "reason": "严格要求佩戴，不是禁止佩戴。"
+          },
+          {
+            "id": "helmets",
+            "text": "The coach is strict about wearing helmets.",
+            "correct": true,
+            "reason": "about后接要求严格的事项。"
+          },
+          {
+            "id": "everyone",
+            "text": "The sentence proves that everyone always obeys the rule.",
+            "correct": false,
+            "reason": "要求严格不等于证明每个人每次都遵守。"
+          }
+        ],
+        "ownForms": [
+          "strict",
+          "stricter",
+          "strictest"
+        ]
+      },
+      {
+        "id": "fair",
+        "label": "fair：按示意规则，给每人一次机会。",
+        "prompt": "按示意规则，给每人一次机会。",
+        "answer": "fair",
+        "meaning": "公平的；浅色的",
+        "material": "A fair rule gives everyone the same chance.",
+        "before": "A ",
+        "after": " rule gives everyone the same chance.",
+        "reason": "fair在这里表示公平的。everyone the same chance强调机会相同，不保证最后得分或结果相同。示意任务规定每人一次试投机会，只比较这条规则下的机会次数，不据此给所有现实规则下结论。",
+        "hint": "比较chance，不要偷换成score。",
+        "wordDecision": {
+          "prompt": "按示意规则，给每人一次机会。",
+          "chance": {
+            "title": "每人一次试投机会",
+            "hint": "按这次的示意规则分配机会；不比较投中的分数。",
+            "wrong": "这次的示意规则是每人恰好一次机会；漏给或多给某个人，都还没有按这条规则分完。"
+          }
+        },
+        "options": [
+          {
+            "id": "score",
+            "text": "Everyone is guaranteed the same final score.",
+            "correct": false,
+            "reason": "same chance不是same score。"
+          },
+          {
+            "id": "one",
+            "text": "Only one person receives an opportunity.",
+            "correct": false,
+            "reason": "everyone不能缩成只有一个人。"
+          },
+          {
+            "id": "chance",
+            "text": "Everyone has the same opportunity under the rule.",
+            "correct": true,
+            "reason": "比较的是机会，不是保证结果一样。"
+          }
+        ],
+        "ownForms": [
+          "fair",
+          "fairer",
+          "fairest"
+        ]
+      },
+      {
+        "id": "unfair",
+        "label": "unfair：团队失误能只怪一个人吗？",
+        "prompt": "团队失误能只怪一个人吗？",
+        "answer": "unfair",
+        "meaning": "不公平的",
+        "material": "It is unfair to blame one person for a team mistake.",
+        "before": "It is ",
+        "after": " to blame one person for a team mistake.",
+        "reason": "un-给fair加上否定意思，unfair表示不公平。这里反对把团队失误只归咎于一个人，不等于说没有失误，也没有给出个人分工和责任比例。",
+        "hint": "保留team mistake和one person的关系。",
+        "wordDecision": {
+          "prompt": "团队失误能只怪一个人吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "只怪一人被评价为不公平",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "unfair",
+                "label": "只怪一人不公平",
+                "text": "Blaming one person for a team mistake is unfair.",
+                "include": true
+              },
+              {
+                "id": "fair",
+                "label": "称赞只怪一人",
+                "text": "Blaming only one person is praised as fair.",
+                "include": false
+              },
+              {
+                "id": "none",
+                "label": "没有人犯过错",
+                "text": "Nobody made any mistake.",
+                "include": false
+              }
+            ],
+            "hint": "unfair是否定评价，不是没有失误。",
+            "wrong": "只选只怪一人不公平；不能反转评价或抹去失误。"
+          }
+        },
+        "options": [
+          {
+            "id": "unfair",
+            "text": "Blaming one person for a team mistake is judged unfair.",
+            "correct": true,
+            "reason": "评价的是团队失误只责怪一人的做法。"
+          },
+          {
+            "id": "fair",
+            "text": "Blaming only one person is praised as fair.",
+            "correct": false,
+            "reason": "把unfair反转成fair。"
+          },
+          {
+            "id": "none",
+            "text": "The sentence proves that nobody made any mistake.",
+            "correct": false,
+            "reason": "team mistake存在；并未说无人犯错。"
+          }
+        ]
+      },
+      {
+        "id": "selfish",
+        "label": "selfish：selfish评价哪种占用方式？",
+        "prompt": "selfish评价哪种占用方式？",
+        "answer": "selfish",
+        "meaning": "自私的",
+        "material": "Keeping all the materials for yourself is selfish.",
+        "before": "Keeping all the materials for yourself is ",
+        "after": ".",
+        "reason": "selfish表示只顾自己的、自私的。这里评价的是把所有材料都留给自己；all the materials和for yourself不能漏。它没有说自己用一点材料就是自私，也不说明材料种类或数量。",
+        "hint": "all不是any；独占不是分享。",
+        "wordDecision": {
+          "prompt": "selfish评价哪种占用方式？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "评价的是独占所有材料",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "all",
+                "label": "独占全部材料",
+                "text": "Keeping all the materials for yourself is selfish.",
+                "include": true
+              },
+              {
+                "id": "share",
+                "label": "和小组分享材料",
+                "text": "Sharing the materials with the group is selfish.",
+                "include": false
+              },
+              {
+                "id": "any",
+                "label": "自用一点总是自私",
+                "text": "Using any material yourself is always selfish.",
+                "include": false
+              }
+            ],
+            "hint": "all和for yourself一起限定做法。",
+            "wrong": "只选独占所有材料；不能换成分享或扩大为任何使用。"
+          }
+        },
+        "options": [
+          {
+            "id": "share",
+            "text": "Sharing the materials with the group is called selfish.",
+            "correct": false,
+            "reason": "把独占改成分享。"
+          },
+          {
+            "id": "all",
+            "text": "Keeping all the materials for yourself is judged selfish.",
+            "correct": true,
+            "reason": "all和for yourself共同限定做法。"
+          },
+          {
+            "id": "any",
+            "text": "Using any material yourself is always selfish.",
+            "correct": false,
+            "reason": "all被换成any，还补了always。"
+          }
+        ]
+      },
+      {
+        "id": "generous",
+        "label": "generous：捐赠者提出了什么请求？",
+        "prompt": "捐赠者提出了什么请求？",
+        "answer": "generous",
+        "meaning": "慷慨的；宽厚的",
+        "material": "The generous donor asked to remain unnamed.",
+        "before": "The ",
+        "after": " donor asked to remain unnamed.",
+        "reason": "generous修饰donor，表示慷慨的。asked to remain unnamed是希望不公开姓名；asked只报告提出请求，没有说最后是否照办，也没有给出捐赠数额。",
+        "hint": "asked是请求，别补成已经获准。",
+        "wordDecision": {
+          "prompt": "捐赠者提出了什么请求？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "提出不公开姓名的请求",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "request",
+                "label": "请求不公开姓名",
+                "text": "The donor asked not to have their name disclosed.",
+                "include": true
+              },
+              {
+                "id": "known",
+                "label": "请求公开姓名",
+                "text": "The donor asked for their name to be made public.",
+                "include": false
+              },
+              {
+                "id": "result",
+                "label": "所有报道都已照办",
+                "text": "Every report is proved to have honoured the request.",
+                "include": false
+              }
+            ],
+            "hint": "asked记录请求，结果没有写。",
+            "wrong": "只选请求不公开姓名；不能反转请求或补最终结果。"
+          }
+        },
+        "options": [
+          {
+            "id": "known",
+            "text": "The donor asked for their name to be made public.",
+            "correct": false,
+            "reason": "remain unnamed不是公开姓名。"
+          },
+          {
+            "id": "result",
+            "text": "The request is proved to have been granted in every report.",
+            "correct": false,
+            "reason": "请求不等于已证明被采纳，还补了every report。"
+          },
+          {
+            "id": "request",
+            "text": "The donor asked not to have their name disclosed.",
+            "correct": true,
+            "reason": "asked说明提出请求，没有报告最终是否匿名。"
+          }
+        ]
+      },
+      {
+        "id": "helpful",
+        "label": "helpful：图对谁尤其有帮助？",
+        "prompt": "图对谁尤其有帮助？",
+        "answer": "helpful",
+        "meaning": "有帮助的；乐于助人的",
+        "material": "The diagram is especially helpful for beginners.",
+        "before": "The diagram is especially ",
+        "after": " for beginners.",
+        "reason": "helpful可表示有帮助的，也可形容人乐于助人。这里的主语是diagram，for beginners说明对初学者有帮助，especially表示尤其。原句没有说只有初学者能用，也没描述画图人的品格。",
+        "hint": "看主语diagram和for beginners。",
+        "wordDecision": {
+          "prompt": "图对谁尤其有帮助？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "图对初学者尤其有帮助",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "beginners",
+                "label": "图帮助初学者",
+                "text": "The diagram is especially helpful for beginners.",
+                "include": true
+              },
+              {
+                "id": "experts",
+                "label": "只帮助专家",
+                "text": "The diagram is helpful only for experts.",
+                "include": false
+              },
+              {
+                "id": "person",
+                "label": "画图者乐于助人",
+                "text": "The person who drew it is described as helpful.",
+                "include": false
+              }
+            ],
+            "hint": "especially不是only；helpful修饰diagram。",
+            "wrong": "只选图帮助初学者；不能换对象或凭图评价作者。"
+          }
+        },
+        "options": [
+          {
+            "id": "beginners",
+            "text": "The diagram is especially helpful for beginners.",
+            "correct": true,
+            "reason": "especially for beginners保留帮助对象和程度。"
+          },
+          {
+            "id": "experts",
+            "text": "The diagram is helpful only for experts.",
+            "correct": false,
+            "reason": "beginners被换成experts，还加了only。"
+          },
+          {
+            "id": "person",
+            "text": "The sentence describes a helpful person who drew the diagram.",
+            "correct": false,
+            "reason": "helpful修饰的是diagram，不是画图的人。"
+          }
+        ]
+      },
+      {
+        "id": "careless",
+        "label": "careless：点出上层板不平的架子。",
+        "prompt": "点出上层板不平的架子。",
+        "answer": "careless",
+        "meaning": "粗心的",
+        "material": "One careless measurement made the shelf uneven.",
+        "before": "One ",
+        "after": " measurement made the shelf uneven.",
+        "reason": "careless由care加-less构成，表示粗心的。原句说一次粗心测量使架子不平；made the shelf uneven中的uneven说明造成的状态。图能帮我们看出不平，不能单靠外观证明测量原因，也不说明每次测量都粗心。",
+        "hint": "图辨uneven；粗心测量这一原因由原句给出。",
+        "wordDecision": {
+          "prompt": "点出上层板不平的架子。",
+          "art": {
+            "pictureOnly": true,
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-uneven-shelf",
+            "alt": "左图上层板平直，右图上层板向右下方倾斜；图片不显示造成差异的原因。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "level",
+                "label": "A 平直",
+                "left": 2,
+                "top": 4,
+                "width": 46,
+                "height": 92
+              },
+              {
+                "id": "b",
+                "option": "uneven",
+                "label": "B 倾斜",
+                "left": 52,
+                "top": 4,
+                "width": 46,
+                "height": 92
+              }
+            ],
+            "evidence": [
+              {
+                "option": "level",
+                "caption": "A的上层板平直，不是要找的uneven。测量原因不能只靠图片判断。",
+                "regions": [
+                  {
+                    "id": "level",
+                    "left": 5,
+                    "top": 24,
+                    "width": 41,
+                    "height": 12,
+                    "label": "平直上层板"
+                  }
+                ]
+              },
+              {
+                "option": "uneven",
+                "caption": "B的上层板明显倾斜。careless measurement这一原因来自原句，不是看外观就能断定。",
+                "regions": [
+                  {
+                    "id": "uneven",
+                    "left": 55,
+                    "top": 23,
+                    "width": 40,
+                    "height": 15,
+                    "label": "倾斜上层板"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "level",
+            "text": "Both shelves are level.",
+            "correct": false,
+            "reason": "左图上层板是平的，不能代替右图的uneven。"
+          },
+          {
+            "id": "uneven",
+            "text": "The upper shelf slopes rather than remaining level.",
+            "correct": true,
+            "reason": "右图显示板面倾斜；原句说明测量粗心造成不平。"
+          }
+        ]
+      },
+      {
+        "id": "confident",
+        "label": "confident：排练后，原句观察到什么变化？",
+        "prompt": "排练后，原句观察到什么变化？",
+        "answer": "confident",
+        "meaning": "自信的",
+        "material": "She looked more confident after the rehearsal.",
+        "before": "She looked more ",
+        "after": " after the rehearsal.",
+        "reason": "confident是形容词，confidence是名词。looked more confident表示看起来更自信，after the rehearsal给出观察时间；它不保证后来每次都成功，也没报告本人说了什么。",
+        "hint": "保留looked more和after，不补永久保证。",
+        "wordDecision": {
+          "prompt": "排练后，原句观察到什么变化？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "排练后看起来更自信",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "appearance",
+                "label": "排练后更显自信",
+                "text": "She appeared more confident after the rehearsal.",
+                "include": true
+              },
+              {
+                "id": "perfect",
+                "label": "以后永远不犯错",
+                "text": "She was guaranteed never to make another mistake.",
+                "include": false
+              },
+              {
+                "id": "before",
+                "label": "排练前更自信",
+                "text": "She was reported to look more confident before rehearsal.",
+                "include": false
+              }
+            ],
+            "hint": "looked是外观判断；after不是before。",
+            "wrong": "只选排练后更显自信；不能补永久保证或倒转时间。"
+          }
+        },
+        "options": [
+          {
+            "id": "perfect",
+            "text": "She was guaranteed never to make another mistake.",
+            "correct": false,
+            "reason": "更自信不保证永远不犯错。"
+          },
+          {
+            "id": "before",
+            "text": "She was reported to look more confident before the rehearsal.",
+            "correct": false,
+            "reason": "after被换成before。"
+          },
+          {
+            "id": "appearance",
+            "text": "She appeared more confident after the rehearsal.",
+            "correct": true,
+            "reason": "looked more描述看起来更自信，after限定时间。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-character-3-transfer",
+      "topicId": "v-course-character",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve the rule, the request and the observed change?",
+      "passage": "Notes from our class project\nBefore the practical activity, the coach was strict about wearing helmets. For our throwing game, we chose a fair rule: every player would have one try. We did not promise equal scores.\nA generous donor offered materials and asked us not to publish their name. We have recorded the request, but the report is not finished.\nOne careless measurement left our shelf uneven. We checked the diagram together; it was especially helpful for beginners. After rehearsal, Mei looked more confident about explaining the project.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The rule gives equal opportunities; anonymity was requested; Mei appeared more confident after rehearsal."
+        },
+        {
+          "id": "b",
+          "text": "The rule guarantees equal scores; anonymity was requested; Mei appeared more confident after rehearsal."
+        },
+        {
+          "id": "c",
+          "text": "The rule gives equal opportunities; every report is proved to keep the donor unnamed; Mei appeared more confident after rehearsal."
+        },
+        {
+          "id": "d",
+          "text": "The rule gives equal opportunities; anonymity was requested; Mei was guaranteed never to make another mistake."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The rule gives equal opportunities; anonymity was requested; Mei appeared more confident after rehearsal."
+      },
+      "marks": 2,
+      "estimatedSeconds": 95,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先区分机会与得分，再区分请求与已经实现，最后保留排练后的外观变化。",
+        "steps": [
+          {
+            "text": "每人一次机会，不保证分数一样；捐赠者请求匿名，没有说所有报道已经照办。",
+            "reason": "one try和did not promise equal scores限定规则；asked和report is not finished限定请求状态。"
+          },
+          {
+            "text": "排练后Mei看起来更自信，不能补成以后永远不犯错。",
+            "reason": "looked more confident after rehearsal只支持这次观察到的变化。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把机会相同偷换成保证得分相同。"
+          },
+          {
+            "option": "c",
+            "reason": "把请求匿名补成所有报道都已照办。"
+          },
+          {
+            "option": "d",
+            "reason": "把看起来更自信补成永远不犯错的保证。"
+          }
+        ],
+        "pitfall": "把机会换成结果，把请求换成已完成，把一次变化扩大成永久保证。",
+        "visual": {
+          "kind": "timeline",
+          "title": "机会、请求、观察",
+          "segments": [
+            {
+              "text": "same chance ≠ same score",
+              "role": "object",
+              "note": "公平规则不保证结果一样"
+            },
+            {
+              "text": "asked ≠ request granted",
+              "role": "object",
+              "note": "提出请求不证明已采纳"
+            },
+            {
+              "text": "looked more confident",
+              "role": "object",
+              "note": "保留观察，不补永远成功"
+            }
+          ],
+          "caption": "先核对句子支持什么，再排除多加的结论。"
+        },
+        "transfer": "The rule gives each pupil one turn，能直接推出每人得分一样吗？指出chance和score的区别。"
+      }
+    }
+  }
+}

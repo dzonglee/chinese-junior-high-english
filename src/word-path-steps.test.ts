@@ -1,0 +1,10 @@
+import {describe,it,expect} from 'vitest'
+import {changePathSteps,pathStepsMatch,validWordPathSteps,wordPathStepsKey,wordPathStepsView} from './core/word-path-steps'
+const w={title:'选台阶更少的路',hint:'比较数量，交换后重新选。',wrong:'只比台阶数量，不固定选左边。'}
+describe('bounded path step comparison',()=>{
+ it('selects the smaller count after either arrangement',()=>{expect(pathStepsMatch('normal:left')).toBe(true);expect(pathStepsMatch('normal:right')).toBe(false);expect(pathStepsMatch('swapped:right')).toBe(true);expect(pathStepsMatch('swapped:left')).toBe(false);for(const s of ['','normal:-','swapped:-'])expect(pathStepsMatch(s)).toBe(false)})
+ it('swaps exact counts and invalidates any earlier choice',()=>{const normal=wordPathStepsView(w,'normal:left');expect(normal.paths.map(p=>p.count)).toEqual([4,7]);const s=changePathSteps('normal:left','swap')!;expect(s).toBe('swapped:-');expect(pathStepsMatch(s)).toBe(false);const swapped=wordPathStepsView(w,s);expect(swapped.paths.map(p=>p.steps.length)).toEqual([7,4]);expect(swapped.paths.some(p=>p.selected)).toBe(false);expect(changePathSteps(s,'right')).toBe('swapped:right');expect(changePathSteps('swapped:right','swap')).toBe('normal:-')})
+ it('uses independent views and never exposes the selected answer as a property',()=>{const a=wordPathStepsView(w,''),b=wordPathStepsView(w,'');a.paths[0].steps.pop();expect(b.paths[0].steps).toHaveLength(4);expect(Object.keys(b)).not.toContain('answer');expect(wordPathStepsKey('which')).toBe('workshopPathSteps-which')})
+ it('rejects malformed raw values and actions, safely resets',()=>{for(const s of ['normal:left ',' normal:left','normal:both','swapped','normal:left:right']){expect(pathStepsMatch(s)).toBe(false);expect(changePathSteps(s,'left')).toBeUndefined();expect(wordPathStepsView(w,s).paths.every(p=>!p.selected)).toBe(true)}expect(changePathSteps('','forward')).toBeUndefined();expect(changePathSteps('swapped:right','reset')).toBe('')})
+ it('requires trimmed bounded copy',()=>{expect(validWordPathSteps(w)).toBe(true);for(const v of [null,{}, {...w,title:' padded '},{...w,hint:''},{...w,wrong:'x'.repeat(141)}])expect(validWordPathSteps(v)).toBe(false)})
+})

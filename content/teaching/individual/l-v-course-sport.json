@@ -1,0 +1,1813 @@
+{
+  "lessonId": "l-v-course-sport",
+  "reviewState": "draft",
+  "intent": "Distinguish intention/question/request from completed outcomes; before order, ball-sport article usage, behind-school field, left-hand ability question, no ground contact, booked court not finished game, and harder outdoors in strong wind without impossibility.",
+  "picturePurpose": "Original tennis ball versus shuttlecock separately viewed; code targets provisional pending phone checks.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "球类不混淆，先后与限制不漏读",
+    "instruction": "排先后、换位置、比较触地与风力；读清问题、要求和已经发生的事。",
+    "items": [
+      {
+        "id": "word-sport",
+        "label": "体育运动",
+        "prompt": "would like to try是在问意愿，还是说已经练过？圈出两条。",
+        "answer": "sport",
+        "caseSensitive": false,
+        "meaning": "体育运动",
+        "before": "Which ",
+        "after": " would you like to try this term?",
+        "reason": "原句问这学期想尝试哪项运动，没有给出具体选择，也没有说已经练过。",
+        "hint": "Which问选择；would like to try问想尝试，不是过去的经历。",
+        "material": "Which sport would you like to try this term?",
+        "options": [
+          {
+            "id": "wish",
+            "text": "询问这学期想尝试哪项运动。",
+            "correct": true,
+            "reason": "保留which sport、would like to try和this term。"
+          },
+          {
+            "id": "past",
+            "text": "确认上学期已经练过的运动。",
+            "correct": false,
+            "reason": "把本学期意愿改成上学期经历。"
+          },
+          {
+            "id": "chosen",
+            "text": "已经确定这学期只练网球。",
+            "correct": false,
+            "reason": "问句没有给出所选项目。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "would like to try是在问意愿，还是说已经练过？圈出两条。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问什么，问哪个时间",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "问句不是已经完成的事实；没有说的结果不要补。",
+            "wrong": "原句询问这学期的尝试意愿，不能改成已经选定或练过。",
+            "rows": [
+              {
+                "id": "wish",
+                "label": "内容",
+                "text": "想尝试哪项运动。",
+                "include": true
+              },
+              {
+                "id": "term",
+                "label": "时间",
+                "text": "这学期。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经选定并练过。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-game",
+        "label": "比赛（本句）",
+        "prompt": "before把结束和下雨怎样排列？按原句排好。",
+        "answer": "game",
+        "caseSensitive": false,
+        "meaning": "比赛（本句）",
+        "before": "The ",
+        "after": " ended before the rain began.",
+        "reason": "比赛先结束，随后才开始下雨。原句没有给出比分或获胜者。",
+        "hint": "只比较两个事件的先后，不补间隔时长。",
+        "material": "The game ended before the rain began.",
+        "options": [
+          {
+            "id": "before",
+            "text": "比赛在下雨前结束。",
+            "correct": true,
+            "reason": "保留ended before the rain began。"
+          },
+          {
+            "id": "after",
+            "text": "先开始下雨，比赛随后才结束。",
+            "correct": false,
+            "reason": "颠倒了before的先后。"
+          },
+          {
+            "id": "winner",
+            "text": "原句已经说明哪队获胜。",
+            "correct": false,
+            "reason": "原句没有任何比分或获胜者信息。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before把结束和下雨怎样排列？按原句排好。",
+          "processOrder": {
+            "title": "先结束，还是先下雨？",
+            "hint": "从早到晚排列两件事，不补分钟数。",
+            "wrong": "比赛结束在前，开始下雨在后。",
+            "events": [
+              {
+                "id": "end",
+                "label": "比赛结束"
+              },
+              {
+                "id": "rain",
+                "label": "开始下雨"
+              }
+            ],
+            "sequence": [
+              "end",
+              "rain"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-play",
+        "label": "打球；进行球类运动（本句）",
+        "prompt": "play后接badminton，是否需要the？切换后核对搭配。",
+        "answer": "play",
+        "caseSensitive": false,
+        "meaning": "打球；进行球类运动（本句）",
+        "before": "We ",
+        "after": " badminton in the yard.",
+        "reason": "We play badminton in the yard.表示我们在院子里打羽毛球；球类运动名称前通常不加the。",
+        "hint": "这里说参加这项运动；the basketball也可以指一个具体的篮球，不能混为一谈。",
+        "material": "We play badminton in the yard.",
+        "options": [
+          {
+            "id": "sport",
+            "text": "在院子里打羽毛球。",
+            "correct": true,
+            "reason": "play badminton表示打羽毛球。"
+          },
+          {
+            "id": "instrument",
+            "text": "在院子里演奏一种乐器。",
+            "correct": false,
+            "reason": "badminton是球类运动，不是乐器。"
+          },
+          {
+            "id": "watch",
+            "text": "只观看羽毛球而不参加。",
+            "correct": false,
+            "reason": "把play改成只看，改变了动作。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "play后接badminton，是否需要the？切换后核对搭配。",
+          "sceneLab": {
+            "id": "play-ball-article",
+            "title": "球类运动名称前加不加the",
+            "hint": "图只比较本句搭配，不把具体球体前的the也删掉。",
+            "wrong": "本句搭配是play badminton，球类运动名称前不加the。",
+            "axes": [
+              {
+                "id": "article",
+                "label": "play与badminton之间",
+                "choices": [
+                  {
+                    "id": "omit",
+                    "label": "不加冠词"
+                  },
+                  {
+                    "id": "the",
+                    "label": "加the"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "球类运动名称的搭配"
+                  },
+                  {
+                    "id": "phrase",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 94,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "play",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 36,
+                    "width": 23,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "play"
+                  },
+                  {
+                    "id": "article",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 36,
+                    "width": 20,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "?"
+                  },
+                  {
+                    "id": "badminton",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 36,
+                    "width": 40,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "badminton"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "∅表示这里不加冠词"
+                  }
+                ]
+              },
+              {
+                "signature": "omit",
+                "reading": "在院子里打羽毛球。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "球类运动名称的搭配"
+                  },
+                  {
+                    "id": "phrase",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 94,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "play",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 36,
+                    "width": 23,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "play"
+                  },
+                  {
+                    "id": "article",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 36,
+                    "width": 20,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "∅"
+                  },
+                  {
+                    "id": "badminton",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 36,
+                    "width": 40,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "badminton"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "∅表示这里不加冠词"
+                  }
+                ]
+              },
+              {
+                "signature": "the",
+                "reading": "本句搭配是play badminton，球类运动名称前不加the。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "球类运动名称的搭配"
+                  },
+                  {
+                    "id": "phrase",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 30,
+                    "width": 94,
+                    "height": 28,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "play",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 36,
+                    "width": 23,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "play"
+                  },
+                  {
+                    "id": "article",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 36,
+                    "width": 20,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "the"
+                  },
+                  {
+                    "id": "badminton",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 36,
+                    "width": 40,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "badminton"
+                  },
+                  {
+                    "id": "note",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "∅表示这里不加冠词"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-football",
+        "label": "足球",
+        "prompt": "behind school在哪里？移动球场，再与原句对照。",
+        "answer": "football",
+        "caseSensitive": false,
+        "meaning": "足球",
+        "before": "They play ",
+        "after": " on the field behind school.",
+        "reason": "他们在学校后面的球场踢足球，不能换成学校前面或教室里面。",
+        "hint": "图明确标学校的前后；只示意相对位置，没有实际距离。",
+        "material": "They play football on the field behind school.",
+        "options": [
+          {
+            "id": "behind",
+            "text": "他们在学校后面的球场踢足球。",
+            "correct": true,
+            "reason": "保留football、field和behind school。"
+          },
+          {
+            "id": "front",
+            "text": "他们在学校前面的球场踢足球。",
+            "correct": false,
+            "reason": "前面改变了behind。"
+          },
+          {
+            "id": "inside",
+            "text": "他们在学校教室里踢足球。",
+            "correct": false,
+            "reason": "教室里面改变了field behind school。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "behind school在哪里？移动球场，再与原句对照。",
+          "sceneLab": {
+            "id": "football-behind",
+            "title": "球场在学校哪一侧",
+            "hint": "学校朝向在图中明确标出，不用屏幕上下猜地理方向。",
+            "wrong": "原句球场在学校后面，不能换成前面或室内。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "球场相对学校的位置",
+                "choices": [
+                  {
+                    "id": "behind",
+                    "label": "学校后面"
+                  },
+                  {
+                    "id": "front",
+                    "label": "学校前面"
+                  },
+                  {
+                    "id": "inside",
+                    "label": "教室里面"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 17,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校后方"
+                  },
+                  {
+                    "id": "front",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校前方"
+                  },
+                  {
+                    "id": "school",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 33,
+                    "width": 28,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "school-label",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 38,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 65,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "门口朝前↓"
+                  },
+                  {
+                    "id": "unknown",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "球场待选"
+                  }
+                ]
+              },
+              {
+                "signature": "behind",
+                "reading": "他们在学校后面的球场踢足球。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 17,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校后方"
+                  },
+                  {
+                    "id": "front",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校前方"
+                  },
+                  {
+                    "id": "school",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 33,
+                    "width": 28,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "school-label",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 38,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 65,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "门口朝前↓"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 17,
+                    "width": 50,
+                    "height": 15,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "field-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 17,
+                    "width": 50,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "球场"
+                  }
+                ]
+              },
+              {
+                "signature": "front",
+                "reading": "原句球场在学校后面，不能换成前面或室内。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 17,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校后方"
+                  },
+                  {
+                    "id": "front",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校前方"
+                  },
+                  {
+                    "id": "school",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 33,
+                    "width": 28,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "school-label",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 38,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 65,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "门口朝前↓"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 42,
+                    "y": 80,
+                    "width": 50,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "field-label",
+                    "kind": "label",
+                    "x": 42,
+                    "y": 80,
+                    "width": 50,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "球场"
+                  }
+                ]
+              },
+              {
+                "signature": "inside",
+                "reading": "原句球场在学校后面，不能换成前面或室内。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "back",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 17,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校后方"
+                  },
+                  {
+                    "id": "front",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "学校前方"
+                  },
+                  {
+                    "id": "school",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 33,
+                    "width": 28,
+                    "height": 30,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "school-label",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 38,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "学校"
+                  },
+                  {
+                    "id": "door",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 65,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "门口朝前↓"
+                  },
+                  {
+                    "id": "field",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 51,
+                    "width": 24,
+                    "height": 10,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-basketball",
+        "label": "篮球",
+        "prompt": "Can you和left hand分别给出什么？圈出两条，不替对方回答。",
+        "answer": "basketball",
+        "caseSensitive": false,
+        "meaning": "篮球",
+        "before": "Can you bounce the ",
+        "after": " with your left hand?",
+        "reason": "原句问能否用左手拍这个篮球，没有说明对方一定能做到。",
+        "hint": "left是左，不是右；can问能力，不是已经完成动作的记录。",
+        "material": "Can you bounce the basketball with your left hand?",
+        "options": [
+          {
+            "id": "question",
+            "text": "询问能否用左手拍这个篮球。",
+            "correct": true,
+            "reason": "保留Can you、bounce、basketball和left hand。"
+          },
+          {
+            "id": "right",
+            "text": "询问能否用右手拍篮球。",
+            "correct": false,
+            "reason": "右手改变了left hand。"
+          },
+          {
+            "id": "done",
+            "text": "确认对方已经用左手连续拍了十次。",
+            "correct": false,
+            "reason": "原句没有肯定回答，也没有次数。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "Can you和left hand分别给出什么？圈出两条，不替对方回答。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "能力问题与用哪只手",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "问句不是已经完成的事实；没有说的结果不要补。",
+            "wrong": "原句问能否用左手拍篮球，不能改成右手或补已经完成十次。",
+            "rows": [
+              {
+                "id": "can",
+                "label": "句子类型",
+                "text": "询问能否拍这个篮球。",
+                "include": true
+              },
+              {
+                "id": "left",
+                "label": "手的限制",
+                "text": "用左手。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经连续拍了十次。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-volleyball",
+        "label": "排球",
+        "prompt": "keep … from touching要求碰到地面吗？换位置后比较。",
+        "answer": "volleyball",
+        "caseSensitive": false,
+        "meaning": "排球",
+        "before": "Keep the ",
+        "after": " from touching the ground.",
+        "reason": "原句要求别让排球碰到地面，没有报告动作是否完成。",
+        "hint": "keep … from doing表示阻止某事发生；示意间隙不是实际高度。",
+        "material": "Keep the volleyball from touching the ground.",
+        "options": [
+          {
+            "id": "clear",
+            "text": "别让排球碰到地面。",
+            "correct": true,
+            "reason": "保留keep … from touching the ground。"
+          },
+          {
+            "id": "touch",
+            "text": "让排球接触地面。",
+            "correct": false,
+            "reason": "接触与from touching的限制相反。"
+          },
+          {
+            "id": "success",
+            "text": "已经成功保持排球十分钟不落地。",
+            "correct": false,
+            "reason": "原句没有完成结果或十分钟信息。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "keep … from touching要求碰到地面吗？换位置后比较。",
+          "sceneLab": {
+            "id": "volleyball-clear",
+            "title": "接触地面，还是保持不接触",
+            "hint": "只示意触地关系，不给高度、时长或完成结果。",
+            "wrong": "原句要求不接触地面，不能改成触地或已经成功十分钟。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "怎样理解原句要求",
+                "choices": [
+                  {
+                    "id": "clear",
+                    "label": "保持不接触地面"
+                  },
+                  {
+                    "id": "touch",
+                    "label": "接触地面"
+                  },
+                  {
+                    "id": "success",
+                    "label": "已经成功十分钟"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 72,
+                    "width": 86,
+                    "height": 2,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "ground-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地面"
+                  }
+                ]
+              },
+              {
+                "signature": "clear",
+                "reading": "别让排球碰到地面。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "不接触地面"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 72,
+                    "width": 86,
+                    "height": 2,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "ground-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地面"
+                  },
+                  {
+                    "id": "ball",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 35,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "touch",
+                "reading": "原句要求不接触地面，不能改成触地或已经成功十分钟。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "接触地面"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 72,
+                    "width": 86,
+                    "height": 2,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "ground-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地面"
+                  },
+                  {
+                    "id": "ball",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 55,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "success",
+                "reading": "原句要求不接触地面，不能改成触地或已经成功十分钟。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "补出了成功时长"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "line",
+                    "x": 7,
+                    "y": 72,
+                    "width": 86,
+                    "height": 2,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "ground-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地面"
+                  },
+                  {
+                    "id": "ball",
+                    "kind": "ellipse",
+                    "x": 40,
+                    "y": 35,
+                    "width": 18,
+                    "height": 17,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "invented-duration",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 40,
+                    "width": 30,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "十分钟？"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-tennis",
+        "label": "网球",
+        "prompt": "新例子中，哪一个是打网球用的球？点选后再核对booked。",
+        "answer": "tennis",
+        "caseSensitive": false,
+        "meaning": "网球",
+        "before": "We booked the court for a game of ",
+        "after": ".",
+        "reason": "原句说我们为了打网球订了场地；booked不等于已经打完。",
+        "hint": "图片是器材识别的新例子，不证明原句实际开打、获胜或打了多久。",
+        "material": "We booked the court for a game of tennis.",
+        "options": [
+          {
+            "id": "tennis",
+            "text": "左边的网球。",
+            "correct": true,
+            "reason": "tennis对应网球运动；图中展示它使用的球。"
+          },
+          {
+            "id": "shuttlecock",
+            "text": "右边的羽毛球。",
+            "correct": false,
+            "reason": "这是羽毛球使用的球，不是网球。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "新例子中，哪一个是打网球用的球？点选后再核对booked。",
+          "art": {
+            "asset": "lesson-tennis-shuttlecock",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "新例子：左边圆形黄绿色网球，右边白色锥形羽毛球。",
+            "caption": "器材识别新例子；booked不等于已经打完。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "tennis-ball",
+                "option": "tennis",
+                "label": "网球",
+                "labelPosition": "bottom",
+                "left": 8,
+                "top": 29,
+                "width": 27,
+                "height": 42
+              },
+              {
+                "id": "shuttlecock",
+                "option": "shuttlecock",
+                "label": "羽毛球",
+                "labelPosition": "bottom",
+                "left": 58,
+                "top": 22,
+                "width": 36,
+                "height": 49
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-badminton",
+        "label": "羽毛球",
+        "prompt": "风大时在哪里更难？切换地点与难易，别把harder读成不可能。",
+        "answer": "Badminton",
+        "caseSensitive": true,
+        "meaning": "羽毛球",
+        "before": "",
+        "after": " is harder outdoors when the wind is strong.",
+        "reason": "风大时，在户外打羽毛球更难。harder是比较难，不等于绝对不能打。",
+        "hint": "只保留户外、风大与更难，不补风速或所有天气的结论。",
+        "material": "Badminton is harder outdoors when the wind is strong.",
+        "options": [
+          {
+            "id": "out-harder",
+            "text": "风大时在户外打羽毛球更难。",
+            "correct": true,
+            "reason": "保留outdoors、when the wind is strong和harder。"
+          },
+          {
+            "id": "indoor",
+            "text": "原句只比较室内的情况。",
+            "correct": false,
+            "reason": "室内改变了outdoors。"
+          },
+          {
+            "id": "easier",
+            "text": "风大时在户外打羽毛球更容易。",
+            "correct": false,
+            "reason": "更容易与harder相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "风大时在哪里更难？切换地点与难易，别把harder读成不可能。",
+          "sceneLab": {
+            "id": "badminton-wind",
+            "title": "户外与风大的条件",
+            "hint": "图只表达比较关系，不代表实测风速或绝对不能打。",
+            "wrong": "原句是风大时户外更难，不能换成只说室内或更容易。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "原句描述哪里",
+                "choices": [
+                  {
+                    "id": "out",
+                    "label": "户外"
+                  },
+                  {
+                    "id": "indoor",
+                    "label": "室内"
+                  }
+                ]
+              },
+              {
+                "id": "difficulty",
+                "label": "风大时怎样",
+                "choices": [
+                  {
+                    "id": "harder",
+                    "label": "更难"
+                  },
+                  {
+                    "id": "easier",
+                    "label": "更容易"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "风大的条件不变"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "difficulty",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "比较待选"
+                  },
+                  {
+                    "id": "wind-a",
+                    "kind": "line",
+                    "x": 13,
+                    "y": 44,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-b",
+                    "kind": "line",
+                    "x": 22,
+                    "y": 55,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-c",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 66,
+                    "width": 55,
+                    "height": 2,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "?|harder",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "风大的条件不变"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "difficulty",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "更难"
+                  },
+                  {
+                    "id": "wind-a",
+                    "kind": "line",
+                    "x": 13,
+                    "y": 44,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-b",
+                    "kind": "line",
+                    "x": 22,
+                    "y": 55,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-c",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 66,
+                    "width": 55,
+                    "height": 2,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "?|easier",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "风大的条件不变"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "difficulty",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "更容易"
+                  },
+                  {
+                    "id": "wind-a",
+                    "kind": "line",
+                    "x": 13,
+                    "y": 44,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-b",
+                    "kind": "line",
+                    "x": 22,
+                    "y": 55,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-c",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 66,
+                    "width": 55,
+                    "height": 2,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "out|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "风大的条件不变"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "户外"
+                  },
+                  {
+                    "id": "difficulty",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "比较待选"
+                  },
+                  {
+                    "id": "wind-a",
+                    "kind": "line",
+                    "x": 13,
+                    "y": 44,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-b",
+                    "kind": "line",
+                    "x": 22,
+                    "y": 55,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-c",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 66,
+                    "width": 55,
+                    "height": 2,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "out|harder",
+                "reading": "风大时在户外打羽毛球更难。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "风大的条件不变"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "户外"
+                  },
+                  {
+                    "id": "difficulty",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "更难"
+                  },
+                  {
+                    "id": "wind-a",
+                    "kind": "line",
+                    "x": 13,
+                    "y": 44,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-b",
+                    "kind": "line",
+                    "x": 22,
+                    "y": 55,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-c",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 66,
+                    "width": 55,
+                    "height": 2,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "out|easier",
+                "reading": "原句是风大时户外更难，不能换成只说室内或更容易。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "风大的条件不变"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "户外"
+                  },
+                  {
+                    "id": "difficulty",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "更容易"
+                  },
+                  {
+                    "id": "wind-a",
+                    "kind": "line",
+                    "x": 13,
+                    "y": 44,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-b",
+                    "kind": "line",
+                    "x": 22,
+                    "y": 55,
+                    "width": 61,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind-c",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 66,
+                    "width": 55,
+                    "height": 2,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "indoor|?",
+                "reading": "条件还没选全，先选一种解释。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "风大的条件不变"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "室内"
+                  },
+                  {
+                    "id": "difficulty",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "比较待选"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 39,
+                    "width": 70,
+                    "height": 31,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "indoor|harder",
+                "reading": "原句是风大时户外更难，不能换成只说室内或更容易。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "风大的条件不变"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "室内"
+                  },
+                  {
+                    "id": "difficulty",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "更难"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 39,
+                    "width": 70,
+                    "height": 31,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "indoor|easier",
+                "reading": "原句是风大时户外更难，不能换成只说室内或更容易。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "condition",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "风大的条件不变"
+                  },
+                  {
+                    "id": "place",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "室内"
+                  },
+                  {
+                    "id": "difficulty",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 79,
+                    "width": 96,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "更容易"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 39,
+                    "width": 70,
+                    "height": 31,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-sport-transfer",
+      "topicId": "v-course-sport",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成音乐会和风筝，哪组三句保留全部信息？",
+      "passage": "三条新信息\n音乐会在下雨前结束。别让风筝碰到树。风大时，在户外放风筝更难。\n词语提示：concert音乐会；kite风筝。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The concert ended after the rain began. Keep the kite from touching the tree. Flying a kite is harder outdoors when the wind is strong."
+        },
+        {
+          "id": "b",
+          "text": "The concert ended before the rain began. Let the kite touch the tree. Flying a kite is harder outdoors when the wind is strong."
+        },
+        {
+          "id": "c",
+          "text": "The concert ended before the rain began. Keep the kite from touching the tree. Flying a kite is harder outdoors when the wind is strong."
+        },
+        {
+          "id": "d",
+          "text": "The concert ended before the rain began. Keep the kite from touching the tree. Flying a kite is easier outdoors when the wind is strong."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The concert ended before the rain began. Keep the kite from touching the tree. Flying a kite is harder outdoors when the wind is strong."
+      },
+      "marks": 1,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "依次检查先后、阻止接触的要求，再核对户外与风大时的比较。",
+        "steps": [
+          {
+            "text": "The concert ended before the rain began.",
+            "reason": "before说明音乐会结束早于开始下雨，不可改成after。"
+          },
+          {
+            "text": "Keep the kite from touching the tree.",
+            "reason": "keep … from touching要求不接触树，不能改成让它接触。"
+          },
+          {
+            "text": "Flying a kite is harder outdoors when the wind is strong.",
+            "reason": "outdoors和when保留场景条件，harder不能换成easier。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "after颠倒音乐会结束与下雨的先后。"
+          },
+          {
+            "option": "b",
+            "reason": "Let … touch把禁止接触改成允许接触。"
+          },
+          {
+            "option": "d",
+            "reason": "easier把更难改成更容易。"
+          }
+        ],
+        "pitfall": "不漏before、from与harder，也不补已经成功或绝对不可能。",
+        "visual": {
+          "kind": "comparison",
+          "title": "先后、接触与比较",
+          "segments": [
+            {
+              "text": "before the rain began",
+              "role": "evidence",
+              "note": "开始下雨之前"
+            },
+            {
+              "text": "keep … from touching",
+              "role": "evidence",
+              "note": "别让……接触"
+            },
+            {
+              "text": "harder outdoors when …",
+              "role": "evidence",
+              "note": "在给定条件下户外更难"
+            }
+          ],
+          "caption": "核对限制词，不只核对名词。"
+        },
+        "transfer": "如果把harder换成easier，比较方向怎样改变？"
+      }
+    }
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "lessonId": "l-s-course-t20",
+  "reviewState": "draft",
+  "intent": "Introduce fictional volunteer Rao through recorded photograph provenance, date verification before display and supported contribution without invented awards.",
+  "picturePurpose": "Coded source/date fields and a reversible two-step workflow make evidence and sequence exact; a generated portrait cannot establish biographical truth.",
+  "workshop": {
+    "kind": "compose",
+    "title": "介绍贡献有依据：来源留住，年份查清",
+    "instruction": "先把Rao的虚构身份与具体工作分开核对，再排清查证与展示的顺序，最后用有依据的贡献评价代替夸张功绩。这里是虚构资料练习，不是真实人物传记。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "虚构身份与两项具体工作",
+        "prompt": "逐项核对人物资料：身份范围是什么？照片来源和年份分别怎样处理？",
+        "answer": "",
+        "reason": "虚构范围、来源记录和年份查证已核对。介绍贡献时先写清具体做了什么，不用编造奖项。",
+        "hint": "Rao是虚构志愿者，不借用真实人物传记。保留来源让人知道照片从哪来；查证年份不能只凭看起来很旧或故事精彩。",
+        "material": "说2—4句英文。介绍虚构志愿者 Rao 的贡献：保留照片资料来源、查证年份，不编造显赫功绩。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "身份 → 来源 → 年份",
+          "hint": "三项都来自本题，不添加真实履历或奖项。",
+          "wrong": "本题人物是虚构的；她记录照片从哪来，并对照记录查证年份。只凭外观猜年份、只选精彩说法或丢掉来源，都不符合题意。",
+          "fields": [
+            {
+              "id": "status",
+              "label": "人物资料的范围",
+              "answer": "fictional",
+              "choices": [
+                {
+                  "id": "fictional",
+                  "label": "A fictional volunteer profile."
+                },
+                {
+                  "id": "real",
+                  "label": "A verified biography of a real person."
+                },
+                {
+                  "id": "award",
+                  "label": "A confirmed national award winner."
+                }
+              ]
+            },
+            {
+              "id": "source",
+              "label": "怎样处理照片来源？",
+              "answer": "record",
+              "choices": [
+                {
+                  "id": "record",
+                  "label": "Keep a record of where each photograph came from."
+                },
+                {
+                  "id": "drop",
+                  "label": "Remove the source to make the display shorter."
+                },
+                {
+                  "id": "guess",
+                  "label": "Replace the source with a more exciting story."
+                }
+              ]
+            },
+            {
+              "id": "dates",
+              "label": "怎样处理照片年份？",
+              "answer": "check",
+              "choices": [
+                {
+                  "id": "check",
+                  "label": "Check the dates against records."
+                },
+                {
+                  "id": "looks",
+                  "label": "Guess the year from how old the photograph looks."
+                },
+                {
+                  "id": "popular",
+                  "label": "Choose the year mentioned in the most exciting story."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "查证在前，加入展示在后",
+        "prompt": "按本题参考工作流程，先选查证年份，再选加入展示；再说明核对依据。",
+        "answer": "",
+        "reason": "工作流程与查证依据已核对。自己的介绍可换自然表达，不把猜测写成确认。",
+        "hint": "这是对参考流程的理解，不规定自己的2—4句一定按这个顺序组织。先展示再查证会让未经核对的年份进入展示。",
+        "material": "说2—4句英文。介绍虚构志愿者 Rao 的贡献：保留照片资料来源、查证年份，不编造显赫功绩。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "先核对，再展示",
+          "hint": "顺序说清，还要知道查的是记录。",
+          "wrong": "日期要先与记录核对，再加入展示。外观和受欢迎程度不能替代记录；查证不保证所有资料永远不出错。",
+          "fields": [
+            {
+              "id": "basis",
+              "label": "查证年份时依据什么？",
+              "answer": "records",
+              "choices": [
+                {
+                  "id": "records",
+                  "label": "Relevant records that can be checked."
+                },
+                {
+                  "id": "appearance",
+                  "label": "The photograph looking old."
+                },
+                {
+                  "id": "drama",
+                  "label": "The story sounding dramatic."
+                }
+              ]
+            },
+            {
+              "id": "limit",
+              "label": "这项工作能支持什么结论？",
+              "answer": "care",
+              "choices": [
+                {
+                  "id": "care",
+                  "label": "It supports a careful display without inventing a story."
+                },
+                {
+                  "id": "certain",
+                  "label": "Every date is guaranteed to be correct forever."
+                },
+                {
+                  "id": "famous",
+                  "label": "It proves Rao won a major award."
+                }
+              ]
+            }
+          ]
+        },
+        "composeOrder": {
+          "title": "参考流程 · 查证 → 展示",
+          "hint": "先点核对年份，再点加入展示。这里核对流程，不强制自己段落的组织顺序。",
+          "wrong": "要先对照记录核对年份，再加入展示；不能先展示一个猜测的年份。",
+          "events": [
+            {
+              "id": "display",
+              "label": "加入展示"
+            },
+            {
+              "id": "check",
+              "label": "对照记录核对年份"
+            }
+          ],
+          "sequence": [
+            "check",
+            "display"
+          ]
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "赞扬具体贡献，不编夸张成就",
+        "prompt": "比较两个相连的评价角度，再核对口头表达形式。",
+        "answer": "",
+        "reason": "评价与具体工作已对应。接下来实际说2—4句，保留虚构范围、两项工作与有据的贡献。",
+        "hint": "可以侧重帮助参观者理解，也可以侧重保留来源、查证日期这份细致工作。两者相连，自己的评价不必照抄示例，但不能添加奖项或解决一切的结论。",
+        "material": "说2—4句英文。介绍虚构志愿者 Rao 的贡献：保留照片资料来源、查证年份，不编造显赫功绩。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "工作 → 有范围的贡献",
+          "hint": "选择侧重点，再配对应的评价。",
+          "wrong": "帮助理解与让资料更有依据都由具体工作支持；不能由此推断改变所有人的生活或获得重大奖项。原题要2—4句口头介绍，不是只列奖项。",
+          "fields": [
+            {
+              "id": "focus",
+              "label": "比较哪个评价角度？",
+              "answer": "visitors",
+              "choices": [
+                {
+                  "id": "visitors",
+                  "label": "帮助参观者理解照片"
+                },
+                {
+                  "id": "records",
+                  "label": "保留可核对的资料依据"
+                }
+              ]
+            },
+            {
+              "id": "contribution",
+              "label": "哪句与所选角度一致？",
+              "answer": "visitors-ok",
+              "choices": [
+                {
+                  "id": "visitors-ok",
+                  "label": "Her careful work helps visitors understand the photographs."
+                },
+                {
+                  "id": "records-ok",
+                  "label": "Her source and date records help keep the display grounded in evidence."
+                },
+                {
+                  "id": "all",
+                  "label": "Her work has solved every historical question for everyone."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题怎样完成？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four sentences about the fictional profile and its supported contribution."
+                },
+                {
+                  "id": "awards",
+                  "label": "Only list impressive awards that are not in the task."
+                },
+                {
+                  "id": "written",
+                  "label": "Write the answer without saying it aloud."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "focus",
+            "answers": {
+              "visitors": {
+                "contribution": "visitors-ok",
+                "form": "spoken"
+              },
+              "records": {
+                "contribution": "records-ok",
+                "form": "spoken"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t20-transfer",
+      "topicId": "s-course-t20",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪份口头介绍准确说明新人物的具体工作和贡献，没有编造履历？",
+      "passage": "新人物资料｜根据要点说2—4句英文\nLin是虚构志愿者。她记录每张旧地图（old maps）的来源，并在展示前对照记录核对印制日期（printing date）。细致的工作帮助参观者理解地图。没有提供真实传记或获奖记录。",
+      "options": [
+        {
+          "id": "a",
+          "text": "In this fictional profile, Lin records where each old map came from. She checks its printing date against records before displaying it. Her careful work helps visitors understand the maps."
+        },
+        {
+          "id": "b",
+          "text": "Lin records where each old map came from. She checks its printing date against records before displaying it. She is a real historian who has won a national award."
+        },
+        {
+          "id": "c",
+          "text": "In this fictional profile, Lin removes the source of each map. She chooses the date that makes the most exciting story. This is how she prepares the display."
+        },
+        {
+          "id": "d",
+          "text": "In this fictional profile, Lin works with old maps. Her work has answered every historical question for everyone. We do not need to explain how she checks the information."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "In this fictional profile, Lin records where each old map came from. She checks its printing date against records before displaying it. Her careful work helps visitors understand the maps."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "更新人物与资料对象，保留虚构范围和具体查证工作。",
+        "steps": [
+          {
+            "text": "新人物Lin也是虚构的，工作对象改为旧地图。她保留来源并核对印制日期后再展示。",
+            "reason": "不能把照片旧句照搬，也不能把虚构人物当成真实获奖人物。"
+          },
+          {
+            "text": "有依据的评价是帮助参观者理解地图，不是解决所有历史问题。",
+            "reason": "赞扬要由具体工作支持，不能添加奖项、猜年份或删来源。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "前两句准确，第三句却把虚构人物写成真实历史学家，还添加了没有依据的国家级奖项。"
+          },
+          {
+            "option": "c",
+            "reason": "把查证记录改成选精彩日期，还删除来源。"
+          },
+          {
+            "option": "d",
+            "reason": "夸大成果，且遗漏具体工作。"
+          }
+        ],
+        "pitfall": "为了赞扬贡献，把虚构人物说成真实名人或添加没有依据的功绩。",
+        "visual": {
+          "kind": "timeline",
+          "title": "新资料任务：地图来源与印制日期",
+          "segments": [
+            {
+              "text": "fictional Lin",
+              "role": "evidence",
+              "note": "身份范围"
+            },
+            {
+              "text": "record map sources",
+              "role": "evidence",
+              "note": "保留来源"
+            },
+            {
+              "text": "check printing dates",
+              "role": "evidence",
+              "note": "对照记录"
+            },
+            {
+              "text": "then display",
+              "role": "evidence",
+              "note": "查证在前"
+            }
+          ],
+          "caption": "具体工作支撑贡献评价，不靠夸张履历。"
+        },
+        "transfer": "如果两份记忆给出不同印制年份，应该先保留分歧查记录，还是挑一个听起来精彩的？为什么？"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+/** Compare only source-supported landing or first-fruit scope; no inferred ripe colour or total. */
+export interface WordFruitScene{title:string;hint:string;wrong:string;kind:'plum'|'strawberry'}
+export interface WordFruitSceneView{title:string;hint:string;kind:string;state:string;reading:string;choices:{id:string;label:string;selected:boolean}[];plum:{left:number;top:number}|null;berries:{id:string;red:boolean;unknown:boolean}[]}
+const ids={plum:['grass','above','basket'],strawberry:['first','all','future']}as const
+const labels={plum:['已落在草地上','还在草地上方','掉进篮子'],strawberry:['只记录第一颗已变红','记录全部都变红','记录第一颗将变红']}as const
+const bounded=(s:unknown,n:number)=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=n
+export function validWordFruitScene(v:unknown):v is WordFruitScene{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordFruitScene;return Object.keys(w).length===4&&Object.keys(w).every(k=>['title','hint','wrong','kind'].includes(k))&&(w.kind==='plum'||w.kind==='strawberry')&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordFruitSceneKey=(id:string)=>`workshopFruitScene-${id}`
+function validState(w:WordFruitScene,raw:string){return raw===''||ids[w.kind].some(id=>id===raw)}
+export const fruitSceneMatch=(w:WordFruitScene,raw:string)=>raw===ids[w.kind][0]
+export function changeFruitScene(w:WordFruitScene,raw:string,action:string):string|undefined{if(action==='reset')return'';return validState(w,raw)&&ids[w.kind].some(id=>id===action)?action:undefined}
+export function wordFruitSceneView(w:WordFruitScene,raw:string):WordFruitSceneView{const state=validState(w,raw)?raw:'';let reading='先选一种记录，再与原句比较。';if(w.kind==='plum'&&state)reading=state==='grass'?'李子已经落到草地上，保留dropped onto the grass；ripe由原词说明。':state==='above'?'还悬在上方，没有保留已经落到草地上的结果。':'篮子不是the grass表示的落点。';if(w.kind==='strawberry'&&state)reading=state==='first'?'只记录第一颗已经变红；其他草莓颜色与实际总数未知。':state==='all'?'first只限定第一颗，不能扩大为全部。':'turned red报告过去变化，不能改成将要变红。';return{title:w.title,hint:w.hint,kind:w.kind,state,reading,choices:ids[w.kind].map((id,j)=>({id,label:labels[w.kind][j],selected:state===id})),plum:w.kind==='plum'&&state?{left:state==='basket'?76:30,top:state==='above'?40:132}:null,berries:w.kind==='strawberry'&&state?Array.from({length:3},(_,j)=>({id:String(j),red:state==='all'||state==='first'&&j===0,unknown:state!=='all'&&(state!=='first'||j!==0)})):[]}}

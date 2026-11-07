@@ -1,0 +1,647 @@
+{
+  "lessonId": "l-v-course-core-actions-2",
+  "reviewState": "draft",
+  "intent": "Individually distinguish each-group different allocation, put-in placement, fixed-perspective bring, hope-find versus completed result, keep-state coverage, contextual leave-clear-path, let-base form and both help infinitive patterns.",
+  "picturePurpose": "Original three-way brush/jar placement comparison uses code-defined position labels; illustrative brush count and appearance do not establish source quantity, dryness or completion.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "分配、位置与顺序",
+    "instruction": "分颜色、选位置、摆顺序，再用英语表达。",
+    "items": [
+      {
+        "id": "word-give",
+        "label": "分配颜色（本句）",
+        "prompt": "给练习中的示例三组各分一种颜色，让组与组颜色不同。可以有几种排法？",
+        "answer": "give",
+        "caseSensitive": false,
+        "meaning": "分配颜色（本句）",
+        "before": "Please ",
+        "after": " each group a different colour.",
+        "reason": "give each group a different colour要求每组都有颜色且互不相同；没有规定某组必须哪种颜色。",
+        "hint": "每组一种、组间不同。这里用三组做练习。",
+        "material": "Please give each group a different colour.",
+        "wordDecision": {
+          "prompt": "给练习中的示例三组各分一种颜色，让组与组颜色不同。可以有几种排法？",
+          "colourAllocation": {
+            "title": "示例三组，分配不同颜色",
+            "hint": "假设三组练习，不代表原句的实际组数；只要每组都有且颜色不重复，任意排列都可以。",
+            "wrong": "每个示例组都要有一种颜色，且组与组不重复。部分分配或重复颜色都不符合；不要求固定红蓝绿顺序。"
+          }
+        },
+        "options": [
+          {
+            "id": "distinct",
+            "text": "示例每组都有一种颜色，而且各组不重复。",
+            "correct": true,
+            "reason": "each group要求每组，different要求组与组不同；不是只有一种固定分配。"
+          },
+          {
+            "id": "same",
+            "text": "三组必须全部用同一种颜色。",
+            "correct": false,
+            "reason": "同一种颜色违反a different colour的不同要求。"
+          },
+          {
+            "id": "partial",
+            "text": "只给一组颜色，其他组可以没有。",
+            "correct": false,
+            "reason": "each group要求每组都有，不能漏掉其他组。"
+          }
+        ],
+        "ownForms": [
+          "give",
+          "gives",
+          "gave",
+          "given",
+          "giving"
+        ]
+      },
+      {
+        "id": "word-put",
+        "label": "放进罐子（本句）",
+        "prompt": "把干刷子放进高罐子。哪幅示意符合in，而不是搭在罐口或放在旁边？",
+        "answer": "Put",
+        "caseSensitive": true,
+        "meaning": "放进罐子（本句）",
+        "before": "",
+        "after": " the dry brushes in the tall jar.",
+        "reason": "Put…in…要求把刷子放进罐子；这是指令，图只是预期位置的比较。",
+        "hint": "句首Put大写；放置义的过去式也是put。",
+        "material": "Put the dry brushes in the tall jar.",
+        "wordDecision": {
+          "prompt": "把干刷子放进高罐子。哪幅示意符合in，而不是搭在罐口或放在旁边？",
+          "art": {
+            "asset": "lesson-brush-jar",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创位置比较：左侧刷柄在高玻璃罐内，中间刷子横搭罐口，右侧刷子在空罐旁边桌上；无可见水渍。",
+            "caption": "比较指令要求的位置。图中数量仅作示意。",
+            "targets": [
+              {
+                "id": "inside",
+                "option": "inside",
+                "label": "罐内",
+                "labelPosition": "top",
+                "left": 1,
+                "top": 3,
+                "width": 29,
+                "height": 90
+              },
+              {
+                "id": "mouth",
+                "option": "mouth",
+                "label": "罐口",
+                "labelPosition": "top",
+                "left": 32,
+                "top": 3,
+                "width": 31,
+                "height": 90
+              },
+              {
+                "id": "beside",
+                "option": "beside",
+                "label": "罐外",
+                "labelPosition": "top",
+                "left": 66,
+                "top": 3,
+                "width": 32,
+                "height": 90
+              }
+            ],
+            "evidence": [
+              {
+                "option": "inside",
+                "caption": "刷柄伸进罐体内，位置符合in the tall jar。",
+                "regions": [
+                  {
+                    "id": "inside-region",
+                    "label": "罐内",
+                    "left": 9,
+                    "top": 29,
+                    "width": 12,
+                    "height": 55
+                  }
+                ]
+              },
+              {
+                "option": "mouth",
+                "caption": "刷子横搭开口，罐体内部仍空着；不是放进罐内。",
+                "regions": [
+                  {
+                    "id": "mouth-region",
+                    "label": "罐口",
+                    "left": 32,
+                    "top": 21,
+                    "width": 30,
+                    "height": 17
+                  }
+                ]
+              },
+              {
+                "option": "beside",
+                "caption": "刷子与罐子分开，留在桌面上；不是in。",
+                "regions": [
+                  {
+                    "id": "beside-region",
+                    "label": "罐外",
+                    "left": 81,
+                    "top": 59,
+                    "width": 17,
+                    "height": 32
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "inside",
+            "text": "刷柄在罐内，刷子放进了罐子。",
+            "correct": true,
+            "reason": "这是指令要求的位置示意；不证明现实中已经放好。"
+          },
+          {
+            "id": "mouth",
+            "text": "把刷子横搭在罐口就等于放进罐内。",
+            "correct": false,
+            "reason": "横搭在口沿是顶端位置，不是把刷柄放进罐内。"
+          },
+          {
+            "id": "beside",
+            "text": "刷子留在罐子旁边的桌上即可。",
+            "correct": false,
+            "reason": "旁边是beside的位置，不符合本句in the tall jar。"
+          }
+        ],
+        "ownForms": [
+          "put",
+          "puts",
+          "putting"
+        ]
+      },
+      {
+        "usage": {
+          "left": "出发的地方",
+          "right": "说话者所在的讨论现场",
+          "object": "notes",
+          "caption": "在这个示意情境中，说话者已在讨论现场，希望笔记朝这里来。",
+          "alternatives": {
+            "bring": "right",
+            "take": "left"
+          }
+        },
+        "id": "word-bring",
+        "label": "带来笔记（本句）",
+        "prompt": "在这张固定视角示意中，笔记要往讨论现场来。带来与带走的箭头怎样变？",
+        "answer": "Bring",
+        "caseSensitive": true,
+        "meaning": "带来笔记（本句）",
+        "before": "",
+        "after": " your notes to the discussion.",
+        "reason": "Bring your notes to the discussion要求带着笔记来讨论；这张图额外假设说话者已经在讨论现场。",
+        "hint": "句首Bring大写。图中说话者在讨论现场，“带来”是朝这里来。",
+        "material": "Bring your notes to the discussion.",
+        "wordDecision": {
+          "prompt": "在这张固定视角示意中，笔记要往讨论现场来。带来与带走的箭头怎样变？"
+        },
+        "options": [
+          {
+            "id": "toward",
+            "text": "在本图的视角下，把笔记带到说话者所在的讨论现场。",
+            "correct": true,
+            "reason": "bring配合本图额外给定的讨论现场视角。"
+          },
+          {
+            "id": "away",
+            "text": "在本图视角下，把笔记从现场带走。",
+            "correct": false,
+            "reason": "这与带来讨论现场的方向相反；不是本句要求。"
+          },
+          {
+            "id": "done",
+            "text": "已经把笔记送到，而且讨论结束了。",
+            "correct": false,
+            "reason": "指令没有证明实际送达或讨论结束。"
+          }
+        ],
+        "ownForms": [
+          "bring",
+          "brings",
+          "brought",
+          "bringing"
+        ]
+      },
+      {
+        "id": "word-find",
+        "label": "找到（本句）",
+        "prompt": "hope we find：是希望找到，还是已经找到？圈出有依据的两条。",
+        "answer": "find",
+        "caseSensitive": false,
+        "meaning": "找到（本句）",
+        "before": "I hope we ",
+        "after": " the missing tent peg.",
+        "reason": "find在这里指找到这个结果，但I hope说明希望它实现，并没有宣布已经找到。",
+        "hint": "find是“找到”，look for是“寻找”。hope说明结果仍是希望。",
+        "material": "I hope we find the missing tent peg.",
+        "wordDecision": {
+          "prompt": "hope we find：是希望找到，还是已经找到？圈出有依据的两条。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "找到是希望，还是记录？",
+            "prompt": "圈出原句支持的内容，不补已找到的位置。",
+            "hint": "missing说明丢失，hope说明希望；结果是否实现仍未知。",
+            "wrong": "原句说钉子丢失，并希望找到；没有实际找到的位置或完成记录。",
+            "rows": [
+              {
+                "id": "missing",
+                "label": "物品状态",
+                "text": "希望找的是丢失的帐篷钉。",
+                "include": true
+              },
+              {
+                "id": "hope",
+                "label": "说话语气",
+                "text": "希望能够找到它。",
+                "include": true
+              },
+              {
+                "id": "location",
+                "label": "额外结果",
+                "text": "已经在草地下找到。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "hope",
+            "text": "希望找到丢失的帐篷钉，还没有说明是否找到。",
+            "correct": true,
+            "reason": "保留hope与missing，不把希望变成完成事实。"
+          },
+          {
+            "id": "found",
+            "text": "已经在草地下找到帐篷钉。",
+            "correct": false,
+            "reason": "原句没有说已经找到，更没有给出草地下这个位置。"
+          },
+          {
+            "id": "search",
+            "text": "find在本句只表示寻找过程，永远不涉及结果。",
+            "correct": false,
+            "reason": "find本身是找到的结果；本句通过hope说明这是希望实现的结果。"
+          }
+        ],
+        "ownForms": [
+          "find",
+          "finds",
+          "found",
+          "finding"
+        ]
+      },
+      {
+        "id": "word-keep",
+        "label": "保持盖好状态（本句）",
+        "prompt": "把盖好状态放到时间条上：怎样才是keep the lid on while the rice cooks？",
+        "answer": "Keep",
+        "caseSensitive": true,
+        "meaning": "保持盖好状态（本句）",
+        "before": "",
+        "after": " the lid on while the rice cooks.",
+        "reason": "keep要求保持盖好，不是煮饭前盖一下，煮到一半就揭开。",
+        "hint": "句首Keep大写。看时间条：盖好状态要覆盖整段煮饭时间。",
+        "material": "Keep the lid on while the rice cooks.",
+        "wordDecision": {
+          "prompt": "把盖好状态放到时间条上：怎样才是keep the lid on while the rice cooks？",
+          "lidCoverage": {
+            "title": "盖好状态，要覆盖哪段？",
+            "hint": "比较盖好状态与煮饭区间；没有实际时长。",
+            "wrong": "盖好状态须覆盖整段煮饭时间；只在之前盖好或中途揭开，都不符合keep。"
+          }
+        },
+        "options": [
+          {
+            "id": "maintain",
+            "text": "盖好状态要保持在煮饭的整段期间。",
+            "correct": true,
+            "reason": "keep the lid on表示维持状态，while限定这里的时间范围。"
+          },
+          {
+            "id": "once",
+            "text": "开始前盖一下，煮饭时全程揭开也符合。",
+            "correct": false,
+            "reason": "一次盖好但未保持煮饭期间的状态，不符合keep。"
+          },
+          {
+            "id": "done",
+            "text": "这句话证明米饭已经熟了。",
+            "correct": false,
+            "reason": "原句是保持状态的要求，不是熟度检测或完成报告。"
+          }
+        ],
+        "ownForms": [
+          "keep",
+          "keeps",
+          "kept",
+          "keeping"
+        ]
+      },
+      {
+        "id": "word-leave",
+        "label": "留出通道（本句）",
+        "prompt": "leave a clear path在这里要留出什么？是否是在要求所有人离开？",
+        "answer": "leave",
+        "caseSensitive": false,
+        "meaning": "留出通道（本句）",
+        "before": "Please ",
+        "after": " a clear path to the door.",
+        "reason": "leave在本句是留出、保持一条通往门口的畅通通道，不是单独表示人离开。",
+        "hint": "看宾语a clear path：留出通道，不是让人离开。",
+        "material": "Please leave a clear path to the door.",
+        "wordDecision": {
+          "prompt": "leave a clear path在这里要留出什么？是否是在要求所有人离开？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "leave：留出，还是离开？",
+            "prompt": "圈出这条要求的对象和目的方向。",
+            "hint": "保留clear path和to the door，不把它改成人离开的要求。",
+            "wrong": "原句要求通道畅通、通往门口；没有要求所有人立即离开。",
+            "rows": [
+              {
+                "id": "clear",
+                "label": "通道要求",
+                "text": "留出畅通的通道。",
+                "include": true
+              },
+              {
+                "id": "door",
+                "label": "通往哪里",
+                "text": "通道通往门口。",
+                "include": true
+              },
+              {
+                "id": "depart",
+                "label": "额外指令",
+                "text": "所有人必须立刻离开。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "clear",
+            "text": "留出一条通往门口的畅通通道。",
+            "correct": true,
+            "reason": "a clear path是所留出的对象，to the door说明方向。"
+          },
+          {
+            "id": "depart",
+            "text": "所有人立刻从门口离开。",
+            "correct": false,
+            "reason": "本句leave的宾语是a clear path，要求留出通道，不是报告人离开。"
+          },
+          {
+            "id": "block",
+            "text": "用箱子把通道封住。",
+            "correct": false,
+            "reason": "封住通道与clear畅通相反。"
+          }
+        ],
+        "ownForms": [
+          "leave",
+          "leaves",
+          "left",
+          "leaving"
+        ]
+      },
+      {
+        "id": "word-let",
+        "label": "让油漆变干（本句）",
+        "prompt": "先让油漆干，再接触。摆顺序后选Let后面的正确结构。",
+        "answer": "Let",
+        "caseSensitive": true,
+        "meaning": "让油漆变干（本句）",
+        "before": "",
+        "after": " the paint dry before you touch it.",
+        "reason": "Let the paint dry：let后接宾语the paint，再接原形dry，不加to。",
+        "hint": "句首Let大写；let＋宾语＋动词原形。",
+        "material": "Let the paint dry before you touch it.",
+        "wordDecision": {
+          "prompt": "先让油漆干，再接触。摆顺序后选Let后面的正确结构。",
+          "processOrder": {
+            "title": "先干，再接触 · 题意顺序",
+            "hint": "按before摆顺序；原句没有说要等几分钟。",
+            "wrong": "原句要求让油漆先变干，再接触；不能先接触再等变干。",
+            "events": [
+              {
+                "id": "dry",
+                "label": "变干"
+              },
+              {
+                "id": "touch",
+                "label": "接触"
+              }
+            ],
+            "sequence": [
+              "dry",
+              "touch"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "base",
+            "text": "Let the paint dry：let＋宾语＋动词原形。",
+            "correct": true,
+            "reason": "paint是宾语，dry用原形；本句不用to dry。"
+          },
+          {
+            "id": "to",
+            "text": "Let the paint to dry：let后必须加to。",
+            "correct": false,
+            "reason": "本句let＋宾语＋动词原形不加to。"
+          },
+          {
+            "id": "first-touch",
+            "text": "先接触，再等油漆干。",
+            "correct": false,
+            "reason": "把before要求的先后倒过来了。"
+          }
+        ],
+        "ownForms": [
+          "let",
+          "lets",
+          "letting"
+        ]
+      },
+      {
+        "id": "word-help",
+        "label": "帮助搬长椅（本句）",
+        "prompt": "help me carry和help me to carry，哪一种可以？圈出可用的两种结构。",
+        "answer": "help",
+        "caseSensitive": false,
+        "meaning": "帮助搬长椅（本句）",
+        "before": "Can you ",
+        "after": " me carry this bench?",
+        "reason": "help me carry和help me to carry都可以；Can you…?是在请求帮忙，不证明对方已经搬完。",
+        "hint": "help后的to可有可无；let后不加to。",
+        "material": "Can you help me carry this bench?",
+        "wordDecision": {
+          "prompt": "help me carry和help me to carry，哪一种可以？圈出可用的两种结构。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "两种help结构，都认出来",
+            "prompt": "圈出这次请求中两种语法可行的表达。",
+            "hint": "to可以省略，也可以保留；不添加已经完成的意思。",
+            "wrong": "help me carry和help me to carry都可用；请求不证明已完成。",
+            "rows": [
+              {
+                "id": "bare",
+                "label": "省略to",
+                "text": "Can you help me carry this bench?",
+                "include": true
+              },
+              {
+                "id": "with-to",
+                "label": "保留to",
+                "text": "Can you help me to carry this bench?",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经独自搬运完成。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "both",
+            "text": "help me carry和help me to carry都可以。",
+            "correct": true,
+            "reason": "help后的不定式可带to，也可省to；别把let的规则照搬过来。"
+          },
+          {
+            "id": "ban-to",
+            "text": "help后出现to在任何句子中都算错。",
+            "correct": false,
+            "reason": "本句help me to carry语法成立，to可以保留。"
+          },
+          {
+            "id": "done",
+            "text": "对方已经独自把长椅搬完。",
+            "correct": false,
+            "reason": "请求帮忙不等于已经答应或完成，更没有说独自搬运。"
+          }
+        ],
+        "ownForms": [
+          "help",
+          "helps",
+          "helped",
+          "helping"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-core-actions-2-transfer",
+      "topicId": "v-course-core-actions",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "换成标记、笔和胶水：哪份三句提示保留了新要求？",
+      "passage": "制作活动提示\n给每队分配不同的标记。把干笔放进盒子里面。等胶水变干后再接触。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Give every team the same symbol. Put the dry pens inside the box. Let the glue dry before you touch it."
+        },
+        {
+          "id": "b",
+          "text": "Give every team a different symbol. Put the dry pens inside the box. Let the glue dry before you touch it."
+        },
+        {
+          "id": "c",
+          "text": "Give every team a different symbol. Leave the dry pens beside the box. Let the glue dry before you touch it."
+        },
+        {
+          "id": "d",
+          "text": "Give every team a different symbol. Put the dry pens inside the box. Touch the glue before it dries."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Give every team a different symbol. Put the dry pens inside the box. Let the glue dry before you touch it."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对每个对象的分配、物品的位置和指令的先后。",
+        "steps": [
+          {
+            "text": "every team a different symbol要求每队都有、且标记不同。",
+            "reason": "不把different改成same，也不补实际队数。"
+          },
+          {
+            "text": "笔在盒内；先让胶水干，再接触。",
+            "reason": "inside不是beside；before不能倒置。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把各队不同标记改成相同。"
+          },
+          {
+            "option": "c",
+            "reason": "把盒内改成盒旁，位置不同。"
+          },
+          {
+            "option": "d",
+            "reason": "把胶水变干与接触的顺序倒置。"
+          }
+        ],
+        "pitfall": "看到熟悉词就选，却没核对不同、内外和先后。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三个要求分开核对",
+          "segments": [
+            {
+              "text": "each team → different symbol",
+              "role": "evidence",
+              "note": "每队不同"
+            },
+            {
+              "text": "pens → inside the box",
+              "role": "evidence",
+              "note": "在盒内"
+            },
+            {
+              "text": "glue dries → touch",
+              "role": "evidence",
+              "note": "先干后接触"
+            }
+          ],
+          "caption": "练习示例不提供实际数量、钟点或干燥测量。"
+        },
+        "transfer": "如果各队的标记分配顺序换了，但仍互不相同，是否还满足要求？不要只记一个排列。"
+      }
+    }
+  }
+}

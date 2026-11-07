@@ -1,0 +1,1194 @@
+{
+  "lessonId": "l-v-course-living-nature-3",
+  "reviewState": "draft",
+  "intent": "Teach evidence boundaries, species versus individual counts, insect positions, butterfly wing state and size ratios.",
+  "picturePurpose": "Original insect identification supports bee recognition; reversible diagrams and evidence selections teach sentence conditions.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "生态观察：原句能证明什么",
+    "instruction": "辨认昆虫，移动位置，再圈出有证据的信息。",
+    "items": [
+      {
+        "id": "word-wildlife",
+        "label": "野生生物",
+        "prompt": "Keep…away from要求怎样做？圈出原句中的对象与要求。",
+        "answer": "wildlife",
+        "caseSensitive": false,
+        "meaning": "野生生物",
+        "before": "Keep dogs away from nesting ",
+        "after": ".",
+        "reason": "Keep dogs away from nesting wildlife要求不让狗靠近正在筑巢的野生生物。wildlife是集合名词，通常不可数；原句不报告狗已经造成伤害。",
+        "hint": "找dogs、away from和nesting，别补上已经发生的后果。",
+        "material": "Keep dogs away from nesting wildlife.",
+        "options": [
+          {
+            "id": "away",
+            "text": "不让狗靠近正在筑巢的野生生物。",
+            "correct": true,
+            "reason": "保留对象、筑巢状态和远离要求。"
+          },
+          {
+            "id": "near",
+            "text": "让狗靠近并观察巢穴。",
+            "correct": false,
+            "reason": "靠近与away from相反。"
+          },
+          {
+            "id": "hurt",
+            "text": "原句报告狗已经伤害了动物。",
+            "correct": false,
+            "reason": "要求保持距离不等于已经发生伤害。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "Keep…away from要求怎样做？圈出原句中的对象与要求。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "要求与对象",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "只读句中要求，不补已经发生的伤害。",
+            "wrong": "应圈出狗要远离和正在筑巢，不选靠近或已受伤。",
+            "rows": [
+              {
+                "id": "away",
+                "label": "要求",
+                "text": "不让狗靠近。",
+                "include": true
+              },
+              {
+                "id": "hurt",
+                "label": "额外后果",
+                "text": "动物已经被狗弄伤。",
+                "include": false
+              },
+              {
+                "id": "nest",
+                "label": "对象状态",
+                "text": "野生生物正在筑巢。",
+                "include": true
+              },
+              {
+                "id": "near",
+                "label": "相反要求",
+                "text": "让狗靠近巢穴。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-habitat",
+        "label": "栖息地",
+        "prompt": "湿地是怎样的栖息地？能推出所有鸟都只住在这里吗？",
+        "answer": "habitat",
+        "caseSensitive": false,
+        "meaning": "栖息地",
+        "before": "The wetland is an important ",
+        "after": " for birds.",
+        "reason": "an important habitat说一个重要栖息地。for birds说明相关生物是鸟类，不能推出这是所有鸟唯一的栖息地。",
+        "hint": "重要不等于唯一；不要把birds扩成all birds。",
+        "material": "The wetland is an important habitat for birds.",
+        "options": [
+          {
+            "id": "important",
+            "text": "湿地是鸟类的一个重要栖息地。",
+            "correct": true,
+            "reason": "保留an important和for birds。"
+          },
+          {
+            "id": "only",
+            "text": "所有鸟都只在这片湿地生活。",
+            "correct": false,
+            "reason": "原句没有all或only。"
+          },
+          {
+            "id": "none",
+            "text": "这片湿地不是鸟类的栖息地。",
+            "correct": false,
+            "reason": "与is an important habitat相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "湿地是怎样的栖息地？能推出所有鸟都只住在这里吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "重要与唯一",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "栖息地是自然生活的环境；不把重要改成唯一。",
+            "wrong": "应选湿地与重要栖息地，不选唯一或所有鸟。",
+            "rows": [
+              {
+                "id": "wetland",
+                "label": "环境",
+                "text": "句中说的是湿地。",
+                "include": true
+              },
+              {
+                "id": "only",
+                "label": "额外排除",
+                "text": "这里是鸟类唯一的栖息地。",
+                "include": false
+              },
+              {
+                "id": "habitat",
+                "label": "作用",
+                "text": "这里是鸟类的重要栖息地。",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "额外范围",
+                "text": "所有鸟都住在这里。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-species",
+        "label": "物种",
+        "prompt": "several species数的是种类，还是几只蝴蝶？",
+        "answer": "species",
+        "caseSensitive": false,
+        "meaning": "物种",
+        "before": "Several ",
+        "after": " of butterfly live here.",
+        "reason": "species表示物种，单复数同形。Several species of butterfly是几种蝴蝶，不是几只；原句没有给个体总数或确切种数。",
+        "hint": "数种类和数个体是两件事。",
+        "material": "Several species of butterfly live here.",
+        "options": [
+          {
+            "id": "kinds",
+            "text": "这里生活着几种蝴蝶。",
+            "correct": true,
+            "reason": "several species是几种，不是几只。"
+          },
+          {
+            "id": "individuals",
+            "text": "这里总共只有几只蝴蝶。",
+            "correct": false,
+            "reason": "物种数量不等于个体总数。"
+          },
+          {
+            "id": "three",
+            "text": "这里恰好有三种蝴蝶。",
+            "correct": false,
+            "reason": "several没有给确切的三种。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "several species数的是种类，还是几只蝴蝶？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "种类与个体",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "several是不确定的几个；不指定三种或个体总数。",
+            "wrong": "应圈出多种蝴蝶在这里生活，不选三种或个体总数。",
+            "rows": [
+              {
+                "id": "kinds",
+                "label": "种类",
+                "text": "有几种蝴蝶。",
+                "include": true
+              },
+              {
+                "id": "three",
+                "label": "额外精确数",
+                "text": "恰好三种。",
+                "include": false
+              },
+              {
+                "id": "live",
+                "label": "地点",
+                "text": "它们在这里生活。",
+                "include": true
+              },
+              {
+                "id": "total",
+                "label": "额外个体数",
+                "text": "原句给出了蝴蝶个体总数。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-insect",
+        "label": "昆虫",
+        "prompt": "昆虫落在哪里？移动标记到袖子上或旁边。",
+        "answer": "insect",
+        "caseSensitive": false,
+        "meaning": "昆虫",
+        "before": "An ",
+        "after": " landed on my sleeve.",
+        "reason": "An insect landed on my sleeve说一只昆虫落在我的袖子上，不是袖子旁边，也没有说明是哪一种昆虫或是否叮咬。",
+        "hint": "on表示在表面上；An与insect的元音音素开头相配。",
+        "material": "An insect landed on my sleeve.",
+        "options": [
+          {
+            "id": "on",
+            "text": "一只昆虫落在我的袖子上。",
+            "correct": true,
+            "reason": "保留landed on my sleeve。"
+          },
+          {
+            "id": "beside",
+            "text": "一只昆虫落在袖子旁边。",
+            "correct": false,
+            "reason": "旁边改变了on。"
+          },
+          {
+            "id": "bit",
+            "text": "昆虫叮咬了我的手臂。",
+            "correct": false,
+            "reason": "landed不等于bit，sleeve也不是手臂。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "昆虫落在哪里？移动标记到袖子上或旁边。",
+          "sceneLab": {
+            "id": "insect-sleeve-position",
+            "title": "昆虫与袖子的位置",
+            "hint": "标记仅表示位置；不画叮咬或推断昆虫种类。",
+            "wrong": "应在袖子表面，不能移到旁边。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "昆虫落在哪里",
+                "choices": [
+                  {
+                    "id": "on",
+                    "label": "袖子表面"
+                  },
+                  {
+                    "id": "beside",
+                    "label": "袖子旁边"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "sleeve",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 39,
+                    "width": 45,
+                    "height": 28,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "昆虫落点：袖子上与旁边"
+                  },
+                  {
+                    "id": "sleeve-label",
+                    "kind": "label",
+                    "x": 13,
+                    "y": 75,
+                    "width": 40,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "袖子"
+                  },
+                  {
+                    "id": "unknown",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "落点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "on",
+                "reading": "昆虫落在我的袖子上。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "sleeve",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 39,
+                    "width": 45,
+                    "height": 28,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "insect-marker",
+                    "kind": "ellipse",
+                    "x": 32,
+                    "y": 48,
+                    "width": 8,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "昆虫落点：袖子上与旁边"
+                  },
+                  {
+                    "id": "sleeve-label",
+                    "kind": "label",
+                    "x": 13,
+                    "y": 75,
+                    "width": 40,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "袖子"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "袖子表面"
+                  }
+                ]
+              },
+              {
+                "signature": "beside",
+                "reading": "应在袖子表面，不能移到旁边。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "sleeve",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 39,
+                    "width": 45,
+                    "height": 28,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "insect-marker",
+                    "kind": "ellipse",
+                    "x": 77,
+                    "y": 48,
+                    "width": 8,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "昆虫落点：袖子上与旁边"
+                  },
+                  {
+                    "id": "sleeve-label",
+                    "kind": "label",
+                    "x": 13,
+                    "y": 75,
+                    "width": 40,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "袖子"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "袖子旁边"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bee",
+        "label": "蜜蜂",
+        "prompt": "点出bee，再找它在什么花之间活动。",
+        "answer": "bee",
+        "caseSensitive": false,
+        "meaning": "蜜蜂",
+        "before": "A ",
+        "after": " moved between the lavender flowers.",
+        "reason": "bee是蜜蜂，与be同音。between the lavender flowers说在薰衣草花之间活动；原句不证明已经完成授粉，也没有说具体几朵花。",
+        "hint": "图片辨认蜜蜂；花的种类和between来自文字。",
+        "material": "A bee moved between the lavender flowers.",
+        "options": [
+          {
+            "id": "bee",
+            "text": "蜜蜂。",
+            "correct": true,
+            "reason": "上排是蜜蜂，不是蝴蝶或蚊子。"
+          },
+          {
+            "id": "butterfly",
+            "text": "蝴蝶。",
+            "correct": false,
+            "reason": "中排是蝴蝶，不是bee。"
+          },
+          {
+            "id": "mosquito",
+            "text": "蚊子。",
+            "correct": false,
+            "reason": "下排是蚊子，不是bee。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出bee，再找它在什么花之间活动。",
+          "art": {
+            "asset": "lesson-bee-butterfly-mosquito-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创昆虫对照：上排蜜蜂，中排在叶上合翅的蝴蝶，下排蚊子。独立样本不按实际大小比例；不表示授粉、叮咬、帐篷或活动路线。",
+            "targets": [
+              {
+                "id": "bee-target",
+                "option": "bee",
+                "label": "蜜蜂",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 0,
+                "width": 94,
+                "height": 34
+              },
+              {
+                "id": "butterfly-target",
+                "option": "butterfly",
+                "label": "蝴蝶",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 34,
+                "width": 94,
+                "height": 33
+              },
+              {
+                "id": "mosquito-target",
+                "option": "mosquito",
+                "label": "蚊子",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 67,
+                "width": 94,
+                "height": 33
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-butterfly",
+        "label": "蝴蝶",
+        "prompt": "蝴蝶在叶子上合翅还是展翅？切换示意状态。",
+        "answer": "butterfly",
+        "caseSensitive": false,
+        "meaning": "蝴蝶",
+        "before": "The ",
+        "after": " closed its wings on the leaf.",
+        "reason": "closed its wings说合起翅膀，on the leaf说在叶子上，不是展翅飞走。示意图只比较翅膀状态，不证明睡觉、休息时长或受伤。",
+        "hint": "closed是合起，不是opened；复数butterflies把y改为ies。",
+        "material": "The butterfly closed its wings on the leaf.",
+        "options": [
+          {
+            "id": "closed",
+            "text": "蝴蝶在叶子上合起翅膀。",
+            "correct": true,
+            "reason": "保留closed its wings和on the leaf。"
+          },
+          {
+            "id": "open",
+            "text": "蝴蝶在叶子上展开翅膀。",
+            "correct": false,
+            "reason": "展开改变了closed。"
+          },
+          {
+            "id": "flew",
+            "text": "蝴蝶离开叶子飞走了。",
+            "correct": false,
+            "reason": "原句没有飞离叶子的动作。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "蝴蝶在叶子上合翅还是展翅？切换示意状态。",
+          "sceneLab": {
+            "id": "butterfly-wing-state",
+            "title": "翅膀合起还是展开",
+            "hint": "用抽象翼形比较合翅与展翅；叶子位置固定，不是解剖图或动作录像。",
+            "wrong": "应合起翅膀，不能展开或移走叶子。",
+            "axes": [
+              {
+                "id": "state",
+                "label": "翅膀的状态",
+                "choices": [
+                  {
+                    "id": "closed",
+                    "label": "合起"
+                  },
+                  {
+                    "id": "open",
+                    "label": "展开"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "leaf",
+                    "kind": "ellipse",
+                    "x": 15,
+                    "y": 60,
+                    "width": 70,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "抽象翼形：只比较合起与展开"
+                  },
+                  {
+                    "id": "leaf-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "叶子位置固定"
+                  },
+                  {
+                    "id": "unknown",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 20,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "翅膀状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "closed",
+                "reading": "蝴蝶在叶子上合起翅膀。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "leaf",
+                    "kind": "ellipse",
+                    "x": 15,
+                    "y": 60,
+                    "width": 70,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wing-closed",
+                    "kind": "ellipse",
+                    "x": 47,
+                    "y": 30,
+                    "width": 9,
+                    "height": 32,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 57,
+                    "width": 5,
+                    "height": 6,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "抽象翼形：只比较合起与展开"
+                  },
+                  {
+                    "id": "leaf-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "叶子位置固定"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "翅膀合起"
+                  }
+                ]
+              },
+              {
+                "signature": "open",
+                "reading": "应合起翅膀，不能展开或移走叶子。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "leaf",
+                    "kind": "ellipse",
+                    "x": 15,
+                    "y": 60,
+                    "width": 70,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wing-left",
+                    "kind": "ellipse",
+                    "x": 25,
+                    "y": 38,
+                    "width": 25,
+                    "height": 19,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "wing-right",
+                    "kind": "ellipse",
+                    "x": 53,
+                    "y": 38,
+                    "width": 25,
+                    "height": 19,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "body",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 40,
+                    "width": 5,
+                    "height": 23,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "抽象翼形：只比较合起与展开"
+                  },
+                  {
+                    "id": "leaf-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "叶子位置固定"
+                  },
+                  {
+                    "id": "state",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 18,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "翅膀展开"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-ant",
+        "label": "蚂蚁",
+        "prompt": "twice its size表示几倍？能换成重量或长度吗？",
+        "answer": "ant",
+        "caseSensitive": false,
+        "meaning": "蚂蚁",
+        "before": "An ",
+        "after": " carried a crumb twice its size.",
+        "reason": "twice its size说碎屑大小是蚂蚁的两倍，中文可说比自身大一倍；不是三倍。原句没有指定长度、重量或面积的测量方式。",
+        "hint": "twice是两倍；不能擅自改成两倍重或两倍长。",
+        "material": "An ant carried a crumb twice its size.",
+        "options": [
+          {
+            "id": "twice",
+            "text": "碎屑大小是蚂蚁的两倍。",
+            "correct": true,
+            "reason": "保留twice its size，不添加测量单位。"
+          },
+          {
+            "id": "three",
+            "text": "碎屑大小是蚂蚁的三倍。",
+            "correct": false,
+            "reason": "三倍改变了twice。"
+          },
+          {
+            "id": "weight",
+            "text": "碎屑重量是蚂蚁的两倍。",
+            "correct": false,
+            "reason": "size没有提供重量。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "twice its size表示几倍？能换成重量或长度吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "倍数与测量范围",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "只检查大小两倍和搬运，不补具体长度、重量或单位。",
+            "wrong": "应选两倍大小和搬着碎屑，不选三倍或两倍重。",
+            "rows": [
+              {
+                "id": "twice",
+                "label": "倍数",
+                "text": "碎屑大小是蚂蚁的两倍。",
+                "include": true
+              },
+              {
+                "id": "weight",
+                "label": "额外测量",
+                "text": "碎屑重量是蚂蚁的两倍。",
+                "include": false
+              },
+              {
+                "id": "carry",
+                "label": "动作",
+                "text": "蚂蚁搬着碎屑。",
+                "include": true
+              },
+              {
+                "id": "three",
+                "label": "改动倍数",
+                "text": "碎屑大小是蚂蚁的三倍。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-mosquito",
+        "label": "蚊子",
+        "prompt": "蚊子在入口附近，还是帐篷里面？移动位置标记。",
+        "answer": "mosquito",
+        "caseSensitive": false,
+        "meaning": "蚊子",
+        "before": "A ",
+        "after": " buzzed near the tent opening.",
+        "reason": "buzzed near the tent opening说蚊子在帐篷入口附近嗡嗡飞，不保证它已经进入帐篷，也没有说叮咬了人。near没有给米数。",
+        "hint": "opening是入口；near不是inside。复数可用mosquitoes。",
+        "material": "A mosquito buzzed near the tent opening.",
+        "options": [
+          {
+            "id": "near",
+            "text": "蚊子在帐篷入口附近嗡嗡飞。",
+            "correct": true,
+            "reason": "保留near和tent opening。"
+          },
+          {
+            "id": "inside",
+            "text": "蚊子已经飞入帐篷深处。",
+            "correct": false,
+            "reason": "near the opening不能推出已经进入深处。"
+          },
+          {
+            "id": "bite",
+            "text": "蚊子在帐篷里叮咬了人。",
+            "correct": false,
+            "reason": "原句既不说在里面，也不说叮咬。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "蚊子在入口附近，还是帐篷里面？移动位置标记。",
+          "sceneLab": {
+            "id": "mosquito-tent-position",
+            "title": "入口附近与帐篷里面",
+            "hint": "标记在入口外侧附近或帐篷内部；图中距离不是米数。",
+            "wrong": "应在入口附近，不可当作已经进入内部。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "蚊子在哪里",
+                "choices": [
+                  {
+                    "id": "near",
+                    "label": "入口附近"
+                  },
+                  {
+                    "id": "inside",
+                    "label": "帐篷里面"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "tent",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 35,
+                    "width": 46,
+                    "height": 39,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "opening",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 47,
+                    "width": 3,
+                    "height": 19,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "蚊子位置：入口附近与内部"
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 76,
+                    "width": 47,
+                    "height": 11,
+                    "tone": "ink",
+                    "text": "帐篷内部"
+                  },
+                  {
+                    "id": "opening-label",
+                    "kind": "label",
+                    "x": 29,
+                    "y": 22,
+                    "width": 30,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "入口"
+                  },
+                  {
+                    "id": "unknown",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 90,
+                    "width": 96,
+                    "height": 9,
+                    "tone": "ink",
+                    "text": "位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "near",
+                "reading": "蚊子在帐篷入口附近嗡嗡飞。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "tent",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 35,
+                    "width": 46,
+                    "height": 39,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "opening",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 47,
+                    "width": 3,
+                    "height": 19,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "mosquito-marker",
+                    "kind": "ellipse",
+                    "x": 31,
+                    "y": 52,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "蚊子位置：入口附近与内部"
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 76,
+                    "width": 47,
+                    "height": 11,
+                    "tone": "ink",
+                    "text": "帐篷内部"
+                  },
+                  {
+                    "id": "opening-label",
+                    "kind": "label",
+                    "x": 29,
+                    "y": 22,
+                    "width": 30,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "入口"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 90,
+                    "width": 96,
+                    "height": 9,
+                    "tone": "ink",
+                    "text": "入口外侧附近"
+                  }
+                ]
+              },
+              {
+                "signature": "inside",
+                "reading": "应在入口附近，不可当作已经进入内部。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "tent",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 35,
+                    "width": 46,
+                    "height": 39,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "opening",
+                    "kind": "rect",
+                    "x": 46,
+                    "y": 47,
+                    "width": 3,
+                    "height": 19,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "mosquito-marker",
+                    "kind": "ellipse",
+                    "x": 68,
+                    "y": 52,
+                    "width": 7,
+                    "height": 7,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "蚊子位置：入口附近与内部"
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 76,
+                    "width": 47,
+                    "height": 11,
+                    "tone": "ink",
+                    "text": "帐篷内部"
+                  },
+                  {
+                    "id": "opening-label",
+                    "kind": "label",
+                    "x": 29,
+                    "y": 22,
+                    "width": 30,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "入口"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 90,
+                    "width": 96,
+                    "height": 9,
+                    "tone": "ink",
+                    "text": "帐篷内部"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-living-nature-3-transfer",
+      "topicId": "v-course-living-nature",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "三条观察记录都变了，哪组英文全保留？",
+      "passage": "新观察\n一只昆虫落在我的袖子旁边。蝴蝶在叶子上展开了翅膀。一只蚊子在帐篷里面嗡嗡飞。\n词语提示：beside旁边；opened展开；inside里面。",
+      "options": [
+        {
+          "id": "a",
+          "text": "An insect landed beside my sleeve. The butterfly opened its wings on the leaf. A mosquito buzzed inside the tent."
+        },
+        {
+          "id": "b",
+          "text": "An insect landed on my sleeve. The butterfly opened its wings on the leaf. A mosquito buzzed inside the tent."
+        },
+        {
+          "id": "c",
+          "text": "An insect landed beside my sleeve. The butterfly closed its wings on the leaf. A mosquito buzzed inside the tent."
+        },
+        {
+          "id": "d",
+          "text": "An insect landed beside my sleeve. The butterfly opened its wings on the leaf. A mosquito buzzed near the tent opening."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "An insect landed beside my sleeve. The butterfly opened its wings on the leaf. A mosquito buzzed inside the tent."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对落点、翅膀状态与蚊子的位置。",
+        "steps": [
+          {
+            "text": "袖子旁边：beside my sleeve。",
+            "reason": "新落点是旁边，不是on表面。"
+          },
+          {
+            "text": "在叶子上展开翅膀：opened its wings on the leaf。",
+            "reason": "新状态是展开，不是closed合起。"
+          },
+          {
+            "text": "帐篷里面：inside the tent。",
+            "reason": "新记录明确在里面，不能沿用near the opening。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "on把袖子旁边改成袖子上。"
+          },
+          {
+            "option": "c",
+            "reason": "closed把展开改成合起。"
+          },
+          {
+            "option": "d",
+            "reason": "near the tent opening把里面改成入口附近。"
+          }
+        ],
+        "pitfall": "新记录改变了旧句的条件；不要选看起来更熟悉的原句。",
+        "visual": {
+          "kind": "comparison",
+          "title": "逐条检查新条件",
+          "segments": [
+            {
+              "text": "beside",
+              "role": "evidence",
+              "note": "袖子旁边"
+            },
+            {
+              "text": "opened",
+              "role": "evidence",
+              "note": "展开翅膀"
+            },
+            {
+              "text": "inside",
+              "role": "evidence",
+              "note": "帐篷里面"
+            }
+          ],
+          "caption": "位置与状态来自新记录；不是推断真实动物行为。"
+        },
+        "transfer": "把inside改成near the opening，能确定蚊子已经进入帐篷吗？"
+      }
+    }
+  }
+}

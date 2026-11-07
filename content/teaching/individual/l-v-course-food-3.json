@@ -1,0 +1,517 @@
+{
+  "lessonId": "l-v-course-food-3",
+  "reviewState": "draft",
+  "intent": "Distinguish near-before timing, all-through extent, passive thin slicing, ingredient inclusion without exclusivity, mass/count food senses, purchased fish without invented count, an egg into a bowl and a little grated cheese.",
+  "picturePurpose": "Proposed coded timing, extent/thickness and noun-role diagrams teach precise relationships; no measured food state, source count, recipe or real temperature inferred.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "什么时候加？还剩什么？",
+    "instruction": "摆时间、比范围、换句架，再用自己的句子说明白。",
+    "items": [
+      {
+        "id": "word-salad",
+        "label": "沙拉",
+        "prompt": "just before：提前很久，还是上桌前不久？移动示意点比较。",
+        "answer": "salad",
+        "caseSensitive": false,
+        "meaning": "沙拉",
+        "before": "Add the dressing just before serving the ",
+        "after": ".",
+        "reason": "just before serving表示在端上沙拉前不久加调味汁。",
+        "hint": "just before不能只理解成随便什么时候之前。",
+        "material": "Add the dressing just before serving the salad.",
+        "wordDecision": {
+          "prompt": "just before：提前很久，还是上桌前不久？移动示意点比较。",
+          "nearBefore": {
+            "title": "加汁的时间靠近哪一刻？",
+            "hint": "只比先后与远近，不设具体分钟数。",
+            "wrong": "just before要求在上桌前不久，不是提前很久或上桌后。"
+          }
+        },
+        "options": [
+          {
+            "id": "near",
+            "text": "上桌前不久再加调味汁。",
+            "correct": true,
+            "reason": "just before保留了时间很接近。"
+          },
+          {
+            "id": "far",
+            "text": "很早以前加好，离上桌还很久。",
+            "correct": false,
+            "reason": "只保留了before，漏掉just表达的临近。"
+          },
+          {
+            "id": "after",
+            "text": "沙拉上桌以后再加调味汁。",
+            "correct": false,
+            "reason": "把before改成了after。"
+          }
+        ],
+        "ownForms": [
+          "salad",
+          "salads"
+        ]
+      },
+      {
+        "id": "word-meat",
+        "label": "肉",
+        "prompt": "throughout包括哪里？比较只热在外面和里外都热。",
+        "answer": "meat",
+        "caseSensitive": false,
+        "meaning": "肉",
+        "before": "Cook the ",
+        "after": " until it is hot throughout.",
+        "reason": "until it is hot throughout要求加热到里外都热；until给出终点。",
+        "hint": "这是原句的加热要求，没有实际温度或完成记录。",
+        "material": "Cook the meat until it is hot throughout.",
+        "wordDecision": {
+          "prompt": "throughout包括哪里？比较只热在外面和里外都热。",
+          "foodExtent": {
+            "kind": "heat",
+            "title": "throughout要包括里面",
+            "hint": "文字示意，比较原句要求的范围。",
+            "wrong": "throughout要覆盖各处，不是只有外表热。"
+          }
+        },
+        "options": [
+          {
+            "id": "all",
+            "text": "加热到里外都热。",
+            "correct": true,
+            "reason": "throughout表示各处都包括。"
+          },
+          {
+            "id": "edge",
+            "text": "只要外表热，里面怎样都行。",
+            "correct": false,
+            "reason": "只看表面没有保留throughout。"
+          },
+          {
+            "id": "done",
+            "text": "原句已经记录了加热完成。",
+            "correct": false,
+            "reason": "Cook…until…是一条要求，不是完成记录。"
+          }
+        ],
+        "ownForms": [
+          "meat",
+          "meats"
+        ]
+      },
+      {
+        "id": "word-beef",
+        "label": "牛肉",
+        "prompt": "thinly在说数量，还是说切得薄？点示意片比较。",
+        "answer": "beef",
+        "caseSensitive": false,
+        "meaning": "牛肉",
+        "before": "The ",
+        "after": " is sliced very thinly.",
+        "reason": "is sliced是被切片；very thinly说明切得很薄，不说明片数。",
+        "hint": "薄厚是相对示意，没有实际毫米数。",
+        "material": "The beef is sliced very thinly.",
+        "wordDecision": {
+          "prompt": "thinly在说数量，还是说切得薄？点示意片比较。",
+          "foodExtent": {
+            "kind": "slices",
+            "title": "thinly看薄厚，不看片数",
+            "hint": "相对薄厚示意，不推算真实厚度。",
+            "wrong": "thinly说明切得薄，不能选厚块或推断数量。"
+          }
+        },
+        "options": [
+          {
+            "id": "thin",
+            "text": "牛肉被切成很薄的片。",
+            "correct": true,
+            "reason": "保留is sliced和very thinly。"
+          },
+          {
+            "id": "thick",
+            "text": "牛肉被切成了很厚的块。",
+            "correct": false,
+            "reason": "厚块与thinly的意思相反。"
+          },
+          {
+            "id": "cattle",
+            "text": "beef表示很多头牛。",
+            "correct": false,
+            "reason": "beef是牛肉，不是牛的复数。"
+          }
+        ]
+      },
+      {
+        "id": "word-pork",
+        "label": "猪肉",
+        "prompt": "contains列了哪两样？能直接认定只有这两样吗？",
+        "answer": "pork",
+        "caseSensitive": false,
+        "meaning": "猪肉",
+        "before": "This soup contains ",
+        "after": " and cabbage.",
+        "reason": "contains pork and cabbage说明汤里有猪肉和卷心菜。",
+        "hint": "没有说只有这两样，也没有说猪肉经过烤制。",
+        "material": "This soup contains pork and cabbage.",
+        "wordDecision": {
+          "prompt": "contains列了哪两样？能直接认定只有这两样吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "食材与信息范围",
+            "prompt": "圈出原句支持的两点。",
+            "hint": "不补原句没有说的信息。",
+            "wrong": "两种食材都保留，但不要加上only。",
+            "rows": [
+              {
+                "id": "pork",
+                "label": "食材一",
+                "text": "汤里有猪肉。",
+                "include": true
+              },
+              {
+                "id": "cabbage",
+                "label": "食材二",
+                "text": "汤里有卷心菜。",
+                "include": true
+              },
+              {
+                "id": "only",
+                "label": "额外限制",
+                "text": "除此之外没有任何食材。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "both",
+            "text": "汤里有猪肉和卷心菜。",
+            "correct": true,
+            "reason": "两种原文食材都保留。"
+          },
+          {
+            "id": "roast",
+            "text": "本句明确说是烤猪肉汤。",
+            "correct": false,
+            "reason": "原句没有roast，不能补烤制方法。"
+          },
+          {
+            "id": "only",
+            "text": "汤里只有这两种食材。",
+            "correct": false,
+            "reason": "contains没有给only，不能排除其他食材。"
+          }
+        ]
+      },
+      {
+        "id": "word-chicken",
+        "label": "鸡肉（本句）",
+        "prompt": "some chicken是一些鸡肉，还是几只鸡？点句架比较。",
+        "answer": "chicken",
+        "caseSensitive": false,
+        "meaning": "鸡肉（本句）",
+        "before": "There is some ",
+        "after": " left in the pan.",
+        "reason": "There is some chicken表示还剩一些鸡肉，left in the pan说明在锅里。",
+        "hint": "鸡肉义不可数；chickens可指多只鸡，是另一种用法。",
+        "material": "There is some chicken left in the pan.",
+        "wordDecision": {
+          "prompt": "some chicken是一些鸡肉，还是几只鸡？点句架比较。",
+          "foodNoun": {
+            "kind": "chicken",
+            "title": "some chicken和chickens",
+            "hint": "比较本句鸡肉义与另一种可数用法。",
+            "wrong": "本句is some chicken指一些鸡肉；不等于几只鸡或一点不剩。"
+          }
+        },
+        "options": [
+          {
+            "id": "meat",
+            "text": "锅里还剩一些鸡肉。",
+            "correct": true,
+            "reason": "保留鸡肉义、剩余和锅内位置。"
+          },
+          {
+            "id": "birds",
+            "text": "锅里有几只活鸡。",
+            "correct": false,
+            "reason": "把本句鸡肉义改成了多只活鸡。"
+          },
+          {
+            "id": "none",
+            "text": "锅里一点鸡肉都没剩。",
+            "correct": false,
+            "reason": "some chicken left不是完全没有。"
+          }
+        ],
+        "ownForms": [
+          "chicken",
+          "chickens"
+        ]
+      },
+      {
+        "id": "word-fish",
+        "label": "鱼；鱼肉",
+        "prompt": "bought说买了，还是吃了？买的地点在哪里？",
+        "answer": "fish",
+        "caseSensitive": false,
+        "meaning": "鱼；鱼肉",
+        "before": "We bought fresh ",
+        "after": " at the harbour.",
+        "reason": "bought是买了；at the harbour说明购买发生在港口。",
+        "hint": "fish既可指鱼，也可指鱼肉；原句没有说明数量。",
+        "material": "We bought fresh fish at the harbour.",
+        "wordDecision": {
+          "prompt": "bought说买了，还是吃了？买的地点在哪里？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "购买动作与地点",
+            "prompt": "圈出原句支持的两点。",
+            "hint": "不补原句没有说的信息。",
+            "wrong": "保留购买和港口地点，不补吃过、船只或数量。",
+            "rows": [
+              {
+                "id": "buy",
+                "label": "动作",
+                "text": "买了鲜鱼。",
+                "include": true
+              },
+              {
+                "id": "harbour",
+                "label": "地点",
+                "text": "购买地点在港口。",
+                "include": true
+              },
+              {
+                "id": "eat",
+                "label": "额外动作",
+                "text": "已经在船上吃完。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "buy",
+            "text": "我们在港口买了鲜鱼。",
+            "correct": true,
+            "reason": "保留购买、fresh和购买地点。"
+          },
+          {
+            "id": "eat",
+            "text": "我们在港口吃完了鲜鱼。",
+            "correct": false,
+            "reason": "bought不是ate，没有吃过的记录。"
+          },
+          {
+            "id": "three",
+            "text": "原句明确说买了三条鱼。",
+            "correct": false,
+            "reason": "没有给数量，不能补三条。"
+          }
+        ],
+        "ownForms": [
+          "fish",
+          "fishes"
+        ]
+      },
+      {
+        "id": "word-egg",
+        "label": "鸡蛋（本句）",
+        "prompt": "an egg和into各说了什么？比较数量搭配与方向。",
+        "answer": "egg",
+        "caseSensitive": false,
+        "meaning": "鸡蛋（本句）",
+        "before": "Crack an ",
+        "after": " into the small bowl.",
+        "reason": "an egg是一个鸡蛋，into the small bowl表示打入小碗里。",
+        "hint": "an看后面开头的元音发音；本句是要求，不是已经打好。",
+        "material": "Crack an egg into the small bowl.",
+        "wordDecision": {
+          "prompt": "an egg和into各说了什么？比较数量搭配与方向。",
+          "foodNoun": {
+            "kind": "egg",
+            "title": "an egg · into the bowl",
+            "hint": "数量搭配与方向要一起保留。",
+            "wrong": "要用an egg，并保留into表示进入小碗里。"
+          }
+        },
+        "options": [
+          {
+            "id": "into",
+            "text": "往小碗里打一个鸡蛋。",
+            "correct": true,
+            "reason": "an egg给数量，into给方向。"
+          },
+          {
+            "id": "beside",
+            "text": "在小碗旁边打一个鸡蛋。",
+            "correct": false,
+            "reason": "beside是旁边，不是into碗里。"
+          },
+          {
+            "id": "a",
+            "text": "本句应该写a egg。",
+            "correct": false,
+            "reason": "egg以元音音素开头，前面用an。"
+          }
+        ],
+        "ownForms": [
+          "egg",
+          "eggs"
+        ]
+      },
+      {
+        "id": "word-cheese",
+        "label": "奶酪",
+        "prompt": "a little cheese为什么不用a few？比较三种搭配。",
+        "answer": "cheese",
+        "caseSensitive": false,
+        "meaning": "奶酪",
+        "before": "Grate a little ",
+        "after": " over the potatoes.",
+        "reason": "Grate要求擦成碎丝；a little cheese是少量奶酪。",
+        "hint": "这里cheese是不可数食物；cheeses可用于不同种类等其他语境。",
+        "material": "Grate a little cheese over the potatoes.",
+        "wordDecision": {
+          "prompt": "a little cheese为什么不用a few？比较三种搭配。",
+          "foodNoun": {
+            "kind": "cheese",
+            "title": "少量奶酪，怎么搭配？",
+            "hint": "比较a little、a few和a slice of。",
+            "wrong": "本句少量奶酪用a little cheese；a slice of另有合适语境。"
+          }
+        },
+        "options": [
+          {
+            "id": "little",
+            "text": "在土豆上擦少量奶酪碎。",
+            "correct": true,
+            "reason": "保留Grate、a little和over the potatoes。"
+          },
+          {
+            "id": "few",
+            "text": "本句把少量写成a few cheese。",
+            "correct": false,
+            "reason": "a few接可数名词复数，本句用a little cheese。"
+          },
+          {
+            "id": "slice",
+            "text": "本句明确要求放一整片奶酪。",
+            "correct": false,
+            "reason": "原句是擦碎少量，没有给一整片。"
+          }
+        ],
+        "ownForms": [
+          "cheese",
+          "cheeses"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-food-3-transfer",
+      "topicId": "v-course-food",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "时间、剩余和方向，哪组三句都保留了？",
+      "passage": "午餐准备\n给面条加酱汁，时间是上菜前不久。锅里还剩一些牛肉。往大碗里打两个鸡蛋。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Add the sauce after serving the noodles. There is some beef left in the pan. Crack two eggs into the large bowl."
+        },
+        {
+          "id": "b",
+          "text": "Add the sauce just before serving the noodles. There is no beef left in the pan. Crack two eggs into the large bowl."
+        },
+        {
+          "id": "c",
+          "text": "Add the sauce just before serving the noodles. There is some beef left in the pan. Crack two eggs beside the large bowl."
+        },
+        {
+          "id": "d",
+          "text": "Add the sauce just before serving the noodles. There is some beef left in the pan. Crack two eggs into the large bowl."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "Add the sauce just before serving the noodles. There is some beef left in the pan. Crack two eggs into the large bowl."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐句核对just before、some…left和into；再核对新数量。",
+        "steps": [
+          {
+            "text": "上菜前不久用just before serving。",
+            "reason": "just before把加酱汁放在临近上菜的之前，不是之后。"
+          },
+          {
+            "text": "还剩一些牛肉用some beef left。",
+            "reason": "some保留还有一些，不能改成no。"
+          },
+          {
+            "text": "两个鸡蛋用two eggs。",
+            "reason": "two后要用eggs的复数形式。"
+          },
+          {
+            "text": "往大碗里用into the large bowl。",
+            "reason": "into指进入碗内，beside是碗旁边。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把上菜前不久改成了上菜后。"
+          },
+          {
+            "option": "b",
+            "reason": "把还剩一些牛肉改成了一点没剩。"
+          },
+          {
+            "option": "c",
+            "reason": "把打进碗里改成了在碗旁边。"
+          }
+        ],
+        "pitfall": "目标词对了，还要核对限定词、时间和介词。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三条线索逐一保留",
+          "segments": [
+            {
+              "text": "just before serving",
+              "role": "evidence",
+              "note": "上菜前不久"
+            },
+            {
+              "text": "some beef left",
+              "role": "evidence",
+              "note": "还有剩余"
+            },
+            {
+              "text": "two eggs → into the large bowl",
+              "role": "evidence",
+              "note": "复数与方向"
+            }
+          ],
+          "caption": "新任务换了食物、数量和碗的大小；不能照抄原句。"
+        },
+        "transfer": "如果只写before而省掉just，是否还明确表达时间很接近？"
+      }
+    }
+  }
+}

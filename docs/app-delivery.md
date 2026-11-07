@@ -16,9 +16,10 @@ verification boundaries and delivery artifacts, and [local instructions](local-v
 
 The [maths comparison](reviews/lesson-quality-comparison-2026-10-17.md) records the rejected baseline.
 It must not be confused with the revised workshop implementation or used as a blanket claim of
-parity. Local functional checks and human visual review have different scopes. Fresh native
-validation is blocked by unavailable MacStudioExternal project files; no old native run covers
-this revision. Approved audio remains pending for 99 scripts. The requirements below still define
+parity. Local functional checks and human visual review have different scopes. Mac project access
+recovered during individual checkpoint 98. Its focused native rendering/binding run covers one
+eight-task lesson; see [the exact scope](reviews/individual-lessons/native-checkpoint-98/README.md).
+Physical touch, devices and broader native journeys remain open. Approved audio remains pending for 99 scripts. The requirements below still define
 the eventual application and public-release acceptance.
 
 ## Product requirements
@@ -66,3 +67,8 @@ when available; clearly distinguish it from browser or mocked-platform checks.
 An unavailable external service blocks only the operations that depend on it. Continue all
 independent implementation and validation. Do not invent audio-model approval, AppID, cloud
 deployment, licensed material, native screenshots, MCP writes or publication success.
+
+
+## Individual lesson milestone · 2026-11-07
+
+The separate 413-lesson redesign and local visual review are complete, including the final home-to-lesson-to-mock journey. See [the final review](reviews/individual-lessons/final-local-review-2026-11-07.md). Native coverage remains147/805; later SDK checks await source-transfer permission. The eventual application and release requirements above remain in force.

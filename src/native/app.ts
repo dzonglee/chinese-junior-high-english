@@ -6,8 +6,9 @@ import { sha256 } from '@noble/hashes/sha256'
 import { bytesToHex } from '@noble/hashes/utils'
 import { packs } from '../generated/packs'
 import { ContentRepository } from '../services/content'
+import { decodeNativePack } from './pack-codec'
 import { StateStore } from '../services/storage'
-declare const require: (path: string) => { loadPack(topicId: string): Promise<string>; loadCatalog(): Promise<{ catalog: ContentCatalog }> }
+declare const require: (path: string) => { loadPack(topicId: string): Promise<unknown>; loadCatalog(): Promise<{ catalog: ContentCatalog }> }
 const loader = require('./pack-loader.js')
 // The installed typings describe this callable resolver as a result object; use the documented API shape.
 type PrivacyResolver = (result: { event: 'agree' | 'disagree'; buttonId?: string }) => void
@@ -41,7 +42,7 @@ const platform: Platform = {
     const url = `/pages/${page}/index?${Object.entries(params).map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join('&')}`
     if (ROOT_SCREENS.includes(page) || page === 'onboarding') wx.reLaunch({ url })
     else if (replace) wx.redirectTo({ url })
-    else wx.navigateTo({ url, fail: (error) => { if (generation !== navigationGeneration) return; if (/limit|exceed/i.test(error.errMsg)) wx.redirectTo({ url }); else wx.showToast({ title: '页面暂未打开，请再试一次。', icon: 'none' }) } })
+    else wx.navigateTo({ url, fail: (error) => { if (generation !== navigationGeneration) return; const pages=getCurrentPages(),current=pages[pages.length-1]; if(current?.route===`pages/${page}/index`&&Object.entries(params).every(([key,value])=>current.options?.[key]===value))return; if (/limit|exceed/i.test(error.errMsg)) wx.redirectTo({ url }); else wx.showToast({ title: '页面暂未打开，请再试一次。', icon: 'none' }) } })
   },
   back() { if (getCurrentPages().length > 1) wx.navigateBack(); else platform.navigate('home') },
   toast: (title) => wx.showToast({ title, icon: 'none', duration: 3000 }),
@@ -126,7 +127,7 @@ export function initializeApplication(): Promise<void> {
   catalog = data.catalog
   const store = new StateStore({ read: key => wx.getStorageSync(key) || null, write: (key, value) => wx.setStorageSync(key, value), remove: key => wx.removeStorageSync(key) }, catalog)
   const repository = new ContentRepository(catalog, packs, async pack => {
-    if (runtime.mode === 'development') return loader.loadPack(pack.topicId)
+    if (runtime.mode === 'development') return decodeNativePack(await loader.loadPack(pack.topicId))
     ensureCloud()
     const fileID = runtime.contentFiles[pack.topicId]
     if (!fileID) throw new Error('这部分内容暂未发布，请稍后重试。')

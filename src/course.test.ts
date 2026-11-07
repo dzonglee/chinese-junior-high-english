@@ -44,8 +44,10 @@ it('covers every required original-course domain without orphan topics, question
   for (const [index, passage] of restoration.entries()) for (let gap = 1; gap <= 5; gap++) {
     const q = source.questions.find(q => q.id === `q-r-restoration-${index + 1}-${gap}`)!
     const paragraph = passage.text.split('\n').find((line: string) => line.includes(`[[${gap}]]`))
-    expect(q.explanation.visual.segments[0].text).toBe(paragraph.replace(/\[\[(\d+)\]\]/g, (_: string, number: string) => Number(number) === gap ? '[本空]' : `[第 ${number} 空]`))
-    expect(q.explanation.visual.segments[0].text).not.toMatch(/\[\[|\]\]/)
+    const neighbours = paragraph.split(`[[${gap}]]`).map((text: string) => text.trim())
+    expect(q.explanation.visual.segments.map(segment => segment.text)).toEqual([neighbours[0], q.answer.display, neighbours[1]])
+    expect(q.explanation.visual.segments.map(segment => segment.role)).toEqual(['evidence','neutral','evidence'])
+    for (const segment of q.explanation.visual.segments) expect(segment.text).not.toMatch(/\[\[|\]\]/)
   }
 })
 it('rejects a missing theme lesson, orphan question, missing word review and missing grammar anchor', () => {

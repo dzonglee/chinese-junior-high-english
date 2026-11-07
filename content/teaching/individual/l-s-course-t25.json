@@ -1,0 +1,277 @@
+{
+  "lessonId": "l-s-course-t25",
+  "reviewState": "draft",
+  "intent": "Compare fictional route terrain, distinguish visible features from current conditions, and consider group needs without a universal route recommendation.",
+  "picturePurpose": "Two enlargable original valley scenes support concrete terrain comparisons; exact labels and limits remain in code, separate from live opening information.",
+  "workshop": {
+    "kind": "compose",
+    "title": "比较两条路：看地形，再查今天的信息",
+    "instruction": "放大比较河边路和林间台阶，再区分“图中看得见”与“出发前还要查”。最后用自己的2—4句话说明差异与选择前的核对，不替所有人选定一条永远最好的路。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "看得见的地形，不等于今天的路况",
+        "prompt": "放大两幅示意图，哪句说明了两条路的地形差异？",
+        "answer": "",
+        "reason": "可见地形差异已核对。用自己的英语介绍两条路，当前开放情况仍须另查。",
+        "hint": "图示只帮助理解较平的河边路与带台阶的林间路，不是实时路况，也不按比例。不能凭画面估计距离、时间或雨后是否开放。",
+        "material": "说2—4句英文。虚构山谷有较平的河边路和带台阶的林间路。介绍两者差异，不替所有人选路线。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "河边较平 ↔ 林间有台阶",
+          "hint": "比较地形，不把示意图当成实时通行证明。",
+          "wrong": "河边路较平，林间路有台阶；相对平坦不能证明今天全段开放，也不能从示意图量出距离。",
+          "fields": [
+            {
+              "id": "terrain",
+              "label": "哪句对应给定地形？",
+              "answer": "compare",
+              "choices": [
+                {
+                  "id": "compare",
+                  "label": "The river path is flatter, while the woodland path has steps."
+                },
+                {
+                  "id": "reverse",
+                  "label": "The woodland path is flatter, while the river path has steps."
+                },
+                {
+                  "id": "same",
+                  "label": "Both paths have the same terrain because they are in one valley."
+                }
+              ]
+            },
+            {
+              "id": "known",
+              "label": "从这个地形示意能直接得到什么？",
+              "answer": "difference",
+              "choices": [
+                {
+                  "id": "difference",
+                  "label": "The paths differ in terrain; today’s opening conditions still need checking."
+                },
+                {
+                  "id": "open",
+                  "label": "The flatter river path must be fully open today because no barrier is pictured."
+                },
+                {
+                  "id": "time",
+                  "label": "The woodland path must take longer because it occupies more space in the picture."
+                }
+              ]
+            }
+          ]
+        },
+        "composeArt": {
+          "asset": "lesson-valley-terrain",
+          "assetRoot": "illustrations-7",
+          "format": "jpg",
+          "alt": "虚构山谷地形示意：左图河边步道较平，右图林间步道有一段台阶。不是实时路况，不按比例。",
+          "caption": "左：较平的河边路。右：带台阶的林间路。图只示意地形；全段是否开放、当天变化和成员需要，仍须另查。",
+          "frames": 2,
+          "frameShape": "wide"
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "两类核对，少一类都不够",
+        "prompt": "哪项核对针对今天的路线，哪项针对同行者？",
+        "answer": "",
+        "reason": "当前情况与成员需要已区分。自己的表达可用具体需要举例，但不必给同行者编造诊断或经历。",
+        "hint": "核对当天全段开放及变化，也了解成员需要。这两类信息都要考虑；不能把较平、有树荫等特征自动当成所有人的合适选择。",
+        "material": "说2—4句英文。虚构山谷有较平的河边路和带台阶的林间路。介绍两者差异，不替所有人选路线。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "当前路线信息＋成员需要",
+          "hint": "两类信息各有作用，不用景色替代核对。",
+          "wrong": "旧指南或地形描述不能保证今天开放；即使路线开放，也还要考虑成员是否能应对台阶等条件。",
+          "fields": [
+            {
+              "id": "current",
+              "label": "哪项属于出发前应查的当前信息？",
+              "answer": "today",
+              "choices": [
+                {
+                  "id": "today",
+                  "label": "Whether the whole route is open today and what has changed."
+                },
+                {
+                  "id": "old",
+                  "label": "Whether an undated guide once described the river path as flat."
+                },
+                {
+                  "id": "view",
+                  "label": "Whether the route looks attractive in a fictional illustration."
+                }
+              ]
+            },
+            {
+              "id": "people",
+              "label": "哪项保留了成员需要？",
+              "answer": "needs",
+              "choices": [
+                {
+                  "id": "needs",
+                  "label": "Ask what the group needs, including whether steps would be a difficulty."
+                },
+                {
+                  "id": "flat",
+                  "label": "Assume that every member must choose the flatter route without asking."
+                },
+                {
+                  "id": "trees",
+                  "label": "Assume everyone prefers woodland because trees are visible in the picture."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "说差异，留条件，不替所有人拍板",
+        "prompt": "怎样介绍两条路而不作过度保证？",
+        "answer": "",
+        "reason": "比较范围与口头形式已核对。实际开口说出两到四句，再回听是否同时提到地形、当前信息与成员需要。",
+        "hint": "主任务是介绍差异与选择前的考虑，不要求在信息不足时定路线。自己的2—4句可以自然组织，不必照抄较长参考句。",
+        "material": "说2—4句英文。虚构山谷有较平的河边路和带台阶的林间路。介绍两者差异，不替所有人选路线。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "介绍差异 → 核对情况 → 考虑成员",
+          "hint": "不把“较平”偷换成“永远更适合所有人”。",
+          "wrong": "当前条件和成员需要还未给全，不能替所有人指定路线。只选卡或写提纲也不能代替主任务的口头介绍。",
+          "fields": [
+            {
+              "id": "scope",
+              "label": "哪句保留了合理范围？",
+              "answer": "conditional",
+              "choices": [
+                {
+                  "id": "conditional",
+                  "label": "We should check current conditions and the group’s needs before choosing."
+                },
+                {
+                  "id": "universal",
+                  "label": "We should choose the river path for the whole group because flatter always means more suitable."
+                },
+                {
+                  "id": "woodland",
+                  "label": "We should choose the woodland path for the whole group because steps always make a better walk."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "主任务最终怎样完成？",
+              "answer": "speak",
+              "choices": [
+                {
+                  "id": "speak",
+                  "label": "Say two to four sentences comparing the paths and explaining what to check before choosing."
+                },
+                {
+                  "id": "cards",
+                  "label": "Choose the terrain cards correctly and finish without giving an oral response."
+                },
+                {
+                  "id": "single",
+                  "label": "Name only the path you prefer without explaining the difference or the checks."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t25-transfer",
+      "topicId": "s-course-t25",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪份实际介绍保留了新路线差异，也没有在信息不足时替所有人作决定？",
+      "passage": "新的路线比较｜比较四份实际的三句话介绍\n虚构公园有一条较短但繁忙的入口路线（shorter busy entrance route），和一条较长但安静的环线（longer quieter loop）。当天开放情况和成员需要都未提供；旧单页没有日期（undated leaflet）。请说2—4句英文，比较两条路线并说明选择前应核对什么，不要断言一条路适合所有人。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The entrance route is shorter and busier, while the loop is longer and quieter. We should choose the entrance route for every group because shorter always means more suitable. There is no need to check today’s conditions or the group’s needs."
+        },
+        {
+          "id": "b",
+          "text": "The entrance route is shorter and busier, while the loop is longer and quieter. We should check today’s conditions and the group’s needs before choosing. These route descriptions alone do not tell us which option suits everyone."
+        },
+        {
+          "id": "c",
+          "text": "The river path is flatter, while the woodland path has steps. We should check current valley conditions and the group’s needs before choosing. These terrain descriptions alone do not settle the choice for everyone."
+        },
+        {
+          "id": "d",
+          "text": "The entrance route is shorter and busier, while the loop is longer and quieter. The undated leaflet confirms that both routes are open today. We only need to ask the group which route they prefer."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "The entrance route is shorter and busier, while the loop is longer and quieter. We should check today’s conditions and the group’s needs before choosing. These route descriptions alone do not tell us which option suits everyone."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐项比较四份实际介绍：先核对新路线，再核对当天信息、成员需要和结论范围。",
+        "steps": [
+          {
+            "text": "新题是较短但较繁忙的入口路线，与较长但较安静的环线。",
+            "reason": "不能照搬旧山谷的河边路和林间台阶；较短不自动代表对所有人更合适。"
+          },
+          {
+            "text": "需要当天可靠的开放信息与成员需要，旧的无日期单页不能确认今天开放。",
+            "reason": "介绍差异不等于在条件缺失时替全体定路线；保留核对能避免过度保证。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把较短直接当成适合所有人的充分条件，还省掉当天与成员核对。"
+          },
+          {
+            "option": "c",
+            "reason": "核对方法本身合理，但仍在介绍旧山谷路线，没有更新新公园的特征。"
+          },
+          {
+            "option": "d",
+            "reason": "用无日期旧资料确认今天开放，超过资料能支持的范围。"
+          }
+        ],
+        "pitfall": "只盯一个看似有利的特点，就把它写成所有人、所有当天条件下的固定结论。",
+        "visual": {
+          "kind": "comparison",
+          "title": "路线特点＋当天情况＋成员需要",
+          "segments": [
+            {
+              "text": "shorter / busy ↔ longer / quieter",
+              "role": "evidence",
+              "note": "新路线差异"
+            },
+            {
+              "text": "current opening conditions",
+              "role": "evidence",
+              "note": "当天要查"
+            },
+            {
+              "text": "the group’s needs",
+              "role": "evidence",
+              "note": "成员要问"
+            }
+          ],
+          "caption": "比较不等于替所有人选路线；信息不足时先说明要查什么。"
+        },
+        "transfer": "如果环线今天局部关闭，但旧单页仍画出完整路线，应以哪类信息为准？是否还需考虑成员需要？"
+      }
+    }
+  }
+}

@@ -1,0 +1,381 @@
+{
+  "lessonId": "l-s-plan",
+  "reviewState": "draft",
+  "intent": "Individual spoken-plan preparation preserves Sunday afternoon while allowing coherent original times, venues, supplies and reversed roles, then invites genuine feedback.",
+  "picturePurpose": "Coded meeting, two-person supply and reversible role boards clarify exact arrangements without making optional reference details compulsory. Written preparation remains separate from actual speech.",
+  "workshop": {
+    "kind": "compose",
+    "title": "把海报计划搭成能执行的安排",
+    "instruction": "周日下午是题目给定的；具体钟点、地点、物品和分工可以合理安排。先比较示例卡，再提出自己的计划，征求同伴意见。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "保留周日下午，定清钟点地点",
+        "prompt": "选定一种示例安排后，钟点和地点能对上吗？",
+        "answer": "",
+        "reason": "示例安排卡已核对。自己的提纲要让同伴知道周日下午几点、在哪里见面。",
+        "hint": "图书馆两点、教室三点是两种示例，原题没有指定哪一种。自己的计划可以用其他合理钟点地点，但仍须是周日下午。",
+        "material": "你和同学准备周日下午做一个英语海报。说 40—60 秒，说明见面时间地点、各自带什么、怎样分工，并邀请同学提出意见。",
+        "composeBrief": {
+          "title": "见面安排卡",
+          "hint": "先选一种示例，再把日期、钟点和地点配套。",
+          "wrong": "原题只固定周日下午；当前示例的钟点地点应一致，不能把示例当作原题唯一答案。",
+          "fields": [
+            {
+              "id": "meeting",
+              "label": "比较哪种示例？",
+              "answer": "library-two",
+              "choices": [
+                {
+                  "id": "library-two",
+                  "label": "示例一：图书馆，下午两点"
+                },
+                {
+                  "id": "classroom-three",
+                  "label": "示例二：教室，下午三点"
+                }
+              ]
+            },
+            {
+              "id": "day",
+              "label": "原题固定的时段",
+              "answer": "sunday",
+              "choices": [
+                {
+                  "id": "sunday",
+                  "label": "Sunday afternoon · 周日下午"
+                },
+                {
+                  "id": "saturday",
+                  "label": "Saturday morning · 周六上午"
+                },
+                {
+                  "id": "monday",
+                  "label": "Monday evening · 周一晚上"
+                }
+              ]
+            },
+            {
+              "id": "time",
+              "label": "当前示例几点？",
+              "answer": "two",
+              "choices": [
+                {
+                  "id": "two",
+                  "label": "14:00 · 下午两点"
+                },
+                {
+                  "id": "three",
+                  "label": "15:00 · 下午三点"
+                },
+                {
+                  "id": "night",
+                  "label": "02:00 · 凌晨两点"
+                }
+              ]
+            },
+            {
+              "id": "place",
+              "label": "当前示例在哪里？",
+              "answer": "library",
+              "choices": [
+                {
+                  "id": "library",
+                  "label": "library · 图书馆"
+                },
+                {
+                  "id": "classroom",
+                  "label": "classroom · 教室"
+                },
+                {
+                  "id": "unknown",
+                  "label": "没有说地点"
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "meeting",
+            "answers": {
+              "library-two": {
+                "day": "sunday",
+                "time": "two",
+                "place": "library"
+              },
+              "classroom-three": {
+                "day": "sunday",
+                "time": "three",
+                "place": "classroom"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "两个人各自带什么，说具体",
+        "prompt": "同伴听完，知道自己要准备什么吗？",
+        "answer": "",
+        "reason": "示例物品安排已核对。再检查自己的提纲是否明确两个人各自准备的东西。",
+        "hint": "纸、彩笔和课堂笔记只是示例物品。自己可以换成制作英语海报需要的其他合理物品，但要说清各自带什么。",
+        "material": "你和同学准备周日下午做一个英语海报。说 40—60 秒，说明见面时间地点、各自带什么、怎样分工，并邀请同学提出意见。",
+        "composeBrief": {
+          "title": "两人物品卡",
+          "hint": "准备内容要具体，不能只说有人会带点东西。",
+          "wrong": "需要说明各自带什么；一句Someone will bring something不能让同伴准备。",
+          "fields": [
+            {
+              "id": "mine",
+              "label": "我准备什么？",
+              "answer": "paper",
+              "choices": [
+                {
+                  "id": "paper",
+                  "label": "I can bring paper and coloured pens."
+                },
+                {
+                  "id": "vague",
+                  "label": "Someone will bring something."
+                },
+                {
+                  "id": "none",
+                  "label": "I can draw the pictures for our poster."
+                }
+              ]
+            },
+            {
+              "id": "partner",
+              "label": "请同伴准备什么？",
+              "answer": "notes",
+              "choices": [
+                {
+                  "id": "nothing",
+                  "label": "Could you meet me on Sunday afternoon?"
+                },
+                {
+                  "id": "notes",
+                  "label": "Could you bring the notes we made in class?"
+                },
+                {
+                  "id": "topic",
+                  "label": "The poster will be about English."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-roles",
+        "label": "分工可以换，但要让人知道做什么",
+        "prompt": "怎样把示例中的画图和写句子分给两个人？",
+        "answer": "",
+        "reason": "两人的示例职责已对齐。再检查自己的计划是否清楚说明谁负责什么。",
+        "hint": "两种分工都可以：我画你写，或我写你画。自己的计划也能设计其他合理分工；这里练的是把职责说清楚。",
+        "material": "你和同学准备周日下午做一个英语海报。说 40—60 秒，说明见面时间地点、各自带什么、怎样分工，并邀请同学提出意见。",
+        "composeBrief": {
+          "title": "两人分工板",
+          "hint": "选一种分工，再让两个人的职责与它一致。",
+          "wrong": "示例需要有人画图、有人写句子；角色可以交换，不能只说someone will do something。",
+          "fields": [
+            {
+              "id": "roles",
+              "label": "示例分工方式",
+              "answer": "i-draw",
+              "choices": [
+                {
+                  "id": "i-draw",
+                  "label": "我画图，同伴写句子"
+                },
+                {
+                  "id": "i-write",
+                  "label": "我写句子，同伴画图"
+                }
+              ]
+            },
+            {
+              "id": "my-task",
+              "label": "我的职责",
+              "answer": "draw",
+              "choices": [
+                {
+                  "id": "draw",
+                  "label": "I can draw the pictures."
+                },
+                {
+                  "id": "write",
+                  "label": "I can write the short sentences."
+                },
+                {
+                  "id": "vague",
+                  "label": "I will do something."
+                }
+              ]
+            },
+            {
+              "id": "their-task",
+              "label": "同伴的职责",
+              "answer": "write",
+              "choices": [
+                {
+                  "id": "write",
+                  "label": "Could you write the short sentences?"
+                },
+                {
+                  "id": "draw",
+                  "label": "Could you draw the pictures?"
+                },
+                {
+                  "id": "unknown",
+                  "label": "Someone might do something."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "roles",
+            "answers": {
+              "i-draw": {
+                "my-task": "draw",
+                "their-task": "write"
+              },
+              "i-write": {
+                "my-task": "write",
+                "their-task": "draw"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "提出计划后，邀请同伴意见",
+        "prompt": "怎样让同伴有机会修改或补充？",
+        "answer": "",
+        "reason": "征求意见的方式已核对。再用自己的话请同伴回应计划。",
+        "hint": "提出安排不等于对方已经同意。用问题邀请反馈，再一起讨论具体调整。",
+        "material": "你和同学准备周日下午做一个英语海报。说 40—60 秒，说明见面时间地点、各自带什么、怎样分工，并邀请同学提出意见。",
+        "composeBrief": {
+          "title": "计划 → 邀请反馈",
+          "hint": "明确征求同伴意见，不把尚未发生的同意写成事实。",
+          "wrong": "陈述自己的计划或直接说已经商定，都没有主动征求同伴意见。",
+          "fields": [
+            {
+              "id": "reply",
+              "label": "哪句真正邀请反馈？",
+              "answer": "ask",
+              "choices": [
+                {
+                  "id": "ask",
+                  "label": "What do you think of this plan?"
+                },
+                {
+                  "id": "agreed",
+                  "label": "We have agreed on the plan."
+                },
+                {
+                  "id": "silence",
+                  "label": "That is my plan for Sunday afternoon."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-plan-transfer",
+      "topicId": "s-plan",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "Which outline fits this new planning task?",
+      "passage": "A different plan\nYou and a classmate are preparing a science display on Saturday morning. Prepare a 40–60-second proposal. Give a clear meeting time and place, explain what each person should bring and do, and invite your partner to suggest changes. The exact clock time, venue and materials are for you to propose.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Give a clear proposal: summarise the Saturday-morning meeting time and place, each person’s materials and role for the science display, and a request for the partner’s views."
+        },
+        {
+          "id": "b",
+          "text": "Copy the Sunday-afternoon English poster plan without updating the day or task."
+        },
+        {
+          "id": "c",
+          "text": "Give only a meeting place, say someone will bring something, and omit roles and feedback."
+        },
+        {
+          "id": "d",
+          "text": "Explain the Saturday-morning meeting, supplies and roles, then finish without asking for the partner’s views."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Give a clear proposal: summarise the Saturday-morning meeting time and place, each person’s materials and role for the science display, and a request for the partner’s views."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先区分新任务固定的信息与可以自己安排的细节。",
+        "steps": [
+          {
+            "text": "新任务是周六上午准备科学展示，钟点地点和物品可以合理提出。",
+            "reason": "不能套用周日下午制作英语海报的安排。"
+          },
+          {
+            "text": "两人各自带什么、负责什么都要具体，并请同伴提意见。",
+            "reason": "计划要可执行，也要给同伴讨论的机会；提出不等于已经同意。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "日期和活动都照搬旧任务。"
+          },
+          {
+            "option": "c",
+            "reason": "物品含糊，分工和反馈也没有交代。"
+          },
+          {
+            "option": "d",
+            "reason": "安排虽然具体，但漏了征求同伴意见。"
+          }
+        ],
+        "pitfall": "把参考钟点地点当成唯一答案，却没让同伴知道准备什么、负责什么。",
+        "visual": {
+          "kind": "comparison",
+          "title": "把计划变成可执行的信息",
+          "segments": [
+            {
+              "text": "Saturday morning · science display",
+              "role": "evidence",
+              "note": "本题固定的信息"
+            },
+            {
+              "text": "meeting time/place · materials · roles",
+              "role": "evidence",
+              "note": "需要提出的具体安排"
+            },
+            {
+              "text": "What do you think?",
+              "role": "evidence",
+              "note": "邀请反馈"
+            }
+          ],
+          "caption": "固定信息不改，具体安排讲清，再听同伴意见。"
+        },
+        "transfer": "如果同伴不能在原定钟点见面，哪些信息需要一起更新？"
+      }
+    }
+  }
+}

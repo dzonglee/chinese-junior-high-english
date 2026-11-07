@@ -1,0 +1,502 @@
+{
+  "lessonId": "l-g-passive",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Change grammatical focus across the same event, then check receiver agreement, tense, full be + participle and modal/future forms without treating by as mandatory.",
+  "picturePurpose": "An inspected original cleanup shows an observable actor/object relationship; code separately supplies habitual, completed and planned facts.",
+  "workshop": {
+    "navigationLabel": "任务",
+    "kind": "transform",
+    "title": "同一件事，从谁说起？",
+    "instruction": "先认执行者与承受者，再按主语和时间补全谓语。",
+    "conditions": [
+      {
+        "label": "先从做事的人说",
+        "before": "Mia ",
+        "target": "cleans",
+        "after": " the table every Friday.",
+        "choices": [
+          "is cleaned",
+          "cleans",
+          "cleaned"
+        ],
+        "reason": "Mia 是擦桌子的人，句子从执行者说起。every Friday 表示习惯，Mia 配 cleans，不用被动的 is cleaned。",
+        "world": {
+          "kind": "roles",
+          "caption": "劳动登记：每周五由 Mia 擦这张桌子。先从做事的人说起。",
+          "records": {
+            "title": "谁是主语：执行者，还是承受者？",
+            "missingPrompt": "先找准句子的主语及它与动作的关系，再核对谓语。",
+            "answer": "doer",
+            "options": [
+              {
+                "id": "doer",
+                "label": "Mia",
+                "text": "动作执行者",
+                "value": 50,
+                "reason": "主语与动作的关系判断正确，再检查完整谓语。"
+              },
+              {
+                "id": "receiver",
+                "label": "the table",
+                "text": "动作承受者",
+                "value": 50,
+                "reason": "本句从执行者说起，不是把承受动作的对象放在主语位置。"
+              }
+            ],
+            "asset": "lesson-cleanup-story",
+            "alt": "左图 Mia 用布擦桌子，Leo 捡纸、Amy 扫地；右图打扫结束，桌面和地面整洁。",
+            "artLabels": [
+              "Mia（左）擦桌子",
+              "打扫已结束"
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语",
+              "role": "subject"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你填的谓语",
+              "role": "attempt-result"
+            },
+            {
+              "label": "the table",
+              "detail": "其余信息"
+            }
+          ]
+        }
+      },
+      {
+        "label": "同一件事，改从物品说",
+        "before": "The table ",
+        "target": "is cleaned",
+        "after": " by Mia every Friday.",
+        "choices": [
+          "cleans",
+          "is cleaned",
+          "is clean"
+        ],
+        "reason": "table 承受打扫的动作。一般现在时被动语态用 is cleaned；clean 是原形，cleaned 才是这里的过去分词。",
+        "world": {
+          "kind": "roles",
+          "caption": "劳动登记没变，只把被擦的桌子放到主语位置。",
+          "records": {
+            "title": "谁是主语：执行者，还是承受者？",
+            "missingPrompt": "先找准句子的主语及它与动作的关系，再核对谓语。",
+            "answer": "receiver",
+            "options": [
+              {
+                "id": "doer",
+                "label": "Mia",
+                "text": "动作执行者",
+                "value": 50,
+                "reason": "本句从承受动作的对象说起，执行者不是这里的主语。"
+              },
+              {
+                "id": "receiver",
+                "label": "the table",
+                "text": "动作承受者",
+                "value": 50,
+                "reason": "主语与动作的关系判断正确，再检查完整谓语。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语",
+              "role": "subject"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你填的谓语",
+              "role": "attempt-result"
+            },
+            {
+              "label": "by Mia",
+              "detail": "其余信息"
+            }
+          ]
+        }
+      },
+      {
+        "label": "承受者换成复数",
+        "before": "The tables ",
+        "target": "are cleaned",
+        "after": " by our group every Friday.",
+        "choices": [
+          "is cleaned",
+          "are cleaned",
+          "are clean"
+        ],
+        "reason": "主语 tables 是复数，用 are cleaned。by 后的 our group 是执行者，不能让它把 are 改成 is。",
+        "world": {
+          "kind": "roles",
+          "caption": "本次登记有两张桌子。检查主语，不被 by 后面的单数组别干扰。",
+          "records": {
+            "title": "谁是主语：执行者，还是承受者？",
+            "missingPrompt": "先找准句子的主语及它与动作的关系，再核对谓语。",
+            "answer": "receiver",
+            "options": [
+              {
+                "id": "doer",
+                "label": "our group",
+                "text": "动作执行者",
+                "value": 50,
+                "reason": "本句从承受动作的对象说起，执行者不是这里的主语。"
+              },
+              {
+                "id": "receiver",
+                "label": "the tables",
+                "text": "动作承受者",
+                "value": 50,
+                "reason": "主语与动作的关系判断正确，再检查完整谓语。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语",
+              "role": "subject"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你填的谓语",
+              "role": "attempt-result"
+            },
+            {
+              "label": "by our group",
+              "detail": "其余信息"
+            }
+          ]
+        }
+      },
+      {
+        "label": "改成昨天完成的事",
+        "before": "The table ",
+        "target": "was cleaned",
+        "after": " by Mia yesterday.",
+        "choices": [
+          "is cleaned",
+          "was cleaned",
+          "cleaned"
+        ],
+        "reason": "yesterday 指过去；table 是单数承受者，完整的一般过去时被动语态为 was cleaned，不能漏掉 was。",
+        "world": {
+          "kind": "roles",
+          "caption": "昨天的完成记录：Mia 已擦完这张桌子。时间变了，be 也要变。",
+          "records": {
+            "title": "谁是主语：执行者，还是承受者？",
+            "missingPrompt": "先找准句子的主语及它与动作的关系，再核对谓语。",
+            "answer": "receiver",
+            "options": [
+              {
+                "id": "doer",
+                "label": "Mia",
+                "text": "动作执行者",
+                "value": 50,
+                "reason": "本句从承受动作的对象说起，执行者不是这里的主语。"
+              },
+              {
+                "id": "receiver",
+                "label": "the table",
+                "text": "动作承受者",
+                "value": 50,
+                "reason": "主语与动作的关系判断正确，再检查完整谓语。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语",
+              "role": "subject"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你填的谓语",
+              "role": "attempt-result"
+            },
+            {
+              "label": "by Mia",
+              "detail": "昨天，过去时"
+            }
+          ]
+        }
+      },
+      {
+        "label": "改成明天的安排",
+        "before": "The table ",
+        "target": "will be cleaned",
+        "after": " by Leo tomorrow.",
+        "choices": [
+          "will clean",
+          "will be cleaned",
+          "will be clean"
+        ],
+        "reason": "桌子是被打扫的对象；tomorrow 指将来，需要 will be cleaned，不能漏 be，也不能把 cleaned 写成 clean。",
+        "world": {
+          "kind": "roles",
+          "caption": "明天换由 Leo 擦桌子。把计划改写成从桌子说起的句子。",
+          "records": {
+            "title": "谁是主语：执行者，还是承受者？",
+            "missingPrompt": "先找准句子的主语及它与动作的关系，再核对谓语。",
+            "answer": "receiver",
+            "options": [
+              {
+                "id": "doer",
+                "label": "Leo",
+                "text": "动作执行者",
+                "value": 50,
+                "reason": "本句从承受动作的对象说起，执行者不是这里的主语。"
+              },
+              {
+                "id": "receiver",
+                "label": "the table",
+                "text": "动作承受者",
+                "value": 50,
+                "reason": "主语与动作的关系判断正确，再检查完整谓语。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语",
+              "role": "subject"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你填的谓语",
+              "role": "attempt-result"
+            },
+            {
+              "label": "by Leo",
+              "detail": "明天，将来时"
+            }
+          ]
+        }
+      },
+      {
+        "label": "must 后的被动结构",
+        "before": "The game rules must ",
+        "target": "be followed",
+        "after": " by every player.",
+        "choices": [
+          "follow",
+          "be followed",
+          "be following"
+        ],
+        "reason": "规则是被遵守的内容；must 后的被动结构是 be + 过去分词，写成 be followed。follow 的过去分词为 followed。",
+        "world": {
+          "kind": "syntax",
+          "caption": "参赛要求：每位队员都要遵守规则。本题从规则说起。",
+          "records": {
+            "title": "谁是主语：执行者，还是承受者？",
+            "missingPrompt": "先找准句子的主语及它与动作的关系，再核对谓语。",
+            "answer": "receiver",
+            "options": [
+              {
+                "id": "doer",
+                "label": "every player",
+                "text": "动作执行者",
+                "value": 50,
+                "reason": "本句从承受动作的对象说起，执行者不是这里的主语。"
+              },
+              {
+                "id": "receiver",
+                "label": "the game rules",
+                "text": "动作承受者",
+                "value": 50,
+                "reason": "主语与动作的关系判断正确，再检查完整谓语。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "must",
+              "detail": "情态动词"
+            },
+            {
+              "label": "@attempt",
+              "detail": "must 后缺少的被动部分",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "用 follow 补全 must 后面的被动表达，只写两个单词。"
+      },
+      {
+        "label": "make 的过去分词",
+        "before": "The model ",
+        "target": "was made",
+        "after": " by Mia and Amy yesterday.",
+        "choices": [
+          "was make",
+          "was made",
+          "were made"
+        ],
+        "reason": "model 是单数承受者，yesterday 指过去，用 was；make 的过去分词是不规则的 made，所以写 was made。",
+        "world": {
+          "kind": "roles",
+          "caption": "制作登记：Mia 和 Amy 昨天做了这个模型。使用 make 补全被动语态。",
+          "records": {
+            "title": "谁是主语：执行者，还是承受者？",
+            "missingPrompt": "先找准句子的主语及它与动作的关系，再核对谓语。",
+            "answer": "receiver",
+            "options": [
+              {
+                "id": "doer",
+                "label": "Mia and Amy",
+                "text": "动作执行者",
+                "value": 50,
+                "reason": "本句从承受动作的对象说起，执行者不是这里的主语。"
+              },
+              {
+                "id": "receiver",
+                "label": "the model",
+                "text": "动作承受者",
+                "value": 50,
+                "reason": "主语与动作的关系判断正确，再检查完整谓语。"
+              }
+            ]
+          },
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的主语",
+              "role": "subject"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你填的谓语",
+              "role": "attempt-result"
+            },
+            {
+              "label": "by Mia and Amy",
+              "detail": "其余信息"
+            }
+          ]
+        },
+        "input": true,
+        "inputHint": "用 make 的一般过去时被动语态，只写两个单词。"
+      }
+    ],
+    "choices": [
+      "is cleaned",
+      "cleans",
+      "cleaned",
+      "is clean",
+      "are cleaned",
+      "are clean",
+      "was cleaned",
+      "will clean",
+      "will be cleaned",
+      "will be clean",
+      "follow",
+      "be followed",
+      "be following",
+      "was make",
+      "was made",
+      "were made"
+    ],
+    "items": [
+      {
+        "id": "passive-focus-tense",
+        "label": "动作与主语",
+        "prompt": "句子从做事的人说起，还是从被做的对象说起？",
+        "answer": "",
+        "reason": "",
+        "hint": "被动语态的 be 跟主语和时间一起变化。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-passive-002",
+      "q-g-passive-003"
+    ],
+    "transfer": {
+      "id": "individual-g-passive-transfer",
+      "topicId": "g-passive",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "分别检查承受者的单复数和时间。两空依次填什么？\nThe two classrooms ___ by our group every Friday. The hall ___ by Leo yesterday.",
+      "options": [
+        {
+          "id": "a",
+          "text": "are cleaned; was cleaned"
+        },
+        {
+          "id": "b",
+          "text": "is cleaned; was cleaned"
+        },
+        {
+          "id": "c",
+          "text": "are cleaned; is cleaned"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "are cleaned; was cleaned"
+      },
+      "marks": 2,
+      "estimatedSeconds": 75,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先认被动句主语，再分别检查两句的时间和 be 形式。",
+        "steps": [
+          {
+            "text": "第一句主语是 two classrooms，为复数，every Friday 表示习惯。",
+            "reason": "用一般现在时被动语态 are cleaned；by our group 不改变主语的复数。"
+          },
+          {
+            "text": "第二句主语 hall 是单数，yesterday 指过去。",
+            "reason": "用一般过去时被动语态 was cleaned，不能继续照搬现在时 is。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一句 classrooms 是复数，应为 are cleaned，不能被 our group 干扰。"
+          },
+          {
+            "option": "c",
+            "reason": "第二句 yesterday 限定过去，应为 was cleaned，而不是 is cleaned。"
+          }
+        ],
+        "pitfall": "被动语态不只有“加 be”；主语的数、时间和过去分词都要分别核对。",
+        "visual": {
+          "kind": "sentence",
+          "title": "承受者决定数，时间决定时态",
+          "segments": [
+            {
+              "text": "two classrooms → are cleaned",
+              "role": "subject",
+              "note": "复数承受者，日常安排"
+            },
+            {
+              "text": "the hall → was cleaned",
+              "role": "time",
+              "note": "单数承受者，昨天"
+            }
+          ],
+          "caption": "by 后的执行者不控制被动句的 be。"
+        },
+        "transfer": "把第一句 two classrooms 改成 one classroom，哪一个词需要改变？"
+      }
+    }
+  }
+}

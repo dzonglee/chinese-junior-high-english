@@ -1,0 +1,9 @@
+/** Exact per-side counts belong to a coded diagram, never generated anatomy. */
+export interface WordSpotWings {title:string;hint:string;wrong:string}
+export interface WordSpotWingsView {title:string;hint:string;reading:string;sides:{id:string;label:string;chosen:boolean;spots:{id:string;style:string}[];choices:{id:string;label:string;selected:boolean}[]}[]}
+export const wordSpotWingsKey=(id:string)=>`workshopSpotWings-${id}`
+function state(raw:string):[string,string]|undefined{if(raw==='')return['',''];if(!/^(0|1|2|-):(0|1|2|-)$/.test(raw))return undefined;return raw.split(':').map(x=>x==='-'?'':x)as[string,string]}
+export function validWordSpotWings(value:unknown):value is WordSpotWings{if(!value||typeof value!=='object')return false;const w=value as WordSpotWings;return [[w.title,60],[w.hint,110],[w.wrong,140]].every(([s,max])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=(max as number))}
+export function spotWingsMatch(raw:string):boolean{return raw==='1:1'}
+export function changeSpotWings(raw:string,action:string):string|undefined{if(action==='reset')return'';const pair=state(raw),match=/^([ab]):([0-2])$/.exec(action);if(!pair||!match)return undefined;pair[match[1]==='a'?0:1]=match[2];return pair.map(x=>x||'-').join(':')}
+export function wordSpotWingsView(w:WordSpotWings,raw:string):WordSpotWingsView{const pair=state(raw)??['',''];return{title:w.title,hint:w.hint,reading:pair.includes('')?'两边都选好，再核对each。':`A 翅鞘 ${pair[0]} 个黑点，B 翅鞘 ${pair[1]} 个黑点`,sides:pair.map((n,index)=>({id:index?'b':'a',label:index?'B 翅鞘':'A 翅鞘',chosen:n!=='',spots:Array.from({length:n===''?0:Number(n)},(_,i)=>({id:String(i),style:`left:calc(50% - 9px);top:${Number(n)===1?48:i?66:30}px;`})),choices:['0','1','2'].map(value=>({id:(index?'b':'a')+':'+value,label:value+' 个',selected:value===n}))}))}}

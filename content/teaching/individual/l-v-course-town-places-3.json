@@ -1,0 +1,1398 @@
+{
+  "lessonId": "l-v-course-town-places-3",
+  "reviewState": "draft",
+  "intent": "Teach bridge versus tunnel, summer coolness, current building use, tower/tree relation, comparable wall thickness, palace garden seasonal access, temple hillside position and church sound across a valley.",
+  "picturePurpose": "Original bridge/tunnel noun comparison supports a precise picture task without inferring bridge capacity; three changing diagrams and four exact evidence selections separate stated facts from invented details.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "建筑里的位置与比较",
+    "instruction": "找桥、移动塔与寺庙，再比较两种墙；每次只核对原句给出的信息。",
+    "items": [
+      {
+        "id": "word-bridge",
+        "label": "桥",
+        "prompt": "先找跨过水面的桥，别选穿过山体的隧道。图片不用于测桥宽。",
+        "answer": "bridge",
+        "caseSensitive": false,
+        "meaning": "桥",
+        "before": "The ",
+        "after": " is wide enough for two bicycles.",
+        "reason": "The bridge is wide enough for two bicycles说桥宽足以容两辆自行车；不等于最多只能容两辆，也没有说汽车能否并排通过。cross a bridge 表示过桥。",
+        "hint": "原创图片只帮助区分bridge与tunnel；不按图测量宽度、承重或容量，不推断河流方向或真实位置。",
+        "material": "The bridge is wide enough for two bicycles.",
+        "options": [
+          {
+            "id": "bridge",
+            "text": "桥",
+            "correct": true,
+            "reason": "bridge是桥；原句补充桥宽足以容两辆自行车，不给最大容量。"
+          },
+          {
+            "id": "tunnel",
+            "text": "隧道",
+            "correct": false,
+            "reason": "tunnel是隧道，不是bridge桥。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先找跨过水面的桥，别选穿过山体的隧道。图片不用于测桥宽。",
+          "art": {
+            "asset": "lesson-bridge-tunnel-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "alt": "原创双幅示意：左侧蓝色栏杆的小桥跨过溪流，右侧绿色山丘中有一条隧道；两幅之间有宽青色间隔，下方留白，无文字、人物、自行车、车辆或真实地名。",
+            "pictureOnly": true,
+            "targets": [
+              {
+                "id": "bridge-target",
+                "option": "bridge",
+                "label": "桥",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              },
+              {
+                "id": "tunnel-target",
+                "option": "tunnel",
+                "label": "隧道",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-tunnel",
+        "label": "隧道",
+        "prompt": "即使在哪个季节，隧道里仍然怎样？圈出信息，不填温度数。",
+        "answer": "tunnel",
+        "caseSensitive": false,
+        "meaning": "隧道",
+        "before": "The ",
+        "after": " stays cool even in summer.",
+        "reason": "The tunnel stays cool even in summer说即使在夏天，隧道里也保持凉爽；cool不是炎热，也没有给出具体温度。through a tunnel 表示穿过隧道。",
+        "hint": "even in summer强调即使在夏天；不补空调设备、具体温度或全年每一天的情况。",
+        "material": "The tunnel stays cool even in summer.",
+        "options": [
+          {
+            "id": "summer-cool",
+            "text": "即使在夏天，隧道里也保持凉爽。",
+            "correct": true,
+            "reason": "保留stays cool与even in summer。"
+          },
+          {
+            "id": "hot",
+            "text": "夏天，隧道里变得炎热。",
+            "correct": false,
+            "reason": "hot炎热改变了stays cool保持凉爽。"
+          },
+          {
+            "id": "temperature",
+            "text": "原句给出了隧道内的准确温度。",
+            "correct": false,
+            "reason": "cool说明凉爽，没有温度数。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "即使在哪个季节，隧道里仍然怎样？圈出信息，不填温度数。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "季节与感受",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "只圈出凉爽和即使在夏天，不补设备或温度数。",
+            "wrong": "应保留凉爽与即使在夏天，不补温度或设备。",
+            "rows": [
+              {
+                "id": "cool",
+                "label": "状态",
+                "text": "隧道里保持凉爽。",
+                "include": true
+              },
+              {
+                "id": "summer",
+                "label": "季节",
+                "text": "即使在夏天也如此。",
+                "include": true
+              },
+              {
+                "id": "temperature",
+                "label": "额外温度",
+                "text": "原句给出了准确温度。",
+                "include": false
+              },
+              {
+                "id": "equipment",
+                "label": "额外设备",
+                "text": "原句说明装有空调。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-building",
+        "label": "建筑物",
+        "prompt": "最古老的是什么？现在做什么用？别补它以前的用途。",
+        "answer": "building",
+        "caseSensitive": false,
+        "meaning": "建筑物",
+        "before": "The oldest ",
+        "after": " is now a library.",
+        "reason": "The oldest building is now a library说最古老的那座建筑如今用作图书馆；oldest是最古老，不是最新，也没有交代此前的用途。building 可指建筑物，不只是建造动作。",
+        "hint": "oldest是最高级；now说明现在的用途，不提供建成年份、地点范围或改建前的用途。",
+        "material": "The oldest building is now a library.",
+        "options": [
+          {
+            "id": "oldest-library",
+            "text": "最古老的那座建筑如今用作图书馆。",
+            "correct": true,
+            "reason": "保留oldest building与now a library。"
+          },
+          {
+            "id": "newest",
+            "text": "最新的那座建筑如今用作图书馆。",
+            "correct": false,
+            "reason": "newest最新改变了oldest最古老。"
+          },
+          {
+            "id": "before-school",
+            "text": "原句说明这座建筑以前是学校。",
+            "correct": false,
+            "reason": "now只交代现在的用途，没有说以前是学校。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "最古老的是什么？现在做什么用？别补它以前的用途。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "建筑与当前用途",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "不把now读成以前，也不补年份或原先用途。",
+            "wrong": "应圈出最古老的建筑和现在用作图书馆，不补以前的用途。",
+            "rows": [
+              {
+                "id": "oldest",
+                "label": "建筑特点",
+                "text": "是最古老的那座建筑。",
+                "include": true
+              },
+              {
+                "id": "library",
+                "label": "当前用途",
+                "text": "现在用作图书馆。",
+                "include": true
+              },
+              {
+                "id": "school",
+                "label": "额外旧用途",
+                "text": "原句说明以前是学校。",
+                "include": false
+              },
+              {
+                "id": "year",
+                "label": "额外年份",
+                "text": "原句给出了建成年份。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-tower",
+        "label": "塔",
+        "prompt": "塔顶高出树梢，还是低于树梢？移动它，看above保不保留。",
+        "answer": "tower",
+        "caseSensitive": false,
+        "meaning": "塔",
+        "before": "We could see the ",
+        "after": " above the trees.",
+        "reason": "We could see the tower above the trees说我们能看见高出树梢的塔；above不是below，也没有给出塔高的米数。tower 是较高而窄的建筑。",
+        "hint": "图中只示意塔顶与树梢的相对高低；不按比例，不推断距离、能否登塔或整座塔都高于树木。",
+        "material": "We could see the tower above the trees.",
+        "options": [
+          {
+            "id": "above",
+            "text": "我们能看见高出树梢的塔。",
+            "correct": true,
+            "reason": "保留could see与above the trees。"
+          },
+          {
+            "id": "below",
+            "text": "原句说塔顶低于树梢。",
+            "correct": false,
+            "reason": "below低于改变了above高于。"
+          },
+          {
+            "id": "height",
+            "text": "原句给出了塔的准确高度。",
+            "correct": false,
+            "reason": "above只给出相对位置，不给米数。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "塔顶高出树梢，还是低于树梢？移动它，看above保不保留。",
+          "sceneLab": {
+            "id": "tower-above-trees",
+            "title": "塔顶与树梢",
+            "hint": "只示意相对高低，不按比例，也不表示整座塔悬在树上。",
+            "wrong": "应高出树梢，不能换成低于树梢。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "塔顶相对树梢",
+                "choices": [
+                  {
+                    "id": "above",
+                    "label": "高出树梢"
+                  },
+                  {
+                    "id": "below",
+                    "label": "低于树梢"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "trees-name",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树"
+                  },
+                  {
+                    "id": "tower-name",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔"
+                  },
+                  {
+                    "id": "treetops",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "树梢位置"
+                  },
+                  {
+                    "id": "tree-trunk",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 56,
+                    "width": 4,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "tree-crown",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 38,
+                    "width": 26,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "treetop-guide",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 38,
+                    "width": 82,
+                    "height": 1,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 85,
+                    "width": 86,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "塔顶位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "above",
+                "reading": "我们能看见高出树梢的塔。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "trees-name",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树"
+                  },
+                  {
+                    "id": "tower-name",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔"
+                  },
+                  {
+                    "id": "treetops",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "树梢位置"
+                  },
+                  {
+                    "id": "tree-trunk",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 56,
+                    "width": 4,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "tree-crown",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 38,
+                    "width": 26,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "treetop-guide",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 38,
+                    "width": 82,
+                    "height": 1,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 85,
+                    "width": 86,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "塔顶高出树梢"
+                  },
+                  {
+                    "id": "tower",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 20,
+                    "width": 14,
+                    "height": 65,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "below",
+                "reading": "应高出树梢，不能换成低于树梢。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "trees-name",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "树"
+                  },
+                  {
+                    "id": "tower-name",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 2,
+                    "width": 42,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "塔"
+                  },
+                  {
+                    "id": "treetops",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "树梢位置"
+                  },
+                  {
+                    "id": "tree-trunk",
+                    "kind": "rect",
+                    "x": 24,
+                    "y": 56,
+                    "width": 4,
+                    "height": 29,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "tree-crown",
+                    "kind": "ellipse",
+                    "x": 13,
+                    "y": 38,
+                    "width": 26,
+                    "height": 22,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "treetop-guide",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 38,
+                    "width": 82,
+                    "height": 1,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "ground",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 85,
+                    "width": 86,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "塔顶低于树梢"
+                  },
+                  {
+                    "id": "tower",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 51,
+                    "width": 14,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-castle",
+        "label": "城堡",
+        "prompt": "比较哪两种墙？城堡的墙更厚还是更薄？",
+        "answer": "castle",
+        "caseSensitive": false,
+        "meaning": "城堡",
+        "before": "The ",
+        "after": " walls are thicker than our classroom walls.",
+        "reason": "The castle walls are thicker than our classroom walls比较城堡墙和教室墙的厚度；thicker不是thinner，也不是比较城堡墙与整间教室的宽度。castle 的 t 不发音。",
+        "hint": "比较对象都是墙；classroom walls指教室的墙。示意带只比较厚薄，不给尺寸、倍数、材料或真实建筑规格。",
+        "material": "The castle walls are thicker than our classroom walls.",
+        "options": [
+          {
+            "id": "thicker-classroom",
+            "text": "城堡的墙比我们教室的墙厚。",
+            "correct": true,
+            "reason": "保留castle walls、thicker与classroom walls。"
+          },
+          {
+            "id": "thinner",
+            "text": "城堡的墙比我们教室的墙薄。",
+            "correct": false,
+            "reason": "thinner更薄与thicker更厚相反。"
+          },
+          {
+            "id": "library",
+            "text": "城堡的墙比图书馆的墙厚。",
+            "correct": false,
+            "reason": "library图书馆改变了classroom教室。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "比较哪两种墙？城堡的墙更厚还是更薄？",
+          "sceneLab": {
+            "id": "castle-wall-thickness",
+            "title": "比较墙的厚度",
+            "hint": "两条带分别代表城堡墙和另一种墙的截面；只比厚薄，不按比例。",
+            "wrong": "应比教室墙厚，不能换成更薄或图书馆墙。",
+            "axes": [
+              {
+                "id": "comparison",
+                "label": "城堡墙更厚还是更薄",
+                "choices": [
+                  {
+                    "id": "thicker",
+                    "label": "更厚"
+                  },
+                  {
+                    "id": "thinner",
+                    "label": "更薄"
+                  }
+                ]
+              },
+              {
+                "id": "reference",
+                "label": "和哪种墙比较",
+                "choices": [
+                  {
+                    "id": "classroom",
+                    "label": "我们教室的墙"
+                  },
+                  {
+                    "id": "library",
+                    "label": "图书馆的墙"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "castle-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "城堡墙"
+                  },
+                  {
+                    "id": "reference-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "比较对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|classroom",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "castle-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "城堡墙"
+                  },
+                  {
+                    "id": "reference-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "我们教室的墙"
+                  },
+                  {
+                    "id": "reference-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 65,
+                    "width": 70,
+                    "height": 8,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "?|library",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "castle-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "城堡墙"
+                  },
+                  {
+                    "id": "reference-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆的墙"
+                  },
+                  {
+                    "id": "reference-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 65,
+                    "width": 70,
+                    "height": 8,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "thicker|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "castle-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "城堡墙"
+                  },
+                  {
+                    "id": "reference-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "比较对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "thicker|classroom",
+                "reading": "城堡的墙比我们教室的墙厚。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "castle-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "城堡墙"
+                  },
+                  {
+                    "id": "reference-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "我们教室的墙"
+                  },
+                  {
+                    "id": "reference-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 65,
+                    "width": 70,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "castle-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 36,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "thicker|library",
+                "reading": "应比教室墙厚，不能换成更薄或图书馆墙。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "castle-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "城堡墙"
+                  },
+                  {
+                    "id": "reference-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆的墙"
+                  },
+                  {
+                    "id": "reference-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 65,
+                    "width": 70,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "castle-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 36,
+                    "width": 70,
+                    "height": 16,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "thinner|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "castle-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "城堡墙"
+                  },
+                  {
+                    "id": "reference-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "比较对象待选"
+                  }
+                ]
+              },
+              {
+                "signature": "thinner|classroom",
+                "reading": "应比教室墙厚，不能换成更薄或图书馆墙。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "castle-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "城堡墙"
+                  },
+                  {
+                    "id": "reference-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "我们教室的墙"
+                  },
+                  {
+                    "id": "reference-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 65,
+                    "width": 70,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "castle-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 36,
+                    "width": 70,
+                    "height": 4,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "thinner|library",
+                "reading": "应比教室墙厚，不能换成更薄或图书馆墙。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "castle-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 15,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "城堡墙"
+                  },
+                  {
+                    "id": "reference-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "图书馆的墙"
+                  },
+                  {
+                    "id": "reference-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 65,
+                    "width": 70,
+                    "height": 8,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "castle-section",
+                    "kind": "rect",
+                    "x": 15,
+                    "y": 36,
+                    "width": 70,
+                    "height": 4,
+                    "tone": "blue"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-palace",
+        "label": "宫殿",
+        "prompt": "开放的是宫殿的哪一处？在哪个季节？不要把范围扩大。",
+        "answer": "palace",
+        "caseSensitive": false,
+        "meaning": "宫殿",
+        "before": "The ",
+        "after": " garden opens to visitors in spring.",
+        "reason": "The palace garden opens to visitors in spring说宫殿花园在春季向游客开放；没有说整座宫殿或全年开放。palace 指宫殿，区别于 place。",
+        "hint": "garden限定开放范围，in spring限定季节；没有说免费、每天开放或具体开放日期。",
+        "material": "The palace garden opens to visitors in spring.",
+        "options": [
+          {
+            "id": "garden-spring",
+            "text": "宫殿花园在春季向游客开放。",
+            "correct": true,
+            "reason": "保留palace garden与in spring。"
+          },
+          {
+            "id": "whole",
+            "text": "原句说明整座宫殿都向游客开放。",
+            "correct": false,
+            "reason": "garden只指花园，不能扩大成整座宫殿。"
+          },
+          {
+            "id": "all-year",
+            "text": "原句说明宫殿花园全年开放。",
+            "correct": false,
+            "reason": "in spring是春季，不是全年。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "开放的是宫殿的哪一处？在哪个季节？不要把范围扩大。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "开放范围与季节",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "圈出花园和春季；不补票价、日期或全年开放。",
+            "wrong": "应圈出宫殿花园与春季向游客开放，不扩大范围或时间。",
+            "rows": [
+              {
+                "id": "garden",
+                "label": "开放范围",
+                "text": "宫殿花园。",
+                "include": true
+              },
+              {
+                "id": "spring",
+                "label": "开放季节",
+                "text": "春季向游客开放。",
+                "include": true
+              },
+              {
+                "id": "whole",
+                "label": "额外范围",
+                "text": "原句说明整座宫殿都开放。",
+                "include": false
+              },
+              {
+                "id": "free",
+                "label": "额外票价",
+                "text": "原句说明免费开放。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-temple",
+        "label": "寺庙；庙宇",
+        "prompt": "寺庙在半山腰还是山顶？移动位置，别把halfway读成顶端。",
+        "answer": "temple",
+        "caseSensitive": false,
+        "meaning": "寺庙；庙宇",
+        "before": "The ",
+        "after": " stands halfway up the hill.",
+        "reason": "The temple stands halfway up the hill说寺庙坐落在半山腰；不是山顶，也没有给出路线长度或海拔。temple 也可指太阳穴。",
+        "hint": "这里temple指寺庙，不是身体部位。图中“半山腰”只是位置示意，不按比例，也不等于给出了山高或登山路线的一半米数。",
+        "material": "The temple stands halfway up the hill.",
+        "options": [
+          {
+            "id": "middle",
+            "text": "寺庙坐落在半山腰。",
+            "correct": true,
+            "reason": "保留temple与halfway up the hill。"
+          },
+          {
+            "id": "summit",
+            "text": "寺庙坐落在山顶。",
+            "correct": false,
+            "reason": "山顶是top，不是halfway up半山腰。"
+          },
+          {
+            "id": "body",
+            "text": "原句谈的是人的太阳穴。",
+            "correct": false,
+            "reason": "hill山丘这一语境中，temple指寺庙。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "寺庙在半山腰还是山顶？移动位置，别把halfway读成顶端。",
+          "sceneLab": {
+            "id": "temple-on-hill",
+            "title": "寺庙在山的哪里",
+            "hint": "只标半山腰与山顶这两种位置；不按比例，不给海拔或路程。",
+            "wrong": "应在半山腰，不能换成山顶。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "寺庙在山的哪里",
+                "choices": [
+                  {
+                    "id": "middle",
+                    "label": "半山腰"
+                  },
+                  {
+                    "id": "summit",
+                    "label": "山顶"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "hill",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 20,
+                    "width": 66,
+                    "height": 68,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "summit",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 2,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "山顶"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 50,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "半山腰"
+                  },
+                  {
+                    "id": "unknown",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 87,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "寺庙位置待选"
+                  }
+                ]
+              },
+              {
+                "signature": "middle",
+                "reading": "寺庙坐落在半山腰。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "hill",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 20,
+                    "width": 66,
+                    "height": 68,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "summit",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 2,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "山顶"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 50,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "半山腰"
+                  },
+                  {
+                    "id": "temple",
+                    "kind": "rect",
+                    "x": 40,
+                    "y": 50,
+                    "width": 18,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "temple-name",
+                    "kind": "label",
+                    "x": 41,
+                    "y": 69,
+                    "width": 40,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "寺庙"
+                  }
+                ]
+              },
+              {
+                "signature": "summit",
+                "reading": "应在半山腰，不能换成山顶。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "hill",
+                    "kind": "ellipse",
+                    "x": 28,
+                    "y": 20,
+                    "width": 66,
+                    "height": 68,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "summit",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 2,
+                    "width": 45,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "山顶"
+                  },
+                  {
+                    "id": "middle",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 50,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "半山腰"
+                  },
+                  {
+                    "id": "temple",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 17,
+                    "width": 18,
+                    "height": 14,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "temple-name",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 35,
+                    "width": 40,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "寺庙"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-church",
+        "label": "教堂",
+        "prompt": "是什么声音传到哪里？别把听到钟声读成看见教堂。",
+        "answer": "church",
+        "caseSensitive": false,
+        "meaning": "教堂",
+        "before": "The ",
+        "after": " bell rang across the valley.",
+        "reason": "The church bell rang across the valley说教堂钟声传遍山谷；rang是过去式，不是在说现在仍在响，也没有说能看见教堂。church 的复数加 es。",
+        "hint": "bell rang是钟响；across the valley说明声音传过山谷，不给距离、钟的数量或持续多久。",
+        "material": "The church bell rang across the valley.",
+        "options": [
+          {
+            "id": "bell-valley",
+            "text": "教堂钟声传遍山谷。",
+            "correct": true,
+            "reason": "保留church bell rang与across the valley。"
+          },
+          {
+            "id": "visible",
+            "text": "原句说明能在山谷对面看见教堂。",
+            "correct": false,
+            "reason": "rang说声音，不是看见建筑。"
+          },
+          {
+            "id": "now",
+            "text": "原句说明教堂的钟现在还在响。",
+            "correct": false,
+            "reason": "rang是过去式，没有说明现在仍在响。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "是什么声音传到哪里？别把听到钟声读成看见教堂。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "声音与传播范围",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "只保留钟声与山谷；不补能见度、现在状态、次数或时长。",
+            "wrong": "应圈出教堂钟声和传过山谷，不能补看见教堂或现在仍在响。",
+            "rows": [
+              {
+                "id": "bell",
+                "label": "声音来源",
+                "text": "教堂的钟响了。",
+                "include": true
+              },
+              {
+                "id": "valley",
+                "label": "传播范围",
+                "text": "钟声传过山谷。",
+                "include": true
+              },
+              {
+                "id": "visible",
+                "label": "额外视觉信息",
+                "text": "原句说明能看见教堂。",
+                "include": false
+              },
+              {
+                "id": "now",
+                "label": "额外现在状态",
+                "text": "原句说明现在仍在响。",
+                "include": false
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-town-places-3-transfer",
+      "topicId": "v-course-town-places",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成山顶、冬季和图书馆墙，哪组英文保留了三条新信息？",
+      "passage": "三条新信息\n寺庙坐落在山顶。宫殿花园在冬季向游客开放。城堡的墙比图书馆的墙薄。\n词语提示：top 顶端；winter 冬季；thinner 更薄。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The temple stands halfway up the hill. The palace garden opens to visitors in winter. The castle walls are thinner than the library walls."
+        },
+        {
+          "id": "b",
+          "text": "The temple stands at the top of the hill. The palace garden opens to visitors in spring. The castle walls are thinner than the library walls."
+        },
+        {
+          "id": "c",
+          "text": "The temple stands at the top of the hill. The palace garden opens to visitors in winter. The castle walls are thicker than the library walls."
+        },
+        {
+          "id": "d",
+          "text": "The temple stands at the top of the hill. The palace garden opens to visitors in winter. The castle walls are thinner than the library walls."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "The temple stands at the top of the hill. The palace garden opens to visitors in winter. The castle walls are thinner than the library walls."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "按新信息重新检查位置、季节和比较对象，不照抄上一题的条件。",
+        "steps": [
+          {
+            "text": "寺庙在山顶：at the top of the hill。",
+            "reason": "halfway up是半山腰，不是本题的山顶。"
+          },
+          {
+            "text": "花园冬季开放：opens to visitors in winter。",
+            "reason": "新条件是winter，不是spring；范围仍是garden。"
+          },
+          {
+            "text": "城堡墙比图书馆墙薄：thinner than the library walls。",
+            "reason": "比较对象是两种墙；thinner不能换成thicker。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "halfway up把山顶改成半山腰。"
+          },
+          {
+            "option": "b",
+            "reason": "spring把冬季改成春季。"
+          },
+          {
+            "option": "c",
+            "reason": "thicker把更薄改成更厚。"
+          }
+        ],
+        "pitfall": "新题的山顶、冬季和更薄都已改变；不要把旧句的半山腰、春季或更厚带进来。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三条新条件逐一核对",
+          "segments": [
+            {
+              "text": "temple → top of hill",
+              "role": "evidence",
+              "note": "寺庙；山顶"
+            },
+            {
+              "text": "palace garden → winter",
+              "role": "evidence",
+              "note": "花园；冬季开放"
+            },
+            {
+              "text": "castle walls → thinner",
+              "role": "evidence",
+              "note": "比图书馆墙薄"
+            }
+          ],
+          "caption": "只表达这组新信息，不补高度、日期、票价、材料或尺寸。"
+        },
+        "transfer": "把winter换成spring，或把thinner换成thicker，各改变了哪条信息？"
+      }
+    }
+  }
+}

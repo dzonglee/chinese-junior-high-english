@@ -1,0 +1,602 @@
+{
+  "lessonId": "l-v-course-quantity",
+  "reviewState": "draft",
+  "intent": "Individually authored quantity-reading tasks with exact object manipulation, temperature evidence and a clock. Guided practice only; no independent or hearing credit.",
+  "picturePurpose": "One inspected original potted seedling is a counting unit; code controls repetition. All other counts and units are drawn and labelled in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "词语任务",
+    "title": "先认单位，再把数量摆对",
+    "instruction": "圈读数、摆数量、拨时钟；再把目标词填回原例句。",
+    "items": [
+      {
+        "id": "zero",
+        "label": "zero：below不包括零度本身",
+        "prompt": "Read the three temperatures. Which reading is below zero?",
+        "wordDecision": {
+          "prompt": "Read the three temperatures. Which reading is below zero?",
+          "recordPaths": [
+            {
+              "id": "scale",
+              "label": "与0°C比较",
+              "steps": [
+                "−2°C：below",
+                "0°C：at",
+                "+2°C：above"
+              ]
+            }
+          ],
+          "recordSelection": {
+            "title": "圈出低于零度的读数",
+            "prompt": "只圈严格低于0°C的记录。",
+            "rows": [
+              {
+                "id": "minus",
+                "label": "Monday",
+                "text": "−2°C",
+                "include": true
+              },
+              {
+                "id": "at",
+                "label": "Tuesday",
+                "text": "0°C",
+                "include": false
+              },
+              {
+                "id": "plus",
+                "label": "Wednesday",
+                "text": "+2°C",
+                "include": false
+              }
+            ],
+            "hint": "below不包括0°C本身。",
+            "wrong": "只有−2°C低于零度；0°C是零度本身，+2°C在零度以上。"
+          }
+        },
+        "answer": "zero",
+        "meaning": "零",
+        "material": "The temperature fell below zero overnight.",
+        "before": "The temperature fell below ",
+        "after": " overnight.",
+        "reason": "below zero表示零度以下；at zero是零度本身；above zero是零度以上。先看正负号，再和0比较。这里比较摄氏温度，不把零度本身也算进below。",
+        "hint": "below < 0；at = 0；above > 0。",
+        "options": [
+          {
+            "id": "at",
+            "text": "0°C.",
+            "correct": false,
+            "reason": "这是零度本身，应用at zero，不是below zero。"
+          },
+          {
+            "id": "minus",
+            "text": "−2°C.",
+            "correct": true,
+            "reason": "−2°C低于0°C；0°C本身不算低于零度。"
+          },
+          {
+            "id": "plus",
+            "text": "+2°C.",
+            "correct": false,
+            "reason": "+2°C比零度高，不是低于零度。"
+          }
+        ]
+      },
+      {
+        "id": "one",
+        "label": "one：一个，后接单数名词",
+        "prompt": "Each desk needs one seedling. Prepare plants for one desk. How many seedlings are needed?",
+        "wordDecision": {
+          "prompt": "Each desk needs one seedling. Prepare plants for one desk. How many seedlings are needed?",
+          "recordPaths": [
+            {
+              "id": "number",
+              "label": "数字搭配",
+              "steps": [
+                "one",
+                "a singular noun"
+              ]
+            },
+            {
+              "id": "replace",
+              "label": "代替名词",
+              "steps": [
+                "a bigger one",
+                "a bigger pot"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "给一张桌子摆植物",
+            "unit": "seedling",
+            "pluralUnit": "seedlings",
+            "limit": 4,
+            "answer": 1,
+            "shape": "plant",
+            "hint": "一株一盆；点加减，摆出一张桌子所需的量。",
+            "wrong": "一张桌子只需一株。摆成1株，再核对句中的one。",
+            "unitArt": "count-unit-seedling"
+          }
+        },
+        "answer": "one",
+        "meaning": "一；一个",
+        "material": "Only one seed has grown so far.",
+        "before": "Only ",
+        "after": " seed has grown so far.",
+        "reason": "one seed用单数seed；two seeds才用复数。one也能代替前面提到的单数可数名词，如“This pot is small. I need a bigger one.”，其中one代替pot。",
+        "hint": "先摆一株；再核对one seed中的单数。",
+        "options": [
+          {
+            "id": "two",
+            "text": "Two seedlings.",
+            "correct": false,
+            "reason": "把one加成了两个；这里只准备一张桌子的量。"
+          },
+          {
+            "id": "none",
+            "text": "No seedlings.",
+            "correct": false,
+            "reason": "每桌需要一株，不能一株都不放。"
+          },
+          {
+            "id": "single",
+            "text": "One seedling.",
+            "correct": true,
+            "reason": "一张桌子，每桌一株，需要一株。"
+          }
+        ],
+        "ownForms": [
+          "one",
+          "ones"
+        ]
+      },
+      {
+        "id": "two",
+        "label": "two：每份数量和总数要分开",
+        "prompt": "One cake needs two eggs. We will make two cakes. How many eggs are needed in total?",
+        "wordDecision": {
+          "prompt": "One cake needs two eggs. We will make two cakes. How many eggs are needed in total?",
+          "recordPaths": [
+            {
+              "id": "total",
+              "label": "两份合计",
+              "steps": [
+                "2 eggs per cake",
+                "2 cakes",
+                "4 eggs"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "摆出两份所需鸡蛋总数",
+            "unit": "egg",
+            "pluralUnit": "eggs",
+            "limit": 6,
+            "answer": 4,
+            "shape": "egg",
+            "hint": "每个图形代表一个鸡蛋；要摆两份的总数。",
+            "wrong": "两份，每份两个，应摆4个鸡蛋；原例句的每份数量仍填two。"
+          }
+        },
+        "answer": "two",
+        "meaning": "二；两个",
+        "material": "The recipe needs two eggs.",
+        "before": "The recipe needs ",
+        "after": " eggs.",
+        "reason": "two是数字2；too表示“也”或“太”，不能放在数字的位置。两份食谱要把每份两个与两份相乘；原例句仍填two，图中摆的是两份合计四个。",
+        "hint": "每份two eggs；两份共four eggs；two不是too。",
+        "options": [
+          {
+            "id": "four",
+            "text": "Four eggs.",
+            "correct": true,
+            "reason": "每个蛋糕两个鸡蛋，两个蛋糕共2×2=4个。"
+          },
+          {
+            "id": "two",
+            "text": "Two eggs.",
+            "correct": false,
+            "reason": "这只够做一个蛋糕，漏掉第二份。"
+          },
+          {
+            "id": "six",
+            "text": "Six eggs.",
+            "correct": false,
+            "reason": "两份，每份两个，共四个，不是六个。"
+          }
+        ]
+      },
+      {
+        "id": "three",
+        "label": "three：三组不等于三个工作",
+        "prompt": "There are three groups. Each group has two jobs. How many jobs are there in total?",
+        "wordDecision": {
+          "prompt": "There are three groups. Each group has two jobs. How many jobs are there in total?",
+          "recordPaths": [
+            {
+              "id": "jobs",
+              "label": "总工作数",
+              "steps": [
+                "3 groups",
+                "2 jobs each",
+                "6 jobs"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "摆出三组的工作总数",
+            "unit": "job",
+            "pluralUnit": "jobs",
+            "limit": 8,
+            "answer": 6,
+            "shape": "card",
+            "hint": "每张卡代表一项工作。三组，每组两项。",
+            "wrong": "应摆6张工作卡；3是组数，2是每组工作数。"
+          }
+        },
+        "answer": "three",
+        "meaning": "三；三个",
+        "material": "We divided the task into three parts.",
+        "before": "We divided the task into ",
+        "after": " parts.",
+        "reason": "three后接可数名词复数，如three parts。题目中的three groups是三组，two jobs是每组两项；先分清单位，才能求总数。three的th不能按字母s读。",
+        "hint": "3 groups × 2 jobs = 6 jobs；先看单位。",
+        "options": [
+          {
+            "id": "three",
+            "text": "Three jobs.",
+            "correct": false,
+            "reason": "这是组数，没算每组两项。"
+          },
+          {
+            "id": "six",
+            "text": "Six jobs.",
+            "correct": true,
+            "reason": "三组，每组两项，3×2=6项。"
+          },
+          {
+            "id": "two",
+            "text": "Two jobs.",
+            "correct": false,
+            "reason": "这是一组的工作数，不是三组合计。"
+          }
+        ]
+      },
+      {
+        "id": "four",
+        "label": "four：two carts与four wheels分清",
+        "prompt": "Each of two identical carts has four wheels. How many wheels do they have altogether?",
+        "wordDecision": {
+          "prompt": "Each of two identical carts has four wheels. How many wheels do they have altogether?",
+          "recordPaths": [
+            {
+              "id": "wheels",
+              "label": "两辆合计",
+              "steps": [
+                "2 carts",
+                "4 wheels each",
+                "8 wheels"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "摆出两辆车的轮子总数",
+            "unit": "wheel",
+            "pluralUnit": "wheels",
+            "limit": 8,
+            "answer": 8,
+            "shape": "wheel",
+            "hint": "每个圆轮代表一个轮子；原文明确两辆、每辆四轮。",
+            "wrong": "两辆，每辆四轮，共8个轮子，不能只摆一辆车的4个。"
+          }
+        },
+        "answer": "Four",
+        "meaning": "四；四个",
+        "material": "Four wheels make the cart easier to move.",
+        "before": "",
+        "after": " wheels make the cart easier to move.",
+        "reason": "four是数字4；for是介词，虽然同音，但句中作用不同。four wheels是四个轮子；This cart is for our club.中的for表示用途。先看每辆多少，再看几辆。",
+        "hint": "2 carts × 4 wheels = 8 wheels；four不是for。",
+        "options": [
+          {
+            "id": "four",
+            "text": "Four wheels.",
+            "correct": false,
+            "reason": "只算了一辆车，漏掉另一辆。"
+          },
+          {
+            "id": "six",
+            "text": "Six wheels.",
+            "correct": false,
+            "reason": "four指每辆四轮，两辆合计八轮，不是六轮。"
+          },
+          {
+            "id": "eight",
+            "text": "Eight wheels.",
+            "correct": true,
+            "reason": "两辆相同的小车，每辆四轮，共2×4=8轮。"
+          }
+        ],
+        "caseSensitive": true
+      },
+      {
+        "id": "five",
+        "label": "five：五分钟，和第五名分开",
+        "prompt": "Now it is Friday 11:55. The bus arrives at 12:00. How long is the wait?",
+        "wordDecision": {
+          "prompt": "Now it is Friday 11:55. The bus arrives at 12:00. How long is the wait?",
+          "recordPaths": [
+            {
+              "id": "wait",
+              "label": "等多久",
+              "steps": [
+                "Friday 11:55",
+                "+5 minutes",
+                "Friday 12:00"
+              ]
+            }
+          ],
+          "clock": {
+            "title": "从11:55拨到公交车到达时刻",
+            "start": "11:55",
+            "days": [
+              "Friday",
+              "Saturday"
+            ],
+            "intervals": [
+              0,
+              5,
+              10,
+              15
+            ],
+            "answer": 5,
+            "hint": "先算要等多久，再拨动钟面。",
+            "wrong": "从11:55到12:00是5分钟；应选+5分钟。"
+          }
+        },
+        "answer": "five",
+        "meaning": "五；五个",
+        "material": "I have five minutes before my bus arrives.",
+        "before": "I have ",
+        "after": " minutes before my bus arrives.",
+        "reason": "five是基数词，five minutes表示五分钟；fifth是序数词，如the fifth runner。等待时长是12:00−11:55=5分钟，不是把钟点12当时长。",
+        "hint": "11:55 + 5 minutes = 12:00；five数量，fifth顺序。",
+        "options": [
+          {
+            "id": "five",
+            "text": "Five minutes.",
+            "correct": true,
+            "reason": "从11:55到12:00相隔五分钟。"
+          },
+          {
+            "id": "fifth",
+            "text": "The fifth minute.",
+            "correct": false,
+            "reason": "fifth是序数词，不能直接代替表示时长的five minutes。"
+          },
+          {
+            "id": "twelve",
+            "text": "Twelve hours.",
+            "correct": false,
+            "reason": "12:00是钟点，不是还要等十二小时。"
+          }
+        ]
+      },
+      {
+        "id": "six",
+        "label": "six：总共六根，问剩下几根",
+        "prompt": "A guitar in this task has six strings. One string breaks. How many strings remain unbroken?",
+        "wordDecision": {
+          "prompt": "A guitar in this task has six strings. One string breaks. How many strings remain unbroken?",
+          "recordPaths": [
+            {
+              "id": "remain",
+              "label": "完好的弦",
+              "steps": [
+                "6 strings",
+                "−1 broken",
+                "5 unbroken"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "摆出仍完好的弦",
+            "unit": "string",
+            "pluralUnit": "strings",
+            "limit": 7,
+            "answer": 5,
+            "shape": "string",
+            "hint": "每条竖线代表一根完好的弦；扣掉断的一根。",
+            "wrong": "六根中断了一根，应摆5根完好的弦。"
+          }
+        },
+        "answer": "six",
+        "meaning": "六；六个",
+        "material": "There are six strings on this guitar.",
+        "before": "There are ",
+        "after": " strings on this guitar.",
+        "reason": "six strings用复数strings。本题写明原有六根，只问未断的数量，要算6−1。不能据此推成所有种类的吉他都只有六根弦。",
+        "hint": "six原有六根；one breaks一根断；five remain五根完好。",
+        "options": [
+          {
+            "id": "six",
+            "text": "Six strings.",
+            "correct": false,
+            "reason": "六根是原来的总数，没扣断掉的一根。"
+          },
+          {
+            "id": "five",
+            "text": "Five strings.",
+            "correct": true,
+            "reason": "六根中一根断了，仍完好的有6−1=5根。"
+          },
+          {
+            "id": "seven",
+            "text": "Seven strings.",
+            "correct": false,
+            "reason": "断一根应减少，不能把六加成七。"
+          }
+        ]
+      },
+      {
+        "id": "seven",
+        "label": "seven：核对上限，也核对已经有几人",
+        "prompt": "The stated limit is seven passengers. Six are aboard; two are waiting. How many of the two must wait?",
+        "wordDecision": {
+          "prompt": "The stated limit is seven passengers. Six are aboard; two are waiting. How many of the two must wait?",
+          "recordPaths": [
+            {
+              "id": "capacity",
+              "label": "剩余名额",
+              "steps": [
+                "7 stated places",
+                "6 aboard",
+                "1 place left"
+              ]
+            },
+            {
+              "id": "waiting",
+              "label": "继续等候",
+              "steps": [
+                "2 waiting",
+                "1 boards",
+                "1 still waiting"
+              ]
+            }
+          ],
+          "quantity": {
+            "title": "摆出还得等候的乘客",
+            "unit": "passenger",
+            "pluralUnit": "passengers",
+            "limit": 4,
+            "answer": 1,
+            "shape": "person",
+            "hint": "每个圆点代表一名乘客；只摆仍须等候的人数。",
+            "wrong": "还可上一人；两位等候者中另一人须继续等，应摆1个标记。"
+          }
+        },
+        "answer": "seven",
+        "meaning": "七；七个",
+        "material": "The small boat can carry seven passengers.",
+        "before": "The small boat can carry ",
+        "after": " passengers.",
+        "reason": "seven passengers表示七名乘客；这道题的上限来自文字。已有六人，只剩一个名额，两位等候者中可上一位、留下一位。先区分上限、已有人数和等候人数。",
+        "hint": "7名额−6已上=1可上；2等候−1可上=1继续等。",
+        "options": [
+          {
+            "id": "none",
+            "text": "Neither passenger needs to wait.",
+            "correct": false,
+            "reason": "两人都上会成八人，超过题目给出的七人上限。"
+          },
+          {
+            "id": "two",
+            "text": "Both passengers must wait.",
+            "correct": false,
+            "reason": "当前只有六人，题目还留一个名额，并非两人都不能上。"
+          },
+          {
+            "id": "one",
+            "text": "One passenger must wait.",
+            "correct": true,
+            "reason": "还可上7−6=1人，两位等候者中另1人须继续等。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-quantity-transfer",
+      "topicId": "v-course-quantity",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which statement follows the supply note?",
+      "passage": "GARDEN CLUB — SUPPLY NOTE\nOnly one seedling has grown so far. We have two boxes, and each box contains three empty pots. These empty pots are separate from the pot holding the seedling. Our cart has four wheels. The bus arrives at 12:00 on Friday; the clock now shows Friday 11:55. Monday’s temperature was −2°C, Tuesday’s was 0°C, and Wednesday’s was +2°C.",
+      "options": [
+        {
+          "id": "a",
+          "text": "There are three empty pots, and the bus arrives in five minutes."
+        },
+        {
+          "id": "b",
+          "text": "There are six empty pots, and both Monday and Tuesday were below zero."
+        },
+        {
+          "id": "c",
+          "text": "There are six empty pots, and the bus arrives in five minutes."
+        },
+        {
+          "id": "d",
+          "text": "There are six empty pots, and we must wait twelve hours for the bus."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "There are six empty pots, and the bus arrives in five minutes."
+      },
+      "marks": 2,
+      "estimatedSeconds": 90,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先分清每箱与总数，再算等待时长；零度本身不能算低于零度。",
+        "steps": [
+          {
+            "text": "两箱，每箱三个空盆，共2×3=6个空盆。已经种苗的盆另算。",
+            "reason": "each box给出每箱数量，不能把三当成两箱合计，也不能混入种苗的盆。"
+          },
+          {
+            "text": "周五11:55到12:00相隔五分钟；只有−2°C低于零度，0°C是零度本身。",
+            "reason": "钟点和时长不同；below表示严格低于，不包括零本身。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "three只是一箱的数量，两箱有六个空盆。"
+          },
+          {
+            "option": "b",
+            "reason": "周二0°C是零度本身，不是低于零度；只有周一−2°C符合。"
+          },
+          {
+            "option": "d",
+            "reason": "12:00是到达钟点；从11:55只等五分钟，不是十二小时。"
+          }
+        ],
+        "pitfall": "先读单位：每箱、合计、钟点、时长分别核对。below不包括at zero。",
+        "visual": {
+          "kind": "timeline",
+          "title": "数量、时长与温度分别核对",
+          "segments": [
+            {
+              "text": "2 boxes × 3 empty pots = 6 empty pots",
+              "role": "object",
+              "note": "不含已经种苗的盆"
+            },
+            {
+              "text": "Friday 11:55 → +5 minutes → Friday 12:00",
+              "role": "time",
+              "note": "同一天，中午12:00"
+            },
+            {
+              "text": "−2°C < 0°C; 0°C = zero; +2°C > 0°C",
+              "role": "object",
+              "note": "below只选负数读数"
+            }
+          ],
+          "caption": "每箱数量、钟点和温度都按便条核对。"
+        },
+        "transfer": "如果改为三箱、每箱两个空盆，总数会变吗？公交车若改在12:05到，而现在仍是11:55，又要等几分钟？"
+      }
+    }
+  }
+}

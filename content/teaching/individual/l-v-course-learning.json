@@ -1,0 +1,2975 @@
+{
+  "lessonId": "l-v-course-learning",
+  "reviewState": "draft",
+  "intent": "Teach learning gains when explaining ideas, studying better in a quiet corner, reading before opening, writing clearly for everyone to read, asking spelling without an answer, verb pronounce versus noun pronunciation and final sound versus letter, clearer rather than perfect, and weather-word restriction through an explicitly new example.",
+  "picturePurpose": "Four code-owned scenes compare quiet corner and performance, spelling versus pronunciation with unanswered question, verb/noun and first/final sound position, and new windy/table weather-word selection. A reversible label/open order and three exact evidence tasks teach the remaining claims without invented audio.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "换情境，分清动作与词形",
+    "instruction": "摆先后、选词形、找限定；别把“能做到”读成“已经做完”。",
+    "items": [
+      {
+        "id": "word-learn",
+        "label": "学到；学习（本句）",
+        "prompt": "when后是什么活动，more说明什么？圈出两条信息。",
+        "answer": "learn",
+        "caseSensitive": false,
+        "meaning": "学到；学习（本句）",
+        "before": "We ",
+        "after": " more when we explain our ideas.",
+        "reason": "We learn more when we explain our ideas说把想法解释出来时，我们能学到更多；没有说只要解释一次就能全部掌握。",
+        "hint": "learn在这里强调学到的收获；不要只凭中文“学习”把learn与study硬分成互不相关的词。",
+        "material": "We learn more when we explain our ideas.",
+        "options": [
+          {
+            "id": "explain-more",
+            "text": "把想法解释出来时，我们能学到更多。",
+            "correct": true,
+            "reason": "保留explain our ideas与learn more。"
+          },
+          {
+            "id": "copy",
+            "text": "只照抄答案时，我们能学到更多。",
+            "correct": false,
+            "reason": "照抄答案改变了explain our ideas解释想法。"
+          },
+          {
+            "id": "master",
+            "text": "只解释一次，就能全部掌握。",
+            "correct": false,
+            "reason": "原句没有一次或全部掌握的保证。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "when后是什么活动，more说明什么？圈出两条信息。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "活动与学习收获",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "保留具体活动与more，不补次数或完全掌握。",
+            "wrong": "应保留解释想法时学到更多，不能补一次就全部掌握。",
+            "rows": [
+              {
+                "id": "explain",
+                "label": "活动",
+                "text": "把自己的想法解释出来。",
+                "include": true
+              },
+              {
+                "id": "more",
+                "label": "收获",
+                "text": "我们能学到更多。",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "额外保证",
+                "text": "只解释一次就能全部掌握。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-study",
+        "label": "学习（本句）",
+        "prompt": "在哪种角落学习更好？切换环境，再核对better。",
+        "answer": "study",
+        "caseSensitive": false,
+        "meaning": "学习（本句）",
+        "before": "I ",
+        "after": " better in a quiet corner.",
+        "reason": "I study better in a quiet corner说我在安静的角落里学习效果更好；study在这里是学习，不是书房这个名词义。",
+        "hint": "better不是best，不能改成最好；studied是过去式，本句用study。",
+        "material": "I study better in a quiet corner.",
+        "options": [
+          {
+            "id": "quiet-better",
+            "text": "我在安静的角落里学习效果更好。",
+            "correct": true,
+            "reason": "保留I、quiet corner与better。"
+          },
+          {
+            "id": "noisy",
+            "text": "我在吵闹的角落里学习效果更好。",
+            "correct": false,
+            "reason": "吵闹改变了quiet安静。"
+          },
+          {
+            "id": "best",
+            "text": "所有人在这里都能学得最好。",
+            "correct": false,
+            "reason": "所有人、最好都超出I与better。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "在哪种角落学习更好？切换环境，再核对better。",
+          "sceneLab": {
+            "id": "study-corner",
+            "title": "什么环境，学习效果怎样？",
+            "hint": "房间只示意角落；不推广成所有人的学习方法。",
+            "wrong": "应是我在安静角落学习更好，不能改吵闹或所有人最好。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "角落环境",
+                "choices": [
+                  {
+                    "id": "quiet",
+                    "label": "安静"
+                  },
+                  {
+                    "id": "noisy",
+                    "label": "吵闹"
+                  }
+                ]
+              },
+              {
+                "id": "scope",
+                "label": "主语与程度",
+                "choices": [
+                  {
+                    "id": "i-better",
+                    "label": "我学得更好"
+                  },
+                  {
+                    "id": "all-best",
+                    "label": "所有人学得最好"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall1",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 25,
+                    "width": 1,
+                    "height": 51,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wall2",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 74,
+                    "width": 46,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 46,
+                    "width": 33,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "book",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "environment",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "环境待选"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "主语与程度待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|i-better",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall1",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 25,
+                    "width": 1,
+                    "height": 51,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wall2",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 74,
+                    "width": 46,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 46,
+                    "width": 33,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "book",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "environment",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "环境待选"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "我：学得更好"
+                  }
+                ]
+              },
+              {
+                "signature": "?|all-best",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall1",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 25,
+                    "width": 1,
+                    "height": 51,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wall2",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 74,
+                    "width": 46,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 46,
+                    "width": 33,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "book",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "environment",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "环境待选"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "所有人：学得最好"
+                  }
+                ]
+              },
+              {
+                "signature": "quiet|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall1",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 25,
+                    "width": 1,
+                    "height": 51,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wall2",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 74,
+                    "width": 46,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 46,
+                    "width": 33,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "book",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "environment",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "安静的角落"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "主语与程度待选"
+                  },
+                  {
+                    "id": "quiet",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 37,
+                    "width": 31,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "安静"
+                  }
+                ]
+              },
+              {
+                "signature": "quiet|i-better",
+                "reading": "我在安静的角落里学习效果更好。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "wall1",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 25,
+                    "width": 1,
+                    "height": 51,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wall2",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 74,
+                    "width": 46,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 46,
+                    "width": 33,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "book",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "environment",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "安静的角落"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "我：学得更好"
+                  },
+                  {
+                    "id": "quiet",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 37,
+                    "width": 31,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "安静"
+                  }
+                ]
+              },
+              {
+                "signature": "quiet|all-best",
+                "reading": "应是我在安静角落学习更好，不能改吵闹或所有人最好。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall1",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 25,
+                    "width": 1,
+                    "height": 51,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wall2",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 74,
+                    "width": 46,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 46,
+                    "width": 33,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "book",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "environment",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "安静的角落"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "所有人：学得最好"
+                  },
+                  {
+                    "id": "quiet",
+                    "kind": "label",
+                    "x": 65,
+                    "y": 37,
+                    "width": 31,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "安静"
+                  }
+                ]
+              },
+              {
+                "signature": "noisy|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall1",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 25,
+                    "width": 1,
+                    "height": 51,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wall2",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 74,
+                    "width": 46,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 46,
+                    "width": 33,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "book",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "environment",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "吵闹的角落"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "主语与程度待选"
+                  },
+                  {
+                    "id": "noise1",
+                    "kind": "line",
+                    "x": 69,
+                    "y": 27,
+                    "width": 21,
+                    "height": 2,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "noise2",
+                    "kind": "line",
+                    "x": 69,
+                    "y": 42,
+                    "width": 25,
+                    "height": 2,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "noise3",
+                    "kind": "line",
+                    "x": 69,
+                    "y": 57,
+                    "width": 21,
+                    "height": 2,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "noisy|i-better",
+                "reading": "应是我在安静角落学习更好，不能改吵闹或所有人最好。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall1",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 25,
+                    "width": 1,
+                    "height": 51,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wall2",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 74,
+                    "width": 46,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 46,
+                    "width": 33,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "book",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "environment",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "吵闹的角落"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "我：学得更好"
+                  },
+                  {
+                    "id": "noise1",
+                    "kind": "line",
+                    "x": 69,
+                    "y": 27,
+                    "width": 21,
+                    "height": 2,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "noise2",
+                    "kind": "line",
+                    "x": 69,
+                    "y": 42,
+                    "width": 25,
+                    "height": 2,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "noise3",
+                    "kind": "line",
+                    "x": 69,
+                    "y": 57,
+                    "width": 21,
+                    "height": 2,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "noisy|all-best",
+                "reading": "应是我在安静角落学习更好，不能改吵闹或所有人最好。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall1",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 25,
+                    "width": 1,
+                    "height": 51,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wall2",
+                    "kind": "line",
+                    "x": 17,
+                    "y": 74,
+                    "width": 46,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 25,
+                    "y": 46,
+                    "width": 33,
+                    "height": 12,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "book",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 25,
+                    "height": 13,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "environment",
+                    "kind": "label",
+                    "x": 0,
+                    "y": 2,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "吵闹的角落"
+                  },
+                  {
+                    "id": "effect",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 80,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "所有人：学得最好"
+                  },
+                  {
+                    "id": "noise1",
+                    "kind": "line",
+                    "x": 69,
+                    "y": 27,
+                    "width": 21,
+                    "height": 2,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "noise2",
+                    "kind": "line",
+                    "x": 69,
+                    "y": 42,
+                    "width": 25,
+                    "height": 2,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "noise3",
+                    "kind": "line",
+                    "x": 69,
+                    "y": 57,
+                    "width": 21,
+                    "height": 2,
+                    "tone": "rose"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-read",
+        "label": "阅读",
+        "prompt": "before要求先读标签还是先拆包装？点卡片排一排。",
+        "answer": "Read",
+        "caseSensitive": true,
+        "meaning": "阅读",
+        "before": "",
+        "after": " the label before opening the packet.",
+        "reason": "Read the label before opening the packet要求拆包装前先读标签；没有说已经拆开了。",
+        "hint": "句首Read大写；这里是动词原形，过去式虽然同形，读音不同。",
+        "material": "Read the label before opening the packet.",
+        "options": [
+          {
+            "id": "read-first",
+            "text": "先读标签，再拆包装。",
+            "correct": true,
+            "reason": "保留Read the label与before opening。"
+          },
+          {
+            "id": "open-first",
+            "text": "先拆包装，再读标签。",
+            "correct": false,
+            "reason": "顺序与before相反。"
+          },
+          {
+            "id": "done",
+            "text": "包装已经拆开，标签也已读完。",
+            "correct": false,
+            "reason": "原句是要求，不是完成记录。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before要求先读标签还是先拆包装？点卡片排一排。",
+          "processOrder": {
+            "title": "先读，再拆",
+            "hint": "排原句中的先后要求，不表示事情已经完成。",
+            "wrong": "应先读标签，再拆包装。",
+            "events": [
+              {
+                "id": "read",
+                "label": "读标签"
+              },
+              {
+                "id": "open",
+                "label": "拆包装"
+              }
+            ],
+            "sequence": [
+              "read",
+              "open"
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-write",
+        "label": "写",
+        "prompt": "写清楚是为了什么？everyone与can都要保留。",
+        "answer": "Write",
+        "caseSensitive": true,
+        "meaning": "写",
+        "before": "",
+        "after": " clearly so everyone can read your note.",
+        "reason": "Write clearly so everyone can read your note要求写清楚些，让大家都能看懂便条；没有说大家已经读过了。",
+        "hint": "so引出这里的目的；can read是能读懂，不是have read已经读过。Write句首大写。",
+        "material": "Write clearly so everyone can read your note.",
+        "options": [
+          {
+            "id": "all-can",
+            "text": "写清楚些，让大家都能看懂便条。",
+            "correct": true,
+            "reason": "保留clearly、everyone与can read。"
+          },
+          {
+            "id": "only",
+            "text": "只要自己能看懂，别人不需要看懂。",
+            "correct": false,
+            "reason": "只自己丢掉了everyone。"
+          },
+          {
+            "id": "done",
+            "text": "所有人已经读过这张便条。",
+            "correct": false,
+            "reason": "已经读过改变了can read能读懂。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "写清楚是为了什么？everyone与can都要保留。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "书写要求与目的",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "目的不等于已发生的结果；大家不是只自己。",
+            "wrong": "应保留写清楚与大家能看懂，不能补大家已经读过。",
+            "rows": [
+              {
+                "id": "clear",
+                "label": "要求",
+                "text": "写清楚。",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "目的",
+                "text": "让大家都能看懂便条。",
+                "include": true
+              },
+              {
+                "id": "read",
+                "label": "额外结果",
+                "text": "大家已经读过便条。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-spell",
+        "label": "拼写",
+        "prompt": "spell要说出字母还是读出整个名称？原句回答了吗？",
+        "answer": "spell",
+        "caseSensitive": false,
+        "meaning": "拼写",
+        "before": "Can you ",
+        "after": " the name of this instrument?",
+        "reason": "Can you spell the name of this instrument问你能否拼出这种乐器的名称；没有给乐器名称，也没有确认对方会拼。",
+        "hint": "Can you后用动词原形spell。spell是拼写，pronounce是发音，不能互换。",
+        "material": "Can you spell the name of this instrument?",
+        "options": [
+          {
+            "id": "spell-ask",
+            "text": "询问能否拼出这种乐器的名称。",
+            "correct": true,
+            "reason": "保留spell、name与疑问语气。"
+          },
+          {
+            "id": "pronounce",
+            "text": "询问能否读出这个名称的发音。",
+            "correct": false,
+            "reason": "读出发音是pronounce，不是spell。"
+          },
+          {
+            "id": "yes",
+            "text": "原句已确认对方能正确拼写。",
+            "correct": false,
+            "reason": "提问没有给肯定回答。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "spell要说出字母还是读出整个名称？原句回答了吗？",
+          "sceneLab": {
+            "id": "spell-question",
+            "title": "问拼写，还是问发音？",
+            "hint": "不给具体乐器名称或虚构回答；只比较两种任务。",
+            "wrong": "应询问能否拼出名称，不能改成发音或已确认会拼。",
+            "axes": [
+              {
+                "id": "task",
+                "label": "问的是哪种任务",
+                "choices": [
+                  {
+                    "id": "spell",
+                    "label": "拼写名称"
+                  },
+                  {
+                    "id": "pronounce",
+                    "label": "读出发音"
+                  }
+                ]
+              },
+              {
+                "id": "response",
+                "label": "原句回答了吗",
+                "choices": [
+                  {
+                    "id": "unanswered",
+                    "label": "没有给回答"
+                  },
+                  {
+                    "id": "yes",
+                    "label": "已经确认会拼"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "question",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Can you … the name?"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 29,
+                    "width": 82,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "task",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 78,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "任务待选"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 77,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "回答状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|unanswered",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "question",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Can you … the name?"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 29,
+                    "width": 82,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "task",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 78,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "任务待选"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 77,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "未给回答"
+                  }
+                ]
+              },
+              {
+                "signature": "?|yes",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "question",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Can you … the name?"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 29,
+                    "width": 82,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "task",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 78,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "任务待选"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 77,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "已经确认会拼"
+                  }
+                ]
+              },
+              {
+                "signature": "spell|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "question",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Can you … the name?"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 29,
+                    "width": 82,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "task",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 78,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "拼出字母"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 77,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "回答状态待选"
+                  },
+                  {
+                    "id": "letter-box-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 66,
+                    "width": 14,
+                    "height": 9,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-box-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 66,
+                    "width": 14,
+                    "height": 9,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-box-2",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 66,
+                    "width": 14,
+                    "height": 9,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "spell|unanswered",
+                "reading": "询问能否拼出这种乐器的名称。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "question",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Can you … the name?"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 29,
+                    "width": 82,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "task",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 78,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "拼出字母"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 77,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "未给回答"
+                  },
+                  {
+                    "id": "letter-box-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 66,
+                    "width": 14,
+                    "height": 9,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-box-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 66,
+                    "width": 14,
+                    "height": 9,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-box-2",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 66,
+                    "width": 14,
+                    "height": 9,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "spell|yes",
+                "reading": "应询问能否拼出名称，不能改成发音或已确认会拼。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "question",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Can you … the name?"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 29,
+                    "width": 82,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "task",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 78,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "拼出字母"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 77,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "已经确认会拼"
+                  },
+                  {
+                    "id": "letter-box-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 66,
+                    "width": 14,
+                    "height": 9,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-box-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 66,
+                    "width": 14,
+                    "height": 9,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-box-2",
+                    "kind": "rect",
+                    "x": 58,
+                    "y": 66,
+                    "width": 14,
+                    "height": 9,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "pronounce|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "question",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Can you … the name?"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 29,
+                    "width": 82,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "task",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 78,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "读出名称的发音"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 77,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "回答状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "pronounce|unanswered",
+                "reading": "应询问能否拼出名称，不能改成发音或已确认会拼。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "question",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Can you … the name?"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 29,
+                    "width": 82,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "task",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 78,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "读出名称的发音"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 77,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "未给回答"
+                  }
+                ]
+              },
+              {
+                "signature": "pronounce|yes",
+                "reading": "应询问能否拼出名称，不能改成发音或已确认会拼。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "question",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Can you … the name?"
+                  },
+                  {
+                    "id": "card",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 29,
+                    "width": 82,
+                    "height": 35,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "task",
+                    "kind": "label",
+                    "x": 11,
+                    "y": 36,
+                    "width": 78,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "读出名称的发音"
+                  },
+                  {
+                    "id": "answer",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 77,
+                    "width": 96,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "已经确认会拼"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-pronounce",
+        "label": "发音（动词）",
+        "prompt": "final限定哪一个音？再选pronounce还是pronunciation。",
+        "answer": "pronounce",
+        "caseSensitive": false,
+        "meaning": "发音（动词）",
+        "before": "Please ",
+        "after": " the final sound clearly.",
+        "reason": "Please pronounce the final sound clearly要求把最后一个音发清楚；pronounce是动词，pronunciation是名词。",
+        "hint": "final sound是最后一个音，不等于最后一个字母；没有给具体单词，不能猜它是什么音。",
+        "material": "Please pronounce the final sound clearly.",
+        "options": [
+          {
+            "id": "final",
+            "text": "请把最后一个音发清楚。",
+            "correct": true,
+            "reason": "保留pronounce、final sound与clearly。"
+          },
+          {
+            "id": "first",
+            "text": "请把第一个音发清楚。",
+            "correct": false,
+            "reason": "第一个改变了final最后一个。"
+          },
+          {
+            "id": "noun",
+            "text": "Please pronunciation the final sound clearly.",
+            "correct": false,
+            "reason": "Please后这里需要动词pronounce，不能放名词pronunciation。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "final限定哪一个音？再选pronounce还是pronunciation。",
+          "sceneLab": {
+            "id": "pronounce-final",
+            "title": "词形与发音位置，分别选",
+            "hint": "三个方块只示意先后位置，不是某个真实单词的音标或字母。",
+            "wrong": "应选动词pronounce并保留最后一个音，不能改名词或第一个音。",
+            "axes": [
+              {
+                "id": "form",
+                "label": "Please后用什么词形",
+                "choices": [
+                  {
+                    "id": "verb",
+                    "label": "pronounce（动词）"
+                  },
+                  {
+                    "id": "noun",
+                    "label": "pronunciation（名词）"
+                  }
+                ]
+              },
+              {
+                "id": "position",
+                "label": "原句限定哪个音",
+                "choices": [
+                  {
+                    "id": "first",
+                    "label": "第一个音"
+                  },
+                  {
+                    "id": "final",
+                    "label": "最后一个音"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "slot",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Please ___ … clearly."
+                  },
+                  {
+                    "id": "form",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 23,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "词形待选"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-2",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "结尾"
+                  }
+                ]
+              },
+              {
+                "signature": "?|first",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "slot",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Please ___ … clearly."
+                  },
+                  {
+                    "id": "form",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 23,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "词形待选"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-2",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "结尾"
+                  }
+                ]
+              },
+              {
+                "signature": "?|final",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "slot",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Please ___ … clearly."
+                  },
+                  {
+                    "id": "form",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 23,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "词形待选"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-2",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "结尾"
+                  }
+                ]
+              },
+              {
+                "signature": "verb|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "slot",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Please ___ … clearly."
+                  },
+                  {
+                    "id": "form",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 23,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "pronounce · 动词"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-2",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "结尾"
+                  }
+                ]
+              },
+              {
+                "signature": "verb|first",
+                "reading": "应选动词pronounce并保留最后一个音，不能改名词或第一个音。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "slot",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Please ___ … clearly."
+                  },
+                  {
+                    "id": "form",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 23,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "pronounce · 动词"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-2",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "结尾"
+                  }
+                ]
+              },
+              {
+                "signature": "verb|final",
+                "reading": "请把最后一个音发清楚。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "slot",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Please ___ … clearly."
+                  },
+                  {
+                    "id": "form",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 23,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "pronounce · 动词"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-2",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "结尾"
+                  }
+                ]
+              },
+              {
+                "signature": "noun|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "slot",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Please ___ … clearly."
+                  },
+                  {
+                    "id": "form",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 23,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "pronunciation · 名词"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-2",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "结尾"
+                  }
+                ]
+              },
+              {
+                "signature": "noun|first",
+                "reading": "应选动词pronounce并保留最后一个音，不能改名词或第一个音。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "slot",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Please ___ … clearly."
+                  },
+                  {
+                    "id": "form",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 23,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "pronunciation · 名词"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-2",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "结尾"
+                  }
+                ]
+              },
+              {
+                "signature": "noun|final",
+                "reading": "应选动词pronounce并保留最后一个音，不能改名词或第一个音。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "slot",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "Please ___ … clearly."
+                  },
+                  {
+                    "id": "form",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 23,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "pronunciation · 名词"
+                  },
+                  {
+                    "id": "sound-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-0",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "sound-1",
+                    "kind": "rect",
+                    "x": 38,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "position-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "中间"
+                  },
+                  {
+                    "id": "sound-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 49,
+                    "width": 24,
+                    "height": 23,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "position-2",
+                    "kind": "label",
+                    "x": 66,
+                    "y": 75,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "结尾"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-pronunciation",
+        "label": "发音（名词）",
+        "prompt": "练习带来了怎样的变化？区分“更清楚”和“完全无误”。",
+        "answer": "pronunciation",
+        "caseSensitive": false,
+        "meaning": "发音（名词）",
+        "before": "Her ",
+        "after": " became clearer with practice.",
+        "reason": "Her pronunciation became clearer with practice说经过练习，她的发音更清楚了；没有说已经完全没有错误。",
+        "hint": "Her后这里用名词pronunciation；拼写中间是nun，不是noun。",
+        "material": "Her pronunciation became clearer with practice.",
+        "options": [
+          {
+            "id": "clearer",
+            "text": "经过练习，她的发音更清楚了。",
+            "correct": true,
+            "reason": "保留with practice与became clearer。"
+          },
+          {
+            "id": "worse",
+            "text": "经过练习，她的发音更不清楚了。",
+            "correct": false,
+            "reason": "更不清楚与clearer相反。"
+          },
+          {
+            "id": "perfect",
+            "text": "她的发音已经完全没有错误。",
+            "correct": false,
+            "reason": "完全无误超出了clearer更清楚。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "练习带来了怎样的变化？区分“更清楚”和“完全无误”。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "练习与变化",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "比较级clearer表示变化，不保证完美，也没给练习次数。",
+            "wrong": "应保留练习后更清楚，不能改更差或完全无误。",
+            "rows": [
+              {
+                "id": "practice",
+                "label": "过程",
+                "text": "经过练习。",
+                "include": true
+              },
+              {
+                "id": "clearer",
+                "label": "变化",
+                "text": "她的发音更清楚了。",
+                "include": true
+              },
+              {
+                "id": "perfect",
+                "label": "额外结论",
+                "text": "发音已经完全没有错误。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-word",
+        "label": "单词（本句）",
+        "prompt": "原句让圈哪一类词？在新例子windy和table里试一试。",
+        "answer": "word",
+        "caseSensitive": false,
+        "meaning": "单词（本句）",
+        "before": "Circle the ",
+        "after": " that describes the weather.",
+        "reason": "Circle the word that describes the weather要求圈出描述天气的单词；原句没有列出待选词，windy和table是这里新加的练习例子。",
+        "hint": "that describes the weather限定word；windy是有风的，table是桌子，不要把新例子当成原句已给出的答案。",
+        "material": "Circle the word that describes the weather.",
+        "options": [
+          {
+            "id": "weather",
+            "text": "圈出描述天气的单词。",
+            "correct": true,
+            "reason": "保留Circle与that describes the weather的限定。"
+          },
+          {
+            "id": "furniture",
+            "text": "圈出表示家具的单词。",
+            "correct": false,
+            "reason": "家具不是weather天气。"
+          },
+          {
+            "id": "all",
+            "text": "把所有单词都圈出来。",
+            "correct": false,
+            "reason": "所有丢掉了描述天气的限定。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "原句让圈哪一类词？在新例子windy和table里试一试。",
+          "sceneLab": {
+            "id": "weather-word",
+            "title": "新例子：圈哪个词？",
+            "hint": "原句没有给待选词；windy与table仅用于这里的迁移小练习。",
+            "wrong": "应选描述天气的windy，不能改家具table；再回原句保留天气限定。",
+            "axes": [
+              {
+                "id": "choice",
+                "label": "圈出描述天气的词",
+                "choices": [
+                  {
+                    "id": "windy",
+                    "label": "windy（有风的）"
+                  },
+                  {
+                    "id": "table",
+                    "label": "table（桌子）"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new-example",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 2,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "新例子，原句未给待选词"
+                  },
+                  {
+                    "id": "windy-card",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 27,
+                    "width": 41,
+                    "height": 49,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "table-card",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 27,
+                    "width": 41,
+                    "height": 49,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "windy",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 30,
+                    "width": 39,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "windy"
+                  },
+                  {
+                    "id": "table",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 30,
+                    "width": 39,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "table"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 77,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "先选一个词"
+                  },
+                  {
+                    "id": "wind1",
+                    "kind": "line",
+                    "x": 12,
+                    "y": 53,
+                    "width": 26,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind2",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 60,
+                    "width": 31,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind3",
+                    "kind": "line",
+                    "x": 14,
+                    "y": 67,
+                    "width": 23,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "top",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 53,
+                    "width": 25,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg1",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 58,
+                    "width": 3,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg2",
+                    "kind": "rect",
+                    "x": 82,
+                    "y": 58,
+                    "width": 3,
+                    "height": 13,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "windy",
+                "reading": "圈出描述天气的单词。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "new-example",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 2,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "新例子，原句未给待选词"
+                  },
+                  {
+                    "id": "windy-card",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 27,
+                    "width": 41,
+                    "height": 49,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "table-card",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 27,
+                    "width": 41,
+                    "height": 49,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "windy",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 30,
+                    "width": 39,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "windy"
+                  },
+                  {
+                    "id": "table",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 30,
+                    "width": 39,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "table"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 77,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "windy：有风的"
+                  },
+                  {
+                    "id": "wind1",
+                    "kind": "line",
+                    "x": 12,
+                    "y": 53,
+                    "width": 26,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind2",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 60,
+                    "width": 31,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind3",
+                    "kind": "line",
+                    "x": 14,
+                    "y": 67,
+                    "width": 23,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "top",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 53,
+                    "width": 25,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg1",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 58,
+                    "width": 3,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg2",
+                    "kind": "rect",
+                    "x": 82,
+                    "y": 58,
+                    "width": 3,
+                    "height": 13,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "table",
+                "reading": "应选描述天气的windy，不能改家具table；再回原句保留天气限定。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new-example",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 2,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "新例子，原句未给待选词"
+                  },
+                  {
+                    "id": "windy-card",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 27,
+                    "width": 41,
+                    "height": 49,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "table-card",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 27,
+                    "width": 41,
+                    "height": 49,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "windy",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 30,
+                    "width": 39,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "windy"
+                  },
+                  {
+                    "id": "table",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 30,
+                    "width": 39,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "table"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 77,
+                    "width": 98,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "table：桌子"
+                  },
+                  {
+                    "id": "wind1",
+                    "kind": "line",
+                    "x": 12,
+                    "y": 53,
+                    "width": 26,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind2",
+                    "kind": "line",
+                    "x": 10,
+                    "y": 60,
+                    "width": 31,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "wind3",
+                    "kind": "line",
+                    "x": 14,
+                    "y": 67,
+                    "width": 23,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "top",
+                    "kind": "rect",
+                    "x": 62,
+                    "y": 53,
+                    "width": 25,
+                    "height": 5,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg1",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 58,
+                    "width": 3,
+                    "height": 13,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "leg2",
+                    "kind": "rect",
+                    "x": 82,
+                    "y": 58,
+                    "width": 3,
+                    "height": 13,
+                    "tone": "blue"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-learning-transfer",
+      "topicId": "v-course-learning",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成工具、留言和书写，哪组三句保留了全部信息？",
+      "passage": "三条新信息\n使用工具前先读说明。写清楚些，让大家都能看懂你的留言。经过练习，她的字写得更清楚了。\n词语提示：instructions 说明；tool 工具；handwriting 字迹。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Read the instructions after using the tool. Write clearly so everyone can read your message. Her handwriting became clearer with practice."
+        },
+        {
+          "id": "b",
+          "text": "Read the instructions before using the tool. Write clearly because everyone has already read your message. Her handwriting became clearer with practice."
+        },
+        {
+          "id": "c",
+          "text": "Read the instructions before using the tool. Write clearly so everyone can read your message. Her handwriting became perfect with practice."
+        },
+        {
+          "id": "d",
+          "text": "Read the instructions before using the tool. Write clearly so everyone can read your message. Her handwriting became clearer with practice."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "Read the instructions before using the tool. Write clearly so everyone can read your message. Her handwriting became clearer with practice."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "对照先后、目的与变化程度，三条都要保留。",
+        "steps": [
+          {
+            "text": "先读说明，再用工具：before using the tool。",
+            "reason": "after把先后颠倒。"
+          },
+          {
+            "text": "写清楚的目的是大家能看懂：so everyone can read。",
+            "reason": "because…has already read变成大家已经读过这一原因。"
+          },
+          {
+            "text": "练习后更清楚：became clearer with practice。",
+            "reason": "perfect完美超出了clearer更清楚。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "after把使用前改成使用后。"
+          },
+          {
+            "option": "b",
+            "reason": "because…has already read把目的改成已经发生的原因。"
+          },
+          {
+            "option": "c",
+            "reason": "perfect把更清楚扩大成完美。"
+          }
+        ],
+        "pitfall": "before不能变after；目的不能补成已经发生的结果；更好不等于完美。",
+        "visual": {
+          "kind": "comparison",
+          "title": "先后、目的、程度",
+          "segments": [
+            {
+              "text": "before using",
+              "role": "evidence",
+              "note": "使用之前"
+            },
+            {
+              "text": "so everyone can read",
+              "role": "evidence",
+              "note": "为了大家能看懂"
+            },
+            {
+              "text": "became clearer",
+              "role": "evidence",
+              "note": "更清楚，未说完美"
+            }
+          ],
+          "caption": "保留时间关系、目的与比较程度。"
+        },
+        "transfer": "把can read改成has already read，原句中的目的会怎样改变？"
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+/** Original illustrative language model; no measured anatomy or temperature claims. */
+export interface WordKneeLanding{title:string;hint:string;wrong:string}
+const bounded=(x:unknown,n:number)=>typeof x==='string'&&!!x.trim()&&x===x.trim()&&x.length<=n
+export function validWordKneeLanding(v:unknown):v is WordKneeLanding{if(!v||typeof v!=='object'||Array.isArray(v))return false;const w=v as WordKneeLanding;return Object.keys(w).length===3&&Object.keys(w).every(k=>['title','hint','wrong'].includes(k))&&bounded(w.title,60)&&bounded(w.hint,110)&&bounded(w.wrong,140)}
+export const wordKneeLandingKey=(id:string)=>'workshopKneeLanding-'+id
+function decode(raw:string){if(raw==='')return{"count": "?", "manner": "?"};const m="^(\\?|one|two)\\|(\\?|gentle|heavy)$";const v=new RegExp(m).exec(raw);return v&&raw!=="?|?"?{count:v[1],manner:v[2]}:null}
+export function changeKneeLanding(_w:WordKneeLanding,raw:string,action:string):string|undefined{if(action==='reset')return'';const s=decode(raw);if(!s)return undefined;if(["count-one", "count-two"].includes(action))return action.slice(6)+"|"+s.manner;if(["manner-gentle", "manner-heavy"].includes(action))return s.count+"|"+action.slice(7);return undefined}
+export function kneeLandingMatch(_w:WordKneeLanding,raw:string){const s=decode(raw);return!!s&&s.count==="one"&&s.manner==="gentle"}
+export function wordKneeLandingView(w:WordKneeLanding,raw:string){const s=decode(raw)??{"count": "?", "manner": "?"};return{title:w.title,hint:w.hint,count:s.count,manner:s.manner,knees:s.count==='one'?[{left:44}]:s.count==='two'?[{left:30},{left:60}]:[],groups:[{label:"着地数量",choices:[{"id": "count-one", "label": "单膝"}, {"id": "count-two", "label": "双膝"}].map(c=>({...c,selected:c.id==="count-"+s.count}))},{label:"着地方式",choices:[{"id": "manner-gentle", "label": "轻轻地"}, {"id": "manner-heavy", "label": "重重地"}].map(c=>({...c,selected:c.id==="manner-"+s.manner}))}],reading:kneeLandingMatch(w,raw)?"轻轻地单膝着地；不说明左膝还是右膝，不补力度数值。":Object.values(s).includes('?')?'每项各选一种解释；未知不算完成。':w.wrong}}
+export type WordKneeLandingView=ReturnType<typeof wordKneeLandingView>

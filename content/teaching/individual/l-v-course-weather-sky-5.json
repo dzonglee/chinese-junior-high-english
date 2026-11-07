@@ -1,0 +1,612 @@
+{
+  "lessonId": "l-v-course-weather-sky-5",
+  "reviewState": "draft",
+  "intent": "Eight individual decisions distinguish long-term climate, forecast limits, temperature change, prevention, melting direction, visibility and moving-air effects without independent credit.",
+  "picturePurpose": "Original solid-ice/liquid-water comparison supports a phase-direction decision. Coded thermometers preserve exact difference arithmetic; candle and curtain controls show specific air effects.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "看变化，也保留句子里的限制",
+    "instruction": "调温度、观察冰和气流，再核对预测、开始和可能。",
+    "items": [
+      {
+        "id": "climate",
+        "label": "climate：看长期气候",
+        "prompt": "Choose the long-term pattern that suits these tea plants.",
+        "answer": "climate",
+        "meaning": "气候",
+        "material": "The local climate suits tea plants.",
+        "before": "The local ",
+        "after": " suits tea plants.",
+        "reason": "climate是长期气候，weather是具体天气。local把范围限定在当地；suits是suit的第三人称单数，意为适合，不是名词“套装”。",
+        "hint": "保留长期和当地，不扩大到所有地方。",
+        "wordDecision": {
+          "prompt": "Choose the long-term pattern that suits these tea plants.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "区分长期气候和一次预报",
+            "prompt": "只选保留原句意思的记录。",
+            "rows": [
+              {
+                "id": "long",
+                "label": "Local climate",
+                "text": "The long-term pattern suits these tea plants.",
+                "include": true
+              },
+              {
+                "id": "today",
+                "label": "One forecast",
+                "text": "One day’s forecast proves a long-term pattern.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "Every climate",
+                "text": "All climates suit tea plants equally well.",
+                "include": false
+              }
+            ],
+            "hint": "一次天气记录不能代替长期气候。",
+            "wrong": "只选Local climate；一次预报不够证明长期规律，也不能扩大到所有气候。"
+          }
+        },
+        "options": [
+          {
+            "id": "today",
+            "text": "Today’s forecast alone proves the local climate suits tea plants.",
+            "correct": false,
+            "reason": "一天的预报不能单独证明长期气候是否适合。"
+          },
+          {
+            "id": "long",
+            "text": "The local long-term weather pattern suits these tea plants.",
+            "correct": true,
+            "reason": "climate说长期气候；这条记录说当地气候适合茶树。"
+          },
+          {
+            "id": "all",
+            "text": "Every climate suits all tea plants equally well.",
+            "correct": false,
+            "reason": "local不等于every，原句也没有说所有地方都一样适合。"
+          }
+        ],
+        "ownForms": [
+          "climate",
+          "climates"
+        ]
+      },
+      {
+        "id": "forecast",
+        "label": "forecast：预报不是保证",
+        "prompt": "Keep what is predicted and the by-noon deadline.",
+        "answer": "forecast",
+        "meaning": "预报；预测",
+        "material": "The forecast says it will clear by noon.",
+        "before": "The ",
+        "after": " says it will clear by noon.",
+        "reason": "forecast是预报；says it will ...转述预测，不保证实际一定如此。clear在这里是天气转晴；by noon表示不晚于中午，不是只能恰好十二点。",
+        "hint": "分别核对预测内容和by的截止含义。",
+        "wordDecision": {
+          "prompt": "Keep what is predicted and the by-noon deadline.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保留预报中的内容和时间",
+            "prompt": "只选保留原句意思的记录。",
+            "rows": [
+              {
+                "id": "predict",
+                "label": "Predicted by noon",
+                "text": "It is predicted to clear no later than noon.",
+                "include": true
+              },
+              {
+                "id": "guarantee",
+                "label": "Guaranteed exactly at noon",
+                "text": "It must clear at exactly noon.",
+                "include": false
+              },
+              {
+                "id": "rain",
+                "label": "Afternoon rain",
+                "text": "Rain will last all afternoon.",
+                "include": false
+              }
+            ],
+            "hint": "by noon是截止范围，不是精确钟点承诺。",
+            "wrong": "只选Predicted by noon；另外两条把预报变成保证，或改了天气和时段。"
+          }
+        },
+        "options": [
+          {
+            "id": "guarantee",
+            "text": "The sky is guaranteed to clear at exactly noon.",
+            "correct": false,
+            "reason": "预报不是保证，by也不是exactly at。"
+          },
+          {
+            "id": "rain",
+            "text": "The forecast predicts rain all afternoon.",
+            "correct": false,
+            "reason": "这改掉了clear，也把时间改成下午。"
+          },
+          {
+            "id": "predict",
+            "text": "It is predicted to become clear no later than noon.",
+            "correct": true,
+            "reason": "forecast给预测；by noon表示到中午时或之前。"
+          }
+        ],
+        "ownForms": [
+          "forecast",
+          "forecasts",
+          "forecasted",
+          "forecasting"
+        ]
+      },
+      {
+        "id": "degree",
+        "label": "degree：升高一度，不是升到一度",
+        "prompt": "Choose any example start, then raise it by one degree.",
+        "answer": "degree",
+        "meaning": "度；程度",
+        "material": "The temperature rose by one degree.",
+        "before": "The temperature rose by one ",
+        "after": ".",
+        "reason": "rose是rise的过去式。rose by one degree说升高了多少；rose to one degree才说升到多少。one后用degree单数。示例可任选起点，差值都应是一度。",
+        "hint": "用终点减起点，检查差值。",
+        "wordDecision": {
+          "prompt": "Choose any example start, then raise it by one degree.",
+          "thermal": {
+            "answer": 1,
+            "title": "任选示例起点，升高一度",
+            "hint": "起点只是练习示例；原句只给出升高一度，没有给出具体起点。",
+            "wrong": "让终点比起点高一度；不是终点固定为1，也不是升高两度。"
+          }
+        },
+        "options": [
+          {
+            "id": "change",
+            "text": "The final reading is one degree higher than the starting reading.",
+            "correct": true,
+            "reason": "by one degree说差值是一度，不把终点固定成一度。"
+          },
+          {
+            "id": "end",
+            "text": "The final temperature is one degree, whatever the starting reading.",
+            "correct": false,
+            "reason": "这是把by误读成to，漏掉了起点。"
+          },
+          {
+            "id": "lower",
+            "text": "The temperature became one degree lower.",
+            "correct": false,
+            "reason": "rose是升高，不是降低。"
+          }
+        ],
+        "ownForms": [
+          "degree",
+          "degrees"
+        ]
+      },
+      {
+        "id": "freeze",
+        "label": "freeze：读懂预防指令",
+        "prompt": "Choose prevention, not a claim that the pipes already froze.",
+        "answer": "freeze",
+        "meaning": "结冰；冻结",
+        "material": "Do not let the water pipes freeze.",
+        "before": "Do not let the water pipes ",
+        "after": ".",
+        "reason": "Do not let ... freeze是不要让水管里的水冻住，freeze在let后用原形。froze是过去式，frozen是过去分词；这条指令本身不证明已经冻住。",
+        "hint": "先找not，再分清指令和已发生的事。",
+        "wordDecision": {
+          "prompt": "Choose prevention, not a claim that the pipes already froze.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "把禁止和已发生的事分开",
+            "prompt": "只选保留原句意思的记录。",
+            "rows": [
+              {
+                "id": "prevent",
+                "label": "Prevent freezing",
+                "text": "Do not allow the pipe water to freeze.",
+                "include": true
+              },
+              {
+                "id": "already",
+                "label": "Already frozen",
+                "text": "The pipe water has already frozen.",
+                "include": false
+              },
+              {
+                "id": "allow",
+                "label": "Allow freezing",
+                "text": "Let the pipe water freeze.",
+                "include": false
+              }
+            ],
+            "hint": "not不能漏；防止发生不等于已经发生。",
+            "wrong": "只选Prevent freezing；另外两条改成了已冻住或允许冻住。"
+          }
+        },
+        "options": [
+          {
+            "id": "already",
+            "text": "The water in the pipes has already frozen.",
+            "correct": false,
+            "reason": "预防指令没有证明已经结冰。"
+          },
+          {
+            "id": "prevent",
+            "text": "Prevent the water in the pipes from freezing.",
+            "correct": true,
+            "reason": "Do not let ...是阻止这件事发生的指令。"
+          },
+          {
+            "id": "allow",
+            "text": "Allow the water in the pipes to freeze.",
+            "correct": false,
+            "reason": "漏掉not，把禁止变成允许。"
+          }
+        ],
+        "ownForms": [
+          "freeze",
+          "freezes",
+          "froze",
+          "frozen",
+          "freezing"
+        ]
+      },
+      {
+        "id": "melt",
+        "label": "melt：固体变液体",
+        "prompt": "Tap the liquid water that forms when ice melts.",
+        "answer": "melt",
+        "meaning": "融化",
+        "material": "The ice began to melt in the warm room.",
+        "before": "The ice began to ",
+        "after": " in the warm room.",
+        "reason": "melt指固体融化成液体，和freeze方向相反。began to melt只是开始融化，不能直接改成所有冰都已融完；图片对比的是变化方向，不提供融化耗时。",
+        "hint": "从有棱角的冰，走向液态水；保留began。",
+        "wordDecision": {
+          "prompt": "Tap the liquid water that forms when ice melts.",
+          "art": {
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-ice-liquid",
+            "alt": "左右两个相同的透明玻璃浅盘：左盘装有有棱角的固态冰块，右盘只有平整水面的液态水；中间是分隔带。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "frozen",
+                "label": "A 固态冰",
+                "left": 2,
+                "top": 34,
+                "width": 45,
+                "height": 45
+              },
+              {
+                "id": "b",
+                "option": "liquid",
+                "label": "B 液态水",
+                "left": 53,
+                "top": 38,
+                "width": 45,
+                "height": 41
+              }
+            ],
+            "evidence": [
+              {
+                "option": "liquid",
+                "caption": "B是液态水；melt的方向是固体冰开始变成液体。",
+                "regions": [
+                  {
+                    "id": "liquid",
+                    "label": "liquid water",
+                    "left": 58,
+                    "top": 54,
+                    "width": 35,
+                    "height": 14
+                  }
+                ]
+              },
+              {
+                "option": "frozen",
+                "caption": "A是固态冰；由水变冰是freeze的方向。",
+                "regions": [
+                  {
+                    "id": "ice",
+                    "label": "solid ice",
+                    "left": 9,
+                    "top": 39,
+                    "width": 30,
+                    "height": 28
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "frozen",
+            "text": "A: water starts freezing into solid ice.",
+            "correct": false,
+            "reason": "这是freeze的方向，不是melt。"
+          },
+          {
+            "id": "liquid",
+            "text": "B: liquid water starts forming as the ice melts.",
+            "correct": true,
+            "reason": "melt是固体冰开始变成液态水的方向；B展示液态水。"
+          }
+        ],
+        "ownForms": [
+          "melt",
+          "melts",
+          "melted",
+          "melting"
+        ]
+      },
+      {
+        "id": "shine",
+        "label": "shine：看得更清楚，不是星星变大",
+        "prompt": "Keep clearer star visibility away from town.",
+        "answer": "shine",
+        "meaning": "照耀；发光",
+        "material": "The stars shine more clearly away from town.",
+        "before": "The stars ",
+        "after": " more clearly away from town.",
+        "reason": "shine是发光、照耀；主语stars是复数，这里用shine。more clearly说观察时更清楚，不是星星突然变大或自身发光更强；shone是常见过去式。",
+        "hint": "分清看得清楚和天体本身改变。",
+        "wordDecision": {
+          "prompt": "Keep clearer star visibility away from town.",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保留星光的观察结果",
+            "prompt": "只选保留原句意思的记录。",
+            "rows": [
+              {
+                "id": "clearer",
+                "label": "Easier to see",
+                "text": "Stars are clearer away from town.",
+                "include": true
+              },
+              {
+                "id": "bigger",
+                "label": "Physically larger",
+                "text": "The stars grow larger.",
+                "include": false
+              },
+              {
+                "id": "reflect",
+                "label": "Street-light reflections",
+                "text": "The stars are only reflected street lights.",
+                "include": false
+              }
+            ],
+            "hint": "更清楚是观察结果，不推出天体变大。",
+            "wrong": "只选Easier to see；原句没有说星星变大，也不是路灯倒影。"
+          }
+        },
+        "options": [
+          {
+            "id": "clearer",
+            "text": "The stars are easier to see away from town.",
+            "correct": true,
+            "reason": "more clearly说星光更易看清，不是星星变大。"
+          },
+          {
+            "id": "bigger",
+            "text": "The stars become physically larger away from town.",
+            "correct": false,
+            "reason": "观察位置改变，不能推出星星本身变大。"
+          },
+          {
+            "id": "reflect",
+            "text": "The stars are only reflections of street lights.",
+            "correct": false,
+            "reason": "原句说stars shine，不是路灯的倒影。"
+          }
+        ],
+        "ownForms": [
+          "shine",
+          "shines",
+          "shone",
+          "shined",
+          "shining"
+        ]
+      },
+      {
+        "id": "blow",
+        "label": "blow：吹灭的结果，can的可能",
+        "prompt": "Try air movement and observe the candle flame.",
+        "answer": "blow",
+        "meaning": "吹；刮风",
+        "material": "A strong breeze can blow the candles out.",
+        "before": "A strong breeze can ",
+        "after": " the candles out.",
+        "reason": "blow the candles out是把蜡烛吹灭，out不能漏。can表示能或可能，不是任何风都必然立刻吹灭所有蜡烛。blow的过去式是blew，过去分词是blown。",
+        "hint": "看火焰由有到无；别把can读成always。",
+        "wordDecision": {
+          "prompt": "Try air movement and observe the candle flame.",
+          "weather": {
+            "kind": "candle",
+            "initial": "calm",
+            "answer": "active",
+            "title": "观察一次气流吹灭火焰",
+            "hint": "这是一次可发生的示例；不表示任何风都必然吹灭蜡烛。",
+            "wrong": "选有气流的示例，再开始观察火焰；blow ... out说吹灭的结果。"
+          }
+        },
+        "options": [
+          {
+            "id": "light",
+            "text": "A strong breeze can light the candles.",
+            "correct": false,
+            "reason": "light是点燃，与out的结果相反。"
+          },
+          {
+            "id": "out",
+            "text": "A strong breeze can make the candle flames go out.",
+            "correct": true,
+            "reason": "blow ... out是吹灭；can表示可能或能力。"
+          },
+          {
+            "id": "always",
+            "text": "Any breeze always puts every candle out immediately.",
+            "correct": false,
+            "reason": "can不是always，也没有every和immediately这些限制。"
+          }
+        ],
+        "ownForms": [
+          "blow",
+          "blows",
+          "blew",
+          "blown",
+          "blowing"
+        ]
+      },
+      {
+        "id": "breeze",
+        "label": "breeze：微风从窗外进来",
+        "prompt": "Let a gentle breeze come through the window.",
+        "answer": "breeze",
+        "meaning": "微风",
+        "material": "A cool breeze came through the window.",
+        "before": "A cool ",
+        "after": " came through the window.",
+        "reason": "breeze通常指轻柔的风；cool说明这次风凉爽，不是说所有breeze都冷。through强调穿过窗户；came是come的过去式。",
+        "hint": "看轻柔的气流穿过窗户，不添暴风和破窗。",
+        "wordDecision": {
+          "prompt": "Let a gentle breeze come through the window.",
+          "weather": {
+            "kind": "breeze",
+            "initial": "calm",
+            "answer": "active",
+            "title": "让微风穿过打开的窗户",
+            "hint": "窗户保持打开；只切换轻柔气流，观察窗帘轻轻偏动。",
+            "wrong": "选微风穿过窗户并开始观察；不是完全无风，也没有暴风或破窗。"
+          }
+        },
+        "options": [
+          {
+            "id": "storm",
+            "text": "A violent storm broke the closed window.",
+            "correct": false,
+            "reason": "这把微风夸成暴风，还虚构了窗户损坏。"
+          },
+          {
+            "id": "none",
+            "text": "The air stayed completely still by the window.",
+            "correct": false,
+            "reason": "完全无风不符合breeze came through。"
+          },
+          {
+            "id": "gentle",
+            "text": "Gentle moving air came in through the window.",
+            "correct": true,
+            "reason": "breeze是微风；through the window说明穿过窗户进入。"
+          }
+        ],
+        "ownForms": [
+          "breeze",
+          "breezes"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-weather-sky-5-transfer",
+      "topicId": "v-course-weather-sky",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which visit notes keep every detail accurate?",
+      "passage": "TEA-GARDEN VISIT\nThe farmer says the local climate suits these tea plants. That is a long-term pattern, not just today’s weather. Today’s forecast predicts clearer skies by noon, but it is not a guarantee.\nOur practice thermometer rises from 14°C to 15°C. In the warm room, the ice begins to melt; some solid ice is still there. A notice says, “Do not let the water pipes freeze.” It does not say they have already frozen.\nA gentle breeze comes through the open window. We move the candles out of its path because a stronger breeze can blow them out. At night, we see the stars more clearly away from town.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The temperature rose by one degree; the ice has started melting; the forecast is a prediction."
+        },
+        {
+          "id": "b",
+          "text": "The temperature rose to one degree; the ice has started melting; the forecast is a prediction."
+        },
+        {
+          "id": "c",
+          "text": "The temperature rose by one degree; all the ice has finished melting; the forecast is a prediction."
+        },
+        {
+          "id": "d",
+          "text": "The temperature rose by one degree; the ice has started melting; the forecast guarantees clear skies."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The temperature rose by one degree; the ice has started melting; the forecast is a prediction."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对差值、开始的程度和预报的确定性；每个限定词都要保留。",
+        "steps": [
+          {
+            "text": "15减14等于1，所以升高一度；终点是15度，不是1度。",
+            "reason": "rose by说差值，rose to才说终点。"
+          },
+          {
+            "text": "仍有固体冰，只能说开始融化；预报是预测，不能改成保证。",
+            "reason": "begins和some solid ice is still there限制完成程度；not a guarantee限制确定性。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "to one degree把差值误当终点；实际示例终点是15°C。"
+          },
+          {
+            "option": "c",
+            "reason": "仍有固体冰，不能说all finished melting。"
+          },
+          {
+            "option": "d",
+            "reason": "日记明确说预报不是保证。"
+          }
+        ],
+        "pitfall": "只看到one、melt和forecast，却漏掉by、begins和not a guarantee。",
+        "visual": {
+          "kind": "comparison",
+          "title": "差值、程度、确定性",
+          "segments": [
+            {
+              "text": "15 − 14 = 1 degree",
+              "role": "object",
+              "note": "差值是一度，终点不是一度"
+            },
+            {
+              "text": "solid ice remains → melting has begun",
+              "role": "object",
+              "note": "开始，不等于全部完成"
+            },
+            {
+              "text": "forecast → prediction",
+              "role": "object",
+              "note": "预测，不是保证"
+            }
+          ],
+          "caption": "数字和限定条件都来自这份原创参观记录。"
+        },
+        "transfer": "若示例改为14°C升到16°C，差值还是一度吗？若仍有冰块，能说all the ice has melted吗？"
+      }
+    }
+  }
+}

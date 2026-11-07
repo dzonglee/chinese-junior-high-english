@@ -241,3 +241,8 @@ The image must have a named teaching purpose and integrate into a task, with acc
 Avoid adding another preliminary card sequence. Preserve one coherent lesson path, exact edition
 spelling, draft content and honest assessment. Keep memory/Kanban current, reuse the existing
 lesson card and keep details in per-lesson records rather than crowding the shared board.
+
+
+## Individual local review complete · 2026-11-07
+
+All 413 separately authored lesson upgrades and their actual visual reviews are complete. The full local course, product navigation and eight original written-paper journeys pass the final checks. See [the final review](reviews/individual-lessons/final-local-review-2026-11-07.md) and its source/review audit. This closes APP-VISUAL-LESSONS locally after squash merge. APP-NATIVE stays blocked on explicit source-transfer permission; actual SDK coverage remains147/805. Approved audio, physical devices, editorial/cohort mapping, research integration and publication remain separate. Videos remain deferred.

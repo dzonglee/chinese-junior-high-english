@@ -1,0 +1,623 @@
+{
+  "lessonId": "l-v-course-questions-quantity-2",
+  "reviewState": "draft",
+  "intent": "Eight individual modal tasks distinguish ability questions, polite requests, permission, uncertainty, requirements, advice, willingness and preferences without inventing completed actions.",
+  "picturePurpose": "Original complete boxes support visible smaller/larger contrast only. Exact labels and evidence are coded. Tide event order is an interactive sentence-meaning task, never a live tide forecast.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "分清语气，排对出发前的事",
+    "instruction": "给建议排先后，点出愿意搬的箱子；分清可以、必须和可能。",
+    "items": [
+      {
+        "id": "can",
+        "label": "can：是在问装不装得下，还是已确认装得下？",
+        "prompt": "是在问装不装得下，还是已确认装得下？",
+        "answer": "Can",
+        "meaning": "能；可以；罐子",
+        "material": "Can this small boat carry all our bags?",
+        "before": "",
+        "after": " this small boat carry all our bags?",
+        "reason": "Can在这里问装载能力，all是所有包；问题没有给出结论，不能凭small判断容量或安全性。",
+        "hint": "can后接carry原形；问句不是肯定结论。",
+        "wordDecision": {
+          "prompt": "是在问装不装得下，还是已确认装得下？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问能否装下所有包",
+            "prompt": "只保留原句表达的意思。",
+            "rows": [
+              {
+                "id": "ability",
+                "label": "问小船能否装下所有包",
+                "text": "Can this small boat carry all our bags?",
+                "include": true
+              },
+              {
+                "id": "certain",
+                "label": "已确认小船一定装得下所有包",
+                "text": "The boat can certainly carry all the bags.",
+                "include": false
+              },
+              {
+                "id": "some",
+                "label": "只问能否装下其中一个包",
+                "text": "Can the boat carry one of the bags?",
+                "include": false
+              }
+            ],
+            "hint": "能力问句和all的范围一起保留。",
+            "wrong": "只选询问所有包；不能改成已确认或缩小范围。"
+          }
+        },
+        "options": [
+          {
+            "id": "certain",
+            "text": "The question confirms that the boat can certainly carry all the bags.",
+            "correct": false,
+            "reason": "问能不能不等于已确认能。"
+          },
+          {
+            "id": "ability",
+            "text": "The speaker asks whether the boat can carry every one of the bags.",
+            "correct": true,
+            "reason": "Can询问能力，all保留所有包。"
+          },
+          {
+            "id": "some",
+            "text": "The speaker asks only whether the boat can carry one of the bags.",
+            "correct": false,
+            "reason": "all不能缩小成只装其中一个。"
+          }
+        ]
+      },
+      {
+        "id": "could",
+        "label": "could：是礼貌请求挪包，还是在讲过去？",
+        "prompt": "是礼貌请求挪包，还是在讲过去？",
+        "answer": "Could",
+        "meaning": "能够；可以（委婉请求）",
+        "material": "Could you move your bag a little, please?",
+        "before": "",
+        "after": " you move your bag a little, please?",
+        "reason": "Could you…please在这里是礼貌请求，请对方把包挪一点；没有说昨天已经挪过。",
+        "hint": "看you、问号和please，判断请求语气。",
+        "wordDecision": {
+          "prompt": "是礼貌请求挪包，还是在讲过去？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "礼貌地请对方把包挪一点",
+            "prompt": "只保留原句表达的意思。",
+            "rows": [
+              {
+                "id": "request",
+                "label": "礼貌地请对方把包挪一点",
+                "text": "Could you move your bag a little, please?",
+                "include": true
+              },
+              {
+                "id": "past",
+                "label": "陈述昨天已经挪了包",
+                "text": "You moved the bag yesterday.",
+                "include": false
+              },
+              {
+                "id": "command",
+                "label": "直接命令对方挪包",
+                "text": "This is a direct order, not a polite request.",
+                "include": false
+              }
+            ],
+            "hint": "请求不是过去事实。",
+            "wrong": "只选礼貌请求挪包；不能改成过去陈述或直接命令。"
+          }
+        },
+        "options": [
+          {
+            "id": "past",
+            "text": "The speaker reports that you moved the bag yesterday.",
+            "correct": false,
+            "reason": "could的字形不能让这条请求变成过去事实。"
+          },
+          {
+            "id": "command",
+            "text": "The speaker gives a direct order with no polite request.",
+            "correct": false,
+            "reason": "问句和please体现委婉请求，不能改成直接命令。"
+          },
+          {
+            "id": "request",
+            "text": "The speaker politely asks you to move your bag a little.",
+            "correct": true,
+            "reason": "Could you…please在这里是礼貌请求。"
+          }
+        ]
+      },
+      {
+        "id": "may",
+        "label": "may：这里是在允许挂外套，还是要求必须挂？",
+        "prompt": "这里是在允许挂外套，还是要求必须挂？",
+        "answer": "may",
+        "meaning": "可以；可能",
+        "material": "You may leave your coat on that hook.",
+        "before": "You ",
+        "after": " leave your coat on that hook.",
+        "reason": "may在这里表示可以、允许，把外套挂在那个钩子上；不是必须，也没有说外套已经挂好。",
+        "hint": "may后接leave原形；先判断许可语气。",
+        "wordDecision": {
+          "prompt": "这里是在允许挂外套，还是要求必须挂？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "允许把外套挂在那个钩子上",
+            "prompt": "只保留原句表达的意思。",
+            "rows": [
+              {
+                "id": "permission",
+                "label": "允许把外套挂在那个钩子上",
+                "text": "You may leave your coat on that hook.",
+                "include": true
+              },
+              {
+                "id": "obligation",
+                "label": "必须把外套挂在那个钩子上",
+                "text": "You must leave your coat on that hook.",
+                "include": false
+              },
+              {
+                "id": "already",
+                "label": "外套已经挂在那个钩子上",
+                "text": "Your coat is already on that hook.",
+                "include": false
+              }
+            ],
+            "hint": "允许、必须、已经完成分开。",
+            "wrong": "只保留许可；不能加上必须或已经完成。"
+          }
+        },
+        "options": [
+          {
+            "id": "permission",
+            "text": "The speaker allows you to leave your coat on that hook.",
+            "correct": true,
+            "reason": "may在这里表示许可。"
+          },
+          {
+            "id": "obligation",
+            "text": "You are required to leave your coat on that hook.",
+            "correct": false,
+            "reason": "允许不等于必须。"
+          },
+          {
+            "id": "already",
+            "text": "Your coat is already hanging on that hook.",
+            "correct": false,
+            "reason": "许可没有说明动作已经完成。"
+          }
+        ]
+      },
+      {
+        "id": "might",
+        "label": "might：可能关闭，是否就等于一定关闭？",
+        "prompt": "可能关闭，是否就等于一定关闭？",
+        "answer": "might",
+        "meaning": "可能；也许",
+        "material": "The path might be closed after the storm.",
+        "before": "The path ",
+        "after": " be closed after the storm.",
+        "reason": "might表示暴风雨后可能关闭，没有确认一定关闭，更没有保证开放。",
+        "hint": "might后接be原形；不确定要保留。",
+        "wordDecision": {
+          "prompt": "可能关闭，是否就等于一定关闭？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保留风暴后可能关闭",
+            "prompt": "只保留原句表达的意思。",
+            "rows": [
+              {
+                "id": "possible",
+                "label": "风暴后小路可能关闭，尚不确定",
+                "text": "The path might be closed after the storm.",
+                "include": true
+              },
+              {
+                "id": "certain",
+                "label": "风暴后小路一定关闭",
+                "text": "The path will certainly be closed after the storm.",
+                "include": false
+              },
+              {
+                "id": "open",
+                "label": "保证风暴后小路仍开放",
+                "text": "The path is guaranteed to remain open after the storm.",
+                "include": false
+              }
+            ],
+            "hint": "时间在风暴后，语气是可能。",
+            "wrong": "只选可能关闭；不能加强成一定或反转成保证开放。"
+          }
+        },
+        "options": [
+          {
+            "id": "certain",
+            "text": "The path will certainly be closed after the storm.",
+            "correct": false,
+            "reason": "might的可能被加强成一定。"
+          },
+          {
+            "id": "open",
+            "text": "The path is guaranteed to remain open after the storm.",
+            "correct": false,
+            "reason": "可能关闭被反转成保证开放。"
+          },
+          {
+            "id": "possible",
+            "text": "The path may be closed after the storm, but this is not certain.",
+            "correct": true,
+            "reason": "might保留可能性，不把它说成确定事实。"
+          }
+        ]
+      },
+      {
+        "id": "must",
+        "label": "must：必须远离，还是不必远离？",
+        "prompt": "必须远离，还是不必远离？",
+        "answer": "must",
+        "meaning": "必须；一定",
+        "material": "You must keep clear of the moving machine.",
+        "before": "You ",
+        "after": " keep clear of the moving machine.",
+        "reason": "must在这里是必须，要求远离正在运转的机器；不是不必，也不是推断机器坏了。mustn’t是禁止，不等于不必。",
+        "hint": "must后接keep原形，keep clear of是远离。",
+        "wordDecision": {
+          "prompt": "必须远离，还是不必远离？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "必须远离正在运转的机器",
+            "prompt": "只保留原句表达的意思。",
+            "rows": [
+              {
+                "id": "required",
+                "label": "要求远离正在运转的机器",
+                "text": "You must keep clear of the moving machine.",
+                "include": true
+              },
+              {
+                "id": "unnecessary",
+                "label": "不必远离正在运转的机器",
+                "text": "You do not need to keep clear of the moving machine.",
+                "include": false
+              },
+              {
+                "id": "broken",
+                "label": "已经确定机器损坏",
+                "text": "The machine must be broken.",
+                "include": false
+              }
+            ],
+            "hint": "看本句语境中的要求，不套用推测义。",
+            "wrong": "只选必须远离；不能换成不必或机器损坏的推断。"
+          }
+        },
+        "options": [
+          {
+            "id": "unnecessary",
+            "text": "You do not need to keep clear of the moving machine.",
+            "correct": false,
+            "reason": "必须被换成不必。"
+          },
+          {
+            "id": "required",
+            "text": "You are required to stay away from the moving machine.",
+            "correct": true,
+            "reason": "must表示必须遵守的要求。"
+          },
+          {
+            "id": "broken",
+            "text": "The sentence states with certainty that the machine is broken.",
+            "correct": false,
+            "reason": "这里must表示要求，不是在推断机器损坏。"
+          }
+        ]
+      },
+      {
+        "id": "should",
+        "label": "should：把出发前查潮汐的先后排对。",
+        "prompt": "把出发前查潮汐的先后排对。",
+        "answer": "should",
+        "meaning": "应该",
+        "material": "We should check the tide before leaving.",
+        "before": "We ",
+        "after": " check the tide before leaving.",
+        "reason": "should表示应该，建议出发前查潮汐；before不能倒过来，也没有说已经查过。这里只理解句意，不提供实时潮汐信息。",
+        "hint": "should后接check原形；before给出先后。",
+        "wordDecision": {
+          "prompt": "把出发前查潮汐的先后排对。",
+          "processOrder": {
+            "title": "先查潮汐，再出发",
+            "hint": "按原句先后点选；排错可撤回。",
+            "wrong": "before leaving要求先查潮汐，再出发；建议不等于已经完成。",
+            "events": [
+              {
+                "id": "leave",
+                "label": "出发"
+              },
+              {
+                "id": "check",
+                "label": "查潮汐"
+              }
+            ],
+            "sequence": [
+              "check",
+              "leave"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "advice",
+            "text": "Checking the tide before leaving is advisable.",
+            "correct": true,
+            "reason": "should提出应该做的事，before要求出发前查。"
+          },
+          {
+            "id": "reverse",
+            "text": "We should leave first and check the tide afterwards.",
+            "correct": false,
+            "reason": "出发和检查的先后被反转。"
+          },
+          {
+            "id": "completed",
+            "text": "The sentence reports that we have already checked the tide.",
+            "correct": false,
+            "reason": "建议检查不等于检查已经完成。"
+          }
+        ]
+      },
+      {
+        "id": "will",
+        "label": "will：点出说话人愿意搬的那个箱子。",
+        "prompt": "点出说话人愿意搬的那个箱子。",
+        "answer": "will",
+        "meaning": "将；愿意",
+        "material": "I will carry the smaller box.",
+        "before": "I ",
+        "after": " carry the smaller box.",
+        "reason": "will在这里表达意愿，愿意搬更小的箱子。图只展示箱子的外观大小，不能据此认定重量、内容物或谁已经搬走。",
+        "hint": "I will…看意愿，smaller比较外观大小。",
+        "wordDecision": {
+          "prompt": "点出说话人愿意搬的那个箱子。",
+          "art": {
+            "asset": "lesson-box-offer",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "蓝色地面上两个完整纸箱，左侧箱子明显更大更高，右侧箱子明显更小，彼此分开；没有尺寸、重量或内容标记。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "larger",
+                "label": "A 大箱",
+                "left": 2,
+                "top": 0,
+                "width": 53,
+                "height": 100,
+                "labelPosition": "bottom"
+              },
+              {
+                "id": "b",
+                "option": "smaller",
+                "label": "B 小箱",
+                "left": 58,
+                "top": 0,
+                "width": 40,
+                "height": 100,
+                "labelPosition": "bottom"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "larger",
+                "caption": "这是更大的箱子，原句选的是smaller。",
+                "regions": [
+                  {
+                    "id": "larger-box",
+                    "left": 11,
+                    "top": 17,
+                    "width": 44,
+                    "height": 61,
+                    "label": "更大的箱子"
+                  }
+                ]
+              },
+              {
+                "option": "smaller",
+                "caption": "右侧箱子外观更小；不能由此推断更轻。",
+                "regions": [
+                  {
+                    "id": "smaller-box",
+                    "left": 61,
+                    "top": 39,
+                    "width": 28,
+                    "height": 40,
+                    "label": "更小的箱子"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "larger",
+            "text": "The speaker offers to carry the larger box.",
+            "correct": false,
+            "reason": "smaller被换成larger。"
+          },
+          {
+            "id": "smaller",
+            "text": "The speaker offers to carry the smaller box.",
+            "correct": true,
+            "reason": "will在这里表达意愿；smaller选更小的箱子。"
+          }
+        ]
+      },
+      {
+        "id": "would",
+        "label": "would：是礼貌询问座位意愿，还是在讲过去？",
+        "prompt": "是礼貌询问座位意愿，还是在讲过去？",
+        "answer": "Would",
+        "meaning": "愿意；将会（用于假设等）",
+        "material": "Would you like a seat near the window?",
+        "before": "",
+        "after": " you like a seat near the window?",
+        "reason": "Would you like…是礼貌询问想不想要靠窗的座位；不是说昨天坐过，也不是请对方开窗。",
+        "hint": "would like看想要什么，不当作过去陈述。",
+        "wordDecision": {
+          "prompt": "是礼貌询问座位意愿，还是在讲过去？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "礼貌询问是否想要靠窗座位",
+            "prompt": "只保留原句表达的意思。",
+            "rows": [
+              {
+                "id": "offer",
+                "label": "礼貌询问是否想坐靠窗位置",
+                "text": "Would you like a seat near the window?",
+                "include": true
+              },
+              {
+                "id": "past",
+                "label": "陈述昨天坐在窗边",
+                "text": "You sat near the window yesterday.",
+                "include": false
+              },
+              {
+                "id": "window",
+                "label": "请求把窗户打开",
+                "text": "Please open the window.",
+                "include": false
+              }
+            ],
+            "hint": "看想要的对象是座位。",
+            "wrong": "只选礼貌询问座位意愿；不能改成过去事实或开窗。"
+          }
+        },
+        "options": [
+          {
+            "id": "past",
+            "text": "The speaker states that you sat near the window yesterday.",
+            "correct": false,
+            "reason": "礼貌问句不是过去事实。"
+          },
+          {
+            "id": "window",
+            "text": "The speaker asks you to open the window.",
+            "correct": false,
+            "reason": "想要靠窗座位被换成开窗动作。"
+          },
+          {
+            "id": "offer",
+            "text": "The speaker politely asks whether you want a seat near the window.",
+            "correct": true,
+            "reason": "Would you like…在这里礼貌询问对方想不想。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-questions-quantity-2-transfer",
+      "topicId": "v-course-questions-quantity",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which report keeps the uncertainty, requirement and order correct?",
+      "passage": "Before the coastal club trip\nWe discussed the arrangements before a club visit to the coast. “Can this small boat carry all our bags?” was a question about ability. Nobody treated the question itself as proof that every bag could safely go on board. We needed more information.\n“Could you move your bag a little, please?” was a polite request, not a report about yesterday. A helper said, “You may leave your coat on that hook.” That gave permission; it did not mean everyone had to hang a coat there or that a coat was already hanging.\nAfter a storm, a note said the path might be closed. We kept that uncertainty rather than reporting a definite closure. Near equipment, an adult told us we must keep clear of a moving machine. This was a requirement to stay away, not permission to move closer.\nWe agreed that we should check the tide before leaving. That meant the check should come first; it did not prove anyone had already done it. I offered to carry the smaller box. Later, a helper asked whether I would like a seat near the window. These were an offer of help and a polite question about a preference, not accounts of completed actions.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The path was only possibly closed; keeping clear of the moving machine was required; the tide check should come before leaving."
+        },
+        {
+          "id": "b",
+          "text": "The path was certainly closed; keeping clear of the moving machine was required; the tide check should come before leaving."
+        },
+        {
+          "id": "c",
+          "text": "The path was only possibly closed; keeping clear of the moving machine was unnecessary; the tide check should come before leaving."
+        },
+        {
+          "id": "d",
+          "text": "The path was only possibly closed; keeping clear of the moving machine was required; leaving should come before the tide check."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The path was only possibly closed; keeping clear of the moving machine was required; the tide check should come before leaving."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先保留might的不确定，再核对must的要求和before的先后。",
+        "steps": [
+          {
+            "text": "小路可能关闭；必须远离运转机器。",
+            "reason": "might不是确定事实；must在本句表示要求，不能换成不必。"
+          },
+          {
+            "text": "先查潮汐，再出发。",
+            "reason": "before leaving限定检查在出发前；should不是已经完成。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把might可能关闭加强成一定关闭。"
+          },
+          {
+            "option": "c",
+            "reason": "把must必须远离改成不必远离。"
+          },
+          {
+            "option": "d",
+            "reason": "把查潮汐和出发的先后反转。"
+          }
+        ],
+        "pitfall": "只认情态动词的一个中文意思，忽略语气和先后。",
+        "visual": {
+          "kind": "timeline",
+          "title": "语气和顺序逐条核对",
+          "segments": [
+            {
+              "text": "might → possible",
+              "role": "object",
+              "note": "保留不确定"
+            },
+            {
+              "text": "must keep clear → required",
+              "role": "object",
+              "note": "必须远离"
+            },
+            {
+              "text": "check tide → leave",
+              "role": "object",
+              "note": "before要求先查"
+            }
+          ],
+          "caption": "可能、要求、建议和已完成事实不能混在一起。"
+        },
+        "transfer": "为什么允许挂外套不等于外套已经挂好？指出原文表达许可的词。"
+      }
+    }
+  }
+}

@@ -1,0 +1,1842 @@
+{
+  "lessonId": "l-v-course-outdoor-land-2",
+  "reviewState": "draft",
+  "intent": "Teach off/first instructions, around-hill routes, morning mist, winding rivers across a plain, well-away cliff instructions, bush-covered cave entrances, little-water survival and imprecise coastal distance.",
+  "picturePurpose": "Original valley/plain noun comparison plus three reversible route/distance/occlusion diagrams and four exact evidence selections; no invented measures, completed instructions or zero-water claims.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "读懂地貌与路线",
+    "instruction": "先换路线、距离与遮挡条件，再圈出原句真正说了什么。",
+    "items": [
+      {
+        "id": "word-dust",
+        "label": "灰尘",
+        "prompt": "先擦掉哪里的什么？first有没有给出下一步？",
+        "answer": "dust",
+        "caseSensitive": false,
+        "meaning": "灰尘",
+        "before": "Wipe the ",
+        "after": " off the shelf first.",
+        "reason": "off是擦掉，first是先做这件事。Wipe是要求，不是已完成的报告。",
+        "hint": "找出擦什么、从哪里擦掉；first没有给下一步。",
+        "material": "Wipe the dust off the shelf first.",
+        "options": [
+          {
+            "id": "off",
+            "text": "先擦掉架子上的灰尘。",
+            "correct": true,
+            "reason": "保留wipe…off the shelf与first。"
+          },
+          {
+            "id": "onto",
+            "text": "先把灰尘抹到架子上。",
+            "correct": false,
+            "reason": "抹到改变了off擦掉的方向。"
+          },
+          {
+            "id": "done",
+            "text": "原句报告架子已经擦干净。",
+            "correct": false,
+            "reason": "Wipe是操作要求，不是已经完成的报告。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先擦掉哪里的什么？first有没有给出下一步？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "擦掉什么，先做什么",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "first没有说明后续步骤。",
+            "wrong": "应圈出架子灰尘和先擦掉的要求，不补后续步骤或已完成。",
+            "rows": [
+              {
+                "id": "dust",
+                "label": "对象",
+                "text": "架子上的灰尘。",
+                "include": true
+              },
+              {
+                "id": "first",
+                "label": "要求",
+                "text": "先把灰尘擦掉。",
+                "include": true
+              },
+              {
+                "id": "next",
+                "label": "额外下一步",
+                "text": "原句要求擦完后立刻上油。",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "额外完成状态",
+                "text": "原句报告已经擦干净。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-hill",
+        "label": "小山（本句）",
+        "prompt": "绕着小山，还是穿过小山？切换路线再看runs的意思。",
+        "answer": "hill",
+        "caseSensitive": false,
+        "meaning": "小山（本句）",
+        "before": "A footpath runs around the ",
+        "after": ".",
+        "reason": "runs around说步道绕着小山延伸；不是人跑步，也不是穿过小山。",
+        "hint": "先看绕着什么，再看around与across的区别。",
+        "material": "A footpath runs around the hill.",
+        "options": [
+          {
+            "id": "around-hill",
+            "text": "步道绕着小山延伸。",
+            "correct": true,
+            "reason": "保留footpath、around与hill。"
+          },
+          {
+            "id": "across",
+            "text": "步道穿过小山。",
+            "correct": false,
+            "reason": "across穿过改变了around绕着。"
+          },
+          {
+            "id": "lake",
+            "text": "步道绕着湖延伸。",
+            "correct": false,
+            "reason": "lake湖改变了hill小山。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "绕着小山，还是穿过小山？切换路线再看runs的意思。",
+          "sceneLab": {
+            "id": "footpath-terrain-and-direction",
+            "title": "路线绕着什么",
+            "hint": "换路线，观察绕着与穿过的区别；线不表示实际距离。",
+            "wrong": "应是绕着小山，不是穿过或绕湖。",
+            "axes": [
+              {
+                "id": "terrain",
+                "label": "绕着什么地形",
+                "choices": [
+                  {
+                    "id": "hill",
+                    "label": "小山"
+                  },
+                  {
+                    "id": "lake",
+                    "label": "湖"
+                  }
+                ]
+              },
+              {
+                "id": "route",
+                "label": "路线关系",
+                "choices": [
+                  {
+                    "id": "around",
+                    "label": "绕着"
+                  },
+                  {
+                    "id": "across",
+                    "label": "穿过"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "步道与地形：俯视关系"
+                  },
+                  {
+                    "id": "terrain-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "地形待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|around",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "步道与地形：俯视关系"
+                  },
+                  {
+                    "id": "terrain-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "地形待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|across",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "步道与地形：俯视关系"
+                  },
+                  {
+                    "id": "terrain-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "地形待选"
+                  }
+                ]
+              },
+              {
+                "signature": "hill|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "步道与地形：俯视关系"
+                  },
+                  {
+                    "id": "terrain-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "小山"
+                  },
+                  {
+                    "id": "terrain",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 38,
+                    "width": 30,
+                    "height": 24,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "hill|around",
+                "reading": "步道绕着小山延伸。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "步道与地形：俯视关系"
+                  },
+                  {
+                    "id": "terrain-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "小山"
+                  },
+                  {
+                    "id": "terrain",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 38,
+                    "width": 30,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "path-top",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 27,
+                    "width": 60,
+                    "height": 2,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "path-side",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 27,
+                    "width": 2,
+                    "height": 43,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "path-bottom",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 68,
+                    "width": 60,
+                    "height": 2,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "hill|across",
+                "reading": "应是绕着小山，不是穿过或绕湖。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "步道与地形：俯视关系"
+                  },
+                  {
+                    "id": "terrain-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "小山"
+                  },
+                  {
+                    "id": "terrain",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 38,
+                    "width": 30,
+                    "height": 24,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "path-across",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 49,
+                    "width": 72,
+                    "height": 2,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "lake|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "步道与地形：俯视关系"
+                  },
+                  {
+                    "id": "terrain-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "湖"
+                  },
+                  {
+                    "id": "terrain",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 38,
+                    "width": 30,
+                    "height": 24,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "lake|around",
+                "reading": "应是绕着小山，不是穿过或绕湖。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "步道与地形：俯视关系"
+                  },
+                  {
+                    "id": "terrain-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "湖"
+                  },
+                  {
+                    "id": "terrain",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 38,
+                    "width": 30,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "path-top",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 27,
+                    "width": 60,
+                    "height": 2,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "path-side",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 27,
+                    "width": 2,
+                    "height": 43,
+                    "tone": "rose"
+                  },
+                  {
+                    "id": "path-bottom",
+                    "kind": "rect",
+                    "x": 20,
+                    "y": 68,
+                    "width": 60,
+                    "height": 2,
+                    "tone": "rose"
+                  }
+                ]
+              },
+              {
+                "signature": "lake|across",
+                "reading": "应是绕着小山，不是穿过或绕湖。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "步道与地形：俯视关系"
+                  },
+                  {
+                    "id": "terrain-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "湖"
+                  },
+                  {
+                    "id": "terrain",
+                    "kind": "ellipse",
+                    "x": 35,
+                    "y": 38,
+                    "width": 30,
+                    "height": 24,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "path-across",
+                    "kind": "rect",
+                    "x": 14,
+                    "y": 49,
+                    "width": 72,
+                    "height": 2,
+                    "tone": "rose"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-valley",
+        "label": "山谷",
+        "prompt": "是什么笼罩哪里？Morning给了什么时间信息？",
+        "answer": "valley",
+        "caseSensitive": false,
+        "meaning": "山谷",
+        "before": "Morning mist filled the ",
+        "after": ".",
+        "reason": "morning mist是晨雾，不是夜雾或烟；雾笼罩的是valley山谷。",
+        "hint": "时间、现象和地点，各找一个线索。",
+        "material": "Morning mist filled the valley.",
+        "options": [
+          {
+            "id": "morning-mist",
+            "text": "晨雾笼罩山谷。",
+            "correct": true,
+            "reason": "保留morning、mist与valley。"
+          },
+          {
+            "id": "night",
+            "text": "夜雾笼罩山谷。",
+            "correct": false,
+            "reason": "夜间改变了morning早晨。"
+          },
+          {
+            "id": "smoke",
+            "text": "浓烟笼罩山谷。",
+            "correct": false,
+            "reason": "smoke烟改变了mist雾。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "是什么笼罩哪里？Morning给了什么时间信息？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "时间、现象与地点",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "雾不是烟，早晨不是夜间。",
+            "wrong": "应保留晨雾和山谷，不补夜间或烟。",
+            "rows": [
+              {
+                "id": "morning",
+                "label": "时间现象",
+                "text": "早晨的雾。",
+                "include": true
+              },
+              {
+                "id": "valley",
+                "label": "地点",
+                "text": "雾笼罩山谷。",
+                "include": true
+              },
+              {
+                "id": "night",
+                "label": "额外时间",
+                "text": "原句说夜间起雾。",
+                "include": false
+              },
+              {
+                "id": "smoke",
+                "label": "额外现象",
+                "text": "原句说烟笼罩山谷。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-plain",
+        "label": "平原（本句）",
+        "prompt": "点出开阔平原，别把plain读成朴素的。",
+        "answer": "plain",
+        "caseSensitive": false,
+        "meaning": "平原（本句）",
+        "before": "The river winds across a wide ",
+        "after": ".",
+        "reason": "plain在这里是平原；winds是蜿蜒流过，不是名词“风”。",
+        "hint": "点出开阔平原，再用河流的走向核对原句。",
+        "material": "The river winds across a wide plain.",
+        "options": [
+          {
+            "id": "valley",
+            "text": "两侧高、中间低的山谷。",
+            "correct": false,
+            "reason": "valley是山谷；本句plain是平原。"
+          },
+          {
+            "id": "plain",
+            "text": "河流蜿蜒穿过的开阔平原。",
+            "correct": true,
+            "reason": "plain是平原；图示开阔平坦地形。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出开阔平原，别把plain读成朴素的。",
+          "art": {
+            "asset": "lesson-valley-plain-compare",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创双幅地貌：左侧两边山坡之间的山谷有低雾，右侧广阔平原上蓝色河流蜿蜒穿过；无文字、人物、标尺或真实地点标记。",
+            "targets": [
+              {
+                "id": "valley-target",
+                "option": "valley",
+                "label": "山谷",
+                "labelPosition": "bottom",
+                "left": 3,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              },
+              {
+                "id": "plain-target",
+                "option": "plain",
+                "label": "平原",
+                "labelPosition": "bottom",
+                "left": 53,
+                "top": 4,
+                "width": 44,
+                "height": 90
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-cliff",
+        "label": "悬崖",
+        "prompt": "远离哪个边缘？well away是远离，还是贴近？",
+        "answer": "cliff",
+        "caseSensitive": false,
+        "meaning": "悬崖",
+        "before": "Stay well away from the ",
+        "after": " edge.",
+        "reason": "well away from是远离；cliff edge是悬崖边缘。",
+        "hint": "well加强了away的意思，不能读成靠近。",
+        "material": "Stay well away from the cliff edge.",
+        "options": [
+          {
+            "id": "far-cliff",
+            "text": "远离悬崖边缘。",
+            "correct": true,
+            "reason": "保留well away from the cliff edge。"
+          },
+          {
+            "id": "near",
+            "text": "靠近悬崖边缘。",
+            "correct": false,
+            "reason": "near靠近与well away远离相反。"
+          },
+          {
+            "id": "river",
+            "text": "远离河边。",
+            "correct": false,
+            "reason": "river edge改变了cliff edge悬崖边缘。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "远离哪个边缘？well away是远离，还是贴近？",
+          "sceneLab": {
+            "id": "edge-category-and-separation",
+            "title": "与哪个边缘保持距离",
+            "hint": "切换边缘与远近关系；示意图不提供安全距离。",
+            "wrong": "应远离悬崖边缘，不能读成靠近或河边。",
+            "axes": [
+              {
+                "id": "boundary",
+                "label": "哪个边缘",
+                "choices": [
+                  {
+                    "id": "cliff",
+                    "label": "悬崖边缘"
+                  },
+                  {
+                    "id": "river",
+                    "label": "河边"
+                  }
+                ]
+              },
+              {
+                "id": "distance",
+                "label": "保持什么关系",
+                "choices": [
+                  {
+                    "id": "far",
+                    "label": "远离"
+                  },
+                  {
+                    "id": "near",
+                    "label": "靠近"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "位置关系示意"
+                  },
+                  {
+                    "id": "boundary-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "边缘待选"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "示意远／近，不给安全距离"
+                  }
+                ]
+              },
+              {
+                "signature": "?|far",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "位置关系示意"
+                  },
+                  {
+                    "id": "boundary-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "边缘待选"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "示意远／近，不给安全距离"
+                  }
+                ]
+              },
+              {
+                "signature": "?|near",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "位置关系示意"
+                  },
+                  {
+                    "id": "boundary-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "边缘待选"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "示意远／近，不给安全距离"
+                  }
+                ]
+              },
+              {
+                "signature": "cliff|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "位置关系示意"
+                  },
+                  {
+                    "id": "boundary-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "悬崖边缘"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "示意远／近，不给安全距离"
+                  },
+                  {
+                    "id": "edge",
+                    "kind": "rect",
+                    "x": 75,
+                    "y": 43,
+                    "width": 2,
+                    "height": 28,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "cliff|far",
+                "reading": "远离悬崖边缘。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "位置关系示意"
+                  },
+                  {
+                    "id": "boundary-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "悬崖边缘"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "示意远／近，不给安全距离"
+                  },
+                  {
+                    "id": "edge",
+                    "kind": "rect",
+                    "x": 75,
+                    "y": 43,
+                    "width": 2,
+                    "height": 28,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "ellipse",
+                    "x": 20,
+                    "y": 53,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "cliff|near",
+                "reading": "应远离悬崖边缘，不能读成靠近或河边。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "位置关系示意"
+                  },
+                  {
+                    "id": "boundary-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "悬崖边缘"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "示意远／近，不给安全距离"
+                  },
+                  {
+                    "id": "edge",
+                    "kind": "rect",
+                    "x": 75,
+                    "y": 43,
+                    "width": 2,
+                    "height": 28,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "ellipse",
+                    "x": 65,
+                    "y": 53,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "river|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "位置关系示意"
+                  },
+                  {
+                    "id": "boundary-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "河边"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "示意远／近，不给安全距离"
+                  },
+                  {
+                    "id": "edge",
+                    "kind": "rect",
+                    "x": 75,
+                    "y": 43,
+                    "width": 2,
+                    "height": 28,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "river|far",
+                "reading": "应远离悬崖边缘，不能读成靠近或河边。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "位置关系示意"
+                  },
+                  {
+                    "id": "boundary-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "河边"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "示意远／近，不给安全距离"
+                  },
+                  {
+                    "id": "edge",
+                    "kind": "rect",
+                    "x": 75,
+                    "y": 43,
+                    "width": 2,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "ellipse",
+                    "x": 20,
+                    "y": 53,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "river|near",
+                "reading": "应远离悬崖边缘，不能读成靠近或河边。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "位置关系示意"
+                  },
+                  {
+                    "id": "boundary-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 23,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "河边"
+                  },
+                  {
+                    "id": "limit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 83,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "示意远／近，不给安全距离"
+                  },
+                  {
+                    "id": "edge",
+                    "kind": "rect",
+                    "x": 75,
+                    "y": 43,
+                    "width": 2,
+                    "height": 28,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "position",
+                    "kind": "ellipse",
+                    "x": 65,
+                    "y": 53,
+                    "width": 6,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-cave",
+        "label": "洞穴",
+        "prompt": "洞口被什么遮住？遮住和露出来有什么区别？",
+        "answer": "cave",
+        "caseSensitive": false,
+        "meaning": "洞穴",
+        "before": "The ",
+        "after": " entrance is hidden by bushes.",
+        "reason": "hidden是被遮住；by bushes给出遮挡物：灌木丛。",
+        "hint": "换遮挡物或露出状态，看看哪里不符合原句。",
+        "material": "The cave entrance is hidden by bushes.",
+        "options": [
+          {
+            "id": "bush-hidden",
+            "text": "洞口被灌木丛遮住。",
+            "correct": true,
+            "reason": "保留entrance、hidden与by bushes。"
+          },
+          {
+            "id": "rocks",
+            "text": "洞口被岩石遮住。",
+            "correct": false,
+            "reason": "rocks岩石改变了bushes灌木丛。"
+          },
+          {
+            "id": "open",
+            "text": "洞口没有被灌木丛遮住。",
+            "correct": false,
+            "reason": "没有遮住改变了is hidden被遮住。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "洞口被什么遮住？遮住和露出来有什么区别？",
+          "sceneLab": {
+            "id": "cave-cover-and-occlusion",
+            "title": "洞口与遮挡物",
+            "hint": "换遮挡物，再让洞口露出来，比较hidden与visible。",
+            "wrong": "应是灌木遮住洞口，不是岩石或无遮挡。",
+            "axes": [
+              {
+                "id": "cover",
+                "label": "遮挡物",
+                "choices": [
+                  {
+                    "id": "bushes",
+                    "label": "灌木丛"
+                  },
+                  {
+                    "id": "rocks",
+                    "label": "岩石"
+                  }
+                ]
+              },
+              {
+                "id": "state",
+                "label": "洞口状态",
+                "choices": [
+                  {
+                    "id": "hidden",
+                    "label": "被遮住"
+                  },
+                  {
+                    "id": "visible",
+                    "label": "露出来"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "洞口与遮挡：正面关系"
+                  },
+                  {
+                    "id": "state-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "遮挡状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|hidden",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "洞口与遮挡：正面关系"
+                  },
+                  {
+                    "id": "state-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "洞口被遮住"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "ellipse",
+                    "x": 37,
+                    "y": 34,
+                    "width": 26,
+                    "height": 40,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "unknown-cover",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 42,
+                    "height": 46,
+                    "tone": "muted"
+                  }
+                ]
+              },
+              {
+                "signature": "?|visible",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "洞口与遮挡：正面关系"
+                  },
+                  {
+                    "id": "state-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "洞口露出"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "ellipse",
+                    "x": 37,
+                    "y": 34,
+                    "width": 26,
+                    "height": 40,
+                    "tone": "ink"
+                  }
+                ]
+              },
+              {
+                "signature": "bushes|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "洞口与遮挡：正面关系"
+                  },
+                  {
+                    "id": "state-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "遮挡状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "bushes|hidden",
+                "reading": "洞口被灌木丛遮住。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "洞口与遮挡：正面关系"
+                  },
+                  {
+                    "id": "state-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "洞口被遮住"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "ellipse",
+                    "x": 37,
+                    "y": 34,
+                    "width": 26,
+                    "height": 40,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "cover",
+                    "kind": "ellipse",
+                    "x": 29,
+                    "y": 32,
+                    "width": 42,
+                    "height": 46,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "cover-name",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 48,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灌木丛"
+                  }
+                ]
+              },
+              {
+                "signature": "bushes|visible",
+                "reading": "应是灌木遮住洞口，不是岩石或无遮挡。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "洞口与遮挡：正面关系"
+                  },
+                  {
+                    "id": "state-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "洞口露出"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "ellipse",
+                    "x": 37,
+                    "y": 34,
+                    "width": 26,
+                    "height": 40,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "cover",
+                    "kind": "ellipse",
+                    "x": 72,
+                    "y": 38,
+                    "width": 24,
+                    "height": 30,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "cover-name",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 48,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灌木丛"
+                  }
+                ]
+              },
+              {
+                "signature": "rocks|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "洞口与遮挡：正面关系"
+                  },
+                  {
+                    "id": "state-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "遮挡状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "rocks|hidden",
+                "reading": "应是灌木遮住洞口，不是岩石或无遮挡。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "洞口与遮挡：正面关系"
+                  },
+                  {
+                    "id": "state-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "洞口被遮住"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "ellipse",
+                    "x": 37,
+                    "y": 34,
+                    "width": 26,
+                    "height": 40,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "cover",
+                    "kind": "rect",
+                    "x": 29,
+                    "y": 32,
+                    "width": 42,
+                    "height": 46,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "cover-name",
+                    "kind": "label",
+                    "x": 31,
+                    "y": 48,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "岩石"
+                  }
+                ]
+              },
+              {
+                "signature": "rocks|visible",
+                "reading": "应是灌木遮住洞口，不是岩石或无遮挡。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "洞口与遮挡：正面关系"
+                  },
+                  {
+                    "id": "state-name",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "洞口露出"
+                  },
+                  {
+                    "id": "entrance",
+                    "kind": "ellipse",
+                    "x": 37,
+                    "y": 34,
+                    "width": 26,
+                    "height": 40,
+                    "tone": "ink"
+                  },
+                  {
+                    "id": "cover",
+                    "kind": "rect",
+                    "x": 72,
+                    "y": 38,
+                    "width": 24,
+                    "height": 30,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "cover-name",
+                    "kind": "label",
+                    "x": 72,
+                    "y": 48,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "岩石"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-desert",
+        "label": "沙漠",
+        "prompt": "少水能存活，能不能直接读成完全不需要水？",
+        "answer": "desert",
+        "caseSensitive": false,
+        "meaning": "沙漠",
+        "before": "Plants in the ",
+        "after": " can survive with little water.",
+        "reason": "little water是少量水，不是no water完全无水；原句谈的是沙漠植物。",
+        "hint": "既检查水量，也检查植物的范围。",
+        "material": "Plants in the desert can survive with little water.",
+        "options": [
+          {
+            "id": "little",
+            "text": "沙漠植物能在少水条件下存活。",
+            "correct": true,
+            "reason": "保留can survive与little water。"
+          },
+          {
+            "id": "none",
+            "text": "沙漠植物完全不需要水。",
+            "correct": false,
+            "reason": "no water没有水扩大了little water少量水。"
+          },
+          {
+            "id": "all",
+            "text": "世界上所有植物都能在少水条件下存活。",
+            "correct": false,
+            "reason": "原句限定plants in the desert，不是全世界所有植物。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "少水能存活，能不能直接读成完全不需要水？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "能力与水量条件",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "little不等于no；沙漠植物不等于所有植物。",
+            "wrong": "应圈出沙漠植物和少水存活能力，不补零用水或所有植物。",
+            "rows": [
+              {
+                "id": "plants",
+                "label": "对象",
+                "text": "沙漠中的植物。",
+                "include": true
+              },
+              {
+                "id": "little",
+                "label": "能力条件",
+                "text": "能在少水条件下存活。",
+                "include": true
+              },
+              {
+                "id": "none",
+                "label": "扩大水量条件",
+                "text": "原句保证完全不需要水。",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "扩大对象范围",
+                "text": "原句谈全世界所有植物。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-coast",
+        "label": "海岸",
+        "prompt": "火车沿着哪里走？several miles有没有给确切数字？",
+        "answer": "coast",
+        "caseSensitive": false,
+        "meaning": "海岸",
+        "before": "The train follows the ",
+        "after": " for several miles.",
+        "reason": "follows the coast是沿海岸行驶；several miles是好几英里，没有确切数字。",
+        "hint": "several不等于恰好三，也没有说整趟旅程。",
+        "material": "The train follows the coast for several miles.",
+        "options": [
+          {
+            "id": "coast-miles",
+            "text": "火车沿海岸行驶好几英里。",
+            "correct": true,
+            "reason": "保留follows the coast与for several miles。"
+          },
+          {
+            "id": "three",
+            "text": "火车沿海岸行驶恰好三英里。",
+            "correct": false,
+            "reason": "several好几没有指定恰好三。"
+          },
+          {
+            "id": "whole",
+            "text": "原句说整趟旅程始终沿着海岸。",
+            "correct": false,
+            "reason": "for several miles不等于整趟旅程都如此。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "火车沿着哪里走？several miles有没有给确切数字？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "路线与不确定距离",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "several不是确切的三，也不是全程。",
+            "wrong": "应保留沿海岸与好几英里，不补恰好三或整趟旅程。",
+            "rows": [
+              {
+                "id": "route",
+                "label": "路线",
+                "text": "火车沿海岸行驶。",
+                "include": true
+              },
+              {
+                "id": "distance",
+                "label": "距离表述",
+                "text": "这一段有好几英里。",
+                "include": true
+              },
+              {
+                "id": "three",
+                "label": "额外精确数值",
+                "text": "原句给了恰好三英里。",
+                "include": false
+              },
+              {
+                "id": "whole",
+                "label": "扩大行程范围",
+                "text": "原句保证全程都沿海岸。",
+                "include": false
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-outdoor-land-2-transfer",
+      "topicId": "v-course-outdoor-land",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "路线、遮挡物和水量条件换了，哪组英文完整保留了新信息？",
+      "passage": "三条新信息\n一条步道从小山旁经过。洞口被岩石遮住。沙漠植物需要少量水才能存活。\n词语提示：past 从旁经过；rocks 岩石；need 需要；a little water 少量水。",
+      "options": [
+        {
+          "id": "a",
+          "text": "A footpath runs around the hill. The cave entrance is hidden by rocks. Plants in the desert need a little water to survive."
+        },
+        {
+          "id": "b",
+          "text": "A footpath runs past the hill. The cave entrance is hidden by bushes. Plants in the desert need a little water to survive."
+        },
+        {
+          "id": "c",
+          "text": "A footpath runs past the hill. The cave entrance is hidden by rocks. Plants in the desert need no water to survive."
+        },
+        {
+          "id": "d",
+          "text": "A footpath runs past the hill. The cave entrance is hidden by rocks. Plants in the desert need a little water to survive."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "A footpath runs past the hill. The cave entrance is hidden by rocks. Plants in the desert need a little water to survive."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找新路线，再核对遮挡物，最后检查水量有没有被扩大成零。",
+        "steps": [
+          {
+            "text": "从小山旁经过：A footpath runs past the hill。",
+            "reason": "past从旁经过，不是绕着小山的around。"
+          },
+          {
+            "text": "洞口被岩石遮住：The cave entrance is hidden by rocks。",
+            "reason": "新遮挡物是rocks岩石，不能沿用bushes灌木。"
+          },
+          {
+            "text": "需要少量水才能存活：need a little water to survive。",
+            "reason": "少量水仍然有水；no water把条件改成了完全无水。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "around把从旁经过改成绕着。"
+          },
+          {
+            "option": "b",
+            "reason": "bushes把岩石改成灌木丛。"
+          },
+          {
+            "option": "c",
+            "reason": "no water把少量水改成完全无水。"
+          }
+        ],
+        "pitfall": "不能凭熟悉的旧句作答；路线、遮挡物和少量／没有要逐项核对。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三处新条件",
+          "segments": [
+            {
+              "text": "past the hill",
+              "role": "evidence",
+              "note": "从小山旁经过"
+            },
+            {
+              "text": "hidden by rocks",
+              "role": "evidence",
+              "note": "被岩石遮住"
+            },
+            {
+              "text": "need a little water",
+              "role": "evidence",
+              "note": "需要少量水，不是零"
+            }
+          ],
+          "caption": "只核对本题信息，不补路线长度、洞深或水量数值。"
+        },
+        "transfer": "把past换成around、rocks换成bushes，各改了哪一条信息？"
+      }
+    }
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "lessonId": "l-s-course-t17",
+  "reviewState": "draft",
+  "intent": "Explain the four-player everyone-touches-before-score practice rule and its passing/participation purpose, simulate distinct players and before/after timing without inventing a passing order or guaranteed score.",
+  "picturePurpose": "A coded four-player touch board changes distinct participation and temporal boundary. Exact count, timing and necessary-condition status stay in code; generated match imagery would not demonstrate these logical distinctions.",
+  "workshop": {
+    "kind": "compose",
+    "title": "四人都触球，再谈得分：把规则讲清楚",
+    "instruction": "在四人示意台上标出谁触过球，比较得分前与得分后的区别，再解释规则为何鼓励传球和参与。标记只模拟这条前提，不代表真实比赛得分，也不规定传球顺序或每人得分必须相同。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "四名队员都触球，时点要在得分前",
+        "prompt": "点队员标记触球，再点可撤回。四人都触球后，把整组触球切到得分后，看看还符合规则吗？",
+        "answer": "",
+        "reason": "这条触球前提与人数已核对。实际介绍规则时仍要说清before，不能把满足前提说成一定得分。",
+        "hint": "队员A—D是虚构示意；只记录哪些人触过球，不规定传球先后、每人只能触球一次或实际得分。原题每队四人，得分前全员都要触球。",
+        "material": "说2—4句英文。介绍一条四人球赛规则：得分前每个人都要触球。说明这项规则想训练什么。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "人数 → 全员 → 得分前",
+          "hint": "先用示意台理解，再核对队伍人数。",
+          "wrong": "每队是四人，不是三人或五人。要让四个人都在得分前触球，不能用某一人的多次触球替代全员。",
+          "fields": [
+            {
+              "id": "players",
+              "label": "原题每队几人？",
+              "answer": "four",
+              "choices": [
+                {
+                  "id": "three",
+                  "label": "Three players."
+                },
+                {
+                  "id": "four",
+                  "label": "Four players."
+                },
+                {
+                  "id": "five",
+                  "label": "Five players."
+                }
+              ]
+            }
+          ]
+        },
+        "composeTouches": {
+          "title": "触球示意台 · 四名队员",
+          "hint": "点队员标记触球，再点撤回；切换整组触球发生在得分前还是得分后。次序不计，也不模拟实际进球。",
+          "wrong": "必须四名不同队员都在得分前触球。少一人不够，得分后再触球也不满足before；满足这条前提仍不等于自动得分。",
+          "players": [
+            {
+              "id": "a",
+              "label": "队员 A"
+            },
+            {
+              "id": "b",
+              "label": "队员 B"
+            },
+            {
+              "id": "c",
+              "label": "队员 C"
+            },
+            {
+              "id": "d",
+              "label": "队员 D"
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "before：先满足条件，不保证得分",
+        "prompt": "把规则、动作顺序和结果边界分别说清。",
+        "answer": "",
+        "reason": "before的顺序与规则边界已核对。不要把一项训练规则扩大成全体正式比赛的通用规则。",
+        "hint": "全员触球在前，得分在后。大家都触球只满足本题的一条必要前提；仍需实际完成得分，也不等于每个人分数相同。",
+        "material": "说2—4句英文。介绍一条四人球赛规则：得分前每个人都要触球。说明这项规则想训练什么。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "触球前提 ≠ 保证进球或同分",
+          "hint": "这是本题给定的四人练习规则。",
+          "wrong": "before要求先全员触球再得分，不能把顺序倒过来。满足触球前提不保证得分，更没有保证人人同分；本题没说它适用于所有正式比赛。",
+          "fields": [
+            {
+              "id": "order",
+              "label": "哪项顺序符合before？",
+              "answer": "before",
+              "choices": [
+                {
+                  "id": "before",
+                  "label": "Everyone touches the ball before the team scores."
+                },
+                {
+                  "id": "after",
+                  "label": "Everyone touches the ball after the team scores."
+                },
+                {
+                  "id": "one",
+                  "label": "Only the strongest player needs to touch the ball."
+                }
+              ]
+            },
+            {
+              "id": "limit",
+              "label": "满足触球前提后，能确认什么？",
+              "answer": "condition",
+              "choices": [
+                {
+                  "id": "condition",
+                  "label": "This touch condition is met; a score is not guaranteed."
+                },
+                {
+                  "id": "automatic",
+                  "label": "The team automatically scores."
+                },
+                {
+                  "id": "equal",
+                  "label": "Every player is guaranteed the same points."
+                }
+              ]
+            },
+            {
+              "id": "scope",
+              "label": "这条规则的范围",
+              "answer": "practice",
+              "choices": [
+                {
+                  "id": "practice",
+                  "label": "The four-player exercise described in this task."
+                },
+                {
+                  "id": "all",
+                  "label": "Every official ball game everywhere."
+                },
+                {
+                  "id": "none",
+                  "label": "No rule needs to be explained."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "说清训练目的，不把公平等同人人同分",
+        "prompt": "比较两种解释角度，再核对口头表达要求。",
+        "answer": "",
+        "reason": "所选解释角度与目的已配好。接下来实际说2—4句，保留四人、全员在得分前触球、传球与参与。",
+        "hint": "可以强调传球给不同队友，也可以强调全员获得参与机会。两者相互关联，不是唯一可用理由；成稿要说明传球与参与，而不是保证比分相同。",
+        "material": "说2—4句英文。介绍一条四人球赛规则：得分前每个人都要触球。说明这项规则想训练什么。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "传球 → 参与 · 两个相连角度",
+          "hint": "选择侧重点，再配一句不夸大结果的解释。",
+          "wrong": "passing侧重把球传给队友，participation侧重让全员加入；都不表示人人同分。原题要2—4句口头说明，关键词清单或只写不说不能代替。",
+          "fields": [
+            {
+              "id": "focus",
+              "label": "比较哪个解释角度？",
+              "answer": "passing",
+              "choices": [
+                {
+                  "id": "passing",
+                  "label": "passing · 通过传球合作"
+                },
+                {
+                  "id": "participation",
+                  "label": "participation · 让不同队员参与"
+                }
+              ]
+            },
+            {
+              "id": "reason",
+              "label": "哪句与所选侧重点一致？",
+              "answer": "passing-ok",
+              "choices": [
+                {
+                  "id": "passing-ok",
+                  "label": "The rule encourages passing to different teammates so everyone can take part."
+                },
+                {
+                  "id": "participation-ok",
+                  "label": "The rule gives everyone a role instead of leaving every action to the strongest player."
+                },
+                {
+                  "id": "equal",
+                  "label": "The rule guarantees identical scores for every player."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题需要怎样完成？",
+              "answer": "spoken",
+              "choices": [
+                {
+                  "id": "spoken",
+                  "label": "Say two to four sentences explaining the rule and its purpose."
+                },
+                {
+                  "id": "list",
+                  "label": "List only the names of four players."
+                },
+                {
+                  "id": "written",
+                  "label": "Write the rule without saying it aloud."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "focus",
+            "answers": {
+              "passing": {
+                "reason": "passing-ok",
+                "form": "spoken"
+              },
+              "participation": {
+                "reason": "participation-ok",
+                "form": "spoken"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-s-course-t17-transfer",
+      "topicId": "s-course-t17",
+      "skill": "speaking",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "新小组有三人，每个人都须在活动开始前检查器材，目的是共同负责，检查本身不保证活动成功。下面哪份英文发言准确说明了这条新规则？",
+      "passage": "A different group rule\nA group has three members. Each member must check the equipment before the activity begins. Explain this rule and its purpose of shared responsibility in two to four spoken English sentences. Completing the checks does not by itself guarantee a successful activity.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Our group has three members. Each of us must check the equipment before the activity begins. This encourages shared responsibility, but it does not guarantee that the activity will succeed."
+        },
+        {
+          "id": "b",
+          "text": "Each team has four players. Everyone must touch the ball before the team scores. This encourages passing and participation."
+        },
+        {
+          "id": "c",
+          "text": "Our group has three members. One person can check the equipment three times after the activity begins. This replaces the need for the other members to check it beforehand."
+        },
+        {
+          "id": "d",
+          "text": "Our group has three members. Each of us must check the equipment before the activity begins. These checks guarantee that every group will get exactly the same result."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Our group has three members. Each of us must check the equipment before the activity begins. This encourages shared responsibility, but it does not guarantee that the activity will succeed."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "更新人数、动作和边界，区分全员参与与次数相同。",
+        "steps": [
+          {
+            "text": "新组是三人，每个人都在活动开始前检查器材。",
+            "reason": "一人检查三次不能替代三名不同成员；开始后检查也不满足before。"
+          },
+          {
+            "text": "目的是共同负责，完成检查不保证活动一定成功。",
+            "reason": "必要前提与结果保证不同，不能照搬旧球赛或承诺相同结果。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "仍在介绍四人球赛和触球规则，漏掉了新任务的三人小组、器材检查与活动开始前的边界。"
+          },
+          {
+            "option": "c",
+            "reason": "把全员换成一人多次，还把开始前改成开始后。"
+          },
+          {
+            "option": "d",
+            "reason": "人数与开始前检查虽然写对了，却把共同负责的目的夸大为保证所有小组取得完全相同的结果。"
+          }
+        ],
+        "pitfall": "记住一个总次数，却没看动作是否由每个不同成员在规定边界前完成。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三人检查：人数、动作、时点都更新",
+          "segments": [
+            {
+              "text": "3 different members",
+              "role": "evidence",
+              "note": "不是一个人三次"
+            },
+            {
+              "text": "each checks equipment",
+              "role": "evidence",
+              "note": "新的共同动作"
+            },
+            {
+              "text": "before the activity begins",
+              "role": "evidence",
+              "note": "新的时间边界"
+            },
+            {
+              "text": "shared responsibility ≠ guaranteed success",
+              "role": "neutral",
+              "note": "目的与保证分开"
+            }
+          ],
+          "caption": "解释规则时，先说清谁在什么时候做什么。"
+        },
+        "transfer": "如果只有两人完成检查，其中一人再检查一次，能补上第三人还没检查吗？先看是谁还没检查。"
+      }
+    }
+  }
+}

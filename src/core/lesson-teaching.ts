@@ -1,5 +1,5 @@
-import {vocabularyTransfer,productionReady,containsTerm} from './teaching-production'
-import {changeWorkshop,workshopView,workshopProblems} from './lesson-workshop'
+import {vocabularyTransfer,productionReady} from './teaching-production'
+import {changeWorkshop,workshopView,workshopProblems,containsWorkshopWord} from './lesson-workshop'
 import {changeMission, editionMission, type VisualMission} from './visual-mission'
 import { phoneticSorting, type PhoneticSorting } from './phonetic-sorting'
 import type { ContentCatalog, ExplanationVisual, Lesson, Question, RubricPoint, ExamCoaching } from './types'
@@ -13,6 +13,7 @@ export interface TeachingAssembly { id: string; title: string; prompt: string; t
 export interface TeachingEvidence { id: string; text: string; supports: boolean }
 export interface TeachingChoice { prompt: string; options: TeachingTile[]; correct: string; reasons: Record<string,string>; excerpt?: string }
 export interface LessonTeaching {
+  readingAloud?:true
   mission?: VisualMission
   id: string; title: string; objective: string; skill: string; fingerprint: string; mode: 'language' | 'vocabulary' | 'reading' | 'transcript' | 'communication' | 'phonetics'
   coaching: ExamCoaching; diagnoses: TeachingChoice[]; roleAnchors: Record<string,string[]>; revisionRubric: RubricPoint[]
@@ -46,9 +47,6 @@ export function sourceEvidence(q:Question):TeachingEvidence[]{
   if(!q.passage)return[]
   const paragraphs=q.passage.split(/\n+/).filter(p=>p.trim()), chunks=paragraphs.length>=3?paragraphs:teachingSentences(q.passage)
   const quotes=q.explanation.visual.segments.filter(s=>s.role==='evidence').flatMap(s=>s.text.split(/\.{3}|…+/)).map(normalizeEvidence).filter(s=>(s.match(english)??[]).length>=3)
-  // This cloze's visual contains the missing word; these two actual phrases are its authored clues.
-  const clozeClues:Record<string,string[]>={'q-r-cloze-1-1':['growing vegetables','planted seeds'],'q-r-cloze-1-2':['thought growing vegetables would be easy','very little happened'],'q-r-cloze-1-3':['brighter place'],'q-r-cloze-1-4':['Everyone had a small job']}
-  quotes.push(...(clozeClues[q.id]??[]))
   return chunks.map((text,i)=>({id:`source-${i}`,text,supports:quotes.some(quote=>normalizeEvidence(text).includes(quote))}))
 }
 function choiceFor(q:Question):TeachingChoice{
@@ -62,6 +60,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   const topic=c.topics.find(t=>t.id===lesson.topicId)!, communication=qs.some(q=>q.kind==='writing'||q.kind==='speaking'), phonetics=topic.id.startsWith('p-')
   const mode:LessonTeaching['mode']=communication?'communication':phonetics?'phonetics':topic.skill==='vocabulary'?'vocabulary':topic.skill==='reading'?'reading':topic.skill==='listening'?'transcript':'language'
   const first=communication?qs.find(q=>q.kind==='writing'||q.kind==='speaking')!:qs[0]
+  const readAloud=lesson.id==='l-s-read-aloud'
   let transfer=communication?qs.find(q=>q.id!==first.id&&(q.kind==='writing'||q.kind==='speaking'))??editionQuestion(communicationTransfer(first),spelling):qs[qs.length-1]!
   let cases=qs.filter(q=>q.id!==transfer.id&&q.kind!=='writing'&&q.kind!=='speaking').slice(0,['vocabulary','reading','transcript'].includes(mode)?qs.length:3)
   if(mode==='vocabulary')cases=cases.slice(0,2)
@@ -83,7 +82,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
     diagnosis=first.options?.length?choiceFor(first):{prompt:'参考原文，哪一句能作为本题的依据？',options:evidence.map(s=>({id:s.id,text:s.text})),correct:evidence.find(s=>s.supports)?.id??'',reasons:Object.fromEntries(evidence.map(s=>[s.id,s.supports?first.explanation.steps[0].reason:'这处文字没有包含本题解析所引用的关键线索。']))}
     if(!first.options?.length&&evidence.filter(s=>s.supports).length>1){const accepted=evidence.find(s=>s.supports)!;diagnosis.options=diagnosis.options.filter(o=>o.id===accepted.id||!evidence.find(s=>s.id===o.id)!.supports)}
   }else if(communication){
-    assemblies.push(assembly('model-order','组织一段参考表达','先读参考表达，再按它原来的顺序重组。它只是一种可行表达，不是唯一正确写法。',modelSentences.map(s=>s.text),'model',first.explanation.strategy))
+    assemblies.push(assembly('model-order','组织一段参考表达',readAloud?'先理解原对话，再保持原台词的顺序。这里练朗读准备，不改写对话。':'先读参考表达，再按它原来的顺序重组。它只是一种可行表达，不是唯一正确写法。',modelSentences.map(s=>s.text),'model',first.explanation.strategy))
     diagnosis={prompt:'',options:[],correct:'',reasons:{}}
   }else{
     if(phonetics){
@@ -101,7 +100,7 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
   if(communication){
     const roles=coaching.modelRoles
     if(!roles||roles.length!==modelSentences.length)throw new Error(`Model roles must match actual sentence units: ${lesson.id}: ${roles?.length}/${modelSentences.length}`)
-    rubric=roles.map((label,i)=>({id:`role-${i}`,label,marks:0,guidance:'从参考表达中选出承担这一任务的句子，再检查自己的草稿。'}))
+    rubric=roles.map((label,i)=>({id:`role-${i}`,label,marks:0,guidance:readAloud?'从原对话定位这项信息，朗读时保持原台词，不漏掉关键词。':'从参考表达中选出承担这一任务的句子，再检查自己的草稿。'}))
     rubric.forEach((r,i)=>roleAnchors[r.id]=[modelSentences[i].id])
     for(const missing of [...new Set([Math.floor(roles.length/2),0])]){
       const candidates=roles.map((text,i)=>({id:`role-${i}`,text})).filter((_,i)=>i===missing||Math.abs(i-missing)<=2).slice(0,4)
@@ -127,11 +126,14 @@ export function createLessonTeaching(c:ContentCatalog,lesson:Lesson,spelling:Spe
       if(q){const wrong=q.explanation.distractors[0];diagnoses.push({excerpt:q.passage,prompt:`下面这条排除理由针对哪个干扰项？\n${q.stem}\n排除理由：${wrong.reason}`,options:q.options!.filter(o=>o.id!==q.answer.option),correct:wrong.option,reasons:Object.fromEntries(q.options!.filter(o=>o.id!==q.answer.option).map(o=>[o.id,o.id===wrong.option?`对应正确。${wrong.reason}`:`这个选项的问题是：${q.explanation.distractors.find(d=>d.option===o.id)!.reason}`]))})}
     }else{const q=qs.find(q=>q.id!==transfer.id&&q.options&&choiceFor(q).prompt!==diagnosis.prompt);if(q)diagnoses.push(choiceFor(q))}
   }
+  if(readAloud)for(const d of diagnoses){d.prompt='对照原对话，漏读示例少了哪项信息？';d.excerpt=d.excerpt?.replace('删减稿：','漏读示例：').replace('自己的表达可以采用别的写法。','按原台词朗读，不能自行改掉时间、地点或回应。');for(const key of Object.keys(d.reasons))d.reasons[key]=d.reasons[key].replace('参考稿删去了','漏读示例缺少了').replace('这不是唯一写法。','朗读时保留原台词。')}
   diagnosis=diagnoses[0]
   if(mode==='vocabulary')cases=cases.slice(0,2)
   if(mode==='reading'||mode==='transcript')cases=cases.filter(q=>q.id!==first.id)
+  if(originalMission?.workshop?.applicationIds)cases=originalMission.workshop.applicationIds.map(id=>qs.find(q=>q.id===id)!).filter(Boolean)
+  if(originalMission?.workshop?.transfer)transfer=editionQuestion(originalMission.workshop.transfer,spelling)
   const visualMission=originalMission
-  const studio:LessonTeaching={...(visualMission?{mission:editionMission(visualMission,spelling)}:{}),...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
+  const studio:LessonTeaching={...(readAloud?{readingAloud:true as const}:{}),...(visualMission?{mission:editionMission(visualMission,spelling)}:{}),...(phonetics?{sorting:{...phoneticSorting[topic.id],cards:phoneticSorting[topic.id].cards.map(card=>({...card,text:editionText(card.text,spelling),reason:editionText(card.reason,spelling)}))}}:{}),coaching,diagnoses,roleAnchors,revisionRubric:(coaching.checklist??[]).map((label,i)=>({id:`check-${i}`,label,marks:0,guidance:readAloud?'实际朗读并回听后自查；准备笔记不证明发音。':'按自己的草稿自查'})),id:lesson.id,title:lesson.title,objective:mode==='vocabulary'&&visualMission?.workshop?.items.some(i=>i.wordDecision)?'把词放回语境，用自己的例句检查用法；隔天再做新题。':lesson.objective,skill:topic.skill,mode,fingerprint:'',prediction:first,transfer,cases,assemblies,evidence,diagnosis,model:communication?first:undefined,modelSentences,rubric,exposedIds:[...lesson.questionIds],mediaPending:readAloud?(!first.mediaId||!c.media.some(m=>m.id===first.mediaId&&m.approvedByOwner)):mode==='transcript'&&qs.some(q=>!q.mediaId||!c.media.some(m=>m.id===q.mediaId&&m.approvedByOwner)),visual:first.explanation.visual}
   studio.fingerprint=hash(studio)
   return studio
 }
@@ -144,11 +146,12 @@ export function assemblyCorrect(unit:TeachingAssembly,ids:string[]):boolean{
   return ids.length===unit.target.length&&new Set(ids).size===ids.length&&text(ids)===text(unit.target)
 }
 export function teachingProblems(s:LessonTeaching,lesson:Lesson):string[]{
-  const errors:string[]=[];if(s.mission?.workshop)errors.push(...workshopProblems(s.mission.workshop).map(e=>`${lesson.id}: ${e}`));const fail=(message:string)=>errors.push(`${lesson.id}: ${message}`)
+  const errors:string[]=[];if(lesson.grades.some(g=>!s.transfer.grades.includes(g)))errors.push(`${lesson.id}: transfer must cover every lesson grade`);if(s.mission?.workshop)errors.push(...workshopProblems(s.mission.workshop).map(e=>`${lesson.id}: ${e}`));const fail=(message:string)=>errors.push(`${lesson.id}: ${message}`)
   if(!s.assemblies.length||s.assemblies.some(a=>a.target.length<2||a.target.length!==a.tiles.length||!a.tiles.every(t=>t.text)))fail('missing substantive assembly')
   if(s.diagnoses.some(d=>!d.correct||!d.options.some(o=>o.id===d.correct)||d.options.length<2||d.options.some(o=>!d.reasons[o.id])))fail('incomplete exam clinic')
   if(!s.diagnosis.correct||!s.diagnosis.options.some(o=>o.id===s.diagnosis.correct)||s.diagnosis.options.length<2)fail('missing diagnostic contrast')
   if((s.mode==='reading'||s.mode==='transcript')&&(!s.evidence.some(e=>e.supports)||s.evidence.length<2))fail('missing source evidence activity')
+  if(s.mode==='reading'||s.mode==='transcript')for(const q of s.cases)if(!sourceEvidence(q).some(e=>e.supports))fail(`missing usable source evidence for ${q.id}`)
   if(s.mode==='communication'&&(s.modelSentences.length<2||!s.rubric.length||s.transfer.id===s.prediction.id))fail('missing model/revision/fresh communication task')
   if(s.diagnosis.options.some(o=>!s.diagnosis.reasons[o.id])||new Set(s.diagnosis.options.map(o=>o.text)).size!==s.diagnosis.options.length)fail('diagnosis needs distinct options and specific reasons')
   if(s.mode==='phonetics'&&(!s.sorting||s.sorting.cards.length<2))fail('missing phonetic sorting')
@@ -157,6 +160,11 @@ export function teachingProblems(s:LessonTeaching,lesson:Lesson):string[]{
   return errors
 }
 /** All studio decisions are guided practice. No Attempt, mastery, or lesson-pass is created here. */
+/** Show one authored reasoning step at a time; never hide the remaining steps permanently. */
+export function teachingExplanation(s:LessonTeaching,p:TeachingProgress){
+ const q=teachingAnswer(s,p),raw=Number(p.answers[`explanation-${p.step}-${p.caseIndex}`]??0),index=Number.isInteger(raw)&&raw>=0&&raw<q.explanation.steps.length?raw:0
+ return{index,total:q.explanation.steps.length,...q.explanation.steps[index]}
+}
 export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:string,value:string,now:number):TeachingProgress{
   const p:TeachingProgress={...current,order:[...current.order],completed:[...current.completed],answers:{...current.answers},checked:{...current.checked},links:{...current.links},updatedAt:now}
   const mark=(key:string)=>{if(!p.completed.includes(key))p.completed.push(key)}
@@ -176,10 +184,15 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   if(action==='unit'&&p.step===1){const index=Number(value);if(Number.isInteger(index)&&index>=0&&index<s.assemblies.length){p.unit=index;p.order=[]}return p}
   if(action==='assemble'&&p.step===1){const u=s.assemblies[p.unit];if(assemblyCorrect(u,p.order))mark(`build-${u.id}`);else p.checked[`build-${u.id}`]=false;return p}
   if(action==='clinic'&&p.step===3){const i=Number(value);if(Number.isInteger(i)&&i>=0&&i<s.diagnoses.length){p.answers.clinicIndex=value;delete p.answers.diagnosis;delete p.checked.diagnosis}return p}
-  if(action==='case'&&p.step===2){const index=Number(value);if(index>=0&&index<s.cases.length&&Number.isInteger(index)){p.caseIndex=index;delete p.answers.source;delete p.answers.evidence;delete p.checked.evidence}return p}
+  if(action==='case'&&p.step===2){const index=Number(value);if(index>=0&&index<s.cases.length&&Number.isInteger(index)){if(index!==p.caseIndex)p.checked.explanation=false;p.caseIndex=index;delete p.answers.source;delete p.answers.evidence;delete p.checked.evidence}return p}
   if(action==='source'&&p.step===2){if(teachingEvidence(s,p).some(e=>e.id===value))p.answers.source=p.answers.source===value?'':value;return p}
   if(action==='passage'){p.checked.passage=!p.checked.passage;return p}
   if(action==='explanation'){p.checked.explanation=!p.checked.explanation;return p}
+  if(action==='explanation-step'){
+    const index=Number(value),key=`step-${p.step}-${p.caseIndex}`,q=teachingAnswer(s,p)
+    if(p.checked.explanation&&typeof p.checked[key]==='boolean'&&Number.isInteger(index)&&index>=0&&index<q.explanation.steps.length)p.answers[`explanation-${p.step}-${p.caseIndex}`]=String(index)
+    return p
+  }
   if(action==='evidence'&&p.step===2){p.completed=p.completed.filter(k=>k!==`evidence-${(s.cases[p.caseIndex]??s.prediction).id}`);const item=teachingEvidence(s,p).find(e=>e.id===value);if(item){p.answers.evidence=value;p.checked.evidence=item.supports;if(item.supports)mark(`evidence-${(s.cases[p.caseIndex]??s.prediction).id}`)}return p}
   if(action==='criterion'&&p.step===2&&s.mode==='communication'&&s.rubric.some(r=>r.id===value)){p.answers.activeCriterion=value;p.answers.revisionPane='compare';return p}
   if(action==='revision-pane'&&p.step===2&&s.mode==='communication'&&(value==='compare'||value==='write'&&s.rubric.some(r=>p.links[r.id]))){p.answers.revisionPane=value;return p}
@@ -188,7 +201,7 @@ export function changeTeaching(s:LessonTeaching,current:TeachingProgress,action:
   if(action==='diagnose'&&p.step===3&&teachingDiagnosis(s,p).options.some(o=>o.id===value)){p.completed=p.completed.filter(k=>k!==`diagnosis-${p.answers.clinicIndex??0}`);p.answers.diagnosis=value;p.checked.diagnosis=value===teachingDiagnosis(s,p).correct;if(p.checked.diagnosis)mark(`diagnosis-${p.answers.clinicIndex??0}`);return p}
   if(action==='check'){
     const key=`step-${p.step}-${p.caseIndex}`,q=teachingAnswer(s,p)
-    if(p.step===2&&s.mode==='vocabulary'&&s.mission?.workshop){const item=s.mission.workshop.items[p.caseIndex],answer=p.answers[key]??'',original=p.answers[`workshopOwn-${item.id}`]??'';p.checked[key]=wordCount(answer)>=5&&containsTerm(answer,item.answer)&&normalizedAnswer(answer)!==normalizedAnswer(original)&&!!p.checked[`wordReview-${item.id}`];if(p.checked[key])mark(`case-${q.id}`);return p}
+    if(p.step===2&&s.mode==='vocabulary'&&s.mission?.workshop){const item=s.mission.workshop.items[p.caseIndex],answer=p.answers[key]??'',original=p.answers[`workshopOwn-${item.id}`]??'';p.checked[key]=wordCount(answer)>=5&&containsWorkshopWord(answer,item)&&normalizedAnswer(answer)!==normalizedAnswer(original)&&!!p.checked[`wordReview-${item.id}`];if(p.checked[key])mark(`case-${q.id}`);return p}
     if(p.step===0&&s.mode==='communication'){if(wordCount(p.before)>=4)mark('predict');return p}
     if((p.step===0||p.step===2||p.step===4)&&q){
       const answer=p.answers[key]??'',self=q.kind==='writing'||q.kind==='speaking'
@@ -209,7 +222,7 @@ export function teachingCanAdvance(s:LessonTeaching,p:TeachingProgress):boolean{
   if(p.step===1)return s.assemblies.every(a=>p.completed.includes(`build-${a.id}`))
   if(p.step===2){
     if(s.sorting)return s.sorting.cards.every(card=>p.answers[`sort-${card.id}`]===card.category)
-    if(s.mode==='communication')return productionReady(s.prediction,p.after)&&p.after.trim()!==p.before.trim()&&s.rubric.some(r=>!!p.links[r.id])&&s.revisionRubric.every(r=>p.checked[`rubric-2-${r.id}`])
+    if(s.mode==='communication')return (s.readingAloud?wordCount(p.after)>=4:productionReady(s.prediction,p.after))&&p.after.trim()!==p.before.trim()&&s.rubric.some(r=>!!p.links[r.id])&&s.revisionRubric.every(r=>p.checked[`rubric-2-${r.id}`])
     if(s.mode==='reading'||s.mode==='transcript')return s.cases.filter(q=>sourceEvidence(q).some(e=>e.supports)).every(q=>p.completed.includes(`evidence-${q.id}`)&&p.completed.includes(`case-${q.id}`))
     return s.cases.slice(0,s.mode==='vocabulary'?s.cases.length:Math.min(2,s.cases.length)).every(q=>p.completed.includes(`case-${q.id}`))
   }

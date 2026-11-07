@@ -1,0 +1,552 @@
+{
+  "lessonId": "l-v-course-food-4",
+  "reviewState": "draft",
+  "intent": "Individually distinguish softening-before-spreading, return location, two food modifiers, amount and daily frequency, unanswered no-sugar preference, smell subject, squeezing purpose without guaranteed result, and a during-walk reminder.",
+  "picturePurpose": "Proposed coded order, destination, pairing and action-purpose diagrams explain source relations without invented amounts, temperatures, outcomes or recipe photos.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "先后、搭配和句中角色",
+    "instruction": "排两步、选位置、配食材，再圈出原句真正说到的事。",
+    "items": [
+      {
+        "id": "word-butter",
+        "label": "黄油（本句）",
+        "prompt": "先软化还是先涂抹？按before排列两步。",
+        "answer": "butter",
+        "caseSensitive": false,
+        "meaning": "黄油（本句）",
+        "before": "Let the ",
+        "after": " soften before you spread it.",
+        "reason": "Let the butter soften要求先让黄油软化，再涂抹。",
+        "hint": "it指黄油；没有说已经涂好了，也没有给软化时间。",
+        "material": "Let the butter soften before you spread it.",
+        "wordDecision": {
+          "prompt": "先软化还是先涂抹？按before排列两步。",
+          "processOrder": {
+            "title": "把要求的两步排好",
+            "hint": "比较要求的先后，不模拟真实温度。",
+            "wrong": "before要求先软化，再涂抹；排列不代表真实完成。",
+            "events": [
+              {
+                "id": "soften",
+                "label": "让黄油软化"
+              },
+              {
+                "id": "spread",
+                "label": "涂抹黄油"
+              }
+            ],
+            "sequence": [
+              "soften",
+              "spread"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "先让黄油软化，再涂抹。",
+            "correct": true,
+            "reason": "保留soften before you spread it的先后。"
+          },
+          {
+            "id": "after",
+            "text": "先涂抹，之后才让黄油软化。",
+            "correct": false,
+            "reason": "把before的先后颠倒了。"
+          },
+          {
+            "id": "done",
+            "text": "原句记录了已经涂抹完成。",
+            "correct": false,
+            "reason": "Let…是要求，没有报告实际完成。"
+          }
+        ]
+      },
+      {
+        "id": "word-milk",
+        "label": "牛奶（本句）",
+        "prompt": "back说明放回；fridge把目的地限定在哪里？",
+        "answer": "milk",
+        "caseSensitive": false,
+        "meaning": "牛奶（本句）",
+        "before": "Please put the ",
+        "after": " back in the fridge.",
+        "reason": "put…back是把某物放回，in the fridge给出冰箱这个位置。",
+        "hint": "这是请求，不是牛奶已经放回的记录。",
+        "material": "Please put the milk back in the fridge.",
+        "wordDecision": {
+          "prompt": "back说明放回；fridge把目的地限定在哪里？",
+          "foodReturn": {
+            "title": "牛奶应该放回哪里？",
+            "hint": "点位置预览请求，不代表真的移动了牛奶。",
+            "wrong": "原句要求放回冰箱，不是橱柜或桌面。"
+          }
+        },
+        "options": [
+          {
+            "id": "fridge",
+            "text": "请把牛奶放回冰箱。",
+            "correct": true,
+            "reason": "保留牛奶、放回和冰箱。"
+          },
+          {
+            "id": "cupboard",
+            "text": "请把牛奶放回橱柜。",
+            "correct": false,
+            "reason": "把fridge换成了cupboard。"
+          },
+          {
+            "id": "done",
+            "text": "牛奶已经被放回冰箱。",
+            "correct": false,
+            "reason": "Please put…是一项请求，没有报告已完成。"
+          }
+        ]
+      },
+      {
+        "id": "word-yoghurt",
+        "label": "酸奶（本句）",
+        "prompt": "plain和fresh分别修饰谁？换两张食材卡比较。",
+        "answer": "yoghurt",
+        "caseSensitive": false,
+        "meaning": "酸奶（本句）",
+        "before": "Plain ",
+        "after": " goes well with fresh berries.",
+        "reason": "plain yoghurt是原味酸奶；fresh berries是新鲜浆果。",
+        "hint": "goes well with说搭配合适，不是人走路或已经拌好。",
+        "material": "Plain yoghurt goes well with fresh berries.",
+        "wordDecision": {
+          "prompt": "plain和fresh分别修饰谁？换两张食材卡比较。",
+          "foodPairing": {
+            "title": "把修饰词配给正确的食物",
+            "hint": "各选一张卡，比较plain yoghurt和fresh berries。",
+            "wrong": "保留原味酸奶与新鲜浆果，不换口味或新鲜程度。"
+          }
+        },
+        "options": [
+          {
+            "id": "pair",
+            "text": "原味酸奶适合配新鲜浆果。",
+            "correct": true,
+            "reason": "两种食物和各自的修饰词都保留。"
+          },
+          {
+            "id": "flavoured",
+            "text": "水果味酸奶适合配新鲜浆果。",
+            "correct": false,
+            "reason": "plain是原味，不是水果味。"
+          },
+          {
+            "id": "dried",
+            "text": "原味酸奶适合配干浆果。",
+            "correct": false,
+            "reason": "fresh是新鲜，不是dried干的。"
+          }
+        ],
+        "spellings": [
+          "yoghurt",
+          "yogurt"
+        ],
+        "ownForms": [
+          "yoghurt",
+          "yogurt",
+          "yoghurts",
+          "yogurts"
+        ]
+      },
+      {
+        "id": "word-water",
+        "label": "水（本句）",
+        "prompt": "a little和each day各保留了什么？",
+        "answer": "water",
+        "caseSensitive": false,
+        "meaning": "水（本句）",
+        "before": "Give the seedlings a little ",
+        "after": " each day.",
+        "reason": "a little water是少量水，each day是每天。",
+        "hint": "本句water是名词；没有给毫升数，也没有实际浇水记录。",
+        "material": "Give the seedlings a little water each day.",
+        "wordDecision": {
+          "prompt": "a little和each day各保留了什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "数量与频率",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "要求、问句和实际结果要分清。",
+            "wrong": "保留一点水和每天；不要补准确毫升数。",
+            "rows": [
+              {
+                "id": "little",
+                "label": "量",
+                "text": "给一点水。",
+                "include": true
+              },
+              {
+                "id": "daily",
+                "label": "频率",
+                "text": "每天都给。",
+                "include": true
+              },
+              {
+                "id": "millilitres",
+                "label": "额外数量",
+                "text": "原句指定了准确毫升数。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "daily",
+            "text": "每天给幼苗一点水。",
+            "correct": true,
+            "reason": "保留少量和每天。"
+          },
+          {
+            "id": "none",
+            "text": "每天都不给幼苗水。",
+            "correct": false,
+            "reason": "a little是有一点，不是没有。"
+          },
+          {
+            "id": "once",
+            "text": "只给幼苗一次水，以后不用再给。",
+            "correct": false,
+            "reason": "each day要求每天，不是一次。"
+          }
+        ]
+      },
+      {
+        "id": "word-tea",
+        "label": "茶（本句）",
+        "prompt": "不加糖是问的偏好，还是已经确认的选择？",
+        "answer": "tea",
+        "caseSensitive": false,
+        "meaning": "茶（本句）",
+        "before": "Would you like your ",
+        "after": " without sugar?",
+        "reason": "Would you like…?询问对方是否想要不加糖的茶。",
+        "hint": "without sugar只说明不加糖，不能补对方已经答应或喝过。",
+        "material": "Would you like your tea without sugar?",
+        "wordDecision": {
+          "prompt": "不加糖是问的偏好，还是已经确认的选择？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问题与未给出的回答",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "要求、问句和实际结果要分清。",
+            "wrong": "问的是不加糖的茶；对方的回答尚未给出。",
+            "rows": [
+              {
+                "id": "tea",
+                "label": "所问饮品",
+                "text": "茶。",
+                "include": true
+              },
+              {
+                "id": "sugar",
+                "label": "所问条件",
+                "text": "不加糖。",
+                "include": true
+              },
+              {
+                "id": "answer",
+                "label": "额外结论",
+                "text": "对方已经回答说要。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "ask",
+            "text": "询问对方是否想要不加糖的茶。",
+            "correct": true,
+            "reason": "保留礼貌询问和without sugar。"
+          },
+          {
+            "id": "sugar",
+            "text": "询问对方是否想要加糖的茶。",
+            "correct": false,
+            "reason": "把without改成了with。"
+          },
+          {
+            "id": "agreed",
+            "text": "对方已经确认要不加糖的茶。",
+            "correct": false,
+            "reason": "问句没有提供对方的回答。"
+          }
+        ]
+      },
+      {
+        "id": "word-coffee",
+        "label": "咖啡（本句）",
+        "prompt": "filled the shop的是咖啡液体，还是咖啡的气味？",
+        "answer": "coffee",
+        "caseSensitive": false,
+        "meaning": "咖啡（本句）",
+        "before": "The smell of ",
+        "after": " filled the little shop.",
+        "reason": "主语是The smell of coffee，小店里弥漫的是咖啡香。",
+        "hint": "filled是过去式；原句没有喝咖啡或咖啡洒满地面的记录。",
+        "material": "The smell of coffee filled the little shop.",
+        "wordDecision": {
+          "prompt": "filled the shop的是咖啡液体，还是咖啡的气味？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "主语与所描述的事",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "要求、问句和实际结果要分清。",
+            "wrong": "是咖啡香弥漫在店里，不能换成液体灌满。",
+            "rows": [
+              {
+                "id": "smell",
+                "label": "主语",
+                "text": "咖啡的气味。",
+                "include": true
+              },
+              {
+                "id": "shop",
+                "label": "所处空间",
+                "text": "小店。",
+                "include": true
+              },
+              {
+                "id": "spilled",
+                "label": "额外事件",
+                "text": "咖啡液体洒满了地面。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "smell",
+            "text": "小店里弥漫着咖啡香。",
+            "correct": true,
+            "reason": "The smell是主语，of coffee说明什么气味。"
+          },
+          {
+            "id": "liquid",
+            "text": "咖啡液体灌满了整间店。",
+            "correct": false,
+            "reason": "把smell漏掉，改成了咖啡液体。"
+          },
+          {
+            "id": "drink",
+            "text": "所有顾客都喝过咖啡。",
+            "correct": false,
+            "reason": "原句没有顾客数量或饮用记录。"
+          }
+        ]
+      },
+      {
+        "id": "word-juice",
+        "label": "果汁（本句）",
+        "prompt": "挤压是做过的动作，to make说明目的；结果给了吗？",
+        "answer": "juice",
+        "caseSensitive": false,
+        "meaning": "果汁（本句）",
+        "before": "We squeezed the oranges to make ",
+        "after": ".",
+        "reason": "squeezed说明挤压过橙子，to make juice说明目的是制作果汁。",
+        "hint": "有目的不等于已保证成功；原句没给橙子数或果汁量。",
+        "material": "We squeezed the oranges to make juice.",
+        "wordDecision": {
+          "prompt": "挤压是做过的动作，to make说明目的；结果给了吗？",
+          "foodPurpose": {
+            "title": "做了什么？为了什么？",
+            "hint": "选目的，再看结果是否真的给出；不补一杯果汁。",
+            "wrong": "动作是挤橙子，目的是做果汁；成功与数量尚未给出。"
+          }
+        },
+        "options": [
+          {
+            "id": "purpose",
+            "text": "我们挤压了橙子，目的是制作果汁。",
+            "correct": true,
+            "reason": "区分已做动作与to make引出的目的。"
+          },
+          {
+            "id": "soup",
+            "text": "我们挤压橙子，目的是做汤。",
+            "correct": false,
+            "reason": "原句juice是果汁，不是soup。"
+          },
+          {
+            "id": "guaranteed",
+            "text": "原句保证已经成功做出一整杯果汁。",
+            "correct": false,
+            "reason": "没有给成功结果或一整杯的数量。"
+          }
+        ]
+      },
+      {
+        "id": "word-drink",
+        "label": "喝（本句）",
+        "prompt": "during在什么时候喝？Remember to报告已经喝过了吗？",
+        "answer": "drink",
+        "caseSensitive": false,
+        "meaning": "喝（本句）",
+        "before": "Remember to ",
+        "after": " water during long walks.",
+        "reason": "Remember to drink water提醒长时间步行时记得喝水。",
+        "hint": "drink在to后用动词原形；不是饮料名词或已经喝过。",
+        "material": "Remember to drink water during long walks.",
+        "wordDecision": {
+          "prompt": "during在什么时候喝？Remember to报告已经喝过了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "提醒与时间",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "要求、问句和实际结果要分清。",
+            "wrong": "保留提醒和步行过程中；不能改成已完成。",
+            "rows": [
+              {
+                "id": "action",
+                "label": "提醒",
+                "text": "记得喝水。",
+                "include": true
+              },
+              {
+                "id": "during",
+                "label": "时间",
+                "text": "长时间步行过程中。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经完成喝水。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "during",
+            "text": "长时间步行时记得喝水。",
+            "correct": true,
+            "reason": "保留Remember to和during。"
+          },
+          {
+            "id": "after",
+            "text": "只能在长时间步行结束以后喝水。",
+            "correct": false,
+            "reason": "during是过程中，原句也没有only。"
+          },
+          {
+            "id": "done",
+            "text": "长时间步行时已经喝过水。",
+            "correct": false,
+            "reason": "提醒去做，不是完成记录。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-food-4-transfer",
+      "topicId": "v-course-food",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "先后、少量和目的，哪组三句都保留了？",
+      "passage": "准备点心和照料植物\n先让巧克力软化，再涂抹。每天给这些幼苗一点水。我们挤压了梨子，目的是制作果汁。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Spread the chocolate before it softens. Give these seedlings a little water each day. We squeezed pears to make juice."
+        },
+        {
+          "id": "b",
+          "text": "Let the chocolate soften before you spread it. Give these seedlings a little water each day. We squeezed pears to make juice."
+        },
+        {
+          "id": "c",
+          "text": "Let the chocolate soften before you spread it. Give these seedlings no water each day. We squeezed pears to make juice."
+        },
+        {
+          "id": "d",
+          "text": "Let the chocolate soften before you spread it. Give these seedlings a little water each day. We squeezed pears to make soup."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Let the chocolate soften before you spread it. Give these seedlings a little water each day. We squeezed pears to make juice."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "核对before的先后、a little each day的量和频率，再核对to make的目的。",
+        "steps": [
+          {
+            "text": "先软化再涂抹：Let the chocolate soften before you spread it.",
+            "reason": "before把软化放在涂抹之前；食物换成了巧克力。"
+          },
+          {
+            "text": "每天一点水用a little water each day。",
+            "reason": "a little表示一点；no water表示没有水。"
+          },
+          {
+            "text": "挤压梨子的目的是制作果汁：to make juice。",
+            "reason": "juice不能换成soup；to make只给目的，不保证成功。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把先软化再涂抹颠倒了。"
+          },
+          {
+            "option": "c",
+            "reason": "把一点水改成了没有水。"
+          },
+          {
+            "option": "d",
+            "reason": "把制作果汁的目的换成了做汤。"
+          }
+        ],
+        "pitfall": "单词对了也要检查先后、限定词和目的，别补成功结果。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三条关系分别核对",
+          "segments": [
+            {
+              "text": "soften → spread",
+              "role": "evidence",
+              "note": "before：软化在前"
+            },
+            {
+              "text": "a little water · each day",
+              "role": "evidence",
+              "note": "少量与每天"
+            },
+            {
+              "text": "squeezed pears → to make juice",
+              "role": "evidence",
+              "note": "挤压过；箭头只表示目的"
+            }
+          ],
+          "caption": "食物和水果已换，保留句中关系；没有给果汁是否成功制成。"
+        },
+        "transfer": "如果把each day换成once，为什么不能表达同一项要求？"
+      }
+    }
+  }
+}

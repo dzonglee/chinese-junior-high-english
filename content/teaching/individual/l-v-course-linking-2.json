@@ -1,0 +1,499 @@
+{
+  "lessonId": "l-v-course-linking-2",
+  "reviewState": "draft",
+  "intent": "Individually distinguish if/unless conditions, when timing, while overlap, before/after order, positive until boundary and since start-to-now scope.",
+  "picturePurpose": "Original one-moment map/sign scene identifies actions; exact coded relative-time controls teach overlap without fabricated timestamps.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "条件别说死，先后别看反",
+    "instruction": "先判断条件、时点或重叠，再拼写并写自己的句子。点选摆出先后、移动重叠时段、圈选不矛盾情形；示意图不提供实际钟点。",
+    "items": [
+      {
+        "id": "word-if",
+        "label": "如果（引出条件）",
+        "prompt": "把If后面的条件和后面的可行做法分开：这句话有没有保证天气一定干燥？",
+        "answer": "If",
+        "caseSensitive": true,
+        "meaning": "如果（引出条件）",
+        "before": "",
+        "after": " it stays dry, we can eat outside.",
+        "reason": "If引出尚未确定的条件；can表示可以，不等于事情一定发生。句首If要大写。",
+        "hint": "本句意思是如果天气保持干燥，可以在外面吃；没有预测天气必定干燥，也没有说一定会选择户外。这里不是宾语从句中的“是否”。",
+        "material": "If it stays dry, we can eat outside.",
+        "wordDecision": {
+          "prompt": "把If后面的条件和后面的可行做法分开：这句话有没有保证天气一定干燥？"
+        },
+        "options": [
+          {
+            "id": "condition",
+            "text": "在天气保持干燥这个条件下，可以在外面吃。",
+            "correct": true,
+            "reason": "条件与可行做法分开；没有把条件当成已发生的事实。"
+          },
+          {
+            "id": "certain",
+            "text": "天气已经确认一定保持干燥，而且一定在外面吃。",
+            "correct": false,
+            "reason": "If提出条件，can表达可以；二者都没有保证实际天气或行动。"
+          },
+          {
+            "id": "whether",
+            "text": "这里是在询问“天气是否干燥”。",
+            "correct": false,
+            "reason": "本句If引导条件，没有构成询问天气是否干燥的宾语从句。"
+          }
+        ]
+      },
+      {
+        "id": "word-unless",
+        "label": "除非；如果不",
+        "prompt": "按本句限制圈出所有不矛盾的情形：有导游是必要条件，但不代表一定进去。",
+        "answer": "unless",
+        "caseSensitive": false,
+        "meaning": "除非；如果不",
+        "before": "Do not enter ",
+        "after": " a guide is with you.",
+        "reason": "Do not enter unless a guide is with you：没有导游时不能进去；有导游也可选择等候。",
+        "hint": "只核对这一条给定限制，不代替现场许可。没有导游却进入才违背本句；有导游不是必须进入，也不保证其他进入条件都满足。",
+        "material": "Do not enter unless a guide is with you.",
+        "wordDecision": {
+          "prompt": "按本句限制圈出所有不矛盾的情形：有导游是必要条件，但不代表一定进去。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "圈出不违背这条限制的情形",
+            "prompt": "没有导游，不进入；导游在场时可以继续等。只判断这一条限制。",
+            "hint": "圈出三项不矛盾情形；不把有导游当作所有许可已经齐全。",
+            "wrong": "没有导游却进入才违背本句。没有导游并等候、有导游并进入、有导游但继续等候，都不与这一条限制矛盾。",
+            "rows": [
+              {
+                "id": "alone-wait",
+                "label": "无导游 · 等候",
+                "text": "没有导游，没有进入。",
+                "include": true
+              },
+              {
+                "id": "guide-enter",
+                "label": "有导游 · 进入",
+                "text": "只就这条限制而言不矛盾；不据此确认其他许可。",
+                "include": true
+              },
+              {
+                "id": "guide-wait",
+                "label": "有导游 · 等候",
+                "text": "有导游但暂不进入，仍符合这条限制。",
+                "include": true
+              },
+              {
+                "id": "alone-enter",
+                "label": "无导游 · 进入",
+                "text": "没有导游却进入。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "restriction",
+            "text": "没有导游陪同就不要进入。",
+            "correct": true,
+            "reason": "保留了unless给出的例外条件。"
+          },
+          {
+            "id": "without",
+            "text": "只要没有导游，就必须进入。",
+            "correct": false,
+            "reason": "把原句的禁止关系倒过来了。"
+          },
+          {
+            "id": "must",
+            "text": "导游在场时就一定必须进入。",
+            "correct": false,
+            "reason": "必要条件不是必须行动，也不保证其他许可条件。"
+          }
+        ]
+      },
+      {
+        "id": "word-when",
+        "label": "当……时（本句）",
+        "prompt": "when在这里给的是时间还是原因？离开时要做哪件事？",
+        "answer": "when",
+        "caseSensitive": false,
+        "meaning": "当……时（本句）",
+        "before": "Turn off the light ",
+        "after": " you leave.",
+        "reason": "when you leave给出关灯的时间，不说明灯为何坏了，也不保证已经离开。",
+        "hint": "Turn off是要求，when you leave说明离开时执行。when也可用作疑问词，但本句不是在问什么时候离开。",
+        "material": "Turn off the light when you leave.",
+        "wordDecision": {
+          "prompt": "when在这里给的是时间还是原因？离开时要做哪件事？"
+        },
+        "options": [
+          {
+            "id": "time",
+            "text": "离开时把灯关掉。",
+            "correct": true,
+            "reason": "把时间从句和应做的动作对应起来。"
+          },
+          {
+            "id": "cause",
+            "text": "因为灯坏了，所以离开。",
+            "correct": false,
+            "reason": "原句没有说灯坏了，也没有表达离开的原因。"
+          },
+          {
+            "id": "question",
+            "text": "询问对方什么时候离开。",
+            "correct": false,
+            "reason": "本句是带时间从句的要求，不是疑问句。"
+          }
+        ]
+      },
+      {
+        "id": "word-while",
+        "label": "在……的同时（本句）",
+        "prompt": "移动朋友核对路标的示意时段，让它与我看地图的动作有重叠。",
+        "answer": "while",
+        "caseSensitive": false,
+        "meaning": "在……的同时（本句）",
+        "before": "I read the map ",
+        "after": " my friend checked the signs.",
+        "reason": "本句while连接有重叠的两段动作；不要求两人同时开始、同时结束。",
+        "hint": "原创画示意一个时刻的两种动作。下面的条带只表示相对时段，不标真实钟点或分钟数；本句不是转折意义的while。",
+        "material": "I read the map while my friend checked the signs.",
+        "wordDecision": {
+          "prompt": "移动朋友核对路标的示意时段，让它与我看地图的动作有重叠。",
+          "overlap": {
+            "title": "把第二段动作放到重叠的位置",
+            "first": "I read the map",
+            "second": "my friend checked the signs",
+            "hint": "固定第一段，再移动第二段。条带是示意，没有实际钟点；有一段重叠即可。",
+            "wrong": "这里的while要求两个动作有重叠。全部放在前面或后面都不符；也不用把两段起止完全对齐。"
+          },
+          "art": {
+            "asset": "lesson-map-sign-overlap",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "alt": "原创同一时刻的场景：一名学生看地图，另一名学生核对空白路标。",
+            "caption": "画面只帮助辨认两个动作；相对时间关系看下面的时间示意，不从静态画推断实际分钟数。"
+          }
+        },
+        "options": [
+          {
+            "id": "overlap",
+            "text": "我看地图的过程中，朋友也在核对路标。",
+            "correct": true,
+            "reason": "两个动作有重叠，符合本句while的时间关系。"
+          },
+          {
+            "id": "finished",
+            "text": "我完全看完地图之后，朋友才开始核对路标。",
+            "correct": false,
+            "reason": "两段动作完全分开，失去了本句while表示的重叠。"
+          },
+          {
+            "id": "identical",
+            "text": "两人必须在完全相同的时刻开始和结束。",
+            "correct": false,
+            "reason": "while要求这里有同时进行的部分，不要求起止时刻完全相同。"
+          }
+        ]
+      },
+      {
+        "id": "word-before",
+        "label": "在……之前",
+        "prompt": "把实际先后摆出来：检查刹车和出发，哪件应先做？",
+        "answer": "before",
+        "caseSensitive": false,
+        "meaning": "在……之前",
+        "before": "Check the brakes ",
+        "after": " you start.",
+        "reason": "before把检查放在出发前；不能把两个动作倒过来。",
+        "hint": "这是题目给出的动作顺序，不是完整骑行检查清单，也没有给定具体钟点。",
+        "material": "Check the brakes before you start.",
+        "wordDecision": {
+          "prompt": "把实际先后摆出来：检查刹车和出发，哪件应先做？",
+          "processOrder": {
+            "title": "before：检查在前，出发在后",
+            "hint": "这是题目给出的动作顺序，不是完整骑行检查清单，也没有给定具体钟点。",
+            "wrong": "先检查刹车，再出发。条带顺序表示本题要求，不代表全部安全检查都已经完成。",
+            "events": [
+              {
+                "id": "check",
+                "label": "Check the brakes"
+              },
+              {
+                "id": "start",
+                "label": "Start"
+              }
+            ],
+            "sequence": [
+              "check",
+              "start"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "check-first",
+            "text": "先检查刹车，再出发。",
+            "correct": true,
+            "reason": "检查位于出发之前。"
+          },
+          {
+            "id": "start-first",
+            "text": "先出发，再检查刹车。",
+            "correct": false,
+            "reason": "把before的先后倒过来了。"
+          },
+          {
+            "id": "same",
+            "text": "必须在完全相同的一刻检查并出发。",
+            "correct": false,
+            "reason": "before表示在前，不是要求同时。"
+          }
+        ]
+      },
+      {
+        "id": "word-after",
+        "label": "在……之后",
+        "prompt": "英语先写washed，是否代表先洗杯子？按after摆实际顺序。",
+        "answer": "after",
+        "caseSensitive": false,
+        "meaning": "在……之后",
+        "before": "We washed the cups ",
+        "after": " the visitors left.",
+        "reason": "客人先离开，我们后洗杯子；句中出现先后不等于事情发生先后。",
+        "hint": "after接名词或从句都有相应结构；本句是the visitors left这个完整从句。没有提供离开或清洗的钟点。",
+        "material": "We washed the cups after the visitors left.",
+        "wordDecision": {
+          "prompt": "英语先写washed，是否代表先洗杯子？按after摆实际顺序。",
+          "processOrder": {
+            "title": "after：先离开，再清洗",
+            "hint": "after接名词或从句都有相应结构；本句是the visitors left这个完整从句。没有提供离开或清洗的钟点。",
+            "wrong": "实际顺序是客人离开→洗杯子，虽然原句先出现washed。不要按文字出现顺序替代事件顺序。",
+            "events": [
+              {
+                "id": "left",
+                "label": "The visitors left"
+              },
+              {
+                "id": "washed",
+                "label": "We washed the cups"
+              }
+            ],
+            "sequence": [
+              "left",
+              "washed"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "left-first",
+            "text": "客人离开以后，我们才洗杯子。",
+            "correct": true,
+            "reason": "after将洗杯子放在客人离开之后。"
+          },
+          {
+            "id": "wash-first",
+            "text": "洗完杯子后，客人才离开。",
+            "correct": false,
+            "reason": "把after的先后关系倒过来了。"
+          },
+          {
+            "id": "must-ing",
+            "text": "after后面永远不能有主语和谓语。",
+            "correct": false,
+            "reason": "本句after the visitors left就是完整从句；不能用绝对规则否定它。"
+          }
+        ]
+      },
+      {
+        "id": "word-until",
+        "label": "直到……为止",
+        "prompt": "Stay here until the bus arrives：要停留到哪个边界？",
+        "answer": "until",
+        "caseSensitive": false,
+        "meaning": "直到……为止",
+        "before": "Stay here ",
+        "after": " the bus arrives.",
+        "reason": "持续留在这里直到公交车到达；到达是这段要求的边界，不保证到站后立刻离开。",
+        "hint": "本句是肯定的Stay…until，强调停留持续到到达。not…until常表示直到……才，但不能把原句当成没有停留。",
+        "material": "Stay here until the bus arrives.",
+        "wordDecision": {
+          "prompt": "Stay here until the bus arrives：要停留到哪个边界？"
+        },
+        "options": [
+          {
+            "id": "boundary",
+            "text": "公交车到来之前继续留在这里。",
+            "correct": true,
+            "reason": "停留持续到指定到达边界。"
+          },
+          {
+            "id": "leave-early",
+            "text": "公交车还没来就提前离开。",
+            "correct": false,
+            "reason": "没有把停留持续到until给出的边界。"
+          },
+          {
+            "id": "instant",
+            "text": "公交车一到就必定立刻离开，不能再等。",
+            "correct": false,
+            "reason": "until给出停留要求的边界，本句没有说明之后一定如何行动。"
+          }
+        ]
+      },
+      {
+        "id": "word-since",
+        "label": "自……以来（本句）",
+        "prompt": "把起点与说话时点连起来：since last autumn是在给多久，还是从何时开始？",
+        "answer": "since",
+        "caseSensitive": false,
+        "meaning": "自……以来（本句）",
+        "before": "We have used this room ",
+        "after": " last autumn.",
+        "reason": "since last autumn标明起点，have used把使用这间房的情况联系到现在；不是去年秋天已经停止。",
+        "hint": "这里只给去年秋天这一相对起点，未给年份、具体日期或持续月份；不把since一律译成“既然”。",
+        "material": "We have used this room since last autumn.",
+        "wordDecision": {
+          "prompt": "把起点与说话时点连起来：since last autumn是在给多久，还是从何时开始？",
+          "processOrder": {
+            "title": "since：从起点联系到现在",
+            "hint": "这里只给去年秋天这一相对起点，未给年份、具体日期或持续月份；不把since一律译成“既然”。",
+            "wrong": "去年秋天是起点，不是终点或一个精确时长；图只表达与现在的联系，不表示每分每秒都在使用。",
+            "events": [
+              {
+                "id": "autumn",
+                "label": "去年秋天"
+              },
+              {
+                "id": "now",
+                "label": "现在"
+              }
+            ],
+            "sequence": [
+              "autumn",
+              "now"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "start",
+            "text": "自去年秋天开始，使用情况联系到现在。",
+            "correct": true,
+            "reason": "since引出开始点，与have used的现在完成时对应。"
+          },
+          {
+            "id": "end",
+            "text": "到去年秋天就已经不再使用。",
+            "correct": false,
+            "reason": "把since的起点错当终点。"
+          },
+          {
+            "id": "duration",
+            "text": "精确说明已经用了六个月。",
+            "correct": false,
+            "reason": "没有提供具体日期和当前时点，不能算出月份。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-linking-2-transfer",
+      "topicId": "v-course-linking",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪份英文提示保留了先后、重叠和等候边界？",
+      "passage": "骑行准备提示\n开始骑车前先检查头盔。你查轮胎时，搭档同时在查车灯；两项检查有一段时间重叠。在这里一直等到老师到来。\n没有提供具体钟点，也没说两项检查的开始和结束必须完全一致，更没有承诺比赛结果。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Check your helmet after you start cycling. While you check the tyres, your partner checks the lights. Wait here until the librarian arrives."
+        },
+        {
+          "id": "b",
+          "text": "Check your helmet before you start cycling. While you check the tyres, your partner checks the lights. Wait here until the teacher arrives."
+        },
+        {
+          "id": "c",
+          "text": "Check your helmet before you start cycling. Your partner can check the lights only after you finish checking the tyres. Leave before the teacher arrives."
+        },
+        {
+          "id": "d",
+          "text": "Check your helmet before you start cycling. While you check the tyres, your partner checks the lights. This guarantees that you will win every race."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Check your helmet before you start cycling. While you check the tyres, your partner checks the lights. Wait here until the teacher arrives."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先看新情境中的动作与人物，再逐项核对先后、重叠和等候终点。",
+        "steps": [
+          {
+            "text": "先检查头盔，再开始骑行；两名同伴的检查有同时进行的部分。",
+            "reason": "before表达先后，while在本句表达重叠，不要求起止完全相同。"
+          },
+          {
+            "text": "一直等到老师到来，不在老师到来前离开。",
+            "reason": "until给出等候边界；没有规定实际钟点，也没有承诺比赛结果。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把头盔检查放到出发后，还把要等的老师换成了图书管理员。"
+          },
+          {
+            "option": "c",
+            "reason": "把重叠改成完全先后，还把等到到达改成提前离开。"
+          },
+          {
+            "option": "d",
+            "reason": "前两句有正确顺序与重叠，末句却编造保证获胜，并漏掉等候边界。"
+          }
+        ],
+        "pitfall": "只认出before、while、until，却漏看先后、同时进行和等到谁来。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三种时间关系分开看",
+          "segments": [
+            {
+              "text": "helmet check → start",
+              "role": "evidence",
+              "note": "先后"
+            },
+            {
+              "text": "tyres ↔ lights",
+              "role": "evidence",
+              "note": "有重叠"
+            },
+            {
+              "text": "wait … teacher arrives",
+              "role": "evidence",
+              "note": "等到边界"
+            }
+          ],
+          "caption": "只使用题目给的相对时间，不编钟点或保证。"
+        },
+        "transfer": "如果两个检查只重叠一部分，是否仍可用这里的while？先判断是否有同时进行的部分。"
+      }
+    }
+  }
+}

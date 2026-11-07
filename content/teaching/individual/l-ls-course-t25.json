@@ -1,0 +1,504 @@
+{
+  "lessonId": "l-ls-course-t25",
+  "intent": "Apply today’s trail closure and signed-group conduct, bind each trail to its endpoint, place the lake north of the village and distinguish relative location from unsupported water-flow inference.",
+  "picturePurpose": "A code-rendered map moves Lake to the selected cardinal position around Village. The fixed north indicator establishes orientation only; there is no water-flow arrow, terrain, distance or current real-world route claim. Editable route and inference previews preserve the wording and limits of the original dialogue.",
+  "reviewState": "draft",
+  "workshop": {
+    "applicationStyle": "cards",
+    "navigationLabel": "任务",
+    "kind": "proof",
+    "title": "走对路线，放对位置",
+    "instruction": "先改当天路线方案，再接对终点；亲手把湖泊放到地图上，分清已知位置与未知流向。",
+    "items": [
+      {
+        "id": "geography-1",
+        "label": "先找今天适用的路线要求",
+        "sourceStyle": "cards",
+        "sourceTitle": "TODAY’S ROUTE AND ITS ENDPOINT",
+        "prompt": "Which route should the group use today?",
+        "answer": "The stream route.",
+        "reason": "Because给出上方路线今天关闭的原因，everyone should use the stream route直接规定今天走溪边路线。较长路线通观景点，不代表今天能走；这也不是无标识捷径的许可。",
+        "hint": "先分清路线、终点与今天的限制；地图位置是位置，不能单凭南北方位推断水流。",
+        "material": "Guide: The short trail follows the stream and ends at the wooden bridge. The longer trail climbs to the viewpoint. Because the upper path is closed today, everyone should use the stream route. Follow the posted signs and stay with the group.\n\nThe short trail ends ____.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "today"
+          ]
+        ],
+        "options": [
+          {
+            "id": "long",
+            "text": "The longer trail climbs to the viewpoint.",
+            "correct": false,
+            "reason": "这句描述较长路线去观景点，不能替代今天关闭后的路线要求。"
+          },
+          {
+            "id": "short",
+            "text": "The short trail follows the stream and ends at the wooden bridge.",
+            "correct": false,
+            "reason": "这句给短路线沿溪流走、到木桥；今天该走哪条还需核对关闭后的要求。"
+          },
+          {
+            "id": "today",
+            "text": "Because the upper path is closed today, everyone should use the stream route.",
+            "correct": true,
+            "reason": "closed today限制时间，everyone should use the stream route给当天选择。"
+          }
+        ]
+      },
+      {
+        "id": "geography-2",
+        "label": "把路线与沿途要求一起保留",
+        "sourceStyle": "cards",
+        "sourceTitle": "TODAY’S ROUTE AND ITS ENDPOINT",
+        "prompt": "Set today’s route and how the group should follow it.",
+        "answer": "Use the stream route, follow the posted signs and stay with the group.",
+        "reason": "今天上方路线关闭，导游明确要求所有人走溪边路线。短路线沿溪流到木桥；沿途还要遵循张贴的标识并跟随队伍。不能把较长路线的观景点或无标识捷径混进当天方案。",
+        "hint": "先分清路线、终点与今天的限制；地图位置是位置，不能单凭南北方位推断水流。",
+        "material": "Guide: The short trail follows the stream and ends at the wooden bridge. The longer trail climbs to the viewpoint. Because the upper path is closed today, everyone should use the stream route. Follow the posted signs and stay with the group.\n\nThe short trail ends ____.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "today"
+          ],
+          [
+            "short"
+          ],
+          [
+            "conduct"
+          ]
+        ],
+        "options": [
+          {
+            "id": "conduct",
+            "text": "Follow the posted signs and stay with the group.",
+            "correct": true,
+            "reason": "posted signs与stay with the group是两个并列的沿途要求。"
+          },
+          {
+            "id": "long",
+            "text": "The longer trail climbs to the viewpoint.",
+            "correct": false,
+            "reason": "较长路线通观景点的介绍，不解除今天上方路线的关闭限制。"
+          },
+          {
+            "id": "today",
+            "text": "Because the upper path is closed today, everyone should use the stream route.",
+            "correct": true,
+            "reason": "关闭原因与当天使用stream route的要求直接相连。"
+          },
+          {
+            "id": "short",
+            "text": "The short trail follows the stream and ends at the wooden bridge.",
+            "correct": true,
+            "reason": "短路线沿溪流到木桥，帮助区分路线与终点。"
+          }
+        ],
+        "evidenceLabels": [
+          "今天哪条关闭、应走哪条",
+          "溪边短路线怎样走、到哪里",
+          "沿途还要遵守什么"
+        ],
+        "sourceSettings": {
+          "title": "我的当天路线方案",
+          "note": "分别选择今天走哪条路、怎样跟随队伍；每项都要用导游原话核对。",
+          "rows": [
+            {
+              "id": "today-route",
+              "label": "今天走哪条路线",
+              "answer": "on",
+              "reason": "上方路线今天关闭，按导游说明走溪边路线。",
+              "wrong": "upper path今天关闭；不能因为通观景点就选它。",
+              "route": {
+                "from": "Today’s group route",
+                "targets": [
+                  "Stream route",
+                  "Closed upper path"
+                ]
+              }
+            },
+            {
+              "id": "group-conduct",
+              "label": "沿途怎样行动",
+              "answer": "off",
+              "reason": "按已张贴标识走，并跟随队伍；不加无标识捷径。",
+              "wrong": "导游要求posted signs与stay with the group，不能自行抄无标识捷径或离队。",
+              "route": {
+                "from": "Along the trail",
+                "targets": [
+                  "Unsigned shortcut alone",
+                  "Signs + stay with group"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "geography-3",
+        "label": "把短路线的终点接回去",
+        "sourceStyle": "cards",
+        "sourceTitle": "TODAY’S ROUTE AND ITS ENDPOINT",
+        "prompt": "Complete where the short trail ends.",
+        "answer": "The short trail ends at the wooden bridge.",
+        "reason": "short trail与ends at the wooden bridge在同一句里，对应短路线的终点；viewpoint属于longer trail，不能串线，railway station则没出现。",
+        "hint": "先分清路线、终点与今天的限制；地图位置是位置，不能单凭南北方位推断水流。",
+        "material": "Guide: The short trail follows the stream and ends at the wooden bridge. The longer trail climbs to the viewpoint. Because the upper path is closed today, everyone should use the stream route. Follow the posted signs and stay with the group.\n\nThe short trail ends ____.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "short"
+          ],
+          [
+            "long"
+          ]
+        ],
+        "options": [
+          {
+            "id": "long",
+            "text": "The longer trail climbs to the viewpoint.",
+            "correct": true,
+            "reason": "观景点对应longer trail，不能搬到短路线上。"
+          },
+          {
+            "id": "conduct",
+            "text": "Follow the posted signs and stay with the group.",
+            "correct": false,
+            "reason": "按标识并跟队是行为要求，不给短路线终点。"
+          },
+          {
+            "id": "short",
+            "text": "The short trail follows the stream and ends at the wooden bridge.",
+            "correct": true,
+            "reason": "short trail…ends at直接把路线与木桥接起来。"
+          },
+          {
+            "id": "today",
+            "text": "Because the upper path is closed today, everyone should use the stream route.",
+            "correct": false,
+            "reason": "stream route是今天的路线选择，但要答终点仍需ends at。"
+          }
+        ],
+        "evidenceLabels": [
+          "短路线的ends at接哪里",
+          "观景点属于哪条路线"
+        ],
+        "sourceGap": {
+          "before": "The short trail ends ",
+          "after": ".",
+          "answer": "bridge",
+          "options": [
+            {
+              "id": "viewpoint",
+              "text": "at the viewpoint",
+              "reason": "观景点属于较长路线，不是短路线的终点。"
+            },
+            {
+              "id": "bridge",
+              "text": "at the wooden bridge",
+              "reason": "原句用ends at把短路线与木桥接起来。"
+            },
+            {
+              "id": "station",
+              "text": "at the railway station",
+              "reason": "材料没有火车站，不能新增地点。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "geography-4",
+        "label": "亲手放置湖泊，分清位置与流动",
+        "sourceStyle": "cards",
+        "sourceTitle": "POSITION OR MOVEMENT?",
+        "prompt": "Place the lake relative to the village. Does this position establish water flow?",
+        "answer": "The lake is north of the village; this position alone does not establish flow direction.",
+        "reason": "地图明确给lake north of the village，所以湖泊放在村庄北侧。导游马上否定只凭位置判断水流；图上的N箭头只表示北向，没有提供地形或水道资料。把位置放对，也不能因此画出向南水流。",
+        "hint": "先分清路线、终点与今天的限制；地图位置是位置，不能单凭南北方位推断水流。",
+        "material": "Student: The map shows the lake north of the village. Does that mean the water always flows south?\nGuide: No. Position alone does not tell us the direction of flow. We need information about the land and the waterways.\nStudent: So I should not infer movement just from north and south.\n\nOn the map, the lake is ____ of the village.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "position"
+          ],
+          [
+            "limit"
+          ]
+        ],
+        "options": [
+          {
+            "id": "limit",
+            "text": "Position alone does not tell us the direction of flow.",
+            "correct": true,
+            "reason": "位置本身不决定水流方向，避免把北向标记读成流向。"
+          },
+          {
+            "id": "question",
+            "text": "Does that mean the water always flows south?",
+            "correct": false,
+            "reason": "always flows south只是学生问出的推测，导游明确回答No。"
+          },
+          {
+            "id": "position",
+            "text": "The map shows the lake north of the village.",
+            "correct": true,
+            "reason": "north of the village给两个地点的相对位置。"
+          },
+          {
+            "id": "need",
+            "text": "We need information about the land and the waterways.",
+            "correct": false,
+            "reason": "地形和水道是推断流向还需的资料，不把湖的位置改成其他方位。"
+          }
+        ],
+        "evidenceLabels": [
+          "地图给湖与村庄什么相对位置",
+          "单凭位置不能确定什么"
+        ],
+        "sourceGap": {
+          "locationMap": {
+            "anchor": "Village",
+            "marker": "Lake"
+          },
+          "before": "On the map, the lake is ",
+          "after": " of the village.",
+          "answer": "north",
+          "options": [
+            {
+              "id": "south",
+              "text": "south",
+              "reason": "south把湖放到村庄南侧，和north of the village相反；也不能把学生的水流猜测当湖的位置。"
+            },
+            {
+              "id": "north",
+              "text": "north",
+              "reason": "湖在村庄北侧；N表示图上北向，不是水流。"
+            },
+            {
+              "id": "east",
+              "text": "east",
+              "reason": "east把湖放到村庄东侧，原文给的是north。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "geography-5",
+        "label": "再找判断流向还缺哪类资料",
+        "sourceStyle": "cards",
+        "sourceTitle": "POSITION OR MOVEMENT?",
+        "prompt": "What extra information does the guide say they need?",
+        "answer": "Information about the land and the waterways.",
+        "reason": "We need明确补充land与waterways两类资料。学生的南流猜测不是依据；最后一句只重申不该只凭南北方位推断运动，没有提供新资料。",
+        "hint": "先分清路线、终点与今天的限制；地图位置是位置，不能单凭南北方位推断水流。",
+        "material": "Student: The map shows the lake north of the village. Does that mean the water always flows south?\nGuide: No. Position alone does not tell us the direction of flow. We need information about the land and the waterways.\nStudent: So I should not infer movement just from north and south.\n\nOn the map, the lake is ____ of the village.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "need"
+          ]
+        ],
+        "options": [
+          {
+            "id": "question",
+            "text": "Does that mean the water always flows south?",
+            "correct": false,
+            "reason": "这是学生提出的南流猜测，导游没有认可为流向依据。"
+          },
+          {
+            "id": "need",
+            "text": "We need information about the land and the waterways.",
+            "correct": true,
+            "reason": "land and waterways给还需查看的资料，不能只保留方位。"
+          },
+          {
+            "id": "conclusion",
+            "text": "So I should not infer movement just from north and south.",
+            "correct": false,
+            "reason": "这是学生对推断边界的总结，没有补充地形或水道信息。"
+          }
+        ]
+      },
+      {
+        "id": "geography-6",
+        "label": "核对已知位置与推断流向的条件",
+        "sourceStyle": "cards",
+        "sourceTitle": "POSITION OR MOVEMENT?",
+        "prompt": "Set what the position establishes and what flow inference still needs.",
+        "answer": "Keep the relative location; seek land and waterway information before inferring flow.",
+        "reason": "湖在村庄北面是地图已经给的位置关系。Position alone不够决定水流方向，还需查land与waterways。学生最后也说不应只从north and south推断movement；不能把这个限制误读成连湖的位置都不知道。",
+        "hint": "先分清路线、终点与今天的限制；地图位置是位置，不能单凭南北方位推断水流。",
+        "material": "Student: The map shows the lake north of the village. Does that mean the water always flows south?\nGuide: No. Position alone does not tell us the direction of flow. We need information about the land and the waterways.\nStudent: So I should not infer movement just from north and south.\n\nOn the map, the lake is ____ of the village.\nTranscript preparation. Approved audio pending.",
+        "evidenceGroups": [
+          [
+            "position"
+          ],
+          [
+            "limit"
+          ],
+          [
+            "need"
+          ]
+        ],
+        "options": [
+          {
+            "id": "need",
+            "text": "We need information about the land and the waterways.",
+            "correct": true,
+            "reason": "地形与水道是还需的资料，不是仅凭南北位置能补出的流向。"
+          },
+          {
+            "id": "question",
+            "text": "Does that mean the water always flows south?",
+            "correct": false,
+            "reason": "学生问是否总向南流，导游的No不能省略。"
+          },
+          {
+            "id": "position",
+            "text": "The map shows the lake north of the village.",
+            "correct": true,
+            "reason": "湖在村庄北面的位置仍成立，不因流向未知而被删除。"
+          },
+          {
+            "id": "limit",
+            "text": "Position alone does not tell us the direction of flow.",
+            "correct": true,
+            "reason": "Position alone限制推断流向，不能扩大成地图什么都没给。"
+          }
+        ],
+        "evidenceLabels": [
+          "地图已经确定哪种关系",
+          "哪种推断超出了位置依据",
+          "进一步判断还需哪些资料"
+        ],
+        "sourceSettings": {
+          "title": "我的位置判断与下一步",
+          "note": "箭头连接依据与判断或下一步，不表示水流方向。分别核对地图已经给什么、判断流向还缺什么。",
+          "rows": [
+            {
+              "id": "position-claim",
+              "label": "单凭南北位置能说明什么",
+              "answer": "off",
+              "reason": "位置给相对地点，不能单独确立水流方向。",
+              "wrong": "导游明确说Position alone does not tell us the direction of flow。",
+              "route": {
+                "from": "North–south position",
+                "targets": [
+                  "Establishes water flow",
+                  "Gives relative location"
+                ]
+              }
+            },
+            {
+              "id": "flow-information",
+              "label": "推断流向还要查什么",
+              "answer": "on",
+              "reason": "需要地形和水道资料；不能反复只看罗盘方位。",
+              "wrong": "罗盘方位仍只是位置资料，不能代替land和waterways。",
+              "route": {
+                "from": "To infer water flow",
+                "targets": [
+                  "Land + waterway information",
+                  "Compass position alone"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "applicationIds": [
+      "q-ls-course-t25-course-t25-1-2",
+      "q-ls-course-t25-course-t25-2-2"
+    ],
+    "transfer": {
+      "id": "individual-ls-course-t25-transfer",
+      "topicId": "ls-course-t25",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        8,
+        9
+      ],
+      "stem": "Which route and map summary follows the guide’s information?",
+      "passage": "NEW TRANSCRIPT PRACTICE — AUDIO PENDING\nGuide: The garden path follows the flower beds and ends at the stone gate. The upper path climbs to a tower, but it is closed this morning. Use the garden path, follow the posted signs and stay with the group.\nTao: The map places the pond west of the school. Does that prove the water flows east?\nGuide: No. That position alone cannot establish flow direction. Check information about the land and waterways.\nTranscript preparation. Approved audio pending.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Garden path to stone gate; pond west of school; flow unknown."
+        },
+        {
+          "id": "b",
+          "text": "Closed upper path to tower; pond west of school; flow unknown."
+        },
+        {
+          "id": "c",
+          "text": "Garden path to stone gate; pond east of school; flow unknown."
+        },
+        {
+          "id": "d",
+          "text": "Garden path to stone gate; pond west of school; eastward flow proven."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Garden path to stone gate; pond west of school; flow unknown."
+      },
+      "marks": 2,
+      "estimatedSeconds": 105,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对当前开放路线与对应终点，再分别保留地图位置和推断流向的边界。",
+        "steps": [
+          {
+            "text": "今天上午上方路线关闭，应走花园路线到石门，并按标识跟队。",
+            "reason": "upper path到塔的介绍没有解除closed this morning；garden path的ends at才给当前路线终点。"
+          },
+          {
+            "text": "池塘在学校西面，但不能只凭这点证明向东流水。",
+            "reason": "west of the school是位置；导游明确说No，并要求再查地形和水道，不能把方位当流向。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "保留了池塘位置与流向未知，却选了上午关闭的上方路线，终点也换成塔。"
+          },
+          {
+            "option": "c",
+            "reason": "路线与流向边界保留了，却把池塘从学校西面放到东面，方向反了。"
+          },
+          {
+            "option": "d",
+            "reason": "路线、终点和池塘位置保留了，却把待查的流向写成已证实向东。"
+          }
+        ],
+        "pitfall": "路线介绍不等于今天开放；终点不能串线；west/east给位置，不证明向相反方向流水。",
+        "visual": {
+          "kind": "evidence",
+          "title": "路线、终点与推断边界",
+          "segments": [
+            {
+              "text": "This morning → garden path → stone gate",
+              "role": "evidence",
+              "note": "上方路线关闭；按标识并跟随队伍"
+            },
+            {
+              "text": "Pond west of school = relative location",
+              "role": "evidence",
+              "note": "保留西面，不反读成东面"
+            },
+            {
+              "text": "Position alone ≠ proven flow direction",
+              "role": "evidence",
+              "note": "仍需地形与水道资料，不画已知流向"
+            }
+          ],
+          "caption": "这些箭头连接路线与终点，不画水流；新材料是花园、石门与学校西面的池塘，不能照搬溪流、木桥和村庄北面的湖泊。"
+        },
+        "transfer": "如果路线和终点都选对，却把“池塘在学校西面”写成“水必定向东流”，哪一步超出了原文依据？"
+      }
+    }
+  }
+}

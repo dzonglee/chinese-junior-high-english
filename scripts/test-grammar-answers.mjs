@@ -106,7 +106,7 @@ test('explanations and diagrams acknowledge alternatives rather than claiming a 
 
 test('choice and order examples retain their closed, correct tasks', () => {
   const choice = question('q-g-be-001')
-  assert.equal(choice.stem, 'Mia _____ ready for the school trip.')
+  assert.equal(choice.stem, 'Mia _____ ready for the class photo.')
   assert.deepEqual(choice.options.map(o => o.text), ['is', 'am', 'are'])
   check(choice.id, 'a', true)
   check(choice.id, 'b', false)
@@ -134,4 +134,28 @@ test('the compiler refuses to silently regenerate singleton blanks without autho
       assert.throws(() => authorCatalog(fixture), expected)
     }
   } finally { rmSync(fixture, { recursive: true, force: true }) }
+})
+
+test('grammar diagrams attach ending punctuation to the expression and retain meaningful trailing context', () => {
+  const compact = question('q-g-linking-verbs-002')
+  assert.deepEqual(compact.explanation.visual.segments.map(segment => segment.text), ['This blanket feels', 'soft.'])
+  assert.deepEqual(compact.answer.accepted, ['soft'])
+  assert.deepEqual(question('q-g-demonstratives-002').explanation.visual.segments.map(segment => segment.text), ['This', 'is my bag right here.'])
+  const withContext = question('q-g-auxiliaries-002')
+  assert.deepEqual(withContext.explanation.visual.segments.map(segment => segment.text), ['He does not', 'drink', 'coffee.'])
+  for (const q of catalog.questions.filter(q => q.explanation.visual.title === '把线索与目标表达连起来')) {
+    assert.ok(q.explanation.visual.segments.every(segment => !['先看句意', '句子完整'].includes(segment.text)), `${q.id}: empty context replaced with a placeholder`)
+    assert.ok(q.explanation.visual.segments.length >= 2, `${q.id}: lost the explanation relationship`)
+    assert.ok(q.explanation.visual.segments.every(segment => !/^[\p{P}\s]+$/u.test(segment.text)), `${q.id}: punctuation presented as a separate fact`)
+  }
+})
+
+test('explicit sentence-initial capitalization is enforced per response without changing ordinary word-form answers', () => {
+  for (const [id, correct, wrong] of [['q-g-interjections-002', 'Ouch', 'ouch'], ['q-g-interjections-003', 'Hooray', 'hooray'], ['q-g-interjections-006', 'Oh', 'oh'], ['q-g-interjections-007', 'Phew', 'phew'], ['q-g-concession-003', 'Although', 'although'], ['q-g-concession-007', 'Though', 'though'], ['q-g-demonstratives-002', 'This', 'this'], ['q-g-demonstratives-003', 'Those', 'those'], ['q-g-demonstratives-007', 'These', 'these'], ['q-g-auxiliaries-003', 'Did', 'did'], ['q-g-question-words-002', 'How', 'how'], ['q-g-question-words-003', 'Why', 'why'], ['q-g-question-words-006', 'When', 'when'], ['q-g-question-words-007', 'Where', 'where'], ['q-g-cardinals-003', 'Thousands', 'thousands'], ['q-g-contractions-003', "You're", "you're"], ['q-g-contractions-007', "Let's", "let's"], ['q-g-imperatives-002', 'Do not', 'do not'], ['q-g-imperatives-006', 'Wash', 'wash'], ['q-g-exclamations-002', 'How', 'how'], ['q-g-exclamations-003', 'What', 'what'], ['q-g-exclamations-006', 'How', 'how']]) {
+    assert.equal(question(id).answer.caseSensitive, true)
+    check(id, correct, true); check(id, wrong, false)
+  }
+  check('q-g-auxiliaries-002', 'DRINK', true)
+  assert.ok(question('q-g-demonstratives-007').stem.includes('right here beside us'))
+  assert.equal(question('q-g-proper-nouns-002').answer.caseSensitive, true)
 })

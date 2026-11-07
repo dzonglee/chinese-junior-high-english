@@ -1,0 +1,9 @@
+# Focused WeChat checkpoint 116
+
+Official Tencent DevTools guest job `09467ac2caa4445b981dad92818e2f8e` completed with actual nested exit 0, six tasks, empty errors and 27 inspected captures at 367×794.
+
+Inspected all six correct models, every wrong/partial source chain, four missing-own states, both wrong gap alternatives/no-clue/edited/cleared repairs, both empty/all-on/all-off/reversed/no-clue plans and edited/reloaded repairs. Inspected complete art and both route models at 320/390/768, including whole-English-word checks. Inspected original 1536×1024 and delivered 600×400 action comparison, wrong feeding alternative, partial evidence and repaired choice. Inspected source endings, both applications/all four authored moves/all wrong answers, clinic, fresh passage/all three distractors/both explanations/diagram and summary. Six tasks/18 widths, zero independent records. Final browser reinspection confirms shorter scope label and American behavior conversion. Inspected all 27 final native captures: home, prediction, picture wrong/no-source/repair, both partly wrong/no-source/edited-reopened plans, all four focused routes, gap wrong/repair, quick clues, applications, clinic, transfer and summary. Actual lesson route, registered third-root image path, SDK labels/targets/vertical geometry at 367×794 verified. Grade-8 American profile. Guided work earns no independent/mastery/lessonDone or hearing credit. Content remains draft; approved audio pending.
+
+Official CLI cleared only the isolated English project compile cache under the shared GUI lock. One late navigateTo timeout is retained because exact route/query and bound lesson arrived. Saved learner data restored, own project closed and GUI lock released. SDK events do not establish physical touch/device behavior. No auth changes, upload or publication.
+
+[Results and screenshots](results.json) · [Actual job](job.json).

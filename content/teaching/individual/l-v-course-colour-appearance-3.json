@@ -1,0 +1,644 @@
+{
+  "lessonId": "l-v-course-colour-appearance-3",
+  "reviewState": "draft",
+  "intent": "Eight individually authored appearance tasks distinguish surfaces, source materials, adjective senses, spatial relations and capability scope.",
+  "picturePurpose": "Original paired bags provide visible front-stain evidence. The code-drawn robot demonstrates a single-arm wave with either arm valid, without inferring other capability limits.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "让机器人挥手，找准形容对象",
+    "instruction": "动手演示动作；核对形容对象、位置和时间。",
+    "items": [
+      {
+        "id": "shiny",
+        "label": "shiny：什么在什么情境下发亮？",
+        "prompt": "什么在什么情境下发亮？",
+        "answer": "shiny",
+        "meaning": "有光泽的",
+        "material": "The wet stones looked shiny in the sun.",
+        "before": "The wet stones looked ",
+        "after": " in the sun.",
+        "reason": "shiny说表面有光泽；这里是湿石在阳光下发亮，不是石头自发光。",
+        "hint": "wet看对象状态，in the sun看情境。",
+        "wordDecision": {
+          "prompt": "什么在什么情境下发亮？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "湿石在阳光下有光泽",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "sun",
+                "label": "湿石在阳光下看起来亮闪闪",
+                "text": "The wet stones looked shiny in the sun.",
+                "include": true
+              },
+              {
+                "id": "lamp",
+                "label": "干石在黑暗中自行发光",
+                "text": "Dry stones produced their own light in darkness.",
+                "include": false
+              },
+              {
+                "id": "always",
+                "label": "任何天气下所有石头永久发亮",
+                "text": "Every stone was permanently shiny in all weather.",
+                "include": false
+              }
+            ],
+            "hint": "保留湿石和阳光，不补永久规律。",
+            "wrong": "只选阳光下的湿石；不能改成自发光或所有石头都如此。"
+          }
+        },
+        "options": [
+          {
+            "id": "lamp",
+            "text": "Dry stones produced their own light in darkness.",
+            "correct": false,
+            "reason": "湿石换成干石，反光换成黑暗中自发光。"
+          },
+          {
+            "id": "sun",
+            "text": "The wet stones had a bright surface in sunlight.",
+            "correct": true,
+            "reason": "wet stones是对象，in the sun是阳光下。"
+          },
+          {
+            "id": "always",
+            "text": "Every stone was permanently shiny in all weather.",
+            "correct": false,
+            "reason": "当时的湿石扩大为所有石头、任何天气和永久。"
+          }
+        ],
+        "ownForms": [
+          "shiny",
+          "shinier",
+          "shiniest"
+        ]
+      },
+      {
+        "id": "dull",
+        "label": "dull：把手什么时候显得暗淡？",
+        "prompt": "把手什么时候显得暗淡？",
+        "answer": "dull",
+        "meaning": "暗淡的；无趣的",
+        "material": "The brass handle looked dull before polishing.",
+        "before": "The brass handle looked ",
+        "after": " before polishing.",
+        "reason": "dull在这里说黄铜把手缺少光泽；before polishing是抛光前，不推断抛光后的结果。",
+        "hint": "本句看表面光泽，不是事情无趣。",
+        "wordDecision": {
+          "prompt": "把手什么时候显得暗淡？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "抛光前的黄铜把手暗淡",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "before",
+                "label": "黄铜把手抛光前没有光泽",
+                "text": "The brass handle looked dull before polishing.",
+                "include": true
+              },
+              {
+                "id": "after",
+                "label": "把手只在抛光后才变暗淡",
+                "text": "The handle became dull only after it was polished.",
+                "include": false
+              },
+              {
+                "id": "boring",
+                "label": "黄铜把手的设计无趣",
+                "text": "The design of the brass handle was uninteresting.",
+                "include": false
+              }
+            ],
+            "hint": "before给时间，dull给表面状态。",
+            "wrong": "只选抛光前的表面；不能倒转时间或换成评价设计。"
+          }
+        },
+        "options": [
+          {
+            "id": "after",
+            "text": "The handle became dull only after it was polished.",
+            "correct": false,
+            "reason": "before被反转为after，还补only。"
+          },
+          {
+            "id": "boring",
+            "text": "The design of the brass handle was uninteresting.",
+            "correct": false,
+            "reason": "本句看表面光泽，不评价设计有趣与否。"
+          },
+          {
+            "id": "before",
+            "text": "Before it was polished, the brass handle lacked shine.",
+            "correct": true,
+            "reason": "before polishing限定抛光前，dull说没有光泽。"
+          }
+        ],
+        "ownForms": [
+          "dull",
+          "duller",
+          "dullest"
+        ]
+      },
+      {
+        "id": "beautiful",
+        "label": "beautiful：漂亮图案由什么组成？",
+        "prompt": "漂亮图案由什么组成？",
+        "answer": "beautiful",
+        "meaning": "美丽的",
+        "material": "The beautiful pattern came from tiny pieces of glass.",
+        "before": "The ",
+        "after": " pattern came from tiny pieces of glass.",
+        "reason": "beautiful pattern是美丽图案；tiny pieces of glass是小玻璃片，不是大布块。",
+        "hint": "看图案和小玻璃片的组成关系。",
+        "wordDecision": {
+          "prompt": "漂亮图案由什么组成？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "小玻璃片组成漂亮图案",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "glass",
+                "label": "美丽图案由小玻璃片组成",
+                "text": "The beautiful pattern came from tiny pieces of glass.",
+                "include": true
+              },
+              {
+                "id": "cloth",
+                "label": "图案全由大布块组成",
+                "text": "The pattern was made entirely from large cloth squares.",
+                "include": false
+              },
+              {
+                "id": "person",
+                "label": "漂亮的人拿着无图案的整块玻璃",
+                "text": "A beautiful person carried an unpatterned glass sheet.",
+                "include": false
+              }
+            ],
+            "hint": "保留pattern和tiny pieces of glass。",
+            "wrong": "只选小玻璃片组成图案；不能换材料或形容对象。"
+          }
+        },
+        "options": [
+          {
+            "id": "glass",
+            "text": "Tiny glass pieces formed the beautiful pattern.",
+            "correct": true,
+            "reason": "beautiful修饰pattern，tiny pieces of glass说明组成。"
+          },
+          {
+            "id": "cloth",
+            "text": "The pattern was made entirely from large cloth squares.",
+            "correct": false,
+            "reason": "小玻璃片换成大布块。"
+          },
+          {
+            "id": "person",
+            "text": "A beautiful person carried an unpatterned glass sheet.",
+            "correct": false,
+            "reason": "图案换成人，并改掉玻璃片的组成关系。"
+          }
+        ]
+      },
+      {
+        "id": "pretty",
+        "label": "pretty：pretty在这里修饰什么？",
+        "prompt": "pretty在这里修饰什么？",
+        "answer": "pretty",
+        "meaning": "漂亮的；相当",
+        "material": "A pretty flower grew between the stones.",
+        "before": "A ",
+        "after": " flower grew between the stones.",
+        "reason": "pretty flower是漂亮的花；between the stones是石头之间。pretty在本句不是表示“相当”的副词。",
+        "hint": "pretty紧挨flower，说明花漂亮。",
+        "wordDecision": {
+          "prompt": "pretty在这里修饰什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "漂亮的花长在石缝间",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "flower",
+                "label": "漂亮的花长在石头之间",
+                "text": "A pretty flower grew between the stones.",
+                "include": true
+              },
+              {
+                "id": "degree",
+                "label": "石缝间的花相当高",
+                "text": "The flower was quite tall between the stones.",
+                "include": false
+              },
+              {
+                "id": "above",
+                "label": "漂亮的花远在石头上空漂浮",
+                "text": "The pretty flower floated far above the stones.",
+                "include": false
+              }
+            ],
+            "hint": "词义和石缝位置一起核对。",
+            "wrong": "只选石缝中的花；不能套副词义或换位置。"
+          }
+        },
+        "options": [
+          {
+            "id": "degree",
+            "text": "The flower was quite tall between the stones.",
+            "correct": false,
+            "reason": "把pretty误读成quite，还补了tall。原句pretty修饰flower。"
+          },
+          {
+            "id": "above",
+            "text": "The pretty flower floated far above the stones.",
+            "correct": false,
+            "reason": "长在石缝间换成远在石头上空漂浮。"
+          },
+          {
+            "id": "flower",
+            "text": "An attractive flower grew in the gap between stones.",
+            "correct": true,
+            "reason": "pretty是形容词，修饰flower；between给位置。"
+          }
+        ],
+        "ownForms": [
+          "pretty",
+          "prettier",
+          "prettiest"
+        ]
+      },
+      {
+        "id": "ugly",
+        "label": "ugly：点出正面有明显污渍的包。",
+        "prompt": "点出正面有明显污渍的包。",
+        "answer": "ugly",
+        "meaning": "难看的",
+        "material": "An ugly stain covered the front of the bag.",
+        "before": "An ",
+        "after": " stain covered the front of the bag.",
+        "reason": "ugly修饰污渍，不是在评价人；front是包的正面。图只用来找污渍，不判断价格或材质。",
+        "hint": "先找stain，再核对front。",
+        "wordDecision": {
+          "prompt": "点出正面有明显污渍的包。",
+          "art": {
+            "asset": "lesson-stained-bag",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "两个完整帆布包并排：左包正面有明显深色污渍；右包正面干净。只比较污渍，不评价人的外貌。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "stain",
+                "label": "A 包",
+                "left": 2,
+                "top": 9,
+                "width": 46,
+                "height": 83,
+                "labelPosition": "top"
+              },
+              {
+                "id": "b",
+                "option": "clean",
+                "label": "B 包",
+                "left": 52,
+                "top": 9,
+                "width": 46,
+                "height": 83,
+                "labelPosition": "top"
+              }
+            ],
+            "evidence": [
+              {
+                "option": "stain",
+                "caption": "左包正面可见污渍；ugly修饰的是污渍。",
+                "regions": [
+                  {
+                    "id": "front-stain",
+                    "left": 12,
+                    "top": 43,
+                    "width": 27,
+                    "height": 31,
+                    "label": "正面污渍"
+                  }
+                ]
+              },
+              {
+                "option": "clean",
+                "caption": "右包正面没有这块污渍，不符合原句。",
+                "regions": [
+                  {
+                    "id": "clean-front",
+                    "left": 62,
+                    "top": 43,
+                    "width": 27,
+                    "height": 31,
+                    "label": "干净正面"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "clean",
+            "text": "The front of the bag was clean and had no stain.",
+            "correct": false,
+            "reason": "无污渍与原句相反。"
+          },
+          {
+            "id": "stain",
+            "text": "An unattractive stain was on the front of the bag.",
+            "correct": true,
+            "reason": "ugly修饰stain；front说明污渍位置。"
+          }
+        ],
+        "ownForms": [
+          "ugly",
+          "uglier",
+          "ugliest"
+        ]
+      },
+      {
+        "id": "lovely",
+        "label": "lovely：这句感叹在赞美什么？",
+        "prompt": "这句感叹在赞美什么？",
+        "answer": "lovely",
+        "meaning": "可爱的；美好的",
+        "material": "What a lovely view from this window!",
+        "before": "What a ",
+        "after": " view from this window!",
+        "reason": "What a lovely view!是“景色真美！”lovely是形容词，赞美从这扇窗看到的风景。",
+        "hint": "What a +形容词+单数名词，用来感叹。",
+        "wordDecision": {
+          "prompt": "这句感叹在赞美什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "赞美从这扇窗看到的景色",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "view",
+                "label": "说话者觉得窗外景色很美",
+                "text": "What a lovely view from this window!",
+                "include": true
+              },
+              {
+                "id": "adverb",
+                "label": "说话者赞美窗框很漂亮",
+                "text": "The speaker admires the lovely window frame.",
+                "include": false
+              },
+              {
+                "id": "weather",
+                "label": "说话者保证每天都是好天气",
+                "text": "The speaker guarantees lovely weather every day.",
+                "include": false
+              }
+            ],
+            "hint": "lovely修饰view，不补天气保证。",
+            "wrong": "只选眼前景色很美；不能换成窗框或固定天气。"
+          }
+        },
+        "options": [
+          {
+            "id": "view",
+            "text": "The speaker admires the view seen from this window.",
+            "correct": true,
+            "reason": "lovely修饰view，from this window给观察位置。"
+          },
+          {
+            "id": "adverb",
+            "text": "The speaker admires the lovely window frame.",
+            "correct": false,
+            "reason": "赞美对象从窗外景色换成了窗框。"
+          },
+          {
+            "id": "weather",
+            "text": "The speaker guarantees lovely weather every day.",
+            "correct": false,
+            "reason": "赞美眼前风景被扩大成每天好天气的保证。"
+          }
+        ],
+        "ownForms": [
+          "lovely",
+          "lovelier",
+          "loveliest"
+        ]
+      },
+      {
+        "id": "cute",
+        "label": "cute：让机器人挥动一只手臂。",
+        "prompt": "让机器人挥动一只手臂。",
+        "answer": "cute",
+        "meaning": "可爱的",
+        "material": "The cute toy robot can wave one arm.",
+        "before": "The ",
+        "after": " toy robot can wave one arm.",
+        "reason": "cute说玩具机器人可爱；can wave one arm说明这项能力，没有列出它的全部能力。",
+        "hint": "cute看玩具特点，can看能力。",
+        "wordDecision": {
+          "prompt": "让机器人挥动一只手臂。",
+          "robotWave": {
+            "title": "任选一臂，演示挥手",
+            "hint": "点一只手臂让它挥动；再点可停下。",
+            "wrong": "这次只演示挥一只手臂：选左臂或右臂都可以。"
+          }
+        },
+        "options": [
+          {
+            "id": "cannot",
+            "text": "The toy robot cannot move either arm at all.",
+            "correct": false,
+            "reason": "can wave被反转为两只手臂完全不能动。"
+          },
+          {
+            "id": "only",
+            "text": "The robot can do nothing except wave one arm.",
+            "correct": false,
+            "reason": "原句没有说它只会这个动作。"
+          },
+          {
+            "id": "one",
+            "text": "The appealing toy robot is able to wave one arm.",
+            "correct": true,
+            "reason": "cute修饰toy robot，can说能力。"
+          }
+        ],
+        "ownForms": [
+          "cute",
+          "cuter",
+          "cutest"
+        ]
+      },
+      {
+        "id": "handsome",
+        "label": "handsome：handsome在这里形容谁？",
+        "prompt": "handsome在这里形容谁？",
+        "answer": "handsome",
+        "meaning": "英俊的；漂亮的",
+        "material": "The handsome wooden cabinet stood by the window.",
+        "before": "The ",
+        "after": " wooden cabinet stood by the window.",
+        "reason": "handsome也能说物品漂亮；这里修饰wooden cabinet。by the window是窗边，不是屋外门边。",
+        "hint": "形容对象是cabinet，不要只想到男子。",
+        "wordDecision": {
+          "prompt": "handsome在这里形容谁？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "漂亮木柜放在窗边",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "cabinet",
+                "label": "漂亮的木柜放在窗边",
+                "text": "The handsome wooden cabinet stood by the window.",
+                "include": true
+              },
+              {
+                "id": "man",
+                "label": "英俊男子站在金属柜里",
+                "text": "A handsome man stood inside a metal cupboard.",
+                "include": false
+              },
+              {
+                "id": "door",
+                "label": "木柜放在屋外门边",
+                "text": "The wooden cabinet stood outside beside the door.",
+                "include": false
+              }
+            ],
+            "hint": "对象、材料和位置一起保留。",
+            "wrong": "只选窗边木柜；不能换成人、金属或屋外门边。"
+          }
+        },
+        "options": [
+          {
+            "id": "man",
+            "text": "A handsome man stood inside a metal cupboard.",
+            "correct": false,
+            "reason": "木柜换成男子，木制换成金属，还改位置。"
+          },
+          {
+            "id": "cabinet",
+            "text": "The attractive wooden cabinet was beside the window.",
+            "correct": true,
+            "reason": "handsome修饰wooden cabinet，也能描述物品。"
+          },
+          {
+            "id": "door",
+            "text": "The wooden cabinet stood outside beside the door.",
+            "correct": false,
+            "reason": "窗边换成屋外门边。"
+          }
+        ],
+        "ownForms": [
+          "handsome",
+          "handsomer",
+          "handsomest"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-colour-appearance-3-transfer",
+      "topicId": "v-course-colour-appearance",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which report follows the display notes?",
+      "passage": "A visit to the makers’ display\nOur club arranged a small display beside the windows. A handsome wooden cabinet held the work. The cabinet itself was attractive; the label did not describe a man. Above it hung a beautiful pattern made from tiny pieces of glass.\nOne photograph showed wet stones looking shiny in the sun, with a pretty flower growing between them. A second photograph showed a brass handle before polishing. Its surface looked dull. The notes did not show what happened after polishing.\nOn a low table stood a cute toy robot. Lin demonstrated a wave with one arm. The note said it could wave one arm; it did not list all the other actions it could or could not do. Beside it was a bag with an ugly stain on its front. The description referred to the stain, not a person.\nAt the last window, our teacher said, “What a lovely view!” We looked at the garden outside. She was praising the view from that window, not predicting the weather for every day.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The brass handle looked dull before polishing; the robot could wave one arm; the stain was on the front of the bag."
+        },
+        {
+          "id": "b",
+          "text": "The brass handle became dull only after polishing; the robot could wave one arm; the stain was on the front of the bag."
+        },
+        {
+          "id": "c",
+          "text": "The brass handle looked dull before polishing; waving one arm was the only action the robot could perform; the stain was on the front of the bag."
+        },
+        {
+          "id": "d",
+          "text": "The brass handle looked dull before polishing; the robot could wave one arm; the teacher guaranteed good weather every day."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The brass handle looked dull before polishing; the robot could wave one arm; the stain was on the front of the bag."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先核对抛光前后的时间，再区分一项能力和全部能力。",
+        "steps": [
+          {
+            "text": "把手在抛光前显得暗淡；机器人能挥一只手臂。",
+            "reason": "before polishing给时间。can wave one arm说明会这个动作，没有only。"
+          },
+          {
+            "text": "污渍在包正面；老师赞美的是窗外景色。",
+            "reason": "front保留位置；What a lovely view!不保证每天好天气。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把before换成after，并补了only。"
+          },
+          {
+            "option": "c",
+            "reason": "会挥一只手臂不等于只会这一项动作。"
+          },
+          {
+            "option": "d",
+            "reason": "赞美眼前景色不等于保证每天好天气。"
+          }
+        ],
+        "pitfall": "只抓住同一个形容词，却漏掉时间、对象或没有依据的only。",
+        "visual": {
+          "kind": "timeline",
+          "title": "核对时间、能力与对象",
+          "segments": [
+            {
+              "text": "before polishing → dull",
+              "role": "object",
+              "note": "保留抛光前"
+            },
+            {
+              "text": "can wave one arm ≠ only action",
+              "role": "object",
+              "note": "一项能力不是全部能力"
+            },
+            {
+              "text": "ugly → stain; lovely → view",
+              "role": "object",
+              "note": "找准形容对象"
+            }
+          ],
+          "caption": "把形容词放回它修饰的对象和原句范围。"
+        },
+        "transfer": "handsome在这篇文章中为什么不是“英俊的男子”？指出被修饰的名词。"
+      }
+    }
+  }
+}

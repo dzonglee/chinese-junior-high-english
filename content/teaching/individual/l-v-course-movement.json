@@ -1,0 +1,642 @@
+{
+  "lessonId": "l-v-course-movement",
+  "reviewState": "draft",
+  "intent": "Individually distinguish requested movement and fixed-reference positions, negation and unanswered ability, supine posture, required action order and written until boundaries.",
+  "picturePurpose": "Original full-body posture comparison makes on your back observable. Exact coded facing arrows and positions explain left side and behind the line; no real motion, distances, traffic policy or hearing is inferred.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "看朝向、摆位置，分清动作与要求",
+    "instruction": "摆人物、点姿势、排先后，再用三个新句子检验自己。",
+    "items": [
+      {
+        "id": "word-walk",
+        "label": "步行（本句）",
+        "prompt": "先看箭头：沿这条小路走，left是行进方向哪一侧？",
+        "answer": "Walk",
+        "caseSensitive": true,
+        "meaning": "步行（本句）",
+        "before": "",
+        "after": " on the left side of this path.",
+        "reason": "Walk是步行的指令，on the left side指定这条小路的左侧。",
+        "hint": "按图中箭头判断左侧。句首Walk大写；go for a walk中的walk是名词。",
+        "material": "Walk on the left side of this path.",
+        "wordDecision": {
+          "prompt": "先看箭头：沿这条小路走，left是行进方向哪一侧？",
+          "positionInstruction": {
+            "kind": "walk",
+            "title": "看行进箭头，把人物放在左侧",
+            "hint": "先看向上的行进箭头，再判断左侧。这只是一条小路的指令。",
+            "wrong": "本句指定这条小路的左侧。先看朝向，不要摆到右侧或路中央。"
+          }
+        },
+        "options": [
+          {
+            "id": "left",
+            "text": "沿这条小路左侧步行。",
+            "correct": true,
+            "reason": "保留Walk这个动作和left side的位置要求。"
+          },
+          {
+            "id": "right",
+            "text": "沿这条小路右侧步行。",
+            "correct": false,
+            "reason": "把left改成了right。"
+          },
+          {
+            "id": "universal",
+            "text": "任何道路都必须靠左走。",
+            "correct": false,
+            "reason": "原句只说this path，不提供普遍通行规则。"
+          }
+        ],
+        "ownForms": [
+          "walk",
+          "walks",
+          "walked",
+          "walking"
+        ]
+      },
+      {
+        "id": "word-run",
+        "label": "跑（本句）",
+        "prompt": "Do not后面是什么动作？湿台阶上，原句是在禁止还是鼓励？",
+        "answer": "run",
+        "caseSensitive": false,
+        "meaning": "跑（本句）",
+        "before": "Do not ",
+        "after": " down the wet steps.",
+        "reason": "Do not run是禁止跑，down说明沿台阶向下。",
+        "hint": "Do not后用原形run。禁止跑，不是说已经跑过。",
+        "material": "Do not run down the wet steps.",
+        "wordDecision": {
+          "prompt": "Do not后面是什么动作？湿台阶上，原句是在禁止还是鼓励？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "保留禁止与地点",
+            "prompt": "圈出原句的两条要求。",
+            "hint": "不要把命令当作已经发生，也不补写事故结果。",
+            "wrong": "Do not禁止沿湿台阶向下跑，没有说明已经跑过或发生事故。",
+            "rows": [
+              {
+                "id": "not",
+                "label": "语气",
+                "text": "禁止跑。",
+                "include": true
+              },
+              {
+                "id": "place",
+                "label": "范围",
+                "text": "沿湿台阶向下。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "有人已经跑下台阶并摔倒。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "prohibition",
+            "text": "不要沿湿台阶往下跑。",
+            "correct": true,
+            "reason": "保留Do not的否定与down the wet steps的范围。"
+          },
+          {
+            "id": "encouragement",
+            "text": "请沿湿台阶往下跑。",
+            "correct": false,
+            "reason": "漏掉not，把禁止改成了鼓励。"
+          },
+          {
+            "id": "business",
+            "text": "有人已经跑下了湿台阶。",
+            "correct": false,
+            "reason": "Do not run是禁止跑，不是在记录已经发生的动作。"
+          }
+        ],
+        "ownForms": [
+          "run",
+          "runs",
+          "ran",
+          "running"
+        ]
+      },
+      {
+        "id": "word-jump",
+        "label": "跳（本句）",
+        "prompt": "Can you jump across…?问的是能力，还是已经成功跳过？",
+        "answer": "jump",
+        "caseSensitive": false,
+        "meaning": "跳（本句）",
+        "before": "Can you ",
+        "after": " across the narrow stream?",
+        "reason": "can后用原形jump，across说明从窄溪一侧越到另一侧；这仍是问题。",
+        "hint": "can后用原形jump。across表示跨到另一侧；问句还没有回答。",
+        "material": "Can you jump across the narrow stream?",
+        "wordDecision": {
+          "prompt": "Can you jump across…?问的是能力，还是已经成功跳过？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问题不等于答案",
+            "prompt": "圈出原句明确的信息。",
+            "hint": "窄不等于给出具体米数，也不是现实尝试建议。",
+            "wrong": "本句询问能否跨过窄溪，没有给成功回答或实测宽度。",
+            "rows": [
+              {
+                "id": "question",
+                "label": "句子性质",
+                "text": "询问能否跳过。",
+                "include": true
+              },
+              {
+                "id": "stream",
+                "label": "对象",
+                "text": "一条窄溪。",
+                "include": true
+              },
+              {
+                "id": "metres",
+                "label": "额外数字",
+                "text": "溪流正好宽两米。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "ability",
+            "text": "询问能否跳过窄溪，回答尚未给出。",
+            "correct": true,
+            "reason": "保留Can you…?的提问性质和across的跨越。"
+          },
+          {
+            "id": "done",
+            "text": "已经确认对方成功跳过。",
+            "correct": false,
+            "reason": "问句不等于肯定回答或完成记录。"
+          },
+          {
+            "id": "into",
+            "text": "要求跳进溪水里。",
+            "correct": false,
+            "reason": "across不是into。"
+          }
+        ],
+        "ownForms": [
+          "jump",
+          "jumps",
+          "jumped",
+          "jumping"
+        ]
+      },
+      {
+        "id": "word-sit",
+        "label": "坐（本句）",
+        "prompt": "sit where…：座位要满足什么条件？原句有没有指定第一排？",
+        "answer": "sit",
+        "caseSensitive": false,
+        "meaning": "坐（本句）",
+        "before": "Please ",
+        "after": " where you can see the screen.",
+        "reason": "Please sit提出坐下的请求，where you can see the screen给出地点条件。",
+        "hint": "where说明坐在哪里：要能看见屏幕，没说第几排。",
+        "material": "Please sit where you can see the screen.",
+        "wordDecision": {
+          "prompt": "sit where…：座位要满足什么条件？原句有没有指定第一排？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "按条件找座位",
+            "prompt": "圈出原句的动作与条件。",
+            "hint": "只核对文字条件，不编座位号。",
+            "wrong": "原句请求坐在能看见屏幕的地方，没有固定座位或完成证明。",
+            "rows": [
+              {
+                "id": "action",
+                "label": "动作",
+                "text": "请坐下。",
+                "include": true
+              },
+              {
+                "id": "condition",
+                "label": "地点条件",
+                "text": "能看见屏幕。",
+                "include": true
+              },
+              {
+                "id": "row",
+                "label": "额外限制",
+                "text": "必须坐第一排。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "visible",
+            "text": "请坐在能看见屏幕的地方。",
+            "correct": true,
+            "reason": "保留坐下的请求与可见屏幕的条件。"
+          },
+          {
+            "id": "row",
+            "text": "只能坐第一排三号。",
+            "correct": false,
+            "reason": "原句没有排数和座位号。"
+          },
+          {
+            "id": "done",
+            "text": "所有人已经坐好并看清屏幕。",
+            "correct": false,
+            "reason": "请求不证明真实动作已经完成。"
+          }
+        ],
+        "ownForms": [
+          "sit",
+          "sits",
+          "sat",
+          "sitting"
+        ]
+      },
+      {
+        "id": "word-stand",
+        "label": "站立（本句）",
+        "prompt": "面向前方等候：behind the line是在线后、线上还是线前？",
+        "answer": "Stand",
+        "caseSensitive": true,
+        "meaning": "站立（本句）",
+        "before": "",
+        "after": " behind the line while you wait.",
+        "reason": "Stand是站立的指令，behind指定线后，while you wait限定等候期间。",
+        "hint": "behind是线后，while you wait是等候时。句首Stand大写。",
+        "material": "Stand behind the line while you wait.",
+        "wordDecision": {
+          "prompt": "面向前方等候：behind the line是在线后、线上还是线前？",
+          "positionInstruction": {
+            "kind": "stand",
+            "title": "面向前方，站在线后",
+            "hint": "本例面向上方：比较线前、线上和线后。",
+            "wrong": "原句要求等候时站在线后，不是线上或线前；等候结束后的安排没有给出。"
+          }
+        },
+        "options": [
+          {
+            "id": "behind",
+            "text": "等候时站在线后。",
+            "correct": true,
+            "reason": "保留站立、线后与等候期间三个条件。"
+          },
+          {
+            "id": "on",
+            "text": "等候时站在线上。",
+            "correct": false,
+            "reason": "on不是behind。"
+          },
+          {
+            "id": "tolerate",
+            "text": "等候结束后才站到线后。",
+            "correct": false,
+            "reason": "while you wait要求等候时站在线后，不是等候结束后才站过去。"
+          }
+        ],
+        "ownForms": [
+          "stand",
+          "stands",
+          "stood",
+          "standing"
+        ]
+      },
+      {
+        "id": "word-lie",
+        "label": "躺（本句）",
+        "prompt": "on your back是哪种姿势？点出仰躺的人。",
+        "answer": "Lie",
+        "caseSensitive": true,
+        "meaning": "躺（本句）",
+        "before": "",
+        "after": " on your back and stretch gently.",
+        "reason": "Lie在这里是躺，on your back是仰躺，不是脸朝下的俯卧。",
+        "hint": "on your back是仰躺。躺：lie—lay—lain；说谎：lie—lied—lied。",
+        "material": "Lie on your back and stretch gently.",
+        "wordDecision": {
+          "prompt": "on your back是哪种姿势？点出仰躺的人。",
+          "art": {
+            "asset": "lesson-lying-postures",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创上下对照：同一位穿蓝色运动上衣和深色长裤的成人，上图仰躺面部向上，下图俯卧头转向侧面；两幅完整身体与垫子均在画面内。",
+            "targets": [
+              {
+                "id": "back",
+                "option": "back",
+                "label": "上图",
+                "labelPosition": "top",
+                "left": 2,
+                "top": 15,
+                "width": 96,
+                "height": 36
+              },
+              {
+                "id": "stomach",
+                "option": "stomach",
+                "label": "下图",
+                "labelPosition": "top",
+                "left": 2,
+                "top": 56,
+                "width": 96,
+                "height": 36
+              }
+            ],
+            "evidence": [
+              {
+                "option": "back",
+                "caption": "上图面部与上衣正面朝上，背部朝垫子，符合on your back。只辨姿势，不证明真实伸展或轻柔程度。",
+                "regions": [
+                  {
+                    "id": "face-up",
+                    "label": "面部向上",
+                    "left": 5,
+                    "top": 19,
+                    "width": 17,
+                    "height": 11
+                  }
+                ]
+              },
+              {
+                "option": "stomach",
+                "caption": "下图上衣背面朝上，身体正面朝垫子，是俯卧，不符合on your back。",
+                "regions": [
+                  {
+                    "id": "back-up",
+                    "label": "背部向上",
+                    "left": 21,
+                    "top": 62,
+                    "width": 27,
+                    "height": 13
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "back",
+            "text": "仰躺，背部朝向垫子。",
+            "correct": true,
+            "reason": "on your back表示仰躺，面部向上。"
+          },
+          {
+            "id": "stomach",
+            "text": "俯卧，身体正面朝向垫子。",
+            "correct": false,
+            "reason": "这是on your stomach，不是on your back。"
+          }
+        ],
+        "ownForms": [
+          "lie",
+          "lies",
+          "lay",
+          "lain",
+          "lying"
+        ]
+      },
+      {
+        "id": "word-move",
+        "label": "移动（本句）",
+        "prompt": "must move the chairs：先移椅子，还是先跳舞？有没有说已经移完？",
+        "answer": "move",
+        "caseSensitive": false,
+        "meaning": "移动（本句）",
+        "before": "We must ",
+        "after": " the chairs before we dance.",
+        "reason": "must要求做，before要求移椅子在跳舞之前。",
+        "hint": "must后用原形move。before表示先移椅子，再跳舞。",
+        "material": "We must move the chairs before we dance.",
+        "wordDecision": {
+          "prompt": "must move the chairs：先移椅子，还是先跳舞？有没有说已经移完？",
+          "processOrder": {
+            "title": "先移开椅子，再跳舞",
+            "hint": "只摆原句要求的先后，不编椅子数量或真实完成记录。",
+            "wrong": "before要求先移椅子，再跳舞；must不表示已经移完。",
+            "events": [
+              {
+                "id": "chairs",
+                "label": "移椅子"
+              },
+              {
+                "id": "dance",
+                "label": "跳舞"
+              }
+            ],
+            "sequence": [
+              "chairs",
+              "dance"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "跳舞前必须移开椅子。",
+            "correct": true,
+            "reason": "保留must的要求和before的先后。"
+          },
+          {
+            "id": "after",
+            "text": "跳完舞以后再移开椅子。",
+            "correct": false,
+            "reason": "把before倒成了之后。"
+          },
+          {
+            "id": "done",
+            "text": "已经确认所有椅子都移好了。",
+            "correct": false,
+            "reason": "要求不等于已完成记录。"
+          }
+        ],
+        "ownForms": [
+          "move",
+          "moves",
+          "moved",
+          "moving"
+        ]
+      },
+      {
+        "id": "word-turn",
+        "label": "转动（本句）",
+        "prompt": "until you hear a click给出什么终点？能编成向左转九十度吗？",
+        "answer": "Turn",
+        "caseSensitive": true,
+        "meaning": "转动（本句）",
+        "before": "",
+        "after": " the handle slowly until you hear a click.",
+        "reason": "Turn在这里是转动把手；slowly限定慢慢转，until给出持续到的事件。",
+        "hint": "slowly是慢慢地；until说明转到什么时候。句首Turn大写。",
+        "material": "Turn the handle slowly until you hear a click.",
+        "wordDecision": {
+          "prompt": "until you hear a click给出什么终点？能编成向左转九十度吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "文字指令的动作与终点",
+            "prompt": "圈出三个明确要求。",
+            "hint": "这里没有声音播放；不把文字选择当成真实听力证据。",
+            "wrong": "原句要求慢慢转动把手直到听到咔嗒声，没有方向、角度或实际成功记录。",
+            "rows": [
+              {
+                "id": "action",
+                "label": "动作对象",
+                "text": "转动把手。",
+                "include": true
+              },
+              {
+                "id": "rate",
+                "label": "速度要求",
+                "text": "慢慢转。",
+                "include": true
+              },
+              {
+                "id": "endpoint",
+                "label": "持续终点",
+                "text": "直到听到咔嗒声。",
+                "include": true
+              },
+              {
+                "id": "unlocked",
+                "label": "额外结果",
+                "text": "实际已经解锁成功。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "boundary",
+            "text": "慢慢转动把手，直到听到咔嗒声。",
+            "correct": true,
+            "reason": "保留动作、速度要求和until终点。"
+          },
+          {
+            "id": "angle",
+            "text": "必须向左转九十度，保证解锁。",
+            "correct": false,
+            "reason": "原句没有方向、角度或解锁保证。"
+          },
+          {
+            "id": "done",
+            "text": "已经听到声音并确认操作成功。",
+            "correct": false,
+            "reason": "文字指令不是实际听觉或成功记录。"
+          }
+        ],
+        "ownForms": [
+          "turn",
+          "turns",
+          "turned",
+          "turning"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-movement-transfer",
+      "topicId": "v-course-movement",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪组三句准确保留了走廊、蓝线和箱子的要求？",
+      "passage": "排练前的三条要求\n沿这条走廊左侧步行。等候时站在蓝线后。练舞前必须移开箱子。这里都是要求，没有说明已经完成。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Walk on the right side of this corridor. Stand behind the blue line while you wait. We must move the boxes before we practise the dance."
+        },
+        {
+          "id": "b",
+          "text": "Walk on the left side of this corridor. Stand on the blue line while you wait. We must move the boxes before we practise the dance."
+        },
+        {
+          "id": "c",
+          "text": "Walk on the left side of this corridor. Stand behind the blue line while you wait. We must move the boxes after we practise the dance."
+        },
+        {
+          "id": "d",
+          "text": "Walk on the left side of this corridor. Stand behind the blue line while you wait. We must move the boxes before we practise the dance."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "Walk on the left side of this corridor. Stand behind the blue line while you wait. We must move the boxes before we practise the dance."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "按左侧、线后、先移再练三条要求逐句核对。",
+        "steps": [
+          {
+            "text": "left side不能换成right；behind不能换成on。",
+            "reason": "左右位置与线前线后都要保留，动作相同也不代表要求相同。"
+          },
+          {
+            "text": "必须先移箱子，再练舞。",
+            "reason": "before不是after；must表达要求，不证明动作已完成。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把走廊左侧改成了右侧。"
+          },
+          {
+            "option": "b",
+            "reason": "把站在线后改成了站在线上。"
+          },
+          {
+            "option": "c",
+            "reason": "把练舞前移箱子改成练舞后。"
+          }
+        ],
+        "pitfall": "只认动作词，却漏掉位置、时间范围或先后。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三条要求逐项核对",
+          "segments": [
+            {
+              "text": "left side",
+              "role": "evidence",
+              "note": "走廊左侧"
+            },
+            {
+              "text": "behind … while",
+              "role": "evidence",
+              "note": "等候时在线后"
+            },
+            {
+              "text": "move boxes → practise",
+              "role": "evidence",
+              "note": "先移再练"
+            }
+          ],
+          "caption": "新任务换成走廊、蓝线和箱子；要求不等于已经完成。"
+        },
+        "transfer": "如果把before换成after，准备顺序会怎样改变？"
+      }
+    }
+  }
+}

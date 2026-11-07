@@ -1,0 +1,1644 @@
+{
+  "lessonId": "l-v-course-living-nature",
+  "reviewState": "draft",
+  "intent": "Teach whole-bench coverage, only-morning scope, glass/grass prohibition, bush interior, bird shelter, bent versus broken, roots through cracks and stem identity/support requirements.",
+  "picturePurpose": "Original plant anatomy recognition; five reversible diagrams and two exact evidence selections. No invented times, quantities or safety guarantees.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "植物里的范围、位置与动作",
+    "instruction": "移动遮阴范围和位置标记，辨认植物部位，再核对句子中的限制条件。",
+    "items": [
+      {
+        "id": "word-tree",
+        "label": "树",
+        "prompt": "树荫遮住整条长椅，还是只遮一端？切换遮阴范围。",
+        "answer": "tree",
+        "caseSensitive": false,
+        "meaning": "树",
+        "before": "This ",
+        "after": " provides shade for the whole bench.",
+        "reason": "provides shade是提供树荫，the whole bench是整条长椅，不是只遮一端，也没有说全天如此。",
+        "hint": "whole限定覆盖范围，不限定一天中持续多久。",
+        "material": "This tree provides shade for the whole bench.",
+        "options": [
+          {
+            "id": "whole",
+            "text": "这棵树为整条长椅遮阴。",
+            "correct": true,
+            "reason": "保留provides shade和the whole bench。"
+          },
+          {
+            "id": "part",
+            "text": "这棵树只为长椅的一端遮阴。",
+            "correct": false,
+            "reason": "一端缩小了whole的范围。"
+          },
+          {
+            "id": "all-day",
+            "text": "原句说长椅全天都在树荫下。",
+            "correct": false,
+            "reason": "whole说整条长椅，没有给全天这一时间范围。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "树荫遮住整条长椅，还是只遮一端？切换遮阴范围。",
+          "sceneLab": {
+            "id": "tree-whole-bench-shade",
+            "title": "整条还是一部分",
+            "hint": "改变示意阴影宽度；不表示真实太阳角度或持续时间。",
+            "wrong": "应覆盖整条长椅，不是只遮一端。",
+            "axes": [
+              {
+                "id": "coverage",
+                "label": "树荫覆盖范围",
+                "choices": [
+                  {
+                    "id": "whole",
+                    "label": "整条长椅"
+                  },
+                  {
+                    "id": "part",
+                    "label": "只有一端"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bench",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 56,
+                    "width": 74,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "遮阴范围：不表示持续时间"
+                  },
+                  {
+                    "id": "bench-label",
+                    "kind": "label",
+                    "x": 13,
+                    "y": 72,
+                    "width": 74,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "整条长椅"
+                  },
+                  {
+                    "id": "range",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "范围待选"
+                  }
+                ]
+              },
+              {
+                "signature": "whole",
+                "reading": "这棵树为整条长椅遮阴。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "shade",
+                    "kind": "rect",
+                    "x": 11,
+                    "y": 29,
+                    "width": 78,
+                    "height": 38,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "bench",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 56,
+                    "width": 74,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "遮阴范围：不表示持续时间"
+                  },
+                  {
+                    "id": "bench-label",
+                    "kind": "label",
+                    "x": 13,
+                    "y": 72,
+                    "width": 74,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "整条长椅"
+                  },
+                  {
+                    "id": "range",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "整条都遮阴"
+                  },
+                  {
+                    "id": "shade-label",
+                    "kind": "label",
+                    "x": 13,
+                    "y": 32,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "树荫"
+                  }
+                ]
+              },
+              {
+                "signature": "part",
+                "reading": "应覆盖整条长椅，不是只遮一端。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "shade",
+                    "kind": "rect",
+                    "x": 11,
+                    "y": 29,
+                    "width": 24,
+                    "height": 38,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "bench",
+                    "kind": "rect",
+                    "x": 13,
+                    "y": 56,
+                    "width": 74,
+                    "height": 9,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "遮阴范围：不表示持续时间"
+                  },
+                  {
+                    "id": "bench-label",
+                    "kind": "label",
+                    "x": 13,
+                    "y": 72,
+                    "width": 74,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "整条长椅"
+                  },
+                  {
+                    "id": "range",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 86,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "只遮一端"
+                  },
+                  {
+                    "id": "shade-label",
+                    "kind": "label",
+                    "x": 13,
+                    "y": 32,
+                    "width": 24,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "树荫"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-flower",
+        "label": "花",
+        "prompt": "only把开放时间限制在哪里？切换上午和下午。",
+        "answer": "flower",
+        "caseSensitive": false,
+        "meaning": "花",
+        "before": "The ",
+        "after": " opens only in the morning.",
+        "reason": "opens only in the morning说只在上午开放；没有给确切钟点，也不推广到所有花。flower与flour同音。",
+        "hint": "核对only和in the morning，不补花期天数。",
+        "material": "The flower opens only in the morning.",
+        "options": [
+          {
+            "id": "morning",
+            "text": "这朵花只在上午开放。",
+            "correct": true,
+            "reason": "保留only in the morning。"
+          },
+          {
+            "id": "afternoon",
+            "text": "这朵花只在下午开放。",
+            "correct": false,
+            "reason": "下午改变了morning。"
+          },
+          {
+            "id": "all",
+            "text": "所有花都只在上午开放。",
+            "correct": false,
+            "reason": "The flower不代表所有花。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "only把开放时间限制在哪里？切换上午和下午。",
+          "sceneLab": {
+            "id": "flower-opening-time",
+            "title": "开放时间的限制",
+            "hint": "选择上午或下午；示意只表达本句的时间条件。",
+            "wrong": "应是只在上午，不是下午。",
+            "axes": [
+              {
+                "id": "time",
+                "label": "开放的时间限制",
+                "choices": [
+                  {
+                    "id": "morning",
+                    "label": "只在上午"
+                  },
+                  {
+                    "id": "afternoon",
+                    "label": "只在下午"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "morning",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 34,
+                    "width": 39,
+                    "height": 30,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "afternoon",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 34,
+                    "width": 39,
+                    "height": 30,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "只在所选时段开放"
+                  },
+                  {
+                    "id": "am",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 38,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "上午"
+                  },
+                  {
+                    "id": "pm",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "下午"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "时间待选"
+                  }
+                ]
+              },
+              {
+                "signature": "morning",
+                "reading": "这朵花只在上午开放。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "morning",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 34,
+                    "width": 39,
+                    "height": 30,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "afternoon",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 34,
+                    "width": 39,
+                    "height": 30,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "selected",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 34,
+                    "width": 39,
+                    "height": 30,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "只在所选时段开放"
+                  },
+                  {
+                    "id": "am",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 38,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "上午"
+                  },
+                  {
+                    "id": "pm",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "下午"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "只在上午"
+                  }
+                ]
+              },
+              {
+                "signature": "afternoon",
+                "reading": "应是只在上午，不是下午。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "morning",
+                    "kind": "rect",
+                    "x": 7,
+                    "y": 34,
+                    "width": 39,
+                    "height": 30,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "afternoon",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 34,
+                    "width": 39,
+                    "height": 30,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "selected",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 34,
+                    "width": 39,
+                    "height": 30,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "只在所选时段开放"
+                  },
+                  {
+                    "id": "am",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 38,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "上午"
+                  },
+                  {
+                    "id": "pm",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 39,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "下午"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "只在下午"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-grass",
+        "label": "草地（本句）",
+        "prompt": "glass和grass差一个字母。句子禁止什么，报告清理完成了吗？",
+        "answer": "grass",
+        "caseSensitive": false,
+        "meaning": "草地（本句）",
+        "before": "Do not leave glass on the ",
+        "after": ".",
+        "reason": "glass是玻璃，grass是草地；Do not leave是在提出禁止要求，没有报告玻璃已被清走。",
+        "hint": "看清l和r，再区分要求与完成。",
+        "material": "Do not leave glass on the grass.",
+        "options": [
+          {
+            "id": "ban",
+            "text": "不要把玻璃留在草地上。",
+            "correct": true,
+            "reason": "保留Do not leave、glass与on the grass。"
+          },
+          {
+            "id": "done",
+            "text": "草地上的玻璃已经清理干净。",
+            "correct": false,
+            "reason": "禁止要求不是完成报告。"
+          },
+          {
+            "id": "swap",
+            "text": "不要把草留在玻璃上。",
+            "correct": false,
+            "reason": "glass和grass的位置对调了。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "glass和grass差一个字母。句子禁止什么，报告清理完成了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "禁止的动作与位置",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "Do not是禁止；不代表已经清理。",
+            "wrong": "应圈出玻璃和草地上的禁止要求，不补完成或交换词义。",
+            "rows": [
+              {
+                "id": "glass",
+                "label": "对象",
+                "text": "不要留下的是玻璃。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "原句报告已经清理完成。",
+                "include": false
+              },
+              {
+                "id": "grass",
+                "label": "地点",
+                "text": "禁止把它留在草地上。",
+                "include": true
+              },
+              {
+                "id": "swap",
+                "label": "改动对象",
+                "text": "原句禁止把草留在玻璃上。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-bush",
+        "label": "灌木",
+        "prompt": "小鸟藏在灌木里面，还是停在外面？移动位置标记。",
+        "answer": "bush",
+        "caseSensitive": false,
+        "meaning": "灌木",
+        "before": "A small bird hid inside the ",
+        "after": ".",
+        "reason": "hid inside the bush是藏在灌木丛里，不是外面。句子没有给藏了多久；bush复数是bushes。",
+        "hint": "用inside核对位置，不补具体时长。",
+        "material": "A small bird hid inside the bush.",
+        "options": [
+          {
+            "id": "inside",
+            "text": "小鸟藏在灌木丛里。",
+            "correct": true,
+            "reason": "保留hid inside。"
+          },
+          {
+            "id": "outside",
+            "text": "小鸟停在灌木丛外。",
+            "correct": false,
+            "reason": "外面改变了inside，停着也没有保留hid。"
+          },
+          {
+            "id": "hour",
+            "text": "原句说小鸟藏了整整一小时。",
+            "correct": false,
+            "reason": "原句没有时长。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "小鸟藏在灌木里面，还是停在外面？移动位置标记。",
+          "sceneLab": {
+            "id": "bird-inside-bush",
+            "title": "灌木内外的位置",
+            "hint": "切换里面和外面；标记仅示意位置，不是真实可见性。",
+            "wrong": "应在灌木里面，不能换成外面。",
+            "axes": [
+              {
+                "id": "position",
+                "label": "小鸟相对灌木的位置",
+                "choices": [
+                  {
+                    "id": "inside",
+                    "label": "里面"
+                  },
+                  {
+                    "id": "outside",
+                    "label": "外面"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bush",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 30,
+                    "width": 43,
+                    "height": 40,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "仅示意位置：不表示可见性"
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 74,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灌木内"
+                  },
+                  {
+                    "id": "outside-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 74,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灌木外"
+                  }
+                ]
+              },
+              {
+                "signature": "inside",
+                "reading": "小鸟藏在灌木丛里。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "bush",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 30,
+                    "width": 43,
+                    "height": 40,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "bird",
+                    "kind": "ellipse",
+                    "x": 24,
+                    "y": 45,
+                    "width": 12,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "仅示意位置：不表示可见性"
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 74,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灌木内"
+                  },
+                  {
+                    "id": "outside-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 74,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灌木外"
+                  },
+                  {
+                    "id": "bird-label",
+                    "kind": "label",
+                    "x": 16,
+                    "y": 44,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "鸟"
+                  }
+                ]
+              },
+              {
+                "signature": "outside",
+                "reading": "应在灌木里面，不能换成外面。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "bush",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 30,
+                    "width": 43,
+                    "height": 40,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "bird",
+                    "kind": "ellipse",
+                    "x": 70,
+                    "y": 45,
+                    "width": 12,
+                    "height": 12,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "仅示意位置：不表示可见性"
+                  },
+                  {
+                    "id": "inside-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 74,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灌木内"
+                  },
+                  {
+                    "id": "outside-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 74,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "灌木外"
+                  },
+                  {
+                    "id": "bird-label",
+                    "kind": "label",
+                    "x": 62,
+                    "y": 44,
+                    "width": 28,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "鸟"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-hedge",
+        "label": "树篱",
+        "prompt": "树篱给谁提供什么？能从safe推出任何时候都绝对安全吗？",
+        "answer": "hedge",
+        "caseSensitive": false,
+        "meaning": "树篱",
+        "before": "The ",
+        "after": " gives small birds a safe shelter.",
+        "reason": "gives small birds a safe shelter说为小鸟提供安全庇护；没有说所有动物或任何时候都绝对安全。",
+        "hint": "保留对象与作用，不把一句描述扩大成保证。",
+        "material": "The hedge gives small birds a safe shelter.",
+        "options": [
+          {
+            "id": "birds",
+            "text": "树篱为小鸟提供安全庇护。",
+            "correct": true,
+            "reason": "保留small birds和a safe shelter。"
+          },
+          {
+            "id": "all",
+            "text": "树篱让所有动物在任何时候都绝对安全。",
+            "correct": false,
+            "reason": "所有、任何时候和绝对保证都扩大了原句。"
+          },
+          {
+            "id": "food",
+            "text": "树篱给小鸟提供食物，而不是庇护。",
+            "correct": false,
+            "reason": "食物改变了shelter庇护。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "树篱给谁提供什么？能从safe推出任何时候都绝对安全吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "对象与提供的庇护",
+            "prompt": "圈出原句支持的信息。",
+            "hint": "描述本句信息，不推广成所有情境的保证。",
+            "wrong": "应圈出小鸟与安全庇护，不补所有动物或食物。",
+            "rows": [
+              {
+                "id": "birds",
+                "label": "对象",
+                "text": "提供庇护的对象是小鸟。",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "额外范围",
+                "text": "所有动物永远绝对安全。",
+                "include": false
+              },
+              {
+                "id": "shelter",
+                "label": "作用",
+                "text": "提供安全的庇护处。",
+                "include": true
+              },
+              {
+                "id": "food",
+                "label": "改动作用",
+                "text": "原句说提供食物。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-branch",
+        "label": "树枝（本句）",
+        "prompt": "树枝被压弯，等于断了吗？切换弯曲与断裂。",
+        "answer": "branch",
+        "caseSensitive": false,
+        "meaning": "树枝（本句）",
+        "before": "The ",
+        "after": " bent under the heavy snow.",
+        "reason": "bent是弯曲，不是broke断裂；under the heavy snow说受到厚雪压力，没有给雪的重量。",
+        "hint": "看是否仍连接；不要把弯曲读成断开。",
+        "material": "The branch bent under the heavy snow.",
+        "options": [
+          {
+            "id": "bent",
+            "text": "树枝被厚雪压弯了。",
+            "correct": true,
+            "reason": "保留bent和heavy snow。"
+          },
+          {
+            "id": "broken",
+            "text": "树枝已经断成两截。",
+            "correct": false,
+            "reason": "断裂改变了bent弯曲。"
+          },
+          {
+            "id": "weight",
+            "text": "原句给出了雪的确切重量。",
+            "correct": false,
+            "reason": "heavy没有附带重量数值。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "树枝被压弯，等于断了吗？切换弯曲与断裂。",
+          "sceneLab": {
+            "id": "branch-bent-versus-broken",
+            "title": "弯曲不等于断裂",
+            "hint": "切换仍相连的弯枝和断开的两段；不表示真实角度或重量。",
+            "wrong": "应是弯曲，不是断开。",
+            "axes": [
+              {
+                "id": "state",
+                "label": "树枝的状态",
+                "choices": [
+                  {
+                    "id": "bent",
+                    "label": "弯曲，仍相连"
+                  },
+                  {
+                    "id": "broken",
+                    "label": "断开成两段"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "snow",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 23,
+                    "width": 79,
+                    "height": 10,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "连接状态示意：不表示真实角度"
+                  },
+                  {
+                    "id": "snow-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 20,
+                    "width": 79,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厚雪"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  }
+                ]
+              },
+              {
+                "signature": "bent",
+                "reading": "树枝被厚雪压弯了。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "snow",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 23,
+                    "width": 79,
+                    "height": 10,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 45,
+                    "width": 30,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "joint",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 45,
+                    "width": 3,
+                    "height": 15,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 37,
+                    "y": 57,
+                    "width": 47,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "连接状态示意：不表示真实角度"
+                  },
+                  {
+                    "id": "snow-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 20,
+                    "width": 79,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厚雪"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "弯了，仍相连"
+                  }
+                ]
+              },
+              {
+                "signature": "broken",
+                "reading": "应是弯曲，不是断开。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "snow",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 23,
+                    "width": 79,
+                    "height": 10,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "left",
+                    "kind": "rect",
+                    "x": 10,
+                    "y": 45,
+                    "width": 30,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "right",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 57,
+                    "width": 27,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "连接状态示意：不表示真实角度"
+                  },
+                  {
+                    "id": "snow-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 20,
+                    "width": 79,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "厚雪"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 82,
+                    "width": 96,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "断开成两段"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-root",
+        "label": "根（本句）",
+        "prompt": "根是穿过花盆裂缝，还是只长到裂缝旁？切换路线。",
+        "answer": "root",
+        "caseSensitive": false,
+        "meaning": "根（本句）",
+        "before": "The ",
+        "after": " had grown through a crack in the pot.",
+        "reason": "had grown through a crack说根已经穿过花盆裂缝，不是只到裂缝边；没有给生长了几天。root本句是植物的根。",
+        "hint": "through要穿过开口，不只是靠近。",
+        "material": "The root had grown through a crack in the pot.",
+        "options": [
+          {
+            "id": "through",
+            "text": "根穿过花盆裂缝长了出来。",
+            "correct": true,
+            "reason": "保留grown through a crack in the pot。"
+          },
+          {
+            "id": "beside",
+            "text": "根只长到裂缝旁，没有穿过。",
+            "correct": false,
+            "reason": "没有穿过改变了through。"
+          },
+          {
+            "id": "cause",
+            "text": "原句明确说裂缝一定是根造成的。",
+            "correct": false,
+            "reason": "穿过裂缝不等于说明裂缝由根造成。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "根是穿过花盆裂缝，还是只长到裂缝旁？切换路线。",
+          "sceneLab": {
+            "id": "root-through-pot-crack",
+            "title": "穿过裂缝还是到旁边",
+            "hint": "切换根的路线；不说明裂缝成因、尺寸或生长时间。",
+            "wrong": "应穿过裂缝，不能只停在旁边。",
+            "axes": [
+              {
+                "id": "route",
+                "label": "根的路线",
+                "choices": [
+                  {
+                    "id": "through",
+                    "label": "穿过裂缝"
+                  },
+                  {
+                    "id": "beside",
+                    "label": "只到裂缝旁"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall-top",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 5,
+                    "height": 17,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "wall-bottom",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 55,
+                    "width": 5,
+                    "height": 19,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "根与花盆裂缝：路线示意"
+                  },
+                  {
+                    "id": "pot-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 75,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "花盆内"
+                  },
+                  {
+                    "id": "outside-label",
+                    "kind": "label",
+                    "x": 60,
+                    "y": 75,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "花盆外"
+                  },
+                  {
+                    "id": "crack",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 16,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "裂缝"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "路线待选"
+                  }
+                ]
+              },
+              {
+                "signature": "through",
+                "reading": "根穿过花盆裂缝长了出来。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "wall-top",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 5,
+                    "height": 17,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "wall-bottom",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 55,
+                    "width": 5,
+                    "height": 19,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "root",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 49,
+                    "width": 66,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "根与花盆裂缝：路线示意"
+                  },
+                  {
+                    "id": "pot-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 75,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "花盆内"
+                  },
+                  {
+                    "id": "outside-label",
+                    "kind": "label",
+                    "x": 60,
+                    "y": 75,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "花盆外"
+                  },
+                  {
+                    "id": "crack",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 16,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "裂缝"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "穿过裂缝"
+                  },
+                  {
+                    "id": "root-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 32,
+                    "width": 27,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "根"
+                  }
+                ]
+              },
+              {
+                "signature": "beside",
+                "reading": "应穿过裂缝，不能只停在旁边。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "wall-top",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 5,
+                    "height": 17,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "wall-bottom",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 55,
+                    "width": 5,
+                    "height": 19,
+                    "tone": "muted"
+                  },
+                  {
+                    "id": "root",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 49,
+                    "width": 35,
+                    "height": 3,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "根与花盆裂缝：路线示意"
+                  },
+                  {
+                    "id": "pot-label",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 75,
+                    "width": 43,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "花盆内"
+                  },
+                  {
+                    "id": "outside-label",
+                    "kind": "label",
+                    "x": 60,
+                    "y": 75,
+                    "width": 38,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "花盆外"
+                  },
+                  {
+                    "id": "crack",
+                    "kind": "label",
+                    "x": 40,
+                    "y": 16,
+                    "width": 34,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "裂缝"
+                  },
+                  {
+                    "id": "status",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "只到裂缝旁"
+                  },
+                  {
+                    "id": "root-label",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 32,
+                    "width": 27,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "根"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-stem",
+        "label": "茎（本句）",
+        "prompt": "点出stem的中段。句子要求用什么来支撑它？",
+        "answer": "stem",
+        "caseSensitive": false,
+        "meaning": "茎（本句）",
+        "before": "Support the weak ",
+        "after": " with a thin stick.",
+        "reason": "stem本句是茎；Support是支撑要求，with a thin stick是用细木棍，不是剪断茎，也不是已经完成支撑。",
+        "hint": "图片辨认茎，支撑方式要回到文字核对。",
+        "material": "Support the weak stem with a thin stick.",
+        "options": [
+          {
+            "id": "root",
+            "text": "根。",
+            "correct": false,
+            "reason": "root是根，不是stem。"
+          },
+          {
+            "id": "stem",
+            "text": "茎。",
+            "correct": true,
+            "reason": "stem指植物的茎；支撑要求来自文字。"
+          },
+          {
+            "id": "flower",
+            "text": "花。",
+            "correct": false,
+            "reason": "flower是花，不是stem。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "点出stem的中段。句子要求用什么来支撑它？",
+          "art": {
+            "asset": "lesson-plant-root-stem-flower",
+            "assetRoot": "illustrations-8",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创植物部位示意：上部黄色花朵，中部绿色细茎和两片叶，底部完整外露的分枝根。没有花盆、支撑木棍或操作动作；只辨认部位。",
+            "targets": [
+              {
+                "id": "flower-target",
+                "option": "flower",
+                "label": "花",
+                "labelPosition": "bottom",
+                "left": 39,
+                "top": 0,
+                "width": 22,
+                "height": 31
+              },
+              {
+                "id": "stem-target",
+                "option": "stem",
+                "label": "茎",
+                "labelPosition": "bottom",
+                "left": 39,
+                "top": 31,
+                "width": 22,
+                "height": 35
+              },
+              {
+                "id": "root-target",
+                "option": "root",
+                "label": "根",
+                "labelPosition": "bottom",
+                "left": 32,
+                "top": 67,
+                "width": 36,
+                "height": 33
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-living-nature-transfer",
+      "topicId": "v-course-living-nature",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "遮阴范围、开放时间和树枝状态都换了，哪组英文全保留？",
+      "passage": "三条新信息\n这棵树只给长椅的一端遮阴。这朵花只在下午开放。树枝被厚雪压断了。\n词语提示：one end 一端；afternoon 下午；broke 断了。",
+      "options": [
+        {
+          "id": "a",
+          "text": "This tree provides shade for one end of the bench. The flower opens only in the afternoon. The branch broke under the heavy snow."
+        },
+        {
+          "id": "b",
+          "text": "This tree provides shade for the whole bench. The flower opens only in the afternoon. The branch broke under the heavy snow."
+        },
+        {
+          "id": "c",
+          "text": "This tree provides shade for one end of the bench. The flower opens only in the morning. The branch broke under the heavy snow."
+        },
+        {
+          "id": "d",
+          "text": "This tree provides shade for one end of the bench. The flower opens only in the afternoon. The branch bent under the heavy snow."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "This tree provides shade for one end of the bench. The flower opens only in the afternoon. The branch broke under the heavy snow."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别核对范围、时间和动作结果，不照搬旧句。",
+        "steps": [
+          {
+            "text": "长椅的一端：one end of the bench。",
+            "reason": "新条件只遮一端，不能沿用the whole bench。"
+          },
+          {
+            "text": "只在下午：only in the afternoon。",
+            "reason": "保留only，把上午改成下午。"
+          },
+          {
+            "text": "被压断：broke under the heavy snow。",
+            "reason": "新条件是断裂，不能沿用bent弯曲。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "whole把一端改成整条长椅。"
+          },
+          {
+            "option": "c",
+            "reason": "morning把下午改回上午。"
+          },
+          {
+            "option": "d",
+            "reason": "bent把断裂改成弯曲。"
+          }
+        ],
+        "pitfall": "熟悉名词还不够，范围、时间和动作结果要逐项核对。",
+        "visual": {
+          "kind": "comparison",
+          "title": "三个改变的条件",
+          "segments": [
+            {
+              "text": "one end",
+              "role": "evidence",
+              "note": "长椅一端"
+            },
+            {
+              "text": "only in the afternoon",
+              "role": "evidence",
+              "note": "只在下午"
+            },
+            {
+              "text": "broke",
+              "role": "evidence",
+              "note": "断了"
+            }
+          ],
+          "caption": "不补确切钟点、阴影时长或雪的重量。"
+        },
+        "transfer": "把broke换成bent，树枝的状态有什么不同？"
+      }
+    }
+  }
+}

@@ -1,0 +1,650 @@
+{
+  "lessonId": "l-v-course-character-5",
+  "reviewState": "draft",
+  "intent": "Eight individual character tasks distinguish traceable sources from verification, encouragement from guarantees, intention from completion and specific effects from overstatement.",
+  "picturePurpose": "Original room/chair art supports three direct seat choices relative to a visible door. Authored context establishes a request; the source establishes thoughtfulness. Coded weather-source cards compare traceability, location and validity without supplying real forecasts or a guarantee of correctness.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "观察任务",
+    "title": "查来源、留座位，再核对行动",
+    "instruction": "比较资料信息，按请求留座；区分提醒、决心和已经发生的事。",
+    "items": [
+      {
+        "id": "reliable",
+        "label": "reliable：查天气，优先核对哪份资料？",
+        "prompt": "查天气，优先核对哪份资料？",
+        "answer": "reliable",
+        "meaning": "可信赖的；可靠的",
+        "material": "Choose a reliable source for the weather report.",
+        "before": "Choose a ",
+        "after": " source for the weather report.",
+        "reason": "reliable表示可靠的、可信赖的，source是信息来源。这里要求选择可靠的天气资料，不是说已经选好或每句话都已核实。示意任务中，应优先回到可追溯的原文，核对发布者、适用城市、预报时段和更新时间；这些信息便于核对，不是百分之百正确的保证。",
+        "hint": "来源可追溯，还要核对地点和时效。",
+        "wordDecision": {
+          "prompt": "查天气，优先核对哪份资料？",
+          "sources": {
+            "context": "示意任务：为本市今天下午的活动查天气。以下只比较资料信息，不提供实际预报。",
+            "cards": [
+              {
+                "option": "trace",
+                "title": "资料A",
+                "publisher": "气象机构原文，可追溯",
+                "area": "明确对应本市",
+                "validFor": "今天下午，附更新时间"
+              },
+              {
+                "option": "forward",
+                "title": "资料B",
+                "publisher": "转发图，无原文出处",
+                "area": "城市未标明",
+                "validFor": "日期未标明"
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "forward",
+            "text": "An undated forwarded picture with no source or city.",
+            "correct": false,
+            "reason": "没有原文出处、城市和日期，不能确认是否适用于这次活动。"
+          },
+          {
+            "id": "trace",
+            "text": "A traceable local forecast with a clear city and valid time.",
+            "correct": true,
+            "reason": "来源能追溯，城市和适用时段明确，才便于继续核对。"
+          }
+        ]
+      },
+      {
+        "id": "positive",
+        "label": "positive：积极的态度帮助小组做了什么？",
+        "prompt": "积极的态度帮助小组做了什么？",
+        "answer": "positive",
+        "meaning": "积极的；肯定的",
+        "material": "A positive attitude helped the group keep trying.",
+        "before": "A ",
+        "after": " attitude helped the group keep trying.",
+        "reason": "positive在这里表示积极的，修饰attitude。helped the group keep trying说明帮助大家继续尝试，没有保证最后一定成功，也没有报告所有困难都消失。positive在其他语境也可表示肯定的。",
+        "hint": "keep trying是继续尝试，不是保证成功。",
+        "wordDecision": {
+          "prompt": "积极的态度帮助小组做了什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "帮助小组继续尝试",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "trying",
+                "label": "帮助继续尝试",
+                "text": "The attitude helped the group keep trying.",
+                "include": true
+              },
+              {
+                "id": "success",
+                "label": "保证完美结果",
+                "text": "The attitude guaranteed a perfect result.",
+                "include": false
+              },
+              {
+                "id": "stopped",
+                "label": "使小组停止尝试",
+                "text": "The attitude made the group stop trying.",
+                "include": false
+              }
+            ],
+            "hint": "helped不是guaranteed。",
+            "wrong": "只选帮助继续尝试；不能补完美结果或反转行动。"
+          }
+        },
+        "options": [
+          {
+            "id": "success",
+            "text": "A positive attitude guaranteed a perfect result.",
+            "correct": false,
+            "reason": "持续尝试不等于保证完美结果。"
+          },
+          {
+            "id": "stopped",
+            "text": "The group stopped trying because of the attitude.",
+            "correct": false,
+            "reason": "keep trying被反转成停止尝试。"
+          },
+          {
+            "id": "trying",
+            "text": "A positive attitude helped the group continue trying.",
+            "correct": true,
+            "reason": "helped和keep trying说明帮助持续尝试。"
+          }
+        ]
+      },
+      {
+        "id": "negative",
+        "label": "negative：一句负面评论应不应该让练习停下？",
+        "prompt": "一句负面评论应不应该让练习停下？",
+        "answer": "negative",
+        "meaning": "消极的；否定的",
+        "material": "One negative comment should not stop your practice.",
+        "before": "One ",
+        "after": " comment should not stop your practice.",
+        "reason": "negative在这里表示负面的、消极的，修饰comment。should not stop your practice是在劝你别因此停练，不是报告已经停练，也没有说评论的每个细节都必须忽略。",
+        "hint": "should not是劝告，不是过去事实。",
+        "wordDecision": {
+          "prompt": "一句负面评论应不应该让练习停下？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "别让一句评论使练习停下",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "advice",
+                "label": "建议不要停练",
+                "text": "One negative comment should not stop your practice.",
+                "include": true
+              },
+              {
+                "id": "past",
+                "label": "已经因此停练",
+                "text": "You stopped practising because of one comment.",
+                "include": false
+              },
+              {
+                "id": "praise",
+                "label": "全是正面赞扬",
+                "text": "The comment is described as entirely positive praise.",
+                "include": false
+              }
+            ],
+            "hint": "should not不是stopped。",
+            "wrong": "只选建议不要停练；不能补已停练或把负面改成正面。"
+          }
+        },
+        "options": [
+          {
+            "id": "advice",
+            "text": "One negative comment should not make you stop practising.",
+            "correct": true,
+            "reason": "should not给出建议，不是已发生的停练记录。"
+          },
+          {
+            "id": "past",
+            "text": "You stopped practising because of one comment.",
+            "correct": false,
+            "reason": "把建议改成已经停练。"
+          },
+          {
+            "id": "praise",
+            "text": "The comment is described as entirely positive praise.",
+            "correct": false,
+            "reason": "negative被反转成positive praise。"
+          }
+        ]
+      },
+      {
+        "id": "determined",
+        "label": "determined：她的决心等不等于已完成攀登？",
+        "prompt": "她的决心等不等于已完成攀登？",
+        "answer": "determined",
+        "meaning": "坚定的",
+        "material": "She was determined to finish the difficult climb.",
+        "before": "She was ",
+        "after": " to finish the difficult climb.",
+        "reason": "be determined to do表示决心做某事。这里的目标是finish the difficult climb，没有报告已经登完、最后是否成功，也没有说明要无视风险继续。安全判断仍要依据实际情况。",
+        "hint": "分清决心和已经完成。",
+        "wordDecision": {
+          "prompt": "她的决心等不等于已完成攀登？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "决心完成，结果未写",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "resolve",
+                "label": "决心完成攀登",
+                "text": "She was determined to finish the difficult climb.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "已经完成攀登",
+                "text": "She had already completed the difficult climb.",
+                "include": false
+              },
+              {
+                "id": "quit",
+                "label": "决定完全不尝试",
+                "text": "She decided not to attempt the climb.",
+                "include": false
+              }
+            ],
+            "hint": "to finish是目标，不是完成记录。",
+            "wrong": "只选有完成攀登的决心；不能补已完成或反转目标。"
+          }
+        },
+        "options": [
+          {
+            "id": "done",
+            "text": "She had already completed the difficult climb.",
+            "correct": false,
+            "reason": "决心不等于已经完成。"
+          },
+          {
+            "id": "resolve",
+            "text": "She had a firm intention to finish the difficult climb.",
+            "correct": true,
+            "reason": "be determined to do说明决心做某事。"
+          },
+          {
+            "id": "quit",
+            "text": "She had decided not to attempt the climb.",
+            "correct": false,
+            "reason": "to finish被反转成不尝试。"
+          }
+        ]
+      },
+      {
+        "id": "stubborn",
+        "label": "stubborn：固执地拒绝造成了什么影响？",
+        "prompt": "固执地拒绝造成了什么影响？",
+        "answer": "stubborn",
+        "meaning": "固执的",
+        "material": "His stubborn refusal delayed the whole group.",
+        "before": "His ",
+        "after": " refusal delayed the whole group.",
+        "reason": "stubborn表示固执的，修饰refusal。delayed the whole group说明拒绝导致整个小组被耽误，不等于活动彻底取消，也不能由固执推断判断正确。",
+        "hint": "delayed不等于cancelled。",
+        "wordDecision": {
+          "prompt": "固执地拒绝造成了什么影响？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "拒绝使整个小组延误",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "delay",
+                "label": "整个小组被耽误",
+                "text": "His refusal delayed the whole group.",
+                "include": true
+              },
+              {
+                "id": "cancel",
+                "label": "活动已彻底取消",
+                "text": "The group activity was cancelled completely.",
+                "include": false
+              },
+              {
+                "id": "right",
+                "label": "证明他的判断正确",
+                "text": "His refusal proves that his judgement was correct.",
+                "include": false
+              }
+            ],
+            "hint": "固执不是正确的证明。",
+            "wrong": "只选整个小组被耽误；不能补取消或判断正确。"
+          }
+        },
+        "options": [
+          {
+            "id": "cancel",
+            "text": "His refusal cancelled the group activity completely.",
+            "correct": false,
+            "reason": "延误被扩大成彻底取消。"
+          },
+          {
+            "id": "right",
+            "text": "His refusal proves that his judgement was correct.",
+            "correct": false,
+            "reason": "stubborn不保证判断正确。"
+          },
+          {
+            "id": "delay",
+            "text": "His refusal made the whole group late.",
+            "correct": true,
+            "reason": "delayed说明耽误整个小组。"
+          }
+        ]
+      },
+      {
+        "id": "sensitive",
+        "label": "sensitive：这句话是在提醒什么？",
+        "prompt": "这句话是在提醒什么？",
+        "answer": "sensitive",
+        "meaning": "敏感的；体贴的",
+        "material": "Be sensitive to how other people may feel.",
+        "before": "Be ",
+        "after": " to how other people may feel.",
+        "reason": "be sensitive to在这里是体谅、留意别人的感受。Be开头给出提醒，may说明可能；没有报告所有人都已做到，也没有说别人一定和你感觉相同。sensitive不是名词sensitivity。",
+        "hint": "保留提醒和may的可能性。",
+        "wordDecision": {
+          "prompt": "这句话是在提醒什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "提醒体谅可能的感受",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "consider",
+                "label": "提醒留意别人感受",
+                "text": "Consider how other people may feel.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "人人已经完美做到",
+                "text": "Everyone has already considered every feeling perfectly.",
+                "include": false
+              },
+              {
+                "id": "certain",
+                "label": "别人肯定感觉一样",
+                "text": "Other people certainly all feel the same way.",
+                "include": false
+              }
+            ],
+            "hint": "提醒不等于已做到；may不等于certainly。",
+            "wrong": "只选提醒留意别人感受；不能补已完成或绝对相同。"
+          }
+        },
+        "options": [
+          {
+            "id": "consider",
+            "text": "Consider how other people may feel.",
+            "correct": true,
+            "reason": "Be给出提醒，may保留可能。"
+          },
+          {
+            "id": "done",
+            "text": "Everyone has already considered every feeling perfectly.",
+            "correct": false,
+            "reason": "提醒被补成所有人都已完美做到。"
+          },
+          {
+            "id": "certain",
+            "text": "Other people certainly all feel the same way.",
+            "correct": false,
+            "reason": "may被换成certainly，还补了都一样。"
+          }
+        ]
+      },
+      {
+        "id": "sincere",
+        "label": "sincere：真诚道歉对友谊起了什么作用？",
+        "prompt": "真诚道歉对友谊起了什么作用？",
+        "answer": "sincere",
+        "meaning": "真诚的",
+        "material": "A sincere apology helped rebuild their friendship.",
+        "before": "A ",
+        "after": " apology helped rebuild their friendship.",
+        "reason": "sincere修饰apology，表示真诚的。helped rebuild说明有助于修复友谊，不保证问题全部解决，也没有说只靠道歉就够。sincere是形容词，sincerely是副词。",
+        "hint": "helped是有帮助，不是保证全解决。",
+        "wordDecision": {
+          "prompt": "真诚道歉对友谊起了什么作用？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "道歉有助于修复友谊",
+            "prompt": "只保留原句支持的记录。",
+            "rows": [
+              {
+                "id": "help",
+                "label": "有助于修复友谊",
+                "text": "The apology helped rebuild their friendship.",
+                "include": true
+              },
+              {
+                "id": "guarantee",
+                "label": "保证问题全消失",
+                "text": "The apology alone guaranteed that every problem disappeared.",
+                "include": false
+              },
+              {
+                "id": "harm",
+                "label": "道歉毁掉了友谊",
+                "text": "The apology destroyed their friendship.",
+                "include": false
+              }
+            ],
+            "hint": "helped不是alone guaranteed。",
+            "wrong": "只选有助于修复友谊；不能扩大作用或反转方向。"
+          }
+        },
+        "options": [
+          {
+            "id": "guarantee",
+            "text": "The apology alone guaranteed that every problem disappeared.",
+            "correct": false,
+            "reason": "帮助被扩大成独自保证所有问题消失。"
+          },
+          {
+            "id": "help",
+            "text": "A sincere apology contributed to rebuilding the friendship.",
+            "correct": true,
+            "reason": "helped表示起了帮助作用。"
+          },
+          {
+            "id": "harm",
+            "text": "The apology is reported to have destroyed the friendship.",
+            "correct": false,
+            "reason": "rebuild被反转成destroy。"
+          }
+        ]
+      },
+      {
+        "id": "thoughtful",
+        "label": "thoughtful：按请求，留哪个座位？",
+        "prompt": "按请求，留哪个座位？",
+        "answer": "thoughtful",
+        "meaning": "体贴的；深思熟虑的",
+        "material": "It was thoughtful to save a seat near the door.",
+        "before": "It was ",
+        "after": " to save a seat near the door.",
+        "reason": "thoughtful在这里表示体贴、考虑周到。save a seat是留座，near the door限定靠近门。示意情境中同学请求坐门边，A符合请求；图只说明距离，thoughtful这一评价来自原句，不是看椅子就能判断人的品格。",
+        "hint": "先看门的位置；体贴这一评价来自原句。",
+        "wordDecision": {
+          "prompt": "情境：同学请求坐在门边。点出应预留的座位。",
+          "art": {
+            "pictureOnly": true,
+            "assetRoot": "illustrations-3",
+            "asset": "lesson-door-seat",
+            "alt": "房间左侧是敞开的门，三把相同椅子横向分开摆放；左侧椅子最近。",
+            "targets": [
+              {
+                "id": "a",
+                "option": "near",
+                "label": "A",
+                "left": 12,
+                "top": 25,
+                "width": 22,
+                "height": 65
+              },
+              {
+                "id": "b",
+                "option": "middle",
+                "label": "B",
+                "left": 41,
+                "top": 25,
+                "width": 22,
+                "height": 65
+              },
+              {
+                "id": "c",
+                "option": "far",
+                "label": "C",
+                "left": 73,
+                "top": 25,
+                "width": 22,
+                "height": 65
+              }
+            ],
+            "evidence": [
+              {
+                "option": "near",
+                "caption": "A最靠近左侧门，符合这次门边留座的请求。体贴这一评价来自原句，不是从椅子推断品格。",
+                "regions": [
+                  {
+                    "id": "door",
+                    "left": 1,
+                    "top": 20,
+                    "width": 14,
+                    "height": 39,
+                    "label": "左侧门"
+                  },
+                  {
+                    "id": "near",
+                    "left": 18,
+                    "top": 35,
+                    "width": 11,
+                    "height": 21,
+                    "label": "门边座位"
+                  }
+                ]
+              },
+              {
+                "option": "middle",
+                "caption": "B比A离左侧门远。请求是门边留座，回看最靠近门的A。",
+                "regions": [
+                  {
+                    "id": "middle",
+                    "left": 46,
+                    "top": 35,
+                    "width": 11,
+                    "height": 21,
+                    "label": "中间座位"
+                  }
+                ]
+              },
+              {
+                "option": "far",
+                "caption": "C离左侧门最远，不能替代near the door。",
+                "regions": [
+                  {
+                    "id": "far",
+                    "left": 78,
+                    "top": 35,
+                    "width": 11,
+                    "height": 21,
+                    "label": "远端座位"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "middle",
+            "text": "Reserve the middle seat farther from the door.",
+            "correct": false,
+            "reason": "B比A离门远，不符合本题的门边请求。"
+          },
+          {
+            "id": "far",
+            "text": "Reserve the seat farthest from the door.",
+            "correct": false,
+            "reason": "C离门最远，不能替代near the door。"
+          },
+          {
+            "id": "near",
+            "text": "Reserve the seat nearest the door in this scene.",
+            "correct": true,
+            "reason": "A靠近左侧门，符合本题门边留座的请求。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-character-5-transfer",
+      "topicId": "v-course-character",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "Which notes preserve verification, intention and the actual effect?",
+      "passage": "Before our club activity\nWe needed a reliable source for the weather report. We chose to check the original local forecast, including its city and valid time. This did not prove that every claim we saw was correct.\nA positive attitude helped our group keep trying. One negative comment should not stop our practice. Lin was determined to finish the difficult climb, but the notes did not report whether she completed it.\nA stubborn refusal delayed the whole group; the activity was not cancelled. A sincere apology later helped rebuild a friendship. We also saved a seat near the door for a classmate who had asked for one.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The source still needed checking; Lin intended to finish; the refusal caused a delay."
+        },
+        {
+          "id": "b",
+          "text": "Every claim was proved correct; Lin intended to finish; the refusal caused a delay."
+        },
+        {
+          "id": "c",
+          "text": "The source still needed checking; Lin had already finished; the refusal caused a delay."
+        },
+        {
+          "id": "d",
+          "text": "The source still needed checking; Lin intended to finish; the activity was cancelled."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "The source still needed checking; Lin intended to finish; the refusal caused a delay."
+      },
+      "marks": 2,
+      "estimatedSeconds": 105,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "区分来源选择与全面核实、决心与完成、延误与取消。",
+        "steps": [
+          {
+            "text": "可追溯来源仍要核对，不能说每个说法都已证实；Lin有完成的决心，结果没有写。",
+            "reason": "did not prove every claim和did not report whether she completed it分别限制核实与完成状态。"
+          },
+          {
+            "text": "拒绝造成的是延误，原文明确说活动没有取消。",
+            "reason": "delayed the whole group与was not cancelled一起限定实际影响。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把需要核对的资料补成每个说法都已证实。"
+          },
+          {
+            "option": "c",
+            "reason": "把determined to finish的决心改成已经完成。"
+          },
+          {
+            "option": "d",
+            "reason": "把延误扩大成取消，反转was not cancelled。"
+          }
+        ],
+        "pitfall": "把可靠当作全面证实，把目标当作完成，把延误当作取消。",
+        "visual": {
+          "kind": "timeline",
+          "title": "核实、决心、影响",
+          "segments": [
+            {
+              "text": "traceable ≠ all verified",
+              "role": "object",
+              "note": "能追溯，仍需核对"
+            },
+            {
+              "text": "determined ≠ completed",
+              "role": "object",
+              "note": "决心不等于完成"
+            },
+            {
+              "text": "delayed ≠ cancelled",
+              "role": "object",
+              "note": "保留延误，不补取消"
+            }
+          ],
+          "caption": "每次只记录原文支持的状态。"
+        },
+        "transfer": "She is determined to finish the report，能说报告已经完成了吗？用目标和结果的区别解释。"
+      }
+    }
+  }
+}

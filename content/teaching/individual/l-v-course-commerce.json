@@ -1,0 +1,564 @@
+{
+  "lessonId": "l-v-course-commerce",
+  "reviewState": "draft",
+  "intent": "Eight individual shopping tasks distinguish buy/sell, pay/cost/spend subjects, payment permissions, reserved bus fare, cash/card and the location of a coin.",
+  "picturePurpose": "Original fictional cash/card illustration distinguishes payment forms without inventing denominations. Budget amounts and exact one-yuan tokens are coded.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "先留车费，再选付款方式",
+    "instruction": "把钱分好，别把车费花掉；再看这个地点收什么。",
+    "items": [
+      {
+        "id": "buy",
+        "label": "buy：只买能带回家的，等于看中的都买了吗？",
+        "prompt": "只买能带回家的，等于看中的都买了吗？",
+        "answer": "buy",
+        "meaning": "买",
+        "material": "We buy only what we can carry home.",
+        "before": "We ",
+        "after": " only what we can carry home.",
+        "reason": "buy是买。only what we can carry home把购买范围限制在能自己带回家的东西，没有给出件数，也不是看见什么都买。",
+        "hint": "buy的过去式是bought；这里We后用buy。",
+        "wordDecision": {
+          "prompt": "只买能带回家的，等于看中的都买了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "只买能带回家的东西",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "carry",
+                "label": "购买范围受能否带回家限制",
+                "text": "We buy only what we can carry home.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "带不动也全部买下",
+                "text": "We buy everything even if we cannot carry it.",
+                "include": false
+              },
+              {
+                "id": "number",
+                "label": "已给出准确携带件数",
+                "text": "The sentence gives an exact number of items.",
+                "include": false
+              }
+            ],
+            "hint": "保留only与can，不补件数。",
+            "wrong": "只选能带回家的范围；不扩大成全部或补数量。"
+          }
+        },
+        "options": [
+          {
+            "id": "carry",
+            "text": "We limit our purchases to things we can carry home.",
+            "correct": true,
+            "reason": "only限制购买范围。"
+          },
+          {
+            "id": "all",
+            "text": "We buy everything we see, even if we cannot carry it.",
+            "correct": false,
+            "reason": "不能忽略only和携带能力。"
+          },
+          {
+            "id": "number",
+            "text": "The sentence gives an exact number of items we can carry.",
+            "correct": false,
+            "reason": "没有给出准确件数。"
+          }
+        ]
+      },
+      {
+        "id": "sell",
+        "label": "sell：商店将卖本地篮子，等于已经卖完了吗？",
+        "prompt": "商店将卖本地篮子，等于已经卖完了吗？",
+        "answer": "sell",
+        "meaning": "卖；出售",
+        "material": "The shop will sell locally made baskets.",
+        "before": "The shop will ",
+        "after": " locally made baskets.",
+        "reason": "sell是卖、出售。will sell locally made baskets说明商店将出售本地制作的篮子，没有确认已经卖出，更没有给出销量、价格或制作人。",
+        "hint": "will后用sell；过去式是sold。",
+        "wordDecision": {
+          "prompt": "商店将卖本地篮子，等于已经卖完了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "将出售本地制作的篮子",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "future",
+                "label": "计划出售本地制作的篮子",
+                "text": "The shop will sell locally made baskets.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "全部篮子已经卖完",
+                "text": "All the baskets have already been sold.",
+                "include": false
+              },
+              {
+                "id": "import",
+                "label": "篮子都在国外制作",
+                "text": "All the baskets are made in another country.",
+                "include": false
+              }
+            ],
+            "hint": "将来计划不变，locally的范围不变。",
+            "wrong": "只选将卖本地篮子；不能改成已售完或国外制作。"
+          }
+        },
+        "options": [
+          {
+            "id": "future",
+            "text": "The shop plans to sell baskets made locally.",
+            "correct": true,
+            "reason": "will sell表示将出售；locally made保留本地制作。"
+          },
+          {
+            "id": "done",
+            "text": "All the baskets have already been sold.",
+            "correct": false,
+            "reason": "将出售不能改成已经全部卖完。"
+          },
+          {
+            "id": "import",
+            "text": "The baskets will all be made in another country.",
+            "correct": false,
+            "reason": "locally made不能反成本地以外制作。"
+          }
+        ]
+      },
+      {
+        "id": "pay",
+        "label": "pay：这个柜台能刷卡，等于所有柜台都只收卡吗？",
+        "prompt": "这个柜台能刷卡，等于所有柜台都只收卡吗？",
+        "answer": "pay",
+        "meaning": "支付",
+        "material": "You can pay by card at this counter.",
+        "before": "You can ",
+        "after": " by card at this counter.",
+        "reason": "pay是支付。can pay by card说明这个柜台可以刷卡，不说明现金是否可用，也不能推广到所有柜台。pay的主语通常是付款的人。",
+        "hint": "pay by card；pay for something表示为某物付款。",
+        "wordDecision": {
+          "prompt": "这个柜台能刷卡，等于所有柜台都只收卡吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "这个柜台可以刷卡",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "card",
+                "label": "允许在这个柜台刷卡",
+                "text": "You can pay by card at this counter.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "所有柜台都只收卡",
+                "text": "Every counter accepts only cards.",
+                "include": false
+              },
+              {
+                "id": "cash",
+                "label": "这里禁止现金付款",
+                "text": "Cash payment is forbidden here.",
+                "include": false
+              }
+            ],
+            "hint": "只说这个柜台能刷卡；现金情况未给出。",
+            "wrong": "只选这个柜台可以刷卡；不扩大范围或补现金禁令。"
+          }
+        },
+        "options": [
+          {
+            "id": "card",
+            "text": "Card payment is available at this counter.",
+            "correct": true,
+            "reason": "can pay by card明确这个柜台能刷卡。"
+          },
+          {
+            "id": "all",
+            "text": "Every counter accepts only cards.",
+            "correct": false,
+            "reason": "this不能扩大成every；也没有only。"
+          },
+          {
+            "id": "cash",
+            "text": "Cash payment is forbidden at this counter.",
+            "correct": false,
+            "reason": "说明能刷卡，不等于禁止现金。"
+          }
+        ]
+      },
+      {
+        "id": "cost",
+        "label": "cost：问修理多少钱，等于已经给出报价了吗？",
+        "prompt": "问修理多少钱，等于已经给出报价了吗？",
+        "answer": "cost",
+        "meaning": "花费；费用",
+        "material": "How much does the repair cost?",
+        "before": "How much does the repair ",
+        "after": "?",
+        "reason": "cost在这里是花费。主语是the repair这件事，How much问修理价格；原句没有金额，也不是问需要多长时间。does后用cost原形。",
+        "hint": "事情＋cost＋钱；不要把cost与人的spend、pay主语混用。",
+        "wordDecision": {
+          "prompt": "问修理多少钱，等于已经给出报价了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "询问修理的费用",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "price",
+                "label": "问这次修理要花多少钱",
+                "text": "How much does the repair cost?",
+                "include": true
+              },
+              {
+                "id": "time",
+                "label": "问修理要用多少时间",
+                "text": "How long does the repair take?",
+                "include": false
+              },
+              {
+                "id": "given",
+                "label": "已经给出修理的准确报价",
+                "text": "The sentence states the exact repair price.",
+                "include": false
+              }
+            ],
+            "hint": "How much问钱；报价未给出。",
+            "wrong": "只选询问费用；不换成时长或补报价。"
+          }
+        },
+        "options": [
+          {
+            "id": "price",
+            "text": "The question asks for the price of the repair.",
+            "correct": true,
+            "reason": "How much问花费金额。"
+          },
+          {
+            "id": "time",
+            "text": "The question asks how long the repair takes.",
+            "correct": false,
+            "reason": "金额不是时长。"
+          },
+          {
+            "id": "given",
+            "text": "The sentence already states the exact repair price.",
+            "correct": false,
+            "reason": "问句没有给出报价。"
+          }
+        ]
+      },
+      {
+        "id": "spend",
+        "label": "spend：带清单时花得更少，等于完全不花钱吗？",
+        "prompt": "带清单时花得更少，等于完全不花钱吗？",
+        "answer": "spend",
+        "meaning": "花费；度过",
+        "material": "I spend less money when I take a shopping list.",
+        "before": "I ",
+        "after": " less money when I take a shopping list.",
+        "reason": "spend是花费。这里主语是I，花费的是money，带购物清单时花钱更少；比较不等于零支出，也不构成对所有人的永远保证。",
+        "hint": "人＋spend＋钱；spend time doing表示花时间做某事。",
+        "wordDecision": {
+          "prompt": "带清单时花得更少，等于完全不花钱吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "带购物清单时花钱更少",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "less",
+                "label": "带清单时花的钱更少",
+                "text": "I spend less money when I take a shopping list.",
+                "include": true
+              },
+              {
+                "id": "zero",
+                "label": "只要带清单就完全不花钱",
+                "text": "I spend no money whenever I carry a list.",
+                "include": false
+              },
+              {
+                "id": "more",
+                "label": "带清单时花钱更多",
+                "text": "I spend more money when I carry a list.",
+                "include": false
+              }
+            ],
+            "hint": "保留less的比较，不改成零或更多。",
+            "wrong": "选花得更少；不能反转或扩大成完全不花钱。"
+          }
+        },
+        "options": [
+          {
+            "id": "less",
+            "text": "I use less money when I bring a shopping list.",
+            "correct": true,
+            "reason": "less money比较花费多少。"
+          },
+          {
+            "id": "zero",
+            "text": "I spend no money whenever I carry a list.",
+            "correct": false,
+            "reason": "更少不等于零。"
+          },
+          {
+            "id": "more",
+            "text": "Taking a shopping list makes me spend more money here.",
+            "correct": false,
+            "reason": "less不能反成more。"
+          }
+        ]
+      },
+      {
+        "id": "money",
+        "label": "money：练习：12元中刚好留3元车费，还能安排多少？",
+        "prompt": "练习：12元中刚好留3元车费，还能安排多少？",
+        "answer": "money",
+        "meaning": "钱",
+        "material": "Keep a little money for the bus home.",
+        "before": "Keep a little ",
+        "after": " for the bus home.",
+        "reason": "money是钱，通常不可数。原句要求留一点钱坐公交回家，没有给具体金额。下面另设练习：共有12元，回家车费3元，刚好留出3元，其余9元才可安排；这些数字不是原句事实。",
+        "hint": "money不可数；a little money表示一点钱。",
+        "wordDecision": {
+          "prompt": "练习：12元中刚好留3元车费，还能安排多少？",
+          "busBudget": {
+            "title": "本练习：先留回家车费",
+            "total": 12,
+            "fare": 3,
+            "hint": "共有12元，车费3元；刚好留出3元，再看其余金额。每个圆片代表1元。",
+            "wrong": "先留3元车费，其余9元才可安排；数字只属于本练习。"
+          }
+        },
+        "options": [
+          {
+            "id": "reserve",
+            "text": "Keep part of the money for the bus ride home.",
+            "correct": true,
+            "reason": "for the bus home说明留下来的用途。"
+          },
+          {
+            "id": "all",
+            "text": "Spend all the money before going home.",
+            "correct": false,
+            "reason": "Keep要求留钱，不是全部花光。"
+          },
+          {
+            "id": "free",
+            "text": "The sentence says the bus ride home is free.",
+            "correct": false,
+            "reason": "没有说公交免费，也没给出原句中的车费。"
+          }
+        ]
+      },
+      {
+        "id": "cash",
+        "label": "cash：这个摊位收现金不收卡，哪种付款符合？",
+        "prompt": "这个摊位收现金不收卡，哪种付款符合？",
+        "answer": "cash",
+        "meaning": "现金",
+        "material": "The stall accepts cash but not cards.",
+        "before": "The stall accepts ",
+        "after": " but not cards.",
+        "reason": "cash是现金。这个摊位accepts cash but not cards说明收现金、不收卡。图只区分虚构纸币硬币与卡，不提供面额、总金额或真实商家规则。",
+        "hint": "pay in cash；现金与card付款方式分开。",
+        "wordDecision": {
+          "prompt": "这个摊位收现金不收卡，哪种付款符合？",
+          "art": {
+            "asset": "lesson-cash-card",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "左边是没有面额的虚构蓝绿色纸币和银色硬币，右边是一张没有姓名或卡号的蓝绿色芯片卡。"
+          }
+        },
+        "options": [
+          {
+            "id": "cash",
+            "text": "Use cash at this stall; cards are not accepted.",
+            "correct": true,
+            "reason": "现金可用，卡不可用，两个条件都保留。"
+          },
+          {
+            "id": "card",
+            "text": "Use a card at this stall instead of cash.",
+            "correct": false,
+            "reason": "but not cards已经排除卡。"
+          },
+          {
+            "id": "both",
+            "text": "The stall accepts both cash and cards.",
+            "correct": false,
+            "reason": "不能把不收卡改成两种都收。"
+          }
+        ]
+      },
+      {
+        "id": "coin",
+        "label": "coin：硬币在售票机下面，等于已经找回来了吗？",
+        "prompt": "硬币在售票机下面，等于已经找回来了吗？",
+        "answer": "coin",
+        "meaning": "硬币",
+        "material": "A coin rolled beneath the ticket machine.",
+        "before": "A ",
+        "after": " rolled beneath the ticket machine.",
+        "reason": "coin是硬币。A coin rolled beneath the ticket machine表示一枚硬币滚到了售票机下面，不说明面额，也没有确认已经捡回或机器收到付款。",
+        "hint": "a coin可数；beneath在这里相当于under。",
+        "wordDecision": {
+          "prompt": "硬币在售票机下面，等于已经找回来了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "一枚硬币滚到售票机下面",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "beneath",
+                "label": "滚到了售票机下方",
+                "text": "A coin rolled beneath the ticket machine.",
+                "include": true
+              },
+              {
+                "id": "inside",
+                "label": "进入了售票机内部",
+                "text": "The coin went inside the ticket machine.",
+                "include": false
+              },
+              {
+                "id": "found",
+                "label": "已经把硬币捡回",
+                "text": "Someone has already picked up the coin.",
+                "include": false
+              }
+            ],
+            "hint": "位置与找回结果分开，不补面额。",
+            "wrong": "选滚到下面；不能换成内部或已捡回。"
+          }
+        },
+        "options": [
+          {
+            "id": "beneath",
+            "text": "A coin rolled to a place under the ticket machine.",
+            "correct": true,
+            "reason": "beneath说明位置在下面。"
+          },
+          {
+            "id": "inside",
+            "text": "The coin went inside the ticket machine.",
+            "correct": false,
+            "reason": "下面不等于机器内部。"
+          },
+          {
+            "id": "found",
+            "text": "Someone has already picked up the coin.",
+            "correct": false,
+            "reason": "滚到下面不等于已捡回。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-commerce-transfer",
+      "topicId": "v-course-commerce",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which plan keeps the payment rules and the budget correct?",
+      "passage": "Planning a small shopping trip\nWe bought only things we could carry home. A shop planned to sell locally made baskets, but we had no report that they had all been sold. At one counter, card payment was available. This did not tell us whether cash was accepted there or what other counters accepted. A different stall accepted cash but not cards.\nWe asked how much a repair would cost; no price was supplied. I usually spent less money when I took a shopping list. Less did not mean that I spent nothing. Before shopping, we also practised keeping money for the bus home.\nIn that separate budget exercise, we had 12 yuan and the stated bus fare was 3 yuan. We moved exactly 3 yuan into the bus-fare tray, leaving 9 yuan available for other plans. The amounts belonged to the exercise, not to the original instruction to keep a little money. The picture showed fictional cash and a card without denominations.\nFinally, a coin rolled beneath the ticket machine. This told us where it went, not that it had been put into the machine or picked up again.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The counter forbade cash; the stall accepted cash but not cards; the exercise left 9 yuan after reserving 3 yuan."
+        },
+        {
+          "id": "b",
+          "text": "The counter allowed card payment; the stall accepted both cash and cards; the exercise left 9 yuan after reserving 3 yuan."
+        },
+        {
+          "id": "c",
+          "text": "The counter allowed card payment; the stall accepted cash but not cards; the exercise left 9 yuan after reserving 3 yuan."
+        },
+        {
+          "id": "d",
+          "text": "The counter allowed card payment; the stall accepted cash but not cards; the exercise left all 12 yuan to spend after reserving 3 yuan."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The counter allowed card payment; the stall accepted cash but not cards; the exercise left 9 yuan after reserving 3 yuan."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "把两个付款地点分开，再留足车费。",
+        "steps": [
+          {
+            "text": "柜台可以刷卡；另一个摊位收现金但不收卡。",
+            "reason": "can pay by card没有禁止现金；but not cards明确排除卡。"
+          },
+          {
+            "text": "12元中留3元，12−3＝9元可安排。",
+            "reason": "留下的车费不能再算进购物金额；数字只属于练习。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把柜台能刷卡改成禁止现金。"
+          },
+          {
+            "option": "b",
+            "reason": "把摊位不收卡改成现金和卡都收。"
+          },
+          {
+            "option": "d",
+            "reason": "留了3元却仍把12元全部当成可花金额，重复计算。"
+          }
+        ],
+        "pitfall": "混淆不同地点的付款规则，或把要留下的钱又花一次。",
+        "visual": {
+          "kind": "timeline",
+          "title": "先分地点，再分金额",
+          "segments": [
+            {
+              "text": "counter: card allowed",
+              "role": "object",
+              "note": "没有说明现金是否可用"
+            },
+            {
+              "text": "stall: cash, not cards",
+              "role": "object",
+              "note": "两个条件都保留"
+            },
+            {
+              "text": "12 − 3 = 9",
+              "role": "object",
+              "note": "留车费后的可用金额"
+            }
+          ],
+          "caption": "预算数字是本练习设定；不要从没有面额的图片猜金额。"
+        },
+        "transfer": "How much does the repair cost?这个问句已经给出报价了吗？"
+      }
+    }
+  }
+}

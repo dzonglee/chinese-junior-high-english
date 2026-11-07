@@ -1,4 +1,14 @@
-# Validation evidence · 2026-10-17
+# Validation evidence
+
+## Current local lesson upgrade · 2026-11-07
+
+All 413 individual lesson reviews are complete. The [final application checkpoint](reviews/individual-lessons/final-application-checkpoint.json) records 2,820 core tests/212 files, 292 full offline checks, both complete 245-pack adapter modes and exact-source development archives. [Final app screenshots and review](reviews/individual-lessons/final-local-review-2026-11-07.md) and the [course audit](reviews/individual-lessons/final-course-audit.json) record current browser/visual scope and every individual review.
+
+Actual native evidence remains historical through lesson 147 with 805 inspected captures; 148–413 await explicit source-transfer permission after automatic approval review rejected development-source ZIP egress. Current browser/adapter results do not establish current native compilation or device readiness. Approved audio, physical devices, editorial/cohort mapping and publication remain pending.
+
+The dated evidence below is retained for its original builds and scope.
+
+# Historical development evidence · 2026-10-17
 
 The application runs in the development environment. These checks establish the development
 behavior below; they do not establish native release or publication.

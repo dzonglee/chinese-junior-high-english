@@ -1,0 +1,281 @@
+{
+  "lessonId": "l-w-course-t04",
+  "reviewState": "draft",
+  "intent": "Written study plans reconstruct recall-before-checking order, accept equivalent before/after sentence structures and explain evidence without invented perfect or permanent results.",
+  "picturePurpose": "Coded ordering and two equivalent temporal sentences expose the actual meaning; no image is needed for this written relationship.",
+  "workshop": {
+    "kind": "compose",
+    "title": "把先回忆后核对写清楚",
+    "instruction": "先排好三个动作，再比较before与after怎样表达同一顺序，最后检查理由是否说得过头。写自己的两到四句，不必照抄参考稿。",
+    "items": [
+      {
+        "id": "check-0",
+        "label": "先排复习顺序，再动笔",
+        "prompt": "三步怎样排，才是先独立尝试、后核对？",
+        "answer": "",
+        "reason": "合上笔记、回忆五词、再核对的顺序已明确。再用自己的句子把动作连起来。",
+        "hint": "这里排的是原题要求的复习顺序，不是规定你的短文只能用一种句式。",
+        "material": "写2—4句英文。你准备复习五个词。说明先尝试独立回忆、再核对的顺序，并指出为什么不边看边抄。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeOrder": {
+          "title": "三个动作，不颠倒",
+          "hint": "按实际做事顺序点选；可撤回、重排。",
+          "wrong": "先看答案再照抄，不能当作不看笔记的回忆。",
+          "events": [
+            {
+              "id": "check",
+              "label": "Check the notes"
+            },
+            {
+              "id": "recall",
+              "label": "Try five words from memory"
+            },
+            {
+              "id": "close",
+              "label": "Close the notes"
+            }
+          ],
+          "sequence": [
+            "close",
+            "recall",
+            "check"
+          ]
+        },
+        "composeBrief": {
+          "title": "动作与数量核对",
+          "hint": "原题是五个词，先尝试再核对。",
+          "wrong": "原题是五个词，不是四个；必须先尝试回忆，不能一直看着词表抄写。",
+          "fields": [
+            {
+              "id": "count",
+              "label": "哪项保留原题对象与复习方式？",
+              "answer": "five",
+              "choices": [
+                {
+                  "id": "five",
+                  "label": "Five words."
+                },
+                {
+                  "id": "four",
+                  "label": "Four words from my notes."
+                },
+                {
+                  "id": "visible",
+                  "label": "Five words copied with my notes open."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "check-1",
+        "label": "before和after，都能写对先后",
+        "prompt": "选择一种关系词，再选保持同一顺序的句子。",
+        "answer": "",
+        "reason": "关系词与整句先后已对应。自己的正确句式可以不同，但核对必须在回忆尝试之后。",
+        "hint": "before与after不是按单词长短选；看两边动作谁先谁后。",
+        "material": "写2—4句英文。你准备复习五个词。说明先尝试独立回忆、再核对的顺序，并指出为什么不边看边抄。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "同一顺序，两种写法",
+          "hint": "I try before I check；I check after I try。",
+          "wrong": "不能只换关系词而不检查整句顺序；before与after两种结构都能写对。",
+          "fields": [
+            {
+              "id": "pattern",
+              "label": "选一种写法",
+              "answer": "before",
+              "choices": [
+                {
+                  "id": "before",
+                  "label": "用before连接"
+                },
+                {
+                  "id": "after",
+                  "label": "用after连接"
+                }
+              ]
+            },
+            {
+              "id": "sentence",
+              "label": "哪句与所选写法对应且先后正确？",
+              "answer": "before-correct",
+              "choices": [
+                {
+                  "id": "before-correct",
+                  "label": "I will try to recall the words before I check my notes."
+                },
+                {
+                  "id": "after-correct",
+                  "label": "I will check my notes after I try to recall the words."
+                },
+                {
+                  "id": "reversed",
+                  "label": "I will check my notes before I try to recall the words."
+                }
+              ]
+            }
+          ],
+          "paths": {
+            "selector": "pattern",
+            "answers": {
+              "before": {
+                "sentence": "before-correct"
+              },
+              "after": {
+                "sentence": "after-correct"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "check-2",
+        "label": "理由准确，不把练过写成永远记住",
+        "prompt": "哪句解释为什么不边看边抄？成稿要注意什么？",
+        "answer": "",
+        "reason": "独立回忆与照抄的区别已核对。再检查自己的短文是否有完整的顺序与理由。",
+        "hint": "照抄能帮助练习，但不能凭抄对就断定不看也会、以后一直记得。",
+        "material": "写2—4句英文。你准备复习五个词。说明先尝试独立回忆、再核对的顺序，并指出为什么不边看边抄。 人名可用虚构名字，不写真实住址或联系方式。",
+        "composeBrief": {
+          "title": "理由与成稿检查卡",
+          "hint": "只写本次方法能说明的事，不虚构自己已经全会。",
+          "wrong": "要说明先回忆后核对和不边看边抄的理由。照抄或练完立即全对不能证明一周后的回忆；只列目标词或报告结果，不能替代2—4句方法说明。",
+          "fields": [
+            {
+              "id": "reason",
+              "label": "哪句准确解释本题理由？",
+              "answer": "independent",
+              "choices": [
+                {
+                  "id": "forever",
+                  "label": "One correct copy also shows how well I can recall the words a week later."
+                },
+                {
+                  "id": "independent",
+                  "label": "Copying with the notes open does not show what I can recall without looking."
+                },
+                {
+                  "id": "useless",
+                  "label": "Looking at the notes before my attempt gives the same recall evidence as keeping them closed."
+                }
+              ]
+            },
+            {
+              "id": "form",
+              "label": "原题要求",
+              "answer": "sentences",
+              "choices": [
+                {
+                  "id": "sentences",
+                  "label": "Write two to four complete English sentences."
+                },
+                {
+                  "id": "words",
+                  "label": "Write only the five target words, without sentences explaining the method."
+                },
+                {
+                  "id": "result",
+                  "label": "Write only a report that all five words were correct, leaving out the review order and reason."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-w-course-t04-transfer",
+      "topicId": "w-course-t04",
+      "skill": "writing",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "Which written plan preserves the new task and the correct order?",
+      "passage": "A different written study plan\nYou want to review three short grammar examples. Write two to four complete English sentences explaining that you will first try to recall them with your notes closed and then check the notes. Explain why copying with the notes open cannot show unaided recall. Use before, after or another clear way to express the correct sequence. This plan includes no actual test result or delayed recall check.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Explain first recalling three grammar examples with the notes closed, then checking, and why visible copying cannot show unaided recall in two to four complete sentences."
+        },
+        {
+          "id": "b",
+          "text": "Explain first recalling the old five-word list with the notes closed, then checking and giving the copying reason in two to four sentences, without updating the new grammar-example task."
+        },
+        {
+          "id": "c",
+          "text": "Write that you will check the notes before trying to recall the three grammar examples, then describe that answer-first process as independent recall in two to four complete sentences."
+        },
+        {
+          "id": "d",
+          "text": "Write that you will recall three grammar examples with the notes closed and check afterwards, then say immediate success proves you can recall them a week later."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Explain first recalling three grammar examples with the notes closed, then checking, and why visible copying cannot show unaided recall in two to four complete sentences."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先更新复习对象与数量，再通读关系词两边的动作。",
+        "steps": [
+          {
+            "text": "新任务是三条语法例句，先合上笔记尝试回忆。",
+            "reason": "不能照搬原题的五个词，成稿仍需完整的两到四句。"
+          },
+          {
+            "text": "回忆后才核对；before或after都可，只要整句顺序正确。",
+            "reason": "看着答案抄对不能证明独立回忆，也不能保证长期记忆。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "没有把旧题五个词更新为三条语法例句。"
+          },
+          {
+            "option": "c",
+            "reason": "把核对放在尝试前，不能体现先独立回忆。"
+          },
+          {
+            "option": "d",
+            "reason": "虽然顺序和对象正确，却把即时成功写成一周后回忆的证据；题目没有延时检查。"
+          }
+        ],
+        "pitfall": "用了before或after，却没检查整句是否把先后写反。",
+        "visual": {
+          "kind": "timeline",
+          "title": "先后相同，句式可变",
+          "segments": [
+            {
+              "text": "notes closed → try three examples",
+              "role": "evidence",
+              "note": "先尝试"
+            },
+            {
+              "text": "check afterwards",
+              "role": "evidence",
+              "note": "后核对"
+            },
+            {
+              "text": "try before checking / check after trying",
+              "role": "evidence",
+              "note": "两种正确关系"
+            }
+          ],
+          "caption": "完整句子表达方法与原因，不虚构学习结果。"
+        },
+        "transfer": "将I try before I check改成after句式，两个动作怎样换位置？"
+      }
+    }
+  }
+}

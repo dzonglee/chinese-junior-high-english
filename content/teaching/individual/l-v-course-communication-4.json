@@ -1,0 +1,584 @@
+{
+  "lessonId": "l-v-course-communication-4",
+  "reviewState": "draft",
+  "intent": "Eight individual tasks distinguish magazine scope, causal articles, facts and opinions, open interview questions, uncountable information, bounded communication benefits and warning signals.",
+  "picturePurpose": "Original park interview setting supports selecting an open question; exact question text and feedback stay in code.",
+  "workshop": {
+    "kind": "word-use",
+    "navigationLabel": "任务",
+    "title": "给采访选问题，核对信息范围",
+    "instruction": "选一个能让对方展开说的问题，再查清原句支持哪些信息。",
+    "items": [
+      {
+        "id": "magazine",
+        "label": "magazine：杂志收录本地野生生物指南，等于整本只有指南吗？",
+        "prompt": "杂志收录本地野生生物指南，等于整本只有指南吗？",
+        "answer": "magazine",
+        "meaning": "杂志",
+        "material": "The magazine includes a guide to local wildlife.",
+        "before": "The ",
+        "after": " includes a guide to local wildlife.",
+        "reason": "magazine是杂志。includes a guide to local wildlife表示其中有本地野生生物指南，不说明其他栏目，也不能推断列出了所有动物。",
+        "hint": "a magazine；includes的主语是单数。",
+        "wordDecision": {
+          "prompt": "杂志收录本地野生生物指南，等于整本只有指南吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "杂志里有本地野生生物指南",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "includes",
+                "label": "其中收录一份本地野生生物指南",
+                "text": "The magazine includes a guide to local wildlife.",
+                "include": true
+              },
+              {
+                "id": "only",
+                "label": "整本杂志只有这份指南",
+                "text": "The magazine contains only this guide.",
+                "include": false
+              },
+              {
+                "id": "all",
+                "label": "列出全世界每一种动物",
+                "text": "It lists every animal in the world.",
+                "include": false
+              }
+            ],
+            "hint": "包含不等于只有；local不能扩成全球。",
+            "wrong": "只选收录指南；不要扩大范围或加上“只有”。"
+          }
+        },
+        "options": [
+          {
+            "id": "includes",
+            "text": "A guide to local wildlife is included in the magazine.",
+            "correct": true,
+            "reason": "includes表示包含，不表示只有这一部分。"
+          },
+          {
+            "id": "only",
+            "text": "The magazine contains nothing except the wildlife guide.",
+            "correct": false,
+            "reason": "包含某部分不等于整本只有这部分。"
+          },
+          {
+            "id": "all",
+            "text": "The magazine lists every animal in the world.",
+            "correct": false,
+            "reason": "local wildlife不能扩大成世界上所有动物。"
+          }
+        ]
+      },
+      {
+        "id": "article",
+        "label": "article：文章解释洪水原因，等于准确预报下次洪水吗？",
+        "prompt": "文章解释洪水原因，等于准确预报下次洪水吗？",
+        "answer": "article",
+        "meaning": "文章；冠词",
+        "material": "The article explains why the river floods.",
+        "before": "The ",
+        "after": " explains why the river floods.",
+        "reason": "article这里指文章。explains why说明文章解释河流泛滥的原因，没有给出具体原因正文，更没有给出下次洪水的准确日期。",
+        "hint": "an article；冠词a、an、the也叫articles，要看语境。",
+        "wordDecision": {
+          "prompt": "文章解释洪水原因，等于准确预报下次洪水吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "文章解释河流泛滥的原因",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "why",
+                "label": "解释河流为什么泛滥",
+                "text": "The article explains why the river floods.",
+                "include": true
+              },
+              {
+                "id": "when",
+                "label": "给出下次洪水准确日期",
+                "text": "The article gives the exact date of the next flood.",
+                "include": false
+              },
+              {
+                "id": "grammar",
+                "label": "这里指语法中的冠词",
+                "text": "Article here refers to a, an or the.",
+                "include": false
+              }
+            ],
+            "hint": "这里的article是文章；why是原因。",
+            "wrong": "选文章解释原因，不选准确日期或语法冠词。"
+          }
+        },
+        "options": [
+          {
+            "id": "why",
+            "text": "The article explains the reasons for the river flooding.",
+            "correct": true,
+            "reason": "why问原因。"
+          },
+          {
+            "id": "when",
+            "text": "The article gives the exact date of the next flood.",
+            "correct": false,
+            "reason": "原因解释不等于下次洪水的准确日期。"
+          },
+          {
+            "id": "grammar",
+            "text": "Article here means the grammar words a, an and the.",
+            "correct": false,
+            "reason": "这里是会解释原因的文章，不是语法中的冠词。"
+          }
+        ]
+      },
+      {
+        "id": "report",
+        "label": "report：报告区分事实和看法，能把个人评价当事实吗？",
+        "prompt": "报告区分事实和看法，能把个人评价当事实吗？",
+        "answer": "report",
+        "meaning": "报告；报道",
+        "material": "Our report separates facts from opinions.",
+        "before": "Our ",
+        "after": " separates facts from opinions.",
+        "reason": "report在这里是报告。separates facts from opinions表示区分事实和看法；可核对的陈述与个人评价要分开。原句没有提供报告正文，也不证明每条陈述已经核实。",
+        "hint": "our report是名词短语；separate A from B表示把A与B分开。",
+        "wordDecision": {
+          "prompt": "报告区分事实和看法，能把个人评价当事实吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "报告把事实与看法分开",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "separate",
+                "label": "报告区分事实和看法",
+                "text": "Our report separates facts from opinions.",
+                "include": true
+              },
+              {
+                "id": "same",
+                "label": "每种看法都当成事实",
+                "text": "Our report treats all opinions as facts.",
+                "include": false
+              },
+              {
+                "id": "verified",
+                "label": "每条陈述都已独立核实",
+                "text": "Every statement has been independently verified.",
+                "include": false
+              }
+            ],
+            "hint": "区分类别与核实每条内容不是同一件事。",
+            "wrong": "只选事实与看法分开；不把评价当事实或补出核实结果。"
+          }
+        },
+        "options": [
+          {
+            "id": "separate",
+            "text": "Our report keeps factual statements separate from opinions.",
+            "correct": true,
+            "reason": "separates表示分开处理。"
+          },
+          {
+            "id": "same",
+            "text": "Our report treats every opinion as a fact.",
+            "correct": false,
+            "reason": "区分不能反成把看法都当事实。"
+          },
+          {
+            "id": "proved",
+            "text": "Every statement in the report has been independently verified.",
+            "correct": false,
+            "reason": "说明区分两类，不等于每条陈述已获独立核实。"
+          }
+        ]
+      },
+      {
+        "id": "interview",
+        "label": "interview：为图中志愿者准备开放式问题，选哪一句？",
+        "prompt": "为图中志愿者准备开放式问题，选哪一句？",
+        "answer": "interview",
+        "meaning": "采访；面试",
+        "material": "Prepare open questions before the interview.",
+        "before": "Prepare open questions before the ",
+        "after": ".",
+        "reason": "interview这里指采访。原句要求采访前准备开放式问题。图只提供假设情境；本练习给公园志愿者选一个邀请详细说明的问题，不把图片当成已经采访或得到回答的证据。",
+        "hint": "before the interview表示采访前；open questions邀请说明，不限于yes/no。",
+        "wordDecision": {
+          "prompt": "为图中志愿者准备开放式问题，选哪一句？",
+          "art": {
+            "asset": "lesson-open-interview",
+            "assetRoot": "illustrations-4",
+            "format": "jpg",
+            "alt": "公园场景中，左边的学生拿着空白笔记本和铅笔，面对右边穿蓝绿色背心的成人；图中没有对白或录音设备。"
+          }
+        },
+        "options": [
+          {
+            "id": "open",
+            "text": "How do you help protect local wildlife?",
+            "correct": true,
+            "reason": "How问题邀请对方说明做法，不限于yes或no。"
+          },
+          {
+            "id": "closed",
+            "text": "Do you work here?",
+            "correct": false,
+            "reason": "这个问题主要用yes或no回答，不是本题要求的开放式问题。"
+          },
+          {
+            "id": "done",
+            "text": "The interview is over, so no questions need preparing.",
+            "correct": false,
+            "reason": "before the interview要求采访前准备，不能改成采访已经结束。"
+          }
+        ]
+      },
+      {
+        "id": "information",
+        "label": "information：需要准确路线信息，等于路线已经核实了吗？",
+        "prompt": "需要准确路线信息，等于路线已经核实了吗？",
+        "answer": "information",
+        "meaning": "信息；资料",
+        "material": "We need accurate information about the route.",
+        "before": "We need accurate ",
+        "after": " about the route.",
+        "reason": "information是信息、资料，通常不可数。need accurate information说明需要准确路线资料，不说明已经获取或核实。说一条信息可以用a piece of information。",
+        "hint": "information不可数；不说an information或informations。",
+        "wordDecision": {
+          "prompt": "需要准确路线信息，等于路线已经核实了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "需要准确的路线信息",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "need",
+                "label": "我们需要准确路线资料",
+                "text": "We need accurate information about the route.",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "路线细节已全部核实",
+                "text": "We have already checked every route detail.",
+                "include": false
+              },
+              {
+                "id": "wrong",
+                "label": "用an information表示一条信息",
+                "text": "We need an information about the route.",
+                "include": false
+              }
+            ],
+            "hint": "先分清需求与已完成，再核对不可数名词。",
+            "wrong": "只选需要准确资料；不补核实结果，也不用an information。"
+          }
+        },
+        "options": [
+          {
+            "id": "need",
+            "text": "We require correct details about the route.",
+            "correct": true,
+            "reason": "need说明需求；accurate是准确。"
+          },
+          {
+            "id": "done",
+            "text": "We have already checked every detail of the route.",
+            "correct": false,
+            "reason": "需要准确资料不等于已经核实完毕。"
+          },
+          {
+            "id": "count",
+            "text": "We need an information about the route.",
+            "correct": false,
+            "reason": "information不可数，不能直接用an。"
+          }
+        ]
+      },
+      {
+        "id": "communication",
+        "label": "communication：清楚沟通能减少许多小错，等于永不出错吗？",
+        "prompt": "清楚沟通能减少许多小错，等于永不出错吗？",
+        "answer": "communication",
+        "meaning": "沟通；交流",
+        "material": "Clear communication prevents many small mistakes.",
+        "before": "Clear ",
+        "after": " prevents many small mistakes.",
+        "reason": "communication是沟通、交流。clear communication prevents many small mistakes表示清楚沟通能避免许多小错误，不是保证所有人永远不犯任何错误。",
+        "hint": "communication通常不可数；prevents与单数主语搭配。",
+        "wordDecision": {
+          "prompt": "清楚沟通能减少许多小错，等于永不出错吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "清楚沟通有助于避免许多小错",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "many",
+                "label": "能避免许多小错误",
+                "text": "Clear communication prevents many small mistakes.",
+                "include": true
+              },
+              {
+                "id": "all",
+                "label": "保证永远没有任何错误",
+                "text": "It guarantees that nobody ever makes a mistake.",
+                "include": false
+              },
+              {
+                "id": "cause",
+                "label": "会造成许多小错误",
+                "text": "It causes many small mistakes.",
+                "include": false
+              }
+            ],
+            "hint": "保留many与prevents，别把作用夸大。",
+            "wrong": "选避免许多小错；不能扩大成零错误或反成造成。"
+          }
+        },
+        "options": [
+          {
+            "id": "many",
+            "text": "Clear communication helps prevent many small mistakes.",
+            "correct": true,
+            "reason": "many表示许多，不是all。"
+          },
+          {
+            "id": "all",
+            "text": "Clear communication guarantees that nobody ever makes any mistake.",
+            "correct": false,
+            "reason": "many不能扩大成永远没有任何错误。"
+          },
+          {
+            "id": "cause",
+            "text": "Clear communication causes many small mistakes.",
+            "correct": false,
+            "reason": "prevents是避免，不是造成。"
+          }
+        ]
+      },
+      {
+        "id": "signal",
+        "label": "signal：举手在这里表示什么？",
+        "prompt": "举手在这里表示什么？",
+        "answer": "signal",
+        "meaning": "信号；示意",
+        "material": "Raise a hand as a signal to stop.",
+        "before": "Raise a hand as a ",
+        "after": " to stop.",
+        "reason": "signal这里是示意、信号。Raise a hand as a signal to stop要求举手示意停止，不是继续，也没有确认别人已经停止。这里只核对文字含义，不把它当成通用道路交通规则。",
+        "hint": "a signal to stop；raise a hand是举手。",
+        "wordDecision": {
+          "prompt": "举手在这里表示什么？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "用举手示意停止",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "stop",
+                "label": "要求用举手示意停止",
+                "text": "Raise a hand as a signal to stop.",
+                "include": true
+              },
+              {
+                "id": "go",
+                "label": "这里举手表示继续",
+                "text": "The raised hand means keep going here.",
+                "include": false
+              },
+              {
+                "id": "done",
+                "label": "大家已经停止",
+                "text": "Everyone has already stopped.",
+                "include": false
+              }
+            ],
+            "hint": "信号的要求与他人的反应分开。",
+            "wrong": "只选示意停止；不反转含义或补出大家已停。"
+          }
+        },
+        "options": [
+          {
+            "id": "stop",
+            "text": "Use a raised hand to indicate stop.",
+            "correct": true,
+            "reason": "as a signal to stop说明用举手示意停止。"
+          },
+          {
+            "id": "go",
+            "text": "A raised hand means keep going in this instruction.",
+            "correct": false,
+            "reason": "to stop不能反成继续。"
+          },
+          {
+            "id": "done",
+            "text": "The sentence confirms that everyone has already stopped.",
+            "correct": false,
+            "reason": "指示怎样示意，不证明大家已经停止。"
+          }
+        ]
+      },
+      {
+        "id": "sign",
+        "label": "sign：标牌警告司机前方有窄桥，能补出限重数字吗？",
+        "prompt": "标牌警告司机前方有窄桥，能补出限重数字吗？",
+        "answer": "sign",
+        "meaning": "标志；迹象；签名",
+        "material": "The sign warns drivers about the narrow bridge.",
+        "before": "The ",
+        "after": " warns drivers about the narrow bridge.",
+        "reason": "sign这里是标牌。warns drivers about the narrow bridge说明提醒司机注意窄桥，没有给出限重、宽度数字或标牌图样。sign作动词时还可表示签名，本句是名词。",
+        "hint": "the sign是主语；warn somebody about something表示提醒某人注意某事。",
+        "wordDecision": {
+          "prompt": "标牌警告司机前方有窄桥，能补出限重数字吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "标牌提醒司机注意窄桥",
+            "prompt": "选出原句支持的意思。",
+            "rows": [
+              {
+                "id": "warning",
+                "label": "提醒司机前方有窄桥",
+                "text": "The sign warns drivers about the narrow bridge.",
+                "include": true
+              },
+              {
+                "id": "wide",
+                "label": "告诉司机桥很宽",
+                "text": "The sign says the bridge is wide.",
+                "include": false
+              },
+              {
+                "id": "limit",
+                "label": "给出了具体限重数字",
+                "text": "The sentence gives an exact weight limit.",
+                "include": false
+              }
+            ],
+            "hint": "窄桥信息保留，不补数字或图样。",
+            "wrong": "只选提醒注意窄桥；不能改成宽桥或加上限重数字。"
+          }
+        },
+        "options": [
+          {
+            "id": "warning",
+            "text": "The sign alerts drivers to a narrow bridge.",
+            "correct": true,
+            "reason": "warns drivers about说明提醒司机注意窄桥。"
+          },
+          {
+            "id": "wide",
+            "text": "The sign tells drivers that the bridge is wide.",
+            "correct": false,
+            "reason": "narrow不是wide。"
+          },
+          {
+            "id": "limit",
+            "text": "The sentence gives the exact weight limit for the bridge.",
+            "correct": false,
+            "reason": "没有限重数字，不能自行补出。"
+          }
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-communication-4-transfer",
+      "topicId": "v-course-communication",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "stem": "Which summary keeps the report, interview question and sign accurate?",
+      "passage": "Preparing a nature-park report\nOur class used a magazine that included a guide to local wildlife. This did not mean that the guide was its only feature or that it listed every animal. An article explained why a river floods; we did not use it to predict the exact date of another flood.\nOur report separated facts from opinions. We wanted readers to distinguish checkable statements from personal judgements, although we still had to verify our information. Before a possible interview with a park volunteer, we prepared open questions. For example, “How do you help protect local wildlife?” invited an explanation. “Do you work here?” mainly invited yes or no. The picture was a writing setting, not evidence that an interview had already taken place.\nWe needed accurate information about the route. Needing it did not mean that every detail had already been checked. Clear communication could prevent many small mistakes, but it could not guarantee that nobody would ever make a mistake.\nWe also read an instruction to raise a hand as a signal to stop. It did not say that everyone had stopped. A sign warned drivers about a narrow bridge, but this account gave no weight limit or exact width.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The report treated opinions as facts; the interview question invited an explanation; the sign warned of a narrow bridge."
+        },
+        {
+          "id": "b",
+          "text": "The report separated facts from opinions; the interview question invited only yes or no; the sign warned of a narrow bridge."
+        },
+        {
+          "id": "c",
+          "text": "The report separated facts from opinions; the interview question invited an explanation; the account gave the exact bridge weight limit."
+        },
+        {
+          "id": "d",
+          "text": "The report separated facts from opinions; the interview question invited an explanation; the sign warned of a narrow bridge."
+        }
+      ],
+      "answer": {
+        "option": "d",
+        "display": "The report separated facts from opinions; the interview question invited an explanation; the sign warned of a narrow bridge."
+      },
+      "marks": 2,
+      "estimatedSeconds": 120,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先区分事实与看法，再看问题需要怎样回答。",
+        "steps": [
+          {
+            "text": "separate facts from opinions；How问题邀请说明做法。",
+            "reason": "不能混淆两类内容；开放式问题不限于yes/no。"
+          },
+          {
+            "text": "标牌提醒注意窄桥，没有给出限重数字。",
+            "reason": "只保留已提供的信息，不用常识补出数字。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "把区分事实与看法改成把看法当事实。"
+          },
+          {
+            "option": "b",
+            "reason": "把邀请说明的How问题改成只回答yes/no。"
+          },
+          {
+            "option": "c",
+            "reason": "补出了文中没有的准确限重。"
+          }
+        ],
+        "pitfall": "把需要核实当成已经核实，把提醒当成已知全部细节。",
+        "visual": {
+          "kind": "timeline",
+          "title": "分别核对三个线索",
+          "segments": [
+            {
+              "text": "facts ≠ opinions",
+              "role": "object",
+              "note": "事实与看法分开"
+            },
+            {
+              "text": "How → explain",
+              "role": "object",
+              "note": "邀请说明"
+            },
+            {
+              "text": "narrow bridge",
+              "role": "object",
+              "note": "未提供限重数字"
+            }
+          ],
+          "caption": "准确不等于信息越多；没给出的内容不能补。"
+        },
+        "transfer": "We need accurate information about the route.说明路线已经核实了吗？"
+      }
+    }
+  }
+}

@@ -14,8 +14,20 @@ export class ContentRepository {
   private spelling: Spelling = 'british'
   private originals = new Map<string, Question>()
   private originalWords: ContentCatalog['vocabulary']
+  private pendingSpellingRefresh?: Promise<void>
   constructor(readonly catalog: ContentCatalog, readonly manifest: PackDescriptor[], private transport: PackTransport) { this.originalWords = [...catalog.vocabulary]; catalog.questions.forEach(q => this.originals.set(q.id, q)) }
   setSpelling(spelling: Spelling) { this.spelling = spelling; this.catalog.questions = [...this.originals.values()].map(q => editionQuestion(q, spelling)); this.catalog.vocabulary = this.originalWords.map(w => editionWord(w, spelling)) }
+  private refreshLoadedSpelling(): Promise<void> {
+    if (!this.pendingSpellingRefresh) {
+      this.pendingSpellingRefresh = Promise.resolve().then(() => {
+        // A later pack must queue another refresh, even if it arrives before
+        // callers of this flush have resumed. No converted content is cached.
+        this.pendingSpellingRefresh = undefined
+        this.setSpelling(this.spelling)
+      })
+    }
+    return this.pendingSpellingRefresh
+  }
 
   async ensureTopics(ids: string[]): Promise<void> { await Promise.all([...new Set(ids)].map((id) => this.load(id))) }
   async ensureQuestions(ids: string[]): Promise<void> {
@@ -47,7 +59,7 @@ export class ContentRepository {
     }
     if (new Set(questions.map((q) => q.id)).size !== questions.length || questions.length !== descriptor.questionIds.length) throw new Error('内容包不完整，请重新下载。')
     questions.forEach(q => this.originals.set(q.id, q))
-    this.setSpelling(this.spelling)
+    await this.refreshLoadedSpelling()
     this.loaded.add(descriptor.topicId)
   }
 }

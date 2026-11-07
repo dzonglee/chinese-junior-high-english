@@ -1,0 +1,9 @@
+import {describe,it,expect}from'vitest'
+import {validWordPlantNeeds,plantNeedsMatch,changePlantNeeds,wordPlantNeedsView}from'./core/word-plant-needs'
+const model={title:'本句提出哪些需求？',hint:'读句子，不模拟生长。',wrong:'光照和水分都不能漏。'}
+describe('explicit plant language requirements',()=>{
+ it('requires both supplied terms and grants no growth or sufficient-condition claim',()=>{for(const raw of ['', 'light','water','light|water'])expect(plantNeedsMatch(model,raw)).toBe(raw==='light|water');expect(wordPlantNeedsView(model,'light|water').reading).toContain('不表示生长条件已经齐全');expect(wordPlantNeedsView(model,'light|water').reading).toContain('不代表实际')})
+ it('toggles either order into canonical state and clears reversibly',()=>{let raw=changePlantNeeds(model,'','water')!;expect(raw).toBe('water');raw=changePlantNeeds(model,raw,'light')!;expect(raw).toBe('light|water');expect(changePlantNeeds(model,raw,'water')).toBe('light');expect(changePlantNeeds(model,raw,'light')).toBe('water');expect(changePlantNeeds(model,raw,'reset')).toBe('')})
+ it('rejects corrupted and unknown state/actions except reset without defaulting selected needs',()=>{for(const raw of ['water|light','light|light','light|soil','__proto__','light|']){expect(plantNeedsMatch(model,raw)).toBe(false);expect(changePlantNeeds(model,raw,'light')).toBeUndefined();expect(changePlantNeeds(model,raw,'reset')).toBe('');expect(wordPlantNeedsView(model,raw).selected).toBe(0)}for(const action of ['soil','grow','finish','undo'])expect(changePlantNeeds(model,'',action)).toBeUndefined()})
+ it('validates exact bounded metadata and returns fresh choices',()=>{expect(validWordPlantNeeds(model)).toBe(true);for(const bad of [null,[],{...model,waterMl:10},{...model,title:' '},{...model,hint:'x'.repeat(111)},{...model,wrong:'x'.repeat(141)}])expect(validWordPlantNeeds(bad)).toBe(false);const v=wordPlantNeedsView(model,'');v.choices[0].label='Changed';expect(wordPlantNeedsView(model,'').choices[0].label).toBe('光照')})
+})

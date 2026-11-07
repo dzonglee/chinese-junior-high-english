@@ -1,0 +1,2693 @@
+{
+  "lessonId": "l-v-course-learning-2",
+  "reviewState": "draft",
+  "intent": "Teach phrase for asking directions without inventing the phrase; one joined sentence using a new and example; new paragraph on place change without a universal rule; two reasons not two changes; reading once before answering without banning rereading; whole-story title scope; final silent letter retained in spelling with new name example; alphabet chart above versus on/below board.",
+  "picturePurpose": "Six individually coded scenes show sentence joining, place-triggered paragraph separation, reason-card count, whole-story coverage, silent final e in an explicitly new example, and movable chart relative to a board. One order task and one exact evidence task complete the eight activities. Exact text belongs in code.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "句子怎么连，信息怎么找？",
+    "instruction": "合句、分段、数原因、选范围；先动手，再把词放回原句。",
+    "items": [
+      {
+        "id": "word-phrase",
+        "label": "短语",
+        "prompt": "这个短语有什么用？圈出原句给出的对象和用途。",
+        "answer": "phrase",
+        "caseSensitive": false,
+        "meaning": "短语",
+        "before": "This ",
+        "after": " is useful for asking directions.",
+        "reason": "This phrase is useful for asking directions说这个短语适合用来问路；没有说具体是哪一个短语，也没有说已经问过路。",
+        "hint": "phrase指短语，不一定构成完整句子；useful for后接asking，表示用途。",
+        "material": "This phrase is useful for asking directions.",
+        "options": [
+          {
+            "id": "directions",
+            "text": "这个短语适合用来问路。",
+            "correct": true,
+            "reason": "保留phrase、useful for与asking directions。"
+          },
+          {
+            "id": "answer",
+            "text": "这个短语是用来回答问题的。",
+            "correct": false,
+            "reason": "回答问题改变了asking directions问路。"
+          },
+          {
+            "id": "done",
+            "text": "已经用这个短语问过路了。",
+            "correct": false,
+            "reason": "适合某种用途不等于已经做过。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "这个短语有什么用？圈出原句给出的对象和用途。",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "对象与用途",
+            "prompt": "圈出原句支持的两条信息。",
+            "hint": "不猜具体短语，也不补已经使用的经过。",
+            "wrong": "应保留这个短语与问路用途，不能补已经问过路。",
+            "rows": [
+              {
+                "id": "phrase",
+                "label": "对象",
+                "text": "这个短语。",
+                "include": true
+              },
+              {
+                "id": "use",
+                "label": "用途",
+                "text": "适合用来问路。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "已经用它问过路。",
+                "include": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-sentence",
+        "label": "句子",
+        "prompt": "one要求几个句子？用新例子试着把两个意思连在一起。",
+        "answer": "sentence",
+        "caseSensitive": false,
+        "meaning": "句子",
+        "before": "Join the ideas in one clear ",
+        "after": ".",
+        "reason": "Join the ideas in one clear sentence要求把这些想法连成一个清楚的句子；one不是两句，也不是一整段。",
+        "hint": "看新例子怎样用and连接两个意思，注意句首大写和句末句号。",
+        "material": "Join the ideas in one clear sentence.",
+        "options": [
+          {
+            "id": "one",
+            "text": "把这些想法连成一个清楚的句子。",
+            "correct": true,
+            "reason": "保留Join、one与clear sentence。"
+          },
+          {
+            "id": "two",
+            "text": "把这些想法分别写成两个句子。",
+            "correct": false,
+            "reason": "两个改变了one一个。"
+          },
+          {
+            "id": "paragraph",
+            "text": "要求写成一整段，而不是一句。",
+            "correct": false,
+            "reason": "一段不等于本句要求的one sentence。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "one要求几个句子？用新例子试着把两个意思连在一起。",
+          "sceneLab": {
+            "id": "sentence-join",
+            "title": "新例子：两句，还是连成一句？",
+            "hint": "例子：门关着；我们在外面等。用and连接，不额外添加因果。",
+            "wrong": "原句要求一个清楚句子，不能保留为两个分开的句子。",
+            "axes": [
+              {
+                "id": "mode",
+                "label": "连接两个意思",
+                "choices": [
+                  {
+                    "id": "one",
+                    "label": "用and连成一句"
+                  },
+                  {
+                    "id": "two",
+                    "label": "保留为两个句子"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new-example",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "新例子：门关着；我们在外面等"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 36,
+                    "width": 94,
+                    "height": 29,
+                    "tone": "ink",
+                    "text": "先选分开写，还是用and连起来"
+                  },
+                  {
+                    "id": "count",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 83,
+                    "width": 94,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "句子数量待选"
+                  }
+                ]
+              },
+              {
+                "signature": "one",
+                "reading": "把这些想法连成一个清楚的句子。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "new-example",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "新例子：门关着；我们在外面等"
+                  },
+                  {
+                    "id": "joined",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 29,
+                    "width": 94,
+                    "height": 44,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "joined-clause",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 35,
+                    "width": 88,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "The gate was shut,"
+                  },
+                  {
+                    "id": "joined-clause2",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 53,
+                    "width": 88,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "and we waited outside."
+                  },
+                  {
+                    "id": "count",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 83,
+                    "width": 94,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一个句子"
+                  }
+                ]
+              },
+              {
+                "signature": "two",
+                "reading": "原句要求一个清楚句子，不能保留为两个分开的句子。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new-example",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 1,
+                    "width": 98,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "新例子：门关着；我们在外面等"
+                  },
+                  {
+                    "id": "first",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 26,
+                    "width": 94,
+                    "height": 25,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "first-text",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 29,
+                    "width": 88,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "The gate was shut."
+                  },
+                  {
+                    "id": "second",
+                    "kind": "rect",
+                    "x": 3,
+                    "y": 57,
+                    "width": 94,
+                    "height": 25,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "second-text",
+                    "kind": "label",
+                    "x": 6,
+                    "y": 60,
+                    "width": 88,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "We waited outside."
+                  },
+                  {
+                    "id": "count",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 83,
+                    "width": 94,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "两个句子"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-paragraph",
+        "label": "段落",
+        "prompt": "when给出的分段条件是什么？换地点是否变化，再选另起一段。",
+        "answer": "paragraph",
+        "caseSensitive": false,
+        "meaning": "段落",
+        "before": "Begin a new ",
+        "after": " when the place changes.",
+        "reason": "Begin a new paragraph when the place changes要求地点改变时另起一段；不是每换一个单词就分段。",
+        "hint": "这是这句写作要求，不是说所有文章只按地点分段。",
+        "material": "Begin a new paragraph when the place changes.",
+        "options": [
+          {
+            "id": "place",
+            "text": "地点改变时另起一段。",
+            "correct": true,
+            "reason": "保留new paragraph与when the place changes。"
+          },
+          {
+            "id": "word",
+            "text": "每换一个单词就另起一段。",
+            "correct": false,
+            "reason": "每换一个单词改变了place changes地点改变。"
+          },
+          {
+            "id": "same",
+            "text": "只在地点没有变化时另起一段。",
+            "correct": false,
+            "reason": "没有变化改掉了when the place changes的条件。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "when给出的分段条件是什么？换地点是否变化，再选另起一段。",
+          "sceneLab": {
+            "id": "paragraph-place",
+            "title": "什么变化，触发分段？",
+            "hint": "图书馆和公园是新例子的地点，只用于比较条件。",
+            "wrong": "应保留地点变化时另起一段，不能改成地点不变或不分段。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "地点是否变化",
+                "choices": [
+                  {
+                    "id": "change",
+                    "label": "图书馆→公园"
+                  },
+                  {
+                    "id": "same",
+                    "label": "图书馆→图书馆"
+                  }
+                ]
+              },
+              {
+                "id": "split",
+                "label": "怎样接着写",
+                "choices": [
+                  {
+                    "id": "new",
+                    "label": "另起一段"
+                  },
+                  {
+                    "id": "continue",
+                    "label": "继续写在原段"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子的地点"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 22,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "to",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 22,
+                    "width": 47,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "line-0",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 47,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-1",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 57,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-2",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 67,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "line-3",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 77,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "split",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "分段方式待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|new",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子的地点"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 22,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "to",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 22,
+                    "width": 47,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "line-0",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 47,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-1",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 57,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-2",
+                    "kind": "line",
+                    "x": 12,
+                    "y": 75,
+                    "width": 76,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "line-3",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 85,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "split",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "另起一段"
+                  }
+                ]
+              },
+              {
+                "signature": "?|continue",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子的地点"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 22,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "to",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 22,
+                    "width": 47,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  },
+                  {
+                    "id": "line-0",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 47,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-1",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 57,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-2",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 67,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "line-3",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 77,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "split",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "继续写在原段"
+                  }
+                ]
+              },
+              {
+                "signature": "change|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子的地点"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 22,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "to",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 22,
+                    "width": 47,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公园"
+                  },
+                  {
+                    "id": "line-0",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 47,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-1",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 57,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-2",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 67,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "line-3",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 77,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "split",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "分段方式待选"
+                  }
+                ]
+              },
+              {
+                "signature": "change|new",
+                "reading": "地点改变时另起一段。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子的地点"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 22,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "to",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 22,
+                    "width": 47,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公园"
+                  },
+                  {
+                    "id": "line-0",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 47,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-1",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 57,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-2",
+                    "kind": "line",
+                    "x": 12,
+                    "y": 75,
+                    "width": 76,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "line-3",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 85,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "split",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "另起一段"
+                  }
+                ]
+              },
+              {
+                "signature": "change|continue",
+                "reading": "应保留地点变化时另起一段，不能改成地点不变或不分段。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子的地点"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 22,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "to",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 22,
+                    "width": 47,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "公园"
+                  },
+                  {
+                    "id": "line-0",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 47,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-1",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 57,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-2",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 67,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "line-3",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 77,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "split",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "继续写在原段"
+                  }
+                ]
+              },
+              {
+                "signature": "same|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子的地点"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 22,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "to",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 22,
+                    "width": 47,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "line-0",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 47,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-1",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 57,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-2",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 67,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "line-3",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 77,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "split",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "分段方式待选"
+                  }
+                ]
+              },
+              {
+                "signature": "same|new",
+                "reading": "应保留地点变化时另起一段，不能改成地点不变或不分段。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子的地点"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 22,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "to",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 22,
+                    "width": 47,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "line-0",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 47,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-1",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 57,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-2",
+                    "kind": "line",
+                    "x": 12,
+                    "y": 75,
+                    "width": 76,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "line-3",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 85,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "split",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "另起一段"
+                  }
+                ]
+              },
+              {
+                "signature": "same|continue",
+                "reading": "应保留地点变化时另起一段，不能改成地点不变或不分段。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子的地点"
+                  },
+                  {
+                    "id": "from",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 22,
+                    "width": 31,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 35,
+                    "y": 22,
+                    "width": 13,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "to",
+                    "kind": "label",
+                    "x": 51,
+                    "y": 22,
+                    "width": 47,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "图书馆"
+                  },
+                  {
+                    "id": "line-0",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 47,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-1",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 57,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "line-2",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 67,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "line-3",
+                    "kind": "line",
+                    "x": 6,
+                    "y": 77,
+                    "width": 85,
+                    "height": 1,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "split",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 88,
+                    "width": 96,
+                    "height": 12,
+                    "tone": "ink",
+                    "text": "继续写在原段"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-text",
+        "label": "文本；文章（本句）",
+        "prompt": "two reasons有几个原因？增减原因卡，再回原句核对。",
+        "answer": "text",
+        "caseSensitive": false,
+        "meaning": "文本；文章（本句）",
+        "before": "The ",
+        "after": " gives two reasons for the change.",
+        "reason": "The text gives two reasons for the change说这篇文章给出了改变的两个原因；没有说是两个改变，也没有列出具体原因。",
+        "hint": "two修饰reasons，不修饰change；text在这里指文章，不是发短信这个动作。",
+        "material": "The text gives two reasons for the change.",
+        "options": [
+          {
+            "id": "two",
+            "text": "文章给出了改变的两个原因。",
+            "correct": true,
+            "reason": "保留text、two reasons与for the change。"
+          },
+          {
+            "id": "one",
+            "text": "文章只给出了一个原因。",
+            "correct": false,
+            "reason": "一个与two两个不同。"
+          },
+          {
+            "id": "changes",
+            "text": "文章报告了两个改变，而没有说原因。",
+            "correct": false,
+            "reason": "two修饰reasons，不能移给change。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "two reasons有几个原因？增减原因卡，再回原句核对。",
+          "sceneLab": {
+            "id": "text-reasons",
+            "title": "文章给了几个原因？",
+            "hint": "原因卡只表示数量；原句没有给出原因的具体内容。",
+            "wrong": "应有两个原因，不能改成一个、三个或两个改变。",
+            "axes": [
+              {
+                "id": "count",
+                "label": "给出了几个原因",
+                "choices": [
+                  {
+                    "id": "one",
+                    "label": "一个"
+                  },
+                  {
+                    "id": "two",
+                    "label": "两个"
+                  },
+                  {
+                    "id": "three",
+                    "label": "三个"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "text",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "文章中的原因"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 38,
+                    "width": 96,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "先选择原因数量"
+                  },
+                  {
+                    "id": "no-details",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "只示意数量，不补具体原因"
+                  }
+                ]
+              },
+              {
+                "signature": "one",
+                "reading": "应有两个原因，不能改成一个、三个或两个改变。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "text",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "文章中的原因"
+                  },
+                  {
+                    "id": "card-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 31,
+                    "width": 28,
+                    "height": 39,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "reason-0",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 40,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "原因1"
+                  },
+                  {
+                    "id": "no-details",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "只示意数量，不补具体原因"
+                  }
+                ]
+              },
+              {
+                "signature": "two",
+                "reading": "文章给出了改变的两个原因。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "text",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "文章中的原因"
+                  },
+                  {
+                    "id": "card-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 31,
+                    "width": 28,
+                    "height": 39,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "reason-0",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 40,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "原因1"
+                  },
+                  {
+                    "id": "card-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 31,
+                    "width": 28,
+                    "height": 39,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "reason-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 40,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "原因2"
+                  },
+                  {
+                    "id": "no-details",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "只示意数量，不补具体原因"
+                  }
+                ]
+              },
+              {
+                "signature": "three",
+                "reading": "应有两个原因，不能改成一个、三个或两个改变。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "text",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "文章中的原因"
+                  },
+                  {
+                    "id": "card-0",
+                    "kind": "rect",
+                    "x": 5,
+                    "y": 31,
+                    "width": 28,
+                    "height": 39,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "reason-0",
+                    "kind": "label",
+                    "x": 5,
+                    "y": 40,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "原因1"
+                  },
+                  {
+                    "id": "card-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 31,
+                    "width": 28,
+                    "height": 39,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "reason-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 40,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "原因2"
+                  },
+                  {
+                    "id": "card-2",
+                    "kind": "rect",
+                    "x": 67,
+                    "y": 31,
+                    "width": 28,
+                    "height": 39,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "reason-2",
+                    "kind": "label",
+                    "x": 67,
+                    "y": 40,
+                    "width": 28,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "原因3"
+                  },
+                  {
+                    "id": "no-details",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "只示意数量，不补具体原因"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-passage",
+        "label": "短文（本句）",
+        "prompt": "before要求先读还是先答？把“读一遍”放进正确位置。",
+        "answer": "passage",
+        "caseSensitive": false,
+        "meaning": "短文（本句）",
+        "before": "Read the ",
+        "after": " once before answering.",
+        "reason": "Read the passage once before answering要求回答前先把短文读一遍；passage在这里指短文，不是通道。",
+        "hint": "once是一次；这里要求先通读一遍，并没有禁止之后为找证据再读。",
+        "material": "Read the passage once before answering.",
+        "options": [
+          {
+            "id": "read-first",
+            "text": "回答前先把短文读一遍。",
+            "correct": true,
+            "reason": "保留passage、once与before answering。"
+          },
+          {
+            "id": "answer-first",
+            "text": "先回答，再读短文。",
+            "correct": false,
+            "reason": "顺序与before相反。"
+          },
+          {
+            "id": "never-again",
+            "text": "读过一次后，绝对不许再读。",
+            "correct": false,
+            "reason": "原句没有禁止以后重读。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "before要求先读还是先答？把“读一遍”放进正确位置。",
+          "processOrder": {
+            "title": "先读短文，再作答",
+            "hint": "排要求的顺序，不把once扩大成永远不能再读。",
+            "wrong": "应先读一遍短文，再回答。",
+            "events": [
+              {
+                "id": "read",
+                "label": "读一遍"
+              },
+              {
+                "id": "answer",
+                "label": "回答"
+              }
+            ],
+            "sequence": [
+              "read",
+              "answer"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-title",
+        "label": "标题（本句）",
+        "prompt": "whole story要求覆盖哪里？切换只顾细节和概括全文。",
+        "answer": "title",
+        "caseSensitive": false,
+        "meaning": "标题（本句）",
+        "before": "Choose a ",
+        "after": " that matches the whole story.",
+        "reason": "Choose a title that matches the whole story要求选一个符合全文的标题；不能只抓某个细节，也不是选人物的称号。",
+        "hint": "先看全文，再检验标题能否覆盖各部分；本句没有给具体故事或候选标题。",
+        "material": "Choose a title that matches the whole story.",
+        "options": [
+          {
+            "id": "whole",
+            "text": "选一个符合全文的标题。",
+            "correct": true,
+            "reason": "保留title与matches the whole story。"
+          },
+          {
+            "id": "detail",
+            "text": "只按故事里的一个小细节选标题。",
+            "correct": false,
+            "reason": "只顾细节丢掉了whole story。"
+          },
+          {
+            "id": "rank",
+            "text": "给人物挑选一个称号。",
+            "correct": false,
+            "reason": "本句的title是文章标题，不是人物称号。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "whole story要求覆盖哪里？切换只顾细节和概括全文。",
+          "sceneLab": {
+            "id": "title-scope",
+            "title": "标题覆盖全文，还是只顾局部？",
+            "hint": "开头、经过、结尾示意全文；标题要照顾整体。",
+            "wrong": "应保留符合全文，不能只覆盖一个小细节。",
+            "axes": [
+              {
+                "id": "scope",
+                "label": "标题应概括的范围",
+                "choices": [
+                  {
+                    "id": "whole",
+                    "label": "全文"
+                  },
+                  {
+                    "id": "detail",
+                    "label": "一个局部细节"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "whole",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "全文范围示意"
+                  },
+                  {
+                    "id": "part-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 31,
+                    "width": 28,
+                    "height": 41,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "part-label-0",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 41,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "part-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 31,
+                    "width": 28,
+                    "height": 41,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "part-label-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 41,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "经过"
+                  },
+                  {
+                    "id": "part-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 31,
+                    "width": 28,
+                    "height": 41,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "part-label-2",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 41,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "结尾"
+                  },
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "覆盖范围待选"
+                  }
+                ]
+              },
+              {
+                "signature": "whole",
+                "reading": "选一个符合全文的标题。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "whole",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "全文范围示意"
+                  },
+                  {
+                    "id": "part-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 31,
+                    "width": 28,
+                    "height": 41,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label-0",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 41,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "part-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 31,
+                    "width": 28,
+                    "height": 41,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 41,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "经过"
+                  },
+                  {
+                    "id": "part-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 31,
+                    "width": 28,
+                    "height": 41,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label-2",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 41,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "结尾"
+                  },
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "覆盖全文"
+                  }
+                ]
+              },
+              {
+                "signature": "detail",
+                "reading": "应保留符合全文，不能只覆盖一个小细节。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "whole",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 1,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "全文范围示意"
+                  },
+                  {
+                    "id": "part-0",
+                    "kind": "rect",
+                    "x": 4,
+                    "y": 31,
+                    "width": 28,
+                    "height": 41,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "part-label-0",
+                    "kind": "label",
+                    "x": 4,
+                    "y": 41,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "开头"
+                  },
+                  {
+                    "id": "part-1",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 31,
+                    "width": 28,
+                    "height": 41,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "part-label-1",
+                    "kind": "label",
+                    "x": 36,
+                    "y": 41,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "经过"
+                  },
+                  {
+                    "id": "part-2",
+                    "kind": "rect",
+                    "x": 68,
+                    "y": 31,
+                    "width": 28,
+                    "height": 41,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "part-label-2",
+                    "kind": "label",
+                    "x": 68,
+                    "y": 41,
+                    "width": 28,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "结尾"
+                  },
+                  {
+                    "id": "scope",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 80,
+                    "width": 96,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "只顾一个局部细节"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-letter",
+        "label": "字母（本句）",
+        "prompt": "final letter限定哪一位？在新例子name里核对末尾e。",
+        "answer": "letter",
+        "caseSensitive": false,
+        "meaning": "字母（本句）",
+        "before": "The final ",
+        "after": " of this word is silent.",
+        "reason": "The final letter of this word is silent说这个单词的最后一个字母不发音；原句没有给具体单词，name是这里另加的例子。",
+        "hint": "name末尾的e不单独发音；silent不等于拼写时删掉它。letter这里是字母，不是信。",
+        "material": "The final letter of this word is silent.",
+        "options": [
+          {
+            "id": "final-silent",
+            "text": "这个单词的最后一个字母不发音。",
+            "correct": true,
+            "reason": "保留final letter与silent。"
+          },
+          {
+            "id": "first",
+            "text": "这个单词的第一个字母不发音。",
+            "correct": false,
+            "reason": "第一个改变了final最后一个。"
+          },
+          {
+            "id": "remove",
+            "text": "不发音就应从拼写中删掉这个字母。",
+            "correct": false,
+            "reason": "silent不表示删掉字母，原句也没有删除要求。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "final letter限定哪一位？在新例子name里核对末尾e。",
+          "sceneLab": {
+            "id": "silent-letter",
+            "title": "新例子name：哪个字母不发音？",
+            "hint": "下面用name作新例子；原句未给具体单词。留意末尾e的拼写。",
+            "wrong": "新例子应保留末尾e且不单独发音，不能改成首字母或删掉e。",
+            "axes": [
+              {
+                "id": "choice",
+                "label": "在新例子中核对",
+                "choices": [
+                  {
+                    "id": "final",
+                    "label": "保留末尾e，不单独发音"
+                  },
+                  {
+                    "id": "first",
+                    "label": "选首字母n"
+                  },
+                  {
+                    "id": "remove",
+                    "label": "把末尾e删掉"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子：name"
+                  },
+                  {
+                    "id": "cell-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "n"
+                  },
+                  {
+                    "id": "cell-1",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-1",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "a"
+                  },
+                  {
+                    "id": "cell-2",
+                    "kind": "rect",
+                    "x": 52,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-2",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "m"
+                  },
+                  {
+                    "id": "cell-3",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-3",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "e"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 70,
+                    "width": 98,
+                    "height": 25,
+                    "tone": "ink",
+                    "text": "先选字母"
+                  }
+                ]
+              },
+              {
+                "signature": "final",
+                "reading": "这个单词的最后一个字母不发音。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子：name"
+                  },
+                  {
+                    "id": "cell-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "n"
+                  },
+                  {
+                    "id": "cell-1",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-1",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "a"
+                  },
+                  {
+                    "id": "cell-2",
+                    "kind": "rect",
+                    "x": 52,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-2",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "m"
+                  },
+                  {
+                    "id": "cell-3",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "letter-3",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "e"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 70,
+                    "width": 98,
+                    "height": 25,
+                    "tone": "ink",
+                    "text": "末尾e不单独发音，拼写保留"
+                  }
+                ]
+              },
+              {
+                "signature": "first",
+                "reading": "新例子应保留末尾e且不单独发音，不能改成首字母或删掉e。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子：name"
+                  },
+                  {
+                    "id": "cell-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "letter-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "n"
+                  },
+                  {
+                    "id": "cell-1",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-1",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "a"
+                  },
+                  {
+                    "id": "cell-2",
+                    "kind": "rect",
+                    "x": 52,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-2",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "m"
+                  },
+                  {
+                    "id": "cell-3",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-3",
+                    "kind": "label",
+                    "x": 74,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "e"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 70,
+                    "width": 98,
+                    "height": 25,
+                    "tone": "ink",
+                    "text": "首字母n，并非本例不发音的字母"
+                  }
+                ]
+              },
+              {
+                "signature": "remove",
+                "reading": "新例子应保留末尾e且不单独发音，不能改成首字母或删掉e。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "new",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 0,
+                    "width": 94,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "新例子：name"
+                  },
+                  {
+                    "id": "cell-0",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-0",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "n"
+                  },
+                  {
+                    "id": "cell-1",
+                    "kind": "rect",
+                    "x": 30,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-1",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "a"
+                  },
+                  {
+                    "id": "cell-2",
+                    "kind": "rect",
+                    "x": 52,
+                    "y": 31,
+                    "width": 18,
+                    "height": 27,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "letter-2",
+                    "kind": "label",
+                    "x": 52,
+                    "y": 35,
+                    "width": 18,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "m"
+                  },
+                  {
+                    "id": "meaning",
+                    "kind": "label",
+                    "x": 1,
+                    "y": 70,
+                    "width": 98,
+                    "height": 25,
+                    "tone": "ink",
+                    "text": "删掉e：拼写已经改变"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-alphabet",
+        "label": "字母表",
+        "prompt": "above与on有什么不同？把字母表图移到原句要求的位置。",
+        "answer": "alphabet",
+        "caseSensitive": false,
+        "meaning": "字母表",
+        "before": "Put the ",
+        "after": " chart above the board.",
+        "reason": "Put the alphabet chart above the board要求把字母表图放在黑板上方；没有说贴在黑板表面或放在下方。",
+        "hint": "above是上方，on是表面；Put是要求，不是已经放好。",
+        "material": "Put the alphabet chart above the board.",
+        "options": [
+          {
+            "id": "above",
+            "text": "把字母表图放在黑板上方。",
+            "correct": true,
+            "reason": "保留alphabet chart与above the board。"
+          },
+          {
+            "id": "on",
+            "text": "把字母表图贴在黑板表面。",
+            "correct": false,
+            "reason": "表面是on，不是above上方。"
+          },
+          {
+            "id": "below",
+            "text": "把字母表图放在黑板下方。",
+            "correct": false,
+            "reason": "下方与above上方相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "above与on有什么不同？把字母表图移到原句要求的位置。",
+          "sceneLab": {
+            "id": "alphabet-above",
+            "title": "字母表图放在哪里？",
+            "hint": "移动字母表图，对照above、on与below的相对位置。",
+            "wrong": "应放在黑板上方，不能改黑板表面或下方。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "把字母表图放在",
+                "choices": [
+                  {
+                    "id": "above",
+                    "label": "黑板上方"
+                  },
+                  {
+                    "id": "on",
+                    "label": "黑板表面"
+                  },
+                  {
+                    "id": "below",
+                    "label": "黑板下方"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "board",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 88,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "board-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 48,
+                    "width": 25,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "黑板"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 9,
+                    "width": 96,
+                    "height": 19,
+                    "tone": "ink",
+                    "text": "先选字母表图的位置"
+                  }
+                ]
+              },
+              {
+                "signature": "above",
+                "reading": "把字母表图放在黑板上方。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "board",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 88,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "board-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 48,
+                    "width": 25,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "黑板"
+                  },
+                  {
+                    "id": "chart",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 9,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "abc",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 10,
+                    "width": 38,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "A B C …"
+                  }
+                ]
+              },
+              {
+                "signature": "on",
+                "reading": "应放在黑板上方，不能改黑板表面或下方。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "board",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 88,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "board-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 48,
+                    "width": 25,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "黑板"
+                  },
+                  {
+                    "id": "chart",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 46,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "abc",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 47,
+                    "width": 38,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "A B C …"
+                  }
+                ]
+              },
+              {
+                "signature": "below",
+                "reading": "应放在黑板上方，不能改黑板表面或下方。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "board",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 42,
+                    "width": 88,
+                    "height": 29,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "board-label",
+                    "kind": "label",
+                    "x": 7,
+                    "y": 48,
+                    "width": 25,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "黑板"
+                  },
+                  {
+                    "id": "chart",
+                    "kind": "rect",
+                    "x": 36,
+                    "y": 76,
+                    "width": 40,
+                    "height": 20,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "abc",
+                    "kind": "label",
+                    "x": 37,
+                    "y": 77,
+                    "width": 38,
+                    "height": 18,
+                    "tone": "ink",
+                    "text": "A B C …"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-learning-2-transfer",
+      "topicId": "v-course-learning",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成报告、通知和地图，哪组三句完整保留了信息？",
+      "passage": "三条新信息\n报告给出了延误的两个原因。进去前先把通知读一遍。把地图放在书桌上方。\n词语提示：report 报告；delay 延误；notice 通知。",
+      "options": [
+        {
+          "id": "a",
+          "text": "The report gives one reason for the delay. Read the notice once before entering. Put the map above the desk."
+        },
+        {
+          "id": "b",
+          "text": "The report gives two reasons for the delay. Read the notice once after entering. Put the map above the desk."
+        },
+        {
+          "id": "c",
+          "text": "The report gives two reasons for the delay. Read the notice once before entering. Put the map above the desk."
+        },
+        {
+          "id": "d",
+          "text": "The report gives two reasons for the delay. Read the notice once before entering. Put the map on the desk."
+        }
+      ],
+      "answer": {
+        "option": "c",
+        "display": "The report gives two reasons for the delay. Read the notice once before entering. Put the map above the desk."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐项核对原因数量、先后和相对位置。",
+        "steps": [
+          {
+            "text": "两个原因：two reasons for the delay。",
+            "reason": "one reason把两个减成一个。"
+          },
+          {
+            "text": "先读通知，再进去：once before entering。",
+            "reason": "after把进去前改成了进去后。"
+          },
+          {
+            "text": "地图在书桌上方：above the desk。",
+            "reason": "on the desk改成了桌面，不是上方的位置。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "one reason把两个原因改成一个。"
+          },
+          {
+            "option": "b",
+            "reason": "after entering颠倒先后。"
+          },
+          {
+            "option": "d",
+            "reason": "on the desk把上方改成桌面。"
+          }
+        ],
+        "pitfall": "数量修饰的对象不能换；once不禁止以后再读；above不是on。",
+        "visual": {
+          "kind": "comparison",
+          "title": "数量、先后、位置",
+          "segments": [
+            {
+              "text": "two reasons",
+              "role": "evidence",
+              "note": "两个原因"
+            },
+            {
+              "text": "before entering",
+              "role": "evidence",
+              "note": "进去之前"
+            },
+            {
+              "text": "above the desk",
+              "role": "evidence",
+              "note": "桌子上方，不是桌面"
+            }
+          ],
+          "caption": "三处信息分别核对，不补已经完成的结果。"
+        },
+        "transfer": "把two reasons改成two delays，再把above改成on，意思分别怎样变化？"
+      }
+    }
+  }
+}

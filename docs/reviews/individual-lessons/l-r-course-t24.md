@@ -1,0 +1,11 @@
+# Individual review: l-r-course-t24
+
+Content remains draft.
+
+Ten original engineering tasks compare five exact paper/gap/object/fold records, identify every changed condition, distinguish fair fold comparisons, retain supervised safety checks, limit the first comparison to its two designs, repeat later comparisons and preserve failed attempts and performance records. A new opt-in fields selector uses full-width code cards and verifies both selected fields and the conclusion. Fresh three-version tower transfer isolates height by comparing A with C while retaining failed attempts and limiting the finding. Source and application prompts are tailored.
+
+Inspected all ten models and wrong expressions, all five condition-selection records with extra/missing choices, partial reload, wrong conclusions, removal and repair, every 320-pixel model, all three selector widths, complete source/passage endings, every application/transfer distractor and explanation step, prediction, clinic and summary. Reinspected final first-comparison scope, meaningful sentence suffixes, all three fresh tower versions, exact A/B/C diagram and both partly correct transfer plans. Conditions and arrows are exact code models; no unsupported loads, dimensions or performance curves. Grade 9; reserved invention text stays unexposed; zero independent records. Existing privacy mask wrong/correct/edited states reinspected without new review credit.
+
+Ten tasks / 30 task-width checks at 320/390/768, reload and zero independent records. Full serial core: 1505 tests in 14 files pass after the final three-version transfer correction. Current compiler/typecheck, 826 teaching/spelling variants, nine grammar constraints, course/interactions/package, complete engineering browser flow, privacy compatibility flow, both native adapters, eighteen offline checks and exact-source archives pass. All five condition selectors have readable full-width controls without misleading quantity bars at 320/390/768. Development/cloud simulations passed: all 245 hashes, registered resolved artwork and illustration readiness/failure/retry. Native status succeeds but shared project-file access fails; no native GUI evidence.
+
+[Controls and inspected screenshots](l-r-course-t24/controls.json).

@@ -1,0 +1,9 @@
+/** Illustrative extent and thickness, without temperatures, millimetres or source counts. */
+export interface WordFoodExtent {kind:'heat'|'slices';title:string;hint:string;wrong:string}
+export interface WordFoodExtentView {kind:WordFoodExtent['kind'];title:string;hint:string;chosen:boolean;selected:string;reading:string;allThrough:boolean;thin:boolean;choices:{id:string;label:string;selected:boolean}[]}
+export const wordFoodExtentKey=(id:string)=>`workshopFoodExtent-${id}`
+export function validWordFoodExtent(v:unknown):v is WordFoodExtent{if(!v||typeof v!=='object'||Array.isArray(v))return false;const x=v as WordFoodExtent;return Object.keys(x).length===4&&Object.keys(x).every(k=>['kind','title','hint','wrong'].includes(k))&&['heat','slices'].includes(x.kind)&&([[x.title,60],[x.hint,110],[x.wrong,140]]as const).every(([s,n])=>typeof s==='string'&&!!s.trim()&&s===s.trim()&&s.length<=n)}
+const cases={heat:[{id:'all',label:'里外都热',reading:'对了，throughout包括各处，里面也要热。这里比较的是要求，没有实测温度。'},{id:'edge',label:'只有外面热',reading:'外面热、里面不热，还没有达到hot throughout的要求。'}],slices:[{id:'thin',label:'很薄的片',reading:'对了，very thinly说明切得很薄；原句没有给片数或毫米数。'},{id:'thick',label:'很厚的块',reading:'厚块与very thinly相反。thinly描述切得怎样，不是有多少片。'}]}as const
+export function foodExtentMatch(x:WordFoodExtent,raw:string){return raw===cases[x.kind][0].id}
+export function changeFoodExtent(x:WordFoodExtent,raw:string,action:string):string|undefined{if(action==='reset')return'';if(raw&&!cases[x.kind].some(c=>c.id===raw))return;return cases[x.kind].some(c=>c.id===action)?action:undefined}
+export function wordFoodExtentView(x:WordFoodExtent,raw:string):WordFoodExtentView{const c=cases[x.kind].find(c=>c.id===raw);return{kind:x.kind,title:x.title,hint:x.hint,chosen:!!c,selected:c?.id??'',reading:c?.reading??(x.kind==='heat'?'选一种范围，比较throughout。':'选一种薄厚，比较thinly。'),allThrough:c?.id==='all',thin:c?.id==='thin',choices:cases[x.kind].map(o=>({id:o.id,label:o.label,selected:o.id===c?.id}))}}

@@ -1,0 +1,608 @@
+{
+  "lessonId": "l-v-course-movement-4",
+  "reviewState": "draft",
+  "intent": "Individually distinguish unanswered riding ability, driving capability, transitive kite flying, negative swimming restrictions, future crossing, before order, exact twice-before-entry and moving line intersections.",
+  "picturePurpose": "Original grounded student and airborne kite identify the object of fly our kites; code-defined targets preserve the difference from human flight and source counts.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "找准对象，动手排顺序",
+    "instruction": "点出放飞的对象，排列开瓶步骤，试出两次敲门的顺序，再移动线找交点。独立拼写后，用目标词写自己的完整例句。",
+    "items": [
+      {
+        "id": "word-ride",
+        "label": "骑行（本句）",
+        "prompt": "Can you ride…?已经告诉我们会不会骑了吗？",
+        "answer": "ride",
+        "caseSensitive": false,
+        "meaning": "骑行（本句）",
+        "before": "Can you ",
+        "after": " safely along this track?",
+        "reason": "can后用原形ride；这是安全骑行能力的提问，还没有回答。",
+        "hint": "can后用原形ride；问的是能否安全骑行，没有给出回答。",
+        "material": "Can you ride safely along this track?",
+        "wordDecision": {
+          "prompt": "Can you ride…?已经告诉我们会不会骑了吗？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "问句保留未知",
+            "prompt": "圈出原句支持的信息，保留没有给出的答案。",
+            "hint": "不补坐骑、距离或实际完成结果。",
+            "wrong": "问的是能否安全骑行，不是已经完成；坐骑种类没有说明。",
+            "rows": [
+              {
+                "id": "action",
+                "label": "所问动作",
+                "text": "沿这条路安全骑行。",
+                "include": true
+              },
+              {
+                "id": "answer",
+                "label": "回答",
+                "text": "能否做到尚未回答。",
+                "include": true
+              },
+              {
+                "id": "vehicle",
+                "label": "额外细节",
+                "text": "已经说明骑的是白马。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "ask",
+            "text": "询问能否沿这条路安全骑行，答案尚未给出。",
+            "correct": true,
+            "reason": "保留问句与safely。"
+          },
+          {
+            "id": "done",
+            "text": "已经安全骑完全程。",
+            "correct": false,
+            "reason": "问句不能当成实际完成记录。"
+          },
+          {
+            "id": "vehicle",
+            "text": "明确说的是骑一匹白马。",
+            "correct": false,
+            "reason": "原句没有给出坐骑种类或颜色。"
+          }
+        ],
+        "ownForms": [
+          "ride",
+          "rides",
+          "rode",
+          "ridden",
+          "riding"
+        ]
+      },
+      {
+        "id": "word-drive",
+        "label": "驾驶（本句）",
+        "prompt": "can drive the minibus：能力还是正在行驶？",
+        "answer": "drive",
+        "caseSensitive": false,
+        "meaning": "驾驶（本句）",
+        "before": "My aunt can ",
+        "after": " the minibus.",
+        "reason": "drive在这里是驾驶小巴；can说明阿姨具备这项能力。",
+        "hint": "can后用原形drive；会开小巴，不等于正在开车。",
+        "material": "My aunt can drive the minibus.",
+        "wordDecision": {
+          "prompt": "can drive the minibus：能力还是正在行驶？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "人物、车辆与能力",
+            "prompt": "圈出原句支持的信息，保留没有给出的答案。",
+            "hint": "能力陈述不自动变成行程记录。",
+            "wrong": "能驾驶小巴，不等于正在开车或已经到达。",
+            "rows": [
+              {
+                "id": "person",
+                "label": "人物",
+                "text": "阿姨。",
+                "include": true
+              },
+              {
+                "id": "ability",
+                "label": "能力",
+                "text": "会驾驶小巴。",
+                "include": true
+              },
+              {
+                "id": "now",
+                "label": "额外结果",
+                "text": "此刻正在开车。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "ability",
+            "text": "阿姨会开这辆小巴。",
+            "correct": true,
+            "reason": "保留人、车辆与能力。"
+          },
+          {
+            "id": "now",
+            "text": "阿姨此刻正在驾驶小巴。",
+            "correct": false,
+            "reason": "can不等于is driving。"
+          },
+          {
+            "id": "animals",
+            "text": "阿姨正在赶走一群动物。",
+            "correct": false,
+            "reason": "the minibus限定驾驶车辆，不是驱赶动物。"
+          }
+        ],
+        "ownForms": [
+          "drive",
+          "drives",
+          "drove",
+          "driven",
+          "driving"
+        ]
+      },
+      {
+        "id": "word-fly",
+        "label": "放风筝（本句）",
+        "prompt": "fly our kites：图里被放飞的对象是什么？",
+        "answer": "fly",
+        "caseSensitive": false,
+        "meaning": "放风筝（本句）",
+        "before": "We can ",
+        "after": " our kites on the empty field.",
+        "reason": "fly在本句后接our kites，意思是放风筝，不是人离地飞行。",
+        "hint": "fly our kites指放风筝。图中一只风筝是示例，原句没给总数。",
+        "material": "We can fly our kites on the empty field.",
+        "wordDecision": {
+          "prompt": "fly our kites：图里被放飞的对象是什么？",
+          "art": {
+            "asset": "lesson-kite-object",
+            "assetRoot": "illustrations-7",
+            "format": "jpg",
+            "pictureOnly": true,
+            "alt": "原创教学插画：一名学生双脚站在草地上，手持线轴，一根线连向空中的红风筝。完整风筝、尾带和人物都可见。一只示范风筝不代表原句复数的确切总数。",
+            "targets": [
+              {
+                "id": "kite",
+                "option": "kite",
+                "label": "风筝",
+                "labelPosition": "bottom",
+                "left": 65,
+                "top": 0,
+                "width": 34,
+                "height": 70
+              },
+              {
+                "id": "person",
+                "option": "person",
+                "label": "学生",
+                "labelPosition": "top",
+                "left": 7,
+                "top": 0,
+                "width": 29,
+                "height": 99
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "kite",
+            "text": "空中的风筝",
+            "correct": true,
+            "reason": "kites是fly的对象。"
+          },
+          {
+            "id": "person",
+            "text": "站在地面的学生",
+            "correct": false,
+            "reason": "学生是放风筝的人，不是本句被放飞的对象。"
+          }
+        ],
+        "ownForms": [
+          "fly",
+          "flies",
+          "flew",
+          "flown",
+          "flying"
+        ]
+      },
+      {
+        "id": "word-swim",
+        "label": "游泳（本句）",
+        "prompt": "Never swim alone…：哪些限制不能漏？",
+        "answer": "swim",
+        "caseSensitive": false,
+        "meaning": "游泳（本句）",
+        "before": "Never ",
+        "after": " alone in unfamiliar water.",
+        "reason": "Never是不要做；alone和in unfamiliar water共同限定这条提醒。",
+        "hint": "Never表示不要；alone指独自，in unfamiliar water指在陌生水域。",
+        "material": "Never swim alone in unfamiliar water.",
+        "wordDecision": {
+          "prompt": "Never swim alone…：哪些限制不能漏？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "先读否定，再看条件",
+            "prompt": "圈出原句支持的信息，保留没有给出的答案。",
+            "hint": "警示不是安全承诺，也不是实际游泳记录。",
+            "wrong": "Never不能漏；不要从这句警示推出未给出的安全条件。",
+            "rows": [
+              {
+                "id": "negative",
+                "label": "否定",
+                "text": "不要独自在陌生水域游泳。",
+                "include": true
+              },
+              {
+                "id": "alone",
+                "label": "方式",
+                "text": "alone指独自一人。",
+                "include": true
+              },
+              {
+                "id": "guarantee",
+                "label": "额外保证",
+                "text": "有人陪同就一定安全。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "warning",
+            "text": "不要独自在陌生水域游泳。",
+            "correct": true,
+            "reason": "保留否定、独自与陌生水域。"
+          },
+          {
+            "id": "allow",
+            "text": "允许独自在陌生水域游泳。",
+            "correct": false,
+            "reason": "漏掉Never，意思相反。"
+          },
+          {
+            "id": "safe",
+            "text": "只要有人陪同，在任何水域都绝对安全。",
+            "correct": false,
+            "reason": "原句没有给出这样的安全保证。"
+          }
+        ],
+        "ownForms": [
+          "swim",
+          "swims",
+          "swam",
+          "swum",
+          "swimming"
+        ]
+      },
+      {
+        "id": "word-sail",
+        "label": "航行（本句）",
+        "prompt": "will sail across…tomorrow：什么时候，怎样过湖？",
+        "answer": "sail",
+        "caseSensitive": false,
+        "meaning": "航行（本句）",
+        "before": "They will ",
+        "after": " across the lake tomorrow.",
+        "reason": "will sail说明明天将航行；across the lake是横渡湖面。",
+        "hint": "will后用原形sail；tomorrow是明天，across是横渡。",
+        "material": "They will sail across the lake tomorrow.",
+        "wordDecision": {
+          "prompt": "will sail across…tomorrow：什么时候，怎样过湖？",
+          "meaningFromRecords": true,
+          "recordSelection": {
+            "title": "未来与路线分开核对",
+            "prompt": "圈出原句支持的信息，保留没有给出的答案。",
+            "hint": "示意不提供船型、距离或到达记录。",
+            "wrong": "明天将横渡，不是已抵达，也不是沿岸绕行。",
+            "rows": [
+              {
+                "id": "time",
+                "label": "时间",
+                "text": "明天。",
+                "include": true
+              },
+              {
+                "id": "route",
+                "label": "路线",
+                "text": "横渡湖面。",
+                "include": true
+              },
+              {
+                "id": "arrival",
+                "label": "额外结果",
+                "text": "已经抵达对岸。",
+                "include": false
+              }
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "future",
+            "text": "他们明天将驾船横渡湖面。",
+            "correct": true,
+            "reason": "保留未来时间与横渡方向。"
+          },
+          {
+            "id": "done",
+            "text": "他们昨天已经横渡并抵达对岸。",
+            "correct": false,
+            "reason": "把未来改成过去，还补上到达。"
+          },
+          {
+            "id": "around",
+            "text": "他们明天将沿湖岸绕一圈。",
+            "correct": false,
+            "reason": "把across换成around。"
+          }
+        ],
+        "ownForms": [
+          "sail",
+          "sails",
+          "sailed",
+          "sailing"
+        ]
+      },
+      {
+        "id": "word-shake",
+        "label": "摇动（本句）",
+        "prompt": "把摇瓶和开瓶按before排好。",
+        "answer": "Shake",
+        "caseSensitive": true,
+        "meaning": "摇动（本句）",
+        "before": "",
+        "after": " the bottle before you open it.",
+        "reason": "Shake the bottle before you open it要求先摇瓶，再开瓶。",
+        "hint": "句首Shake大写；先摇瓶，再开瓶。it指瓶子，过去式为shook。",
+        "material": "Shake the bottle before you open it.",
+        "wordDecision": {
+          "prompt": "把摇瓶和开瓶按before排好。",
+          "processOrder": {
+            "title": "谁先谁后？",
+            "hint": "先摇瓶，再开瓶；这里只排列指令，不实际操作瓶子。",
+            "wrong": "before要求Shake the bottle在open it之前；不能倒过来。",
+            "events": [
+              {
+                "id": "shake",
+                "label": "Shake the bottle"
+              },
+              {
+                "id": "open",
+                "label": "open it"
+              }
+            ],
+            "sequence": [
+              "shake",
+              "open"
+            ]
+          }
+        },
+        "options": [
+          {
+            "id": "before",
+            "text": "先摇瓶，再开瓶。",
+            "correct": true,
+            "reason": "保留before的先后。"
+          },
+          {
+            "id": "after",
+            "text": "先开瓶，再摇瓶。",
+            "correct": false,
+            "reason": "颠倒了先后。"
+          },
+          {
+            "id": "hands",
+            "text": "摇瓶和开瓶，先做哪件都可以。",
+            "correct": false,
+            "reason": "before限定先后，不能随意交换。"
+          }
+        ],
+        "ownForms": [
+          "shake",
+          "shakes",
+          "shook",
+          "shaken",
+          "shaking"
+        ]
+      },
+      {
+        "id": "word-knock",
+        "label": "敲门（本句）",
+        "prompt": "twice before entering：点出要求的动作顺序。",
+        "answer": "Knock",
+        "caseSensitive": true,
+        "meaning": "敲门（本句）",
+        "before": "",
+        "after": " twice before entering the office.",
+        "reason": "twice就是两次；两次敲门都在进办公室之前。",
+        "hint": "句首Knock大写；twice是两次，before是进入之前。",
+        "material": "Knock twice before entering the office.",
+        "wordDecision": {
+          "prompt": "twice before entering：点出要求的动作顺序。",
+          "entrySequence": {
+            "title": "先敲两下，再进入",
+            "hint": "依次点“敲门”和“进入”，比较次数与先后；这里只排文字动作。",
+            "wrong": "应为敲门、敲门、进入。一次、三次或先进入都不符合twice before entering。"
+          }
+        },
+        "options": [
+          {
+            "id": "twice",
+            "text": "先敲两下门，再进入办公室。",
+            "correct": true,
+            "reason": "保留次数和先后。"
+          },
+          {
+            "id": "once",
+            "text": "先敲一下门，再进入办公室。",
+            "correct": false,
+            "reason": "once不是twice。"
+          },
+          {
+            "id": "after",
+            "text": "先进入办公室，再敲两下门。",
+            "correct": false,
+            "reason": "把before倒成after。"
+          }
+        ],
+        "ownForms": [
+          "knock",
+          "knocks",
+          "knocked",
+          "knocking"
+        ]
+      },
+      {
+        "id": "word-point",
+        "label": "指向（本句）",
+        "prompt": "两条线移动后，交点在哪里？",
+        "answer": "Point",
+        "caseSensitive": true,
+        "meaning": "指向（本句）",
+        "before": "",
+        "after": " to the place where the two lines meet.",
+        "reason": "Point to是指出位置；where the two lines meet限定两条线的交点。",
+        "hint": "句首Point大写；point to指向，两线相交处才是所指位置。",
+        "material": "Point to the place where the two lines meet.",
+        "wordDecision": {
+          "prompt": "两条线移动后，交点在哪里？",
+          "lineIntersection": {
+            "title": "动一条线，再找交点",
+            "hint": "移动竖线或横线，再点两条线共同经过的位置。",
+            "wrong": "交点必须同时在两条线上。改动线的位置后，要重新选交点，不能沿用原来的点。"
+          }
+        },
+        "options": [
+          {
+            "id": "meet",
+            "text": "指出两条线相交的位置。",
+            "correct": true,
+            "reason": "保留where限定的交点。"
+          },
+          {
+            "id": "end",
+            "text": "任意指出一条线的端点。",
+            "correct": false,
+            "reason": "端点未必是两条线相交的位置。"
+          },
+          {
+            "id": "score",
+            "text": "把两条线的得分相加。",
+            "correct": false,
+            "reason": "把动词point误解成分数。"
+          }
+        ],
+        "ownForms": [
+          "point",
+          "points",
+          "pointed",
+          "pointing"
+        ]
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-movement-4-transfer",
+      "topicId": "v-course-movement",
+      "skill": "vocabulary",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "哪组三句话准确保留了新动作的对象、次数和先后？",
+      "passage": "新情境｜我们可以在空地上放风筝。进美术室（art room）前要敲两下门。请指出两条蓝线相交的位置（crossing point）。这些是安排和指令，没有实际完成记录；也没有说人能在空中飞。",
+      "options": [
+        {
+          "id": "a",
+          "text": "We can fly our kites on the empty field. Knock twice before entering the art room. Point to the crossing point of the two blue lines."
+        },
+        {
+          "id": "b",
+          "text": "We can fly through the air without kites. Knock twice before entering the art room. Point to the crossing point of the two blue lines."
+        },
+        {
+          "id": "c",
+          "text": "We can fly our kites on the empty field. Knock once before entering the art room. Point to the crossing point of the two blue lines."
+        },
+        {
+          "id": "d",
+          "text": "We can fly our kites on the empty field. Knock twice before entering the art room. Point to any end of one blue line."
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "We can fly our kites on the empty field. Knock twice before entering the art room. Point to the crossing point of the two blue lines."
+      },
+      "marks": 2,
+      "estimatedSeconds": 100,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "先找fly的对象，再核对twice和before，最后确认交点而非端点。",
+        "steps": [
+          {
+            "text": "fly our kites说的是放风筝；Knock twice before entering要求先敲两下门再进入。",
+            "reason": "动作对象、次数与先后都要保留。"
+          },
+          {
+            "text": "两条蓝线共同经过的位置才是交点。",
+            "reason": "任意端点不一定是两条线相交的位置。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "把放风筝改成了人自己在空中飞。"
+          },
+          {
+            "option": "c",
+            "reason": "once是一次，不符合原文的两次。"
+          },
+          {
+            "option": "d",
+            "reason": "把两条蓝线的交点改成了一条线的任意端点。"
+          }
+        ],
+        "pitfall": "只认出单词，却漏掉对象、次数、before或where限定的信息。",
+        "visual": {
+          "kind": "comparison",
+          "title": "对象 · 次数与先后 · 交点",
+          "segments": [
+            {
+              "text": "fly our kites",
+              "role": "evidence",
+              "note": "放风筝"
+            },
+            {
+              "text": "knock twice → enter",
+              "role": "evidence",
+              "note": "先敲两下再进入"
+            },
+            {
+              "text": "two blue lines → crossing point",
+              "role": "evidence",
+              "note": "两线共同经过的位置"
+            }
+          ],
+          "caption": "指令不是实际完成记录。"
+        },
+        "transfer": "把twice改成once后，动作序列需要改哪里？"
+      }
+    }
+  }
+}

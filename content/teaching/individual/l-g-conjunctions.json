@@ -1,0 +1,405 @@
+{
+  "lessonId": "l-g-conjunctions",
+  "authoredAt": "2026-10-18",
+  "reviewState": "draft",
+  "intent": "Manipulate the same cause/result ordering, contrast concession, remove duplicated connectors in formal clause structures, and distinguish otherwise from a positive consequence or activity condition.",
+  "picturePurpose": "Reuse the inspected original rain/indoor versus dry/garden picture as two contrasting scenes. Explicit activity facts select the intended causal situation. Code diagrams retain causal direction when sentence order changes.",
+  "workshop": {
+    "kind": "transform",
+    "navigationLabel": "任务",
+    "title": "看清关系，把两句接起来",
+    "instruction": "先判断原因、结果、让步或条件，再选择或拼出连接后的表达。",
+    "conditions": [
+      {
+        "label": "先说结果，再解释原因",
+        "before": "We read indoors ",
+        "target": "because",
+        "after": " it was raining.",
+        "choices": [
+          "because",
+          "so",
+          "although"
+        ],
+        "reason": "前半句是室内读书这个结果，后半句解释下雨这个原因，用 because。不能用 so 把下雨说成室内读书造成的结果。",
+        "world": {
+          "kind": "logic",
+          "caption": "看左侧情景：按活动安排，下雨时留在室内。现在解释为什么在室内读书。",
+          "cells": [
+            {
+              "label": "@record",
+              "detail": "你选的情景"
+            },
+            {
+              "label": "@outcome",
+              "detail": "对应安排"
+            }
+          ],
+          "records": {
+            "title": "当前讨论的是哪幅图？",
+            "missingPrompt": "先选符合这组事实的关系，再核对连接表达。",
+            "answer": "rain",
+            "options": [
+              {
+                "id": "rain",
+                "label": "情景A：下雨",
+                "text": "按活动安排留在室内",
+                "reason": "A 情景中的雨是留在室内的原因。",
+                "outcome": "室内读书",
+                "value": 50
+              },
+              {
+                "id": "dry",
+                "label": "情景B：晴朗",
+                "text": "天气适合在花园观察",
+                "reason": "当前要解释下雨时的安排，不是晴朗情景。",
+                "outcome": "花园观察",
+                "value": 50
+              }
+            ],
+            "asset": "lesson-weather-plans",
+            "alt": "左侧下雨，同学们在室内读书；右侧晴朗，同学们在花园观察。当前任务讨论左侧情景。",
+            "artChoices": [
+              "rain",
+              "dry"
+            ]
+          },
+          "connector": "所以"
+        }
+      },
+      {
+        "label": "换成原因在前，接结果",
+        "before": "It was raining, ",
+        "target": "so",
+        "after": " we read indoors.",
+        "choices": [
+          "because",
+          "so",
+          "but"
+        ],
+        "reason": "原因下雨放在前面，后半句接室内读书这个结果，用 so。两件事的因果方向没变，只是英语表达的先后变了。",
+        "world": {
+          "kind": "logic",
+          "caption": "仍是同一组事实，这次先说下雨，再说相应的安排。",
+          "cells": [
+            {
+              "label": "下雨",
+              "detail": "原因"
+            },
+            {
+              "label": "室内读书",
+              "detail": "结果"
+            }
+          ],
+          "connector": "所以"
+        }
+      },
+      {
+        "label": "because 已引原因，不再重复 so",
+        "before": "Because it was raining, ",
+        "target": "we read indoors",
+        "after": ".",
+        "choices": [
+          "so we read indoors",
+          "we read indoors"
+        ],
+        "reason": "这组主从句已经用 because 引出原因，主句直接说 we read indoors，不再重复加 so。",
+        "world": {
+          "kind": "syntax",
+          "caption": "按本题的书面语要求，把原因和结果连成一句，不重复使用 because 和 so。",
+          "cells": [
+            {
+              "label": "It was raining. We read indoors.",
+              "detail": "原来的两句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你补全的主句",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "tiles": [
+          "so",
+          "we",
+          "indoors",
+          "read"
+        ]
+      },
+      {
+        "label": "事实与原先担心相反",
+        "before": "",
+        "target": "Although",
+        "after": " the model was small, it worked well.",
+        "choices": [
+          "Because",
+          "Although",
+          "Unless"
+        ],
+        "reason": "原本担心模型小而效果不好，实测却工作正常，表达尽管小仍然有效，用 Although。Because 会把小直接说成工作正常的原因。",
+        "world": {
+          "kind": "logic",
+          "caption": "测试记录：本来担心模型太小，实测却能正常运转。先判断两层意思的关系。",
+          "cells": [
+            {
+              "label": "模型小",
+              "detail": "原本担心效果"
+            },
+            {
+              "label": "仍工作正常",
+              "detail": "实际与担心相反"
+            }
+          ],
+          "records": {
+            "title": "这段话是在解释原因，还是表达让步？",
+            "missingPrompt": "先选符合这组事实的关系，再核对连接表达。",
+            "answer": "contrast",
+            "options": [
+              {
+                "id": "contrast",
+                "label": "尽管如此，仍然有效",
+                "text": "结果与原先的担心相反",
+                "reason": "Although 表达承认前面的事实，后面仍出现另一种结果。",
+                "outcome": "Although",
+                "value": 50
+              },
+              {
+                "id": "cause",
+                "label": "正是因为小才有效",
+                "text": "把体积小作为有效的原因",
+                "reason": "记录并未说小造成有效，而是说担心归担心，实测仍有效。",
+                "outcome": "Because",
+                "value": 50
+              }
+            ]
+          },
+          "connector": "却"
+        }
+      },
+      {
+        "label": "although 后的主句，不重复 but",
+        "before": "Although the practice was tiring, ",
+        "target": "we finished the task",
+        "after": ".",
+        "choices": [
+          "but we finished the task",
+          "we finished the task"
+        ],
+        "reason": "这组主从句已用 Although 表达让步，主句直接说完成任务，不再重复加 but。",
+        "world": {
+          "kind": "syntax",
+          "caption": "书面语练习：尽管练习费力，我们还是完成了任务。本句不重复使用 although 和 but。",
+          "cells": [
+            {
+              "label": "The practice was tiring. We finished the task.",
+              "detail": "原来的两句"
+            },
+            {
+              "label": "@attempt",
+              "detail": "你补全的主句",
+              "role": "attempt-result"
+            }
+          ]
+        },
+        "input": true,
+        "tiles": [
+          "but",
+          "we",
+          "finished",
+          "task",
+          "the"
+        ]
+      },
+      {
+        "label": "不用从句，也可以用 but 转折",
+        "before": "The journey was long, ",
+        "target": "but",
+        "after": " we enjoyed it.",
+        "choices": [
+          "so",
+          "but",
+          "because"
+        ],
+        "reason": "旅程长容易让人担心无聊或疲倦，实际却玩得开心，前后形成转折，用 but。这里没有 Although，不是在重复连接词。",
+        "world": {
+          "kind": "logic",
+          "caption": "两项记录：旅程很长；我们却玩得很开心。把两层意思接好。",
+          "cells": [
+            {
+              "label": "旅程很长",
+              "detail": "可能让人担心疲倦"
+            },
+            {
+              "label": "玩得开心",
+              "detail": "实际的另一面"
+            }
+          ],
+          "connector": "却"
+        }
+      },
+      {
+        "label": "提醒后接“否则”",
+        "before": "Take your map, ",
+        "target": "or",
+        "after": " you may get lost.",
+        "choices": [
+          "and",
+          "or",
+          "because"
+        ],
+        "reason": "祈使句后用 or 表示否则：如果不带地图，就有迷路的可能。这里不是说带了地图反而会迷路。",
+        "world": {
+          "kind": "logic",
+          "caption": "给游客的提醒：带上地图，否则可能迷路。先把后果的条件读准。",
+          "cells": [
+            {
+              "label": "不带地图",
+              "detail": "提醒背后的条件"
+            },
+            {
+              "label": "可能迷路",
+              "detail": "否则可能发生的后果"
+            }
+          ]
+        }
+      },
+      {
+        "label": "参加活动的条件",
+        "before": "You can join the gardening activity ",
+        "target": "if",
+        "after": " you bring gloves.",
+        "choices": [
+          "although",
+          "if",
+          "because"
+        ],
+        "reason": "题目给出条件成立后的许可：如果带好手套，就可以参加，用 if。because 是解释原因，although 是让步，都不是这里要表达的条件。",
+        "world": {
+          "kind": "logic",
+          "caption": "其余准备已经完成。如果带好手套，就可以参加这次活动。",
+          "cells": [
+            {
+              "label": "带好手套",
+              "detail": "本活动的参加条件"
+            },
+            {
+              "label": "可以参加",
+              "detail": "满足条件后的许可"
+            }
+          ],
+          "connector": "就"
+        }
+      }
+    ],
+    "choices": [
+      "because",
+      "so",
+      "although",
+      "but",
+      "so we read indoors",
+      "we read indoors",
+      "Because",
+      "Although",
+      "Unless",
+      "but we finished the task",
+      "we finished the task",
+      "and",
+      "or",
+      "if"
+    ],
+    "items": [
+      {
+        "id": "clause-link",
+        "label": "关系与方向",
+        "prompt": "两句话之间是什么关系？",
+        "answer": "",
+        "reason": "",
+        "hint": "连接词不仅要写对，还要让前后意思接得上。"
+      }
+    ],
+    "applicationIds": [
+      "q-g-conjunctions-002",
+      "q-g-conjunctions-003"
+    ],
+    "transfer": {
+      "id": "individual-g-conjunctions-transfer",
+      "topicId": "g-conjunctions",
+      "skill": "grammar",
+      "kind": "choice",
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "difficulty": 2,
+      "stem": "虽然准备时间少，大家仍完成了海报。海报信息清楚，所以游客找到了入口。两空依次填什么？\n___ we had little time, we finished the posters. The information was clear, ___ visitors found the entrance.",
+      "options": [
+        {
+          "id": "a",
+          "text": "Although; so"
+        },
+        {
+          "id": "b",
+          "text": "Because; so"
+        },
+        {
+          "id": "c",
+          "text": "Although; because"
+        }
+      ],
+      "answer": {
+        "option": "a",
+        "display": "Although; so"
+      },
+      "marks": 2,
+      "estimatedSeconds": 80,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "分别判断第一组是让步关系，第二组是原因与结果。",
+        "steps": [
+          {
+            "text": "时间少，但仍完成海报，承认困难后出现积极结果。",
+            "reason": "用 Although 表达尽管如此，仍然完成。"
+          },
+          {
+            "text": "信息清楚是原因，游客找到入口是结果。",
+            "reason": "结果在后面，用 so 引出。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "b",
+            "reason": "第一句给出的意思是虽然时间少仍完成，不是说因为时间少才完成。"
+          },
+          {
+            "option": "c",
+            "reason": "第二句先说信息清楚这个原因，再说找到入口这个结果，用 so，不用引原因的 because。"
+          }
+        ],
+        "pitfall": "不能见到两件事就随意套 because 或 so；还要读准让步和因果方向。",
+        "visual": {
+          "kind": "sentence",
+          "title": "先判关系，再连句子",
+          "segments": [
+            {
+              "text": "Although we had little time → we finished",
+              "role": "evidence",
+              "note": "困难存在，仍然完成"
+            },
+            {
+              "text": "information was clear → so visitors found the entrance",
+              "role": "verb",
+              "note": "原因在前，结果在后"
+            }
+          ],
+          "caption": "让步不等于原因；同一组因果也要看前后顺序。"
+        },
+        "transfer": "若第二句先说游客找到入口，再解释原因，应换用哪个连接词？"
+      }
+    }
+  }
+}

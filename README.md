@@ -1,5 +1,10 @@
 # 初中英语 · Local learning app and WeChat mini program
 
+All **413 lessons** have received a separate interactive redesign and local visual review.
+Each has its own authored activities, specific error feedback and a fresh exam-style transfer.
+See the [per-lesson tracker](docs/authoring/lesson-upgrades.md) and
+[final local review](docs/reviews/individual-lessons/final-local-review-2026-11-07.md).
+
 A working local English practice app for mainland junior-high students, with 413 original draft
 lessons, 5,004 tasks and 1,690 distinct vocabulary headwords. Every lesson starts with a hands-on
 studio: build an expression, choose evidence, sort examples or revise a draft. It includes illustrated answer feedback,
@@ -23,8 +28,10 @@ The lesson redesign now uses one coherent teaching sequence. It replaces the rej
 card-board introduction with changing grammar models, required original word use, evidence
 chains and the learner's own expression plan. The [maths comparison](docs/reviews/lesson-quality-comparison-2026-10-17.md)
 records the original problems; the [current lesson review](docs/reviews/lesson-workshops-2026-10-17.md)
-records the changes and verification boundary. Native verification of this revision still needs
-Mac project-drive access; browser checks do not establish a native pass or public release.
+records the changes and verification boundary. Mac access recovered during checkpoint 98.
+The [focused native check](docs/reviews/individual-lessons/native-checkpoint-98/README.md) verifies
+one lesson’s guest-simulator rendering and event bindings; physical touch, devices and broader
+native journeys remain open. Browser coverage does not establish public-release readiness.
 
 ## Run locally
 
@@ -38,7 +45,7 @@ npm run dev
 
 The development server listens on loopback port 4173. For a portable offline copy, open
 `dist/local/index.html` in Chrome or Edge. That single file contains all 245 checked content packs,
-the app code, styles, original Blender artwork and three inspected generated scenes. It needs no account or cloud configuration.
+the app code, styles, original Blender artwork and inspected original generated illustrations. It needs no account or cloud configuration.
 See [local version instructions](docs/local-version.md) for saving progress and microphone support.
 
 The complete original course covers 29 themes across reading, listening, speaking and writing,
@@ -77,6 +84,9 @@ No production AppID is included. See [native verification evidence](docs/reviews
 
 `npm run check` keeps test files serial for the expanded lesson data; the original test timeouts
 remain unchanged.
+
+Vitest reuses compiled TypeScript in its ignored `node_modules/.vitest-cache` directory.
+The cache is keyed by source content, tool version and configuration; every test still runs.
 
 ```bash
 npm run check
