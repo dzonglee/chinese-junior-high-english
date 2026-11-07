@@ -1,0 +1,3942 @@
+{
+  "lessonId": "l-v-course-journeys-3",
+  "reviewState": "draft",
+  "intent": "Teach packing direction, wet-first ordering, literal booklet/brochure evidence, reservation nights, locked bicycle storage, downstairs shared kitchen and room-key reception instruction.",
+  "picturePurpose": "Five changing coded diagrams, one ordering task and two exact evidence activities; exact objects, quantities and relations stay deterministic.",
+  "workshop": {
+    "kind": "word-use",
+    "title": "整理行李，读懂住宿信息",
+    "instruction": "移动物品、排先后、改位置；看清原句的动作、地点和范围。",
+    "items": [
+      {
+        "id": "word-pack",
+        "label": "把衣物装进行李（动词，本句）",
+        "prompt": "晚上要穿的保暖衣物，应装进行李还是拿出来？切换动作与时间。",
+        "answer": "Pack",
+        "caseSensitive": true,
+        "meaning": "把衣物装进行李（动词，本句）",
+        "before": "",
+        "after": " a warm layer for the evening.",
+        "reason": "Pack a warm layer for the evening要求装一件晚上保暖的衣物；pack在这里是装进行李的动作，不是一包东西。",
+        "hint": "pack for a trip表示为旅行收拾行李；这里a warm layer指一件保暖衣物，不是给行李加一层包装。",
+        "material": "Pack a warm layer for the evening.",
+        "options": [
+          {
+            "id": "in-evening",
+            "text": "装一件晚上保暖的衣物。",
+            "correct": true,
+            "reason": "保留pack的装入方向与for the evening。"
+          },
+          {
+            "id": "out",
+            "text": "把晚上保暖的衣物从行李里拿出来。",
+            "correct": false,
+            "reason": "取出是unpack，与本句动作方向相反。"
+          },
+          {
+            "id": "morning",
+            "text": "装一件早晨保暖的衣物。",
+            "correct": false,
+            "reason": "早晨改掉了evening晚上。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "晚上要穿的保暖衣物，应装进行李还是拿出来？切换动作与时间。",
+          "sceneLab": {
+            "id": "pack-layer",
+            "title": "装入还是取出，为什么时候准备？",
+            "hint": "图示比较动作方向与使用时间，不表示已经整理完毕。",
+            "wrong": "应装入保暖衣物，为晚上准备；不能换成取出或早晨。",
+            "axes": [
+              {
+                "id": "direction",
+                "label": "动作方向",
+                "choices": [
+                  {
+                    "id": "in",
+                    "label": "装入行李"
+                  },
+                  {
+                    "id": "out",
+                    "label": "从行李取出"
+                  }
+                ]
+              },
+              {
+                "id": "time",
+                "label": "为什么时候准备",
+                "choices": [
+                  {
+                    "id": "evening",
+                    "label": "晚上"
+                  },
+                  {
+                    "id": "morning",
+                    "label": "早晨"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "时间待选"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 30,
+                    "width": 36,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 74,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "行李"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 40,
+                    "width": 50,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|evening",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "为晚上准备"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 30,
+                    "width": 36,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 74,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "行李"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 40,
+                    "width": 50,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|morning",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "为早晨准备"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 30,
+                    "width": 36,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 74,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "行李"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 40,
+                    "width": 50,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "动作待选"
+                  }
+                ]
+              },
+              {
+                "signature": "in|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "时间待选"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 30,
+                    "width": 36,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 74,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "行李"
+                  },
+                  {
+                    "id": "layer",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 37,
+                    "width": 22,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "layer-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 42,
+                    "width": 22,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "衣物"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 41,
+                    "width": 20,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 22,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "装入"
+                  }
+                ]
+              },
+              {
+                "signature": "in|evening",
+                "reading": "装一件晚上保暖的衣物。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "为晚上准备"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 30,
+                    "width": 36,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 74,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "行李"
+                  },
+                  {
+                    "id": "layer",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 37,
+                    "width": 22,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "layer-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 42,
+                    "width": 22,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "衣物"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 41,
+                    "width": 20,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 22,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "装入"
+                  }
+                ]
+              },
+              {
+                "signature": "in|morning",
+                "reading": "应装入保暖衣物，为晚上准备；不能换成取出或早晨。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "为早晨准备"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 30,
+                    "width": 36,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 74,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "行李"
+                  },
+                  {
+                    "id": "layer",
+                    "kind": "rect",
+                    "x": 64,
+                    "y": 37,
+                    "width": 22,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "layer-label",
+                    "kind": "label",
+                    "x": 64,
+                    "y": 42,
+                    "width": 22,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "衣物"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 41,
+                    "width": 20,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "→"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 22,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "装入"
+                  }
+                ]
+              },
+              {
+                "signature": "out|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "时间待选"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 30,
+                    "width": 36,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 74,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "行李"
+                  },
+                  {
+                    "id": "layer",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 37,
+                    "width": 22,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "layer-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 42,
+                    "width": 22,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "衣物"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 41,
+                    "width": 20,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "←"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 22,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "取出"
+                  }
+                ]
+              },
+              {
+                "signature": "out|evening",
+                "reading": "应装入保暖衣物，为晚上准备；不能换成取出或早晨。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "为晚上准备"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 30,
+                    "width": 36,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 74,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "行李"
+                  },
+                  {
+                    "id": "layer",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 37,
+                    "width": 22,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "layer-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 42,
+                    "width": 22,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "衣物"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 41,
+                    "width": 20,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "←"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 22,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "取出"
+                  }
+                ]
+              },
+              {
+                "signature": "out|morning",
+                "reading": "应装入保暖衣物，为晚上准备；不能换成取出或早晨。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "time",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "为早晨准备"
+                  },
+                  {
+                    "id": "bag",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 30,
+                    "width": 36,
+                    "height": 40,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "bag-label",
+                    "kind": "label",
+                    "x": 57,
+                    "y": 74,
+                    "width": 36,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "行李"
+                  },
+                  {
+                    "id": "layer",
+                    "kind": "rect",
+                    "x": 8,
+                    "y": 37,
+                    "width": 22,
+                    "height": 26,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "layer-label",
+                    "kind": "label",
+                    "x": 8,
+                    "y": 42,
+                    "width": 22,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "衣物"
+                  },
+                  {
+                    "id": "arrow",
+                    "kind": "label",
+                    "x": 33,
+                    "y": 41,
+                    "width": 20,
+                    "height": 20,
+                    "tone": "ink",
+                    "text": "←"
+                  },
+                  {
+                    "id": "direction",
+                    "kind": "label",
+                    "x": 30,
+                    "y": 22,
+                    "width": 27,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "取出"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-unpack",
+        "label": "从行李中取出（动词，本句）",
+        "prompt": "先取出湿东西还是干东西？排出原句要求的先后。",
+        "answer": "Unpack",
+        "caseSensitive": true,
+        "meaning": "从行李中取出（动词，本句）",
+        "before": "",
+        "after": " the wet things first.",
+        "reason": "Unpack the wet things first要求先把湿东西取出来；first给出湿东西优先，不是先放回行李。",
+        "hint": "un-在unpack中表示相反动作；这里用first比较取出顺序，不给每件衣物的数量。",
+        "material": "Unpack the wet things first.",
+        "options": [
+          {
+            "id": "wet-first",
+            "text": "先把湿东西从行李里取出来。",
+            "correct": true,
+            "reason": "保留unpack、wet things与first。"
+          },
+          {
+            "id": "dry-first",
+            "text": "先把干东西从行李里取出来。",
+            "correct": false,
+            "reason": "干东西改变了wet things。"
+          },
+          {
+            "id": "pack",
+            "text": "先把湿东西装进行李。",
+            "correct": false,
+            "reason": "装入与unpack取出相反。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "先取出湿东西还是干东西？排出原句要求的先后。",
+          "processOrder": {
+            "title": "先处理哪一组？",
+            "hint": "新示意把物品分为湿、干两组，只练湿东西优先，不是清单数量。",
+            "wrong": "先取出湿东西，再处理其余物品；不能把湿东西排在后面。",
+            "events": [
+              {
+                "id": "wet",
+                "label": "取出湿东西"
+              },
+              {
+                "id": "others",
+                "label": "处理其余物品"
+              }
+            ],
+            "sequence": [
+              "wet",
+              "others"
+            ],
+            "layout": "downward"
+          }
+        }
+      },
+      {
+        "id": "word-booklet",
+        "label": "小册子",
+        "prompt": "小册子介绍什么、在哪里？圈出内容和位置。",
+        "answer": "booklet",
+        "caseSensitive": false,
+        "meaning": "小册子",
+        "before": "The ",
+        "after": " describes walks near the village.",
+        "reason": "The booklet describes walks near the village说小册子介绍村庄附近的步行路线；没有说读者已经走过。",
+        "hint": "booklet中的-let表示较小的书册；walks在这里指步行路线或步行活动，不是已经完成的行动。",
+        "material": "The booklet describes walks near the village.",
+        "options": [
+          {
+            "id": "near",
+            "text": "小册子介绍村庄附近的步行路线。",
+            "correct": true,
+            "reason": "保留describes walks与near the village。"
+          },
+          {
+            "id": "far",
+            "text": "小册子介绍远离村庄的步行路线。",
+            "correct": false,
+            "reason": "远离与near附近相反。"
+          },
+          {
+            "id": "done",
+            "text": "我们已经走完了册子里的路线。",
+            "correct": false,
+            "reason": "介绍路线没有报告我们已经走过。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "小册子介绍什么、在哪里？圈出内容和位置。",
+          "recordSelection": {
+            "title": "册子介绍的内容",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "按原句找证据，不补尚未说明的行程或体验。",
+            "wrong": "圈出步行路线与村庄附近，不补读者已经走过。",
+            "rows": [
+              {
+                "id": "content",
+                "label": "介绍什么",
+                "text": "步行路线。",
+                "include": true
+              },
+              {
+                "id": "place",
+                "label": "在哪里",
+                "text": "村庄附近。",
+                "include": true
+              },
+              {
+                "id": "done",
+                "label": "额外结果",
+                "text": "读者已经走完。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-brochure",
+        "label": "宣传册",
+        "prompt": "宣传册列出什么路线？有没有给路线总数？圈出已知信息。",
+        "answer": "brochure",
+        "caseSensitive": false,
+        "meaning": "宣传册",
+        "before": "The ",
+        "after": " lists accessible walking routes.",
+        "reason": "The brochure lists accessible walking routes说宣传册列出了无障碍步行路线；没有给路线条数。",
+        "hint": "brochure常指旅游或产品介绍册；accessible在本句修饰walking routes，不等于只有一条或已经走过。",
+        "material": "The brochure lists accessible walking routes.",
+        "options": [
+          {
+            "id": "accessible",
+            "text": "宣传册列出了无障碍步行路线。",
+            "correct": true,
+            "reason": "保留lists与accessible walking routes。"
+          },
+          {
+            "id": "stairs",
+            "text": "宣传册只列出了陡台阶路线。",
+            "correct": false,
+            "reason": "陡台阶路线不是原句给出的accessible walking routes。"
+          },
+          {
+            "id": "one",
+            "text": "宣传册恰好只列出一条步行路线。",
+            "correct": false,
+            "reason": "原句没有给数量，routes还是复数。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "宣传册列出什么路线？有没有给路线总数？圈出已知信息。",
+          "recordSelection": {
+            "title": "列出的路线",
+            "prompt": "圈出原句明确给出的两条信息。",
+            "hint": "按原句找证据，不补尚未说明的行程或体验。",
+            "wrong": "圈出宣传册及无障碍步行路线，不补条数。",
+            "rows": [
+              {
+                "id": "material",
+                "label": "材料",
+                "text": "宣传册。",
+                "include": true
+              },
+              {
+                "id": "routes",
+                "label": "列出的内容",
+                "text": "无障碍步行路线。",
+                "include": true
+              },
+              {
+                "id": "one",
+                "label": "额外数量",
+                "text": "恰好只有一条。",
+                "include": false
+              }
+            ]
+          },
+          "meaningFromRecords": true
+        }
+      },
+      {
+        "id": "word-reservation",
+        "label": "预订（名词）",
+        "prompt": "预订是两晚还是两周？已有预订等于已经住完吗？切换核对。",
+        "answer": "reservation",
+        "caseSensitive": false,
+        "meaning": "预订（名词）",
+        "before": "I have a ",
+        "after": " for two nights.",
+        "reason": "I have a reservation for two nights说我已有两晚的预订；不是两周，也没有报告已经住完。",
+        "hint": "make a reservation表示预订；本句have a reservation报告有预订，nights计住宿夜数，不给日期。",
+        "material": "I have a reservation for two nights.",
+        "options": [
+          {
+            "id": "two-nights",
+            "text": "我有两晚的住宿预订。",
+            "correct": true,
+            "reason": "保留have a reservation与two nights。"
+          },
+          {
+            "id": "weeks",
+            "text": "我有两周的住宿预订。",
+            "correct": false,
+            "reason": "weeks改掉了nights。"
+          },
+          {
+            "id": "stayed",
+            "text": "我已经住完了两个晚上。",
+            "correct": false,
+            "reason": "有预订不等于已经完成住宿。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "预订是两晚还是两周？已有预订等于已经住完吗？切换核对。",
+          "sceneLab": {
+            "id": "reservation-nights",
+            "title": "夜数与预订状态",
+            "hint": "两格只表示两晚，不给日期、付款或入住结果。",
+            "wrong": "应保留两晚与已有预订，不能改单位或补住完。",
+            "axes": [
+              {
+                "id": "unit",
+                "label": "预订时长的单位",
+                "choices": [
+                  {
+                    "id": "nights",
+                    "label": "两晚"
+                  },
+                  {
+                    "id": "weeks",
+                    "label": "两周"
+                  }
+                ]
+              },
+              {
+                "id": "phase",
+                "label": "有预订还是已住完",
+                "choices": [
+                  {
+                    "id": "booked",
+                    "label": "已有预订"
+                  },
+                  {
+                    "id": "stayed",
+                    "label": "已经住完"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "单位待选"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  },
+                  {
+                    "id": "slot-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-0",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "？"
+                  },
+                  {
+                    "id": "slot-1",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-1",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "？"
+                  }
+                ]
+              },
+              {
+                "signature": "?|booked",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "单位待选"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已有预订"
+                  },
+                  {
+                    "id": "slot-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-0",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "？"
+                  },
+                  {
+                    "id": "slot-1",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-1",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "？"
+                  }
+                ]
+              },
+              {
+                "signature": "?|stayed",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "单位待选"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已经住完"
+                  },
+                  {
+                    "id": "slot-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-0",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "？"
+                  },
+                  {
+                    "id": "slot-1",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-1",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "？"
+                  }
+                ]
+              },
+              {
+                "signature": "nights|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "两晚"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  },
+                  {
+                    "id": "slot-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-0",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一晚"
+                  },
+                  {
+                    "id": "slot-1",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-1",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一晚"
+                  }
+                ]
+              },
+              {
+                "signature": "nights|booked",
+                "reading": "我有两晚的住宿预订。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "两晚"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已有预订"
+                  },
+                  {
+                    "id": "slot-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-0",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一晚"
+                  },
+                  {
+                    "id": "slot-1",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-1",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一晚"
+                  }
+                ]
+              },
+              {
+                "signature": "nights|stayed",
+                "reading": "应保留两晚与已有预订，不能改单位或补住完。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "两晚"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已经住完"
+                  },
+                  {
+                    "id": "slot-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-0",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一晚"
+                  },
+                  {
+                    "id": "slot-1",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-1",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一晚"
+                  }
+                ]
+              },
+              {
+                "signature": "weeks|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "两周"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "状态待选"
+                  },
+                  {
+                    "id": "slot-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-0",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一周"
+                  },
+                  {
+                    "id": "slot-1",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-1",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一周"
+                  }
+                ]
+              },
+              {
+                "signature": "weeks|booked",
+                "reading": "应保留两晚与已有预订，不能改单位或补住完。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "两周"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已有预订"
+                  },
+                  {
+                    "id": "slot-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-0",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一周"
+                  },
+                  {
+                    "id": "slot-1",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-1",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一周"
+                  }
+                ]
+              },
+              {
+                "signature": "weeks|stayed",
+                "reading": "应保留两晚与已有预订，不能改单位或补住完。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "unit",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "两周"
+                  },
+                  {
+                    "id": "phase",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 78,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "已经住完"
+                  },
+                  {
+                    "id": "slot-0",
+                    "kind": "rect",
+                    "x": 18,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-0",
+                    "kind": "label",
+                    "x": 18,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一周"
+                  },
+                  {
+                    "id": "slot-1",
+                    "kind": "rect",
+                    "x": 54,
+                    "y": 29,
+                    "width": 28,
+                    "height": 34,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "slot-label-1",
+                    "kind": "label",
+                    "x": 54,
+                    "y": 38,
+                    "width": 28,
+                    "height": 15,
+                    "tone": "ink",
+                    "text": "一周"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-hotel",
+        "label": "酒店；旅馆",
+        "prompt": "酒店存放的是什么，房间有没有上锁？分别切换。",
+        "answer": "hotel",
+        "caseSensitive": false,
+        "meaning": "酒店；旅馆",
+        "before": "The ",
+        "after": " stores bicycles in a locked room.",
+        "reason": "The hotel stores bicycles in a locked room说酒店把自行车存放在上锁的房间里；不说明免费，也不是旅客住在里面。",
+        "hint": "stay at a hotel表示住酒店；本句stores的宾语是bicycles，locked修饰room。",
+        "material": "The hotel stores bicycles in a locked room.",
+        "options": [
+          {
+            "id": "bikes-locked",
+            "text": "酒店把自行车存放在上锁的房间里。",
+            "correct": true,
+            "reason": "保留bicycles与locked room。"
+          },
+          {
+            "id": "unlocked",
+            "text": "酒店把自行车存放在未上锁的房间里。",
+            "correct": false,
+            "reason": "未上锁与locked相反。"
+          },
+          {
+            "id": "guests",
+            "text": "酒店把旅客安排住在自行车房里。",
+            "correct": false,
+            "reason": "stores bicycles的对象是自行车，不是安排旅客住宿。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "酒店存放的是什么，房间有没有上锁？分别切换。",
+          "sceneLab": {
+            "id": "hotel-storage",
+            "title": "存什么，锁没锁？",
+            "hint": "只示意存放对象与门锁状态，不给费用或安保保证。",
+            "wrong": "应是自行车存放在上锁的房间里，不能换对象或锁的状态。",
+            "axes": [
+              {
+                "id": "object",
+                "label": "存放的对象",
+                "choices": [
+                  {
+                    "id": "bikes",
+                    "label": "自行车"
+                  },
+                  {
+                    "id": "guests",
+                    "label": "旅客"
+                  }
+                ]
+              },
+              {
+                "id": "lock",
+                "label": "房间门锁",
+                "choices": [
+                  {
+                    "id": "locked",
+                    "label": "上锁"
+                  },
+                  {
+                    "id": "unlocked",
+                    "label": "未上锁"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "酒店存放间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 25,
+                    "width": 82,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 34,
+                    "width": 14,
+                    "height": 35,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 40,
+                    "width": 58,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  },
+                  {
+                    "id": "lock",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 82,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "锁待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|locked",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "酒店存放间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 25,
+                    "width": 82,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 34,
+                    "width": 14,
+                    "height": 35,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 40,
+                    "width": 58,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  },
+                  {
+                    "id": "lock",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 82,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "已上锁"
+                  },
+                  {
+                    "id": "lock-box",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 50,
+                    "width": 6,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lock-loop",
+                    "kind": "rect",
+                    "x": 79,
+                    "y": 46,
+                    "width": 4,
+                    "height": 6,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "?|unlocked",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "酒店存放间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 25,
+                    "width": 82,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 34,
+                    "width": 14,
+                    "height": 35,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 40,
+                    "width": 58,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "对象待选"
+                  },
+                  {
+                    "id": "lock",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 82,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "未上锁"
+                  }
+                ]
+              },
+              {
+                "signature": "bikes|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "酒店存放间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 25,
+                    "width": 82,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 34,
+                    "width": 14,
+                    "height": 35,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 40,
+                    "width": 58,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "lock",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 82,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "锁待选"
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 18,
+                    "y": 58,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 58,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "frame",
+                    "kind": "line",
+                    "x": 27,
+                    "y": 56,
+                    "width": 22,
+                    "height": 2,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "bikes|locked",
+                "reading": "酒店把自行车存放在上锁的房间里。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "酒店存放间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 25,
+                    "width": 82,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 34,
+                    "width": 14,
+                    "height": 35,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 40,
+                    "width": 58,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "lock",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 82,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "已上锁"
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 18,
+                    "y": 58,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 58,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "frame",
+                    "kind": "line",
+                    "x": 27,
+                    "y": 56,
+                    "width": 22,
+                    "height": 2,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "lock-box",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 50,
+                    "width": 6,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lock-loop",
+                    "kind": "rect",
+                    "x": 79,
+                    "y": 46,
+                    "width": 4,
+                    "height": 6,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "bikes|unlocked",
+                "reading": "应是自行车存放在上锁的房间里，不能换对象或锁的状态。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "酒店存放间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 25,
+                    "width": 82,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 34,
+                    "width": 14,
+                    "height": 35,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 40,
+                    "width": 58,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "自行车"
+                  },
+                  {
+                    "id": "lock",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 82,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "未上锁"
+                  },
+                  {
+                    "id": "wheel-a",
+                    "kind": "ellipse",
+                    "x": 18,
+                    "y": 58,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "wheel-b",
+                    "kind": "ellipse",
+                    "x": 48,
+                    "y": 58,
+                    "width": 10,
+                    "height": 14,
+                    "tone": "blue"
+                  },
+                  {
+                    "id": "frame",
+                    "kind": "line",
+                    "x": 27,
+                    "y": 56,
+                    "width": 22,
+                    "height": 2,
+                    "tone": "blue"
+                  }
+                ]
+              },
+              {
+                "signature": "guests|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "酒店存放间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 25,
+                    "width": 82,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 34,
+                    "width": 14,
+                    "height": 35,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 40,
+                    "width": 58,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "旅客"
+                  },
+                  {
+                    "id": "lock",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 82,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "锁待选"
+                  }
+                ]
+              },
+              {
+                "signature": "guests|locked",
+                "reading": "应是自行车存放在上锁的房间里，不能换对象或锁的状态。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "酒店存放间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 25,
+                    "width": 82,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 34,
+                    "width": 14,
+                    "height": 35,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 40,
+                    "width": 58,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "旅客"
+                  },
+                  {
+                    "id": "lock",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 82,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "已上锁"
+                  },
+                  {
+                    "id": "lock-box",
+                    "kind": "rect",
+                    "x": 78,
+                    "y": 50,
+                    "width": 6,
+                    "height": 9,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "lock-loop",
+                    "kind": "rect",
+                    "x": 79,
+                    "y": 46,
+                    "width": 4,
+                    "height": 6,
+                    "tone": "teal",
+                    "outline": true
+                  }
+                ]
+              },
+              {
+                "signature": "guests|unlocked",
+                "reading": "应是自行车存放在上锁的房间里，不能换对象或锁的状态。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "酒店存放间"
+                  },
+                  {
+                    "id": "room",
+                    "kind": "rect",
+                    "x": 9,
+                    "y": 25,
+                    "width": 82,
+                    "height": 51,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "door",
+                    "kind": "rect",
+                    "x": 74,
+                    "y": 34,
+                    "width": 14,
+                    "height": 35,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "object",
+                    "kind": "label",
+                    "x": 12,
+                    "y": 40,
+                    "width": 58,
+                    "height": 17,
+                    "tone": "ink",
+                    "text": "旅客"
+                  },
+                  {
+                    "id": "lock",
+                    "kind": "label",
+                    "x": 56,
+                    "y": 82,
+                    "width": 42,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "未上锁"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-hostel",
+        "label": "青年旅舍（本句）",
+        "prompt": "厨房在楼上还是楼下，是共用还是独用？改变一项再比较。",
+        "answer": "hostel",
+        "caseSensitive": false,
+        "meaning": "青年旅舍（本句）",
+        "before": "The ",
+        "after": " has a shared kitchen downstairs.",
+        "reason": "The hostel has a shared kitchen downstairs说青年旅舍楼下有共用厨房；不是每间客房都有独立厨房。",
+        "hint": "hostel通常提供经济型住宿；shared是共用，downstairs是楼下，不限定建筑总层数。",
+        "material": "The hostel has a shared kitchen downstairs.",
+        "options": [
+          {
+            "id": "shared-down",
+            "text": "青年旅舍楼下有共用厨房。",
+            "correct": true,
+            "reason": "保留shared kitchen与downstairs。"
+          },
+          {
+            "id": "up",
+            "text": "青年旅舍楼上有共用厨房。",
+            "correct": false,
+            "reason": "楼上与downstairs楼下相反。"
+          },
+          {
+            "id": "private",
+            "text": "青年旅舍每间客房都有独立厨房。",
+            "correct": false,
+            "reason": "独立厨房改掉了shared，原句也没有each room。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "厨房在楼上还是楼下，是共用还是独用？改变一项再比较。",
+          "sceneLab": {
+            "id": "hostel-kitchen",
+            "title": "楼层位置与共用关系",
+            "hint": "楼上楼下是相对位置示意，不代表实际建筑只有两层。",
+            "wrong": "应保留楼下与共用；楼上或每间独用都改变了信息。",
+            "axes": [
+              {
+                "id": "place",
+                "label": "厨房在哪里",
+                "choices": [
+                  {
+                    "id": "down",
+                    "label": "楼下"
+                  },
+                  {
+                    "id": "up",
+                    "label": "楼上"
+                  }
+                ]
+              },
+              {
+                "id": "sharing",
+                "label": "厨房怎样使用",
+                "choices": [
+                  {
+                    "id": "shared",
+                    "label": "共用"
+                  },
+                  {
+                    "id": "private",
+                    "label": "每间独用"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "厨房位置待选"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 24,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 50,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "upper-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 29,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼上"
+                  },
+                  {
+                    "id": "lower-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 55,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼下"
+                  },
+                  {
+                    "id": "sharing",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "关系待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|shared",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "厨房位置待选"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 24,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 50,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "upper-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 29,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼上"
+                  },
+                  {
+                    "id": "lower-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 55,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼下"
+                  },
+                  {
+                    "id": "sharing",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "共用厨房"
+                  }
+                ]
+              },
+              {
+                "signature": "?|private",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "厨房位置待选"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 24,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 50,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "upper-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 29,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼上"
+                  },
+                  {
+                    "id": "lower-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 55,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼下"
+                  },
+                  {
+                    "id": "sharing",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "每间独用"
+                  }
+                ]
+              },
+              {
+                "signature": "down|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "相对楼层示意"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 24,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 50,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "upper-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 29,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼上"
+                  },
+                  {
+                    "id": "lower-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 55,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼下"
+                  },
+                  {
+                    "id": "sharing",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "关系待选"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 54,
+                    "width": 30,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 55,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  }
+                ]
+              },
+              {
+                "signature": "down|shared",
+                "reading": "青年旅舍楼下有共用厨房。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "相对楼层示意"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 24,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 50,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "upper-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 29,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼上"
+                  },
+                  {
+                    "id": "lower-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 55,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼下"
+                  },
+                  {
+                    "id": "sharing",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "共用厨房"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 54,
+                    "width": 30,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 55,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  }
+                ]
+              },
+              {
+                "signature": "down|private",
+                "reading": "应保留楼下与共用；楼上或每间独用都改变了信息。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "相对楼层示意"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 24,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 50,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "upper-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 29,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼上"
+                  },
+                  {
+                    "id": "lower-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 55,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼下"
+                  },
+                  {
+                    "id": "sharing",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "每间独用"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 54,
+                    "width": 30,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 55,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  }
+                ]
+              },
+              {
+                "signature": "up|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "相对楼层示意"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 24,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 50,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "upper-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 29,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼上"
+                  },
+                  {
+                    "id": "lower-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 55,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼下"
+                  },
+                  {
+                    "id": "sharing",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "关系待选"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 28,
+                    "width": 30,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 29,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  }
+                ]
+              },
+              {
+                "signature": "up|shared",
+                "reading": "应保留楼下与共用；楼上或每间独用都改变了信息。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "相对楼层示意"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 24,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 50,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "upper-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 29,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼上"
+                  },
+                  {
+                    "id": "lower-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 55,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼下"
+                  },
+                  {
+                    "id": "sharing",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "共用厨房"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 28,
+                    "width": 30,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 29,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  }
+                ]
+              },
+              {
+                "signature": "up|private",
+                "reading": "应保留楼下与共用；楼上或每间独用都改变了信息。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "title",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "相对楼层示意"
+                  },
+                  {
+                    "id": "upper",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 24,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "lower",
+                    "kind": "rect",
+                    "x": 12,
+                    "y": 50,
+                    "width": 76,
+                    "height": 24,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "upper-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 29,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼上"
+                  },
+                  {
+                    "id": "lower-label",
+                    "kind": "label",
+                    "x": 15,
+                    "y": 55,
+                    "width": 23,
+                    "height": 13,
+                    "tone": "ink",
+                    "text": "楼下"
+                  },
+                  {
+                    "id": "sharing",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 81,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "每间独用"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 49,
+                    "y": 28,
+                    "width": 30,
+                    "height": 17,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 49,
+                    "y": 29,
+                    "width": 30,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "word-reception",
+        "label": "接待处（地点，本句）",
+        "prompt": "把什么留在哪里？切换钥匙种类与地点，保留原句要求。",
+        "answer": "reception",
+        "caseSensitive": false,
+        "meaning": "接待处（地点，本句）",
+        "before": "Leave your room key at ",
+        "after": ".",
+        "reason": "Leave your room key at reception要求把房间钥匙留在接待处；不是车钥匙，也没有报告已经交好了。",
+        "hint": "at reception表示在接待处；这里reception指地点，不是某次接待活动。",
+        "material": "Leave your room key at reception.",
+        "options": [
+          {
+            "id": "room-desk",
+            "text": "把房间钥匙留在接待处。",
+            "correct": true,
+            "reason": "保留room key与at reception。"
+          },
+          {
+            "id": "car",
+            "text": "把车钥匙留在接待处。",
+            "correct": false,
+            "reason": "车钥匙改掉了room key。"
+          },
+          {
+            "id": "kitchen",
+            "text": "把房间钥匙留在厨房。",
+            "correct": false,
+            "reason": "厨房不是reception接待处。"
+          }
+        ],
+        "wordDecision": {
+          "prompt": "把什么留在哪里？切换钥匙种类与地点，保留原句要求。",
+          "sceneLab": {
+            "id": "reception-key",
+            "title": "什么钥匙，留在哪里？",
+            "hint": "移动的是要求中的对象，不表示已经交付或退房。",
+            "wrong": "应把房间钥匙留在接待处，不能换成车钥匙或厨房。",
+            "axes": [
+              {
+                "id": "key",
+                "label": "留什么钥匙",
+                "choices": [
+                  {
+                    "id": "room",
+                    "label": "房间钥匙"
+                  },
+                  {
+                    "id": "car",
+                    "label": "车钥匙"
+                  }
+                ]
+              },
+              {
+                "id": "place",
+                "label": "留在哪里",
+                "choices": [
+                  {
+                    "id": "desk",
+                    "label": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "label": "厨房"
+                  }
+                ]
+              }
+            ],
+            "frames": [
+              {
+                "signature": "?|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "key",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "钥匙待选"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "desk-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 78,
+                    "width": 44,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 78,
+                    "width": 43,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 26,
+                    "y": 29,
+                    "width": 48,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "?|desk",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "key",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "钥匙待选"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "desk-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 78,
+                    "width": 44,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 78,
+                    "width": 43,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  },
+                  {
+                    "id": "key-ring",
+                    "kind": "ellipse",
+                    "x": 17,
+                    "y": 31,
+                    "width": 8,
+                    "height": 11,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "key-stem",
+                    "kind": "line",
+                    "x": 24,
+                    "y": 36,
+                    "width": 12,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "key-tooth",
+                    "kind": "line",
+                    "x": 33,
+                    "y": 36,
+                    "width": 2,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "?|kitchen",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "key",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "钥匙待选"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "desk-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 78,
+                    "width": 44,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 78,
+                    "width": 43,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  },
+                  {
+                    "id": "key-ring",
+                    "kind": "ellipse",
+                    "x": 68,
+                    "y": 31,
+                    "width": 8,
+                    "height": 11,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "key-stem",
+                    "kind": "line",
+                    "x": 75,
+                    "y": 36,
+                    "width": 12,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "key-tooth",
+                    "kind": "line",
+                    "x": 84,
+                    "y": 36,
+                    "width": 2,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "room|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "key",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "房间钥匙"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "desk-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 78,
+                    "width": 44,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 78,
+                    "width": 43,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 26,
+                    "y": 29,
+                    "width": 48,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "room|desk",
+                "reading": "把房间钥匙留在接待处。",
+                "correct": true,
+                "nodes": [
+                  {
+                    "id": "key",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "房间钥匙"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "desk-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 78,
+                    "width": 44,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 78,
+                    "width": 43,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  },
+                  {
+                    "id": "key-ring",
+                    "kind": "ellipse",
+                    "x": 17,
+                    "y": 31,
+                    "width": 8,
+                    "height": 11,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "key-stem",
+                    "kind": "line",
+                    "x": 24,
+                    "y": 36,
+                    "width": 12,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "key-tooth",
+                    "kind": "line",
+                    "x": 33,
+                    "y": 36,
+                    "width": 2,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "room|kitchen",
+                "reading": "应把房间钥匙留在接待处，不能换成车钥匙或厨房。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "key",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "房间钥匙"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "desk-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 78,
+                    "width": 44,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 78,
+                    "width": 43,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  },
+                  {
+                    "id": "key-ring",
+                    "kind": "ellipse",
+                    "x": 68,
+                    "y": 31,
+                    "width": 8,
+                    "height": 11,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "key-stem",
+                    "kind": "line",
+                    "x": 75,
+                    "y": 36,
+                    "width": 12,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "key-tooth",
+                    "kind": "line",
+                    "x": 84,
+                    "y": 36,
+                    "width": 2,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "car|?",
+                "reading": "每项各选一种解释，未知不算完成。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "key",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "车钥匙"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "desk-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 78,
+                    "width": 44,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 78,
+                    "width": 43,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  },
+                  {
+                    "id": "pending",
+                    "kind": "label",
+                    "x": 26,
+                    "y": 29,
+                    "width": 48,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "地点待选"
+                  }
+                ]
+              },
+              {
+                "signature": "car|desk",
+                "reading": "应把房间钥匙留在接待处，不能换成车钥匙或厨房。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "key",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "车钥匙"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "desk-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 78,
+                    "width": 44,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 78,
+                    "width": 43,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  },
+                  {
+                    "id": "key-ring",
+                    "kind": "ellipse",
+                    "x": 17,
+                    "y": 31,
+                    "width": 8,
+                    "height": 11,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "key-stem",
+                    "kind": "line",
+                    "x": 24,
+                    "y": 36,
+                    "width": 12,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "key-tooth",
+                    "kind": "line",
+                    "x": 33,
+                    "y": 36,
+                    "width": 2,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              },
+              {
+                "signature": "car|kitchen",
+                "reading": "应把房间钥匙留在接待处，不能换成车钥匙或厨房。",
+                "correct": false,
+                "nodes": [
+                  {
+                    "id": "key",
+                    "kind": "label",
+                    "x": 2,
+                    "y": 2,
+                    "width": 96,
+                    "height": 16,
+                    "tone": "ink",
+                    "text": "车钥匙"
+                  },
+                  {
+                    "id": "desk",
+                    "kind": "rect",
+                    "x": 6,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "blue",
+                    "outline": true
+                  },
+                  {
+                    "id": "desk-label",
+                    "kind": "label",
+                    "x": 3,
+                    "y": 78,
+                    "width": 44,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "接待处"
+                  },
+                  {
+                    "id": "kitchen",
+                    "kind": "rect",
+                    "x": 57,
+                    "y": 51,
+                    "width": 38,
+                    "height": 20,
+                    "tone": "muted",
+                    "outline": true
+                  },
+                  {
+                    "id": "kitchen-label",
+                    "kind": "label",
+                    "x": 55,
+                    "y": 78,
+                    "width": 43,
+                    "height": 14,
+                    "tone": "ink",
+                    "text": "厨房"
+                  },
+                  {
+                    "id": "key-ring",
+                    "kind": "ellipse",
+                    "x": 68,
+                    "y": 31,
+                    "width": 8,
+                    "height": 11,
+                    "tone": "teal",
+                    "outline": true
+                  },
+                  {
+                    "id": "key-stem",
+                    "kind": "line",
+                    "x": 75,
+                    "y": 36,
+                    "width": 12,
+                    "height": 2,
+                    "tone": "teal"
+                  },
+                  {
+                    "id": "key-tooth",
+                    "kind": "line",
+                    "x": 84,
+                    "y": 36,
+                    "width": 2,
+                    "height": 6,
+                    "tone": "teal"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "transfer": {
+      "id": "individual-v-course-journeys-3-transfer",
+      "topicId": "v-course-journeys",
+      "skill": "reading",
+      "kind": "choice",
+      "difficulty": 2,
+      "grades": [
+        7,
+        8,
+        9
+      ],
+      "stem": "换成三晚预订和家庭旅馆，哪组保留了三条信息？",
+      "passage": "三条新信息\n装一件晚上保暖的衣物。我有三晚的住宿预订。这家家庭旅馆楼下有共用厨房。\n词语提示：guesthouse 家庭旅馆；shared 共用的。",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pack a warm layer for the morning. I have a reservation for three nights. The guesthouse has a shared kitchen downstairs."
+        },
+        {
+          "id": "b",
+          "text": "Pack a warm layer for the evening. I have a reservation for three nights. The guesthouse has a shared kitchen downstairs."
+        },
+        {
+          "id": "c",
+          "text": "Pack a warm layer for the evening. I have already stayed for three nights. The guesthouse has a shared kitchen downstairs."
+        },
+        {
+          "id": "d",
+          "text": "Pack a warm layer for the evening. I have a reservation for three nights. The guesthouse has a private kitchen upstairs."
+        }
+      ],
+      "answer": {
+        "option": "b",
+        "display": "Pack a warm layer for the evening. I have a reservation for three nights. The guesthouse has a shared kitchen downstairs."
+      },
+      "marks": 2,
+      "estimatedSeconds": 110,
+      "source": {
+        "kind": "original",
+        "author": "Chinese Junior-High English project authors"
+      },
+      "review": "draft",
+      "explanation": {
+        "strategy": "逐条核对准备时间、预订与完成、厨房位置及共用关系。",
+        "steps": [
+          {
+            "text": "晚上保暖：a warm layer for the evening。",
+            "reason": "morning把晚上换成早晨。"
+          },
+          {
+            "text": "有三晚预订：have a reservation for three nights。",
+            "reason": "have already stayed补出了已经住完。"
+          },
+          {
+            "text": "楼下共用厨房：a shared kitchen downstairs。",
+            "reason": "private与upstairs分别改变共用关系和位置。"
+          }
+        ],
+        "distractors": [
+          {
+            "option": "a",
+            "reason": "morning把evening换成早晨。"
+          },
+          {
+            "option": "c",
+            "reason": "have already stayed把有预订改成已经住过。"
+          },
+          {
+            "option": "d",
+            "reason": "private kitchen upstairs把楼下共用厨房改成楼上独用厨房。"
+          }
+        ],
+        "pitfall": "名词相同，也要检查时间、进度、位置和范围。",
+        "visual": {
+          "kind": "comparison",
+          "title": "逐条保留，不多补结果",
+          "segments": [
+            {
+              "text": "for the evening",
+              "role": "evidence",
+              "note": "为晚上准备"
+            },
+            {
+              "text": "have a reservation",
+              "role": "evidence",
+              "note": "有预订，未说已住完"
+            },
+            {
+              "text": "shared · downstairs",
+              "role": "evidence",
+              "note": "共用，且在楼下"
+            }
+          ],
+          "caption": "三晚不是三天；预订不是已经住完。"
+        },
+        "transfer": "把have a reservation改成have already stayed，多出了什么？"
+      }
+    }
+  }
+}

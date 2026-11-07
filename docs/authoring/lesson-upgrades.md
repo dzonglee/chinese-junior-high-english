@@ -4,7 +4,7 @@ Owner acceptance: 2026-10-18 (Sydney). Work stays solo. Shared mechanism/render 
 complete an individual lesson. Every row begins pending and changes only after its own authored
 tasks, wrong-path recovery, fresh transfer and visual/control evidence are inspected.
 
-Completed: **375 / 413**. Current: **l-v-course-journeys-3**. Evidence lives in docs/reviews/individual-lessons/.
+Completed: **376 / 413**. Current: **l-v-course-journeys-4**. Evidence lives in docs/reviews/individual-lessons/.
 
 | Lesson | Title | Status | Evidence |
 | --- | --- | --- | --- |
@@ -241,7 +241,7 @@ Completed: **375 / 413**. Current: **l-v-course-journeys-3**. Evidence lives in 
 | l-v-course-arts-5 | 音乐、绘画与舞台 · 5 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-arts-5.md) |
 | l-v-course-journeys | 旅行与行程 · 1 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-journeys.md) |
 | l-v-course-journeys-2 | 旅行与行程 · 2 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-journeys-2.md) |
-| l-v-course-journeys-3 | 旅行与行程 · 3 | pending | — |
+| l-v-course-journeys-3 | 旅行与行程 · 3 | reviewed | [Individual review](../reviews/individual-lessons/l-v-course-journeys-3.md) |
 | l-v-course-journeys-4 | 旅行与行程 · 4 | pending | — |
 | l-v-course-journeys-5 | 旅行与行程 · 5 | pending | — |
 | l-v-course-transport | 交通工具与出行 · 1 | pending | — |
