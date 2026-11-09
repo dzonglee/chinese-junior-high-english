@@ -6846,3 +6846,8 @@ Next: squash-merge after a fresh sync and source-hash check. APP-NATIVE is block
 Fresh main sync and rebase retained the reviewed sources. Squash-integrated the individually reviewed413-lesson upgrade and final application correction; APP-VISUAL-LESSONS is done in this push. The final application checkpoint verifies1,465 committed source hashes, all245 canonical packs (unchanged by the final feedback fix),2,820 core tests/212 files,292 full offline checks, both complete adapter modes, actual whole-product/mock screenshots and both exact development archives. The historical lesson413 checkpoint remains unchanged. No lesson content is released.
 
 Local scope is complete. Next: the separately blocked native validation needs explicit source-transfer permission and shared-GUI coordination; actual SDK coverage stays147/805. Approved audio, physical devices, editorial/cohort mapping, research integration and publication remain pending. Videos are deferred. No alternative transfer, shared GUI job or publication was performed. Existing project memory and Kanban records are reconciled after the verified main push.
+
+
+## 2026-11-09 · codex-solo · requested self-audit
+
+Added APP-QUALITY-AUDIT for the owner-requested critical review of the local upgrade. Inspect actual learner flows and exam logic against the maths teaching contracts, rather than treating green tests or individual-review counts as sufficient. Repair reproduced defects, preserve historical checkpoints and report the remaining limits. No new GUI/source-transfer or publication approval is inferred.

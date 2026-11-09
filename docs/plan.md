@@ -246,3 +246,8 @@ lesson card and keep details in per-lesson records rather than crowding the shar
 ## Individual local review complete · 2026-11-07
 
 All 413 separately authored lesson upgrades and their actual visual reviews are complete. The full local course, product navigation and eight original written-paper journeys pass the final checks. See [the final review](reviews/individual-lessons/final-local-review-2026-11-07.md) and its source/review audit. This closes APP-VISUAL-LESSONS locally after squash merge. APP-NATIVE stays blocked on explicit source-transfer permission; actual SDK coverage remains147/805. Approved audio, physical devices, editorial/cohort mapping, research integration and publication remain separate. Videos remain deferred.
+
+
+## Self-audit · 2026-11-09
+
+The owner requested an audit of the completed local lesson upgrade. APP-QUALITY-AUDIT checks all413 definitions for systemic gaps, independently samples complete learner flows against maths teaching contracts and repairs reproduced defects. Existing source checkpoints remain historical; an audit is not fresh native compilation, editorial approval or release permission. Continue solo and preserve the native source-transfer block.
