@@ -72,3 +72,8 @@ deployment, licensed material, native screenshots, MCP writes or publication suc
 ## Individual lesson milestone · 2026-11-07
 
 The separate 413-lesson redesign and local visual review are complete, including the final home-to-lesson-to-mock journey. See [the final review](reviews/individual-lessons/final-local-review-2026-11-07.md). Native coverage remains147/805; later SDK checks await source-transfer permission. The eventual application and release requirements above remain in force.
+
+
+## Critical self-audit · 2026-11-09
+
+The [self-audit](reviews/quality-audit-2026-11-09/README.md) corrected mock answer patterns, two weekday grading errors and overlapping tense-timeline captions. All 413 lesson definitions and 4,804 course questions remain unchanged. Current evidence is separate from the Nov7 full offline and historical native runs. The local course remains a development candidate; independent communication transfer, verified exam alignment, approved audio and actual native/device readiness are not established.

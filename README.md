@@ -5,6 +5,8 @@ Each has its own authored activities, specific error feedback and a fresh exam-s
 See the [per-lesson tracker](docs/authoring/lesson-upgrades.md) and
 [final local review](docs/reviews/individual-lessons/final-local-review-2026-11-07.md).
 
+The [9 November self-audit](docs/reviews/quality-audit-2026-11-09/README.md) found and fixed mock-answer patterns, weekday grading and overlapping timeline captions. It also records the limits of production transfer and exam readiness.
+
 A working local English practice app for mainland junior-high students, with 413 original draft
 lessons, 5,004 tasks and 1,690 distinct vocabulary headwords. Every lesson starts with a hands-on
 studio: build an expression, choose evidence, sort examples or revise a draft. It includes illustrated answer feedback,

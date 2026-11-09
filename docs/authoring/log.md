@@ -6851,3 +6851,10 @@ Local scope is complete. Next: the separately blocked native validation needs ex
 ## 2026-11-09 · codex-solo · requested self-audit
 
 Added APP-QUALITY-AUDIT for the owner-requested critical review of the local upgrade. Inspect actual learner flows and exam logic against the maths teaching contracts, rather than treating green tests or individual-review counts as sufficient. Repair reproduced defects, preserve historical checkpoints and report the remaining limits. No new GUI/source-transfer or publication approval is inferred.
+
+
+## 2026-11-09 · codex-solo · self-audit ready for integration
+
+Found and corrected repeated mock reading keys, two weekday capitalization grading errors and a timeline-caption CSS collision. Current full core2823/213, both full adapters, product/mock checks, focused standalone grading/production checks and all264 timeline states pass. Actual old-build UI reproductions, all current figures and exact source/artifact hashes are archived in docs/reviews/quality-audit-2026-11-09/. All413 compiled lessons,4804 course questions and1690 words are unchanged. Historical checkpoints retain their scope; no new full292 offline claim is made.
+
+Verdict: credible local development candidate, without a blanket maths-parity or exam-readiness signoff. All72 communication transfers still test plan recognition rather than independent production; original writing occurs earlier. Next: integrate this checked audit, then author production transfers if continuing pedagogy work. Native/source-transfer approval, approved audio, devices, editorial/cohort mapping and publication remain open. No transfer or shared GUI job attempted; all content remains draft.

@@ -1,5 +1,9 @@
 # Validation evidence
 
+## Current self-audit · 2026-11-09
+
+See the [critical self-audit](reviews/quality-audit-2026-11-09/README.md) and its current checkpoint for three reproduced corrections,2,823 core tests/213 files, both full adapters, focused offline exam/writing checks and all 264 timeline states. Older counts below retain their original dates. Native, audio, independent performance and release limits remain explicit.
+
 ## Current local lesson upgrade · 2026-11-07
 
 All 413 individual lesson reviews are complete. The [final application checkpoint](reviews/individual-lessons/final-application-checkpoint.json) records 2,820 core tests/212 files, 292 full offline checks, both complete 245-pack adapter modes and exact-source development archives. [Final app screenshots and review](reviews/individual-lessons/final-local-review-2026-11-07.md) and the [course audit](reviews/individual-lessons/final-course-audit.json) record current browser/visual scope and every individual review.
@@ -88,7 +92,7 @@ Reproduce with the README commands. Current machine artifacts are `test-results/
 `dist/review/index.html`. Generated test artifacts are ignored; this document records what ran.
 The owner must supply and verify the remaining requirements in `release-checklist.md`. Content
 is still draft. The 1,690 original headwords are not an exact verified official list; publisher-unit
-alignment and research gates remain incomplete. All 99 scripts/31 listening lessons await approved
+alignment and research gates remain incomplete. All 99 scripts/ 31 listening lessons await approved
 audio. Written pronunciation knowledge does not verify pronunciation.
 
 ## Complete-course review
