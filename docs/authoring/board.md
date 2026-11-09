@@ -20,7 +20,7 @@ Detailed requirements and acceptance evidence are in `docs/app-delivery.md`.
 | APP-EXAM-LESSONS | Strengthen exam teaching in every individual lesson | done | codex-solo | main | 413 lessons coached; 991 tests, native and visual evidence in exam-teaching review |
 | APP-MOCKS | Deliver authored mock papers and exam corrections | done | codex-solo | main | Eight original papers delivered; 1,006 tests, complete native flows and correction/writing checks |
 | APP-VISUAL-LESSONS | Redesign and inspect each lesson individually | done | codex-solo | main | 413/413 individually reviewed; final whole-app checks pass. See final local review |
-| APP-QUALITY-AUDIT | Audit lesson quality and repair verified defects | claimed | codex-solo | author/quality-audit | Requested self-audit against maths teaching contracts, learner flows and exam validity |
+| APP-QUALITY-AUDIT | Audit lesson quality and repair verified defects | done | codex-solo | main | Three reproduced defects repaired; critical verdict and current evidence in docs/reviews/quality-audit-2026-11-09/README.md |
 | APP-NATIVE | Prepare native validation and publication | blocked | — | — | Historical SDK147/805; current build and lessons 148–413 await source-transfer approval. Physical devices, approved audio and production remain |
 
 ### Delivery checklist

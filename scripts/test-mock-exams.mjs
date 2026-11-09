@@ -20,7 +20,7 @@ try{
  await act('paper-sheet');await act('jump','0');const wrong=new Set([ids[0],ids[8],ids[13],ids[21]])
  for(const[i,id]of ids.entries()){
   const q=catalog.questions.find(q=>q.id===id);await expect(page.locator('.explanation')).toHaveCount(0)
-  if(q.kind==='choice')await act('choose',wrong.has(id)?q.options.find(o=>o.id!==q.answer.option).id:q.answer.option)
+  if(q.kind==='choice')await act('choose',wrong.has(id)?(id===ids[13]?q.options.find(o=>o.text==='A large bag.'):q.options.find(o=>o.id!==q.answer.option)).id:q.answer.option)
   else{await page.locator('[name=answer]').fill(wrong.has(id)?'not-the-answer':q.answer.accepted?.[0]??q.answer.display)}
   if(i===13)await capture('reading-question')
   if(i===24){await expect(page.locator('.rubric')).toHaveCount(0);await expect(page.locator('.word-count')).toContainText('目标50—70词');await capture('writing-before-submission')}

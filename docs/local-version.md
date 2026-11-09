@@ -34,7 +34,7 @@ The app also includes vocabulary review, a mistake book, private questions, draf
 
 ## Verified scope and remaining work
 
-All 413 lessons have individual review records. The final application run passes 2,820 core tests across 212 files, 292 complete offline checks, both complete 245-pack development/cloud adapter simulations, product navigation, all eight mock papers, current screenshot review, package limits and release guards. The [final checkpoint](reviews/individual-lessons/final-application-checkpoint.json) and [audit](reviews/individual-lessons/final-course-audit.json) preserve exact sources and boundaries. Offline tests serve the exact standalone document once and disable networking during practice. Browser and adapter results are separate from actual native compilation.
+The [9 November self-audit](reviews/quality-audit-2026-11-09/README.md) passes 2,823 core tests/213 files, both complete 245-pack adapters, current product/mock journeys, focused standalone grading and writing checks, and 264 timeline rendering states. The full 292-check offline run retains its historical Nov7 scope. All 413 compiled lessons and4,804 course questions remain unchanged; the current corrections affect mock layout/capitalization and timeline CSS. See its exact source and artifact checkpoint.
 
 Historical WeChat SDK evidence reaches lesson 147 with 805 inspected captures. The final runtime has not received a fresh SDK run. Automatic approval review rejected the later development-source ZIP transfer for source-code egress permission; lessons 148–413 await explicit transfer permission. No alternative transfer or shared GUI job was attempted.
 

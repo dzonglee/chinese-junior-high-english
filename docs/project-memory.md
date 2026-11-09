@@ -1,14 +1,14 @@
 # Project memory
 
-## Current local milestone · 2026-11-07 (UTC)
+## Current self-audit · 2026-11-09
 
-All 413 lessons are individually redesigned and visually reviewed. The final complete local/platform checks, whole-app navigation and eight original mock-paper journeys pass. All 2,820 core tests/212 files and 245 canonical content packs pass. [Final review](reviews/individual-lessons/final-local-review-2026-11-07.md) and [audit](reviews/individual-lessons/final-course-audit.json) give the exact scope and per-lesson evidence.
+The [critical self-audit](reviews/quality-audit-2026-11-09/README.md) found and fixed three defects: identical reading answer keys across the eight mocks, lowercase weekday answers receiving marks in two blanks, and a shared CSS selector overlapping timeline captions. Current checks pass 2,823 core tests/213 files, both full adapters, product/mock journeys, focused standalone exam/writing checks and 264 timeline states. Exact sources, retained/changed screenshots and development archives are linked in its checkpoint. The full 292-check offline run is historical Nov7 evidence.
 
-APP-VISUAL-LESSONS is complete and squash-integrated on main from author/individual-lessons. Local artifacts are `dist/local/index.html`, `dist/local-english-app.zip` and `dist/english-wechat-development.zip`. Final source hashes match the final application checkpoint; the historical lesson413 checkpoint is retained unchanged. Nothing is released or published.
+All 413 compiled lessons, 4,804 course questions and 1,690 words are unchanged. Their individual review records remain historical. All 72 communication transfers are plan-choice questions; original production occurs earlier. This does not establish independent writing/speaking transfer or classroom effectiveness. The local course is a development candidate, not a complete exam-product signoff.
 
-APP-NATIVE remains blocked: automatic approval review rejected development-source ZIP egress for lack of source-code transfer permission. Actual SDK coverage remains through 147, with 805 inspected figures; 148–413 are pending. No alternative transfer or GUI job was attempted. Approved audio for 99 scripts, physical devices, editorial/cohort mapping and production remain open. Videos are deferred. Research is not declared complete.
+APP-QUALITY-AUDIT is complete and squash-integrated on main from author/quality-audit. APP-VISUAL-LESSONS remains complete for its individual local-review scope. Native validation remains blocked by the existing rejected source-ZIP transfer: historical SDK through 147 (805 captures) only, with no fresh final-runtime SDK/device check. Approved audio for 99 scripts / 31 lessons, editorial/cohort mapping, research integration and production remain open. Videos are deferred. No GUI transfer or publication was attempted; content remains draft.
 
-Continue using the existing Studio MCP project note and two Kanban cards; preserve the shared GUI coordination protocol. Owner requested solo work.
+The existing project note and Kanban records are updated through Studio MCP. Next teaching improvement: author performance-based communication transfers, retaining clear human-review boundaries. Native work still needs explicit transfer permission and shared-GUI coordination.
 
 ## Previous local delivery · 2026-10-17
 
@@ -163,7 +163,7 @@ to the same runtime shape and keep the unchanged main-package safety budget (abo
 10,101 KB total). Original headwords and stable IDs are retained; one old discover example was
 corrected so the headword can actually be masked. No reference content was copied.
 
-Next: approved audio for 99 scripts/31 pending listening lessons; videos stay deferred. An optional
+Next: approved audio for 99 scripts/ 31 pending listening lessons; videos stay deferred. An optional
 owner source/model/voice question was sent; policy stays unset until an actual answer. Exact official
 wordset and publisher-unit maps remain unverified, research is incomplete, and all content stays
 draft. Native DevTools/device and publication work belongs to APP-NATIVE. No native release or

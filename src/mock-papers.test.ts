@@ -79,7 +79,8 @@ it('counts a whitespace-only answer as unanswered in the submission confirmation
 
 it('reports the actual selected wrong option in practice and submitted paper review',async()=>{
  const p=papers.find(p=>p.id==='mock-7-upper')!,qid=paperQuestionIds(p)[13];
- for(const [choice,expected,unrelated]of [['a','大包','鼓是音乐'],['c','鼓','大包']])for(const mode of ['practice','paper']){
+ for(const [text,expected,unrelated]of [['A large bag.','大包','鼓是音乐'],['A drum.','鼓','大包']])for(const mode of ['practice','paper']){
+  const choice=source.questions.find(q=>q.id===qid)!.options!.find(o=>o.text===text)!.id
   const h=harness(p),a=h.app;
   if(mode==='practice'){await a.action('start-question',qid);await a.action('choose',choice);await a.action('check')}
   else{await a.action('start-paper',p.id);await a.action('jump','13');await a.action('choose',choice);await a.action('submit');await a.action('review-question','13')}
